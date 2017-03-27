@@ -1,0 +1,36 @@
+<properties
+	pageTitle="Join a personal device to your organization| Azure"
+	description="Explains how users can register their personal Windows 10 devices to their corporate network, and provides deployment steps for a BYOD scenario."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="stevenpo"
+	editor=""
+	tags="azure-classic-portal"/>
+<tags
+	ms.service="active-directory"
+	ms.date="02/26/2016"
+	wacn.date=""/>
+
+# Join a personal device to your organization
+
+## To join a Windows 10 device to your organization
+
+1.	From the **Start** menu, select **Settings**.
+2.	Select **Accounts**, and then click **Your account**.
+3.	Click **Add Work or School account**, and then type in your organizational account.
+4.	On the sign-in page for your organization, enter your user name and password, and then click **OK**.
+5.	You will be prompted for a multi-factor authentication challenge. (This challenge is configurable by an IT administrator.)
+6.	Azure Active Directory (Azure AD) checks whether the device requires mobile device management enrollment.
+7.	Windows registers the device in the organization’s directory in Azure AD and enrolls it in mobile device management, if appropriate.
+8.	If you are a managed user, Windows takes you to the desktop through the automatic sign-in.
+9.	If you are a federated user, you will be taken to a Windows sign-in screen to enter your credentials.
+
+## Additional information
+* [Windows 10 for the enterprise: Ways to use devices for work](/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/)
+* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](/documentation/articles/active-directory-azureadjoin-user-upgrade/)
+* [Authenticating identities without passwords through Microsoft Passport](/documentation/articles/active-directory-azureadjoin-passport/)
+* [Learn about usage scenarios for Azure AD Join](/documentation/articles/active-directory-azureadjoin-deployment-aadjoindirect/)
+* [Connect domain-joined devices to Azure AD for Windows 10 experiences](/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
+* [Set up Azure AD Join](/documentation/articles/active-directory-azureadjoin-setup/)
+

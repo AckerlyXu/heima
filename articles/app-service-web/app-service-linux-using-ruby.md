@@ -1,0 +1,52 @@
+<!-- not suitable for Mooncake -->
+
+<properties
+    pageTitle="Using Ruby in Azure App Service Web Apps on Linux | Azure"
+    description="Using Ruby in Azure App Service Web Apps on Linux."
+    keywords="azure app service, web app, faq, linux, oss, ruby"
+    services="app-service"
+    documentationCenter=""
+    authors="aelnably"
+    manager="erikre"
+    editor="" />
+<tags
+    ms.assetid=""
+    ms.service="app-service"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="02/16/2017"
+    wacn.date=""
+    ms.author="aelnably;wesmc" />
+
+# Using Ruby in Web Apps on Linux #
+
+With the latest update to our backend, we introduced support for Ruby v.2.3. By setting the configuration of your Linux web app, you can change the application stack.
+
+## Using the Azure portal preview ##
+
+From the new menu in the [Azure portal preview](https://portal.azure.cn), you can choose to create a Web App on Linux from the Web + Mobile option as shown in the following image:
+
+![Start creating a web app on the Azure portal preview][1]
+
+Next, the **Create blade** opens as shown in the following image:
+
+![The Create blade][2]
+
+1. Give your web app a name.
+2. Choose an existing resource group or create a new one. (See available regions in the [limitations section](/documentation/articles/app-service-linux-intro/).)
+3. Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](/documentation/articles/app-service-linux-intro/).)
+4. Choose the Ruby from the Built-in Runtime stacks.
+
+After your Ruby web app gets created, you can deploy to it using Git or FTP.
+
+## Next steps
+* [What is App Service on Linux?](/documentation/articles/app-service-linux-intro/)
+* [Creating Web Apps in App Service on Linux](/documentation/articles/app-service-linux-how-to-create-a-web-app/)
+* [Local Git Deployment to Azure App Service](/documentation/articles/app-service-deploy-local-git/)
+* [Azure App Service Web Apps on Linux FAQ](/documentation/articles/app-service-linux-faq/)
+
+<!--Image references-->
+[1]: ./media/app-service-linux-using-ruby/New-Linux.png
+[2]: ./media/app-service-linux-using-ruby/Ruby-UX.png
