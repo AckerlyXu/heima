@@ -20,7 +20,8 @@ ms.author: mcoskun
 # Back up and restore Reliable Services and Reliable Actors
 Azure Service Fabric is a high-availability platform that replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases it is desirable for the service to back up data (to an external store).
 
->[AZURE.NOTE] It is critical to backup and restore your data (and test that it works as expected) so you can recover from data loss scenarios.
+>[!NOTE]
+> It is critical to backup and restore your data (and test that it works as expected) so you can recover from data loss scenarios.
 
 For example, a service may want to back up data in the following scenarios:
 
@@ -63,13 +64,11 @@ Backups can be made only from primary replicas, and they require write status to
 
 As shown below, **BackupAsync** takes in a **BackupDescription** object, where one can specify a full or incremental backup, as well as a callback function, **Func<< BackupInfo, CancellationToken, Task<bool>>>** which is invoked when the backup folder has been created locally and is ready to be moved out to some external storage.
 
+```C#
+BackupDescription myBackupDescription = new BackupDescription(backupOption.Incremental,this.BackupCallbackAsync);
 
-
-	BackupDescription myBackupDescription = new BackupDescription(backupOption.Incremental,this.BackupCallbackAsync);
-
-	await this.BackupAsync(myBackupDescription);
-
-
+await this.BackupAsync(myBackupDescription);
+```
 
 Request to take an incremental backup can fail with **FabricMissingFullBackupException** which indicates that either
 
@@ -79,22 +78,22 @@ Request to take an incremental backup can fail with **FabricMissingFullBackupExc
 
 Users can increase the likelihood of being able to do incremental backups by configuring **MinLogSizeInMB** or **TruncationThresholdFactor**.
 Note that increasing these values will increase the per replica disk usage.
-For more information, see [Reliable Services Configuration](/documentation/articles/service-fabric-reliable-services-configuration/)
+For more information, see [Reliable Services Configuration](./service-fabric-reliable-services-configuration.md)
 
 **BackupInfo** provides information regarding the backup, including the location of the folder where the runtime saved the backup (**BackupInfo.Directory**). The callback function can move the **BackupInfo.Directory** to an external store or another location.  This function also returns a bool that indicates whether it was able to successfully move the backup folder to its target location.
 
 The following code demonstrates how the **BackupCallbackAsync** method can be used to upload the backup to Azure Storage:
 
+```C#
+private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
+{
+    var backupId = Guid.NewGuid();
 
-	private async Task<bool> BackupCallbackAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
-	{
-	    var backupId = Guid.NewGuid();
+    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, cancellationToken);
 
-	    await externalBackupStore.UploadBackupFolderAsync(backupInfo.Directory, backupId, cancellationToken);
-
-	    return true;
-	}
-
+    return true;
+}
+```
 
 In the above example, **ExternalBackupStore** is the sample class that is used to interface with Azure Blob storage, and **UploadBackupFolderAsync** is the method that compresses the folder and places it in the Azure Blob store.
 
@@ -132,19 +131,18 @@ The service author needs to perform the following to recover:
 
 Following is an example implementation of the **OnDataLossAsync** method:
 
+```C#
+protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, CancellationToken cancellationToken)
+{
+    var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
 
+    var restoreDescription = new RestoreDescription(backupFolder);
 
-	protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, CancellationToken cancellationToken)
-	{
-	    var backupFolder = await this.externalBackupStore.DownloadLastBackupAsync(cancellationToken);
+    await restoreCtx.RestoreAsync(restoreDescription);
 
-	    var restoreDescription = new RestoreDescription(backupFolder);
-
-	    await restoreCtx.RestoreAsync(restoreDescription);
-
-	    return true;
-	}
-
+    return true;
+}
+```
 
 **RestoreDescription** passed in to the **RestoreContext.RestoreAsync** call contains a member called **BackupFolderPath**.
 When restoring a single full backup, this **BackupFolderPath** should be set to the local path of the folder that contains your full backup.
@@ -153,7 +151,8 @@ When restoring a full backup and a number of incremental backups, **BackupFolder
 It can also throw **ArgumentException** if **BackupFolderPath** has a broken chain of incremental backups.
 For example, if it contains the full backup, the first incremental and the third incremental backup but no the second incremental backup.
 
->[AZURE.NOTE] The RestorePolicy is set to Safe by default.  This means that the **RestoreAsync** API will fail with ArgumentException if it detects that the backup folder contains a state that is older than or equal to the state contained in this replica.  **RestorePolicy.Force** can be used to skip this safety check. This is specified as part of **RestoreDescription**.
+>[!NOTE]
+> The RestorePolicy is set to Safe by default.  This means that the **RestoreAsync** API will fail with ArgumentException if it detects that the backup folder contains a state that is older than or equal to the state contained in this replica.  **RestorePolicy.Force** can be used to skip this safety check. This is specified as part of **RestoreDescription**.
 
 ## Deleted or lost service
 
@@ -161,7 +160,8 @@ If a service is removed, you must first re-create the service before the data ca
 
 From this point, implementation is the same as the above scenario. Each partition needs to restore the latest relevant backup from the external store. One caveat is that the partition ID may have now changed, since the runtime creates partition IDs dynamically. Thus, the service needs to store the appropriate partition information and service name to identify the correct latest backup to restore from for each partition.
 
->[AZURE.NOTE] It is not recommended to use **FabricClient.ServiceManager.InvokeDataLossAsync** on each partition to restore the entire service, since that may corrupt your cluster state.
+>[!NOTE]
+> It is not recommended to use **FabricClient.ServiceManager.InvokeDataLossAsync** on each partition to restore the entire service, since that may corrupt your cluster state.
 
 ## Replication of corrupt application data
 If the newly deployed application upgrade has a bug, that may cause corruption of data. For example, an application upgrade may start to update every phone number record in a Reliable Dictionary with an invalid area code.  In this case, the invalid phone numbers will be replicated since Service Fabric is not aware of the nature of the data that is being stored.
@@ -184,13 +184,14 @@ Backup and restore for Reliable Actors builds on the backup and restore function
 - When you create a custom actor service, you will need to register the custom actor service as well while registering the actor. See **ActorRuntime.RegistorActorAsync**.
 - The **KvsActorStateProvider** currently only supports full backup. Also the option **RestorePolicy.Safe** is ignored by the **KvsActorStateProvider**.
 
->[AZURE.NOTE] The default ActorStateProvider (i.e., **KvsActorStateProvider**) **does not** cleanup the backup folders by itself (under the application work folder obtained through ICodePackageActivationContext.WorkDirectory). This may cause your work folder to get filled up. You should explicitly cleanup the backup folder in the backup callback after you have moved the backup to an external storage.
-
+>[!NOTE]
+> The default ActorStateProvider (i.e., **KvsActorStateProvider**) **does not** cleanup the backup folders by itself (under the application work folder obtained through ICodePackageActivationContext.WorkDirectory). This may cause your work folder to get filled up. You should explicitly cleanup the backup folder in the backup callback after you have moved the backup to an external storage.
 
 ## Testing Backup and Restore
 It is important to ensure that critical data is being backed up, and can be restored from. This can be done by invoking the **Invoke-ServiceFabricPartitionDataLoss** cmdlet in PowerShell that can induce data loss in a particular partition to test whether the data backup and restore functionality for your service is working as expected.  It is also possible to programmatically invoke data loss and restore from that event as well.
 
->[AZURE.NOTE] You can find a sample implementation of backup and restore functionality in the Web Reference App on Github. Please look at the Inventory.Service service for more details.
+>[!NOTE]
+> You can find a sample implementation of backup and restore functionality in the Web Reference App on Github. Please look at the Inventory.Service service for more details.
 
 ## Under the hood: more details on backup and restore
 Here's some more details on backup and restore.
@@ -217,8 +218,8 @@ As part of the recovery process, operations starting from the "starting point" t
 This step ensures that the recovered state is consistent.
 
 ## Next steps
-* [Reliable Collections](/documentation/articles/service-fabric-work-with-reliable-collections/)
-- [Reliable Services quick start](/documentation/articles/service-fabric-reliable-services-quick-start/)
-- [Reliable Services notifications](/documentation/articles/service-fabric-reliable-services-notifications/)
-* [Reliable Services configuration](/documentation/articles/service-fabric-reliable-services-configuration/)
+* [Reliable Collections](./service-fabric-work-with-reliable-collections.md)
+- [Reliable Services quick start](./service-fabric-reliable-services-quick-start.md)
+- [Reliable Services notifications](./service-fabric-reliable-services-notifications.md)
+* [Reliable Services configuration](./service-fabric-reliable-services-configuration.md)
 - [Developer reference for Reliable Collections](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicefabric.data.collections.aspx)

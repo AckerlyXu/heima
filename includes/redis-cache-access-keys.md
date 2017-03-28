@@ -1,4 +1,4 @@
-To connect to an Azure Redis Cache instance, cache clients need the host name, ports, and keys of the cache. Some clients may refer to these items by slightly different names. To retrieve these items, [browse](/documentation/articles/cache-configure/#configure-redis-cache-settings) to your cache in the [Azure portal preview](https://portal.azure.cn) and click the desired item in the **Resource menu**. 
+To connect to an Azure Redis Cache instance, cache clients need the host name, ports, and keys of the cache. Some clients may refer to these items by slightly different names. To retrieve these items, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal preview](https://portal.azure.cn) and click the desired item in the **Resource menu**. 
 
 ![Redis cache settings](./media/redis-cache-access-keys/redis-cache-settings.png)
 

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Troubleshooting your Azure IoT gateway | Azure"
-    description="Troubleshooting page for Intel NUC gateway"
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="iot issues, internet of things problems" />
-<tags
-    ms.assetid="5f742c38-0e33-465a-9a0d-1e41e8d17187"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/21/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Troubleshooting your Azure IoT gateway | Azure
+description: Troubleshooting page for Intel NUC gateway
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: iot issues, internet of things problems
+
+ms.assetid: 5f742c38-0e33-465a-9a0d-1e41e8d17187
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/21/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Troubleshooting
 
@@ -163,7 +164,7 @@ iothub-explorer help
 
 ### The Azure portal
 
-A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](/documentation/articles/azure-portal-overview/) to help provision, manage, and debug your Azure resources.
+A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
 ## Azure Storage issues
 

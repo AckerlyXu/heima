@@ -1,35 +1,36 @@
-<properties
-    pageTitle="Get your Mac computer and Azure IoT hub ready | Azure"
-    description="Install tools on your Mac computer, create an IoT hub and register your device in the IoT hub."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="iot development, iot software, iot cloud service, internet of things software, azure cli, install python mac, install git on mac, gulp run, install node js mac" />
-<tags
-    ms.assetid="42f9d186-e20c-4ef9-98cc-71d39e058b06"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/07/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get your Mac computer and Azure IoT hub ready | Azure
+description: Install tools on your Mac computer, create an IoT hub and register your device in the IoT hub.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: iot development, iot software, iot cloud service, internet of things software, azure cli, install python mac, install git on mac, gulp run, install node js mac
+
+ms.assetid: 42f9d186-e20c-4ef9-98cc-71d39e058b06
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/07/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get the tools (macOS)
->[AZURE.SELECTOR]
-[Windows 7 or later](/documentation/articles/iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32/)
-[Ubuntu 16.04](/documentation/articles/iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu/)
-[macOS 10.10](/documentation/articles/iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac/)
+>[!div class="op_single_selector"]
+[Windows 7 or later](./iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
+[Ubuntu 16.04](./iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
+[macOS 10.10](./iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
 
 ## What you will do
 
 - Install Git, Node.js, Gulp, Python.
 - Install the Azure command-line interface (Azure CLI). 
 
-If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-gateway-kit-c-sim-troubleshooting/).
+If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## What you will learn
 
@@ -82,7 +83,7 @@ To install gulp, run the following command in the terminal:
 npm install -g gulp
 ```
 
-If you experience issues with the installation, see the [troubleshooting guide](/documentation/articles/iot-hub-gateway-kit-c-sim-troubleshooting/) for solutions to common problems.
+If you experience issues with the installation, see the [troubleshooting guide](./iot-hub-gateway-kit-c-sim-troubleshooting.md) for solutions to common problems.
 
 > [!Note]
 > Node, NPM and Gulp are required to run automation scripts developed in Node.js.
@@ -127,4 +128,4 @@ You use Visual Studio Code later in the tutorial to edit configuration files.
 You’ve installed all the required tools and software on your Mac computer. Your next task is to use the Azure CLI to create an IoT hub and register your device in your IoT hub.
 
 ## Next steps
-[Create an IoT hub and register Device](/documentation/articles/iot-hub-gateway-kit-c-sim-lesson2-register-device/)
+[Create an IoT hub and register Device](./iot-hub-gateway-kit-c-sim-lesson2-register-device.md)

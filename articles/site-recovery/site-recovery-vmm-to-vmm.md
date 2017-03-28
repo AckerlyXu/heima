@@ -18,24 +18,22 @@ ms.author: raynew
 
 ---
 # Replicate Hyper-V virtual machines in VMM clouds to a secondary VMM site using the Azure portal
->[AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/site-recovery-vmm-to-vmm/)
-- [Classic portal](/documentation/articles/site-recovery-vmm-to-vmm-classic/)
-- [PowerShell - Resource Manager](/documentation/articles/site-recovery-vmm-to-vmm-powershell-resource-manager/)
+>[!div class="op_single_selector"]
+>- [Azure portal](./site-recovery-vmm-to-vmm.md)
+>- [Classic portal](./site-recovery-vmm-to-vmm-classic.md)
+>- [PowerShell - Resource Manager](./site-recovery-vmm-to-vmm-powershell-resource-manager.md)
 
-This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](/documentation/articles/site-recovery-overview/) in the Azure portal. Learn more about this [scenario architecture](/documentation/articles/site-recovery-components/#hyper-v-to-a-secondary-site).
-
-
+This article describes how to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds, to a secondary site using [Azure Site Recovery](./site-recovery-overview.md) in the Azure portal. Learn more about this [scenario architecture](./site-recovery-components.md#hyper-v-to-a-secondary-site).
 
 ## Prerequisites
 
 **Prerequisite** | **Details**
 --- | ---
-**Azure** | You need an [Azure](http://azure.cn/) account. You can start with a [1rmb trial](/pricing/1rmb-trial/). [Learn more](/pricing/details/site-recovery/) about Site Recovery pricing.
+**Azure** | You need an [Azure](http://azure.cn/) account. You can start with a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/). [Learn more](https://www.azure.cn/pricing/details/site-recovery/) about Site Recovery pricing.
 **On-premises VMM** | We recommend you have two VMM servers, one in the primary site, and one in the secondary.<br/><br/> You can replicate between clouds on a single VMM server.<br/><br/> VMM servers should be running at least System Center 2012 SP1 with the latest updates.<br/><br/> VMM servers need internet access.
 **VMM clouds** | Each VMM server must have at one or more clouds, and all clouds must have the Hyper-V Capacity profile set. <br/><br/>Clouds must contain one or more VMM host groups.<br/><br/> If you only have one VMM server, it needs at least two clouds, to act as primary and secondary.
 **Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and have the latest updates installed.<br/><br/> A Hyper-V server should contain one or more VMs.<br/><br/>  Hyper-V host servers should be located in host groups in the primary and secondary VMM clouds.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, install [update 2961977](https://support.microsoft.com/zh-cn/kb/2961977)<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012, cluster broker isn't created automatically if you have a static IP address-based cluster. Configure the cluster broker manually. [Read more](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx).<br/><br/> Hyper-V servers need internet access.
-**URLs** | VMM servers and Hyper-V hosts should be able to reach these URLs:<br/><br/> [AZURE.INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+**URLs** | VMM servers and Hyper-V hosts should be able to reach these URLs:<br/><br/> [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 ## Deployment steps
 
@@ -65,13 +63,12 @@ To prepare for deployment:
 1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. Click **New** > **Management** > **Recovery Services**.
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a resource group](/documentation/articles/resource-group-template-deploy-portal/), or select an existing one. Specify an Azure region. Machines are replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](/pricing/details/site-recovery/)
+4. [Create a resource group](../azure-resource-manager/resource-group-template-deploy-portal.md), or select an existing one. Specify an Azure region. Machines are replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://www.azure.cn/pricing/details/site-recovery/)
 5. If you want to quickly access the vault from the Dashboard, click **Pin to dashboard** > **Create vault**.
 
     ![New vault](./media/site-recovery-vmm-to-vmm/new-vault-settings.png)
 
 The new vault appears on the **Dashboard**, in **All resources**, and on the main **Recovery Services vaults** blade.
-
 
 ## Choose a protection goal
 
@@ -100,7 +97,6 @@ Install the Azure Site Recovery Provider on VMM servers, and discover and regist
 
     ![Set up source](./media/site-recovery-vmm-to-vmm/set-source3.png)
 6. Install the Azure Site Recovery Provider on the VMM server. You don't need to explicitly install anything on Hyper-V host servers.
-
 
 ### Install the Azure Site Recovery Provider
 
@@ -136,8 +132,7 @@ Install the Azure Site Recovery Provider on VMM servers, and discover and regist
 
 You can also install the provider from the command line:
 
-[AZURE.INCLUDE [site-recovery-rw-provider-command-line](../../includes/site-recovery-rw-provider-command-line.md)]
-
+[!INCLUDE [site-recovery-rw-provider-command-line](../../includes/site-recovery-rw-provider-command-line.md)]
 
 ## Set up the target environment
 
@@ -171,12 +166,10 @@ Select the target VMM server and cloud.
 
      ![Replication policy](./media/site-recovery-vmm-to-vmm/policy-associate.png)
 
-
 ### Configure network mapping
 
 - Learn about [network mapping](#prepare-for-network-mapping) before you start.
 - Verify that virtual machines on VMM servers are connected to a VM network.
-
 
 1. In **Site Recovery Infrastructure** > **Network Mapping** > **Network mappings**, click **+Network Mapping**.
 
@@ -196,13 +189,13 @@ Here's what happens when network mapping begins:
 
 ### Configure storage mapping.
 
-[Storage mapping](#prepare-for-storage-mapping) isn't supported in the new Azure portal. However, it can be enabled using Powershell. [Learn more](/documentation/articles/site-recovery-vmm-to-vmm-powershell-resource-manager/#step-7-configure-storage-mapping).
+[Storage mapping](#prepare-for-storage-mapping) isn't supported in the new Azure portal. However, it can be enabled using Powershell. [Learn more](./site-recovery-vmm-to-vmm-powershell-resource-manager.md#step-7-configure-storage-mapping).
 
 ## Step 5: Capacity planning
 
 Now that you have your basic infrastructure set up, think about capacity planning, and figure out whether you need additional resources.
 
-- Download and run the [Azure Site Recovery Capacity planner](/documentation/articles/site-recovery-capacity-planner/), to gather information about your replication environment, including VMs, disks per VM, and storage per disk.
+- Download and run the [Azure Site Recovery Capacity planner](./site-recovery-capacity-planner.md), to gather information about your replication environment, including VMs, disks per VM, and storage per disk.
 - After you've collected real-time replication information, you can modify the NetQos policy to control replication bandwidth for VMs. Read more about [Throttling Hyper-V Replica Traffic](http://www.thomasmaurer.ch/2013/12/throttling-hyper-v-replica-traffic/), on Thomas Maurer's blog. Get more information about the [New-NetQosPolicy cmdlet](https://technet.microsoft.com/zh-cn/library/hh967468.aspx.).
 
 ## Enable replication
@@ -234,9 +227,7 @@ If you have existing virtual machines in VMM that are replicating with Hyper-V R
 
 ## Test your deployment
 
-To test your deployment, you can run a [test failover](/documentation/articles/site-recovery-test-failover-vmm-to-vmm/) for a single virtual machine, or [create a recovery plan](/documentation/articles/site-recovery-create-recovery-plans/) that contains one or more virtual machines.
-
-
+To test your deployment, you can run a [test failover](./site-recovery-test-failover-vmm-to-vmm.md) for a single virtual machine, or [create a recovery plan](./site-recovery-create-recovery-plans.md) that contains one or more virtual machines.
 
 ## Prepare for offline initial replication
 
@@ -255,8 +246,6 @@ You can do offline replication for the initial data copy. You can prepare this a
   6. Click **Add** > **Users and Computers**.
   7. Type the name of the computer that hosts the export path > **OK**. From the list of available services, hold down the CTRL key and click **cifs** > **OK**. Repeat for the name of the computer that hosts the import path. Repeat as necessary for additional Hyper-V host servers.
 
-
-
 ## Prepare for network mapping
 Network mapping maps between VMM VM networks on the primary and secondary VMM servers to:
 
@@ -268,7 +257,6 @@ Note that:
 - When mapping is configured correctly and replication is enabled, a VM at the primary location will be connected to a network, and its replica at the target location will be connected to its mapped network.
 - If networks have been set up correctly in VMM, when you select a target VM network during network mapping, the VMM source clouds that use the source VM network will be displayed, along with the available target VM networks on the target clouds that are used for protection.
 - If the target network has multiple subnets and one of those subnets has the same name as the subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
-
 
 Here’s an example to illustrate this mechanism. Let’s take an organization with two locations in Shanghai and Beijing.
 
@@ -311,7 +299,6 @@ Based on these settings, when you select the target VM network, the following ta
 | VMNetwork2-Beijing |SilverCloud1 |SilverCloud2 |Not available |
 | GoldCloud1 |GoldCloud2 |Available | |
 
-
 ### Failback
 To see what happens in the case of failback (reverse replication), let’s assume that VMNetwork1-Shanghai is mapped to VMNetwork1-Beijing, with the following settings.
 
@@ -329,11 +316,9 @@ With these settings, let's review what happens in a couple of possible scenarios
 | Network properties of VM-2 are changed after failover and is connected to VMNetwork2-Beijing. |If VMNetwork2-Beijing isn’t mapped, VM-1 will be disconnected. |
 | Network mapping of VMNetwork1-Beijing is changed. |VM-1 will be connected to the network now mapped to VMNetwork1-Beijing. |
 
-
 ## Prepare for single server deployment
 
-
-If you only have a single VMM server, you can replicate VMs in Hyper-V hosts in the VMM cloud to [Azure](/documentation/articles/site-recovery-vmm-to-azure/) or to a secondary VMM cloud. We recommend the first option because replicating between clouds isn't seamless. If you do want to replicate between clouds, you can replicate with a single standalone VMM server, or with a single VMM server deployed in a stretched Windows cluster
+If you only have a single VMM server, you can replicate VMs in Hyper-V hosts in the VMM cloud to [Azure](./site-recovery-vmm-to-azure.md) or to a secondary VMM cloud. We recommend the first option because replicating between clouds isn't seamless. If you do want to replicate between clouds, you can replicate with a single standalone VMM server, or with a single VMM server deployed in a stretched Windows cluster
 
 ### Standalone VMM server
 
@@ -364,10 +349,7 @@ Instead of deploying a standalone VMM server as a VM that replicates to a second
 3. Follow the instructions in this article to create a vault, register the server, and set up protection. You need to register each VMM server in the cluster in the Recovery Services vault. To do this, you install the Provider on an active node, and register the VMM server. Then you install the Provider on other nodes.
 4. When an outage occurs, the VMM server and its corresponding SQL Server database are failed over, and accessed from the secondary site.
 
-
-
 ## Prepare for storage mapping
-
 
 You set up storage mapping by mapping storage classifications on a source and target VMM servers to do the following:
 
@@ -419,8 +401,6 @@ This table summarizes the behavior when you enable protection for virtual machin
 | VM4 |\FileServer\SourceShare2 |SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\\FileServer\SourceShare2</p><p>Both SILVER_TARGET</p> |
 | VM5 |C:\ClusterStorage\SourceVolume3 |N/A |No mapping, so the default storage location of the Hyper-V host is used |
 
-
-
 ### Data privacy overview
 
 This table summarizes how data is stored in this scenario:
@@ -436,4 +416,4 @@ This table summarizes how data is stored in this scenario:
 
 ## Next steps
 
-After you've tested the deployment, learn more about other types of [failover](/documentation/articles/site-recovery-failover/)
+After you've tested the deployment, learn more about other types of [failover](./site-recovery-failover.md)

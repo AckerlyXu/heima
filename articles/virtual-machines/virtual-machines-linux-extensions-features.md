@@ -1,24 +1,25 @@
 <!-- need to be verified -->
 
-<properties
-    pageTitle="Virtual machine extensions and features for Linux | Azure"
-    description="Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="neilpeterson"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management,azure-resource-manager" />
-<tags
-    ms.assetid="52f5d0ec-8f75-49e7-9e15-88d46b420e63"
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="03/06/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Virtual machine extensions and features for Linux | Azure
+description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
+services: virtual-machines-linux
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+
+ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 03/06/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Virtual machine extensions and features for Linux
 
@@ -31,12 +32,12 @@ This document provides an overview of VM extensions, prerequisites for using Azu
 Several different Azure VM extensions are available, each with a specific use case. Some examples are:
 
 - Apply PowerShell Desired State configurations to a virtual machine using the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [Enable or disable VM monitoring](/documentation/articles/virtual-machines-linux-vm-monitoring/).
+- Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [Enable or disable VM monitoring](./virtual-machines-linux-vm-monitoring.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
-In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](/documentation/articles/virtual-machines-linux-extensions-customscript/).
+In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](./virtual-machines-linux-extensions-customscript.md).
 
-To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](/documentation/articles/virtual-machines-linux-dotnet-core-1-landing/).
+To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](./virtual-machines-linux-dotnet-core-1-landing.md).
 
 ## Prerequisites
 
@@ -46,13 +47,15 @@ Each virtual machine extension might have its own set of prerequisites. Requirem
 
 The Azure VM agent manages interactions between an Azure virtual machine and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure virtual machines, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images and can be installed manually on supported operating systems.
 
-For information on supported operating systems and installation instructions, see [Azure virtual machine agent](/documentation/articles/virtual-machines-linux-classic-agents-and-extensions/).
+For information on supported operating systems and installation instructions, see [Azure virtual machine agent](./virtual-machines-linux-classic-agents-and-extensions.md).
 
 ## Discover VM extensions
 
 Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure CLI, replacing the example location with the location of your choice.
 
-    azure vm extension-image list chinanorth
+```azurecli
+azure vm extension-image list chinanorth
+```
 
 ## Run VM extensions
 
@@ -64,16 +67,20 @@ The following methods can be used to run an extension against an existing virtua
 
 Azure virtual machine extensions can be run against an existing virtual machine by using the `azure vm extension set` command. This example runs the custom script extension against a virtual machine.
 
-    azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
-      --auto-upgrade-minor-version \
-      --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version \
+  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+```
 
 The script produces output similar to the following text:
 
-    info:    Executing command vm extension set
-    + Looking up the VM "myVM"
-    + Installing extension "CustomScript", VM: "mvVM"
-    info:    vm extension set command OK
+```azurecli
+info:    Executing command vm extension set
++ Looking up the VM "myVM"
++ Installing extension "CustomScript", VM: "mvVM"
+info:    vm extension set command OK
+```
 
 ### Azure portal preview
 
@@ -89,34 +96,36 @@ VM extensions can be added to an Azure Resource Manager template and executed wi
 
 For more information, see the full [Resource Manager template](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
-    {
-        "apiVersion": "2015-06-15",
-        "type": "extensions",
-        "name": "config-app",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
-        ],
-        "tags": {
-        "displayName": "config-app"
-        },
-        "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "CustomScript",
-        "typeHandlerVersion": "2.0",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "fileUris": [
-            "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
-            ]
-        },
-        "protectedSettings": {
-            "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicStoreSqlName'), ' ', parameters('adminUsername'), ' ', parameters('sqlAdminPassword'))]"
-        }
-        }
+```json
+{
+    "apiVersion": "2015-06-15",
+    "type": "extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
+    ],
+    "tags": {
+    "displayName": "config-app"
+    },
+    "properties": {
+    "publisher": "Microsoft.Azure.Extensions",
+    "type": "CustomScript",
+    "typeHandlerVersion": "2.0",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+        "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
+        ]
+    },
+    "protectedSettings": {
+        "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicStoreSqlName'), ' ', parameters('adminUsername'), ' ', parameters('sqlAdminPassword'))]"
     }
+    }
+}
+```
 
-For more information, see [Authoring Azure Resource Manager templates with Linux VM extensions](/documentation/articles/virtual-machines-linux-extensions-authoring-templates/).
+For more information, see [Authoring Azure Resource Manager templates with Linux VM extensions](./virtual-machines-linux-extensions-authoring-templates.md).
 
 ## Secure VM extension data
 
@@ -124,59 +133,63 @@ When you're running a VM extension, it may be necessary to include sensitive inf
 
 The following example shows an instance of the Custom Script extension for Linux. Notice that the command to execute includes a set of credentials. In this example, the command to execute will not be encrypted.
 
-    {
-      "apiVersion": "2015-06-15",
-      "type": "extensions",
-      "name": "config-app",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "extensions",
+  "name": "config-app",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Azure.Extensions",
+    "type": "CustomScript",
+    "typeHandlerVersion": "2.0",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
       ],
-      "tags": {
-        "displayName": "config-app"
-      },
-      "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "CustomScript",
-        "typeHandlerVersion": "2.0",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "fileUris": [
-            "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
-          ],
-          "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicStoreSqlName'), ' ', parameters('adminUsername'), ' ', parameters('sqlAdminPassword'))]"
-        }
-      }
+      "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicStoreSqlName'), ' ', parameters('adminUsername'), ' ', parameters('sqlAdminPassword'))]"
     }
+  }
+}
+```
 
 Moving the **command to execute** property to the **protected** configuration secures the execution string.
 
-    {
-      "apiVersion": "2015-06-15",
-      "type": "extensions",
-      "name": "config-app",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
-      ],
-      "tags": {
-        "displayName": "config-app"
-      },
-      "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "CustomScript",
-        "typeHandlerVersion": "2.0",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "fileUris": [
-            "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
-          ]
-        },
-        "protectedSettings": {
-          "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicStoreSqlName'), ' ', parameters('adminUsername'), ' ', parameters('sqlAdminPassword'))]"
-        }
-      }
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "extensions",
+  "name": "config-app",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Azure.Extensions",
+    "type": "CustomScript",
+    "typeHandlerVersion": "2.0",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
+      ]
+    },
+    "protectedSettings": {
+      "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicStoreSqlName'), ' ', parameters('adminUsername'), ' ', parameters('sqlAdminPassword'))]"
     }
+  }
+}
+```
 
 ## Troubleshoot VM extensions
 
@@ -188,16 +201,20 @@ The following troubleshooting steps apply to all virtual machine extensions.
 
 After a virtual machine extension has been run against a virtual machine, use the following Azure CLI command to return extension status. Replace example parameter names with your own values.
 
-    azure vm extension get myResourceGroup myVM
+```azurecli
+azure vm extension get myResourceGroup myVM
+```
 
 The output looks like the following text:
 
-    info:    Executing command vm extension get
-    + Looking up the VM "myVM"
-    data:    Publisher                   Name             Version  State
-    data:    --------------------------  ---------------  -------  ---------
-    data:    Microsoft.Azure.Extensions  XXXExtension  1.0      Succeeded
-    info:    vm extension get command OK         :
+```azurecli
+info:    Executing command vm extension get
++ Looking up the VM "myVM"
+data:    Publisher                   Name             Version  State
+data:    --------------------------  ---------------  -------  ---------
+data:    Microsoft.Azure.Extensions  XXXExtension  1.0      Succeeded
+info:    vm extension get command OK         :
+```
 
 Extension execution status can also be found in the Azure portal preview. To view the status of an extension, select the virtual machine, choose **Extensions**, and select the desired extension.
 
@@ -205,7 +222,9 @@ Extension execution status can also be found in the Azure portal preview. To vie
 
 There may be cases in which a virtual machine extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
 
-    azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
+```azurecli
+azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
+```
 
 You can remove an extension by using the following steps in the Azure portal preview:
 
@@ -217,7 +236,7 @@ You can remove an extension by using the following steps in the Azure portal pre
 ## Common VM extension reference
 | Extension name | Description | More information |
 | --- | --- | --- |
-| Custom Script extension for Linux |Run scripts against an Azure virtual machine |[Custom Script extension for Linux](/documentation/articles/virtual-machines-linux-extensions-customscript/) |
+| Custom Script extension for Linux |Run scripts against an Azure virtual machine |[Custom Script extension for Linux](./virtual-machines-linux-extensions-customscript.md) |
 | VM Access extension |Regain access to an Azure virtual machine |[VM Access extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics extension |Manage Azure Diagnostics |[Azure Diagnostics extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access extension |Manage users and credentials |[VM Access extension for Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

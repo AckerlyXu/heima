@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understand the Azure IoT Hub identity registry | Azure"
-    description="Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="0706eccd-e84c-4ae7-bbd4-2b1a22241147"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Understand the Azure IoT Hub identity registry | Azure
+description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
+services: iot-hub
+documentationcenter: .net
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 0706eccd-e84c-4ae7-bbd4-2b1a22241147
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Understand identity registry in your IoT hub
 ## Overview
@@ -26,7 +27,7 @@ At a high level, the identity registry is a REST-capable collection of device id
 ### When to use
 Use the identity registry when you need to provision devices that connect to your IoT hub and when you need to control per-device access to your hub's device-facing endpoints.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The identity registry does not contain any application-specific metadata.
 > 
 > 
@@ -44,7 +45,7 @@ The IoT Hub identity registry exposes the following operations:
 
 All these operations can use optimistic concurrency, as specified in [RFC7232][lnk-rfc7232].
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The only way to retrieve all identities in an IoT hub's identity registry is to use the [Export][lnk-export] functionality.
 > 
 > 
@@ -57,7 +58,7 @@ An IoT Hub identity registry:
 
 An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Only use the identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates][lnk-quotas] for the identity registry, and the [device heartbeat][lnk-guidance-heartbeat] pattern.
 > 
 > 
@@ -115,7 +116,7 @@ Device identities are represented as JSON documents with the following propertie
 | connectionStateUpdatedTime |read-only |A temporal indicator, showing the date and last time the connection state was updated. |
 | lastActivityTime |read-only |A temporal indicator, showing the date and last time the device connected, received, or sent a message. |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed, depending on network conditions and configurations.
 > 
 > 
@@ -141,25 +142,24 @@ If you would like to try out some of the concepts described in this article, you
 
 * [Get started with Azure IoT Hub][lnk-getstarted-tutorial]
 
-
 <!-- Links and images -->
 
-[lnk-endpoints]: /documentation/articles/iot-hub-devguide-endpoints/
-[lnk-quotas]: /documentation/articles/iot-hub-devguide-quotas-throttling/
-[lnk-sdks]: /documentation/articles/iot-hub-devguide-sdks/
-[lnk-query]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-devguide-mqtt]: /documentation/articles/iot-hub-mqtt-support/
+[lnk-endpoints]: ./iot-hub-devguide-endpoints.md
+[lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
+[lnk-query]: ./iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/zh-cn/library/mt548492.aspx
-[lnk-guidance-provisioning]: /documentation/articles/iot-hub-devguide-identity-registry/#device-provisioning
-[lnk-guidance-heartbeat]: /documentation/articles/iot-hub-devguide-identity-registry/#device-heartbeat
+[lnk-guidance-provisioning]: ./iot-hub-devguide-identity-registry.md#device-provisioning
+[lnk-guidance-heartbeat]: ./iot-hub-devguide-identity-registry.md#device-heartbeat
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
-[lnk-bulk-identity]: /documentation/articles/iot-hub-bulk-identity-mgmt/
-[lnk-export]: /documentation/articles/iot-hub-devguide-identity-registry/#import-and-export-device-identities
-[lnk-devguide-opmon]: /documentation/articles/iot-hub-operations-monitoring/
+[lnk-bulk-identity]: ./iot-hub-bulk-identity-mgmt.md
+[lnk-export]: ./iot-hub-devguide-identity-registry.md#import-and-export-device-identities
+[lnk-devguide-opmon]: ./iot-hub-operations-monitoring.md
 
-[lnk-devguide-security]: /documentation/articles/iot-hub-devguide-security/
-[lnk-devguide-device-twins]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-devguide-directmethods]: /documentation/articles/iot-hub-devguide-direct-methods/
-[lnk-devguide-jobs]: /documentation/articles/iot-hub-devguide-jobs/
+[lnk-devguide-security]: ./iot-hub-devguide-security.md
+[lnk-devguide-device-twins]: ./iot-hub-devguide-device-twins.md
+[lnk-devguide-directmethods]: ./iot-hub-devguide-direct-methods.md
+[lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 
-[lnk-getstarted-tutorial]: /documentation/articles/iot-hub-csharp-csharp-getstarted/
+[lnk-getstarted-tutorial]: ./iot-hub-csharp-csharp-getstarted.md

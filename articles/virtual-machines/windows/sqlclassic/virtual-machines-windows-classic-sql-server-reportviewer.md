@@ -1,30 +1,31 @@
-<properties
-    pageTitle="Use ReportViewer in a Web Site | Azure"
-    description="This topic describes how to build a Azure Web site with the Visual Studio ReportViewer control that displays a report stored on an Azure Virtual Machine."
-    services="virtual-machines-windows"
-    documentationcenter="na"
-    author="guyinacube"
-    manager="erikre"
-    editor="monicar"
-    tags="azure-service-management" />
-<tags
-    ms.assetid="78b76318-d9bf-48ef-9d9e-d1b7d8cf3042"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows-sql-server"
-    ms.workload="iaas-sql-server"
-    ms.date="01/11/2017"
-    wacn.date=""
-    ms.author="asaxton" />
+---
+title: Use ReportViewer in a Web Site | Azure
+description: This topic describes how to build a Azure Web site with the Visual Studio ReportViewer control that displays a report stored on an Azure Virtual Machine.
+services: virtual-machines-windows
+documentationcenter: na
+author: guyinacube
+manager: erikre
+editor: monicar
+tags: azure-service-management
+
+ms.assetid: 78b76318-d9bf-48ef-9d9e-d1b7d8cf3042
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows-sql-server
+ms.workload: iaas-sql-server
+ms.date: 01/11/2017
+wacn.date: ''
+ms.author: asaxton
+---
 
 # Use ReportViewer in a Web Site Hosted in Azure
-> [AZURE.IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
 
 You can build a Azure Web site with the Visual Studio ReportViewer control that displays a report stored on an Azure Virtual Machine. The ReportViewer control is in a Web application that you build using the ASP.NET Web application template.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The ASP.NET MVC Web Application templates do not support the ReportViewer control.
 
 To incorporate ReportViewer into your Azure Web site, you need to complete the following tasks.
@@ -34,9 +35,9 @@ To incorporate ReportViewer into your Azure Web site, you need to complete the f
 * **Publish** the ASP.NET Web application to Azure
 
 ## Prerequisites
-Review the "General recommendation and best practices" section in [SQL Server Business Intelligence in Azure Virtual Machines](/documentation/articles/virtual-machines-windows-classic-ps-sql-bi/).
+Review the "General recommendation and best practices" section in [SQL Server Business Intelligence in Azure Virtual Machines](./virtual-machines-windows-classic-ps-sql-bi.md).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > ReportViewer controls are shipped with Visual Studio, Standard Edition or above. If you are using the Web Developer Express Edition, you must install the [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) to use the ReportViewer runtime features.
 > <p> 
 > ReportViewer configured in local processing mode is not supported in Azure.
@@ -74,9 +75,9 @@ In remote processing mode, the ReportViewer control uses the following assemblie
 The ReportViewer needs to use proper credentials to authenticate with the report server, and the credentials must be authorized by the report server to access the reports you want. For information on authentication, see the white paper [Reporting Services report viewer control and Azure virtual machine based report servers](https://msdn.microsoft.com/zh-cn/library/azure/dn753698.aspx).
 
 ## Publish the ASP.NET Web application to Azure
-For instructions on publishing an ASP.NET Web application to Azure, see [How to: Migrate and Publish a Web Application to Azure from Visual Studio](/documentation/articles/vs-azure-tools-migrate-publish-web-app-to-cloud-service/) and [Get started with Web Apps and ASP.NET](/documentation/articles/web-sites-dotnet-get-started/).
+For instructions on publishing an ASP.NET Web application to Azure, see [How to: Migrate and Publish a Web Application to Azure from Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) and [Get started with Web Apps and ASP.NET](../../../app-service-web/web-sites-dotnet-get-started.md).
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > If the Add Azure Deployment Project or Add Azure Cloud Service Project command does not appear in the shortcut menu in Solution Explorer, you may need to change the Target framework for the project to .NET Framework 4.
 > <p> 
 > The two commands provide essentially the same functionality. One or the other command will appear in the shortcut menu depending on which version of the Azure SDK you have installed.
@@ -86,6 +87,6 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 ## Resources
 [Microsoft Reports](https://msdn.microsoft.com/zh-cn/library/bb885185.aspx)
 
-[SQL Server Business Intelligence in Azure Virtual Machines](/documentation/articles/virtual-machines-windows-classic-ps-sql-bi/)
+[SQL Server Business Intelligence in Azure Virtual Machines](./virtual-machines-windows-classic-ps-sql-bi.md)
 
-[Use PowerShell to Create an Azure VM With a Native Mode Report Server](/documentation/articles/virtual-machines-windows-classic-ps-sql-report/)
+[Use PowerShell to Create an Azure VM With a Native Mode Report Server](./virtual-machines-windows-classic-ps-sql-report.md)

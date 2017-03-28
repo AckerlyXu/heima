@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Create an IoT hub using Azure CLI (azure.js) | Azure"
-    description="How to create an Azure IoT hub using the cross-platform Azure CLI (azure.js)."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="BeatriceOltean"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="46a17831-650c-41d9-b228-445c5bb423d3"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="boltean" />
+---
+title: Create an IoT hub using Azure CLI (azure.js) | Azure
+description: How to create an Azure IoT hub using the cross-platform Azure CLI (azure.js).
+services: iot-hub
+documentationcenter: .net
+author: BeatriceOltean
+manager: timlt
+editor: ''
+
+ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: boltean
+---
 
 # Create an IoT hub using the Azure CLI
-[AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
+[!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 You can use Azure CLI (azure.js) to create and manage Azure IoT hubs programmatically. This article shows you how to use the Azure CLI (azure.js) to create an IoT hub.
@@ -36,8 +37,8 @@ To complete this tutorial, you need the following:
     azure --version
   ```
 
-> [AZURE.NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](/documentation/articles/resource-manager-deployment-model/). The Azure CLI must be in Azure Resource Manager mode:
+> [!NOTE]
+> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). The Azure CLI must be in Azure Resource Manager mode:
 > 
 > ```
 > azure config mode arm
@@ -47,13 +48,13 @@ To complete this tutorial, you need the following:
 
 ## Set your Azure account and subscription
 1. At the command prompt, login by typing the following command:
-   
+
    ```
     azure login
    ```
    Use the suggested web browser and code to authenticate.
 2. If you have multiple Azure subscriptions, connecting to Azure grants you access to all the Azure subscriptions associated with your credentials. You can view the Azure subscriptions, and identify which one is the default, using the command:
-   
+
    ```
     azure account list 
    ```
@@ -69,7 +70,7 @@ To complete this tutorial, you need the following:
     azure group create -n exampleResourceGroup -l westus
    ```
 
-> [AZURE.TIP]
+> [!TIP]
 > The article [Use the Azure CLI to manage Azure resources and resource groups][lnk-CLI-arm] provides more information about how to use the Azure CLI to manage Azure resources. 
 > 
 > 
@@ -98,7 +99,7 @@ Quick example:
     azure iothub create -g exampleResourceGroup -n exampleIoTHubName -l westus -k s1 -u 1
 ```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This Azure CLI command creates an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub **exampleIoTHubName** using following command:
 > 
 > ```
@@ -118,12 +119,12 @@ To further explore the capabilities of IoT Hub, see:
 * [Using the Azure portal to manage IoT Hub][lnk-portal]
 
 <!-- Links -->
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-CLI-install]: /documentation/articles/xplat-cli-install/
 [lnk-rest-api]: https://msdn.microsoft.com/zh-cn/library/mt589014.aspx
-[lnk-CLI-arm]: /documentation/articles/xplat-cli-azure-resource-manager/
+[lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
-[lnk-sdks]: /documentation/articles/iot-hub-devguide-sdks/
-[lnk-portal]: /documentation/articles/iot-hub-create-through-portal/
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
+[lnk-portal]: ./iot-hub-create-through-portal.md

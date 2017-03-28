@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Map a custom domain name to an Azure app"
-    description="Learn how to map a custom domain name (vanity domain) to your app in Azure App Service."
-    services="app-service"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor="jimbe"
-    tags="top-support-issue" />
-<tags
-    ms.assetid="48644a39-107c-45fb-9cd3-c741974ff590"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/30/2017"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Map a custom domain name to an Azure app
+description: Learn how to map a custom domain name (vanity domain) to your app in Azure App Service.
+services: app-service
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: jimbe
+tags: top-support-issue
+
+ms.assetid: 48644a39-107c-45fb-9cd3-c741974ff590
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/30/2017
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Map a custom domain name to an Azure app
-[AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
+[!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
-This article shows you how to manually map a custom domain name to your web app, mobile app backend, or API app in [Azure App Service](/documentation/articles/app-service-value-prop-what-is/). 
+This article shows you how to manually map a custom domain name to your web app, mobile app backend, or API app in [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
 
 If you have already purchased a custom domain from a third-party provider, 
 there are three main steps to map the custom domain to your app:
@@ -59,7 +60,7 @@ a CNAME record is still valid, whereas an A record requires an update.
 
 The tutorial shows you steps for using the A record and also for using the CNAME record.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Do not create a CNAME record for your root domain (i.e. the "root record"). For more information, see 
 > [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
 > To map a root domain to your Azure app, use an A record instead.
@@ -74,7 +75,7 @@ instead, skip this step and move onto the next section.
 2. Click **App Services** on the left menu.
 3. Click your app, then click **Custom domains**.
 4. Take note of the IP address above Hostnames section..
-   
+
     ![Map custom domain name with A record: Get IP address for your Azure App Service app](./media/web-sites-custom-domain-name/virtual-ip-address.png)
 5. Keep this portal blade open. You will come back to it once you create the DNS records.
 
@@ -151,7 +152,7 @@ Your additional TXT record takes on the convention that maps from &lt;*subdomain
 If you use a CNAME record to map to your Azure app's default domain name, you don't need an additional TXT record
 like you do with an A record. 
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Do not create a CNAME record for your root domain (i.e. the "root record"). For more information, see 
 > [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain).
 > To map a root domain to your Azure app, use an [A record](#a) instead.
@@ -186,10 +187,10 @@ domain name (FQDN) of your custom domain to the list.
 2. In the Azure portal preview, click **App Services** on the left menu.
 3. Click your app, then click **Custom domains** > **Add hostname**.
 4. Add the FQDN of your custom domain to the list (e.g. **www.contoso.com**).
-   
+
     ![Map a custom domain name to an Azure app: add to list of domain names](./media/web-sites-custom-domain-name/add-custom-domain.png)
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > Azure will attempt to verify the domain name that you use here. Be sure that it is the same domain name
     > for which you created a DNS record in [Step 2](#createdns). 
     > 
@@ -202,20 +203,20 @@ domain name (FQDN) of your custom domain to the list.
 ## Migrate an active domain name
 
 If the domain name you want to map is already in use by an existing website, and you want to avoid downtime, see 
-[Migrate an active custom domain to App Service](/documentation/articles/app-service-custom-domain-name-migrate/).
+[Migrate an active custom domain to App Service](./app-service-custom-domain-name-migrate.md).
 
 ## <a name="verify"></a> Verify DNS propagation
 After you finish the configuration steps, it can take some time for the changes to propagate, depending on your DNS provider. You can verify that the DNS propagation is working as expected by using [http://digwebinterface.com/](http://digwebinterface.com/). After you browse to the site, specify the hostnames in the textbox and click **Dig**. Verify the results to confirm if the recent changes have taken effect.  
 
 ![Map a custom domain name to an Azure app: verify DNS propagation](./media/web-sites-custom-domain-name/1-digwebinterface.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The propagation of the DNS entries can take up to 48 hours (sometimes longer). If you have configured everything correctly, you still need to wait for the propagation to succeed.
 > 
 > 
 
 ## Next steps
-Learn how to secure your custom domain name with HTTPS by [using an SSL certificate from elsewhere](/documentation/articles/web-sites-configure-ssl-certificate/).
+Learn how to secure your custom domain name with HTTPS by [using an SSL certificate from elsewhere](./web-sites-configure-ssl-certificate.md).
 
 <!-- Images -->
 [subdomain]: ./media/web-sites-custom-domain-name/azurewebsites-subdomain.png

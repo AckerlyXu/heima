@@ -1,17 +1,16 @@
+---
+title: Using Azure AD Connect Health with AD FS | Azure
+description: This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure.
+services: active-directory
+documentationCenter: ''
+authors: karavar
+manager: stevenpo
+editor: karavar
 
-<properties
-	pageTitle="Using Azure AD Connect Health with AD FS | Azure"
-	description="This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure."
-	services="active-directory"
-	documentationCenter=""
-	authors="karavar"
-	manager="stevenpo"
-	editor="karavar"/>
-
-<tags 
-	ms.service="active-directory" 
-	ms.date="07/14/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 07/14/2016
+wacn.date: ''
+---
 
 # Using Azure AD Connect Health with AD FS 
 The following documentation is specific to monitoring your AD FS infrastructure with Azure AD Connect Health.
@@ -23,12 +22,11 @@ By selecting an alert you will be provided with additional information as well a
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/alert2.png)
 
-
-
 ## Usage Analytics for AD FS
 Azure AD Connect Health Usage Analytics analyzes the authentication traffic of your federation servers. Selecting the usage analytics box will open the usage analytics blade, which will show you the metrics and groupings.
 
->[AZURE.NOTE] In order to use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](/documentation/articles/active-directory-aadconnect-health-agent-install/#enable-auditing-for-ad-fs).
+>[!NOTE]
+> In order to use Usage Analytics with AD FS, you must ensure that AD FS auditing is enabled. For more information, see [Enable Auditing for AD FS](./active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/report1.png)
 
@@ -49,13 +47,10 @@ To select additional metrics, specify a time range, or to change the grouping, s
 | User Count: Average number of unique users active in the system | All | This provides a count of average number of users using the federation service in the selected time slice. The users are not grouped. <br>The average will depend on the time slice selected. |
 |  | Application | This will group the average number of users based on the targeted application (relying party). This is useful to understand how many users are using which application. |
 
-
 ## Performance Monitoring for AD FS
 Azure AD Connect Health Performance Monitoring provides monitoring information on metrics. By selecting the Monitoring box, a blade will open up that provides detailed information on the metrics.
 
-
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health/perf1.png)
-
 
 By selecting the Filter option at the top of the blade, you can filter by server to see an individual server’s metrics. To change metrics, simply right-click on the monitoring chart under the monitoring blade and select Edit Chart. Then, from the new blade that opens up, you can select additional metrics from the drop-down and specify a time range for viewing the performance data.
 
@@ -94,17 +89,14 @@ The report provides the following:
 |Failed Attempts|Shows the total # of failed attempts for that specific user ID. The table is sorted with the most number of failed attempts in descending order.|
 |Last Failure|This shows the time stamp when the last failure occurred.
 
-
-
->[AZURE.NOTE] This report is automatically updated after every 2 hours with the new information collected within that time. As a result, login attempts within the last 2 hours may not be included in the report.
-
-
+>[!NOTE]
+> This report is automatically updated after every 2 hours with the new information collected within that time. As a result, login attempts within the last 2 hours may not be included in the report.
 
 ## Related links
 
-* [Azure AD Connect Health](/documentation/articles/active-directory-aadconnect-health/)
+* [Azure AD Connect Health](./active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent Installation for AD FS](/documentation/articles/active-directory-aadconnect-health-agent-install-adfs/)
-* [Azure AD Connect Health Operations](/documentation/articles/active-directory-aadconnect-health-operations/)
-* [Using Azure AD Connect Health for sync](/documentation/articles/active-directory-aadconnect-health-sync/)
-* [Azure AD Connect Health FAQ](/documentation/articles/active-directory-aadconnect-health-faq/)
-* [Azure AD Connect Health Version History](/documentation/articles/active-directory-aadconnect-health-version-history/)
+* [Azure AD Connect Health Operations](./active-directory-aadconnect-health-operations.md)
+* [Using Azure AD Connect Health for sync](./active-directory-aadconnect-health-sync.md)
+* [Azure AD Connect Health FAQ](./active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health Version History](./active-directory-aadconnect-health-version-history.md)

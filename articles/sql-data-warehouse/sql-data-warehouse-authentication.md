@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Authentication to Azure SQL Data Warehouse | Microsoft Azure"
-   description="Azure Active Directory (AAD) and SQL Server authentication to Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter=""
-   authors="byham"
-   manager="barbkess"
-   editor=""
-   tags=""/>
+---
+title: Authentication to Azure SQL Data Warehouse | Microsoft Azure
+description: Azure Active Directory (AAD) and SQL Server authentication to Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: ''
+authors: byham
+manager: barbkess
+editor: ''
+tags: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="09/24/2016"
-   ms.author="rickbyh;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 09/24/2016
+ms.author: rickbyh;barbkess;sonyama
+---
 
 # Authentication to Azure SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [Security Overview](/documentation/articles/sql-data-warehouse-overview-manage-security/)
-- [Authentication](/documentation/articles/sql-data-warehouse-authentication/)
-- [Encryption (Portal)](/documentation/articles/sql-data-warehouse-encryption-tde/)
-- [Encryption (T-SQL)](/documentation/articles/sql-data-warehouse-encryption-tde-tsql/)
+> [!div class="op_single_selector"]
+>- [Security Overview](./sql-data-warehouse-overview-manage-security.md)
+>- [Authentication](./sql-data-warehouse-authentication.md)
+>- [Encryption (Portal)](./sql-data-warehouse-encryption-tde.md)
+>- [Encryption (T-SQL)](./sql-data-warehouse-encryption-tde-tsql.md)
 
 To connect to SQL Data Warehouse, you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  
 
@@ -43,7 +43,8 @@ By default your connection connects to the *master* database and not your user d
 - Specify the default database when registering your server with the SQL Server Object Explorer in SSDT, SSMS, or in your application connection string. For example, include the InitialCatalog parameter for an ODBC connection.
 - Highlight the user database before creating a session in SSDT.
 
-> [AZURE.NOTE] The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio][] article.
+> [!NOTE]
+> The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio][] article.
 
 ## Azure Active Directory (AAD) authentication
 
@@ -62,7 +63,8 @@ Azure Active Directory benefits include:
 - Supports token-based authentication for applications connecting to SQL Data Warehouse.
 - Supports Multi-Factor authentication through Active Directory Universal Authentication for SQL Server Management Studio. For a description of Multi-Factor Authentication, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
-> [AZURE.NOTE] Azure Active Directory is still relatively new and has some limitations. To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations][], specifically the Additional considerations.
+> [!NOTE]
+> Azure Active Directory is still relatively new and has some limitations. To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations][], specifically the Additional considerations.
 
 ### Configuration steps
 
@@ -76,7 +78,7 @@ Follow these steps to configure Azure Active Directory authentication.
 6. Connect to your data warehouse by using Azure AD identities
 
 Currently Azure Active Directory users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
-  
+
 ### Find the details
 - Complete the detailed steps. The detailed steps to configure and use Azure Active Directory authentication are nearly identical for Azure SQL Database and Azure SQL Data Warehouse. Follow the detailed steps in the topic [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
 - Create custom database roles and add users to the roles. Then grant granular permissions to the roles. For more information, see [Getting Started with Database Engine Permissions](https://msdn.microsoft.com/library/mt667986.aspx).
@@ -86,7 +88,7 @@ Currently Azure Active Directory users are not shown in SSDT Object Explorer. As
 To start querying your data warehouse with Visual Studio and other applications, see [Query with Visual Studio][].
 
 <!-- Article references -->
-[Secure a database in SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-overview-manage-security/
-[Query with Visual Studio]: /documentation/articles/sql-data-warehouse-query-visual-studio/
-[What is Azure Active Directory]: /documentation/articles/active-directory-whatis/
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 [Azure AD features and limitations]: /documentation/articles/sql-database-aad-authentication.md#azure-ad-features-and-limitations

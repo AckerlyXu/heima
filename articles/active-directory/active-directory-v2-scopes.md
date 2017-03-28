@@ -1,32 +1,33 @@
-<properties
-    pageTitle="Azure Active Directory v2.0 scopes, permissions, and consent | Azure"
-    description="A description of authorization in the Azure AD v2.0 endpoint, including scopes, permissions, and consent."
-    services="active-directory"
-    documentationcenter=""
-    author="dstrockis"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="8f98cbf0-a71d-4e34-babf-e644ad9ff423"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="dastrock" />
+---
+title: Azure Active Directory v2.0 scopes, permissions, and consent | Azure
+description: A description of authorization in the Azure AD v2.0 endpoint, including scopes, permissions, and consent.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: dastrock
+---
 
 # Scopes, permissions, and consent in the Azure Active Directory v2.0 endpoint
 Apps that integrate with Azure Active Directory (Azure AD) follow an authorization model that gives users control over how an app can access their data. The v2.0 implementation of the authorization model has been updated, and it changes how an app must interact with Azure AD. This article covers the basic concepts of this authorization model, including scopes, permissions, and consent.
 
-> [AZURE.NOTE]
-> The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](/documentation/articles/active-directory-v2-limitations/).
+> [!NOTE]
+> The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](./active-directory-v2-limitations.md).
 >
 >
 
 ## Scopes and permissions
-Azure AD implements the [OAuth 2.0](/documentation/articles/active-directory-v2-protocols/) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with Azure AD has a resource identifier, or *Application ID URI*. For example, some of Microsoft's web-hosted resources include:
+Azure AD implements the [OAuth 2.0](./active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with Azure AD has a resource identifier, or *Application ID URI*. For example, some of Microsoft's web-hosted resources include:
 
 - The Office 365 Unified Mail API: `https://outlook.office.com`
 - The Azure AD Graph API: `https://graph.chinacloudapi.cn`
@@ -52,35 +53,35 @@ An app can request these permissions by specifying the scopes in requests to the
 The v2.0 implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource: `openid`, `email`, `profile`, and `offline_access`.
 
 ### openid
-If an app performs sign-in by using [OpenID Connect](/documentation/articles/active-directory-v2-protocols/), it must request the `openid` scope. The `openid` scope shows on the work account consent page as the "Sign you in" permission, and on the personal Microsoft account consent page as the "View your profile and connect to apps and services using your Microsoft account" permission. With this permission, an app can receive a unique identifier for the user in the form of the `sub` claim. It also gives the app access to the UserInfo endpoint. The `openid` scope can be used at the v2.0 token endpoint to acquire ID tokens, which can be used to secure HTTP calls between different components of an app.
+If an app performs sign-in by using [OpenID Connect](./active-directory-v2-protocols.md), it must request the `openid` scope. The `openid` scope shows on the work account consent page as the "Sign you in" permission, and on the personal Microsoft account consent page as the "View your profile and connect to apps and services using your Microsoft account" permission. With this permission, an app can receive a unique identifier for the user in the form of the `sub` claim. It also gives the app access to the UserInfo endpoint. The `openid` scope can be used at the v2.0 token endpoint to acquire ID tokens, which can be used to secure HTTP calls between different components of an app.
 
 ### email
 The `email` scope can be used with the `openid` scope and any others. It gives the app access to the user's primary email address in the form of the `email` claim. The `email` claim is included in a token only if an email address is associated with the user account, which is not always the case. If it uses the `email` scope, your app should be prepared to handle a case in which the `email` claim does not exist in the token.
 
 ### profile
-The `profile` scope can be used with the `openid` scope and any others. It gives the app access to a substantial amount of information about the user. The information it can access includes, but is not limited to, the user's given name, surname, preferred username, and object ID. For a complete list of the profile claims available in the id_tokens parameter for a specific user, see the [v2.0 tokens reference](/documentation/articles/active-directory-v2-tokens/).
+The `profile` scope can be used with the `openid` scope and any others. It gives the app access to a substantial amount of information about the user. The information it can access includes, but is not limited to, the user's given name, surname, preferred username, and object ID. For a complete list of the profile claims available in the id_tokens parameter for a specific user, see the [v2.0 tokens reference](./active-directory-v2-tokens.md).
 
 ### offline_access
 The [`offline_access` scope](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) gives your app access to resources on behalf of the user for an extended time. On the work account consent page, this scope appears as the "Access your data anytime" permission. On the personal Microsoft account consent page, it appears as the "Access your info anytime" permission. When a user approves the `offline_access` scope, your app can receive refresh tokens from the v2.0 token endpoint. Refresh tokens are long-lived. Your app can get new access tokens as older ones expire.
 
-If your app does not request the `offline_access` scope, it won't receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](/documentation/articles/active-directory-v2-protocols/), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.
+If your app does not request the `offline_access` scope, it won't receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](./active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.
 
-For more information about how to get and use refresh tokens, see the [v2.0 protocol reference](/documentation/articles/active-directory-v2-protocols/).
+For more information about how to get and use refresh tokens, see the [v2.0 protocol reference](./active-directory-v2-protocols.md).
 
 ## Requesting individual user consent
-In an [OpenID Connect or OAuth 2.0](/documentation/articles/active-directory-v2-protocols/) authorization request, an app can request the permissions it needs by using the `scope` query parameter. For example, when a user signs in to an app, the app sends a request like the following example (with line breaks added for legibility):
+In an [OpenID Connect or OAuth 2.0](./active-directory-v2-protocols.md) authorization request, an app can request the permissions it needs by using the `scope` query parameter. For example, when a user signs in to an app, the app sends a request like the following example (with line breaks added for legibility):
 
-
-	GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-	client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-	&response_type=code
-	&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-	&response_mode=query
-	&scope=
-	https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
-	https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
-	&state=12345
-
+```
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=code
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&response_mode=query
+&scope=
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
+&state=12345
+```
 
 The `scope` parameter is a space-separated list of scopes that the app is requesting. Each scope is indicated by appending the scope value to the resource's identifier (the Application ID URI). In the request example, the app needs permission to read the user's calendar and send mail as the user.
 
@@ -112,34 +113,30 @@ When an administrator grants these permissions via the admin consent endpoint, c
 If you follow these steps, your app can gather permissions for all users in a tenant, including admin-restricted scopes. To see a code sample that implements the steps, see the [admin-restricted scopes sample](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### Request the permissions in the app registration portal
-1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList), or [create an app](/documentation/articles/active-directory-v2-app-registration/) if you haven't already.
+1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList), or [create an app](./active-directory-v2-app-registration.md) if you haven't already.
 2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
 3. Make sure you **Save** the app registration.
 
 ### Recommended: Sign the user in to your app
 Typically, when you build an application that uses the admin consent endpoint, the app needs a page or view in which the admin can approve the app's permissions. This page can be part of the app's sign-up flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-When you sign the user in to your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [v2.0 protocol tutorials](/documentation/articles/active-directory-v2-protocols/).
+When you sign the user in to your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [v2.0 protocol tutorials](./active-directory-v2-protocols.md).
 
 ### Request the permissions from a directory admin
 When you're ready to request permissions from your organization's admin, you can redirect the user to the v2.0 *admin consent endpoint*.
 
+```
+// Line breaks are for legibility only.
 
-	// Line breaks are for legibility only.
+GET https://login.microsoftonline.com/{tenant}/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
 
-	GET https://login.microsoftonline.com/{tenant}/adminconsent?
-	client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-	&state=12345
-	&redirect_uri=http://localhost/myapp/permissions
+// Pro Tip: Try pasting the below request in a browser!
 
-
-
-	// Pro Tip: Try pasting the below request in a browser!
-
-
-
-	https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
-
+https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
+```
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
@@ -153,9 +150,9 @@ At this point, Azure AD requires a tenant administrator to sign in to complete t
 #### Successful response
 If the admin approves the permissions for your app, the successful response looks like this:
 
-
-	GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
-
+```
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
+```
 
 | Parameter | Description |
 | --- | --- | --- |
@@ -166,9 +163,9 @@ If the admin approves the permissions for your app, the successful response look
 #### Error response
 If the admin does not approve the permissions for your app, the failed response looks like this:
 
-
-	GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
-
+```
+GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
+```
 
 | Parameter | Description |
 | --- | --- | --- |
@@ -180,21 +177,21 @@ After you've received a successful response from the admin consent endpoint, you
 ## Using permissions
 After the user consents to permissions for your app, your app can acquire access tokens that represent your app's permission to access a resource in some capacity. An access token can be used only for a single resource, but encoded inside the access token is every permission that your app has been granted for that resource. To acquire an access token, your app can make a request to the v2.0 token endpoint, like this:
 
+```
+POST common/oauth2/v2.0/token HTTP/1.1
+Host: https://login.microsoftonline.com
+Content-Type: application/json
 
-	POST common/oauth2/v2.0/token HTTP/1.1
-	Host: https://login.microsoftonline.com
-	Content-Type: application/json
-
-	{
-		"grant_type": "authorization_code",
-		"client_id": "6731de76-14a6-49ae-97bc-6eba6914391e",
-		"scope": "https://outlook.office.com/mail.read https://outlook.office.com/mail.send",
-		"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq..."
-		"redirect_uri": "https://localhost/myapp",
-		"client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
-	}
-
+{
+    "grant_type": "authorization_code",
+    "client_id": "6731de76-14a6-49ae-97bc-6eba6914391e",
+    "scope": "https://outlook.office.com/mail.read https://outlook.office.com/mail.send",
+    "code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq..."
+    "redirect_uri": "https://localhost/myapp",
+    "client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
+}
+```
 
 You can use the resulting access token in HTTP requests to the resource. It reliably indicates to the resource that your app has the proper permission to perform a specific task.  
 
-For more information about the OAuth 2.0 protocol and how to get access tokens, see the [v2.0 endpoint protocol reference](/documentation/articles/active-directory-v2-protocols/).
+For more information about the OAuth 2.0 protocol and how to get access tokens, see the [v2.0 endpoint protocol reference](./active-directory-v2-protocols.md).

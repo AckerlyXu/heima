@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Routing requirements for ExpressRoute | Azure"
-   description="This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits."
-   documentationCenter="na"
-   services="expressroute"
-   authors="osamazia"
-   manager="ganesr"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/03/2017"
-   ms.author="osamam"/>
+---
+title: Routing requirements for ExpressRoute | Azure
+description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
+documentationCenter: na
+services: expressroute
+authors: osamazia
+manager: ganesr
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/03/2017
+ms.author: osamam
+---
 
 # ExpressRoute routing requirements  
 
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to set up and manage routing. Some connectivity providers offer setting up and managing routing as a managed service. Check with your connectivity provider to see if they offer this service. If they don't, you must adhere to the following requirements. 
 
-Refer to the [Circuits and routing domains](/documentation/articles/expressroute-circuit-peerings/) article for a description of the routing sessions that need to be setup in to facilitate connectivity.
+Refer to the [Circuits and routing domains](./expressroute-circuit-peerings.md) article for a description of the routing sessions that need to be setup in to facilitate connectivity.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Microsoft does not support any router redundancy protocols (e.g., HSRP, VRRP) for high availability configurations. We rely on a redundant pair of BGP sessions per peering for high availability.
 > 
 > 
@@ -37,9 +37,9 @@ You can use either private IP addresses or public IP addresses to configure the 
  - The subnets used for routing can be either private IP addresses or public IP addresses.
  - The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
  - If a /29 subnet is used, it will be split into two /30 subnets. 
-	 - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
-	 - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	 - You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
+     - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
+     - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
+     - You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
 
 #### Example for private peering
 
@@ -57,9 +57,9 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 
 - You must use a unique /29 subnet or two /30 subnets to setup the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
 - If a /29 subnet is used, it will be split into two /30 subnets. 
-	- The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
-	- For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	- You must setup both BGP sessions for our [availability SLA](/support/legal/sla/) to be valid.
+    - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
+    - For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
+    - You must setup both BGP sessions for our [availability SLA](https://www.azure.cn/support/legal/sla/) to be valid.
 
 ## Public IP address requirement
 ### Private Peering
@@ -88,7 +88,7 @@ Make sure that your IP address and AS number are registered to you in one of the
 
 ## Dynamic route exchange
 
-Routing exchange will be over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions is not a requirement. If required, an MD5 hash can be configured. See the [Configure routing](/documentation/articles/expressroute-howto-routing-classic/) and [Circuit provisioning workflows and circuit states](/documentation/articles/expressroute-workflows/) for information about configuring BGP sessions.
+Routing exchange will be over eBGP protocol. EBGP sessions are established between the MSEEs and your routers. Authentication of BGP sessions is not a requirement. If required, an MD5 hash can be configured. See the [Configure routing](./expressroute-howto-routing-classic.md) and [Circuit provisioning workflows and circuit states](./expressroute-workflows.md) for information about configuring BGP sessions.
 
 ## Autonomous System numbers
 
@@ -114,8 +114,6 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 
 **Note:** Advertising default routes will break Windows and other VM license activation. Follow instructions [here](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) to work around this.
 
-
-
 ## Support for BGP communities
 This section provides an overview of how BGP communities will be used with ExpressRoute. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
@@ -123,9 +121,9 @@ If you are connecting to Microsoft through ExpressRoute at any one peering locat
 
 For example, if you connected to Microsoft in Amsterdam through ExpressRoute, you will have access to all Microsoft cloud services hosted in North Europe and West Europe. 
 
-Refer to the [ExpressRoute partners and peering locations](/documentation/articles/expressroute-locations/) page for a detailed list of geopolitical regions, associated Azure regions, and corresponding ExpressRoute peering locations.
+Refer to the [ExpressRoute partners and peering locations](./expressroute-locations.md) page for a detailed list of geopolitical regions, associated Azure regions, and corresponding ExpressRoute peering locations.
 
-You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](/documentation/articles/expressroute-optimize-routing/).
+You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](./expressroute-optimize-routing.md).
 
 | **Microsoft Azure region** | **BGP community value** |
 | --- | --- |
@@ -166,8 +164,8 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
->[AZURE.IMPORTANT] Global prefixes will be tagged with an appropriate community value and will be advertised only when ExpressRoute premium add-on is enabled.
-
+>[!IMPORTANT]
+> Global prefixes will be tagged with an appropriate community value and will be advertised only when ExpressRoute premium add-on is enabled.
 
 In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value.
 
@@ -179,7 +177,8 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | CRM Online |12076:5040 |
 | Other Office 365 Online services |12076:5100 |
 
->[AZURE.NOTE] Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
+>[!NOTE]
+> Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 
 ### BGP Community support in National Clouds (Preview)
 
@@ -192,7 +191,6 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | US Gov Texas | 12076:51108 |
 | US DoD Central | 12076:51209 |
 | US DoD East | 12076:51205 |
-
 
 | **Service in National Clouds** | **BGP community value** |
 | --- | --- |
@@ -207,8 +205,6 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 - Configure your ExpressRoute connection.
 
-	- [Create an ExpressRoute circuit for the classic deployment model](/documentation/articles/expressroute-howto-circuit-classic/) or [Create and modify an ExpressRoute circuit using Azure Resource Manager](/documentation/articles/expressroute-howto-circuit-arm/)
-	- [Configure routing for the classic deployment model](/documentation/articles/expressroute-howto-routing-classic/) or [Configure routing for the Resource Manager deployment model](/documentation/articles/expressroute-howto-routing-arm/)
-	- [Link a classic VNet to an ExpressRoute circuit](/documentation/articles/expressroute-howto-linkvnet-classic/) or [Link a Resource Manager VNet to an ExpressRoute circuit](/documentation/articles/expressroute-howto-linkvnet-arm/)
-
-
+    - [Create an ExpressRoute circuit for the classic deployment model](./expressroute-howto-circuit-classic.md) or [Create and modify an ExpressRoute circuit using Azure Resource Manager](./expressroute-howto-circuit-arm.md)
+    - [Configure routing for the classic deployment model](./expressroute-howto-routing-classic.md) or [Configure routing for the Resource Manager deployment model](./expressroute-howto-routing-arm.md)
+    - [Link a classic VNet to an ExpressRoute circuit](./expressroute-howto-linkvnet-classic.md) or [Link a Resource Manager VNet to an ExpressRoute circuit](./expressroute-howto-linkvnet-arm.md)

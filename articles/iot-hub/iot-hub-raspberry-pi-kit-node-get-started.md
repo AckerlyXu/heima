@@ -1,30 +1,30 @@
-﻿<properties
-    pageTitle="Connect Raspberry Pi (Node) to Azure IoT - Get started | Azure"
-    description="Get started with a Raspberry Pi 3 device, create your Azure IoT hub, and connect your Pi to your IoT hub."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timlt"
-    tags=""
-    keywords="azure iot hub, getting started with the internet of things, iot toolkit"
-    experimental="true"
-    experiment_id="xshi-happypathemu-20161202" />
-<tags
-    ms.assetid="b0e14bfa-8e64-440a-a6ec-e507ca0f76ba"
-    ms.service="iot-hub"
-    ms.devlang="node"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+﻿---
+title: Connect Raspberry Pi (Node) to Azure IoT - Get started | Azure
+description: Get started with a Raspberry Pi 3 device, create your Azure IoT hub, and connect your Pi to your IoT hub.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timlt
+tags: ''
+keywords: azure iot hub, getting started with the internet of things, iot toolkit
+experimental: true
+experiment_id: xshi-happypathemu-20161202
 
+ms.assetid: b0e14bfa-8e64-440a-a6ec-e507ca0f76ba
+ms.service: iot-hub
+ms.devlang: node
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Connect your Raspberry Pi 3 device to your IoT hub using Node.js
 [AUZRE.SELECTOR]
-- [Node.JS](/documentation/articles/iot-hub-raspberry-pi-kit-node-get-started/)
-- [C](/documentation/articles/iot-hub-raspberry-pi-kit-c-get-started/)
+- [Node.JS](./iot-hub-raspberry-pi-kit-node-get-started.md)
+- [C](./iot-hub-raspberry-pi-kit-c-get-started.md)
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
 
@@ -40,21 +40,21 @@ Configure Raspberry Pi 3 for first-time use and install Raspbian. Raspbian is a 
 
 *Estimated time to complete: 30 minutes*
 
-Go to [Configure your device](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device/).
+Go to [Configure your device](./iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md).
 
 ### Get the tools
 Download the tools and software to build and deploy your first application for Raspberry Pi 3.
 
 *Estimated time to complete: 20 minutes*
 
-Go to [Get the tools](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32/).
+Go to [Get the tools](./iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md).
 
 ### Create and deploy the blink application
 Clone the sample Node.js blink application from GitHub, and use gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds.
 
 *Estimated time to complete: 5 minutes*
 
-Go to [Create and deploy the blink application](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app/).
+Go to [Create and deploy the blink application](./iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md).
 
 ## Lesson 2: Create your IoT hub
 ![Lesson 2 end-to-end diagram](./media/iot-hub-raspberry-pi-lessons/e2e-lesson2.png)
@@ -68,14 +68,14 @@ Install the Azure command-line interface (Azure CLI).
 
 *Estimated time to complete: 10 minutes*
 
-Go to [Get Azure tools](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32/).
+Go to [Get Azure tools](./iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md).
 
 ### Create your IoT hub and register Raspberry Pi 3
 Create your resource group, provision your first Azure IoT hub, and add your first device to the IoT hub by using Azure CLI.
 
 *Estimated time to complete: 10 minutes*
 
-Go to [Create your IoT hub and register Raspberry Pi 3](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub/).
+Go to [Create your IoT hub and register Raspberry Pi 3](./iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
 
 ## Lesson 3: Send device-to-cloud messages
 ![Lesson 3 end-to-end diagram](./media/iot-hub-raspberry-pi-lessons/e2e-lesson3.png)
@@ -89,21 +89,21 @@ Use an Azure Resource Manager template to create an Azure function app and an Az
 
 *Estimated time to complete: 10 minutes*
 
-Go to [Create an Azure function app and Azure storage account](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template/).
+Go to [Create an Azure function app and Azure storage account](./iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
 
 ### Run a sample application to send device-to-cloud messages
 Deploy and run a sample application to your Raspberry Pi 3 device that sends messages to the IoT hub.
 
 *Estimated time to complete: 10 minutes*
 
-Go to [Run a sample application to send device-to-cloud messages](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink/).
+Go to [Run a sample application to send device-to-cloud messages](./iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md).
 
 ### Read messages persisted in Azure Storage
 Monitor the device-to-cloud messages as they are written to Azure Storage.
 
 *Estimated time to complete: 5 minutes*
 
-Go to [Read messages persisted in Azure Storage](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage/).
+Go to [Read messages persisted in Azure Storage](./iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md).
 
 ## Lesson 4: Send cloud-to-device messages
 ![Lesson 4 end-to-end diagram](./media/iot-hub-raspberry-pi-lessons/e2e-lesson4.png)
@@ -117,15 +117,14 @@ The sample application in Lesson 4 runs on Pi and monitors incoming messages fro
 
 *Estimated time to complete: 10 minutes*
 
-Go to [Run the sample application to receive cloud-to-device messages](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages/).
+Go to [Run the sample application to receive cloud-to-device messages](./iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md).
 
 ### Optional section: Change the on and off behavior of the LED
 Customize the messages to change the LED’s on and off behavior.
 
 *Estimated time to complete: 10 minutes*
 
-Go to [Optional section: Change the on and off behavior of the LED](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior/).
+Go to [Optional section: Change the on and off behavior of the LED](./iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md).
 
 ## Troubleshooting
-If you have any trouble during the lessons, you can seek solutions in the [Troubleshooting](/documentation/articles/iot-hub-raspberry-pi-kit-node-troubleshooting/) article.
-
+If you have any trouble during the lessons, you can seek solutions in the [Troubleshooting](./iot-hub-raspberry-pi-kit-node-troubleshooting.md) article.

@@ -29,10 +29,10 @@ The SQL Server firewall, which is scoped for the entire Azure SQL Server is usua
 
 The Azure SQL Database service is only available through TCP port 1433. To access a SQL Database from your computer, ensure that your client computer firewall allows outgoing TCP communication on TCP port 1433. If not needed for other applications, block inbound connections on TCP port 1433. 
 
-As part of the connection process, connections from Azure virtual machines are redirected to a different IP address and port, unique for each worker role. The port number is in the range from 11000 to 11999. For more information about TCP ports, see [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](/documentation/articles/sql-database-develop-direct-route-ports-adonet-v12/).
+As part of the connection process, connections from Azure virtual machines are redirected to a different IP address and port, unique for each worker role. The port number is in the range from 11000 to 11999. For more information about TCP ports, see [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](./sql-database-develop-direct-route-ports-adonet-v12.md).
 
 ## Authentication
-Use Active Directory authentication (integrated security) whenever possible. For information on configuring AD authentication, see [Connecting to SQL Database By Using Azure Active Directory Authentication](/documentation/articles/sql-database-aad-authentication/), and [Choosing an Authentication Mode](https://msdn.microsoft.com/zh-cn/library/ms144284.aspx) in SQL Server Books Online. 
+Use Active Directory authentication (integrated security) whenever possible. For information on configuring AD authentication, see [Connecting to SQL Database By Using Azure Active Directory Authentication](./sql-database-aad-authentication.md), and [Choosing an Authentication Mode](https://msdn.microsoft.com/zh-cn/library/ms144284.aspx) in SQL Server Books Online. 
 
 Use contained database users to enhance scalability. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/zh-cn/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/zh-cn/library/ms173463.aspx), and [Contained Databases](https://technet.microsoft.com/zh-cn/library/ff929071.aspx).
 
@@ -52,26 +52,24 @@ When managing logins and users in SQL Database, there are restrictions.
 - When executing the ``CREATE/ALTER/DROP LOGIN`` and ``CREATE/ALTER/DROP DATABASE`` statements in an ADO.NET application, using parameterized commands is not allowed. For more information, see [Commands and Parameters](https://msdn.microsoft.com/zh-cn/library/ms254953.aspx).
 - When executing the ``CREATE/ALTER/DROP DATABASE`` and ``CREATE/ALTER/DROP LOGIN`` statements, each of these statements must be the only statement in a Transact-SQL batch. Otherwise, an error occurs. For example, the following Transact-SQL checks whether the database exists. If it exists, a ``DROP DATABASE`` statement is called to remove the database. Because the ``DROP DATABASE`` statement is not the only statement in the batch, executing the following Transact-SQL statement results in an error.
 
-
-	IF EXISTS (SELECT [name]
-	           FROM   [sys].[databases]
-	           WHERE  [name] = N'database_name')
-	     DROP DATABASE [database_name];
-	GO
-
+    IF EXISTS (SELECT [name]
+               FROM   [sys].[databases]
+               WHERE  [name] = N'database_name')
+         DROP DATABASE [database_name];
+    GO
 
 * When executing the ``CREATE USER`` statement with the ``FOR/FROM LOGIN`` option, it must be the only statement in a Transact-SQL batch.
 * When executing the ``ALTER USER`` statement with the ``WITH LOGIN`` option, it must be the only statement in a Transact-SQL batch.
 * To ``CREATE/ALTER/DROP`` a user requires the ``ALTER ANY USER`` permission on the database.
 * When the owner of a database role tries to add or remove another database user to or from that database role, the following error may occur: **User or role 'Name' does not exist in this database.** This error occurs because the user is not visible to the owner. To resolve this issue, grant the role owner the ``VIEW DEFINITION`` permission on the user. 
 
-For more information about logins and users, see [Managing databases and logins in Azure SQL Database](/documentation/articles/sql-database-manage-logins/).
+For more information about logins and users, see [Managing databases and logins in Azure SQL Database](./sql-database-manage-logins.md).
 
 ## See also
-[Azure SQL Database Firewall](/documentation/articles/sql-database-firewall-configure/)
+[Azure SQL Database Firewall](./sql-database-firewall-configure.md)
 
-[How to: Configure Firewall Settings (Azure SQL Database)](/documentation/articles/sql-database-configure-firewall-settings/)
+[How to: Configure Firewall Settings (Azure SQL Database)](./sql-database-configure-firewall-settings.md)
 
-[Managing databases and logins in Azure SQL Database](/documentation/articles/sql-database-manage-logins/)
+[Managing databases and logins in Azure SQL Database](./sql-database-manage-logins.md)
 
 [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/zh-cn/library/bb510589)

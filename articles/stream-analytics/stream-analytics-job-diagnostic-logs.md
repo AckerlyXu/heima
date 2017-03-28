@@ -1,30 +1,31 @@
-<properties
-    pageTitle="Azure Stream Analytics diagnostic logs | Azure"
-    description="Learn how to analyze diagnostic logs from Stream Analytics jobs in Azure."
-    keywords=""
-    documentationcenter=""
-    services="stream-analytics"
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid=""
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="02/01/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Azure Stream Analytics diagnostic logs | Azure
+description: Learn how to analyze diagnostic logs from Stream Analytics jobs in Azure.
+keywords: ''
+documentationcenter: ''
+services: stream-analytics
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: ''
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 02/01/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Job diagnostic logs
 
 ## Introduction
 Stream Analytics exposes two types of logs: 
 <!-- the following two link reference not GA -->
-* [Activity logs](/documentation/articles/monitoring-overview-activity-logs) that are always enabled and provide insights into operations performed on jobs;
-* [Diagnostic logs](/documentation/articles/monitoring-overview-of-diagnostic-logs) that are user configurable and provide richer insights into everything that happens with the job starting when it's created, updated, while it's running and until it's deleted;
+* [Activity logs](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) that are always enabled and provide insights into operations performed on jobs;
+* [Diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) that are user configurable and provide richer insights into everything that happens with the job starting when it's created, updated, while it's running and until it's deleted;
 
 ## How to enable diagnostic logs
 The diagnostics logs are turned **off** by default. To enable them follow these steps:
@@ -104,8 +105,8 @@ Type | Type of message, maps to internal categorization of errors: e.g. JobValid
 Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) that uniquely identifies the job execution. All execution log entries produced since the job is started until it stops will have the same "Correlation ID".
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/)
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)

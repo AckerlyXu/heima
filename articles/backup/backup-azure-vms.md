@@ -1,32 +1,32 @@
-<properties
-    pageTitle="Back up classic-deployed Azure virtual machines to a backup vault| Azure"
-    description="Discover, register, and back up your virtual machines with these procedures for Azure virtual machine backup."
-    services="backup"
-    documentationcenter=""
-    author="markgalioto"
-    manager="carmonm"
-    editor=""
-    keywords="virtual machine backup; back up virtual machine; backup and disaster recovery; vm backup" />
-<tags
-    ms.assetid="c0ab5469-65fd-4af5-ae9b-f5d183f82ce8"
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/15/2017"
-    wacn.date=""
-    ms.author="markgal;trinadhk;" />
+---
+title: Back up classic-deployed Azure virtual machines to a backup vault| Azure
+description: Discover, register, and back up your virtual machines with these procedures for Azure virtual machine backup.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: carmonm
+editor: ''
+keywords: virtual machine backup; back up virtual machine; backup and disaster recovery; vm backup
+
+ms.assetid: c0ab5469-65fd-4af5-ae9b-f5d183f82ce8
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/15/2017
+wacn.date: ''
+ms.author: markgal;trinadhk;
+---
 
 # Back up Azure virtual machines
 
+This article provides the procedures for backing up a Classic-deployed Azure virtual machine (VM) to a Backup vault. There are a few tasks you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](./backup-azure-vms-prepare.md) to prepare your environment for backing up your VMs.
 
-This article provides the procedures for backing up a Classic-deployed Azure virtual machine (VM) to a Backup vault. There are a few tasks you need to take care of before you can back up an Azure virtual machine. If you haven't already done so, complete the [prerequisites](/documentation/articles/backup-azure-vms-prepare/) to prepare your environment for backing up your VMs.
+For additional information, see the articles on [planning your VM backup infrastructure in Azure](./backup-azure-vms-introduction.md) and [Azure virtual machines](../virtual-machines/index.md).
 
-For additional information, see the articles on [planning your VM backup infrastructure in Azure](/documentation/articles/backup-azure-vms-introduction/) and [Azure virtual machines](/documentation/services/virtual-machines/).
-
-> [AZURE.NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/). A Backup vault can only protect Classic-deployed VMs. You cannot protect Resource Manager-deployed VMs with a Backup vault. See Back up VMs to Recovery Services vault for details on working with Recovery Services vaults.
+> [!NOTE]
+> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). A Backup vault can only protect Classic-deployed VMs. You cannot protect Resource Manager-deployed VMs with a Backup vault. See Back up VMs to Recovery Services vault for details on working with Recovery Services vaults.
 >
 >
 
@@ -34,7 +34,7 @@ Backing up Azure virtual machines involves three key steps:
 
 ![Three steps to back up an Azure IaaS VM](./media/backup-azure-vms/3-steps-for-backup.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Backing up virtual machines is a local process. You cannot back up virtual machines in one region to a backup vault in another region. So, you must create a backup vault in each Azure region, where there are VMs that will be backed up.
 >
 >
@@ -82,7 +82,7 @@ You register an Azure virtual machine to associate it with the Azure Backup serv
     ![Register button](./media/backup-azure-vms/register-button-only.png)
 4. In the **Register Items** shortcut menu, select the virtual machines that you want to register. If there are two or more virtual machines with the same name, use the cloud service to distinguish between them.
 
-   > [AZURE.TIP]
+   > [!TIP]
    > Multiple virtual machines can be registered at one time.
    >
    >
@@ -115,7 +115,7 @@ Azure Backup vaults created after May 2015 come with a default policy built into
 
     If there are two or more virtual machines with the same name, use the cloud service to distinguish between the virtual machines.
 
-   > [AZURE.TIP]
+   > [!TIP]
    > You can protect multiple virtual machines at one time.
    >
    >
@@ -128,7 +128,7 @@ Azure Backup vaults created after May 2015 come with a default policy built into
 
     ![Protect with new policy](./media/backup-azure-vms/policy-schedule.png)
 
-   > [AZURE.NOTE]
+   > [!NOTE]
    > A backup policy includes a retention scheme for the scheduled backups. If you select an existing backup policy, you cannot modify the retention options in the next step.
    >
    >
@@ -165,7 +165,7 @@ To trigger the initial backup immediately after configuring protection:
 
     ![Backup in progress](./media/backup-azure-vms/protect-inprogress.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > During the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all write jobs and take a consistent snapshot.
 >
 >
@@ -182,9 +182,9 @@ Once protected, the virtual machine count also increases in the **Dashboard** pa
 Values in the dashboard are refreshed once every 24 hours.
 
 ## Troubleshooting errors
-If you run into issues while backing up your virtual machine, look at the [VM     troubleshooting article](/documentation/articles/backup-azure-vms-troubleshoot/) for help.
+If you run into issues while backing up your virtual machine, look at the [VM     troubleshooting article](./backup-azure-vms-troubleshoot.md) for help.
 
 ## Next steps
 
-- [Manage and monitor your virtual machines](/documentation/articles/backup-azure-manage-vms-classic/)
-- [Restore virtual machines](/documentation/articles/backup-azure-restore-vms/)
+- [Manage and monitor your virtual machines](./backup-azure-manage-vms-classic.md)
+- [Restore virtual machines](./backup-azure-restore-vms.md)

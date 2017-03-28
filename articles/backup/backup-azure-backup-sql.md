@@ -1,28 +1,27 @@
-<properties
-	pageTitle="Azure Backup for SQL Server workloads using DPM | Azure"
-	description="An introduction to backing up SQL Server databases using the Azure Backup service"
-	services="backup"
-	documentationCenter=""
-	authors="adigan"
-	manager="Nkolli1"
-	editor=""/>
+---
+title: Azure Backup for SQL Server workloads using DPM | Azure
+description: An introduction to backing up SQL Server databases using the Azure Backup service
+services: backup
+documentationCenter: ''
+authors: adigan
+manager: Nkolli1
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="adigan;giridham; jimpark;markgal;trinadhk"
-	wacn.date=""/>
-
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: adigan;giridham; jimpark;markgal;trinadhk
+wacn.date: ''
+---
 
 # Azure Backup for SQL Server workloads using DPM
 
 This article leads you through the configuration steps for backup of SQL Server databases using Azure Backup.
 
-To back up SQL Server databases to Azure, you need an Azure account. If you don’t have an account, you can create a trial account in just couple of minutes. For details, see [Azure 1rmb-trial](/pricing/1rmb-trial/).
+To back up SQL Server databases to Azure, you need an Azure account. If you don’t have an account, you can create a trial account in just couple of minutes. For details, see [Azure 1rmb-trial](https://www.azure.cn/pricing/1rmb-trial/).
 
 The management of SQL Server database backup to Azure and recovery from Azure involves three steps:
 
@@ -31,7 +30,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 3. Recover the database from Azure.
 
 ## Before you start
-Before you begin, ensure that all the [prerequisites](/documentation/articles/backup-azure-dpm-introduction-classic/#prerequisites/) for using Azure Backup to protect workloads have been met. The prerequisites cover tasks such as: creating a backup vault, downloading vault credentials, installing the Azure Backup Agent, and registering the server with the vault.
+Before you begin, ensure that all the [prerequisites](./backup-azure-dpm-introduction-classic.md#prerequisites) for using Azure Backup to protect workloads have been met. The prerequisites cover tasks such as: creating a backup vault, downloading vault credentials, installing the Azure Backup Agent, and registering the server with the vault.
 
 ## Create a backup policy to protect SQL Server databases to Azure
 
@@ -61,7 +60,8 @@ Before you begin, ensure that all the [prerequisites](/documentation/articles/ba
 
     ![Short term goals](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE] At 8:00 PM (according to the screen input) a backup point is created every day by transferring the data that has been modified from the previous day’s 8:00 PM backup point. This process is called **Express Full Backup**. While the transaction logs are synchronized every 15 minutes, if there is a need to recover the database at 9:00 PM - then the point is created by replaying the logs from the last express full backup point (8pm in this case).
+    >[!NOTE]
+    > At 8:00 PM (according to the screen input) a backup point is created every day by transferring the data that has been modified from the previous day’s 8:00 PM backup point. This process is called **Express Full Backup**. While the transaction logs are synchronized every 15 minutes, if there is a need to recover the database at 9:00 PM - then the point is created by replaying the logs from the last express full backup point (8pm in this case).
 
 8. Click **Next**
 
@@ -97,11 +97,12 @@ Before you begin, ensure that all the [prerequisites](/documentation/articles/ba
 
     In this example, backups are taken once a day at 12:00 PM and 8 PM (bottom part of the screen)
 
-    >[AZURE.NOTE] It’s a good practice to have a few short-term recovery points on disk, for quick recovery. These recovery points are used for “operational recovery". Azure serves as a good offsite location with higher SLAs and guaranteed availability.
+    >[!NOTE]
+    > It’s a good practice to have a few short-term recovery points on disk, for quick recovery. These recovery points are used for “operational recovery". Azure serves as a good offsite location with higher SLAs and guaranteed availability.
 
     **Best Practice**: Make sure that Azure Backups are scheduled after the completion of local disk backups using DPM. This enables the latest disk backup to be copied to Azure.
 
-13. Choose the retention policy schedule. The details on how the retention policy works are provided at [Use Azure Backup to replace your tape infrastructure article](/documentation/articles/backup-azure-backup-cloud-as-tape/).
+13. Choose the retention policy schedule. The details on how the retention policy works are provided at [Use Azure Backup to replace your tape infrastructure article](./backup-azure-backup-cloud-as-tape.md).
 
     ![Retention Policy](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
@@ -170,4 +171,4 @@ The following steps are required to recover a protected entity (SQL Server datab
 
 ### Next Steps:
 
-•	[Azure Backup FAQ](/documentation/articles/backup-azure-backup-faq/)
+•	[Azure Backup FAQ](./backup-azure-backup-faq.md)

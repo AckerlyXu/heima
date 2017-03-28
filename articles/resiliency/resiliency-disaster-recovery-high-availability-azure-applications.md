@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Disaster Recovery and High Availability for Azure Applications | Azure"
-    description="Technical overviews and depth information on designing applications for high availability and disaster recovery of applications built on Azure."
-    services=""
-    documentationcenter="na"
-    author="adamglick"
-    manager="saladki"
-    editor="" />
-<tags
-    ms.assetid="e13d5f49-2b91-44ba-829a-1e0f1fceaae8"
-    ms.service="resiliency"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/18/2016"
-    wacn.date=""
-    ms.author="aglick" />
+---
+title: Disaster Recovery and High Availability for Azure Applications | Azure
+description: Technical overviews and depth information on designing applications for high availability and disaster recovery of applications built on Azure.
+services: ''
+documentationcenter: na
+author: adamglick
+manager: saladki
+editor: ''
+
+ms.assetid: e13d5f49-2b91-44ba-829a-1e0f1fceaae8
+ms.service: resiliency
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/18/2016
+wacn.date: ''
+ms.author: aglick
+---
 
 # Disaster recovery and high availability for applications built on Azure
 
@@ -61,7 +62,7 @@ Consider the following SLAs for an Azure service that uses Azure services: Compu
 
 You must plan for all services to potentially go down at different times. In this simplified example, the total number of minutes per month that the application could be down is 108 minutes. A 30-day month has a total of 43,200 minutes. 108 minutes is .25 percent of the total number of minutes in a 30-day month (43,200 minutes). This gives you an effective availability of 99.75 percent for the cloud service.
 
-However, using availability techniques described in this paper can improve this. For example, if you design your application to continue running when the SQL Database is unavailable, you can remove that from the equation. This might mean that the application runs with reduced capabilities, so there are also business requirements to consider. For a complete list of Azure SLAs, see [Service Level Agreements](/support/legal/sla/).
+However, using availability techniques described in this paper can improve this. For example, if you design your application to continue running when the SQL Database is unavailable, you can remove that from the equation. This might mean that the application runs with reduced capabilities, so there are also business requirements to consider. For a complete list of Azure SLAs, see [Service Level Agreements](https://www.azure.cn/support/legal/sla/).
 
 ### Scalability
 
@@ -89,7 +90,7 @@ The RPO is the acceptable time window of lost data due to the recovery process. 
 
 ## Checklist
 
-Let's summarize the key points that have been covered in this article (and its related articles on [high availability](/documentation/articles/resiliency-high-availability-azure-applications/) and [disaster recovery](/documentation/articles/resiliency-disaster-recovery-azure-applications/) for Azure applications). This summary will act as a checklist of items you should consider for your own availability and disaster recovery planning. These are best practices that have been useful for customers seeking to get serious about implementing a successful solution.
+Let's summarize the key points that have been covered in this article (and its related articles on [high availability](./resiliency-high-availability-azure-applications.md) and [disaster recovery](./resiliency-disaster-recovery-azure-applications.md) for Azure applications). This summary will act as a checklist of items you should consider for your own availability and disaster recovery planning. These are best practices that have been useful for customers seeking to get serious about implementing a successful solution.
 
 1. Conduct a risk assessment for each application, because each can have different requirements. Some applications are more critical than others and would justify the extra cost to architect them for disaster recovery.
 2. Use this information to define the RTO and RPO for each application.
@@ -114,15 +115,15 @@ When creating your application's availability and disaster recovery plan, consid
 
 ## Additional resources
 
-[High availability for applications built on Azure](/documentation/articles/resiliency-high-availability-azure-applications/)
+[High availability for applications built on Azure](./resiliency-high-availability-azure-applications.md)
 
-[Disaster recovery for applications built on Azure](/documentation/articles/resiliency-disaster-recovery-azure-applications/)
+[Disaster recovery for applications built on Azure](./resiliency-disaster-recovery-azure-applications.md)
 
-[Azure resiliency technical guidance](/documentation/articles/resiliency-technical-guidance/)
+[Azure resiliency technical guidance](./resiliency-technical-guidance.md)
 
-[Overview: Cloud business continuity and database disaster recovery with SQL Database](/documentation/articles/sql-database-business-continuity/)
+[Overview: Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md)
 
-[High availability and disaster recovery for SQL Server in Azure Virtual Machines](/documentation/articles/virtual-machines-windows-sql-high-availability-dr/)
+[High availability and disaster recovery for SQL Server in Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)
 
 [Failsafe: Guidance for resilient cloud architectures](https://channel9.msdn.com/Series/FailSafe)
 
@@ -130,4 +131,4 @@ When creating your application's availability and disaster recovery plan, consid
 
 ## Next steps
 
-This article is part of a series of articles focused on disaster recovery and high availability for Azure applications. The next article in this series is [High availability for applications built on Azure](/documentation/articles/resiliency-high-availability-azure-applications/).
+This article is part of a series of articles focused on disaster recovery and high availability for Azure applications. The next article in this series is [High availability for applications built on Azure](./resiliency-high-availability-azure-applications.md).

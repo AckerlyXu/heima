@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Stream Analytics Release Notes | Azure"
-    description="Stream Analytics Release Notes"
-    services="stream-analytics"
-    documentationcenter=""
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="5e59f893-cd2c-43fb-9eca-c146ce637203"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="02/01/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Stream Analytics Release Notes | Azure
+description: Stream Analytics Release Notes
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 02/01/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Stream Analytics release notes
 ## Notes for 02/01/2017 release of Stream Analytics
@@ -23,9 +24,9 @@ This release contains the following update.
 
 | Title | Description |
 | --- | --- |
-| Introducing JavaScript User-Defined Functions (UDF) |[Java User-Defined Functions](/documentation/articles/stream-analytics-javascript-user-defined-functions/) are now available for additional flexibility in creating queries. |
-| Introducing tools for Visual Studio and Stream Analytics |[Tools for Visual Studio](/documentation/articles/stream-analytics-tools-for-visual-studio/) are now available for debugging and greater utility. |
-| Introducing Diagnostic Logging |[Diagnostic logging](/documentation/articles/stream-analytics-job-diagnostic-logs/) is now available for additional troubleshooting options. |
+| Introducing JavaScript User-Defined Functions (UDF) |[Java User-Defined Functions](./stream-analytics-javascript-user-defined-functions.md) are now available for additional flexibility in creating queries. |
+| Introducing tools for Visual Studio and Stream Analytics |[Tools for Visual Studio](./stream-analytics-tools-for-visual-studio.md) are now available for debugging and greater utility. |
+| Introducing Diagnostic Logging |[Diagnostic logging](./stream-analytics-job-diagnostic-logs.md) is now available for additional troubleshooting options. |
 | Introducing GeoSpatial Functions |[GeoSpatial Functions](http://msdn.microsoft.com/zh-cn/library/mt778980(Azure.100).aspx) are now generally available. |
 
 ## Notes for 04/15/2016 release of Stream Analytics
@@ -33,7 +34,7 @@ This release contains the following update.
 
 | Title | Description |
 | --- | --- |
-| General Availability for Power BI outputs |[Power BI outputs](/documentation/articles/stream-analytics-power-bi-dashboard/) are now Generally Available. The 90 day authorization expiration for Power BI has been removed. For more information on scenarios where authorization needs to be renewed see the [Renew authorization](/documentation/articles/stream-analytics-power-bi-dashboard/#renew-authorization) section of Creating a Power BI dashboard. |
+| General Availability for Power BI outputs |[Power BI outputs](./stream-analytics-power-bi-dashboard.md) are now Generally Available. The 90 day authorization expiration for Power BI has been removed. For more information on scenarios where authorization needs to be renewed see the [Renew authorization](./stream-analytics-power-bi-dashboard.md#renew-authorization) section of Creating a Power BI dashboard. |
 
 ## Notes for 03/03/2016 release of Stream Analytics
 This release contains the following update.
@@ -48,14 +49,14 @@ This release contains the following update.
 | Title | Description |
 | --- | --- |
 | REST API version update |The REST API version has been updated to 2015-10-01. Details can be found on MSDN at [Stream Analytics Management REST API Reference](https://docs.microsoft.com/zh-cn/rest/api/streamanalytics/) and [Machine Learning integration in Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md). |
-| Azure Machine Learning Integration |With this release comes support for Azure Machine Learning user defined functions. See the [tutorial](/documentation/articles/stream-analytics-machine-learning-integration-tutorial/) for more information as well as the [general blog announcement](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
+| Azure Machine Learning Integration |With this release comes support for Azure Machine Learning user defined functions. See the [tutorial](./stream-analytics-machine-learning-integration-tutorial.md) for more information as well as the [general blog announcement](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
 
 ## Notes for 11/12/2015 release of Stream Analytics
 This release contains the following update.
 
 | Title | Description |
 | --- | --- |
-| New behavior of SELECT |SELECT in Stream Analytics has been extended to allow * as a property accessor of a nested record. For further information, consult [http://msdn.microsoft.com/zh-cn/library/mt622759.aspx](http://msdn.microsoft.com/zh-cn/library/mt622759.aspx "Complex Data Types"). |
+| New behavior of SELECT |SELECT in Stream Analytics has been extended to allow * as a property accessor of a nested record. For further information, consult [http://msdn.microsoft.com/zh-cn/library/mt622759.aspx "Complex Data Types"](http://msdn.microsoft.com/zh-cn/library/mt622759.aspx "Complex Data Types"). |
 
 ## Notes for 10/22/2015 release of Stream Analytics
 
@@ -68,7 +69,6 @@ This release contains the following updates.
 | Added GROUP BY System.Timestamp feature |The [GROUP BY](https://msdn.microsoft.com/zh-cn/library/azure/dn835023.aspx) function now allows for either window_type or [System.Timestamp](https://msdn.microsoft.com/zh-cn/library/azure/mt598501.aspx). |
 | Added OFFSET for Tumbling and Hopping windows |By default, [Tumbling](https://msdn.microsoft.com/zh-cn/library/azure/dn835055.aspx) and [Hopping](https://msdn.microsoft.com/zh-cn/library/azure/dn835041.aspx) windows are aligned against zero time (1/1/0001 12:00:00 AM UTC). The new (optional) parameter 'offsetsize' allows specifying a custom offset (or alignment). |
 
-
 ## Notes for 09/29/2015 release of Stream Analytics
 
 This release contains the following updates.
@@ -77,7 +77,7 @@ This release contains the following updates.
 | --- | --- |
 | Azure IoT Suite Public Preview |Stream Analytics is included in the Public Preview of the Azure IoT Suite. |
 | Azure Portal Preview integration |In addition to continued presence in the Azure Management portal, Stream Analytics is now integrated in the [Azure Portal Preview](http://portal.azure.cn). Note that Stream Analytics functionality in the Portal Preview is currently a subset of the functionality offered in the Azure Management portal, without support for in-browser query testing, Power BI output configuration, and browsing to or creating new input and output resources in subscriptions you have access to. |
-| Support for DocumentDB output |Stream Analytics jobs can now output to [DocumentDB](/home/features/documentdb/). |
+| Support for DocumentDB output |Stream Analytics jobs can now output to [DocumentDB](https://www.azure.cn/home/features/documentdb/). |
 | Support for IoT Hub input |Stream Analytics jobs can now ingest data from IoT Hubs. |
 | TIMESTAMP BY for heterogeneous events |When a single data stream contains multiple event types having timestamps in different fields, you can now use [TIMESTAMP BY](http://msdn.microsoft.com/zh-cn/library/mt573293.aspx) with expressions to specify different timestamp fields for each case. |
 
@@ -87,7 +87,7 @@ This release contains the following updates.
 
 | Title | Description |
 | --- | --- |
-| Support for PowerBI groups |To enable sharing data with other Power BI users, Stream Analytics jobs can now write to [PowerBI groups](/documentation/articles/stream-analytics-define-outputs/#power-bi) inside your Power BI account. |
+| Support for PowerBI groups |To enable sharing data with other Power BI users, Stream Analytics jobs can now write to [PowerBI groups](./stream-analytics-define-outputs.md#power-bi) inside your Power BI account. |
 
 ## Notes for 08/20/2015 release of Stream Analytics
 
@@ -104,9 +104,9 @@ This release contains the following updates.
 
 | Title | Description |
 | --- | --- |
-| Power BI Org Id decoupled from Azure Id |This feature enables [Power BI output](/documentation/articles/stream-analytics-power-bi-dashboard/) for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output. |
-| Support for Service Bus Queues output |[Service Bus Queues](/documentation/articles/stream-analytics-define-outputs/#service-bus-queues) outputs are now available in Stream Analytics jobs. |
-| Support for Service Bus Topics output |[Service Bus Topics](/documentation/articles/stream-analytics-define-outputs/#service-bus-topics) outputs are now available in Stream Analytics jobs. |
+| Power BI Org Id decoupled from Azure Id |This feature enables [Power BI output](./stream-analytics-power-bi-dashboard.md) for ASA jobs under any Azure account type (Live Id or Org Id). Additionally, you can have one Org Id for your Azure account and use a different one for authorizing Power BI output. |
+| Support for Service Bus Queues output |[Service Bus Queues](./stream-analytics-define-outputs.md#service-bus-queues) outputs are now available in Stream Analytics jobs. |
+| Support for Service Bus Topics output |[Service Bus Topics](./stream-analytics-define-outputs.md#service-bus-topics) outputs are now available in Stream Analytics jobs. |
 
 ## Notes for 07/09/2015 release of Stream Analytics
 This release contains the following updates.
@@ -142,8 +142,8 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 ## Next steps
 
-* [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/)
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)

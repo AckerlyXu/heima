@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Upgrade from Mobile Services to Azure App Service - Node.js"
-	description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App"
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="adrianhall"
-	manager="yochayk"
-	editor=""/>
+---
+title: Upgrade from Mobile Services to Azure App Service - Node.js
+description: Learn how to easily upgrade your Mobile Services application to an App Service Mobile App
+services: app-service\mobile
+documentationCenter: ''
+authors: adrianhall
+manager: yochayk
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile"
-	ms.devlang="node"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile
+ms.devlang: node
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: adrianha
+---
 
 # Upgrade your existing Node.js Azure Mobile Service to App Service
 
@@ -22,15 +22,16 @@ App Service Mobile is a new way to build mobile applications using Azure. To lea
 
 This topic describes how to upgrade an existing Node.js backend application from Azure Mobile Services to a new App Service 
 Mobile Apps. While you perform this upgrade, your existing Mobile Services application can continue to operate.  If you
-need to upgrade a Node.js backend application, refer to [Upgrading your .NET Mobile Services](/documentation/articles/app-service-mobile-net-upgrading-from-mobile-services/).
+need to upgrade a Node.js backend application, refer to [Upgrading your .NET Mobile Services](./app-service-mobile-net-upgrading-from-mobile-services.md).
 
 When a mobile backend is upgraded to Azure App Service, it has access to all App Service features and are billed according to [App Service pricing], not Mobile Services pricing.
 
 ## Migrate vs. upgrade
 
-[AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
+[!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP] It is recommended that you [perform a migration](/documentation/articles/app-service-mobile-migrating-from-mobile-services/) before going 
+>[!TIP]
+> It is recommended that you [perform a migration](./app-service-mobile-migrating-from-mobile-services.md) before going 
 through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional 
 cost.
 
@@ -122,13 +123,12 @@ During deployment, you will need to do the following:
 2. Click **+NEW** > **Web + Mobile** > **Mobile App**, then provide a name for your Mobile App backend.
 
 3. For the **Resource Group**, select an existing resource group, or create a new one (using the same name as your app.) 
- 
-	You can either select another App Service plan or create a new one. For more about App Services plans and how to create a new plan in a different pricing tier and in your desired location, see [Azure App Service plans in-depth overview](/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/).
 
-4. For the **App Service plan**, the default plan (in the [Standard tier](/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/#create-an-app-service-plan). The App Service plan's settings determine the [location, features, cost and compute resources](/pricing/details/app-service/) associated with your app. 
+    You can either select another App Service plan or create a new one. For more about App Services plans and how to create a new plan in a different pricing tier and in your desired location, see [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-	After you decide on the plan, click **Create**. This creates the Mobile App backend. 
+4. For the **App Service plan**, the default plan (in the [Standard tier](https://www.azure.cn/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). The App Service plan's settings determine the [location, features, cost and compute resources](https://www.azure.cn/pricing/details/app-service/) associated with your app. 
 
+    After you decide on the plan, click **Create**. This creates the Mobile App backend. 
 
 ### Run CreateViews.SQL
 
@@ -153,7 +153,6 @@ Link the existing database to your App Service:
 The username and password can be found by viewing the Connection String for the target database in your 
 migrated Mobile Service.
 
-
 ### Set up authentication
 
 Azure Mobile Apps allows you to configure Azure Active Directory and Microsoft
@@ -172,16 +171,18 @@ One of the main changes between the versions is that the constructors no longer 
 You now simply pass in the URL of your Mobile App. For example, on the .NET clients, the `MobileServiceClient` 
 constructor is now:
 
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.chinacloudsites.cn", // URL of the Mobile App
-        );
+```
+    public static MobileServiceClient MobileService = new MobileServiceClient(
+        "https://contoso.chinacloudsites.cn", // URL of the Mobile App
+    );
+```
 
 You can read about installing the new SDKs and using the new structure via the links below:
 
-- [Android version 2.2 or later](/documentation/articles/app-service-mobile-android-how-to-use-client-library/)
-- [iOS version 3.0.0 or later](/documentation/articles/app-service-mobile-ios-how-to-use-client-library/)
-- [.NET (Windows/Xamarin) version 2.0.0 or later](/documentation/articles/app-service-mobile-dotnet-how-to-use-client-library/)
-- [Apache Cordova version 2.0 or later](/documentation/articles/app-service-mobile-cordova-how-to-use-client-library/)
+- [Android version 2.2 or later](./app-service-mobile-android-how-to-use-client-library.md)
+- [iOS version 3.0.0 or later](./app-service-mobile-ios-how-to-use-client-library.md)
+- [.NET (Windows/Xamarin) version 2.0.0 or later](./app-service-mobile-dotnet-how-to-use-client-library.md)
+- [Apache Cordova version 2.0 or later](./app-service-mobile-cordova-how-to-use-client-library.md)
 
 If your application makes use of push notifications, make note of the specific registration instructions for 
 each platform, as there have been some changes there as well.
@@ -195,21 +196,21 @@ completely upgraded to an App Service Mobile App using the latest Mobile Apps se
 
 [Azure portal]: https://portal.azure.cn/
 [Azure Classic Management Portal]: https://manage.windowsazure.cn/
-[What are Mobile Apps?]: /documentation/articles/app-service-mobile-value-prop/
-[I already use web sites and mobile services - how does App Service help me?]: /documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
+[What are Mobile Apps?]: ./app-service-mobile-value-prop.md
+[I already use web sites and mobile services - how does App Service help me?]: ./app-service-mobile-value-prop-migration-from-mobile-services.md
 [Mobile App Server SDK]: https://www.npmjs.com/package/azure-mobile-apps
-[Create a Mobile App]: /documentation/articles/app-service-mobile-xamarin-ios-get-started/
-[Add push notifications to your mobile app]: /documentation/articles/app-service-mobile-xamarin-ios-get-started-push/
-[Add authentication to your mobile app]: /documentation/articles/app-service-mobile-xamarin-ios-get-started-users/
-[Azure Scheduler]: /documentation/services/scheduler/
-[Web Job]: /documentation/articles/websites-webjobs-resources/
-[How to use the .NET server SDK]: /documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/
-[Migrate from Mobile Services to an App Service Mobile App]: /documentation/articles/app-service-mobile-migrating-from-mobile-services/
-[Migrate your existing Mobile Service to App Service]: /documentation/articles/app-service-mobile-migrating-from-mobile-services/
-[App Service pricing]: /pricing/details/app-service/
-[.NET server SDK overview]: /documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/
-[Authentication Concepts]: /documentation/articles/app-service-authentication-overview/
-[Authentication Quickstart]: /documentation/articles/app-service-mobile-auth/
+[Create a Mobile App]: ./app-service-mobile-xamarin-ios-get-started.md
+[Add push notifications to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-push.md
+[Add authentication to your mobile app]: ./app-service-mobile-xamarin-ios-get-started-users.md
+[Azure Scheduler]: ../scheduler/index.md
+[Web Job]: ../app-service-web/websites-webjobs-resources.md
+[How to use the .NET server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Migrate from Mobile Services to an App Service Mobile App]: ./app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: ./app-service-mobile-migrating-from-mobile-services.md
+[App Service pricing]: https://www.azure.cn/pricing/details/app-service/
+[.NET server SDK overview]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Authentication Concepts]: ../app-service/app-service-authentication-overview.md
+[Authentication Quickstart]: ./app-service-mobile-auth.md
 
 [Azure Portal]: https://portal.azure.cn/
 [OData]: http://www.odata.org

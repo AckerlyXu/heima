@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Operating system functionality on Azure App Service"
-    description="Learn about the OS functionality available to web apps, mobile app backends, and API apps on Azure App Service"
-    services="app-service"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor="mollybos" />
-<tags
-    ms.assetid="39d5514f-0139-453a-b52e-4a1c06d8d914"
-    ms.service="app-service"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/01/2016"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Operating system functionality on Azure App Service
+description: Learn about the OS functionality available to web apps, mobile app backends, and API apps on Azure App Service
+services: app-service
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: mollybos
+
+ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
+ms.service: app-service
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/01/2016
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Operating system functionality on Azure App Service
-This article describes the common baseline operating system functionality that is available to all apps running on [Azure App Service](/documentation/articles/app-service-changes-existing-services/). This functionality includes file, network, and registry access, and diagnostics logs and events. 
+This article describes the common baseline operating system functionality that is available to all apps running on [Azure App Service](./app-service-changes-existing-services.md). This functionality includes file, network, and registry access, and diagnostics logs and events. 
 
 ## <a id="tiers"></a> App Service plan tiers
 App Service runs customer apps in a multi-tenant hosting environment. Apps deployed in the **Free** and **Shared** tiers run in worker processes on shared virtual machines, while apps deployed in the **Standard** and **Premium** tiers run on virtual machine(s) dedicated specifically for the apps associated with a single customer.

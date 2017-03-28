@@ -1,21 +1,22 @@
-<properties
-    pageTitle="What to do in the event of an Azure service disruption that affects Azure Key Vault | Azure"
-    description="Learn what to do in the event of an Azure service disruption that affects Azure Key Vault."
-    services="key-vault"
-    documentationcenter=""
-    author="adamglick"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="19a9af63-3032-447b-9d1a-b0125f384edb"
-    ms.service="key-vault"
-    ms.workload="key-vault"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="sumedhb;aglick" />
+---
+title: What to do in the event of an Azure service disruption that affects Azure Key Vault | Azure
+description: Learn what to do in the event of an Azure service disruption that affects Azure Key Vault.
+services: key-vault
+documentationcenter: ''
+author: adamglick
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 19a9af63-3032-447b-9d1a-b0125f384edb
+ms.service: key-vault
+ms.workload: key-vault
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: sumedhb;aglick
+---
 
 # Azure Key Vault availability and redundancy
 Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
@@ -44,4 +45,3 @@ There are a few caveats to be aware of:
   - Sign
   - Backup
 - After a failover is failed back, all request types (including read *and* write requests) are available.
-

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="How to create a data analytics processing job for Stream Analytics | Azure"
-    description="Create a data analytics processing job for Stream Analytics | learning path segment."
-    keywords="data analytics processing"
-    documentationcenter=""
-    services="stream-analytics"
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="e825fbcf-69e9-443f-b402-3b7a4568f415"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: How to create a data analytics processing job for Stream Analytics | Azure
+description: Create a data analytics processing job for Stream Analytics | learning path segment.
+keywords: data analytics processing
+documentationcenter: ''
+services: stream-analytics
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # How to create a data analytics processing job for Stream Analytics
 
@@ -53,8 +54,8 @@ To start using Stream Analytics, begin by creating a new Stream Analytics job.  
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/)
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)

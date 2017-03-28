@@ -1,4 +1,3 @@
-
 1. In Visual Studio Solution Explorer, right-click the Windows Store app project, and click **Store** > **Associate App with the Store**.
 
     ![Associate app with Windows Store](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)
@@ -10,4 +9,5 @@
 
     ![App setting in the developer center](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
 
-    > [AZURE.IMPORTANT] The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+    > [!IMPORTANT]
+    > The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.

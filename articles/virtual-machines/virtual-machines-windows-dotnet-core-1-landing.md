@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Azure Windows Virtual Machine DotNet Core Tutorial 1 | Azure"
-    description="Azure Virtual Machine DotNet Core Tutorial"
-    services="virtual-machines-windows"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="14d5f250-1f76-49d4-898f-07b58fd39e7c"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure-services"
-    ms.date="11/21/2016"
-    wacn.date=""
-    ms.author="nepeters"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Azure Windows Virtual Machine DotNet Core Tutorial 1 | Azure
+description: Azure Virtual Machine DotNet Core Tutorial
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: 14d5f250-1f76-49d4-898f-07b58fd39e7c
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 11/21/2016
+wacn.date: ''
+ms.author: nepeters
+ms.custom: H1Hack27Feb2017
+---
 
 # Automating application deployments to Windows Virtual Machines
 
@@ -32,17 +33,18 @@ The Music Store Resource Manager template can be found here, [Music Store Window
 
 Each of these components, including the associate template JSON is examined in the following four articles.
 
-* [**Application Architecture**](/documentation/articles/virtual-machines-windows-dotnet-core-2-architecture/) - Application components such as web sites and databases need to be hosted on Azure computer resources such as virtual machines and Azure SQL databases. This document walks through mapping compute need, to Azure resources, and deploying these resources with an Azure Resource Manager template. 
-* [**Access and Security**](/documentation/articles/virtual-machines-windows-dotnet-core-3-access-security/) - When hosting applications in Azure, it is necessary to consider how the application is accessed, and how different application components access each other. This document details providing and securing internet access to an application and access between application components.
-* [**Availability and Scale**](/documentation/articles/virtual-machines-windows-dotnet-core-4-availability-scale/) - Availability and scale refer to the applications ability to stay running during infrastructure downtime, and the ability to scale compute resources to meet application demand. This document details the components needed to deploy a load balanced and highly available application.
-* [**Application Deployment**](/documentation/articles/virtual-machines-windows-dotnet-core-5-app-deployment/) - When deploying applications onto Azure Virtual Machines, the method by which the application binaries are installed on the Virtual Machine must be considered. This document details automating application installation using Azure Virtual Machine Custom Script Extensions.
+* [**Application Architecture**](./virtual-machines-windows-dotnet-core-2-architecture.md) - Application components such as web sites and databases need to be hosted on Azure computer resources such as virtual machines and Azure SQL databases. This document walks through mapping compute need, to Azure resources, and deploying these resources with an Azure Resource Manager template. 
+* [**Access and Security**](./virtual-machines-windows-dotnet-core-3-access-security.md) - When hosting applications in Azure, it is necessary to consider how the application is accessed, and how different application components access each other. This document details providing and securing internet access to an application and access between application components.
+* [**Availability and Scale**](./virtual-machines-windows-dotnet-core-4-availability-scale.md) - Availability and scale refer to the applications ability to stay running during infrastructure downtime, and the ability to scale compute resources to meet application demand. This document details the components needed to deploy a load balanced and highly available application.
+* [**Application Deployment**](./virtual-machines-windows-dotnet-core-5-app-deployment.md) - When deploying applications onto Azure Virtual Machines, the method by which the application binaries are installed on the Virtual Machine must be considered. This document details automating application installation using Azure Virtual Machine Custom Script Extensions.
 
 The goal when developing Azure Resource Manager templates is to automate the deployment of Azure Infrastructure, and the installation and configuration of any applications being hosted on this Azure infrastructure. Working through these articles provides an example of this experience.
 
 ## Deploy the music store application
 The Music Store application can be deployed using this button.
 
->[AZURE.NOTE] Templates you downloaded must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn", and "database.windows.net" by "database.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+>[!NOTE]
+> Templates you downloaded must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn", and "database.windows.net" by "database.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
 
 <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fdotnet-core-sample-templates%2Fmaster%2Fdotnet-core-music-windows%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
@@ -62,10 +64,10 @@ When the template deployment has completed, browse to the public IP Address usin
 ## Next steps
 <hr>
 
-[Step 1 - Application Architecture with Azure Resource Manager Templates](/documentation/articles/virtual-machines-windows-dotnet-core-2-architecture/)
+[Step 1 - Application Architecture with Azure Resource Manager Templates](./virtual-machines-windows-dotnet-core-2-architecture.md)
 
-[Step 2 - Access and Security in Azure Resource Manager Templates](/documentation/articles/virtual-machines-windows-dotnet-core-3-access-security/)
+[Step 2 - Access and Security in Azure Resource Manager Templates](./virtual-machines-windows-dotnet-core-3-access-security.md)
 
-[Step 3 - Availability and Scale in Azure Resource Manager Templates](/documentation/articles/virtual-machines-windows-dotnet-core-4-availability-scale/)
+[Step 3 - Availability and Scale in Azure Resource Manager Templates](./virtual-machines-windows-dotnet-core-4-availability-scale.md)
 
-[Step 4 - Application Deployment with Azure Resource Manager Templates](/documentation/articles/virtual-machines-windows-dotnet-core-5-app-deployment/)
+[Step 4 - Application Deployment with Azure Resource Manager Templates](./virtual-machines-windows-dotnet-core-5-app-deployment.md)

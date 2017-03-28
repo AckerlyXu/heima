@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure PowerShell Script Sample - Scale a web app manually | Azure"
-    description="Azure PowerShell Script Sample - Scale a web app manually"
-    services="app-service\web"
-    documentationcenter=""
-    author="syntaxc4"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="de5d4285-9c7d-4735-a695-288264047375"
-    ms.service="app-service"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="web"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cfowler" />
+---
+title: Azure PowerShell Script Sample - Scale a web app manually | Azure
+description: Azure PowerShell Script Sample - Scale a web app manually
+services: app-service\web
+documentationcenter: ''
+author: syntaxc4
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: de5d4285-9c7d-4735-a695-288264047375
+ms.service: app-service
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cfowler
+---
 
 # Scale a web app manually
 
@@ -26,31 +27,35 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-    # Generates a Random Value
-    $Random=(New-Guid).ToString().Substring(0,8)
+```
+# Generates a Random Value
+$Random=(New-Guid).ToString().Substring(0,8)
 
-    # Variables
-    $ResourceGroupName="myResourceGroup$random"
-    $AppName="AppServiceManualScale$random"
-    $Location="ChinaNorth"
+# Variables
+$ResourceGroupName="myResourceGroup$random"
+$AppName="AppServiceManualScale$random"
+$Location="ChinaNorth"
 
-    # Create a Resource Group
-    New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
+# Create a Resource Group
+New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
 
-    # Create an App Service Plan
-    New-AzureRMAppservicePlan -Name AppServiceManualScalePlan -ResourceGroupName $ResourceGroupName -Location $Location -Tier Basic
+# Create an App Service Plan
+New-AzureRMAppservicePlan -Name AppServiceManualScalePlan -ResourceGroupName $ResourceGroupName -Location $Location -Tier Basic
 
-    # Create a Web App in the App Service Plan
-    New-AzureRMWebApp -Name $AppName -ResourceGroupName $ResourceGroup -Location $Location -AppServicePlan AppServiceManualScalePlan
+# Create a Web App in the App Service Plan
+New-AzureRMWebApp -Name $AppName -ResourceGroupName $ResourceGroup -Location $Location -AppServicePlan AppServiceManualScalePlan
 
-    # Scale Web App to 2 Workers
-    Set-AzureRMAppServicePlan -NumberofWorkers 2 -Name AppServiceManualScalePlan -ResourceGroupName $ResourceGroupName
+# Scale Web App to 2 Workers
+Set-AzureRMAppServicePlan -NumberofWorkers 2 -Name AppServiceManualScalePlan -ResourceGroupName $ResourceGroupName
+```
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
-    Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## Script explanation
 
@@ -67,4 +72,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](/documentation/articles/app-service-powershell-samples/).
+Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

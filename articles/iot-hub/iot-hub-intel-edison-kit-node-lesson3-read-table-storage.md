@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Read messages persisted in Azure Storage | Azure"
-    description="Monitor the device-to-cloud messages as they are written to your Azure Table storage."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="data in the cloud, cloud data collection, iot cloud service, iot data" />
-<tags
-    ms.assetid="fa2c7efe-7e34-4e39-bb70-015c15ac69ed"
-    ms.service="iot-hub"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Read messages persisted in Azure Storage | Azure
+description: Monitor the device-to-cloud messages as they are written to your Azure Table storage.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: data in the cloud, cloud data collection, iot cloud service, iot data
+
+ms.assetid: fa2c7efe-7e34-4e39-bb70-015c15ac69ed
+ms.service: iot-hub
+ms.devlang: nodejs
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Read messages persisted in Azure Storage
 ## What you will do
@@ -69,7 +70,7 @@ You've successfully connected Edison to your IoT hub in the cloud and used the b
 [Run a sample application to receive cloud-to-device messages][receive-cloud-to-device-messages]
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-node-troubleshooting/
-[run-the-azure-blink-sample-application-on-intel-edison]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson3-run-azure-blink/
+[troubleshooting]: ./iot-hub-intel-edison-kit-node-troubleshooting.md
+[run-the-azure-blink-sample-application-on-intel-edison]: ./iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md
 [gulp run]: ./media/iot-hub-intel-edison-lessons/lesson3/gulp_read_message.png
-[receive-cloud-to-device-messages]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages/
+[receive-cloud-to-device-messages]: ./iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md

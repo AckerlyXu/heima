@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Debugging an Azure cloud service or virtual machine in Visual Studio | Azure"
-    description="Debugging a Cloud Service or Virtual Machine in Visual Studio"
-    services="visual-studio-online"
-    documentationcenter="na"
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="945e06e0-2100-41af-b218-72347367ddab"
-    ms.service="visual-studio-online"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="11/11/2016"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: Debugging an Azure cloud service or virtual machine in Visual Studio | Azure
+description: Debugging a Cloud Service or Virtual Machine in Visual Studio
+services: visual-studio-online
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
+ms.service: visual-studio-online
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 11/11/2016
+wacn.date: ''
+ms.author: tarcher
+---
 
 # Debugging an Azure cloud service or virtual machine in Visual Studio
 Visual Studio gives you different options for debugging Azure cloud services and virtual machines.
@@ -41,7 +42,7 @@ To debug a cloud service from a remote machine, you must enable that functionali
 
 If you enable remote debugging for a cloud service, it doesn't exhibit degraded performance or incur additional charges. You shouldn't use remote debugging on a production service, because clients who use the service might be adversely affected.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When you publish a cloud service from Visual Studio, you can enable **IntelliTrace** for any roles in that service that target the .NET Framework 4 or the .NET Framework 4.5. By using **IntelliTrace**, you can examine events that occurred in a role instance in the past and reproduce the context from that time. See [Debugging a published cloud service with IntelliTrace and Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016) and [Using IntelliTrace](https://msdn.microsoft.com/zh-cn/library/dd264915.aspx).
 >
 >
@@ -71,7 +72,7 @@ If you enable remote debugging for a cloud service, it doesn't exhibit degraded 
 
     ![Debug Processes](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC690787.gif)
 
-> [AZURE.WARNING]
+> [!WARNING]
 > Avoid long stops at breakpoints when remote debugging. Azure treats a process that's stopped for longer than a few minutes as unresponsive and stops sending traffic to that instance. If you stop for too long, msvsmon.exe detaches from the process.
 >
 >
@@ -91,7 +92,7 @@ From Azure SDK 2.3, remote debugging has the following limitations.
 ## Debugging Azure virtual machines
 You can debug programs that run on Azure virtual machines by using Server Explorer in Visual Studio. When you enable remote debugging on an Azure virtual machine, Azure installs the remote debugging extension on the virtual machine. Then, you can attach to processes on the virtual machine and debug as you normally would.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Virtual machines created through the Azure resource manager stack can be remotely debugged by using Cloud Explorer in Visual Studio 2015. For more information, see [Managing Azure Resources with Cloud Explorer](http://go.microsoft.com/fwlink/?LinkId=623031).
 >
 >

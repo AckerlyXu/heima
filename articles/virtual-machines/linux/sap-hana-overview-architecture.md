@@ -1,34 +1,35 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Overview and Architecture of SAP HANA on Azure (Large Instances) | Azure"
-    description="Architectural Overview of how to Deploy SAP HANA on Azure (Large Instances)."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="RicksterCDN"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="virtual-machines-linux"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="12/01/2016"
-    wacn.date=""
-    ms.author="rclaus"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Overview and Architecture of SAP HANA on Azure (Large Instances) | Azure
+description: Architectural Overview of how to Deploy SAP HANA on Azure (Large Instances).
+services: virtual-machines-linux
+documentationcenter: ''
+author: RicksterCDN
+manager: timlt
+editor: ''
+
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 12/01/2016
+wacn.date: ''
+ms.author: rclaus
+ms.custom: H1Hack27Feb2017
+---
 
 # SAP HANA (large instances) overview and architecture on Azure 
 This is a five-part architecture and technical deployment guide that provides information to help you deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure. It is not comprehensive, and does not cover specific details involving setup of SAP solutions. Instead, gives valuable information to help with your initial deployment and ongoing operations. Do not use it to replace SAP documentation related to the installation of SAP HANA (or the many SAP Support Notes that cover the topic). It also provides detail on installing SAP HANA on Azure (Large Instances).
 
 The five parts of this guide cover the following topics:
 
-- [Overview and architecture](/documentation/articles/sap-hana-overview-architecture/)
-- [Infrastructure and connectivity](/documentation/articles/sap-hana-overview-infrastructure-connectivity/)
-- [SAP HANA installation](/documentation/articles/sap-hana-overview-sap-hana-installation/)
-- [High Availability and Disaster Recovery](/documentation/articles/sap-hana-overview-high-availability-disaster-recovery/)
-- [Troubleshooting and monitoring](/documentation/articles/sap-hana-overview-troubleshooting-monitoring/)
+- [Overview and architecture](./sap-hana-overview-architecture.md)
+- [Infrastructure and connectivity](./sap-hana-overview-infrastructure-connectivity.md)
+- [SAP HANA installation](./sap-hana-overview-sap-hana-installation.md)
+- [High Availability and Disaster Recovery](./sap-hana-overview-high-availability-disaster-recovery.md)
+- [Troubleshooting and monitoring](./sap-hana-overview-troubleshooting-monitoring.md)
 
 ## Definitions
 
@@ -43,12 +44,12 @@ Several common definitions are widely used in the Architecture and Technical Dep
 - **SAP System:** The combination of DBMS layer and application layer of an SAP ERP development system, SAP BW test system, SAP CRM production system, etc. Azure deployments do not support dividing these two layers between on-premises and Azure. This means an SAP system is either deployed on-premises, or it is deployed in Azure. However, you can deploy the different systems of an SAP landscape into either Azure or on-premises. For example, you could deploy the SAP CRM development and test systems in Azure, while deploying the SAP CRM production system on-premises. In the case of SAP HANA on Azure (Large Instances), it is supported to run the SAP application layer of SAP systems in Azure VMs and the HANA instance on a unit in the Large Instance stamp.
 - **Large Instance stamp:** A hardware infrastructure stack that is SAP HANA TDI certified and dedicated to run SAP HANA instances within Azure.
 - **SAP HANA on Azure (Large Instances):** Official name for the offer in Azure to run HANA instances in on SAP HANA TDI certified hardware that is deployed in Large Instance stamps in different Azure regions. The related term **HANA Large Instances** is short for SAP HANA on Azure (Large Instances) and is widely used this technical deployment guide.
-- **Cross-Premises:** Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site or ExpressRoute connectivity between the on-premises datacenter(s) and Azure. In common Azure documentation, these kinds of deployments are also described as Cross-Premises scenarios. The reason for the connection is to extend on-premises domains, on-premises Active Directory/OpenLDAP, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the subscription. Having this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and can run services on those VMs (like DBMS services). Communication and name resolution between VMs deployed on-premises and Azure deployed VMs is possible. This is the typical scenario in which most SAP assets will be deployed. See [Planning and design for VPN Gateway](/documentation/articles/vpn-gateway-plan-design/) and [Create a VNet with a Site-to-Site connection using the Azure portal preview](/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/) for more information.
+- **Cross-Premises:** Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site or ExpressRoute connectivity between the on-premises datacenter(s) and Azure. In common Azure documentation, these kinds of deployments are also described as Cross-Premises scenarios. The reason for the connection is to extend on-premises domains, on-premises Active Directory/OpenLDAP, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the subscription. Having this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and can run services on those VMs (like DBMS services). Communication and name resolution between VMs deployed on-premises and Azure deployed VMs is possible. This is the typical scenario in which most SAP assets will be deployed. See [Planning and design for VPN Gateway](../../vpn-gateway/vpn-gateway-plan-design.md) and [Create a VNet with a Site-to-Site connection using the Azure portal preview](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) for more information.
 
 There are a variety of additional resources that have been published on the topic of deploying SAP workload on Azure public cloud. It is highly recommended that anyone planning a deployment of SAP HANA in Azure be experienced and aware of the principals of Azure IaaS, and the deployment of SAP workloads on Azure IaaS. The following resources provide more information and should be referenced before continuing:
 
-- [Using SAP on Windows virtual machines (VMs)](/documentation/articles/virtual-machines-windows-sap-get-started/)
-- [Using SAP solutions on Azure virtual machines](/documentation/articles/virtual-machines-linux-sap-get-started/)
+- [Using SAP on Windows virtual machines (VMs)](../virtual-machines-windows-sap-get-started.md)
+- [Using SAP solutions on Azure virtual machines](../virtual-machines-linux-sap-get-started.md)
 
 ## Certification
 
@@ -74,7 +75,7 @@ Compared to running SAP HANA in Azure Virtual Machines this solution has a benef
 
 At a high-level, the SAP HANA on Azure (Large Instances) solution has the SAP application layer residing in Azure VMs and the database layer residing on SAP TDI configured hardware located in a Large Instance stamp in the same Azure Region that is connected to Azure IaaS.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The SAP application layer needs to be deployed in the same Azure Region with the SAP DBMS layer. This is well-documented in published information about SAP workload on Azure.
 
 The overall architecture of SAP HANA on Azure (Large Instances) provides an SAP TDI certified hardware configuration (non-virtualized, bare metal, high-performance server for the SAP HANA database), and the ability and flexibility of Azure to scale resources for the SAP application layer to meet your needs.
@@ -83,14 +84,14 @@ The overall architecture of SAP HANA on Azure (Large Instances) provides an SAP 
 
 The above architecture is divided into three sections:
 
-- **Right:** An on-premises infrastructure running different applications in datacenters with end users accessing LOB applications (like SAP). Ideally, this on-premises infrastructure is then connected to Azure with Azure [ExpressRoute](/home/features/expressroute/).
+- **Right:** An on-premises infrastructure running different applications in datacenters with end users accessing LOB applications (like SAP). Ideally, this on-premises infrastructure is then connected to Azure with Azure [ExpressRoute](https://www.azure.cn/home/features/expressroute/).
 
-- **Center:** Shows Azure IaaS and, in this case, use of Azure VMs to host SAP or other applications that leverage SAP HANA as a DBMS system. Smaller HANA instances that function with the memory Azure VMs provide are deployed in Azure VMs together with their application layer. Find out more about [Virtual Machines](/home/features/virtual-machines/).
+- **Center:** Shows Azure IaaS and, in this case, use of Azure VMs to host SAP or other applications that leverage SAP HANA as a DBMS system. Smaller HANA instances that function with the memory Azure VMs provide are deployed in Azure VMs together with their application layer. Find out more about [Virtual Machines](https://www.azure.cn/home/features/virtual-machines/).
 <br />Azure Networking is used to group SAP systems together with other applications into Azure Virtual Networks (VNets). These VNets connect to on-premises systems as well as to SAP HANA on Azure (Large Instances).
 <br />For SAP NetWeaver applications and databases that are supported to run in Azure, see [SAP Support Note #1928533 - SAP Applications on Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). For documentation on deploying SAP solutions on Azure please review:
 
-  -  [Using SAP on Windows virtual machines (VMs)](/documentation/articles/virtual-machines-windows-sap-get-started/)
-  -  [Using SAP solutions on Azure virtual machines](/documentation/articles/virtual-machines-linux-sap-get-started/)
+  -  [Using SAP on Windows virtual machines (VMs)](../virtual-machines-windows-sap-get-started.md)
+  -  [Using SAP solutions on Azure virtual machines](../virtual-machines-linux-sap-get-started.md)
 
 - **Left:** Shows the SAP HANA TDI certified hardware in the Azure Large Instance stamp. The HANA Large Instance units are connected to the Azure VNets of your subscription using the same technology as the connectivity from on-premises into Azure.
 
@@ -170,7 +171,7 @@ The underlying infrastructure of HANA Large Instances provides functionality for
 
 **Archive:** You might prefer to archive copies of data using your own methods in storage accounts. This requires management, compliance, costs and operations. You are responsible for generating archive copies and backups on Azure, and storing them in a compliant way.
 
-See the [SLA for SAP HANA on Azure (Large Instances)](/support/sla/sap-hana-large/v1_0/).
+See the [SLA for SAP HANA on Azure (Large Instances)](https://www.azure.cn/support/sla/sap-hana-large/v1_0/).
 
 ## Sizing
 
@@ -204,14 +205,14 @@ These are the requirements for running SAP HANA on Azure (Larger Instances).
 
 - Licenses for SUSE Linux Enterprise Server 12 for SAP Applications.
 
-> [AZURE.NOTE] 
+> [!NOTE] 
 > The Operating System delivered by Microsoft is not registered with SUSE, nor is it connected with an SMT instance.
 
 - SUSE Linux Subscription Management Tool (SMT) deployed in Azure on an Azure VM. This
 provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by SUSE (as there is no internet access within HANA Large Instances data center). 
 - Licenses for Red Hat Enterprise Linux 6.7 or 7.2 for SAP HANA.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The Operating System delivered by Microsoft is not registered with Red Hat, nor is it connected to a Red Hat Subscription Manager Instance.
 
 - Red Hat Subscription Manager deployed in Azure on an Azure VM. This provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by Red Hat (as there is no direct internet access from within the tenant deployed on the Azure Large Instance stamp).
@@ -255,20 +256,20 @@ Azure networking in the context of SAP systems deployed in Azure is not complica
 
 The architecture and processes around SAP HANA on Azure (Large Instances) is built on the above recommendation.
 
-> [AZURE.NOTE] 
+> [!NOTE] 
 > A single Azure subscription can be linked only to one single tenant in a Large Instance stamp in a specific Azure region, and conversely a single Large Instance stamp tenant can be linked only to one Azure subscription.
 
 Deploying SAP HANA on Azure (Large Instances) in two different Azure regions, will cause a separate tenant to be deployed in the Large Instance stamp. However, you can expect both will end up under the same Azure subscription as long as these instances are part of the same SAP landscape.
 
-> [AZURE.IMPORTANT] 
+> [!IMPORTANT] 
 > Only Azure Resource Management deployment is supported with SAP HANA on Azure (Large Instances).
 
 ### Additional Azure VNet information
 
-In order to connect an Azure VNet to ExpressRoute, an Azure gateway must be created (see [About virtual network gateways for ExpressRoute](/documentation/articles/expressroute-about-virtual-network-gateways/)). An Azure gateway can be used either with ExpressRoute to an infrastructure outside of Azure (or to an Azure Large instance stamp), or to connect between Azure VNets (see [Configure a VNet-to-VNet connection for Resource Manager using PowerShell](/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/)). You can connect the Azure gateway to a maximum of four different ExpressRoute connections as long as those are coming from different MS Enterprise Exchanges (MSEE).
+In order to connect an Azure VNet to ExpressRoute, an Azure gateway must be created (see [About virtual network gateways for ExpressRoute](../../expressroute/expressroute-about-virtual-network-gateways.md)). An Azure gateway can be used either with ExpressRoute to an infrastructure outside of Azure (or to an Azure Large instance stamp), or to connect between Azure VNets (see [Configure a VNet-to-VNet connection for Resource Manager using PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)). You can connect the Azure gateway to a maximum of four different ExpressRoute connections as long as those are coming from different MS Enterprise Exchanges (MSEE).
 
-> [AZURE.NOTE] 
-> The throughput an Azure gateway provides is different for both use cases (see [About VPN Gateway](/documentation/articles/vpn-gateway-about-vpngateways/)). The maximum throughput we can achieve with a VNet gateway is 10 Gbps, using an ExpressRoute connection. Keep in mind that copying files between an Azure VM residing in an Azure VNet and a system on-premises (as a single copy stream) will not achieve the full throughput of the different gateway SKUs. To leverage the complete bandwidth of the VNet gateway, you must use multiple streams, or copy different files in parallel streams of a single file.
+> [!NOTE] 
+> The throughput an Azure gateway provides is different for both use cases (see [About VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)). The maximum throughput we can achieve with a VNet gateway is 10 Gbps, using an ExpressRoute connection. Keep in mind that copying files between an Azure VM residing in an Azure VNet and a system on-premises (as a single copy stream) will not achieve the full throughput of the different gateway SKUs. To leverage the complete bandwidth of the VNet gateway, you must use multiple streams, or copy different files in parallel streams of a single file.
 
 As you read the above articles, please carefully note the information on UltraPerformance gateway SKU availability in different Azure regions.
 
@@ -276,16 +277,16 @@ As you read the above articles, please carefully note the information on UltraPe
 
 For connection to SAP HANA on Azure (Large Instances), an Azure VNet must be connected through its VNet gateway using ExpressRoute to a customer&#39;s on-premises network. Also, it needs to be connected through a second ExpressRoute circuit to the HANA Large Instances located in an Azure Large Instance stamp. The VNet gateway will have at least two ExpressRoute connections, and both connections will share the maximum bandwidth of the VNet gateway.
 
-> [AZURE.IMPORTANT] 
+> [!IMPORTANT] 
 > Given the overall network traffic between the SAP application and database layers, only the HighPerformance or UltraPerformance gateway SKUs for VNets is supported for connecting to SAP HANA on Azure (Large Instances).
 
 ![Azure VNet connected to SAP HANA on Azure (Large Instances) and on-premises](./media/sap-hana-overview-architecture/image3-on-premises-infrastructure.png)
 
 ### Single SAP system
 
-The on-premises infrastructure shown above is connected through ExpressRoute into Azure, and the ExpressRoute circuit connects into a Microsoft Enterprise Edge Router (MSEE) (see [ExpressRoute technical overview](/documentation/articles/expressroute-introduction/)). Once established, that route connects into the Azure backbone, and all Azure regions are accessible.
+The on-premises infrastructure shown above is connected through ExpressRoute into Azure, and the ExpressRoute circuit connects into a Microsoft Enterprise Edge Router (MSEE) (see [ExpressRoute technical overview](../../expressroute/expressroute-introduction.md)). Once established, that route connects into the Azure backbone, and all Azure regions are accessible.
 
-> [AZURE.NOTE] 
+> [!NOTE] 
 > For running SAP landscapes in Azure, connect to the MSEE closest to the Azure region in the SAP landscape. Azure Large Instance stamps are connected through dedicated MSEE devices to minimize network latency between Azure VMs in Azure IaaS and Large Instance stamps.
 
 The VNet gateway for the Azure VMs, hosting SAP application instances, is connected to that ExpressRoute circuit, and the same VNet is connected to a separate MSEE Router dedicated to connecting to Large Instance stamps.
@@ -313,7 +314,7 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
 - Gather specific information related to four different IP address ranges:
 
   1. A /29 address range for P2P connections to be used for the ExpressRoute circuits.
-  
+
   2. A /24 (recommended) unique CIDR block to be used for assigning the specific IP addresses needed for SAP HANA on Azure (Large Instances).
   3. One or more /24 (recommended) CIDR blocks for your Azure VNet tenant subnets. These are subnets in the customer&#39;s Azure subscription where the SAP-related Azure VMs will reside; the addresses will be allowed to access SAP HANA on Azure (Large Instances). There should be one tenant address block per subnet, and the blocks may be aggregated if they are contiguous and in the same VNet.
   4. One /28 of your VNet gateway subnets (a /27 must be used if wanting P2S networking).
@@ -324,7 +325,7 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
   -  If configuring multiple tenant subnets in an Azure VNet:
 ![IP address ranges with contiguous address space for Azure VNet](./media/sap-hana-overview-architecture/image6-ip-address-range-b.png)
 
-> [AZURE.IMPORTANT] 
+> [!IMPORTANT] 
 > Each IP address range specified above must not overlap with any other range; each must be discrete and not a subnet of any other range. Only the address defined in items 3 and 4 should be applied to Azure VNets, all others are used for Large Instance connectivity and routing. Also, as a best practice, the Address Space address ranges should match the subnet ranges and not have empty or unassigned space. If overlaps occur between ranges defined in items 1 and 2 with ranges defined for 3 and 4, the Azure VNet will not connect to the ExpressRoute circuit.
 
 - An Express Route circuit is created by Microsoft between your Azure subscription and the Large Instance stamp.
@@ -345,7 +346,7 @@ There are two important network routing considerations for SAP HANA on Azure (La
 
 2. SAP HANA on Azure (Large Instances) has an assigned IP address from a defined NAT pool. This IP address is accessible through the Azure subscription and ExpressRoute. Because the IP address is part of a NAT pool, you will need to perform additional networking configuration within the environment. See the related article on SAP HANA Installation for details.
 
-> [AZURE.NOTE] 
+> [!NOTE] 
 > If you need to connect to SAP HANA on Azure (Large Instances) in a _data warehouse_ scenario, where applications and/or end users need to connect to the SAP HANA database (running directly), another networking component must be used: a reverse-proxy to route data, to and from. For example, F5 BIG-IP with Traffic Manager deployed in Azure as a virtual firewall/traffic routing solution.
 
 ### Leveraging in multiple regions
@@ -356,5 +357,5 @@ You might have other reasons to deploy SAP HANA on Azure (Large Instances) in mu
 
 The above figure shows how the different Azure VNets in both regions are connected to two different ExpressRoute circuits that are used to connect to SAP HANA on Azure (Large Instances) in both Azure regions. The newly introduced connections are the rectangular red lines. With these connections out of the Azure VNets, the VMs running in one of those VNets can access each of the different HANA Large Instances units deployed in the two regions (assuming you use the same subscription). As you see in the graphics above, it is assumed that you have two ExpressRoute connections from on-premises to the two Azure regions; recommended for Disaster Recovery reasons.
 
-> [AZURE.IMPORTANT] 
+> [!IMPORTANT] 
 > If multiple ExpressRoute circuits are used, AS Path prepending and Local Preference BGP settings should be used to ensure proper routing of traffic.

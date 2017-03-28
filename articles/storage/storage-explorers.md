@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Tools for working with Azure Storage | Azure"
-    description="A list of tools that allow you to view/interact with your Azure Storage data."
-    services="storage"
-    documentationcenter=""
-    author="seguler"
-    manager="jahogg"
-    editor="tysonn" />
-<tags
-    ms.assetid="e4748642-98c4-437e-b0ed-4f9641c2e894"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/30/2017"
-    wacn.date=""
-    ms.author="seguler" />
+---
+title: Tools for working with Azure Storage | Azure
+description: A list of tools that allow you to view/interact with your Azure Storage data.
+services: storage
+documentationcenter: ''
+author: seguler
+manager: jahogg
+editor: tysonn
+
+ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/30/2017
+wacn.date: ''
+ms.author: seguler
+---
 
 # Azure Storage Client Tools
 Users of Azure Storage frequently want to be able to view/interact with their data using an Azure Storage client tool. In the tables below, we list a number of tools that allow you to do this. We put an “X” in each block if it provides the ability to either enumerate and/or access the data abstraction. The table also shows if the tools is free or not. “Trial” indicates that there is a free trial, but the full product is not free. “Y/N” indicates that a version is available for free, while a different version is available for purchase.
@@ -43,7 +44,7 @@ We've only provided a snapshot of the available Azure Storage client tools. Thes
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="/home/features/azure-portal/">Azure Portal</a></td>
+    <td><a href="https://www.azure.cn/home/features/azure-portal/">Azure Portal</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

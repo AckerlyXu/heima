@@ -1,29 +1,29 @@
-<properties
-    pageTitle="Understand the OpenID Connect authentication code flow in Azure AD | Azure"
-    description="This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OpenID Connect."
-    services="active-directory"
-    documentationcenter=".net"
-    author="priyamohanram"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="29142f7e-d862-4076-9a1a-ecae5bcd9d9b"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="priyamo" />
+---
+title: Understand the OpenID Connect authentication code flow in Azure AD | Azure
+description: This article describes how to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure Active Directory and OpenID Connect.
+services: active-directory
+documentationcenter: .net
+author: priyamohanram
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: priyamo
+---
 
 # Authorize access to web applications using OpenID Connect and Azure Active Directory
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is a simple identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use **access tokens** to access protected resources, but they do not define standard methods to provide identity information. OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process. It provides information about the end user in the form of an `id_token` that verifies the identity of the user and provides basic profile information about the user.
 
 OpenID Connect is our recommendation if you are building a web application that is hosted on a server and accessed via a browser.
 
-
-[AZURE.INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)] 
+[!INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)] 
 
 ## Authentication flow using OpenID Connect
 The most basic sign-in flow contains the following steps - each of them is described in detail below.
@@ -34,26 +34,29 @@ The most basic sign-in flow contains the following steps - each of them is descr
 
 OpenID Connect describes a metadata document that contains most of the information required for an app to perform sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. The OpenID Connect metadata document can be found at:
 
-	https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
+```
+https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
+```
 
 The metadata is a simple JavaScript Object Notation (JSON) document. See the following snippet for an example. The snippet's contents are fully described in the [OpenID Connect specification](https://openid.net).
 
-	{
-	    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
-	    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
-	    "token_endpoint_auth_methods_supported":
-	    [
-	        "client_secret_post",
-	        "private_key_jwt"
-	    ],
-	    "jwks_uri": "https://login.microsoftonline.com/common/discovery/keys"
-    
-	    ...
-	}
+```
+{
+    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "token_endpoint_auth_methods_supported":
+    [
+        "client_secret_post",
+        "private_key_jwt"
+    ],
+    "jwks_uri": "https://login.microsoftonline.com/common/discovery/keys"
 
+    ...
+}
+```
 
 ## Send the sign-in request
-When your web application needs to authenticate the user, it must direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](/documentation/articles/active-directory-protocols-oauth-code/), with a few important distinctions:
+When your web application needs to authenticate the user, it must direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 Authorization Code Flow](./active-directory-protocols-oauth-code.md), with a few important distinctions:
 
 - The request must include the scope `openid` in the `scope` parameter.
 - The `response_type` parameter must include `id_token`.
@@ -61,18 +64,18 @@ When your web application needs to authenticate the user, it must direct the use
 
 So a sample request would look like this:
 
+```
+// Line breaks for legibility only
 
-	// Line breaks for legibility only
-
-	GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
-	client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-	&response_type=id_token
-	&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-	&response_mode=form_post
-	&scope=openid
-	&state=12345
-	&nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
-
+GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=id_token
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&response_mode=form_post
+&scope=openid
+&state=12345
+&nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
+```
 
 | Parameter |  | Description |
 | --- | --- | --- |
@@ -92,12 +95,13 @@ At this point, the user is asked to enter their credentials and complete the aut
 ### Sample response
 A sample response, after the user has authenticated, could look like this:
 
-	POST /myapp/ HTTP/1.1
-	Host: localhost
-	Content-Type: application/x-www-form-urlencoded
+```
+POST /myapp/ HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
 
-	id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
-
+id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
+```
 
 | Parameter | Description |
 | --- | --- |
@@ -107,13 +111,13 @@ A sample response, after the user has authenticated, could look like this:
 ### Error response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
+```
+POST /myapp/ HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
 
-	POST /myapp/ HTTP/1.1
-	Host: localhost
-	Content-Type: application/x-www-form-urlencoded
-
-	error=access_denied&error_description=the+user+canceled+the+authentication
-
+error=access_denied&error_description=the+user+canceled+the+authentication
+```
 
 | Parameter | Description |
 | --- | --- |
@@ -144,16 +148,17 @@ You may also wish to validate additional claims depending on your scenario. Some
 - Ensuring the user has proper authorization/privileges
 - Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
 
-Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, authorizations, etc. For more information about the token types and claims, read [Supported Token and Claim Types](/documentation/articles/active-directory-token-and-claims/).
+Once you have validated the `id_token`, you can begin a session with the user and use the claims in the `id_token` to obtain information about the user in your app. This information can be used for display, records, authorizations, etc. For more information about the token types and claims, read [Supported Token and Claim Types](./active-directory-token-and-claims.md).
 
 ## Send a sign-out request
 When you wish to sign the user out of the app, it is not sufficient to clear your app's cookies or otherwise end the session with the user.  You must also redirect the user to the `end_session_endpoint` for sign-out.  If you fail to do so, the user will be able to reauthenticate to your app without entering their credentials again, because they will have a valid single sign-on session with the Azure AD endpoint.
 
 You can simply redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
 
-	GET https://login.microsoftonline.com/common/oauth2/logout?
-	post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-
+```
+GET https://login.microsoftonline.com/common/oauth2/logout?
+post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+```
 
 | Parameter |  | Description |
 | --- | --- | --- |
@@ -165,31 +170,32 @@ Many web apps need to not only sign the user in, but also access a web service o
 ## Get Access Tokens
 To acquire access tokens, you need to modify the sign-in request from above:
 
+```
+// Line breaks for legibility only
 
-	// Line breaks for legibility only
-
-	GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
-	client_id=6731de76-14a6-49ae-97bc-6eba6914391e		// Your registered Application Id
-	&response_type=id_token+code
-	&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
-	&response_mode=form_post						      // form_post', or 'fragment'
-	&scope=openid
-	&resource=https%3A%2F%2Fservice.contoso.com%2F									 
-	&state=12345						 				 // Any value, provided by your app
-	&nonce=678910										 // Any value, provided by your app
-
+GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e		// Your registered Application Id
+&response_type=id_token+code
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
+&response_mode=form_post						      // form_post', or 'fragment'
+&scope=openid
+&resource=https%3A%2F%2Fservice.contoso.com%2F									 
+&state=12345						 				 // Any value, provided by your app
+&nonce=678910										 // Any value, provided by your app
+```
 
 By including permission scopes in the request and using `response_type=code+id_token`, the `authorize` endpoint ensures that the user has consented to the permissions indicated in the `scope` query parameter, and return your app an authorization code to exchange for an access token.
 
 ### Successful Response
 A successful response using `response_mode=form_post` looks like:
 
-	POST /myapp/ HTTP/1.1
-	Host: localhost
-	Content-Type: application/x-www-form-urlencoded
+```
+POST /myapp/ HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
 
-	id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
-
+id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
+```
 
 | Parameter | Description |
 | --- | --- |
@@ -200,12 +206,13 @@ A successful response using `response_mode=form_post` looks like:
 ### Error response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
-	POST /myapp/ HTTP/1.1
-	Host: localhost
-	Content-Type: application/x-www-form-urlencoded
+```
+POST /myapp/ HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
 
-	error=access_denied&error_description=the+user+canceled+the+authentication
-
+error=access_denied&error_description=the+user+canceled+the+authentication
+```
 
 | Parameter | Description |
 | --- | --- |
@@ -214,4 +221,4 @@ Error responses may also be sent to the `redirect_uri` so the app can handle the
 
 For a description of the possible error codes and their recommended client action, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf.  To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in the "Use the authorization code to request an access token" section of our [OAuth protocol documentation](/documentation/articles/active-directory-protocols-oauth-code/).
+Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf.  To sign the user in, you must validate the `id_token` exactly as described above. To get access tokens, you can follow the steps described in the "Use the authorization code to request an access token" section of our [OAuth protocol documentation](./active-directory-protocols-oauth-code.md).

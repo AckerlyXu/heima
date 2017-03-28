@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect: Troubleshoot connectivity issues | Azure"
-    description="Explains how to troubleshoot connectivity issues with Azure AD Connect."
-    services="active-directory"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="3aa41bb5-6fcb-49da-9747-e7a3bd780e64"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect: Troubleshoot connectivity issues | Azure
+description: Explains how to troubleshoot connectivity issues with Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+
+ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Troubleshoot connectivity issues with Azure AD Connect
 This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.
@@ -25,10 +26,10 @@ Azure AD Connect is using Modern Authentication (using the ADAL library) for aut
 
 In this article, we show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 
-First we need to make sure [**machine.config**](/documentation/articles/active-directory-aadconnect-prerequisites/#connectivity/) is correctly configured.  
+First we need to make sure [**machine.config**](./active-directory-aadconnect-prerequisites.md#connectivity) is correctly configured.  
 ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > In some non-Microsoft blogs, it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system stops working on first upgrade. For that reason, the recommendation is to update machine.config instead.
 >
 >
@@ -55,7 +56,7 @@ The following issues are the most common errors you encounter in the installatio
 This error appears when the wizard itself cannot reach the proxy.  
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
-- If you see this error, verify the [machine.config](/documentation/articles/active-directory-aadconnect-prerequisites/#connectivity/) has been correctly configured.
+- If you see this error, verify the [machine.config](./active-directory-aadconnect-prerequisites.md#connectivity) has been correctly configured.
 - If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
 ### A Microsoft account is used
@@ -179,16 +180,16 @@ Shown as Unexpected error in the installation wizard. Can happen if you try to u
 ## Troubleshooting steps for previous releases.
 With releases starting with build number 1.1.105.0 (released February 2016), the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
 
-For the single-sign in assistant to work, winhttp must be configured. This configuration can be done with [**netsh**](/documentation/articles/active-directory-aadconnect-prerequisites/#connectivity/).  
+For the single-sign in assistant to work, winhttp must be configured. This configuration can be done with [**netsh**](./active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
 ### The Sign-in assistant has not been correctly configured
 This error appears when the Sign-in assistant cannot reach the proxy or the proxy is not allowing the request.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
-- If you see this error, look at the proxy configuration in [netsh](/documentation/articles/active-directory-aadconnect-prerequisites/#connectivity/) and verify it is correct.
+- If you see this error, look at the proxy configuration in [netsh](./active-directory-aadconnect-prerequisites.md#connectivity) and verify it is correct.
   ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 - If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).

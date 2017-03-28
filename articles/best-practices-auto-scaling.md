@@ -1,26 +1,27 @@
-<properties
-   pageTitle="Autoscaling guidance | Azure"
-   description="Guidance on how to autoscale to dynamically allocate resources required by an application."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="christb"
-   editor=""
-   tags=""/>
+---
+title: Autoscaling guidance | Azure
+description: Guidance on how to autoscale to dynamically allocate resources required by an application.
+services: ''
+documentationCenter: na
+authors: dragon119
+manager: christb
+editor: ''
+tags: ''
 
-<tags
-   ms.service="best-practice"
-   ms.date="07/13/2016"
-   wacn.date=""/>
+ms.service: best-practice
+ms.date: 07/13/2016
+wacn.date: ''
+---
 
 # Autoscaling guidance
 
-[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
+[!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Overview
 Autoscaling is the process of dynamically allocating the resources required by an application to match performance requirements and satisfy service-level agreements (SLAs), while minimizing runtime costs. As the volume of work grows, an application may require additional resources to enable it to perform its tasks in a timely manner. As demand slackens, resources can be de-allocated to minimize costs, while still maintaining adequate performance and meeting SLAs.
 Autoscaling takes advantage of the elasticity of cloud-hosted environments while easing management overhead. It does so by reducing the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
->[AZURE.NOTE] Autoscaling applies to all of the resources used by an application, not just the compute resources. For example, if your system uses message queues to send and receive information, it could create additional queues as it scales.
+>[!NOTE]
+> Autoscaling applies to all of the resources used by an application, not just the compute resources. For example, if your system uses message queues to send and receive information, it could create additional queues as it scales.
 
 ## Types of scaling
 Scaling typically takes one of the following two forms:
@@ -37,7 +38,6 @@ Implementing an autoscaling strategy typically involves the following components
 - Testing, monitoring, and tuning of the autoscaling strategy to ensure that it functions as expected.
 
 Most cloud-based environments, such as Azure, provide built-in autoscaling mechanisms that address common scenarios. If the environment or service you use doesn't provide the necessary automated scaling functionality, or if you have extreme autoscaling requirements beyond its capabilities, a custom implementation may be necessary. Use this customized implementation to collect operational and system metrics, analyze them to identify relevant data, and then scale resources accordingly.
-
 
 ## Configure autoscaling for an Azure solution
 There are several options for configuring autoscaling for your Azure solutions:
@@ -96,10 +96,10 @@ The following patterns and guidance may also be relevant to your scenario when i
 - [Instrumentation and Telemetry Guidance](http://msdn.microsoft.com/zh-cn/library/dn589775.aspx). Instrumentation and telemetry are vital for gathering the information that can drive the autoscaling process.
 
 ## More information
-- [How to Scale an Application](/documentation/articles/cloud-services-how-to-scale/)
-- [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](/documentation/articles/cloud-services-how-to-manage/#linkresources)
-- [How to: Link a resource to a cloud service](/documentation/articles/cloud-services-how-to-manage/#linkresources)
-- [Scale linked resources](/documentation/articles/cloud-services-how-to-scale/#scalelink)
+- [How to Scale an Application](./cloud-services/cloud-services-how-to-scale.md)
+- [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](./cloud-services/cloud-services-how-to-manage.md#linkresources)
+- [How to: Link a resource to a cloud service](./cloud-services/cloud-services-how-to-manage.md#linkresources)
+- [Scale linked resources](./cloud-services/cloud-services-how-to-scale.md#scalelink)
 - [Azure Monitoring Services Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring)
 - [Azure Service Management REST API](http://msdn.microsoft.com/zh-cn/library/azure/ee460799.aspx)
 - [Azure Resource Manager REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn790568.aspx)

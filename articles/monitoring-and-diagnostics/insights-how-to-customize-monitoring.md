@@ -1,27 +1,27 @@
-<properties
-	pageTitle="Overview of Metrics in Microsoft Azure | Azure"
-	description="Learn how to customize monitoring charts in Azure."
-	authors="rboucher"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Overview of Metrics in Microsoft Azure | Azure
+description: Learn how to customize monitoring charts in Azure.
+authors: rboucher
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="robb"
-	wacn.date=""/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2015
+ms.author: robb
+wacn.date: ''
+---
 
 # Overview of Metrics in Azure
 
 All Azure services track key metrics that allow you to monitor the health, performance, availability and usage of your services. You can view these metrics in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931930.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of metrics programmatically.
 
-For some services, you may need to turn on diagnostics in order to see any metrics. For others, such as virtual machines, you will get a basic set of metrics, but need to enable the full set high-frequency metrics. See [Enable monitoring and diagnostics](/documentation/articles/insights-how-to-use-diagnostics/) to learn more.
+For some services, you may need to turn on diagnostics in order to see any metrics. For others, such as virtual machines, you will get a basic set of metrics, but need to enable the full set high-frequency metrics. See [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics.md) to learn more.
 
 ## Using monitoring charts 
 
@@ -72,9 +72,9 @@ Like with metrics, you can use the [REST API](https://msdn.microsoft.com/zh-cn/l
 
 ## Next steps
 
-* [Receive alert notifications](/documentation/articles/insights-receive-alert-notifications/) whenever a metric crosses a threshold.
-* [Enable monitoring and diagnostics](/documentation/articles/insights-how-to-use-diagnostics/) to collect detailed high-frequency metrics on your service.
-* [Scale instance count automatically](/documentation/articles/insights-how-to-scale/) to make sure your service is available and responsive.
+* [Receive alert notifications](./insights-receive-alert-notifications.md) whenever a metric crosses a threshold.
+* [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
+* [Scale instance count automatically](./insights-how-to-scale.md) to make sure your service is available and responsive.
 * [Monitor application performance](/documentation/articles/application-insights/app-insights-azure-web-apps/) if you want to understand exactly how your code is performing in the cloud.
 * Use [Application Insights for JavaScript apps and web pages](/documentation/articles/app-insights-web-track-usage/) to get client analytics about the browsers that visit a web page.
 * [Monitor availability and responsiveness of any web page](/documentation/articles/app-insights-monitor-web-app-availability/) with Application Insights so you can find out if your page is down.

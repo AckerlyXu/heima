@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Install application packages on compute nodes - Azure Batch | Azure"
-    description="Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes."
-    services="batch"
-    documentationcenter=".net"
-    author="tamram"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="3b6044b7-5f65-4a27-9d43-71e1863d16cf"
-    ms.service="batch"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="big-compute"
-    ms.date="01/30/2017"
-    wacn.date=""
-    ms.author="tamram" />
+---
+title: Install application packages on compute nodes - Azure Batch | Azure
+description: Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
+services: batch
+documentationcenter: .net
+author: tamram
+manager: timlt
+editor: ''
+
+ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 01/30/2017
+wacn.date: ''
+ms.author: tamram
+---
 
 # Application deployment with Azure Batch application packages
 The application packages feature of Azure Batch provides easy management of task applications and their deployment to the compute nodes in your pool. With application packages, you can upload and manage multiple versions of the applications your tasks run, including their supporting files. You can then automatically deploy one or more of these applications to the compute nodes in your pool.
 
 In this article, you will learn how to upload and manage application packages in the Azure portal. You will then learn how to install them on a pool's compute nodes with the [Batch .NET][api_net] library.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The application packages feature described here supersedes the "Batch Apps" feature available in previous versions of the service.
 > 
 > 
@@ -34,8 +35,8 @@ The application packages feature discussed in this article is compatible *only* 
 
 This feature was introduced in [Batch REST API][api_rest] version 2015-12-01.2.2 and the corresponding [Batch .NET][api_net] library version 3.1.0. We recommend that you always use the latest API version when working with Batch.
 
-> [AZURE.IMPORTANT]
-> Currently, only *CloudServiceConfiguration* pools support application packages. You cannot use Application packages in pools created by using VirtualMachineConfiguration images. See the [Virtual machine configuration](/documentation/articles/batch-linux-nodes/#virtual-machine-configuration/) section of [Provision Linux compute nodes in Azure Batch pools](/documentation/articles/batch-linux-nodes/) for more information about the two different configurations.
+> [!IMPORTANT]
+> Currently, only *CloudServiceConfiguration* pools support application packages. You cannot use Application packages in pools created by using VirtualMachineConfiguration images. See the [Virtual machine configuration](./batch-linux-nodes.md#virtual-machine-configuration) section of [Provision Linux compute nodes in Azure Batch pools](./batch-linux-nodes.md) for more information about the two different configurations.
 > 
 > 
 
@@ -53,32 +54,32 @@ An application package is a .zip file that contains the application binaries and
 You can specify application packages at the pool and task level. You can specify one or more of these packages and (optionally) a version when you create a pool or task.
 
 - **Pool application packages** are deployed to *every* node in the pool. Applications are deployed when a node joins a pool, and when it is rebooted or reimaged.
-  
+
     Pool application packages are appropriate when all nodes in a pool execute a job's tasks. You can specify one or more application packages when you create a pool, and you can add or update an existing pool's packages. If you update an existing pool's application packages, you must restart its nodes to install the new package.
 - **Task application packages** are deployed only to a compute node scheduled to run a task, just before running the task's command line. If the specified application package and version is already on the node, it is not redeployed and the existing package is used.
-  
+
     Task application packages are useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has less tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
-  
+
     Other scenarios that can benefit from task application packages are jobs that use a particularly large application, but for only a small number of tasks. For example, a pre-processing stage or a merge task, where the pre-processing or merge application is heavyweight.
 
-> [AZURE.IMPORTANT]
-> There are restrictions on the number of applications and application packages within a Batch account, as well as the maximum application package size. See [Quotas and limits for the Azure Batch service](/documentation/articles/batch-quota-limit/) for details about these limits.
+> [!IMPORTANT]
+> There are restrictions on the number of applications and application packages within a Batch account, as well as the maximum application package size. See [Quotas and limits for the Azure Batch service](./batch-quota-limit.md) for details about these limits.
 > 
 > 
 
 ### Benefits of application packages
 Application packages can simplify the code in your Batch solution and lower the overhead required to manage the applications that your tasks run.
 
-Your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](/documentation/articles/storage-dotnet-shared-access-signature-part-1/) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
+Your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/storage-dotnet-shared-access-signature-part-1.md) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
 
 ## Upload and manage applications
-You can use the [Azure portal][portal] or the [Batch Management .NET](/documentation/articles/batch-management-dotnet/) library to manage the application packages in your Batch account. In the next few sections, we first link a Storage account, then discuss adding applications and packages and managing them with the portal.
+You can use the [Azure portal][portal] or the [Batch Management .NET](./batch-management-dotnet.md) library to manage the application packages in your Batch account. In the next few sections, we first link a Storage account, then discuss adding applications and packages and managing them with the portal.
 
 ### Link a Storage account
 To use application packages, you must first link an Azure Storage account to your Batch account. If you have not yet configured a Storage account for your Batch account, the Azure portal will display a warning the first time you click the **Applications** tile in the **Batch account** blade.
 
-> [AZURE.IMPORTANT]
-> Batch currently supports *only* the **General purpose** storage account type as described in step 5, [Create a storage account](/documentation/articles/storage-create-storage-account/#create-a-storage-account/), in [About Azure storage accounts](/documentation/articles/storage-create-storage-account/). When you link an Azure Storage account to your Batch account, link *only* a **General purpose** storage account.
+> [!IMPORTANT]
+> Batch currently supports *only* the **General purpose** storage account type as described in step 5, [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md). When you link an Azure Storage account to your Batch account, link *only* a **General purpose** storage account.
 > 
 > 
 
@@ -88,9 +89,9 @@ The Batch service uses the associated Storage account for the storage and retrie
 
 ![Choose storage account blade in Azure portal][10]
 
-We recommend that you create a storage account *specifically* for use with your Batch account, and select it here. For details about how to create a storage account, see "Create a storage account" in [About Azure storage accounts](/documentation/articles/storage-create-storage-account/). After you've created a Storage account, you can then link it to your Batch account by using the **Storage Account** blade.
+We recommend that you create a storage account *specifically* for use with your Batch account, and select it here. For details about how to create a storage account, see "Create a storage account" in [About Azure storage accounts](../storage/storage-create-storage-account.md). After you've created a Storage account, you can then link it to your Batch account by using the **Storage Account** blade.
 
-> [AZURE.WARNING]
+> [!WARNING]
 > Because Batch uses Azure Storage to store your application packages, you are [charged as normal][storage_pricing] for the block blob data. Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize cost.
 > 
 > 
@@ -154,7 +155,7 @@ This field specifies the .zip file that contains the application binaries and su
 
 After you've selected a file, click **OK** to begin the upload to Azure Storage. When the upload operation is complete, you will be notified and the blade will close. Depending on the size of the file that you are uploading and the speed of your network connection, this operation may take some time.
 
-> [AZURE.WARNING]
+> [!WARNING]
 > Do not close the **New application** blade before the upload operation is complete. Doing so will stop the upload process.
 > 
 > 
@@ -193,28 +194,29 @@ In Batch .NET, specify one or more [CloudPool][net_cloudpool].[ApplicationPackag
 
 csharp
 
-	// Create the unbound CloudPool
-	CloudPool myCloudPool =
-	    batchClient.PoolOperations.CreatePool(
-	        poolId: "myPool",
-	        targetDedicated: "1",
-	        virtualMachineSize: "small",
-	        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+```csharp
+// Create the unbound CloudPool
+CloudPool myCloudPool =
+    batchClient.PoolOperations.CreatePool(
+        poolId: "myPool",
+        targetDedicated: "1",
+        virtualMachineSize: "small",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
-	// Specify the application and version to install on the compute nodes
-	myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
-	{
-	    new ApplicationPackageReference {
-	        ApplicationId = "litware",
-	        Version = "1.1001.2b" }
-	};
+// Specify the application and version to install on the compute nodes
+myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
+{
+    new ApplicationPackageReference {
+        ApplicationId = "litware",
+        Version = "1.1001.2b" }
+};
 
-	// Commit the pool so that it's created in the Batch service. As the nodes join
-	// the pool, the specified application package will be installed on each.
-	await myCloudPool.CommitAsync();
+// Commit the pool so that it's created in the Batch service. As the nodes join
+// the pool, the specified application package will be installed on each.
+await myCloudPool.CommitAsync();
+```
 
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > If an application package deployment fails for any reason, the Batch service marks the node [unusable][net_nodestate], and no tasks will be scheduled for execution on that node. In this case, you should **restart** the node to reinitiate the package deployment. Restarting the node will also enable task scheduling again on the node.
 > 
 > 
@@ -226,19 +228,21 @@ To install a task application package, configure the task's [CloudTask][net_clou
 
 csharp
 
-	CloudTask task =
-	    new CloudTask(
-	        "litwaretask001",
-	        "cmd /c %AZ_BATCH_APP_PACKAGE_LITWARE%\\litware.exe -args -here");
+```csharp
+CloudTask task =
+    new CloudTask(
+        "litwaretask001",
+        "cmd /c %AZ_BATCH_APP_PACKAGE_LITWARE%\\litware.exe -args -here");
 
-	task.ApplicationPackageReferences = new List<ApplicationPackageReference>
-	{
-	    new ApplicationPackageReference
-	    {
-	        ApplicationId = "litware",
-	        Version = "1.1001.2b"
-	    }
-	};
+task.ApplicationPackageReferences = new List<ApplicationPackageReference>
+{
+    new ApplicationPackageReference
+    {
+        ApplicationId = "litware",
+        Version = "1.1001.2b"
+    }
+};
+```
 
 ## Execute the installed applications
 The packages that you've specified for a pool or task are downloaded and extracted to a named directory within the `AZ_BATCH_ROOT_DIR` of the node. Batch also creates an environment variable that contains the path to the named directory. Your task command lines use this environment variable when referencing the application on the node. The variable is in the following format:
@@ -259,13 +263,15 @@ The following code snippet shows an example task command line that launches the 
 
 csharp
 
-	string taskId = "blendertask01";
-	string commandLine =
-	    @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -args -here";
-	CloudTask blenderTask = new CloudTask(taskId, commandLine);
+```csharp
+string taskId = "blendertask01";
+string commandLine =
+    @"cmd /c %AZ_BATCH_APP_PACKAGE_BLENDER%\blender.exe -args -here";
+CloudTask blenderTask = new CloudTask(taskId, commandLine);
+```
 
-> [AZURE.TIP]
-> See [Environment settings for tasks](/documentation/articles/batch-api-basics/#environment-settings-for-tasks/) in the [Batch feature overview](/documentation/articles/batch-api-basics/) for more information about compute node environment settings.
+> [!TIP]
+> See [Environment settings for tasks](./batch-api-basics.md#environment-settings-for-tasks) in the [Batch feature overview](./batch-api-basics.md) for more information about compute node environment settings.
 > 
 > 
 
@@ -280,15 +286,17 @@ In this example, the existing pool has version 2.7 of the *blender* application 
 
 csharp
 
-	string newVersion = "2.76b";
-	CloudPool boundPool = await batchClient.PoolOperations.GetPoolAsync("myPool");
-	boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
-	{
-	    new ApplicationPackageReference {
-	        ApplicationId = "blender",
-	        Version = newVersion }
-	};
-	await boundPool.CommitAsync();
+```csharp
+string newVersion = "2.76b";
+CloudPool boundPool = await batchClient.PoolOperations.GetPoolAsync("myPool");
+boundPool.ApplicationPackageReferences = new List<ApplicationPackageReference>
+{
+    new ApplicationPackageReference {
+        ApplicationId = "blender",
+        Version = newVersion }
+};
+await boundPool.CommitAsync();
+```
 
 Now that the new version has been configured, any *new* node that joins the pool will have version 2.76b deployed to it. To install 2.76b on the nodes that are *already* in the pool, reboot or reimage them. Note that rebooted nodes will retain the files from previous package deployments.
 
@@ -297,31 +305,33 @@ You can list the applications and their packages in a Batch account by using the
 
 csharp
 
-	// List the applications and their application packages in the Batch account.
-	List<ApplicationSummary> applications = await batchClient.ApplicationOperations.ListApplicationSummaries().ToListAsync();
-	foreach (ApplicationSummary app in applications)
-	{
-	    Console.WriteLine("ID: {0} | Display Name: {1}", app.Id, app.DisplayName);
-	
-	    foreach (string version in app.Versions)
-	    {
-	        Console.WriteLine("  {0}", version);
-	    }
-	}
+```csharp
+// List the applications and their application packages in the Batch account.
+List<ApplicationSummary> applications = await batchClient.ApplicationOperations.ListApplicationSummaries().ToListAsync();
+foreach (ApplicationSummary app in applications)
+{
+    Console.WriteLine("ID: {0} | Display Name: {1}", app.Id, app.DisplayName);
+
+    foreach (string version in app.Versions)
+    {
+        Console.WriteLine("  {0}", version);
+    }
+}
+```
 
 ## Wrap up
 With application packages, you can help your customers select the applications for their jobs and specify the exact version to use when processing jobs with your Batch-enabled service. You might also provide the ability for your customers to upload and track their own applications in your service.
 
 ## Next steps
 - The [Batch REST API][api_rest] also provides support to work with application packages. For example, see the [applicationPackageReferences][rest_add_pool_with_packages] element in [Add a pool to an account][rest_add_pool] for information about how to specify packages to install by using the REST API. See [Applications][rest_applications] for details about how to obtain application information by using the Batch REST API.
-- Learn how to programmatically [manage Azure Batch accounts and quotas with Batch Management .NET](/documentation/articles/batch-management-dotnet/). The [Batch Management .NET][api_net_mgmt] library can enable account creation and deletion features for your Batch application or service.
+- Learn how to programmatically [manage Azure Batch accounts and quotas with Batch Management .NET](./batch-management-dotnet.md). The [Batch Management .NET][api_net_mgmt] library can enable account creation and deletion features for your Batch application or service.
 
 [api_net]: http://msdn.microsoft.com/zh-cn/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/zh-cn/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/zh-cn/library/azure/dn820158.aspx
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[storage_pricing]: /pricing/details/storage/
+[storage_pricing]: https://www.azure.cn/pricing/details/storage/
 [net_appops]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.applicationoperations.aspx
 [net_appops_listappsummaries]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.applicationoperations.listapplicationsummaries.aspx
 [net_cloudpool]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.cloudpool.aspx

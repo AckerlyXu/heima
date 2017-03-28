@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Signing Key Rollover in Azure AD | Azure"
-	description="This article discusses the signing key rollover best practices for Azure Active Directory"
-	services="active-directory"
-	documentationCenter=".net"
-	authors="gsacavdm"
-	manager="krassk"
-	editor=""/>
+---
+title: Signing Key Rollover in Azure AD | Azure
+description: This article discusses the signing key rollover best practices for Azure Active Directory
+services: active-directory
+documentationCenter: .net
+authors: gsacavdm
+manager: krassk
+editor: ''
 
-<tags
-	ms.service="active-directory"	
-	ms.date="07/18/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 07/18/2016
+wacn.date: ''
+---
 
 # Signing key rollover in Azure Active Directory
 
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
+[!INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 This topic discusses what you need to know about the public keys that are used in Azure Active Directory (Azure AD) to sign security tokens. It is important to note that these keys rollover on a 6 week schedule. In an emergency, a key could be changed much sooner than 6 weeks. All applications that use Azure AD should be able to programmatically handle the key rollover process. Continue reading to understand how the keys work, and how to update your application to handle key rollover.
 
@@ -65,26 +65,25 @@ If your application is using the .NET OWIN OpenID Connect, WS-Fed or WindowsAzur
 
 You can confirm that your application is using any of these by looking for any of the following snippets in your application's Startup.cs or Startup.Auth.cs
 
+```
+app.UseOpenIdConnectAuthentication(
+     new OpenIdConnectAuthenticationOptions
+     {
+         // ...
+     });
 
-	app.UseOpenIdConnectAuthentication(
-		 new OpenIdConnectAuthenticationOptions
-		 {
-			 // ...
-		 });
+app.UseWsFederationAuthentication(
+    new WsFederationAuthenticationOptions
+    {
+     // ...
+     });
 
-	app.UseWsFederationAuthentication(
-	    new WsFederationAuthenticationOptions
-	    {
-		 // ...
-	 	});
-
-	
-	 app.UseWindowsAzureActiveDirectoryBearerAuthentication(
-		 new WindowsAzureActiveDirectoryBearerAuthenticationOptions
-		 {
-		 // ...
-		 });
-
+ app.UseWindowsAzureActiveDirectoryBearerAuthentication(
+     new WindowsAzureActiveDirectoryBearerAuthenticationOptions
+     {
+     // ...
+     });
+```
 
 ### <a name="owincore"></a>Web applications / APIs protecting resources using .NET Core OpenID Connect or  JwtBearerAuthentication middleware
 
@@ -92,20 +91,19 @@ If your application is using the .NET Core OWIN OpenID Connect  or JwtBearerAuth
 
 You can confirm that your application is using any of these by looking for any of the following snippets in your application's Startup.cs or Startup.Auth.cs
 
+```
+app.UseOpenIdConnectAuthentication(
+     new OpenIdConnectAuthenticationOptions
+     {
+         // ...
+     });
 
-	app.UseOpenIdConnectAuthentication(
-		 new OpenIdConnectAuthenticationOptions
-		 {
-			 // ...
-		 });
-
-
-	app.UseJwtBearerAuthentication(
-	    new JwtBearerAuthenticationOptions
-	    {
-		 // ...
-	 	});
-
+app.UseJwtBearerAuthentication(
+    new JwtBearerAuthenticationOptions
+    {
+     // ...
+     });
+```
 
 ### <a name="passport"></a>Web applications / APIs protecting resources using Node.js passport-azure-ad module
 
@@ -113,13 +111,13 @@ If your application is using the Node.js passport-ad module, it already has the 
 
 You can confirm that your application passport-ad by searching for the following snippet in your application's app.js
 
+```
+var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-	var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
-	
-	passport.use(new OIDCStrategy({
-		//...
-	));
-
+passport.use(new OIDCStrategy({
+    //...
+));
+```
 
 ### <a name="vs2015"></a>Web applications / APIs protecting resources and created with Visual Studio 2015
 
@@ -149,93 +147,93 @@ If you created a web API application in Visual Studio 2013 using the Web API tem
 
 The following code snippet demonstrates how to get the latest keys from the federation metadata document, and then use the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065.aspx) to validate the token. The code snippet assumes that you will use your own caching mechanism for persisting the key to validate future tokens from Azure AD, whether it be in a database, configuration file, or elsewhere.
 
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IdentityModel.Tokens;
+using System.Configuration;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml;
+using System.IdentityModel.Metadata;
+using System.ServiceModel.Security;
+using System.Threading;
 
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Threading.Tasks;
-	using System.IdentityModel.Tokens;
-	using System.Configuration;
-	using System.Security.Cryptography.X509Certificates;
-	using System.Xml;
-	using System.IdentityModel.Metadata;
-	using System.ServiceModel.Security;
-	using System.Threading;
-	
-	namespace JWTValidation
-	{
-	    public class JWTValidator
-	    {
-	        private string MetadataAddress = "[Your Federation Metadata document address goes here]";
-	
-	        // Validates the JWT Token that's part of the Authorization header in an HTTP request.
-	        public void ValidateJwtToken(string token)
-	        {
-	            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler()
-	            {
-	                // Do not disable for production code
-	                CertificateValidator = X509CertificateValidator.None
-	            };
-	
-	            TokenValidationParameters validationParams = new TokenValidationParameters()
-	            {
-	                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Classic Portal]",
-	                ValidIssuer = "[The issuer for the token goes here, such as https://sts.chinacloudapi.cn/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
-	                SigningTokens = GetSigningCertificates(MetadataAddress)
-	
-	                // Cache the signing tokens by your desired mechanism
-	            };
-	
-	            Thread.CurrentPrincipal = tokenHandler.ValidateToken(token, validationParams);
-	        }
-	
-	        // Returns a list of certificates from the specified metadata document.
-	        public List<X509SecurityToken> GetSigningCertificates(string metadataAddress)
-	        {
-	            List<X509SecurityToken> tokens = new List<X509SecurityToken>();
-	
-	            if (metadataAddress == null)
-	            {
-	                throw new ArgumentNullException(metadataAddress);
-	            }
-	
-	            using (XmlReader metadataReader = XmlReader.Create(metadataAddress))
-	            {
-	                MetadataSerializer serializer = new MetadataSerializer()
-	                {
-	                    // Do not disable for production code
-	                    CertificateValidationMode = X509CertificateValidationMode.None
-	                };
-	
-	                EntityDescriptor metadata = serializer.ReadMetadata(metadataReader) as EntityDescriptor;
-	
-	                if (metadata != null)
-	                {
-	                    SecurityTokenServiceDescriptor stsd = metadata.RoleDescriptors.OfType<SecurityTokenServiceDescriptor>().First();
-	
-	                    if (stsd != null)
-	                    {
-	                        IEnumerable<X509RawDataKeyIdentifierClause> x509DataClauses = stsd.Keys.Where(key => key.KeyInfo != null && (key.Use == KeyType.Signing || key.Use == KeyType.Unspecified)).
-	                                                             Select(key => key.KeyInfo.OfType<X509RawDataKeyIdentifierClause>().First());
-	
-	                        tokens.AddRange(x509DataClauses.Select(token => new X509SecurityToken(new X509Certificate2(token.GetX509RawData()))));
-	                    }
-	                    else
-	                    {
-	                        throw new InvalidOperationException("There is no RoleDescriptor of type SecurityTokenServiceType in the metadata");
-	                    }
-	                }
-	                else
-	                {
-	                    throw new Exception("Invalid Federation Metadata document");
-	                }
-	            }
-	            return tokens;
-	        }
-	    }
-	}
+namespace JWTValidation
+{
+    public class JWTValidator
+    {
+        private string MetadataAddress = "[Your Federation Metadata document address goes here]";
 
+        // Validates the JWT Token that's part of the Authorization header in an HTTP request.
+        public void ValidateJwtToken(string token)
+        {
+            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler()
+            {
+                // Do not disable for production code
+                CertificateValidator = X509CertificateValidator.None
+            };
+
+            TokenValidationParameters validationParams = new TokenValidationParameters()
+            {
+                AllowedAudience = "[Your App ID URI goes here, as registered in the Azure Classic Portal]",
+                ValidIssuer = "[The issuer for the token goes here, such as https://sts.chinacloudapi.cn/68b98905-130e-4d7c-b6e1-a158a9ed8449/]",
+                SigningTokens = GetSigningCertificates(MetadataAddress)
+
+                // Cache the signing tokens by your desired mechanism
+            };
+
+            Thread.CurrentPrincipal = tokenHandler.ValidateToken(token, validationParams);
+        }
+
+        // Returns a list of certificates from the specified metadata document.
+        public List<X509SecurityToken> GetSigningCertificates(string metadataAddress)
+        {
+            List<X509SecurityToken> tokens = new List<X509SecurityToken>();
+
+            if (metadataAddress == null)
+            {
+                throw new ArgumentNullException(metadataAddress);
+            }
+
+            using (XmlReader metadataReader = XmlReader.Create(metadataAddress))
+            {
+                MetadataSerializer serializer = new MetadataSerializer()
+                {
+                    // Do not disable for production code
+                    CertificateValidationMode = X509CertificateValidationMode.None
+                };
+
+                EntityDescriptor metadata = serializer.ReadMetadata(metadataReader) as EntityDescriptor;
+
+                if (metadata != null)
+                {
+                    SecurityTokenServiceDescriptor stsd = metadata.RoleDescriptors.OfType<SecurityTokenServiceDescriptor>().First();
+
+                    if (stsd != null)
+                    {
+                        IEnumerable<X509RawDataKeyIdentifierClause> x509DataClauses = stsd.Keys.Where(key => key.KeyInfo != null && (key.Use == KeyType.Signing || key.Use == KeyType.Unspecified)).
+                                                             Select(key => key.KeyInfo.OfType<X509RawDataKeyIdentifierClause>().First());
+
+                        tokens.AddRange(x509DataClauses.Select(token => new X509SecurityToken(new X509Certificate2(token.GetX509RawData()))));
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException("There is no RoleDescriptor of type SecurityTokenServiceType in the metadata");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Invalid Federation Metadata document");
+                }
+            }
+            return tokens;
+        }
+    }
+}
+```
 
 ### <a name="vs2012"></a>Web applications protecting resources and created with Visual Studio 2012
 
@@ -246,28 +244,27 @@ If you created your application using any of the code samples or walkthrough doc
 1. In **Solution Explorer**, add a reference to the **System.IdentityModel** assembly for the appropriate project.
 2. Open the **Global.asax.cs** file and add the following using directives:
 
-	using System.Configuration;
-	using System.IdentityModel.Tokens;
+    using System.Configuration;
+    using System.IdentityModel.Tokens;
 
 3. Add the following method to the **Global.asax.cs** file:
 
-	protected void RefreshValidationSettings()
-	{
-	    string configPath = AppDomain.CurrentDomain.BaseDirectory + "\\" + "Web.config";
-	    string metadataAddress =
-	                  ConfigurationManager.AppSettings["ida:FederationMetadataLocation"];
-	    ValidatingIssuerNameRegistry.WriteToConfig(metadataAddress, configPath);
-	}
+    protected void RefreshValidationSettings()
+    {
+        string configPath = AppDomain.CurrentDomain.BaseDirectory + "\\" + "Web.config";
+        string metadataAddress =
+                      ConfigurationManager.AppSettings["ida:FederationMetadataLocation"];
+        ValidatingIssuerNameRegistry.WriteToConfig(metadataAddress, configPath);
+    }
 
 4. Invoke the **RefreshValidationSettings()** method in the **Application_Start()** method in **Global.asax.cs** as shown:
 
-	protected void Application_Start()
-	{
-	    AreaRegistration.RegisterAllAreas();
-	    ...
-	    RefreshValidationSettings();
-	}
-
+    protected void Application_Start()
+    {
+        AreaRegistration.RegisterAllAreas();
+        ...
+        RefreshValidationSettings();
+    }
 
 Once you have followed these steps, your application’s Web.config will be updated with the latest information from the federation metadata document, including the latest keys. This update will occur every time your application pool recycles in IIS; by default IIS is set to recycle applications every 29 hours.
 
@@ -275,16 +272,15 @@ Follow the steps below to verify that the key rollover logic is working.
 
 1. After you have verified that your application is using the code above, open the **Web.config** file and navigate to the **<issuerNameRegistry>** block, specifically looking for the following few lines:
 
-	<issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
-	        <authority name="https://sts.chinacloudapi.cn/ec4187af-07da-4f01-b18f-64c2f5abecea/">
-	          <keys>
-	            <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
-	          </keys>
+    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
+            <authority name="https://sts.chinacloudapi.cn/ec4187af-07da-4f01-b18f-64c2f5abecea/">
+              <keys>
+                <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
+              </keys>
 
 2. In the **<add thumbprint=””>** setting, change the thumbprint value by replacing any character with a different one. Save the **Web.config** file.
 
 3. Build the application, and then run it. If you can complete the sign-in process, your application is successfully updating the key by downloading the required information from your directory’s federation metadata document. If you are having issues signing in, ensure the changes in your application are correct by reading the [Adding Sign-On to Your Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) topic, or downloading and inspecting the following code sample: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
-
 
 ### <a name="vs2010"></a>Web applications protecting resources and created with Visual Studio 2008 or 2010 and Windows Identity Foundation (WIF) v1.0 for .NET 3.5
 
@@ -292,7 +288,6 @@ If you built an application on WIF v1.0, there is no provided mechanism to autom
 
 - Follow the instructions in the Manually Retrieve the Latest Key and Update Your Application section below and write logic to perform the steps programmatically.
 - Update your application to .NET 4.5, which includes the newest version of WIF located in the System namespace. You can then use the [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) to perform automatic updates of the application’s configuration.
-
 
 1. Verify that you have the WIF v1.0 SDK installed on your development machine for Visual Studio 2008 or 2010. You can [download it from here](https://www.microsoft.com/en-us/download/details.aspx?id=4451) if you have not yet installed it.
 2. In Visual Studio, open the solution, and then right-click the applicable project and select **Update federation metadata**. If this option is not available, FedUtil and/or the WIF v1.0 SDK has not been installed.
@@ -311,19 +306,19 @@ To manually retrieve the latest key from the OpenID discovery document:
 2. Copy the link in value of jwks_uri
 3. Open a new tab in your browser, and go to the URL that you just copied. You will see the contents of the JSON Web Key Set document.
 4. For the purposes of updating an application to use a new key, locate each **x5c** element, and then copy the value of each. For example:
-	
-	keys: [
-		{
-			kty: "RSA",
-			use: "sig",
-			kid: "MnC_VZcATfM5pOYiJHMba9goEKY",
-			x5t: "MnC_VZcATfM5pOYiJHMba9goEKY",
-			n: "vIqz-4-ER_vNW...ixLUQ",
-			e: "AQAB",
-			x5c: [
-				"MIIC4jCCAcqgAw...dhXsIIKvJQ=="
-			]
-		},
+
+    keys: [
+        {
+            kty: "RSA",
+            use: "sig",
+            kid: "MnC_VZcATfM5pOYiJHMba9goEKY",
+            x5t: "MnC_VZcATfM5pOYiJHMba9goEKY",
+            n: "vIqz-4-ER_vNW...ixLUQ",
+            e: "AQAB",
+            x5c: [
+                "MIIC4jCCAcqgAw...dhXsIIKvJQ=="
+            ]
+        },
 
 5. After you’ve copied the value of the **<X509Certificate>** element, open a plain text editor and paste the value. Make sure that you remove any trailing whitespace, and then save the file with a **.cer** extension.
 
@@ -331,12 +326,12 @@ To manually retrieve the latest key from the federation metadata document:
 
 1. In your web browser, go to `https://login.microsoftonline.com/your_directory_name/federationmetadata/2007-06/federationmetadata.xml`. You will see the contents of the Federation Metadata XML document. For more information about this document, see the [Federation Metadata](active-directory-federation-metadata.md) topic.
 2. For the purposes of updating an application to use a new key, locate each **<RoleDescriptor>** block, and then copy the value of each block’s **<X509Certificate>** element. For example:
-	
-	<RoleDescriptor xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType">
-	      <KeyDescriptor use="signing">
-	            <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
-	                <X509Data>
-	                    <X509Certificate>MIIDPjC…BcXWLAIarZ</X509Certificate>
+
+    <RoleDescriptor xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType">
+          <KeyDescriptor use="signing">
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data>
+                        <X509Certificate>MIIDPjC…BcXWLAIarZ</X509Certificate>
 
 3. After you’ve copied the value of the **<X509Certificate>** element, open a plain text editor and paste the value. Make sure that you remove any trailing whitespace, and then save the file with a **.cer** extension.
 

@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Multiple VIPs for Azure Load Balancer | Azure"
-    description="Overview of Multiple VIPs on Azure Load Balancer"
-    services="load-balancer"
-    documentationcenter="na"
-    author="chkuhtz"
-    manager="narayan"
-    editor="" />
-<tags
-    ms.assetid="748e50cd-3087-4c2e-a9e1-ac0ecce4f869"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="08/11/2016"
-    wacn.date=""
-    ms.author="chkuhtz" />
+---
+title: Multiple VIPs for Azure Load Balancer | Azure
+description: Overview of Multiple VIPs on Azure Load Balancer
+services: load-balancer
+documentationcenter: na
+author: chkuhtz
+manager: narayan
+editor: ''
+
+ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/11/2016
+wacn.date: ''
+ms.author: chkuhtz
+---
 
 # Multiple VIPs for Azure Load Balancer
 
 Azure Load Balancer allows you to load balance services on multiple ports, multiple IP addresses, or both. You can use public and internal load balancer definitions to load balance flows across a set of VMs.
 
-This article describes the fundamentals of this ability, important concepts, and constraints. If you only intend to expose services on one IP address, you can find simplified instructions for [public](/documentation/articles/load-balancer-get-started-internet-portal/) or [internal](/documentation/articles/load-balancer-get-started-ilb-arm-portal/) load balancer configurations. Adding Multiple VIPs is incremental to a single VIP configuration. Using the concepts in this article, you can expand a simplified configuration at any time.
+This article describes the fundamentals of this ability, important concepts, and constraints. If you only intend to expose services on one IP address, you can find simplified instructions for [public](./load-balancer-get-started-internet-portal.md) or [internal](./load-balancer-get-started-ilb-arm-portal.md) load balancer configurations. Adding Multiple VIPs is incremental to a single VIP configuration. Using the concepts in this article, you can expand a simplified configuration at any time.
 
 When you define an Azure Load Balancer, a frontend and a backend configuration are connected with rules. The health probe referenced by the rule is used to determine how new flows are sent to a node in the backend pool. The frontend is defined by a Virtual IP (VIP), which is a 3-tuple comprised of an IP address (public or internal), a transport protocol (UDP or TCP), and a port number. A DIP is an IP address on an Azure virtual NIC attached to a VM in the backend pool.
 
@@ -96,7 +97,7 @@ For this scenario, every VM in the backend pool has three network interfaces:
 * VIP1: a loopback interface within guest OS that is configured with IP address of VIP1
 * VIP2: a loopback interface within guest OS that is configured with IP address of VIP2
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The configuration of the logical interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the logical VIP. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the logical VIP.
 
 Let's assume the same frontend configuration as in the previous scenario:
@@ -124,11 +125,11 @@ The destination of the inbound flow is the VIP address on the loopback interface
 
 Notice that this example does not change the destination port. Even though this is a Floating IP scenario, Azure Load Balancer also supports defining a rule to rewrite the backend destination port and to make it different from the frontend destination port.
 
-The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](/documentation/articles/virtual-machines-windows-portal-sql-ps-alwayson-int-listener/) configuration. Over time, we will document more of these scenarios.
+The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuration. Over time, we will document more of these scenarios.
 
 ## Limitations
 
 * Multiple VIP configurations are only supported with IaaS VMs.
 * With the Floating IP rule, your application must use the DIP for outbound flows. If your application binds to the VIP address configured on the loopback interface in the guest OS, then SNAT is not available to rewrite the outbound flow and the flow fails.
-* Public IP addresses have an effect on billing. For more information, see [IP Address pricing](/pricing/details/reserved-ip-addresses/)
-* Subscription limits apply. For more information, see [Service limits](/documentation/articles/azure-subscription-service-limits/#networking-limits) for details.
+* Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/)
+* Subscription limits apply. For more information, see [Service limits](../azure-subscription-service-limits.md#networking-limits) for details.

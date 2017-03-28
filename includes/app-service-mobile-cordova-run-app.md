@@ -1,4 +1,3 @@
-
 1. Visit the [Azure portal].
 2. Click **Browse All** > **Mobile Apps** > the backend that you created.
 3. In the mobile app settings, click **Quickstart** > **Cordova**.

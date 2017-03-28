@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure Custom Script Extension for Windows | Azure"
-    description="Automate Windows VM configuration tasks by using the Custom Script extension"
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="neilpeterson"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="f4181fee-7a9d-4a1c-b517-52956f5b7fa1"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure-services"
-    ms.date="01/17/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Azure Custom Script Extension for Windows | Azure
+description: Automate Windows VM configuration tasks by using the Custom Script extension
+services: virtual-machines-windows
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: f4181fee-7a9d-4a1c-b517-52956f5b7fa1
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 01/17/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Custom Script Extension for Windows
 
@@ -42,35 +43,37 @@ The Custom Script Extension for Windows requires that the target virtual machine
 
 The following JSON shows the schema for the Custom Script Extension. The extension requires a script location (Azure Storage or other location with valid URL), and a command to execute. If using Azure Storage as the script source, an Azure storage account name and account key is required. These items should be treated as sensitive data and specified in the extensions protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine.
 
-    {
-        "apiVersion": "2015-06-15",
-        "type": "extensions",
-        "name": "config-app",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
-            "[variables('musicstoresqlName')]"
-        ],
-        "tags": {
-            "displayName": "config-app"
+```json
+{
+    "apiVersion": "2015-06-15",
+    "type": "extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+        "[variables('musicstoresqlName')]"
+    ],
+    "tags": {
+        "displayName": "config-app"
+    },
+    "properties": {
+        "publisher": "Microsoft.Compute",
+        "type": "CustomScriptExtension",
+        "typeHandlerVersion": "1.8",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "fileUris": [
+                "script location"
+            ]
         },
-        "properties": {
-            "publisher": "Microsoft.Compute",
-            "type": "CustomScriptExtension",
-            "typeHandlerVersion": "1.8",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "fileUris": [
-                    "script location"
-                ]
-            },
-            "protectedSettings": {
-                "commandToExecute": "myExecutionCommand",
-                "storageAccountName": "myStorageAccountName",
-                "storageAccountKey": "myStorageAccountKey"
-            }
+        "protectedSettings": {
+            "commandToExecute": "myExecutionCommand",
+            "storageAccountName": "myStorageAccountName",
+            "storageAccountKey": "myStorageAccountKey"
         }
     }
+}
+```
 
 ### Property values
 
@@ -94,12 +97,14 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 The `Set-AzureRmVMCustomScriptExtension` command can be used to add the Custom Script extension to an existing virtual machine. For more information, see [Set-AzureRmVMCustomScriptExtension
 ](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
 
-    Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
-        -VMName myVM `
-        -Location myLocation `
-        -FileUri myURL `
-        -Run 'myScript.ps1' `
-        -Name DemoScriptExtension
+```powershell
+Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+    -VMName myVM `
+    -Location myLocation `
+    -FileUri myURL `
+    -Run 'myScript.ps1' `
+    -Name DemoScriptExtension
+```
 
 ## Troubleshoot and support
 
@@ -107,15 +112,21 @@ The `Set-AzureRmVMCustomScriptExtension` command can be used to add the Custom S
 
 Data about the state of extension deployments can be retrieved from the Azure portal preview, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command.
 
-    Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+```powershell
+Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+```
 
 Extension execution output is logged to files found under the following directory on the target virtual machine.
 
-    C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
+```cmd
+C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
+```
 
 The specified files are downloaded into the following directory on the target virtual machine.
 
-    C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
+```cmd
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
+```
 
 where `<n>` is a decimal integer which may change between executions of the extension.  The `1.*` value matches the actual, current `typeHandlerVersion` value of the extension.  For example, the actual directory could be `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
 
@@ -123,7 +134,9 @@ When executing the `commandToExecute` command, the extension will have set this 
 
 Since the absolute download path may vary over time, it is better to opt for relative script/file paths in the `commandToExecute` string, whenever possible. For example:
 
-        "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+```json
+    "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
+```
 
 Path information after the first URI segment is retained for files downloaded via the `fileUris` property list.  As shown in the table below, downloaded files are mapped into download subdirectories to reflect the structure of the `fileUris` values.  
 
@@ -139,4 +152,4 @@ Path information after the first URI segment is retained for files downloaded vi
 ### Support
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and CSDN Azure]
-(/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](/support/faq/).
+(/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](https://www.azure.cn/support/faq/).

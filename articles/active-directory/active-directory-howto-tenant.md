@@ -1,16 +1,16 @@
-<properties
-	pageTitle="How to get an Azure AD tenant | Windows Azure"
-	description="How to get an Azure Active Directory tenant for registering and building applications."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="terrylan"
-	editor=""/>
+---
+title: How to get an Azure AD tenant | Windows Azure
+description: How to get an Azure Active Directory tenant for registering and building applications.
+services: active-directory
+documentationCenter: ''
+authors: dstrockis
+manager: terrylan
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="09/28/2015"
-	wacn.date="" />
+ms.service: active-directory
+ms.date: 09/28/2015
+wacn.date: ''
+---
 
 # How to get an Azure Active Directory tenant
 
@@ -35,12 +35,12 @@ If you have previously signed up for an Azure subscription with your individual 
 
 To do so, follow these steps.  Alternatively, you may wish to create a new tenant and create an administrator in that tenant following a similar process.
 
-1.	Log into the [Azure Management Portal](https://manage.windowsazure.cn) with your individual account
-2.	Navigate to the “Active Directory” section of the portal (found in the left nav bar)
-3.	Select the “Default Directory” entry in the list of available directories
-4.	Click on the Users link at the top of the page.  You will see a single user in the list with value “Microsoft account” in the Sourced From column
-5.	Click “Add User” at the bottom of the page
-6.	In the Add User Form provide the following details:
+1. Log into the [Azure Management Portal](https://manage.windowsazure.cn) with your individual account
+2. Navigate to the “Active Directory” section of the portal (found in the left nav bar)
+3. Select the “Default Directory” entry in the list of available directories
+4. Click on the Users link at the top of the page.  You will see a single user in the list with value “Microsoft account” in the Sourced From column
+5. Click “Add User” at the bottom of the page
+6. In the Add User Form provide the following details:
     - Type of User: New user in your organization
     - User name: (choose a user name for this administrator)
     - First Name/Last Name/Display Name: (choose appropriate values)
@@ -48,13 +48,11 @@ To do so, follow these steps.  Alternatively, you may wish to create a new tenan
     - Alternate Email Address: (enter appropriate values)
     - Optional: Enable Multi-Factor Authentication
     - Lastly, click on the green “CREATE” button to finalize user creation (and display the temporary password).
-7.	When you have completed the Add User Form, and receive the temporary password for the new administrative user, be sure to record this password as you will need to login with this new user in order to change the password. You can also send the password directly to the user, using an alternative e-mail.
-8.	To change the temporary password, log into https://login.microsoftonline.com with this new user account and change the password when requested.
-
+7. When you have completed the Add User Form, and receive the temporary password for the new administrative user, be sure to record this password as you will need to login with this new user in order to change the password. You can also send the password directly to the user, using an alternative e-mail.
+8. To change the temporary password, log into https://login.microsoftonline.com with this new user account and change the password when requested.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Use an organizational Azure subscription
 If you have previously signed up for an Azure subscription with your organizational account, you already have a tenant!  In the [Azure Management Portal](https://manage.windowsazure.cn), you should find a tenant listed under "All Items" and "Active Directory."  You are free to use this tenant as you see fit.  You may also wish to create a new tenant using the "New" button in the bottom left hand corner of the portal.
-
 
 ## <a name="start-from-scratch"></a>Start from scratch
 If all of the above is gibberish to you, don't worry.  Simply visit [https://account.windowsazure.cn/organization](https://account.windowsazure.cn/organization) to sign up for Azure with a new organization.  Once you've completed the process, you will have your very own Azure AD tenant with the domain name you chose during sign up.  In the [Azure Management Portal](https://manage.windowsazure.cn), you can find your tenant by navigating to "Active Directory" in the left hand nav.

@@ -1,16 +1,16 @@
-<properties
-   pageTitle="Deploy an ASP.NET Core Linux Docker container to a remote Docker host | Azure"
-   description="Learn how to use Visual Studio Tools for Docker to deploy an ASP.NET Core web app to a Docker container running on an Azure Docker Host Linux VM"   
-   services="azure-container-service"
-   documentationCenter=".net"
-   authors="allclark"
-   manager="douge"
-   editor=""/>
+---
+title: Deploy an ASP.NET Core Linux Docker container to a remote Docker host | Azure
+description: Learn how to use Visual Studio Tools for Docker to deploy an ASP.NET Core web app to a Docker container running on an Azure Docker Host Linux VM
+services: azure-container-service
+documentationCenter: .net
+authors: allclark
+manager: douge
+editor: ''
 
-<tags
-   ms.service="azure-container-service"
-   ms.date="06/08/2016"
-   wacn.date=""/>
+ms.service: azure-container-service
+ms.date: 06/08/2016
+wacn.date: ''
+---
 
 # Deploy an ASP.NET container to a remote Docker host
 
@@ -22,18 +22,18 @@ to deploy an ASP.NET Core app to a Docker host on Azure using PowerShell.
 ## Prerequisites
 The following is needed to complete this tutorial:
 
-- Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](/documentation/articles/virtual-machines-linux-docker-machine/)
+- Create an Azure Docker Host VM as described in [How to use docker-machine with Azure](./virtual-machines/virtual-machines-linux-docker-machine.md)
 - Install [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
 - Install [Visual Studio 2015 Tools for Docker - Preview](http://aka.ms/DockerToolsForVS)
 
 ## 1. Create an ASP.NET 5 web app
 The following steps will guide you through creating a basic ASP.NET 5 app that will be used in this tutorial.
 
-[AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
+[!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
 ## 2. Add Docker support
 
-[AZURE.INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
+[!INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
 ## 3. Use the DockerTask.ps1 PowerShell Script 
 
@@ -51,7 +51,8 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
     MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
     ```
 
-    > [AZURE.NOTE] If you're using the Docker Beta, your host won't be listed here.
+    > [!NOTE]
+    > If you're using the Docker Beta, your host won't be listed here.
 
 1.  Build the app using the -Build parameter
 
@@ -59,12 +60,12 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
     PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
     ```  
 
-    > [AZURE.NOTE] If you're using the Docker Beta, omit the -Machine argument
+    > [!NOTE]
+    > If you're using the Docker Beta, omit the -Machine argument
     > 
     > ```
     > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
     > ```  
-
 
 1.  Run the app, using the -Run parameter
 
@@ -72,13 +73,14 @@ The following steps will guide you through creating a basic ASP.NET 5 app that w
     PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
     ```
 
-    > [AZURE.NOTE] If you're using the Docker Beta, omit the -Machine argument
+    > [!NOTE]
+    > If you're using the Docker Beta, omit the -Machine argument
     > 
     > ```
     > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
     > ```
 
-	Once docker completes, you should see results similar to the following:
+    Once docker completes, you should see results similar to the following:
 
     ![View your app][3]
 

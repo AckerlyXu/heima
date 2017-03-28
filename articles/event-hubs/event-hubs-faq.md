@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Event Hubs frequently asked questions (FAQ) | Azure"
-    description="Event Hubs FAQ"
-    services="event-hubs"
-    documentationcenter="na"
-    author="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="bfa10984-eb22-4671-861a-f377a90d9372"
-    ms.service="event-hubs"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="12/07/2016"
-    wacn.date=""
-    ms.author="sethm" />
+---
+title: Event Hubs frequently asked questions (FAQ) | Azure
+description: Event Hubs FAQ
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
+
+ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/07/2016
+wacn.date: ''
+ms.author: sethm
+---
 
 # Event Hubs FAQ
-Event Hubs provides large-scale intake, persistence, and processing of data events from high-throughput data sources and/or millions of devices. When paired with Service Bus queues and topics, Event Hubs enables persistent command and control deployments for [Internet of Things (IoT)](/home/features/iot-hub/) scenarios.
+Event Hubs provides large-scale intake, persistence, and processing of data events from high-throughput data sources and/or millions of devices. When paired with Service Bus queues and topics, Event Hubs enables persistent command and control deployments for [Internet of Things (IoT)](https://www.azure.cn/home/features/iot-hub/) scenarios.
 
 This article discusses pricing information and answers some frequently asked questions about Event Hubs:
 
 ## Pricing information
-For complete information about Event Hubs pricing, see the [Event Hubs pricing details](/pricing/details/event-hubs/).
+For complete information about Event Hubs pricing, see the [Event Hubs pricing details](https://www.azure.cn/pricing/details/event-hubs/).
 
 ## How are Event Hubs ingress events calculated?
 Each event sent to an Event Hub counts as a billable message. An *ingress event* is defined as a unit of data that is less than or equal to 64 KB. Any event that is less than or equal to 64 KB in size is considered to be one billable event. If the event is greater than 64 KB, the number of billable events is calculated according to the event size, in multiples of 64 KB. For example, an 8 KB event sent to the Event Hub is billed as one event, but a 96 KB message sent to the Event Hub is billed as two events.
@@ -62,10 +63,10 @@ The total size of all stored events, including any internal overhead for event h
 Yes, as long as all the Event Hubs, queues, and topics are in the same namespace. As such, you can implement bi-directional, brokered connectivity to many devices, with subsecond latencies, in a cost-effective and highly scalable way.
 
 ## Do brokered connection charges apply to Event Hubs?
-For senders, connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), please refer to the [Service Bus pricing information](/pricing/details/service-bus/) page for information about what constitutes a brokered connection, and how they are metered.
+For senders, connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication in IoT command and control scenarios), please refer to the [Service Bus pricing information](https://www.azure.cn/pricing/details/service-bus/) page for information about what constitutes a brokered connection, and how they are metered.
 
 ## What is the difference between Event Hubs Basic and Standard tiers?
-Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, and in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with subsecond latencies, as well as to send telemetry from those devices into Event Hubs. For the list of features, see the [Event Hubs pricing details](/pricing/details/event-hubs/).
+Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, and in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with subsecond latencies, as well as to send telemetry from those devices into Event Hubs. For the list of features, see the [Event Hubs pricing details](https://www.azure.cn/pricing/details/event-hubs/).
 
 ## Geographic availability
 
@@ -76,17 +77,17 @@ Azure Event Hubs is available in all supported Azure regions.
 ## Support and SLA
 Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home). Billing and subscription management support is provided at no cost.
 
-To learn more about our SLA, see the [Service Level Agreements](/support/legal/sla/) page.
+To learn more about our SLA, see the [Service Level Agreements](https://www.azure.cn/support/legal/sla/) page.
 
 ## Diagnostic logs
 
-Event Hubs supports two types of [diagnostics logs](/documentation/articles/event-hubs-diagnostic-logs/) - Archive error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal preview.
+Event Hubs supports two types of [diagnostics logs](./event-hubs-diagnostic-logs.md) - Archive error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal preview.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](/documentation/articles/event-hubs-what-is-event-hubs/)
-* [Create an Event Hub](/documentation/articles/event-hubs-create/)
+* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](./event-hubs-create.md)
 
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: ./event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

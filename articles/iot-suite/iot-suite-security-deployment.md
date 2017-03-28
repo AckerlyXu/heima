@@ -1,23 +1,22 @@
-<properties
- pageTitle="Secure your Internet of Things deployment | Azure"
- description="This article details how to secure your IoT deployment"
- services=""
- suite="iot-suite"
- documentationCenter=""
- author="YuriDio"
- manager="timlt"
- editor=""/>
+---
+title: Secure your Internet of Things deployment | Azure
+description: This article details how to secure your IoT deployment
+services: ''
+suite: iot-suite
+documentationCenter: ''
+author: YuriDio
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="01/04/2017"
- ms.author="yurid"
- wacn.date=""/>
-
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/04/2017
+ms.author: yurid
+wacn.date: ''
+---
 
 # Secure your IoT deployment
 This article provides the next level of detail for securing the Azure IoT-based Internet of Things (IoT) infrastructure. It links to implementation level details for configuring and deploying each component. It also provides comparisons and choices between various competing methods.
@@ -119,22 +118,21 @@ You can also explore some of the other features and capabilities of the IoT Suit
 
 You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-security] in the IoT Hub developer guide.
 
-
 [img-overview]: ./media/iot-suite-security-deployment/overview.png
 
-[lnk-security-tokens]: /documentation/articles/iot-hub-devguide-security/#security-token-structure
-[lnk-sas-tokens]: /documentation/articles/iot-hub-devguide-security/#use-sas-tokens-in-a-device-app
-[lnk-identity-registry]: /documentation/articles/iot-hub-devguide-identity-registry/
-[lnk-protocols]: /documentation/articles/iot-hub-devguide-security/
-[lnk-custom-auth]: /documentation/articles/iot-hub-devguide-security/#custom-device-authentication
+[lnk-security-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-token-structure
+[lnk-sas-tokens]: ../iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
+[lnk-protocols]: ../iot-hub/iot-hub-devguide-security.md
+[lnk-custom-auth]: ../iot-hub/iot-hub-devguide-security.md#custom-device-authentication
 [lnk-x509]: http://www.itu.int/rec/T-REC-X.509-201210-I/en
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246
-[lnk-service-tokens]: /documentation/articles/iot-hub-devguide-security/#use-security-tokens-from-service-components
-[lnk-docdb]: /documentation/services/documentdb/
-[lnk-asa]: /documentation/services/stream-analytics/
-[lnk-appservices]: /documentation/services/app-service/
-[lnk-blob]: /documentation/services/storage/
+[lnk-service-tokens]: ../iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components
+[lnk-docdb]: ../documentdb/index.md
+[lnk-asa]: ../stream-analytics/index.md
+[lnk-appservices]: ../app-service/index.md
+[lnk-blob]: ../storage/index.md
 
-[lnk-predictive-overview]: /documentation/articles/iot-suite-predictive-overview/
-[lnk-faq]: /documentation/articles/iot-suite-faq/
-[lnk-devguide-security]: /documentation/articles/iot-hub-devguide-security/
+[lnk-predictive-overview]: ./iot-suite-predictive-overview.md
+[lnk-faq]: ./iot-suite-faq.md
+[lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md

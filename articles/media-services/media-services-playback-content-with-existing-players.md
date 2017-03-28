@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Use existing players to playback your content - Azure | Azure"
-    description="This topic lists existing players that you can use to playback your content."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="7e9fcf89-0fb6-4fa4-96cb-666320684d69"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Use existing players to playback your content - Azure | Azure
+description: This topic lists existing players that you can use to playback your content.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
+
+ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 #Playing your content with existing players
 
@@ -25,7 +26,7 @@ Azure Media Services supports many popular streaming formats, such as Smooth Str
 
 The **Azure** portal provides a content player that you can use to test your video.
 
-Click on the desired video (make sure it was [published](/documentation/articles/media-services-portal-publish/)) and click the **Play** button at the bottom of the portal.
+Click on the desired video (make sure it was [published](./media-services-portal-publish.md)) and click the **Play** button at the bottom of the portal.
 
 Some considerations apply:
 
@@ -40,7 +41,6 @@ Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.htm
 - MPEG DASH
 - HLS
 - Progressive MP4
-
 
 ###Flash Player
 
@@ -72,7 +72,6 @@ To test HLS URLs you can also use:
 - **3ivx HLS Player** on Windows.
 
 ## Developing video players
-For information about how to develop your own players, see [Developing video players](/documentation/articles/media-services-develop-video-players/)
+For information about how to develop your own players, see [Developing video players](./media-services-develop-video-players.md)
 
-
-[AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png 
+[AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png

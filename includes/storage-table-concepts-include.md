@@ -27,17 +27,17 @@ The Table service contains the following components:
 -   **URL format:** Code addresses tables in an account using this
     address format:   
     http://`<storage account>`.table.core.chinacloudapi.cn/`<table>`  
-      
+
     You can address Azure tables directly using this address with the
     OData protocol. For more information, see [OData.org][]
 
 -   **Storage Account:** All access to Azure Storage is done
-    through a storage account. See [Azure Storage Scalability and Performance Targets](/documentation/articles/storage-scalability-targets/) for details about storage account capacity.
+    through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
 
 -   **Table**: A table is a collection of entities. Tables don't enforce
     a schema on entities, which means a single table can contain
     entities that have different sets of properties. The number of tables that a 
-	storage account can contain is limited only by the 
+    storage account can contain is limited only by the 
     storage account capacity limit.
 
 -   **Entity**: An entity is a set of properties, similar to a database
@@ -51,6 +51,6 @@ The Table service contains the following components:
     key is its unique identifier within a partition.
 
 For details about naming tables and properties, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/zh-cn/library/azure/dd179338.aspx).
-  
+
   [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/

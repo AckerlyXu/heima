@@ -1,29 +1,29 @@
-<properties
-    pageTitle="User provisioning management for enterprise apps in the Azure Active Directory preview | Azure"
-    description="Learn how to manage user account provisioning for enterprise apps using the Azure Active Directory preview"
-    services="active-directory"
-    documentationCenter=""
-    authors="asmalser"
-    manager="stevenpo"
-    editor=""/>
+---
+title: User provisioning management for enterprise apps in the Azure Active Directory preview | Azure
+description: Learn how to manage user account provisioning for enterprise apps using the Azure Active Directory preview
+services: active-directory
+documentationCenter: ''
+authors: asmalser
+manager: stevenpo
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="09/12/2016"
-    ms.author="asmalser"
-    wacn.date=""/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/12/2016
+ms.author: asmalser
+wacn.date: ''
+---
 
 #Preview: Managing user account provisioning for enterprise apps in the new Azure portal
 
-This article describes how to use the [Azure portal](https://portal.azure.cn) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](/documentation/articles/active-directory-appssoaccess-whatis/#get-started-with-the-azure-ad-application-gallery/). This management experience in the new Azure portal is currently in public preview, and this article describes the new features as well as a few temporary limitations that are in place during the preview period. [What's in the preview?](/documentation/articles/active-directory-preview-explainer/)
+This article describes how to use the [Azure portal](https://portal.azure.cn) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](./active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). This management experience in the new Azure portal is currently in public preview, and this article describes the new features as well as a few temporary limitations that are in place during the preview period. [What's in the preview?](./active-directory-preview-explainer.md)
 
 ##Finding your apps in the new portal
 
-As of September 2016, all applications that have been configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](/documentation/articles/active-directory-appssoaccess-whatis/#get-started-with-the-azure-ad-application-gallery/) inside the [Azure Classic Management Portal](https://manage.windowsazure.cn), can now be viewed and managed in the new Azure portal.
+As of September 2016, all applications that have been configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](./active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) inside the [Azure Classic Management Portal](https://manage.windowsazure.cn), can now be viewed and managed in the new Azure portal.
 
 These applications can be found in the **Enterprise Applications** section of the new Azure portal, which can be accessed through the **More Services** menu in the left navigation area. Enterprise apps are apps that have been deployed and are being used by users within your organization.
 
@@ -35,7 +35,6 @@ User account provisioning settings can be managed by selecting **Provisioning** 
 
 ![Application resource blade][1]
 
-
 ##Provisioning modes
 
 The **Provisioning** blade begins with a **Mode** menu, which shows what provisioning modes are supported for an enterprise application, and allows them to be configured. The available options include:
@@ -43,7 +42,6 @@ The **Provisioning** blade begins with a **Mode** menu, which shows what provisi
 * **Automatic** - This option appears if Azure AD supports automatic API-based provisioning and/or de-provisioning of user accounts to this application. Selecting this mode displays an interface that guides administrators through configuring Azure AD to connect to the application's user management API, creating account mappings and workflows that define how user account data should flow between Azure AD and the app, and managing the Azure AD provisioning service.
 
 * **Manual** - This option is shown if Azure AD does not support automatic provisioning of user accounts to this application. This option means that user account records stored in the application must be managed using an external process, based on the user management and provisioning capabilities provided by that application (which can include SAML Just-In-Time provisioning).
-
 
 ##Configuring automatic user account provisioning
 

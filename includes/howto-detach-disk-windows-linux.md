@@ -2,7 +2,7 @@ When you no longer need a data disk that's attached to a virtual machine, you ca
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.  
 
-> [AZURE.NOTE]
+> [!NOTE]
 > To detach an operating system disk, you first need to delete the virtual machine.
 >
 

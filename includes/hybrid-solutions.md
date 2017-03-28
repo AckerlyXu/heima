@@ -8,14 +8,13 @@ Whether software runs in the cloud or on premises, it often needs to interact wi
 - [Topics](#topics)
 - [Relays](#relays)
 
-
 ## <a name="fundamentals"></a>Service Bus Fundamentals
 Different situations call for different styles of communication. Sometimes, letting applications send and receive messages through a simple queue is the best solution. In other situations, an ordinary queue isn't enough; a queue with a publish-and-subscribe mechanism is better. And in some cases, all that's really needed is a connection between applications-queues aren't required. Service Bus provides all three options, letting your applications interact in several different ways.
 
 Service Bus is a multi-tenant cloud service, which means that the service is shared by multiple users. Each user, such as an application developer, creates a *namespace*, then defines the communication mechanisms she needs within that namespace. [Figure 1](#Fig1) shows how this looks.
 
 <a name="Fig1"></a>![Diagram of Azure Service Bus][svc-bus]
- 
+
 **Figure 1: Service Bus provides a multi-tenant service for connecting applications through the cloud.**
 
 Within a namespace, you can use one or more instances of three different communication mechanisms, each of which connects applications in a different way. The choices are:
@@ -30,13 +29,12 @@ To use any of these objects, Windows applications can use Windows Communication 
 
 It's important to understand that even though Service Bus itself runs in the cloud (that is, in Microsoft's Azure datacenters), applications that use it can run anywhere. You can use Service Bus to connect applications running on Azure, for example, or applications running inside your own datacenter. You can also use it to connect an application running on Azure or another cloud platform with an on-premises application or with tablets and phones. It's even possible to connect household appliances, sensors, and other devices to a central application or to one other. Service Bus is a generic communication mechanism in the cloud that's accessible from pretty much anywhere. How you use it depends on what your applications need to do.
 
-
 ## <a name="queues"></a>Queues
 
 Suppose you decide to connect two applications using a Service Bus queue. [Figure 2](#Fig2) illustrates this situation.
 
 <a name="Fig2"></a>![Diagram of Service Bus Queues][queues]
- 
+
 **Figure 2: Service Bus queues provide one-way asynchronous queuing.**
 
 The process is simple: A sender sends a message to a Service Bus queue, and a receiver picks up that message at some later time. A queue can have just a single receiver, as [Figure 2](#Fig2) shows, or multiple applications can read from the same queue. In the latter situation, each message is typically read by just one receiver-queues don't provide a multi-cast service.
@@ -55,13 +53,12 @@ Notice what can happen here: The same message might be delivered twice, perhaps 
 
 Queues are useful in quite a few situations. They let applications communicate even when both aren't running at the same time, something that's especially handy with batch and mobile applications. A queue with multiple receivers also provides automatic load balancing, since sent messages are spread across these receivers.
 
-
 ## <a name="topics"></a>Topics
 
 Useful as they are, queues aren't always the right solution. Sometimes, Service Bus topics are better. [Figure 3](#Fig3) illustrates this idea.
 
 <a name="Fig3"></a>![Diagram of Service Bus Topics and Subscriptions][topics-subs]
- 
+
 **Figure 3: Based on the filter a subscribing application specifies, it can receive some or all of the messages sent to a Service Bus topic.**
 
 A topic is similar in many ways to a queue. Senders submit messages to a topic in the same way that they submit messages to a queue, and those messages look the same as with queues. The big difference is that topics let each receiving application create its own subscription by defining a *filter*. A subscriber will then see only the messages that match that filter. For example, [Figure 3](#Fig3) shows a sender and a topic with three subscribers, each with its own filter:
@@ -72,13 +69,12 @@ A topic is similar in many ways to a queue. Senders submit messages to a topic i
 
 As with queues, subscribers to a topic can read messages using either ReceiveAndDelete or PeekLock. Unlike queues, however, a single message sent to a topic can be received by multiple subscribers. This approach, commonly called *publish and subscribe*, is useful whenever multiple applications might be interested in the same messages. By defining the right filter, each subscriber can tap into just the part of the message stream that it needs to see.
 
-
 ## <a name="relays"></a>Relays
 
 Both queues and topics provide one-way asynchronous communication through a broker. Traffic flows in just one direction, and there's no direct connection between senders and receivers. But what if you don't want this? Suppose your applications need to both send and receive, or perhaps you want a direct link between them"you don't need a place to store messages in between. To address problems like this, Service Bus provides relays, as [Figure 4](#Fig4) shows.
 
 <a name="Fig4"></a>![Diagram of Service Bus Relay][relay]
- 
+
 **Figure 4: Service Bus relay provides synchronous, two-way communication between applications.**
 
 The obvious question to ask about relays is this: Why would I use one? Even if I don't need queues, why make applications communicate via a cloud service rather than just interact directly? The answer is that talking directly can be harder than you might think.

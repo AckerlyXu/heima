@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Managing Metrics with the Azure Service Fabric Cluster Resource Manager | Azure"
-    description="Learn about how to configure and use metrics in Service Fabric."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="masnider"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="0d622ea6-a7c7-4bef-886b-06e6b85a97fb"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="masnider" />
+---
+title: Managing Metrics with the Azure Service Fabric Cluster Resource Manager | Azure
+description: Learn about how to configure and use metrics in Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
+
+ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: masnider
+---
 
 # Managing resource consumption and load in Service Fabric with metrics
 Metrics are the generic term within Service Fabric for the resources that your services care about and which are provided by the nodes in the cluster. Generally, a metric is anything that you want to manage to deal with the performance of your services.
@@ -208,11 +209,11 @@ In the top example where we only looked at global balance, the cluster as a whol
 In the bottom example, the Cluster Resource Manager has distributed the replicas based on both the global and per-service balance. When calculating the score of the solution it gives most of the weight to the global solution, and a (configurable) portion to individual services. Global balance is calculated based on the average of the metric weights configured for each of the services. Each service is balanced according to its own defined metric weights. This ensures that the services are balanced within themselves according to their own needs as much as possible. As a result, if the same first node fails the loss of primaries (and secondaries) is distributed across all partitions of all services. The impact to each is the same.
 
 ## Next steps
-- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](/documentation/articles/service-fabric-cluster-resource-manager-configure-services/)
-- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](/documentation/articles/service-fabric-cluster-resource-manager-defragmentation-metrics/)
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](/documentation/articles/service-fabric-cluster-resource-manager-balancing/)
-- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](/documentation/articles/service-fabric-cluster-resource-manager-introduction/)
-- Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. To learn more about movement cost, refer to [this article](/documentation/articles/service-fabric-cluster-resource-manager-movement-cost/)
+- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](./service-fabric-cluster-resource-manager-configure-services.md)
+- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](./service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](./service-fabric-cluster-resource-manager-balancing.md)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](./service-fabric-cluster-resource-manager-introduction.md)
+- Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. To learn more about movement cost, refer to [this article](./service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png

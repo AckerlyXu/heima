@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Manage multiple environments in Service Fabric | Azure"
-    description="Service Fabric applications can be run on clusters that range in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application parameters per environment."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="seanmck"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="f406eac9-7271-4c37-a0d3-0a2957b60537"
-    ms.service="service-fabric"
-    ms.devlang="dotNet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="2/06/2017"
-    wacn.date=""
-    ms.author="seanmck" />
+---
+title: Manage multiple environments in Service Fabric | Azure
+description: Service Fabric applications can be run on clusters that range in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application parameters per environment.
+services: service-fabric
+documentationcenter: .net
+author: seanmck
+manager: timlt
+editor: ''
+
+ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 2/06/2017
+wacn.date: ''
+ms.author: seanmck
+---
 
 # Manage application parameters for multiple environments
 You can create Azure Service Fabric clusters by using anywhere from one to many thousands of machines. While application binaries can run without modification across this wide spectrum of environments, you will often want to configure the application differently, depending on the number of machines you're deploying to.
@@ -28,105 +29,117 @@ The solution to this configuration issue is a set of parameterized default servi
 ### Default services
 Service Fabric applications are made up of a collection of service instances. While it is possible for you to create an empty application and then create all service instances dynamically, most applications have a set of core services that should always be created when the application is instantiated. These are referred to as "default services". They are specified in the application manifest, with placeholders for per-environment configuration included in square brackets:
 
-    <DefaultServices>
-        <Service Name="Stateful1">
-            <StatefulService
-                ServiceTypeName="Stateful1Type"
-                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
-                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+```xml
+<DefaultServices>
+    <Service Name="Stateful1">
+        <StatefulService
+            ServiceTypeName="Stateful1Type"
+            TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+            MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
-                <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]"
-                    LowKey="-9223372036854775808"
-                    HighKey="9223372036854775807"
-                />
-        </StatefulService>
-    </Service>
+            <UniformInt64Partition
+                PartitionCount="[Stateful1_PartitionCount]"
+                LowKey="-9223372036854775808"
+                HighKey="9223372036854775807"
+            />
+    </StatefulService>
+</Service>
+```
   </DefaultServices>
 
 Each of the named parameters must be defined within the Parameters element of the application manifest:
 
-    <Parameters>
-        <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
-        <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
-        <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
-    </Parameters>
+```xml
+<Parameters>
+    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
+    <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
+</Parameters>
+```
 
 The DefaultValue attribute specifies the value to be used in the absence of a more-specific parameter for a given environment.
 
->[AZURE.NOTE] Not all service instance parameters are suitable for per-environment configuration. In the example above, the LowKey and HighKey values for the service's partitioning scheme are explicitly defined for all instances of the service since the partition range is a function of the data domain, not the environment.
-
+>[!NOTE]
+> Not all service instance parameters are suitable for per-environment configuration. In the example above, the LowKey and HighKey values for the service's partitioning scheme are explicitly defined for all instances of the service since the partition range is a function of the data domain, not the environment.
 
 ### Per-environment service configuration settings
-The [Service Fabric application model](/documentation/articles/service-fabric-application-model/) enables services to include configuration packages that contain custom key-value pairs that are readable at run time. The values of these settings can also be differentiated by environment by specifying a `ConfigOverride` in the application manifest.
+The [Service Fabric application model](./service-fabric-application-model.md) enables services to include configuration packages that contain custom key-value pairs that are readable at run time. The values of these settings can also be differentiated by environment by specifying a `ConfigOverride` in the application manifest.
 
 Suppose that you have the following setting in the Config\Settings.xml file for the `Stateful1` service:
 
-    <Section Name="MyConfigSection">
-      <Parameter Name="MaxQueueSize" Value="25" />
-    </Section>
+```xml
+<Section Name="MyConfigSection">
+  <Parameter Name="MaxQueueSize" Value="25" />
+</Section>
+```
 
 To override this value for a specific application/environment pair, create a `ConfigOverride` when you import the service manifest in the application manifest.
 
-    <ConfigOverrides>
-     <ConfigOverride Name="Config">
-        <Settings>
-           <Section Name="MyConfigSection">
-              <Parameter Name="MaxQueueSize" Value="[Stateful1_MaxQueueSize]" />
-           </Section>
-        </Settings>
-     </ConfigOverride>
+```xml
+<ConfigOverrides>
+ <ConfigOverride Name="Config">
+    <Settings>
+       <Section Name="MyConfigSection">
+          <Parameter Name="MaxQueueSize" Value="[Stateful1_MaxQueueSize]" />
+       </Section>
+    </Settings>
+ </ConfigOverride>
+```
   </ConfigOverrides>
 
 This parameter can then be configured by environment as shown above. You can do this by declaring it in the parameters section of the application manifest and specifying environment-specific values in the application parameter files.
 
->[AZURE.NOTE] In the case of service configuration settings, there are three places where the value of a key can be set: the service configuration package, the application manifest, and the application parameter file. Service Fabric will always choose from the application parameter file first (if specified), then the application manifest, and finally the configuration package.
+>[!NOTE]
+> In the case of service configuration settings, there are three places where the value of a key can be set: the service configuration package, the application manifest, and the application parameter file. Service Fabric will always choose from the application parameter file first (if specified), then the application manifest, and finally the configuration package.
 
 ### Setting and using environment variables 
 You can specify and set environment variables in the ServiceManifest.xml file and then override these in the ApplicationManifest.xml file on a per instance basis.
 The example below shows two environment variables, one with a value set and the other will be overridden. You can use application parameters to set environment variables values in the same way that these were used for config overrides.
 
-
-	<?xml version="1.0" encoding="utf-8" ?>
-	<ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	  <Description>An example service manifest</Description>
-	  <ServiceTypes>
-	    <StatelessServiceType ServiceTypeName="MyServiceType" />
-	  </ServiceTypes>
-	  <CodePackage Name="MyCode" Version="CodeVersion1">
-	    <SetupEntryPoint>
-	      <ExeHost>
-	        <Program>MySetup.bat</Program>
-	      </ExeHost>
-	    </SetupEntryPoint>
-	    <EntryPoint>
-	      <ExeHost>
-	        <Program>MyServiceHost.exe</Program>
-	      </ExeHost>
-	    </EntryPoint>
-	    <EnvironmentVariables>
-	      <EnvironmentVariable Name="MyEnvVariable" Value=""/>
-	      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
-	    </EnvironmentVariables>
-	  </CodePackage>
-	  <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
-	  <DataPackage Name="MyData" Version="DataVersion1" />
-	</ServiceManifest>
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Description>An example service manifest</Description>
+  <ServiceTypes>
+    <StatelessServiceType ServiceTypeName="MyServiceType" />
+  </ServiceTypes>
+  <CodePackage Name="MyCode" Version="CodeVersion1">
+    <SetupEntryPoint>
+      <ExeHost>
+        <Program>MySetup.bat</Program>
+      </ExeHost>
+    </SetupEntryPoint>
+    <EntryPoint>
+      <ExeHost>
+        <Program>MyServiceHost.exe</Program>
+      </ExeHost>
+    </EntryPoint>
+    <EnvironmentVariables>
+      <EnvironmentVariable Name="MyEnvVariable" Value=""/>
+      <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+    </EnvironmentVariables>
+  </CodePackage>
+  <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
+  <DataPackage Name="MyData" Version="DataVersion1" />
+</ServiceManifest>
+```
 
 To override the environment variables in the ApplicationManifest.xml, reference the code package in the ServiceManifest with the `EnvironmentOverrides` element.
 
-
-	  <ServiceManifestImport>
-	    <ServiceManifestRef ServiceManifestName="FrontEndServicePkg" ServiceManifestVersion="1.0.0" />
-	    <EnvironmentOverrides CodePackageRef="MyCode">
-	      <EnvironmentVariable Name="MyEnvVariable" Value="mydata"/>
-	    </EnvironmentOverrides>
-	  </ServiceManifestImport>
+```xml
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="FrontEndServicePkg" ServiceManifestVersion="1.0.0" />
+    <EnvironmentOverrides CodePackageRef="MyCode">
+      <EnvironmentVariable Name="MyEnvVariable" Value="mydata"/>
+    </EnvironmentOverrides>
+  </ServiceManifestImport>
+```
 
  Once the named service instance is created you can access the environment variables from code. e.g. In C# you can do the following
 
-
-    	string EnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
+ ```csharp
+    string EnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
+ ```
 
 ### Service Fabric environment variables
 Service Fabric has built in environment variables set for each service instance. The full list of environment variables is below, where the ones in bold are the ones that you will use in your service, the other being used by Service Fabric runtime. 
@@ -153,13 +166,15 @@ Service Fabric has built in environment variables set for each service instance.
 
 The code belows shows how to list the Service Fabric environment variables
 
-	    foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
-	    {
-	        if (de.Key.ToString().StartsWith("Fabric"))
-	        {
-	            Console.WriteLine(" Environment variable {0} = {1}", de.Key, de.Value);
-	        }
-	    }
+```csharp
+    foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
+    {
+        if (de.Key.ToString().StartsWith("Fabric"))
+        {
+            Console.WriteLine(" Environment variable {0} = {1}", de.Key, de.Value);
+        }
+    }
+```
 
 Below are example environment variables for an application type called `GuestExe.Application` with a service type called `FrontEndService` when run on your local dev machine.
 
@@ -172,15 +187,17 @@ Below are example environment variables for an application type called `GuestExe
 ### Application parameter files
 The Service Fabric application project can include one or more application parameter files. Each of them defines the specific values for the parameters that are defined in the application manifest:
 
-    <!-- ApplicationParameters\Local.xml -->
+```xml
+<!-- ApplicationParameters\Local.xml -->
 
-    <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-        <Parameters>
-            <Parameter Name ="Stateful1_MinReplicaSetSize" Value="2" />
-            <Parameter Name="Stateful1_PartitionCount" Value="1" />
-            <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
-        </Parameters>
-    </Application>
+<Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <Parameters>
+        <Parameter Name ="Stateful1_MinReplicaSetSize" Value="2" />
+        <Parameter Name="Stateful1_PartitionCount" Value="1" />
+        <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
+    </Parameters>
+</Application>
+```
 
 By default, a new application includes three application parameter files, named Local.1Node.xml, Local.5Node.xml, and Cloud.xml:
 
@@ -205,7 +222,7 @@ The `Deploy-FabricApplication.ps1` PowerShell script included in the application
 
 ## Next steps
 
-To learn more about some of the core concepts that are discussed in this topic, see the [Service Fabric technical overview](/documentation/articles/service-fabric-technical-overview/). For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](/documentation/articles/service-fabric-manage-application-in-visual-studio/).
+To learn more about some of the core concepts that are discussed in this topic, see the [Service Fabric technical overview](./service-fabric-technical-overview.md). For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](./service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 

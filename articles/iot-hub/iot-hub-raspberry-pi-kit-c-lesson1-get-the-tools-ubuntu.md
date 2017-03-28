@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Get the tools (Ubuntu 16.04) | Azure"
-    description="Download and install the necessary tools and software for the first sample application for Pi on Ubuntu."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="iot development, iot software, internet of things software, install git on ubuntu, gulp run, install node js ubuntu" />
-<tags
-    ms.assetid="32cfea00-c254-4cef-8f6f-bbf807eca6b6"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get the tools (Ubuntu 16.04) | Azure
+description: Download and install the necessary tools and software for the first sample application for Pi on Ubuntu.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: iot development, iot software, internet of things software, install git on ubuntu, gulp run, install node js ubuntu
+
+ms.assetid: 32cfea00-c254-4cef-8f6f-bbf807eca6b6
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get the tools (Ubuntu 16.04)
->[AZURE.SELECTOR]
-[Windows 7 or later](/documentation/articles/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32/)
-[Ubuntu 16.04](/documentation/articles/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu/)
-[macOS 10.10](/documentation/articles/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac/)
+>[!div class="op_single_selector"]
+[Windows 7 or later](./iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
+[Ubuntu 16.04](./iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
+[macOS 10.10](./iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
 
 ## What you will do
-Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-raspberry-pi-kit-c-troubleshooting/).
+Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Although the programming language of the main logic is C, Node.js tools are used in the lessons to discover devices, and build and deploy sample applications.
 
 ## What you will learn
@@ -65,7 +66,7 @@ Install `gulp` and `device-discovery-cli` by running the following command in th
 sudo npm install -g device-discovery-cli gulp
 ```
 
-If you experience issues installing Node.js and these additional development tools on Ubuntu, see the [troubleshooting guide](/documentation/articles/iot-hub-raspberry-pi-kit-c-troubleshooting/) for solutions to common problems.
+If you experience issues installing Node.js and these additional development tools on Ubuntu, see the [troubleshooting guide](./iot-hub-raspberry-pi-kit-c-troubleshooting.md) for solutions to common problems.
 
 ## Install Visual Studio Code
 [Download](https://code.visualstudio.com/docs/setup/linux) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux, and macOS. You use this editor later in the tutorial to edit the sample code.
@@ -74,5 +75,4 @@ If you experience issues installing Node.js and these additional development too
 You've installed the required development tools and software for the first sample application. The next task is to create, deploy, and run the sample application on Pi.
 
 ## Next steps
-[Create and deploy the blink application](/documentation/articles/iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app/)
-
+[Create and deploy the blink application](./iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)

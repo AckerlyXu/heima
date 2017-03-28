@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Configure Azure MFA | Azure"
-    description="This is the Azure Multi-factor authentication page that describes what to do next with MFA.  This includes reports, fraud alert, one-time bypass, custom voice messages, caching, trusted ips and app passwords."
-    services="multi-factor-authentication"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="yossib" />
-<tags
-    ms.assetid="75af734e-4b12-40de-aba4-b68d91064ae8"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/15/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Configure Azure MFA | Azure
+description: This is the Azure Multi-factor authentication page that describes what to do next with MFA.  This includes reports, fraud alert, one-time bypass, custom voice messages, caching, trusted ips and app passwords.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: yossib
+
+ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/15/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Configure Azure Multi-Factor Authentication settings
 This article helps you manage Azure Multi-Factor Authentication now that you are up and running.  It covers various topics that help you to get the most out of Azure Multi-Factor Authentication.  Not all these features are available in every version of Azure Multi-Factor Authentication.
@@ -27,7 +28,7 @@ This article helps you manage Azure Multi-Factor Authentication now that you are
 ## Selectable Verification Methods
 You can choose which verification methods are available for your users. The table below provides a brief overview of each method.
 
-When your users enroll their accounts for MFA, they choose their preferred verification method out of the options that you enabled. The guidance for their enrollment process is covered in [Set up my account for two-step verification](/documentation/articles/multi-factor-authentication-end-user-first-time/)
+When your users enroll their accounts for MFA, they choose their preferred verification method out of the options that you enabled. The guidance for their enrollment process is covered in [Set up my account for two-step verification](./multi-factor-authentication-end-user-first-time.md)
 
 | Method | Description |
 |:--- |:--- |

@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Using elastic database client library with Dapper | Azure" 
-	description="Using elastic database client library with Dapper." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="torsteng"/>
+---
+title: Using elastic database client library with Dapper | Azure
+description: Using elastic database client library with Dapper.
+services: sql-database
+documentationCenter: ''
+manager: jhubbard
+authors: torsteng
 
-<tags 
-	ms.service="sql-database" 
-	ms.date="05/27/2016" 
-	wacn.date="06/01/2016"/>
+ms.service: sql-database
+ms.date: 05/27/2016
+wacn.date: 06/01/2016
+---
 
 # Using elastic database client library with Dapper 
 
-This document is for developers that rely on Dapper to build applications, but also want to embrace [elastic database tooling](/documentation/articles/sql-database-elastic-scale-introduction/) to create applications that implement sharding to scale-out their data tier.  This document illustrates the changes in Dapper-based applications that are necessary to integrate with elastic database tools. Our focus is on composing the elastic database shard management and data dependent routing with Dapper. 
+This document is for developers that rely on Dapper to build applications, but also want to embrace [elastic database tooling](./sql-database-elastic-scale-introduction.md) to create applications that implement sharding to scale-out their data tier.  This document illustrates the changes in Dapper-based applications that are necessary to integrate with elastic database tools. Our focus is on composing the elastic database shard management and data dependent routing with Dapper. 
 
 **Sample Code**: [Elastic database tools for Azure SQL Database - Dapper integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
- 
+
 Integrating **Dapper** and **DapperExtensions** with the elastic database client library for Azure SQL Database is easy. Your applications can use data dependent routing by changing the creation and opening of new [SqlConnection](http://msdn.microsoft.com/zh-cn/library/system.data.sqlclient.sqlconnection.aspx) objects to use the [OpenConnectionForKey](http://msdn.microsoft.com/zh-cn/library/azure/dn807226.aspx) call from the [client library](http://msdn.microsoft.com/zh-cn/library/azure/dn765902.aspx). This limits changes in your application to only where new connections are created and opened. 
 
 ## Dapper overview
@@ -25,7 +25,7 @@ Integrating **Dapper** and **DapperExtensions** with the elastic database client
 The mapper functionality in Dapper provides extension methods on database connections that simplify submitting T-SQL statements for execution or querying the database. For instance, Dapper makes it easy to map between your .NET objects and the parameters of SQL statements for **Execute** calls, or to consume the results of your SQL queries into .NET objects using **Query** calls from Dapper. 
 
 When using DapperExtensions, you no longer need to provide the SQL statements. Extensions methods such as **GetList** or **Insert** over the database connection create the SQL statements behind the scenes.
- 
+
 Another benefit of Dapper and also DapperExtensions is that the application controls the creation of the database connection. This helps interact with the elastic database client library which brokers database connections based on the mapping of shardlets to databases.
 
 To get the Dapper assemblies, see [Dapper dot net](http://www.nuget.org/packages/Dapper). For the Dapper extensions, see [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
@@ -61,18 +61,20 @@ These observations make it straightforward to use connections brokered by the el
 
 This code example (from the accompanying sample) illustrates the approach where the sharding key is provided by the application to the library to broker the connection to the right shard.   
 
-    using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                     key: tenantId1, 
-                     connectionString: connStrBldr.ConnectionString, 
-                     options: ConnectionOptions.Validate))
-    {
-        var blog = new Blog { Name = name };
-        sqlconn.Execute(@"
-                      INSERT INTO
-                            Blog (Name)
-                            VALUES (@name)", new { name = blog.Name }
-                        );
-    }
+```
+using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
+                 key: tenantId1, 
+                 connectionString: connStrBldr.ConnectionString, 
+                 options: ConnectionOptions.Validate))
+{
+    var blog = new Blog { Name = name };
+    sqlconn.Execute(@"
+                  INSERT INTO
+                        Blog (Name)
+                        VALUES (@name)", new { name = blog.Name }
+                    );
+}
+```
 
 The call to the [OpenConnectionForKey](http://msdn.microsoft.com/zh-cn/library/azure/dn807226.aspx) API replaces the default creation and opening of a SQL Client connection. The [OpenConnectionForKey](http://msdn.microsoft.com/zh-cn/library/azure/dn807226.aspx) call takes the arguments that are required for data dependent routing: 
 
@@ -84,23 +86,25 @@ The shard map object creates a connection to the shard that holds the shardlet f
 
 Queries work very much the same way – you first open the connection using [OpenConnectionForKey](http://msdn.microsoft.com/zh-cn/library/azure/dn807226.aspx) from the client API. Then you use the regular Dapper extension methods to map the results of your SQL query into .NET objects:
 
-    using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId1, 
-                    connectionString: connStrBldr.ConnectionString, 
-                    options: ConnectionOptions.Validate ))
-    {    
-           // Display all Blogs for tenant 1
-           IEnumerable<Blog> result = sqlconn.Query<Blog>(@"
-                                SELECT * 
-                                FROM Blog
-                                ORDER BY Name");
+```
+using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
+                key: tenantId1, 
+                connectionString: connStrBldr.ConnectionString, 
+                options: ConnectionOptions.Validate ))
+{    
+       // Display all Blogs for tenant 1
+       IEnumerable<Blog> result = sqlconn.Query<Blog>(@"
+                            SELECT * 
+                            FROM Blog
+                            ORDER BY Name");
 
-           Console.WriteLine("All blogs for tenant id {0}:", tenantId1);
-           foreach (var item in result)
-           {
-                Console.WriteLine(item.Name);
-            }
-    }
+       Console.WriteLine("All blogs for tenant id {0}:", tenantId1);
+       foreach (var item in result)
+       {
+            Console.WriteLine(item.Name);
+        }
+}
+```
 
 Note that the **using** block with the DDR connection scopes all database operations within the block to the one shard where tenantId1 is kept. The query only returns blogs stored on the current shard, but not the ones stored on any other shards. 
 
@@ -110,30 +114,34 @@ Dapper comes with an ecosystem of additional extensions that can provide further
 
 Using DapperExtensions in your application does not change how database connections are created and managed. It is still the application’s responsibility to open connections, and regular SQL Client connection objects are expected by the extension methods. We can rely on the [OpenConnectionForKey](http://msdn.microsoft.com/zh-cn/library/azure/dn807226.aspx) as outlined above. As the following code samples show, the only change is that we do no longer have to write the T-SQL statements:
 
-    using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
-                    options: ConnectionOptions.Validate))
-    {
-           var blog = new Blog { Name = name2 };
-           sqlconn.Insert(blog);
-    }
+```
+using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
+                key: tenantId2, 
+                connectionString: connStrBldr.ConnectionString, 
+                options: ConnectionOptions.Validate))
+{
+       var blog = new Blog { Name = name2 };
+       sqlconn.Insert(blog);
+}
+```
 
 And here is the code sample for the query: 
 
-    using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
-                    options: ConnectionOptions.Validate))
-    {
-           // Display all Blogs for tenant 2
-           IEnumerable<Blog> result = sqlconn.GetList<Blog>();
-           Console.WriteLine("All blogs for tenant id {0}:", tenantId2);
-           foreach (var item in result)
-           {
-               Console.WriteLine(item.Name);
-           }
-    }
+```
+using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
+                key: tenantId2, 
+                connectionString: connStrBldr.ConnectionString, 
+                options: ConnectionOptions.Validate))
+{
+       // Display all Blogs for tenant 2
+       IEnumerable<Blog> result = sqlconn.GetList<Blog>();
+       Console.WriteLine("All blogs for tenant id {0}:", tenantId2);
+       foreach (var item in result)
+       {
+           Console.WriteLine(item.Name);
+       }
+}
+```
 
 ### Handling transient faults
 
@@ -141,15 +149,17 @@ The Microsoft Patterns & Practices team published the [Transient Fault Handling 
 
 The code sample relies on the transient fault library to protect against transient faults. 
 
-    SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
-    {
-       using (SqlConnection sqlconn = 
-          shardingLayer.ShardMap.OpenConnectionForKey(tenantId2, connStrBldr.ConnectionString, ConnectionOptions.Validate))
-          {
-              var blog = new Blog { Name = name2 };
-              sqlconn.Insert(blog);
-          }
-    });
+```
+SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
+{
+   using (SqlConnection sqlconn = 
+      shardingLayer.ShardMap.OpenConnectionForKey(tenantId2, connStrBldr.ConnectionString, ConnectionOptions.Validate))
+      {
+          var blog = new Blog { Name = name2 };
+          sqlconn.Insert(blog);
+      }
+});
+```
 
 **SqlDatabaseUtils.SqlRetryPolicy** in the code above is defined as a **SqlDatabaseTransientErrorDetectionStrategy** with a retry count of 10, and 5 seconds wait time between retries. If you are using transactions, make sure that your retry scope goes back to the beginning of the transaction in the case of a transient fault.
 
@@ -164,8 +174,7 @@ The approaches outlined in this document entail a couple of limitations:
 
 Applications using Dapper and DapperExtensions can easily benefit from elastic database tools for Azure SQL Database. Through the steps outlined in this document, those applications can use the tool's capability for data dependent routing by changing the creation and opening of new [SqlConnection](http://msdn.microsoft.com/zh-cn/library/system.data.sqlclient.sqlconnection.aspx) objects to use the [OpenConnectionForKey](http://msdn.microsoft.com/zh-cn/library/azure/dn807226.aspx) call of the elastic database client library. This limits the application changes required to those places where new connections are created and opened. 
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
- 

@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="Service Bus dead-letter queues | Azure" 
-    description="Overview of Azure Service Bus dead-letter queues" 
-    services="service-bus" 
-    documentationCenter=".net" 
-    authors="sethmanheim" 
-    manager="timlt" 
-    editor=""/>
+---
+title: Service Bus dead-letter queues | Azure
+description: Overview of Azure Service Bus dead-letter queues
+services: service-bus
+documentationCenter: .net
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na" 
-    ms.date="02/14/2017"
-    ms.author="clemensv;sethm"/>
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/14/2017
+ms.author: clemensv;sethm
+---
 
 # Overview of Service Bus dead-letter queues
 Service Bus queues and topic subscriptions provide a secondary sub-queue, called a *dead-letter queue* (DLQ). The dead-letter queue does not need to be explicitly created and cannot be deleted or otherwise managed independent of the main entity.
@@ -62,7 +62,7 @@ In addition to the system-provided dead-lettering features, applications can use
 
 Messages will be sent to the transfer dead-letter queue under the following conditions:
 
-- A message passes through more than 3 queues or topics that are [chained together](/documentation/articles/service-bus-auto-forwarding/).
+- A message passes through more than 3 queues or topics that are [chained together](./service-bus-auto-forwarding.md).
 - The destination queue or topic is disabled or deleted.
 
 To retrieve these dead-lettered messages, you can create a receiver using the [FormatTransferDeadletterPath](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_FormatTransferDeadLetterPath_System_String_) utility method.
@@ -90,5 +90,5 @@ while(true)
 ## Next steps
 See the following articles for more information about Service Bus queues:
 
-- [Get started with Service Bus queues](/documentation/articles/service-bus-dotnet-get-started-with-queues/)
-- [Azure Queues and Service Bus queues compared](/documentation/articles/service-bus-azure-and-service-bus-queues-compared-contrasted/)
+- [Get started with Service Bus queues](./service-bus-dotnet-get-started-with-queues.md)
+- [Azure Queues and Service Bus queues compared](./service-bus-azure-and-service-bus-queues-compared-contrasted.md)

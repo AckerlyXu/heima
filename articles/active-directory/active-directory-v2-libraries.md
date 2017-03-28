@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Active Directory v2.0 authentication libraries | Azure"
-    description="Compatible client libraries and server middleware libraries, and related library, source, and samples links, for the Azure Active Directory v2.0 endpoint."
-    services="active-directory"
-    documentationcenter=""
-    author="skwan"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="19cec615-e51f-4141-9f8c-aaf38ff9f746"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="11/29/2016"
-    wacn.date=""
-    ms.author="skwan;bryanla" />
+---
+title: Azure Active Directory v2.0 authentication libraries | Azure
+description: Compatible client libraries and server middleware libraries, and related library, source, and samples links, for the Azure Active Directory v2.0 endpoint.
+services: active-directory
+documentationcenter: ''
+author: skwan
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 11/29/2016
+wacn.date: ''
+ms.author: skwan;bryanla
+---
 
 # Azure Active Directory v2.0 authentication libraries
 The Azure Active Directory (Azure AD) v2.0 endpoint supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. You can use various libraries from Microsoft and other organizations with the v2.0 endpoint.
@@ -65,8 +66,8 @@ For a list of libraries that work with the v2.0 endpoint, see the next sections 
 ## Compatible client libraries
 | Platform | Library name | Tested version | Source code | Sample |
 |:---:|:---:|:---:|:---:|:---:|
-| Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Native app sample](/documentation/articles/active-directory-v2-devquickstarts-android/) |
-| iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Native app sample](/documentation/articles/active-directory-v2-devquickstarts-ios/) |
+| Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Native app sample](./active-directory-v2-devquickstarts-android.md) |
+| iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Native app sample](./active-directory-v2-devquickstarts-ios.md) |
 | Java | [Scribe Java scribejava](https://github.com/scribejava/scribejava) | [Version 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | Coming soon |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |Coming soon |
 | PHP | [The PHP League oauth2-client](https://github.com/thephpleague/oauth2-client) | [Version 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | Coming soon |
@@ -93,10 +94,10 @@ To help us refine and shape our content, please use the Disqus comments feature 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Model-V2-Overview]:/documentation/articles/active-directory-appmodel-v2-overview/
+[AAD-App-Model-V2-Overview]:./active-directory-appmodel-v2-overview.md
 [ClientLib-NET-Lib]: http://www.nuget.org/packages/Microsoft.Identity.Client
 [ClientLib-NET-Repo]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
-[ClientLib-NET-Sample]:/documentation/articles/active-directory-v2-devquickstarts-wpf/
+[ClientLib-NET-Sample]:./active-directory-v2-devquickstarts-wpf.md
 [ClientLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ClientLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad
 [ClientLib-Node-Sample]:/
@@ -113,10 +114,10 @@ To help us refine and shape our content, please use the Disqus comments feature 
 [Microsoft-SDL]: http://www.microsoft.com/sdl/default.aspx
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
 [ServerLib-Net4-Owin-Oidc-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oidc-Sample]:/documentation/articles/active-directory-v2-devquickstarts-dotnet-web/
+[ServerLib-Net4-Owin-Oidc-Sample]:./active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]: /documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
+[ServerLib-Net4-Owin-Oauth-Sample]: ./active-directory-v2-devquickstarts-dotnet-api.md
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
 [ServerLib-Net-Jwt-Sample]:/
@@ -128,4 +129,4 @@ To help us refine and shape our content, please use the Disqus comments feature 
 [ServerLib-NetCore-Owin-Oauth-Sample]:/
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]: /documentation/articles/active-directory-v2-devquickstarts-node-web/
+[ServerLib-Node-Sample]: ./active-directory-v2-devquickstarts-node-web.md

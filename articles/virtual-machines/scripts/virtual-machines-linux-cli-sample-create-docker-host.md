@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Create a Docker host| Azure"
-    description="Azure CLI Script Sample - Create a Docker host"
-    services="virtual-machines-linux"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="03/15/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Azure CLI Script Sample - Create a Docker host| Azure
+description: Azure CLI Script Sample - Create a Docker host
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-service-management
+
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 03/15/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Create a VM with Docker
 
@@ -24,35 +25,39 @@ This script creates a virtual machine with Docker enabled and starts a Docker co
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    # Create a resource group.
-    az group create --name myResourceGroup --location chinanorth
+# Create a resource group.
+az group create --name myResourceGroup --location chinanorth
 
-    # Create a new virtual machine, this creates SSH keys if not present.
-    az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+# Create a new virtual machine, this creates SSH keys if not present.
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
 
-    # Open port 80 to allow web traffic to host.
-      az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+# Open port 80 to allow web traffic to host.
+  az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
-    # Install Docker and start container.
-    az vm extension set \
-      --resource-group myResourceGroup \
-      --vm-name myVM \
-      --name DockerExtension \
-      --publisher Microsoft.Azure.Extensions \
-      --version 1.1 \
-      --settings '{"docker": {"port": "2375"},"compose": {"web": {"image": "nginx","ports": ["80:80"]}}}'
+# Install Docker and start container.
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name DockerExtension \
+  --publisher Microsoft.Azure.Extensions \
+  --version 1.1 \
+  --settings '{"docker": {"port": "2375"},"compose": {"web": {"image": "nginx","ports": ["80:80"]}}}'
+```
 
 ## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-    az group delete --name myResourceGroup
+```azurecli
+az group delete --name myResourceGroup
+```
 
 ## Script explanation
 
@@ -70,4 +75,4 @@ This script uses the following commands to create the deployment. Each item in t
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](/documentation/articles/virtual-machines-linux-cli-samples/).
+Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-cli-samples.md).

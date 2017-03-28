@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Caching guidance | Azure"
-   description="Guidance on caching to improve performance and scalability."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
+---
+title: Caching guidance | Azure
+description: Guidance on caching to improve performance and scalability.
+services: ''
+documentationCenter: na
+authors: dragon119
+manager: masimms
+editor: ''
+tags: ''
 
-<tags
-   ms.service="best-practice"
-   ms.date="07/14/2016"
-   wacn.date=""/>
+ms.service: best-practice
+ms.date: 07/14/2016
+wacn.date: ''
+---
 
 # Caching guidance
 
-[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
+[!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 Caching is a common technique that aims to improve the performance and
 scalability of a system. It does this by temporarily copying frequently accessed data
@@ -213,7 +213,8 @@ as a sliding value that causes the item to be removed from the cache if it is no
 accessed within the specified time. This setting overrides any cache-wide
 expiration policy, but only for the specified objects.
 
-> [AZURE.NOTE] Consider the expiration period for the cache and the objects that it contains carefully. If you make it too short, objects will expire too quickly and you will reduce the benefits of using the cache. If you make the period too long, you risk the data becoming stale.
+> [!NOTE]
+> Consider the expiration period for the cache and the objects that it contains carefully. If you make it too short, objects will expire too quickly and you will reduce the benefits of using the cache. If you make the period too long, you risk the data becoming stale.
 
 It's also possible that the cache might fill up if data is allowed to remain
 resident for a long time. In this case, any requests to add new items to the
@@ -441,7 +442,8 @@ applications that already use Azure Redis Cache running on-premises, the
 Azure Redis Cache provides a quick migration path to caching
 in the cloud.
 
-> [AZURE.NOTE] Azure also provides the Managed Cache Service. This
+> [!NOTE]
+> Azure also provides the Managed Cache Service. This
   service is based on the Azure Service Fabric Cache engine. It
   enables you to create a distributed cache that can be shared
   by loosely-coupled applications. The cache is hosted on
@@ -468,8 +470,7 @@ in the cloud.
   are currently slated for retirement on November 16th, 2016.
   It is recommended that you migrate to Azure Redis Cache in
   preparation for this retirement. For more information, visit the page 
-  [What is Azure Redis Cache offering and what size should I use?](/documentation/articles/cache-faq/#what-redis-cache-offering-and-size-should-i-use) on the Microsoft website.
-
+  [What is Azure Redis Cache offering and what size should I use?](./redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) on the Microsoft website.
 
 ### Features of Redis
  Redis is more than a simple cache server. It provides a distributed in-memory
@@ -482,7 +483,8 @@ Redis supports both read and write operations. In Redis, writes can be protected
 
  All writes are asynchronous and do not block clients from reading and writing data. When Redis starts running, it reads the data from the snapshot or log file and uses it to construct the in-memory cache. For more information, see [Redis persistence](http://redis.io/topics/persistence) on the Redis website.
 
-> [AZURE.NOTE] Redis does not guarantee that all writes will be saved in the event
+> [!NOTE]
+> Redis does not guarantee that all writes will be saved in the event
   of a catastrophic failure, but at worst you might lose only a few seconds
   worth of data. Remember that a cache is not intended to act as an
   authoritative data source, and it is the responsibility of the applications
@@ -528,7 +530,8 @@ Redis does not directly support any form of data encryption, so all encoding mus
 
 For more information, visit the [Redis security](http://redis.io/topics/security) page on the Redis website.
 
-> [AZURE.NOTE] Azure Redis Cache provides its own security layer through which clients connect. The underlying Redis
+> [!NOTE]
+> Azure Redis Cache provides its own security layer through which clients connect. The underlying Redis
   servers are not exposed to the public network.
 
 ### Using the Azure Redis cache
@@ -555,7 +558,8 @@ Using the Session State Provider with Azure Redis Cache delivers several benefit
 
 For more information visit the [ASP.NET Session State Provider for Azure Redis Cache](/documentation/articles/cache-asp.net-session-state-provider/) page on the Microsoft website.
 
-> [AZURE.NOTE] Do not use the Session State Provider for Azure Redis Cache for ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
+> [!NOTE]
+> Do not use the Session State Provider for Azure Redis Cache for ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
 
 Similarly, the Output Cache Provider for Azure Redis Cache enables you to save the HTTP responses generated by an ASP.NET web application. Using the Output Cache Provider with Azure Redis Cache can improve the response times of applications that render complex HTML output; application instances generating similar responses can make use of the shared output fragments in the cache rather than generating this HTML output afresh.  For more information visit the [ASP.NET Output Cache Provider for Azure Redis Cache](redis-cache/cache-aspnet-output-cache-provider.md) page on the Microsoft website.
 
@@ -588,7 +592,8 @@ Using the session state provider with Azure Redis Cache delivers several benefit
 
 For more information, visit the [ASP.NET session state provider for Azure Redis Cache](redis-cache/cache-aspnet-session-state-provider.md) page on the Microsoft website.
 
-> [AZURE.NOTE] Do not use the session state provider for Azure Redis Cache with ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
+> [!NOTE]
+> Do not use the session state provider for Azure Redis Cache with ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
 
 Similarly, the output cache provider for Azure Redis Cache enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Redis Cache can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can make use of the shared output fragments in the cache rather than generating this HTML output afresh. For more information, visit the [ASP.NET output cache provider for Azure Redis Cache](redis-cache/cache-aspnet-output-cache-provider.md) page on the Microsoft website.
 
@@ -599,7 +604,8 @@ This is a potentially complex process because you might need to create several V
 
 Each master/subordinate pair should be located close together to minimize latency. However, each set of pairs can be running in different Azure datacenters located in different regions, if you wish to locate cached data close to the applications that are most likely to use it. The page [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) on the Microsoft website walks through an example that shows how to build and configure a Redis node running as an Azure VM.
 
-[AZURE.NOTE] Please note that if you implement your own Redis cache in this way, you are responsible for monitoring, managing, and securing the service.
+>[!NOTE]
+> Please note that if you implement your own Redis cache in this way, you are responsible for monitoring, managing, and securing the service.
 
 ## Partitioning a Redis cache
 Partitioning the cache involves splitting the cache across multiple computers. This structure gives you several advantages over using a single cache server, including:
@@ -787,7 +793,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-The page [Azure Redis Cache documentation](/documentation/services/cache/) on the Microsoft website provides more information about how to write client applications that can use the Azure Redis Cache. Additional information is available on the [Basic usage page](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) on the StackExchange.Redis website.
+The page [Azure Redis Cache documentation](./cache/index.md) on the Microsoft website provides more information about how to write client applications that can use the Azure Redis Cache. Additional information is available on the [Basic usage page](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) on the StackExchange.Redis website.
 
 The page [Pipelines and multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.  The next section in this article, Using  Redis Caching, provides examples of some of the more advanced techniques that you can apply to data that's held in a Redis cache.
 
@@ -810,7 +816,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
   `IDatabase.StringIncrementAsync` and `IDatabase.StringDecrementAsync` methods to perform
   these operations and return the resulting value that is stored in the cache. The following code
   snippet illustrates how to use these methods:
-  
+
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
   IDatabase cache = redisHostConnection.GetDatabase();
@@ -820,7 +826,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
   long oldValue = await cache.StringIncrementAsync("data:counter");
   // Increment by 1 (the default)
   // oldValue should be 100
-  
+
   long newValue = await cache.StringDecrementAsync("data:counter", 50);
   // Decrement by 50
   // newValue should be 50
@@ -830,7 +836,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
   method. The code snippet below shows an example of this method. This code returns the current
   value that's associated with the key "data:counter" from the previous example. Then it resets the value
   for this key back to zero, all as part of the same operation:
-  
+
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
   IDatabase cache = redisHostConnection.GetDatabase();
@@ -840,7 +846,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
 * `MGET` and `MSET`, which can return or change a set of string values as a single operation. The
   `IDatabase.StringGetAsync` and `IDatabase.StringSetAsync` methods are overloaded to support
   this functionality, as shown in the following example:
-  
+
   ```csharp
   ConnectionMultiplexer redisHostConnection = ...;
   IDatabase cache = redisHostConnection.GetDatabase();
@@ -853,7 +859,7 @@ Redis supports a series of atomic get-and-set operations on string values. These
           new KeyValuePair<RedisKey, RedisValue>("data:key99", "value2"),
           new KeyValuePair<RedisKey, RedisValue>("data:key322", "value3")
       };
-  
+
   // Store the list of key-value pairs in the cache
   cache.StringSet(keysAndValues.ToArray());
   ...
@@ -1114,7 +1120,8 @@ foreach (var post in await cache.SortedSetRangeByRankWithScoresAsync(redisKey))
 }
 ```
 
-> [AZURE.NOTE] The StackExchange library also provides the `IDatabase.SortedSetRangeByRankAsync` method, which returns the data in score order, but does not return the scores.
+> [!NOTE]
+> The StackExchange library also provides the `IDatabase.SortedSetRangeByRankAsync` method, which returns the data in score order, but does not return the scores.
 
 You can also retrieve items in descending order of scores, and limit the number of items that are returned by providing additional parameters to the `IDatabase.SortedSetRangeByRankWithScoresAsync` method. The next example displays the titles and scores of the top 10 ranked blog posts:
 
@@ -1194,8 +1201,8 @@ The following pattern might also be relevant to your scenario when you implement
 
 ## More information
 - The [MemoryCache class](http://msdn.microsoft.com/zh-cn/library/system.runtime.caching.memorycache.aspx) page on the Microsoft website
-- The [Azure Redis Cache documentation](/documentation/services/cache/) page on the Microsoft website
-- The [Azure Redis Cache FAQ](/documentation/articles/cache-faq/) page on the Microsoft website
+- The [Azure Redis Cache documentation](./cache/index.md) page on the Microsoft website
+- The [Azure Redis Cache FAQ](./redis-cache/cache-faq.md) page on the Microsoft website
 - The [Configuration model](http://msdn.microsoft.com/zh-cn/library/windowsazure/hh914149.aspx) page on the Microsoft website
 - The [Task-based Asynchronous Pattern](http://msdn.microsoft.com/zh-cn/library/hh873175.aspx) page on the Microsoft website
 - The [Pipelines and multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) page on the StackExchange.Redis GitHub repo
@@ -1208,10 +1215,9 @@ The following pattern might also be relevant to your scenario when you implement
 - The [Redis security](http://redis.io/topics/security) page on the Redis website
 - The [Lap around Azure Redis Cache](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) page on the Azure blog
 - The [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) page on the Microsoft website
-- The [ASP.NET session state provider for Azure Redis Cache](/documentation/articles/cache-aspnet-session-state-provider/) page on the Microsoft website
-- The [ASP.NET output cache provider for Azure Redis Cache](/documentation/articles/cache-aspnet-output-cache-provider/) page on the Microsoft website
+- The [ASP.NET session state provider for Azure Redis Cache](./redis-cache/cache-aspnet-session-state-provider.md) page on the Microsoft website
+- The [ASP.NET output cache provider for Azure Redis Cache](./redis-cache/cache-aspnet-output-cache-provider.md) page on the Microsoft website
 - The [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro) page on the Redis website
 - The [Basic usage](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) page on the StackExchange.Redis website
 - The [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) page on the StackExchange.Redis repo
 - The [Data partitioning guide](http://msdn.microsoft.com/zh-cn/library/dn589795.aspx) on the Microsoft website
-

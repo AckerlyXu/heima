@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Service Fabric image store connnection string | Azure"
-    description="Understand the image store connection string"
-    services="service-fabric"
-    documentationcenter=".net"
-    author="alexwun"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="00f8059d-9d53-4cb8-b44a-b25149de3030"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="alexwun" />
+---
+title: Azure Service Fabric image store connnection string | Azure
+description: Understand the image store connection string
+services: service-fabric
+documentationcenter: .net
+author: alexwun
+manager: timlt
+editor: ''
+
+ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: alexwun
+---
 
 # Understand the ImageStoreConnectionString setting
 
@@ -50,6 +51,6 @@ So while the ImageStoreConnectionString is configurable, you generally just use 
 [img_is]: ./media/service-fabric-image-store-connection-string/image_store_service.png
 [img_cm]: ./media/service-fabric-image-store-connection-string/cluster_manifest.png
 
-[10]: /documentation/articles/service-fabric-deploy-remove-applications/
-[11]: /documentation/articles/service-fabric-cluster-creation-via-portal/
-[12]: /documentation/articles/service-fabric-publish-app-remote-cluster/
+[10]: ./service-fabric-deploy-remove-applications.md
+[11]: ./service-fabric-cluster-creation-via-portal.md
+[12]: ./service-fabric-publish-app-remote-cluster.md

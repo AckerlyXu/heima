@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Grant permission to many applications to access an Azure key vault | Azure"
-    description="Learn how to grant permission to many applications to access a key vault"
-    services="key-vault"
-    documentationcenter=""
-    author="amitbapat"
-    manager="mbaldwin"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="785d4e40-fb7b-485a-8cbc-d9c8c87708e6"
-    ms.service="key-vault"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/01/2016"
-    wacn.date=""
-    ms.author="ambapat" />
+---
+title: Grant permission to many applications to access an Azure key vault | Azure
+description: Learn how to grant permission to many applications to access a key vault
+services: key-vault
+documentationcenter: ''
+author: amitbapat
+manager: mbaldwin
+tags: azure-resource-manager
+
+ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
+ms.service: key-vault
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/01/2016
+wacn.date: ''
+ms.author: ambapat
+---
 
 # Grant permission to many applications to access a key vault
 
@@ -32,26 +33,27 @@ Now run the following commands in PowerShell.
 
 powershell
 
-	# Connect to Azure AD 
-	Connect-AzureAD 
-	 
-	# Create Azure Active Directory Security Group 
-	$aadGroup = New-AzureADGroup -Description "Contoso App Group" -DisplayName "ContosoAppGroup" -MailEnabled 0 -MailNickName none -SecurityEnabled 1 
-	 
-	# Find and add your applications (ServicePrincipal ObjectID) as members to this group 
-	$spn = Get-AzureADServicePrincipal -SearchString "ContosoApp1" 
-	Add-AzureADGroupMember -ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId 
-	 
-	# You can add several members to this group, in this fashion. 
-	 
-	# Set the Key Vault ACLs 
-	Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $aadGroup.ObjectId -PermissionToKeys all -PermissionToSecrets all -PermissionToCertificates all 
-	 
-	# Of course you can adjust the permissions as required 
-
+```powershell
+# Connect to Azure AD 
+Connect-AzureAD 
+ 
+# Create Azure Active Directory Security Group 
+$aadGroup = New-AzureADGroup -Description "Contoso App Group" -DisplayName "ContosoAppGroup" -MailEnabled 0 -MailNickName none -SecurityEnabled 1 
+ 
+# Find and add your applications (ServicePrincipal ObjectID) as members to this group 
+$spn = Get-AzureADServicePrincipal -SearchString "ContosoApp1" 
+Add-AzureADGroupMember -ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId 
+ 
+# You can add several members to this group, in this fashion. 
+ 
+# Set the Key Vault ACLs 
+Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $aadGroup.ObjectId -PermissionToKeys all -PermissionToSecrets all -PermissionToCertificates all 
+ 
+# Of course you can adjust the permissions as required 
+```
 
 If you need to grant a different set of permissions to a group of applications, create a separate Azure Active Directory security group for such applications.
 
 ## Next steps
 
-Learn more about how to [Secure your key vault](/documentation/articles/key-vault-secure-your-key-vault/).
+Learn more about how to [Secure your key vault](./key-vault-secure-your-key-vault.md).

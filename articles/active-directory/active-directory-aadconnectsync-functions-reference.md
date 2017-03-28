@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect sync: Functions Reference | Azure"
-    description="Reference of declarative provisioning expressions in Azure AD Connect sync."
-    services="active-directory"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="4f525ca0-be0e-4a2e-8da1-09b6b567ed5f"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect sync: Functions Reference | Azure
+description: Reference of declarative provisioning expressions in Azure AD Connect sync.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+
+ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Azure AD Connect sync: Functions Reference
 In Azure AD Connect, functions are used to manipulate an attribute value during synchronization.  
@@ -1067,6 +1068,6 @@ Returns "brown"
 Would return "has"
 
 ## Additional Resources
-- [Understanding Declarative Provisioning Expressions](/documentation/articles/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/)
-- [Azure AD Connect Sync: Customizing Synchronization options](/documentation/articles/active-directory-aadconnectsync-whatis/)
-- [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+- [Understanding Declarative Provisioning Expressions](./active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
+- [Azure AD Connect Sync: Customizing Synchronization options](./active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)

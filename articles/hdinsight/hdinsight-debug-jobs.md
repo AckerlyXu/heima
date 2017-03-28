@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Debug Hadoop in HDInsight: View logs and interpret error messages | Azure"
-    description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover."
-    services="hdinsight"
-    tags="azure-portal"
-    editor="cgronlun"
-    manager="jhubbard"
-    author="mumian"
-    documentationcenter="" />
-<tags
-    ms.assetid="7e6ceb0e-8be8-4911-bc80-20714030a3ad"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="jgao" />
+---
+title: Debug Hadoop in HDInsight: View logs and interpret error messages | Azure
+description: Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.
+services: hdinsight
+tags: azure-portal
+editor: cgronlun
+manager: jhubbard
+author: mumian
+documentationcenter: ''
+
+ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: jgao
+---
 
 # Analyze HDInsight logs
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-Each Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Hadoop clusters in HDInsight](/documentation/articles/hdinsight-administer-use-management-portal/#find-the-default-storage-account). The logs retain in the Storage account even after the cluster is deleted.
+Each Hadoop cluster in Azure HDInsight has an Azure storage account used as the default file system. The storage account is referred as the default Storage account. Cluster uses the Azure Table storage and the Blob storage on the default Storage account to store its logs.  To find out the default storage account for your cluster, see [Manage Hadoop clusters in HDInsight](./hdinsight-administer-use-management-portal.md#find-the-default-storage-account). The logs retain in the Storage account even after the cluster is deleted.
 
 ## <a name="log-written-to-azure-tables"></a> Logs written to Azure Tables
 The logs written to Azure Tables provide one level of insight into what is happening with an HDInsight cluster.
@@ -63,7 +64,7 @@ These tables contains the following fields:
 ### Tools for accessing the logs
 There are many tools available for accessing data in these tables:
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
 * Visual Studio
 * Azure Storage Explorer
@@ -76,15 +77,15 @@ Power Query can be installed from [www.microsoft.com/download/details.aspx?id=39
 
 1. Open **Microsoft Excel**.
 2. From the **Power Query** menu, click **From Azure**, and then click **From Azure Table storage**.
-   
+
     ![HDInsight Hadoop Excel PowerQuery open Azure Table storage](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
 3. Enter the storage account name. For Azure China this must be the FQDN.
 4. Enter the storage account key. You shall see a list of tables:
-   
+
     ![HDInsight Hadoop logs stored in Azure Table storage](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. Right-click the hadoopservicelog table in the **Navigator** pane and select **Edit**. You shall see 4 columns. Optionally, delete the **Partition Key**, **Row Key**, and **Timestamp** columns by selecting them, then clicking **Remove Columns** from the options in the ribbon.
 6. Click the expand icon on the Content column to choose the columns you want to import into the Excel spreadsheet. For this demonstration, I chose TraceLevel, and ComponentName: It can give me some basic information on which components had issues.
-   
+
     ![HDInsight Hadoop logs choose columns](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
 7. Click **OK** to import the data.
 8. Select the **TraceLevel**, Role, and **ComponentName** columns, and then click **Group By** control in the ribbon.
@@ -102,17 +103,19 @@ You can now use Excel to filter and sort as necessary. Obviously, you may want t
 4. Expand **Storage Accounts**, the default storage account for your cluster, and then **Tables**.
 5. Double-click **hadoopservicelog**.
 6. Add a filter. For example:
-   
-        TraceLevel eq 'ERROR'
-   
+
+    ```
+    TraceLevel eq 'ERROR'
+    ```
+
     ![HDInsight Hadoop logs choose columns](./media/hdinsight-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
-   
-    For more information about constructing filters, see [Construct Filter Strings for the Table Designer](/documentation/articles/vs-azure-tools-table-designer-construct-filter-strings/).
+
+    For more information about constructing filters, see [Construct Filter Strings for the Table Designer](../vs-azure-tools-table-designer-construct-filter-strings.md).
 
 ## Logs Written to Azure Blob Storage
 [The logs written to Azure Tables](#log-written-to-azure-tables) provide one level of insight into what is happening with an HDInsight cluster. However, these tables do not provide task-level logs, which can be helpful in drilling further into issues when they occur. To provide this next level of detail, HDInsight clusters are configured to write task logs to your Blob Storage account for any job that is submitted through Templeton. Practically, this means jobs submitted using the Azure PowerShell cmdlets or the .NET Job Submission APIs, not jobs submitted through RDP/command-line access to the cluster. 
 
-To view the logs, see [Access YARN application logs on Linux-based HDInsight](/documentation/articles/hdinsight-hadoop-access-yarn-app-logs-linux/).
+To view the logs, see [Access YARN application logs on Linux-based HDInsight](./hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 For more information about application logs, see [Simplifying user-logs management and access in YARN](http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
 
@@ -132,7 +135,7 @@ From the Azure portal preview, click an HDInsight cluster name to open the clust
 You can use the YARN UI to do the following:
 
 * **Get cluster status**. From the left pane, expand **Cluster**, and click **About**. This present cluster status details like total allocated memory, cores used, state of the cluster resource manager, cluster version etc.
-  
+
     ![Launch cluster dashboard](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
 * **Get node status**. From the left pane, expand **Cluster**, and click **Nodes**. This lists all the nodes in the cluster, HTTP address of each node, resources allocated to each node, etc.
 * **Monitor job status**. From the left pane, expand **Cluster**, and then click **Applications** to list all the jobs in the cluster. If you want to look at jobs in a specific state (such as new, submitted, running, etc.), click the appropriate link under **Applications**. You can further click the job name to find out more about the job such including the output, logs, etc.
@@ -326,6 +329,6 @@ Some of these error messages could also be seen in the Azure portal preview when
 * **Mitigation**: Verify that the account exists and is properly specified in configuration and retry the operation.
 
 ## Next steps
-* [Use Ambari Views to debug Tez Jobs on HDInsight](/documentation/articles/hdinsight-debug-ambari-tez-view/)
-* [Enable heap dumps for Hadoop services on Linux-based HDInsight](/documentation/articles/hdinsight-hadoop-collect-debug-heap-dump-linux/)
-* [Manage HDInsight clusters by using the Ambari Web UI](/documentation/articles/hdinsight-hadoop-manage-ambari/)
+* [Use Ambari Views to debug Tez Jobs on HDInsight](./hdinsight-debug-ambari-tez-view.md)
+* [Enable heap dumps for Hadoop services on Linux-based HDInsight](./hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Manage HDInsight clusters by using the Ambari Web UI](./hdinsight-hadoop-manage-ambari.md)

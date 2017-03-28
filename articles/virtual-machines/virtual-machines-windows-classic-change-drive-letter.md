@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Make the D: drive of a VM a data disk | Azure"
-    description="Describes how to change drive letters for a Windows VM so that you can use the D: drive as a data drive."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager,azure-service-management" />
-<tags
-    ms.assetid="0867a931-0055-4e31-8403-9b38a3eeb904"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    wacn.date=""
-    ms.author="cynthn" />
+---
+title: Make the D: drive of a VM a data disk | Azure
+description: Describes how to change drive letters for a Windows VM so that you can use the D: drive as a data drive.
+services: virtual-machines-windows
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: ''
+tags: azure-resource-manager,azure-service-management
+
+ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+wacn.date: ''
+ms.author: cynthn
+---
 
 # Use the D: drive as a data drive on a Windows VM
 If your application needs to use the D drive to store data, follow these instructions to use a different drive letter for the temporary disk. Never use the temporary disk to store data that you need to keep.
@@ -25,13 +26,13 @@ If you resize or **Stop (Deallocate)** a virtual machine, this may trigger place
 
 For more information about how Azure uses the temporary disk, see [Understanding the temporary drive on Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Attach the data disk
 First, you'll need to attach the data disk to the virtual machine. 
 
-* To use the portal, see [How to attach a data disk in the Azure portal preview](/documentation/articles/virtual-machines-windows-attach-disk-portal/)
-* To use the Classic Management Portal, see [How to attach a data disk to a Windows virtual machine](/documentation/articles/virtual-machines-windows-classic-attach-disk/). 
+* To use the portal, see [How to attach a data disk in the Azure portal preview](./virtual-machines-windows-attach-disk-portal.md)
+* To use the Classic Management Portal, see [How to attach a data disk to a Windows virtual machine](./virtual-machines-windows-classic-attach-disk.md). 
 
 ## Temporarily move pagefile.sys to C drive
 1. Connect to the virtual machine. 
@@ -65,4 +66,4 @@ First, you'll need to attach the data disk to the virtual machine.
 9. Restart the virtual machine.
 
 ## Next steps
-* You can increase the storage available to your virtual machine by [attaching a additional data disk](/documentation/articles/virtual-machines-windows-attach-disk-portal/).
+* You can increase the storage available to your virtual machine by [attaching a additional data disk](./virtual-machines-windows-attach-disk-portal.md).

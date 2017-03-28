@@ -13,15 +13,14 @@ The Queue service contains the following components:
 
 ![Queue1](./media/storage-queue-concepts-include/queue1.png)
 
-
 - **URL format:** Queues are addressable using the following URL format:   
-	http://`<storage account>`.queue.core.chinacloudapi.cn/`<queue>` 
-      
-	The following URL addresses a queue in the diagram:  
-		
-	http://myaccount.queue.core.chinacloudapi.cn/imagesToDownload
+    http://`<storage account>`.queue.core.chinacloudapi.cn/`<queue>` 
 
--**Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](/documentation/articles/storage-scalability-targets/) for details about storage account capacity.
+    The following URL addresses a queue in the diagram:  
+
+    http://myaccount.queue.core.chinacloudapi.cn/imagesToDownload
+
+-**Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
 
 - **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/zh-cn/library/azure/dd179349.aspx).
 

@@ -1,16 +1,16 @@
-<properties
-	pageTitle="View events and audit logs"
-	description="Learn how to see all of the events that happen in your Azure subscription."
-	authors="rboucher"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: View events and audit logs
+description: Learn how to see all of the events that happen in your Azure subscription.
+authors: rboucher
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags 
-	ms.service="azure-portal" 
-	ms.date="04/28/2015" 
-	wacn.date=""/>
+ms.service: azure-portal
+ms.date: 04/28/2015
+wacn.date: ''
+---
 
 # View events and activity logs
 
@@ -24,7 +24,8 @@ All operations performed on Azure resources are fully audited by the Azure Resou
 3. This will open up a blade showing all of the events that have impacted any of your subscriptions for the past 7 days. At the top is a chart showing data by level, and below that is the full list of logs:
     ![All events](./media/insights-debugging-with-events/Insights_AllEvents.png)
 
->[AZURE.NOTE] You can only view the 500 most recent events for a given subscription in the Azure portal. 
+>[!NOTE]
+> You can only view the 500 most recent events for a given subscription in the Azure portal. 
 
 4. You can click on any log entry to see the events that made it up. For example, when you deploy something to a resource group, many different resources may be created or modified. For each entry you can see:
     * The **Level** of the event - for example, it could be just something to track (**Informational**), or when something has gone wrong that you need to know about (**Error**). 
@@ -34,7 +35,7 @@ All operations performed on Azure resources are fully audited by the Azure Resou
     * The **Correlation ID** of the event - this is the unique identifier for this set of operations.
 
 5. From there you can go to the details blade to see the specifics of the event.
-   
+
     ![Resource groups](./media/insights-debugging-with-events/Insights_EventDetails.png)
 
     For **Failed** events, this page usually includes a **Substatus** and a **Properties** section that include useful details for debugging purposes.
@@ -69,4 +70,4 @@ Once you have finished choosing what you want to see, click the **Update** butto
 
 * [Receive alert notifications](/documentation/articles/azure-portal/insights-receive-alert-notifications/) whenever an event happens.
 * [Monitor service metrics](/documentation/articles/azure-portal/insights-how-to-customize-monitoring/) to make sure your service is available and responsive.
-* [Track service health](/documentation/articles/azure-portal/insights-service-health/) to find out when Azure has experienced performance degradation or service interruptions.  
+* [Track service health](/documentation/articles/azure-portal/insights-service-health/) to find out when Azure has experienced performance degradation or service interruptions.

@@ -1,22 +1,21 @@
-<properties
-	pageTitle="DPM/Azure Backup server protection of a SharePoint farm to Azure | Azure"
-	description="This article provides an overview of DPM/Azure Backup server protection of a SharePoint farm to Azure"
-	services="backup"
-	documentationCenter=""
-	authors="adigan"
-	manager="Nkolli1"
-	editor=""/>
+---
+title: DPM/Azure Backup server protection of a SharePoint farm to Azure | Azure
+description: This article provides an overview of DPM/Azure Backup server protection of a SharePoint farm to Azure
+services: backup
+documentationCenter: ''
+authors: adigan
+manager: Nkolli1
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/29/2016"
-	ms.author="adigan;giridham;jimpark;trinadhk;markgal"
-   	wacn.date=""/>
-
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/29/2016
+ms.author: adigan;giridham;jimpark;trinadhk;markgal
+wacn.date: ''
+---
 
 # Back up a SharePoint farm to Azure
 You back up a SharePoint farm to Azure by using System Center Data Protection Manager (DPM) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. DPM provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
@@ -32,7 +31,7 @@ Azure Backup for DPM supports the following scenarios:
 There are a few things you need to confirm before you back up a SharePoint farm to Azure.
 
 ### Prerequisites
-Before you proceed, make sure that you have met all the [prerequisites for using Azure Backup](/documentation/articles/backup-azure-dpm-introduction-classic/#prerequisites/) to protect workloads. Some tasks for prerequisites include: create a backup vault, download vault credentials, install Azure Backup Agent, and register DPM/Azure Backup Server with the vault.
+Before you proceed, make sure that you have met all the [prerequisites for using Azure Backup](./backup-azure-dpm-introduction-classic.md#prerequisites) to protect workloads. Some tasks for prerequisites include: create a backup vault, download vault credentials, install Azure Backup Agent, and register DPM/Azure Backup Server with the vault.
 
 ### DPM agent
 The DPM agent must be installed on the server that's running SharePoint, the servers that are running SQL Server, and all other servers that are part of the SharePoint farm. For more information about how to set up the protection agent, see [Setup Protection Agent](https://technet.microsoft.com/zh-cn/library/hh758034(v=sc.12).aspx).  The one exception is that you install the agent only on a single web front end (WFE) server. DPM needs the agent on one WFE server only to serve as the entry point for protection.
@@ -68,7 +67,8 @@ You can find **ConfigureSharePoint.exe** in the [DPM Installation Path]\bin fold
   - Grant the WSS_Admin_WPG group full control to the DPM folder (%Program Files%\Microsoft Data Protection Manager\DPM).
   - Grant the WSS_Admin_WPG group read access to the DPM Registry key (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
->[AZURE.NOTE] You’ll need to rerun ConfigureSharePoint.exe whenever there’s a change in the SharePoint farm administrator credentials.
+>[!NOTE]
+> You’ll need to rerun ConfigureSharePoint.exe whenever there’s a change in the SharePoint farm administrator credentials.
 
 ## Back up a SharePoint farm by using DPM
 After you have configured DPM and the SharePoint farm as explained previously, SharePoint can be protected by DPM.
@@ -85,19 +85,22 @@ After you have configured DPM and the SharePoint farm as explained previously, S
 
     ![Select group members](./media/backup-azure-backup-sharepoint/select-group-members2.png)
 
-    >[AZURE.NOTE] With the DPM agent installed, you can see the server in the wizard. DPM also shows its structure. Because you ran ConfigureSharePoint.exe, DPM communicates with the SharePoint VSS Writer service and its corresponding SQL Server databases and recognizes the SharePoint farm structure, the associated content databases, and any corresponding items.
+    >[!NOTE]
+    > With the DPM agent installed, you can see the server in the wizard. DPM also shows its structure. Because you ran ConfigureSharePoint.exe, DPM communicates with the SharePoint VSS Writer service and its corresponding SQL Server databases and recognizes the SharePoint farm structure, the associated content databases, and any corresponding items.
 
 4. On the **Select Data Protection Method** page, enter the name of the **Protection Group**, and select your preferred *protection methods*. Click **Next**.
 
     ![Select data protection method](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
-    >[AZURE.NOTE] The disk protection method helps to meet short recovery-time objectives. Azure is an economical, long-term protection target compared to tapes. For more information, see [Use Azure Backup to replace your tape infrastructure](/documentation/articles/backup-azure-backup-cloud-as-tape/)
+    >[!NOTE]
+    > The disk protection method helps to meet short recovery-time objectives. Azure is an economical, long-term protection target compared to tapes. For more information, see [Use Azure Backup to replace your tape infrastructure](./backup-azure-backup-cloud-as-tape.md)
 
 5. On the **Specify Short-Term Goals** page, select your preferred **Retention range** and identify when you want backups to occur.
 
     ![Specify short-term goals](./media/backup-azure-backup-sharepoint/specify-short-term-goals2.png)
 
-    >[AZURE.NOTE] Because recovery is most often required for data that's less than five days old, we selected a retention range of five days on disk and ensured that the backup happens during non-production hours, for this example.
+    >[!NOTE]
+    > Because recovery is most often required for data that's less than five days old, we selected a retention range of five days on disk and ensured that the backup happens during non-production hours, for this example.
 
 6. Review the storage pool disk space allocated for the protection group, and click then **Next**.
 
@@ -105,7 +108,8 @@ After you have configured DPM and the SharePoint farm as explained previously, S
 
     ![Choose replica creation method](./media/backup-azure-backup-sharepoint/choose-replica-creation-method.png)
 
-    >[AZURE.NOTE] To make sure that network traffic is not effected, select a time outside production hours.
+    >[!NOTE]
+    > To make sure that network traffic is not effected, select a time outside production hours.
 
 8. DPM ensures data integrity by performing consistency checks on the replica. There are two available options. You can define a schedule to run consistency checks, or DPM can run consistency checks automatically on the replica whenever it becomes inconsistent. Select your preferred option, and then click **Next**.
 
@@ -119,13 +123,15 @@ After you have configured DPM and the SharePoint farm as explained previously, S
 
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
-    >[AZURE.NOTE] DPM provides a maximum of two daily backups to Azure at different times. Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using [Azure Backup Network Throttling](https://azure.microsoft.com/en-in/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    >[!NOTE]
+    > DPM provides a maximum of two daily backups to Azure at different times. Azure Backup can also control the amount of WAN bandwidth that can be used for backups in peak and off-peak hours by using [Azure Backup Network Throttling](https://azure.microsoft.com/en-in/documentation/articles/backup-configure-vault/#enable-network-throttling).
 
 11. Depending on the backup schedule that you selected, on the **Specify Online Retention Policy** page, select the retention policy for daily, weekly, monthly, and yearly backup points.
 
     ![Online_retention_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
 
-    >[AZURE.NOTE] DPM uses a grandfather-father-son retention scheme in which a different retention policy can be chosen for different backup points.
+    >[!NOTE]
+    > DPM uses a grandfather-father-son retention scheme in which a different retention policy can be chosen for different backup points.
 
 12. Similar to disk, an initial reference point replica needs to be created in Azure. Select your preferred option to create an initial backup copy to Azure, and then click **Next**.
 
@@ -165,7 +171,8 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 
     ![Recovery Type](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
-    >[AZURE.NOTE] The selection of **Recover to original** in the example recovers the item to the original SharePoint site.
+    >[!NOTE]
+    > The selection of **Recover to original** in the example recovers the item to the original SharePoint site.
 
 8. Select the **Recovery Process** that you want to use.
     - Select **Recover without using a recovery farm** if the SharePoint farm has not changed and is the same as the recovery point that is being restored.
@@ -185,7 +192,8 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 
     ![Recovery Options](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
-    >[AZURE.NOTE] You can choose to throttle the network bandwidth usage. This minimizes impact to the production server during production hours.
+    >[!NOTE]
+    > You can choose to throttle the network bandwidth usage. This minimizes impact to the production server during production hours.
 
 11. Review the summary information, and then click **Recover** to begin recovery of the file.
 
@@ -195,7 +203,8 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 
     ![Recovery Status](./media/backup-azure-backup-sharepoint/recovery-monitoring.png)
 
-    >[AZURE.NOTE] The file is now restored. You can refresh the SharePoint site to check the restored file.
+    >[!NOTE]
+    > The file is now restored. You can refresh the SharePoint site to check the restored file.
 
 ## Restore a SharePoint database from Azure by using DPM
 
@@ -205,7 +214,8 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 
 2. Double-click the SharePoint recovery point to show the available SharePoint catalog information.
 
-    > [AZURE.NOTE] Because the SharePoint farm is protected for long-term retention in Azure, no catalog information (metadata) is available on the DPM server. As a result, whenever a point-in-time SharePoint content database needs to be recovered, you need to catalog the SharePoint farm again.
+    > [!NOTE]
+    > Because the SharePoint farm is protected for long-term retention in Azure, no catalog information (metadata) is available on the DPM server. As a result, whenever a point-in-time SharePoint content database needs to be recovered, you need to catalog the SharePoint farm again.
 
 3. Click **Re-catalog**.
 

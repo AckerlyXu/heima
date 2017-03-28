@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Traffic Manager - FAQs | Azure"
-    description="This article provides answers to frequently asked questions about Traffic Manager"
-    services="traffic-manager"
-    documentationcenter=""
-    author="kumudd"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="75d5ff9a-f4b9-4b05-af32-700e7bdfea5a"
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/15/2017"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Azure Traffic Manager - FAQs | Azure
+description: This article provides answers to frequently asked questions about Traffic Manager
+services: traffic-manager
+documentationcenter: ''
+author: kumudd
+manager: timlt
+editor: ''
+
+ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/15/2017
+wacn.date: ''
+ms.author: kumud
+---
 
 # Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -39,7 +40,7 @@ As explained [previously](#how-clients-connect-using-traffic-manager), Traffic M
 
 Further investigation should therefore focus on the application.
 
-The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](/documentation/articles/web-sites-traffic-manager-custom-domain-name/).
+The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service-web/web-sites-traffic-manager-custom-domain-name.md).
 
 ### What is the performance impact of using Traffic Manager?
 
@@ -71,7 +72,7 @@ Using endpoints from multiple subscriptions is not possible with Azure Web Apps.
 
 For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. How you configure Traffic Manager depends on whether you are using the classic deployment model or the Resource Manager experience.
 
-* In Resource Manager, endpoints from any subscription can be added to Traffic Manager, so long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](/documentation/articles/role-based-access-control-configure/).
+* In Resource Manager, endpoints from any subscription can be added to Traffic Manager, so long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
 * In the classic deployment model interface, Traffic Manager requires that Cloud Services or Web Apps configured as Azure endpoints reside in the same subscription as the Traffic Manager profile. Cloud Service endpoints in other subscriptions can be added to Traffic Manager as 'external' endpoints. These external endpoints are billed as Azure endpoints, rather than the external rate.
 
 ### Can I use Traffic Manager with Cloud Service 'Staging' slots?
@@ -186,7 +187,7 @@ Traffic Manager billing has two components: endpoint health checks and millions 
 * Endpoint health checks: There is no charge for a child profile when configured as an endpoint in a parent profile. Monitoring of the endpoints in the child profile are billed in the usual way.
 * DNS queries: Each query is only counted once. A query against a parent profile that returns an endpoint from a child profile is counted against the parent profile only.
 
-For full details, see the [Traffic Manager pricing page](/pricing/details/traffic-manager/).
+For full details, see the [Traffic Manager pricing page](https://www.azure.cn/pricing/details/traffic-manager/).
 
 ### Is there a performance impact for nested profiles?
 

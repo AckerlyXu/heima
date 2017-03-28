@@ -1,24 +1,22 @@
-
-
 <!--not suitable for Mooncake-->
 
-<properties
-	pageTitle="Azure Media Services Community Overview"
-	description="This Azure Media Services (AMS) community page discusses different ways you can get updates about AMS, see new videos and podcasts, ask questions and give feedback. "
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="erikre"
-	editor=""/>
+---
+title: Azure Media Services Community Overview
+description: This Azure Media Services (AMS) community page discusses different ways you can get updates about AMS, see new videos and podcasts, ask questions and give feedback. 
+services: media-services
+documentationCenter: ''
+authors: juliako
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/26/2016"  
-	ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
+---
 
 # Azure Media Services Community  
 
@@ -36,14 +34,13 @@ Episode|Speaker|Date
 
 ##Provide feedback and make suggestions
 
-
 ##Discussion
 
 ###Twitter
 
 Use the [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) twitter handle to follow the AMS news and updates on Twitter. 
 You can use the [@AzureSupport](https://twitter.com/azuresupport) twitter handle to request support on Twitter.  
- 
+
 ### Online forums
 
 The following forums can be used for asking questions about current products and features.
@@ -52,6 +49,4 @@ Currently, MSDN is AMS primary forum.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=MediaServices) 
 
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services) 
-
-
+[![StackOverflow](./media/media-services-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-media-services)

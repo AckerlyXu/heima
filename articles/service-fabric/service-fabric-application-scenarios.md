@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Application scenarios and design | Azure"
-    description="Overview of categories of cloud applications in Service Fabric. Discusses application design that uses stateful and stateless services."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="msfussell"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="3a8ca6ea-b8e9-4bc3-9e20-262437d2528e"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="2/17/2017"
-    wacn.date=""
-    ms.author="mfussell" />
+---
+title: Application scenarios and design | Azure
+description: Overview of categories of cloud applications in Service Fabric. Discusses application design that uses stateful and stateless services.
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
+
+ms.assetid: 3a8ca6ea-b8e9-4bc3-9e20-262437d2528e
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 2/17/2017
+wacn.date: ''
+ms.author: mfussell
+---
 
 # Service Fabric application scenarios
 Azure Service Fabric offers a reliable and flexible platform that enables you to write and run many types of business applications and services. These applications and microservices can be stateless or stateful, and they are resource-balanced across virtual machines to maximize efficiency. The unique architecture of Service Fabric enables you to perform near real-time data analysis, in-memory computation, parallel transactions, and event processing in your applications. You can easily scale your applications up or down (really in or out), depending on your changing resource requirements.
@@ -42,7 +43,7 @@ Building applications with Azure cloud service worker roles is an example of a s
 
 When building applications consisting of microservices, you typically have a combination of stateless web apps (ASP.NET, Node.js, etc.) calling onto stateless and stateful business middle-tier services, all deployed into the same Service Fabric cluster using the Service Fabric deployment commands. Each of these services is independent with regard to scale, reliability, and resource usage, greatly improving agility in development and lifecycle management.
 
-Stateful microservices simplify application designs because they remove the need for the additional queues and caches that have traditionally been required to address the availability and latency requirements of purely stateless applications. Since stateful services are naturally highly available and low latency, this means that there are fewer moving parts to manage in your application as a whole. The diagrams below illustrate the differences between designing an application that is stateless and one that is stateful. By taking advantage of the [reliable services](/documentation/articles/service-fabric-reliable-services-introduction/) and [reliable actors](/documentation/articles/service-fabric-reliable-actors-introduction/) programming models, stateful services reduce application complexity while achieving high throughput and low latency.
+Stateful microservices simplify application designs because they remove the need for the additional queues and caches that have traditionally been required to address the availability and latency requirements of purely stateless applications. Since stateful services are naturally highly available and low latency, this means that there are fewer moving parts to manage in your application as a whole. The diagrams below illustrate the differences between designing an application that is stateless and one that is stateful. By taking advantage of the [reliable services](./service-fabric-reliable-services-introduction.md) and [reliable actors](./service-fabric-reliable-actors-introduction.md) programming models, stateful services reduce application complexity while achieving high throughput and low latency.
 
 ## An application built using stateless services
 ![Application using stateless service][Image1]
@@ -53,16 +54,16 @@ Stateful microservices simplify application designs because they remove the need
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 * Get started building stateless and stateful services with the Service Fabric
-[reliable services](/documentation/articles/service-fabric-reliable-services-quick-start/) and [reliable actors](/documentation/articles/service-fabric-reliable-actors-get-started/) programming models.
-* Learn more about [Patterns and scenarios](/documentation/articles/service-fabric-patterns-and-scenarios/).
+[reliable services](./service-fabric-reliable-services-quick-start.md) and [reliable actors](./service-fabric-reliable-actors-get-started.md) programming models.
+* Learn more about [Patterns and scenarios](./service-fabric-patterns-and-scenarios.md).
 * Learn about [customer case studies](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=qDJnf86yC_5206218965
 ).
 * Also see the following topics:
-    * [Tell me about microservices](/documentation/articles/service-fabric-overview-microservices/)
-    * [Define and manage service state](/documentation/articles/service-fabric-concepts-state/)
-    * [Availability of Service Fabric services](/documentation/articles/service-fabric-availability-services/)
-    * [Scale Service Fabric services](/documentation/articles/service-fabric-concepts-scalability/)
-    * [Partition Service Fabric services](/documentation/articles/service-fabric-concepts-partitioning/)
+    * [Tell me about microservices](./service-fabric-overview-microservices.md)
+    * [Define and manage service state](./service-fabric-concepts-state.md)
+    * [Availability of Service Fabric services](./service-fabric-availability-services.md)
+    * [Scale Service Fabric services](./service-fabric-concepts-scalability.md)
+    * [Partition Service Fabric services](./service-fabric-concepts-partitioning.md)
 
 [Image1]: ./media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: ./media/service-fabric-application-scenarios/AppwithStatefulServices.jpg

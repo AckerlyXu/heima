@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Azure WebJobs documentation resources"
-    description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK."
-    services="app-service"
-    documentationcenter=".net"
-    author="tdykstra"
-    manager="erikre"
-    editor="jimbe" />
-<tags
-    ms.assetid="ed005e56-4334-4641-a5e5-15435c2be36b"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/28/2016"
-    wacn.date=""
-    ms.author="glenga" />
+---
+title: Azure WebJobs documentation resources
+description: Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK.
+services: app-service
+documentationcenter: .net
+author: tdykstra
+manager: erikre
+editor: jimbe
+
+ms.assetid: ed005e56-4334-4641-a5e5-15435c2be36b
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/28/2016
+wacn.date: ''
+ms.author: glenga
+---
 
 # Azure WebJobs documentation resources
 ## Overview
-This topic links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK. Azure WebJobs provide an easy way to run scripts or programs as background processes in the context of an [App Service web app, API app, or mobile app](/documentation/articles/app-service-value-prop-what-is/). You can upload and run an executable file such as as cmd, bat, exe (.NET), ps1, sh, php, py, js and jar. These programs run as WebJobs on a schedule (cron) or continuously.
+This topic links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK. Azure WebJobs provide an easy way to run scripts or programs as background processes in the context of an [App Service web app, API app, or mobile app](../app-service/app-service-value-prop-what-is.md). You can upload and run an executable file such as as cmd, bat, exe (.NET), ps1, sh, php, py, js and jar. These programs run as WebJobs on a schedule (cron) or continuously.
 
-The purpose of the [WebJobs SDK](/documentation/articles/websites-webjobs-resources/) is to simplify the code you write for common tasks that a WebJob can perform, such as image processing, queue processing, RSS aggregation, file maintenance, and sending emails. The WebJobs SDK has built-in features for working with Azure Storage and Service Bus, for scheduling tasks and handling errors, and for many other common scenarios. In addition, it's designed to be extensible, and there's an [open source repository for extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
+The purpose of the [WebJobs SDK](./websites-webjobs-resources.md) is to simplify the code you write for common tasks that a WebJob can perform, such as image processing, queue processing, RSS aggregation, file maintenance, and sending emails. The WebJobs SDK has built-in features for working with Azure Storage and Service Bus, for scheduling tasks and handling errors, and for many other common scenarios. In addition, it's designed to be extensible, and there's an [open source repository for extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 Creating, deploying, and managing WebJobs is seamless with integrated tooling in Visual Studio. You can create WebJobs from templates, publish, and manage (run/stop/monitor/debug) them. 
 
@@ -31,42 +32,42 @@ The WebJobs dashboard in the Azure portal preview provides powerful management c
 * [Introduction to Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
 * [Azure WebJobs are awesome and you should start using them right now!](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Blog post by Troy Hunt.)
 * [Azure WebJobs Features](https://azure.microsoft.com/blog/2014/10/22/webjobs-goes-into-full-production/)
-* [What is the WebJobs SDK](/documentation/articles/websites-dotnet-webjobs-sdk/)
+* [What is the WebJobs SDK](./websites-dotnet-webjobs-sdk.md)
 * [Announcing the 1.1.0 RTM of Azure WebJobs SDK](https://azure.microsoft.com/blog/azure-webjobs-sdk-1-1-0-rtm/)
-* [Get Started with the Azure WebJobs SDK](/documentation/articles/websites-dotnet-webjobs-sdk-get-started/)
-* [How to use Azure queue storage with the WebJobs SDK](/documentation/articles/websites-dotnet-webjobs-sdk-storage-queues-how-to/)
-* [How to use Azure blob storage with the WebJobs SDK](/documentation/articles/websites-dotnet-webjobs-sdk-storage-blobs-how-to/)
-* [How to use Azure table storage with the WebJobs SDK](/documentation/articles/websites-dotnet-webjobs-sdk-storage-tables-how-to/)
-* [How to use Azure Service Bus with the WebJobs SDK](/documentation/articles/websites-dotnet-webjobs-sdk-service-bus/)
+* [Get Started with the Azure WebJobs SDK](./websites-dotnet-webjobs-sdk-get-started.md)
+* [How to use Azure queue storage with the WebJobs SDK](./websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
+* [How to use Azure blob storage with the WebJobs SDK](./websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [How to use Azure table storage with the WebJobs SDK](./websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
+* [How to use Azure Service Bus with the WebJobs SDK](./websites-dotnet-webjobs-sdk-service-bus.md)
 * [Azure WebJobs SDK Quick Reference (PDF download)](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Azure%20WebJobs%20SDK%20Cheat%20Sheet%202014.pdf)
 * [WebJobs settings documentation in GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 
 See also the following sections on [Deploying WebJobs](#deploy) and [Testing and debugging WebJobs](#debug).
 
 ## <a name="deploy" id="deploying"></a>Deploying WebJobs
-* [How to Deploy Azure WebJobs using Visual Studio](/documentation/articles/websites-dotnet-deploy-webjobs/)
-* [How to deploy WebJobs using the Azure Portal Preview](/documentation/articles/web-sites-create-web-jobs/)
+* [How to Deploy Azure WebJobs using Visual Studio](./websites-dotnet-deploy-webjobs.md)
+* [How to deploy WebJobs using the Azure Portal Preview](./web-sites-create-web-jobs.md)
 * [Enabling Command-line or Continuous Delivery of Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Git deploying a .NET console app to Azure using WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Deploying an F# WebJob to Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
 * [Deploying custom services as Azure Webjobs](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
 
 ## <a name="schedule"></a>Scheduling WebJobs
-* [The Add Azure WebJob Dialog](/documentation/articles/websites-dotnet-deploy-webjobs/#configure)
-* [Create a Scheduled WebJob in the Azure Portal Preview](/documentation/articles/web-sites-create-web-jobs/#CreateScheduled)
+* [The Add Azure WebJob Dialog](./websites-dotnet-deploy-webjobs.md#configure)
+* [Create a Scheduled WebJob in the Azure Portal Preview](./web-sites-create-web-jobs.md#CreateScheduled)
 * [Hooking up a scheduler job to a WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Scheduling Azure WebJobs with cron expressions](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
-* [Scheduling individual WebJob functions using the WebJobs SDK TimerTrigger](/documentation/articles/websites-dotnet-webjobs-sdk/#schedule)
+* [Scheduling individual WebJob functions using the WebJobs SDK TimerTrigger](./websites-dotnet-webjobs-sdk.md#schedule)
 
 ## <a name="debug"></a>Testing and debugging WebJobs
 * [New Developer and Debugging Features for Azure WebJobs in Visual Studio](http://blogs.msdn.com/b/webdev/archive/2014/11/12/new-developer-and-debugging-features-for-azure-webjobs-in-visual-studio.aspx)
-* [View the WebJobs Dashboard](/documentation/articles/websites-dotnet-webjobs-sdk-get-started/#view-the-webjobs-sdk-dashboard)
-* [How to write logs using the WebJobs SDK and view them in the Dashboard](/documentation/articles/websites-dotnet-webjobs-sdk-storage-queues-how-to/#logs)
-* [Remote debugging WebJobs](/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#remotedebugwj)
+* [View the WebJobs Dashboard](./websites-dotnet-webjobs-sdk-get-started.md#view-the-webjobs-sdk-dashboard)
+* [How to write logs using the WebJobs SDK and view them in the Dashboard](./websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs)
+* [Remote debugging WebJobs](./web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 * [Who wrote that blob?](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Hosting interactive code in the Cloud](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [Adding Trace to Azure WebJobs](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [Monitor, diagnose, and troubleshoot Azure Storage](/documentation/articles/storage-monitoring-diagnosing-troubleshooting/)
+* [Monitor, diagnose, and troubleshoot Azure Storage](../storage/storage-monitoring-diagnosing-troubleshooting.md)
 
 ## <a name="scale"></a>Scaling WebJobs
 * [Scaling Your Web Application with Azure Websites](http://msdn.microsoft.com/magazine/dn786914.aspx)
@@ -78,7 +79,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [Getting notified when your Azure triggered WebJobs completes](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
 * [Simple Web App Backup retention policy with WebJobs](https://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
 * [Azure Web Apps and Cloud Services Slow on First Request](http://wp.sjkp.dk/windows-azure-websites-and-cloud-services-slow-on-first-request/). Shows how to use WebJobs to simulate the AlwaysOn feature that is only available for the Standard pricing tier.
-* [WebJobs Graceful Shutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). For WebJobs SDK graceful shutdown, see [Graceful shutdown](/documentation/articles/websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).)
+* [WebJobs Graceful Shutdown](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.U72Il_5OWUl). For WebJobs SDK graceful shutdown, see [Graceful shutdown](./websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).)
 * [Automating Backups with Azure WebJobs & AzCopy](http://markjbrown.com/azure-webjobs-azcopy/)
 
 ## <a name="additionalsdk"></a>Additional WebJobs SDK resources
@@ -96,7 +97,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 * [SiteMonitR](http://code.msdn.microsoft.com/SiteMonitR-dd4fcf77). Demonstrates use of scheduled and event-driven WebJobs. See the blog post [Rebuilding the SiteMonitR using Azure WebJobs SDK](http://www.bradygaster.com/post/rebuilding-the-sitemonitr-using-windows-azure-webjobs).
 
 ## <a name="blogs"></a>Blogs
-* [Azure blog](/blog)
+* [Azure blog](https://www.azure.cn/blog)
 * [Amit Apple's blog](http://blog.amitapple.com/). Focuses on WebJobs (not the SDK).
 * [Magnus Mårtensson's blog](http://magnusmartensson.com/)
 

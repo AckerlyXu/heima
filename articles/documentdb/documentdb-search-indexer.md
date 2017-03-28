@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Connecting DocumentDB with Azure Search using indexers | Azure"
-    description="This article shows you how to use to Azure Search indexer with DocumentDB as a data source."
-    services="documentdb"
-    documentationcenter=""
-    author="dennyglee"
-    manager="jhubbard"
-    editor="mimig" />
-<tags
-    ms.assetid="fdef3d1d-b814-4161-bdb8-e47d29da596f"
-    ms.service="documentdb"
-    ms.devlang="rest-api"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.author="denlee" />
+---
+title: Connecting DocumentDB with Azure Search using indexers | Azure
+description: This article shows you how to use to Azure Search indexer with DocumentDB as a data source.
+services: documentdb
+documentationcenter: ''
+author: dennyglee
+manager: jhubbard
+editor: mimig
+
+ms.assetid: fdef3d1d-b814-4161-bdb8-e47d29da596f
+ms.service: documentdb
+ms.devlang: rest-api
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 01/10/2017
+wacn.date: ''
+ms.author: denlee
+---
 
 # Connecting DocumentDB with Azure Search using indexers
 If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
@@ -38,9 +39,11 @@ An **indexer** describes how the data flows from your data source into a target 
 ## <a id="CreateDataSource"></a>Step 1: Create a data source
 Issue a HTTP POST request to create a new data source in your Azure Search service, including the following request headers.
 
-    POST https://[Search service name].search.chinacloudapi.cn/datasources?api-version=[api-version]
-    Content-Type: application/json
-    api-key: [Search service admin key]
+```
+POST https://[Search service name].search.chinacloudapi.cn/datasources?api-version=[api-version]
+Content-Type: application/json
+api-key: [Search service admin key]
+```
 
 The `api-version` is required. Valid values include `2015-02-28` or a later version.
 
@@ -49,10 +52,10 @@ The body of the request contains the data source definition, which should includ
 - **name**: Choose any name to represent your DocumentDB database.
 - **type**: Use `documentdb`.
 - **credentials**:
-  
+
   - **connectionString**: Required. Specify the connection info to your Azure DocumentDB database in the following format: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
 - **container**:
-  
+
   - **name**: Required. Specify the id of the DocumentDB collection to be indexed.
   - **query**: Optional. You can specify a query to flatten an arbitrary JSON document into a flat schema that Azure Search can index.
 - **dataChangeDetectionPolicy**: Optional. See [Data Change Detection Policy](#DataChangeDetectionPolicy) below.
@@ -63,25 +66,31 @@ See below for an [example request body](#CreateDataSourceExample).
 ### <a id="DataChangeDetectionPolicy"></a>Capturing changed documents
 The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the `High Water Mark` policy using the `_ts` last-modified timestamp property provided by DocumentDB - which is specified as follows:
 
-    {
-        "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName" : "_ts"
-    }
+```
+{
+    "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+    "highWaterMarkColumnName" : "_ts"
+}
+```
 
 You will also need to add `_ts` in the projection and `WHERE` clause for your query. For example:
 
-    SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
+```
+SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts >= @HighWaterMark
+```
 
 ### <a id="DataDeletionDetectionPolicy"></a>Capturing deleted documents
 When rows are deleted from the source table, you should delete those rows from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified as follows:
 
-    {
-        "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-        "softDeleteColumnName" : "the property that specifies whether a document was deleted",
-        "softDeleteMarkerValue" : "the value that identifies a document as deleted"
-    }
+```
+{
+    "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
+    "softDeleteColumnName" : "the property that specifies whether a document was deleted",
+    "softDeleteMarkerValue" : "the value that identifies a document as deleted"
+}
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You will need to include the softDeleteColumnName property in your SELECT clause if you are using a custom projection.
 > 
 > 
@@ -91,60 +100,67 @@ In addition to capturing changed and deleted documents, specifying a DocumentDB 
 
 Example Document:
 
-    {
-        "userId": 10001,
-        "contact": {
-            "firstName": "andy",
-            "lastName": "hoh"
-        },
-        "company": "microsoft",
-        "tags": ["azure", "documentdb", "search"]
-    }
-
+```
+{
+    "userId": 10001,
+    "contact": {
+        "firstName": "andy",
+        "lastName": "hoh"
+    },
+    "company": "microsoft",
+    "tags": ["azure", "documentdb", "search"]
+}
+```
 
 Flatten query:
 
-    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
-    
-    
+```
+SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
+```
+
 Projection query:
 
-    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
-
+```
+SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
+```
 
 Unwind array query:
 
-    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
-    
-    
+```
+SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
+```
+
 Filter query:
 
-    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
-
+```
+SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
+```
 
 ### <a id="CreateDataSourceExample"></a>Request body example
 The following example creates a data source with a custom query and policy hints:
 
-    {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
-        "credentials": {
-            "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
-        },
-        "container": {
-            "name": "myDocDbCollectionId",
-            "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark"
-        },
-        "dataChangeDetectionPolicy": {
-            "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-            "highWaterMarkColumnName": "_ts"
-        },
-        "dataDeletionDetectionPolicy": {
-            "@odata.type": "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-            "softDeleteColumnName": "isDeleted",
-            "softDeleteMarkerValue": "true"
-        }
+```
+{
+    "name": "mydocdbdatasource",
+    "type": "documentdb",
+    "credentials": {
+        "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
+    },
+    "container": {
+        "name": "myDocDbCollectionId",
+        "query": "SELECT s.id, s.Title, s.Abstract, s._ts FROM Sessions s WHERE s._ts > @HighWaterMark"
+    },
+    "dataChangeDetectionPolicy": {
+        "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+        "highWaterMarkColumnName": "_ts"
+    },
+    "dataDeletionDetectionPolicy": {
+        "@odata.type": "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
+        "softDeleteColumnName": "isDeleted",
+        "softDeleteMarkerValue": "true"
     }
+}
+```
 
 ### Response
 You will receive an HTTP 201 Created response if the data source was successfully created.
@@ -152,14 +168,15 @@ You will receive an HTTP 201 Created response if the data source was successfull
 ## <a id="CreateIndex"></a>Step 2: Create an index
 Create a target Azure Search index if you don’t have one already. You can do this by using the [Create Index API](https://msdn.microsoft.com/zh-cn/library/azure/dn798941.aspx).
 
-    POST https://[Search service name].search.chinacloudapi.cn/indexes?api-version=[api-version]
-    Content-Type: application/json
-    api-key: [Search service admin key]
-
+```
+POST https://[Search service name].search.chinacloudapi.cn/indexes?api-version=[api-version]
+Content-Type: application/json
+api-key: [Search service admin key]
+```
 
 Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > For partitioned collections, the default document key is DocumentDB's `_rid` property, which gets renamed to `rid` in Azure Search. Also, DocumentDB's `_rid` values contain characters that are invalid in Azure Search keys; therefore, the `_rid` values are Base64 encoded.
 > 
 > 
@@ -179,22 +196,24 @@ Ensure that the schema of your target index is compatible with the schema of the
 ### <a id="CreateIndexExample"></a>Request body example
 The following example creates an index with an id and description field:
 
-    {
-       "name": "mysearchindex",
-       "fields": [{
-         "name": "id",
-         "type": "Edm.String",
-         "key": true,
-         "searchable": false
-       }, {
-         "name": "description",
-         "type": "Edm.String",
-         "filterable": false,
-         "sortable": false,
-         "facetable": false,
-         "suggestions": true
-       }]
-     }
+```
+{
+   "name": "mysearchindex",
+   "fields": [{
+     "name": "id",
+     "type": "Edm.String",
+     "key": true,
+     "searchable": false
+   }, {
+     "name": "description",
+     "type": "Edm.String",
+     "filterable": false,
+     "sortable": false,
+     "facetable": false,
+     "suggestions": true
+   }]
+ }
+```
 
 ### Response
 You will receive an HTTP 201 Created response if the index was successfully created.
@@ -202,9 +221,11 @@ You will receive an HTTP 201 Created response if the index was successfully crea
 ## <a id="CreateIndexer"></a>Step 3: Create an indexer
 You can create a new indexer within an Azure Search service by using an HTTP POST request with the following headers.
 
-    POST https://[Search service name].search.chinacloudapi.cn/indexers?api-version=[api-version]
-    Content-Type: application/json
-    api-key: [Search service admin key]
+```
+POST https://[Search service name].search.chinacloudapi.cn/indexers?api-version=[api-version]
+Content-Type: application/json
+api-key: [Search service admin key]
+```
 
 The body of the request contains the indexer definition, which should include the following fields:
 
@@ -222,12 +243,14 @@ An indexer can optionally specify a schedule. If a schedule is present, the inde
 ### <a id="CreateIndexerExample"></a>Request body example
 The following example creates an indexer that copies data from the collection referenced by the `myDocDbDataSource` data source to the `mySearchIndex` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly.
 
-    {
-        "name" : "mysearchindexer",
-        "dataSourceName" : "mydocdbdatasource",
-        "targetIndexName" : "mysearchindex",
-        "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" }
-    }
+```
+{
+    "name" : "mysearchindexer",
+    "dataSourceName" : "mydocdbdatasource",
+    "targetIndexName" : "mysearchindex",
+    "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" }
+}
+```
 
 ### Response
 You will receive an HTTP 201 Created response if the indexer was successfully created.
@@ -235,8 +258,10 @@ You will receive an HTTP 201 Created response if the indexer was successfully cr
 ## <a id="RunIndexer"></a>Step 4: Run an indexer
 In addition to running periodically on a schedule, an indexer can also be invoked on demand by issuing the following HTTP POST request:
 
-    POST https://[Search service name].search.chinacloudapi.cn/indexers/[indexer name]/run?api-version=[api-version]
-    api-key: [Search service admin key]
+```
+POST https://[Search service name].search.chinacloudapi.cn/indexers/[indexer name]/run?api-version=[api-version]
+api-key: [Search service admin key]
+```
 
 ### Response
 You will receive an HTTP 202 Accepted response if the indexer was successfully invoked.
@@ -244,44 +269,47 @@ You will receive an HTTP 202 Accepted response if the indexer was successfully i
 ## <a name="GetIndexerStatus"></a>Step 5: Get indexer status
 You can issue a HTTP GET request to retrieve the current status and execution history of an indexer:
 
-    GET https://[Search service name].search.chinacloudapi.cn/indexers/[indexer name]/status?api-version=[api-version]
-    api-key: [Search service admin key]
+```
+GET https://[Search service name].search.chinacloudapi.cn/indexers/[indexer name]/status?api-version=[api-version]
+api-key: [Search service admin key]
+```
 
 ### Response
 You will see a HTTP 200 OK response returned along with a response body that contains information about overall indexer health status, the last indexer invocation, as well as the history of recent indexer invocations (if present).
 
 The response should look similar to the following:
 
-    {
-        "status":"running",
-        "lastResult": {
-            "status":"success",
-            "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
-            "errors":[],
-            "itemsProcessed":11,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null
-         },
-        "executionHistory":[ {
-            "status":"success",
-             "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
-            "errors":[],
-            "itemsProcessed":11,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null
-        }]
-    }
+```
+{
+    "status":"running",
+    "lastResult": {
+        "status":"success",
+        "errorMessage":null,
+        "startTime":"2014-11-26T03:37:18.853Z",
+        "endTime":"2014-11-26T03:37:19.012Z",
+        "errors":[],
+        "itemsProcessed":11,
+        "itemsFailed":0,
+        "initialTrackingState":null,
+        "finalTrackingState":null
+     },
+    "executionHistory":[ {
+        "status":"success",
+         "errorMessage":null,
+        "startTime":"2014-11-26T03:37:18.853Z",
+        "endTime":"2014-11-26T03:37:19.012Z",
+        "errors":[],
+        "itemsProcessed":11,
+        "itemsFailed":0,
+        "initialTrackingState":null,
+        "finalTrackingState":null
+    }]
+}
+```
 
 Execution history contains up to the 50 most recent completed executions, which are sorted in reverse chronological order (so the latest execution comes first in the response).
 
 ## <a name="NextSteps"></a>Next steps
 Congratulations! You have just learned how to integrate Azure DocumentDB with Azure Search using the indexer for DocumentDB.
 
-- To learn how more about Azure DocumentDB, see the [DocumentDB service page](/home/features/documentdb/).
-
+- To learn how more about Azure DocumentDB, see the [DocumentDB service page](https://www.azure.cn/home/features/documentdb/).

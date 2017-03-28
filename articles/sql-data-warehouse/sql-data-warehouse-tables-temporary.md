@@ -1,31 +1,31 @@
-<properties
-   pageTitle="Temporary tables in SQL Data Warehouse | Microsoft Azure"
-   description="Getting started with temporary tables in Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Temporary tables in SQL Data Warehouse | Microsoft Azure
+description: Getting started with temporary tables in Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+---
 
 # Temporary tables in SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [Overview][]
-- [Data Types][]
-- [Distribute][]
-- [Index][]
-- [Partition][]
-- [Statistics][]
-- [Temporary][]
+> [!div class="op_single_selector"]
+>- [Overview][]
+>- [Data Types][]
+>- [Distribute][]
+>- [Index][]
+>- [Partition][]
+>- [Statistics][]
+>- [Temporary][]
 
 Temporary tables are very useful when processing data - especially during transformation where the intermediate results are transient. In SQL Data Warehouse temporary tables exist at the session level.  They are only visible to the session in which they were created and are automatically dropped when that session logs off.  Temporary tables offer a performance benefit because their results are written to local rather than remote storage.  Temporary tables are slightly different in Azure SQL Data Warehouse than Azure SQL Database as they can be accessed from anywhere inside the session, including both inside and outside of a stored procedure.
 
@@ -105,8 +105,8 @@ FROM    t1
 ;
 ``` 
 
->[AZURE.NOTE] `CTAS` is a very powerful command and has the added advantage of being very efficient in its use of transaction log space. 
-
+>[!NOTE]
+> `CTAS` is a very powerful command and has the added advantage of being very efficient in its use of transaction log space. 
 
 ## Dropping temporary tables
 
@@ -115,7 +115,7 @@ When a new session is created, no temporary tables should exist.  However, if yo
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
 BEGIN
-	DROP TABLE #stats_ddl
+    DROP TABLE #stats_ddl
 END
 ```
 

@@ -1,25 +1,27 @@
-<properties 
-   pageTitle="Service Bus samples overview | Azure"
-    description="Categorizes and describes Service Bus messaging samples with links to each."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/07/2016"
-    ms.author="sethm" />
+---
+title: Service Bus samples overview | Azure
+description: Categorizes and describes Service Bus messaging samples with links to each.
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/07/2016
+ms.author: sethm
+---
 
 # Service Bus messaging samples
 
-The Service Bus messaging samples demonstrate key features in [Service Bus](/home/features/service-bus/) (cloud service) and [Service Bus for Windows Server](https://msdn.microsoft.com/zh-cn/library/dn282144.aspx). This article categorizes and describes the samples available, with links to each.
+The Service Bus messaging samples demonstrate key features in [Service Bus](https://www.azure.cn/home/features/service-bus/) (cloud service) and [Service Bus for Windows Server](https://msdn.microsoft.com/zh-cn/library/dn282144.aspx). This article categorizes and describes the samples available, with links to each.
 
->[AZURE.NOTE] Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+>[!NOTE]
+> Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 >
 >Additionally, there is an updated set of Service Bus messaging samples [here](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (as of this writing, they are not described in this article). Relay samples are [here](https://github.com/Azure-Samples/azure-servicebus-relay-samples). 
 
@@ -49,9 +51,9 @@ Note that the messaging samples require a connection string to access your Servi
 
 1. Run the following PowerShell cmdlet:
 
-	```
-	get-sbClientConfiguration
-	```
+    ```
+    get-sbClientConfiguration
+    ```
 
 2. Paste the connection string into the App.config file for the sample.
 
@@ -102,6 +104,6 @@ The following samples demonstrate various other features of the service.
 
 See the following topics for conceptual overviews of Service Bus.
 
-- [Service Bus messaging overview](/documentation/articles/service-bus-messaging-overview/)
-- [Service Bus architecture](/documentation/articles/service-bus-architecture/)
-- [Service Bus fundamentals](/documentation/articles/service-bus-fundamentals-hybrid-solutions/)
+- [Service Bus messaging overview](./service-bus-messaging-overview.md)
+- [Service Bus architecture](./service-bus-architecture.md)
+- [Service Bus fundamentals](./service-bus-fundamentals-hybrid-solutions.md)

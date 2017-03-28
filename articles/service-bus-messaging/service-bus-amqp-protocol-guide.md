@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Azure" 
-    description="Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs" 
-    services="service-bus-messaging,event-hubs" 
-    documentationCenter=".net" 
-    authors="clemensv" 
-    manager="timlt" 
-    editor=""/>
+---
+title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Azure
+description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
+services: service-bus-messaging,event-hubs
+documentationCenter: .net
+authors: clemensv
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na" 
-    ms.date="01/07/2017"
-    ms.author="clemensv;jotaub;hillaryc;sethm"/>
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/07/2017
+ms.author: clemensv;jotaub;hillaryc;sethm
+---
 
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
 
@@ -62,7 +62,7 @@ Azure Service Bus requires the use of TLS at all times. It supports connections 
 
 After setting up the connection and TLS, Service Bus offers two SASL mechanism options:
 
--   SASL PLAIN is commonly used for passing username and password credentials to a server. Service Bus does not have accounts, but named [Shared Access Security rules](/documentation/articles/service-bus-shared-access-signature-authentication/), which confer rights and are associated with a key. The name of a rule is used as the user name and the key (as base64 encoded text) is used as the password. The rights associated with the chosen rule govern the operations allowed on the connection.
+-   SASL PLAIN is commonly used for passing username and password credentials to a server. Service Bus does not have accounts, but named [Shared Access Security rules](./service-bus-shared-access-signature-authentication.md), which confer rights and are associated with a key. The name of a rule is used as the user name and the key (as base64 encoded text) is used as the password. The rights associated with the chosen rule govern the operations allowed on the connection.
 
 -   SASL ANONYMOUS is used for bypassing SASL authorization when the client wants to use the claims-based-security (CBS) model that will be described later. With this option, a client connection can be established anonymously for a short time during which the client can only interact with the CBS endpoint and the CBS handshake must complete.
 
@@ -235,7 +235,7 @@ The following sections explain which properties from the standard AMQP message s
 This section covers advanced capabilities of Azure Service Bus that are based on draft extensions to AMQP currently being developed in the OASIS Technical Committee for AMQP. Azure Service Bus implements the latest status of these drafts and will adopt changes introduced as those drafts reach standard status.
 
 > [!NOTE]
-> Service Bus Messaging advanced operations are supported through a request/response pattern. The details of these operations are described in the document [AMQP 1.0 in Service Bus: request-response-based operations](/documentation/articles/service-bus-amqp-request-response/).
+> Service Bus Messaging advanced operations are supported through a request/response pattern. The details of these operations are described in the document [AMQP 1.0 in Service Bus: request-response-based operations](./service-bus-amqp-request-response.md).
 > 
 > 
 
@@ -327,6 +327,6 @@ To learn more about AMQP, see the following links:
 [3]: ./media/service-bus-amqp/amqp3.png
 [4]: ./media/service-bus-amqp/amqp4.png
 
-[Service Bus AMQP overview]: /documentation/articles/service-bus-amqp-overview/
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: /documentation/articles/service-bus-partitioned-queues-and-topics-amqp-overview/
+[Service Bus AMQP overview]: ./service-bus-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/zh-cn/library/dn574799.aspx

@@ -1,27 +1,27 @@
-<properties
-	pageTitle="Create alerts for Azure services - Azure portal | Azure"
-	description="Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met."
-	authors="rboucher"
-	manager="carmonm"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Create alerts for Azure services - Azure portal | Azure
+description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the conditions you specify are met.
+authors: rboucher
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/23/2016"
-	ms.author="robb"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/23/2016
+ms.author: robb
+---
 
 # Create alerts in Azure Monitor for Azure services - Azure portal
 
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/insights-alerts-portal/)
-- [PowerShell](/documentation/articles/insights-alerts-powershell/)
-- [CLI](/documentation/articles/insights-alerts-command-line-interface/) 
+> [!div class="op_single_selector"]
+>- [Portal](./insights-alerts-portal.md)
+>- [PowerShell](./insights-alerts-powershell.md)
+>- [CLI](./insights-alerts-command-line-interface.md) 
 
 ## Overview
 
@@ -32,7 +32,6 @@ You can receive an alert based on monitoring metrics for, or events on, your Azu
 - **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
 - **Activity log events** - An alert can trigger on *every* event, or, only when a certain number of events occur.
 
-
 You can configure an alert to do the following when it triggers: 
 
 - send email notifications to the service administrator and co-administrators
@@ -42,11 +41,10 @@ You can configure an alert to do the following when it triggers:
 
 You can configure and get information about alert rules using 
 
-- [Azure portal](/documentation/articles/insights-alerts-portal/)
-- [PowerShell](/documentation/articles/insights-alerts-powershell/) 
-- [command-line interface (CLI)](/documentation/articles/insights-alerts-command-line-interface/) 
+- [Azure portal](./insights-alerts-portal.md)
+- [PowerShell](./insights-alerts-powershell.md) 
+- [command-line interface (CLI)](./insights-alerts-command-line-interface.md) 
 - [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931945.aspx)
- 
 
 ## Create an alert rule on a metric with the Azure portal
 
@@ -54,12 +52,11 @@ You can configure and get information about alert rules using
 
 2. Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
 
-	![Monitoring](./media/insights-alerts-portal/AlertRulesButton.png)
-
+    ![Monitoring](./media/insights-alerts-portal/AlertRulesButton.png)
 
 3. Select the **Add alert** command and fill in the fields.
 
-	![Add Alert](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
+    ![Add Alert](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 
 4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
 5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also chose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The CPU measurement occurs every 1 minute.   
@@ -84,12 +81,10 @@ Once you have created an alert, you can select it and:
 - Edit or delete it. 
 - **Disable** or **Enable** it if you want to temporarily stop or resume receiving notifications for that alert. 
 
-
-
 ## Next steps
 
-* [Get an overview of Azure monitoring](/documentation/articles/monitoring-overview/) including the types of information you can collect and monitor.
-* Learn more about [configuring webhooks in alerts](/documentation/articles/insights-webhooks-alerts/).
-* Learn more about [Azure Automation Runbooks](/documentation/articles/automation-starting-a-runbook/).
-* Get an [overview of diagnostic logs](/documentation/articles/monitoring-overview-of-diagnostic-logs/) and collect detailed high-frequency metrics on your service.
-* Get an [overview of metrics collection](/documentation/articles/insights-how-to-customize-monitoring/) to make sure your service is available and responsive.
+* [Get an overview of Azure monitoring](./monitoring-overview.md) including the types of information you can collect and monitor.
+* Learn more about [configuring webhooks in alerts](./insights-webhooks-alerts.md).
+* Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
+* Get an [overview of diagnostic logs](./monitoring-overview-of-diagnostic-logs.md) and collect detailed high-frequency metrics on your service.
+* Get an [overview of metrics collection](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

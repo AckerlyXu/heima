@@ -1,60 +1,60 @@
-<properties
-    pageTitle="Azure SQL Database Features Overview | Azure"
-    description="This page provides an overview of the Azure SQL Database logical servers and databases, and includes a feature support matrix with links each listed feature."
-    services="sql-database"
-    documentationcenter="na"
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="d1a46fa4-53d2-4d25-a0a7-92e8f9d70828"
-    ms.service="sql-database"
-    ms.custom="overview"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="02/01/2017"
-    wacn.date=""
-    ms.author="carlrab; jognanay" />
+---
+title: Azure SQL Database Features Overview | Azure
+description: This page provides an overview of the Azure SQL Database logical servers and databases, and includes a feature support matrix with links each listed feature.
+services: sql-database
+documentationcenter: na
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
+ms.service: sql-database
+ms.custom: overview
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 02/01/2017
+wacn.date: ''
+ms.author: carlrab; jognanay
+---
 
 # Azure SQL Database features
 This topic provides an overview of the Azure SQL Database logical servers and databases, and includes a feature support matrix with links each listed feature. 
 
 ## What is an Azure SQL Database logical server?
-An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](/documentation/articles/sql-database-server-overview/). 
+An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](./sql-database-server-overview.md). 
 
 ## What is an Azure SQL database?
 Each database in Azure SQL Database is associated with a logical server. The database can be:
 
-- A single database with its [own set of resources](/documentation/articles/sql-database-what-is-a-dtu/#what-are-database-transaction-units-dtus) (DTUs)
-- Part of a [pool of databases](/documentation/articles/sql-database-elastic-pool/) that [shares a set of resources](/documentation/articles/sql-database-what-is-a-dtu/#what-are-elastic-database-transaction-units-edtus) (eDTUs)
-- Part of a [scaled-out set of sharded databases](/documentation/articles/sql-database-elastic-scale-introduction/#horizontal-and-vertical-scaling), which can be either single or pooled databases
-- Part of a set of databases participating in a [multitenant SaaS design pattern](/documentation/articles/sql-database-design-patterns-multi-tenancy-saas-applications/), and whose databases can either be single or pooled databases (or both) 
+- A single database with its [own set of resources](./sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)
+- Part of a [pool of databases](./sql-database-elastic-pool.md) that [shares a set of resources](./sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTUs)
+- Part of a [scaled-out set of sharded databases](./sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), which can be either single or pooled databases
+- Part of a set of databases participating in a [multitenant SaaS design pattern](./sql-database-design-patterns-multi-tenancy-saas-applications.md), and whose databases can either be single or pooled databases (or both) 
 
-For more information about Azure SQL databases, see [SQL databases](/documentation/articles/sql-database-overview/).
+For more information about Azure SQL databases, see [SQL databases](./sql-database-overview.md).
 
 ## What features are supported?
 
-The following tables list the major features of Azure SQL Database and SQL Server, specifies its supportability, and provides a link to more information about the feature on each platform. For Transact-SQL features, follow the link in the table for the category of the feature. See also [Azure SQL Database Transact-SQL differences](/documentation/articles/sql-database-transact-sql-information/) for more background on the reasons for lack of support for certain types of features.
+The following tables list the major features of Azure SQL Database and SQL Server, specifies its supportability, and provides a link to more information about the feature on each platform. For Transact-SQL features, follow the link in the table for the category of the feature. See also [Azure SQL Database Transact-SQL differences](./sql-database-transact-sql-information.md) for more background on the reasons for lack of support for certain types of features.
 
-
-> [AZURE.TIP]
-> To test an existing database for compatibility with Azure SQL Database, see [Migrate a SQL Server database to Azure](/documentation/articles/sql-database-cloud-migrate/).
+> [!TIP]
+> To test an existing database for compatibility with Azure SQL Database, see [Migrate a SQL Server database to Azure](./sql-database-cloud-migrate.md).
 >
 
 | **Feature** | **SQL Server** | **Azure SQL Database** | 
 | --- | :---: | :---: | 
-| Active Geo-Replication | Not supported - see [AlwaysOn Availability Groups](https://msdn.microsoft.com/zh-cn/library/hh510230.aspx) | [Supported](/documentation/articles/sql-database-geo-replication-overview/)
-| Always Encrypted | [Supported](https://msdn.microsoft.com/zh-cn/library/mt163865.aspx) | [Supported](/documentation/articles/sql-database-always-encrypted/) |
-| AlwaysOn Availability Groups | [Supported](https://msdn.microsoft.com/zh-cn/library/hh510230.aspx) | Not supported - See [Active Geo-Replication](/documentation/articles/sql-database-geo-replication-overview/) |
+| Active Geo-Replication | Not supported - see [AlwaysOn Availability Groups](https://msdn.microsoft.com/zh-cn/library/hh510230.aspx) | [Supported](./sql-database-geo-replication-overview.md)
+| Always Encrypted | [Supported](https://msdn.microsoft.com/zh-cn/library/mt163865.aspx) | [Supported](./sql-database-always-encrypted.md) |
+| AlwaysOn Availability Groups | [Supported](https://msdn.microsoft.com/zh-cn/library/hh510230.aspx) | Not supported - See [Active Geo-Replication](./sql-database-geo-replication-overview.md) |
 | Attach a database | [Supported](https://msdn.microsoft.com/zh-cn/library/ms190209.aspx) | Not supported |
 | Application roles | [Supported](https://msdn.microsoft.com/zh-cn/library/ms190998.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/ms190998.aspx) |
-| Auto scale | Not supported | [Supported](/documentation/articles/sql-database-scale-up/) |
-| Azure Active Directory | Not supported | [Supported](/documentation/articles/sql-database-aad-authentication/) |
-| Auditing | [Supported](https://msdn.microsoft.com/zh-cn/library/cc280386.aspx) | [Supported](/documentation/articles/sql-database-auditing-get-started/) |
-| BACPAC file (export) | [Supported](https://msdn.microsoft.com/zh-cn/library/hh213241.aspx) | [Supported](/documentation/articles/sql-database-export/) |
-| BACPAC file (import) | [Supported](https://msdn.microsoft.com/zh-cn/library/hh710052.aspx) | [Supported](/documentation/articles/sql-database-import/) |
+| Auto scale | Not supported | [Supported](./sql-database-scale-up.md) |
+| Azure Active Directory | Not supported | [Supported](./sql-database-aad-authentication.md) |
+| Auditing | [Supported](https://msdn.microsoft.com/zh-cn/library/cc280386.aspx) | [Supported](./sql-database-auditing-get-started.md) |
+| BACPAC file (export) | [Supported](https://msdn.microsoft.com/zh-cn/library/hh213241.aspx) | [Supported](./sql-database-export.md) |
+| BACPAC file (import) | [Supported](https://msdn.microsoft.com/zh-cn/library/hh710052.aspx) | [Supported](./sql-database-import.md) |
 | BACKUP and RESTORE statements | [Supported](https://msdn.microsoft.com/zh-cn/library/ff848768.aspx) | Not supported |
 | Built-in functions | [Supported](https://msdn.microsoft.com/zh-cn/library/ms174318.aspx) | [Most](https://msdn.microsoft.com/zh-cn/library/ms174318.aspx) |
 | Change data capture | [Supported](https://msdn.microsoft.com/zh-cn/library/cc645937.aspx) | Not supported |
@@ -63,12 +63,12 @@ The following tables list the major features of Azure SQL Database and SQL Serve
 | Columnstore indexes | [Supported](https://msdn.microsoft.com/zh-cn/library/gg492088.aspx) | [Premium edition only](https://msdn.microsoft.com/zh-cn/library/gg492088.aspx) |
 | Common language runtime (CLR) | [Supported](https://msdn.microsoft.com/zh-cn/library/ms131102.aspx) | Not supported |
 | Contained databases | [Supported](https://msdn.microsoft.com/zh-cn/library/ff929071.aspx) | Built-in |
-| Contained users | [Supported](https://msdn.microsoft.com/zh-cn/library/ff929188.aspx) | [Supported](/documentation/articles/sql-database-manage-logins/#non-administrator-users) |
+| Contained users | [Supported](https://msdn.microsoft.com/zh-cn/library/ff929188.aspx) | [Supported](./sql-database-manage-logins.md#non-administrator-users) |
 | Control of flow language keywords | [Supported](https://msdn.microsoft.com/zh-cn/library/ms174290.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/ms174290.aspx) |
-| Cross-database queries | [Supported](https://msdn.microsoft.com/zh-cn/library/dn584627.aspx) | [Elastic queries](/documentation/articles/sql-database-elastic-query-overview/) |
+| Cross-database queries | [Supported](https://msdn.microsoft.com/zh-cn/library/dn584627.aspx) | [Elastic queries](./sql-database-elastic-query-overview.md) |
 | Cursors | [Supported](https://msdn.microsoft.com/zh-cn/library/ms181441.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/ms181441.aspx) | 
 | Data compression | [Supported](https://msdn.microsoft.com/zh-cn/library/cc280449.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/cc280449.aspx) |
-| Database backups | [Exposed for users](https://msdn.microsoft.com/zh-cn/library/ms187048.aspx) | [Built-in](/documentation/articles/sql-database-automated-backups/) |
+| Database backups | [Exposed for users](https://msdn.microsoft.com/zh-cn/library/ms187048.aspx) | [Built-in](./sql-database-automated-backups.md) |
 | Database mail | [Supported](https://msdn.microsoft.com/zh-cn/library/ms189635.aspx) | Not supported |
 | Database mirroring | [Supported](https://msdn.microsoft.com/zh-cn/library/ms189852.aspx) | Not supported |
 | Database configuration options | [Supported](https://msdn.microsoft.com/zh-cn/library/mt629158.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/mt629158.aspx) |
@@ -82,12 +82,12 @@ The following tables list the major features of Azure SQL Database and SQL Serve
 | DML statements | [Supported](https://msdn.microsoft.com/zh-cn/library/ff848766.aspx) | [Most](https://msdn.microsoft.com/zh-cn/library/ff848766.aspx) |
 | DML triggers | [Supported](https://msdn.microsoft.com/zh-cn/library/ms178110.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/ms178110.aspx) |
 | DMVs | [All](https://msdn.microsoft.com/zh-cn/library/ms188754.aspx) | [Some](https://msdn.microsoft.com/zh-cn/library/ms188754.aspx) |
-| elastic pools | Not supported | [Supported](/documentation/articles/sql-database-elastic-pool/) |
+| elastic pools | Not supported | [Supported](./sql-database-elastic-pool.md) |
 | Elastic jobs | Not supported - see [SQL Server Agent](https://msdn.microsoft.com/zh-cn/library/ms189237.aspx) | Not Supported | 
-| Elastic queries | Not supported - see [Cross-database queries](https://msdn.microsoft.com/zh-cn/library/dn584627.aspx) | [Supported](/documentation/articles/sql-database-elastic-query-overview/) |
-| Event notifications | [Supported](https://msdn.microsoft.com/zh-cn/library/ms186376.aspx) | [Supported](/documentation/articles/sql-database-insights-alerts-portal/) |
+| Elastic queries | Not supported - see [Cross-database queries](https://msdn.microsoft.com/zh-cn/library/dn584627.aspx) | [Supported](./sql-database-elastic-query-overview.md) |
+| Event notifications | [Supported](https://msdn.microsoft.com/zh-cn/library/ms186376.aspx) | [Supported](./sql-database-insights-alerts-portal.md) |
 | Expressions | [Supported](https://msdn.microsoft.com/zh-cn/library/ms190286.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/ms190286.aspx) |
-| Extended events | [Supported](https://msdn.microsoft.com/zh-cn/library/bb630282.aspx) | [Some](/documentation/articles/sql-database-xevent-db-diff-from-svr/) |
+| Extended events | [Supported](https://msdn.microsoft.com/zh-cn/library/bb630282.aspx) | [Some](./sql-database-xevent-db-diff-from-svr.md) |
 | Extended stored procedures | [Supported](https://msdn.microsoft.com/zh-cn/library/ms164627.aspx) | Not supported |
 | File groups | [Supported](https://msdn.microsoft.com/zh-cn/library/ms189563.aspx#Anchor_2) | [Primary only](https://msdn.microsoft.com/zh-cn/library/ms189563.aspx#Anchor_2) |
 | Filestream | [Supported](https://msdn.microsoft.com/zh-cn/library/gg471497.aspx) | Not supported |
@@ -95,22 +95,22 @@ The following tables list the major features of Azure SQL Database and SQL Serve
 | Functions | [Supported](https://msdn.microsoft.com/zh-cn/library/ms174318.aspx) | [Most](https://msdn.microsoft.com/zh-cn/library/ms174318.aspx) |
 | In-memory optimization | [Supported](https://msdn.microsoft.com/zh-cn/library/dn133186.aspx) | [Premium edition only](https://msdn.microsoft.com/zh-cn/library/dn133186.aspx) |
 | Jobs | [SQL Server Agent](https://msdn.microsoft.com/zh-cn/library/ms189237.aspx) | Not Supported |
-| JSON data support | [Supported](https://msdn.microsoft.com/zh-cn/library/dn921897.aspx) | [Supported](/documentation/articles/sql-database-json-features/) |
+| JSON data support | [Supported](https://msdn.microsoft.com/zh-cn/library/dn921897.aspx) | [Supported](./sql-database-json-features.md) |
 | Language elements | [Supported](https://msdn.microsoft.com/zh-cn/library/ff848807.aspx) | [Most](https://msdn.microsoft.com/zh-cn/library/ff848807.aspx) |  
-| Linked servers | [Supported](https://msdn.microsoft.com/zh-cn/library/ms188279.aspx) | Not supported - see [Elastic query](/documentation/articles/sql-database-elastic-query-horizontal-partitioning/) |
-| Log shipping | [Supported](https://msdn.microsoft.com/zh-cn/library/ms187103.aspx) | Not supported - see [Active Geo-Replication](/documentation/articles/sql-database-geo-replication-overview/) |
+| Linked servers | [Supported](https://msdn.microsoft.com/zh-cn/library/ms188279.aspx) | Not supported - see [Elastic query](./sql-database-elastic-query-horizontal-partitioning.md) |
+| Log shipping | [Supported](https://msdn.microsoft.com/zh-cn/library/ms187103.aspx) | Not supported - see [Active Geo-Replication](./sql-database-geo-replication-overview.md) |
 | Management commands | [Supported](https://msdn.microsoft.com/zh-cn/library/ms190286.aspx)| [Not supported](https://msdn.microsoft.com/zh-cn/library/ms190286.aspx) |
 | Master Data Services (MDS) | [Supported](https://msdn.microsoft.com/zh-cn/library/ff487003.aspx) | Not supported |
 | Minimal logging in bulk import | [Supported](https://msdn.microsoft.com/zh-cn/library/ms190422.aspx) | Not supported |
 | Modifying system data | [Supported](https://msdn.microsoft.com/zh-cn/library/ms178028.aspx) | Not supported |
 | Online index operations | [Supported](https://msdn.microsoft.com/zh-cn/library/ms177442.aspx) | [Transaction size limited by service tier](https://msdn.microsoft.com/zh-cn/library/ms177442.aspx) |
 | Operators | [Supported](https://msdn.microsoft.com/zh-cn/library/ms174986.aspx) | [Most](https://msdn.microsoft.com/zh-cn/library/ms174986.aspx) |
-| Point in time database restore | [Supported](https://msdn.microsoft.com/zh-cn/library/ms179451.aspx) | [Supported](/documentation/articles/sql-database-recovery-using-backups/#point-in-time-restore) |
+| Point in time database restore | [Supported](https://msdn.microsoft.com/zh-cn/library/ms179451.aspx) | [Supported](./sql-database-recovery-using-backups.md#point-in-time-restore) |
 | Polybase | [Supported](https://msdn.microsoft.com/zh-cn/library/mt143171.aspx) | [Not supported]
 | Policy-based management | [Supported](https://msdn.microsoft.com/zh-cn/library/bb510667.aspx) | Not supported |
 | Predicates | [Supported](https://msdn.microsoft.com/zh-cn/library/ms189523.aspx) | [Most](https://msdn.microsoft.com/zh-cn/library/ms189523.aspx)
-| Resource governor | [Supported](https://msdn.microsoft.com/zh-cn/library/bb933866.aspx) | [Built-in](/documentation/articles/sql-database-service-tiers/) |
-| Restore database from backup | [Supported](https://msdn.microsoft.com/zh-cn/library/ms187048.aspx#anchor_6) | [From built-in backups only](/documentation/articles/sql-database-recovery-using-backups/) |
+| Resource governor | [Supported](https://msdn.microsoft.com/zh-cn/library/bb933866.aspx) | [Built-in](./sql-database-service-tiers.md) |
+| Restore database from backup | [Supported](https://msdn.microsoft.com/zh-cn/library/ms187048.aspx#anchor_6) | [From built-in backups only](./sql-database-recovery-using-backups.md) |
 | Row Level Security | [Supported](https://msdn.microsoft.com/zh-cn/library/dn765131.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/dn765131.aspx) |
 | Security statements | [Supported](https://msdn.microsoft.com/zh-cn/library/ff848791.aspx) | [Some](https://msdn.microsoft.com/zh-cn/library/ff848791.aspx) |
 | Semantic search | [Supported](https://msdn.microsoft.com/zh-cn/library/gg492075.aspx) | Not supported |
@@ -124,7 +124,7 @@ The following tables list the major features of Azure SQL Database and SQL Serve
 | SQL Server Integration Services (SSIS) | [Supported](https://msdn.microsoft.com/zh-cn/library/ms141026.aspx) | Not supported - see [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Supported](https://msdn.microsoft.com/zh-cn/library/hh245198.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/hh245198.aspx) |
 | SQL Server Profiler | [Supported](https://msdn.microsoft.com/zh-cn/library/ms181091.aspx) | Not supported - see [Extended events](https://msdn.microsoft.com/zh-cn/library/ms181091.aspx) |
-| SQL Server Replication | [Supported](https://msdn.microsoft.com/zh-cn/library/ms151198.aspx) | [Transactional and snapshot replication subscriber only](/documentation/articles/sql-database-cloud-migrate/) |
+| SQL Server Replication | [Supported](https://msdn.microsoft.com/zh-cn/library/ms151198.aspx) | [Transactional and snapshot replication subscriber only](./sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services (SSRS) | [Supported](https://msdn.microsoft.com/zh-cn/library/ms159106.aspx) | Not supported |
 | Stored procedures | [Supported](https://msdn.microsoft.com/zh-cn/library/ms190782.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/ms190782.aspx) |
 | System stored functions | [Supported](https://msdn.microsoft.com/zh-cn/library/ff848780.aspx) | [Some](https://msdn.microsoft.com/zh-cn/library/ff848780.aspx) |
@@ -133,20 +133,20 @@ The following tables list the major features of Azure SQL Database and SQL Serve
 | System views | [Supported](https://msdn.microsoft.com/zh-cn/library/ms177862.aspx) | [Some](https://msdn.microsoft.com/zh-cn/library/ms177862.aspx)
 | Table Partitioning | [Supported](https://msdn.microsoft.com/zh-cn/library/ms190787.aspx) | [Primary filegroup only](https://msdn.microsoft.com/zh-cn/library/ms190787.aspx) |
 | Temporary tables | [Local and global](https://msdn.microsoft.com/zh-cn/library/ms174979.aspx#Anchor_4) | [Local only](https://msdn.microsoft.com/zh-cn/library/ms174979.aspx#Anchor_4) |
-| Temporal tables | [Supported](https://msdn.microsoft.com/zh-cn/library/dn935015.aspx) | [Supported](/documentation/articles/sql-database-temporal-tables/) |
+| Temporal tables | [Supported](https://msdn.microsoft.com/zh-cn/library/dn935015.aspx) | [Supported](./sql-database-temporal-tables.md) |
 | Transaction statements | [Supported](https://msdn.microsoft.com/zh-cn/library/ms174377.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/ms174377.aspx) |
 | Variables | [Supported](https://msdn.microsoft.com/zh-cn/library/ff848809.aspx) | | [Supported](https://msdn.microsoft.com/zh-cn/library/ff848809.aspx) | 
 | Transparent data encryption (TDE)  | [Supported](https://msdn.microsoft.com/zh-cn/library/bb934049.aspx) | [Supported](https://msdn.microsoft.com/dn948096.aspx) |
-| Windows Server Failover clustering | [Supported](https://msdn.microsoft.com/zh-cn/library/hh270278.aspx) | Not supported - See [Active Geo-Replication](/documentation/articles/sql-database-geo-replication-overview/) |
+| Windows Server Failover clustering | [Supported](https://msdn.microsoft.com/zh-cn/library/hh270278.aspx) | Not supported - See [Active Geo-Replication](./sql-database-geo-replication-overview.md) |
 | XML indexes | [Supported](http://msdn.microsoft.com/zh-cn/library/bb934097.aspx) | [Supported](http://msdn.microsoft.com/zh-cn/library/bb934097.aspx) |
 | XML statements | [Supported](https://msdn.microsoft.com/zh-cn/library/ff848798.aspx) | [Supported](https://msdn.microsoft.com/zh-cn/library/ff848798.aspx) |
 
 ## Next steps
 
-- For information about the Azure SQL Database service, see [What is SQL Database?](/documentation/articles/sql-database-technical-overview/)
-- For an overview of Azure SQL logical servers, see [SQL Database logical server overview](/documentation/articles/sql-database-server-overview/)
-- For an overview of Azure SQL databases, see [SQL Database overview](/documentation/articles/sql-database-overview/)
-- For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](/documentation/articles/sql-database-transact-sql-information/).
-- For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](/documentation/articles/sql-database-service-tiers/).
-- For an overview of security, see [Azure SQL Database Security Overview](/documentation/articles/sql-database-security-overview/).
-- For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](/documentation/articles/sql-database-libraries/).
+- For information about the Azure SQL Database service, see [What is SQL Database?](./sql-database-technical-overview.md)
+- For an overview of Azure SQL logical servers, see [SQL Database logical server overview](./sql-database-server-overview.md)
+- For an overview of Azure SQL databases, see [SQL Database overview](./sql-database-overview.md)
+- For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](./sql-database-transact-sql-information.md).
+- For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](./sql-database-service-tiers.md).
+- For an overview of security, see [Azure SQL Database Security Overview](./sql-database-security-overview.md).
+- For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](./sql-database-libraries.md).

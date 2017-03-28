@@ -1,36 +1,37 @@
-<properties
-    pageTitle="Back up Windows Server to Azure (Resource Manager) | Azure"
-    description="Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
-    services="backup"
-    documentationcenter=""
-    author="markgalioto"
-    manager="carmonm"
-    editor=""
-    keywords="backup vault; back up a Windows server; backup windows;" />
-<tags
-    ms.assetid="7f5b1943-b3c1-4ddb-8fb7-3560533c68d5"
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="2/16/2017"
-    wacn.date=""
-    ms.author="markgal;trinadhk;" />
+---
+title: Back up Windows Server to Azure (Resource Manager) | Azure
+description: Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: carmonm
+editor: ''
+keywords: backup vault; back up a Windows server; backup windows;
+
+ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 2/16/2017
+wacn.date: ''
+ms.author: markgal;trinadhk;
+---
 
 # Back up a Windows Server or client to Azure using the Resource Manager deployment model
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/backup-configure-vault/)
-- [Classic Management Portal](/documentation/articles/backup-configure-vault-classic/)
+> [!div class="op_single_selector"]
+>- [Azure portal](./backup-configure-vault.md)
+>- [Classic Management Portal](./backup-configure-vault-classic.md)
 
 This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
 
 ![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
 ## Before you start
-To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [Trial](/pricing/1rmb-trial/) in just a couple of minutes.
+To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [Trial](https://www.azure.cn/pricing/1rmb-trial/) in just a couple of minutes.
 
 ## Step 1: Create a Recovery Services vault
 A Recovery Services vault is an entity that stores all the backups and recovery points you create over time. The Recovery Services vault also contains the backup policy applied to the protected files and folders. When you create a Recovery Services vault, you should also select the appropriate storage redundancy option.
@@ -51,7 +52,7 @@ A Recovery Services vault is an entity that stores all the backups and recovery 
     ![Create Recovery Services vault step 5](./media/backup-configure-vault/rs-vault-attributes.png)
 4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
 5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](/documentation/articles/resource-group-overview/)
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent. By choosing a geographic region that's close to your location, you can reduce network latency when backing up to Azure.
 8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it should open in the portal. If you don't see your vault listed after it has been completed, click **Refresh**. When the list refreshes, click the name of the vault.
 
@@ -66,14 +67,14 @@ When you first create a Recovery Services vault you determine how storage is rep
 
     ![List of recovery services vaults](./media/backup-configure-vault/choose-storage-configuration.png)
 
-    By default, your vault has geo-redundant storage. If you are using Azure as a primary backup storage endpoint, continue using geo-redundant storage. If you are using Azure as a non-primary backup storage endpoint, then choose locally redundant storage, which will reduce the cost of storing data in Azure. Read more about [geo-redundant](/documentation/articles/storage-redundancy/#geo-redundant-storage/) and [locally redundant](/documentation/articles/storage-redundancy/#locally-redundant-storage/) storage options in this [overview](/documentation/articles/storage-redundancy/).
+    By default, your vault has geo-redundant storage. If you are using Azure as a primary backup storage endpoint, continue using geo-redundant storage. If you are using Azure as a non-primary backup storage endpoint, then choose locally redundant storage, which will reduce the cost of storing data in Azure. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [overview](../storage/storage-redundancy.md).
 
     After choosing the storage option for your vault, you are ready to associate your files and folders with the vault.
 
 Now that you've created a vault, you prepare your infrastructure to back up files and folders by downloading and installing the Azure Recovery Services agent, downloading vault credentials, and then using those credentials to register the agent with the vault.
 
 ## Step 2: Download files
-> [AZURE.NOTE]
+> [!NOTE]
 > Enabling backup through the Azure portal is coming soon. At this time, you use the Azure Recovery Services Agent on-premises to back up your files and folders.
 >
 >
@@ -111,7 +112,7 @@ Now that you've created a vault, you prepare your infrastructure to back up file
    - Provide the downloaded vault credentials
    - Save the encryption passphrase in a secure location.
 
-     > [AZURE.NOTE]
+     > [!NOTE]
      > If you lose or forget the passphrase, Microsoft cannot help recover the backup data. Please save the file in a secure location. It is required to restore a backup.
      >
      >
@@ -164,8 +165,8 @@ To complete the initial backup, you use the Azure backup agent.
 
     ![Items for Windows Server Backup](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
-   > [AZURE.NOTE]
-   > For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](/documentation/articles/backup-azure-backup-cloud-as-tape/).
+   > [!NOTE]
+   > For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](./backup-azure-backup-cloud-as-tape.md).
    >
    >
 8. On the **Select Retention Policy** page, select the **Retention Policy** for the backup copy.
@@ -173,15 +174,15 @@ To complete the initial backup, you use the Azure backup agent.
     The retention policy specifies the duration for which the backup will be stored. Rather than just specifying a “flat policy” for all backup points, you can specify different retention policies based on when the backup occurs. You can modify the daily, weekly, monthly, and yearly retention policies to meet your needs.
 9. On the Choose Initial Backup Type page, choose the initial backup type. Leave the option **Automatically over the network** selected, and then click **Next**.
 
-    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](/documentation/articles/backup-azure-backup-import-export/) for additional information.
+    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](./backup-azure-backup-import-export.md) for additional information.
 10. On the Confirmation page, review the information, and then click **Finish**.
 11. After the wizard finishes creating the backup schedule, click **Close**.
 
 ### Enable network throttling
 The backup agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other Internet traffic. Throttling applies to back up and restore activities.
 
-> [AZURE.NOTE]
-> Network throttling is not available on Windows Server 2008 R2 SP1, Windows Server 2008 SP2, or Windows 7 (with service packs). The Azure Backup network throttling feature engages Quality of Service (QoS) on the local operating system. Though Azure Backup can protect these operating systems, the version of QoS available on these platforms doesn't work with Azure Backup network throttling. Network throttling can be used on all other [supported operating systems](/documentation/articles/backup-azure-backup-faq/).
+> [!NOTE]
+> Network throttling is not available on Windows Server 2008 R2 SP1, Windows Server 2008 SP2, or Windows 7 (with service packs). The Azure Backup network throttling feature engages Quality of Service (QoS) on the local operating system. Though Azure Backup can protect these operating systems, the version of QoS available on these platforms doesn't work with Azure Backup network throttling. Network throttling can be used on all other [supported operating systems](./backup-azure-backup-faq.md).
 >
 >
 
@@ -215,5 +216,5 @@ If you have questions, or if there is any feature that you would like to see inc
 ## Next steps
 For additional information about backing up VMs or other workloads, see:
 
-- Now that you've backed up your files and folders, you can [manage your vaults and servers](/documentation/articles/backup-azure-manage-windows-server-classic/).
-- If you need to restore a backup, use this article to [restore files to a Windows machine](/documentation/articles/backup-azure-restore-windows-server/).
+- Now that you've backed up your files and folders, you can [manage your vaults and servers](./backup-azure-manage-windows-server-classic.md).
+- If you need to restore a backup, use this article to [restore files to a Windows machine](./backup-azure-restore-windows-server.md).

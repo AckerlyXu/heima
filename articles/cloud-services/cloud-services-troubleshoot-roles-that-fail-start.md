@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Troubleshoot roles that fail to start | Azure"
-   description="Here are some common reasons why a Cloud Service role may fail to start. Solutions to these problems are also provided."
-   services="cloud-services"
-   documentationCenter=""
-   authors="simonxjx"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue"/>
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="09/02/2016"
-   ms.author="v-six"
-   wacn.date="" />
+---
+title: Troubleshoot roles that fail to start | Azure
+description: Here are some common reasons why a Cloud Service role may fail to start. Solutions to these problems are also provided.
+services: cloud-services
+documentationCenter: ''
+authors: simonxjx
+manager: felixwu
+editor: ''
+tags: top-support-issue
+
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 09/02/2016
+ms.author: v-six
+wacn.date: ''
+---
 
 # Troubleshoot Cloud Service roles that fail to start
 
 Here are some common problems and solutions related to Azure Cloud Services roles that fail to start.
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Missing DLLs or dependencies
 
@@ -68,7 +69,7 @@ You can use Remote Desktop to access the role and view more complete error infor
 
 1. Ensure that Azure SDK 1.3 or later is installed.
 
-2. During the deployment of the solution by using Visual Studio, choose to “Configure Remote Desktop connections…”. For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](/documentation/articles/vs-azure-tools-remote-desktop-roles/).
+2. During the deployment of the solution by using Visual Studio, choose to “Configure Remote Desktop connections…”. For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](../vs-azure-tools-remote-desktop-roles.md).
 
 3. In the Azure classic portal, once the instance shows a status of **Ready**, click one of the role instances.
 
@@ -159,7 +160,5 @@ To address missing DLL and assembly errors, follow these steps:
 Once you have verified that all errors have been corrected, you can deploy the service without checking the **Enable IntelliTrace for .NET 4 roles** check box.
 
 ## Next steps
-
-
 
 To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

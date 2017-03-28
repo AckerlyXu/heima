@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Monitor and troubleshoot protection for virtual machines and physical servers | Azure"
-    description="Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to monitor and troubleshoot  Virtual Machine Manager or Hyper-V site protection."
-    services="site-recovery"
-    documentationcenter=""
-    author="ruturaj"
-    manager="mkjain"
-    editor="" />
-<tags
-    ms.assetid="0fc8e368-0c0e-4bb1-9d50-cffd5ad0853f"
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="01/19/2017"
-    wacn.date=""
-    ms.author="rajanaki" />
+---
+title: Monitor and troubleshoot protection for virtual machines and physical servers | Azure
+description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to monitor and troubleshoot  Virtual Machine Manager or Hyper-V site protection.
+services: site-recovery
+documentationcenter: ''
+author: ruturaj
+manager: mkjain
+editor: ''
+
+ms.assetid: 0fc8e368-0c0e-4bb1-9d50-cffd5ad0853f
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 01/19/2017
+wacn.date: ''
+ms.author: rajanaki
+---
 
 # Monitor and troubleshoot protection for virtual machines and physical servers
 This monitoring and troubleshooting guide helps you learn how to track replication health and troubleshoot techniques for Azure Site Recovery.
@@ -75,7 +76,7 @@ As shown in the previous screenshot, the virtual machine health is **Critical**.
 
 ![Errors and recommendations in the Error Details dialog box](./media/site-recovery-monitoring-and-troubleshooting/image11.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If any active operations are in progress or failed, go to the **JOBS** view as mentioned earlier to view the error for a specific job.
 > 
 > 
@@ -200,4 +201,3 @@ Following are common errors and their resolutions. Each error is documented in a
 If the **Connect** button in the portal is dimmed, and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, you need to create and assign your virtual machine a public IP address before you can use Remote Desktop/Shared Shell. You can then add a Public IP on the network interface of the virtual machine.  
 
 ![Adding a Public IP on the network interface of failed over virtual machine](./media/site-recovery-monitoring-and-troubleshooting/createpublicip.gif)
-

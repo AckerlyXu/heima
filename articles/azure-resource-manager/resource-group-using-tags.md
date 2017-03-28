@@ -1,45 +1,46 @@
-<properties
-    pageTitle="Tag Azure resources for logical organization | Azure"
-    description="Shows how to apply tags to organize Azure resources for billing and managing."
-    services="azure-resource-manager"
-    documentationcenter=""
-    author="tfitzmac"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="003a78e5-2ff8-4685-93b4-e94d6fb8ed5b"
-    ms.service="azure-resource-manager"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="AzurePortal"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/15/2017"
-    wacn.date=""
-    ms.author="tomfitz" />
+---
+title: Tag Azure resources for logical organization | Azure
+description: Shows how to apply tags to organize Azure resources for billing and managing.
+services: azure-resource-manager
+documentationcenter: ''
+author: tfitzmac
+manager: timlt
+editor: tysonn
+
+ms.assetid: 003a78e5-2ff8-4685-93b4-e94d6fb8ed5b
+ms.service: azure-resource-manager
+ms.workload: multiple
+ms.tgt_pltfrm: AzurePortal
+ms.devlang: na
+ms.topic: article
+ms.date: 02/15/2017
+wacn.date: ''
+ms.author: tomfitz
+---
 
 # Use tags to organize your Azure resources
-[AZURE.INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
+[!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the Classic Management Portal), you cannot apply a tag to that resource. To support tagging, redeploy these resources through Resource Manager. All other resources support tagging.
 > 
 > 
 
 ## Ensure tag consistency with policies
 
-Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values. For more information, see [Apply resource policies for tags](/documentation/articles/resource-manager-policy-tags/).
+Resource policies enable you to create standard rules for your organization. You can create policies that ensure resources are tagged with the appropriate values. For more information, see [Apply resource policies for tags](./resource-manager-policy-tags.md).
 
 ## Templates
 
-[AZURE.INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
+[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
 
 ## Portal
 
-[AZURE.INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
+[!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## PowerShell
 
-[AZURE.INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
+[!INCLUDE [resource-manager-tag-resources-powershell](../../includes/resource-manager-tag-resources-powershell.md)]
 
 ## Azure CLI 2.0
 
@@ -57,28 +58,38 @@ Every time you apply tags to a resource or resource group, you overwrite the exi
 
 To add tags to a resource that already has tags, first retrieve the existing tags: 
 
-    az resource show --query tags --output list -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+```azurecli
+az resource show --query tags --output list -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+```
 
 Which returns the following format:
 
-    Dept        : Finance
-    Environment : Test
+```
+Dept        : Finance
+Environment : Test
+```
 
 Reapply the existing tags to the resource, and add the new tags.
 
-    az resource tag --tags Dept=Finance Environment=Test CostCenter=IT -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+```azurecli
+az resource tag --tags Dept=Finance Environment=Test CostCenter=IT -g TagTestGroup -n storageexample --resource-type "Microsoft.Storage/storageAccounts"
+```
 
 To get resource groups with a specific tag, use `az group list`.
 
-    az group list --tag Dept=IT
+```azurecli
+az group list --tag Dept=IT
+```
 
 To get all the resources with a particular tag and value, use `az resource list`.
 
-    az resource list --tag Dept=Finance
+```azurecli
+az resource list --tag Dept=Finance
+```
 
 ## Azure CLI 1.0
 
-[AZURE.INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
+[!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
 
 ## REST API
 
@@ -95,8 +106,8 @@ When you download the usage CSV for services that support tags with billing, the
 ![See tags in billing](./media/resource-group-using-tags/billing_csv.png)
 
 ## Next Steps
-* You can apply restrictions and conventions across your subscription with customized policies. The policy you define could require that all resources have a value for a particular tag. For more information, see [Use Policy to manage resources and control access](/documentation/articles/resource-manager-policy/).
-* For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](/documentation/articles/powershell-azure-resource-manager/).
-* For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](/documentation/articles/xplat-cli-azure-resource-manager/).
-* For an introduction to using the portal, see [Using the Azure portal preview to manage your Azure resources](/documentation/articles/resource-group-portal/)  
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/documentation/articles/resource-manager-subscription-governance/).
+* You can apply restrictions and conventions across your subscription with customized policies. The policy you define could require that all resources have a value for a particular tag. For more information, see [Use Policy to manage resources and control access](./resource-manager-policy.md).
+* For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md).
+* For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
+* For an introduction to using the portal, see [Using the Azure portal preview to manage your Azure resources](./resource-group-portal.md)  
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](./resource-manager-subscription-governance.md).

@@ -1,24 +1,24 @@
-<properties
-    pageTitle="Enable offline sync for your Azure Mobile App (Xamarin iOS)"
-    description="Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin iOS application"
-    documentationCenter="xamarin"
-    authors="adrianhall"
-    manager="dwrede"
-    editor=""
-    services="app-service\mobile"/>
+---
+title: Enable offline sync for your Azure Mobile App (Xamarin iOS)
+description: Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin iOS application
+documentationCenter: xamarin
+authors: adrianhall
+manager: dwrede
+editor: ''
+services: app-service\mobile
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-xamarin-ios"
-    ms.devlang="dotnet"
-    ms.topic="article"
-	ms.date="10/01/2016"
-    ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-xamarin-ios
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: adrianha
+---
 
 # Enable offline sync for your Xamarin.iOS mobile app
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+[!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## Overview
 
@@ -28,7 +28,7 @@ database. Once the device is back online, these changes are synced with the remo
 
 In this tutorial, update the Xamarin.iOS app project from [Create a Xamarin iOS app] to support the offline features of
 Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to
-your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](/documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/).
+your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
@@ -54,9 +54,11 @@ the mobile app backend when push is next run in a connected state.
 
 1. Edit QSToDoService.cs in the shared project. Change the **applicationURL** to point to an invalid URL:
 
-         const string applicationURL = @"https://your-service.azurewebsites.fail";
+    ```
+     const string applicationURL = @"https://your-service.azurewebsites.fail";
+    ```
 
-	You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or using airplane mode.
+    You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or using airplane mode.
 
 2. Build and run the app. Notice your sync failed on refresh when the app launched.
 
@@ -105,50 +107,52 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps].
   `QSTodoListViewController.ViewDidLoad()` executes `QSTodoService.InitializeStoreAsync()`. This method creates a new local SQLite database using
   the `MobileServiceSQLiteStore` class provided by the Azure Mobile App client SDK.
 
-	The `DefineTable` method creates a table in the local store that matches the fields in the provided type, `ToDoItem` in this case. The type
+    The `DefineTable` method creates a table in the local store that matches the fields in the provided type, `ToDoItem` in this case. The type
     doesn't have to include all the columns that are in the remote database. It is possible to store just a subset of columns.
 
-		// QSTodoService.cs
+    ```
+    // QSTodoService.cs
 
-        public async Task InitializeStoreAsync()
-        {
-            var store = new MobileServiceSQLiteStore(localDbPath);
-            store.DefineTable<ToDoItem>();
+    public async Task InitializeStoreAsync()
+    {
+        var store = new MobileServiceSQLiteStore(localDbPath);
+        store.DefineTable<ToDoItem>();
 
-            // Uses the default conflict handler, which fails on conflict
-            await client.SyncContext.InitializeAsync(store);
-        }
-
+        // Uses the default conflict handler, which fails on conflict
+        await client.SyncContext.InitializeAsync(store);
+    }
+    ```
 
 * The `todoTable` member of `QSTodoService` is of the `IMobileServiceSyncTable` type instead of `IMobileServiceTable`. The IMobileServiceSyncTable
   directs all create, read, update, and delete (CRUD) table operations to the local store database.
 
-	You decide when those changes are pushed to the Azure Mobile App backend by calling `IMobileServiceSyncContext.PushAsync()`. The sync context
+    You decide when those changes are pushed to the Azure Mobile App backend by calling `IMobileServiceSyncContext.PushAsync()`. The sync context
     helps preserve table relationships by tracking and pushing changes in all tables a client app has modified when `PushAsync` is called.
 
-	The provided code calls `QSTodoService.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. The
+    The provided code calls `QSTodoService.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. The
     app syncs after every local change. If a pull is executed against a table that has pending local updates tracked by the context, that pull
     operation will automatically trigger a context push first.
 
     In the provided code, all records in the remote `TodoItem` table are queried, but it is also possible to filter records by passing a query id
     and query to `PushAsync`. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
 
-		// QSTodoService.cs
+    ```
+    // QSTodoService.cs
 
-        public async Task SyncAsync()
+    public async Task SyncAsync()
+    {
+        try
         {
-            try
-            {
-                await client.SyncContext.PushAsync();
-                await todoTable.PullAsync("allTodoItems", todoTable.CreateQuery()); // query ID is used for incremental sync
-            }
-
-            catch (MobileServiceInvalidOperationException e)
-            {
-                Console.Error.WriteLine(@"Sync Failed: {0}", e.Message);
-            }
+            await client.SyncContext.PushAsync();
+            await todoTable.PullAsync("allTodoItems", todoTable.CreateQuery()); // query ID is used for incremental sync
         }
 
+        catch (MobileServiceInvalidOperationException e)
+        {
+            Console.Error.WriteLine(@"Sync Failed: {0}", e.Message);
+        }
+    }
+    ```
 
 ## Additional Resources
 
@@ -158,7 +162,7 @@ of the feature, see [Offline Data Sync in Azure Mobile Apps].
 <!-- Images -->
 
 <!-- URLs. -->
-[Create a Xamarin iOS app]: /documentation/articles/app-service-mobile-xamarin-ios-get-started/
-[Offline Data Sync in Azure Mobile Apps]: /documentation/articles/app-service-mobile-offline-data-sync/
+[Create a Xamarin iOS app]: ./app-service-mobile-xamarin-ios-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
 [SyncContext]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
-[8]: /documentation/articles/app-service-mobile-dotnet-how-to-use-client-library/
+[8]: ./app-service-mobile-dotnet-how-to-use-client-library.md

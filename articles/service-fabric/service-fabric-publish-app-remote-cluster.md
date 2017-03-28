@@ -1,16 +1,16 @@
-<properties
-    pageTitle="Publish an app to a remote cluster with Visual Studio | Azure"
-    description="Learn how to publish an application to a remote service fabric cluster by using Visual Studio."
-    services="service-fabric"
-    documentationCenter="na"
-    authors="cawams"
-    manager="timlt"
-    editor="" />
+---
+title: Publish an app to a remote cluster with Visual Studio | Azure
+description: Learn how to publish an application to a remote service fabric cluster by using Visual Studio.
+services: service-fabric
+documentationCenter: na
+authors: cawams
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="multiple"
-    ms.date="07/29/2016"
-    wacn.date="" />
+ms.service: multiple
+ms.date: 07/29/2016
+wacn.date: ''
+---
 
 # Publish an application to a remote cluster by using Visual Studio
 
@@ -34,9 +34,10 @@ By default, your application will include two publish profiles: Local.xml and Cl
 
 ### Application parameter files
 
-A folder in the Service Fabric application project called **ApplicationParameters** contains XML files for user-specified application manifest parameter values. Application manifest files can be parameterized so that you can use different values for deployment settings. To learn more about parameterizing your application, see [Manage multiple environments in Service Fabric](/documentation/articles/service-fabric-manage-multiple-environment-app-configuration/).
+A folder in the Service Fabric application project called **ApplicationParameters** contains XML files for user-specified application manifest parameter values. Application manifest files can be parameterized so that you can use different values for deployment settings. To learn more about parameterizing your application, see [Manage multiple environments in Service Fabric](./service-fabric-manage-multiple-environment-app-configuration.md).
 
->[AZURE.NOTE] For actor services, you should build the project first before attempting to edit the file in an editor or through the publish dialog box. This is because part of the manifest files will be generated during the build.
+>[!NOTE]
+> For actor services, you should build the project first before attempting to edit the file in an editor or through the publish dialog box. This is because part of the manifest files will be generated during the build.
 
 ## To publish an application by using the Publish Service Fabric Application dialog box
 
@@ -54,23 +55,25 @@ The following steps demonstrate how to publish an application by using the **Pub
 
     ![The **Select Service Fabric Cluster** dialog box][1]
 
-    >[AZURE.NOTE] If you would like to publish to an arbitrary endpoint (such as a party cluster), see the **Publishing to an arbitrary cluster endpoint** section below.
+    >[!NOTE]
+    > If you would like to publish to an arbitrary endpoint (such as a party cluster), see the **Publishing to an arbitrary cluster endpoint** section below.
 
-    Once you choose an endpoint, Visual Studio validates the connection to the selected Service Fabric cluster. If the cluster isn't secure, Visual Studio can connect to it immediately. However, if the cluster is secure, you'll need to install a certificate on your local computer before proceeding. See [How to configure secure connections](/documentation/articles/service-fabric-visualstudio-configure-secure-connections/) for more information. When you're done, choose the **OK** button. The selected cluster appears in the **Publish Service Fabric Application** dialog box.
+    Once you choose an endpoint, Visual Studio validates the connection to the selected Service Fabric cluster. If the cluster isn't secure, Visual Studio can connect to it immediately. However, if the cluster is secure, you'll need to install a certificate on your local computer before proceeding. See [How to configure secure connections](./service-fabric-visualstudio-configure-secure-connections.md) for more information. When you're done, choose the **OK** button. The selected cluster appears in the **Publish Service Fabric Application** dialog box.
 
 3. In the **Application Parameter File** dropdown list box, navigate to an application parameter file. An application parameter file holds user-specified values for parameters in the application manifest file. To add or change a parameter, choose the **Edit** button. Enter or change the parameter's value in the **Parameters** grid. When you're done, choose the **Save** button.
 
     ![The **Edit Parameters** dialog box][2]
 
-4. Use the **Upgrade the Application** checkbox to specify whether this publish action is an upgrade. Upgrade publish actions differ from normal publish actions. See [Service Fabric Application Upgrade](/documentation/articles/service-fabric-application-upgrade/) for a list of differences. To configure upgrade settings, choose the **Configure Upgrade Settings** link. The upgrade parameter editor appears. See [Configure the upgrade of a Service Fabric application](/documentation/articles/service-fabric-visualstudio-configure-upgrade/) to learn more about upgrade parameters.
+4. Use the **Upgrade the Application** checkbox to specify whether this publish action is an upgrade. Upgrade publish actions differ from normal publish actions. See [Service Fabric Application Upgrade](./service-fabric-application-upgrade.md) for a list of differences. To configure upgrade settings, choose the **Configure Upgrade Settings** link. The upgrade parameter editor appears. See [Configure the upgrade of a Service Fabric application](./service-fabric-visualstudio-configure-upgrade.md) to learn more about upgrade parameters.
 
-5. Choose the **Manifest Versions…** button to view the **Edit Versions** dialog box. You need to update application and service versions for an upgrade to take place. See [Service Fabric application upgrade tutorial](/documentation/articles/service-fabric-application-upgrade-tutorial/) to learn how application and service manifest versions impact an upgrade process.
+5. Choose the **Manifest Versions…** button to view the **Edit Versions** dialog box. You need to update application and service versions for an upgrade to take place. See [Service Fabric application upgrade tutorial](./service-fabric-application-upgrade-tutorial.md) to learn how application and service manifest versions impact an upgrade process.
 
     ![The **Edit Versions** dialog box][3]
 
     If the application and service versions use semantic versioning such as 1.0.0 or numerical values in the format of 1.0.0.0, select the **Automatically update application and service versions** option. When you choose this option, the service and application version numbers are automatically updated whenever a code, config, or data package version is updated. If you prefer to edit the versions manually, clear the checkbox to disable this feature.
 
-    >[AZURE.NOTE] For all package entries to appear for an actor project, first build the project to generate the entries in the Service Manifest files.
+    >[!NOTE]
+    > For all package entries to appear for an actor project, first build the project to generate the entries in the Service Manifest files.
 
 6. When you're done specifying all of the necessary settings, choose the **Publish** button to publish your application to the selected Service Fabric cluster. The settings that you specified are applied to the publish process.
 
@@ -84,7 +87,7 @@ If you are connecting to a unsecured cluster, all that's required is the cluster
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.chinaeast.chinacloudapp.cn:19000" />
 ```
 
-  If you are connecting to a secured cluster, you will also need to provide the details of the client certificate from the local store to be used for authentication. For more details, see [Configuring secure connections to a Service Fabric cluster](/documentation/articles/service-fabric-visualstudio-configure-secure-connections/).
+  If you are connecting to a secured cluster, you will also need to provide the details of the client certificate from the local store to be used for authentication. For more details, see [Configuring secure connections to a Service Fabric cluster](./service-fabric-visualstudio-configure-secure-connections.md).
 
   Once your publish profile is set up, you can reference it in the publish dialog box as shown below.
 
@@ -94,8 +97,7 @@ If you are connecting to a unsecured cluster, all that's required is the cluster
 
 ## Next steps
 
-To learn how to automate the publishing process in a continuous integration environment, see [Set up Service Fabric continuous integration](/documentation/articles/service-fabric-set-up-continuous-integration/).
-
+To learn how to automate the publishing process in a continuous integration environment, see [Set up Service Fabric continuous integration](./service-fabric-set-up-continuous-integration.md).
 
 [0]: ./media/service-fabric-publish-app-remote-cluster/PublishDialog.png
 [1]: ./media/service-fabric-publish-app-remote-cluster/SelectCluster.png

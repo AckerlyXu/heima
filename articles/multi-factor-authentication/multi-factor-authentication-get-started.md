@@ -1,30 +1,29 @@
-<properties 
-	pageTitle="Azure Multi-Factor Authentication - Getting Started" 
-	description="Choose the multi-factor authentication secutiry solution that is right for you by asking what am i trying to secure and where are my users located.  Then choose cloud, MFA Server or AD FS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
-	editor="curtland"/>
+---
+title: Azure Multi-Factor Authentication - Getting Started
+description: Choose the multi-factor authentication secutiry solution that is right for you by asking what am i trying to secure and where are my users located.  Then choose cloud, MFA Server or AD FS.
+services: multi-factor-authentication
+documentationCenter: ''
+authors: billmath
+manager: femila
+editor: curtland
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.date="08/15/2016" 
-	wacn.date=""/>
+ms.service: multi-factor-authentication
+ms.date: 08/15/2016
+wacn.date: ''
+---
 
 #Choose the multi-factor security solution for you
 
 Because there are several flavors of Azure Multi-Factor Authentication we must determine a couple of things in order to figure out which version is the proper one to use.  Those things are:
 
--	[What am I trying to secure](#what-am-i-trying-to-secure)
--	[Where are the users located](#where-are-the-users-located)
+- [What am I trying to secure](#what-am-i-trying-to-secure)
+- [Where are the users located](#where-are-the-users-located)
 
 The following sections will provide guidance on determining each of these.
 
 ## What am I trying to secure?
 
 In order to determine the correct multi-factor authentication solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application that is in Azure?  Or is it a remote access system for example.  By determining what we are trying to secure, we will see to answer the question of where multi-factor authentication needs to be enabled.  
-
 
 What are you trying to secure| Multi-Factor Authentication in the cloud|Multi-Factor Authentication Server 
 ------------- | :-------------: | :-------------: |
@@ -34,13 +33,9 @@ IIS applications published through Azure AD App Proxy|* |* |
 IIS applications not published through Azure AD App Proxy | |* |
 Remote access such as VPN, RDG| |* |
 
-
-
 ## Where are the users located
 
 Next, depending on where our users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.
-
-
 
 User Location| Solution
 ------------- | :------------- | 
@@ -77,10 +72,5 @@ Now that we have determined whether to use cloud multi-factor authentication or 
 
 <center>
 
-
-
-
 [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </center>
-
-

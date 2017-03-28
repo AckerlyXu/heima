@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Azure Virtual Machines Security Overview | Microsoft Azure"
-   description=" Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine.  This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines. "
-   services="security"
-   documentationCenter="na"
-   authors="lingche"
-   manager="shlan"
-   editor="lingche"/>
+---
+title: Azure Virtual Machines Security Overview | Microsoft Azure
+description:  Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine.  This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines. 
+services: security
+documentationCenter: na
+authors: lingche
+manager: shlan
+editor: lingche
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/16/2016"
-   ms.author="lingche"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/16/2016
+ms.author: lingche
+---
 
 # Azure Virtual Machines security overview
 
@@ -116,7 +116,6 @@ Learn more:
 - [Azure Network Security Overview](../articles/security/security-network-overview.md)
 - [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
-
 ## Compliance
 
 Azure Virtual Machines service operated by 21Vianet is certified for ISO/IEC 20000/27001, DJCP, Trusted Cloud Service Certification, GB18030 and other key compliance programs. These certifications make it easier for your own Azure applications to meet compliance requirements and for your business to address a wide range of domestic and international regulatory requirements.
@@ -124,4 +123,3 @@ Azure Virtual Machines service operated by 21Vianet is certified for ISO/IEC 200
 Learn more:
 
 - [Trust Center: Compliance](https://www.trustcenter.cn/zh-cn/compliance/default.html)
-

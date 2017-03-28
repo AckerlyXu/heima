@@ -1,31 +1,29 @@
-<properties
-    pageTitle="Get started with Stream Analytics: Real-time fraud detection | Azure"
-    description="Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing."
-    keywords="anomaly detection, fraud detection, real time anomaly detection"
-    services="stream-analytics"
-    documentationcenter=""
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="d1ed7bd8-9296-4ff8-ade3-d2765541d377"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Get started with Stream Analytics: Real-time fraud detection | Azure
+description: Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing.
+keywords: anomaly detection, fraud detection, real time anomaly detection
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-
+ms.assetid: d1ed7bd8-9296-4ff8-ade3-d2765541d377
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Get started using Azure Stream Analytics: Real-time fraud detection
 
 Learn how to create an end-to-end solution for real-time fraud detection with Azure Stream Analytics. Bring events into an Azure event hub, write Stream Analytics queries for aggregation or alerting, and send the results to an output sink to gain insight over data with real-time processing. Real time anomaly detection for telecommunications is covered but the example technique is equally suited for other types of fraud detection such as credit card or identity theft scenarios.
 
-Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. For more information, see [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/).
-
+Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. For more information, see [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md).
 
 ## Scenario: Telecommunications and SIM fraud detection in real-time
 
@@ -42,7 +40,7 @@ In canonical Internet of Things (IoT) scenarios there is a ton of telemetry or s
 
 ## Create an Azure Event Hubs input and Consumer Group
 
-The sample application will generate events and push them to an Event Hub instance for real-time processing. Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics and you can learn more about Event Hubs in [Azure Service Bus documentation](/documentation/services/service-bus/).
+The sample application will generate events and push them to an Event Hub instance for real-time processing. Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics and you can learn more about Event Hubs in [Azure Service Bus documentation](../service-bus/index.md).
 
 To create an Event Hub:
 
@@ -74,7 +72,9 @@ We have provided a client application that will generate sample incoming call me
 
     The following example will generate 1000 events with a 20 percent probability of fraud over the course of 2 hours.
 
-        telcodatagen.exe 1000 .2 2
+    ```
+    telcodatagen.exe 1000 .2 2
+    ```
 
 You will see records being sent to your Event Hub. Some key fields that we will be using in this real-time fraud detection application are defined here:
 
@@ -86,7 +86,6 @@ You will see records being sent to your Event Hub. Some key fields that we will 
 | CallingIMSI | International Mobile Subscriber Identity (IMSI).  Unique identifier of the caller. |
 | CalledNum | Phone number of the call recipient. |
 | CalledIMSI | International Mobile Subscriber Identity (IMSI).  Unique identifier of the call recipient. |
-
 
 ## Create Stream Analytics job
 Now that we have a stream of telecommunications events, we can set up a Stream Analytics job to analyze these events in real-time.
@@ -116,23 +115,23 @@ Now that we have a stream of telecommunications events, we can set up a Stream A
 3. Select **Event Hub**, and then click the right button.
 
 4. Type or select the following values on the third page:
-   
+
     * **Input Alias**: Enter a friendly name for this job input such as *CallStream*. Note that you will be using this name in the query later.
     * **Event Hub**: If the Event Hub you created is in the same subscription as the Stream Analytics job, select the namespace that the event hub is in.
-   
+
     If your event hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter information for **Service Bus Namespace**, **Event Hub Name**, **Event Hub Policy Name**, **Event Hub Policy Key**, and **Event Hub Partition Count**.
-   
+
     * **Event Hub Name**: Select the name of the Event Hub.
     * **Event Hub Policy Name**: Select the event-hub policy created earlier in this tutorial.
     * **Event Hub Consumer Group**: Type the Consumer Group created earlier in this tutorial.
-    
+
 5. Click the right button.
 
 6. Specify the following values:
-   
+
     * **Event Serializer Format**: JSON
     * **Encoding**: UTF8
-    
+
 7. Click the check button to add this source and to verify that Stream Analytics can successfully connect to the event hub.
 
 ### Specify job query
@@ -145,7 +144,7 @@ To validate your query against actual job data, you can use the **Sample Data** 
 1. Select your Event Hub input and click **Sample Data** at the bottom of the page.
 2. In the dialog box that appears, specify a **Start Time** to start collecting data from and a **Duration** for how much additional data to consume.
 3. Click the check button to start sampling data from the input.  It can take a minute or two for the data file to be produced.  When the process is completed, click **Details** and download and save the .JSON file that is generated.
-   
+
     ![Download and save processed data in a JSON file](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
 
 #### Passthrough query
@@ -155,18 +154,19 @@ If you want to archive every event, you can use a passthrough query to read all 
 1. Click **Query** from the top of the Stream Analytics job page.
 2. Add the following to the code editor:
 
-        SELECT * FROM CallStream
+    ```
+    SELECT * FROM CallStream
+    ```
 
     > Make sure that the name of the input source matches the name of the input you specified earlier.
     > 
     > 
-    
+
 3. Click **Test** under the query editor.
 4. Supply a test file, either one that you created using the previous steps or use [telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5. Click the check button and see the results displayed below the query definition.
-   
-    ![Query definition results](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
 
+    ![Query definition results](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
 
 ### Column projection
 
@@ -174,8 +174,10 @@ We'll now pare down the returned fields to a smaller set.
 
 1. Change the query in the code editor to:
 
-        SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum
-        FROM CallStream
+    ```
+    SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum
+    FROM CallStream
+    ```
 
 2. Click **Rerun** under the query editor to see the results of the query.
 
@@ -187,9 +189,11 @@ To compare the amount that incoming calls per region we'll leverage a [TumblingW
 
 1. Change the query in the code editor to:
 
-        SELECT System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount
-        FROM CallStream TIMESTAMP BY CallRecTime
-        GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
+    ```
+    SELECT System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount
+    FROM CallStream TIMESTAMP BY CallRecTime
+    GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
+    ```
 
     This query uses the **Timestamp By** keyword to specify a timestamp field in the payload to be used in the temporal computation. If this field wasn't specified, the windowing operation would be performed using the time each event arrived at Event Hub. See ["Arrival Time Vs Application Time" in the Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx).
 
@@ -204,17 +208,19 @@ To compare the amount that incoming calls per region we'll leverage a [TumblingW
 To identify potentially fraudulent usage we'll look for calls originating from the same user but in different locations in less than 5 seconds.  We [join](https://msdn.microsoft.com/zh-cn/library/azure/dn835026.aspx) the stream of call events with itself to check for these cases.
 
 1. Change the query in the code editor to:
-   
-        SELECT System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1,
-        CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
-        FROM CallStream CS1 TIMESTAMP BY CallRecTime
-        JOIN CallStream CS2 TIMESTAMP BY CallRecTime
-        ON CS1.CallingIMSI = CS2.CallingIMSI
-        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
-        WHERE CS1.SwitchNum != CS2.SwitchNum
-	
+
+    ```
+    SELECT System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1,
+    CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
+    FROM CallStream CS1 TIMESTAMP BY CallRecTime
+    JOIN CallStream CS2 TIMESTAMP BY CallRecTime
+    ON CS1.CallingIMSI = CS2.CallingIMSI
+    AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+    WHERE CS1.SwitchNum != CS2.SwitchNum
+    ```
+
 2. Click **Rerun** under the query editor to see the results of the query.
-   
+
     ![Query results of a join](./media/stream-analytics-get-started/stream-ananlytics-query-editor-join.png)
 
 ### Create output sink
@@ -263,11 +269,10 @@ Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.c
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-
 ## Next steps
 
-* [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/)
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)

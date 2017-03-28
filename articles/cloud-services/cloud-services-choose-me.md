@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Azure compute options - Cloud Services | Azure" 
-	description="Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines" 
-	services="cloud-services"
-    documentationCenter=""
-	authors="Thraka" 
-	manager="timlt"/>
+---
+title: Azure compute options - Cloud Services | Azure
+description: Learn about Azure compute hosting options and how they work: App Service, Cloud Services, and Virtual Machines
+services: cloud-services
+documentationCenter: ''
+authors: Thraka
+manager: timlt
 
-<tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/11/2016"
-	ms.author="adegeo"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/11/2016
+ms.author: adegeo
+---
 
 # Should I choose cloud services or something else?
 
 Is Azure Cloud Services the choice for you? Azure provides different hosting models for running applications. Each one provides a different set of services, so which one you choose depends on exactly what you're trying to do.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
 <a name="tellmecs"></a>
 ## Tell me about cloud services
@@ -36,7 +36,7 @@ Any combination of these two slightly different VM hosting options are available
 
 * **Web role**  
   Runs Windows Server with your web app automatically deployed to IIS.
-  
+
 * **Worker role**  
   Runs Windows Server without IIS.
 
@@ -47,9 +47,9 @@ As the figure above suggests, all of the VMs in a single application run in the 
 Even though applications run in virtual machines, it's important to understand that Cloud Services provides PaaS, not IaaS. Here's one way to think about it: With IaaS, such as Azure Virtual Machines, you first create and configure the environment your application will run in, then deploy your application into this environment. You're responsible for managing much of this world, doing things such as deploying new patched versions of the operating system in each VM. In PaaS, by contrast, it's as if the environment already exists. All you have to do is deploy your application. Management of the platform it runs on, including deploying new versions of the operating system, is handled for you.
 
 ## Scaling and management
-With Cloud Services, you don't create virtual machines. Instead, you provide a configuration file that tells Azure how many of each you'd like, such as **three web role instances** and **two worker role instances**, and the platform creates them for you.  You still choose [what size](/documentation/articles/cloud-services-sizes-specs/) those backing VMs should be, but you don't explicitly create them yourself. If your application needs to handle a greater load, you can ask for more VMs, and Azure will create those instances. If the load decreases, you can shut those instances down and stop paying for them.
+With Cloud Services, you don't create virtual machines. Instead, you provide a configuration file that tells Azure how many of each you'd like, such as **three web role instances** and **two worker role instances**, and the platform creates them for you.  You still choose [what size](./cloud-services-sizes-specs.md) those backing VMs should be, but you don't explicitly create them yourself. If your application needs to handle a greater load, you can ask for more VMs, and Azure will create those instances. If the load decreases, you can shut those instances down and stop paying for them.
 
-A Cloud Services application is typically made available to users via a two-step process. A developer first [uploads the application](/documentation/articles/cloud-services-how-to-create-deploy/) to the platform's staging area. When the developer is ready to make the application live, they use the Azure Management Portal to request that it be put into production. This [switch between staging and production](/documentation/articles/cloud-services-nodejs-stage-application/) can be done with no downtime, which lets a running application be upgraded to a new version without disturbing its users. 
+A Cloud Services application is typically made available to users via a two-step process. A developer first [uploads the application](./cloud-services-how-to-create-deploy.md) to the platform's staging area. When the developer is ready to make the application live, they use the Azure Management Portal to request that it be put into production. This [switch between staging and production](./cloud-services-nodejs-stage-application.md) can be done with no downtime, which lets a running application be upgraded to a new version without disturbing its users. 
 
 ## Monitoring
 Cloud Services also provides monitoring. Like Azure Virtual Machines, it will detect a failed physical server and restart the VMs that were running on that server on a new machine. But Cloud Services also detects failed VMs and applications, not just hardware failures. Unlike Virtual Machines, it has an agent inside each web and worker role, and so it's able to start new VMs and application instances when failures occur.
@@ -57,7 +57,7 @@ Cloud Services also provides monitoring. Like Azure Virtual Machines, it will de
 The PaaS nature of Cloud Services has other implications, too. One of the most important is that applications built on this technology should be written to run correctly when any web or worker role instance fails. To achieve this, a Cloud Services application shouldn't maintain state in the file system of its own VMs. Unlike VMs created with Azure Virtual Machines, writes made to Cloud Services VMs aren't persistent; there's nothing like a Virtual Machines data disk. Instead, a Cloud Services application should explicitly write all state to SQL Database, blobs, tables, or some other external storage. Building applications this way makes them easier to scale and more resistant to failure, both important goals of Cloud Services.
 
 ## Next steps
-[Create a cloud service app in .NET](/documentation/articles/cloud-services-dotnet-get-started/)  
-[Create a cloud service app in Node.js](/documentation/articles/cloud-services-nodejs-develop-deploy-app/)  
-[Create a cloud service app in PHP](/documentation/articles/cloud-services-php-create-web-role/)  
-[Create a cloud service app in Python](/documentation/articles/cloud-services-python-ptvs/)
+[Create a cloud service app in .NET](./cloud-services-dotnet-get-started.md)  
+[Create a cloud service app in Node.js](./cloud-services-nodejs-develop-deploy-app.md)  
+[Create a cloud service app in PHP](../cloud-services-php-create-web-role.md)  
+[Create a cloud service app in Python](./cloud-services-python-ptvs.md)

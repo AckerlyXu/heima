@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Deploy and manage backup for Windows Server/Client using PowerShell | Azure"
-    description="Learn how to deploy and manage Azure Backup using PowerShell"
-    services="backup"
-    documentationcenter=""
-    author="saurabhsensharma"
-    manager="shivamg"
-    editor="" />
-<tags
-    ms.assetid="e7e269e2-1f11-41a9-957b-a2155de6a1e0"
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="saurse;markgal;jimpark;nkolli;trinadhk" />
+---
+title: Deploy and manage backup for Windows Server/Client using PowerShell | Azure
+description: Learn how to deploy and manage Azure Backup using PowerShell
+services: backup
+documentationcenter: ''
+author: saurabhsensharma
+manager: shivamg
+editor: ''
+
+ms.assetid: e7e269e2-1f11-41a9-957b-a2155de6a1e0
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: saurse;markgal;jimpark;nkolli;trinadhk
+---
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
->[AZURE.SELECTOR]
-[ARM](/documentation/articles/backup-client-automation/)
-[Classic](/documentation/articles/backup-client-automation-classic/)
+>[!div class="op_single_selector"]
+[ARM](./backup-client-automation.md)
+[Classic](./backup-client-automation-classic.md)
 
 This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
 
 ## Install Azure PowerShell
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 In October 2015, Azure PowerShell 1.0 was released. This release succeeded the 0.9.8 release and brought about some significant changes, especially in the naming pattern of the cmdlets. 1.0 cmdlets follow the naming pattern {verb}-AzureRm{noun}; whereas, the 0.9.8 names do not include **Rm** (for example, New-AzureRmResourceGroup instead of New-AzureResourceGroup). When using Azure PowerShell 0.9.8, you must first enable the Resource Manager mode by running the **Switch-AzureMode AzureResourceManager** command. This command is not necessary in 1.0 or later.
 
@@ -33,10 +34,10 @@ If you want to use your scripts written for the 0.9.8 environment, in the 1.0 or
 
 [Download the latest PowerShell release](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
 
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Create a backup vault
-> [AZURE.WARNING]
+> [!WARNING]
 > For customers using Azure Backup for the first time, you need to register the Azure Backup provider to be used with your subscription. This can be done by running the following command: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 > 
 > 
@@ -88,7 +89,7 @@ The available options include:
 | /pw |Proxy Password |- |
 
 ## Registering with the Azure Backup service
-Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](/documentation/articles/backup-configure-vault/) are met. You must:
+Before you can register with the Azure Backup service, you need to ensure that the [prerequisites](./backup-configure-vault.md) are met. You must:
 
 - Have a valid Azure subscription
 - Have a backup vault
@@ -116,7 +117,7 @@ Region              : China North
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
 > 
 > 
@@ -144,7 +145,7 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Keep the passphrase information safe and secure once it is set. You will not be able to restore data from Azure without this passphrase.
 > 
 > 
@@ -265,7 +266,6 @@ RetentionPolicy : Retention Days : 7
 
 State           : New
 PolicyState     : Valid
-
 
 PS C:\> Add-OBFileSpec -Policy $newpolicy -FileSpec $exclusions
 
@@ -542,7 +542,6 @@ Job completed.
 The recovery operation completed successfully.
 ```
 
-
 ## Uninstalling the Azure Backup agent
 Uninstalling the Azure Backup agent can be done by using the following command:
 
@@ -597,6 +596,5 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Next steps
 For more information about Azure Backup for Windows Server/Client see
 
-- [Introduction to Azure Backup](/documentation/articles/backup-introduction-to-azure-backup/)
-- [Back up Windows Servers](/documentation/articles/backup-configure-vault/)
-
+- [Introduction to Azure Backup](./backup-introduction-to-azure-backup.md)
+- [Back up Windows Servers](./backup-configure-vault.md)

@@ -1,17 +1,17 @@
-<properties
-	pageTitle="Azure Active Directory Device Registration overview | Azure"
-	description="is the foundation for device-based conditional access scenarios. When a device is registered, Azure Active Directory Device Registration provisions the device with an identity which is used to authenticate the device when the user signs in."
-	services="active-directory"
-	keywords="device registration, enable device registration, device registration and MDM"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
+---
+title: Azure Active Directory Device Registration overview | Azure
+description: is the foundation for device-based conditional access scenarios. When a device is registered, Azure Active Directory Device Registration provisions the device with an identity which is used to authenticate the device when the user signs in.
+services: active-directory
+keywords: device registration, enable device registration, device registration and MDM
+documentationCenter: ''
+authors: femila
+manager: stevenpo
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="03/29/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 03/29/2016
+wacn.date: ''
+---
 
 # Get started with Azure Active Directory Device Registration
 
@@ -44,14 +44,14 @@ You can view and enable/disable registered devices using the Administrator Porta
 6. Select **ALL** for **USERS MAY WORKPLACE JOIN DEVICES**.
 7. Select the maximum number of devices you want to authorize per user.
 
->[AZURE.NOTE]
+>[!NOTE]
 >Enrollment with Microsoft Intune or Mobile Device Management for Office 365 requires Workplace Join. If you have configured either of these services, ALL is selected and the NONE button is disabled.
 
 By default, two-factor authentication is not enabled for the service. However, two-factor authentication is recommended when registering a device.
 
-- Before requiring two-factor authentication for this service, you must configure a two-factor authentication provider in Azure Active Directory and configure your user accounts for Multi-Factor Authentication, see [Adding Multi-Factor Authentication to Azure Active Directory](/documentation/articles/multi-factor-authentication-get-started-cloud/)
+- Before requiring two-factor authentication for this service, you must configure a two-factor authentication provider in Azure Active Directory and configure your user accounts for Multi-Factor Authentication, see [Adding Multi-Factor Authentication to Azure Active Directory](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 
-- If you are using AD FS with Windows Server 2012 R2, you must configure a two-factor authentication module in AD FS, see [Using Multi-Factor Authentication with Active Directory Federation Services](/documentation/articles/multi-factor-authentication-get-started-server/).
+- If you are using AD FS with Windows Server 2012 R2, you must configure a two-factor authentication module in AD FS, see [Using Multi-Factor Authentication with Active Directory Federation Services](../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
 
 ## Configure Azure Active Directory Device Registration discovery
 Windows 7 and Windows 8.1 devices will discover the Device Registration service by combining the user account name with a well-known Device Registration server name.
@@ -79,7 +79,7 @@ For example, if you use two UPN suffixes at your organization named @contoso.com
 
 You can register your Windows 7 and Windows 8.1 Domain Joined devices with Azure AD Device Registration. The following topic provides more information about the prerequisites and the steps required to configure device registration on Windows 7 and Windows 8.1 devices.
 
-- [Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices](/documentation/articles/active-directory-conditional-access-automatic-device-registration/)
+- [Automatic Device Registration with Azure Active Directory for Windows Domain-Joined Devices](./active-directory-conditional-access-automatic-device-registration.md)
 - [Configure automatic device registration for Windows 7 domain joined devices](/documentation/articles/active-directory-conditional-access-automatic-device-registration-windows7/)
 - [Configure automatic device registration for Windows 8.1 domain joined devices](/documentation/articles/active-directory-conditional-access-automatic-device-registration-windows-8-1/)
 - [Automatic device registration with Azure Active Directory for Windows 10 domain-joined devices](/documentation/articles/active-directory-azureadjoin-devices-group-policy/)

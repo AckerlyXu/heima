@@ -1,32 +1,33 @@
-<properties
-    pageTitle="Access Hadoop YARN application logs on Linux-based HDInsight | Azure"
-    description="Learn how to access YARN application logs on a Linux-based HDInsight (Hadoop) cluster using both the command-line and a web browser."
-    services="hdinsight"
-    documentationcenter=""
-    tags="azure-portal"
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="3ec08d20-4f19-4a8e-ac86-639c04d2f12e"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Access Hadoop YARN application logs on Linux-based HDInsight | Azure
+description: Learn how to access YARN application logs on a Linux-based HDInsight (Hadoop) cluster using both the command-line and a web browser.
+services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Access YARN application logs on Linux-based HDInsight
 This document explains how to access the logs for YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight.
 
-> [AZURE.IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](/documentation/articles/hdinsight-component-versioning/#hdi-version-32-and-33-nearing-deprecation-date).
+> [!IMPORTANT]
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 * A Linux-based HDInsight cluster.
-* You must [create an SSH tunnel](/documentation/articles/hdinsight-linux-ambari-ssh-tunnel/) before you can access the ResourceManager Logs web UI.
+* You must [create an SSH tunnel](./hdinsight-linux-ambari-ssh-tunnel.md) before you can access the ResourceManager Logs web UI.
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 The [YARN Timeline Server](http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) provides generic information on completed applications and framework-specific application information through two different interfaces. Specifically:
@@ -49,7 +50,9 @@ Each application may consist of multiple *application attempts*. This allows an 
 
 Application logs (and the associated container logs) are critical in debugging problematic Hadoop applications. YARN provides a nice framework for collecting, aggregating, and storing application logs with the [Log Aggregation][log-aggregation] feature. The Log Aggregation feature makes accessing application logs more deterministic. It aggregates logs across all containers on a worker node and stores them as one aggregated log file per worker node. The log is stored on the default file system after an application finishes. Your application may use hundreds or thousands of containers, but logs for all containers run on a single worker node will always be aggregated to a single file. This results in one log file per worker node used by your application. Log Aggregation is enabled by default on HDInsight clusters (version 3.0 and above), and aggregated logs can be found in the default container of your cluster at the following location:
 
-    wasbs:///app-logs/<user>/logs/<applicationId>
+```
+wasbs:///app-logs/<user>/logs/<applicationId>
+```
 
 In that location, *user* is the name of the user who started the application, and *applicationId* is the unique identifier of an application as assigned by the YARN RM.
 
@@ -59,29 +62,31 @@ The aggregated logs are not directly readable, as they are written in a [TFile][
 
 To use the YARN CLI tools, you must first connect to the HDInsight cluster using SSH. Use one of the following documents for information on using SSH with HDInsight:
 
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)
-* [Use SSH with Linux-based Hadoop on HDInsight from Windows](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/)
+* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
 
 You can view these logs as plain text by running one of the following commands:
 
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
+```
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
+```
 
 You must specify the &lt;applicationId>, &lt;user-who-started-the-application>, &lt;containerId>, and &ltworker-node-address> information when running these commands.
 
 ## YARN ResourceManager UI
-The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Ambari web UI; however, you must first [create an SSH tunnel](/documentation/articles/hdinsight-linux-ambari-ssh-tunnel/) before you can access the ResourceManager UI.
+The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Ambari web UI; however, you must first [create an SSH tunnel](./hdinsight-linux-ambari-ssh-tunnel.md) before you can access the ResourceManager UI.
 
 Once you have created an SSH tunnel, use the following steps to view the YARN logs:
 
 1. In your web browser, navigate to https://CLUSTERNAME.azurehdinsight.cn. Replace CLUSTERNAME with the name of your HDInsight cluster.
 2. From the list of services on the left, select **YARN**.
-   
+
     ![Yarn service selected](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
 3. From the **Quick Links** dropdown, select one of the cluster head nodes and then select **ResourceManager Log**.
-   
+
     ![Yarn quick links](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
-   
+
     You are presented with a list of links to YARN logs.
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html

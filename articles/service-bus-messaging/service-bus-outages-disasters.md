@@ -1,20 +1,21 @@
-<properties 
-   pageTitle="Insulating Service Bus applications against outages and disasters | Azure"
-   description="Describes techniques you can use to protect applications against a potential Service Bus outage."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/02/2016"
-    ms.author="sethm"
-    wacn.date=""/>
+---
+title: Insulating Service Bus applications against outages and disasters | Azure
+description: Describes techniques you can use to protect applications against a potential Service Bus outage.
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: tysonn
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/02/2016
+ms.author: sethm
+wacn.date: ''
+---
 
 # Best practices for insulating applications against Service Bus outages and disasters
 
@@ -68,7 +69,8 @@ A client receives messages from both queues. The receiver processes the first co
 
 The [Geo-replication with Service Bus Brokered Messages][] sample demonstrates active replication of messaging entities.
 
-> [AZURE.NOTE] The active replication approach doubles the number of operations, therefore this approach can lead to higher cost.
+> [!NOTE]
+> The active replication approach doubles the number of operations, therefore this approach can lead to higher cost.
 
 ## Passive replication
 
@@ -93,12 +95,12 @@ To learn more about disaster recovery, see these articles:
 - [Azure SQL Database Business Continuity][]
 - [Azure resiliency technical guidance][]
 
-  [Service Bus Authentication]: /documentation/articles/service-bus-authentication-and-authorization/
-  [Partitioned messaging entities]: /documentation/articles/service-bus-partitioning/
-  [Asynchronous messaging patterns and high availability]: /documentation/articles/service-bus-async-messaging/#failure-of-service-bus-within-an-azure-datacenter
+  [Service Bus Authentication]: ./service-bus-authentication-and-authorization.md
+  [Partitioned messaging entities]: ./service-bus-partitioning.md
+  [Asynchronous messaging patterns and high availability]: ./service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
   [Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-  [Azure SQL Database Business Continuity]: /documentation/articles/sql-database-business-continuity/
-  [Azure resiliency technical guidance]: /documentation/articles/resiliency-technical-guidance/
+  [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
+  [Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md

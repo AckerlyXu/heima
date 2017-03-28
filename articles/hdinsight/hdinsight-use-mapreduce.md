@@ -1,26 +1,27 @@
-<properties
-    pageTitle="MapReduce with Hadoop on HDInsight | Azure"
-    description="Learn how to run MapReduce jobs on Hadoop in HDInsight clusters. You'll run a basic word count operation implemented as a Java MapReduce job."
-    services="hdinsight"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="7f321501-d62c-4ffc-b5d6-102ecba6dd76"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="01/12/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: MapReduce with Hadoop on HDInsight | Azure
+description: Learn how to run MapReduce jobs on Hadoop in HDInsight clusters. You'll run a basic word count operation implemented as a Java MapReduce job.
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: 7f321501-d62c-4ffc-b5d6-102ecba6dd76
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 01/12/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Use MapReduce in Hadoop on HDInsight
 
-[AZURE.INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
+[!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
 In this article, you will learn how to run MapReduce jobs on Hadoop in HDInsight clusters. We run a basic word count operation implemented as a Java MapReduce job.
 
@@ -49,13 +50,15 @@ Languages or frameworks that are based on Java and the Java Virtual Machine (for
 
 Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT - the mapper and reducer read data a line at a time from STDIN, and write the output to STDOUT. Each line read or emitted by the mapper and reducer must be in the format of a key/value pair, delimited by a tab charaacter:
 
-    [key]/t[value]
+```
+[key]/t[value]
+```
 
 For more information, see [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
 For examples of using Hadoop streaming with HDInsight, see the following:
 
-* [Develop Python MapReduce jobs](/documentation/articles/hdinsight-hadoop-streaming-python/)
+* [Develop Python MapReduce jobs](./hdinsight-hadoop-streaming-python.md)
 
 ## <a id="data"></a>About the sample data
 
@@ -63,93 +66,97 @@ In this example, for sample data, you will use the notebooks of Leonardo Da Vinc
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters. HDInsight can access files stored in Blob storage by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
-    wasbs:///example/data/gutenberg/davinci.txt
+```
+wasbs:///example/data/gutenberg/davinci.txt
+```
 
 Because Azure Blob storage is the default storage for HDInsight, you can also access the file by using **/example/data/gutenberg/davinci.txt**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > In the previous syntax, **wasbs:///** is used to access files that are stored in the default storage container for your HDInsight cluster. If you specified additional storage accounts when you provisioned your cluster, and you want to access files stored in these accounts, you can access the data by specifying the container name and storage account address. For example, **wasbs://mycontainer@mystorage.blob.core.chinacloudapi.cn/example/data/gutenberg/davinci.txt**.
 
 ## <a id="job"></a>About the example MapReduce
 
 The MapReduce job that is used in this example is located at **wasbs://example/jars/hadoop-mapreduce-examples.jar**, and it is provided with your HDInsight cluster. This contains a word count example that you will run against **davinci.txt**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > On HDInsight 2.1 clusters, the file location is **wasbs:///example/jars/hadoop-examples.jar**.
 
 For reference, the following is the Java code for the word count MapReduce job:
 
-    package org.apache.hadoop.examples;
+```java
+package org.apache.hadoop.examples;
 
-    import java.io.IOException;
-    import java.util.StringTokenizer;
+import java.io.IOException;
+import java.util.StringTokenizer;
 
-    import org.apache.hadoop.conf.Configuration;
-    import org.apache.hadoop.fs.Path;
-    import org.apache.hadoop.io.IntWritable;
-    import org.apache.hadoop.io.Text;
-    import org.apache.hadoop.mapreduce.Job;
-    import org.apache.hadoop.mapreduce.Mapper;
-    import org.apache.hadoop.mapreduce.Reducer;
-    import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-    import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-    import org.apache.hadoop.util.GenericOptionsParser;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.GenericOptionsParser;
 
-    public class WordCount {
+public class WordCount {
 
-        public static class TokenizerMapper
-            extends Mapper<Object, Text, Text, IntWritable>{
+    public static class TokenizerMapper
+        extends Mapper<Object, Text, Text, IntWritable>{
 
-        private final static IntWritable one = new IntWritable(1);
-        private Text word = new Text();
+    private final static IntWritable one = new IntWritable(1);
+    private Text word = new Text();
 
-        public void map(Object key, Text value, Context context
-                        ) throws IOException, InterruptedException {
-            StringTokenizer itr = new StringTokenizer(value.toString());
-            while (itr.hasMoreTokens()) {
-            word.set(itr.nextToken());
-            context.write(word, one);
-            }
-        }
-        }
-
-        public static class IntSumReducer
-            extends Reducer<Text,IntWritable,Text,IntWritable> {
-        private IntWritable result = new IntWritable();
-
-        public void reduce(Text key, Iterable<IntWritable> values,
-                            Context context
-                            ) throws IOException, InterruptedException {
-            int sum = 0;
-            for (IntWritable val : values) {
-            sum += val.get();
-            }
-            result.set(sum);
-            context.write(key, result);
-        }
-        }
-
-        public static void main(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-        if (otherArgs.length != 2) {
-            System.err.println("Usage: wordcount <in> <out>");
-            System.exit(2);
-        }
-        Job job = new Job(conf, "word count");
-        job.setJarByClass(WordCount.class);
-        job.setMapperClass(TokenizerMapper.class);
-        job.setCombinerClass(IntSumReducer.class);
-        job.setReducerClass(IntSumReducer.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
-        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
+    public void map(Object key, Text value, Context context
+                    ) throws IOException, InterruptedException {
+        StringTokenizer itr = new StringTokenizer(value.toString());
+        while (itr.hasMoreTokens()) {
+        word.set(itr.nextToken());
+        context.write(word, one);
         }
     }
+    }
 
-For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](/documentation/articles/hdinsight-develop-deploy-java-mapreduce-linux/).
+    public static class IntSumReducer
+        extends Reducer<Text,IntWritable,Text,IntWritable> {
+    private IntWritable result = new IntWritable();
+
+    public void reduce(Text key, Iterable<IntWritable> values,
+                        Context context
+                        ) throws IOException, InterruptedException {
+        int sum = 0;
+        for (IntWritable val : values) {
+        sum += val.get();
+        }
+        result.set(sum);
+        context.write(key, result);
+    }
+    }
+
+    public static void main(String[] args) throws Exception {
+    Configuration conf = new Configuration();
+    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+    if (otherArgs.length != 2) {
+        System.err.println("Usage: wordcount <in> <out>");
+        System.exit(2);
+    }
+    Job job = new Job(conf, "word count");
+    job.setJarByClass(WordCount.class);
+    job.setMapperClass(TokenizerMapper.class);
+    job.setCombinerClass(IntSumReducer.class);
+    job.setReducerClass(IntSumReducer.class);
+    job.setOutputKeyClass(Text.class);
+    job.setOutputValueClass(IntWritable.class);
+    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+    System.exit(job.waitForCompletion(true) ? 0 : 1);
+    }
+}
+```
+
+For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](./hdinsight-develop-deploy-java-mapreduce-linux.md).
 
 ## <a id="run"></a>Run the MapReduce
 
@@ -157,31 +164,31 @@ HDInsight can run HiveQL jobs by using a variety of methods. Use the following t
 
 | **Use this**... | **...to do this** | ...with this **cluster operating system** | ...from this **client operating system** |
 |:--- |:--- |:--- |:--- |
-| [SSH](/documentation/articles/hdinsight-hadoop-use-mapreduce-ssh/) |Use the Hadoop command through **SSH** |Linux |Linux, Unix, Mac OS X, or Windows |
-| [Curl](/documentation/articles/hdinsight-hadoop-use-mapreduce-curl/) |Submit the job remotely by using **REST** |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
-| [Windows PowerShell](/documentation/articles/hdinsight-hadoop-use-mapreduce-powershell/) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
-| [Remote Desktop](/documentation/articles/hdinsight-hadoop-use-mapreduce-remote-desktop/) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
+| [SSH](./hdinsight-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux |Linux, Unix, Mac OS X, or Windows |
+| [Curl](./hdinsight-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
+| [Windows PowerShell](./hdinsight-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
+| [Remote Desktop](./hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
 
-[AZURE.INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-> [AZURE.IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](/documentation/articles/hdinsight-component-versioning/#hdi-version-32-and-33-nearing-deprecation-date).
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a id="nextsteps"></a>Next steps
 
 Although MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. There are several Java-based frameworks that make it easier to define MapReduce applications, as well as technologies such as Pig and Hive, which provide an easier way to work with data in HDInsight. To learn more, see the following articles:
 
-* [Develop Java MapReduce programs for HDInsight](/documentation/articles/hdinsight-develop-deploy-java-mapreduce-linux/)
-* [Develop Python streaming MapReduce programs for HDInsight](/documentation/articles/hdinsight-hadoop-streaming-python/)
-* [Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight](/documentation/articles/hdinsight-hadoop-mapreduce-scalding/)
+* [Develop Java MapReduce programs for HDInsight](./hdinsight-develop-deploy-java-mapreduce-linux.md)
+* [Develop Python streaming MapReduce programs for HDInsight](./hdinsight-hadoop-streaming-python.md)
+* [Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight](./hdinsight-hadoop-mapreduce-scalding.md)
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
 
-[hdinsight-upload-data]: /documentation/articles/hdinsight-upload-data/
-[hdinsight-get-started]: /documentation/articles/hdinsight-hadoop-linux-tutorial-get-started/
-[hdinsight-develop-mapreduce-jobs]: /documentation/articles/hdinsight-develop-deploy-java-mapreduce-linux/
-[hdinsight-use-hive]: /documentation/articles/hdinsight-use-hive/
-[hdinsight-use-pig]: /documentation/articles/hdinsight-use-pig/
+[hdinsight-upload-data]: ./hdinsight-upload-data.md
+[hdinsight-get-started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-develop-mapreduce-jobs]: ./hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-use-hive]: ./hdinsight-use-hive.md
+[hdinsight-use-pig]: ./hdinsight-use-pig.md
 
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 

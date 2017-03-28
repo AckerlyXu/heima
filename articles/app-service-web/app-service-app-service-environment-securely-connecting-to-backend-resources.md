@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Securely Connecting to BackEnd Resources from an App Service Environment"
-    description="Learn about how to securely connect to backend resources from an App Service Environment."
-    services="app-service"
-    documentationcenter=""
-    author="stefsch"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    wacn.date=""
-    ms.author="stefsch" />
+---
+title: Securely Connecting to BackEnd Resources from an App Service Environment
+description: Learn about how to securely connect to backend resources from an App Service Environment.
+services: app-service
+documentationcenter: ''
+author: stefsch
+manager: erikre
+editor: ''
+
+ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+wacn.date: ''
+ms.author: stefsch
+---
 
 # Securely Connecting to Backend Resources from an App Service Environment
 ## Overview
@@ -31,10 +32,10 @@ For all of these scenarios, apps running on an App Service Environment will be a
 
 One caveat applies to outbound traffic from an App Service Environment to endpoints within a virtual network.  App Service Environments cannot reach endpoints of virtual machines located in the **same** subnet as the App Service Environment.  This normally should not be a problem as long as App Service Environments are deployed into a subnet reserved for exclusive use by only the App Service Environment.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Outbound Connectivity and DNS Requirements
-For an App Service Environment to function properly, it requires outbound access to various endpoints. A full list of the external endpoints used by an ASE is in the "Required Network Connectivity" section of the [Network Configuration for ExpressRoute](/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/#required-network-connectivity) article.
+For an App Service Environment to function properly, it requires outbound access to various endpoints. A full list of the external endpoints used by an ASE is in the "Required Network Connectivity" section of the [Network Configuration for ExpressRoute](./app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) article.
 
 App Service Environments require a valid DNS infrastructure configured for the virtual network.  If for any reason the DNS configuration is changed after an App Service Environment has been created, developers can force an App Service Environment to pick up the new DNS configuration.  Triggering a rolling environment reboot using the "Restart" icon located at the top of the App Service Environment management blade in the portal will cause the environment to pick up the new DNS configuration.
 
@@ -59,7 +60,9 @@ Any applications running in App Service Environment in the same virtual network 
 
 The example connection string below references the SQL Server using its private IP address.
 
-    Server=tcp:10.0.1.6;Database=MyDatabase;User ID=MyUser;Password=PasswordHere;provider=System.Data.SqlClient
+```
+Server=tcp:10.0.1.6;Database=MyDatabase;User ID=MyUser;Password=PasswordHere;provider=System.Data.SqlClient
+```
 
 Although the virtual machine has a public endpoint as well, connection attempts using the public IP address will be rejected because of the network ACL. 
 
@@ -68,7 +71,9 @@ An alternative approach for securing access is with a network security group.  N
 
 First a network security group needs to be created:
 
-    New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "China East" -Label "Example network security group for an app service environment"
+```
+New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "China East" -Label "Example network security group for an app service environment"
+```
 
 Restricting access to only VNet internal traffic is very simple with a network security group.  The default rules in a network security group only allow access from other network clients in the same virtual network.
 
@@ -76,14 +81,16 @@ As a result locking down access to SQL Server is as simple as applying a network
 
 The sample below applies a network security group to the containing subnet:
 
-    Get-AzureNetworkSecurityGroup -Name "testNSGExample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-1'
+```
+Get-AzureNetworkSecurityGroup -Name "testNSGExample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-1'
+```
 
 The end result is a set of security rules that block external access, while allowing VNet internal access:
 
 ![Default Network Security Rules][DefaultNetworkSecurityRules]
 
 ## Getting started
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](/documentation/articles/app-service-app-service-environments-readme/).
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
 To get started with App Service Environments, see [Introduction to App Service Environment][IntroToAppServiceEnvironment]
 
@@ -91,20 +98,20 @@ For details around controlling inbound traffic to your App Service Environment, 
 
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[virtualnetwork]: /documentation/articles/virtual-networks-faq/
-[ControlInboundTraffic]:  /documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[SiteToSite]: /documentation/articles/vpn-gateway-site-to-site-create/
+[virtualnetwork]: ../virtual-network/virtual-networks-faq.md
+[ControlInboundTraffic]:  ./app-service-app-service-environment-control-inbound-traffic.md
+[SiteToSite]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[NetworkAccessControlLists]: /documentation/articles/virtual-networks-acl/
-[NetworkSecurityGroups]: /documentation/articles/virtual-networks-nsg/
-[IntroToAppServiceEnvironment]:  /documentation/articles/app-service-app-service-environment-intro/
-[AzureAppService]: /documentation/articles/app-service-value-prop-what-is/ 
-[ControlInboundASE]:  /documentation/articles/app-service-app-service-environment-control-inbound-traffic/ 
+[NetworkAccessControlLists]: ../virtual-network/virtual-networks-acl.md
+[NetworkSecurityGroups]: ../virtual-network/virtual-networks-nsg.md
+[IntroToAppServiceEnvironment]:  ./app-service-app-service-environment-intro.md
+[AzureAppService]: ../app-service/app-service-value-prop-what-is.md 
+[ControlInboundASE]:  ./app-service-app-service-environment-control-inbound-traffic.md 
 
 <!-- IMAGES -->
 [SqlServerEndpoint]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/SqlServerEndpoint01.png

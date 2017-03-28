@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Microsoft Azure portal overview"
-	description="Learn how to use the Azure portal."
-	services=""
-	documentationCenter=""
-	authors="davidwrede"
-	manager="dwrede"
-	editor="jimbe"/>
+---
+title: Microsoft Azure portal overview
+description: Learn how to use the Azure portal.
+services: ''
+documentationCenter: ''
+authors: davidwrede
+manager: dwrede
+editor: jimbe
 
-<tags
-	ms.service="na"
-	ms.date="12/16/2015"
-	wacn.date=""/>
+ms.service: na
+ms.date: 12/16/2015
+wacn.date: ''
+---
 
 # Microsoft Azure portal overview
 
@@ -30,14 +30,13 @@ You will need a valid Azure subscription to go through this tutorial.  If you do
 
 Azure has a marketplace with thousands of items that you can create from one place.  Let’s say you want to create a new Windows Server 2012 VM.  The +NEW hub is your entry point into a curated set of featured categories from the marketplace.  Each category has a small set of featured items along with a link to the full marketplace that shows all categories and search. To create that new Windows Server 2012 VM, perform the following actions:  
 
-1.	Windows Server 2012 is featured, so you can select it from the Compute category.  
-2.	Fill out some basic inputs on a form.
-3.	Click ‘Create’ and your VM will begin to provision immediately.
+1. Windows Server 2012 is featured, so you can select it from the Compute category.  
+2. Fill out some basic inputs on a form.
+3. Click ‘Create’ and your VM will begin to provision immediately.
 
 The notifications hub will alert you when your resource has been created and a management blade will open (you can always browse to resources later).
 
 ![Portal Categories][PortalCategories]
-
 
 ## How to find your resources
 
@@ -47,13 +46,13 @@ You can always pin frequently accessed resources to your startboard, but you mig
 
 ## How to manage and delegate access to a resource
 
-From this blade you can connect to the virtual machine using remote desktop, monitor key performance metrics, control access to this VM using role based access (RBAC), configure the VM, and perform other important management tasks.  Delegating access based on role is critical to managing at scale.  Click [here](/documentation/articles/role-based-access-control-configure/) to learn more about it. To delegate access to a resource, perform the following actions:
+From this blade you can connect to the virtual machine using remote desktop, monitor key performance metrics, control access to this VM using role based access (RBAC), configure the VM, and perform other important management tasks.  Delegating access based on role is critical to managing at scale.  Click [here](./active-directory/role-based-access-control-configure.md) to learn more about it. To delegate access to a resource, perform the following actions:
 
-1.	Browse to your resource.
-2.	Click ‘All settings’ in the Essentials section.
-3.	Click ‘Users’ in the settings list.
-4.	Click ‘Add’ in the command bar.
-5.	Choose a user and a role.
+1. Browse to your resource.
+2. Click ‘All settings’ in the Essentials section.
+3. Click ‘Users’ in the settings list.
+4. Click ‘Add’ in the command bar.
+5. Choose a user and a role.
 
 ![Managing a Resource][ManageResource]
 
@@ -61,10 +60,10 @@ From this blade you can connect to the virtual machine using remote desktop, mon
 
 Azure preconfigures the blades for your resources, but the tiles on these blades are yours to control.  You can easily go into customize mode to add, remove, resize, or re-arrange the tiles. To customize a blade, perform the following actions:
 
-1.	Browse to your resource.
-2.	Click the ‘…’ at the top of the blade you want to customize.
-3.	Click ‘Add parts’.
-4.	Start dragging and dropping parts.  
+1. Browse to your resource.
+2. Click the ‘…’ at the top of the blade you want to customize.
+3. Click ‘Add parts’.
+4. Start dragging and dropping parts.  
 
 ![Customizing Blades][CustomizeBlades]
 

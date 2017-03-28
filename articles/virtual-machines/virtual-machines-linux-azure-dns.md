@@ -1,21 +1,22 @@
-<properties
-    pageTitle="DNS Name resolution options for Linux VMs in Azure"
-    description="Name Resolution scenarios for Linux VMs in Azure IaaS, including provided DNS services, Hybrid external DNS and Bring Your Own DNS server."
-    services="virtual-machines"
-    documentationcenter="na"
-    author="RicksterCDN"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f"
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/19/2016"
-    wacn.date=""
-    ms.author="rclaus" />
+---
+title: DNS Name resolution options for Linux VMs in Azure
+description: Name Resolution scenarios for Linux VMs in Azure IaaS, including provided DNS services, Hybrid external DNS and Bring Your Own DNS server.
+services: virtual-machines
+documentationcenter: na
+author: RicksterCDN
+manager: timlt
+editor: tysonn
+
+ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/19/2016
+wacn.date: ''
+ms.author: rclaus
+---
 
 # DNS Name Resolution Options for Linux VMs in Azure
 Azure provides DNS name resolution by default for all VMs contained within a single Virtual Network. You are able to implement your own DNS name resolution solution by configuring your own DNS services on your Azure hosted VMs. The following scenarios should help you choose which one works better for your particular situation.
@@ -79,7 +80,7 @@ There are several different DNS caching packages available, for example dnsmasq,
     * add "prepend domain-name-servers 127.0.0.1;" to "/etc/dhclient-eth0.conf"
     * restart the network service ("service network restart") to set the cache as the local DNS resolver
 
-> [AZURE.NOTE]
+> [!NOTE]
 > : The 'dnsmasq' package is only one of the many DNS caches available for Linux.  Before using it, check its suitability for your particular needs and that no other cache is installed.
 > 
 > 
@@ -93,7 +94,9 @@ DNS is primarily a UDP protocol.  As the UDP protocol doesn't guarantee message 
 
 To check the current settings on a Linux VM, 'cat /etc/resolv.conf' and look at the 'options' line, for example:
 
-    options timeout:1 attempts:5
+```
+options timeout:1 attempts:5
+```
 
 The resolv.conf file is auto-generated and should not be edited.  The specific steps for adding the 'options' line vary by distro:
 
@@ -122,12 +125,12 @@ When using Azure-provided name resolution, the Internal DNS suffix is provided t
 
 If forwarding queries to Azure doesn't suit your needs, you need to provide your own DNS solution.  Your DNS solution needs to:
 
-* Provide appropriate hostname resolution, for example via [DDNS](/documentation/articles/virtual-networks-name-resolution-ddns/).  Note, if using DDNS you may need to disable DNS record scavenging as Azure's DHCP leases are very long and scavenging may remove DNS records prematurely. 
+* Provide appropriate hostname resolution, for example via [DDNS](../virtual-network/virtual-networks-name-resolution-ddns.md).  Note, if using DDNS you may need to disable DNS record scavenging as Azure's DHCP leases are very long and scavenging may remove DNS records prematurely. 
 * Provide appropriate recursive resolution to allow resolution of external domain names.
 * Be accessible (TCP and UDP on port 53) from the clients it serves and be able to access the internet.
 * Be secured against access from the internet, to mitigate threats posed by external agents.
 
-> [AZURE.NOTE]
-> For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](/documentation/articles/virtual-networks-instance-level-public-ip/) should be assigned to each DNS server VM.  
+> [!NOTE]
+> For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) should be assigned to each DNS server VM.  
 > 
 >

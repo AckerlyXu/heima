@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Report and check health with Azure Service Fabric | Azure"
-    description="Learn how to send health reports from your service code and how to check the health of your service by using the health monitoring tools that Azure Service Fabric provides."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="toddabel"
-    manager="mfussell"
-    editor="" />
-<tags
-    ms.assetid="7c712c22-d333-44bc-b837-d0b3603d9da8"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="toddabel" />
+---
+title: Report and check health with Azure Service Fabric | Azure
+description: Learn how to send health reports from your service code and how to check the health of your service by using the health monitoring tools that Azure Service Fabric provides.
+services: service-fabric
+documentationcenter: .net
+author: toddabel
+manager: mfussell
+editor: ''
+
+ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: toddabel
+---
 
 # Report and check service health
 When your services encounter problems, your ability to respond to and fix incidents and outages depends on your ability to detect the issues quickly. If you report problems and failures to the Azure Service Fabric health manager from your service code, you can use standard health monitoring tools that Service Fabric provides to check the health status.
@@ -26,7 +27,7 @@ There are three ways that you can report health from the service:
 You can use the `Partition` and `CodePackageActivationContext` objects to report the health of elements that are part of the current context. For example, code that runs as part of a replica can report health only on that replica, the partition that it belongs to, and the application that it is a part of.
 
 - Use `FabricClient`.   
-You can use `FabricClient` to report health from the service code if the cluster is not [secure](/documentation/articles/service-fabric-cluster-security/) or if the service is running with admin privileges. This won't be true in most real-world scenarios. With `FabricClient`, you can report health on any entity that is a part of the cluster. Ideally, however, service code should only send reports that are related to its own health.
+You can use `FabricClient` to report health from the service code if the cluster is not [secure](./service-fabric-cluster-security.md) or if the service is running with admin privileges. This won't be true in most real-world scenarios. With `FabricClient`, you can report health on any entity that is a part of the cluster. Ideally, however, service code should only send reports that are related to its own health.
 - Use the REST APIs at the cluster, application, deployed application, service, service package, partition, replica or node levels. This can be used to report health from within a container.
 
 This article walks you through an example that reports health from the service code. The example also shows how the tools that Service Fabric provides can be used to check the health status. This article is intended to be a quick introduction to the health monitoring capabilities of Service Fabric. For more detailed information, you can read the series of in-depth articles about health that start with the link at the end of this article.
@@ -100,7 +101,7 @@ The Service Fabric project templates in Visual Studio contain sample code. The f
     }
     ```
 
-4. If your service is running with admin privileges or if the cluster is not [secure](/documentation/articles/service-fabric-cluster-security/), you can also use `FabricClient` to report health as shown in the following steps.  
+4. If your service is running with admin privileges or if the cluster is not [secure](./service-fabric-cluster-security.md), you can also use `FabricClient` to report health as shown in the following steps.  
 
     a. Create the `FabricClient` instance after the `var myDictionary` declaration.
 
@@ -158,6 +159,6 @@ activationContext.ReportApplicationHealth(healthInformation);
 ```
 
 ## Next steps
-* [Deep dive on Service Fabric health](/documentation/articles/service-fabric-health-introduction/)
+* [Deep dive on Service Fabric health](./service-fabric-health-introduction.md)
 * [REST API for reporting service health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
 * [REST API for reporting application health](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)

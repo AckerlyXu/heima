@@ -1,28 +1,29 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Migrate a single VM from the classic deployment model to Azure Managed Disks | Azure"
-    description="Migrate a single Azure VM from the classic deployment model to Managed Disks in the Resource Manager deployment model."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/05/2017"
-    wacn.date=""
-    ms.author="cynthn" />
+---
+title: Migrate a single VM from the classic deployment model to Azure Managed Disks | Azure
+description: Migrate a single Azure VM from the classic deployment model to Managed Disks in the Resource Manager deployment model.
+services: virtual-machines-windows
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: ''
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 02/05/2017
+wacn.date: ''
+ms.author: cynthn
+---
 
 # Migrate a single Azure VM from classic to Managed Disks 
 
-This section helps you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](/documentation/articles/storage-managed-disks-overview/) in the Resource Manager deployment model.
+This section helps you to migrate your existing Azure VMs from the classic deployment model to [Managed Disks](../storage/storage-managed-disks-overview.md) in the Resource Manager deployment model.
 
 ## Plan for the migration to Managed Disks
 
@@ -34,7 +35,7 @@ Pick a location where Azure Managed Disks are available. If you are migrating to
 
 ### VM sizes
 
-If you are migrating to Premium Managed Disks, you have to update the size of the VM to Premium Storage capable size available in the region where VM is located. Review the VM sizes that are Premium Storage capable. The Azure VM size specifications are listed in [Sizes for virtual machines](/documentation/articles/virtual-machines-windows-sizes/).
+If you are migrating to Premium Managed Disks, you have to update the size of the VM to Premium Storage capable size available in the region where VM is located. Review the VM sizes that are Premium Storage capable. The Azure VM size specifications are listed in [Sizes for virtual machines](./virtual-machines-windows-sizes.md).
 Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
 
 ### Disk sizes
@@ -87,71 +88,81 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 1.  First, set the common parameters:
 
-        $resourceGroupName = 'yourResourceGroupName'
-    
-        $location = 'your location' 
-    
-        $virtualNetworkName = 'yourExistingVirtualNetworkName'
-    
-        $virtualMachineName = 'yourVMName'
-    
-        $virtualMachineSize = 'Standard_DS3'
-    
-        $adminUserName = "youradminusername"
-    
-        $adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
-    
-        $imageName = 'yourImageName'
-    
-        $osVhdUri = 'https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd'
-    
-        $dataVhdUri = 'https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/datadisk1.vhd'
-    
-        $dataDiskName = 'dataDisk1'
+    ```powershell
+    $resourceGroupName = 'yourResourceGroupName'
+
+    $location = 'your location' 
+
+    $virtualNetworkName = 'yourExistingVirtualNetworkName'
+
+    $virtualMachineName = 'yourVMName'
+
+    $virtualMachineSize = 'Standard_DS3'
+
+    $adminUserName = "youradminusername"
+
+    $adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
+
+    $imageName = 'yourImageName'
+
+    $osVhdUri = 'https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd'
+
+    $dataVhdUri = 'https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/datadisk1.vhd'
+
+    $dataDiskName = 'dataDisk1'
+    ```
 
 2.  Create a managed OS disk using the VHD from the classic VM.
 
     Ensure that you have provided the complete URI of the OS VHD to the $osVhdUri parameter. Also, enter **-AccountType** as **PremiumLRS** or **StandardLRS** based on type of disks (Premium or Standard) you are migrating to.
 
-        $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
-        -AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
-        -ResourceGroupName $resourceGroupName
+    ```powershell
+    $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
+    -AccountType PremiumLRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
+    -ResourceGroupName $resourceGroupName
+    ```
 
 3.  Attach the OS disk to the new VM.
 
-        $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
-        $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-        -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+    ```powershell
+    $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
+    $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
+    -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
+    ```
 
 4.  Create a managed data disk from the data VHD file and add it to the new VM.
 
-        $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
-        -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import '
-        -SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
-    
-        $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName '
-        -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+    ```powershell
+    $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
+    -AccountType PremiumLRS -Location $location -CreationDataCreateOption Import '
+    -SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
+
+    $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName '
+    -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
+    ```
 
 5.  Create the new VM by setting public IP, Virtual Network and NIC.
 
-        $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') '
-        -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
-    
-        $vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
-    
-        $nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'_nic') '
-        -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id '
-        -PublicIpAddressId $publicIp.Id
-    
-        $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
-    
-        New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
+    ```powershell
+    $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') '
+    -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
 
-> [AZURE.NOTE]
+    $vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
+
+    $nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'_nic') '
+    -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id '
+    -PublicIpAddressId $publicIp.Id
+
+    $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
+
+    New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
+    ```
+
+> [!NOTE]
 >There may be additional steps necessary to support your application that is not be covered by this guide.
 >
 >
 
 ## Next steps
 
-- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](/documentation/articles/virtual-machines-windows-connect-logon/).
+- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](./virtual-machines-windows-connect-logon.md).

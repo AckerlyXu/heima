@@ -1,26 +1,27 @@
-<properties
- pageTitle="Scheduler Limits and Defaults"
- description="Scheduler Limits and Defaults"
- services="scheduler"
- documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="article"
- ms.date="08/18/2016"
- wacn.date=""
- ms.author="krisragh"/>
+---
+title: Scheduler Limits and Defaults
+description: Scheduler Limits and Defaults
+services: scheduler
+documentationCenter: .NET
+authors: krisragh
+manager: dwrede
+editor: ''
+
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/18/2016
+wacn.date: ''
+ms.author: krisragh
+---
 
 # Scheduler Limits and Defaults
 
 ## Scheduler Quotas, Limits, Defaults, and Throttles
 
-[AZURE.INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
+[!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
 ## The x-ms-request-id Header
 
@@ -30,21 +31,18 @@ If a request is consistently failing and you have verified that the request is p
 
 ## See Also
 
+ [What is Scheduler?](./scheduler-intro.md)
 
- [What is Scheduler?](/documentation/articles/scheduler-intro/)
- 
- [Azure Scheduler concepts, terminology, and entity hierarchy](/documentation/articles/scheduler-concepts-terms/)
- 
- [Get started using Scheduler in the Azure portal](/documentation/articles/scheduler-get-started-portal/)
- 
- [Plans and billing in Azure Scheduler](/documentation/articles/scheduler-plans-billing/)
- 
+ [Azure Scheduler concepts, terminology, and entity hierarchy](./scheduler-concepts-terms.md)
+
+ [Get started using Scheduler in the Azure portal](./scheduler-get-started-portal.md)
+
+ [Plans and billing in Azure Scheduler](./scheduler-plans-billing.md)
+
  [Azure Scheduler REST API Reference](https://msdn.microsoft.com/zh-cn/library/mt629143)   
- 
- [Azure Scheduler PowerShell cmdlets reference](/documentation/articles/scheduler-powershell-reference/)
 
- [Azure Scheduler High-Availability and Reliability](/documentation/articles/scheduler-high-availability-reliability/)
- 
- [Azure Scheduler Outbound Authentication](/documentation/articles/scheduler-outbound-authentication/)
+ [Azure Scheduler PowerShell cmdlets reference](./scheduler-powershell-reference.md)
 
- 
+ [Azure Scheduler High-Availability and Reliability](./scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler Outbound Authentication](./scheduler-outbound-authentication.md)

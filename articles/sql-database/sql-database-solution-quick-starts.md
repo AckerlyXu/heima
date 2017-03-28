@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Azure SQL Database Solution Quick Starts | Azure"
-    description="Learn about Azure SQL Database Solutions"
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="21399478-6296-4ad3-bde2-5e14ee49a8eb"
-    ms.service="sql-database"
-    ms.custom="overview"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="sqldb-quickstart"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: Azure SQL Database Solution Quick Starts | Azure
+description: Learn about Azure SQL Database Solutions
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: 21399478-6296-4ad3-bde2-5e14ee49a8eb
+ms.service: sql-database
+ms.custom: overview
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: sqldb-quickstart
+ms.date: 01/10/2017
+wacn.date: ''
+ms.author: carlrab
+---
 
 # Explore Azure SQL Database Solution Quick Starts
 
-This article contains an overview of the Azure SQL Database Solution Quick Starts. These Quick Starts are located in the GitHub SQL Server samples repository and demonstrate the use of SQL Database in a complete solution based on real-world scenarios. For simple step-by-step tutorials that demonstrate the use of a particular SQL Database feature, see [Explore Azure SQL Database tutorials](/documentation/articles/sql-database-explore-tutorials/).
+This article contains an overview of the Azure SQL Database Solution Quick Starts. These Quick Starts are located in the GitHub SQL Server samples repository and demonstrate the use of SQL Database in a complete solution based on real-world scenarios. For simple step-by-step tutorials that demonstrate the use of a particular SQL Database feature, see [Explore Azure SQL Database tutorials](./sql-database-explore-tutorials.md).
 
 ## Try the WingTipTickets demo and hands-on lab
 The [Azure SQL Database WingTipTickets](https://github.com/microsoft/wingtiptickets) demo and hands-on lab demonstrate an Azure SQL Database and Azure Search-based sample application that's used to sell concert tickets.
@@ -45,14 +46,14 @@ The video and sample in [Code First to a New Database](https://msdn.microsoft.co
 Code First enables you to define your model by using by C# or Visual Basic .NET classes. You can perform optional additional configuration by using attributes on your classes and properties or by using a fluent API.
 
 ## Integrate Elastic Database tools into an Entity Framework application
-The [Elastic Database client library with Entity Framework](/documentation/articles/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/) sample shows the changes that you need to make to an Entity Framework application to integrate it with [Elastic Database tools](/documentation/articles/sql-database-elastic-scale-get-started/). The focus is on composing [shard map management](/documentation/articles/sql-database-elastic-scale-shard-map-management/) and [data-dependent routing](/documentation/articles/sql-database-elastic-scale-data-dependent-routing/) with the Entity Framework Code First approach.
+The [Elastic Database client library with Entity Framework](./sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) sample shows the changes that you need to make to an Entity Framework application to integrate it with [Elastic Database tools](./sql-database-elastic-scale-get-started.md). The focus is on composing [shard map management](./sql-database-elastic-scale-shard-map-management.md) and [data-dependent routing](./sql-database-elastic-scale-data-dependent-routing.md) with the Entity Framework Code First approach.
 
 The [Code First to a new database sample for EF](http://msdn.microsoft.com/zh-cn/data/jj193542.aspx) serves as our running example throughout this sample. The sample code that accompanies this document is part of the Elastic Database tools set of samples in the Visual Studio code samples.
 
 ## Integrate Elastic Database tools with row-level security
-[Multitenant applications with Elastic Database tools and row-level security](/documentation/articles/sql-database-elastic-tools-multi-tenant-row-level-security/) shows the changes that you need to make to an Entity Framework application to integrate [Elastic Database tools](/documentation/articles/sql-database-elastic-scale-get-started/) with [row-level security](https://msdn.microsoft.com/zh-cn/library/dn765131). This sample illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multitenant shards.
+[Multitenant applications with Elastic Database tools and row-level security](./sql-database-elastic-tools-multi-tenant-row-level-security.md) shows the changes that you need to make to an Entity Framework application to integrate [Elastic Database tools](./sql-database-elastic-scale-get-started.md) with [row-level security](https://msdn.microsoft.com/zh-cn/library/dn765131). This sample illustrates how to use these technologies together to build an application with a highly scalable data tier that supports multitenant shards.
 
-You do this by using ADO.NET SqlClient or Entity Framework. This sample extends the [Elastic Database client library with Entity Framework](/documentation/articles/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/) by adding support for multitenant shard databases.
+You do this by using ADO.NET SqlClient or Entity Framework. This sample extends the [Elastic Database client library with Entity Framework](./sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) by adding support for multitenant shard databases.
 It builds a simple console application for creating blogs and posts, with four tenants and two multitenant shard databases.
 
 ## Create online surveys with the Tailspin Surveys application
@@ -63,4 +64,4 @@ This [Contoso Clinic Demo application](https://github.com/Microsoft/azure-sql-se
 
 ## Next steps
 
-[Explore Azure SQL Database Tutorials](/documentation/articles/sql-database-explore-tutorials/)
+[Explore Azure SQL Database Tutorials](./sql-database-explore-tutorials.md)

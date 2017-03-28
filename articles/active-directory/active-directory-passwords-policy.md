@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Password policies and restrictions in Azure Active Directory | Azure"
-    description="Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration"
-    services="active-directory"
-    documentationcenter=""
-    author="curtand"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="e7cae5cf-e0ee-467b-9a90-db6fdf56cd52"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/22/2017"
-    wacn.date=""
-    ms.author="curtand" />
+---
+title: Password policies and restrictions in Azure Active Directory | Azure
+description: Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
+
+ms.assetid: e7cae5cf-e0ee-467b-9a90-db6fdf56cd52
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/22/2017
+wacn.date: ''
+ms.author: curtand
+---
 
 # Password policies and restrictions in Azure Active Directory
 This article describes the password policies and complexity    requirements associated with user accounts stored in your Azure AD directory.
 
-> [AZURE.IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
+> [!IMPORTANT]
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -50,13 +51,13 @@ The following table describes the available password policy settings that can be
 | Account Lockout |After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
 
 ## Next steps
-- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
-- [Manage your passwords from anywhere](/documentation/articles/active-directory-passwords/)
-- [How Password Management works](/documentation/articles/active-directory-passwords-how-it-works/)
-- [Getting started with Password Mangement](/documentation/articles/active-directory-passwords-getting-started/)
-- [Customize Password Management](/documentation/articles/active-directory-passwords-customize/)
-- [Password Management Best Practices](/documentation/articles/active-directory-passwords-best-practices/)
-- [How to get Operational Insights with Password Management Reports](/documentation/articles/active-directory-passwords-get-insights/)
-- [Password Management FAQ](/documentation/articles/active-directory-passwords-faq/)
-- [Troubleshoot Password Management](/documentation/articles/active-directory-passwords-troubleshoot/)
-- [Learn More](/documentation/articles/active-directory-passwords-learn-more/)
+- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+- [Manage your passwords from anywhere](./active-directory-passwords.md)
+- [How Password Management works](./active-directory-passwords-how-it-works.md)
+- [Getting started with Password Mangement](./active-directory-passwords-getting-started.md)
+- [Customize Password Management](./active-directory-passwords-customize.md)
+- [Password Management Best Practices](./active-directory-passwords-best-practices.md)
+- [How to get Operational Insights with Password Management Reports](./active-directory-passwords-get-insights.md)
+- [Password Management FAQ](./active-directory-passwords-faq.md)
+- [Troubleshoot Password Management](./active-directory-passwords-troubleshoot.md)
+- [Learn More](./active-directory-passwords-learn-more.md)

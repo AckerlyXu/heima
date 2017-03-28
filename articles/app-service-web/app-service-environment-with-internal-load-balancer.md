@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Creating and using an Internal Load Balancer with an App Service Environment | Azure"
-    description="Creating and using an ASE with an ILB"
-    services="app-service"
-    documentationcenter=""
-    author="ccompy"
-    manager="stefsch"
-    editor="" />
-<tags
-    ms.assetid="ad9a1e00-d5e5-413e-be47-e21e5b285dbf"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/17/2016"
-    wacn.date=""
-    ms.author="ccompy" />
+---
+title: Creating and using an Internal Load Balancer with an App Service Environment | Azure
+description: Creating and using an ASE with an ILB
+services: app-service
+documentationcenter: ''
+author: ccompy
+manager: stefsch
+editor: ''
+
+ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/17/2016
+wacn.date: ''
+ms.author: ccompy
+---
 
 # Using an Internal Load Balancer with an App Service Environment
 The App Service Environments(ASE) feature is a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  The ASE feature essentially deploys the Azure App Service in your Azure Virtual Network(VNet).  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.  If you don't know the benefits of operating in a VNet read the [Azure Virtual Network FAQ][virtualnetwork].  
@@ -120,21 +121,23 @@ The additional management items are certificate management and DNS management.  
 #### DNS Configuration
 When using an External VIP the DNS is managed by Azure.  Any app created in your ASE is automatically added to Azure DNS which is a public DNS.  In an ILB ASE you have to manage your own DNS.  For a given subdomain such as contoso.corp.net you need to create DNS A records that point to your ILB address for:
 
-    * 
-    *.scm 
-    ftp 
-    publish 
+```
+* 
+*.scm 
+ftp 
+publish 
+```
 
 ## Getting started
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](/documentation/articles/app-service-app-service-environments-readme/).
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
 To get started with App Service Environments, see [Introduction to App Service Environments][WhatisASE]
 
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!--Image references-->
 [1]: ./media/app-service-environment-with-internal-load-balancer/ilbase-createilbase.png
@@ -145,13 +148,13 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [6]: ./media/app-service-environment-with-internal-load-balancer/ilbase-ilbcertificate.png
 
 <!--Links-->
-[WhatisASE]: /documentation/articles/app-service-app-service-environment-intro/
-[HowtoCreateASE]: /documentation/articles/app-service-web-how-to-create-an-app-service-environment/
-[ControlInbound]: /documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[virtualnetwork]: /documentation/articles/virtual-networks-faq/
-[AppServicePricing]: /pricing/overview/app-service/
-[AzureAppService]: /documentation/articles/app-service-value-prop-what-is/
-[ASEAutoscale]: /documentation/articles/app-service-environment-auto-scale/
-[ExpressRoute]: /documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
-[vnetnsgs]: /documentation/articles/virtual-networks-nsg/
-[ASEConfig]: /documentation/articles/app-service-web-configure-an-app-service-environment/
+[WhatisASE]: ./app-service-app-service-environment-intro.md
+[HowtoCreateASE]: ./app-service-web-how-to-create-an-app-service-environment.md
+[ControlInbound]: ./app-service-app-service-environment-control-inbound-traffic.md
+[virtualnetwork]: ../virtual-network/virtual-networks-faq.md
+[AppServicePricing]: https://www.azure.cn/pricing/overview/app-service/
+[AzureAppService]: ../app-service/app-service-value-prop-what-is.md
+[ASEAutoscale]: ../app-service/app-service-environment-auto-scale.md
+[ExpressRoute]: ./app-service-app-service-environment-network-configuration-expressroute.md
+[vnetnsgs]: ../virtual-network/virtual-networks-nsg.md
+[ASEConfig]: ./app-service-web-configure-an-app-service-environment.md

@@ -1,26 +1,25 @@
-<properties 
-	pageTitle="NoSQL Python examples for DocumentDB | Azure" 
-	description="Find NoSQL Python examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases." 
-	keywords="python examples"
-	services="documentdb" 
-	authors="aliuy" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter="python"/>
+---
+title: NoSQL Python examples for DocumentDB | Azure
+description: Find NoSQL Python examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases.
+keywords: python examples
+services: documentdb
+authors: aliuy
+manager: jhubbard
+editor: monicar
+documentationCenter: python
 
-<tags 
-	ms.service="documentdb" 
-	ms.date="04/18/2016" 
-	wacn.date=""/>
-
+ms.service: documentdb
+ms.date: 04/18/2016
+wacn.date: ''
+---
 
 # DocumentDB Python examples
 
-> [AZURE.SELECTOR]
-- [.NET Examples](/documentation/articles/documentdb-dotnet-samples/)
-- [Node.js Examples](/documentation/articles/documentdb-nodejs-samples/)
-- [Python Examples](/documentation/articles/documentdb-python-samples/)
-- [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
+> [!div class="op_single_selector"]
+>- [.NET Examples](./documentdb-dotnet-samples.md)
+>- [Node.js Examples](./documentdb-nodejs-samples.md)
+>- [Python Examples](./documentdb-python-samples.md)
+>- [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 Sample solutions that perform CRUD operations and other common operations on Azure DocumentDB resources are included in the [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub repository. This article provides:
 
@@ -30,11 +29,12 @@ Sample solutions that perform CRUD operations and other common operations on Azu
 **Prerequisites**
 
 1. You need an Azure account to use these Python examples:
-    - You can [open an Azure account for free](/pricing/1rmb-trial-full/?form-type=identityauth): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
+    - You can [open an Azure account for free](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
    - You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
-2. You also need the [Python SDK](/documentation/articles/documentdb-sdk-python/). 
+2. You also need the [Python SDK](./documentdb-sdk-python.md). 
 
-    > [AZURE.NOTE] Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issue multiple calls to [document_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Each time this is done your subscription will be billed for 1 hour of usage per the performance tier of the collection being created. 
+    > [!NOTE]
+    > Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issue multiple calls to [document_client.CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Each time this is done your subscription will be billed for 1 hour of usage per the performance tier of the collection being created. 
 
 ## Database examples
 

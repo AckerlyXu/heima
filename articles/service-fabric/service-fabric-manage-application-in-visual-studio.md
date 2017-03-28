@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Manage your applications in Visual Studio | Azure"
-    description="Use Visual Studio to create, develop, package, deploy, and debug your Service Fabric applications and services."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="seanmck"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="c317cb7e-7eae-466e-ba41-6aa2518be5cf"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="seanmck;mikhegn" />
+---
+title: Manage your applications in Visual Studio | Azure
+description: Use Visual Studio to create, develop, package, deploy, and debug your Service Fabric applications and services.
+services: service-fabric
+documentationcenter: .net
+author: seanmck
+manager: timlt
+editor: ''
+
+ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: seanmck;mikhegn
+---
 
 # Use Visual Studio to simplify writing and managing your Service Fabric applications
 
-You can manage your Azure Service Fabric applications and services through Visual Studio. Once you've [set up your development environment](/documentation/articles/service-fabric-get-started/), you can use Visual Studio to create Service Fabric applications, add services, or package, register, and deploy applications in your local development cluster.
+You can manage your Azure Service Fabric applications and services through Visual Studio. Once you've [set up your development environment](./service-fabric-get-started.md), you can use Visual Studio to create Service Fabric applications, add services, or package, register, and deploy applications in your local development cluster.
 
 ## Deploy your Service Fabric application
 
@@ -31,7 +32,7 @@ By default, deploying an application combines the following steps into one simpl
 4. Removing any running application instances
 5. Creating a new application instance
 
-In Visual Studio, pressing **F5** will also deploy your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. For more information, see [Publish an application to a remote cluster by using Visual Studio](/documentation/articles/service-fabric-publish-app-remote-cluster/).
+In Visual Studio, pressing **F5** will also deploy your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. For more information, see [Publish an application to a remote cluster by using Visual Studio](./service-fabric-publish-app-remote-cluster.md).
 
 ### Application Debug Mode
 
@@ -52,11 +53,12 @@ These are the **Application Debug Mode** options available.
 
 3. **Remove Application** causes the application to be removed when the debug session ends.
 
-For **Auto Upgrade** data is preserved by applying the application upgrade capabilities of Service Fabric, but it is tuned to optimize for performance rather than safety. For more information about upgrading applications and how you might perform an upgrade in a real environment, see [Service Fabric application upgrade](/documentation/articles/service-fabric-application-upgrade/).
+For **Auto Upgrade** data is preserved by applying the application upgrade capabilities of Service Fabric, but it is tuned to optimize for performance rather than safety. For more information about upgrading applications and how you might perform an upgrade in a real environment, see [Service Fabric application upgrade](./service-fabric-application-upgrade.md).
 
 ![Example of new application version with date appended][preservedata]
 
->[AZURE.NOTE] This property doesn't exist prior to version 1.1 of the Service Fabric Tools for Visual Studio. Prior to 1.1, please use the **Preserve Data On Start** property to achieve the same behavior. The "Keep Application" option was introduced in version 1.2 of the Service Fabric Tools for Visual Studio.
+>[!NOTE]
+> This property doesn't exist prior to version 1.1 of the Service Fabric Tools for Visual Studio. Prior to 1.1, please use the **Preserve Data On Start** property to achieve the same behavior. The "Keep Application" option was introduced in version 1.2 of the Service Fabric Tools for Visual Studio.
 
 ## Add a service to your Service Fabric application
 
@@ -64,7 +66,7 @@ You can add new services to your application to extend its functionality.  To en
 
 ![Add a new fabric service to your application][newservice]
 
-Select a Service Fabric project type to add to your application, and specify a name for the service.  See [choosing a framework for your service](/documentation/articles/service-fabric-choose-framework/) to help you decide which service type to use.
+Select a Service Fabric project type to add to your application, and specify a name for the service.  See [choosing a framework for your service](./service-fabric-choose-framework.md) to help you decide which service type to use.
 
 ![Select a Fabric Service project type to add to your application][addserviceproject]
 
@@ -82,17 +84,17 @@ You can perform basic cluster management operations from within Visual Studio us
 
 ![Remove an application](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
 
->[AZURE.TIP] For richer cluster management functionality, see [Visualizing your cluster with Service Fabric Explorer](/documentation/articles/service-fabric-visualizing-your-cluster/).
-
+>[!TIP]
+> For richer cluster management functionality, see [Visualizing your cluster with Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Service Fabric application model](/documentation/articles/service-fabric-application-model/)
-- [Service Fabric application deployment](/documentation/articles/service-fabric-deploy-remove-applications/)
-- [Managing application parameters for multiple environments](/documentation/articles/service-fabric-manage-multiple-environment-app-configuration/)
-- [Debugging your Service Fabric application](/documentation/articles/service-fabric-debugging-your-application/)
-- [Visualizing your cluster by using Service Fabric Explorer](/documentation/articles/service-fabric-visualizing-your-cluster/)
+- [Service Fabric application model](./service-fabric-application-model.md)
+- [Service Fabric application deployment](./service-fabric-deploy-remove-applications.md)
+- [Managing application parameters for multiple environments](./service-fabric-manage-multiple-environment-app-configuration.md)
+- [Debugging your Service Fabric application](./service-fabric-debugging-your-application.md)
+- [Visualizing your cluster by using Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]:./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png

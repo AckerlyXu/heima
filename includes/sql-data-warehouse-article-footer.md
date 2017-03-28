@@ -11,4 +11,4 @@ Need Support? Submit a [Support Ticket]</br>
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN]: https://social.msdn.microsoft.com/Forums/azure/zh-cn/home?forum=AzureSQLDataWarehouse
 [StackOverflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Support Ticket]: /documentation/articles/sql-data-warehouse-get-started-create-support-ticket/
+[Support Ticket]: ../articles/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md

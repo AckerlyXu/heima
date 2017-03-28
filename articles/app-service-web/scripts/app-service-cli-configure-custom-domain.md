@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Map a custom domain to a web app | Azure"
-    description="Azure CLI Script Sample - Map a custom domain to a web app"
-    services="app-service\web"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="5ac4a680-cc73-4578-bcd6-8668c08802c2"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Azure CLI Script Sample - Map a custom domain to a web app | Azure
+description: Azure CLI Script Sample - Map a custom domain to a web app
+services: app-service\web
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
+ms.service: app-service-web
+ms.workload: web
+ms.devlang: na
+ms.topic: article
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Map a custom domain to a web app
 
@@ -23,40 +24,41 @@ This sample script creates a web app in App Service with its related resources, 
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure. Also, you need to have access to your domain registrar's DNS configuration page.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    fqdn=<Replace with www.{yourdomain}>
-    webappname=mywebapp$RANDOM
+fqdn=<Replace with www.{yourdomain}>
+webappname=mywebapp$RANDOM
 
-    # Create a resource group.
-    az group create --location chinanorth --name myResourceGroup
+# Create a resource group.
+az group create --location chinanorth --name myResourceGroup
 
-    # Create an App Service plan in SHARED tier (minimum required by custom domains).
-    az appservice plan create --name $webappname --resource-group myResourceGroup --sku SHARED
+# Create an App Service plan in SHARED tier (minimum required by custom domains).
+az appservice plan create --name $webappname --resource-group myResourceGroup --sku SHARED
 
-    # Create a web app.
-    az appservice web create --name $webappname --resource-group myResourceGroup \
-    --plan $webappname
+# Create a web app.
+az appservice web create --name $webappname --resource-group myResourceGroup \
+--plan $webappname
 
-    echo "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
-    read -p "Press [Enter] key when ready ..."
+echo "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
+read -p "Press [Enter] key when ready ..."
 
-    # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-    # instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the 
-    # hostname "www" and point it your web app's default domain name.
+# Before continuing, go to your DNS configuration UI for your custom domain and follow the 
+# instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the 
+# hostname "www" and point it your web app's default domain name.
 
-    # Map your prepared custom domain name to the web app.
-    az appservice web config hostname add --webapp $webappname --resource-group myResourceGroup \
-    --name $fqdn
+# Map your prepared custom domain name to the web app.
+az appservice web config hostname add --webapp $webappname --resource-group myResourceGroup \
+--name $fqdn
 
-    echo "You can now browse to http://$fqdn"
+echo "You can now browse to http://$fqdn"
+```
 
-
-[AZURE.INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
@@ -73,4 +75,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional App Service CLI script samples can be found in the [Azure App Service documentation](/documentation/articles/app-service-cli-samples/).
+Additional App Service CLI script samples can be found in the [Azure App Service documentation](../app-service-cli-samples.md).

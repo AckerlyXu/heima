@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Deploy the blink application to your Azure IoT Starter Kit | Azure"
-    description="Clone the sample Arduino application from GitHub, and run gulp to deploy this application to your Adafruit Feather M0 WiFi. This sample application blinks the GPIO #13 on-board LED every two seconds."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino led projects, arduino led blink, arduino led blink code, arduino blink program, arduino blink example" />
-<tags
-    ms.assetid="b0a7d076-d580-4686-9f7d-c0712750b615"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Deploy the blink application to your Azure IoT Starter Kit | Azure
+description: Clone the sample Arduino application from GitHub, and run gulp to deploy this application to your Adafruit Feather M0 WiFi. This sample application blinks the GPIO #13 on-board LED every two seconds.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino led projects, arduino led blink, arduino led blink code, arduino blink program, arduino blink example
+
+ms.assetid: b0a7d076-d580-4686-9f7d-c0712750b615
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Create and deploy the blink application
 ## What you will do
@@ -80,7 +81,7 @@ To configure the device connection, follow these steps:
    }
    ```
    ![config.json][config-json]
-   > [AZURE.NOTE]
+   > [!NOTE]
    > For the COM port, on Windows platform, it has the format of `COM1, COM2, ...`. On macOS or Ubuntu, it starts with `/dev/`.
 
 ## Deploy and run the sample application
@@ -94,7 +95,7 @@ gulp install-tools
 
 This task might take a long time to complete, depending on your network connection.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Please exit the running Arduino IDE instance when running gulp tasks: `install-tools`, `run`.
 
 ### Deploy and run the sample app
@@ -123,11 +124,11 @@ You've installed the required tools to work with your Arduino board and deployed
 
 <!-- Images and links -->
 
-[troubleshooting-page]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/
-[configure-your-device]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device/
-[get-the-tools]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32/
+[troubleshooting-page]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
+[configure-your-device]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md
+[get-the-tools]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md
 [repo-structure]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/vscode-blink-arduino-mac.png
 [device-discovery]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/device_discovery.png
 [config-json]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/vscode-config-mac.png
 [led-blinking]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/led_blinking.png
-[get-the-azure-tools]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32/
+[get-the-azure-tools]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md

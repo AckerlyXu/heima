@@ -1,29 +1,29 @@
-<properties
-	pageTitle="Add Authentication on iOS with Azure Mobile Apps"
-	description="Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD and Microsoft."
-	services="app-service\mobile"
-	documentationCenter="ios"
-	authors="yuaxu"
-	manager="yochayk"
-	editor=""/>
+---
+title: Add Authentication on iOS with Azure Mobile Apps
+description: Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD and Microsoft.
+services: app-service\mobile
+documentationCenter: ios
+authors: yuaxu
+manager: yochayk
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="01/23/2017"
-	ms.author="yuaxu"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 01/23/2017
+ms.author: yuaxu
+---
 
 # Add authentication to your iOS app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+[!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 In this tutorial, you add authentication to the [iOS quick start] project using a supported identity provider. This tutorial is based on the [iOS quick start] tutorial, which you must complete first.
 
 ##<a name="register"></a>Register your app for authentication and configure the App Service
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+[!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ## <a name="redirecturl"></a>Add your app to the Allowed External Redirect URLs
 
@@ -75,8 +75,10 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
                 self.todoService.client.currentUser = user;
                 NSLog(@"User logged in: %@", user.userId);
 
-                [self refresh];
-            }
+        ```
+            [self refresh];
+        }
+        ```
         }];
     }
     ```
@@ -243,4 +245,4 @@ to the [Apple Documentation][2]
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
 [Azure portal]: https://portal.azure.cn
-[iOS quick start]: /documentation/articles/app-service-mobile-ios-get-started/
+[iOS quick start]: ./app-service-mobile-ios-get-started.md

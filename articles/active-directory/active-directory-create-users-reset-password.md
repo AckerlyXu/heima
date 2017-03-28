@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Reset the password for a user in Azure Active Directory | Azure"
-    description="Explains how an administrator should reset a users' password in an Azure Active Directory."
-    services="active-directory"
-    documentationcenter=""
-    author="curtand"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="324a0b7a-4370-4b3d-bd25-2d5e7eafa683"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/27/2017"
-    wacn.date=""
-    ms.author="curtand" />
+---
+title: Reset the password for a user in Azure Active Directory | Azure
+description: Explains how an administrator should reset a users' password in an Azure Active Directory.
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
+
+ms.assetid: 324a0b7a-4370-4b3d-bd25-2d5e7eafa683
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/27/2017
+wacn.date: ''
+ms.author: curtand
+---
 
 # Reset a password for a user in the Azure Classic Management Portal
 
@@ -28,6 +29,6 @@ Azure Active Directory (Azure AD) simplifies the process of resetting a user's p
 5. Select the check mark to finish resetting the password.
 
 ## Next steps
-- [Add new users to Azure Active Directory](/documentation/articles/active-directory-create-users/)
-- [Administering Azure AD](/documentation/articles/active-directory-administer/)
-- [Manage passwords in Azure AD](/documentation/articles/active-directory-manage-passwords/)
+- [Add new users to Azure Active Directory](./active-directory-create-users.md)
+- [Administering Azure AD](./active-directory-administer.md)
+- [Manage passwords in Azure AD](./active-directory-manage-passwords.md)

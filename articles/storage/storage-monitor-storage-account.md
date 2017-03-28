@@ -19,15 +19,15 @@ ms.author: marsma
 ---
 # Monitor a storage account in the Azure portal
 
-[Azure Storage Analytics](/documentation/articles/storage-analytics/) provides metrics for all storage services, and logs for blobs, queues, and tables. You can use the [Azure portal preview](https://portal.azure.cn) to configure which metrics and logs are recorded for your account, and configure charts that provide visual representations of your metrics data.
+[Azure Storage Analytics](./storage-analytics.md) provides metrics for all storage services, and logs for blobs, queues, and tables. You can use the [Azure portal preview](https://portal.azure.cn) to configure which metrics and logs are recorded for your account, and configure charts that provide visual representations of your metrics data.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > <p>There are costs associated with examining monitoring data in the Azure portal preview. For more information, see [Storage Analytics and Billing](https://docs.microsoft.com/rest/api/storageservices/fileservices/Storage-Analytics-and-Billing).
 >
 > <p>Azure File storage currently supports Storage Analytics metrics, but does not yet support logging.
 >
 
-> For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Azure Storage](/documentation/articles/storage-monitoring-diagnosing-troubleshooting/).
+> For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Azure Storage](./storage-monitoring-diagnosing-troubleshooting.md).
 >
 
 ## Configure monitoring for a storage account
@@ -49,7 +49,7 @@ ms.author: marsma
    To set the data retention policy, move the **Retention (days)** slider or enter the number of days of data to retain, from 1 to 365. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
 
    > [!WARNING]
-   > You are charged when you manually delete metrics data. Stale analytics data (data older than your retention policy) is deleted by the system at no cost. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account. See [What charges do you incur when you enable storage metrics?](/documentation/articles/storage-enable-and-view-metrics/#what-charges-do-you-incur-when-you-enable-storage-metrics) for more information.
+   > You are charged when you manually delete metrics data. Stale analytics data (data older than your retention policy) is deleted by the system at no cost. We recommend setting a retention policy based on how long you want to retain storage analytics data for your account. See [What charges do you incur when you enable storage metrics?](./storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) for more information.
    >
 
 1. When you finish the monitoring configuration, select **Save**.
@@ -59,7 +59,7 @@ A default set of metrics is displayed in charts on the storage account blade, as
 You can disable metrics collection and logging by setting **Status** to **Off**.
 
 > [!NOTE]
-> Azure Storage uses [table storage](/documentation/articles/storage-introduction/#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](/documentation/articles/storage-analytics/#how-metrics-are-stored).
+> Azure Storage uses [table storage](./storage-introduction.md#table-storage) to store the metrics for your storage account, and stores the metrics in tables in your account. For more information, see. [How metrics are stored](./storage-analytics.md#how-metrics-are-stored).
 >
 
 ## Customize metrics charts
@@ -108,7 +108,7 @@ You can create alerts to notify you when thresholds have been reached for storag
 1. Select a **Resource** (blob, file, queue, table) from the drop-down, and enter a **Name** and **Description** for your new alert rule.
 1. Select the **Metric** for which you'd like to add an alert, an alert **Condition**, and a **Threshold**. The threshold unit type changes depending on the metric you've chosen. For example, "count" is the unit type for *ContainerCount*, while the unit for the *PercentNetworkError* metric is a percentage.
 1. Select the **Period**. Metrics that reach or exceed the Threshold within the period trigger an alert.
-1. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](/documentation/articles/insights-webhooks-alerts/). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal preview.
+1. (Optional) Configure **Email** and **Webhook** notifications. For more information on webhooks, see [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). If you do not configure email or webhook notifications, alerts will appear only in the Azure portal preview.
 
 !['Add an alert rule' blade in the Azure portal](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
 
@@ -140,7 +140,7 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
     ![Diagnostics menu item under MONITORING in the Azure portal.](./media/storage-monitor-storage-account/stg-enable-metrics-00.png)
-    
+
 1. Ensure **Status** is set to **On**, and select the **services** for which you'd like to enable logging.
 
     ![Configure logging in the Azure portal.](./media/storage-monitor-storage-account/stg-enable-logging-01.png)
@@ -152,5 +152,5 @@ For information about accessing the $logs container, see [Enabling Storage Loggi
 
 ## Next steps
 
-* Find more details about [metrics, logging, and billing](/documentation/articles/storage-analytics/) for Storage Analytics.
-* [Enable Azure Storage metrics and view metrics data](/documentation/articles/storage-enable-and-view-metrics/) by using PowerShell and programmatically with C#.
+* Find more details about [metrics, logging, and billing](./storage-analytics.md) for Storage Analytics.
+* [Enable Azure Storage metrics and view metrics data](./storage-enable-and-view-metrics.md) by using PowerShell and programmatically with C#.

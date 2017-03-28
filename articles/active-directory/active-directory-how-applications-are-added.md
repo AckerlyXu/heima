@@ -1,16 +1,16 @@
-<properties
-   pageTitle="How applications are added to Azure Active Directory."
-   description="This article describes how applications are added to an instance of Azure Active Directory."
-   services="active-directory"
-   documentationCenter=""
-   authors="shoatman"
-   manager="kbrint"
-   editor=""/>
+---
+title: How applications are added to Azure Active Directory.
+description: This article describes how applications are added to an instance of Azure Active Directory.
+services: active-directory
+documentationCenter: ''
+authors: shoatman
+manager: kbrint
+editor: ''
 
-   <tags
-      ms.service="active-directory"
-      ms.date="02/09/2016"
-      wacn.date="" />
+ms.service: active-directory
+ms.date: 02/09/2016
+wacn.date: ''
+---
 
 # How and why applications are added to Azure AD
 
@@ -83,7 +83,6 @@ Applications that you add yourself include:
     * [Application](https://msdn.microsoft.com/zh-cn/library/azure/dn151677.aspx)
     * [Service Principal](https://msdn.microsoft.com/zh-cn/library/azure/dn194452.aspx)
 
-
 ## How are apps added to my Azure AD instance?
 There are many ways an app can be added to Azure AD:
 
@@ -125,7 +124,6 @@ With all of that said it is possible to prevent users in your directory from add
 
 ![A screenshot of the UI for configuring integrated app settings][app_settings]
 
-
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
@@ -140,7 +138,7 @@ Learn more about how to add applications to Azure AD and how to configure servic
 
 ## See also
 
-- [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
+- [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
 
 <!--Image references-->
 [apps_service_principals_directory]: ./media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg

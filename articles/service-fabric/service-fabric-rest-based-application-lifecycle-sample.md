@@ -1,25 +1,26 @@
-<properties
-    pageTitle="REST-based application lifecycle sample | Azure"
-    description="A Microsoft Azure Service Fabric sample that shows the application lifecycle by using the Service Fabric REST interface."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="rwike77"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="0a374e53-ff23-4ee8-8cc6-259d41e118e7"
-    ms.service="service-fabric"
-    ms.devlang="rest-api"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="12/2/2016"
-    wacn.date=""
-    ms.author="ryanwi" />
+---
+title: REST-based application lifecycle sample | Azure
+description: A Microsoft Azure Service Fabric sample that shows the application lifecycle by using the Service Fabric REST interface.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
+
+ms.assetid: 0a374e53-ff23-4ee8-8cc6-259d41e118e7
+ms.service: service-fabric
+ms.devlang: rest-api
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/2/2016
+wacn.date: ''
+ms.author: ryanwi
+---
 
 # REST-based application lifecycle sample
 
-This sample demonstrates the Service Fabric application lifecycle through REST API calls. For more information on the Service Fabric application lifecycle, see [Service Fabric application lifecycle](/documentation/articles/service-fabric-application-lifecycle/).
+This sample demonstrates the Service Fabric application lifecycle through REST API calls. For more information on the Service Fabric application lifecycle, see [Service Fabric application lifecycle](./service-fabric-application-lifecycle.md).
 
 This sample performs the following:
 
@@ -104,78 +105,65 @@ namespace ServiceFabricRestCaller
             Console.WriteLine("\nPress Enter to get the list of application types: ");
             Console.ReadLine();
 
-
             Console.WriteLine("\nGet the list of application types.");
             GetListOfApplicationTypes(clusterUri);
             Console.WriteLine("\nPress Enter to create the fabric:/WordCount application: ");
             Console.ReadLine();
-
 
             Console.WriteLine("\nCreate the fabric:/WordCount application.");
             CreateApplication(clusterUri);
             Console.WriteLine("\nPress Enter to get the list of applications: ");
             Console.ReadLine();
 
-
             Console.WriteLine("\nGet the list of applications.");
             GetApplicationList(clusterUri);
             Console.WriteLine("\nPress Enter to provision the 1.1.0 upgrade to the WordCount application: ");
             Console.ReadLine();
-
 
             Console.WriteLine("\nProvision the 1.1.0 upgrade to the WordCount application.");
             ProvisionAnApplication(clusterUri, buildPathUpgrade);
             Console.WriteLine("\nPress Enter to get the list of application types: ");
             Console.ReadLine();
 
-
             Console.WriteLine("\nGet the list of application types.");
             GetListOfApplicationTypes(clusterUri);
             Console.WriteLine("\nPress Enter to upgrade the fabric:/WordCount application: ");
             Console.ReadLine();
-
 
             Console.WriteLine("\nUpgrade the fabric:/WordCount application.");
             UpgradeApplicationByApplicationType(clusterUri);
             Console.WriteLine("\nPress Enter to get the list of applications: ");
             Console.ReadLine();
 
-
             Console.WriteLine("\nGet the list of applications.");
             GetApplicationList(clusterUri);
             Console.WriteLine("\nPress Enter to delete the fabric:/WordCount application: ");
             Console.ReadLine();
-
 
             Console.WriteLine("\nDelete the fabric:/WordCount application.");
             DeleteApplication(clusterUri);
             Console.WriteLine("\nPress Enter to get the list of applications: ");
             Console.ReadLine();
 
-
             Console.WriteLine("\nGet the list of applications.");
             GetApplicationList(clusterUri);
             Console.WriteLine("\nPress Enter to unprovision the WordCount 1.1.0 application: ");
             Console.ReadLine();
-
 
             Console.WriteLine("\nUnprovision the WordCount 1.1.0 application.");
             UnprovisionAnApplication(clusterUri, updateVersionNumber);
             Console.WriteLine("\nPress Enter to get the list of application types: ");
             Console.ReadLine();
 
-
             Console.WriteLine("\nGet the list of application types.");
             GetListOfApplicationTypes(clusterUri);
             Console.WriteLine("\nPress Enter to unprovision the WordCount 1.0.0 application: ");
             Console.ReadLine();
 
-
             Console.WriteLine("\nUnprovision the WordCount 1.0.0 application.");
             UnprovisionAnApplication(clusterUri, applicationVersionNumber);
             Console.WriteLine("\nPress Enter to get the final list of application types: ");
             Console.ReadLine();
-
 
             Console.WriteLine("\nGet the final list of application types.");
             GetListOfApplicationTypes(clusterUri);
@@ -219,7 +207,6 @@ namespace ServiceFabricRestCaller
         }
 
         #endregion
-
 
         #region Get List of Application Types (REST API)
 
@@ -291,7 +278,6 @@ namespace ServiceFabricRestCaller
         }
 
         #endregion
-
 
         #region Provision an Application (REST API)
 
@@ -463,7 +449,6 @@ namespace ServiceFabricRestCaller
                 throw (e);
             }
 
-
             // Deserialize the response string.
             JavaScriptSerializer jss = new JavaScriptSerializer();
             List<ApplicationInfo> applicationInfos = jss.Deserialize<List<ApplicationInfo>>(responseString);
@@ -563,7 +548,6 @@ namespace ServiceFabricRestCaller
 
         #endregion
 
-
         #region Delete Application (REST API)
 
         /// <summary>
@@ -640,7 +624,6 @@ namespace ServiceFabricRestCaller
             request.ContentType = "text/json";
             request.Method = "POST";
 
-
             // Create the Health Policy.
             string requestBody = "{\"Name\":\"fabric:/WordCount\"," +
                                     "\"TargetApplicationTypeVersion\":\"1.1.0\"," +
@@ -701,8 +684,7 @@ namespace ServiceFabricRestCaller
 }
 ```
 
-
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-[Service Fabric application lifecycle](/documentation/articles/service-fabric-application-lifecycle/)
+[Service Fabric application lifecycle](./service-fabric-application-lifecycle.md)

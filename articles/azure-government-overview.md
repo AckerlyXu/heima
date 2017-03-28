@@ -1,21 +1,20 @@
-<properties 
-   pageTitle="Azure Government Overview" 
-   description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " 
-   services="Azure-Government" 
-   documentationCenter="" 
-   authors="joharve2" 
-   manager="chrisnie" 
-   editor=""/>
+---
+title: Azure Government Overview
+description: This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. 
+services: Azure-Government
+documentationCenter: ''
+authors: joharve2
+manager: chrisnie
+editor: ''
 
-<tags
-   ms.service="multiple"
-   ms.date="07/22/2015"
-   wa.date=""/>
+ms.service: multiple
+ms.date: 07/22/2015
+wa.date: ''
+---
 
 #  Microsoft Azure Government Overview 
 
 <p> Microsoft Azure Government is a physically and network isolated instance of Microsoft Azure.  This overview will provide an introduction to the environment and services as well as links to additional information.
-
 
 ## <a name="Overview"></a>Overview
 
@@ -49,12 +48,6 @@ Azure Government also enables organizations to maintain their existing technolog
 
 U.S. government organizations interested in cloud services can be confident that Azure Government provides enormous scale and rigorous security practices to meet their evolving needs. 
 
-
-
-
-
-
-
 ## <a name="Features"></a> Features currently available in Microsoft Azure Government
 Azure Government currently has the following services available in both US GOV IOWA and US GOV VIRGINIA regions:
 
@@ -87,9 +80,6 @@ If you are interested in learning more and about Azure Government please leverag
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
-
-
-
 <!-- Images. -->
 
 [1]: ./media/azure-government-developer-guide/publisherguide.png
@@ -97,5 +87,5 @@ If you are interested in learning more and about Azure Government please leverag
 
 <!--Link references-->
 [Link 1 to another www.windowsazure.cn documentation topic]: /documentation/articles/virtual-machines-windows-tutorial-classic-portal/
-[Link 2 to another www.windowsazure.cn documentation topic]: /documentation/articles/web-sites-custom-domain-name/
+[Link 2 to another www.windowsazure.cn documentation topic]: ./app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another www.windowsazure.cn documentation topic]: /documentation/articles/storage-whatis-account/

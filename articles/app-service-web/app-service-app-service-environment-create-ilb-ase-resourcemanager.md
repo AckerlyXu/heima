@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="How To Create an ILB ASE Using Azure Resource Manager Templates | Azure"
-    description="Learn how to create an internal load balancer ASE using Azure Resource Manager templates."
-    services="app-service"
-    documentationcenter=""
-    author="stefsch"
-    manager="nirma"
-    editor="" />
-<tags
-    ms.assetid="091decb6-b0de-42a1-9f2f-c18d9b2e67df"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/21/2016"
-    wacn.date=""
-    ms.author="stefsch" />
+---
+title: How To Create an ILB ASE Using Azure Resource Manager Templates | Azure
+description: Learn how to create an internal load balancer ASE using Azure Resource Manager templates.
+services: app-service
+documentationcenter: ''
+author: stefsch
+manager: nirma
+editor: ''
+
+ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/21/2016
+wacn.date: ''
+ms.author: stefsch
+---
 
 # How To Create an ILB ASE Using Azure Resource Manager Templates
 ## Overview
@@ -40,10 +41,12 @@ Most of the parameters in the *azuredeploy.parameters.json* file are common to c
 
 Once the *azuredeploy.parameters.json* file has been filled in for an ILB ASE, the ILB ASE can then be created using the following Powershell code snippet.  Change the file PATHs to match where the Azure Resource Manager template files are located on your machine.  Also remember to supply your own values for the Azure Resource Manager deployment name, and resource group name.
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 After the Azure Resource Manager template is submitted it will take a few hours for the ILB ASE to be created.  Once the creation completes, the ILB ASE will show up in the portal UX in the list of App Service Environments for the subscription that triggered the deployment.
 
@@ -61,17 +64,19 @@ Then the resultant .pfx file needs to be converted into a base64 string because 
 
 The Powershell code snippet below shows an example of generating a self-signed certificate, exporting the certificate as a .pfx file, converting the .pfx file into a base64 encoded string, and then saving the base64 encoded string to a separate file.  The Powershell code for base64 encoding was adapted from the [Powershell Scripts Blog][examplebase64encoding].
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-    $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-    $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-    $fileName = "exportedcert.pfx"
-    Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-    $fileContentBytes = get-content -encoding byte $fileName
-    $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-    $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 Once the SSL certificate has been successfully generated and converted to a base64 encoded string, the example Azure Resource Manager template on GitHub for [configuring the default SSL certificate][configuringDefaultSSLCertificate] can be used.
 
@@ -86,37 +91,41 @@ The parameters in the *azuredeploy.parameters.json* file are listed below:
 
 An abbreviated example of *azuredeploy.parameters.json* is shown below:
 
-    {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "China East 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
-    }
+```
+{
+     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+          "appServiceEnvironmentName": {
+               "value": "yourASENameHere"
+          },
+          "existingAseLocation": {
+               "value": "China East 2"
+          },
+          "pfxBlobString": {
+               "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+          },
+          "password": {
+               "value": "PASSWORDGOESHERE"
+          },
+          "certificateThumbprint": {
+               "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+          },
+          "certificateName": {
+               "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
+          }
+     }
+}
+```
 
 Once the *azuredeploy.parameters.json* file has been filled in, the default SSL certificate can be configured using the following Powershell code snippet.  Change the file PATHs to match where the Azure Resource Manager template files are located on your machine.  Also remember to supply your own values for the Azure Resource Manager deployment name, and resource group name.
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 After the Azure Resource Manager template is submitted it will take roughly forty minutes minutes per ASE front-end to apply the change.  For example, with a default sized ASE using two front-ends, the template will take around one hour and twenty minutes to complete.  While the template is running the ASE will not be able to scaled.  
 
@@ -125,13 +134,13 @@ Once the template completes, apps on the ILB ASE can be accessed over HTTPS and 
 However, just like apps running on the public multi-tenant service, developers can also configure custom host names for individual apps, and then configure unique SNI SSL certificate bindings for individual apps.  
 
 ## Getting started
-To get started with App Service Environments, see [Introduction to App Service Environment](/documentation/articles/app-service-app-service-environment-intro/)
+To get started with App Service Environments, see [Introduction to App Service Environment](./app-service-app-service-environment-intro.md)
 
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](/documentation/articles/app-service-app-service-environments-readme/).
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
 [quickstartilbasecreate]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-ase-ilb-create/

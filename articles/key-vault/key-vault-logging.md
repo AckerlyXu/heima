@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Azure Key Vault Logging | Microsoft Azure"
-	description="Use this tutorial to help you get started with Azure Key Vault logging."
-	services="key-vault"
-	documentationCenter=""
-	authors="cabailey"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+---
+title: Azure Key Vault Logging | Microsoft Azure
+description: Use this tutorial to help you get started with Azure Key Vault logging.
+services: key-vault
+documentationCenter: ''
+authors: cabailey
+manager: mbaldwin
+tags: azure-resource-manager
 
-<tags
-	ms.service="key-vault"
-	ms.date="07/15/2016"
-	wacn.date=""/>
+ms.service: key-vault
+ms.date: 07/15/2016
+wacn.date: ''
+---
 
 # Azure Key Vault Logging #
-Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](/pricing/details/key-vault/).
+Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://www.azure.cn/pricing/details/key-vault/).
 
 ## Introduction  
 After you have created one or more key vaults, you will likely want to monitor how and when your key vaults are accessed, and by whom. You can do this by enabling logging for Key Vault, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account, and you can use this same storage account for collecting logs for multiple key vaults.
@@ -25,66 +25,73 @@ You can access your logging information at most, 10 minutes after the key vault 
 
 Use this tutorial to help you get started with Azure Key Vault logging, to create your storage account, enable logging, and interpret the logging information collected.  
 
-
->[AZURE.NOTE]  This tutorial does not include instructions for how to create key vaults, keys, or secrets. For this information, see [Get started with Azure Key Vault](/documentation/articles/key-vault-get-started/). Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](/documentation/articles/key-vault-manage-with-cli/).
+>[!NOTE]
+>  This tutorial does not include instructions for how to create key vaults, keys, or secrets. For this information, see [Get started with Azure Key Vault](./key-vault-get-started.md). Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](./key-vault-manage-with-cli.md).
 >
 >Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Azure PowerShell instructions.
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](/documentation/articles/key-vault-whatis/)
+For overview information about Azure Key Vault, see [What is Azure Key Vault?](./key-vault-whatis.md)
 
 ## Prerequisites
 
 To complete this tutorial, you must have the following:
 
 - An existing key vault that you have been using.  
-- Azure PowerShell, **minimum version of 1.0.1**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/documentation/articles/powershell-install-configure/). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`.  
+- Azure PowerShell, **minimum version of 1.0.1**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`.  
 - Sufficient storage on Azure for your Key Vault logs.
-
 
 ## <a id="connect"></a>Connect to your subscriptions ##
 
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+```
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+```
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell will get all the subscriptions that are associated with this account and by default, uses the first one.
 
 If you have multiple subscriptions, you might have to specify a specific one that was used to create your Azure Key Vault. Type the following to see the subscriptions for your account:
 
-    Get-AzureRmSubscription
+```
+Get-AzureRmSubscription
+```
 
 Then, to specify the subscription that's associated with your key vault you will be logging, type:
 
-    Set-AzureRmContext -SubscriptionId <subscription ID>
+```
+Set-AzureRmContext -SubscriptionId <subscription ID>
+```
 
-For more information about configuring Azure PowerShell, see  [How to install and configure Azure PowerShell](/documentation/articles/powershell-install-configure/).
-
+For more information about configuring Azure PowerShell, see  [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 ## <a id="storage"></a>Create a new storage account for your logs ##
 
 Although you can use an existing storage account for your logs, we'll create a new storage account that will be dedicated to Key Vault logs. For convenience for when we have to specify this later, we'll store the details into a variable named **sa**. 
 
-For additional ease of management, we'll also use the same resource group as the one that contains our key vault. From the [getting started tutorial](/documentation/articles/key-vault-get-started/), this resource group is named **ContosoResourceGroup** and we'll continue to use the China East location. Substitute these values for your own, as applicable:
+For additional ease of management, we'll also use the same resource group as the one that contains our key vault. From the [getting started tutorial](./key-vault-get-started.md), this resource group is named **ContosoResourceGroup** and we'll continue to use the China East location. Substitute these values for your own, as applicable:
 
-	$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'China East'
+```
+$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'China East'
+```
 
-
->[AZURE.NOTE]  If you decide to use an existing storage account, it must use the same subscription as your key vault and it must use the Resource Manager deployment model, rather than the Classic deployment model.
+>[!NOTE]
+>  If you decide to use an existing storage account, it must use the same subscription as your key vault and it must use the Resource Manager deployment model, rather than the Classic deployment model.
 
 ## <a id="identify"></a>Identify the key vault for your logs ##
 
 In our getting started tutorial, our key vault name was **ContosoKeyVault**, so we'll continue to use that name and store the details into a variable named **kv**:
 
-	$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
-
+```
+$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+```
 
 ## <a id="enable"></a>Enable logging ##
 
 To enable logging for Key Vault, we'll use the Set-AzureRmDiagnosticSetting cmdlet, together with the variables we created for our new storage account and our key vault. We'll also set the **-Enabled** flag to **$true**, and set the category to AuditEvent (the only category for Key Vault logging):
 
-   
-	Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
-
+```
+Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+```
 
 The output for this includes:
 
@@ -103,17 +110,17 @@ What's logged:
 - Operations on keys and secrets in the key vault, which includes creating, modifying, or deleting these keys or secrets; operations such as sign, verify, encrypt, decrypt, wrap and unwrap keys, get secrets, list keys and secrets and their versions.
 - Unauthenticated requests that result in a 401 response. For example, requests that do not have a bearer token, or are malformed or expired, or have an invalid token.  
 
-
 ## <a id="access"></a>Access your logs ##
 
 Key vault logs are stored in the **insights-logs-auditevent** container in the storage account you provided. To list all the blobs in this container, type:
 
-    Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+```
+Get-AzureStorageBlob -Container 'insights-logs-auditevent' -Context $sa.Context
+```
 
 The output will look something similar to this:
 
 **Container Uri: https://contosokeyvaultlogs.blob.core.chinacloudapi.cn/insights-logs-auditevent**
-
 
 **Name**
 
@@ -124,7 +131,6 @@ The output will look something similar to this:
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
- 
 
 As you can see from this output, the blobs follow a naming convention: **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json**
 
@@ -134,15 +140,21 @@ Because the same storage account can be used to collect logs for multiple resour
 
 First, create a folder to download the blobs. For example:
 
-	New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
+```
+New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
+```
 
 Then get a list of all blobs:  
 
-	$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+```
+$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+```
 
 Pipe this list through 'Get-AzureStorageBlobContent' to download the blobs into our destination folder:
 
-	$blobs | Get-AzureStorageBlobContent -Destination 'C:\Users\username\ContosoKeyVaultLogs'
+```
+$blobs | Get-AzureStorageBlobContent -Destination 'C:\Users\username\ContosoKeyVaultLogs'
+```
 
 When you run this second command, the **/** delimiter in the blob names create a full folder structure under the destination folder, and this structure will be used to download and store the blobs as files.
 
@@ -150,51 +162,56 @@ To selectively download blobs, use wildcards. For example:
 
 - If you have multiple key vaults and want to download logs for just one key vault, named CONTOSOKEYVAULT3:
 
-		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+    ```
+    Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+    ```
 
 - If you have multiple resource groups and want to download logs for just one resource group, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+    ```
+    Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+    ```
 
 - If you want to download all the logs for the month of January 2016, use `-Blob '*/year=2016/m=01/*'`:
 
-		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+    ```
+    Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+    ```
 
 You're now ready to start looking at what's in the logs. But before moving onto that, two more parameters for Get-AzureRmDiagnosticSetting that you might need to know:
 
 - To query the  status of diagnostic settings for your key vault resource: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
- 
-- To disable logging for your key vault resource: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
+- To disable logging for your key vault resource: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 ## <a id="interpret"></a>Interpret your Key Vault logs ##
 
 Individual blobs are stored as text, formatted as a JSON blob. This is an example log entry from running `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
-	{
-    	"records": 
-    	[
-        	{
-        	    "time": "2016-01-05T01:32:01.2691226Z",
-        	    "resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT",
-            	"operationName": "VaultGet",
-            	"operationVersion": "2015-06-01",
-            	"category": "AuditEvent",
-            	"resultType": "Success",
-            	"resultSignature": "OK",
-            	"resultDescription": "",
-            	"durationMs": "78",
-            	"callerIpAddress": "104.40.82.76",
-            	"correlationId": "",
-            	"identity": {"claim":{"http://schemas.microsoft.com/identity/claims/objectidentifier":"d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn":"live.com#username@outlook.com","appid":"1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},
-            	"properties": {"clientInfo":"azure-resource-manager/2.0","requestUri":"https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id":"https://contosokeyvault.vault.azure.net/","httpStatusCode":200}
-        	}
-    	]
-	}
-
+```
+{
+    "records": 
+    [
+        {
+            "time": "2016-01-05T01:32:01.2691226Z",
+            "resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT",
+            "operationName": "VaultGet",
+            "operationVersion": "2015-06-01",
+            "category": "AuditEvent",
+            "resultType": "Success",
+            "resultSignature": "OK",
+            "resultDescription": "",
+            "durationMs": "78",
+            "callerIpAddress": "104.40.82.76",
+            "correlationId": "",
+            "identity": {"claim":{"http://schemas.microsoft.com/identity/claims/objectidentifier":"d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn":"live.com#username@outlook.com","appid":"1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},
+            "properties": {"clientInfo":"azure-resource-manager/2.0","requestUri":"https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id":"https://contosokeyvault.vault.azure.net/","httpStatusCode":200}
+        }
+    ]
+}
+```
 
 The following table lists the field names and descriptions.
-
 
 | Field name        | Description |
 | ------------- |-------------|
@@ -211,9 +228,6 @@ The following table lists the field names and descriptions.
 | correlationId      | An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs.|
 | identity      | Identity from the token that was presented when making the REST API request. This is usually a "user", a "service principal" or a combination "user+appId" as in case of a request resulting from a Azure PowerShell cmdlet.|
 | properties      | This field will contain different information based on the operation (operationName). In most cases, contains client information (the useragent string passed by the client), the exact REST API request URI, and HTTP status code. In addition, when an object is returned as a result of a request (for example, KeyCreate or VaultGet) it will also contain the Key URI (as "id"), Vault URI, or Secret URI.|
-
- 
-
 
 The **operationName** field values are in ObjectVerb format. For example:
 
@@ -255,16 +269,12 @@ The following table lists the operationName and corresponding REST API command.
 | SecretList      | [List secrets in a vault](https://msdn.microsoft.com/zh-cn/library/azure/dn903614.aspx)|
 | SecretListVersions      | [List versions of a secret](https://msdn.microsoft.com/zh-cn/library/azure/dn986824.aspx)|
 
-
-
-
 ## <a id="next"></a>Next steps ##
 
-For a tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](/documentation/articles/key-vault-use-from-web-application/).
+For a tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](./key-vault-use-from-web-application.md).
 
-For programming references, see [the Azure Key Vault developer's guide](/documentation/articles/key-vault-developers-guide/).
+For programming references, see [the Azure Key Vault developer's guide](./key-vault-developers-guide.md).
 
 For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](https://msdn.microsoft.com/zh-cn/library/azure/dn868052.aspx). 
- 
 
-For a tutorial on key rotation and log auditing with Azure Key Vault, see [How to setup Key Vault with end to end key rotation and auditing](/documentation/articles/key-vault-key-rotation-log-monitoring/).
+For a tutorial on key rotation and log auditing with Azure Key Vault, see [How to setup Key Vault with end to end key rotation and auditing](./key-vault-key-rotation-log-monitoring.md).

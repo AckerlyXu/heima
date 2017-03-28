@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Secure a Service Fabric cluster | Azure"
-    description="Describes the security scenarios for a Service Fabric cluster and the different technologies used to implement those scenarios."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="ChackDan"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="26b58724-6a43-4f20-b965-2da3f086cf8a"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="12/06/2016"
-    wacn.date=""
-    ms.author="chackdan" />
+---
+title: Secure a Service Fabric cluster | Azure
+description: Describes the security scenarios for a Service Fabric cluster and the different technologies used to implement those scenarios.
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: ''
+
+ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/06/2016
+wacn.date: ''
+ms.author: chackdan
+---
 
 # Service Fabric cluster security scenarios
 A Service Fabric cluster is a resource that you own. Clusters must be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it. Although it is possible to create an unsecured cluster, doing so allows anonymous users to connect to it, if it exposes management endpoints to the public Internet. 
@@ -37,12 +38,12 @@ Service Fabric uses X.509 server certificates that you specify as a part of the 
 
 Certificate security is configured while creating the cluster either through the Azure portal, Azure Resource Manager templates, or a standalone JSON template. You can specify a primary certificate and an optional secondary certificate that is used for certificate rollovers. The primary and secondary certificates you specify should be different than the admin client and read-only client certificates you specify for [Client-to-node security](#client-to-node-security).
 
-For Azure read [Set up a cluster by using an Azure Resource Manager template](/documentation/articles/service-fabric-cluster-creation-via-arm/) to learn how to configure certificate security in a cluster.
+For Azure read [Set up a cluster by using an Azure Resource Manager template](./service-fabric-cluster-creation-via-arm.md) to learn how to configure certificate security in a cluster.
 
-For standalone Windows Server read [Secure a standalone cluster on Windows using X.509 certificates ](/documentation/articles/service-fabric-windows-cluster-x509-security/)
+For standalone Windows Server read [Secure a standalone cluster on Windows using X.509 certificates ](./service-fabric-windows-cluster-x509-security.md)
 
 ### Node-to-node windows security
-For standalone Windows Server read [Secure a standalone cluster on Windows using Windows security](/documentation/articles/service-fabric-windows-cluster-windows-security/)
+For standalone Windows Server read [Secure a standalone cluster on Windows using Windows security](./service-fabric-windows-cluster-windows-security.md)
 
 ## Client-to-node security
 Authenticates clients and secures communication between a client and individual nodes in the cluster. This type of security authenticates and secures client communications, which ensures that only authorized users can access the cluster and the applications deployed on the cluster. Clients are uniquely identified through either their Windows Security credentials or their certificate security credentials.
@@ -56,12 +57,12 @@ Clusters running on Azure or standalone clusters running on Windows can use eith
 
 Clients connecting to the cluster using the admin certificate have full access to management capabilities.  Clients connecting to the cluster using the read-only user client certificate have only read access to management capabilities. In other words these certificates are used for the role bases access control (RBAC) described later in this article.
 
-For Azure read [Set up a cluster by using an Azure Resource Manager template](/documentation/articles/service-fabric-cluster-creation-via-arm/) to learn how to configure certificate security in a cluster.
+For Azure read [Set up a cluster by using an Azure Resource Manager template](./service-fabric-cluster-creation-via-arm.md) to learn how to configure certificate security in a cluster.
 
-For standalone Windows Server read [Secure a standalone cluster on Windows using X.509 certificates ](/documentation/articles/service-fabric-windows-cluster-x509-security/)
+For standalone Windows Server read [Secure a standalone cluster on Windows using X.509 certificates ](./service-fabric-windows-cluster-x509-security.md)
 
 ### Client-to-node Azure Active Directory (AAD) security on Azure
-Clusters running on Azure can also secure access to the management endpoints using Azure Active Directory (AAD). See [Set up a cluster by using an Azure Resource Manager template](/documentation/articles/service-fabric-cluster-creation-via-arm/) for information on how to create the necessary AAD artifacts, how to populate them during cluster creation, and how to connect to those clusters afterwards.
+Clusters running on Azure can also secure access to the management endpoints using Azure Active Directory (AAD). See [Set up a cluster by using an Azure Resource Manager template](./service-fabric-cluster-creation-via-arm.md) for information on how to create the necessary AAD artifacts, how to populate them during cluster creation, and how to connect to those clusters afterwards.
 
 ## Security Recommendations
 For Azure clusters, it is recommended that you use AAD security to authenticate clients and certificates for node-to-node security.
@@ -73,7 +74,7 @@ Access control allows the cluster administrator to limit access to certain clust
 
 Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
 
-You specify the administrator and user client roles at the time of cluster creation by providing separate identities (certificates, AAD etc) for each. For more information on the default access control settings and how to change the default settings, see [Role based access control for Service Fabric clients](/documentation/articles/service-fabric-cluster-security-roles/).
+You specify the administrator and user client roles at the time of cluster creation by providing separate identities (certificates, AAD etc) for each. For more information on the default access control settings and how to change the default settings, see [Role based access control for Service Fabric clients](./service-fabric-cluster-security-roles.md).
 
 ## X.509 certificates and Service Fabric
 X.509 digital certificates are commonly used to authenticate clients and servers and to encrypt and digitally sign messages. For more details on these certificates, go to [Working with certificates](http://msdn.microsoft.com/zh-cn/library/ms731899.aspx).
@@ -97,17 +98,16 @@ The value of the Intended Purposes field of the certificate should include an ap
 ### Client X.509 certificates
 Client certificates are not typically issued by a third-party certificate authority. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority, with an intended purpose of "Client Authentication". The client can use such a certificate when mutual authentication is required.
 
->[AZURE.NOTE] All management operations on a Service Fabric cluster require server certificates. Client certificates cannot be used for management.
+>[!NOTE]
+> All management operations on a Service Fabric cluster require server certificates. Client certificates cannot be used for management.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-
 
 ## Next steps
 This article provides conceptual information about cluster security. Next,
 
-
-1.  [create a cluster in Azure using a Resource Manager template](/documentation/articles/service-fabric-cluster-creation-via-arm/) 
-2.  [Azure portal](/documentation/articles/service-fabric-cluster-creation-via-portal/).
+1.  [create a cluster in Azure using a Resource Manager template](./service-fabric-cluster-creation-via-arm.md) 
+2.  [Azure portal](./service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Troubleshooting: ''Active Directory'' item is missing or not available | Azure"
-    description="What to do when Active Directory menu item doesn't appear in the Azure Management Portal."
-    services="active-directory"
-    documentationcenter="na"
-    author="bryanla"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="3383020d-6397-43ea-b7aa-c6a9d6a1e3df"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="mbaldwin" />
+---
+title: Troubleshooting: ''Active Directory'' item is missing or not available | Azure
+description: What to do when Active Directory menu item doesn't appear in the Azure Management Portal.
+services: active-directory
+documentationcenter: na
+author: bryanla
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: mbaldwin
+---
 
 # Troubleshooting: 'Active Directory' item is missing or not available
 
@@ -41,11 +42,11 @@ The Active Directory item appears in the left navigation menu when any of the fo
 
     OR
 
-* The Azure tenant has at least one Azure Multi-Factor Authentication provider. For more information, see [Administering Azure Multi-Factor Authentication Providers](/documentation/articles/multi-factor-authentication-get-started-cloud/).
+* The Azure tenant has at least one Azure Multi-Factor Authentication provider. For more information, see [Administering Azure Multi-Factor Authentication Providers](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 To create an Access Control namespace or a Multi-Factor Authentication provider, click **+New** > **App Services** > **Active Directory**.
 
-To get administrative rights to a directory, have an administrator assign an administrator role to your account. For details, see [Assigning administrator roles](/documentation/articles/active-directory-assign-admin-roles/).
+To get administrative rights to a directory, have an administrator assign an administrator role to your account. For details, see [Assigning administrator roles](./active-directory-assign-admin-roles.md).
 
 ## Active Directory is not available
 
@@ -54,4 +55,3 @@ When you click **+New** > **App Services**, an **Active Directory** item appears
 However, while the page is loading, the item is dimmed and is marked **Not Available**. This is a temporary state. If you wait a few seconds, the item becomes available. If the delay is prolonged, refreshing the web page often resolves the problem.
 
 ![Screen shot: Active Directory is not available](./media/active-directory-troubleshooting/not-available.png)
-

@@ -1,17 +1,16 @@
-<properties
-	pageTitle="Azure AD .NET Protocol Overview | Azure"
-	description="How to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure AD."
-	services="active-directory"
-	documentationCenter=".net"
-	authors="priyamohanram"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Azure AD .NET Protocol Overview | Azure
+description: How to use HTTP messages to authorize access to web applications and web APIs in your tenant using Azure AD.
+services: active-directory
+documentationCenter: .net
+authors: priyamohanram
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-
-	ms.date="01/21/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 01/21/2016
+wacn.date: ''
+---
 
 <!--TODO: Introduction -->
 
@@ -27,7 +26,7 @@ First, you will need to register your application with your Active Directory ten
 
 - Click on the **Applications** tab, and click **Add** in the bottom drawer.
 
-- Follow the prompts and create a new application. It doesn't matter if it is a web application or a native application for this tutorial, but if you'd like specific examples for web applications or native applications, check out our quickstarts [here](/documentation/articles/active-directory-developers-guide/).
+- Follow the prompts and create a new application. It doesn't matter if it is a web application or a native application for this tutorial, but if you'd like specific examples for web applications or native applications, check out our quickstarts [here](../articles/active-directory/active-directory-developers-guide.md).
 
 - For Web Applications, provide the **Sign-On URL** which is the base URL of your app, where users can sign in e.g `http://localhost:12345`. The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
 

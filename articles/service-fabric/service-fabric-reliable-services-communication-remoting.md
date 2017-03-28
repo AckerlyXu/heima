@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Service remoting in Service Fabric | Azure"
-    description="Service Fabric remoting allows clients and services to communicate with services by using a remote procedure call."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="BharatNarasimman" />
-<tags
-    ms.assetid="abfaf430-fea0-4974-afba-cfc9f9f2354b"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="required"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Service remoting in Service Fabric | Azure
+description: Service Fabric remoting allows clients and services to communicate with services by using a remote procedure call.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: BharatNarasimman
+
+ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: required
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # Service remoting with Reliable Services
 For services that are not tied to a particular communication protocol or stack, such as WebAPI, Windows Communication Foundation (WCF), or others, the Reliable Services framework provides a remoting mechanism to quickly and easily set up remote procedure call for services.
@@ -29,57 +30,55 @@ Setting up remoting for a service is done in two simple steps:
 
 For example, the following stateless service exposes a single method to get "Hello World" over a remote procedure call.
 
+```csharp
+using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+using Microsoft.ServiceFabric.Services.Runtime;
 
-	using Microsoft.ServiceFabric.Services.Communication.Runtime;
-	using Microsoft.ServiceFabric.Services.Remoting;
-	using Microsoft.ServiceFabric.Services.Remoting.Runtime;
-	using Microsoft.ServiceFabric.Services.Runtime;
+public interface IMyService : IService
+{
+    Task<string> HelloWorldAsync();
+}
 
-	public interface IMyService : IService
-	{
-	    Task<string> HelloWorldAsync();
-	}
+class MyService : StatelessService, IMyService
+{
+    public MyService(StatelessServiceContext context)
+        : base (context)
+    {
+    }
 
-	class MyService : StatelessService, IMyService
-	{
-	    public MyService(StatelessServiceContext context)
-	        : base (context)
-	    {
-	    }
+    public Task HelloWorldAsync()
+    {
+        return Task.FromResult("Hello!");
+    }
 
-	    public Task HelloWorldAsync()
-	    {
-	        return Task.FromResult("Hello!");
-	    }
+    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+    {
+        return new[] { new ServiceInstanceListener(context => 
+            this.CreateServiceRemotingListener(context)) };
+    }
+}
+```
 
-	    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
-	    {
-	        return new[] { new ServiceInstanceListener(context => 
-	            this.CreateServiceRemotingListener(context)) };
-	    }
-	}
-
-> [AZURE.NOTE] The arguments and the return types in the service interface can be any simple, complex, or custom types, but they must be serializable by the .NET [DataContractSerializer](https://msdn.microsoft.com/zh-cn/library/ms731923.aspx).
-
+> [!NOTE]
+> The arguments and the return types in the service interface can be any simple, complex, or custom types, but they must be serializable by the .NET [DataContractSerializer](https://msdn.microsoft.com/zh-cn/library/ms731923.aspx).
 
 ## Call remote service methods
 Calling methods on a service by using the remoting stack is done by using a local proxy to the service through the `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` class. The `ServiceProxy` method creates a local proxy by using the same interface that the service implements. With that proxy, you can simply call methods on the interface remotely.
 
+```csharp
+IMyService helloWorldClient = ServiceProxy.Create<IMyService>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
-
-
-	IMyService helloWorldClient = ServiceProxy.Create<IMyService>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
-
-	string message = await helloWorldClient.HelloWorldAsync();
-
-
+string message = await helloWorldClient.HelloWorldAsync();
+```
 
 The remoting framework propagates exceptions thrown at the service to the client. So exception-handling logic at the client by using `ServiceProxy` can directly handle exceptions that the service throws.
 
 ## Next steps
 
-* [Web API with OWIN in Reliable Services](/documentation/articles/service-fabric-reliable-services-communication-webapi/)
+* [Web API with OWIN in Reliable Services](./service-fabric-reliable-services-communication-webapi.md)
 
-* [WCF communication with Reliable Services](/documentation/articles/service-fabric-reliable-services-communication-wcf/)
+* [WCF communication with Reliable Services](./service-fabric-reliable-services-communication-wcf.md)
 
-* [Securing communication for Reliable Services](/documentation/articles/service-fabric-reliable-services-secure-communication/)
+* [Securing communication for Reliable Services](./service-fabric-reliable-services-secure-communication.md)

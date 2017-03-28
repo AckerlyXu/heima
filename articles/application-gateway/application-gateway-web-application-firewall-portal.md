@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Create an Azure Application Gateway with Web Application Firewall | Azure"
-    description="Learn how to create an Application Gateway with web application firewall by using the portal"
-    services="application-gateway"
-    documentationcenter="na"
-    author="georgewallace"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="b561a210-ed99-4ab4-be06-b49215e3255a"
-    ms.service="application-gateway"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="gwallace" />
+---
+title: Create an Azure Application Gateway with Web Application Firewall | Azure
+description: Learn how to create an Application Gateway with web application firewall by using the portal
+services: application-gateway
+documentationcenter: na
+author: georgewallace
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: gwallace
+---
 
 # Create an application gateway with web application firewall by using the portal
-> [AZURE.SELECTOR]
-- [Azure portal preview](/documentation/articles/application-gateway-web-application-firewall-portal/)
-- [Azure Resource Manager PowerShell](/documentation/articles/application-gateway-web-application-firewall-powershell/)
+> [!div class="op_single_selector"]
+>- [Azure portal preview](./application-gateway-web-application-firewall-portal.md)
+>- [Azure Resource Manager PowerShell](./application-gateway-web-application-firewall-powershell.md)
 
 The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks. Web application protects against many of the OWASP top 10 common web vulnerabilities.
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises.
 Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.
-To find a complete list of supported features, visit [Application Gateway Overview](/documentation/articles/application-gateway-introduction/)
+To find a complete list of supported features, visit [Application Gateway Overview](./application-gateway-introduction.md)
 
 ## <a name="scenario"></a> Scenarios
 
@@ -39,7 +40,7 @@ In the second scenario, you learn to [create an application gateway with web app
 
 ![Scenario example][scenario]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
 
 ## Before you begin
@@ -70,7 +71,7 @@ The settings to update an existing application gateway to support web applicatio
 
 ![blade showing basic settings][2]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > To view web application firewall logs, diagnostics must be enabled and ApplicationGatewayFirewallLog selected. An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not available when using web application firewall.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a> Create an application gateway with web application firewall
@@ -103,7 +104,7 @@ The information needed for the basic settings is:
 
 ![blade showing basic settings][2-2]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not supported for web application firewall scenarios.
 
 ### Step 3
@@ -182,11 +183,11 @@ These steps create a basic application gateway with default settings for the lis
 
 ## Next steps
 
-Learn how to configure diagnostic logging, to log the events that are detected or prevented with Web Application Firewall by visiting [Application Gateway Diagnostics](/documentation/articles/application-gateway-diagnostics/)
+Learn how to configure diagnostic logging, to log the events that are detected or prevented with Web Application Firewall by visiting [Application Gateway Diagnostics](./application-gateway-diagnostics.md)
 
-Learn how to create custom health probes by visiting [Create a custom health probe](/documentation/articles/application-gateway-create-probe-portal/)
+Learn how to create custom health probes by visiting [Create a custom health probe](./application-gateway-create-probe-portal.md)
 
-Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](/documentation/articles/application-gateway-ssl-portal/)
+Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](./application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-web-application-firewall-portal/figure1.png

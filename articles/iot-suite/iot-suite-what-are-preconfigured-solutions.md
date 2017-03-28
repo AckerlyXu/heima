@@ -1,22 +1,22 @@
-<properties
- pageTitle="Azure IoT preconfigured solutions | Azure"
- description="A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources."
- services=""
- suite="iot-suite"
- documentationCenter=""
- author="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Azure IoT preconfigured solutions | Azure
+description: A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources.
+services: ''
+suite: iot-suite
+documentationCenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="02/15/2017"
- ms.author="dobett"
- wacn.date="05/17/2016"/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/15/2017
+ms.author: dobett
+wacn.date: 05/17/2016
+---
 
 # What are the Azure IoT Suite preconfigured solutions?
 
@@ -29,7 +29,8 @@ Each preconfigured solution is a complete, end-to-end implementation that uses s
 
 In addition to deploying and running the solutions in Azure, you can download the complete source code and then customize and extend the solution to meet your specific IoT requirements.
 
-> [AZURE.NOTE] To deploy one of the preconfigured solutions, visit [Azure IoT Suite][lnk-azureiotsuite]. The article [Get started with the IoT preconfigured solutions][lnk-getstarted-preconfigured] provides more information about how to deploy and run one of the solutions.
+> [!NOTE]
+> To deploy one of the preconfigured solutions, visit [Azure IoT Suite][lnk-azureiotsuite]. The article [Get started with the IoT preconfigured solutions][lnk-getstarted-preconfigured] provides more information about how to deploy and run one of the solutions.
 
 The following table shows how the solutions map to specific IoT features:
 
@@ -151,14 +152,14 @@ Now you know what a preconfigured solution is, you can get started by deploying 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
 [lnk-what-is-azure-iot]:/documentation/articles/iot-suite/iot-suite-what-is-azure-iot/
-[lnk-asa]: /documentation/services/stream-analytics/
+[lnk-asa]: ../stream-analytics/index.md
 [lnk-event-processor]:/documentation/articles/event-hubs/event-hubs-programming-guide/#event-processor-host
 [lnk-web-job]:/documentation/articles/app-service-web/web-sites-create-web-jobs/
-[lnk-identity-registry]: /documentation/articles/iot-hub-devguide-identity-registry/
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]:/documentation/articles/iot-suite/iot-suite-predictive-overview/
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: /documentation/articles/iot-suite/iot-suite-getstarted-preconfigured-solutions/
-[lnk-c2d-guidance]: /documentation/articles/iot-hub-devguide-c2d-guidance/
-[lnk-device-twin]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-direct-methods]: /documentation/articles/iot-hub-devguide-direct-methods/
+[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

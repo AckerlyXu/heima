@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Send events to Azure Event Hubs using Java | Azure"
-    description="Get started sending to Event Hubs using Java"
-    services="event-hubs"
-    documentationcenter=""
-    author="jtaubensee"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="event-hubs"
-    ms.workload="core"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/30/2017"
-    wacn.date=""
-    ms.author="jotaub;sethm" />
+---
+title: Send events to Azure Event Hubs using Java | Azure
+description: Get started sending to Event Hubs using Java
+services: event-hubs
+documentationcenter: ''
+author: jtaubensee
+manager: timlt
+editor: ''
+
+ms.assetid: ''
+ms.service: event-hubs
+ms.workload: core
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/30/2017
+wacn.date: ''
+ms.author: jotaub;sethm
+---
 
 # Send events to Azure Event Hubs using Java
 
@@ -24,21 +25,23 @@ Event Hubs is a highly scalable ingestion system that can intake millions of eve
 
 For more information, see the [Event Hubs overview][Event Hubs overview].
 
-This tutorial shows how to send events to an Event Hub using a console application in Java. To receive events using the Java Event Processor Host library, see [this article](/documentation/articles/event-hubs-java-get-started-receive-eph/), or click the appropriate receiving language in the left-hand table of contents.
+This tutorial shows how to send events to an Event Hub using a console application in Java. To receive events using the Java Event Processor Host library, see [this article](./event-hubs-java-get-started-receive-eph.md), or click the appropriate receiving language in the left-hand table of contents.
 
 In order to complete this tutorial, you will need the following:
 
 * A Java development environment. For this tutorial, we will assume [Eclipse](https://www.eclipse.org/).
-* An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="/pricing/1rmb-trial/" target="_blank">Azure Trial</a>.
+* An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">Azure Trial</a>.
 
 ## Send messages to Event Hubs
 The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22), and can be referenced using the following dependency declaration inside your Maven project file:    
 
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-eventhubs</artifactId>
-        <version>{VERSION}</version>
-    </dependency>
+```XML
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-eventhubs</artifactId>
+    <version>{VERSION}</version>
+</dependency>
+```
 
 For different types of build environments, you can explicitly obtain the latest released JAR files from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) or from [the release distribution point on GitHub](https://github.com/Azure/azure-event-hubs/releases).  
 
@@ -46,45 +49,51 @@ For a simple event publisher, import the *com.microsoft.azure.eventhubs* package
 
 For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. The class will be called ```Send```.     
 
-    import java.io.IOException;
-    import java.nio.charset.*;
-    import java.util.*;
-    import java.util.concurrent.ExecutionException;
+```Java
+import java.io.IOException;
+import java.nio.charset.*;
+import java.util.*;
+import java.util.concurrent.ExecutionException;
 
-    import com.microsoft.azure.eventhubs.*;
-    import com.microsoft.azure.servicebus.*;
+import com.microsoft.azure.eventhubs.*;
+import com.microsoft.azure.servicebus.*;
 
-    public class Send
+public class Send
+{
+    public static void main(String[] args) 
+            throws ServiceBusException, ExecutionException, InterruptedException, IOException
     {
-        public static void main(String[] args) 
-                throws ServiceBusException, ExecutionException, InterruptedException, IOException
-        {
+```
 
 Replace the namespace and Event Hub names with the values used when you created the Event Hub.
 
-        final String namespaceName = "----ServiceBusNamespaceName-----";
-        final String eventHubName = "----EventHubName-----";
-        final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
-        final String sasKey = "---SharedAccessSignatureKey----";
-        ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+```Java
+    final String namespaceName = "----ServiceBusNamespaceName-----";
+    final String eventHubName = "----EventHubName-----";
+    final String sasKeyName = "-----SharedAccessSignatureKeyName-----";
+    final String sasKey = "---SharedAccessSignatureKey----";
+    ConnectionStringBuilder connStr = new ConnectionStringBuilder(namespaceName, eventHubName, sasKeyName, sasKey);
+```
 
 Then, create a singular event by turning a string into its UTF-8 byte encoding. We then create a new Event Hubs client instance from the connection string and send the message.   
 
-        byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
-        EventData sendEvent = new EventData(payloadBytes);
+```Java
+    byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
+    EventData sendEvent = new EventData(payloadBytes);
 
-        EventHubClient ehClient = EventHubClient.createFromConnectionStringSync(connStr.toString());
-        ehClient.sendSync(sendEvent);
-        }
+    EventHubClient ehClient = EventHubClient.createFromConnectionStringSync(connStr.toString());
+    ehClient.sendSync(sendEvent);
     }
+}
+```
 
 <!-- Links -->
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: ./event-hubs-overview.md
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Receive events using the EventProcessorHost](/documentation/articles/event-hubs-java-get-started-receive-eph/)
-* [Event Hubs overview](/documentation/articles/event-hubs-what-is-event-hubs/)
-* [Create an Event Hub](/documentation/articles/event-hubs-create/)
-* [Event Hubs FAQ](/documentation/articles/event-hubs-faq/)
+* [Receive events using the EventProcessorHost](./event-hubs-java-get-started-receive-eph.md)
+* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](./event-hubs-create.md)
+* [Event Hubs FAQ](./event-hubs-faq.md)

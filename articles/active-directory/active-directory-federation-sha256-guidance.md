@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Change signature hash algorithm for Office 365 replying party trust | Azure"
-    description="This page provides guidelines for changing SHA algorithm for federation trust with Office 365"
-    keywords="SHA1,SHA256,O365,federation,aadconnect,adfs,ad fs,change sha,federation trust,relying party trust"
-    services="active-directory"
-    documentationcenter=""
-    author="anandyadavmsft"
-    manager="samueld"
-    editor="" />
-<tags
-    ms.assetid="cf6880e2-af78-4cc9-91bc-b64de4428bbd"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/31/2016"
-    ms.author="anandy" 
-    wacn.date=""/>
+---
+title: Change signature hash algorithm for Office 365 replying party trust | Azure
+description: This page provides guidelines for changing SHA algorithm for federation trust with Office 365
+keywords: SHA1,SHA256,O365,federation,aadconnect,adfs,ad fs,change sha,federation trust,relying party trust
+services: active-directory
+documentationcenter: ''
+author: anandyadavmsft
+manager: samueld
+editor: ''
+
+ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/31/2016
+ms.author: anandy
+wacn.date: ''
+---
 
 # Change signature hash algorithm for Office 365 replying party trust
 ## Overview
@@ -37,9 +38,8 @@ After you have set the signature algorithm with one of the two processes below, 
 ### AD FS PowerShell cmdlets
 1. On any AD FS server, open PowerShell under administrator privileges.
 2. Set the secure hash algorithm by using the **Set-AdfsRelyingPartyTrust** cmdlet.
-   
+
    <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ## Also read
-- [Repair Office 365 trust with Azure AD Connect](/documentation/articles/active-directory-aadconnect-federation-management/#repairthetrust/)
-
+- [Repair Office 365 trust with Azure AD Connect](./active-directory-aadconnect-federation-management.md#repairthetrust)

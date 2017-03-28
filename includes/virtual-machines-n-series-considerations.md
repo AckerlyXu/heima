@@ -8,6 +8,6 @@
 
 * N-series VMs do not support VM disks that are backed by Azure premium storage.
 
-* If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](/pricing/1rmb-trial/), you can use only a limited number of Azure compute cores.
+* If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://www.azure.cn/pricing/1rmb-trial/), you can use only a limited number of Azure compute cores.
 
 * You might need to increase the cores quota (per region) in your Azure subscription and the separate quota for NC or NV cores. To request a quota increase, [open an online customer support request](/documentation/articles/how-to-create-azure-support-request/) at no charge. Default limits may vary depending on your subscription category.

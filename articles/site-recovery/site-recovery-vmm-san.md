@@ -19,12 +19,7 @@ ms.author: raynew
 ---
 # Replicate Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery by using SAN
 
-
-Use this article if you want to deploy [Azure Site Recovery](/documentation/articles/site-recovery-overview/) to manage replication of Hyper-V VMs (managed in System Center Virtual Machine Manager clouds) to a secondary VMM site, using Azure Site Recovery in the classic portal. This scenario isn't available in the new Azure portal.
-
-
-
-
+Use this article if you want to deploy [Azure Site Recovery](./site-recovery-overview.md) to manage replication of Hyper-V VMs (managed in System Center Virtual Machine Manager clouds) to a secondary VMM site, using Azure Site Recovery in the classic portal. This scenario isn't available in the new Azure portal.
 
 ## Why replicate with SAN and Site Recovery?
 
@@ -39,7 +34,6 @@ Note that:
 - Replication from SAN to Azure isn't supported.
 - You can't replicate shared VHDXs, or logical units (LUNs) that are directly connected to VMs via iSCSI or Fibre Channel. Guest clusters can be replicated.
 
-
 ## Architecture
 
 ![SAN architecture](./media/site-recovery-vmm-san/architecture.png)
@@ -51,13 +45,11 @@ Note that:
 - **Failover**: Enable failover in the Site Recovery portal. There is zero data loss during failover because replication is synchronous.
 - **Failback**: To fail back, you enable reverse replication to transfer delta changes from the secondary site to the primary site. After reverse replication is complete, you run a planned failover from secondary to primary. This planned failover stops the replica VMs on the secondary site and starts them on the primary site.
 
-
 ## Before you start
-
 
 **Prerequisites** | **Details**
 --- | ---
-**Azure**| You need a [Microsoft Azure](https://azure.cn/) account. You can start with a [1rmb trial](/pricing/1rmb-trial/). [Learn more](/pricing/details/site-recovery/) about Site Recovery pricing. 
+**Azure**| You need a [Microsoft Azure](https://azure.cn/) account. You can start with a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/). [Learn more](https://www.azure.cn/pricing/details/site-recovery/) about Site Recovery pricing. 
 **VMM** | You can use a single VMM server and replicate between different clouds, but we recommend one VMM in the primary site and one in the secondary site. A VMM can be deployed as a physical or virtual standalone server, or as a cluster. <br/><br/>The VMM server should be running System Center 2012 R2 or later with the latest cumulative updates.<br/><br/> You need at least one cloud configured on the primary VMM server you want to protect and one cloud configured on the secondary VMM server you want to use for failover.<br/><br/> The source cloud must contain one or more VMM host groups.<br/><br/> All VMM clouds must have the Hyper-V Capacity profile set.<br/><br/> For more about setting up VMM clouds, see [Deploy a private VM cloud](https://technet.microsoft.com/zh-cn/system-center-docs/vmm/scenario/cloud-overview).
 **Hyper-V** | You need one or more Hyper-V clusters in primary and secondary VMM clouds.<br/><br/> The source Hyper-V cluster must contain one or more VMs.<br/><br/> The VMM host groups in the primary and secondary sites must contain at least one of the Hyper-V clusters.<br/><br/>The host and target Hyper-V servers must be running Windows Server 2012 or later with the Hyper-V role and the latest updates installed.<br/><br/> If you're running Hyper-V in a cluster and have a static IP address-based cluster, cluster broker isn't created automatically. You must configure it manually. For more information, see [Preparing host clusters for Hyper-V replica](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters).
 **SAN storage** | You can replicate guest-clustered virtual machines with iSCSI or channel storage, or by using shared virtual hard disks (vhdx).<br/><br/> You need two SAN arrays: one in the primary site, and one in the secondary site.<br/><br/> A network infrastructure should be set up between the arrays. Peering and replication should be configured. Replication licenses should be set up in accordance with the storage array requirements.<br/><br/>Set up networking between the Hyper-V host servers and the storage array so that hosts can communicate with storage LUNs by using iSCSI or Fibre Channel.<br/><br/> Check [supported storage arrays](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).<br/><br/> SMI-S providers from storage array manufacturers should be installed, and the SAN arrays should be managed by the provider. Set up the Provider according to manufacturer instructions.<br/><br/>Make sure that the array's SMI-S provider is on a server that the VMM server can access over the network with an IP address or FQDN.<br/><br/> Each SAN array should have one or more available storage pools.<br/><br/> The primary VMM server should manage the primary array, and the secondary VMM server should manage the secondary array.
@@ -85,11 +77,11 @@ Make sure your VMM clouds are set up properly before you begin Site Recovery dep
 
 3. On the **Specify Protocol and Address of the Storage SMI-S Provider** page, select **SMI-S CIMXML** and specify the settings for connecting to the provider.
 4. In **Provider IP address or FQDN** and **TCP/IP port**, specify the settings for connecting to the provider. You can use an SSL connection for SMI-S CIMXML only.
-   
+
     ![Provider connect](./media/site-recovery-vmm-san/connect-settings.png)
 5. In **Run as account**, specify a VMM Run As account that can access the provider, or create an account.
 6. On the **Gather Information** page, VMM automatically tries to discover and import the storage device information. To retry discovery, click **Scan Provider**. If the discovery process succeeds, the discovered storage arrays, storage pools, manufacturer, model, and capacity are listed on the page.
-   
+
     ![Discover storage](./media/site-recovery-vmm-san/discover.png)
 7. In **Select storage pools to place under management and assign a classification**, select the storage pools that VMM will manage and assign them a classification. LUN information is imported from the storage pools. Create LUNs based on the applications you need to protect, their capacity requirements, and your requirements for what needs to replicate together.
 
@@ -101,7 +93,7 @@ Create LUNs based on the applications you need to protect, capacity requirements
 
 1. After the storage appears in the VMM fabric, you can [provision LUNs](https://technet.microsoft.com/zh-cn/system-center-docs/vmm/manage/manage-storage-host-groups#create-a-lun-in-vmm).
 
-     > [AZURE.NOTE]
+     > [!NOTE]
      > Don't add VHDs for the VM that are enabled for replication to LUNs. If those LUNs aren't in a Site Recovery replication group, they won't be detected by Site Recovery.
      >
 
@@ -122,7 +114,6 @@ Create LUNs based on the applications you need to protect, capacity requirements
 
     ![Classify storage](./media/site-recovery-vmm-san/classify.png)
 
-
 ### Create replication groups
 
 Create a replication group that includes all the LUNs that will need to replicate together.
@@ -142,16 +133,15 @@ If you want to configure network mapping, do the following:
    * [Set up logical networks](https://technet.microsoft.com/zh-cn/system-center-docs/vmm/manage/manage-network-logical-networks).
    * [Set up VM networks](https://technet.microsoft.com/zh-cn/system-center-docs/vmm/manage/manage-network-vm-networks).
 
-
 ## Step 2: Create a vault
 
 1. Sign in to the [Azure portal](https://portal.azure.cn) from the VMM server you want to register in the vault.
 2. Expand **Data Services** > **Recovery Services**, and then click **Site Recovery Vault**.
 3. Click **Create New** > **Quick Create**.
 4. In **Name**, enter a friendly name to identify the vault.
-5. In **Region**, select the geographic region for the vault. To check supported regions, see [Azure Site Recovery Pricing Details](/pricing/details/site-recovery/).
+5. In **Region**, select the geographic region for the vault. To check supported regions, see [Azure Site Recovery Pricing Details](https://www.azure.cn/pricing/details/site-recovery/).
 6. Click **Create vault**.
-   
+
     ![New Vault](./media/site-recovery-vmm-san/create-vault.png)
 
 Check the status bar to confirm that the vault was successfully created. The vault will be listed as **Active** on the main **Recovery Services** page.
@@ -209,15 +199,21 @@ The Azure Site Recovery Provider can also be installed by using the following co
 2. Stop the VMM service.
 3. Extract the Provider installer. Run these commands as an administrator:
 
-        C:\Windows\System32> CD C:\ASR
-        C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+    ```
+    C:\Windows\System32> CD C:\ASR
+    C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+    ```
 4. Install the Provider:
 
-        C:\ASR> setupdr.exe /i
+    ```
+    C:\ASR> setupdr.exe /i
+    ```
 5. Register the Provider:
 
-        CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+    ```
+    CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
+    C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
+    ```
 
 Parameters:
 
@@ -240,7 +236,7 @@ Before you start, check that VMM clouds appear in the vault. Clouds are detected
 
 2. Select the storage arrays on the primary site, and map them to storage arrays on the secondary site. In **Storage Pools**, select a source and target storage pool to map.
 
-	![Server registration](./media/site-recovery-vmm-san/storage-map-pool.png)
+    ![Server registration](./media/site-recovery-vmm-san/storage-map-pool.png)
 
 ## Step 4: Configure replication settings
 
@@ -283,7 +279,6 @@ Site Recovery, VMM, and the SMI-S providers provision the target site storage LU
 
 ## Step 7: Enable protection for virtual machines
 
-
 When a storage group is replicating, enable protection for VMs in the VMM console with one of the following methods:
 
 * **New virtual machine**: When you create a VM, you enable replication and associate the VM with the replication group.
@@ -294,7 +289,8 @@ When a storage group is replicating, enable protection for VMs in the VMM consol
 
 After VMs are enabled for replication, they appear in the Site Recovery console. You can view VM properties, track status, and track failover replication groups that contain multiple VMs. In SAN replication, all VMs associated with a replication group must fail over together. This is because failover occurs at the storage layer first. It’s important to group your replication groups properly and place only associated VMs together.
 
->[AZURE.NOTE] After you've enabled replication for a VM, don't add its VHDs to LUNs unless they are located in a Site Recovery replication group. VHDs will only be detected by Site Recovery if they are located in a Site Recovery replication group.
+>[!NOTE]
+> After you've enabled replication for a VM, don't add its VHDs to LUNs unless they are located in a Site Recovery replication group. VHDs will only be detected by Site Recovery if they are located in a Site Recovery replication group.
 
 You can track progress, including the initial replication, on the **Jobs** tab. After the Finalize Protection job runs, the virtual machine is ready for failover.
 
@@ -313,7 +309,7 @@ Test your deployment to make sure that VMs fail over as expected. To do this, cr
 
     ![Select virtual machines](./media/site-recovery-vmm-san/r-plan-vm.png)
 4. After the recovery plan is created, it appears in the list on the **Recovery Plans** tab. Select the plan and choose **Test Failover**.
-5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](/documentation/articles/site-recovery-failover/).
+5. On the **Confirm Test Failover** page, select **None**. With this option enabled, the failed over replica VMs won't be connected to any network. This tests that the VMs fail over as expected, but it doesn't test the network environment. For more about other networking options, see [Site Recovery failover](./site-recovery-failover.md).
 
     ![Select test network](./media/site-recovery-vmm-san/test-fail1.png)
 
@@ -337,7 +333,6 @@ Test your deployment to make sure that VMs fail over as expected. To do this, cr
        $newrecord.RecordData[0].IPv4Address  =  $IP
        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-
 ## Next steps
 
-After you've run a test failover to check that your environment is working as expected, see [Site Recovery failover](/documentation/articles/site-recovery-failover/) to learn about different types of failovers.
+After you've run a test failover to check that your environment is working as expected, see [Site Recovery failover](./site-recovery-failover.md) to learn about different types of failovers.

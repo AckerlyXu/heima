@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure SQL Database Azure Case Study - GEP| Azure"
-    description="Learn about how GEP uses SQL Database to reach more global customers and achieve greater efficiency"
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="ae8bcb10-c251-4bac-b666-10a253918583"
-    ms.service="sql-database"
-    ms.custom="app development case study"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: Azure SQL Database Azure Case Study - GEP| Azure
+description: Learn about how GEP uses SQL Database to reach more global customers and achieve greater efficiency
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
+ms.service: sql-database
+ms.custom: app development case study
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/10/2017
+wacn.date: ''
+ms.author: carlrab
+---
 
 # Azure gives GEP global reach and greater efficiency
 ![GEP Logo](./media/sql-database-implementation-gep/geplogo.png)

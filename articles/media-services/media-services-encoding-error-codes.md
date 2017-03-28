@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Media Services encoding error codes | Azure"
-    description="This topic lists error codes that could be returned in case an error was encountered during the encoding task execution.."
-    services="media-services"
-    documentationcenter=""
-    author="juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="ce4e939f-5aee-41f9-859d-e4429815e9f2"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Azure Media Services encoding error codes | Azure
+description: This topic lists error codes that could be returned in case an error was encountered during the encoding task execution..
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
+
+ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Encoding error codes
 
@@ -34,11 +35,9 @@ The following table lists error codes that could be returned in case an error wa
 | ErrorCancelingTask |Category of errors to cover failures when attempting to cancel the Task |
 | TransientError |Category of errors to cover transient issues (eg. temporary networking issues with Azure Storage) |
 
-
-
 ## Related articles
-* [Perform advanced encoding tasks by customizing Media Encoder Standard presets](/documentation/articles/media-services-custom-mes-presets-with-dotnet/)
-* [Quotas and Limitations](/documentation/articles/media-services-quotas-and-limitations/)
+* [Perform advanced encoding tasks by customizing Media Encoder Standard presets](./media-services-custom-mes-presets-with-dotnet.md)
+* [Quotas and Limitations](./media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: /pricing/details/media-services/
+[1]: https://www.azure.cn/pricing/details/media-services/

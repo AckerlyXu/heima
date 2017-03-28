@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Use BI tools with Apache Spark on Azure HDInsight | Azure"
-    description="Step-by-step instructions on how to use notebooks with Apache Spark to create schemas on raw data, save them as tables, and then use BI tools on the table for data analytics"
-    services="hdinsight"
-    documentationcenter=""
-    author="nitinme"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="1448b536-9bc8-46bc-bbc6-d7001623642a"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/13/2017"
-    wacn.date=""
-    ms.author="nitinme" />
+---
+title: Use BI tools with Apache Spark on Azure HDInsight | Azure
+description: Step-by-step instructions on how to use notebooks with Apache Spark to create schemas on raw data, save them as tables, and then use BI tools on the table for data analytics
+services: hdinsight
+documentationcenter: ''
+author: nitinme
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/13/2017
+wacn.date: ''
+ms.author: nitinme
+---
 
 # Use BI tools with Apache Spark cluster on Azure HDInsight
 
 Learn how to use Apache Spark in Azure HDInsight to analyze a raw sample data set and then use BI tools to visualize the data. This article demonstrates how to use BI tools such as Power BI and Tableau with HDInsight Spark clusters.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Connectivity with BI tools described in this article is not supported on Spark 2.1 on Azure HDInsight 3.6 Preview. Only Spark versions 1.6 and 2.0 (HDInsight 3.4, 3.5 respectively) are supported.
 >
 
@@ -30,8 +31,8 @@ This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster
 
 ## Prerequisites
 
-* An Azure subscription. See [Get Azure trial](/pricing/1rmb-trial/).
-* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](/documentation/articles/hdinsight-apache-spark-jupyter-spark-sql/).
+* An Azure subscription. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## <a name="hivetable"></a>Save raw data as a table
 
@@ -42,7 +43,7 @@ Once your data is saved as a table, in the next section we use BI tools to conne
 1. From the [Azure portal preview](https://portal.azure.cn/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 2. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
     ><p>
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
@@ -59,49 +60,59 @@ Once your data is saved as a table, in the next section we use BI tools to conne
 
 5. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts are automatically created for you when you run the first code cell. You can start by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
 
-        from pyspark.sql import *
+    ```
+    from pyspark.sql import *
+    ```
 
 6. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
     In an empty cell, paste the following snippet and press **SHIFT + ENTER**. This snippet registers the data into a table called **hvac**.
 
-        # Create an RDD from sample data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    ```
+    # Create an RDD from sample data
+    hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-        # Create a schema for our data
-        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+    # Create a schema for our data
+    Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
 
-        # Parse the data and create a schema
-        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
+    # Parse the data and create a schema
+    hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
+    hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
 
-        # Infer the schema and create a table       
-        hvacTable = sqlContext.createDataFrame(hvac)
-        hvacTable.registerTempTable('hvactemptable')
-        dfw = DataFrameWriter(hvacTable)
-        dfw.saveAsTable('hvac')
+    # Infer the schema and create a table       
+    hvacTable = sqlContext.createDataFrame(hvac)
+    hvacTable.registerTempTable('hvactemptable')
+    dfw = DataFrameWriter(hvacTable)
+    dfw.saveAsTable('hvac')
+    ```
 
-7. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](/documentation/articles/hdinsight-apache-spark-jupyter-notebook-kernels/#parameters-supported-with-the-sql-magic).
+7. Verify that the table was successfully created. You can use the `%%sql` magic to run Hive queries directly. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Spark HDInsight clusters](./hdinsight-apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
-        %%sql
-        SHOW TABLES
+    ```
+    %%sql
+    SHOW TABLES
+    ```
 
     You see an output like shown below:
 
-        +---------------+-------------+
-        |tableName      |isTemporary  |
-        +---------------+-------------+
-        |hvactemptable  |true		 |
-        |hivesampletable|false  	  |
-        |hvac           |false  	  |
-        +---------------+-------------+
+    ```
+    +---------------+-------------+
+    |tableName      |isTemporary  |
+    +---------------+-------------+
+    |hvactemptable  |true		 |
+    |hivesampletable|false  	  |
+    |hvac           |false  	  |
+    +---------------+-------------+
+    ```
 
     Only the tables that have false under the **isTemporary** column are hive tables that are stored in the metastore and can be accessed from the BI tools. In this tutorial, we connect to the **hvac** table we created.
 
 8. Verify that the table contains the intended data. In an empty cell in the notebook, copy the following snippet and press **SHIFT + ENTER**.
 
-        %%sql
-        SELECT * FROM hvac LIMIT 10
+    ```
+    %%sql
+    SELECT * FROM hvac LIMIT 10
+    ```
 
 9. Shut down the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**.
 
@@ -150,7 +161,7 @@ Once you have saved the data as a table, you can use Power BI to connect to the 
 
 ## <a name="tableau"></a>Use Tableau Desktop to analyze data in the table
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This section is applicable only for Spark 1.5.2 clusters created in Azure HDInsight.
 >
 >
@@ -190,34 +201,34 @@ Once you have saved the data as a table, you can use Power BI to connect to the 
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
 
 ## <a name="seealso"></a>See also
-* [Overview: Apache Spark on Azure HDInsight](/documentation/articles/hdinsight-apache-spark-overview/)
+* [Overview: Apache Spark on Azure HDInsight](./hdinsight-apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](/documentation/articles/hdinsight-apache-spark-ipython-notebook-machine-learning/)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](/documentation/articles/hdinsight-apache-spark-machine-learning-mllib-ipython/)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](/documentation/articles/hdinsight-apache-spark-eventhub-streaming/)
-* [Website log analysis using Spark in HDInsight](/documentation/articles/hdinsight-apache-spark-custom-library-website-log-analysis/)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](./hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](./hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](./hdinsight-apache-spark-eventhub-streaming.md)
+* [Website log analysis using Spark in HDInsight](./hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
-* [Create a standalone application using Scala](/documentation/articles/hdinsight-apache-spark-create-standalone-application/)
-* [Run jobs remotely on a Spark cluster using Livy](/documentation/articles/hdinsight-apache-spark-livy-rest-interface/)
+* [Create a standalone application using Scala](./hdinsight-apache-spark-create-standalone-application.md)
+* [Run jobs remotely on a Spark cluster using Livy](./hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](/documentation/articles/hdinsight-apache-spark-use-zeppelin-notebook/)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](/documentation/articles/hdinsight-apache-spark-jupyter-notebook-kernels/)
-* [Use external packages with Jupyter notebooks](/documentation/articles/hdinsight-apache-spark-jupyter-notebook-use-external-packages/)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](/documentation/articles/hdinsight-apache-spark-jupyter-notebook-install-locally/)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](./hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](./hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter notebooks](./hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](./hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](/documentation/articles/hdinsight-apache-spark-resource-manager/)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](/documentation/articles/hdinsight-apache-spark-job-debugging/)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](./hdinsight-apache-spark-resource-manager.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](./hdinsight-apache-spark-job-debugging.md)
 
-[hdinsight-versions]: /documentation/articles/hdinsight-component-versioning/
-[hdinsight-upload-data]: /documentation/articles/hdinsight-upload-data/
-[hdinsight-storage]: /documentation/articles/hdinsight-hadoop-use-blob-storage/
+[hdinsight-versions]: ./hdinsight-component-versioning.md
+[hdinsight-upload-data]: ./hdinsight-upload-data.md
+[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
 
-[azure-purchase-options]: /pricing/overview/
-[azure-member-offers]: /pricing/member-offers/
-[azure-trial]: /pricing/1rmb-trial/
+[azure-purchase-options]: https://www.azure.cn/pricing/overview/
+[azure-member-offers]: https://www.azure.cn/pricing/member-offers/
+[azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-management-portal]: https://manage.windowsazure.cn/
-[azure-create-storageaccount]: /documentation/articles/storage-create-storage-account/
+[azure-create-storageaccount]: ../storage/storage-create-storage-account.md

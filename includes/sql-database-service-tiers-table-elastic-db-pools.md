@@ -1,4 +1,3 @@
-
 ### Basic elastic pool limits
 
 | Pool size (eDTUs)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
@@ -65,4 +64,3 @@
 ||||||||
 
 \* Pooled databases share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database. Max storage per pool refers to the maximum storage of the data files in the pool and does not include space used by log files.
-

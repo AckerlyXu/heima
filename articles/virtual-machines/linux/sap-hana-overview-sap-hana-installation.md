@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Install SAP HANA on SAP HANA on Azure (Large Instances) | Azure"
-    description="How to install SAP HANA on a SAP HANA on Azure (Large Instance)."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="RicksterCDN"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="virtual-machines-linux"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="12/01/2016"
-    wacn.date=""
-    ms.author="rclaus"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Install SAP HANA on SAP HANA on Azure (Large Instances) | Azure
+description: How to install SAP HANA on a SAP HANA on Azure (Large Instance).
+services: virtual-machines-linux
+documentationcenter: ''
+author: RicksterCDN
+manager: timlt
+editor: ''
+
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 12/01/2016
+wacn.date: ''
+ms.author: rclaus
+ms.custom: H1Hack27Feb2017
+---
 
 # How to install and configure SAP HANA (large instances) on Azure
 
@@ -27,15 +28,17 @@ There are specific connectivity considerations related to SAP HANA (server side)
 
 Add the following to the global.ini (either directly or through SAP HANA Studio):
 
-    [public\_hostname\_resolution]
-    use\_default\_route = no
-    map\_<hostname of SAP HANA on Azure (Large Instances) tenant> = <NAT IP Address (IP address that can be accessed in Azure)>
+```
+[public\_hostname\_resolution]
+use\_default\_route = no
+map\_<hostname of SAP HANA on Azure (Large Instances) tenant> = <NAT IP Address (IP address that can be accessed in Azure)>
+```
 
 See the section _Mapping Host Names for Database Client Access_ in the [SAP HANA Administration Guide](http://help.sap.com/hana/sap_hana_administration_guide_en.pdf) for more details and examples.
 
 On the client side (for SAP application servers in Azure), edit the /etc/hosts file (in Linux) or /system32/drivers/etc/hosts (in Windows Server) and include an entry for the hostname of the SAP HANA on Azure (Large Instances) tenant and its respective NATed IP address.
 
->[AZURE.NOTE] 
+>[!NOTE] 
 >When installing the SAP HANA Database Client, if there are errors when connecting to SAP HANA on Azure (Large Instances) during the installation of the SAP HANA Database Client, use the NAT IP address of the HANA Large Instances tenant implicitly instead of the hostname.
 
 ## Storage

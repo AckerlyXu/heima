@@ -1,25 +1,26 @@
-<properties
-   pageTitle="High availability checklist | Azure"
-   description="A quick checklist of settings and actions that you can take to ensure you are improving your applications availability with Azure."
-   services=""
-   documentationCenter="na"
-   authors="adamglick"
-   manager="saladki"
-   editor=""/>
+---
+title: High availability checklist | Azure
+description: A quick checklist of settings and actions that you can take to ensure you are improving your applications availability with Azure.
+services: ''
+documentationCenter: na
+authors: adamglick
+manager: saladki
+editor: ''
 
-<tags
-   ms.service="resiliency"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/18/2016"
-   ms.author="aglick"/>
+ms.service: resiliency
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/18/2016
+ms.author: aglick
+---
 
 #High availability checklist
 One of the great benefits of using Azure is the ability to increase the availability (and scalability) of your applications with the help of the cloud. To make sure you are making the most of those options, the checklist below is meant to help you with some of the key infrastructure basics to ensuring that your applications are resilient. 
 
->[AZURE.NOTE] Most of the suggestions below are things that can be implemented at any time in your application and thus are great for "quick fixes". The best long-term solution often involves an application design that is built for the cloud.  For a checklist on these (more design oriented areas, please read our [Availability checklist](../best-practices-availability-checklist.md).
+>[!NOTE]
+> Most of the suggestions below are things that can be implemented at any time in your application and thus are great for "quick fixes". The best long-term solution often involves an application design that is built for the cloud.  For a checklist on these (more design oriented areas, please read our [Availability checklist](../best-practices-availability-checklist.md).
 
 ###Are you using Traffic Manager in front of your resources?
 Using Traffic Manager helps you route internet traffic across Azure regions, or Azure and on-premises locations. You can do this for a number of reasons including latency and availability. If you would like to find out more information on how to use Traffic Manager to increase your resiliency and spread your traffic to multiple regions, read [Running VMs in multiple datacenters on Azure for high availability](../guidance/guidance-compute-multiple-datacenters.md).
@@ -52,24 +53,24 @@ It is a best practice to use premium storage for your production virtual machine
 __What happens if you don't use separate storage accounts for each virtual machine?__ A storage account, like many other resources is a single point of failure. Although there are many protections and resiliency features of Azure Storage, a single point of failure is never a good design. For instance, if access rights get corrupted to that account, a storage limit is hit, or an [IOPS limit](../azure-subscription-service-limits.md#virtual-machine-disk-limits) is reached, all virtual machines using that storage account are impacted. Additionally, if there is a service disruption that impacts a storage stamp that includes that particular storage account you could have multiple virtual machines impacted.
 
 ###Are you using a load balancer or a queue between each tier of your application?
-Using load balancers or queues between each tier of your application enables you to easily scale each tier of your application easily and independently. You should choose between these technologies based on your latency, complexity, and distribution (i.e. how widely you are distributing your app) needs. In general, queues tend to have higher latency and add complexity but benefit you at being more resilient and allowing you to distribute your application over larger areas (such as across regions). If you would like to find out more information on how to use internal load balancers or queues, please read [Internal Load balancer Overview](../load-balancer/load-balancer-internal-overview.md) and [Azure Queues and Service Bus queues - compared and contrasted](/documentation/articles/service-bus-azure-and-service-bus-queues-compared-contrasted/).
+Using load balancers or queues between each tier of your application enables you to easily scale each tier of your application easily and independently. You should choose between these technologies based on your latency, complexity, and distribution (i.e. how widely you are distributing your app) needs. In general, queues tend to have higher latency and add complexity but benefit you at being more resilient and allowing you to distribute your application over larger areas (such as across regions). If you would like to find out more information on how to use internal load balancers or queues, please read [Internal Load balancer Overview](../load-balancer/load-balancer-internal-overview.md) and [Azure Queues and Service Bus queues - compared and contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 __What happens if you don't use a load balancer or queue between each tier of your application?__ Without a load balancer, or queue, between each tier of your application it is difficult to scale your application up or down and distribute its load across multiple machines. Not doing this can lead to over, or under provisioning your resources and a risk of downtime, or poor user experience, if you have unexpected changes in traffic or system failures.
- 
+
 ###Are your SQL Databases using active geo-replication? 
 Active Geo-Replication enables you to configure up to 4 readable secondary databases in the same, or different, regions. Secondary databases are available in the case of a service disruption or the inability to connect to the primary database. If you want to know more about SQL Database active geo-replication, please read [Overview: SQL Database Active Geo-Replication](../sql-database/sql-database-geo-replication-overview.md).
- 
+
  __What happens if you don't use active geo-replication with your SQL databases?__ Without active geo-replication, if your primary database ever goes offline (planned maintenance, service disruption, hardware failure, etc.) your application database will be offline until you can bring your primary database back online in a healthy state. 
- 
+
 ###Are you using a cache (Azure Redis Cache) in front of your databases?
 If your application has a high database load where most of the database calls are reads, you can increase the speed of your application and decrease the load on your database by implementing a caching layer in front of your database to offload these read operations. You can increase the speed of your application and decrease your database load (thus increasing the scale it can handle) by placing a caching layer in front of your database. If you would like to learn more about the Azure Redis cache, please read [Caching guidance](../best-practices-caching.md).
- 
+
  __What happens if you don't use a cache in front of your database?__ If your database machine is powerful enough to handle the traffic load you put on it then your application will respond as normal, though this may mean that at lower load you will be paying for a database machine that is more expensive than necessary. If your database machine is not powerful enough to handle your load then you will start to experience poor user experience with your application (latency, timeouts, and possibly service downtime).
- 
+
 ###Have you contacted Azure Support if you are expecting a high scale event?
 Azure support can help you increase your service limits to deal with planned high traffic events (like new product launches or special holidays). Azure Support may also be able to help you connect with experts who can help you review your design with your account team and help you find the best solution to meet your high scale event needs. If you would like to find out more information on how to contact Azure support, please read the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
 
-__What happens if you don't contact Azure Support for a high-scale event?__ If you don’t communicate, or plan for, a high traffic event, you risk hitting certain [Azure services limits](/documentation/articles/azure-subscription-service-limits/) and thus creating a poor user experience (or worse, downtime) during your event. Architectural reviews and communicating ahead of surges can help mitigate these risks.
+__What happens if you don't contact Azure Support for a high-scale event?__ If you don’t communicate, or plan for, a high traffic event, you risk hitting certain [Azure services limits](../azure-subscription-service-limits.md) and thus creating a poor user experience (or worse, downtime) during your event. Architectural reviews and communicating ahead of surges can help mitigate these risks.
 
 ###Are you using a Content Delivery Network (Azure CDN) in front of your web-facing storage blobs and static assets?
 Using a CDN helps you take load off your servers by caching your content in the CDN POP/edge locations that are located around the world. You can do this to decrease latency, increase scalability, decrease server load, and as part of a strategy for protection from denial of service(DOS) attacks. If you would like to find out more information on how to use Azure CDN to increase your resiliency and decrease your customer latency, read [Overview of the Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md).

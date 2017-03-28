@@ -1,27 +1,26 @@
+---
+title: Getting recommendations in batches: Machine learning recommendations API | Azure
+description: Azure machine learning recommendations--getting recommendations in batches
+services: cognitive-services
+documentationCenter: ''
+authors: luiscabrer
+manager: paulettm
+editor: cgronlun
 
-<properties
-	pageTitle="Getting recommendations in batches: Machine learning recommendations API | Azure"
-	description="Azure machine learning recommendations--getting recommendations in batches"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="luiscabrer"
-	manager="paulettm"
-	editor="cgronlun"/>
-
-<tags
-	ms.service="cognitive-services"
-	ms.date="05/24/2016"
-	wacn.date=""/>
+ms.service: cognitive-services
+ms.date: 05/24/2016
+wacn.date: ''
+---
 
 # Get recommendations in batches
 
->[AZURE.NOTE] Getting recommendations in batches is more complicated than getting recommendations one at a time. Check the APIs for information about how to get recommendations for a single request:
+>[!NOTE]
+> Getting recommendations in batches is more complicated than getting recommendations one at a time. Check the APIs for information about how to get recommendations for a single request:
 
 > [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4)<br>
 > [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd)
 >
 > Batch scoring only works for builds that were created after July 21, 2016.
-
 
 There are situations in which you need to get recommendations for more than one item at a time. For instance, you might be interested in creating a recommendations cache or even analyzing the types of recommendations that you are getting.
 
@@ -29,11 +28,11 @@ Batch scoring operations, as we call them, are asynchronous operations. You need
 
 To be more precise, these are the steps to follow:
 
-1.	Create an Azure Storage container if you don’t have one already.
-2.	Upload an input file that describes each of your recommendation requests to Azure Blob storage.
-3.	Kick-start the scoring batch job.
-4.	Wait for the asynchronous operation to finish.
-5.	When the operation has finished, gather the results from Blob storage.
+1. Create an Azure Storage container if you don’t have one already.
+2. Upload an input file that describes each of your recommendation requests to Azure Blob storage.
+3. Kick-start the scoring batch job.
+4. Wait for the asynchronous operation to finish.
+5. When the operation has finished, gather the results from Blob storage.
 
 Let’s walk through each of these steps.
 
@@ -50,18 +49,20 @@ A batch can perform only one type of request from a specific build. We will expl
 
 This is an example of what the input.json file looks like:
 
-    {
-      "requests": [
-      { "SeedItems": [ "C9F-00163", "FKF-00689" ] },
-      { "SeedItems": [ "F34-03453" ] },
-      { "SeedItems": [ "D16-3244" ] },
-      { "SeedItems": [ "C9F-00163", "FKF-00689" ] },
-      { "SeedItems": [ "F43-01467" ] },
-      { "SeedItems": [ "BD5-06013" ] },
-      { "SeedItems": [ "P45-00163", "FKF-00689" ] },
-      { "SeedItems": [ "C9A-69320" ] }
-      ]
-    }
+```
+{
+  "requests": [
+  { "SeedItems": [ "C9F-00163", "FKF-00689" ] },
+  { "SeedItems": [ "F34-03453" ] },
+  { "SeedItems": [ "D16-3244" ] },
+  { "SeedItems": [ "C9F-00163", "FKF-00689" ] },
+  { "SeedItems": [ "F43-01467" ] },
+  { "SeedItems": [ "BD5-06013" ] },
+  { "SeedItems": [ "P45-00163", "FKF-00689" ] },
+  { "SeedItems": [ "C9A-69320" ] }
+  ]
+}
+```
 
 As you can see, the file is a JSON file, where each of the requests has the information that's necessary to send a recommendations request. Create a similar JSON file for the requests that you need to fulfill, and copy it to the container that you just created in Blob storage.
 
@@ -73,42 +74,44 @@ The request body of the API needs to define the locations where the input, outpu
 
 This is an example of what the request body should look like:
 
-    {
-      "input": {
-        "authenticationType": "PublicOrSas",
-        "baseLocation": "https://mystorage1.blob.core.chinacloudapi.cn/",
-        "relativeLocation": "container1/batchInput.json",
-        "sasBlobToken": "?sv=2015-07_restofToken_…4Z&sp=rw"
-      },
-      "output": {
-        "authenticationType": "PublicOrSas",
-        "baseLocation": "https://mystorage1.blob.core.chinacloudapi.cn/",
-        "relativeLocation": "container1/batchOutput.json ",
-        "sasBlobToken": "?sv=2015-07_restofToken_…4Z&sp=rw"
-      },
-      "error": {
-        "authenticationType": "PublicOrSas",
-        "baseLocation": "https://mystorage1.blob.core.chinacloudapi.cn/",
-        "relativeLocation": "container1/errors.txt",
-        "sasBlobToken": "?sv=2015-07_restofToken_…4Z&sp=rw"
-      },
-      "job": {
-        "apiName": "ItemRecommend",
-        "modelId": "9ac12a0a-1add-4bdc-bf42-c6517942b3a6",
-        "buildId": 1015703,
-        "numberOfResults": 10,
-        "includeMetadata": true,
-        "minimalScore": 0.0
-      }
-    }
+```
+{
+  "input": {
+    "authenticationType": "PublicOrSas",
+    "baseLocation": "https://mystorage1.blob.core.chinacloudapi.cn/",
+    "relativeLocation": "container1/batchInput.json",
+    "sasBlobToken": "?sv=2015-07_restofToken_…4Z&sp=rw"
+  },
+  "output": {
+    "authenticationType": "PublicOrSas",
+    "baseLocation": "https://mystorage1.blob.core.chinacloudapi.cn/",
+    "relativeLocation": "container1/batchOutput.json ",
+    "sasBlobToken": "?sv=2015-07_restofToken_…4Z&sp=rw"
+  },
+  "error": {
+    "authenticationType": "PublicOrSas",
+    "baseLocation": "https://mystorage1.blob.core.chinacloudapi.cn/",
+    "relativeLocation": "container1/errors.txt",
+    "sasBlobToken": "?sv=2015-07_restofToken_…4Z&sp=rw"
+  },
+  "job": {
+    "apiName": "ItemRecommend",
+    "modelId": "9ac12a0a-1add-4bdc-bf42-c6517942b3a6",
+    "buildId": 1015703,
+    "numberOfResults": 10,
+    "includeMetadata": true,
+    "minimalScore": 0.0
+  }
+}
+```
 
 Here a few important things to note:
 
--	Currently, **authenticationType** should always be set to **PublicOrSas**.
+- Currently, **authenticationType** should always be set to **PublicOrSas**.
 
--	You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+- You need to get a Shared Access Signature (SAS) token to allow the Recommendations API to read and write from/to your Blob storage account. More information about how to generate SAS tokens can be found on [the Recommendations API page](../storage/storage-dotnet-shared-access-signature-part-1.md).
 
--	The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. Batching doesn't currently support User-to-Item recommendations.
+- The only **apiName** that's currently supported is **ItemRecommend**, which is used for Item-to-Item  recommendations. Batching doesn't currently support User-to-Item recommendations.
 
 ## Wait for the asynchronous operation to finish
 
@@ -121,78 +124,79 @@ After the operation has finished, assuming that there were no errors, you can ga
 
 The example below show what the output might look like. In this example, we show results for a batch with only two requests (for brevity).
 
+```
+{
+  "results":
+  [   
     {
-      "results":
-      [   
+      "request": { "seedItems": [ "DAF-00500", "P3T-00003" ] },
+      "recommendations": [
         {
-          "request": { "seedItems": [ "DAF-00500", "P3T-00003" ] },
-          "recommendations": [
+          "items": [
             {
-              "items": [
-                {
-                  "itemId": "F5U-00011",
-                  "name": "L2 Ethernet Adapter-Win8Pro SC EN/XD/XX Hdwr",
-                  "metadata": ""
-                }
-              ],
-              "rating": 0.722,
-              "reasoning": [ "People who like the selected items also like 'L2 Ethernet Adapter-Win8Pro SC EN/XD/XX Hdwr'" ]
-            },
-            {
-              "items": [
-                {
-                  "itemId": "G5Y-00001",
-                  "name": "Docking Station for Srf Pro/Pro2 SC EN/XD/ES Hdwr",
-                  "metadata": ""
-                }
-              ],
-              "rating": 0.718,
-              "reasoning": [ "People who like the selected items also like 'Docking Station for Srf Pro/Pro2 SC EN/XD/ES Hdwr'" ]
+              "itemId": "F5U-00011",
+              "name": "L2 Ethernet Adapter-Win8Pro SC EN/XD/XX Hdwr",
+              "metadata": ""
             }
-          ]
+          ],
+          "rating": 0.722,
+          "reasoning": [ "People who like the selected items also like 'L2 Ethernet Adapter-Win8Pro SC EN/XD/XX Hdwr'" ]
         },
         {
-          "request": { "seedItems": [ "C9F-00163" ] },
-          "recommendations": [
+          "items": [
             {
-              "items": [
-                {
-                  "itemId": "C9F-00172",
-                  "name": "Nokia 2K Shell for Nokia Lumia 630/635 - Green",
-                  "metadata": ""
-                }
-              ],
-              "rating": 0.649,
-              "reasoning": [ "People who like 'MOZO Flip Cover for Nokia Lumia 635 - White' also like 'Nokia 2K Shell for Nokia Lumia 630/635 - Green'" ]
-            },
-            {
-              "items": [
-                {
-                  "itemId": "C9F-00171",
-                  "name": "Nokia 2K Shell for Nokia Lumia 630/635 - Orange",
-                  "metadata": ""
-                }
-              ],
-              "rating": 0.647,
-              "reasoning": [ "People who like 'MOZO Flip Cover for Nokia Lumia 635 - White' also like 'Nokia 2K Shell for Nokia Lumia 630/635 - Orange'" ]
-            },
-            {
-              "items": [
-                {
-                  "itemId": "C9F-00170",
-                  "name": "Nokia 2K Shell for Nokia Lumia 630/635 - Yellow",
-                  "metadata": ""
-                }
-              ],
-              "rating": 0.646,
-              "reasoning": [ "People who like 'MOZO Flip Cover for Nokia Lumia 635 - White' also like 'Nokia 2K Shell for Nokia Lumia 630/635 - Yellow'" ]
-            }       
-          ]
+              "itemId": "G5Y-00001",
+              "name": "Docking Station for Srf Pro/Pro2 SC EN/XD/ES Hdwr",
+              "metadata": ""
+            }
+          ],
+          "rating": 0.718,
+          "reasoning": [ "People who like the selected items also like 'Docking Station for Srf Pro/Pro2 SC EN/XD/ES Hdwr'" ]
         }
-    ]}
-
+      ]
+    },
+    {
+      "request": { "seedItems": [ "C9F-00163" ] },
+      "recommendations": [
+        {
+          "items": [
+            {
+              "itemId": "C9F-00172",
+              "name": "Nokia 2K Shell for Nokia Lumia 630/635 - Green",
+              "metadata": ""
+            }
+          ],
+          "rating": 0.649,
+          "reasoning": [ "People who like 'MOZO Flip Cover for Nokia Lumia 635 - White' also like 'Nokia 2K Shell for Nokia Lumia 630/635 - Green'" ]
+        },
+        {
+          "items": [
+            {
+              "itemId": "C9F-00171",
+              "name": "Nokia 2K Shell for Nokia Lumia 630/635 - Orange",
+              "metadata": ""
+            }
+          ],
+          "rating": 0.647,
+          "reasoning": [ "People who like 'MOZO Flip Cover for Nokia Lumia 635 - White' also like 'Nokia 2K Shell for Nokia Lumia 630/635 - Orange'" ]
+        },
+        {
+          "items": [
+            {
+              "itemId": "C9F-00170",
+              "name": "Nokia 2K Shell for Nokia Lumia 630/635 - Yellow",
+              "metadata": ""
+            }
+          ],
+          "rating": 0.646,
+          "reasoning": [ "People who like 'MOZO Flip Cover for Nokia Lumia 635 - White' also like 'Nokia 2K Shell for Nokia Lumia 630/635 - Yellow'" ]
+        }       
+      ]
+    }
+]}
+```
 
 ## Learn about the limitations
 
--	Only one batch job can be called per subscription at a time.
--	A batch job input file cannot be more than 2 MB.
+- Only one batch job can be called per subscription at a time.
+- A batch job input file cannot be more than 2 MB.

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understand Azure IoT Hub  file upload | Azure"
-    description="Developer guide - use the file upload feature of IoT Hub to manage uploading files from a device to an Azure storage blob container."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="a0427925-3e40-4fcd-96c1-2a31d1ddc14b"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Understand Azure IoT Hub  file upload | Azure
+description: Developer guide - use the file upload feature of IoT Hub to manage uploading files from a device to an Azure storage blob container.
+services: iot-hub
+documentationcenter: .net
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: a0427925-3e40-4fcd-96c1-2a31d1ddc14b
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # File uploads with IoT Hub
 ## Overview
@@ -104,12 +105,12 @@ As explained in [Endpoints][lnk-endpoints], IoT Hub delivers file upload notific
 
 ```
 {
-	"deviceId":"mydevice",
-	"blobUri":"https://{storage account}.blob.core.chinacloudapi.cn/{container name}/mydevice/myfile.jpg",
-	"blobName":"mydevice/myfile.jpg",
-	"lastUpdatedTime":"2016-06-01T21:22:41+00:00",
-	"blobSizeInBytes":1234,
-	"enqueuedTimeUtc":"2016-06-01T21:22:43.7996883Z"
+    "deviceId":"mydevice",
+    "blobUri":"https://{storage account}.blob.core.chinacloudapi.cn/{container name}/mydevice/myfile.jpg",
+    "blobName":"mydevice/myfile.jpg",
+    "lastUpdatedTime":"2016-06-01T21:22:41+00:00",
+    "blobSizeInBytes":1234,
+    "enqueuedTimeUtc":"2016-06-01T21:22:43.7996883Z"
 }
 ```
 
@@ -146,22 +147,22 @@ If you would like to try out some of the concepts described in this article, you
 - [How to upload files from devices to the cloud with IoT Hub][lnk-fileupload-tutorial]
 
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/zh-cn/library/mt548492.aspx
-[lnk-endpoints]: /documentation/articles/iot-hub-devguide-endpoints/
-[lnk-quotas]: /documentation/articles/iot-hub-devguide-quotas-throttling/
-[lnk-sdks]: /documentation/articles/iot-hub-devguide-sdks/
-[lnk-query]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-devguide-mqtt]: /documentation/articles/iot-hub-mqtt-support/
+[lnk-endpoints]: ./iot-hub-devguide-endpoints.md
+[lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
+[lnk-query]: ./iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
 [lnk-management-portal]: https://portal.azure.cn
-[lnk-fileupload-tutorial]: /documentation/articles/iot-hub-csharp-csharp-file-upload/
-[lnk-associate-storage]: /documentation/articles/iot-hub-devguide-file-upload/#associate-an-azure-storage-account-with-iot-hub
-[lnk-initialize]: /documentation/articles/iot-hub-devguide-file-upload/#initialize-a-file-upload
-[lnk-notify]: /documentation/articles/iot-hub-devguide-file-upload/#notify-iot-hub-of-a-completed-file-upload
-[lnk-service-notification]: /documentation/articles/iot-hub-devguide-file-upload/#file-upload-notifications
-[lnk-lifecycle]: /documentation/articles/iot-hub-devguide-messaging/#message-lifecycle
-[lnk-d2c-guidance]: /documentation/articles/iot-hub-devguide-d2c-guidance/
+[lnk-fileupload-tutorial]: ./iot-hub-csharp-csharp-file-upload.md
+[lnk-associate-storage]: ./iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub
+[lnk-initialize]: ./iot-hub-devguide-file-upload.md#initialize-a-file-upload
+[lnk-notify]: ./iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload
+[lnk-service-notification]: ./iot-hub-devguide-file-upload.md#file-upload-notifications
+[lnk-lifecycle]: ./iot-hub-devguide-messaging.md#message-lifecycle
+[lnk-d2c-guidance]: ./iot-hub-devguide-d2c-guidance.md
 
-[lnk-devguide-identities]: /documentation/articles/iot-hub-devguide-identity-registry/
-[lnk-devguide-security]: /documentation/articles/iot-hub-devguide-security/
-[lnk-devguide-device-twins]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-devguide-directmethods]: /documentation/articles/iot-hub-devguide-direct-methods/
-[lnk-devguide-jobs]: /documentation/articles/iot-hub-devguide-jobs/
+[lnk-devguide-identities]: ./iot-hub-devguide-identity-registry.md
+[lnk-devguide-security]: ./iot-hub-devguide-security.md
+[lnk-devguide-device-twins]: ./iot-hub-devguide-device-twins.md
+[lnk-devguide-directmethods]: ./iot-hub-devguide-direct-methods.md
+[lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md

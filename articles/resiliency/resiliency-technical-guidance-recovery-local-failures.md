@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Technical guidance: Recovery from local failures in Azure | Azure"
-    description="Article on understanding and designing resilient, highly available, fault-tolerant applications, as well as planning for disaster recovery focused on local failures within Azure."
-    services=""
-    documentationcenter="na"
-    author="adamglick"
-    manager="saladki"
-    editor="" />
-<tags
-    ms.assetid="2e50f6c1-fa61-4c7d-ac26-566a142fbfc2"
-    ms.service="resiliency"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/18/2016"
-    wacn.date=""
-    ms.author="aglick" />
+---
+title: Technical guidance: Recovery from local failures in Azure | Azure
+description: Article on understanding and designing resilient, highly available, fault-tolerant applications, as well as planning for disaster recovery focused on local failures within Azure.
+services: ''
+documentationcenter: na
+author: adamglick
+manager: saladki
+editor: ''
+
+ms.assetid: 2e50f6c1-fa61-4c7d-ac26-566a142fbfc2
+ms.service: resiliency
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/18/2016
+wacn.date: ''
+ms.author: aglick
+---
 
 # Azure resiliency technical guidance: Recovery from local failures in Azure
 
@@ -45,7 +46,7 @@ Finally, all long-running operations should be invoked repeatedly until they suc
 
 ### Elasticity
 
-The initial number of instances running for each role is determined in each role's configuration. Administrators should initially configure each role to run with two or more instances based on expected load. But you can easily scale role instances up or down as usage patterns change. You can do this manually in the Azure portal preview, or you can automate the process by using Windows PowerShell, the Service Management API, or third-party tools. For more information, see [How to autoscale an application](/documentation/articles/cloud-services-how-to-scale/).
+The initial number of instances running for each role is determined in each role's configuration. Administrators should initially configure each role to run with two or more instances based on expected load. But you can easily scale role instances up or down as usage patterns change. You can do this manually in the Azure portal preview, or you can automate the process by using Windows PowerShell, the Service Management API, or third-party tools. For more information, see [How to autoscale an application](../cloud-services/cloud-services-how-to-scale.md).
 
 ### Partitioning
 
@@ -54,7 +55,7 @@ The Azure fabric controller uses two types of partitions:
 * An *update domain* is used to upgrade a service's role instances in groups. Azure deploys service instances into multiple update domains. For an in-place update, the fabric controller brings down all the instances in one update domain, updates them, and then restarts them before moving to the next update domain. This approach prevents the entire service from being unavailable during the update process.
 * A *fault domain* defines potential points of hardware or network failure. For any role that has more than one instance, the fabric controller ensures that the instances are distributed across multiple fault domains, to prevent isolated hardware failures from disrupting service. Fault domains govern all exposure to server and cluster failures.
 
-The [Azure service-level agreement (SLA)](/support/legal/sla/) guarantees that when two or more web role instances are deployed to different fault and upgrade domains, they'll have external connectivity at least 99.95 percent of the time. Unlike update domains, there's no way to control the number of fault domains. Azure automatically allocates fault domains and distributes role instances across them. At least the first two instances of every role are placed in different fault and upgrade domains to ensure that any role with at least two instances will satisfy the SLA. This is represented in the following diagram.
+The [Azure service-level agreement (SLA)](https://www.azure.cn/support/legal/sla/) guarantees that when two or more web role instances are deployed to different fault and upgrade domains, they'll have external connectivity at least 99.95 percent of the time. Unlike update domains, there's no way to control the number of fault domains. Azure automatically allocates fault domains and distributes role instances across them. At least the first two instances of every role are placed in different fault and upgrade domains to ensure that any role with at least two instances will satisfy the SLA. This is represented in the following diagram.
 
 ![Simplified view of fault domain isolation](./media/resiliency-technical-guidance-recovery-local-failures/partitioning-1.png)
 
@@ -111,8 +112,8 @@ A virtual machine's disk is stored as a page blob in Azure Storage, giving it al
 
 Azure SQL Database provides database as a service. It allows applications to quickly provision, insert data into, and query relational databases. It provides many of the familiar SQL Server features and functionality, while abstracting the burden of hardware, configuration, patching, and resiliency.
 
-> [AZURE.NOTE]
-> Azure SQL Database does not provide one-to-one feature parity with SQL Server. It's intended to fulfill a different set of requirements--one that's uniquely suited to cloud applications (elastic scale, database as a service to reduce maintenance costs, and so on). For more information, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](/documentation/articles/sql-database-paas-vs-sql-server-iaas/).
+> [!NOTE]
+> Azure SQL Database does not provide one-to-one feature parity with SQL Server. It's intended to fulfill a different set of requirements--one that's uniquely suited to cloud applications (elastic scale, database as a service to reduce maintenance costs, and so on). For more information, see [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 > 
 > 
 
@@ -122,7 +123,7 @@ Azure SQL Database provides built-in resiliency to node-level failure. All write
 
 #### Resource management
 
-Each database, when created, is configured with an upper size limit. The currently available maximum size is 1 TB (size limits vary based on your service tier, see [service tiers and performance levels of Azure SQL Databases](/documentation/articles/sql-database-resource-limits/#service-tiers-and-performance-levels). When a database hits its upper size limit, it rejects additional INSERT or UPDATE commands. (Querying and deleting data is still possible.)
+Each database, when created, is configured with an upper size limit. The currently available maximum size is 1 TB (size limits vary based on your service tier, see [service tiers and performance levels of Azure SQL Databases](../sql-database/sql-database-resource-limits.md#service-tiers-and-performance-levels). When a database hits its upper size limit, it rejects additional INSERT or UPDATE commands. (Querying and deleting data is still possible.)
 
 Within a database, Azure SQL Database uses a fabric to manage resources. However, instead of a fabric controller, it uses a ring topology to detect failures. Every replica in a cluster has two neighbors and is responsible for detecting when they go down. When a replica goes down, its neighbors trigger a reconfiguration agent to re-create it on another machine. Engine throttling is provided to ensure that a logical server doesn't use too many resources on a machine or exceed the machine's physical limits.
 
@@ -146,17 +147,17 @@ For Azure Cloud Services VMs deployed through the Classic Management Portal to b
 
 You can have a high-availability solution for your SQL Server databases in Azure by using AlwaysOn Availability Groups or database mirroring.
 
-The following diagram demonstrates the architecture of AlwaysOn Availability Groups running on Azure Virtual Machines. This diagram was taken from the in-depth article on this subject, [High availability and disaster recovery for SQL Server on Azure Virtual Machines](/documentation/articles/virtual-machines-windows-sql-high-availability-dr/).
+The following diagram demonstrates the architecture of AlwaysOn Availability Groups running on Azure Virtual Machines. This diagram was taken from the in-depth article on this subject, [High availability and disaster recovery for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![AlwaysOn Availability Groups in Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
 You can also automatically provision an AlwaysOn Availability Groups deployment end-to-end on Azure VMs by using the AlwaysOn template in the Azure portal preview. For more information, see [SQL Server AlwaysOn Offering in Azure Portal Preview Gallery](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-The following diagram demonstrates the use of database mirroring on Azure Virtual Machines. It was also taken from the in-depth topic [High availability and disaster recovery for SQL Server on Azure Virtual Machines](/documentation/articles/virtual-machines-windows-sql-high-availability-dr/).
+The following diagram demonstrates the use of database mirroring on Azure Virtual Machines. It was also taken from the in-depth topic [High availability and disaster recovery for SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![Database mirroring in Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Both architectures require a domain controller. However, with database mirroring, it's possible to use server certificates to eliminate the need for a domain controller.
 > 
 > 
@@ -167,11 +168,11 @@ Applications that are built on Azure benefit from platform capabilities to recov
 
 ### Service Bus
 
-To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best practices for performance improvements using Service Bus brokered messaging](/documentation/articles/service-bus-performance-improvements/) and [Service Bus (disaster recovery)](/documentation/articles/resiliency-technical-guidance-recovery-loss-azure-region/#other-azure-platform-services).
+To mitigate against a temporary outage of Azure Service Bus, consider creating a durable client-side queue. This temporarily uses an alternate, local storage mechanism to store messages that cannot be added to the Service Bus queue. The application can decide how to handle the temporarily stored messages after the service is restored. For more information, see [Best practices for performance improvements using Service Bus brokered messaging](../service-bus-messaging/service-bus-performance-improvements.md) and [Service Bus (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ### HDInsight
 
-The data that's associated with Azure HDInsight is stored by default in Azure Blob storage. Azure Storage specifies high-availability and durability properties for Blob storage. The multiple-node processing that's associated with Hadoop MapReduce jobs occurs on a transient Hadoop Distributed File System (HDFS) that is provisioned when HDInsight needs it. Results from a MapReduce job are also stored by default in Azure Blob storage, so that the processed data is durable and remains highly available after the Hadoop cluster is deprovisioned. For more information, see [HDInsight (disaster recovery)](/documentation/articles/resiliency-technical-guidance-recovery-loss-azure-region/#other-azure-platform-services).
+The data that's associated with Azure HDInsight is stored by default in Azure Blob storage. Azure Storage specifies high-availability and durability properties for Blob storage. The multiple-node processing that's associated with Hadoop MapReduce jobs occurs on a transient Hadoop Distributed File System (HDFS) that is provisioned when HDInsight needs it. Results from a MapReduce job are also stored by default in Azure Blob storage, so that the processed data is durable and remains highly available after the Hadoop cluster is deprovisioned. For more information, see [HDInsight (disaster recovery)](./resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ## Checklists for local failures
 
@@ -222,4 +223,4 @@ The data that's associated with Azure HDInsight is stored by default in Azure Bl
 
 ## Next steps
 
-This article is part of a series focused on [Azure resiliency technical guidance](/documentation/articles/resiliency-technical-guidance/). The next article in this series is [Recovery from a region-wide service disruption](/documentation/articles/resiliency-technical-guidance-recovery-loss-azure-region/).
+This article is part of a series focused on [Azure resiliency technical guidance](./resiliency-technical-guidance.md). The next article in this series is [Recovery from a region-wide service disruption](./resiliency-technical-guidance-recovery-loss-azure-region.md).

@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Restore an Azure SQL Data Warehouse (REST API) | Azure"
-   description="REST API tasks for restoring an Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="Lakshmi1812"
-   manager="barbkess"
-   editor=""/>
+---
+title: Restore an Azure SQL Data Warehouse (REST API) | Azure
+description: REST API tasks for restoring an Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: Lakshmi1812
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="lakshmir;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: lakshmir;barbkess;sonyama
+---
 
 # Restore an Azure SQL Data Warehouse (REST API)
 
-> [AZURE.SELECTOR]
-- [Overview][]
-- [Portal][]
-- [PowerShell][]
-- [REST][]
+> [!div class="op_single_selector"]
+>- [Overview][]
+>- [Portal][]
+>- [PowerShell][]
+>- [REST][]
 
 In this article you will learn how to restore an Azure SQL Data Warehouse using the REST API.
 
@@ -38,19 +38,20 @@ To restore a database:
 2. Begin your restore by using the [Create database restore request][] operation.
 3. Track the status of your restore by using the [Database operation status][] operation.
 
->[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][].
+>[!NOTE]
+> After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][].
 
 ## Restore a deleted database
 
 To restore a deleted database:
 
-1.	List all of your restorable deleted databases by using the [List restorable dropped databases][] operation.
-2.	Get the details for the deleted database you want to restore by using the [Get restorable dropped database][] operation.
-3.	Begin your restore by using the [Create database restore request][] operation.
-4.	Track the status of your restore by using the [Database operation status][] operation.
+1. List all of your restorable deleted databases by using the [List restorable dropped databases][] operation.
+2. Get the details for the deleted database you want to restore by using the [Get restorable dropped database][] operation.
+3. Begin your restore by using the [Create database restore request][] operation.
+4. Track the status of your restore by using the [Database operation status][] operation.
 
->[AZURE.NOTE] To configure your database after the restore has completed, see [Configure your database after recovery][]. 
-
+>[!NOTE]
+> To configure your database after the restore has completed, see [Configure your database after recovery][]. 
 
 ## Next steps
 To learn about the business continuity features of Azure SQL Database editions, please read the [Azure SQL Database business continuity overview][].
@@ -58,14 +59,14 @@ To learn about the business continuity features of Azure SQL Database editions, 
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL Database business continuity overview]: /documentation/articles/sql-database-business-continuity/
-[Request a DTU quota change]: /documentation/articles/sql-data-warehouse-get-started-create-support-ticket#request-quota-change
-[Configure your database after recovery]: /documentation/articles/sql-database-disaster-recovery#configure-your-database-after-recovery
-[How to install and configure Azure PowerShell]: /documentation/articles/powershell-install-configure/
-[Overview]: /documentation/articles/sql-data-warehouse-restore-database-overview/
-[Portal]: /documentation/articles/sql-data-warehouse-restore-database-portal/
-[PowerShell]: /documentation/articles/sql-data-warehouse-restore-database-powershell/
-[REST]: /documentation/articles/sql-data-warehouse-restore-database-rest-api/
+[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
+[How to install and configure Azure PowerShell]: ../powershell-install-configure.md
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
 <!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/zh-cn/library/azure/dn509571.aspx

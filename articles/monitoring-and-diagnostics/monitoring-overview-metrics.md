@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Overview of metrics in Microsoft Azure | Azure"
-	description="Overview of metrics and their uses in Microsoft Azure"
-	authors="kamathashwin"
-	manager="carmon"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Overview of metrics in Microsoft Azure | Azure
+description: Overview of metrics and their uses in Microsoft Azure
+authors: kamathashwin
+manager: carmon
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/02/2017"
-	ms.author="ashwink"
-	wacn.date=""/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/02/2017
+ms.author: ashwink
+wacn.date: ''
+---
 
- 
 # Overview of metrics in Azure
 This article describes what metrics are in Azure, their benefits, and how to get started using them.  
 
@@ -76,8 +75,8 @@ Following is a quick walkthrough of how to create a metric chart by using the Az
 
    ![Access all metrics in a single place in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
-> [AZURE.NOTE]
-> You can access host-level metrics from VMs (Azure Resource Manager-based) and virtual machine scale sets without any additional diagnostic setup. These new host-level metrics are available for Windows and Linux instances. These metrics are not to be confused with the Guest-OS-level metrics that you have access to when you turn on Azure Diagnostics on your VMs or virtual machine scale sets. To learn more about configuring Diagnostics, see [What is Microsoft Azure Diagnostics](/documentation/articles/azure-diagnostics/).
+> [!NOTE]
+> You can access host-level metrics from VMs (Azure Resource Manager-based) and virtual machine scale sets without any additional diagnostic setup. These new host-level metrics are available for Windows and Linux instances. These metrics are not to be confused with the Guest-OS-level metrics that you have access to when you turn on Azure Diagnostics on your VMs or virtual machine scale sets. To learn more about configuring Diagnostics, see [What is Microsoft Azure Diagnostics](../azure-diagnostics.md).
 >
 >
 
@@ -87,19 +86,19 @@ Azure Metrics can be accessed via the Azure Monitor APIs. There are two APIs tha
 * Use the [Azure Monitor Metric definitions REST API](https://msdn.microsoft.com/library/mt743621.aspx) to access the list of metrics that are available for a service.
 * Use the [Azure Monitor Metrics REST API](https://msdn.microsoft.com/library/mt743622.aspx) to access the actual metrics data.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This article covers the metrics via the [new API for metrics](https://msdn.microsoft.com/library/dn931930.aspx) for Azure resources. The API version for the new metric definitions API is 2016-03-01 and the version for metrics API is 2016-09-01. The legacy metric definitions and metrics can be accessed with the API version 2014-04-01.
 >
 >
 
-For a more detailed walkthrough using the Azure Monitor REST APIs, see [Azure Monitor REST API Walkthrough](/documentation/articles/monitoring-rest-api-walkthrough/).
+For a more detailed walkthrough using the Azure Monitor REST APIs, see [Azure Monitor REST API Walkthrough](./monitoring-rest-api-walkthrough.md).
 
 ## Export metrics
 You can go to the **Diagnostics settings** blade under the **Monitor** tab and view the export options for metrics. You can select metrics (and diagnostic logs) to be routed to Blob storage, to Azure Event Hubs, or to OMS for use-cases that were mentioned previously in this article.
 
  ![Export options for metrics in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview3.png)	
 
-You can configure this via Resource Manager templates, [PowerShell](insights-powershell-samples.md), [Azure CLI](/documentation/articles/insights-cli-samples/) or [REST APIs](https://msdn.microsoft.com/zh-cn/library/dn931943.aspx). 
+You can configure this via Resource Manager templates, [PowerShell](insights-powershell-samples.md), [Azure CLI](./insights-cli-samples.md) or [REST APIs](https://msdn.microsoft.com/zh-cn/library/dn931943.aspx). 
 
 ## Take action on metrics
 To receive notifications or take automated actions on metric data, you can configure alert rules or Autoscale settings.
@@ -110,7 +109,7 @@ You can configure alert rules on metrics. These alert rules can check if a metri
  ![Metrics and alert rules in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
 ### Autoscale your Azure resources
-Some Azure resources support the scaling out or in of multiple instances to handle your workloads. Autoscale applies to App Service (Web Apps), virtual machine scale sets, and classic Azure Cloud Services. You can configure Autoscale rules to scale out or in when a certain metric that impacts your workload crosses a threshold that you specify. For more information, see [Overview of autoscaling](/documentation/articles/monitoring-overview-autoscale/).
+Some Azure resources support the scaling out or in of multiple instances to handle your workloads. Autoscale applies to App Service (Web Apps), virtual machine scale sets, and classic Azure Cloud Services. You can configure Autoscale rules to scale out or in when a certain metric that impacts your workload crosses a threshold that you specify. For more information, see [Overview of autoscaling](./monitoring-overview-autoscale.md).
 
  ![Metrics and autoscale in Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
@@ -132,14 +131,10 @@ Azure Monitor is a new metrics infrastructure. It supports the following Azure s
 * Networking: Application gateways
 * Search
 
-You can view a a detailed list of all the supported services and their metrics at [Azure Monitor metrics - supported metrics per resource type](/documentation/articles/monitoring-supported-metrics/). 
+You can view a a detailed list of all the supported services and their metrics at [Azure Monitor metrics - supported metrics per resource type](./monitoring-supported-metrics.md). 
 
 ## Next steps
 Refer to the links throughout this article. Additionally, learn about:  
 
-- about [common metrics for autoscaling](/documentation/articles/insights-autoscale-common-metrics/)
-- how to [create alert rules](/documentation/articles/insights-alerts-portal/)
-
-
-
-
+- about [common metrics for autoscaling](./insights-autoscale-common-metrics.md)
+- how to [create alert rules](./insights-alerts-portal.md)

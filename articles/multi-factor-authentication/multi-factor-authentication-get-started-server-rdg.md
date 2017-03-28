@@ -1,16 +1,16 @@
-<properties 
-	pageTitle="Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS" 
-	description="This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
-	editor="curtand"/>
+---
+title: Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
+description: This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS.
+services: multi-factor-authentication
+documentationCenter: ''
+authors: billmath
+manager: femila
+editor: curtand
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.date="08/15/2016" 
-	wacn.date=""/>
+ms.service: multi-factor-authentication
+ms.date: 08/15/2016
+wacn.date: ''
+---
 
 # Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
 
@@ -18,17 +18,9 @@ In many cases, Remote Desktop Gateway uses the local NPS to authenticate users. 
 
 The Multi-Factor Authentication Server should be installed on a separate server, which will then proxy the RADIUS request back to the NPS on the Remote Desktop Gateway Server. After NPS validates the username and password, it will return a response to the Multi-Factor Authentication Server which performs the second factor of authentication before returning a result to the gateway.
 
-
-
-
-
 ## Configure the RD Gateway
 
 The RD Gateway must be configured to send RADIUS authentication to an Azure Multi-Factor Authentication Server. Once RD Gateway has been installed, configured and is working, go into the RD Gateway properties. Go to the RD CAP Store tab and change it to use a Central server running NPS instead of Local server running NPS. Add one or more Azure Multi-Factor Authentication Servers as RADIUS servers and specify a shared secret for each server.
-
-
-
-
 
 ## Configure NPS
 
@@ -41,10 +33,7 @@ The RD Gateway uses NPS to send the RADIUS request to Azure Multi-Factor Authent
 
 ## Configure Azure Multi-Factor Authentication
 
-
 --------------------------------------------------------------------------------
-
-
 
 The Azure Multi-Factor Authentication Server is configured as a RADIUS proxy between RD Gateway and NPS.  It should be installed on a domain-joined server that is separate from the RD Gateway server. Use the following procedure to configure the Azure Multi-Factor Authentication Server.
 

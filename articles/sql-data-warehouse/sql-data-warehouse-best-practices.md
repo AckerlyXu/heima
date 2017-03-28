@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Best practices for Azure SQL Data Warehouse | Azure"
-   description="Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. These will help you be successful."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Best practices for Azure SQL Data Warehouse | Azure
+description: Recommendations and best practices you should know as you develop solutions for Azure SQL Data Warehouse. These will help you be successful.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="sonyama;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: sonyama;barbkess
+---
 
 # Best practices for Azure SQL Data Warehouse
 This article is a collection of many best practices that will help you to achieve optimal performance from your Azure SQL Data Warehouse.  Some of the concepts in this article are basic and easy to explain, other concepts are more advanced and we just scratch the surface in this article.  The purpose of this article is to give you some basic guidance and to raise awareness of important areas to focus as you build your data warehouse.  Each section introduces you to a concept and then point you to more detailed articles which cover the concept in more depth.
@@ -110,32 +110,32 @@ Finally, please do use the [Azure SQL Data Warehouse Feedback][Azure SQL Data Wa
 <!--Image references-->
 
 <!--Article references-->
-[Create a support ticket]: /documentation/articles/sql-data-warehouse-get-started-create-support-ticket
-[Concurrency and workload management]: /documentation/articles/sql-data-warehouse-develop-concurrency
-[Create table as select (CTAS)]: /documentation/articles/sql-data-warehouse-develop-ctas
-[Table overview]: /documentation/articles/sql-data-warehouse-tables-overview
-[Table data types]: /documentation/articles/sql-data-warehouse-tables-data-types
-[Table distribution]: /documentation/articles/sql-data-warehouse-tables-distribute
-[Table indexes]: /documentation/articles/sql-data-warehouse-tables-index
-[Causes of poor columnstore index quality]: /documentation/articles/sql-data-warehouse-tables-index#causes-of-poor-columnstore-index-quality
-[Rebuilding columnstore indexes]: /documentation/articles/sql-data-warehouse-tables-index#rebuilding-indexes-to-improve-segment-quality
-[Table partitioning]: /documentation/articles/sql-data-warehouse-tables-partition
-[Manage table statistics]: /documentation/articles/sql-data-warehouse-tables-statistics
-[Temporary tables]: /documentation/articles/sql-data-warehouse-tables-temporary
-[Guide for using PolyBase]: /documentation/articles/sql-data-warehouse-load-polybase-guide
-[Load data]: /documentation/articles/sql-data-warehouse-overview-load
+[Create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Create table as select (CTAS)]: ./sql-data-warehouse-develop-ctas.md
+[Table overview]: ./sql-data-warehouse-tables-overview.md
+[Table data types]: ./sql-data-warehouse-tables-data-types.md
+[Table distribution]: ./sql-data-warehouse-tables-distribute.md
+[Table indexes]: ./sql-data-warehouse-tables-index.md
+[Causes of poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[Rebuilding columnstore indexes]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Table partitioning]: ./sql-data-warehouse-tables-partition.md
+[Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary tables]: ./sql-data-warehouse-tables-temporary.md
+[Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
+[Load data]: ./sql-data-warehouse-overview-load.md
 [Move data with Azure Data Factory]: /documentation/articles/data-factory/data-factory-azure-sql-data-warehouse-connector
 [Load data with Azure Data Factory]: /documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory
-[Load data with bcp]: /documentation/articles/sql-data-warehouse-load-with-bcp
-[Load data with PolyBase]: /documentation/articles/sql-data-warehouse-get-started-load-with-polybase
-[Monitor your workload using DMVs]: /documentation/articles/sql-data-warehouse-manage-monitor
-[Pause compute resources]: /documentation/articles/sql-data-warehouse-manage-compute-overview#pause-compute-bk
-[Resume compute resources]: /documentation/articles/sql-data-warehouse-manage-compute-overview#resume-compute-bk
-[Scale compute resources]: /documentation/articles/sql-data-warehouse-manage-compute-overview#scale-performance-bk
-[Understanding transactions]: /documentation/articles/sql-data-warehouse-develop-transactions
-[Optimizing transactions]: /documentation/articles/sql-data-warehouse-develop-best-practices-transactions
-[Troubleshooting]: /documentation/articles/sql-data-warehouse-troubleshoot
-[LABEL]: /documentation/articles/sql-data-warehouse-develop-label
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
+[Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
+[Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
+[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-performance-bk
+[Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
+[Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[Troubleshooting]: ./sql-data-warehouse-troubleshoot.md
+[LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [ALTER TABLE]: https://msdn.microsoft.com/zh-cn/library/ms190273.aspx

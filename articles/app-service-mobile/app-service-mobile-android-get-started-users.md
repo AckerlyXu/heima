@@ -1,24 +1,24 @@
-<properties
-	pageTitle="Add authentication on Android with Mobile Apps | Azure App Service"
-	description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers."
-	services="app-service\mobile"
-	documentationCenter="android"
-	authors="yuaxu"
-	manager="erikre"
-	editor=""/>
+---
+title: Add authentication on Android with Mobile Apps | Azure App Service
+description: Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers.
+services: app-service\mobile
+documentationCenter: android
+authors: yuaxu
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="yuaxu"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: java
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: yuaxu
+---
 
 # Add authentication to your Android app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+[!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## Summary
 In this tutorial, you add authentication to the todolist quickstart project on Android by using a supported identity provider. This tutorial is based on the [Get started with Mobile Apps] tutorial, which you must complete first.
@@ -28,7 +28,7 @@ In this tutorial, you add authentication to the todolist quickstart project on A
 
 ##<a name="permissions"></a>Restrict permissions to authenticated users
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
+[!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 * In Android Studio, open the project you completed with the tutorial [Get started with Mobile Apps]. From the **Run** menu, click **Run app**, and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
@@ -38,23 +38,21 @@ Next, you update the app to authenticate users before requesting resources from 
 
 ## Add authentication to the app
 
-[AZURE.INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
+[!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
 ## <a name="cache-tokens"></a>Cache authentication tokens on the client
 
-[AZURE.INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
+[!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ##Next steps
 
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
-+ [Add push notifications to your Android app](/documentation/articles/app-service-mobile-android-get-started-push/)
++ [Add push notifications to your Android app](./app-service-mobile-android-get-started-push.md)
   Learn how to configure your Mobile Apps back end to use Azure notification hubs to send push notifications.
 
-+ [Enable offline sync for your Android app](/documentation/articles/app-service-mobile-android-get-started-offline-data/)
++ [Enable offline sync for your Android app](./app-service-mobile-android-get-started-offline-data.md)
   Learn how to add offline support to your app by using a Mobile Apps back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
-
-
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -64,6 +62,5 @@ Now that you completed this basic authentication tutorial, consider continuing o
 [Refresh expired tokens]: #refresh-tokens
 [Next Steps]:#next-steps
 
-
 <!-- URLs. -->
-[Get started with Mobile Apps]: /documentation/articles/app-service-mobile-android-get-started/
+[Get started with Mobile Apps]: ./app-service-mobile-android-get-started.md

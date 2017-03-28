@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Designing Highly Available Applications using Azure Read-Access Geo-Redundant Storage (RA-GRS) | Azure"
-    description="How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages."
-    services="storage"
-    documentationcenter=".net"
-    author="robinsh"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="8f040b0f-8926-4831-ac07-79f646f31926"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="1/19/2017"
-    wacn.date=""
-    ms.author="robinsh" />
+---
+title: Designing Highly Available Applications using Azure Read-Access Geo-Redundant Storage (RA-GRS) | Azure
+description: How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages.
+services: storage
+documentationcenter: .net
+author: robinsh
+manager: timlt
+editor: tysonn
+
+ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 1/19/2017
+wacn.date: ''
+ms.author: robinsh
+---
 
 # Designing Highly Available Applications using RA-GRS
 
 A common feature of cloud-based infrastructures is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses specifically on how developers can use the Azure Storage Read Access Geo Redundant Storage (RA-GRS) to make their applications more available.
 
-There are four choices for redundancy – LRS (Locally Redundant Storage), GRS (Geo-Redundant Storage), and RA-GRS (Read Access Geo-Redundant Storage). We are going to discuss GRS and RA-GRS in this article. With GRS, three copies of your data are kept in the primary region you selected when setting up the storage account. Three additional copies are maintained asynchronously in a secondary region specified by Azure. RA-GRS is the same thing as GRS except that you have read access to the secondary copy. For more information about the different Azure Storage redundancy options, see [Azure Storage replication](/documentation/articles/storage-redundancy/). The replication article also shows the pairings of the primary and secondary regions.
+There are four choices for redundancy – LRS (Locally Redundant Storage), GRS (Geo-Redundant Storage), and RA-GRS (Read Access Geo-Redundant Storage). We are going to discuss GRS and RA-GRS in this article. With GRS, three copies of your data are kept in the primary region you selected when setting up the storage account. Three additional copies are maintained asynchronously in a secondary region specified by Azure. RA-GRS is the same thing as GRS except that you have read access to the secondary copy. For more information about the different Azure Storage redundancy options, see [Azure Storage replication](./storage-redundancy.md). The replication article also shows the pairings of the primary and secondary regions.
 
 There are code snippets included in this article, and a link to a complete sample at the end that you can download and run.
 
@@ -39,7 +40,7 @@ Before we talk about how to use RA-GRS storage, let’s talk about its propertie
 
 * If there is a major issue affecting the accessibility of the data in the primary region, the Azure team may trigger a geo-failover, at which point the DNS entries pointing to the primary region will be changed to point to the secondary region.
 
-* If a geo-failover occurs, Azure will select a new secondary location and replicate the data to that location, then point the secondary DNS entries to it. The secondary endpoint will be unavailable until the storage account has finished replicating. For more information, please see [What to do if an Azure Storage outage occurs](/documentation/articles/storage-disaster-recovery-guidance/).
+* If a geo-failover occurs, Azure will select a new secondary location and replicate the data to that location, then point the secondary DNS entries to it. The secondary endpoint will be unavailable until the storage account has finished replicating. For more information, please see [What to do if an Azure Storage outage occurs](./storage-disaster-recovery-guidance.md).
 
 ## Application design considerations when using RA-GRS
 
@@ -143,42 +144,42 @@ You have three main options for monitoring the frequency of retries in the prima
 
 *   Add a handler for the [**Retrying**](http://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) event on the [**OperationContext**](http://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.storage.operationcontext.aspx) object you pass to your storage requests – this is the method displayed in this article and used in the accompanying sample. These events fire whenever the client retries a request, enabling you to track how often the client encounters retryable errors on a primary endpoint.
 
-
-	    operationContext.Retrying += (sender, arguments) =>
-	    {
-	        // Retrying in the primary region
-	        if (arguments.Request.Host == primaryhostname)
-	            ...
-	    };
-
+    ```csharp
+    operationContext.Retrying += (sender, arguments) =>
+    {
+        // Retrying in the primary region
+        if (arguments.Request.Host == primaryhostname)
+            ...
+    };
+    ```
 
 *   In the [**Evaluate**](http://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
 
+    ```csharp
+    public RetryInfo Evaluate(RetryContext retryContext,
+    OperationContext operationContext)
+    {
+        var statusCode = retryContext.LastRequestResult.HttpStatusCode;
+        if (retryContext.CurrentRetryCount >= this.maximumAttempts
+        || ((statusCode &gt;= 300 && statusCode &lt; 500 && statusCode != 408)
+        || statusCode == 501 // Not Implemented
+        || statusCode == 505 // Version Not Supported
+            ))
+        {
+        // Do not retry
+            return null;
+        }
 
-	    public RetryInfo Evaluate(RetryContext retryContext,
-	    OperationContext operationContext)
-	    {
-	        var statusCode = retryContext.LastRequestResult.HttpStatusCode;
-	        if (retryContext.CurrentRetryCount >= this.maximumAttempts
-	        || ((statusCode &gt;= 300 && statusCode &lt; 500 && statusCode != 408)
-	        || statusCode == 501 // Not Implemented
-	        || statusCode == 505 // Version Not Supported
-	            ))
-	        {
-	        // Do not retry
-	            return null;
-	        }
+        // Monitor retries in the primary location
+        ...
 
-	        // Monitor retries in the primary location
-	        ...
+        // Determine RetryInterval and TargetLocation
+        RetryInfo info =
+            CreateRetryInfo(retryContext.CurrentRetryCount);
 
-	        // Determine RetryInterval and TargetLocation
-	        RetryInfo info =
-	            CreateRetryInfo(retryContext.CurrentRetryCount);
-
-	        return info;
-	    }
-
+        return info;
+    }
+    ```
 
 *   The third approach is to implement a custom monitoring component in your application that continually pings your primary storage endpoint with dummy read requests (such as reading a small blob) to determine its health. This would take up some resources, but not a significant amount. When a problem is discovered that reaches your threshold, you would then perform the switch to **SecondaryOnly** and read-only mode.
 
@@ -212,15 +213,15 @@ It's important to test that your application behaves as expected when it encount
 
 You can use [Fiddler](http://www.telerik.com/fiddler) to intercept and modify HTTP responses in a script. This script can identify responses that come from your primary endpoint and change the HTTP status code to one that the Storage Client Library recognizes as a retryable error. This code snippet shows a simple example of a Fiddler script that intercepts responses to read requests against the **employeedata** table to return a 502 status:
 
-
-	static function OnBeforeResponse(oSession: Session) {
-	    ...
-	    if ((oSession.hostname == "\[yourstorageaccount\].table.core.chinacloudapi.cn")
-	      && (oSession.PathAndQuery.StartsWith("/employeedata?$filter"))) {
-	        oSession.responseCode = 502;
-	    }
-	}
-
+```java
+static function OnBeforeResponse(oSession: Session) {
+    ...
+    if ((oSession.hostname == "\[yourstorageaccount\].table.core.chinacloudapi.cn")
+      && (oSession.PathAndQuery.StartsWith("/employeedata?$filter"))) {
+        oSession.responseCode = 502;
+    }
+}
+```
 
 You could extend this example to intercept a wider range of requests and only change the **responseCode** on some of them to better simulate a real-world scenario. For more information about customizing Fiddler scripts, see [Modifying a Request or Response](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) in the Fiddler documentation.
 

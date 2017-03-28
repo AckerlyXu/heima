@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Install your own custom Hadoop applications on Azure HDInsight | Azure"
-    description="Learn how to install HDInsight applications on HDInsight applications."
-    services="hdinsight"
-    documentationcenter=""
-    author="mumian"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="e556b29c-8176-4bc5-a90b-aa01abfd3aee"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="02/22/2017"
-    wacn.date=""
-    ms.author="jgao" />
+---
+title: Install your own custom Hadoop applications on Azure HDInsight | Azure
+description: Learn how to install HDInsight applications on HDInsight applications.
+services: hdinsight
+documentationcenter: ''
+author: mumian
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 02/22/2017
+wacn.date: ''
+ms.author: jgao
+---
 
 # Install custom Hadoop applications on Azure HDInsight
 
@@ -26,11 +27,11 @@ An HDInsight application is an application that users can install on a Linux-bas
 
 Other related articles:
 
-* [Install HDInsight applications](/documentation/articles/hdinsight-apps-install-applications/): Learn how to install an HDInsight application to your clusters.
+* [Install HDInsight applications](./hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/zh-cn/library/mt706515.aspx): Learn how to define HDInsight applications.
 
 ## Prerequisites
-If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](/documentation/articles/hdinsight-hadoop-linux-tutorial-get-started/#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.
+If you want to install HDInsight applications on an existing HDInsight cluster, you must have an HDInsight cluster. To create one, see [Create clusters](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). You can also install HDInsight applications when you create an HDInsight cluster.
 
 ## Install HDInsight applications
 HDInsight applications can be installed when you create a cluster or to an existing HDInsight cluster. For defining Azure Resource Manager templates, see [MSDN: Install an HDInsight application](https://msdn.microsoft.com/zh-cn/library/mt706515.aspx).
@@ -64,12 +65,13 @@ The files needed for deploying this application (Hue):
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    >[AZURE.NOTE] Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change the allowed location to "China North" and "China East"; change the HDInsight Linux version to Azure China supported one, 3.5.
+    >[!NOTE]
+    > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change the allowed location to "China North" and "China East"; change the HDInsight Linux version to Azure China supported one, 3.5.
 
     This button opens a Resource Manager template on the Azure portal preview.  The Resource Manager template is located at [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  To learn how to write this Resource Manager template, see [MSDN: Install an HDInsight application](https://msdn.microsoft.com/zh-cn/library/mt706515.aspx).
-2. Follow the instruction to create cluster and install Hue. For more information on creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](/documentation/articles/hdinsight-hadoop-provision-linux-clusters/).
+2. Follow the instruction to create cluster and install Hue. For more information on creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
-In addition to the Azure portal preview, you can also use [Azure PowerShell](/documentation/articles/hdinsight-hadoop-create-linux-clusters-arm-templates/#deploy-with-powershell) and [Azure CLI](/documentation/articles/hdinsight-hadoop-create-linux-clusters-arm-templates/#deploy-with-cli) to call Resource Manager templates.
+In addition to the Azure portal preview, you can also use [Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-powershell) and [Azure CLI](./hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-with-cli) to call Resource Manager templates.
 
 ## Validate the installation
 You can check the application status on the Azure portal preview to validate the application installation. In addition, you can also validate all HTTP endpoints came up as expected and the webpage if there is one:
@@ -81,7 +83,7 @@ You can check the application status on the Azure portal preview to validate the
 3. Click the cluster where you installed the application.
 4. From the **Settings** blade, click **Applications** under the **General** category. You shall see **hue** listed in the **Installed Apps** blade.
 5. Click **hue** from the list to list the properties.  
-6. Click the Webpage link to validate the website; open the HTTP endpoint in a browser to validate the Hue web UI, open the SSH endpoint using [PuTTY](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/) or other [SSH clients](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
+6. Click the Webpage link to validate the website; open the HTTP endpoint in a browser to validate the Hue web UI, open the SSH endpoint using [PuTTY](./hdinsight-hadoop-linux-use-ssh-windows.md) or other [SSH clients](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="troubleshoot-the-installation"></a> Troubleshoot the installation
 You can check the application installation status from the portal notification (Click the bell icon on the top of the portal).
@@ -100,7 +102,7 @@ If an application installation failed, you can see the error messages and debug 
     ![hdinsight applications script action error](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
 * Ambari Web UI: If the install script was the cause of the failure, use Ambari Web UI to check full logs about the install scripts.
 
-    For more information, see [Troubleshooting](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/#troubleshooting).
+    For more information, see [Troubleshooting](./hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 ## Remove HDInsight applications
 There are several ways to delete HDInsight applications.
@@ -118,14 +120,14 @@ There are several ways to delete HDInsight applications.
 From the portal, you can also delete the cluster or delete the resource group which contains the application.
 
 ### Use Azure PowerShell
-Using Azure PowerShell, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure PowerShell](/documentation/articles/hdinsight-administer-use-powershell/#delete-clusters).
+Using Azure PowerShell, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure PowerShell](./hdinsight-administer-use-powershell.md#delete-clusters).
 
 ### Use Azure CLI
-Using Azure CLI, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure CLI](/documentation/articles/hdinsight-administer-use-command-line/#delete-clusters).
+Using Azure CLI, you can delete the cluster or delete the resource group. See [Delete clusters by using Azure CLI](./hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## Next steps
 * [MSDN: Install an HDInsight application](https://msdn.microsoft.com/zh-cn/library/mt706515.aspx): learn how to develop Resource Manager templates for deploying HDInsight applications.
-* [Install HDInsight applications](/documentation/articles/hdinsight-apps-install-applications/): Learn how to install an HDInsight application to your clusters.
-* [Customize Linux-based HDInsight clusters using Script Action](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/): learn how to use Script Action to install additional applications.
-* [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](/documentation/articles/hdinsight-hadoop-create-linux-clusters-arm-templates/): learn how to call Resource Manager templates to create HDInsight clusters.
-* [Use empty edge nodes in HDInsight](/documentation/articles/hdinsight-apps-use-edge-node/): learn how to use an empty edge node for accessing HDInsight cluster, testing HDInsight applications, and hosting HDInsight applications.
+* [Install HDInsight applications](./hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.
+* [Customize Linux-based HDInsight clusters using Script Action](./hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
+* [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](./hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
+* [Use empty edge nodes in HDInsight](./hdinsight-apps-use-edge-node.md): learn how to use an empty edge node for accessing HDInsight cluster, testing HDInsight applications, and hosting HDInsight applications.

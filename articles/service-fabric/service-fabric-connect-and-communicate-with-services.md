@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Connect and communicate with services in Azure Service Fabric | Azure"
-    description="Learn how to resolve, connect, and communicate with services in Service Fabric."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="msfussell" />
-<tags
-    ms.assetid="7d1052ec-2c9f-443d-8b99-b75c97266e6c"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Connect and communicate with services in Azure Service Fabric | Azure
+description: Learn how to resolve, connect, and communicate with services in Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: msfussell
+
+ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # Connect and communicate with services in Service Fabric
 In Service Fabric, a service runs somewhere in a Service Fabric cluster, typically distributed across multiple VMs. It can be moved from one place to another, either by the service owner, or automatically by Service Fabric. Services are not statically tied to a particular machine or address.
@@ -62,7 +63,7 @@ A Service Fabric cluster in Azure is placed behind an Azure Load Balancer. All e
 For example, in order to accept external traffic on port **80**, the following things must be configured:
 
 1. Write a service the listens on port 80. Configure port 80 in the service's ServiceManifest.xml and open a listener in the service, for example, a self-hosted web server.
- 
+
     ```xml
     <Resources>
         <Endpoints>
@@ -74,7 +75,7 @@ For example, in order to accept external traffic on port **80**, the following t
         class HttpCommunicationListener : ICommunicationListener
         {
             ...
-            
+
             public Task<string> OpenAsync(CancellationToken cancellationToken)
             {
                 EndpointResourceDescription endpoint = 
@@ -90,23 +91,23 @@ For example, in order to accept external traffic on port **80**, the following t
 
                 return Task.FromResult(this.publishUri);
             }
-            
+
             ...
         }
-        
+
         class WebService : StatelessService
         {
             ...
-            
+
             protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
             {
                 return new[] {new ServiceInstanceListener(context => new HttpCommunicationListener(context))};
             }
-            
+
             ...
         }
     ```
-  
+
 2. Create a Service Fabric Cluster in Azure and specify port **80** as a custom endpoint port for the node type that will host the service. If you have more than one node type, you can set up a *placement constraint* on the service to ensure it only runs on the node type that has the custom endpoint port opened.
 
     ![Open a port on a node type][4]
@@ -124,18 +125,18 @@ It's important to remember that the Azure Load Balancer and the probe only know 
 ## Built-in communication API options
 The Reliable Services framework ships with several pre-built communication options. The decision about which one will work best for you depends on the choice of the programming model, the communication framework, and the programming language that your services are written in.
 
-* **No specific protocol:**  If you don't have a particular choice of communication framework, but you want to get something up and running quickly, then the ideal option for you is [service remoting](/documentation/articles/service-fabric-reliable-services-communication-remoting/), which allows strongly-typed remote procedure calls for Reliable Services and Reliable Actors. This is the easiest and fastest way to get started with service communication. Service remoting handles resolution of service addresses, connection, retry, and error handling. Note that service remoting is only available to C# applications.
+* **No specific protocol:**  If you don't have a particular choice of communication framework, but you want to get something up and running quickly, then the ideal option for you is [service remoting](./service-fabric-reliable-services-communication-remoting.md), which allows strongly-typed remote procedure calls for Reliable Services and Reliable Actors. This is the easiest and fastest way to get started with service communication. Service remoting handles resolution of service addresses, connection, retry, and error handling. Note that service remoting is only available to C# applications.
 
-* **HTTP**: For language-agnostic communication, HTTP provides an industry-standard choice with tools and HTTP servers available in many different langauges, all supported by Service Fabric. Services can use any HTTP stack available, including [ASP.NET Web API](/documentation/articles/service-fabric-reliable-services-communication-webapi/). Clients written in C# can leverage the [`ICommunicationClient` and `ServicePartitionClient` classes](/documentation/articles/service-fabric-reliable-services-communication/) for service resolution, HTTP connections, and retry loops.
+* **HTTP**: For language-agnostic communication, HTTP provides an industry-standard choice with tools and HTTP servers available in many different langauges, all supported by Service Fabric. Services can use any HTTP stack available, including [ASP.NET Web API](./service-fabric-reliable-services-communication-webapi.md). Clients written in C# can leverage the [`ICommunicationClient` and `ServicePartitionClient` classes](./service-fabric-reliable-services-communication.md) for service resolution, HTTP connections, and retry loops.
 
-* **WCF**: If you have existing code that uses WCF as your communication framework, then you can use the `WcfCommunicationListener` for the server side and `WcfCommunicationClient` and `ServicePartitionClient` classes for the client. For more details, see this article about [WCF-based implementation of the communication stack](/documentation/articles/service-fabric-reliable-services-communication-wcf/).
+* **WCF**: If you have existing code that uses WCF as your communication framework, then you can use the `WcfCommunicationListener` for the server side and `WcfCommunicationClient` and `ServicePartitionClient` classes for the client. For more details, see this article about [WCF-based implementation of the communication stack](./service-fabric-reliable-services-communication-wcf.md).
 
 ## Using custom protocols and other communication frameworks
-Services can use any protocol or framework for communication, whether its a custom binary protocol over TCP sockets, or streaming events through [Azure Event Hubs](/home/features/event-hubs/) or [Azure IoT Hub](/home/features/iot-hub/). Service Fabric provides communication APIs that you can plug your communication stack into, while all the work to discover and connect is abstracted from you. See this article about the [Reliable Service communication model](/documentation/articles/service-fabric-reliable-services-communication/) for more details.
+Services can use any protocol or framework for communication, whether its a custom binary protocol over TCP sockets, or streaming events through [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) or [Azure IoT Hub](https://www.azure.cn/home/features/iot-hub/). Service Fabric provides communication APIs that you can plug your communication stack into, while all the work to discover and connect is abstracted from you. See this article about the [Reliable Service communication model](./service-fabric-reliable-services-communication.md) for more details.
 
 ## Next steps
 
-Learn more about the concepts and APIs available in the [Reliable Services communication model](/documentation/articles/service-fabric-reliable-services-communication/), then get started quickly with [service remoting](/documentation/articles/service-fabric-reliable-services-communication-remoting/) or go in-depth to learn how to write a communication listener using [Web API with OWIN self-host](/documentation/articles/service-fabric-reliable-services-communication-webapi/).
+Learn more about the concepts and APIs available in the [Reliable Services communication model](./service-fabric-reliable-services-communication.md), then get started quickly with [service remoting](./service-fabric-reliable-services-communication-remoting.md) or go in-depth to learn how to write a communication listener using [Web API with OWIN self-host](./service-fabric-reliable-services-communication-webapi.md).
 
 [1]: ./media/service-fabric-connect-and-communicate-with-services/serviceendpoints.png
 [2]: ./media/service-fabric-connect-and-communicate-with-services/namingservice.png

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Frequently asked questions for Azure Application Gateway | Azure"
-    description="This page provides answers to frequently asked questions about Azure Application Gateway"
-    documentationcenter="na"
-    services="application-gateway"
-    author="georgewallace"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="d54ee7ec-4d6b-4db7-8a17-6513fda7e392"
-    ms.service="application-gateway"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/17/2017"
-    wacn.date=""
-    ms.author="gwallace" />
+---
+title: Frequently asked questions for Azure Application Gateway | Azure
+description: This page provides answers to frequently asked questions about Azure Application Gateway
+documentationcenter: na
+services: application-gateway
+author: georgewallace
+manager: timlt
+editor: tysonn
+
+ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/17/2017
+wacn.date: ''
+ms.author: gwallace
+---
 
 # Frequently asked questions for Application Gateway
 
@@ -27,7 +28,7 @@ Azure Application Gateway is an Application Delivery Controller (ADC) as a servi
 
 **Q. What features does Application Gateway support?**
 
-Application Gateway supports SSL offloading and end to end SSL, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](/documentation/articles/application-gateway-introduction/)
+Application Gateway supports SSL offloading and end to end SSL, cookie-based session affinity, url path-based routing, multi site hosting, and others. For a full list of supported features visit [Introduction to Application Gateway](./application-gateway-introduction.md)
 
 **Q. What is the difference between Application Gateway and Azure Load Balancer?**
 
@@ -77,7 +78,7 @@ Yes, Application Gateway is always deployed in a virtual network subnet. This su
 
 **Q. Can Application Gateway talk to instances outside its virtual network?**
 
-Application Gateway can talk to instances outside of the virtual network that it is in as long as there is IP connectivity. If you plan to use internal IPs as backend pool members, then it requires [VNET Peering](/documentation/articles/virtual-network-peering-overview/) or [VPN Gateway](/documentation/articles/vpn-gateway-about-vpngateways/).
+Application Gateway can talk to instances outside of the virtual network that it is in as long as there is IP connectivity. If you plan to use internal IPs as backend pool members, then it requires [VNET Peering](../virtual-network/virtual-network-peering-overview.md) or [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 **Q. Can I deploy anything else in the Application Gateway subnet?**
 
@@ -89,7 +90,7 @@ Network Security Groups are supported on the Application Gateway subnet, but exc
 
 **Q. What are the limits on Application Gateway? Can I increase these limits?**
 
-Visit [Application Gateway Limits](/documentation/articles/azure-subscription-service-limits/#application-gateway-limits) to view the limits.
+Visit [Application Gateway Limits](../azure-subscription-service-limits.md#application-gateway-limits) to view the limits.
 
 **Q. Can I use Application Gateway for both external and internal traffic simultaneously?**
 
@@ -205,18 +206,18 @@ No, it is not integrated with Azure Key Vault.
 
 **Q. What types of logs are available with Application Gateway?**
 
-There are three logs available for Application Gateway. For more information on these logs and other diagnostic capabilities, visit [Backend health, diagnostics logging and metrics for Application Gateway](/documentation/articles/application-gateway-diagnostics/).
+There are three logs available for Application Gateway. For more information on these logs and other diagnostic capabilities, visit [Backend health, diagnostics logging and metrics for Application Gateway](./application-gateway-diagnostics.md).
 
 - **ApplicationGatewayAccessLog** - This log contains each request submitted to the Application Gateway frontend. The data includes the caller's IP, URL requested, response latency, return code, bytes in and out. Access log is collected every 300 seconds. This log contains one record per instance of Application Gateway.
 - **ApplicationGatewayPerformanceLog** - This log captures performance information on per instance basis including total request served, throughput in bytes, total requests served, failed request count, healthy and unhealthy back-end instance count.
 
 **Q. How do I know if my backend pool members are healthy?**
 
-You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](/documentation/articles/application-gateway-diagnostics/)
+You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](./application-gateway-diagnostics.md)
 
 **Q. What is the retention policy on the diagnostics logs?**
 
-Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Log Analytics. Visit [Application Gateway Diagnostics](/documentation/articles/application-gateway-diagnostics/) for more details.
+Diagnostic logs flow to the customers storage account and customers can set the retention policy based on their preference. Diagnostic logs can also be sent to an Event Hub or Log Analytics. Visit [Application Gateway Diagnostics](./application-gateway-diagnostics.md) for more details.
 
 **Q. How do I get audit logs for Application Gateway?**
 
@@ -224,12 +225,12 @@ Audit logs are available for Application Gateway. In the portal, click **Activit
 
 **Q. Can I set alerts with Application Gateway?**
 
-Yes, Application Gateway does support alerts, alerts are configured off metrics.  Application Gateway currently has a metric of "throughput", which can be configured to alert. To learn more about alerts, visit [Receive alert notifications](/documentation/articles/insights-receive-alert-notifications/).
+Yes, Application Gateway does support alerts, alerts are configured off metrics.  Application Gateway currently has a metric of "throughput", which can be configured to alert. To learn more about alerts, visit [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **Q. Backend health returns unknown status, what could be causing this?**
 
-The most common reason is access to the backend is being blocked by an NSG or custom DNS. Visit [Backend health, diagnostics logging, and metrics for Application Gateway](/documentation/articles/application-gateway-diagnostics/) to learn more.
+The most common reason is access to the backend is being blocked by an NSG or custom DNS. Visit [Backend health, diagnostics logging, and metrics for Application Gateway](./application-gateway-diagnostics.md) to learn more.
 
 ## Next Steps
 
-To learn more about Application Gateway visit [Introduction to Application Gateway](/documentation/articles/application-gateway-introduction/).
+To learn more about Application Gateway visit [Introduction to Application Gateway](./application-gateway-introduction.md).

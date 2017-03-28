@@ -1,32 +1,33 @@
-<properties
-    pageTitle="Manage endpoints in Azure Traffic Manager | Azure"
-    description="This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager."
-    services="traffic-manager"
-    documentationcenter=""
-    author="kumudd"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="ade2bbc2-35a7-43c5-8001-4698f7254526"
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Manage endpoints in Azure Traffic Manager | Azure
+description: This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager.
+services: traffic-manager
+documentationcenter: ''
+author: kumudd
+manager: timlt
+editor: ''
+
+ms.assetid: ade2bbc2-35a7-43c5-8001-4698f7254526
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/11/2016
+wacn.date: ''
+ms.author: kumud
+---
 
 # Add, disable, enable, or delete endpoints
 
 The Web Apps feature in Azure App Service already provides failover and round-robin traffic routing functionality for websites within a datacenter, regardless of the website mode. Azure Traffic Manager allows you to specify failover and round-robin traffic routing for websites and cloud services in different datacenters. The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This article explains how to use the Classic Management Portal. The Azure Classic Management Portal only supports the creation and assignment of cloud services and Web apps as endpoints. The new [Azure portal preview](https://portal.azure.cn) is the preferred interface.
 
 You can also disable individual endpoints that are part of a Traffic Manager profile. Disabling an endpoint leaves it as part of the profile, but the profile acts as if the endpoint is not included in it. This action is useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, it can be enabled.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Disabling an endpoint has nothing to do with its deployment state in Azure. A healthy endpoint remains up and able to receive traffic even when disabled in Traffic Manager. Additionally, disabling an endpoint in one profile does not affect its status in another profile.
 
 ## To add a cloud service or website endpoint
@@ -39,8 +40,8 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 6. Select the websites in the list to add them as endpoints for this profile. Clearing the website name removes it from the list of endpoints. You can select only one website per Azure datacenter (also known as a region). When you select the first website, the other websites in the same datacenter become unavailable for selection. Also note that only Standard websites are listed.
 7. After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.
 
-> [AZURE.NOTE]
-> After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered they way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](/documentation/articles/traffic-manager-configure-failover-routing-method/).
+> [!NOTE]
+> After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered they way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](./traffic-manager-configure-failover-routing-method.md).
 
 ## To disable an endpoint
 
@@ -65,8 +66,8 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## Next steps
 
-* [Manage Traffic Manager profiles](/documentation/articles/traffic-manager-manage-profiles/)
-* [Configure routing methods](/documentation/articles/traffic-manager-configure-routing-method/)
-* [Troubleshooting Traffic Manager degraded state](/documentation/articles/traffic-manager-troubleshooting-degraded/)
-* [Traffic Manager performance considerations](/documentation/articles/traffic-manager-performance-considerations/)
+* [Manage Traffic Manager profiles](./traffic-manager-manage-profiles.md)
+* [Configure routing methods](./traffic-manager-configure-routing-method.md)
+* [Troubleshooting Traffic Manager degraded state](./traffic-manager-troubleshooting-degraded.md)
+* [Traffic Manager performance considerations](./traffic-manager-performance-considerations.md)
 * [Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/zh-cn/library/hh758255.aspx)

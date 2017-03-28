@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Subscription and accounts for Windows VMs in Azure | Azure"
-    description="Learn about the key design and implementation guidelines for subscriptions and accounts on Azure."
-    documentationcenter=""
-    services="virtual-machines-windows"
-    author="iainfoulds"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="761fa847-78b0-4078-a33a-d95d198d1029"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/17/2017"
-    wacn.date=""
-    ms.author="iainfou"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Subscription and accounts for Windows VMs in Azure | Azure
+description: Learn about the key design and implementation guidelines for subscriptions and accounts on Azure.
+documentationcenter: ''
+services: virtual-machines-windows
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 761fa847-78b0-4078-a33a-d95d198d1029
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 03/17/2017
+wacn.date: ''
+ms.author: iainfou
+ms.custom: H1Hack27Feb2017
+---
 
 # Azure subscription and accounts guidelines for Windows VMs
 
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding how to approach subscription and account management as your environment and user base grows.
 
@@ -63,4 +64,4 @@ The organization could look like the following example:
 We provide detailed billing via a downloadable file for a single account, or for all accounts in an enterprise agreement.
 
 ## <a name="next-steps"></a> Next steps
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

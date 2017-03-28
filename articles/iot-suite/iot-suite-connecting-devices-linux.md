@@ -1,26 +1,25 @@
-<properties
-   pageTitle="Connect a device using C on Linux | Azure"
-   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Linux."
-   services=""
-   suite="iot-suite"
-   documentationCenter="na"
-   authors="dominicbetts"
-   manager="timlt"
-   editor=""/>
+---
+title: Connect a device using C on Linux | Azure
+description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Linux.
+services: ''
+suite: iot-suite
+documentationCenter: na
+authors: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="iot-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/17/2017"
-   ms.author="dobett"/>
-
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/17/2017
+ms.author: dobett
+---
 
 # Connect your device to the remote monitoring preconfigured solution (Linux)
 
-[AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
+[!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Build and run a sample C client Linux
 The following steps show you how to create a client application that communicates with the remote monitoring preconfigured solution. This application is written in C and built and run on Ubuntu Linux.
@@ -35,13 +34,13 @@ sudo apt-get install cmake gcc g++
 The Azure IoT Hub client libraries are available as a package you can install on your Ubuntu device using the **apt-get** command. Complete the following steps to install the package that contains the IoT Hub client library and header files on your Ubuntu computer:
 
 1. In a shell, add the AzureIoT repository to your computer:
-   
+
     ```
     sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
     sudo apt-get update
     ```
 2. Install the azure-iot-sdk-c-dev package
-   
+
     ```
     sudo apt-get install -y azure-iot-sdk-c-dev
     ```
@@ -62,7 +61,7 @@ On your Ubuntu machine, create a folder called **remote\_monitoring**. In the **
 Copy the files **parson.c** and **parson.h** from your local copy of the Parson repository into the **remote\_monitoring/parson** folder.
 
 In a text editor, open the **remote\_monitoring.c** file. Add the following `#include` statements:
-   
+
 ```
 #include "iothubtransportmqtt.h"
 #include "schemalib.h"
@@ -74,7 +73,7 @@ In a text editor, open the **remote\_monitoring.c** file. Add the following `#in
 #include "parson.h"
 ```
 
-[AZURE.INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
+[!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
 ## Call the remote\_monitoring\_run function
 In a text editor, open the **remote_monitoring.h** file. Add the following code:
@@ -101,7 +100,7 @@ The following steps describe how to use *CMake* to build your client application
 
 1. In a text editor, open the **CMakeLists.txt** file in the **remote_monitoring** folder.
 2. Add the following instructions to define how to build your client application:
-   
+
     ```
     macro(compileAsC99)
       if (CMAKE_VERSION VERSION_LESS "3.1")
@@ -150,7 +149,7 @@ The following steps describe how to use *CMake* to build your client application
     )
     ```
 1. In the **remote_monitoring** folder, create a folder to store the *make* files that CMake generates and then run the **cmake** and **make** commands as follows:
-   
+
     ```
     mkdir cmake
     cd cmake
@@ -159,10 +158,9 @@ The following steps describe how to use *CMake* to build your client application
     ```
 
 1. Run the client application and send telemetry to IoT Hub:
-   
+
     ```
     ./sample_app
     ```
 
-[AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-
+[!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

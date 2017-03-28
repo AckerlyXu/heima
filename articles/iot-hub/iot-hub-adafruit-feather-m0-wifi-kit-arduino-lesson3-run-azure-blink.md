@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Run a sample application to send device-to-cloud messages to Azure IoT Hub | Azure"
-    description="Deploy and run a sample application to Adafruit Feather M0 WiFi that sends messages to your IoT hub and blinks the LED."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="iot cloud service, arduino send data to cloud" />
-<tags
-    ms.assetid="92cce319-2b17-4c9b-889d-deac959e3e7c"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Run a sample application to send device-to-cloud messages to Azure IoT Hub | Azure
+description: Deploy and run a sample application to Adafruit Feather M0 WiFi that sends messages to your IoT hub and blinks the LED.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: iot cloud service, arduino send data to cloud
+
+ms.assetid: 92cce319-2b17-4c9b-889d-deac959e3e7c
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Run a sample application to send device-to-cloud messages
 ## What you will do
@@ -79,7 +80,7 @@ To configure the device connection, follow these steps:
 
    ![config.json][config-json]
 
-   > [AZURE.NOTE]
+   > [!NOTE]
    > For the COM port, on Windows platform, it has the format of `COM1, COM2, ...`. On macOS or Ubuntu, it starts with `/dev/`.
 
 3. Initialize the configuration file by running the following commands:
@@ -108,7 +109,7 @@ To configure the device connection, follow these steps:
    * Replace **[IoT device connection string]** with the `device connection string` you obtained.
    * Replace **[IoT hub connection string]** with the `iot hub connection string` you obtained.
 
-   > [AZURE.NOTE]
+   > [!NOTE]
    > You don't need `azure_storage_connection_string` in this article. Keep it as is.
 
 ## Deploy and run the sample application
@@ -123,7 +124,7 @@ gulp listen
 gulp run --listen
 ```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The default gulp task runs `install-tools` and `run` tasks sequentially. When you [deployed the blink app][deployed-the-blink-app], you ran these tasks separately.
 
 ## Verify that the sample application works
@@ -138,11 +139,11 @@ You've deployed and run the new blink sample application on your Arduino board t
 [Read messages persisted in Azure Storage][read-messages-persisted-in-azure-storage]
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/
-[process-and-store-iot-hub-messages]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template/
+[troubleshooting]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
+[process-and-store-iot-hub-messages]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md
 [device-discovery]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/device_discovery.png
 [config-json]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/vscode-config-mac.png
 [config-arduino-json]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson3/config-arduino.png
-[deployed-the-blink-app]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app/
+[deployed-the-blink-app]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
 [sample-application-with-sent-and-received-messages]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson3/gulp_run_arduino.png
-[read-messages-persisted-in-azure-storage]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage/
+[read-messages-persisted-in-azure-storage]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md

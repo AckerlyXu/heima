@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Add functionality to your first web app | Azure"
-    description="Add cool features to your first web app in a few minutes."
-    services="app-service\web"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="542671c2-22f0-4f20-8b4b-fa477264c492"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="05/12/2016"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Add functionality to your first web app | Azure
+description: Add cool features to your first web app in a few minutes.
+services: app-service\web
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: ''
+
+ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 05/12/2016
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Add functionality to your first web app
-In [Deploy your first web app to Azure in five minutes](/documentation/articles/app-service-web-get-started-cli-nodejs/), you deployed a sample web app to
-[Azure App Service](/documentation/articles/app-service-value-prop-what-is/). In this article, you'll quickly add some
+In [Deploy your first web app to Azure in five minutes](./app-service-web-get-started-cli-nodejs.md), you deployed a sample web app to
+[Azure App Service](../app-service/app-service-value-prop-what-is.md). In this article, you'll quickly add some
 great functionalities to your deployed web app. In a few minutes, you will:
 
 * enforce authentication for your users
@@ -33,9 +34,9 @@ available in the **Free** tier (which is what your first web app is running on),
 that require higher pricing tiers. Rest assured that your web app remains in **Free** tier unless you explicitly changes it to a different
 pricing tier.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The web app you created with Azure CLI runs in **Free** tier, which only allows one shared VM instance with resource quotas. For more
-> information on what you get with **Free** tier, see [App Service limits](/documentation/articles/azure-subscription-service-limits/#app-service-limits).
+> information on what you get with **Free** tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
 > 
 > 
 
@@ -53,7 +54,7 @@ Now, let's see how easy it is to add authentication to your app (further reading
     ![Authenticate - express configuration](./media/app-service-web-get-started/aad-login-express.png)
 5. Click **Save**.  
     ![Authenticate - save configuration](./media/app-service-web-get-started/aad-login-save.png)
-   
+
     Once the change is successful, you'll see the notification bell turn green, along with a friendly message.
 6. Back in the portal blade of your app, click the **URL** link (or **Browse** in the menu bar). The link is an HTTP address.  
     ![Authenticate - browse to URL](./media/app-service-web-get-started/aad-login-browse-click.png)  
@@ -79,8 +80,8 @@ For more information, see [App Service Authentication/Authorization](https://azu
 
 ## Scale your app automatically based on demand
 Next, let's autoscale your app so that it will automatically adjust it capacity to respond to user demand (further reading at
-[Scale up your app in Azure](/documentation/articles/web-sites-scale/) and
-[Scale instance count manually or automatically](/documentation/articles/insights-how-to-scale/)).
+[Scale up your app in Azure](./web-sites-scale.md) and
+[Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md)).
 
 Briefly, you scale your web app in two ways:
 
@@ -96,10 +97,10 @@ Without further ado, let's set up autoscaling.
     ![Scale up - settings blade](./media/app-service-web-get-started/scale-up-settings.png)
 2. Scroll and select the **S1 Standard** tier, the lowest tier that supports autoscaling (circled in screenshot), then click **Select**.  
     ![Scale up - choose tier](./media/app-service-web-get-started/scale-up-select.png)
-   
+
     You're done scaling up.
-   
-    > [AZURE.IMPORTANT]
+
+    > [!IMPORTANT]
     > This tier expends your trial credits. If you have a pay-per-use account, it incurs charges to your account.
     > 
     > 
@@ -108,7 +109,7 @@ Without further ado, let's set up autoscaling.
 4. Change **Scale by** to **CPU Percentage**. The sliders underneath the dropdown update accordingly. Then, define an **Instances** range between
    **1** and **2** and a **Target range** between **40** and **80**. Do it by typing in the boxes or by moving the sliders.  
     ![Scale out - configure autoscaling](./media/app-service-web-get-started/scale-out-configure.png)
-   
+
     Based on this configuration, your app automatically scales out when CPU utilization is above 80% and scales in when CPU utilization is below 40%.
 5. Click **Save** in the menu bar.
 
@@ -122,12 +123,12 @@ You may have noticed in the **Scale Settings** blade that you can do a lot more,
 * Autoscale on a schedule
 * Set autoscaling behavior for a future event
 
-For more information on scaling up your app, see [Scale up your app in Azure](/documentation/articles/web-sites-scale/). For more information on
-scaling out, see [Scale instance count manually or automatically](/documentation/articles/insights-how-to-scale/).
+For more information on scaling up your app, see [Scale up your app in Azure](./web-sites-scale.md). For more information on
+scaling out, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 ## Receive alerts for your app
 Now that your app is autoscaling, what happens when it reaches the maximum instance count (2) and CPU is above desired utilization (80%)?
-You can set up an alert (further reading at [Receive alert notifications](/documentation/articles/insights-receive-alert-notifications/))
+You can set up an alert (further reading at [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md))
 to inform you of this situation so you can further scale up/out your app, for example. Let's quickly set up an alert for this scenario.
 
 1. In the portal blade of your app, click **Tools** > **Alerts**.  
@@ -137,7 +138,7 @@ to inform you of this situation so you can further scale up/out your app, for ex
 3. Specify **Name** as `CPU Maxed`, **Metric** as **CPU Percentage**, and **Threshold** as `90`, then select **Email owners, contributors, and readers**,
    and then click **OK**.   
     ![Alerts - configure alert](./media/app-service-web-get-started/alert-configure.png)
-   
+
     When Azure finishes creating the alert, you'll see it in the **Alerts** blade.  
     ![Alerts - finished view](./media/app-service-web-get-started/alert-done.png)
 
@@ -150,10 +151,10 @@ your app and click the **Access** button.
 
 You should see that **Subscription admins** are already the **Owner** of the app. This group would include you if you're the account administrator of your
 Azure subscription (e.g. your trial subscription). For more information on Azure role-based access control, see
-[Azure Role-Based Access Control](/documentation/articles/role-based-access-control-configure/).
+[Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
-> [AZURE.NOTE]
-> Alert rules is an Azure feature. For more information, see [Receive alert notifications](/documentation/articles/insights-receive-alert-notifications/).
+> [!NOTE]
+> Alert rules is an Azure feature. For more information, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 > 
 > 
 
@@ -164,12 +165,12 @@ each one of these tools to discover the simple yet powerful tools at your finger
 
 Find out how to do more with your deployed app. Here's only a partial list:
 
-* [Set up staging environments](/documentation/articles/web-sites-staged-publishing/) - Deploy your app to a staging URL before putting it into production. Update your live
+* [Set up staging environments](./web-sites-staged-publishing.md) - Deploy your app to a staging URL before putting it into production. Update your live
   web app with confidence. Set up an elaborate DevOps solution with multiple deployment slots.
-* [Set up continuous deployment](/documentation/articles/app-service-continuous-deployment/) - Integrate app deployment into your source control system. Deploy to
+* [Set up continuous deployment](./app-service-continuous-deployment.md) - Integrate app deployment into your source control system. Deploy to
   Azure with every commit.
-* [Back up your app](/documentation/articles/web-sites-backup/) - Set up back up and restore for your web app. Prepare for unexpected failures and recover from them.
-* [Enable diagnostic logs](/documentation/articles/web-sites-enable-diagnostic-log/) - Read the IIS logs from Azure or application traces.
+* [Back up your app](./web-sites-backup.md) - Set up back up and restore for your web app. Prepare for unexpected failures and recover from them.
+* [Enable diagnostic logs](./web-sites-enable-diagnostic-log.md) - Read the IIS logs from Azure or application traces.
 * [Scan your app for vulnerabilities](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
   Scan your web app against modern threats using service provided by [Tinfoil Security](https://www.tinfoilsecurity.com/).
-* [Learn how App Service works](/documentation/articles/app-service-how-works-readme/)
+* [Learn how App Service works](../app-service/app-service-how-works-readme.md)

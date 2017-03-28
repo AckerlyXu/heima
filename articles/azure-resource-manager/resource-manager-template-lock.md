@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Resource Manager template for resource locks | Azure"
-    description="Shows the Resource Manager schema for deploying resource locks through a template."
-    services="azure-resource-manager"
-    documentationcenter="na"
-    author="tfitzmac"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="de6c0c57-e33a-4960-98e0-900901592003"
-    ms.service="azure-resource-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/03/2016"
-    wacn.date=""
-    ms.author="tomfitz" />
+---
+title: Resource Manager template for resource locks | Azure
+description: Shows the Resource Manager schema for deploying resource locks through a template.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: ''
+
+ms.assetid: de6c0c57-e33a-4960-98e0-900901592003
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/03/2016
+wacn.date: ''
+ms.author: tomfitz
+---
 
 # Resource locks template schema
 Creates a lock on a resource and its child resources.
@@ -23,18 +24,19 @@ Creates a lock on a resource and its child resources.
 ## Schema format
 To create a lock, add the following schema to the resources section of your template.
 
+```
+{
+    "type": enum,
+    "apiVersion": "2015-01-01",
+    "name": string,
+    "dependsOn": [ array values ],
+    "properties":
     {
-        "type": enum,
-        "apiVersion": "2015-01-01",
-        "name": string,
-        "dependsOn": [ array values ],
-        "properties":
-        {
-            "level": enum,
-            "notes": string
-        }
+        "level": enum,
+        "notes": string
     }
-
+}
+```
 
 ## Values
 The following tables describe the values you need to set in the schema.
@@ -57,7 +59,7 @@ The following tables describe the values you need to set in the schema.
 You add this resource to your template to prevent specified actions on a resource. The lock applies to all users and groups.
 
 To create or delete management locks, you must have access to **Microsoft.Authorization/*** or **Microsoft.Authorization/locks/*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are 
-granted those actions. For information about role-based access control, see [Azure Role-based Access Control](/documentation/articles/role-based-access-control-configure/).
+granted those actions. For information about role-based access control, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
 The lock is applied to the specified resource and any child resources.
 
@@ -66,64 +68,68 @@ You can remove a lock with the PowerShell command **Remove-AzureRmResourceLock**
 ## Examples
 The following example applies a cannot-delete lock to a web app.
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "hostingPlanName": {
-                  "type": "string"
-            }
-        },
-        "variables": {
-            "siteName": "[concat('site',uniqueString(resourceGroup().id))]"
-        },
-        "resources": [
-            {
-                "apiVersion": "2015-08-01",
-                "name": "[variables('siteName')]",
-                "type": "Microsoft.Web/sites",
-                "location": "[resourceGroup().location]",
-                "properties": {
-                    "serverFarmId": "[parameters('hostingPlanName')]"
-                },
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "hostingPlanName": {
+              "type": "string"
+        }
+    },
+    "variables": {
+        "siteName": "[concat('site',uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-08-01",
+            "name": "[variables('siteName')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "serverFarmId": "[parameters('hostingPlanName')]"
             },
+        },
+        {
+            "type": "Microsoft.Web/sites/providers/locks",
+            "apiVersion": "2015-01-01",
+            "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+            "dependsOn": [ "[variables('siteName')]" ],
+            "properties":
             {
-                "type": "Microsoft.Web/sites/providers/locks",
-                "apiVersion": "2015-01-01",
-                "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-                "dependsOn": [ "[variables('siteName')]" ],
-                "properties":
-                {
-                    "level": "CannotDelete",
-                    "notes": "my notes"
-                }
-             }
-        ],
-        "outputs": {}
-    }
+                "level": "CannotDelete",
+                "notes": "my notes"
+            }
+         }
+    ],
+    "outputs": {}
+}
+```
 
 The next example applies a cannot-delete lock to the resource group.
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
-        "resources": [
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/locks",
+            "apiVersion": "2015-01-01",
+            "name": "MyGroupLock",
+            "properties":
             {
-                "type": "Microsoft.Authorization/locks",
-                "apiVersion": "2015-01-01",
-                "name": "MyGroupLock",
-                "properties":
-                {
-                    "level": "CannotDelete",
-                    "notes": "my notes"
-                }
+                "level": "CannotDelete",
+                "notes": "my notes"
             }
-        ],
-        "outputs": {}
-    }
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## Next steps
-* For information about the template structure, see [Authoring Azure Resource Manager templates](/documentation/articles/resource-group-authoring-templates/).
-* For more information about locks, see [Lock resources with Azure Resource Manager](/documentation/articles/resource-group-lock-resources/).
+* For information about the template structure, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).
+* For more information about locks, see [Lock resources with Azure Resource Manager](./resource-group-lock-resources.md).

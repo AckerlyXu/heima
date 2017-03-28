@@ -4,4 +4,3 @@
 | **Standard SKU** |1000 Mbps |Yes |
 | **High Performance SKU** |2000 Mbps |Yes |
 | **Ultra Performance SKU** |10000 Mbps |Yes |
-

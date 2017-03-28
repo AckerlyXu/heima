@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Data replication in Azure Storage | Azure"
-    description="Data in your Microsoft Azure storage account is replicated for durability and high availability. Replication options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS)."
-    services="storage"
-    documentationcenter=""
-    author="mmacy"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="86bdb6d4-da59-4337-8375-2527b6bdf73f"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="marsma" />
+---
+title: Data replication in Azure Storage | Azure
+description: Data in your Microsoft Azure storage account is replicated for durability and high availability. Replication options include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS).
+services: storage
+documentationcenter: ''
+author: mmacy
+manager: timlt
+editor: tysonn
+
+ms.assetid: 86bdb6d4-da59-4337-8375-2527b6bdf73f
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: marsma
+---
 
 # Azure Storage replication
 The data in your Azure storage account is always replicated to ensure durability and high availability. Replication copies your data, either within the same data center, or to a second data center, depending on which replication option you choose. Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated to a second data center, that also protects your data against a catastrophic failure in the primary location.
 
-Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](/support/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability. 
+Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://www.azure.cn/support/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability. 
 
 When you create a storage account, you can select one of the following replication options:  
 
@@ -39,9 +40,10 @@ The following table provides a quick overview of the differences between LRS, ZR
 | Data can be read from the secondary location as well as from the primary location. |No |No |No |Yes |
 | Number of copies of data maintained on separate nodes. |3 |3 |6 |6 |
 
-See [Azure Storage Pricing](/pricing/details/storage/) for pricing information for the different redundancy options.
+See [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/) for pricing information for the different redundancy options.
 
->[AZURE.NOTE] Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](/documentation/articles/storage-premium-storage/).
+>[!NOTE]
+> Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](./storage-premium-storage.md).
 
 ## Locally redundant storage
 Locally redundant storage (LRS) replicates your data three times within a storage scale unit which is hosted in a datacenter in the region in which you created your storage account. A write request returns successfully only once it has been written to all three replicas. These three replicas each reside in separate fault domains and upgrade domains within one storage scale unit. 
@@ -75,7 +77,7 @@ With GRS both the primary and secondary regions manage replicas across separate 
 Considerations:
 
 * Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* The replica is not available unless Microsoft initiates failover to the secondary region. If Azure does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](/documentation/articles/storage-disaster-recovery-guidance/). 
+* The replica is not available unless Microsoft initiates failover to the secondary region. If Azure does initiate a failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](./storage-disaster-recovery-guidance.md). 
 * If an application wants to read from the secondary region, the user should enable RA-GRS.
 
 When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region, and cannot be changed. The following table shows the primary and secondary region pairings.
@@ -84,7 +86,7 @@ When you create a storage account, you select the primary region for the account
 | ---------------   |----------------
 |China North   |China East
 |China East   |China North 
- 
+
 ## Read-access geo-redundant storage
 Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account, by providing read-only access to the data in the secondary location, in addition to the replication across two regions provided by GRS. 
 
@@ -94,14 +96,13 @@ Considerations:
 
 * Your application has to manage which endpoint it is interacting with when using RA-GRS. 
 * Since asynchronous replication involves a delay, in the event of a regional disaster it is possible that changes that have not yet been replicated to the secondary region will be lost if the data cannot be recovered from the primary region.
-* If Azure initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](/documentation/articles/storage-disaster-recovery-guidance/). 
-* RA-GRS is intended for high-availability purposes. For scalability guidance, please review the [performance checklist](/documentation/articles/storage-performance-checklist/).
+* If Azure initiates failover to the secondary region, you will have read and write access to that data after the failover has completed. For more information, please see [Disaster Recovery Guidance](./storage-disaster-recovery-guidance.md). 
+* RA-GRS is intended for high-availability purposes. For scalability guidance, please review the [performance checklist](./storage-performance-checklist.md).
 
 ## Next steps
-- [Designing Highly Available Applications using RA-GRS Storage](/documentation/articles/storage-designing-ha-apps-with-ragrs/)
-- [Azure Storage Pricing](/pricing/details/storage/)
-- [About Azure storage accounts](/documentation/articles/storage-create-storage-account/)
-- [Azure Storage Scalability and Performance Targets](/documentation/articles/storage-scalability-targets/) 
+- [Designing Highly Available Applications using RA-GRS Storage](./storage-designing-ha-apps-with-ragrs.md)
+- [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/)
+- [About Azure storage accounts](./storage-create-storage-account.md)
+- [Azure Storage Scalability and Performance Targets](./storage-scalability-targets.md) 
 - [Microsoft Azure Storage Redundancy Options and Read Access Geo Redundant Storage ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)  
-- [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
- 
+- [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

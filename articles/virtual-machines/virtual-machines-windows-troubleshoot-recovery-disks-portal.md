@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Use a Windows troubleshooting VM in the Azure portal preview | Azure"
-    description="Learn how to troubleshoot Windows virtual machine issues in Azure by connecting the OS disk to a recovery VM using the Azure portal preview"
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="iainfoulds"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure"
-    ms.date="12/12/2016"
-    wacn.date=""
-    ms.author="iainfou" />
+---
+title: Use a Windows troubleshooting VM in the Azure portal preview | Azure
+description: Learn how to troubleshoot Windows virtual machine issues in Azure by connecting the OS disk to a recovery VM using the Azure portal preview
+services: virtual-machines-windows
+documentationCenter: ''
+authors: iainfoulds
+manager: timlt
+editor: ''
+
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 12/12/2016
+wacn.date: ''
+ms.author: iainfou
+---
 
 # Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal preview
 If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use the Azure portal preview to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
@@ -135,6 +136,6 @@ When you create your VM from the existing virtual hard disk, boot diagnostics ma
 ![Update boot diagnostics settings](./media/virtual-machines-windows-troubleshoot-recovery-disks/reenable-boot-diagnostics.png)
 
 ## Next steps
-If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](/documentation/articles/virtual-machines-windows-troubleshoot-rdp-connection/). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](/documentation/articles/virtual-machines-windows-troubleshoot-app-connection/).
+If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](./virtual-machines-windows-troubleshoot-rdp-connection.md). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](./virtual-machines-windows-troubleshoot-app-connection.md).
 
-For more information about using Resource Manager, see [Azure Resource Manager overview](/documentation/articles/resource-group-overview/).
+For more information about using Resource Manager, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).

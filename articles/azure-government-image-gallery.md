@@ -1,24 +1,22 @@
-<properties 
-   pageTitle="Azure Government Image Gallery" 
-   description="This article provides an overview of the Azure Government Image Gallery and the images included" 
-   services="Azure-Government" 
-   documentationCenter="" 
-   authors="joharve2" 
-   manager="chrisnie" 
-   editor=""/>
+---
+title: Azure Government Image Gallery
+description: This article provides an overview of the Azure Government Image Gallery and the images included
+services: Azure-Government
+documentationCenter: ''
+authors: joharve2
+manager: chrisnie
+editor: ''
 
-<tags
-   ms.service="multiple"
-   ms.date="05/20/2015"
-   wa.date=""/>
-
+ms.service: multiple
+ms.date: 05/20/2015
+wa.date: ''
+---
 
 #  Microsoft Azure Government Image Gallery
 
 <p> The Microsoft Azure Government image gallery is a similar experience to public Azure portal.  Customers can choose to deploy pre-built images from Microsoft and our partners, or upload their own VHDs.  This provides flexibility to deploy your own standardized images if needed.
 
-The below provides a list of available images within the Azure Government image gallery.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
-
+The below provides a list of available images within the Azure Government image gallery.  Some of the prebuilt images do include pay as you go licensing for specific software.  Please review <a href="https://www.azure.cn/pricing/details/virtual-machines/">Virtual Machine Pricing</a> page for more guidance and work with your Microsoft account team or reseller for Azure Government specific pricing.
 
 ## Azure Government Image list
 
@@ -101,9 +99,6 @@ The below resources should provide more information on deploying from the image 
 
 <!--- **<A href="/azure-government-service-description">Azure Government Service Descriptions</a>**-->
 
-
-
-
 <!-- Images. -->
 
 [1]: ./media/azure-government-developer-guide/publisherguide.png
@@ -111,5 +106,5 @@ The below resources should provide more information on deploying from the image 
 
 <!--Link references-->
 [Link 1 to another www.windowsazure.cn documentation topic]: /documentation/articles/virtual-machines-windows-tutorial-classic-portal/
-[Link 2 to another www.windowsazure.cn documentation topic]: /documentation/articles/web-sites-custom-domain-name/
+[Link 2 to another www.windowsazure.cn documentation topic]: ./app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another www.windowsazure.cn documentation topic]: /documentation/articles/storage-whatis-account/

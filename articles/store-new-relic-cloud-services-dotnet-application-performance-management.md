@@ -1,21 +1,20 @@
-<properties 
-	pageTitle="Using New Relic with Azure | Microsoft Azure" 
-	description="Learn how to use the New Relic service to manage and monitor your Azure application." 
-	services="" 
-	documentationCenter=".net" 
-	authors="nickfloyd" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Using New Relic with Azure | Microsoft Azure
+description: Learn how to use the New Relic service to manage and monitor your Azure application.
+services: ''
+documentationCenter: .net
+authors: nickfloyd
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="nickfloyd@newrelic.com"/>
-
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/23/2016
+ms.author: nickfloyd@newrelic.com
+---
 
 # New Relic Application Performance Management on Azure
 
@@ -52,4 +51,3 @@ For more information about using New Relic and Azure, see [New Relic's Documenta
 * [New Relic for the Microsoft Azure Cloud platform](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-cloud-services)
 * [New Relic for the Microsoft Azure App Services](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-portal)
 * [New Relic/Azure troubleshooting](https://docs.newrelic.com/docs/agents/net-agent/azure-troubleshooting)
-

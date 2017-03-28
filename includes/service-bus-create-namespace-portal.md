@@ -12,23 +12,23 @@
 
 8. In **Location**, choose the country or region in which your namespace should be hosted.
 
-	![Create namespace][create-namespace]
+    ![Create namespace][create-namespace]
 
 6. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
- 
+
 ### Obtain the management credentials
 
 1. In the list of namespaces, click the newly created namespace name.
- 
+
 3. In the namespace blade, click **Shared access policies**.
 
 4. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
 
-	![connection-info][connection-info]
+    ![connection-info][connection-info]
 
 5. In the **Policy: RootManageSharedAccessKey** blade, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
 
-	![connection-string][connection-string]
+    ![connection-string][connection-string]
 
 <!--Image references-->
 

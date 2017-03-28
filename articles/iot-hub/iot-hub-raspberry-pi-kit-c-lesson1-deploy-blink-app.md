@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Create and deploy the blink application | Azure"
-    description="Clone the sample C application from GitHub, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="raspberry pi led blink, blink led with raspberry pi" />
-<tags
-    ms.assetid="f601d1e1-2bc3-4cc5-a6b1-0467e5304dcf"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Create and deploy the blink application | Azure
+description: Clone the sample C application from GitHub, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: raspberry pi led blink, blink led with raspberry pi
+
+ms.assetid: f601d1e1-2bc3-4cc5-a6b1-0467e5304dcf
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Create and deploy the blink application
 ## What you will do
-Clone the sample C application from GitHub, and use the gulp tool to deploy the sample application to Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds. If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-raspberry-pi-kit-c-troubleshooting/).
+Clone the sample C application from GitHub, and use the gulp tool to deploy the sample application to Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds. If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 ## What you will learn
 In this article, you will learn:
@@ -32,8 +33,8 @@ In this article, you will learn:
 ## What you need
 You must have successfully completed the following operations:
 
-* [Configure your device](/documentation/articles/iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device/)
-* [Get the tools](/documentation/articles/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32/)
+* [Configure your device](./iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
+* [Get the tools](./iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
 
 ## Obtain the IP address and host name of Pi
 Open a command prompt in Windows or a terminal in macOS or Ubuntu, and then run the following command:
@@ -48,19 +49,19 @@ You should see an output that is similar to the following:
 
 Take note of the `IP address` and `hostname` of Pi. You need this information later in this article.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Make sure that Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while Pi is connected to a wired network, you might not see the IP address in the devdisco output.
 
 ## Open the sample application
 To open the sample application, follow these steps:
 
 1. Clone the sample repository from GitHub by running the following command:
-   
+
     ```bash
     git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-getting-started.git
     ```
 2. Open the sample application in Visual Studio Code by running the following commands:
-   
+
     ```bash
     cd iot-hub-c-raspberrypi-getting-started
     cd Lesson1
@@ -82,28 +83,28 @@ npm install
 To configure the device connection, follow these steps:
 
 1. Generate the device configuration file by running the following command:
-   
+
    ```bash
    gulp init
    ```
-   
+
    The configuration file `config-raspberrypi.json` contains the user credentials you use to log in to Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
 
 2. Open the device configuration file in Visual Studio Code by running the following command:
-   
+
    ```bash
    # For Windows command prompt
    code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
-   
+
    # For MacOS or Ubuntu
    code ~/.iot-hub-getting-started/config-raspberrypi.json
    ```
 
 3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you got previously in "Obtain the IP address and host name of Pi."
-   
+
    ![Config.json](./media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can use SSH key instead of user name and password when connecting to Raspberry Pi. 
 > In order to do this you will have to generate the key using **ssh-keygen** and **ssh-copy-id pi@\<device address\>**.
 >
@@ -139,12 +140,11 @@ gulp deploy && gulp run
 ```
 
 ### Verify the app works
-The sample application terminates automatically after the LED blinks for 20 times. If you don’t see the LED blinking, see the [troubleshooting guide](/documentation/articles/iot-hub-raspberry-pi-kit-c-troubleshooting/) for solutions to common problems.
+The sample application terminates automatically after the LED blinks for 20 times. If you don’t see the LED blinking, see the [troubleshooting guide](./iot-hub-raspberry-pi-kit-c-troubleshooting.md) for solutions to common problems.
 ![LED blinking](./media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
 ## Summary
 You've installed the required tools to work with Pi and deployed a sample application to Pi to blink the LED. You can now create, deploy, and run another sample application that connects Pi to Azure IoT Hub to send and receive messages.
 
 ## Next steps
-[Get Azure tools](/documentation/articles/iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32/)
-
+[Get Azure tools](./iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)

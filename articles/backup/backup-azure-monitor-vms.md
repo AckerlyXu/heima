@@ -1,22 +1,22 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-   pageTitle="Monitor Resource Manager-deployed virtual machine backups | Azure"
-   description="Monitor events and alerts from Resource Manager-deployed virtual machine backups"
-   services="backup"
-   documentationCenter="dev-center-name"
-   authors="markgalioto"
-   manager="cfreeman"
-   editor=""/>
+---
+title: Monitor Resource Manager-deployed virtual machine backups | Azure
+description: Monitor events and alerts from Resource Manager-deployed virtual machine backups
+services: backup
+documentationCenter: dev-center-name
+authors: markgalioto
+manager: cfreeman
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.date="08/11/2016"
-	wacn.date=""/>
+ms.service: backup
+ms.date: 08/11/2016
+wacn.date: ''
+---
 
 # Monitor alerts for Azure virtual machine backups
 
-Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know when alerts occur. In the vault dashboard, the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - when it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](/documentation/articles/backup-azure-monitor-vms/#configure-notifications).
+Alerts are responses from the service that an event threshold has been met or surpassed. Knowing when problems start can be critical to keeping business costs down. Alerts typically do not occur on a schedule, and so it is helpful to know when alerts occur. In the vault dashboard, the Backup Alerts tile displays Critical and Warning-level events. In the Backup Alerts settings, you can view all events. But what do you do if an alert occurs when you are working on a separate issue? If you don't know when the alert happens, it could be a minor inconvenience, or it could compromise data. To make sure the correct people are aware of an alert - when it occurs, configure the service to send alert notifications via email. For details on setting up email notifications, see [Configure notifications](./backup-azure-monitor-vms.md#configure-notifications).
 
 To view information about the event that threw an alert, you must open the Backup Alerts blade. There are two ways to open the Backup Alerts blade: either from the Backup Alerts tile in the vault dashboard, or from the Alerts and Events blade.
 
@@ -25,7 +25,6 @@ To open the Backup Alerts blade from Backup Alerts tile:
 - On the **Backup Alerts** tile on the vault dashboard, click **Critical** or **Warning** to view the operational events for that severity level.
 
     ![Backup Alerts tile](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
-
 
 To open the Backup Alerts blade from the Alerts and Events blade:
 
@@ -43,7 +42,7 @@ To open the Backup Alerts blade from the Alerts and Events blade:
 
     ![Event Detail](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
-    To customize the attributes displayed in the list, see [View additional event attributes](/documentation/articles/backup-azure-monitor-vms/#view-additional-event-attributes)
+    To customize the attributes displayed in the list, see [View additional event attributes](./backup-azure-monitor-vms.md#view-additional-event-attributes)
 
 ## Configure notifications
 
@@ -75,7 +74,7 @@ To set up email notifications for alerts
 
 The **Audit logs** setting comes with a pre-defined set of filters and columns showing operational event information. You can customize the view so that when the **Events** blade opens, it shows you the information you want.
 
-1. In the [vault dashboard](/documentation/articles/backup-azure-manage-vms/#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
+1. In the [vault dashboard](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
 
     ![Audit Logs](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
 
@@ -83,7 +82,7 @@ The **Audit logs** setting comes with a pre-defined set of filters and columns s
 
     ![Audit Logs Filter](./media/backup-azure-monitor-vms/audit-logs-filter.png)
 
-    The blade shows the list of Critical, Error, Warning, and Informational events that occurred in the past week. The time span is a default value set in the **Filter**. The **Events** blade also shows a bar chart tracking when the events occurred. If you don't want to see the bar chart, in the **Events** menu, click **Hide chart** to toggle off the chart. The default view of Events shows Operation, Level, Status, Resource, and Time information. For information about exposing additional Event attributes, see the section [expanding Event information](/documentation/articles/backup-azure-monitor-vms/#view-additional-event-attributes).
+    The blade shows the list of Critical, Error, Warning, and Informational events that occurred in the past week. The time span is a default value set in the **Filter**. The **Events** blade also shows a bar chart tracking when the events occurred. If you don't want to see the bar chart, in the **Events** menu, click **Hide chart** to toggle off the chart. The default view of Events shows Operation, Level, Status, Resource, and Time information. For information about exposing additional Event attributes, see the section [expanding Event information](./backup-azure-monitor-vms.md#view-additional-event-attributes).
 
 2. For additional information on an operational event, in the **Operation** column, click an operational event to open its blade. The blade contains detailed information about the events. Events are grouped by their correlation ID and a list of the events that occurred in the Time span.
 
@@ -93,13 +92,12 @@ The **Audit logs** setting comes with a pre-defined set of filters and columns s
 
     ![Event Detail](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
 
-    The Event-level information is as detailed as the information gets. If you prefer seeing this much information about each event, and would like to add this much detail to the **Events** blade, see the section [expanding Event information](/documentation/articles/backup-azure-monitor-vms/#view-additional-event-attributes).
-
+    The Event-level information is as detailed as the information gets. If you prefer seeing this much information about each event, and would like to add this much detail to the **Events** blade, see the section [expanding Event information](./backup-azure-monitor-vms.md#view-additional-event-attributes).
 
 ## Customize the event filter
 Use the **Filter** to adjust or choose the information that appears in a particular blade. To filter the event information:
 
-1. In the [vault dashboard](/documentation/articles/backup-azure-manage-vms/#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
+1. In the [vault dashboard](./backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), browse to and click **Audit Logs** to open the **Events** blade.
 
     ![Audit Logs](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
 
@@ -120,7 +118,6 @@ Use the **Filter** to adjust or choose the information that appears in a particu
 4. Once you are ready to query the operations logs using your filter, click **Update**. The results display in the **Events** blade.
 
     ![Operation Details](./media/backup-azure-monitor-vms/edited-list-of-events.png)
-
 
 ### View additional event attributes
 Using the **Columns** button, you can enable additional event attributes to appear in the list on the **Events** blade. The default list of events displays information for Operation, Level, Status, Resource, and Time. To enable additional attributes:
@@ -153,8 +150,6 @@ Using the **Columns** button, you can enable additional event attributes to appe
 |Subscription ID|The associated subscription ID|
 |Category|Category of the event|
 |Correlation ID|Common ID for related events|
-
-
 
 ## Use PowerShell to customize alerts
 You can get custom alert notifications for the jobs in the portal. To get these jobs, define PowerShell-based alert rules on the operational logs events. Use *PowerShell version 1.3.0 or later*.
@@ -194,9 +189,8 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "China East" -
 Event-based alerts are subject to the following limitations:
 
 1. Alerts are triggered on all virtual machines in the Recovery Services vault. You cannot customize the alert for a subset of virtual machines in a Recovery Services vault.
-2. This feature is in Preview. [Learn more](/documentation/articles/insights-powershell-samples/#create-alert-rules)
+2. This feature is in Preview. [Learn more](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
 3. Alerts are sent from "alerts-noreply@mail.windowsazure.cn". Currently you can't modify the email sender.
-
 
 ## Next steps
 
@@ -214,6 +208,6 @@ Event logs enable great post-mortem and audit support for the backup operations.
 - Update policy
 - Cancel job
 
-For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](/documentation/articles/insights-debugging-with-events/).
+For a broad explanation of events, operations, and audit logs across the Azure services, see the article, [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](/documentation/articles/backup-azure-restore-vms/). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](/documentation/articles/backup-azure-vms-first-look-arm/). Learn about the management tasks for VM backups in the article, [Manage Azure virtual machine backups](/documentation/articles/backup-azure-manage-vms/).
+For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](./backup-azure-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](./backup-azure-vms-first-look-arm.md). Learn about the management tasks for VM backups in the article, [Manage Azure virtual machine backups](./backup-azure-manage-vms.md).

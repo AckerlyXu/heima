@@ -1,24 +1,24 @@
-<properties
-	pageTitle="How to configure Azure Active Directory authentication for your App Services application"
-	description="Learn how to configure Azure Active Directory authentication for your App Services application."
-	authors="mattchenderson"
-	services="app-service"
-	documentationCenter=""
-	manager="erikre"
-	editor=""/>
+---
+title: How to configure Azure Active Directory authentication for your App Services application
+description: Learn how to configure Azure Active Directory authentication for your App Services application.
+authors: mattchenderson
+services: app-service
+documentationCenter: ''
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="mahender"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: mahender
+---
 
 # How to configure your App Service application to use Azure Active Directory login
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
+[!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 This topic shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider.
 
@@ -36,7 +36,7 @@ Click the registration to select it and click **OK**. Then click **OK** on the A
 
     ![][0]
 
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
+    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
 17. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request
 is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated
@@ -85,7 +85,7 @@ You can also choose to provide configuration settings manually. This is the pref
 
     ![][1]
 
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
+    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
 17. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when
 request is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and
@@ -107,7 +107,7 @@ Azure Active Directory also allows you to register native clients, which provide
 
 4. In the Add Application Wizard, enter a **Name** for your application and click the  **Native Client Application** type. Then click to continue.
 
-5. In the **Redirect URI** box, enter your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.chinacloudsites.cn/.auth/login/done_. If creating a Windows application, instead use the [package SID](/documentation/articles/app-service-mobile-dotnet-how-to-use-client-library/#package-sid) as the URI.
+5. In the **Redirect URI** box, enter your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.chinacloudsites.cn/.auth/login/done_. If creating a Windows application, instead use the [package SID](./app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) as the URI.
 
 6. Once the native application has been added, click the **Configure** tab. Find the **Client ID** and make a note of this value.
 
@@ -121,7 +121,7 @@ You have now configured a native client application which can access your App Se
 
 ## <a name="related-content"> </a>Related Content
 
-[AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
+[!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->
 

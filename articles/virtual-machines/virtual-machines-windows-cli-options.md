@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Using the Azure CLI on Windows | Azure"
-    description="Using the Azure CLI on Windows"
-    services="virtual-machines-windows"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Using the Azure CLI on Windows | Azure
+description: Using the Azure CLI on Windows
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-service-management
+
+ms.assetid: ''
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Using the Azure CLI on Windows
 
@@ -47,14 +48,16 @@ When using Docker for Windows, a Docker image can be started that includes the A
 
 To use the Azure CLI on Docker for Windows, ensure that Docker for Windows is running and run the following command.
 
-    docker run -it azuresdk/azure-cli-python:latest bash
+```bash
+docker run -it azuresdk/azure-cli-python:latest bash
+```
 
 Once completed, a bash session will start that is preloaded with the Azure CLI tools.
 
 ## Next Steps
 
-[CLI sample for Azure virtual machines](/documentation/articles/virtual-machines-linux-cli-samples/)
+[CLI sample for Azure virtual machines](./virtual-machines-linux-cli-samples.md)
 
-[CLI samples for Azure Web Apps](/documentation/articles/app-service-cli-samples/)
+[CLI samples for Azure Web Apps](../app-service-web/app-service-cli-samples.md)
 
 [CLI samples for Azure SQL](/documentation/articles/sql-database-cli-samples/)

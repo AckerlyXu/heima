@@ -1,26 +1,26 @@
-<properties
-   pageTitle="Auditing in Azure SQL Data Warehouse  | Azure"
-   description="Get started with auditing in Azure SQL Data Warehouse"
-   services="sql-data-warehouse"
-   documentationCenter=""
-   authors="ronortloff"
-   manager="barbkess"
-   editor=""/>
+---
+title: Auditing in Azure SQL Data Warehouse  | Azure
+description: Get started with auditing in Azure SQL Data Warehouse
+services: sql-data-warehouse
+documentationCenter: ''
+authors: ronortloff
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.workload="data-management"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="10/31/2016" 
-   ms.author="rortloff;barbkess"/>
+ms.service: sql-data-warehouse
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/31/2016
+ms.author: rortloff;barbkess
+---
 
 # Auditing in Azure SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [Auditing](/documentation/articles/sql-data-warehouse-auditing-overview/)
-- [Threat detection](/documentation/articles/sql-data-warehouse-security-threat-detection/)
+> [!div class="op_single_selector"]
+>- [Auditing](./sql-data-warehouse-auditing-overview.md)
+>- [Threat detection](./sql-data-warehouse-security-threat-detection.md)
 
 SQL Data Warehouse auditing allows you to record events in your database to an audit log in your Azure Storage account. Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. SQL Data Warehouse auditing also integrates with Microsoft Power BI for drill-down reporting and analysis.
 
@@ -60,16 +60,16 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](s
 ## <a id="subheading-2"></a>Set up auditing for your database
 1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 2. navigate to the configuration blade of the SQL Data Warehouse database / SQL Server you want to audit. Click the **Settings** button on top and then, in the Setting blade, and select **Auditing**.
-   
+
     ![][1]
 3. In the auditing configuration blade, first unselect the **Inherit Auditing Settings from Server** checkbox. This allows you to specify the settings for a particular database.
-   
+
     ![][2]
 4. Next, enable auditing by clicking the **ON** button.
-   
+
     ![][3]
 5. In the auditing configuration blade, select **STORAGE DETAILS** to open the Audit Logs Storage Blade. Select the Azure storage account where logs will be saved and, the retention period. **Tip:** Use the same storage account for all audited databases to get the most out of the preconfigured reports templates.
-   
+
     ![][4]
 6. Click the **OK** button to save the storage details configuration.
 7. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
@@ -102,7 +102,8 @@ In production you are likely to refresh your storage keys periodically. When ref
 ## <a id="subheading-6"></a>Automation
 There are several PowerShell cmdlets you can use to configure auditing in Azure SQL Database. To access the auditing cmdlets you must be running PowerShell in Azure Resource Manager mode.
 
-> [AZURE.NOTE] The  [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) module is currently in preview. It might not provide the same management capabilities as the Azure module.
+> [!NOTE]
+> The  [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) module is currently in preview. It might not provide the same management capabilities as the Azure module.
 
 When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to list the available cmdlets.
 
@@ -111,13 +112,11 @@ When you are in Azure Resource Manager mode, run `Get-Command *AzureSql*` to lis
 [Set up auditing for your database]: #subheading-2
 [Analyze audit logs and reports]: #subheading-3
 
-
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing.png
 [2]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-inherit.png
 [3]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-enable.png
 [4]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-storage-account.png
 [5]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-dashboard.png
-
 
 <!--Link references-->

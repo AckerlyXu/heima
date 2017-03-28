@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Known issues for Apache Spark cluster in Azure HDInsight | Azure"
-    description="Known issues of Apache Spark clusters in Azure HDInsight."
-    services="hdinsight"
-    documentationcenter=""
-    author="mumian"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/18/2017"
-    wacn.date=""
-    ms.author="nitinme" />
+---
+title: Known issues for Apache Spark cluster in Azure HDInsight | Azure
+description: Known issues of Apache Spark clusters in Azure HDInsight.
+services: hdinsight
+documentationcenter: ''
+author: mumian
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/18/2017
+wacn.date: ''
+ms.author: nitinme
+---
 
 # Known issues for Apache Spark cluster on HDInsight
 
@@ -29,15 +30,19 @@ When Livy is restarted with an interactive session (from Ambari or due to headno
 
 Use the following procedure to workaround the issue:
 
-1. Ssh into headnode. For Windows clients, see [Use SSH with Hadoop on HDInsight from Windows with PuTTY](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/); for Linux, Unix or OS X, see [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/) 
+1. Ssh into headnode. For Windows clients, see [Use SSH with Hadoop on HDInsight from Windows with PuTTY](./hdinsight-hadoop-linux-use-ssh-windows.md); for Linux, Unix or OS X, see [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md) 
 2. Run the following command to find the application IDs of the interactive jobs started through Livy. 
-   
-        yarn application -list
-   
+
+    ```
+    yarn application -list
+    ```
+
     The default job names will be Livy if the jobs were started with a Livy interactive session with no explicit names specified, For the Livy session started by Jupyter notebook, the job name will start with remotesparkmagics_*. 
 3. Run the following command to kill those jobs. 
-   
-        yarn application -kill <Application ID>
+
+    ```
+    yarn application -kill <Application ID>
+    ```
 
 New jobs will start running. 
 
@@ -69,7 +74,7 @@ You might see an error **`Error loading notebook`** when you load notebooks that
 
 **Mitigation:**
 
-If you get this error, it does not mean your data is corrupt or lost.  Your notebooks are still on disk in `/var/lib/jupyter`, and you can SSH into the cluster to access them. For Windows clients, see [Use SSH with Hadoop on HDInsight from Windows with PuTTY](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/); for Linux, Unix or OS X, see [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)
+If you get this error, it does not mean your data is corrupt or lost.  Your notebooks are still on disk in `/var/lib/jupyter`, and you can SSH into the cluster to access them. For Windows clients, see [Use SSH with Hadoop on HDInsight from Windows with PuTTY](./hdinsight-hadoop-linux-use-ssh-windows.md); for Linux, Unix or OS X, see [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
 
 Once you have connected to the cluster using SSH, you can copy your notebooks from your cluster to your local machine (using SCP or WinSCP) as a backup to prevent the loss of any important data in the notebook. You can then SSH tunnel into your headnode at port 8001 to access Jupyter without going through the gateway.  From there, you can clear the output of your notebook and re-save it to minimize the notebook's size.
 
@@ -91,31 +96,31 @@ When Spark cluster is out of resources, the Spark and Pyspark kernels in the Jup
 **Mitigations:** 
 
 1. Free up some resources in your Spark cluster by:
-   
+
     * Stopping other Spark notebooks by going to the Close and Halt menu or clicking Shutdown in the notebook explorer.
     * Stopping other Spark applications from YARN.
 2. Restart the notebook you were trying to start up. Enough resources should be available for you to create a session now.
 
 ## See also
-* [Overview: Apache Spark on Azure HDInsight](/documentation/articles/hdinsight-apache-spark-overview/)
+* [Overview: Apache Spark on Azure HDInsight](./hdinsight-apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](/documentation/articles/hdinsight-apache-spark-use-bi-tools/)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](/documentation/articles/hdinsight-apache-spark-ipython-notebook-machine-learning/)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](/documentation/articles/hdinsight-apache-spark-machine-learning-mllib-ipython/)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](/documentation/articles/hdinsight-apache-spark-eventhub-streaming/)
-* [Website log analysis using Spark in HDInsight](/documentation/articles/hdinsight-apache-spark-custom-library-website-log-analysis/)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](./hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](./hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](./hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](./hdinsight-apache-spark-eventhub-streaming.md)
+* [Website log analysis using Spark in HDInsight](./hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
-* [Create a standalone application using Scala](/documentation/articles/hdinsight-apache-spark-create-standalone-application/)
-* [Run jobs remotely on a Spark cluster using Livy](/documentation/articles/hdinsight-apache-spark-livy-rest-interface/)
+* [Create a standalone application using Scala](./hdinsight-apache-spark-create-standalone-application.md)
+* [Run jobs remotely on a Spark cluster using Livy](./hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](/documentation/articles/hdinsight-apache-spark-use-zeppelin-notebook/)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](/documentation/articles/hdinsight-apache-spark-jupyter-notebook-kernels/)
-* [Use external packages with Jupyter notebooks](/documentation/articles/hdinsight-apache-spark-jupyter-notebook-use-external-packages/)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](/documentation/articles/hdinsight-apache-spark-jupyter-notebook-install-locally/)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](./hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](./hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter notebooks](./hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](./hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](/documentation/articles/hdinsight-apache-spark-resource-manager/)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](/documentation/articles/hdinsight-apache-spark-job-debugging/)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](./hdinsight-apache-spark-resource-manager.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](./hdinsight-apache-spark-job-debugging.md)

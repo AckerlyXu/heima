@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Setting up Azure AD Join for your users| Azure"
-	description="Explains how administrators can set up Azure AD Join for on-premises directory and device registration."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""
-	tags="azure-classic-portal"/>
+---
+title: Setting up Azure AD Join for your users| Azure
+description: Explains how administrators can set up Azure AD Join for on-premises directory and device registration.
+services: active-directory
+documentationCenter: ''
+authors: femila
+manager: stevenpo
+editor: ''
+tags: azure-classic-portal
 
-<tags 
-	ms.service="active-directory" 
-	ms.date="02/26/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 02/26/2016
+wacn.date: ''
+---
 
 # Setting up Azure AD Join in your organization
 
 Before you set up Azure Active Directory Join (Azure AD Join), you need to either sync up your on-premises directory of users to the cloud or manually create managed accounts in Azure AD.
 
 Detailed instructions for syncing your on-premises users to Azure AD is covered in [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-
 
 To manually create and manage users in Azure AD, refer to [User management in Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
@@ -46,9 +45,8 @@ Following are the three scenarios you can use to enable your users to set up Azu
 
 ## Additional information
 * [Windows 10 for the enterprise: Ways to use devices for work](/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/)
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](/documentation/articles/active-directory-azureadjoin-user-upgrade/)
-* [Authenticating identities without passwords through Microsoft Passport](/documentation/articles/active-directory-azureadjoin-passport/)
-* [Learn about usage scenarios for Azure AD Join](/documentation/articles/active-directory-azureadjoin-deployment-aadjoindirect/)
+* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](./active-directory-azureadjoin-user-upgrade.md)
+* [Authenticating identities without passwords through Microsoft Passport](./active-directory-azureadjoin-passport.md)
+* [Learn about usage scenarios for Azure AD Join](./active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
-* [Set up Azure AD Join](/documentation/articles/active-directory-azureadjoin-setup/)
-
+* [Set up Azure AD Join](./active-directory-azureadjoin-setup.md)

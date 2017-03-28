@@ -1,24 +1,24 @@
-<properties
-    pageTitle="Create an Android app on Azure App Service Mobile Apps | Azure"
-    description="Follow this tutorial to get started with using Azure mobile app backends for Android development"
-    services="app-service\mobile"
-    documentationCenter="android"
-    authors="yuaxu"
-    manager="erikre"
-    editor=""/>
+---
+title: Create an Android app on Azure App Service Mobile Apps | Azure
+description: Follow this tutorial to get started with using Azure mobile app backends for Android development
+services: app-service\mobile
+documentationCenter: android
+authors: yuaxu
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="na"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="java"
-    ms.topic="hero-article"
-    ms.date="10/01/2016"
-    ms.author="yuaxu"/>
+ms.service: app-service-mobile
+ms.workload: na
+ms.tgt_pltfrm: mobile-android
+ms.devlang: java
+ms.topic: hero-article
+ms.date: 10/01/2016
+ms.author: yuaxu
+---
 
 #Create an Android app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+[!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## Overview
 
@@ -32,20 +32,19 @@ To complete this tutorial, you need the following:
 
 * [Android Developer Tools](https://developer.android.com/sdk/index.html), which includes the Android Studio integrated development environment, and the latest Android platform.
 * Azure Mobile Android SDK, which is automatically referenced as part of the quickstart project you download.
-* An [active Azure account](/pricing/1rmb-trial/).
+* An [active Azure account](https://www.azure.cn/pricing/1rmb-trial/).
 
 ## Create a new Azure mobile app backend
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+[!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## Configure the server project
 
-[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
+[!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## Download and run the Android app
 
-[AZURE.INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
-
+[!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 <!-- Images. -->
 

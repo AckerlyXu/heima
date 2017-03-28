@@ -1,29 +1,29 @@
-<properties
-	pageTitle="Enable offline sync for your Azure Mobile App (Android)"
-	description="Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application"
-	documentationCenter="android"
-	authors="yuaxu"
-	manager="erikre"
-	services="app-service\mobile"/>
+---
+title: Enable offline sync for your Azure Mobile App (Android)
+description: Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application
+documentationCenter: android
+authors: yuaxu
+manager: erikre
+services: app-service\mobile
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="yuaxu"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: java
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: yuaxu
+---
 
 # Enable offline sync for your Android mobile app
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+[!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## Overview
 
 This tutorial covers the offline sync feature of Azure Mobile Apps for Android. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
 
-If this is your first experience with Azure Mobile Apps, you should first complete the tutorial [Create an Android App]. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](/documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/).
+If this is your first experience with Azure Mobile Apps, you should first complete the tutorial [Create an Android App]. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
@@ -35,47 +35,57 @@ To push and pull changes between the device and Azure Mobile Services, you use a
 
 1. In `TodoActivity.java`, comment out the existing definition of `mToDoTable` and uncomment the sync table version:
 
-	    private MobileServiceSyncTable<ToDoItem> mToDoTable;
+    ```
+    private MobileServiceSyncTable<ToDoItem> mToDoTable;
+    ```
 
 2. In the `onCreate` method, comment out the existing initialization of `mToDoTable` and uncomment this definition:
 
-        mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
+    ```
+    mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
+    ```
 
 3. In `refreshItemsFromTable` comment out the definition of `results` and uncomment this definition:
 
-		// Offline Sync
-		final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
+    ```
+    // Offline Sync
+    final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
+    ```
 
 4. Comment out the definition of `refreshItemsFromMobileServiceTable`.
 
 5. Uncomment the definition of `refreshItemsFromMobileServiceTableSyncTable`:
 
-	    private List<ToDoItem> refreshItemsFromMobileServiceTableSyncTable() throws ExecutionException, InterruptedException {
-	        //sync the data
-	        sync().get();
-	        Query query = QueryOperations.field("complete").
-	                eq(val(false));
-	        return mToDoTable.read(query).get();
-	    }
+    ```
+    private List<ToDoItem> refreshItemsFromMobileServiceTableSyncTable() throws ExecutionException, InterruptedException {
+        //sync the data
+        sync().get();
+        Query query = QueryOperations.field("complete").
+                eq(val(false));
+        return mToDoTable.read(query).get();
+    }
+    ```
 
 6. Uncomment the definition of `sync`:
 
-	    private AsyncTask<Void, Void, Void> sync() {
-	        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
-	            @Override
-	            protected Void doInBackground(Void... params) {
-	                try {
-	                    MobileServiceSyncContext syncContext = mClient.getSyncContext();
-	                    syncContext.push().get();
-	                    mToDoTable.pull(null).get();
-	                } catch (final Exception e) {
-	                    createAndShowDialogFromTask(e, "Error");
-	                }
-	                return null;
-	            }
-	        };
-	        return runAsyncTask(task);
-	    }
+    ```
+    private AsyncTask<Void, Void, Void> sync() {
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    MobileServiceSyncContext syncContext = mClient.getSyncContext();
+                    syncContext.push().get();
+                    mToDoTable.pull(null).get();
+                } catch (final Exception e) {
+                    createAndShowDialogFromTask(e, "Error");
+                }
+                return null;
+            }
+        };
+        return runAsyncTask(task);
+    }
+    ```
 
 ## Test the app
 In this section, you test the behavior with WiFi on, and then turn off WiFi to create an offline scenario.
@@ -92,8 +102,8 @@ When you press that button, a new background task starts. It first pushes all ch
 
 3. View the contents of the Azure *TodoItem* table either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*. Verify that the new items have _not_ been synced to the server
 
-   	+ For a Node.js backend, go to the [Azure portal](https://portal.azure.cn/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
-   	+ For a .NET backend, view the table contents either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*.
+       + For a Node.js backend, go to the [Azure portal](https://portal.azure.cn/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
+       + For a .NET backend, view the table contents either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*.
 
 4. Turn on WiFi in the device or simulator. Next, press the **Refresh** button.
 
@@ -103,10 +113,8 @@ When you press that button, a new background task starts. It first pushes all ch
 
 * [Offline Data Sync in Azure Mobile Apps]
 
-
 <!-- URLs. -->
 
-[Offline Data Sync in Azure Mobile Apps]: /documentation/articles/app-service-mobile-offline-data-sync/
+[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
 
-[Create an Android App]: /documentation/articles/app-service-mobile-android-get-started/
-
+[Create an Android App]: ./app-service-mobile-android-get-started.md

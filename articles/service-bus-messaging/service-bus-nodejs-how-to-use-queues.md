@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="How to use Service Bus queues in Node.js | Azure" 
-	description="Learn how to use Service Bus queues in Azure from a Node.js app." 
-	services="service-bus" 
-	documentationCenter="nodejs" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+---
+title: How to use Service Bus queues in Node.js | Azure
+description: Learn how to use Service Bus queues in Azure from a Node.js app.
+services: service-bus
+documentationCenter: nodejs
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="10/03/2016" 
-	ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: nodejs
+ms.topic: article
+ms.date: 10/03/2016
+ms.author: sethm
+---
 
 # How to use Service Bus queues
 
-[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 This article describes how to use Service Bus queues in Node.js. The samples are written in JavaScript and use the Node.js Azure module. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**. For more information on queues, see the [Next steps](#next-steps) section.
 
-[AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Create a Node.js application
 
@@ -38,19 +38,19 @@ To use Azure Service Bus, download and use the Node.js Azure package. This packa
 
 2. Type **npm install azure** in the command window, which should result in output similar to the following:
 
-	```
-	azure@0.7.5 node_modules\azure
-		├── dateformat@1.0.2-1.2.3
-		├── xmlbuilder@0.4.2
-		├── node-uuid@1.2.0
-		├── mime@1.2.9
-		├── underscore@1.4.4
-		├── validator@1.1.1
-		├── tunnel@0.0.2
-		├── wns@0.5.3
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
-	```
+    ```
+    azure@0.7.5 node_modules\azure
+        ├── dateformat@1.0.2-1.2.3
+        ├── xmlbuilder@0.4.2
+        ├── node-uuid@1.2.0
+        ├── mime@1.2.9
+        ├── underscore@1.4.4
+        ├── validator@1.1.1
+        ├── tunnel@0.0.2
+        ├── wns@0.5.3
+        ├── xml2js@0.2.7 (sax@0.5.2)
+        └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+    ```
 
 3. You can manually run the **ls** command to verify that a **node\_modules** folder was created. Inside that folder find the **azure** package, which contains the libraries you need to access Service Bus queues.
 
@@ -145,7 +145,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-Service Bus queues support a maximum message size of 256 KB in the [Standard tier](/documentation/articles/service-bus-premium-messaging/) and 1 MB in the [Premium tier](/documentation/articles/service-bus-premium-messaging/). The header, which includes the standard and custom application properties, can have
+Service Bus queues support a maximum message size of 256 KB in the [Standard tier](./service-bus-premium-messaging.md) and 1 MB in the [Premium tier](./service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Service Bus quotas][].
 
 ## Receive messages from a queue
@@ -195,10 +195,10 @@ To learn more about queues, see the following resources.
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [Azure classic portal]: http://manage.windowsazure.cn
-  
-  [Node.js Cloud Service]: /zh-cn/documentation/articles/cloud-services-nodejs-develop-deploy-app
-  [Queues, topics, and subscriptions]: /documentation/articles/service-bus-queues-topics-subscriptions/
-  [Create and deploy a Node.js application to an Azure Website]: /documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Node.js Cloud Service with Storage]: /documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Node.js Web Application with Storage]:/documentation/articles/storage-nodejs-how-to-use-table-storage/
-  [Service Bus quotas]: /documentation/articles/service-bus-quotas/
+
+  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
+  [Create and deploy a Node.js application to an Azure Website]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
+  [Node.js Web Application with Storage]:../storage/storage-nodejs-how-to-use-table-storage.md
+  [Service Bus quotas]: ./service-bus-quotas.md

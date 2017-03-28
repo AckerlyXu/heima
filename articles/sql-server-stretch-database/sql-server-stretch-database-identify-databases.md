@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Identify databases & tables for Stretch Database - Azure | Azure"
-    description="Learn how to identify databases and tables that are candidates for Stretch Database."
-    services="sql-server-stretch-database"
-    documentationcenter=""
-    author="douglaslMS"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="9253c5a2-f135-4782-95ec-8ff39454c2c0"
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="douglasl" />
+---
+title: Identify databases & tables for Stretch Database - Azure | Azure
+description: Learn how to identify databases and tables that are candidates for Stretch Database.
+services: sql-server-stretch-database
+documentationcenter: ''
+author: douglaslMS
+manager: jhubbard
+editor: ''
+
+ms.assetid: 9253c5a2-f135-4782-95ec-8ff39454c2c0
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: douglasl
+---
 
 # Identify databases and tables for Stretch Database by running Stretch Database Advisor
 To identify databases and tables that are candidates for Stretch Database, download SQL Server 2016 Upgrade Advisor, and run the Stretch Database Advisor. Stretch Database Advisor also identifies blocking issues.
@@ -37,18 +38,18 @@ Download and install Upgrade Advisor from [here](http://go.microsoft.com/fwlink/
     The **Analysis results** blade lists recommended tables in the selected database that match the default recommendation criteria.
 2. In the list of tables on the **Analysis results** blade, select one of the recommended tables to display the **Table results** blade.
 
-    If there are blocking issues, the **Table results** blade lists the blocking issues for the selected table. For information about blocking issues detected by Stretch Database Advisor, see [Limitations for Stretch Database](/documentation/articles/sql-server-stretch-database-limitations/).
+    If there are blocking issues, the **Table results** blade lists the blocking issues for the selected table. For information about blocking issues detected by Stretch Database Advisor, see [Limitations for Stretch Database](./sql-server-stretch-database-limitations.md).
 3. In the list of blocking issues on the **Table results** blade, select one of the issues to display more info about the selected issue and proposes mitigation steps. Implement the suggested mitigation steps if you want to configure the selected table for Stretch Database.
 
 ## Next step
 Enable Stretch Database.
 
-* To enable Stretch Database on a **database**, see [Enable Stretch Database for a database](/documentation/articles/sql-server-stretch-database-enable-database/).
-* To enable Stretch Database on another **table**, when Stretch is already enabled on the database, see [Enable Stretch Database for a table](/documentation/articles/sql-server-stretch-database-enable-table/).
+* To enable Stretch Database on a **database**, see [Enable Stretch Database for a database](./sql-server-stretch-database-enable-database.md).
+* To enable Stretch Database on another **table**, when Stretch is already enabled on the database, see [Enable Stretch Database for a table](./sql-server-stretch-database-enable-table.md).
 
 ## See also
-[Limitations for Stretch Database](/documentation/articles/sql-server-stretch-database-limitations/)
+[Limitations for Stretch Database](./sql-server-stretch-database-limitations.md)
 
-[Enable Stretch Database for a database](/documentation/articles/sql-server-stretch-database-enable-database/)
+[Enable Stretch Database for a database](./sql-server-stretch-database-enable-database.md)
 
-[Enable Stretch Database for a table](/documentation/articles/sql-server-stretch-database-enable-table/)
+[Enable Stretch Database for a table](./sql-server-stretch-database-enable-table.md)

@@ -1,32 +1,33 @@
-<properties
-    pageTitle="DocumentDB Python API & SDK | Azure"
-    description="Learn all about the Python API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Python SDK."
-    services="documentdb"
-    documentationcenter="python"
-    author="rnagpal"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="3ac344a9-b2fa-4a3f-a4cc-02d287e05469"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="python"
-    ms.topic="article"
-    ms.date="10/30/2016"
-    wacn.date=""
-    ms.author="rnagpal" />
+---
+title: DocumentDB Python API & SDK | Azure
+description: Learn all about the Python API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Python SDK.
+services: documentdb
+documentationcenter: python
+author: rnagpal
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: article
+ms.date: 10/30/2016
+wacn.date: ''
+ms.author: rnagpal
+---
 
 # DocumentDB APIs and SDKs
->[AZURE.SELECTOR]
-- [.NET](/documentation/articles/documentdb-sdk-dotnet/)
-- [.NET Core](/documentation/articles/documentdb-sdk-dotnet-core/)
-- [Node.js](/documentation/articles/documentdb-sdk-node/)
-- [Java](/documentation/articles/documentdb-sdk-java/)
-- [Python](/documentation/articles/documentdb-sdk-python/)
-- [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
-- [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-- [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
+>[!div class="op_single_selector"]
+>- [.NET](./documentdb-sdk-dotnet.md)
+>- [.NET Core](./documentdb-sdk-dotnet-core.md)
+>- [Node.js](./documentdb-sdk-node.md)
+>- [Java](./documentdb-sdk-java.md)
+>- [Python](./documentdb-sdk-python.md)
+>- [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+>- [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+>- [SQL](https://msdn.microsoft.com/zh-cn/library/azure/dn782250.aspx)
 
 ## DocumentDB Python API and SDK
 <table>
@@ -39,7 +40,7 @@
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the Python SDK](/documentation/articles/documentdb-python-application/)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Python SDK](./documentdb-python-application.md)</td></tr>
 
 <tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/downloads/) and [Python 3.5](https://www.python.org/downloads/)</td></tr>
 </table></br>
@@ -69,7 +70,7 @@
 - Bug fixes related to server side partitioning to allow special characters in partitionkey path.
 
 ### <a name="1.6.0"/>[1.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
-- Implemented [partitioned collections](/documentation/articles/documentdb-partition-data/) and [user-defined performance levels](/documentation/articles/documentdb-performance-levels/). 
+- Implemented [partitioned collections](./documentdb-partition-data.md) and [user-defined performance levels](./documentdb-performance-levels.md). 
 
 ### <a name="1.5.0"/>[1.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
 - Add Hash & Range partition resolvers to assist with sharding applications across multiple partitions.
@@ -99,7 +100,7 @@ New features and functionality and optimizations are only added to the current S
 
 Any request to DocumentDB using a retired SDK will be rejected by the service.
 
-> [AZURE.WARNING]
+> [!WARNING]
 All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** will be retired on **February 29, 2016**. 
 
 <br/>
@@ -127,8 +128,7 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 | 0.9.0-prelease |August 21, 2014 |February 29, 2016 |
 
 ## FAQ
-[AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
+[!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
 ## See also
-To learn more about DocumentDB, see [Azure DocumentDB](/home/features/documentdb/) service page. 
-
+To learn more about DocumentDB, see [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/) service page.

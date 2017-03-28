@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Azure AD Connect Health Operations."
-	description="This article describes additional operations that can be performed once you have deployed Azure AD Connect Health."
-	services="active-directory"
-	documentationCenter=""
-	authors="karavar"
-	manager="stevenpo"
-	editor="curtand"/>
+---
+title: Azure AD Connect Health Operations.
+description: This article describes additional operations that can be performed once you have deployed Azure AD Connect Health.
+services: active-directory
+documentationCenter: ''
+authors: karavar
+manager: stevenpo
+editor: curtand
 
-<tags 
-	ms.service="active-directory" 
-	ms.date="07/14/2016"
-	wacn.date=""/> 
+ms.service: active-directory
+ms.date: 07/14/2016
+wacn.date: ''
+---
 
 # Azure AD Connect Health Operations
 
@@ -21,8 +21,8 @@ You can configure the Azure AD Connect Health Service to send email notification
 
 ![Azure AD Connect Health Email Notification Discover](./media/active-directory-aadconnect-health/email_noti_discover.png)
 
->[AZURE.NOTE] Email notifications are disabled by default.
-
+>[!NOTE]
+> Email notifications are disabled by default.
 
 ### To enable Azure AD Connect Health Email Notifications
 
@@ -44,7 +44,6 @@ When deleting a server, be aware of the following:
 - This action will NOT uninstall or remove the Health Agent from your server. If you have not uninstalled the Health Agent before performing this step, you may see error events on the server related to the Health Agent.
 - This action will NOT delete the data already collected from this server. That data will be deleted as per the Microsoft Azure Data Retention Policy.
 - After performing this action, if you wish to start monitoring the same server again, you will need to uninstall and re-install the health agent on this server.
-
 
 #### To delete a server from Azure AD Connect Health Service
 
@@ -74,7 +73,6 @@ When deleting a service instance, be aware of the following:
 - All data from this service instance will be deleted as per the Microsoft Azure Data Retention Policy.
 - After performing this action, if you wish to start monitoring the service, please uninstall and re-install the health agent on all the servers that will be monitored. After performing this action, if you wish to start monitoring the same server again, you will need to uninstall and re-install the health agent on this server.
 
-
 #### To delete a service instance from Azure AD Connect Health Service
 
 1. Open the Service Blade from the Service List Blade by selecting the service identifier (farm name) that you wish to remove.
@@ -83,11 +81,10 @@ When deleting a service instance, be aware of the following:
 4. Click on the "Delete" button.
 <br><br>
 
-
 [//]: # (Start of RBAC section)
 ## Manage Access With Role Based Access Control
 ### Overview
-[Role Based Access Control](/documentation/articles/role-based-access-control-configure/) for Azure AD Connect Health provides access Azure AD Connect Health service to users and/or groups outside of global administrators. This is achieved by assigning roles to the intended users and\or groups and provides a mechanism to limit the global administrators within your directory.
+[Role Based Access Control](./role-based-access-control-configure.md) for Azure AD Connect Health provides access Azure AD Connect Health service to users and/or groups outside of global administrators. This is achieved by assigning roles to the intended users and\or groups and provides a mechanism to limit the global administrators within your directory.
 
 #### Roles
 Azure AD Connect Health supports the following built-in roles.
@@ -110,7 +107,6 @@ Azure AD Connect supports managing access at two levels:
 
 Permission is granted if an end user has access either at the Directory or Service Instance level.
 
-
 ### How to allow users or groups access to Azure AD Connect Health
 #### Steps 1: Select the appropriate access scope
 To allow a user access at the *all service instances* level within Azure AD Connect Health, open the main blade in Azure AD Connect Health.<br>
@@ -128,7 +124,7 @@ To allow a user access at the *all service instances* level within Azure AD Conn
 ![Azure AD Connect Health RBAC User List](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 These steps will allow the listed users and group access as per their assigned roles.
->[AZURE.NOTE]
+>[!NOTE]
 - Global Administrators always have full access to all the operations but global administrator accounts will not be present in the above list.
 - "Invite Users" feature is NOT supported within Azure AD Connect Health.
 
@@ -137,8 +133,8 @@ These steps will allow the listed users and group access as per their assigned r
 2. Once on the blade, the user can pin the blade or different parts to the dashboard by simply clicking "Pin to dashboard"<br>
 ![Azure AD Connect Health RBAC pin blade](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
-
->[AZURE.NOTE] A user with the "Reader" role assigned will not be able to perform the "create" operation to get Azure AD Connect Health extension from the Azure Marketplace. This user can still get to the blade by going to the above link. For subsequent usage, the user can pin the blade to the dashboard.
+>[!NOTE]
+> A user with the "Reader" role assigned will not be able to perform the "create" operation to get Azure AD Connect Health extension from the Azure Marketplace. This user can still get to the blade by going to the above link. For subsequent usage, the user can pin the blade to the dashboard.
 
 ### Remove users and/or groups
 You can remove a user or a group added to Azure AD Connect Health Role Based Access Control part by right clicking and selecting remove.<br>
@@ -148,9 +144,9 @@ You can remove a user or a group added to Azure AD Connect Health Role Based Acc
 
 ## Related links
 
-* [Azure AD Connect Health](/documentation/articles/active-directory-aadconnect-health/)
-* [Azure AD Connect Health Agent Installation](/documentation/articles/active-directory-aadconnect-health-agent-install/)
-* [Using Azure AD Connect Health with AD FS](/documentation/articles/active-directory-aadconnect-health-adfs/)
-* [Using Azure AD Connect Health for sync](/documentation/articles/active-directory-aadconnect-health-sync/)
-* [Azure AD Connect Health FAQ](/documentation/articles/active-directory-aadconnect-health-faq/)
-* [Azure AD Connect Health Version History](/documentation/articles/active-directory-aadconnect-health-version-history/)
+* [Azure AD Connect Health](./active-directory-aadconnect-health.md)
+* [Azure AD Connect Health Agent Installation](./active-directory-aadconnect-health-agent-install.md)
+* [Using Azure AD Connect Health with AD FS](./active-directory-aadconnect-health-adfs.md)
+* [Using Azure AD Connect Health for sync](./active-directory-aadconnect-health-sync.md)
+* [Azure AD Connect Health FAQ](./active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health Version History](./active-directory-aadconnect-health-version-history.md)

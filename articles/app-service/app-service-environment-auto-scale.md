@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Autoscaling and App Service Environment | Azure"
-    description="Autoscaling and App Service Environment"
-    services="app-service"
-    documentationcenter=""
-    author="btardif"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="c23af2d8-d370-4b1f-9b3e-8782321ddccb"
-    ms.service="app-service"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/24/2016"
-    wacn.date=""
-    ms.author="byvinyal" />
+---
+title: Autoscaling and App Service Environment | Azure
+description: Autoscaling and App Service Environment
+services: app-service
+documentationcenter: ''
+author: btardif
+manager: erikre
+editor: ''
+
+ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
+ms.service: app-service
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/24/2016
+wacn.date: ''
+ms.author: byvinyal
+---
 
 # Autoscaling and App Service Environment
 Azure App Service environments support *autoscaling*. You can autoscale individual worker pools based on metrics or schedule.

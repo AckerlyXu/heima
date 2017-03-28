@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Create an Azure IoT Hub using a PowerShell cmdlet | Azure"
-    description="How to use a PowerShell cmdlet to create an IoT hub."
-    services="iot-hub"
-    documentationcenter=""
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/17/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Create an Azure IoT Hub using a PowerShell cmdlet | Azure
+description: How to use a PowerShell cmdlet to create an IoT hub.
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/17/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Create an IoT hub using the New-AzureRmIotHub cmdlet
 
-[AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
+[!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 
 You can use Azure PowerShell cmdlets to create and manage Azure IoT hubs. This tutorial shows you how to create an IoT hub with PowerShell.
 
-> [AZURE.NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](/documentation/articles/resource-manager-deployment-model/).  This article covers using the Azure Resource Manager deployment model.
+> [!NOTE]
+> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Azure Resource Manager deployment model.
 
 To complete this tutorial, you need the following:
 
@@ -70,7 +71,7 @@ New-AzureRmIotHub `
     -Location "China East"
 ```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The name of the IoT hub must be unique.
 
 You can list all the IoT hubs in your subscription using the following command:
@@ -110,13 +111,13 @@ To further explore the capabilities of IoT Hub, see:
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 <!-- Links -->
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-powershell-install]: https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs
 [lnk-iothub-cmdlets]: https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.iothub/v1.3.0/azurerm.iothub
 [lnk-rm-install]: https://docs.microsoft.com/en-us/powershell/resourcemanager/
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 
-[lnk-c-sdk]: /documentation/articles/iot-hub-device-sdk-c-intro/
-[lnk-sdks]: /documentation/articles/iot-hub-devguide-sdks/
+[lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: /documentation/articles/iot-hub-linux-gateway-sdk-simulated-device/
+[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md

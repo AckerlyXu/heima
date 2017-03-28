@@ -1,32 +1,32 @@
+---
+title: Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow | Azure
+description: Build web applications by using the Azure AD implementation of the OAuth 2.0 authentication protocol.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<properties
-    pageTitle="Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow | Azure"
-    description="Build web applications by using the Azure AD implementation of the OAuth 2.0 authentication protocol."
-    services="active-directory"
-    documentationcenter=""
-    author="dstrockis"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="9b7cfbd7-f89f-4e33-aff2-414edd584b07"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="dastrock" />
+ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: dastrock
+---
 
 # Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow
 You can use the [OAuth 2.0 client credentials grant](http://tools.ietf.org/html/rfc6749#section-4.4), sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant commonly is used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications often are referred to as *daemons* or *service accounts*.
 
-> [AZURE.NOTE]
-> The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](/documentation/articles/active-directory-v2-limitations/).
+> [!NOTE]
+> The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](./active-directory-v2-limitations.md).
 > 
 > 
 
-In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](/documentation/articles/active-directory-v2-scopes/) process. However, in the client credentials flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action, and not that the user has authorization.
+In the more typical *three-legged OAuth*, a client application is granted permission to access a resource on behalf of a specific user. The permission is delegated from the user to the application, usually during the [consent](./active-directory-v2-scopes.md) process. However, in the client credentials flow, permissions are granted directly to the application itself. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action, and not that the user has authorization.
 
 ## Protocol diagram
 The entire client credentials flow looks similar to the next diagram. We describe each of the steps later in this article.
@@ -56,34 +56,30 @@ For more information about application permissions, go to [Microsoft Graph](http
 To use application permissions in your app, do the steps we discuss in the next sections.
 
 #### Request the permissions in the app registration portal
-1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList), or [create an app](/documentation/articles/active-directory-v2-app-registration/), if you haven't already. You'll need to use at least one Application Secret when you create your app.
+1. Go to your application in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList), or [create an app](./active-directory-v2-app-registration.md), if you haven't already. You'll need to use at least one Application Secret when you create your app.
 2. Locate the **Direct Application Permissions** section, and then add the permissions that your app requires.
 3. **Save** the app registration.
 
 #### Recommended: Sign the user in to your app
 Typically, when you build an application that uses application permissions, the app requires a page or view on which the admin approves the app's permissions. This page can be part of the app's sign-in flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-If you sign the user in to your app, you can identify the organization to which the user belongs before you ask the user to approve the application permissions. Although not strictly necessary, it can help you create a more intuitive experience for your users. To sign the user in, follow our [v2.0 protocol tutorials](/documentation/articles/active-directory-v2-protocols/).
+If you sign the user in to your app, you can identify the organization to which the user belongs before you ask the user to approve the application permissions. Although not strictly necessary, it can help you create a more intuitive experience for your users. To sign the user in, follow our [v2.0 protocol tutorials](./active-directory-v2-protocols.md).
 
 #### Request the permissions from a directory admin
 When you're ready to request permissions from the organization's admin, you can redirect the user to the v2.0 *admin consent endpoint*.
 
+```
+// Line breaks are for legibility only.
 
-	// Line breaks are for legibility only.
+GET https://login.microsoftonline.com/{tenant}/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
 
-	GET https://login.microsoftonline.com/{tenant}/adminconsent?
-	client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-	&state=12345
-	&redirect_uri=http://localhost/myapp/permissions
+// Pro tip: Try pasting the following request in a browser!
 
-
-
-	// Pro tip: Try pasting the following request in a browser!
-
-
-
-	https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
-
+https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
+```
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
@@ -97,9 +93,9 @@ At this point, Azure AD enforces that only a tenant administrator can sign in to
 ##### Successful response
 If the admin approves the permissions for your application, the successful response looks like this:
 
-
-	GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
-
+```
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
+```
 
 | Parameter | Description |
 | --- | --- | --- |
@@ -110,9 +106,9 @@ If the admin approves the permissions for your application, the successful respo
 ##### Error response
 If the admin does not approve the permissions for your application, the failed response looks like this:
 
-
-	GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
-
+```
+GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
+```
 
 | Parameter | Description |
 | --- | --- | --- |
@@ -124,17 +120,15 @@ After you've received a successful response from the app provisioning endpoint, 
 ## Get a token
 After you've acquired the necessary authorization for your application, proceed with acquiring access tokens for APIs. To get a token by using the client credentials grant, send a POST request to the `/token` v2.0 endpoint:
 
+```
+POST /common/oauth2/v2.0/token HTTP/1.1
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
 
-	POST /common/oauth2/v2.0/token HTTP/1.1
-	Host: login.microsoftonline.com
-	Content-Type: application/x-www-form-urlencoded
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials
 
-	client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials
-
-
-
-	curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
-
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+```
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
@@ -146,13 +140,13 @@ After you've acquired the necessary authorization for your application, proceed 
 ##### Successful response
 A successful response looks like this:
 
-
-	{
-	  "token_type": "Bearer",
-	  "expires_in": 3599,
-	  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBP..."
-	}
-
+```
+{
+  "token_type": "Bearer",
+  "expires_in": 3599,
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBP..."
+}
+```
 
 | Parameter | Description |
 | --- | --- |
@@ -163,18 +157,18 @@ A successful response looks like this:
 ##### Error response
 An error response looks like this:
 
-
-	{
-	  "error": "invalid_scope",
-	  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/.default is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
-	  "error_codes": [
-	    70011
-	  ],
-	  "timestamp": "2016-01-09 02:02:12Z",
-	  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
-	  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7"
-	}
-
+```
+{
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/.default is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7"
+}
+```
 
 | Parameter | Description |
 | --- | --- |
@@ -188,20 +182,15 @@ An error response looks like this:
 ## Use a token
 Now that you've acquired a token, use the token to make requests to the resource. When the token expires, repeat the request to the `/token` endpoint to acquire a fresh access token.
 
+```
+GET /v1.0/me/messages
+Host: https://graph.microsoft.com
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 
-	GET /v1.0/me/messages
-	Host: https://graph.microsoft.com
-	Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
+// Pro tip: Try the following command! (Replace the token with your own.)
 
-
-
-	// Pro tip: Try the following command! (Replace the token with your own.)
-
-
-
-	curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
-
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
+```
 
 ## Code sample
 To see an example of an application that implements the client credentials grant by using the admin consent endpoint, see our [v2.0 daemon code sample](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-

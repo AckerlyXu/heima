@@ -20,22 +20,24 @@ ms.tgt_pltfrm: NA
 ---
 # Create a new elastic database pool with the Azure portal
 
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/sql-database-elastic-pool-create-portal/)
-- [PowerShell](/documentation/articles/sql-database-elastic-pool-create-powershell/)
-- [C#](/documentation/articles/sql-database-elastic-pool-create-csharp/)
+> [!div class="op_single_selector"]
+>- [Azure portal](./sql-database-elastic-pool-create-portal.md)
+>- [PowerShell](./sql-database-elastic-pool-create-powershell.md)
+>- [C#](./sql-database-elastic-pool-create-csharp.md)
 
-This article shows you how to create a scalable [elastic pool](/documentation/articles/sql-database-elastic-pool/) with the [Azure portal](https://portal.azure.cn/). There are two ways you can create a pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends a pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases.
+This article shows you how to create a scalable [elastic pool](./sql-database-elastic-pool.md) with the [Azure portal](https://portal.azure.cn/). There are two ways you can create a pool. You can do it from scratch if you know the pool setup you want, or start with a recommendation from the service. SQL Database has built-in intelligence that recommends a pool setup if it's more cost-efficient for you based on the past usage telemetry for your databases.
 
 You can add multiple pools to a server, but you can't add databases from different servers into the same pool. To create a pool, you need at least one database in a V12 server. If you don't have one, see [Create your first Azure SQL database](sql-database-get-started.md). You can create a pool with only one database, but pools are only cost-efficient with multiple databases. See [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] Pools are only available with SQL Database V12 servers. If you have databases on a V11 server, you can [use a PowerShell script to identify them as candidates for a pool](/documentation/articles/sql-database-elastic-pool-database-assessment-powershell/) on a V12 server, and then [use PowerShell to upgrade to V12 and create a pool](/documentation/articles/sql-database-upgrade-server-powershell/) in one step.
+> [!NOTE]
+> Pools are only available with SQL Database V12 servers. If you have databases on a V11 server, you can [use a PowerShell script to identify them as candidates for a pool](./sql-database-elastic-pool-database-assessment-powershell.md) on a V12 server, and then [use PowerShell to upgrade to V12 and create a pool](./sql-database-upgrade-server-powershell.md) in one step.
 
 ## Step 1: Create a new pool
 
 This article shows how to create a new pool from an existing **server** blade in the portal, which is the easiest way to move existing databases into a pool.
 
-> [AZURE.NOTE] You can also create a new pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** in the **SQL elastic pools** browse blade. You will be able to specify a new or existing server through this pool provisioning workflow.
+> [!NOTE]
+> You can also create a new pool by searching **SQL elastic pool** in the **Marketplace** or clicking **+Add** in the **SQL elastic pools** browse blade. You will be able to specify a new or existing server through this pool provisioning workflow.
 
 1. In the [Azure portal](http://portal.azure.cn/) below the list on the left side, click **More services** **>** **SQL servers**, and then click the server that contains the databases you want to add to a pool.
 2. Click **New pool**.
@@ -60,7 +62,8 @@ The pool's pricing tier determines the features available to the elastic databas
 
 To change the pricing tier for the pool, click **Pricing tier**, click the pricing tier you want, and then click **Select**.
 
-> [AZURE.IMPORTANT] After you choose the pricing tier and commit your changes by clicking **OK** in the last step, you won't be able to change the pricing tier of the pool. To change the pricing tier for an existing elastic pool create a new elastic pool in the desired pricing tier and migrate the elastic databases to this new pool.
+> [!IMPORTANT]
+> After you choose the pricing tier and commit your changes by clicking **OK** in the last step, you won't be able to change the pricing tier of the pool. To change the pricing tier for an existing elastic pool create a new elastic pool in the desired pricing tier and migrate the elastic databases to this new pool.
 
 ![Select a pricing tier](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
@@ -76,13 +79,12 @@ After setting the pricing tier, click Configure pool where you add databases, se
 
     If the databases you're working with have enough historical usage telemetry, the **Estimated eDTU and GB usage** graph and the **Actual eDTU usage** bar chart update to help you make configuration decisions. Also, the service may give you a recommendation message to help you right-size the pool. See [Dynamic Recommendations](#dynamic-recommendations).
 
-3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](/documentation/articles/sql-database-elastic-pool/#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) for more detail about limits for each service tier, and see [Price and performance considerations for elastic database pools](/documentation/articles/sql-database-elastic-pool-guidance/) for detailed guidance on right-sizing a pool. For more details about pool settings, see [Elastic database pool properties](/documentation/articles/sql-database-elastic-pool/#elastic-pool-and-elastic-database-properties).
+3. Use the controls on the **Configure pool** page to explore settings and configure your pool. See [Elastic pools limits](./sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) for more detail about limits for each service tier, and see [Price and performance considerations for elastic database pools](./sql-database-elastic-pool-guidance.md) for detailed guidance on right-sizing a pool. For more details about pool settings, see [Elastic database pool properties](./sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
 
-	![Configure Elastic Pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
+    ![Configure Elastic Pool](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
 4. Click **Select** in the **Configure Pool** blade after changing settings.
 5. Click **OK** to create the pool.
-
 
 ##<a name="understand-pool-recommendations"></a> Understand pool recommendations
 
@@ -112,4 +114,4 @@ After adding databases to the pool, recommendations will be dynamically generate
 - [Manage a SQL Database elastic pool with the portal](/documentation/article/sql-database-elastic-pool-manage-portal/)
 - [Manage a SQL Database elastic pool with PowerShell](/documentation/article/sql-database-elastic-pool-manage-powershell/)
 - [Manage a SQL Database elastic pool with C#](/documentation/article/sql-database-elastic-pool-manage-csharp/)
-- [Scaling out with Azure SQL Database](/documentation/article/sql-database-elastic-scale-introduction/) 
+- [Scaling out with Azure SQL Database](/documentation/article/sql-database-elastic-scale-introduction/)

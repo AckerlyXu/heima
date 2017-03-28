@@ -1,18 +1,18 @@
-Before you can use the Azure CLI with Resource Manager commands and templates to deploy Azure resources and workloads using resource groups, you will need an account with Azure. If you do not have an account, you can get an [Azure trial here](/pricing/1rmb-trial/).
+Before you can use the Azure CLI with Resource Manager commands and templates to deploy Azure resources and workloads using resource groups, you will need an account with Azure. If you do not have an account, you can get an [Azure trial here](https://www.azure.cn/pricing/1rmb-trial/).
 
 If you haven't already installed the Azure CLI and connected to your subscription, see [Install the Azure CLI](/documentation/articles/cli-install-nodejs/) set the mode to `arm` with `azure config mode arm`, and connect to Azure with the `azure login -e AzureChinaCloud` command.
 
 ## Basic Azure Resource Manager commands in Azure CLI
 This article covers basic commands you will want to use with Azure CLI to manage and interact with your ARM resources (primarily VMs) in your Azure subscription.  For more detailed help with specific command line switches and options, you can use the online command help and options by typing `azure <command> <subcommand> --help` or `azure help <command> <subcommand>`.
 
-> [AZURE.NOTE]
-> These examples don't include template-based operations which are generally recommended for VM deployments in Resource Manager. For information, see [Use the Azure CLI with Azure Resource Manager](/documentation/articles/xplat-cli-azure-resource-manager/) and [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](/documentation/articles/virtual-machines-linux-cli-deploy-templates/).
+> [!NOTE]
+> These examples don't include template-based operations which are generally recommended for VM deployments in Resource Manager. For information, see [Use the Azure CLI with Azure Resource Manager](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md) and [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 > 
 > 
 
 | Task | Resource Manager |
 | --- | --- | --- |
-| Create the most basic VM |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtain the `image-urn` from the `azure vm image list` command. See [this article](/documentation/articles/virtual-machines-linux-cli-ps-findimage/) for examples.) |
+| Create the most basic VM |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtain the `image-urn` from the `azure vm image list` command. See [this article](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md) for examples.) |
 | Create a Linux VM |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Create a Windows VM |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |
 | List VMs |`azure  vm list [options]` |
@@ -34,4 +34,4 @@ This article covers basic commands you will want to use with Azure CLI to manage
 | Get all available VM sizes |`azure vm sizes [options]` |
 
 ## Next steps
-* For additional examples of the CLI commands going beyond basic VM management, see [Using the Azure CLI with Azure Resource Manager](/documentation/articles/azure-cli-arm-commands/).
+* For additional examples of the CLI commands going beyond basic VM management, see [Using the Azure CLI with Azure Resource Manager](../articles/virtual-machines/azure-cli-arm-commands.md).

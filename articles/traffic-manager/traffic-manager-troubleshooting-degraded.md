@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Troubleshooting degraded status on Azure Traffic Manager"
-    description="How to troubleshoot Traffic Manager profiles when it shows as degraded status."
-    services="traffic-manager"
-    documentationcenter=""
-    author="kumudd"
-    manager="timlt" />
-<tags
-    ms.assetid="8af0433d-e61b-4761-adcc-7bc9b8142fc6"
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Troubleshooting degraded status on Azure Traffic Manager
+description: How to troubleshoot Traffic Manager profiles when it shows as degraded status.
+services: traffic-manager
+documentationcenter: ''
+author: kumudd
+manager: timlt
+
+ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/11/2016
+wacn.date: ''
+ms.author: kumud
+---
 
 # Troubleshooting degraded state on Azure Traffic Manager
 
@@ -47,40 +48,46 @@ Also, you can use the Network tab of the F12 Debugging Tools in Internet Explore
 
 For this example we want to see the response from our probe URL: http://watestsdp2008r2.chinacloudapp.cn:80/Probe. The following PowerShell example illustrates the problem.
 
-    Invoke-WebRequest 'http://watestsdp2008r2.chinacloudapp.cn/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
+```powershell
+Invoke-WebRequest 'http://watestsdp2008r2.chinacloudapp.cn/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
+```
 
 Example output:
 
-    StatusCode StatusDescription
-    ---------- -----------------
-           301 Moved Permanently
+```
+StatusCode StatusDescription
+---------- -----------------
+       301 Moved Permanently
+```
 
 Notice that we received a redirect response. As stated previously, any StatusCode other than 200 is considered a failure. Traffic Manager changes the endpoint status to Offline. To resolve the problem, check the website configuration to ensure that the proper StatusCode can be returned from the probe path. Reconfigure the Traffic Manager probe to point to a path that returns a 200.
 
 If your probe is using the HTTPS protocol, you may need to disable certificate checking to avoid SSL/TLS errors during your test. The following PowerShell statements disable certificate validation for the current PowerShell session:
 
-    add-type @"
-    using System.Net;
-    using System.Security.Cryptography.X509Certificates;
-    public class TrustAllCertsPolicy : ICertificatePolicy {
-        public bool CheckValidationResult(
-        ServicePoint srvPoint, X509Certificate certificate,
-        WebRequest request, int certificateProblem) {
-        return true;
-        }
+```powershell
+add-type @"
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
+public class TrustAllCertsPolicy : ICertificatePolicy {
+    public bool CheckValidationResult(
+    ServicePoint srvPoint, X509Certificate certificate,
+    WebRequest request, int certificateProblem) {
+    return true;
     }
-    "@
-    [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+}
+"@
+[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+```
 
 ## Next Steps
 
-[About Traffic Manager traffic routing methods](/documentation/articles/traffic-manager-routing-methods/)
+[About Traffic Manager traffic routing methods](./traffic-manager-routing-methods.md)
 
-[What is Traffic Manager](/documentation/articles/traffic-manager-overview/)
+[What is Traffic Manager](./traffic-manager-overview.md)
 
-[Cloud Services](/documentation/services/cloud-services/)
+[Cloud Services](../cloud-services/index.md)
 
-[Azure Web Apps](/documentation/services/app-service/web/)
+[Azure Web Apps](../app-service-web/index.md)
 
 [Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/zh-cn/library/hh758255.aspx)
 

@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Device firmware update with Azure IoT Hub (.NET/Node) | Azure"
-    description="How to use device management on Azure IoT Hub to initiate a device firmware update. You use the Azure IoT device SDK for Node.js to implement a simulated device app and the Azure IoT service SDK for .NET to implement a service app that triggers the firmware update."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="juanjperez"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="70b84258-bc9f-43b1-b7cf-de1bb715f2cf"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="juanpere" />
+---
+title: Device firmware update with Azure IoT Hub (.NET/Node) | Azure
+description: How to use device management on Azure IoT Hub to initiate a device firmware update. You use the Azure IoT device SDK for Node.js to implement a simulated device app and the Azure IoT service SDK for .NET to implement a service app that triggers the firmware update.
+services: iot-hub
+documentationcenter: .net
+author: juanjperez
+manager: timlt
+editor: ''
+
+ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: juanpere
+---
 
 # Use device management to initiate a device firmware update (.NET/Node)
-[AZURE.INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
+[!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## Introduction
 In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the [Raspberry Pi device implementation sample][lnk-rpi-implementation].
@@ -40,11 +41,11 @@ To complete this tutorial, you need the following:
 * Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 * An active Azure account. (If you don't have an account, you can create a [account][lnk-free-trial] in just a couple of minutes.)
 
-Follow the [Get started with device management](/documentation/articles/iot-hub-csharp-node-device-management-get-started/) article to create your IoT hub and get your IoT Hub connection string.
+Follow the [Get started with device management](./iot-hub-csharp-node-device-management-get-started.md) article to create your IoT hub and get your IoT Hub connection string.
 
-[AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-[AZURE.INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Trigger a remote firmware update on the device using a direct method
 In this section, you create a .NET console app (using C#) that initiates a remote firmware update on a device. The app uses a direct method to initiate the update and uses device twin queries to periodically get the status of the active firmware update.
@@ -58,51 +59,61 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 
     ![NuGet Package Manager window][img-servicenuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:
-   
-        using Microsoft.Azure.Devices;
-        using Microsoft.Azure.Devices.Shared;
-        
+
+    ```
+    using Microsoft.Azure.Devices;
+    using Microsoft.Azure.Devices.Shared;
+    ```
+
 5. Add the following fields to the **Program** class. Replace the multiple placeholder values with the IoT Hub connection string for the hub that you created in the previous section and the Id of your device.
-   
-        static RegistryManager registryManager;
-        static string connString = "{iot hub connection string}";
-        static ServiceClient client;
-        static JobClient jobClient;
-        static string targetDevice = "{deviceIdForTargetDevice}";
-        
+
+    ```
+    static RegistryManager registryManager;
+    static string connString = "{iot hub connection string}";
+    static ServiceClient client;
+    static JobClient jobClient;
+    static string targetDevice = "{deviceIdForTargetDevice}";
+    ```
+
 6. Add the following method to the **Program** class:
-   
-        public static async Task QueryTwinFWUpdateReported()
-        {
-            Twin twin = await registryManager.GetTwinAsync(targetDevice);
-            Console.WriteLine(twin.Properties.Reported.ToJson());
-        }
-        
+
+    ```
+    public static async Task QueryTwinFWUpdateReported()
+    {
+        Twin twin = await registryManager.GetTwinAsync(targetDevice);
+        Console.WriteLine(twin.Properties.Reported.ToJson());
+    }
+    ```
+
 7. Add the following method to the **Program** class:
 
-        public static async Task StartFirmwareUpdate()
-        {
-            client = ServiceClient.CreateFromConnectionString(connString);
-            CloudToDeviceMethod method = new CloudToDeviceMethod("firmwareUpdate");
-            method.ResponseTimeout = TimeSpan.FromSeconds(30);
-            method.SetPayloadJson(
-                @"{
-                    fwPackageUri : 'https://someurl'
-                }");
+    ```
+    public static async Task StartFirmwareUpdate()
+    {
+        client = ServiceClient.CreateFromConnectionString(connString);
+        CloudToDeviceMethod method = new CloudToDeviceMethod("firmwareUpdate");
+        method.ResponseTimeout = TimeSpan.FromSeconds(30);
+        method.SetPayloadJson(
+            @"{
+                fwPackageUri : 'https://someurl'
+            }");
 
-            CloudToDeviceMethodResult result = await client.InvokeDeviceMethodAsync(targetDevice, method);
+        CloudToDeviceMethodResult result = await client.InvokeDeviceMethodAsync(targetDevice, method);
 
-            Console.WriteLine("Invoked firmware update on device.");
-        }
+        Console.WriteLine("Invoked firmware update on device.");
+    }
+    ```
 
 7. Finally, add the following lines to the **Main** method:
-   
-        registryManager = RegistryManager.CreateFromConnectionString(connString);
-        StartFirmwareUpdate().Wait();
-        QueryTwinFWUpdateReported().Wait();
-        Console.WriteLine("Press ENTER to exit.");
-        Console.ReadLine();
-        
+
+    ```
+    registryManager = RegistryManager.CreateFromConnectionString(connString);
+    StartFirmwareUpdate().Wait();
+    QueryTwinFWUpdateReported().Wait();
+    Console.WriteLine("Press ENTER to exit.");
+    Console.ReadLine();
+    ```
+
 8. Build the solution.
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
@@ -111,7 +122,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 You are now ready to run the apps.
 
 1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
-   
+
     ```
     node dmpatterns_fwupdate_device.js
     ```
@@ -128,13 +139,13 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [img-servicenuget]: ./media/iot-hub-csharp-node-firmware-update/servicesdknuget.png
 [img-createapp]: ./media/iot-hub-csharp-node-firmware-update/createnetapp.png
 
-[lnk-devtwin]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-c2dmethod]: /documentation/articles/iot-hub-devguide-direct-methods/
-[lnk-dm-getstarted]: /documentation/articles/iot-hub-node-node-device-management-get-started/
-[lnk-tutorial-jobs]: /documentation/articles/iot-hub-node-node-schedule-jobs/
+[lnk-devtwin]: ./iot-hub-devguide-device-twins.md
+[lnk-c2dmethod]: ./iot-hub-devguide-direct-methods.md
+[lnk-dm-getstarted]: ./iot-hub-node-node-device-management-get-started.md
+[lnk-tutorial-jobs]: ./iot-hub-node-node-schedule-jobs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

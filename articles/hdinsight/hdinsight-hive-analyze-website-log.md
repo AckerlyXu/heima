@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Use Hive with Hadoop for website log analysis| Azure"
-    description="Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data."
-    services="hdinsight"
-    documentationcenter=""
-    author="nitinme"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal"
-    ROBOTS="NOINDEX" />
-<tags
-    ms.assetid="6fb7b5c2-8df4-40b1-a9e2-6815080004f9"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/17/2016"
-    wacn.date=""
-    ms.author="nitinme" />
+---
+title: Use Hive with Hadoop for website log analysis| Azure
+description: Learn how to use Hive with HDInsight to analyze website logs. You'll use a log file as input into an HDInsight table, and use HiveQL to query the data.
+services: hdinsight
+documentationcenter: ''
+author: nitinme
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+ROBOTS: NOINDEX
+
+ms.assetid: 6fb7b5c2-8df4-40b1-a9e2-6815080004f9
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/17/2016
+wacn.date: ''
+ms.author: nitinme
+---
 
 # Use Hive with Windows-based HDInsight to analyze logs from websites
 Learn how to use HiveQL with HDInsight to analyze logs from a website. Website log analysis can be used to segment your audience based on similar activities, categorize site visitors by demographics, and to find out the content they view, the websites they come from, and so on.
 
-> [AZURE.IMPORTANT]
-> The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](/documentation/articles/hdinsight-component-versioning/#hdi-version-32-and-33-nearing-deprecation-date).
+> [!IMPORTANT]
+> The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 In this sample, you will use an HDInsight cluster to analyze website log files to get insight into the frequency of visits to the website from external websites in a day. You'll also generate a summary of website errors that the users experience. You will learn how to:
 
@@ -42,15 +43,17 @@ In this sample, you will use an HDInsight cluster to analyze website log files t
 ## To run the sample
 1. From the [Azure Portal Preview](https://portal.azure.cn/), from the Startboard (if you pinned the cluster there), click the cluster tile on which you want to run the sample.
 2. From the cluster blade, under **Quick Links**, click **Cluster Dashboard**, and then from the **Cluster Dashboard** blade, click **HDInsight Cluster Dashboard**. Alternatively, you can directly open the dashboard by using the following URL:
-   
-         https://<clustername>.azurehdinsight.cn
-   
+
+    ```
+     https://<clustername>.azurehdinsight.cn
+    ```
+
     When prompted, authenticate by using the administrator user name and password you used when provisioning the cluster.
 3. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Solutions with Sample Data** category, click the **Website Log Analysis** sample.
 4. Follow the instructions provided on the web page to finish the sample.
 
 ## Next steps
-Try the following sample: [Analyzing sensor data using Hive with HDInsight](/documentation/articles/hdinsight-hive-analyze-sensor-data/).
+Try the following sample: [Analyzing sensor data using Hive with HDInsight](./hdinsight-hive-analyze-sensor-data.md).
 
 [hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
 [hdinsight-sensor-data-sample]: /documentation/articles/hdinsight-use-hive-sensor-data-analysis/

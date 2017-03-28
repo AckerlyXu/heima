@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Configure SSL offload - Azure Application Gateway - Azure Portal Preview | Azure"
-    description="This page provides instructions to create an application gateway with SSL offload by using the portal"
-    documentationcenter="na"
-    services="application-gateway"
-    author="georgewallace"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="8373379a-a26a-45d2-aa62-dd282298eff3"
-    ms.service="application-gateway"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="gwallace" />
+---
+title: Configure SSL offload - Azure Application Gateway - Azure Portal Preview | Azure
+description: This page provides instructions to create an application gateway with SSL offload by using the portal
+documentationcenter: na
+services: application-gateway
+author: georgewallace
+manager: timlt
+editor: tysonn
+
+ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: gwallace
+---
 
 # Configure an application gateway for SSL offload by using the portal
-> [AZURE.SELECTOR]
-- [Azure portal preview](/documentation/articles/application-gateway-ssl-portal/)
-- [Azure Resource Manager PowerShell](/documentation/articles/application-gateway-ssl-arm/)
-- [Azure Classic PowerShell](/documentation/articles/application-gateway-ssl/)
+> [!div class="op_single_selector"]
+>- [Azure portal preview](./application-gateway-ssl-portal.md)
+>- [Azure Resource Manager PowerShell](./application-gateway-ssl-arm.md)
+>- [Azure Classic PowerShell](./application-gateway-ssl.md)
 
 Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
 ## Scenario
 
-The following scenario goes through configuring SSL offload on an existing application gateway. The scenario assumes that you have already followed the steps to [Create an Application Gateway](/documentation/articles/application-gateway-create-gateway-portal/).
+The following scenario goes through configuring SSL offload on an existing application gateway. The scenario assumes that you have already followed the steps to [Create an Application Gateway](./application-gateway-create-gateway-portal.md).
 
 ## Before you begin
 
@@ -83,7 +84,7 @@ The settings are now saved to the application gateway. The save process for thes
 
 ## Next steps
 
-To learn how to configure a custom health probe with Azure Application Gateway, see [Create a custom health probe](/documentation/articles/application-gateway-create-gateway-portal/).
+To learn how to configure a custom health probe with Azure Application Gateway, see [Create a custom health probe](./application-gateway-create-gateway-portal.md).
 
 [1]: ./media/application-gateway-ssl-portal/figure1.png
 [2]: ./media/application-gateway-ssl-portal/figure2.png

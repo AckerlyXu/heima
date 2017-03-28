@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Create Azure Service Fabric clusters on Windows Server and Linux | Azure"
-    description="Service Fabric clusters run on Windows Server and Linux, which means you'll be able to deploy and host Service Fabric applications anywhere you can run Windows Server or Linux."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="Chackdan"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="19ca51e8-69b9-4952-b4b5-4bf04cded217"
-    ms.service="service-fabric"
-    ms.devlang="dotNet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="12/06/2016"
-    wacn.date=""
-    ms.author="chackdan" />
+---
+title: Create Azure Service Fabric clusters on Windows Server and Linux | Azure
+description: Service Fabric clusters run on Windows Server and Linux, which means you'll be able to deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
+services: service-fabric
+documentationcenter: .net
+author: Chackdan
+manager: timlt
+editor: ''
+
+ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 12/06/2016
+wacn.date: ''
+ms.author: chackdan
+---
 
 # Create Service Fabric clusters on Windows Server or Linux
 
@@ -23,7 +24,7 @@ Azure Service Fabric allows for the creation of Service Fabric clusters on any V
 
 ##Create Service Fabric clusters on Azure
 
-Creating a cluster on Azure is done either via a Resource Model template or the Azure portal. Read [Create a Service Fabric cluster by using a Resource Manager template](/documentation/articles/service-fabric-cluster-creation-via-arm/) or [Create a Service Fabric cluster from the Azure portal](/documentation/articles/service-fabric-cluster-creation-via-portal/) for more information.
+Creating a cluster on Azure is done either via a Resource Model template or the Azure portal. Read [Create a Service Fabric cluster by using a Resource Manager template](./service-fabric-cluster-creation-via-arm.md) or [Create a Service Fabric cluster from the Azure portal](./service-fabric-cluster-creation-via-portal.md) for more information.
 
 ## Supported operating systems for clusters on Azure
 You are able to create clusters on VMs running these operating systems:
@@ -35,7 +36,7 @@ You are able to create clusters on VMs running these operating systems:
 ## Create Service Fabric standalone clusters on-premise or with any cloud provider
 Service Fabric provides an install package for you to create standalone Service Fabric clusters on-premises or on any cloud provider
 
-For more information on setting up standalone service fabric clusters on Windows Server, read [Service Fabric cluster creation for Windows Server](/documentation/articles/service-fabric-cluster-creation-for-windows-server/)
+For more information on setting up standalone service fabric clusters on Windows Server, read [Service Fabric cluster creation for Windows Server](./service-fabric-cluster-creation-for-windows-server.md)
 
 ### Any cloud deployments vs. on-premises deployments
 The process for creating a Service Fabric cluster on-premises is similar to the process of creating a cluster on any cloud of your choice with a set of VMs. The initial steps to provision the VMs are governed by the cloud provider or on-premises environment that you are using. Once you have a set of VMs with network connectivity enabled between them, then the steps to set up the Service Fabric package, edit the cluster settings, and run the cluster creation and management scripts are identical. This ensures that your knowledge and experience of operating and managing Service Fabric clusters is transferable when you choose to target new hosting environments.
@@ -67,7 +68,6 @@ Running Service Fabric clusters on Azure provides advantages over the on-premise
 
 ## Next steps
 
-* Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](/documentation/articles/service-fabric-cluster-creation-for-windows-server/)
-* Create a cluster on VMs or computers running Linux: [Service Fabric on Linux](/documentation/articles/service-fabric-linux-overview/)
-* Learn about [Service Fabric support options](/documentation/articles/service-fabric-support/)
-
+* Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](./service-fabric-cluster-creation-for-windows-server.md)
+* Create a cluster on VMs or computers running Linux: [Service Fabric on Linux](./service-fabric-linux-overview.md)
+* Learn about [Service Fabric support options](./service-fabric-support.md)

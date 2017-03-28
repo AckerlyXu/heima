@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Create SQL Data Warehouse by using PowerShell | Azure"
-   description="Create SQL Data Warehouse by using PowerShell"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+---
+title: Create SQL Data Warehouse by using PowerShell | Azure
+description: Create SQL Data Warehouse by using PowerShell
+services: sql-data-warehouse
+documentationCenter: NA
+authors: lodipalm
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   wacn.date=""
-   ms.author="lodipalm;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: lodipalm;barbkess;sonyama
+---
 
 # Create SQL Data Warehouse using PowerShell
 
-> [AZURE.SELECTOR]
-- [Azure Portal](/documentation/articles/sql-data-warehouse-get-started-provision/)
-- [TSQL](/documentation/articles/sql-data-warehouse-get-started-create-database-tsql/)
-- [PowerShell](/documentation/articles/sql-data-warehouse-get-started-provision-powershell/)
+> [!div class="op_single_selector"]
+>- [Azure Portal](./sql-data-warehouse-get-started-provision.md)
+>- [TSQL](./sql-data-warehouse-get-started-create-database-tsql.md)
+>- [PowerShell](./sql-data-warehouse-get-started-provision-powershell.md)
 
 This article shows you how to create a SQL Data Warehouse using PowerShell.
 
@@ -35,24 +35,28 @@ To get started, you need:
 * **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group][how to create a resource group].
 * **PowerShell version 1.0.3 or greater**:  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].
 
-> [AZURE.NOTE] Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
+> [!NOTE]
+> Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
 ## Create a SQL Data Warehouse
 1. Open Windows PowerShell.
 2. Run this cmdlet to login to Azure Resource Manager.
 
-		Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-	
+    ```Powershell
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    ```
+
 3. Select the subscription you want to use for your current session.
 
-
-		Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
+    ```Powershell
+    Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
+    ```
 
 4.  Create database. This example creates a new database named "mynewsqldw", with service objective level "DW400", to the server named "sqldwserver1" which is in the resource group named "mywesteuroperesgp1".  **NOTE: Creating a new SQL Data Warehouse database may result in a new billable charges.  See [SQL Data Warehouse pricing][] for more details on pricing.**
 
-
-		New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
-
+    ```Powershell
+    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
+    ```
 
 Required Parameters are:
 
@@ -77,19 +81,19 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 <!--Image references-->
 
 <!--Article references-->
-[DWU]: /documentation/articles/sql-data-warehouse-overview-what-is#data-warehouse-units
-[migrate]:/documentation/articles/sql-data-warehouse-overview-migrate/
-[develop]:/documentation/articles/sql-data-warehouse-overview-develop/
-[load]: /documentation/articles/sql-data-warehouse-load-with-bcp/
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[migrate]:./sql-data-warehouse-overview-migrate.md
+[develop]:./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-load-with-bcp.md
 [loading sample data]: /documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[PowerShell cmdlets and REST APIs]: /documentation/articles/sql-data-warehouse-reference-powershell-cmdlets/
-[firewall rules]: /documentation/articles/sql-database-configure-firewall-settings/
+[PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
+[firewall rules]: ../sql-database/sql-database-configure-firewall-settings.md
 
-[How to install and configure Azure PowerShell]: /documentation/articles/powershell-install-configure/
-[how to create a SQL Data Warehouse from the Azure Portal]: /documentation/articles/sql-data-warehouse-get-started-provision/
+[How to install and configure Azure PowerShell]: ../powershell-install-configure.md
+[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Create an Azure SQL Database logical server with the Azure Portal]: /documentation/articles/sql-database-get-started.md/#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: /documentation/articles/sql-database-get-started-powershell.md/#database-setup-create-a-resource-group-server-and-firewall-rule
-[how to create a resource group]: /documentation/articles/resource-group-portal/
+[how to create a resource group]: ../azure-resource-manager/resource-group-portal.md
 
 <!--MSDN references--> 
 [MSDN]:https://msdn.microsoft.com/zh-cn/library/azure/dn546722.aspx
@@ -98,6 +102,6 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-[SQL Data Warehouse pricing]: /pricing/details/sql-data-warehouse/
-[Azure Free Trial]: /pricing/free-trial/?WT.mc_id=A261C142F
-[MSDN Azure Credits]: /pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[SQL Data Warehouse pricing]: https://www.azure.cn/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://www.azure.cn/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://www.azure.cn/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F

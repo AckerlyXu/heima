@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Key Vault .NET 2.x API Release Notes| Azure"
-    description=".NET developers will use this API to code for Azure Key Vault"
-    services="key-vault"
-    documentationcenter=""
-    author="BrucePerlerMS"
-    manager="mbaldwin"
-    editor="bruceper" />
-<tags
-    ms.assetid="1cccf21b-5be9-4a49-8145-483b695124ba"
-    ms.service="key-vault"
-    ms.devlang="CSharp"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="bruceper" />
+---
+title: Key Vault .NET 2.x API Release Notes| Azure
+description: .NET developers will use this API to code for Azure Key Vault
+services: key-vault
+documentationcenter: ''
+author: BrucePerlerMS
+manager: mbaldwin
+editor: bruceper
+
+ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
+ms.service: key-vault
+ms.devlang: CSharp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: bruceper
+---
 
 # Azure Key Vault .NET 2.0 - Release Notes and Migration Guide
 The following notes and guidance are for developers working with the Azure Key Vault .NET / C# library. In the change from the 1.0 version to the 2.0 version, a number of updates have been made that will require migration work in your code in order for you to benefit from the functional improvements and feature additions such as Key Vault certificates support.
@@ -27,7 +28,7 @@ Key Vault certificates support provides for management of your x509 certificates
 - Allows a certificate owner to create a policy that directs Key Vault to manage the life-cycle of a certificate.  
 - Allows certificate owners to provide contact information for notification about life-cycle events of expiration and renewal of certificate.  
 - Supports automatic renewal with selected issuers - Key Vault partner X509 certificate providers / certificate authorities.
-  
+
   - NOTE - Non-partnered providers/authorities are also allowed but, will not support the auto renewal feature.
 
 ## .NET support
@@ -89,4 +90,3 @@ When a client is processing a  dependency on Key Vault the following were downlo
 
 ## Microsoft.Azure.KeyVault.Extensions NuGet
 - The package is broken up to **Microsoft.Azure.KeyVault.Extensions** and **Microsoft.Azure.KeyVault.Cryptography** for the cryptography operations.
-

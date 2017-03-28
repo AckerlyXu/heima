@@ -1,22 +1,21 @@
+---
+title: Using Azure AD Connect Health with AD DS | Azure
+description: This is the Azure AD Connect Health page that will discuss how to monitor AD DS.
+services: active-directory
+documentationCenter: ''
+authors: arluca
+manager: samueld
+editor: curtand
 
-<properties
-	pageTitle="Using Azure AD Connect Health with AD DS | Azure"
-	description="This is the Azure AD Connect Health page that will discuss how to monitor AD DS."
-	services="active-directory"
-	documentationCenter=""
-	authors="arluca"
-	manager="samueld"
-	editor="curtand"/>
-
-<tags
-	ms.service="active-directory"
-	ms.date="07/14/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 07/14/2016
+wacn.date: ''
+---
 
 # Using Azure AD Connect Health with AD DS
 The following documentation is specific to monitoring Active Directory Domain Services with Azure AD Connect Health. This includes AD DS installed on Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012 R2.
 
-For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](/documentation/articles/active-directory-aadconnect-health-adfs). Additionally, for information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health see [Using Azure AD Connect Health for Sync](/documentation/articles/active-directory-aadconnect-health-sync).
+For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](./active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Azure AD Connect (Sync) with Azure AD Connect Health see [Using Azure AD Connect Health for Sync](./active-directory-aadconnect-health-sync.md).
 
 ![Azure AD Connect Health for AD DS](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
 
@@ -48,10 +47,10 @@ By default, we have preselected four performance counters; however, you can incl
 
 ## Related links
 
-* [Azure AD Connect Health](/documentation/articles/active-directory-aadconnect-health/)
-* [Azure AD Connect Health Agent Installation](/documentation/articles/active-directory-aadconnect-health-agent-install/)
-* [Azure AD Connect Health Operations](/documentation/articles/active-directory-aadconnect-health-operations/)
-* [Using Azure AD Connect Health with AD FS](/documentation/articles/active-directory-aadconnect-health-adfs/)
-* [Using Azure AD Connect Health for sync](/documentation/articles/active-directory-aadconnect-health-sync/)
-* [Azure AD Connect Health FAQ](/documentation/articles/active-directory-aadconnect-health-faq/)
-* [Azure AD Connect Health Version History](/documentation/articles/active-directory-aadconnect-health-version-history/)
+* [Azure AD Connect Health](./active-directory-aadconnect-health.md)
+* [Azure AD Connect Health Agent Installation](./active-directory-aadconnect-health-agent-install.md)
+* [Azure AD Connect Health Operations](./active-directory-aadconnect-health-operations.md)
+* [Using Azure AD Connect Health with AD FS](./active-directory-aadconnect-health-adfs.md)
+* [Using Azure AD Connect Health for sync](./active-directory-aadconnect-health-sync.md)
+* [Azure AD Connect Health FAQ](./active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health Version History](./active-directory-aadconnect-health-version-history.md)

@@ -29,37 +29,41 @@ ms.author: ddove
 
 ##Uninstall  Elastic Database jobs components using PowerShell
 
-1.	Launch a Azure PowerShell command window and navigate to the tools sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x folder: Type **cd tools**.
+1. Launch a Azure PowerShell command window and navigate to the tools sub-directory under the Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x folder: Type **cd tools**.
 
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+    ```
+    PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+    ```
 
-2.	Execute the .\UninstallElasticDatabaseJobs.ps1 PowerShell script.
+2. Execute the .\UninstallElasticDatabaseJobs.ps1 PowerShell script.
 
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
-		PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
+    ```
+    PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
+    PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
+    ```
 
 Or simply, execute the following script, assuming default values where used on installation of the components:
 
-		$ResourceGroupName = "__ElasticDatabaseJob"
-		Switch-AzureMode AzureResourceManager
-		
-		$resourceGroup = Get-AzureResourceGroup -Name $ResourceGroupName
-		if(!$resourceGroup)
-		{
-		    Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job components are uninstalled."
-		    return
-		}
-		
-		Write-Host "Removing the Azure Resource Group: $ResourceGroupName.  This may take a few minutes.”
-		Remove-AzureResourceGroup -Name $ResourceGroupName -Force
-		Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job compoennts are now uninstalled."
+```
+    $ResourceGroupName = "__ElasticDatabaseJob"
+    Switch-AzureMode AzureResourceManager
+
+    $resourceGroup = Get-AzureResourceGroup -Name $ResourceGroupName
+    if(!$resourceGroup)
+    {
+        Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job components are uninstalled."
+        return
+    }
+
+    Write-Host "Removing the Azure Resource Group: $ResourceGroupName.  This may take a few minutes.”
+    Remove-AzureResourceGroup -Name $ResourceGroupName -Force
+    Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job compoennts are now uninstalled."
+```
 
 ## Next steps
 
-To re-install Elastic Database jobs, see [Installing the Elastic Database job service](/documentation/articles/sql-database-elastic-jobs-service-installation/)
+To re-install Elastic Database jobs, see [Installing the Elastic Database job service](./sql-database-elastic-jobs-service-installation.md)
 
-For an overview of Elastic Database jobs, see [Elastic Database jobs overview](/documentation/articles/sql-database-elastic-jobs-overview/).
+For an overview of Elastic Database jobs, see [Elastic Database jobs overview](./sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
-
- 

@@ -1,25 +1,26 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Getting Started with Cloud Foundry on Azure | Azure"
-    description="Run OSS or Pivotal Cloud Foundry on Azure"
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="seanmck"
-    manager="timlt"
-    editor=""
-    tags=""
-    keywords="" />
-<tags
-    ms.assetid="2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab"
-    ms.service="virtual-machines-linux"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="01/19/2017"
-    wacn.date=""
-    ms.author="seanmck" />
+---
+title: Getting Started with Cloud Foundry on Azure | Azure
+description: Run OSS or Pivotal Cloud Foundry on Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: seanmck
+manager: timlt
+editor: ''
+tags: ''
+keywords: ''
+
+ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 01/19/2017
+wacn.date: ''
+ms.author: seanmck
+---
 
 # Cloud Foundry on Azure
 
@@ -39,7 +40,7 @@ Microsoft provides best-effort support for OSS CF through the following communit
 - [cf-bosh mailing list](https://lists.cloudfoundry.org/pipermail/cf-bosh)
 - GitHub issues for the [CPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) and [service broker](https://github.com/Azure/meta-azure-service-broker/issues)
 
->[AZURE.NOTE]
+>[!NOTE]
 > The level of support for your Azure resources, such as the virtual machines where you run Cloud Foundry, is based on your Azure support agreement. Best-effort community support only applies to the Cloud Foundry-specific components.
 
 ### Pivotal Cloud Foundry

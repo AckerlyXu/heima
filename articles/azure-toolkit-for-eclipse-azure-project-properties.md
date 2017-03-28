@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Project Properties"
-    description="Describes the Azure Project Properties settings in the Azure Toolkit for Eclipse."
-    services=""
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="0fce53ec-0c5e-47b9-a453-59a0d4307556"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm" />
+---
+title: Azure Project Properties
+description: Describes the Azure Project Properties settings in the Azure Toolkit for Eclipse.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: 0fce53ec-0c5e-47b9-a453-59a0d4307556
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm
+---
 
 # Azure Project Properties
 Various settings for your Azure project can be set within the Azure Toolkit for Eclipse.
@@ -47,11 +48,11 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- URL List -->
 
 [Azure Java Developer Center]:/develop/java/
-[Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse/
-[Azure Role Properties]: /documentation/articles/azure-toolkit-for-eclipse-azure-role-properties/
-[Azure Storage Account List]: /documentation/articles/azure-toolkit-for-eclipse-azure-storage-account-list/
-[Creating a Hello World Application for Azure in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/
-[Installing the Azure Toolkit for Eclipse]: /documentation/articles/azure-toolkit-for-eclipse-installation/
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
+[Azure Role Properties]: ./azure-toolkit-for-eclipse-azure-role-properties.md
+[Azure Storage Account List]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
+[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 
 <!-- IMG List -->
 

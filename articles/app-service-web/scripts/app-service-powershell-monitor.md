@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure PowerShell Script Sample - Monitor a web app with web server logs | Azure"
-    description="Azure PowerShell Script Sample - Monitor a web app with web server logs"
-    services="app-service\web"
-    documentationcenter=""
-    author="syntaxc4"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="5805d7cd-9e56-4eba-bd85-75b013690ff5"
-    ms.service="app-service"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="web"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cfowler" />
+---
+title: Azure PowerShell Script Sample - Monitor a web app with web server logs | Azure
+description: Azure PowerShell Script Sample - Monitor a web app with web server logs
+services: app-service\web
+documentationcenter: ''
+author: syntaxc4
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
+ms.service: app-service
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cfowler
+---
 
 # Monitor a web app with web server logs
 
@@ -26,37 +27,41 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-    # Generates a Random Value
-    $Random=(New-Guid).ToString().Substring(0,8)
+```
+# Generates a Random Value
+$Random=(New-Guid).ToString().Substring(0,8)
 
-    # Variables
-    $ResourceGroupName="myResourceGroup$Random"
-    $AppName="AppServiceMonitor$Random"
-    $Location="ChinaNorth"
+# Variables
+$ResourceGroupName="myResourceGroup$Random"
+$AppName="AppServiceMonitor$Random"
+$Location="ChinaNorth"
 
-    # Create a Resource Group
-    New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
+# Create a Resource Group
+New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
 
-    # Create an App Service Plan
-    New-AzureRMAppservicePlan -Name AppServiceMonitorPlan -ResourceGroupName $ResourceGroupName -Location $Location -Tier Basic
+# Create an App Service Plan
+New-AzureRMAppservicePlan -Name AppServiceMonitorPlan -ResourceGroupName $ResourceGroupName -Location $Location -Tier Basic
 
-    # Create a Web App in the App Service Plan
-    New-AzureRMWebApp -Name $AppName -ResourceGroupName $ResourceGroupName -Location $Location -AppServicePlan AppServiceMonitorPlan
+# Create a Web App in the App Service Plan
+New-AzureRMWebApp -Name $AppName -ResourceGroupName $ResourceGroupName -Location $Location -AppServicePlan AppServiceMonitorPlan
 
-    # Enable Logs
-    Set-AzureRMWebApp -RequestTracingEnabled $True -HttpLoggingEnabled $True -DetailedErrorLoggingEnabled $True -ResourceGroupName $ResourceGroupName -Name $AppName
+# Enable Logs
+Set-AzureRMWebApp -RequestTracingEnabled $True -HttpLoggingEnabled $True -DetailedErrorLoggingEnabled $True -ResourceGroupName $ResourceGroupName -Name $AppName
 
-    # Make a Request
-    Invoke-WebRequest -Method "Get" -Uri https://$AppName.chinacloudsites.cn/404 -ErrorAction SilentlyContinue
+# Make a Request
+Invoke-WebRequest -Method "Get" -Uri https://$AppName.chinacloudsites.cn/404 -ErrorAction SilentlyContinue
 
-    # Download the Web App Logs
-    #Get-AzureRMWebAppMetrics -ResourceGroupName $ResourceGroupName -Name $AppName -Metrics
+# Download the Web App Logs
+#Get-AzureRMWebAppMetrics -ResourceGroupName $ResourceGroupName -Name $AppName -Metrics
+```
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
-    Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## Script explanation
 
@@ -74,4 +79,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](/documentation/articles/app-service-powershell-samples/).
+Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Generic SQL Connector | Azure"
-    description="This article describes how to configure Microsoft's Generic SQL Connector."
-    services="active-directory"
-    documentationcenter=""
-    author="AndKjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="fd8ccef3-6605-47ba-9219-e0c74ffc0ec9"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/10/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Generic SQL Connector | Azure
+description: This article describes how to configure Microsoft's Generic SQL Connector.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
+
+ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/10/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Generic SQL Connector technical reference
 This article describes the Generic SQL Connector. The article applies to the following products:
@@ -26,7 +27,7 @@ This article describes the Generic SQL Connector. The article applies to the fol
 
 For MIM2016 and FIM2010R2, the Connector is available as a download from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=717495).
 
-To see this Connector in action, see the [Generic SQL Connector step-by-step](/documentation/articles/active-directory-aadconnectsync-connector-genericsql-step-by-step/) article.
+To see this Connector in action, see the [Generic SQL Connector step-by-step](./active-directory-aadconnectsync-connector-genericsql-step-by-step.md) article.
 
 ## Overview of the Generic SQL Connector
 The Generic SQL Connector enables you to integrate the synchronization service with a database system that offers ODBC connectivity.  
@@ -76,7 +77,7 @@ The database should support one of these authentication methods:
 
 - **Windows authentication**: The authenticating database uses the Windows credentials to verify the user. The user name/password specified is used to authenticate with the database. This account needs permissions to the database.
 - **SQL authentication**: The authenticating database uses the user name/password defined one the Connectivity screen to connect to the database. If you store the user name/pasword in the DSN file, the credentials provided on the Connectivity screen have precedence.
-- **Azure SQL Database authentication**: For more information, see [Connect to SQL Database By Using Azure Active Directory Authentication](/documentation/articles/sql-database-aad-authentication/).
+- **Azure SQL Database authentication**: For more information, see [Connect to SQL Database By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
 
 **DN is Anchor**: If you select this option, the DN is also used as the anchor attribute. It can be used for a simple implementation but also has the following limitation:
 
@@ -117,8 +118,8 @@ This page allows you to configure anchor and DN attribute for each detected obje
 - Multi-valued and Boolean attributes are not listed.
 - Same attribute cannot use for DN and anchor, unless **DN is Anchor** is selected on the Connectivity page.
 - If **DN is Anchor** is selected on the Connectivity page, this page requires only the DN attribute. This attribute would also be used as the anchor attribute.
-	
-	![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
+
+    ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### Schema 4 (Define attribute type, reference, and direction)
 This page allows you to configure the attribute type, such as integer, binary, or Boolean, and direction for each attribute. All attributes from page **schema 2** are listed including multi-valued attributes.
@@ -142,24 +143,21 @@ On this page, you configure for all reference attributes which partition (object
 
 If you use **DN is anchor**, then you must use the same object type as the one you are referring from. You cannot reference another object type.
 
->[AZURE.NOTE]
+>[!NOTE]
 Starting in the March 2017 update there is now an option for "*" When this option is chosen then all possible member types will be imported.
 
 ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/any-option.png)
 
-
 After import you will see something similar to the image below:
 
   ![globalparameters3](./media/active-directory-aadconnectsync-connector-genericsql/after-import.png)
-
-
 
 ### Global Parameters
 The Global Parameters page is used to configure Delta Import, Date/Time format, and Password method.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
 
->[AZURE.IMPORTANT]
+>[!IMPORTANT]
  “*” aka **any option** cannot be used during export/delete operations.
 
 The Generic SQL Connector supports the following methods for Delta Import:

@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Selecting User Names for Linux | Azure"
-    description="Learn how to select user names for a Linux virtual machine in Azure."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="szarkos"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management,azure-resource-manager" />
-<tags
-    ms.assetid="33b50c97-92f1-46c9-a623-e37f67459c5c"
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/02/2017"
-    wacn.date=""
-    ms.author="szark" />
+---
+title: Selecting User Names for Linux | Azure
+description: Learn how to select user names for a Linux virtual machine in Azure.
+services: virtual-machines-linux
+documentationcenter: ''
+author: szarkos
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+
+ms.assetid: 33b50c97-92f1-46c9-a623-e37f67459c5c
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 02/02/2017
+wacn.date: ''
+ms.author: szark
+---
 
 # Selecting User Names for Linux on Azure
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 When you provision a Linux virtual machine on Azure you must specify the name of a non-root user that you can later use to log into the VM. You may choose the name of the new user, or if provisioning via the Azure Classic Management Portal you can accept the default name "azureuser".
 

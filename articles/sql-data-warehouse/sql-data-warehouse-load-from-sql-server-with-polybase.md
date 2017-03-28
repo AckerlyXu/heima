@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (PolyBase) | Azure"
-    description="Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="ckarst"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="860c86e0-90f7-492c-9a84-1bdd3d1735cd"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/31/2016"
-    wacn.date=""
-    ms.author="cakarst;barbkess" />
+---
+title: Load data from SQL Server into Azure SQL Data Warehouse (PolyBase) | Azure
+description: Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: ckarst
+manager: jhubbard
+editor: ''
+
+ms.assetid: 860c86e0-90f7-492c-9a84-1bdd3d1735cd
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: cakarst;barbkess
+---
 
 # Load data with PolyBase in SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [SSIS](/documentation/articles/sql-data-warehouse-load-from-sql-server-with-integration-services/)
-- [PolyBase](/documentation/articles/sql-data-warehouse-load-from-sql-server-with-polybase/)
-- [bcp](/documentation/articles/sql-data-warehouse-load-from-sql-server-with-bcp/)
+> [!div class="op_single_selector"]
+>- [SSIS](./sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+>- [PolyBase](./sql-data-warehouse-load-from-sql-server-with-polybase.md)
+>- [bcp](./sql-data-warehouse-load-from-sql-server-with-bcp.md)
 
 This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and PolyBase. When finished, you will know how to:
 
@@ -38,7 +39,7 @@ To step through this tutorial, you need
 * A SQL Data Warehouse database.
 * An Azure storage account of type Standard Locally Redundant Storage (Standard-LRS), Standard Geo-Redundant Storage (Standard-GRS), or Standard Read-Access Geo-Redundant Storage (Standard-RAGRS).
 * AzCopy Command-Line Utility. Download and install the [latest version of AzCopy][latest version of AzCopy] which is installed with the Azure Storage Tools.
-  
+
     ![Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 ## Step 1: Add sample data to Azure blob storage
@@ -62,18 +63,17 @@ To prepare a sample text file:
     20150901,3,1
     20150101,1,3
 
-
 ### B. Find your blob service endpoint
 To find your blob service endpoint:
 
 1. From the Azure Portal select **Browse** > **Storage Accounts**.
 2. Click the storage account you want to use.
 3. In the Storage account blade, click Blobs
-   
+
     ![Click Blobs](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
-    
+
 4. Save your blob service endpoint URL for later.
-   
+
     ![Blob service endpoint](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
 ### C. Find your Azure storage key
@@ -83,7 +83,7 @@ To find your Azure storage key:
 2. Click on the storage account you want to use.
 3. Select **All settings** > **Access keys**.
 4. Click the copy box to copy one of your access keys to the clipboard.
-   
+
     ![Copy Azure storage key](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
 ### D. Copy the sample file to Azure blob storage
@@ -91,11 +91,15 @@ To copy your data to Azure blob storage:
 
 1. Open a command prompt, and change directories to the AzCopy installation directory. This command changes to the default installation directory on a 64-bit Windows client.
 
-        cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
+    ```
+    cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
+    ```
 
 2. Run the following command to upload the file. Specify your blob service endpoint URL for <blob service endpoint URL> and your Azure storage account key for <azure_storage_account_key>.
 
-        .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
+    ```
+    .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
+    ```
 
 See also [Getting Started with the AzCopy Command-Line Utility][latest version of AzCopy].
 
@@ -107,7 +111,7 @@ To see the file you uploaded to blob storage:
 3. To explore the path to your data, click the folder **datedimension** and you will see your uploaded file **DimDate2.txt**.
 4. To view properties, click **DimDate2.txt**.
 5. Note that in the Blob properties blade, you can download or delete the file.
-   
+
     ![View Azure storage blob](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 ## Step 2: Create an external table for the sample data
@@ -125,64 +129,66 @@ The example in this step uses these Transact-SQL statements to create an externa
 
 Run this query against your SQL Data Warehouse database. It will create an external table named DimDate2External in the dbo schema that points to the DimDate2.txt sample data in the Azure blob storage.
 
-    -- A: Create a master key.
-    -- Only necessary if one does not already exist.
-    -- Required to encrypt the credential secret in the next step.
+```sql
+-- A: Create a master key.
+-- Only necessary if one does not already exist.
+-- Required to encrypt the credential secret in the next step.
 
-    CREATE MASTER KEY;
+CREATE MASTER KEY;
 
-    -- B: Create a database scoped credential
-    -- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
-    -- SECRET: Provide your Azure storage account key.
+-- B: Create a database scoped credential
+-- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
+-- SECRET: Provide your Azure storage account key.
 
-    CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential
-    WITH
-        IDENTITY = 'user',
-        SECRET = '<azure_storage_account_key>'
-    ;
+CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential
+WITH
+    IDENTITY = 'user',
+    SECRET = '<azure_storage_account_key>'
+;
 
-    -- C: Create an external data source
-    -- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
-    -- LOCATION: Provide Azure storage account name and blob container name.
-    -- CREDENTIAL: Provide the credential created in the previous step.
+-- C: Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
+-- LOCATION: Provide Azure storage account name and blob container name.
+-- CREDENTIAL: Provide the credential created in the previous step.
 
-    CREATE EXTERNAL DATA SOURCE AzureStorage
-    WITH (
-        TYPE = HADOOP,
-        LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.chinacloudapi.cn',
-        CREDENTIAL = AzureStorageCredential
-    );
+CREATE EXTERNAL DATA SOURCE AzureStorage
+WITH (
+    TYPE = HADOOP,
+    LOCATION = 'wasbs://<blob_container_name>@<azure_storage_account_name>.blob.core.chinacloudapi.cn',
+    CREDENTIAL = AzureStorageCredential
+);
 
-    -- D: Create an external file format
-    -- FORMAT_TYPE: Type of file format in Azure storage (supported: DELIMITEDTEXT, RCFILE, ORC, PARQUET).
-    -- FORMAT_OPTIONS: Specify field terminator, string delimiter, date format etc. for delimited text files.
-    -- Specify DATA_COMPRESSION method if data is compressed.
+-- D: Create an external file format
+-- FORMAT_TYPE: Type of file format in Azure storage (supported: DELIMITEDTEXT, RCFILE, ORC, PARQUET).
+-- FORMAT_OPTIONS: Specify field terminator, string delimiter, date format etc. for delimited text files.
+-- Specify DATA_COMPRESSION method if data is compressed.
 
-    CREATE EXTERNAL FILE FORMAT TextFile
-    WITH (
-        FORMAT_TYPE = DelimitedText,
-        FORMAT_OPTIONS (FIELD_TERMINATOR = ',')
-    );
+CREATE EXTERNAL FILE FORMAT TextFile
+WITH (
+    FORMAT_TYPE = DelimitedText,
+    FORMAT_OPTIONS (FIELD_TERMINATOR = ',')
+);
 
-    -- E: Create the external table
-    -- Specify column names and data types. This needs to match the data in the sample file.
-    -- LOCATION: Specify path to file or directory that contains the data (relative to the blob container).
-    -- To point to all files under the blob container, use LOCATION='.'
+-- E: Create the external table
+-- Specify column names and data types. This needs to match the data in the sample file.
+-- LOCATION: Specify path to file or directory that contains the data (relative to the blob container).
+-- To point to all files under the blob container, use LOCATION='.'
 
-    CREATE EXTERNAL TABLE dbo.DimDate2External (
-        DateId INT NOT NULL,
-        CalendarQuarter TINYINT NOT NULL,
-        FiscalQuarter TINYINT NOT NULL
-    )
-    WITH (
-        LOCATION='/datedimension/',
-        DATA_SOURCE=AzureStorage,
-        FILE_FORMAT=TextFile
-    );
+CREATE EXTERNAL TABLE dbo.DimDate2External (
+    DateId INT NOT NULL,
+    CalendarQuarter TINYINT NOT NULL,
+    FiscalQuarter TINYINT NOT NULL
+)
+WITH (
+    LOCATION='/datedimension/',
+    DATA_SOURCE=AzureStorage,
+    FILE_FORMAT=TextFile
+);
 
-    -- Run a query on the external table
+-- Run a query on the external table
 
-    SELECT count(*) FROM dbo.DimDate2External;
+SELECT count(*) FROM dbo.DimDate2External;
+```
 
 In SQL Server Object Explorer in Visual Studio, you can see the external file format, external data source, and the DimDate2External table.
 
@@ -210,9 +216,11 @@ SQL Data Warehouse does not auto-create or auto-update statistics. Therefore, to
 
 This example creates single-column statistics on the new DimDate2 table.
 
-    CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
-    CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
-    CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+```sql
+CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
+CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+```
 
 To learn more, see [Statistics][Statistics].  
 
@@ -221,20 +229,18 @@ See the [PolyBase guide][PolyBase guide] for further information you should know
 
 <!--Image references-->
 
-
 <!--Article references-->
-[PolyBase in SQL Data Warehouse Tutorial]: /documentation/articles/sql-data-warehouse-get-started-load-with-polybase/
-[Load data with bcp]: /documentation/articles/sql-data-warehouse-load-with-bcp/
-[Statistics]: /documentation/articles/sql-data-warehouse-tables-statistics/
-[PolyBase guide]: /documentation/articles/sql-data-warehouse-load-polybase-guide/
-[latest version of AzCopy]: /documentation/articles/storage-use-azcopy/
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
 [supported source/sink]: https://msdn.microsoft.com/zh-cn/library/dn894007.aspx
 [copy activity]: https://msdn.microsoft.com/zh-cn/library/dn835035.aspx
 [SQL Server destination adapter]: https://msdn.microsoft.com/zh-cn/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/zh-cn/library/ms141026.aspx
-
 
 [CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/dn935022.aspx
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/zh-cn/library/dn935026.aspx

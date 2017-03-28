@@ -1,36 +1,35 @@
-<properties
-	pageTitle="Azure Monitor PowerShell quick start samples. | Azure"
-	description="Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs."
-	authors="kamathashwin"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Azure Monitor PowerShell quick start samples. | Azure
+description: Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs.
+authors: kamathashwin
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/08/2016"
-	ms.author="ashwink"
-	wacn.date=""/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/08/2016
+ms.author: ashwink
+wacn.date: ''
+---
 
 # Azure Monitor PowerShell quick start samples
 This article shows you sample PowerShell commands to help you access Azure Monitor features. Azure Monitor allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the commands below still contain the "insights".
 > 
 > 
 
 ## Set up PowerShell
-If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/documentation/articles/powershell-install-configure/) .
+If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](../powershell-install-configure.md) .
 
 ## Examples in this article
 The examples in the article illustrate how you can use Azure Monitor cmdlets. You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
-
 
 ## Sign in and use subscriptions
 
@@ -51,7 +50,6 @@ To change your working context to a different subscription, use the following co
 ```
 Set-AzureRmContext -SubscriptionId <subscriptionid>
 ```
-
 
 ## Retrieve Activity log for a subscription
 Use the `Get-AzureRmLog` cmdlet.  Below are some common examples.
@@ -94,7 +92,8 @@ Get-AzureRmLog -MaxEvents 1000
 
 `Get-AzureRmLog` supports many other parameters. See the `Get-AzureRmLog` reference for more information.
 
->[AZURE.NOTE] `Get-AzureRmLog` only provides 15 days of history. Using the **-MaxEvents** parameter allows you to query the last N events, beyond 15 days. To access events older than 15 days, use the REST API or SDK (C# sample using the SDK). If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
+>[!NOTE]
+> `Get-AzureRmLog` only provides 15 days of history. Using the **-MaxEvents** parameter allows you to query the last N events, beyond 15 days. To access events older than 15 days, use the REST API or SDK (C# sample using the SDK). If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
 
 ## Retrieve alerts history
 To view all alert events, you can query the Azure Resource Manager logs using the following examples.
@@ -110,7 +109,6 @@ Get-AzureRmAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/provide
 ```
 
 The `Get-AzureRmAlertHistory` cmdlet supports various parameters. More information, see [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
-
 
 ## Retrieve information on alert rules
 All of the following commands act on a Resource Group named "montest".
@@ -144,7 +142,6 @@ The next section contains a sample that shows you how to create an Alert Rule wi
 
 ### Alert rule on a metric
 The following table describes the parameters and values used to create an alert using a metric.
-
 
 |parameter|value|
 |---|---|
@@ -188,7 +185,8 @@ The Add alert cmdlet also updates the rule if an alert rule already exists for t
 
 ### Alert on activity log event
 
->[AZURE.NOTE] This feature is in preview and will be removed at some point in the future (it is being replaced).
+>[!NOTE]
+> This feature is in preview and will be removed at some point in the future (it is being replaced).
 
 In this scenario, you'll send email when a website is successfully started in my subscription in resource group *abhingrgtest123*.
 
@@ -232,7 +230,6 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 ```
 
 A full list of available options for `Get-AzureRmMetricDefinition` is available at [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
-
 
 ## Create and manage AutoScale settings
 A resource, such as a Web app, VM, Cloud Service or VM Scale Set can have only one autoscale setting configured for it.

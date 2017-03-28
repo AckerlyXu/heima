@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Overview of Highly Available configurations with Azure VPN Gateways | Azure"
-    description="This article provides an overview of highly available configuration options using Azure VPN Gateways."
-    services="vpn-gateway"
-    documentationcenter="na"
-    author="yushwang"
-    manager="rossort"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="a8bfc955-de49-4172-95ac-5257e262d7ea"
-    ms.service="vpn-gateway"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="09/24/2016"
-    wacn.date=""
-    ms.author="yushwang" />
+---
+title: Overview of Highly Available configurations with Azure VPN Gateways | Azure
+description: This article provides an overview of highly available configuration options using Azure VPN Gateways.
+services: vpn-gateway
+documentationcenter: na
+author: yushwang
+manager: rossort
+editor: ''
+tags: ''
+
+ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
+ms.service: vpn-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/24/2016
+wacn.date: ''
+ms.author: yushwang
+---
 
 # Highly Available Cross-Premises and VNet-to-VNet Connectivity
 This article provides an overview of Highly Available configuration options for your cross-premises and VNet-to-VNet connectivity using Azure VPN gateways.
@@ -79,4 +80,4 @@ The same active-active configuration can also apply to Azure VNet-to-VNet connec
 This ensures there are always a pair of tunnels between the two virtual networks for any planned maintenance events, providing even better availability. Even though the same topology for cross-premises connectivity requires two connections, the VNet-to-VNet topology shown above will need only one connection for each gateway. Additionally, BGP is optional unless transit routing over the VNet-to-VNet connection is required.
 
 ## Next steps
-See [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](/documentation/articles/vpn-gateway-activeactive-rm-powershell/) for steps to configure active-active cross-premises and VNet-to-VNet connections.
+See [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](./vpn-gateway-activeactive-rm-powershell.md) for steps to configure active-active cross-premises and VNet-to-VNet connections.

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Migrate your SQL code to SQL Data Warehouse | Azure"
-    description="Tips for migrating your SQL code to Azure SQL Data Warehouse for developing solutions."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="jrowlandjones"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="19c252a3-0e41-4eec-9d3e-09a68c7e7add"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="01/30/2017"
-    wacn.date=""
-    ms.author="jrj;barbkess" />
+---
+title: Migrate your SQL code to SQL Data Warehouse | Azure
+description: Tips for migrating your SQL code to Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
+
+ms.assetid: 19c252a3-0e41-4eec-9d3e-09a68c7e7add
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 01/30/2017
+wacn.date: ''
+ms.author: jrj;barbkess
+---
 
 # Migrate your SQL code to SQL Data Warehouse
 When migrating your code from another database to SQL Data Warehouse, you will most likely need to make changes to your code base. Some SQL Data Warehouse features can significantly improve performance as they are designed to work in a distributed fashion. However, to maintain performance and scale, some features are also not available.
@@ -90,24 +91,25 @@ Some of these issues can be worked around.
 ## @@ROWCOUNT workaround
 To work around lack of support for @@ROWCOUNT, create a stored procedure that will retrieve the last row count from sys.dm_pdw_request_steps and then execute `EXEC LastRowCount` after a DML statement.
 
-    CREATE PROCEDURE LastRowCount AS
-    WITH LastRequest as 
-    (   SELECT TOP 1    request_id
-        FROM            sys.dm_pdw_exec_requests
-        WHERE           session_id = SESSION_ID()
-        AND             resource_class IS NOT NULL
-        ORDER BY end_time DESC
-    ),
-    LastRequestRowCounts as
-    (
-        SELECT  step_index, row_count
-        FROM    sys.dm_pdw_request_steps
-        WHERE   row_count >= 0
-        AND     request_id IN (SELECT request_id from LastRequest)
-    )
-    SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
-    ;
-
+```sql
+CREATE PROCEDURE LastRowCount AS
+WITH LastRequest as 
+(   SELECT TOP 1    request_id
+    FROM            sys.dm_pdw_exec_requests
+    WHERE           session_id = SESSION_ID()
+    AND             resource_class IS NOT NULL
+    ORDER BY end_time DESC
+),
+LastRequestRowCounts as
+(
+    SELECT  step_index, row_count
+    FROM    sys.dm_pdw_request_steps
+    WHERE   row_count >= 0
+    AND     request_id IN (SELECT request_id from LastRequest)
+)
+SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
+;
+```
 
 ## Next steps
 For a complete list of all supported T-SQL statements, see [Transact-SQL topics][Transact-SQL topics].
@@ -115,18 +117,18 @@ For a complete list of all supported T-SQL statements, see [Transact-SQL topics]
 <!--Image references-->
 
 <!--Article references-->
-[ANSI joins on updates]: /documentation/articles/sql-data-warehouse-develop-ctas/#ansi-join-replacement-for-update-statements
-[ANSI joins on deletes]: /documentation/articles/sql-data-warehouse-develop-ctas/#ansi-join-replacement-for-delete-statements
-[merge statement]: /documentation/articles/sql-data-warehouse-develop-ctas/#replace-merge-statements
-[INSERT..EXEC]: /documentation/articles/sql-data-warehouse-tables-temporary/#modularizing-code
-[Transact-SQL topics]: /documentation/articles/sql-data-warehouse-reference-tsql-statements/
+[ANSI joins on updates]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[ANSI joins on deletes]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[merge statement]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
+[Transact-SQL topics]: ./sql-data-warehouse-reference-tsql-statements.md
 
-[cursors]: /documentation/articles/sql-data-warehouse-develop-loops/
-[group by clause with rollup / cube / grouping sets options]: /documentation/articles/sql-data-warehouse-develop-group-by-options/
-[nesting levels beyond 8]: /documentation/articles/sql-data-warehouse-develop-transactions/
-[updating through views]: /documentation/articles/sql-data-warehouse-develop-views/
-[use of select for variable assignment]: /documentation/articles/sql-data-warehouse-develop-variable-assignment/
-[no MAX data type for dynamic SQL strings]: /documentation/articles/sql-data-warehouse-develop-dynamic-sql/
+[cursors]: ./sql-data-warehouse-develop-loops.md
+[group by clause with rollup / cube / grouping sets options]: ./sql-data-warehouse-develop-group-by-options.md
+[nesting levels beyond 8]: ./sql-data-warehouse-develop-transactions.md
+[updating through views]: ./sql-data-warehouse-develop-views.md
+[use of select for variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
+[no MAX data type for dynamic SQL strings]: ./sql-data-warehouse-develop-dynamic-sql.md
 
 <!--MSDN references-->
 

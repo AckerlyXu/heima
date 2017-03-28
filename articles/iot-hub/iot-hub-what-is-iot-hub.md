@@ -1,21 +1,21 @@
-<properties
- pageTitle="Azure IoT Hub overview | Azure"
- description="Overview of the Azure IoT Hub service: what is iot hub, device connectivity, internet of things communication patterns, and service-assisted communication pattern"
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Azure IoT Hub overview | Azure
+description: Overview of the Azure IoT Hub service: what is iot hub, device connectivity, internet of things communication patterns, and service-assisted communication pattern
+services: iot-hub
+documentationCenter: ''
+authors: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="01/31/2017"
- ms.author="dobett"
- wacn.date=""/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+ms.author: dobett
+wacn.date: ''
+---
 
 # Overview of the Azure IoT Hub service
 Welcome to Azure IoT Hub. This article provides an overview of Azure IoT Hub and describes why you should use this service to implement an Internet of Things (IoT) solution. Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end. Azure IoT Hub:
@@ -33,7 +33,8 @@ Refer to [Internet of Things security from the ground up][lnk-security-ground-up
 
 ![Azure IoT Hub as cloud gateway in internet of things solution][img-architecture]
 
-> [AZURE.NOTE] For an in-depth discussion of IoT architecture, see the [Azure IoT Reference Architecture][lnk-refarch].
+> [!NOTE]
+> For an in-depth discussion of IoT architecture, see the [Azure IoT Reference Architecture][lnk-refarch].
 
 ## IoT device-connectivity challenges
 IoT Hub and the device libraries help you to meet the challenges of how to reliably and securely connect devices to the solution back end. IoT devices:
@@ -57,7 +58,7 @@ In addition to a rich set of [device-to-cloud][lnk-d2c-guidance] and [cloud-to-d
 - **Monitoring of device connectivity operations**. You can receive detailed operation logs about device identity management operations and device connectivity events. This monitoring capability enables your IoT solution to identify connectivity issues, such as devices that try to connect with wrong credentials, send messages too frequently, or reject all cloud-to-device messages.
 - **An extensive set of device libraries**. [Azure IoT device SDKs][lnk-device-sdks] are available and supported for various languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
 - **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use the MQTT v3.1.1, HTTP 1.1, or AMQP 1.0 protocols. You can also extend IoT Hub to provide support for custom protocols by:
-  
+
   * Creating a field gateway with the [Azure IoT Gateway SDK][lnk-gateway-sdk] that converts your custom protocol to one of the three protocols understood by IoT Hub. 
   * Customizing the [Azure IoT protocol gateway][protocol-gateway], an open source component that runs in the cloud.
 - **Scale**. Azure IoT Hub scales to millions of simultaneously connected devices and millions of events per second.
@@ -95,26 +96,25 @@ To get started writing some code and running some samples, see the [Get started 
 
 [img-architecture]: ./media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
-
-[lnk-get-started]: /documentation/articles/iot-hub-csharp-csharp-getstarted/
+[lnk-get-started]: ./iot-hub-csharp-csharp-getstarted.md
 [protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Service Assisted Communication, blog post by Clemens Vasters"
-[lnk-compare]: /documentation/articles/iot-hub-compare-event-hubs/
-[lnk-gateway]: /documentation/articles/iot-hub-protocol-gateway/
-[lnk-field-gateway]: /documentation/articles/iot-hub-devguide-endpoints/#field-gateways
-[lnk-devguide-identityregistry]: /documentation/articles/iot-hub-devguide-identity-registry/
-[lnk-devguide-security]: /documentation/articles/iot-hub-devguide/#security
+[lnk-compare]: ./iot-hub-compare-event-hubs.md
+[lnk-gateway]: ./iot-hub-protocol-gateway.md
+[lnk-field-gateway]: ./iot-hub-devguide-endpoints.md#field-gateways
+[lnk-devguide-identityregistry]: ./iot-hub-devguide-identity-registry.md
+[lnk-devguide-security]: ./iot-hub-devguide.md#security
 [lnk-wns]: https://msdn.microsoft.com/zh-cn/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
-[lnk-send-messages]: /documentation/articles/iot-hub-devguide-messaging/
-[lnk-device-management]: /documentation/articles/iot-hub-device-management-overview/
+[lnk-send-messages]: ./iot-hub-devguide-messaging.md
+[lnk-device-management]: ./iot-hub-device-management-overview.md
 
-[lnk-twins]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-c2d-guidance]: /documentation/articles/iot-hub-devguide-c2d-guidance/
-[lnk-d2c-guidance]: /documentation/articles/iot-hub-devguide-d2c-guidance/
+[lnk-twins]: ./iot-hub-devguide-device-twins.md
+[lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md
+[lnk-d2c-guidance]: ./iot-hub-devguide-d2c-guidance.md
 
-[lnk-security-ground-up]: /documentation/articles/iot-hub-security-ground-up/
+[lnk-security-ground-up]: ./iot-hub-security-ground-up.md

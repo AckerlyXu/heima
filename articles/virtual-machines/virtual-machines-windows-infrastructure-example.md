@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Example Azure Infrastructure Walkthrough | Azure"
-    description="Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure."
-    documentationcenter=""
-    services="virtual-machines-windows"
-    author="iainfoulds"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="7032b586-e4e5-4954-952f-fdfc03fc1980"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/17/2017"
-    wacn.date=""
-    ms.author="iainfou"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Example Azure Infrastructure Walkthrough | Azure
+description: Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure.
+documentationcenter: ''
+services: virtual-machines-windows
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 03/17/2017
+wacn.date: ''
+ms.author: iainfou
+ms.custom: H1Hack27Feb2017
+---
 
 # Example Azure infrastructure walkthrough for Windows VMs
 
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple on-line store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
@@ -116,4 +117,4 @@ This configuration incorporates:
 * A single resource group
 
 ## <a name="next-steps"></a> Next steps
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

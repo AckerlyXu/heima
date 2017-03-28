@@ -1,20 +1,18 @@
-<properties 
-	pageTitle="Getting started with Azure Multi-Factor Authentication and Active Directory Federation Services" 
-	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+---
+title: Getting started with Azure Multi-Factor Authentication and Active Directory Federation Services
+description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS.
+services: multi-factor-authentication
+documentationCenter: ''
+authors: billmath
+manager: stevenpo
+editor: curtland
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.date="08/04/2016" 
-	wacn.date=""/>
+ms.service: multi-factor-authentication
+ms.date: 08/04/2016
+wacn.date: ''
+---
 
 # Getting started with Azure Multi-Factor Authentication and Active Directory Federation Services
-
-
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
@@ -39,14 +37,6 @@ Caveats with app passwords for federated users:
 
 For information on setting up either Azure Multi-Factor Authentication or the Azure Multi-Factor Authentication Server with AD FS see the following:
 
-- [Secure cloud resources using Azure Multi-Factor Authentication and AD FS](/documentation/articles/multi-factor-authentication-get-started-adfs-cloud/)
-- [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS](/documentation/articles/multi-factor-authentication-get-started-adfs-w2k12/)
-- [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0](/documentation/articles/multi-factor-authentication-get-started-adfs-adfs2/)
-
-
-
-
-
-
-
- 
+- [Secure cloud resources using Azure Multi-Factor Authentication and AD FS](./multi-factor-authentication-get-started-adfs-cloud.md)
+- [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS](./multi-factor-authentication-get-started-adfs-w2k12.md)
+- [Secure cloud and on-premises resources using Azure Multi-Factor Authentication Server with AD FS 2.0](./multi-factor-authentication-get-started-adfs-adfs2.md)

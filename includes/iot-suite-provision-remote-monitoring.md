@@ -19,6 +19,6 @@
 Are there details you'd expect to see that aren't listed for your solution? Give us feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.cn
-[lnk-permissions]: /documentation/articles/iot-suite-permissions/
+[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.cn/
-[lnk-faq]: /documentation/articles/iot-suite-faq/
+[lnk-faq]: ../articles/iot-suite/iot-suite-faq.md

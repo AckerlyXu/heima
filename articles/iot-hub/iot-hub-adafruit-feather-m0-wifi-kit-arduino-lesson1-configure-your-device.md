@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Configure your Azure IoT Starter Kit | Azure"
-    description="Configure Adafruit Feather M0 WiFi for first-time use."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino set up, connect arduino to pc, setup arduino, arduino board" />
-<tags
-    ms.assetid="f5b334f0-a148-41aa-b374-ce7b9f5b305a"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Configure your Azure IoT Starter Kit | Azure
+description: Configure Adafruit Feather M0 WiFi for first-time use.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino set up, connect arduino to pc, setup arduino, arduino board
+
+ms.assetid: f5b334f0-a148-41aa-b374-ce7b9f5b305a
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Configure your device
 ## What you will do
-Configure your Adafruit Feather M0 WiFi Arduino board for first-time use by assembling the board, powering it up. If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/).
+Configure your Adafruit Feather M0 WiFi Arduino board for first-time use by assembling the board, powering it up. If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md).
 
 ## What you need
 To complete this operation, you need the following parts for your Adafruit Feather M0 WiFi Starter Kit:
@@ -97,4 +98,4 @@ In this article, you’ve learned how to configure your Arduino board. The next 
 [top-micro-usb-port]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/top_usbport.jpg
 [computer-usb]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/computer_usb.jpg
 [hardware-is-ready]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/hardware_ready.jpg
-[get-the-tools]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32/
+[get-the-tools]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md

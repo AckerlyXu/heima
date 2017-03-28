@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understand Azure IoT Hub messaging | Azure"
-    description="Developer guide - device-to-cloud and cloud-to-device messaging with IoT Hub. Includes information about message formats and supported communications protocols."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="3fc5f1a3-3711-4611-9897-d4db079b4250"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Understand Azure IoT Hub messaging | Azure
+description: Developer guide - device-to-cloud and cloud-to-device messaging with IoT Hub. Includes information about message formats and supported communications protocols.
+services: iot-hub
+documentationcenter: .net
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Send and receive messages with IoT Hub
 ## Overview
@@ -60,7 +61,7 @@ For details about how to use device-to-cloud messaging, see [Azure IoT SDKs][lnk
 
 For details about how to set up message routing, see [Routing rules](#routing-rules).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When using HTTP to send device-to-cloud messages, property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 > 
 > 
@@ -120,10 +121,10 @@ You send cloud-to-device messages through a service-facing endpoint (**/messages
 
 Each cloud-to-device message is targeted at a single device by setting the **to** property to **/devices/{deviceId}/messages/devicebound**.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Each device queue holds at most 50 cloud-to-device messages. Trying to send more messages to the same device results in an error.
 > 
-> [AZURE.NOTE]
+> [!NOTE]
 > When you send cloud-to-device messages, property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 > 
 > 
@@ -148,7 +149,7 @@ A message can transition between the **Enqueued** and **Invisible** states for, 
 
 For a tutorial on cloud-to-device messages, see [Tutorial: How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]. For reference topics on how the different Azure IoT SDKs expose the cloud-to-device functionality, see [Azure IoT SDKs][lnk-sdks].
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Typically, cloud-to-device messages complete whenever the loss of the message would not affect the application logic. For example, the message content has been successfully persisted in local storage, or an operation has been successfully executed. The message could also be carrying transient information, whose loss would not impact the functionality of the application. Sometimes, for long-running tasks, you can complete the cloud-to-device message after persisting the task description in local storage. Then you can notify the solution back end with one or more device-to-cloud messages at various stages of progress of the task.
 > 
 > 
@@ -156,7 +157,7 @@ For a tutorial on cloud-to-device messages, see [Tutorial: How to send cloud-to-
 ### Message expiration (time to live)
 Every cloud-to-device message has an expiration time. This time is set either by the service (in the **ExpiryTimeUtc** property), or by IoT Hub using the default *time to live* specified as an IoT Hub property. See [Cloud-to-device configuration options][lnk-c2d-configuration].
 
-> [AZURE.NOTE]
+> [!NOTE]
 > A common way to take advantage of message expiration and avoid sending messages to disconnected devices, is to set short time to live values. This approach achieves the same result as maintaining the device connection state, while being more efficient. When you request message acknowledgements, IoT Hub notifies you which devices are able to receive messages, and which devices are not online or have failed.
 > 
 > 
@@ -168,7 +169,7 @@ When you send a cloud-to-device message, the service can request the delivery of
 * If you set the **Ack** property to **negative**, IoT Hub generates a feedback message, if and only if, the cloud-to-device message reaches the **Deadlettered** state.
 * If you set the **Ack** property to **full**, IoT Hub generates a feedback message in either case.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If **Ack** is **full**, and you don't receive a feedback message, it means that the feedback message expired. The service can't know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiry time is two days, which allows plenty of time to get the service running again if a failure occurs.
 > 
 > 
@@ -192,7 +193,7 @@ The body is a JSON-serialized array of records, each with the following properti
 | DeviceId |**DeviceId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
 | DeviceGenerationId |**DeviceGenerationId** of the target device of the cloud-to-device message to which this piece of feedback pertains. |
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The service must specify a **MessageId** for the cloud-to-device message to be able to correlate its feedback with the original message.
 > 
 > 
@@ -241,15 +242,15 @@ When you use SDKs (or product integrations) that are unaware of IoT Hub, you mus
 
 1. In the IoT hub blade, click **Endpoints**.
 2. In the **Built-in endpoints** section, click **Events**. The blade contains the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, **Partitions**, **Retention time**, and **Consumer groups**.
-   
+
     ![Device-to-cloud settings][img-eventhubcompatible]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The IoT Hub SDK requires the IoT Hub endpoint name, which is **messages/events** as shown in the **Endpoints** blade.
 >
 >
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If the SDK you are using requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
 > 
 >
@@ -265,8 +266,8 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 The following is a list of SDKs and integrations that you can use with Event Hub-compatible endpoints that IoT Hub exposes:
 
 * [Java Event Hubs client](https://github.com/hdinsight/eventhubs-client)
-* [Apache Storm spout](/documentation/articles/hdinsight-storm-develop-csharp-event-hub-topology/). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
-* [Apache Spark integration](/documentation/articles/hdinsight-apache-spark-eventhub-streaming/)
+* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
+* [Apache Spark integration](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)
 
 ## Reference topics:
 The following reference topics provide you with more information about exchanging messages with IoT Hub.
@@ -323,7 +324,8 @@ Consider the following points when you choose your protocol for device-side comm
 * **Network traversal**. The standard AMQP protocol uses port 5671, while MQTT listens on port 8883, which could cause problems in networks that are closed to non-HTTP protocols. MQTT over WebSockets, AMQP over WebSockets, and HTTP are available to be used in this scenario.
 * **Payload size**. MQTT and AMQP are binary protocols, which result in more compact payloads than HTTP.
 
-> [AZURE.NOTE] When using HTTP, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
+> [!NOTE]
+> When using HTTP, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
 
 ## Port numbers
 Devices can communicate with IoT Hub in Azure using various protocols. Typically, the choice of protocol is driven by the specific requirements of the solution. The following table lists the outbound ports that must be open for a device to be able to use a specific protocol:
@@ -374,58 +376,57 @@ If you would like to try out some of the concepts described in this article, you
 - [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]
 - [How to process IoT Hub device-to-cloud messages][lnk-d2c-tutorial]
 
-
 [img-lifecycle]: ./media/iot-hub-devguide-messaging/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messaging/eventhubcompatible.png
 
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/zh-cn/library/mt548492.aspx
-[lnk-azure-gateway-guidance]: /documentation/articles/iot-hub-devguide-endpoints/#field-gateways
-[lnk-guidance-scale]: /documentation/articles/iot-hub-scaling/
-[lnk-azure-protocol-gateway]: /documentation/articles/iot-hub-protocol-gateway/
+[lnk-azure-gateway-guidance]: ./iot-hub-devguide-endpoints.md#field-gateways
+[lnk-guidance-scale]: ./iot-hub-scaling.md
+[lnk-azure-protocol-gateway]: ./iot-hub-protocol-gateway.md
 [lnk-amqp]: http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf
 [lnk-mqtt]: http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf
-[lnk-event-hubs]: /documentation/services/event-hubs/
-[lnk-event-hubs-consuming-events]: /documentation/articles/event-hubs-programming-guide/#event-consumers
+[lnk-event-hubs]: ../event-hubs/index.md
+[lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-management-portal]: https://portal.azure.cn
-[lnk-servicebus]: /documentation/services/service-bus/
-[lnk-eventhub-partitions]: /documentation/articles/event-hubs-overview/#partitions
-[lnk-portal]: /documentation/articles/iot-hub-create-through-portal/
-[lnk-getstarted-eh]: /documentation/articles/event-hubs-csharp-ephcs-getstarted/
-[lnk-getstarted-queue]: /documentation/articles/service-bus-dotnet-get-started-with-queues/
-[lnk-getstarted-topic]: /documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[lnk-servicebus]: ../service-bus/index.md
+[lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
+[lnk-portal]: ./iot-hub-create-through-portal.md
+[lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 
-[lnk-c2d-guidance]: /documentation/articles/iot-hub-devguide-c2d-guidance/
+[lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md
 [lnk-d2c-guidance]: /documentation/articles/iot-hub-devguide-d2c-guidance.md
-[lnk-endpoints]: /documentation/articles/iot-hub-devguide-endpoints/
-[lnk-quotas]: /documentation/articles/iot-hub-devguide-quotas-throttling/
-[lnk-sdks]: /documentation/articles/iot-hub-devguide-sdks/
-[lnk-query]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-devguide-mqtt]: /documentation/articles/iot-hub-mqtt-support/
-[lnk-d2c]: /documentation/articles/iot-hub-devguide-messaging/#device-to-cloud-messages
-[lnk-c2d]: /documentation/articles/iot-hub-devguide-messaging/#cloud-to-device-messages
-[lnk-compatible-endpoint]: /documentation/articles/iot-hub-devguide-messaging/#read-device-to-cloud-messages
-[lnk-protocols]: /documentation/articles/iot-hub-devguide-messaging/#communication-protocols
-[lnk-message-format]: /documentation/articles/iot-hub-devguide-messaging/#message-format
-[lnk-device-properties]: /documentation/articles/iot-hub-devguide-identity-registry/#device-identity-properties
-[lnk-ttl]: /documentation/articles/iot-hub-devguide-messaging/#message-expiration-time-to-live
-[lnk-c2d-configuration]: /documentation/articles/iot-hub-devguide-messaging/#cloud-to-device-configuration-options
-[lnk-lifecycle]: /documentation/articles/iot-hub-devguide-messaging#message-lifecycle
-[lnk-feedback]: /documentation/articles/iot-hub-devguide-messaging/#message-feedback
-[lnk-antispoofing]: /documentation/articles/iot-hub-devguide-messaging/#anti-spoofing-properties
-[lnk-compare]: /documentation/articles/iot-hub-compare-event-hubs/
+[lnk-endpoints]: ./iot-hub-devguide-endpoints.md
+[lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
+[lnk-query]: ./iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
+[lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-c2d]: ./iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-compatible-endpoint]: ./iot-hub-devguide-messaging.md#read-device-to-cloud-messages
+[lnk-protocols]: ./iot-hub-devguide-messaging.md#communication-protocols
+[lnk-message-format]: ./iot-hub-devguide-messaging.md#message-format
+[lnk-device-properties]: ./iot-hub-devguide-identity-registry.md#device-identity-properties
+[lnk-ttl]: ./iot-hub-devguide-messaging.md#message-expiration-time-to-live
+[lnk-c2d-configuration]: ./iot-hub-devguide-messaging.md#cloud-to-device-configuration-options
+[lnk-lifecycle]: ./iot-hub-devguide-messaging.md#message-lifecycle
+[lnk-feedback]: ./iot-hub-devguide-messaging.md#message-feedback
+[lnk-antispoofing]: ./iot-hub-devguide-messaging.md#anti-spoofing-properties
+[lnk-compare]: ./iot-hub-compare-event-hubs.md
 
-[lnk-devguide-upload]: /documentation/articles/iot-hub-devguide-file-upload/
-[lnk-devguide-identities]: /documentation/articles/iot-hub-devguide-identity-registry/
-[lnk-devguide-security]: /documentation/articles/iot-hub-devguide-security/
-[lnk-devguide-device-twins]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-devguide-directmethods]: /documentation/articles/iot-hub-devguide-direct-methods/
-[lnk-devguide-jobs]: /documentation/articles/iot-hub-devguide-jobs/
+[lnk-devguide-upload]: ./iot-hub-devguide-file-upload.md
+[lnk-devguide-identities]: ./iot-hub-devguide-identity-registry.md
+[lnk-devguide-security]: ./iot-hub-devguide-security.md
+[lnk-devguide-device-twins]: ./iot-hub-devguide-device-twins.md
+[lnk-devguide-directmethods]: ./iot-hub-devguide-direct-methods.md
+[lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 [lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
-[lnk-devguide-query-language]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-devguide-endpoints]: /documentation/articles/iot-hub-devguide-endpoints/
+[lnk-devguide-query-language]: ./iot-hub-devguide-query-language.md
+[lnk-devguide-endpoints]: ./iot-hub-devguide-endpoints.md
 
-[lnk-getstarted-tutorial]: /documentation/articles/iot-hub-csharp-csharp-getstarted/
-[lnk-c2d-tutorial]: /documentation/articles/iot-hub-csharp-csharp-c2d/
-[lnk-d2c-tutorial]: /documentation/articles/iot-hub-csharp-csharp-process-d2c/
-[lnk-event-hub-partitions]: /documentation/articles/event-hubs-what-is-event-hubs/#partitions
+[lnk-getstarted-tutorial]: ./iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-tutorial]: ./iot-hub-csharp-csharp-c2d.md
+[lnk-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md
+[lnk-event-hub-partitions]: ../event-hubs/event-hubs-what-is-event-hubs.md#partitions

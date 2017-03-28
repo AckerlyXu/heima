@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Deploy a web app to a staging environment | Azure"
-    description="Azure CLI Script Sample - Deploy a web app to a staging environment"
-    services="app-service\web"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid=""
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/01/2017"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Azure CLI Script Sample - Deploy a web app to a staging environment | Azure
+description: Azure CLI Script Sample - Deploy a web app to a staging environment
+services: app-service\web
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: ''
+ms.service: app-service-web
+ms.workload: web
+ms.devlang: na
+ms.topic: article
+ms.date: 02/01/2017
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Deploy a web app to a staging environment
 
@@ -33,7 +34,7 @@ This sample script does the following using Azure CLI 2.0:
 * Run `az login` to log in to Azure.
 * Put your web app code in a GitHub repository you own.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you use a public GitHub repository you don't own, App Service will deploy code from that GitHub repository, but
 > cannot set up the SSH key and webhooks necessary for continuous deployment.
 >
@@ -41,45 +42,48 @@ This sample script does the following using Azure CLI 2.0:
 
 ## Create VM sample
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
-    webappname=mywebapp$RANDOM
+gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
+webappname=mywebapp$RANDOM
 
-    # Create a resource group.
-    az group create --location chinanorth --name myResourceGroup
+# Create a resource group.
+az group create --location chinanorth --name myResourceGroup
 
-    # Create an App Service plan in STANDARD tier (minimum required by deployment slots).
-    az appservice plan create --name $webappname --resource-group myResourceGroup --sku S1
+# Create an App Service plan in STANDARD tier (minimum required by deployment slots).
+az appservice plan create --name $webappname --resource-group myResourceGroup --sku S1
 
-    # Create a web app.
-    az appservice web create --name $webappname --resource-group myResourceGroup \
-    --plan $webappname
+# Create a web app.
+az appservice web create --name $webappname --resource-group myResourceGroup \
+--plan $webappname
 
-    #Create a deployment slot with the name "staging".
-    az appservice web deployment slot create --name $webappname --resource-group myResourceGroup \
-    --slot staging
+#Create a deployment slot with the name "staging".
+az appservice web deployment slot create --name $webappname --resource-group myResourceGroup \
+--slot staging
 
-    # Deploy sample code to "staging" slot from GitHub.
-    az appservice web source-control config --name $webappname --resource-group myResourceGroup \
-    --slot staging --repo-url $gitrepo --branch master --manual-integration
+# Deploy sample code to "staging" slot from GitHub.
+az appservice web source-control config --name $webappname --resource-group myResourceGroup \
+--slot staging --repo-url $gitrepo --branch master --manual-integration
 
-    # Browse to the deployed web app on staging. Deployment may be in progress, so rerun this if necessary.
-    az appservice web browse --name $webappname --resource-group myResourceGroup --slot staging
+# Browse to the deployed web app on staging. Deployment may be in progress, so rerun this if necessary.
+az appservice web browse --name $webappname --resource-group myResourceGroup --slot staging
 
-    # Swap the verified/warmed up staging slot into production.
-    az appservice web deployment slot swap --name $webappname --resource-group myResourceGroup \
-    --slot staging
+# Swap the verified/warmed up staging slot into production.
+az appservice web deployment slot swap --name $webappname --resource-group myResourceGroup \
+--slot staging
 
-    # Browse to the production slot. 
-    az appservice web browse --name $webappname --resource-group myResourceGroup
-
+# Browse to the production slot. 
+az appservice web browse --name $webappname --resource-group myResourceGroup
+```
 
 ## Clean up deployment 
 
 After the script sample has been run, the follow command can be used to remove the Resource Group, web app, and all related resources.
 
-    az group delete --name $webappname
+```azurecli
+az group delete --name $webappname
+```
 
 ## Script explanation
 

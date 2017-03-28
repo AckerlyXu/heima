@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Convert Azure Cloud Services apps to microservices | Azure"
-    description="This guide compares Cloud Services Web and Worker Roles and Service Fabric stateless services to help migrate from Cloud Services to Service Fabric."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="5880ebb3-8b54-4be8-af4b-95a1bc082603"
-    ms.service="service-fabric"
-    ms.devlang="dotNet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Convert Azure Cloud Services apps to microservices | Azure
+description: This guide compares Cloud Services Web and Worker Roles and Service Fabric stateless services to help migrate from Cloud Services to Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
+
+ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # Guide to converting Web and Worker Roles to Service Fabric stateless services
 This article describes how to migrate your Cloud Services Web and Worker Roles to Service Fabric stateless services. This is the simplest migration path from Cloud Services to Service Fabric for applications whose overall architecture is going to stay roughly the same.
@@ -54,55 +55,51 @@ Worker Role and Service Fabric service APIs offer similar entry points:
 
 ### Worker Role
 
+```C#
+using Microsoft.WindowsAzure.ServiceRuntime;
 
+namespace WorkerRole1
+{
+    public class WorkerRole : RoleEntryPoint
+    {
+        public override void Run()
+        {
+        }
 
-	using Microsoft.WindowsAzure.ServiceRuntime;
+        public override bool OnStart()
+        {
+        }
 
-	namespace WorkerRole1
-	{
-	    public class WorkerRole : RoleEntryPoint
-	    {
-	        public override void Run()
-	        {
-	        }
-
-	        public override bool OnStart()
-	        {
-	        }
-
-	        public override void OnStop()
-	        {
-	        }
-	    }
-	}
-
-
+        public override void OnStop()
+        {
+        }
+    }
+}
+```
 
 ### Service Fabric Stateless Service
 
+```C#
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using Microsoft.ServiceFabric.Services.Runtime;
 
+namespace Stateless1
+{
+    public class Stateless1 : StatelessService
+    {
+        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+        {
+        }
 
-	using System.Collections.Generic;
-	using System.Threading;
-	using System.Threading.Tasks;
-	using Microsoft.ServiceFabric.Services.Communication.Runtime;
-	using Microsoft.ServiceFabric.Services.Runtime;
-
-	namespace Stateless1
-	{
-	    public class Stateless1 : StatelessService
-	    {
-	        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
-	        {
-	        }
-
-	        protected override Task RunAsync(CancellationToken cancelServiceInstance)
-	        {
-	        }
-	    }
-	}
-
-
+        protected override Task RunAsync(CancellationToken cancelServiceInstance)
+        {
+        }
+    }
+}
+```
 
 Both have a primary "Run" override in which to begin processing. Service Fabric services  combine `Run`, `Start`, and `Stop` into a single entry point, `RunAsync`. Your service should begin working when `RunAsync` starts, and should stop working when the `RunAsync` method's CancellationToken is signaled. 
 
@@ -138,71 +135,63 @@ Each of these packages can be independently versioned and upgraded. Similar to C
 #### Cloud Services
 Configuration settings from ServiceConfiguration.*.cscfg can be accessed through `RoleEnvironment`. These settings are globally available to all role instances in the same Cloud Service deployment.
 
-
-
-	string value = RoleEnvironment.GetConfigurationSettingValue("Key");
-
-
+```C#
+string value = RoleEnvironment.GetConfigurationSettingValue("Key");
+```
 
 #### Service Fabric
 Each service has its own individual configuration package. There is no built-in mechanism for global configuration settings accessible by all applications in a cluster. When using Service Fabric's special Settings.xml configuration file within a configuration package, values in Settings.xml can be overwritten at the application level, making application-level configuration settings possible.
 
 Configuration settings are accesses within each service instance through the service's `CodePackageActivationContext`.
 
+```C#
+ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
+// Access Settings.xml
+KeyedCollection<string, ConfigurationProperty> parameters = configPackage.Settings.Sections["MyConfigSection"].Parameters;
 
-	ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
+string value = parameters["Key"]?.Value;
 
-	// Access Settings.xml
-	KeyedCollection<string, ConfigurationProperty> parameters = configPackage.Settings.Sections["MyConfigSection"].Parameters;
-
-	string value = parameters["Key"]?.Value;
-
-	// Access custom configuration file:
-	using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "CustomConfig.json")))
-	{
-	    MySettings settings = JsonConvert.DeserializeObject<MySettings>(reader.ReadToEnd());
-	}
-
-
+// Access custom configuration file:
+using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "CustomConfig.json")))
+{
+    MySettings settings = JsonConvert.DeserializeObject<MySettings>(reader.ReadToEnd());
+}
+```
 
 ### Configuration update events
 #### Cloud Services
 The `RoleEnvironment.Changed` event is used to notify all role instances when a change occurs in the environment, such as a configuration change. This is used to consume configuration updates without recycling role instances or restarting a worker process.
 
+```C#
+RoleEnvironment.Changed += RoleEnvironmentChanged;
 
-
-	RoleEnvironment.Changed += RoleEnvironmentChanged;
-
-	private void RoleEnvironmentChanged(object sender, RoleEnvironmentChangedEventArgs e)
-	{
-	   // Get the list of configuration changes
-	   var settingChanges = e.Changes.OfType<RoleEnvironmentConfigurationSettingChange>();
-	foreach (var settingChange in settingChanges) 
-	   {
-	      Trace.WriteLine("Setting: " + settingChange.ConfigurationSettingName, "Information");
-	   }
-	}
-
-
+private void RoleEnvironmentChanged(object sender, RoleEnvironmentChangedEventArgs e)
+{
+   // Get the list of configuration changes
+   var settingChanges = e.Changes.OfType<RoleEnvironmentConfigurationSettingChange>();
+foreach (var settingChange in settingChanges) 
+   {
+      Trace.WriteLine("Setting: " + settingChange.ConfigurationSettingName, "Information");
+   }
+}
+```
 
 #### Service Fabric
 Each of the three package types in a service - Code, Config, and Data - have events that notify a service instance when a package is updated, added, or removed. A service can contain multiple packages of each type. For example, a service may have multiple config packages, each individually versioned and upgradeable. 
 
 These events are available to consume changes in service packages without restarting the service instance.
- 
 
+```C#
+this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
+                    this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
 
-	this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
-	                    this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
-
-	private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(object sender, PackageModifiedEventArgs<ConfigurationPackage> e)
-	{
-	    this.UpdateCustomConfig(e.NewPackage.Path);
-	    this.UpdateSettings(e.NewPackage.Settings);
-	}
-
-
+private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(object sender, PackageModifiedEventArgs<ConfigurationPackage> e)
+{
+    this.UpdateCustomConfig(e.NewPackage.Path);
+    this.UpdateSettings(e.NewPackage.Settings);
+}
+```
 
 ## Startup tasks
 Startup tasks are actions that are taken before an application starts. A startup task is typically used to run setup scripts using elevated privileges. Both Cloud Services and Service Fabric support start-up tasks. The main difference is that in Cloud Services, a startup task is tied to a VM because it is part of a role instance, whereas in Service Fabric a startup task is tied to a service, which is not tied to any particular VM.
@@ -216,37 +205,33 @@ Startup tasks are actions that are taken before an application starts. A startup
 ### Cloud Services
 In Cloud Services a startup entry point is configured per role in ServiceDefinition.csdef. 
 
-
-
-	<ServiceDefinition>
-	    <Startup>
-	        <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" >
-	            <Environment>
-	                <Variable name="MyVersionNumber" value="1.0.0.0" />
-	            </Environment>
-	        </Task>
-	    </Startup>
-	    ...
-	</ServiceDefinition>
-
-
+```xml
+<ServiceDefinition>
+    <Startup>
+        <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" >
+            <Environment>
+                <Variable name="MyVersionNumber" value="1.0.0.0" />
+            </Environment>
+        </Task>
+    </Startup>
+    ...
+</ServiceDefinition>
+```
 
 ### Service Fabric
 In Service Fabric a startup entry point is configured per service in ServiceManifest.xml:
 
-
-
-	<ServiceManifest>
-	  <CodePackage Name="Code" Version="1.0.0">
-	    <SetupEntryPoint>
-	      <ExeHost>
-	        <Program>Startup.bat</Program>
-	      </ExeHost>
-	    </SetupEntryPoint>
-	    ...
-	</ServiceManifest>
-
-
+```xml
+<ServiceManifest>
+  <CodePackage Name="Code" Version="1.0.0">
+    <SetupEntryPoint>
+      <ExeHost>
+        <Program>Startup.bat</Program>
+      </ExeHost>
+    </SetupEntryPoint>
+    ...
+</ServiceManifest>
+```
 
 ## A note about development environment
 Both Cloud Services and Service Fabric are integrated with Visual Studio with project templates and support for debugging, configuring, and deploying both locally and to Azure. Both Cloud Services and Service Fabric also provide a local development runtime environment. The difference is that while the Cloud Service development runtime emulates the Azure environment on which it runs, Service Fabric does not use an emulator - it uses the complete Service Fabric runtime. The Service Fabric environment you run on your local development machine is the same environment that runs in production.
@@ -254,10 +239,10 @@ Both Cloud Services and Service Fabric are integrated with Visual Studio with pr
 ## Next steps
 Read more about Service Fabric Reliable Services and the fundamental differences between Cloud Services and Service Fabric application architecture to understand how to take advantage of the full set of Service Fabric features.
 
- - [Getting started with Service Fabric Reliable Services](/documentation/articles/service-fabric-reliable-services-quick-start/)
+ - [Getting started with Service Fabric Reliable Services](./service-fabric-reliable-services-quick-start.md)
 
- - [Conceptual guide to the differences between Cloud Services and Service Fabric](/documentation/articles/service-fabric-cloud-services-migration-differences/)
- 
+ - [Conceptual guide to the differences between Cloud Services and Service Fabric](./service-fabric-cloud-services-migration-differences.md)
+
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png

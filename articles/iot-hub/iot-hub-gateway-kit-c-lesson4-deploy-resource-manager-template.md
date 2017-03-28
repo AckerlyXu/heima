@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Save messages to the Azure cloud and read them from the cloud | Azure"
-    description="Save messages from Intel NUC to your IoT hub, write them to Azure Table storage and then read them from the cloud."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="storing data in the cloud, data stored in cloud, iot cloud service" />
-<tags
-    ms.assetid="f84f9a85-e2c4-4a92-8969-f65eb34c194e"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Save messages to the Azure cloud and read them from the cloud | Azure
+description: Save messages from Intel NUC to your IoT hub, write them to Azure Table storage and then read them from the cloud.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: storing data in the cloud, data stored in cloud, iot cloud service
+
+ms.assetid: f84f9a85-e2c4-4a92-8969-f65eb34c194e
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Create an Azure function app and storage account
 
@@ -26,8 +27,7 @@ Azure Functions is a solution for easily running _functions_ (small pieces of co
 
 - Use an Azure Resource Manager template to create an Azure function app and an Azure storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
 
-If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-gateway-kit-c-troubleshooting/).
-
+If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## What you will learn
 
@@ -40,9 +40,9 @@ In this lesson, you will learn:
 
 You must have successfully completed the previous lessons:
 
-- [Lesson 1: Set up your Intel NUC as an IoT gateway](/documentation/articles/iot-hub-gateway-kit-c-lesson1-set-up-nuc/)
-- [Lesson 2: Get your host computer and Azure IoT hub ready](/documentation/articles/iot-hub-gateway-kit-c-lesson2-get-the-tools-win32/)
-- [Lesson 3: Receive messages from SensorTag and read messages from IoT hub](/documentation/articles/iot-hub-gateway-kit-c-lesson3-configure-ble-app/)
+- [Lesson 1: Set up your Intel NUC as an IoT gateway](./iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+- [Lesson 2: Get your host computer and Azure IoT hub ready](./iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+- [Lesson 3: Receive messages from SensorTag and read messages from IoT hub](./iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
 
 ## Open a sample app
 
@@ -82,4 +82,4 @@ Use `iot-gateway` as the value of `{resource group name}` if you didn't change t
 You've created your Azure function app to process IoT hub messages and an Azure storage account to store these messages. You can now read messages that are sent by your gateway to your IoT hub.
 
 ## Next steps
-[Read messages persisted in Azure Storage](/documentation/articles/iot-hub-gateway-kit-c-lesson4-read-table-storage/).
+[Read messages persisted in Azure Storage](./iot-hub-gateway-kit-c-lesson4-read-table-storage.md).

@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Job scaling with Azure Stream Analytics & AzureML functions | Azure"
-    description="Learn how to properly scale Stream Analytics jobs (partitioning, SU quantity, and more) when using Azure Machine Learning functions."
-    keywords=""
-    documentationcenter=""
-    services="stream-analytics"
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="47ce7c5e-1de1-41ca-9a26-b5ecce814743"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Job scaling with Azure Stream Analytics & AzureML functions | Azure
+description: Learn how to properly scale Stream Analytics jobs (partitioning, SU quantity, and more) when using Azure Machine Learning functions.
+keywords: ''
+documentationcenter: ''
+services: stream-analytics
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Scale your Stream Analytics job with Azure Machine Learning functions
 
-It is often quite easy to set up an Stream Analytics job and run some sample data through it. What should we do when we need to run the same job with higher data volume? It requires us to understand how to configure the Stream Analytics job so that it will scale. In this document, we will focus on the special aspects of scaling Stream Analytics jobs with Machine Learning functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](/documentation/articles/stream-analytics-scale-jobs/).
+It is often quite easy to set up an Stream Analytics job and run some sample data through it. What should we do when we need to run the same job with higher data volume? It requires us to understand how to configure the Stream Analytics job so that it will scale. In this document, we will focus on the special aspects of scaling Stream Analytics jobs with Machine Learning functions. For information on how to scale Stream Analytics jobs in general see the article [Scaling jobs](./stream-analytics-scale-jobs.md).
 
 ## What is an Azure Machine Learning function in Stream Analytics?
 
@@ -30,9 +31,9 @@ A Machine Learning function in Stream Analytics can be used like a regular funct
 
 When configuring a Machine Learning function for Stream Analytics job, there are two parameters to consider, the batch size of the Machine Learning function calls, and the Streaming Units (SUs) provisioned for the Stream Analytics job. To determine the appropriate values for these, first a decision must be made between latency and throughput, that is, latency of the Stream Analytics job, and throughput of each SU. SUs may always be added to a job to increase throughput of a well partitioned Stream Analytics query, although additional SUs increases the cost of running the job.
 
-Therefore it is important to determine the *tolerance* of latency in running a Stream Analytics job. Additional latency from running Azure Machine Learning service requests will naturally increase with batch size, which will compound the latency of the Stream Analytics job. On the other hand, increasing batch size allows the Stream Analytics job to process *more events with the *same number* of Machine Learning web service requests. Often the increase of Machine Learning web service latency is sub-linear to the increase of batch size so it is important to consider the most cost-efficient batch size for a Machine Learning web service in any given situation. The default batch size for the web service requests is 1000 and may be modified either by using the [Stream Analytics REST API](https://msdn.microsoft.com/zh-cn/library/mt653706.aspx "Stream Analytics REST API") or the [PowerShell client for Stream Analytics](/documentation/articles/stream-analytics-monitor-and-manage-jobs-use-powershell/ "PowerShell client for Stream Analytics").
+Therefore it is important to determine the *tolerance* of latency in running a Stream Analytics job. Additional latency from running Azure Machine Learning service requests will naturally increase with batch size, which will compound the latency of the Stream Analytics job. On the other hand, increasing batch size allows the Stream Analytics job to process *more events with the *same number* of Machine Learning web service requests. Often the increase of Machine Learning web service latency is sub-linear to the increase of batch size so it is important to consider the most cost-efficient batch size for a Machine Learning web service in any given situation. The default batch size for the web service requests is 1000 and may be modified either by using the [Stream Analytics REST API](https://msdn.microsoft.com/zh-cn/library/mt653706.aspx "Stream Analytics REST API") or the [PowerShell client for Stream Analytics](./stream-analytics-monitor-and-manage-jobs-use-powershell.md "PowerShell client for Stream Analytics").
 
-Once a batch size has been determined, the amount of Streaming Units (SUs) can be determined, based on the number of events that the function needs to process per second. For further information on Streaming Units consult the article [Stream Analytics Scale jobs](/documentation/articles/stream-analytics-scale-jobs/#configuring-streaming-units).
+Once a batch size has been determined, the amount of Streaming Units (SUs) can be determined, based on the number of events that the function needs to process per second. For further information on Streaming Units consult the article [Stream Analytics Scale jobs](./stream-analytics-scale-jobs.md#configuring-streaming-units).
 
 In general, there are 20 concurrent connections to the Machine Learning web service for every 6 SUs, except that 1 SU jobs and 3 SU jobs will get 20 concurrent connections also.  For example, if the input data rate is 200,000 events per second and the batch size is left to the default of 1000 the resulting web service latency with 1000 events mini-batch is 200ms. This means every connection can make 5 requests to the Machine Learning web service in a second. With 20 connections, the Stream Analytics job can process 20,000 events in 200ms  and therefore 100,000 events in a second. So to process 200,000 events per second, the Stream Analytics job needs 40 concurrent connections, which comes out to 12 SUs. The diagram below illustrates the requests from the Stream Analytics job to the Machine Learning web service endpoint - Every 6 SUs has 20 concurrent connections to Machine Learning web service at max.
 
@@ -48,17 +49,19 @@ For more information on this setting please review the [Scaling article for Mach
 
 ## Example - Sentiment Analysis
 
-The following example includes a Stream Analytics job with the sentiment analysis Machine Learning function, as described in the [Stream Analytics Machine Learning integration tutorial](/documentation/articles/stream-analytics-machine-learning-integration-tutorial/).
+The following example includes a Stream Analytics job with the sentiment analysis Machine Learning function, as described in the [Stream Analytics Machine Learning integration tutorial](./stream-analytics-machine-learning-integration-tutorial.md).
 
 The query is a simple fully partitioned query followed by the **sentiment** function, as shown below:
 
-    WITH subquery AS (
-        SELECT text, sentiment(text) as result from input
-    )
-    
-    Select text, result.[Score]
-    Into output
-    From subquery
+```
+WITH subquery AS (
+    SELECT text, sentiment(text) as result from input
+)
+
+Select text, result.[Score]
+Into output
+From subquery
+```
 
 Consider the following scenario; with a throughput of 10,000 tweets per second a Stream Analytics job must be created to perform sentiment analysis of the tweets (events). Using 1 SU, could this Stream Analytics job be able to handle the traffic? Using the default batch size of 1000 the job should be able to keep up with the input. Further the added Machine Learning function should generate no more than a second of latency, which is the general default latency of the sentiment analysis Machine Learning web service (with a default batch size of 1000). The Stream Analytics job's **overall** or end-to-end latency would typically be a few seconds. Take a more detailed look into this Stream Analytics job, *especially* the Machine Learning function calls. Having the batch size as 1000, a throughput of 10,000 events will take about 10 requests to web service. Even with 1 SU, there are enough concurrent connections to accommodate this input traffic.
 
@@ -70,7 +73,6 @@ But what if the input event rate increases by 100x and now the Stream Analytics 
 With the first option, the job **latency** will increase.
 
 With the second option, more SUs would need to be provisioned and therefore generate more concurrent Machine Learning web service requests. This means the job **cost** will increase.
-
 
 Assume the latency of the sentiment analysis Machine Learning web service is 200ms for 1000-event batches or below, 250ms for 5,000-event batches, 300ms for 10,000-event batches or 500ms for 25,000-event batches.
 
@@ -122,7 +124,7 @@ A fully partitioned Stream Analytics query was used as an example. If a more com
 
 To learn more about Stream Analytics, see:
 
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/en-US/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://docs.microsoft.com/en-us/rest/api/streamanalytics)

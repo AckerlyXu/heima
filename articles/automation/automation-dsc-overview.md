@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Azure Automation DSC Overview | Azure"
-    description="An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues"
-    services="automation"
-    documentationcenter="dev-center-name"
-    author="eslesar"
-    manager="carmonm"
-    keywords="powershell dsc, desired state configuration, powershell dsc azure" />
-<tags
-    ms.assetid="fd40cb68-c1a6-48c3-bba2-710b607d1555"
-    ms.service="automation"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="powershell"
-    ms.workload="TBD"
-    ms.date="02/02/2017"
-    wacn.date=""
-    ms.author="magoedte;eslesar" />
+---
+title: Azure Automation DSC Overview | Azure
+description: An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues
+services: automation
+documentationcenter: dev-center-name
+author: eslesar
+manager: carmonm
+keywords: powershell dsc, desired state configuration, powershell dsc azure
+
+ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
+ms.service: automation
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: powershell
+ms.workload: TBD
+ms.date: 02/02/2017
+wacn.date: ''
+ms.author: magoedte;eslesar
+---
 
 # Azure Automation DSC Overview
 
@@ -55,7 +56,7 @@ Running (compiling) a DSC configuration produces one or more DSC node configurat
 
 Azure Automation DSC allows you to import, author, and compile DSC configurations in Azure Automation, similar to how runbooks can be imported, authored, and started in Azure Automation.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > A configuration should contain only one configuration block, with the same name as the configuration, in Azure Automation DSC.
 
 ### Node Configuration
@@ -85,7 +86,7 @@ A compilation job in Azure Automation DSC is an instance of compilation of a con
 
 ![alt text](./media/automation-dsc-overview/AADSC_5.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Just like runbooks, configurations can be published. This is not related to putting DSC items onto the Azure Automation DSC pull server. Compilation jobs cause DSC items to be placed on the Azure Automation DSC pull server. For more information on "publishing" in Azure Automation, see [Publishing a Runbook](https://msdn.microsoft.com/zh-cn/library/dn903765.aspx).
 
 ## Azure Automation DSC LifeCycle
@@ -113,8 +114,8 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 ## Related Articles
 
-* [Onboarding machines for management by Azure Automation DSC](/documentation/articles/automation-dsc-onboarding/)
-* [Compiling configurations in Azure Automation DSC](/documentation/articles/automation-dsc-compile/)
+* [Onboarding machines for management by Azure Automation DSC](./automation-dsc-onboarding.md)
+* [Compiling configurations in Azure Automation DSC](./automation-dsc-compile.md)
 * [Azure Automation DSC cmdlets](https://msdn.microsoft.com/zh-cn/library/mt244122.aspx)
-* [Azure Automation DSC pricing](/pricing/details/automation/)
-* [Continuous Deployment to IaaS VMs Using Azure Automation DSC and Chocolatey](/documentation/articles/automation-dsc-cd-chocolatey/)
+* [Azure Automation DSC pricing](https://www.azure.cn/pricing/details/automation/)
+* [Continuous Deployment to IaaS VMs Using Azure Automation DSC and Chocolatey](./automation-dsc-cd-chocolatey.md)

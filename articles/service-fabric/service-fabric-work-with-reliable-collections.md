@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Working with Reliable Collections | Azure"
-    description="Learn the best practices for working with Reliable Collections."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="JeffreyRichter"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="39e0cd6b-32c4-4b97-bbcf-33dad93dcad1"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="jeffreyr" />
+---
+title: Working with Reliable Collections | Azure
+description: Learn the best practices for working with Reliable Collections.
+services: service-fabric
+documentationcenter: .net
+author: JeffreyRichter
+manager: timlt
+editor: ''
+
+ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: jeffreyr
+---
 
 # Working with Reliable Collections
 
 Service Fabric offers a stateful programming model available to .NET developers via Reliable Collections. Specifically, Service Fabric provides reliable dictionary and reliable queue classes. When you use these classes, your state is partitioned (for scalability), replicated (for availability), and transacted within a partition (for ACID semantics). Let’s look at a typical usage of a reliable dictionary object and see what its actually doing.
 
-~~~
+```
 retry:
 try {
    // Create a new Transaction object for this partition
@@ -42,14 +43,14 @@ try {
 catch (TimeoutException) { 
    await Task.Delay(100, cancellationToken); goto retry; 
 }
-~~~
+```
 
 All operations on reliable dictionary objects (except for ClearAsync which is not undoable), require an ITransaction object. This object has associated with it any and all changes you’re attempting to make to any reliable dictionary and/or reliable queue objects within a single partition. You acquire an ITransaction object by calling the partition’s StateManager’s CreateTransaction method.
- 
+
 In the code above, the ITransaction object is passed to a reliable dictionary’s AddAsync method. Internally, dictionary methods that accepts a key take a reader/writer lock associated with the key. If the method modifies the key’s value, the method takes a write lock on the key and if the method only reads from the key’s value, then a read lock is taken on the key. Since AddAsync modifies the key’s value to the new, passed-in value, the key’s write lock is taken. So, if 2 (or more) threads attempt to add values with the same key at the same time, one thread will acquire the write lock and the other threads will block. By default, methods block for up to 4 seconds to acquire the lock; after 4 seconds, the methods throw a TimeoutException. Method overloads exist allowing you to pass an explicit timeout value if you’d prefer.
- 
+
 Usually, you write your code to react to a TimeoutException by catching it and retrying the entire operation (as shown in the code above). In my simple code, I’m just calling Task.Delay passing 100 milliseconds each time. But, in reality, you might be better off using some kind of exponential back-off delay instead.
- 
+
 Once the lock is acquired, AddAsync adds the key and value object references to an internal temporary dictionary associated with the ITransaction object. This is done to provide you with read-your-own-writes semantics. That is, after you call AddAsync, a later call to TryGetValueAsync (using the same ITransaction object) will return the value even if you have not yet committed the transaction. Next, AddAsync serializes your key and value objects to byte arrays and appends these byte arrays to a log file on the local node. Finally, AddAsync sends the byte arrays to all the secondary replicas so they have the same key/value information. Even though the key/value information has been written to a log file, the information is not considered part of the dictionary until the transaction that they are associated with has been committed. 
 
 In the code above, the call to CommitAsync commits all of the transaction’s operations. Specifically, it appends commit information to the log file on the local node and also sends the commit record to all the secondary replicas. Once a quorum (majority) of the replicas has replied, all data changes are considered permanent and any locks associated with keys that were manipulated via the ITransaction object are released so other threads/transactions can manipulate the same keys and their values.
@@ -59,7 +60,7 @@ If CommitAsync is not called (usually due to an exception being thrown), then th
 ## Common pitfalls and how to avoid them
 Now that you understand how the reliable collections work internally, let’s take a look at some common misuses of them. See the code below:
 
-~~~
+```
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // AddAsync serializes the name/user, logs the bytes, 
    // & sends the bytes to the secondary replicas.
@@ -71,23 +72,23 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
    await tx.CommitAsync();
 }
-~~~
+```
 
 When working with a regular .NET dictionary, you can add a key/value to the dictionary and then change the value of a property (such as LastLogin). However, this code will not work correctly with a reliable dictionary. Remember from the earlier discussion, the call to AddAsync serializes the key/value objects to byte arrays and then saves the arrays to a local file and also sends them to the secondary replicas. If you later change a property, this changes the property’s value in memory only; it does not impact the local file or the data sent to the replicas. If the process crashes, what’s in memory is thrown away. When a new process starts or if another replica becomes primary, then the old property value is what is available. 
 
 I cannot stress enough how easy it is to make the kind of mistake shown above. And, you will only learn about the mistake if/when the process goes down. The correct way to write the code is simply to reverse the two lines:
 
-~~~
+```
 using (ITransaction tx = StateManager.CreateTransaction()) {
    user.LastLogin = DateTime.UtcNow;  // Do this BEFORE calling AddAsync
    await m_dic.AddAsync(tx, name, user);
    await tx.CommitAsync(); 
 }
-~~~
+```
 
 Here is another example showing a common mistake:
 
-~~~
+```
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // Use the user’s name to look up their data
    ConditionalValue<User> user = 
@@ -101,15 +102,15 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
       await tx.CommitAsync(); 
    }
 }
-~~~
+```
 
 Again, with regular .NET dictionaries, the code above works fine and is a common pattern: the developer uses a key to look up a value. If the value exists, the developer changes a property’s value. However, with reliable collections, this code exhibits the same problem as already discussed: __you MUST not modify an object once you have given it to a reliable collection.__
- 
+
 The correct way to update a value in a reliable collection, is to get a reference to the existing value and consider the object referred to by this reference immutable. Then, create a new object which is an exact copy of the original object. Now, you can modify the state of this new object and write the new object into the collection so that it gets serialized to byte arrays, appended to the local file and sent to the replicas. After committing the change(s), the in-memory objects, the local file, and all the replicas have the same exact state. All is good!
 
 The code below shows the correct way to update a value in a reliable collection:
 
-~~~
+```
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // Use the user’s name to look up their data
    ConditionalValue<User> currentUser = 
@@ -131,7 +132,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
       await tx.CommitAsync(); 
    }
 }
-~~~
+```
 
 ## Define immutable data types to prevent programmer error
 
@@ -139,12 +140,12 @@ Ideally, we’d like the compiler to report errors when you accidentally produce
 
 The UserInfo type below demonstrates how to define an immutable type taking advantage of aforementioned recommendations.
 
-~~~
+```
 [DataContract]
 // If you don’t seal, you must ensure that any derived classes are also immutable
 public sealed class UserInfo {
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;
- 
+
    public UserInfo(String email, IEnumerable<ItemId> itemsBidding = null) {
       Email = email;
       ItemsBidding = (itemsBidding == null) ? NoBids : itemsBidding.ToImmutableList();
@@ -155,10 +156,10 @@ public sealed class UserInfo {
       // Convert the deserialized collection to an immutable collection
       ItemsBidding = ItemsBidding.ToImmutableList();
    }
- 
+
    [DataMember]
    public readonly String Email;
- 
+
    // Ideally, this would be a readonly field but it can't be because OnDeserialized 
    // has to set it. So instead, the getter is public and the setter is private.
    [DataMember]
@@ -170,11 +171,11 @@ public sealed class UserInfo {
       return new UserInfo(Email, ((ImmutableList<ItemId>)ItemsBidding).Add(itemId));
    }
 }
-~~~
+```
 
 The ItemId type is also an immutable type as shown here:
 
-~~~
+```
 [DataContract]
 public struct ItemId {
 
@@ -185,7 +186,7 @@ public struct ItemId {
       ItemName = itemName;
    }
 }
-~~~
+```
 
 ## Schema versioning (upgrades)
 
@@ -193,8 +194,9 @@ Internally, Reliable Collections serialize your objects using .NET’s DataContr
 
 Furthermore, service code is upgraded one upgrade domain at a time. So, during an upgrade, you have two different versions of your service code running simultaneously. You must avoid having the new version of your service code use the new schema as old versions of your service code might not be able to handle the new schema. When possible, you should design each version of your service to be forward compatible by 1 version. Specifically, this means that V1 of your service code should be able to simply ignore any schema elements it does not explicitly handle. However, it must be able to save any data it doesn’t explicitly know about and simply write it back out when updating a dictionary key or value. 
 
->[AZURE.WARNING] While you can modify the schema of a key, you must ensure that your key’s hash code and equals algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.
-  
+>[!WARNING]
+> While you can modify the schema of a key, you must ensure that your key’s hash code and equals algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.
+
 Alternatively, you can perform what is typically referred to as a 2-phase upgrade. With a 2-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn’t execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a 2-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
 
 ## Next Steps

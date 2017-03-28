@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Azure Virtual Network peering - Portal | Azure"
-    description="Learn how to create a virtual network peering using the Azure portal preview."
-    services="virtual-network"
-    documentationcenter=""
-    author="NarayanAnnamalai"
-    manager="jefco"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="026bca75-2946-4c03-b4f6-9f3c5809c69a"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="09/14/2016"
-    wacn.date=""
-    ms.author="narayan;annahar" />
+---
+title: Azure Virtual Network peering - Portal | Azure
+description: Learn how to create a virtual network peering using the Azure portal preview.
+services: virtual-network
+documentationcenter: ''
+author: NarayanAnnamalai
+manager: jefco
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 026bca75-2946-4c03-b4f6-9f3c5809c69a
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/14/2016
+wacn.date: ''
+ms.author: narayan;annahar
+---
 
 # Create a virtual network peering using the Azure portal preview
-[AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
+[!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
+[!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-basic-include](../../includes/virtual-networks-create-vnetpeering-scenario-basic-include.md)]
+[!INCLUDE [virtual-networks-create-vnet-scenario-basic-include](../../includes/virtual-networks-create-vnetpeering-scenario-basic-include.md)]
 
 To create a VNet peering based on the scenario by using the Azure portal preview, complete the following steps:
 
@@ -50,10 +51,10 @@ To create a VNet peering based on the scenario by using the Azure portal preview
 
     ![Final link state](./media/virtual-networks-create-vnetpeering-arm-portal/figure07.png)
 9. Check the state for **LinkToVnet2** and it now changes to *Connected* as well.  
-	
+
     ![Final link state 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > VNET peering is only established if both links are connected.
     > 
     > 
@@ -69,7 +70,7 @@ There are a few configurable properties for each link:
 
 Each link in a VNet peering has the previous set of properties. From the portal, you can click the **VNet Peering** link and change any available options, click **Save** to apply changes.
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
+[!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
 1. From a browser, navigate to http://portal.azure.cn and, if necessary, sign in with your Azure account.
 2. In this example, UserA has administrative permissions to SubscriptionA, and UserB has administrative permissions to SubscriptionB. Both subscriptions are associated to the same Azure Active Directory tenant. You cannot create a peering between subscriptions associated to different Azure Active Directory tenants.
@@ -85,35 +86,35 @@ Each link in a VNet peering has the previous set of properties. From the portal,
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > You can log off and log on both user sessions in the browser to ensure the authorization is enabled successfully.
     >
     >
 
-    > [AZURE.IMPORTANT]
+    > [!IMPORTANT]
     > If the peering you're creating is between two VNets created through the Azure Resource Manager deployment model, continue with the remaining steps in this section. If the two VNets were created through different deployment models, skip the remaining steps of this section and complete the steps in the [Peering virtual networks created through different deployment models](#x-model) section of this article.
 
 6. Login to the portal as UserA, navigate to the VNET3 blade, click **Peering**, check the **I Know my resource ID** checkbox and type the resource ID for VNET5 in the format shown in the following example:
-   
+
     /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Network/virtualNetworks/{VNETname}
-   
+
     ![Resource ID](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 7. Login to the portal as UserB and follow the previous steps to create a peering link from VNET5 to VNet3.
-   
+
     ![Resource ID 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure13.png)
 8. Peering will be established. Any VM connected to VNet3 should be able to communicate with any VM connected to VNet5.
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
+[!INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
 1. As a first step, VNET peering links from HubVnet to VNET1. Note that Allow Forwarded Traffic option is not selected for the link.
-   
+
     ![Basic Peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure14.png)
 2. As a next step, peering links from VNET1 to HubVnet can be created. Note that Allow forwarded traffic option is selected.
-   
-    ![Basic Peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
-3. After peering is established, you can refer to this [article](/documentation/articles/virtual-network-create-udr-arm-ps/) and define User Defined Route(UDR) to redirect VNet1 traffic through a virtual appliance to use its capabilities. When you specify the Next Hop address in route, you can set it to the IP address of virtual appliance in peer VNet HubVNet
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+    ![Basic Peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
+3. After peering is established, you can refer to this [article](./virtual-network-create-udr-arm-ps.md) and define User Defined Route(UDR) to redirect VNet1 traffic through a virtual appliance to use its capabilities. When you specify the Next Hop address in route, you can set it to the IP address of virtual appliance in peer VNet HubVNet
+
+[!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
 1. From a browser, navigate to http://portal.azure.cn and, if necessary, sign in with your Azure account.
 2. If you are creating a peering between VNets deployed through different deployment models in the *same* subscription, skip to step 3. The ability to create a VNet peering between VNets deployed through different deployment models in *different* subscriptions is in **preview** release. Capabilities in preview release do not have the same level of reliability and service level agreement as general release capabilities. If you are creating a peering between VNets deployed through different deployment models in different subscriptions you must first complete the following tasks:

@@ -1,32 +1,32 @@
-<properties 
-	pageTitle="How to configure a cloud service (portal) | Azure" 
-	description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure portal." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+---
+title: How to configure a cloud service (portal) | Azure
+description: Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure portal.
+services: cloud-services
+documentationCenter: ''
+authors: Thraka
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2016"
-	ms.author="adegeo"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/07/2016
+ms.author: adegeo
+---
 
 # How to Configure Cloud Services
 
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/cloud-services-how-to-configure-portal/)
-- [Azure classic portal](/documentation/articles/cloud-services-how-to-configure/)
+> [!div class="op_single_selector"]
+>- [Azure portal](./cloud-services-how-to-configure-portal.md)
+>- [Azure classic portal](./cloud-services-how-to-configure.md)
 
 You can configure the most commonly used settings for a cloud service in the Azure portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 
 You can also manage the instances of your cloud service roles, or remote desktop into them.
 
-Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](/support/legal/sla).
+Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://www.azure.cn/support/legal/sla).
 
 ## Change a cloud service
 
@@ -45,7 +45,7 @@ By default, Azure periodically updates your guest OS to the latest supported ima
 If you need to target a specific OS version, you can set it in the **Configuration** blade.
 
 ![Set OS version](./media/cloud-services-how-to-configure-portal/cs-settings-config-guestosversion.png)
->[AZURE.NOTE]
+>[!NOTE]
 > Choosing a specific OS version disables automatic OS updates and makes patching your responsibility. You must ensure that your role instances are receiving updates or you may expose your application to security vulnerabilities.
 
 ## Monitoring
@@ -72,7 +72,7 @@ Instead of using **Settings** > **Alert Rules**, you can click on one of the met
 From here you can customize the chart used with the tile, or add an alert rule.
 
 ## Reboot, reimage, or remote desktop
-At this time you cannot configure remote desktop using the **Azure portal**. However, you can set it up through the [Azure classic portal](/documentation/articles/cloud-services-role-enable-remote-desktop/), [PowerShell](/documentation/articles/cloud-services-role-enable-remote-desktop-powershell/), or through [Visual Studio](/documentation/articles/vs-azure-tools-remote-desktop-roles/). 
+At this time you cannot configure remote desktop using the **Azure portal**. However, you can set it up through the [Azure classic portal](./cloud-services-role-enable-remote-desktop.md), [PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md), or through [Visual Studio](../vs-azure-tools-remote-desktop-roles.md). 
 
 First, click on the cloud service instance.
 
@@ -83,7 +83,7 @@ From the blade that opens you can initiate a remote desktop connection, remotely
 ![Cloud Service Instance Buttons](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
 ## Reconfigure your .cscfg
-You may need to reconfigure your cloud service through the [service config (cscfg)](/documentation/articles/cloud-services-model-and-package/#cscfg) file. First you need to download your .cscfg file, modify it, then upload it.
+You may need to reconfigure your cloud service through the [service config (cscfg)](./cloud-services-model-and-package.md#cscfg) file. First you need to download your .cscfg file, modify it, then upload it.
 
 1. Click on the **Settings** icon or the **All settings** link to open up the **Settings** blade.
 
@@ -101,7 +101,7 @@ You may need to reconfigure your cloud service through the [service config (cscf
 
 ## Next steps
 
-* Learn how to [deploy a cloud service](/documentation/articles/cloud-services-how-to-create-deploy-portal/).
-* Configure a [custom domain name](/documentation/articles/cloud-services-custom-domain-name-portal/).
-* [Manage your cloud service](/documentation/articles/cloud-services-how-to-manage-portal/).
-* Configure [ssl certificates](/documentation/articles/cloud-services-configure-ssl-certificate-portal/).
+* Learn how to [deploy a cloud service](./cloud-services-how-to-create-deploy-portal.md).
+* Configure a [custom domain name](./cloud-services-custom-domain-name-portal.md).
+* [Manage your cloud service](./cloud-services-how-to-manage-portal.md).
+* Configure [ssl certificates](./cloud-services-configure-ssl-certificate-portal.md).

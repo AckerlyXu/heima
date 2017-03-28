@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Design Azure templates for complex solutions | Azure"
-    description="Shows best practices for designing Azure Resource Manager templates for complex scenarios"
-    services="azure-resource-manager"
-    documentationcenter=""
-    author="tfitzmac"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="ce1141d6-ece7-4976-acea-1db1f775409e"
-    ms.service="azure-resource-manager"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/19/2016"
-    wacn.date=""
-    ms.author="tomfitz" />
+---
+title: Design Azure templates for complex solutions | Azure
+description: Shows best practices for designing Azure Resource Manager templates for complex scenarios
+services: azure-resource-manager
+documentationcenter: ''
+author: tfitzmac
+manager: timlt
+editor: tysonn
+
+ms.assetid: ce1141d6-ece7-4976-acea-1db1f775409e
+ms.service: azure-resource-manager
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/19/2016
+wacn.date: ''
+ms.author: tomfitz
+---
 
 # Design patterns for Azure Resource Manager templates when deploying complex solutions
 Using a flexible approach based on Azure Resource Manager templates, you can deploy complex topologies quickly and consistently. You can adapt these deployments easily as core offerings evolve or to accommodate variants for outlier scenarios or customers.
@@ -127,7 +128,7 @@ You might initially think a template should give consumers the utmost flexibilit
 ### Free-form configurations
 On the surface, free-form configurations sound ideal. They allow you to select a VM type and provide an arbitrary number of nodes and attached disks for those nodes -- and do so as parameters to a template. However, this approach is not ideal for some scenarios.
 
-In [Sizes for virtual machines](/documentation/articles/virtual-machines-windows-sizes/), the different VM types and available sizes are identified, and each of the number of durable disks (2, 4, 8, 16, or 32) that can be attached. Each attached disk provides 500 IOPS and multiples of these disks can be pooled for a multiplier of that number of IOPS. For example, 16 disks can be pooled to provide 8,000 IOPS. Pooling is done with configuration in the operating system, using Microsoft Windows Storage Spaces or redundant array of inexpensive disks (RAID) in Linux.
+In [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md), the different VM types and available sizes are identified, and each of the number of durable disks (2, 4, 8, 16, or 32) that can be attached. Each attached disk provides 500 IOPS and multiples of these disks can be pooled for a multiplier of that number of IOPS. For example, 16 disks can be pooled to provide 8,000 IOPS. Pooling is done with configuration in the operating system, using Microsoft Windows Storage Spaces or redundant array of inexpensive disks (RAID) in Linux.
 
 A free-form configuration enables the selection several VM instances, various VM types and sizes for those instances, various disks for the VM type, and one or more scripts to configure the VM contents.
 
@@ -185,13 +186,15 @@ Software agents can retrieve the metadata.json file and publish the information 
 
 An example file is shown below in its entirety.
 
-    {
-        "itemDisplayName": "PostgreSQL 9.3 on Ubuntu VMs",
-        "description": "This template creates a PostgreSQL streaming-replication between a master and one or more slave servers each with 2 striped data disks. The database servers are deployed into a private-only subnet with one publicly accessible jumpbox VM in a DMZ subnet with public IP.",
-        "summary": "PostgreSQL stream-replication with multiple slave servers and a publicly accessible jumpbox VM",
-        "githubUsername": "arsenvlad",
-        "dateUpdated": "2015-04-24"
-    }
+```
+{
+    "itemDisplayName": "PostgreSQL 9.3 on Ubuntu VMs",
+    "description": "This template creates a PostgreSQL streaming-replication between a master and one or more slave servers each with 2 striped data disks. The database servers are deployed into a private-only subnet with one publicly accessible jumpbox VM in a DMZ subnet with public IP.",
+    "summary": "PostgreSQL stream-replication with multiple slave servers and a publicly accessible jumpbox VM",
+    "githubUsername": "arsenvlad",
+    "dateUpdated": "2015-04-24"
+}
+```
 
 ### Main template
 The main template receives parameters from a user, uses that information to populate complex object variables, and executes the linked templates.
@@ -343,6 +346,6 @@ If you want to publish your template to the marketplace, you establish distinct 
 **Adapting a solution scoped template for the marketplace**
 
 ## Next steps
-* For recommendations about how to handle security in Azure Resource Manager, see [Security considerations for Azure Resource Manager](/documentation/articles/best-practices-resource-manager-security/)
-* To learn about sharing state into and out of templates, see [Sharing state in Azure Resource Manager templates](/documentation/articles/best-practices-resource-manager-state/).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/documentation/articles/resource-manager-subscription-governance/).
+* For recommendations about how to handle security in Azure Resource Manager, see [Security considerations for Azure Resource Manager](./best-practices-resource-manager-security.md)
+* To learn about sharing state into and out of templates, see [Sharing state in Azure Resource Manager templates](./best-practices-resource-manager-state.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](./resource-manager-subscription-governance.md).

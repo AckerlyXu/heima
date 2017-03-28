@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Ports used by HDInsight | Azure"
-    description="A list of ports used by Hadoop services running on HDInsight."
-    services="hdinsight"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="dd14aed9-ec25-4bb3-a20c-e29562735a7d"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="01/17/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Ports used by HDInsight | Azure
+description: A list of ports used by Hadoop services running on HDInsight.
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 01/17/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Ports and URIs used by HDInsight
 This document provides a list of the ports used by Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
@@ -25,34 +26,34 @@ Linux-based HDInsight clusters only exposes three ports publicly on the internet
 
 Internally, HDInsight is implemented by several Azure Virtual Machines (the nodes within the cluster,) running on an Azure Virtual Network. From within the virtual network, you can access ports not exposed over the internet. For example, if you connect to one of the head nodes using SSH, from the head node you can then directly access services running on the cluster nodes.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > When you create an HDInsight cluster, if you do not specify an Azure Virtual Network as a configuration option, one is created; however, you cannot join other machines (such as other Azure Virtual Machines or your client development machine,) to this automatically created virtual network. 
 > 
 > 
 
-To join additional machines to the virtual network, you must create the virtual network first, and then specify it when creating your HDInsight cluster. For more information, see [Extend HDInsight capabilities by using an Azure Virtual Network](/documentation/articles/hdinsight-extend-hadoop-virtual-network/)
+To join additional machines to the virtual network, you must create the virtual network first, and then specify it when creating your HDInsight cluster. For more information, see [Extend HDInsight capabilities by using an Azure Virtual Network](./hdinsight-extend-hadoop-virtual-network.md)
 
 ## Public ports
 All the nodes in an HDInsight cluster are located in an Azure Virtual Network, and cannot be directly accessed from the internet. A public gateway provides internet access to the following ports, which are common across all HDInsight cluster types.
 
 | Service | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| sshd |22 |SSH |Connects clients to sshd on the primary headnode. See [Use SSH with Linux-based HDInsight](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/) |
-| sshd |22 |SSH |Connects clients to sshd on the edge node (HDInsight Premium only). See [Get started using R Server on HDInsight](/documentation/articles/hdinsight-hadoop-r-server-get-started/) |
-| sshd |23 |SSH |Connects clients to sshd on the secondary headnode. See [Use SSH with Linux-based HDInsight](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/) |
-| Ambari |443 |HTTPS |Ambari web UI. See [Manage HDInsight using the Ambari Web UI](/documentation/articles/hdinsight-hadoop-manage-ambari/) |
-| Ambari |443 |HTTPS |Ambari REST API. See [Manage HDInsight using the Ambari REST API](/documentation/articles/hdinsight-hadoop-manage-ambari-rest-api/) |
-| WebHCat |443 |HTTPS |HCatalog REST API. See [Use Hive with Curl](/documentation/articles/hdinsight-hadoop-use-pig-curl/), [Use Pig with Curl](/documentation/articles/hdinsight-hadoop-use-pig-curl/), [Use MapReduce with Curl](/documentation/articles/hdinsight-hadoop-use-mapreduce-curl/) |
-| HiveServer2 |443 |ODBC |Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/). |
-| HiveServer2 |443 |JDBC |Connects to Hive using JDBC. See [Connect to Hive on HDInsight using the Hive JDBC driver](/documentation/articles/hdinsight-connect-hive-jdbc-driver/) |
+| sshd |22 |SSH |Connects clients to sshd on the primary headnode. See [Use SSH with Linux-based HDInsight](./hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd |22 |SSH |Connects clients to sshd on the edge node (HDInsight Premium only). See [Get started using R Server on HDInsight](./hdinsight-hadoop-r-server-get-started.md) |
+| sshd |23 |SSH |Connects clients to sshd on the secondary headnode. See [Use SSH with Linux-based HDInsight](./hdinsight-hadoop-linux-use-ssh-windows.md) |
+| Ambari |443 |HTTPS |Ambari web UI. See [Manage HDInsight using the Ambari Web UI](./hdinsight-hadoop-manage-ambari.md) |
+| Ambari |443 |HTTPS |Ambari REST API. See [Manage HDInsight using the Ambari REST API](./hdinsight-hadoop-manage-ambari-rest-api.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. See [Use Hive with Curl](./hdinsight-hadoop-use-pig-curl.md), [Use Pig with Curl](./hdinsight-hadoop-use-pig-curl.md), [Use MapReduce with Curl](./hdinsight-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 |443 |ODBC |Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](./hdinsight-connect-excel-hive-ODBC-driver.md). |
+| HiveServer2 |443 |JDBC |Connects to Hive using JDBC. See [Connect to Hive on HDInsight using the Hive JDBC driver](./hdinsight-connect-hive-jdbc-driver.md) |
 
 The following are available for specific cluster types:
 
 | Service | Port | Protocol | Cluster type | Description |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API. See [Get started using HBase](/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/) |
-| Livy |443 |HTTPS |Spark |Spark REST API. See [Submit Spark jobs remotely using Livy](/documentation/articles/hdinsight-apache-spark-livy-rest-interface/) |
-| Storm |443 |HTTPS |Storm |Storm web UI. See [Deploy and manage Storm topologies on HDInsight](/documentation/articles/hdinsight-storm-deploy-monitor-topology-linux/) |
+| Stargate |443 |HTTPS |HBase |HBase REST API. See [Get started using HBase](./hdinsight-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API. See [Submit Spark jobs remotely using Livy](./hdinsight-apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |Storm web UI. See [Deploy and manage Storm topologies on HDInsight](./hdinsight-storm-deploy-monitor-topology-linux.md) |
 
 ### Authentication
 All services publicly exposed on the internet must be authenticated:
@@ -63,7 +64,7 @@ All services publicly exposed on the internet must be authenticated:
 | 443 |The login name (default: admin,) and password that were set during cluster creation |
 
 ## Non-public ports
-> [AZURE.NOTE]
+> [!NOTE]
 > Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
 > 
 > 

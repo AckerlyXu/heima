@@ -1,45 +1,46 @@
-<properties
-    pageTitle="Attach a disk to a classic Azure VM | Azure"
-    description="Attach a data disk to a Windows virtual machine created with the classic deployment model and initialize it."
-    services="virtual-machines-windows, storage"
-    documentationcenter=""
-    author="cynthn"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management" />
-<tags
-    ms.assetid="be4e3e74-05bc-4527-969f-84f10a1d66a7"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/21/2017"
-    wacn.date=""
-    ms.author="cynthn" />
+---
+title: Attach a disk to a classic Azure VM | Azure
+description: Attach a data disk to a Windows virtual machine created with the classic deployment model and initialize it.
+services: virtual-machines-windows, storage
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: tysonn
+tags: azure-service-management
+
+ms.assetid: be4e3e74-05bc-4527-969f-84f10a1d66a7
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 02/21/2017
+wacn.date: ''
+ms.author: cynthn
+---
 
 # Attach a data disk to a Windows virtual machine created with the classic deployment model
 <!--
 Refernce article:
-    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal preview](/documentation/articles/virtual-machines-windows-attach-disk-portal/).
+    If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal preview](./virtual-machines-windows-attach-disk-portal.md).
 -->
 
 This article shows you how to attach new and existing disks created with the Classic deployment model to a Windows virtual machine using the Azure portal preview.
 
-You can also [attach a data disk to a Linux VM in the Azure portal preview](/documentation/articles/virtual-machines-linux-attach-disk-portal/).
+You can also [attach a data disk to a Linux VM in the Azure portal preview](./virtual-machines-linux-attach-disk-portal.md).
 
 Before you attach a disk, review these tips:
 
-* The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](/documentation/articles/virtual-machines-windows-sizes/).
+* The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](./virtual-machines-windows-sizes.md).
 
-* To use Premium storage, you need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](/documentation/articles/storage-premium-storage/).
+* To use Premium storage, you need a DS-series or GS-series virtual machine. You can use disks from both Premium and Standard storage accounts with these virtual machines. Premium storage is available in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
 
 * For a new disk, you don't need to create it first because Azure creates it when you attach it.
 
-You can also [attach a data disk using Powershell](/documentation/articles/virtual-machines-windows-attach-disk-ps/).
+You can also [attach a data disk using Powershell](./virtual-machines-windows-attach-disk-ps.md).
 
-> [AZURE.IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/).
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Find the virtual machine
 1. Sign in to the [Azure portal preview](https://portal.azure.cn/).
@@ -61,7 +62,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 
 ### Initialize a new data disk
 
-1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](/documentation/articles/virtual-machines-windows-connect-logon/).
+1. Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](./virtual-machines-windows-connect-logon.md).
 2. After you log on to the virtual machine, open **Server Manager**. In the left pane, select **File and Storage Services**.
 
     ![Open Server Manager](./media/virtual-machines-windows-classic-attach-disk/fileandstorageservices.png)
@@ -96,14 +97,18 @@ If you use standard storage (HDD), you should enable TRIM. TRIM discards unused 
 
 You can run this command to check the TRIM setting. Open a command prompt on your Windows VM and type:
 
-    fsutil behavior query DisableDeleteNotify
+```
+fsutil behavior query DisableDeleteNotify
+```
 
 If the command returns 0, TRIM is enabled correctly. If it returns 1, run the following command to enable TRIM:
 
-    fsutil behavior set DisableDeleteNotify 0
+```
+fsutil behavior set DisableDeleteNotify 0
+```
 
 ## Next steps
-If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](/documentation/articles/virtual-machines-windows-classic-change-drive-letter/).
+If your application needs to use the D: drive to store data, you can [change the drive letter of the Windows temporary disk](./virtual-machines-windows-classic-change-drive-letter.md).
 
 ## Additional resources
 [About disks and VHDs for virtual machines](/documentation/articles/virtual-machines-linux-about-disks-vhds/)

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Introduction to Web Application Firewall (WAF) for Application Gateway | Azure"
-    description="This page provides an overview of Web Application Firewall (WAF) for Application Gateway "
-    documentationcenter="na"
-    services="application-gateway"
-    author="amsriva"
-    manager="rossort"
-    editor="amsriva" />
-<tags
-    ms.assetid="04b362bc-6653-4765-86f6-55ee8ec2a0ff"
-    ms.service="application-gateway"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="12/16/2016"
-    wacn.date=""
-    ms.author="amsriva" />
+---
+title: Introduction to Web Application Firewall (WAF) for Application Gateway | Azure
+description: This page provides an overview of Web Application Firewall (WAF) for Application Gateway 
+documentationcenter: na
+services: application-gateway
+author: amsriva
+manager: rossort
+editor: amsriva
+
+ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 12/16/2016
+wacn.date: ''
+ms.author: amsriva
+---
 
 # Application Gateway Web Application Firewall (preview)
 
@@ -57,23 +58,25 @@ Application Gateway WAF provides detailed reporting on each threat it detects. L
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
 
-    {
-        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-        "operationName": "ApplicationGatewayFirewall",
-        "time": "2016-09-20T00:40:04.9138513Z",
-        "category": "ApplicationGatewayFirewallLog",
-        "properties":     {
-            "instanceId":"ApplicationGatewayRole_IN_0",
-            "clientIp":"108.41.16.164",
-            "clientPort":1815,
-            "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-            "ruleId":"OWASP_973336",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "action":"Logged",
-            "site":"Global",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-    }
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+    "operationName": "ApplicationGatewayFirewall",
+    "time": "2016-09-20T00:40:04.9138513Z",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties":     {
+        "instanceId":"ApplicationGatewayRole_IN_0",
+        "clientIp":"108.41.16.164",
+        "clientPort":1815,
+        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+        "ruleId":"OWASP_973336",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "action":"Logged",
+        "site":"Global",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+}
+```
 
 ## Application Gateway WAF SKU pricing
 
@@ -81,4 +84,4 @@ During preview, there are no additional charges for Application Gateway WAF usag
 
 ## Next steps
 
-After learning more about the capabilities of WAF, visit [How to configure Web Application Firewall on Application Gateway](/documentation/articles/application-gateway-web-application-firewall-portal/).
+After learning more about the capabilities of WAF, visit [How to configure Web Application Firewall on Application Gateway](./application-gateway-web-application-firewall-portal.md).

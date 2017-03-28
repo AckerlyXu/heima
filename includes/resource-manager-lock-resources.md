@@ -12,4 +12,4 @@
 
 4. To delete the lock, select the ellipsis and **Delete** from the available options.
 
-      ![delete lock](./media/resource-manager-lock-resources/delete-lock.png) 
+      ![delete lock](./media/resource-manager-lock-resources/delete-lock.png)

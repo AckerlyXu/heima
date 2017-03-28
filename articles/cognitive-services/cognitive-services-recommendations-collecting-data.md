@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Collecting Data to Train your Model: Machine Learning Recommendations API | Azure"
-	description="Azure Machine Learning Recommendations - Collecting Data to Train your Model"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="luiscabrer"
-	manager="paulettm"
-	editor="cgronlun"/>
+---
+title: Collecting Data to Train your Model: Machine Learning Recommendations API | Azure
+description: Azure Machine Learning Recommendations - Collecting Data to Train your Model
+services: cognitive-services
+documentationCenter: ''
+authors: luiscabrer
+manager: paulettm
+editor: cgronlun
 
-<tags
-	ms.service="cognitive-services"
-	ms.date="06/06/2016"
-	wacn.date=""/>
+ms.service: cognitive-services
+ms.date: 06/06/2016
+wacn.date: ''
+---
 
 #  Collecting Data to Train your Model #
 
@@ -18,8 +18,7 @@ The Recommendations API learns from your past transactions to find what items sh
 
 After you have created a model, you will need to provide two piece of information before you can do any training: a catalog file, and usage data.
 
->   If you have not done so already, we encourage you to complete the [quick start guide](/documentation/articles/cognitive-services-recommendations-quick-start/).
-
+>   If you have not done so already, we encourage you to complete the [quick start guide](./cognitive-services-recommendations-quick-start.md).
 
 ## Catalog Data ##
 
@@ -36,15 +35,19 @@ The catalog data should follow the following format:
 
 Without features:
 
-    AAA04294,Office Language Pack Online DwnLd,Office
-    AAA04303,Minecraft Download Game,Games
-    C9F00168,Kiruna Flip Cover,Accessories
+```
+AAA04294,Office Language Pack Online DwnLd,Office
+AAA04303,Minecraft Download Game,Games
+C9F00168,Kiruna Flip Cover,Accessories
+```
 
 With features:
 
-    AAA04294,Office Language Pack Online DwnLd,Office, softwaretype=productivity, compatibility=Windows
-    BAB04303,Minecraft DwnLd,Games, softwaretype=gaming, compatibility=iOS, agegroup=all
-    C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia, hardwaretype=mobile
+```
+AAA04294,Office Language Pack Online DwnLd,Office, softwaretype=productivity, compatibility=Windows
+BAB04303,Minecraft DwnLd,Games, softwaretype=gaming, compatibility=iOS, agegroup=all
+C9F00168,Kiruna Flip Cover,Accessories, compatibility=lumia, hardwaretype=mobile
+```
 
 #### Format details
 
@@ -68,7 +71,6 @@ If you upload several catalog files to the same model with several calls, we wil
 >   The maximum file size is 200MB.
 >   The maximum number of items in the catalog supported is 100,000 items.
 
-
 ## Why add features to the catalog?
 
 The recommendations engine creates a statistical model that tells you what items are likely to be liked or purchased by a customer. When you have a new product that has never been interacted with it is not possible to create a model on co-occurrences alone. Let's say you start offering a new "children's violin" in your store, since you have never sold that violin before you cannot tell what other items to recommend with that violin.
@@ -85,15 +87,12 @@ To use features as part of your build you need to:
 
 3. Trigger a recommendations build, setting the following build parameters: Set useFeaturesInModel to true, allowColdItemPlacement to true, and modelingFeatureList should be set to the comma separated list of features that you want to use to enhance your model. See [Recommendations build type parameters](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d0) for more information.
 
-
 ## Usage Data ##
 A usage file contains information about how those items are used, or the transactions from your business.
 
 #### Usage Format details
 A usage file is a CSV (comma separated value) file where each row in a usage file represents an interaction between a user and an item. Each row is formatted as follows:<br>
 `<User Id>,<Item Id>,<Time>,[<Event>]`
-
-
 
 | Name  | Mandatory | Type | Description
 |-------|------------|------|---------------
@@ -104,12 +103,14 @@ A usage file is a CSV (comma separated value) file where each row in a usage fil
 
 #### Sample Rows in a Usage File
 
-    00037FFEA61FCA16,288186200,2015/08/04T11:02:52,Purchase
-    0003BFFDD4C2148C,297833400,2015/08/04T11:02:50,Purchase
-    0003BFFDD4C2118D,297833300,2015/08/04T11:02:40,Purchase
-    00030000D16C4237,297833300,2015/08/04T11:02:37,Purchase
-    0003BFFDD4C20B63,297833400,2015/08/04T11:02:12,Purchase
-    00037FFEC8567FB8,297833400,2015/08/04T11:02:04,Purchase
+```
+00037FFEA61FCA16,288186200,2015/08/04T11:02:52,Purchase
+0003BFFDD4C2148C,297833400,2015/08/04T11:02:50,Purchase
+0003BFFDD4C2118D,297833300,2015/08/04T11:02:40,Purchase
+00030000D16C4237,297833300,2015/08/04T11:02:37,Purchase
+0003BFFDD4C20B63,297833400,2015/08/04T11:02:12,Purchase
+00037FFEC8567FB8,297833400,2015/08/04T11:02:04,Purchase
+```
 
 #### Uploading a usage file
 
@@ -129,4 +130,4 @@ The system learns when users buy different items (We call this co-occurrences). 
 
 A good rule of thumb is to have most items be in 20 transactions or more, so if you had 10,000 items in your catalog, we would recommend that you have at least 20 times that number of transactions or about 200,000 transactions. Once again, this is a rule of thumb. You will need to experiment with your data.
 
-Once you have created a model, you can perform an [offline evaluation](/documentation/articles/cognitive-services-recommendations-buildtypes/) to check how well your model is likely to perform.
+Once you have created a model, you can perform an [offline evaluation](./cognitive-services-recommendations-buildtypes.md) to check how well your model is likely to perform.

@@ -1,7 +1,7 @@
-> [AZURE.SELECTOR]
-- [First web app](/documentation/articles/app-service-web-get-started/)
-- [.NET](/documentation/articles/web-sites-dotnet-get-started/)
-- [PHP](/documentation/articles/app-service-web-php-get-started/)
-- [Node.js](/documentation/articles/app-service-web-nodejs-get-started/)
-- [Python](/documentation/articles/web-sites-python-ptvs-django-mysql/)
-- [Java](/documentation/articles/web-sites-java-get-started/)
+> [!div class="op_single_selector"]
+>- [First web app](../articles/app-service-web/app-service-web-get-started.md)
+>- [.NET](../articles/app-service-web/web-sites-dotnet-get-started.md)
+>- [PHP](../articles/app-service-web/app-service-web-php-get-started.md)
+>- [Node.js](../articles/app-service-web/app-service-web-nodejs-get-started.md)
+>- [Python](../articles/app-service-web/web-sites-python-ptvs-django-mysql.md)
+>- [Java](../articles/app-service-web/web-sites-java-get-started.md)

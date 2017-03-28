@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Enable Transparent Data Encryption for Stretch Database - Azure | Azure"
-    description="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure"
-    services="sql-server-stretch-database"
-    documentationcenter=""
-    author="douglaslMS"
-    manager="barbkess"
-    editor="" />
-<tags
-    ms.assetid="a44ed8f5-b416-4c41-9b1e-b7271f10bdc3"
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/14/2016"
-    wacn.date=""
-    ms.author="douglasl" />
+---
+title: Enable Transparent Data Encryption for Stretch Database - Azure | Azure
+description: Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure
+services: sql-server-stretch-database
+documentationcenter: ''
+author: douglaslMS
+manager: barbkess
+editor: ''
+
+ms.assetid: a44ed8f5-b416-4c41-9b1e-b7271f10bdc3
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/14/2016
+wacn.date: ''
+ms.author: douglasl
+---
 
 # Enable Transparent Data Encryption (TDE) for Stretch Database on Azure
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/sql-server-stretch-database-encryption-tde/)
-- [TSQL](/documentation/articles/sql-server-stretch-database-tde-tsql/)
+> [!div class="op_single_selector"]
+>- [Azure portal](./sql-server-stretch-database-encryption-tde.md)
+>- [TSQL](./sql-server-stretch-database-tde-tsql.md)
 
 Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
 
@@ -37,7 +38,6 @@ To enable TDE for an Azure database that's storing the data migrated from a Stre
 4. Select the **On** setting, and then select **Save**
     ![][2]
 
-
 ##Disabling Encryption
 
 To disable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
@@ -47,16 +47,11 @@ To disable TDE for an Azure database that's storing the data migrated from a Str
 3. Select the **Transparent data encryption** option
 4. Select the **Off** setting, and then select **Save**
 
-
-
-
 <!--Anchors-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/zh-cn/library/bb934049.aspx
-
 
 <!--Image references-->
 [1]: ./media/sql-server-stretch-database-encryption-tde/stretchtde1.png
 [2]: ./media/sql-server-stretch-database-encryption-tde/stretchtde2.png
-
 
 <!--Link references-->

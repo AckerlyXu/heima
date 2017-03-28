@@ -1,22 +1,22 @@
-<properties
- pageTitle="Remote Monitoring preconfigured solution walkthrough | Azure"
- description="A description of the Azure IoT preconfigured solution remote monitoring and its architecture."
- services=""
- suite="iot-suite"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Remote Monitoring preconfigured solution walkthrough | Azure
+description: A description of the Azure IoT preconfigured solution remote monitoring and its architecture.
+services: ''
+suite: iot-suite
+documentationCenter: ''
+authors: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="02/15/2017"
- ms.author="dobett"
- wacn.date=""/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/15/2017
+ms.author: dobett
+wacn.date: ''
+---
 
 # Remote monitoring preconfigured solution walkthrough
 
@@ -46,7 +46,7 @@ Each simulated device can send the following message types to IoT Hub:
 | Presence |A device periodically sends a **presence** message to report whether the device can sense the presence of a sensor. |
 | Telemetry |A device periodically sends a **telemetry** message that reports simulated values for the temperature and humidity collected from the device's simulated sensors. |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The solution stores the list of commands supported by the device in a DocumentDB database and not in the device twin.
 > 
 > 
@@ -80,7 +80,7 @@ The simulator seeds these properties in simulated devices with sample values. Ea
 
 From the solution dashboard, you can use *desired properties* to set properties on a device by using the [device twin][lnk-device-twins]. Typically, a device reads a desired property value from the hub to update its internal state and report the change back as a reported property.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The simulated device code only uses the **Desired.Config.TemperatureMeanValue** and **Desired.Config.TelemetryInterval** desired properties to update the reported properties sent back to IoT Hub. All other desired property change requests are ignored in the simulated device.
 
 ### Methods
@@ -106,7 +106,7 @@ The simulated devices can handle the following commands (cloud-to-device message
 | DiagnosticTelemetry |Triggers the device simulator to send an additional telemetry value (externalTemp) |
 | ChangeDeviceState |Changes an extended state property for the device and sends the device info message from the device |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > For a comparison of these commands (cloud-to-device messages) and methods (direct methods), see [Cloud-to-device communications guidance][lnk-c2d-guidance].
 > 
 > 
@@ -257,13 +257,13 @@ You can continue getting started with IoT Suite by reading the following article
 
 - [Connect your device to the remote monitoring preconfigured solution][lnk-connect-rm]
 - [Permissions on the azureiotsuite.com site][lnk-permissions]
-[lnk-preconfigured-solutions]: /documentation/articles/iot-suite-what-are-preconfigured-solutions/
-[lnk-customize]: /documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
-[lnk-iothub]: /documentation/services/iot-hub/
-[lnk-asa]: /documentation/services/stream-analytics/
-[lnk-webjobs]: /documentation/articles/websites-webjobs-resources/
-[lnk-connect-rm]: /documentation/articles/iot-suite-connecting-devices/
-[lnk-permissions]: /documentation/articles/iot-suite-permissions/
-[lnk-c2d-guidance]: /documentation/articles/iot-hub-devguide-c2d-guidance/
-[lnk-device-twins]:  /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-direct-methods]: /documentation/articles/iot-hub-devguide-direct-methods/
+[lnk-preconfigured-solutions]: ./iot-suite-what-are-preconfigured-solutions.md
+[lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-iothub]: ../iot-hub/index.md
+[lnk-asa]: ../stream-analytics/index.md
+[lnk-webjobs]: ../app-service-web/websites-webjobs-resources.md
+[lnk-connect-rm]: ./iot-suite-connecting-devices.md
+[lnk-permissions]: ./iot-suite-permissions.md
+[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
+[lnk-device-twins]:  ../iot-hub/iot-hub-devguide-device-twins.md
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

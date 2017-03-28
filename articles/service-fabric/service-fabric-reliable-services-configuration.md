@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Configure reliable Azure microservices | Azure"
-    description="Learn about configuring stateful Reliable Services in Azure Service Fabric."
-    services="Service-Fabric"
-    documentationcenter=".net"
-    author="sumukhs"
-    manager="timlt"
-    editor="vturecek" />
-<tags
-    ms.assetid="9f72373d-31dd-41e3-8504-6e0320a11f0e"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="2/17/2017"
-    wacn.date=""
-    ms.author="sumukhs" />
+---
+title: Configure reliable Azure microservices | Azure
+description: Learn about configuring stateful Reliable Services in Azure Service Fabric.
+services: Service-Fabric
+documentationcenter: .net
+author: sumukhs
+manager: timlt
+editor: vturecek
+
+ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 2/17/2017
+wacn.date: ''
+ms.author: sumukhs
+---
 
 # Configure Stateful reliable services
 There are two sets of configuration settings for reliable services. One set is global for all reliable services in the cluster while the other set is specific to a particular reliable service.
@@ -35,25 +36,28 @@ The global reliable service configuration is specified in the cluster manifest f
 
 In Azure ARM or on premise JSON template, the example below shows how to change the the shared transaction log that gets created to back any reliable collections for stateful services.
 
-	    "fabricSettings": [{
-	        "name": "KtlLogger",
-	        "parameters": [{
-	            "name": "SharedLogSizeInMB",
-	            "value": "4096"
-	        }]
-	    }]
+```
+    "fabricSettings": [{
+        "name": "KtlLogger",
+        "parameters": [{
+            "name": "SharedLogSizeInMB",
+            "value": "4096"
+        }]
+    }]
+```
 
 ### Sample local developer cluster manifest section
 If you want to change this on your local development environment, you need to edit the local clustermanifest.xml file.
 
-	   <Section Name="KtlLogger">
-     	     <Parameter Name="SharedLogSizeInMB" Value="4096"/>
-	     <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
-	     <Parameter Name="WriteBufferMemoryPoolMaximumInKB" Value="8192" />
-	     <Parameter Name="SharedLogId" Value="{7668BB54-FE9C-48ed-81AC-FF89E60ED2EF}"/>
-	     <Parameter Name="SharedLogPath" Value="f:\SharedLog.Log"/>
-	   </Section>
-
+```xml
+   <Section Name="KtlLogger">
+          <Parameter Name="SharedLogSizeInMB" Value="4096"/>
+     <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
+     <Parameter Name="WriteBufferMemoryPoolMaximumInKB" Value="8192" />
+     <Parameter Name="SharedLogId" Value="{7668BB54-FE9C-48ed-81AC-FF89E60ED2EF}"/>
+     <Parameter Name="SharedLogPath" Value="f:\SharedLog.Log"/>
+   </Section>
+```
 
 ### Remarks
 The logger has a global pool of memory allocated from non paged kernel memory that is available to all reliable services on a node for caching state data before being written to the dedicated log associated with the reliable service replica. The pool size is controlled by the WriteBufferMemoryPoolMinimumInKB and WriteBufferMemoryPoolMaximumInKB settings. WriteBufferMemoryPoolMinimumInKB specifies both the initial size of this memory pool and the lowest size to which the memory pool may shrink. WriteBufferMemoryPoolMaximumInKB is the highest size to which the memory pool may grow. Each reliable service replica that is opened may increase the size of the memory pool by a system determined amount up to WriteBufferMemoryPoolMaximumInKB. If there is more demand for memory from the memory pool than is available, requests for memory will be delayed until memory is available. Therefore if the write buffer memory pool is too small for a particular configuration then performance may suffer.
@@ -70,9 +74,9 @@ You can modify stateful Reliable Services' default configurations by using the c
 
 By default, the Azure Service Fabric runtime looks for predefined section names in the Settings.xml file and consumes the configuration values while creating the underlying runtime components.
 
->[AZURE.NOTE] Do **not** delete the section names of the following configurations in the Settings.xml file that is generated in the Visual Studio solution unless you plan to configure your service via code.
+>[!NOTE]
+> Do **not** delete the section names of the following configurations in the Settings.xml file that is generated in the Visual Studio solution unless you plan to configure your service via code.
 Renaming the config package or section names will require a code change when configuring the ReliableStateManager.
-
 
 ### Replicator security configuration
 Replicator security configurations are used to secure the communication channel that is used during replication. This means that services will not be able to see each other's replication traffic, ensuring that the data that is made highly available is also secure. By default, an empty security configuration section prevents replication security.
@@ -80,8 +84,8 @@ Replicator security configurations are used to secure the communication channel 
 ### Default section name
 ReplicatorSecurityConfig
 
->[AZURE.NOTE] To change this section name, override the replicatorSecuritySectionName parameter to the ReliableStateManagerConfiguration constructor when creating the ReliableStateManager for this service.
-
+>[!NOTE]
+> To change this section name, override the replicatorSecuritySectionName parameter to the ReliableStateManagerConfiguration constructor when creating the ReliableStateManager for this service.
 
 ### Replicator configuration
 Replicator configurations configure the replicator that is responsible for making the stateful Reliable Service's state highly reliable by replicating and persisting the state locally.
@@ -90,14 +94,14 @@ The default configuration is generated by the Visual Studio template and should 
 ### Default section name
 ReplicatorConfig
 
->[AZURE.NOTE] To change this section name, override the replicatorSettingsSectionName parameter to the ReliableStateManagerConfiguration constructor when creating the ReliableStateManager for this service.
-
+>[!NOTE]
+> To change this section name, override the replicatorSettingsSectionName parameter to the ReliableStateManagerConfiguration constructor when creating the ReliableStateManager for this service.
 
 ### Configuration names
 |Name|Unit|Default value|Remarks|
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|Seconds|0.015|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary. Any other acknowledgements to be sent for operations processed within this interval are sent as one response.|
-|ReplicatorEndpoint|N/A|No default--required parameter|IP address and port that the primary/secondary replicator will use to communicate with other replicators in the replica set. This should reference a TCP resource endpoint in the service manifest. Refer to [Service manifest resources](/documentation/articles/service-fabric-service-manifest-resources/) to read more about defining endpoint resources in a service manifest. |
+|ReplicatorEndpoint|N/A|No default--required parameter|IP address and port that the primary/secondary replicator will use to communicate with other replicators in the replica set. This should reference a TCP resource endpoint in the service manifest. Refer to [Service manifest resources](./service-fabric-service-manifest-resources.md) to read more about defining endpoint resources in a service manifest. |
 |MaxPrimaryReplicationQueueSize|Number of operations|8192|Maximum number of operations in the primary queue. An operation is freed up after the primary replicator receives an acknowledgement from all the secondary replicators. This value must be greater than 64 and a power of 2.|
 |MaxSecondaryReplicationQueueSize|Number of operations|16384|Maximum number of operations in the secondary queue. An operation is freed up after making its state highly available through persistence. This value must be greater than 64 and a power of 2.|
 |CheckpointThresholdInMB|MB|50|Amount of log file space after which the state is checkpointed.|
@@ -112,57 +116,56 @@ ReplicatorConfig
 
 ### Sample configuration via code
 
-	class Program
-	{
-	    /// <summary>
-	    /// This is the entry point of the service host process.
-	    /// </summary>
-	    static void Main()
-	    {
-	        ServiceRuntime.RegisterServiceAsync("HelloWorldStatefulType",
-	            context => new HelloWorldStateful(context, 
-	                new ReliableStateManager(context, 
-	        new ReliableStateManagerConfiguration(
-	                        new ReliableStateManagerReplicatorSettings()
-	            {
-	                RetryInterval = TimeSpan.FromSeconds(3)
-	                        }
-	            )))).GetAwaiter().GetResult();
-	    }
-	}    
+```
+class Program
+{
+    /// <summary>
+    /// This is the entry point of the service host process.
+    /// </summary>
+    static void Main()
+    {
+        ServiceRuntime.RegisterServiceAsync("HelloWorldStatefulType",
+            context => new HelloWorldStateful(context, 
+                new ReliableStateManager(context, 
+        new ReliableStateManagerConfiguration(
+                        new ReliableStateManagerReplicatorSettings()
+            {
+                RetryInterval = TimeSpan.FromSeconds(3)
+                        }
+            )))).GetAwaiter().GetResult();
+    }
+}    
 
-
-	class MyStatefulService : StatefulService
-	{
-	    public MyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica stateManager)
-	        : base(context, stateManager)
-	    { }
-	    ...
-	}
-
-
+class MyStatefulService : StatefulService
+{
+    public MyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica stateManager)
+        : base(context, stateManager)
+    { }
+    ...
+}
+```
 
 ### Sample configuration file
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-	   <Section Name="ReplicatorConfig">
-	      <Parameter Name="ReplicatorEndpoint" Value="ReplicatorEndpoint" />
-	      <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>
-	      <Parameter Name="CheckpointThresholdInMB" Value="512" />
-	   </Section>
-	   <Section Name="ReplicatorSecurityConfig">
-	      <Parameter Name="CredentialType" Value="X509" />
-	      <Parameter Name="FindType" Value="FindByThumbprint" />
-	      <Parameter Name="FindValue" Value="9d c9 06 b1 69 dc 4f af fd 16 97 ac 78 1e 80 67 90 74 9d 2f" />
-	      <Parameter Name="StoreLocation" Value="LocalMachine" />
-	      <Parameter Name="StoreName" Value="My" />
-	      <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
-	      <Parameter Name="AllowedCommonNames" Value="My-Test-SAN1-Alice,My-Test-SAN1-Bob" />
-	   </Section>
-	</Settings>
-
-
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <Section Name="ReplicatorConfig">
+      <Parameter Name="ReplicatorEndpoint" Value="ReplicatorEndpoint" />
+      <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>
+      <Parameter Name="CheckpointThresholdInMB" Value="512" />
+   </Section>
+   <Section Name="ReplicatorSecurityConfig">
+      <Parameter Name="CredentialType" Value="X509" />
+      <Parameter Name="FindType" Value="FindByThumbprint" />
+      <Parameter Name="FindValue" Value="9d c9 06 b1 69 dc 4f af fd 16 97 ac 78 1e 80 67 90 74 9d 2f" />
+      <Parameter Name="StoreLocation" Value="LocalMachine" />
+      <Parameter Name="StoreName" Value="My" />
+      <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
+      <Parameter Name="AllowedCommonNames" Value="My-Test-SAN1-Alice,My-Test-SAN1-Bob" />
+   </Section>
+</Settings>
+```
 
 ### Remarks
 BatchAcknowledgementInterval controls replication latency. A value of '0' results in the lowest possible latency, at the cost of throughput (as more acknowledgement messages must be sent and processed, each containing fewer acknowledgements).
@@ -176,5 +179,5 @@ The SharedLogId and SharedLogPath settings are always used together to make a se
 possible should specify the same shared log. Shared log files should be placed on disks that are used solely for the shared log file to reduce head movement contention. We expect that this value would need to be changed in only rare cases.
 
 ## Next steps
- - [Debug your Service Fabric application in Visual Studio](/documentation/articles/service-fabric-debugging-your-application/)
+ - [Debug your Service Fabric application in Visual Studio](./service-fabric-debugging-your-application.md)
  - [Developer reference for Reliable Services](https://msdn.microsoft.com/zh-cn/library/azure/dn706529.aspx)

@@ -1,21 +1,20 @@
-<properties
-   pageTitle="Use Power BI with SQL Data Warehouse | Azure"
-   description="Tips for using Power BI with Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+---
+title: Use Power BI with SQL Data Warehouse | Azure
+description: Tips for using Power BI with Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: lodipalm
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   wacn.date=""/>
-   
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+---
 
 # Use Power BI with SQL Data Warehouse
 As with Azure SQL Database, SQL Data Warehouse Direct Connect allows user to leverage powerful logical pushdown alongside the analytical capabilities of Power BI.  With Direct Connect, queries are sent back to your Azure SQL Data Warehouse in real time as you explore the data.  This, combined with the scale of SQL Data Warehouse, enables users to create dynamic reports in minutes against terabytes of data.  In addition, the introduction of the Open in Power BI button allows users to directly connect Power BI to their SQL Data Warehouse without collecting information from other parts of Azure.
@@ -54,7 +53,7 @@ In addition to using the Open in Power BI button, users can also connect to thei
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse development overview]:  /documentation/articles/sql-data-warehouse-overview-develop/
+[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop.md
 [SQL Data Warehouse integration overview]:  /documentation/articles/sql-data-warehouse-overview-integration/
 
 <!--MSDN references-->

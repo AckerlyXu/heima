@@ -1,4 +1,3 @@
-
 <!--
 includes/azure-include-getting-started-v12portal-gettings-an-account.md
 
@@ -16,7 +15,7 @@ To connect to the Microsoft Azure portal, you must have a subscription.
 
 If you do not have an existing Microsoft Azure account, follow one of the links below to obtain an account:
 
-- Get a [1rmb-trial account](/pricing/1rmb-trial/)
+- Get a [1rmb-trial account](https://www.azure.cn/pricing/1rmb-trial/)
 
 ###Sign in using your existing account
 
@@ -29,4 +28,3 @@ Using your [existing subscription]( https://account.windowsazure.cn/Home/Index),
 1. When the sign in page appears, provide the credentials for your subscription
 
    ![sign in](./media/azure-getting-started-portal-login/login.png)
-   

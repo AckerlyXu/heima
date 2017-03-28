@@ -1,23 +1,23 @@
-<properties
-    pageTitle="Azure Active Directory certificate-based authentication on Android  | Azure"
-    description="Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with Android devices"
-    services="active-directory"
-    author="MarkusVi"
-    documentationcenter="na"
-    manager="femila" />
-<tags
-    ms.assetid="c6ad7640-8172-4541-9255-770f39ecce0e"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/15/2017"
-    wacn.date=""
-    ms.author="markvi" />
+---
+title: Azure Active Directory certificate-based authentication on Android  | Azure
+description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with Android devices
+services: active-directory
+author: MarkusVi
+documentationcenter: na
+manager: femila
+
+ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/15/2017
+wacn.date: ''
+ms.author: markvi
+---
 
 # Azure Active Directory certificate-based authentication on Android
-
 
 Certificate-based authentication (CBA) enables you to be authenticated by Azure Active Directory with a client certificate on a Windows, Android or iOS device when connecting your Exchange online account to: 
 
@@ -29,7 +29,6 @@ Configuring this feature eliminates the need to enter a username and password co
 This topic provides you with the requirements and the supported scenarios for configuring CBA on an Android device for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. 
 
 This feature is available in preview in Office 365 US Government Defense and Federal plans.
-
 
 ## Office mobile applications support
 | Apps | Support |
@@ -64,15 +63,12 @@ You can use the [MSOLDomainFederationSettings](https://docs.microsoft.com/en-us/
 
 `Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled`
 
-
-
 ## Exchange ActiveSync clients support
 Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are supported. To determine if your email application does support this feature, please contact your application developer. 
 
-
 ## Next steps
 
-If you want to configure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](/documentation/articles/active-directory-certificate-based-authentication-get-started/) for instructions.
+If you want to configure certificate-based authentication in your environment, see [Get started with certificate-based authentication on Android](./active-directory-certificate-based-authentication-get-started.md) for instructions.
 
 <!--Image references-->
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png

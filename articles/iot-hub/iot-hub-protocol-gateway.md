@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure IoT protocol gateway | Azure"
-    description="How to use an Azure IoT protocol gateway to extend IoT Hub capabilities and protocol support to enable devices to connect to your hub using protocols not supported by IoT Hub natively."
-    services="iot-hub"
-    documentationcenter=""
-    author="kdotchkoff"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="555e59ae-3136-4533-8ba8-f3a3b6acf648"
-    ms.service="iot-hub"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/11/2017"
-    wacn.date=""
-    ms.author="kdotchko" />
+---
+title: Azure IoT protocol gateway | Azure
+description: How to use an Azure IoT protocol gateway to extend IoT Hub capabilities and protocol support to enable devices to connect to your hub using protocols not supported by IoT Hub natively.
+services: iot-hub
+documentationcenter: ''
+author: kdotchkoff
+manager: timlt
+editor: ''
+
+ms.assetid: 555e59ae-3136-4533-8ba8-f3a3b6acf648
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/11/2017
+wacn.date: ''
+ms.author: kdotchko
+---
 
 # Support additional protocols for IoT Hub
 Azure IoT Hub natively supports communication over the MQTT, AMQP, and HTTP protocols. In some cases, devices or field gateways might not be able to use one of these standard protocols and will require protocol adaptation. In such cases, you can use a custom gateway. A custom gateway can enable protocol adaptation for IoT Hub endpoints by bridging the traffic to and from IoT Hub. You can use the [Azure IoT protocol gateway](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) as a custom gateway to enable protocol adaptation for IoT Hub.
@@ -43,6 +44,6 @@ To learn more about planning your IoT Hub deployment, see:
 * [Scaling, HA and DR][lnk-scaling]
 * [IoT Hub developer guide][lnk-devguide]
 
-[lnk-compare]: /documentation/articles/iot-hub-compare-event-hubs/
-[lnk-scaling]: /documentation/articles/iot-hub-scaling/
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
+[lnk-compare]: ./iot-hub-compare-event-hubs.md
+[lnk-scaling]: ./iot-hub-scaling.md
+[lnk-devguide]: ./iot-hub-devguide.md

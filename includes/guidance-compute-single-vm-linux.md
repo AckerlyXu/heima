@@ -2,7 +2,7 @@
 
 This article outlines a set of proven practices for running a Linux virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security. Azure supports running various popular Linux distributions, including CentOS, Debian, Red Hat Enterprise, Ubuntu, and FreeBSD. For more information, see [Azure and Linux][azure-linux].
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Azure recommends for new deployments.
 > 
 > 
@@ -41,7 +41,9 @@ If you are moving an existing workload to Azure, start with the VM size that's t
 
 When you provision the VM and other resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes may be available in all region. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given region, run the following Azure command-line interface (CLI) command:
 
-    azure vm sizes --location <location>
+```
+azure vm sizes --location <location>
+```
 
 For information about choosing a published VM image, see [Select Linux VM images with the Azure CLI][select-vm-image].
 
@@ -53,15 +55,17 @@ Create separate Azure storage accounts for each VM to hold the virtual hard disk
 
 Add one or more data disks. When you create a VHD, it is unformatted. Log in to the VM to format the disk. In the Linux shell, data disks are displayed as `/dev/sdc`, `/dev/sdd`, and so on. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a partition and file system, and mount the disk. For example:
 
-    # Create a partition.
-    sudo fdisk /dev/sdc     # Enter 'n' to partition, 'w' to write the change.     
+```bat
+# Create a partition.
+sudo fdisk /dev/sdc     # Enter 'n' to partition, 'w' to write the change.     
 
-    # Create a file system.
-    sudo mkfs -t ext3 /dev/sdc1
+# Create a file system.
+sudo mkfs -t ext3 /dev/sdc1
 
-    # Mount the drive.
-    sudo mkdir /data1
-    sudo mount /dev/sdc1 /data1
+# Mount the drive.
+sudo mkdir /data1
+sudo mount /dev/sdc1 /data1
+```
 
 If you have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [virtual machine disk limits][vm-disk-limits].
 
@@ -108,13 +112,17 @@ To protect against accidental data loss during normal operations (for example, b
 
 The following CLI command enables diagnostics:
 
-    azure vm enable-diag <resource-group> <vm-name>
+```
+azure vm enable-diag <resource-group> <vm-name>
+```
 
 **Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated.
 
 Use the following CLI command to deallocate a VM:
 
-    azure vm deallocate <resource-group> <vm-name>
+```
+azure vm deallocate <resource-group> <vm-name>
+```
 
 In the Azure portal preview, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
 
@@ -130,7 +138,7 @@ Use [role-based access control][rbac] (RBAC) to control access to the Azure reso
 
 A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
 > 
 > 
@@ -144,7 +152,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window."
     [![Deploy to Azure](./media/guidance-compute-single-vm-linux/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
 2. Once the link has opened in the Azure portal preview, you must enter values for some of the settings: 
-   
+
     * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
     * Select the region from the **Location** drop down box.
     * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -160,46 +168,46 @@ For higher availability, deploy two or more VMs behind a load balancer.
 <!-- links -->
 
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: /documentation/articles/virtual-machines-windows-create-availability-set/
+[availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-cli]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
-[azure-linux]: /documentation/articles/virtual-machines-linux-azure-overview/
-[azure-storage]: /documentation/articles/storage-introduction/
-[blob-snapshot]: /documentation/articles/storage-blob-snapshots/
-[blob-storage]: /documentation/articles/storage-introduction/
+[azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
+[azure-storage]: ../articles/storage/storage-introduction.md
+[blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
+[blob-storage]: ../articles/storage/storage-introduction.md
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: /documentation/articles/storage-about-disks-and-vhds-linux/
-[enable-monitoring]: /documentation/articles/insights-how-to-use-diagnostics/
-[fqdn]: /documentation/articles/virtual-machines-linux-portal-create-fqdn/
+[data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
+[enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
+[fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/
 [iostat]: https://en.wikipedia.org/wiki/Iostat
-[manage-vm-availability]: /documentation/articles/virtual-machines-linux-manage-availability/
-[nsg]: /documentation/articles/virtual-networks-nsg/
-[nsg-default-rules]: /documentation/articles/virtual-networks-nsg/#default-rules
+[manage-vm-availability]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
+[nsg]: ../articles/virtual-network/virtual-networks-nsg.md
+[nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
-[planned-maintenance]: /documentation/articles/virtual-machines-linux-planned-maintenance/
-[premium-storage]: /documentation/articles/storage-premium-storage/
-[rbac]: /documentation/articles/role-based-access-control-what-is/
-[rbac-roles]: /documentation/articles/role-based-access-built-in-roles/
-[rbac-devtest]: /documentation/articles/role-based-access-built-in-roles/#devtest-labs-user
-[rbac-network]: /documentation/articles/role-based-access-built-in-roles/#network-contributor
+[planned-maintenance]: ../articles/virtual-machines/virtual-machines-linux-planned-maintenance.md
+[premium-storage]: ../articles/storage/storage-premium-storage.md
+[rbac]: ../articles/active-directory/role-based-access-control-what-is.md
+[rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
+[rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user
+[rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/zh-cn/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
-[resource-lock]: /documentation/articles/resource-group-lock-resources/
-[resource-manager-overview]: /documentation/articles/resource-group-overview/
-[select-vm-image]: /documentation/articles/virtual-machines-linux-cli-ps-findimage/
+[resource-lock]: ../articles/azure-resource-manager/resource-group-lock-resources.md
+[resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
+[select-vm-image]: ../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md
 [services-by-region]: https://azure.microsoft.com/regions/#services
-[ssh-linux]: /documentation/articles/virtual-machines-linux-mac-create-ssh-keys/
-[static-ip]: /documentation/articles/virtual-networks-reserved-public-ip/
-[storage-account-limits]: /documentation/articles/azure-subscription-service-limits/#storage-limits
-[storage-price]: /pricing/details/storage/
-[virtual-machine-sizes]: /documentation/articles/virtual-machines-linux-sizes/
+[ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md
+[static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
+[storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
+[storage-price]: https://www.azure.cn/pricing/details/storage/
+[virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[vm-disk-limits]: /documentation/articles/azure-subscription-service-limits/#virtual-machine-disk-limits
-[vm-resize]: /documentation/articles/virtual-machines-linux-change-vm-size/
-[vm-size-tables]: /documentation/articles/virtual-machines-windows-sizes/#size-tables
-[vm-sla]: /support/sla/virtual-machines/
+[vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
+[vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
+[vm-size-tables]: ../articles/virtual-machines/virtual-machines-windows-sizes.md#size-tables
+[vm-sla]: https://www.azure.cn/support/sla/virtual-machines/
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [components]: #Solution-components
 [blocks]: https://github.com/mspnp/template-building-blocks

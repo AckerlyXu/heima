@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Active Directory App Registration | Azure"
-    description="This article describes how to use the Azure portal to register an application with Azure Active Directory"
-    services="active-directory"
-    documentationcenter=".net"
-    author="priyamohanram"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="7dc7b89f-653f-405a-b5f4-2c1288720c15"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/30/2016"
-    wacn.date=""
-    ms.author="priyamo" />
+---
+title: Azure Active Directory App Registration | Azure
+description: This article describes how to use the Azure portal to register an application with Azure Active Directory
+services: active-directory
+documentationcenter: .net
+author: priyamohanram
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/30/2016
+wacn.date: ''
+ms.author: priyamo
+---
 
 # Register your application with your Azure Active Directory tenant
 
@@ -24,7 +25,7 @@ You can use the Azure portal to register your application with your Azure Active
 1. Sign in to the [Azure portal preview](https://portal.azure.cn).
 2. Choose your Azure AD tenant by selecting your account in the top right corner of the page.
 3. In the left-hand navigation pane, choose **More Services**, click **App Registrations**, and click **Add**.
-4. Follow the prompts and create a new application. If you'd like specific examples for web applications or native applications, check out our [quickstarts](/documentation/articles/active-directory-developers-guide/).
+4. Follow the prompts and create a new application. If you'd like specific examples for web applications or native applications, check out our [quickstarts](./active-directory-developers-guide.md).
   - For Web Applications, provide the **Sign-On URL**, which is the base URL of your app, where users can sign in e.g `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.partner.onmschina.cn/my-first-aad-app`-->
   - For Native Applications, provide a **Redirect URI**, which Azure AD uses to return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
@@ -56,5 +57,5 @@ You can use the inline manifest editor to modify certain application properties 
 
 ## Next Steps
 
-1. Check out the [Quickstarts](/documentation/articles/active-directory-developers-guide/) for detailed walkthroughs of applications performing authentication using Azure AD.
+1. Check out the [Quickstarts](./active-directory-developers-guide.md) for detailed walkthroughs of applications performing authentication using Azure AD.
 2. Check out our full list of code samples in [Github](https://github.com/azure-samples).

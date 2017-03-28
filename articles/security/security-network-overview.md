@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Azure Network Security Overview | Microsoft Azure"
-   description=" This article makes it easy for you to understand what Microsoft Azure has to offer in the area of network security. We provide basic explanations for core network security concepts and requirements and information on what Azure has to offer in each of these areas. "
-   services="security"
-   documentationCenter="na"
-   authors="LingChen"
-   manager="Shlan"
-   editor="Lingche"/>
+---
+title: Azure Network Security Overview | Microsoft Azure
+description:  This article makes it easy for you to understand what Microsoft Azure has to offer in the area of network security. We provide basic explanations for core network security concepts and requirements and information on what Azure has to offer in each of these areas. 
+services: security
+documentationCenter: na
+authors: LingChen
+manager: Shlan
+editor: Lingche
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="lingche"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: lingche
+---
 
 # Azure Network Security Overview
 

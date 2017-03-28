@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Resource Balancer cluster description | Azure"
-    description="Describing a Service Fabric cluster by specifying Fault Domains, Upgrade Domains, node properties, and node capacities to the Cluster Resource Manager."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="masnider"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="55f8ab37-9399-4c9a-9e6c-d2d859de6766"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="masnider" />
+---
+title: Resource Balancer cluster description | Azure
+description: Describing a Service Fabric cluster by specifying Fault Domains, Upgrade Domains, node properties, and node capacities to the Cluster Resource Manager.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
+
+ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: masnider
+---
 
 # Describing a service fabric cluster
 The Service Fabric Cluster Resource Manager provides several mechanisms for describing a cluster. During runtime, the Cluster Resource Manager uses this information to ensure high availability of the services running in the cluster. While enforcing these important rules, it also attempts to optimize the cluster's resource consumption.
@@ -85,7 +86,7 @@ There’s no best answer which layout to choose, each has some pros and cons. Fo
 The most common model (and the one used in Azure) is the FD/UD matrix, where the FDs and UDs form a table and nodes are placed starting along the diagonal. Whether this ends up sparse or packed depends on the total number of nodes compared to the number of FDs and UDs. Put differently, for sufficiently large clusters, almost everything ends up looking like the dense matrix pattern, shown in the bottom right option of the image above.
 
 ## Fault and Upgrade Domain constraints and resulting behavior
-The Cluster Resource Manager treats the desire to keep a service balanced across fault and Upgrade Domains as a constraint. You can find out more about constraints in [this article](/documentation/articles/service-fabric-cluster-resource-manager-management-integration/). The Fault and Upgrade Domain constraints state: "For a given service partition there should never be a difference *greater than one* in the number of service objects (stateless service instances or stateful service replicas) between two domains."  Practically what this means is that for a given service certain moves or arrangements might not be valid, because they would violate the Fault or Upgrade Domain constraints.
+The Cluster Resource Manager treats the desire to keep a service balanced across fault and Upgrade Domains as a constraint. You can find out more about constraints in [this article](./service-fabric-cluster-resource-manager-management-integration.md). The Fault and Upgrade Domain constraints state: "For a given service partition there should never be a difference *greater than one* in the number of service objects (stateless service instances or stateful service replicas) between two domains."  Practically what this means is that for a given service certain moves or arrangements might not be valid, because they would violate the Fault or Upgrade Domain constraints.
 
 Let's look at one example. Let's say that we have a cluster with six nodes, configured with five Fault Domains and five Upgrade Domains.
 
@@ -164,75 +165,75 @@ ClusterManifest.xml
 
 via ClusterConfig.json for Standalone deployments
 
+```json
+"nodes": [
+  {
+    "nodeName": "vm1",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc1/r0",
+    "upgradeDomain": "UD1"
+  },
+  {
+    "nodeName": "vm2",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc1/r0",
+    "upgradeDomain": "UD2"
+  },
+  {
+    "nodeName": "vm3",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc1/r0",
+    "upgradeDomain": "UD3"
+  },
+  {
+    "nodeName": "vm4",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc2/r0",
+    "upgradeDomain": "UD1"
+  },
+  {
+    "nodeName": "vm5",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc2/r0",
+    "upgradeDomain": "UD2"
+  },
+  {
+    "nodeName": "vm6",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc2/r0",
+    "upgradeDomain": "UD3"
+  },
+  {
+    "nodeName": "vm7",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc3/r0",
+    "upgradeDomain": "UD1"
+  },
+  {
+    "nodeName": "vm8",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc3/r0",
+    "upgradeDomain": "UD2"
+  },
+  {
+    "nodeName": "vm9",
+    "iPAddress": "localhost",
+    "nodeTypeRef": "NodeType0",
+    "faultDomain": "fd:/dc3/r0",
+    "upgradeDomain": "UD3"
+  }
+],
+```
 
-	"nodes": [
-	  {
-	    "nodeName": "vm1",
-	    "iPAddress": "localhost",
-	    "nodeTypeRef": "NodeType0",
-	    "faultDomain": "fd:/dc1/r0",
-	    "upgradeDomain": "UD1"
-	  },
-	  {
-	    "nodeName": "vm2",
-	    "iPAddress": "localhost",
-	    "nodeTypeRef": "NodeType0",
-	    "faultDomain": "fd:/dc1/r0",
-	    "upgradeDomain": "UD2"
-	  },
-	  {
-	    "nodeName": "vm3",
-	    "iPAddress": "localhost",
-	    "nodeTypeRef": "NodeType0",
-	    "faultDomain": "fd:/dc1/r0",
-	    "upgradeDomain": "UD3"
-	  },
-	  {
-	    "nodeName": "vm4",
-	    "iPAddress": "localhost",
-	    "nodeTypeRef": "NodeType0",
-	    "faultDomain": "fd:/dc2/r0",
-	    "upgradeDomain": "UD1"
-	  },
-	  {
-	    "nodeName": "vm5",
-	    "iPAddress": "localhost",
-	    "nodeTypeRef": "NodeType0",
-	    "faultDomain": "fd:/dc2/r0",
-	    "upgradeDomain": "UD2"
-	  },
-	  {
-	    "nodeName": "vm6",
-	    "iPAddress": "localhost",
-	    "nodeTypeRef": "NodeType0",
-	    "faultDomain": "fd:/dc2/r0",
-	    "upgradeDomain": "UD3"
-	  },
-	  {
-	    "nodeName": "vm7",
-	    "iPAddress": "localhost",
-	    "nodeTypeRef": "NodeType0",
-	    "faultDomain": "fd:/dc3/r0",
-	    "upgradeDomain": "UD1"
-	  },
-	  {
-	    "nodeName": "vm8",
-	    "iPAddress": "localhost",
-	    "nodeTypeRef": "NodeType0",
-	    "faultDomain": "fd:/dc3/r0",
-	    "upgradeDomain": "UD2"
-	  },
-	  {
-	    "nodeName": "vm9",
-	    "iPAddress": "localhost",
-	    "nodeTypeRef": "NodeType0",
-	    "faultDomain": "fd:/dc3/r0",
-	    "upgradeDomain": "UD3"
-	  }
-	],
-
-
-> [AZURE.NOTE]
+> [!NOTE]
 > In Azure deployments, Fault Domains and Upgrade Domains are assigned by Azure. Therefore, the definition of your nodes and roles within the infrastructure option for Azure does not include Fault Domain or Upgrade Domain information.
 >
 >
@@ -302,18 +303,18 @@ ClusterManifest.xml
 
 via ClusterConfig.json for Standalone deployments or Template.json for Azure hosted clusters. In your Azure Resource Manager template for a cluster things like the node type name are likely parameterized, and would look something like "[parameters('vmNodeType1Name')]" rather than "NodeType01".
 
-
-	"nodeTypes": [
-	    {
-	        "name": "NodeType01",
-	        "placementProperties": {
-	            "HasSSD": "true",
-	            "NodeColor": "green",
-	            "SomeProperty": "5"
-	        },
-	    }
-	],
-
+```json
+"nodeTypes": [
+    {
+        "name": "NodeType01",
+        "placementProperties": {
+            "HasSSD": "true",
+            "NodeColor": "green",
+            "SomeProperty": "5"
+        },
+    }
+],
+```
 
 You can create service placement *constraints* for a service like as follows:
 
@@ -359,7 +360,7 @@ The properties on a node are defined via the cluster definition and hence cannot
 ## Capacity
 One of the most important jobs of any orchestrator is to help manage resource consumption in the cluster. The last thing you want if you’re trying to run services efficiently is a bunch of nodes that are hot while others are cold. Hot nodes lead to resource contention and poor performance, and cold nodes represent wasted resources/increased cost. Before we talk about balancing, what about just ensuring that nodes don’t run out of resources in the first place?
 
-Service Fabric represents resources as `Metrics`. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are things like “WorkQueueDepth” or “MemoryInMb”. For information configuring metrics and their uses, see [this article](/documentation/articles/service-fabric-cluster-resource-manager-metrics/)
+Service Fabric represents resources as `Metrics`. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are things like “WorkQueueDepth” or “MemoryInMb”. For information configuring metrics and their uses, see [this article](./service-fabric-cluster-resource-manager-metrics.md)
 
 Metrics are different from placements constraints and node properties. Node properties are static descriptors of the nodes themselves, whereas metrics are about resources that nodes have and that services consume when they are running on a node. A node property could be "HasSSD" and could be set to true or false. The amount of space available on that SSD (and consumed by services) would be a metric like “DriveSpaceInMb”. The node would have its capacity for “DriveSpaceInMb” to the amount of total non-reserved space on the drive. Services would report how much of the metric they used during runtime.
 
@@ -406,18 +407,19 @@ ClusterManifest.xml
 
 via ClusterConfig.json for Standalone deployments or Template.json for Azure hosted clusters. In your Azure Resource Manager template for a cluster things like the node type name are likely parameterized, and would look something like "[parameters('vmNodeType2Name')]" rather than "NodeType02".
 
+```json
+"nodeTypes": [
+    {
+        "name": "NodeType02",
+        "capacities": {
+            "MemoryInMb": "2048",
+            "DiskInMb": "512000"
+        }
+    }
+],
+```
 
-	"nodeTypes": [
-	    {
-	        "name": "NodeType02",
-	        "capacities": {
-	            "MemoryInMb": "2048",
-	            "DiskInMb": "512000"
-	        }
-	    }
-	],
-
-It is also possible (and in fact common) that a service’s load changes dynamically. Say that a replica's load changed from 64 to 1024, but the node it was running on then only had 512 (of the "MemoryInMb" metric) remaining. Now that replica or instance's placement is invalid, since there's not enough room on that node. This can also happen if the combined usage of the replicas and instances on that node exceeds that node’s capacity. In either case the Cluster Resource Manager has to kick in and get the node back below capacity. It does this by moving one or more of the replicas or instances on that node to different nodes. When moving replicas, the Cluster Resource Manager tries to minimize the cost of those movements. Movement cost is discussed in [this article](/documentation/articles/service-fabric-cluster-resource-manager-movement-cost/).
+It is also possible (and in fact common) that a service’s load changes dynamically. Say that a replica's load changed from 64 to 1024, but the node it was running on then only had 512 (of the "MemoryInMb" metric) remaining. Now that replica or instance's placement is invalid, since there's not enough room on that node. This can also happen if the combined usage of the replicas and instances on that node exceeds that node’s capacity. In either case the Cluster Resource Manager has to kick in and get the node back below capacity. It does this by moving one or more of the replicas or instances on that node to different nodes. When moving replicas, the Cluster Resource Manager tries to minimize the cost of those movements. Movement cost is discussed in [this article](./service-fabric-cluster-resource-manager-movement-cost.md).
 
 ## Cluster capacity
 So how do we keep the overall cluster from being too full? Well, with dynamic load there’s not a lot the Cluster Resource Manager can do. Services can have their load spike independently of actions taken by the Cluster Resource Manager. As a result, your cluster with plenty of headroom today may be underpowered when you become famous tomorrow. That said, there are some controls that are baked in to prevent basic problems. The first thing we can do is prevent the creation of new workloads that would cause the cluster to become full.
@@ -496,10 +498,10 @@ LoadMetricInformation     :
 ```
 
 ## Next steps
-- For information on the architecture and information flow within the Cluster Resource Manager, check out [this article ](/documentation/articles/service-fabric-cluster-resource-manager-architecture/)
-- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](/documentation/articles/service-fabric-cluster-resource-manager-defragmentation-metrics/)
-- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](/documentation/articles/service-fabric-cluster-resource-manager-introduction/)
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](/documentation/articles/service-fabric-cluster-resource-manager-balancing/)
+- For information on the architecture and information flow within the Cluster Resource Manager, check out [this article ](./service-fabric-cluster-resource-manager-architecture.md)
+- Defining Defragmentation Metrics is one way to consolidate load on nodes instead of spreading it out. To learn how to configure defragmentation, refer to [this article](./service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](./service-fabric-cluster-resource-manager-introduction.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](./service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]:./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png

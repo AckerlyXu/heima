@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Assign Licenses for Azure MFA | Azure"
-	description="Learn  how to assign user licenses for Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="yossib"/>
+---
+title: Assign Licenses for Azure MFA | Azure
+description: Learn  how to assign user licenses for Azure Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationCenter: ''
+authors: kgremban
+manager: femila
+editor: yossib
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/17/2016"
-	ms.author="kgremban"
-	wacn.date=""/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/17/2016
+ms.author: kgremban
+wacn.date: ''
+---
 
 # Assigning an Azure MFA, Azure AD Premium, or Enterprise Mobility license to users
 

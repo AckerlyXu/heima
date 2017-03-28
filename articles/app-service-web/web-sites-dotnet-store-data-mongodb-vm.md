@@ -1,29 +1,29 @@
-<properties
-    pageTitle="Create a web app in Azure that connects to MongoDB running on a virtual machine"
-    description="A tutorial that teaches you how to use Git to deploy an ASP.NET app to Azure App Service, connected to MongoDB on an Azure Virtual Machine."
-    tags="azure-portal"
-    services="app-service\web, virtual-machines"
-    documentationcenter=".net"
-    author="cephalin"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="adf7a472-ae00-45a8-aec4-06247e21318b"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="02/29/2016"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Create a web app in Azure that connects to MongoDB running on a virtual machine
+description: A tutorial that teaches you how to use Git to deploy an ASP.NET app to Azure App Service, connected to MongoDB on an Azure Virtual Machine.
+tags: azure-portal
+services: app-service\web, virtual-machines
+documentationcenter: .net
+author: cephalin
+manager: erikre
+editor: ''
+
+ms.assetid: adf7a472-ae00-45a8-aec4-06247e21318b
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 02/29/2016
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Create a web app in Azure that connects to MongoDB running on a virtual machine
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 Using Git, you can deploy an ASP.NET application to Azure App Service Web Apps. In this tutorial, you will build a simple front-end ASP.NET MVC task list application that connects to a MongoDB database running on a virtual machine in Azure.  [MongoDB][MongoDB] is a popular open source, high performance NoSQL database. After running and testing the ASP.NET application on your development computer, you will upload the application to App Service Web Apps using Git.
-
 
 ## Background knowledge
 Knowledge of the following is useful for this tutorial, though not required:
@@ -38,7 +38,7 @@ Knowledge of the following is useful for this tutorial, though not required:
 * [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 * An active Azure subscription
 
-[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+[!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 <a id="virtualmachine"></a> 
 
@@ -53,23 +53,23 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 In this section you will create an ASP.NET application called "My Task List" by using Visual Studio and perform an initial deployment to Azure App Service Web Apps. You will run the application locally, but it will connect to your virtual machine on Azure and use the MongoDB instance that you created there.
 
 1. In Visual Studio, click **New Project**.
-   
+
     ![Start Page New Project][StartPageNewProject]
 2. In the **New Project** window, in the left pane, select **Visual C#**, and then select **Web**. In the middle pane, select **ASP.NET  Web Application**. At the bottom, name your project "MyTaskListApp," and then click **OK**.
-   
+
     ![New Project Dialog][NewProjectMyTaskListApp]
 3. In the **New ASP.NET Project** dialog box, select **MVC**, and then click **OK**.
-   
+
     ![Select MVC Template][VS2013SelectMVCTemplate]
 4. If you aren't already signed into Azure, you will be prompted to sign in. Follow the prompts to sign into Azure.
 5. Once you are signed in, you can start configuring your App Service web app. Specify the **Web App name**, **App Service plan**, **Resource group**, and **Region**, then click **Create**.
-   
+
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSConfigureWebAppSettings.png)
 6. After the project creation completes, wait for the web app to be created in Azure App Service as indicated in the **Azure App Service Activity** window. Then, click **Publish MyTaskListApp to this Web App now**.
 7. Click **Publish**.
-   
+
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSPublishWeb.png)
-   
+
     Once your default ASP.NET application is published to Azure App Service Web Apps, it will be launched in the browser.
 
 ## Install the MongoDB C# driver
@@ -78,10 +78,10 @@ MongoDB offers client-side support for C# applications through a driver, which y
 To install the MongoDB C# driver:
 
 1. In **Solution Explorer**, right-click the **MyTaskListApp** project and select **Manage NuGetPackages**.
-   
+
     ![Manage NuGet Packages][VS2013ManageNuGetPackages]
 2. In the **Manage NuGet Packages** window, in the left pane, click **Online**. In the **Search Online** box on the right, type "mongodb.driver".  Click **Install** to install the driver.
-   
+
     ![Search for MongoDB C# Driver][SearchforMongoDBCSharpDriver]
 3. Click **I Accept** to accept the 10gen, Inc. license terms.
 4. Click **Close** after the driver has installed.
@@ -94,307 +94,319 @@ The MongoDB C# driver is now installed.  References to the **MongoDB.Bson**, **M
 ## Add a model
 In **Solution Explorer**, right-click the *Models* folder and **Add** a new **Class** and name it *TaskModel.cs*.  In *TaskModel.cs*, replace the existing code with the following code:
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using MongoDB.Bson.Serialization.Attributes;
-    using MongoDB.Bson.Serialization.IdGenerators;
-    using MongoDB.Bson;
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.IdGenerators;
+using MongoDB.Bson;
 
-    namespace MyTaskListApp.Models
+namespace MyTaskListApp.Models
+{
+    public class MyTask
     {
-        public class MyTask
-        {
-            [BsonId(IdGenerator = typeof(CombGuidGenerator))]
-            public Guid Id { get; set; }
+        [BsonId(IdGenerator = typeof(CombGuidGenerator))]
+        public Guid Id { get; set; }
 
-            [BsonElement("Name")]
-            public string Name { get; set; }
+        [BsonElement("Name")]
+        public string Name { get; set; }
 
-            [BsonElement("Category")]
-            public string Category { get; set; }
+        [BsonElement("Category")]
+        public string Category { get; set; }
 
-            [BsonElement("Date")]
-            public DateTime Date { get; set; }
+        [BsonElement("Date")]
+        public DateTime Date { get; set; }
 
-            [BsonElement("CreatedDate")]
-            public DateTime CreatedDate { get; set; }
+        [BsonElement("CreatedDate")]
+        public DateTime CreatedDate { get; set; }
 
-        }
     }
+}
+```
 
 ## Add the data access layer
 In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a **New Folder** named *DAL*.  Right-click the *DAL* folder and **Add** a new **Class**. Name the class file *Dal.cs*.  In *Dal.cs*, replace the existing code with the following code:
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using MyTaskListApp.Models;
-    using MongoDB.Driver;
-    using MongoDB.Bson;
-    using System.Configuration;
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using MyTaskListApp.Models;
+using MongoDB.Driver;
+using MongoDB.Bson;
+using System.Configuration;
 
-    namespace MyTaskListApp
+namespace MyTaskListApp
+{
+    public class Dal : IDisposable
     {
-        public class Dal : IDisposable
+        private MongoServer mongoServer = null;
+        private bool disposed = false;
+
+        // To do: update the connection string with the DNS name
+        // or IP address of your server. 
+        //For example, "mongodb://testlinux.chinacloudapp.cn"
+        private string connectionString = "mongodb://mongodbsrv20151211.chinacloudapp.cn";
+
+        // This sample uses a database named "Tasks" and a 
+        //collection named "TasksList".  The database and collection 
+        //will be automatically created if they don't already exist.
+        private string dbName = "Tasks";
+        private string collectionName = "TasksList";
+
+        // Default constructor.        
+        public Dal()
         {
-            private MongoServer mongoServer = null;
-            private bool disposed = false;
+        }
 
-            // To do: update the connection string with the DNS name
-            // or IP address of your server. 
-            //For example, "mongodb://testlinux.chinacloudapp.cn"
-            private string connectionString = "mongodb://mongodbsrv20151211.chinacloudapp.cn";
-
-            // This sample uses a database named "Tasks" and a 
-            //collection named "TasksList".  The database and collection 
-            //will be automatically created if they don't already exist.
-            private string dbName = "Tasks";
-            private string collectionName = "TasksList";
-
-            // Default constructor.        
-            public Dal()
+        // Gets all Task items from the MongoDB server.        
+        public List<MyTask> GetAllTasks()
+        {
+            try
             {
+                var collection = GetTasksCollection();
+                return collection.Find(new BsonDocument()).ToList();
             }
-
-            // Gets all Task items from the MongoDB server.        
-            public List<MyTask> GetAllTasks()
+            catch (MongoConnectionException)
             {
-                try
+                return new List<MyTask>();
+            }
+        }
+
+        // Creates a Task and inserts it into the collection in MongoDB.
+        public void CreateTask(MyTask task)
+        {
+            var collection = GetTasksCollectionForEdit();
+            try
+            {
+                collection.InsertOne(task);
+            }
+            catch (MongoCommandException ex)
+            {
+                string msg = ex.Message;
+            }
+        }
+
+        private IMongoCollection<MyTask> GetTasksCollection()
+        {
+            MongoClient client = new MongoClient(connectionString);
+            var database = client.GetDatabase(dbName);
+            var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
+            return todoTaskCollection;
+        }
+
+        private IMongoCollection<MyTask> GetTasksCollectionForEdit()
+        {
+            MongoClient client = new MongoClient(connectionString);
+            var database = client.GetDatabase(dbName);
+            var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
+            return todoTaskCollection;
+        }
+
+        # region IDisposable
+
+        public void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
                 {
-                    var collection = GetTasksCollection();
-                    return collection.Find(new BsonDocument()).ToList();
-                }
-                catch (MongoConnectionException)
-                {
-                    return new List<MyTask>();
-                }
-            }
-
-            // Creates a Task and inserts it into the collection in MongoDB.
-            public void CreateTask(MyTask task)
-            {
-                var collection = GetTasksCollectionForEdit();
-                try
-                {
-                    collection.InsertOne(task);
-                }
-                catch (MongoCommandException ex)
-                {
-                    string msg = ex.Message;
-                }
-            }
-
-            private IMongoCollection<MyTask> GetTasksCollection()
-            {
-                MongoClient client = new MongoClient(connectionString);
-                var database = client.GetDatabase(dbName);
-                var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
-                return todoTaskCollection;
-            }
-
-            private IMongoCollection<MyTask> GetTasksCollectionForEdit()
-            {
-                MongoClient client = new MongoClient(connectionString);
-                var database = client.GetDatabase(dbName);
-                var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
-                return todoTaskCollection;
-            }
-
-            # region IDisposable
-
-            public void Dispose()
-            {
-                this.Dispose(true);
-                GC.SuppressFinalize(this);
-            }
-
-            protected virtual void Dispose(bool disposing)
-            {
-                if (!this.disposed)
-                {
-                    if (disposing)
+                    if (mongoServer != null)
                     {
-                        if (mongoServer != null)
-                        {
-                            this.mongoServer.Disconnect();
-                        }
+                        this.mongoServer.Disconnect();
                     }
                 }
-
-                this.disposed = true;
             }
 
-            # endregion
+            this.disposed = true;
         }
+
+        # endregion
     }
+}
+```
 
 ## Add a controller
 Open the *Controllers\HomeController.cs* file in **Solution Explorer** and replace the existing code with the following:
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
-    using MyTaskListApp.Models;
-    using System.Configuration;
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using MyTaskListApp.Models;
+using System.Configuration;
 
-    namespace MyTaskListApp.Controllers
+namespace MyTaskListApp.Controllers
+{
+    public class HomeController : Controller, IDisposable
     {
-        public class HomeController : Controller, IDisposable
+        private Dal dal = new Dal();
+        private bool disposed = false;
+        //
+        // GET: /MyTask/
+
+        public ActionResult Index()
         {
-            private Dal dal = new Dal();
-            private bool disposed = false;
-            //
-            // GET: /MyTask/
-
-            public ActionResult Index()
-            {
-                return View(dal.GetAllTasks());
-            }
-
-            //
-            // GET: /MyTask/Create
-
-            public ActionResult Create()
-            {
-                return View();
-            }
-
-            //
-            // POST: /MyTask/Create
-
-            [HttpPost]
-            public ActionResult Create(MyTask task)
-            {
-                try
-                {
-                    dal.CreateTask(task);
-                    return RedirectToAction("Index");
-                }
-                catch
-                {
-                    return View();
-                }
-            }
-
-            public ActionResult About()
-            {
-                return View();
-            }
-
-            # region IDisposable
-
-            new protected void Dispose()
-            {
-                this.Dispose(true);
-                GC.SuppressFinalize(this);
-            }
-
-            new protected virtual void Dispose(bool disposing)
-            {
-                if (!this.disposed)
-                {
-                    if (disposing)
-                    {
-                        this.dal.Dispose();
-                    }
-                }
-
-                this.disposed = true;
-            }
-
-            # endregion
-
+            return View(dal.GetAllTasks());
         }
+
+        //
+        // GET: /MyTask/Create
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //
+        // POST: /MyTask/Create
+
+        [HttpPost]
+        public ActionResult Create(MyTask task)
+        {
+            try
+            {
+                dal.CreateTask(task);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        # region IDisposable
+
+        new protected void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        new protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    this.dal.Dispose();
+                }
+            }
+
+            this.disposed = true;
+        }
+
+        # endregion
+
     }
+}
+```
 
 ## Set up the styles
 To change the title at the top of the page, open the *Views\Shared\\_Layout.cshtml* file in **Solution Explorer** and replace "Application name" in the navbar header with "My Task List Application" so that it looks like this:
 
-     @Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
+```
+ @Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
+```
 
 In order to set up the Task List menu, open the *\Views\Home\Index.cshtml* file and replace the existing code with the following code:
 
-    @model IEnumerable<MyTaskListApp.Models.MyTask>
+```
+@model IEnumerable<MyTaskListApp.Models.MyTask>
 
-    @{
-        ViewBag.Title = "My Task List";
-    }
+@{
+    ViewBag.Title = "My Task List";
+}
 
-    <h2>My Task List</h2>
+<h2>My Task List</h2>
 
-    <table border="1">
-        <tr>
-            <th>Task</th>
-            <th>Category</th>
-            <th>Date</th>
+<table border="1">
+    <tr>
+        <th>Task</th>
+        <th>Category</th>
+        <th>Date</th>
 
-        </tr>
+    </tr>
 
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
 
-        </tr>
-    }
+    </tr>
+}
 
-    </table>
-    <div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
+</table>
+<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
+```
 
 To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a **View**.  Name the view *Create*. Replace the code with the following:
 
-    @model MyTaskListApp.Models.MyTask
+```
+@model MyTaskListApp.Models.MyTask
 
-    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
-    @using (Html.BeginForm("Create", "Home")) {
-        @Html.ValidationSummary(true)
-        <fieldset>
-            <legend>New Task</legend>
+@using (Html.BeginForm("Create", "Home")) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>New Task</legend>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Name)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
-            </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Category)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Category)
-                @Html.ValidationMessageFor(model => model.Category)
-            </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Category)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Category)
+            @Html.ValidationMessageFor(model => model.Category)
+        </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Date)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Date)
-                @Html.ValidationMessageFor(model => model.Date)
-            </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
 
-            <p>
-                <input type="submit" value="Create" />
-            </p>
-        </fieldset>
-    }
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+```
 
 **Solution Explorer** should look like this:
 
@@ -403,17 +415,23 @@ To add the ability to create a new task, right-click the *Views\Home\\* folder a
 ## Set the MongoDB connection string
 In **Solution Explorer**, open the *DAL/Dal.cs* file. Find the following line of code:
 
-    private string connectionString = "mongodb://<vm-dns-name>";
+```
+private string connectionString = "mongodb://<vm-dns-name>";
+```
 
 Replace `<vm-dns-name>` with the DNS name of the virtual machine running MongoDB you created in the [Create a virtual machine and install MongoDB][Create a virtual machine and install MongoDB] step of this tutorial.  To find the DNS name of your virtual machine, go to the Azure Portal Preview, select **Virtual Machines**, and find **DNS Name**.
 
 If the DNS name of the virtual machine is "testlinuxvm.chinacloudapp.cn" and MongoDB is listening on the default port 27017, the connection string line of code will look like:
 
-    private string connectionString = "mongodb://testlinuxvm.chinacloudapp.cn";
+```
+private string connectionString = "mongodb://testlinuxvm.chinacloudapp.cn";
+```
 
 If the virtual machine endpoint specifies a different external port for MongoDB, you can specifiy the port in the connection string:
 
-     private string connectionString = "mongodb://testlinuxvm.chinacloudapp.cn:12345";
+```
+ private string connectionString = "mongodb://testlinuxvm.chinacloudapp.cn:12345";
+```
 
 For more information on MongoDB connection strings, see [Connections][MongoConnectionStrings].
 
@@ -427,7 +445,7 @@ In this section you will publish your changes to Azure App Service Web Apps.
 
 1. In Solution Explorer, right-click **MyTaskListApp** again and click **Publish**.
 2. Click **Publish**.
-   
+
     You should now see your web app running in Azure App Service and accessing the MongoDB database in Azure Virtual Machines.
 
 ## Summary
@@ -439,7 +457,7 @@ You have now successfully deployed your ASP.NET application to Azure App Service
 
 For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 <!-- HYPERLINKS -->
 
@@ -450,7 +468,7 @@ For more information on developing C# applications against MongoDB, see [CSharp 
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
-[InstallMongoOnWindowsVM]: /documentation/articles/virtual-machines-windows-classic-install-mongodb/
+[InstallMongoOnWindowsVM]: ../virtual-machines/virtual-machines-windows-classic-install-mongodb.md
 [VSEWeb]: http://www.visualstudio.com/zh-cn/downloads/download-visual-studio-vs#d-2013-express
 [VSUlt]: http://www.visualstudio.com/zh-cn/downloads/download-visual-studio-vs
 

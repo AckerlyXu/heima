@@ -1,35 +1,36 @@
-<properties
-    pageTitle="Azure AD Connect sync: Configure filtering | Azure"
-    description="Explains how to configure filtering in Azure AD Connect sync."
-    services="active-directory"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="880facf6-1192-40e9-8181-544c0759d506"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/21/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect sync: Configure filtering | Azure
+description: Explains how to configure filtering in Azure AD Connect sync.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+
+ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/21/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Azure AD Connect sync: Configure filtering
 By using filtering, you can control which objects appear in Azure Active Directory (Azure AD) from your on-premises directory. The default configuration takes all objects in all domains in the configured forests. In general, this is the recommended configuration. Users using Office 365 workloads, such as Exchange Online and Skype for Business, benefit from a complete Global Address List so they can send email and call everyone. With the default configuration, they would have the same experience that they would have with an on-premises implementation of Exchange or Lync.
 
 In some cases however, you're required make some changes to the default configuration. Here are some examples:
 
-- You plan to use the [multi-Azure AD directory topology](/documentation/articles/active-directory-aadconnect-topologies/#each-object-only-once-in-an-azure-ad-tenant/). Then you need to apply a filter to control which objects are synchronized to a particular Azure AD directory.
+- You plan to use the [multi-Azure AD directory topology](./active-directory-aadconnect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Then you need to apply a filter to control which objects are synchronized to a particular Azure AD directory.
 - You run a pilot for Azure or Office 365 and you only want a subset of users in Azure AD. In the small pilot, it's not important to have a complete Global Address List to demonstrate the functionality.
 - You have many service accounts and other nonpersonal accounts that you don't want in Azure AD.
 - For compliance reasons, you don't delete any user accounts on-premises. You only disable them. But in Azure AD, you only want active accounts to be present.
 
 This article covers how to configure the different filtering methods.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
 
 ## Basics and important notes
@@ -39,9 +40,9 @@ Before you start making changes to filtering, make sure that you [disable the sc
 
 Because filtering can remove many objects at the same time, you want to make sure that your new filters are correct before you start exporting any changes to Azure AD. After you've completed the configuration steps, we strongly recommend that you follow the [verification steps](#apply-and-verify-changes) before you export and make changes to Azure AD.
 
-To protect you from deleting many objects by accident, the feature "[prevent accidental deletes](/documentation/articles/active-directory-aadconnectsync-feature-prevent-accidental-deletes/)" is on by default. If you delete many objects due to filtering (500 by default), you need to follow the steps in this article to allow the deletes to go through to Azure AD.
+To protect you from deleting many objects by accident, the feature "[prevent accidental deletes](./active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)" is on by default. If you delete many objects due to filtering (500 by default), you need to follow the steps in this article to allow the deletes to go through to Azure AD.
 
-If you use a build before November 2015 ([1.0.9125](/documentation/articles/active-directory-aadconnect-version-history/#1091250/)), make a change to a filter configuration, and use password synchronization, then you need to trigger a full sync of all passwords after you've completed the configuration. For steps on how to trigger a password full sync, see [Trigger a full sync of all passwords](/documentation/articles/active-directory-aadconnectsync-troubleshoot-password-synchronization/#trigger-a-full-sync-of-all-passwords/). If you're on build 1.0.9125 or later, then the regular **full synchronization** action also calculates whether passwords should be synchronized and if this extra step is no longer required.
+If you use a build before November 2015 ([1.0.9125](./active-directory-aadconnect-version-history.md#1091250)), make a change to a filter configuration, and use password synchronization, then you need to trigger a full sync of all passwords after you've completed the configuration. For steps on how to trigger a password full sync, see [Trigger a full sync of all passwords](/documentation/articles/active-directory-aadconnectsync-troubleshoot-password-synchronization/#trigger-a-full-sync-of-all-passwords/). If you're on build 1.0.9125 or later, then the regular **full synchronization** action also calculates whether passwords should be synchronized and if this extra step is no longer required.
 
 If **user** objects were inadvertently deleted in Azure AD because of a filtering error, you can recreate the user objects in Azure AD by removing your filtering configurations. Then you can synchronize your directories again. This action restores the users from the recycle bin in Azure AD. However, you can't undelete other object types. For example, if you accidentally delete a security group and it was used to ACL a resource, the group and its ACLs can't be recovered.
 
@@ -179,9 +180,9 @@ You can configure the sync engine to not synchronize new OUs after the filtering
 With this configuration, a new OU that was created under ManagedObjects isn't synchronized.
 
 ## Attribute-based filtering
-Make sure that you're using the November 2015 ([1.0.9125](/documentation/articles/active-directory-aadconnect-version-history/#1091250/)) or later build for these steps to work.
+Make sure that you're using the November 2015 ([1.0.9125](./active-directory-aadconnect-version-history.md#1091250)) or later build for these steps to work.
 
-Attribute-based filtering is the most flexible way to filter objects. You can use the power of [declarative provisioning](/documentation/articles/active-directory-aadconnectsync-understanding-declarative-provisioning/) to control almost every aspect of when an object is synchronized to Azure AD.
+Attribute-based filtering is the most flexible way to filter objects. You can use the power of [declarative provisioning](./active-directory-aadconnectsync-understanding-declarative-provisioning.md) to control almost every aspect of when an object is synchronized to Azure AD.
 
 You can apply [inbound](#inbound-filtering) filtering from Active Directory to the metaverse, and [outbound](#outbound-filtering) filtering from the metaverse to Azure AD. We recommend that you apply inbound filtering because that is the easiest to maintain. You should only use outbound filtering if it's required to join objects from more than one forest before the evaluation can take place.
 
@@ -283,7 +284,7 @@ When you're satisfied, export the changes to Azure AD.
 
 1. Select **Connectors**. In the **Connectors** list, select the Azure AD Connector. In **Actions**, select **Run**.
 2. In **Run profiles**, select **Export**.
-3. If your configuration changes delete many objects, then you see an error in the export when the number is more than the configured threshold (by default 500). If you see this error, then you need to temporarily disable the "[prevent accidental deletes](/documentation/articles/active-directory-aadconnectsync-feature-prevent-accidental-deletes/)" feature.
+3. If your configuration changes delete many objects, then you see an error in the export when the number is more than the configured threshold (by default 500). If you see this error, then you need to temporarily disable the "[prevent accidental deletes](./active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)" feature.
 
 Now it's time to enable the scheduler again.
 
@@ -291,5 +292,5 @@ Now it's time to enable the scheduler again.
 2. Directly under **Task Scheduler Library**, find the task named **Azure AD Sync Scheduler**, right-click, and select **Enable**.
 
 ## Next steps
-- Learn more about [Azure AD Connect sync](/documentation/articles/active-directory-aadconnectsync-whatis/) configuration.
-- Learn more about [integrating your on-premises identities with Azure AD](/documentation/articles/active-directory-aadconnect/).
+- Learn more about [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
+- Learn more about [integrating your on-premises identities with Azure AD](./active-directory-aadconnect.md).

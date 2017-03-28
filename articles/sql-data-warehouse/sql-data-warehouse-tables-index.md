@@ -1,31 +1,31 @@
-<properties
-   pageTitle="Indexing tables in SQL Data Warehouse | Microsoft Azure"
-   description="Getting started with table indexing in Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Indexing tables in SQL Data Warehouse | Microsoft Azure
+description: Getting started with table indexing in Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="07/12/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 07/12/2016
+ms.author: jrj;barbkess;sonyama
+---
 
 # Indexing tables in SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [Overview][]
-- [Data Types][]
-- [Distribute][]
-- [Index][]
-- [Partition][]
-- [Statistics][]
-- [Temporary][]
+> [!div class="op_single_selector"]
+>- [Overview][]
+>- [Data Types][]
+>- [Distribute][]
+>- [Index][]
+>- [Partition][]
+>- [Statistics][]
+>- [Temporary][]
 
 SQL Data Warehouse offers several indexing options including [clustered columnstore indexes][], [clustered indexes and nonclustered indexes][].  In addition, it also offers a no index option also known as [heap][].  This article covers the benefits of each index type as well as tips to getting the most performance out of your indexes. See [create table syntax][] for more detail on how to create a table in SQL Data Warehouse.
 
@@ -156,7 +156,6 @@ WHERE	COMPRESSED_rowgroup_rows_AVG < 100000
 
 Once you have run the query you can begin to look at the data and analyze your results. This table explains what to look for in your row group analysis.
 
-
 | Column                             | How to use this data                                                                                                                                                                      |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [table_partition_count]            | If the table is partitioned, then you may expect to see higher Open row group counts. Each partition in the distribution could in theory have an open row group associated with it. Factor this into your analysis. A small table that has been partitioned could be optimized by removing the partitioning altogether as this would improve compression.                                                                        |
@@ -255,11 +254,10 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ```
 
 Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation][] and the syntax topic [ALTER INDEX][].
- 
+
 ### Step 3: Verify clustered columnstore segment quality has improved
 Rerun the query which identified table with poor segment quality and verify segment quality has improved.  If segment quality did not improve, it could be that the rows in your table are extra wide.  Consider using a higher resource class or DWU when rebuilding your indexes.  If higher memory is needed,
 
- 
 ## Rebuilding indexes with CTAS and partition switching
 
 This example uses [CTAS][] and partition switching to rebuild a table partition. 

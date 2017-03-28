@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Forward Azure Automation job data to OMS Log Analytics | Azure"
-    description="This article demonstrates how to send job status and runbook job streams to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management."
-    services="automation"
-    documentationcenter=""
-    author="MGoedtel"
-    manager="jwhit"
-    editor="tysonn" />
-<tags
-    ms.assetid="c12724c6-01a9-4b55-80ae-d8b7b99bd436"
-    ms.service="automation"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/03/2017"
-    wacn.date=""
-    ms.author="magoedte" />
+---
+title: Forward Azure Automation job data to OMS Log Analytics | Azure
+description: This article demonstrates how to send job status and runbook job streams to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
+services: automation
+documentationcenter: ''
+author: MGoedtel
+manager: jwhit
+editor: tysonn
+
+ms.assetid: c12724c6-01a9-4b55-80ae-d8b7b99bd436
+ms.service: automation
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/03/2017
+wacn.date: ''
+ms.author: magoedte
+---
 
 # Forward job status and job streams from Automation to Log Analytics (OMS)
 Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  Job logs and job streams are visible in the Azure portal preview, or with PowerShell, for individual jobs and this allows you to perform simple investigations. Now with Log Analytics you can:
@@ -37,11 +38,13 @@ To start sending your Automation logs to Log Analytics, you need:
 
 To find the ResourceId for your Azure Automation account and Log Analytics workspace, run the following PowerShell:
 
-    # Find the ResourceId for the Automation Account
-    Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+```powershell
+# Find the ResourceId for the Automation Account
+Find-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
 
-    # Find the ResourceId for the Log Analytics workspace
-    Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+# Find the ResourceId for the Log Analytics workspace
+Find-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+```
 
 If you have multiple Automation accounts, or workspaces, in the output of the preceding commands, find the *Name* you need to configure and copy the value for *ResourceId*.
 
@@ -81,26 +84,28 @@ To see the logs, run the following query:
 ### Verify configuration
 To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are set correctly on the Automation account using the following PowerShell:
 
-    [cmdletBinding()]
-        Param
-        (
-            [Parameter(Mandatory=$True)]
-            [ValidateSet("AzureCloud","AzureUSGovernment")]
-            [string]$Environment="AzureCloud"
-        )
+```powershell
+[cmdletBinding()]
+    Param
+    (
+        [Parameter(Mandatory=$True)]
+        [ValidateSet("AzureCloud","AzureUSGovernment")]
+        [string]$Environment="AzureCloud"
+    )
 
-    #Check to see which cloud environment to sign into.
-    Switch ($Environment)
-       {
-           "AzureCloud" {Login-AzureRmAccount -EnvironmentName AzureChinaCloud}
-           "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureChinaCloud -EnvironmentName AzureUSGovernment} 
-       }
-    # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
-    $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+#Check to see which cloud environment to sign into.
+Switch ($Environment)
+   {
+       "AzureCloud" {Login-AzureRmAccount -EnvironmentName AzureChinaCloud}
+       "AzureUSGovernment" {Login-AzureRmAccount -EnvironmentName AzureChinaCloud -EnvironmentName AzureUSGovernment} 
+   }
+# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-    $automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
 
-    Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+```
 
 In the output ensure that:
 + Under *Logs*, the value for *Enabled* is *True*
@@ -195,6 +200,6 @@ Log Analytics provides greater operational visibility to your Automation jobs an
 
 ## Next steps
 * To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](/documentation/articles/log-analytics-log-searches/)
-* To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](/documentation/articles/automation-runbook-output-and-messages/)
-* To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](/documentation/articles/automation-runbook-execution/)
+* To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](./automation-runbook-output-and-messages.md)
+* To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](./automation-runbook-execution.md)
 * To learn more about OMS Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](/documentation/articles/log-analytics-azure-storage/)

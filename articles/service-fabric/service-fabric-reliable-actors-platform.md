@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Reliable Actors on Service Fabric | Azure"
-    description="Describes how Reliable Actors are layered on Reliable Services and use the features of the Service Fabric platform."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="amanbha" />
-<tags
-    ms.assetid="45839a7f-0536-46f1-ae2b-8ba3556407fb"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Reliable Actors on Service Fabric | Azure
+description: Describes how Reliable Actors are layered on Reliable Services and use the features of the Service Fabric platform.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: amanbha
+
+ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # How Reliable Actors use the Service Fabric platform
 This article explains how Reliable Actors work on the Service Fabric platform. Reliable Actors run in a framework that is hosted in an implementation of a stateful Reliable Service called the *Actor Service*. The Actor Service contains all the components necessary to manage the lifecycle and message dispatching for your actors:
@@ -27,7 +28,7 @@ This article explains how Reliable Actors work on the Service Fabric platform. R
 These components together form the Reliable Actor framework. 
 
 ## Service Layering
-Because the Actor Service itself is a Reliable Service, all of the [application model](/documentation/articles/service-fabric-application-model/), lifecycle, [packaging](/documentation/articles/service-fabric-application-model/#package-an-application), [deployment]((/documentation/articles/service-fabric-deploy-remove-applications/), upgrade, and scaling concepts of Reliable Services apply the same way to Actor services. 
+Because the Actor Service itself is a Reliable Service, all of the [application model](./service-fabric-application-model.md), lifecycle, [packaging](./service-fabric-application-model.md#package-an-application), [deployment]((/documentation/articles/service-fabric-deploy-remove-applications/), upgrade, and scaling concepts of Reliable Services apply the same way to Actor services. 
 
 ![Actor Service layering][1]
 
@@ -42,45 +43,45 @@ In Reliable Services, your service inherits the `StatefulService` class, which i
 ### Using the Actor Service
 Actor instances have access to the Actor Service in which they are executing. Through the Actor Service, actor instances can programmatically obtain the Service Context which has the partition ID, service name, application name, and other Service Fabric platform-specific information:
 
-
-	Task MyActorMethod()
-	{
-	    Guid partitionId = this.ActorService.Context.PartitionId;
-	    string serviceTypeName = this.ActorService.Context.ServiceTypeName;
-	    Uri serviceInstanceName = this.ActorService.Context.ServiceName;
-	    string applicationInstanceName = this.ActorService.Context.CodePackageActivationContext.ApplicationName;
-	}
-
+```csharp
+Task MyActorMethod()
+{
+    Guid partitionId = this.ActorService.Context.PartitionId;
+    string serviceTypeName = this.ActorService.Context.ServiceTypeName;
+    Uri serviceInstanceName = this.ActorService.Context.ServiceName;
+    string applicationInstanceName = this.ActorService.Context.CodePackageActivationContext.ApplicationName;
+}
+```
 
 Like all Reliable Services, the Actor Service must be registered with a service type in the Service Fabric runtime. In order for the Actor Service to run your actor instances, your actor type must also be registered with the Actor Service. The `ActorRuntime` registration method performs this work for actors. In the simplest case, you can just register your actor type, and the Actor Service with default settings will implicitly be used:
 
+```csharp
+static class Program
+{
+    private static void Main()
+    {
+        ActorRuntime.RegisterActorAsync<MyActor>().GetAwaiter().GetResult();
 
-	static class Program
-	{
-	    private static void Main()
-	    {
-	        ActorRuntime.RegisterActorAsync<MyActor>().GetAwaiter().GetResult();
-
-	        Thread.Sleep(Timeout.Infinite);
-	    }
-	}
-
+        Thread.Sleep(Timeout.Infinite);
+    }
+}
+```
 
 Alternatively, you can use a lambda provided by the registration method to construct the Actor Service yourself. This allows you to configure the Actor Service as well as explicitly construct your actor instances, where you can inject dependencies to your actor through its constructor:
 
+```csharp
+static class Program
+{
+    private static void Main()
+    {
+        ActorRuntime.RegisterActorAsync<MyActor>(
+            (context, actorType) => new ActorService(context, actorType, () => new MyActor()))
+            .GetAwaiter().GetResult();
 
-	static class Program
-	{
-	    private static void Main()
-	    {
-	        ActorRuntime.RegisterActorAsync<MyActor>(
-	            (context, actorType) => new ActorService(context, actorType, () => new MyActor()))
-	            .GetAwaiter().GetResult();
-
-	        Thread.Sleep(Timeout.Infinite);
-	    }
-	}
-
+        Thread.Sleep(Timeout.Infinite);
+    }
+}
+```
 
 ### Actor Service methods
 The Actor Service implements `IActorService` which in turn implements `IService`. This is the interface used by Reliable Services remoting, which allows remote procedure calls on service methods. It contains service-level methods that can be called remotely using service remoting.
@@ -88,109 +89,105 @@ The Actor Service implements `IActorService` which in turn implements `IService`
 #### Enumerating actors
 The Actor Service allows a client to enumerate metadata about the actors being hosted by the service. Since the Actor Service is a partitioned stateful service, enumeration is performed per partition. Because each partition may contain a large number of actors, the enumeration is return as a set of paged results. The pages are looped over until all pages are read. The following example shows how to create a list of all active actors in one partition of an actor service:
 
+```csharp
+IActorService actorServiceProxy = ActorServiceProxy.Create(
+    new Uri("fabric:/MyApp/MyService"), partitionKey);
 
-	IActorService actorServiceProxy = ActorServiceProxy.Create(
-	    new Uri("fabric:/MyApp/MyService"), partitionKey);
+ContinuationToken continuationToken = null;
+List<ActorInformation> activeActors = new List<ActorInformation>();
 
-	ContinuationToken continuationToken = null;
-	List<ActorInformation> activeActors = new List<ActorInformation>();
+do
+{
+    PagedResult<ActorInformation> page = await actorServiceProxy.GetActorsAsync(continuationToken, cancellationToken);
 
-	do
-	{
-	    PagedResult<ActorInformation> page = await actorServiceProxy.GetActorsAsync(continuationToken, cancellationToken);
-                
-	    activeActors.AddRange(page.Items.Where(x => x.IsActive));
+    activeActors.AddRange(page.Items.Where(x => x.IsActive));
 
-	    continuationToken = page.ContinuationToken;
-	}
-	while (continuationToken != null);
-
+    continuationToken = page.ContinuationToken;
+}
+while (continuationToken != null);
+```
 
 #### Deleting actors
 The Actor Service also provides a function for deleting actors:
 
+```csharp
+ActorId actorToDelete = new ActorId(id);
 
-	ActorId actorToDelete = new ActorId(id);
+IActorService myActorServiceProxy = ActorServiceProxy.Create(
+    new Uri("fabric:/MyApp/MyService"), actorToDelete);
 
-	IActorService myActorServiceProxy = ActorServiceProxy.Create(
-	    new Uri("fabric:/MyApp/MyService"), actorToDelete);
-            
-	await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
+await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
+```
 
-
-For more information on deleting actors and their state, refer to the [actor lifecycle documentation](/documentation/articles/service-fabric-reliable-actors-lifecycle/).
+For more information on deleting actors and their state, refer to the [actor lifecycle documentation](./service-fabric-reliable-actors-lifecycle.md).
 
 ### Custom Actor Service
 Using the actor registration lambda, you can also register your own custom actor service that derives from `ActorService` where you can implement your own service-level functionality. This is done by writing a service class that inherits `ActorService`. A custom actor service inherits all of the actor runtime functionality from `ActorService` and can be used to implement your own service methods.
 
+```
+class MyActorService : ActorService
+{
+    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
+        : base(context, typeInfo, newActor)
+    { }
+}
 
-	class MyActorService : ActorService
-	{
-	    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
-	        : base(context, typeInfo, newActor)
-	    { }
-	}
+static class Program
+{
+    private static void Main()
+    {
+        ActorRuntime.RegisterActorAsync<MyActor>(
+            (context, actorType) => new MyActorService(context, actorType, () => new MyActor()))
+            .GetAwaiter().GetResult();
 
-
-
-	static class Program
-	{
-	    private static void Main()
-	    {
-	        ActorRuntime.RegisterActorAsync<MyActor>(
-	            (context, actorType) => new MyActorService(context, actorType, () => new MyActor()))
-	            .GetAwaiter().GetResult();
-
-	        Thread.Sleep(Timeout.Infinite);
-	    }
-	}
-
-
+        Thread.Sleep(Timeout.Infinite);
+    }
+}
+```
 
 #### Implementing actor back-up and restore
  In the following example, the custom actor service exposes a method to back-up actor data by taking advantage of the remoting listener already present in `ActorService`:
 
+    public interface IMyActorService : IService
+    {
+        Task BackupActorsAsync();
+    }
 
-	public interface IMyActorService : IService
-	{
-	    Task BackupActorsAsync();
-	}
+    class MyActorService : ActorService, IMyActorService
+    {
+        public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
+            : base(context, typeInfo, newActor)
+        { }
 
-	class MyActorService : ActorService, IMyActorService
-	{
-	    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
-	        : base(context, typeInfo, newActor)
-	    { }
+    ```csharp
+    public Task BackupActorsAsync()
+    {
+        return this.BackupAsync(new BackupDescription(PerformBackupAsync));
+    }
 
-	    public Task BackupActorsAsync()
-	    {
-	        return this.BackupAsync(new BackupDescription(PerformBackupAsync));
-	    }
-    
-	    private async Task<bool> PerformBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
-	    {
-	        try
-	        {
-	           // store the contents of backupInfo.Directory
-	           return true;
-	        }
-	        finally
-	        {
-	           Directory.Delete(backupInfo.Directory, recursive: true);
-	        }
-	    }
-	}
-
+    private async Task<bool> PerformBackupAsync(BackupInfo backupInfo, CancellationToken cancellationToken)
+    {
+        try
+        {
+           // store the contents of backupInfo.Directory
+           return true;
+        }
+        finally
+        {
+           Directory.Delete(backupInfo.Directory, recursive: true);
+        }
+    }
+    ```
+    }
 
 In this example, `IMyActorService` is a remoting contract that implements `IService` and is then implemented by `MyActorService`. By adding this remoting contract, methods on `IMyActorService` are now also available to a client by creating a remoting proxy using `ActorServiceProxy`:
 
+```csharp
+IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
+    new Uri("fabric:/MyApp/MyService"), ActorId.CreateRandom());
 
-	IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
-	    new Uri("fabric:/MyApp/MyService"), ActorId.CreateRandom());
-
-	await myActorServiceProxy.BackupActorsAsync();
-
-
+await myActorServiceProxy.BackupActorsAsync();
+```
 
 ## Application model
 Actor services are Reliable Services, so the application model is the same. However, the actor framework build tools generate much of the application model files for you.
@@ -234,12 +231,11 @@ ActorProxy.Create<IMyActor>(new ActorId(1234));
 When using GUIDs and strings, the values are hashed to an Int64. However, when explicitly providing an Int64 to an `ActorId`, the Int64 will map directly to a partition without further hashing. This can be used to control which partition actors are placed in.
 
 ## Next steps
- - [Actor state management](/documentation/articles/service-fabric-reliable-actors-state-management/)
- - [Actor lifecycle and garbage collection](/documentation/articles/service-fabric-reliable-actors-lifecycle/)
+ - [Actor state management](./service-fabric-reliable-actors-state-management.md)
+ - [Actor lifecycle and garbage collection](./service-fabric-reliable-actors-lifecycle.md)
  - [Actors API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/dn971626.aspx)
  - [Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
- 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png
 [2]: ./media/service-fabric-reliable-actors-platform/app-deployment-scripts.png

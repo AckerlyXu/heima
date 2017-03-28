@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Stream Analytics: Rotate log-in credentials for inputs and outputs | Azure"
-    description="Learn how to update the credentials for Stream Analytics inputs and outputs."
-    keywords="login credentials"
-    services="stream-analytics"
-    documentationcenter=""
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="42ae83e1-cd33-49bb-a455-a39a7c151ea4"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Stream Analytics: Rotate log-in credentials for inputs and outputs | Azure
+description: Learn how to update the credentials for Stream Analytics inputs and outputs.
+keywords: login credentials
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Rotate login credentials for inputs and outputs in Stream Analytics Jobs
 ## Abstract
@@ -70,7 +71,7 @@ For other inputs/outputs, proceed with Part 2.
 11. Continue to Part 2.  
 
 ### SQL Database
-> [AZURE.NOTE]
+> [!NOTE]
 > Note: you will need to connect to the SQL Database Service. We are going to show how to do this using the management experience on the Azure Management portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
 >
 > 
@@ -188,15 +189,17 @@ Repeat Part 1 for the Key that was previously used by your job to renew the now 
 
 You should get the following confirmation: 
 
-    Command(s) completed successfully.
+```
+Command(s) completed successfully.
+```
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/)
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)
 
@@ -243,4 +246,3 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 [graphic41]: ./media/stream-analytics-login-credentials-inputs-outputs/41-stream-analytics-login-credentials-inputs-outputs.png
 [graphic42]: ./media/stream-analytics-login-credentials-inputs-outputs/42-stream-analytics-login-credentials-inputs-outputs.png
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
-

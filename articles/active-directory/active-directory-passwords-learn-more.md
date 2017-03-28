@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Learn more: Azure Active Directory password management | Azure"
-    description="Advanced topics on Azure AD password management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset."
-    services="active-directory"
-    documentationcenter=""
-    author="MicrosoftGuyJFlo"
-    manager="femila"
-    editor="curtand" />
-<tags
-    ms.assetid="d3be2912-76c8-40a0-9507-b7b1a7ce2f8f"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/28/2017"
-    wacn.date=""
-    ms.author="joflore" />
+---
+title: Learn more: Azure Active Directory password management | Azure
+description: Advanced topics on Azure AD password management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset.
+services: active-directory
+documentationcenter: ''
+author: MicrosoftGuyJFlo
+manager: femila
+editor: curtand
+
+ms.assetid: d3be2912-76c8-40a0-9507-b7b1a7ce2f8f
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/28/2017
+wacn.date: ''
+ms.author: joflore
+---
 
 # Learn more about password management
-> [AZURE.IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
+> [!IMPORTANT]
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -64,10 +65,10 @@ When a user navigates to the password reset portal, a workflow is kicked off to 
      - If writeback is not deployed and the user’s password is managed on premises, then the user is asked to contact his or her administrator to reset his or her password.
 4. If it is determined that the user is able to successfully reset his or her password, then the user is guided through the reset process.
 
-Learn more about how to deploy password writeback at [Getting Started: Azure AD password management](/documentation/articles/active-directory-passwords-getting-started/).
+Learn more about how to deploy password writeback at [Getting Started: Azure AD password management](./active-directory-passwords-getting-started.md).
 
 ## Password writeback overview
-Password writeback is an [Azure Active Directory Connect](/documentation/articles/active-directory-aadconnect/) component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see [Azure Active Directory Editions](/documentation/articles/active-directory-editions/).
+Password writeback is an [Azure Active Directory Connect](./active-directory-aadconnect.md) component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see [Azure Active Directory Editions](./active-directory-editions.md).
 
 Password writeback allows you to configure your cloud tenant to write passwords back to you on-premises Active Directory.  It obviates you from having to set up and manage a complicated on-premises self-service password reset solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are.  Read on for some of the key features of password writeback:
 
@@ -105,7 +106,7 @@ When a federated or password hash sync’d user comes to reset or change his or 
 10. If the password set operation fails, we return the error to the user and let them try again.  The operation might fail because the service was down, because the password they selected did not meet organization policies, because we could not find the user in the local AD, or any number of reasons.  We have a specific message for many of these cases and tell the user what they can do to resolve the issue.
 
 ## Scenarios supported for password writeback
-The section below describes which scenarios are supported for which versions of our sync capabilities.  In general, We always recommend that you use the auto-update feature of Azure AD Connect, or install the latest version of [Azure AD Connect](/documentation/articles/active-directory-aadconnect/#install-azure-ad-connect/) if you want to use password writeback.
+The section below describes which scenarios are supported for which versions of our sync capabilities.  In general, We always recommend that you use the auto-update feature of Azure AD Connect, or install the latest version of [Azure AD Connect](./active-directory-aadconnect.md#install-azure-ad-connect) if you want to use password writeback.
 
 - [**Supported Azure AD Connect, Azure AD Sync, and DirSync clients**](#supported-clients)
 - [**Licenses required for password writeback**](#licenses-required-for-password-writeback)
@@ -114,7 +115,7 @@ The section below describes which scenarios are supported for which versions of 
 - [**User and Admin operations not supported for password writeback**](#user-and-admin-operations-not-supported-for-password-writeback)
 
 ### Supported clients
-We always recommend that you use the auto-update feature of Azure AD Connect, or install the latest version of [Azure AD Connect](/documentation/articles/active-directory-aadconnect/#install-azure-ad-connect/) if you want to use password writeback.
+We always recommend that you use the auto-update feature of Azure AD Connect, or install the latest version of [Azure AD Connect](./active-directory-aadconnect.md#install-azure-ad-connect) if you want to use password writeback.
 
 - **DirSync (any version > 1.0.6862)** - _NOT SUPPORTED_ - supports only basic writeback capabilities, and is no longer supported by the product group 
 - **Azure AD Sync** - _DEPRECATED_ - supports only basic writeback capabilities, and is missing account unlock capabilities, rich logging, and relability improvements made in Azure AD Connect. As such, we **highly** highly recommend upgrading.
@@ -162,7 +163,7 @@ Passwords are not written back in any of the following situations:
 - **Unsupported Administrator operations**
  - Any administrator-initiated end-user password reset from the [Office Management Portal](https://portal.office.com)
  - Any administrator-initiated end-user password reset from PowerShell v1, v2, or the Azure AD Graph API
- 
+
 While we are working to remove these limitations, we do not have a specific timeline we can share yet.
 
 ## Password writeback security model
@@ -212,7 +213,7 @@ You can manage and access password reset data for your users through Azure AD Co
 ### What data is used by password reset?
 The following table outlines where and how this data is used during password reset and is designed to help you decide which authentication options are appropriate for your organization. This table also shows any formatting requirements for cases where you are providing data on behalf of users from input paths that do not validate this data.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Office Phone does not appear in the registration portal because users are currently not able to edit this property in the directory. Only administrators may set this value.
 >
 >
@@ -399,7 +400,6 @@ The following table outlines where and how this data is used during password res
             </td>
           </tr>
         </tbody></table>
-
 
 ### Deploying password reset without requiring end user registration
 If you want to deploy password reset without requiring your users to register for it, you can do so easily by following one of the two below options. This can be a useful way to unblock large numbers of users to use SSPR while still allowing users to validate this information through the registration process.
@@ -617,14 +617,14 @@ Not possible in PowerShell V2
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
-- [**How it works**](/documentation/articles/active-directory-passwords-how-it-works/) - learn about the six different components of the service and what each does
-- [**Getting started**](/documentation/articles/active-directory-passwords-getting-started/) - learn how to allow you users to reset and change their cloud or on-premises passwords
-- [**Customize**](/documentation/articles/active-directory-passwords-customize/) - learn how to customize the look & feel and behavior of the service to your organization's needs
-- [**Best practices**](/documentation/articles/active-directory-passwords-best-practices/) - learn how to quickly deploy and effectively manage passwords in your organization
-- [**Get insights**](/documentation/articles/active-directory-passwords-get-insights/) - learn about our integrated reporting capabilities
-- [**FAQ**](/documentation/articles/active-directory-passwords-faq/) - get answers to frequently asked questions
-- [**Troubleshooting**](/documentation/articles/active-directory-passwords-troubleshoot/) - learn how to quickly troubleshoot problems with the service
+- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+- [**How it works**](./active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+- [**Getting started**](./active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+- [**Customize**](./active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+- [**Best practices**](./active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+- [**Get insights**](./active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+- [**FAQ**](./active-directory-passwords-faq.md) - get answers to frequently asked questions
+- [**Troubleshooting**](./active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"

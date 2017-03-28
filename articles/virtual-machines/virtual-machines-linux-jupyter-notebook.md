@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Create an Jupyter/IPython Notebook | Azure"
-    description="Learn how to deploy the Jupyter/IPython Notebook on a Linux virtual machine created with the resource manager deployment model in Azure."
-    services="virtual-machines-linux"
-    documentationcenter="python"
-    author="crwilcox"
-    manager="wpickett"
-    editor=""
-    tags="azure-service-management,azure-resource-manager" />
-<tags
-    ms.assetid="519f36dd-865e-4c1d-abe7-b87037796aa7"
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="python"
-    ms.topic="article"
-    ms.date="11/10/2015"
-    wacn.date=""
-    ms.author="crwilcox"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Create an Jupyter/IPython Notebook | Azure
+description: Learn how to deploy the Jupyter/IPython Notebook on a Linux virtual machine created with the resource manager deployment model in Azure.
+services: virtual-machines-linux
+documentationcenter: python
+author: crwilcox
+manager: wpickett
+editor: ''
+tags: azure-service-management,azure-resource-manager
+
+ms.assetid: 519f36dd-865e-4c1d-abe7-b87037796aa7
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: python
+ms.topic: article
+ms.date: 11/10/2015
+wacn.date: ''
+ms.author: crwilcox
+ms.custom: H1Hack27Feb2017
+---
 
 # Creating an Azure VM, installing Jupyter, and running a Jupyter Notebook on Azure
 The [Jupyter project](http://jupyter.org), formerly the [IPython project](http://ipython.org), provides a collection of tools for scientific computing using powerful interactive shells that combine code execution with the creation of a live computational document. These notebook files can contain arbitrary text, mathematical formulas, input code, results, graphics, videos and any other kind of media that a modern web browser is capable of displaying. Whether you're absolutely new to Python and want to learn it in a fun, interactive environment or do some serious parallel/technical computing, the Jupyter Notebook is a great choice.
@@ -34,7 +35,7 @@ resources without the need for administration and configuration by the user.
 
 If the notebook service does not work for your scenario please continue to read this article which will will show you how to deploy the Jupyter Notebook on Azure, using Linux virtual machines (VMs).
 
-[AZURE.INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
+[!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
 ## Create and configure a VM on Azure
 The first step is to create a virtual machine (VM)  running on Azure.
@@ -84,20 +85,22 @@ Install Anaconda, a popular data science python distribution, using one of the l
 #### Installing Anaconda3 2.3.0 64-bit on Ubuntu
 As an example, this is how you can install Anaconda on Ubuntu
 
-    # install anaconda
-    cd ~
-    mkdir -p anaconda
-    cd anaconda/
-    curl -O https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
-    sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -f -p /anaconda3
+```
+# install anaconda
+cd ~
+mkdir -p anaconda
+cd anaconda/
+curl -O https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda3-2.3.0-Linux-x86_64.sh
+sudo bash Anaconda3-2.3.0-Linux-x86_64.sh -b -f -p /anaconda3
 
-    # clean up home directory
-    cd ..
-    rm -rf anaconda/
+# clean up home directory
+cd ..
+rm -rf anaconda/
 
-    # Update Jupyter to the latest install and generate its config file
-    sudo /anaconda3/bin/conda install jupyter -y
-    /anaconda3/bin/jupyter-notebook --generate-config
+# Update Jupyter to the latest install and generate its config file
+sudo /anaconda3/bin/conda install jupyter -y
+/anaconda3/bin/jupyter-notebook --generate-config
+```
 
 ![Screenshot](./media/virtual-machines-linux-jupyter-notebook/anaconda-install.png)
 
@@ -109,11 +112,15 @@ the profiles configuration file.
 
 On Linux use the following command.
 
-    cd ~/.jupyter
+```
+cd ~/.jupyter
+```
 
 Use the following command to create the SSL certificate(Linux and Windows).
 
-    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+```
 
 Note that since we are creating a self-signed SSL certificate, when connecting
 to the notebook your browser will give you a security warning.  For long-term
@@ -126,13 +133,17 @@ your notebook from unauthorized use.  For security reasons Jupyter uses
 encrypted passwords in its configuration file, so you'll need to encrypt your
 password first.  IPython provides a utility to do so; at a command prompt run the following command.
 
-    /anaconda3/bin/python -c "import IPython;print(IPython.lib.passwd())"
+```
+/anaconda3/bin/python -c "import IPython;print(IPython.lib.passwd())"
+```
 
 This will prompt you for a password and confirmation, and will then print the password. Note this for the following step.
 
-    Enter password:
-    Verify password:
-    sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
+```
+Enter password:
+Verify password:
+sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
+```
 
 Next, we will edit the profile's configuration file, which is the
 `jupyter_notebook_config.py` file in the directory you are in.  Note that this file may not exist -- just create it if that is the case.  This
@@ -140,26 +151,30 @@ file has a number of fields and by default all are commented out.  You can open
 this file with any text editor of your liking, and you should ensure that it
 has at least the following content. **Be sure to replace the c.NotebookApp.password in the config with the sha1 from the previous step**.
 
-    c = get_config()
+```
+c = get_config()
 
-    # You must give the path to the certificate file.
-    c.NotebookApp.certfile = u'/home/azureuser/.jupyter/mycert.pem'
+# You must give the path to the certificate file.
+c.NotebookApp.certfile = u'/home/azureuser/.jupyter/mycert.pem'
 
-    # Create your own password as indicated above
-    c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
+# Create your own password as indicated above
+c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
 
-    # Network and browser details. We use a fixed port (9999) so it matches
-    # our Azure setup, where we've allowed traffic on that port
-    c.NotebookApp.ip = '*'
-    c.NotebookApp.port = 9999
-    c.NotebookApp.open_browser = False
+# Network and browser details. We use a fixed port (9999) so it matches
+# our Azure setup, where we've allowed traffic on that port
+c.NotebookApp.ip = '*'
+c.NotebookApp.port = 9999
+c.NotebookApp.open_browser = False
+```
 
 ### Run the Jupyter Notebook
 At this point we are ready to start the Jupyter Notebook. To do this,
 navigate to the directory you want to store notebooks in and start
 the Jupyter Notebook server with the following command.
 
-    /anaconda3/bin/jupyter-notebook
+```
+/anaconda3/bin/jupyter-notebook
+```
 
 You should now be able to access your Jupyter Notebook at the address
 `https://[PUBLIC-IP-ADDRESS]:9999`.
@@ -233,6 +248,6 @@ profiling and parallel computing integration.
 ## Next steps
 For more information, see the [Python Developer Center](/develop/python/).
 
-[portal-vm-linux]: /documentation/articles/virtual-machines-linux-quick-create-portal/
+[portal-vm-linux]: ./virtual-machines-linux-quick-create-portal.md
 [repository]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs

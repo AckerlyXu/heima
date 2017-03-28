@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Testing Azure VM network throughput | Azure"
-    description="Learn how to test Azure virtual machine network throughput."
-    services="virtual-network"
-    documentationcenter="na"
-    author="steveesp"
-    manager="Gerald DeGrace"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="02/21/2017"
-    wacn.date=""
-    ms.author="steveesp" />
+---
+title: Testing Azure VM network throughput | Azure
+description: Learn how to test Azure virtual machine network throughput.
+services: virtual-network
+documentationcenter: na
+author: steveesp
+manager: Gerald DeGrace
+editor: ''
+
+ms.assetid: ''
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/21/2017
+wacn.date: ''
+ms.author: steveesp
+---
 
 # Bandwidth/Throughput testing (NTTTCP)
 
@@ -35,7 +36,7 @@ Run the NTTTCP test for 300 seconds (or 5 minutes) on the sender VM and receiver
 
 Tip: When setting up this test for the first time, you might try a shorter test period to get feedback sooner. Once the tool is working as expected, extend the test period to 300 seconds for the most accurate results.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The sender **and** receiver must specify **the same** test duration
 parameter (-t).
 
@@ -45,7 +46,7 @@ Receiver parameters: ntttcp -r -t 10 -P 1
 
 Sender parameters: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The preceding sample should only be used to confirm your configuration. Valid examples of testing are covered later in this document.
 
 ## Testing VMs running WINDOWS:
@@ -96,33 +97,43 @@ On the Linux VMs (both SENDER and RECEIVER), run these commands to prepare nttt
 
 CentOS - Install Git:
 
-      yum install gcc -y  
-      yum install git -y
+```bash
+  yum install gcc -y  
+  yum install git -y
+```
 
 Ubuntu - Install Git:
 
-     apt-get -y install build-essential  
-     apt-get -y install git
+```bash
+ apt-get -y install build-essential  
+ apt-get -y install git
+```
 
 Make and Install on both:
 
-     git clone <https://github.com/Microsoft/ntttcp-for-linux>
-     cd ntttcp-for-linux/src
-     make && make install
+```bash
+ git clone <https://github.com/Microsoft/ntttcp-for-linux>
+ cd ntttcp-for-linux/src
+ make && make install
+```
 
 As in the Windows example, we assume the Linux RECEIVER's IP is 10.0.0.4
 
 Start NTTTCP-for-Linux on the RECEIVER:
 
-    ntttcp -r -t 300
+```bash
+ntttcp -r -t 300
+```
 
 And on the SENDER, run:
 
-    ntttcp -s10.0.0.4 -t 300
+```bash
+ntttcp -s10.0.0.4 -t 300
+```
 
  
 Test length defaults to 60 seconds if no time parameter is given
 
 ## Next steps
-* Depending on results, there may be room to [Optimize network throughput machines](/documentation/articles/virtual-network-optimize-network-bandwidth/) for your scenario.
-* Learn more wtih [Azure Virtual Network frequently asked questions (FAQ)](/documentation/articles/virtual-networks-faq/)
+* Depending on results, there may be room to [Optimize network throughput machines](./virtual-network-optimize-network-bandwidth.md) for your scenario.
+* Learn more wtih [Azure Virtual Network frequently asked questions (FAQ)](./virtual-networks-faq.md)

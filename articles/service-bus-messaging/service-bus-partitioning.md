@@ -1,20 +1,21 @@
-<properties 
-    pageTitle="Partitioned queues and topics | Azure"
-    description="Describes how to partition Service Bus queues and topics by using multiple message brokers."
-    services="service-bus-messaging"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" /> 
-<tags 
-    ms.service="service-bus-messaging"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="12/22/2016"
-    ms.author="sethm;hillaryc"
-    wacn.date=""/>
+---
+title: Partitioned queues and topics | Azure
+description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
+services: service-bus-messaging
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus-messaging
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/22/2016
+ms.author: sethm;hillaryc
+wacn.date: ''
+---
 
 # Partitioned queues and topics
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus also enables queues or topics to be partitioned across multiple message brokers and messaging stores. This means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
@@ -124,7 +125,7 @@ Currently Service Bus imposes the following limitations on partitioned queues an
 ## Next steps
 See the discussion of [AMQP 1.0 support for Service Bus partitioned queues and topics][AMQP 1.0 support for Service Bus partitioned queues and topics] to learn more about partitioning messaging entities. 
 
-  [Service Bus architecture]: /documentation/articles/service-bus-architecture/
+  [Service Bus architecture]: ./service-bus-architecture.md
   [Azure portal]: https://portal.azure.cn
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
@@ -139,4 +140,4 @@ See the discussion of [AMQP 1.0 support for Service Bus partitioned queues and t
   [MessagingFactorySettings.OperationTimeout]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [OperationTimeout]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
-  [AMQP 1.0 support for Service Bus partitioned queues and topics]: /documentation/articles/service-bus-partitioned-queues-and-topics-amqp-overview/
+  [AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-partitioned-queues-and-topics-amqp-overview.md

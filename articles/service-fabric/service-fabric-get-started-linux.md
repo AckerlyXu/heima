@@ -1,31 +1,31 @@
-<properties
-    pageTitle="Set up your development environment on Linux | Azure"
-    description="Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you will be ready to build applications."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="seanmck"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="d552c8cd-67d1-45e8-91dc-871853f44fc6"
-    ms.service="service-fabric"
-    ms.devlang="dotNet"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="seanmck" />
+---
+title: Set up your development environment on Linux | Azure
+description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you will be ready to build applications.
+services: service-fabric
+documentationcenter: .net
+author: seanmck
+manager: timlt
+editor: ''
+
+ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: seanmck
+---
 
 # Prepare your development environment on Linux
 
+> [!div class="op_single_selector"]
+-[ Windows](./service-fabric-get-started.md)
+- [Linux](./service-fabric-get-started-linux.md)
+- [OSX](./service-fabric-get-started-mac.md)
 
-> [AZURE.SELECTOR]
--[ Windows](/documentation/articles/service-fabric-get-started/)
-- [Linux](/documentation/articles/service-fabric-get-started-linux/)
-- [OSX](/documentation/articles/service-fabric-get-started-mac/)
-
- To deploy and run [Azure Service Fabric applications](/documentation/articles/service-fabric-application-model/) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core.
+ To deploy and run [Azure Service Fabric applications](./service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core.
 
 ## Prerequisites
 
@@ -70,7 +70,6 @@ Once your sources are updated, you can install the SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-
 ## Set up the Azure cross-platform CLI
 The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node][install-node] before proceeding with the following instructions:
 
@@ -101,7 +100,7 @@ The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for int
     source ~/azure.completion.sh
     ```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Service Fabric commands are not yet available in Azure CLI 2.0.
 
 ## Set up a local cluster
@@ -120,8 +119,7 @@ If everything has installed successfully, you should be able to start a local cl
 
 At this point, you are able to deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services using the Java or .NET Core SDKs, follow the optional setup steps provided in subsequent sections.
 
-
-> [AZURE.NOTE]
+> [!NOTE]
 > Stand alone clusters aren't supported in Linux - only one box and Azure Linux multi-machine clusters are supported in the preview.
 >
 >
@@ -187,10 +185,10 @@ For updating the CLI, navigate to the directory where you cloned the CLI and run
 
 ## Next steps
 
-- [Create your first Java application on Linux](/documentation/articles/service-fabric-create-your-first-linux-application-with-java/)
-- [Create your first CSharp application on Linux](/documentation/articles/service-fabric-create-your-first-linux-application-with-csharp/)
-- [Prepare your development environment on OSX](/documentation/articles/service-fabric-get-started-mac/)
-- [Use the Azure CLI to manage your Service Fabric applications](/documentation/articles/service-fabric-azure-cli/)
+- [Create your first Java application on Linux](./service-fabric-create-your-first-linux-application-with-java.md)
+- [Create your first CSharp application on Linux](./service-fabric-create-your-first-linux-application-with-csharp.md)
+- [Prepare your development environment on OSX](./service-fabric-get-started-mac.md)
+- [Use the Azure CLI to manage your Service Fabric applications](./service-fabric-azure-cli.md)
 
 <!-- Links -->
 

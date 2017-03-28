@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="About ExpressRoute virtual network gateways| Azure"
-   description="Learn about virtual network gateways for ExpressRoute."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
-   editor=""
-   tags="azure-resource-manager, azure-service-management"/>
-<tags 
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/20/2017"
-   ms.author="cherylmc"
-   wacn.date=""/>
+---
+title: About ExpressRoute virtual network gateways| Azure
+description: Learn about virtual network gateways for ExpressRoute.
+services: expressroute
+documentationCenter: na
+authors: cherylmc
+manager: carmonm
+editor: ''
+tags: azure-resource-manager, azure-service-management
+
+ms.service: expressroute
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/20/2017
+ms.author: cherylmc
+wacn.date: ''
+---
 
 # About virtual network gateways for ExpressRoute
-
 
 A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations. When you configure an ExpressRoute connection, you must create and configure a virtual network gateway and a virtual network gateway connection.
 
@@ -30,18 +30,17 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 ## <a name="gwsku"></a>Gateway SKUs
 
-[AZURE.INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
+[!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
 If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade to the UltraPerformance SKU, you will need to recreate the gateway.
 
 ###  <a name="aggthroughput"></a>Estimated aggregate throughput by gateway SKU
 
-
 The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
 
-[AZURE.INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)] 
+[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)] 
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Application throughput depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theorectically achieve in an ideal environment. 
 > 
 >
@@ -55,15 +54,6 @@ For additional technical resources and specific syntax requirements when using R
 |[PowerShell](https://msdn.microsoft.com/library/mt270335.aspx)|[PowerShell](https://msdn.microsoft.com/zh-cn/library/mt163510.aspx)|
 |[REST API](https://msdn.microsoft.com/library/jj154113.aspx)|[REST API](https://msdn.microsoft.com/zh-cn/library/mt163859.aspx)|
 
-
 ## Next steps
 
-See [ExpressRoute Overview](/documentation/articles/expressroute-introduction/) for more information about available connection configurations. 
-
-
-
-
-
-
-
- 
+See [ExpressRoute Overview](./expressroute-introduction.md) for more information about available connection configurations.

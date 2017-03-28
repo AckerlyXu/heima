@@ -1,29 +1,29 @@
-<properties
-	pageTitle="Enable offline syncing with IOS Mobile App"
-	description="Learn how to use Azure App Service Mobile Apps to cache and sync offline data in iOS application"
-	documentationCenter="ios"
-	author="ysxu"
-	manager="yochayk"
-	editor=""
-	services="app-service\mobile"/>
+---
+title: Enable offline syncing with IOS Mobile App
+description: Learn how to use Azure App Service Mobile Apps to cache and sync offline data in iOS application
+documentationCenter: ios
+author: ysxu
+manager: yochayk
+editor: ''
+services: app-service\mobile
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="yuaxu"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: yuaxu
+---
 
 # Enable offline syncing with iOS mobile apps
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+[!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## Overview
 This tutorial covers offline syncing with the Mobile Apps feature of Azure App Service for iOS. With offline syncing end-users can interact with a mobile app to view, add, or modify data, even when they have no network connection. Changes are stored in a local database. After the device is back online, the changes are synced with the remote back end.
 
-If this is your first experience with Mobile Apps, you should first complete the tutorial [Create an iOS App]. If you do not use the downloaded quick start server project, you must add the data-access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](/documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/).
+If this is your first experience with Mobile Apps, you should first complete the tutorial [Create an iOS App]. If you do not use the downloaded quick start server project, you must add the data-access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see [Offline Data Sync in Mobile Apps].
 
@@ -141,7 +141,7 @@ Open **QSDataModel.xcdatamodeld**. Four tables are defined--three that are used 
   * MS_TableConfig: Tracks the last updated time for the last sync operation for all pull operations.
   * TodoItem: Stores the to-do items. The system columns **createdAt**, **updatedAt**, and **version** are optional system properties.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The Mobile Apps SDK reserves column names that begin with "**``**". Do not use this prefix with anything other than system columns. Otherwise, your column names are modified when you use the remote back end.
 >
 >
@@ -161,7 +161,6 @@ When you use the offline sync feature, define the three system tables and the da
 | properties | Binary Data |
 | table | String |
 | tableKind | Integer 16 |
-
 
 **MS_TableOperationErrors**
 
@@ -233,13 +232,17 @@ In this section, you connect to an invalid URL to simulate an offline scenario. 
 
 1. Change the mobile-app URL in **QSTodoService.m** to an invalid URL, and run the app again:
 
-	**Objective-C** in QSTodoService.m:
-	
-        	self.client = [MSClient clientWithApplicationURLString:@"https://sitename.chinacloudsites.cn.fail"];
-	
-	**Swift** in ToDoTableViewController.swift:
+    **Objective-C** in QSTodoService.m:
 
-		let client = MSClient(applicationURLString: "https://sitename.chinacloudsites.cn.fail")
+    ```objc
+        self.client = [MSClient clientWithApplicationURLString:@"https://sitename.chinacloudsites.cn.fail"];
+    ```
+
+    **Swift** in ToDoTableViewController.swift:
+
+    ```swift
+    let client = MSClient(applicationURLString: "https://sitename.chinacloudsites.cn.fail")
+    ```
 
 2. Add some to-do items. Quit the simulator (or forcibly close the app), and then restart it. Verify that your changes persist.
 
@@ -271,9 +274,8 @@ When we synchronized the local store with the server, we used the **MSSyncTable.
 
 <!-- URLs. -->
 
-
-[Create an iOS App]: /documentation/articles/app-service-mobile-ios-get-started/
-[Offline Data Sync in Azure Mobile Apps]: /documentation/articles/app-service-mobile-offline-data-sync/
+[Create an iOS App]: ./app-service-mobile-ios-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
 
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableoperations-entity.png

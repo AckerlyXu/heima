@@ -1,21 +1,20 @@
-<properties
-    pageTitle="Enable Session Affinity using the Azure Toolkit for Eclipse"
-    description="Learn how to enable session affinity using the Azure Toolkit for Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+---
+title: Enable Session Affinity using the Azure Toolkit for Eclipse
+description: Learn how to enable session affinity using the Azure Toolkit for Eclipse.
+services: ''
+documentationCenter: java
+authors: rmcmurray
+manager: wpickett
+editor: ''
 
-<tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/01/2016" 
-    ms.author="robmcm"/>
-
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 11/01/2016
+ms.author: robmcm
+---
 
 # Enable Session Affinity #
 Within the Azure Toolkit for Eclipse, you can enable HTTP session affinity, or "sticky sessions", for your roles. The following image shows the **Load Balancing** properties dialog used to enable the session affinity feature:

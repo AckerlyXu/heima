@@ -1,21 +1,22 @@
-<properties
-    pageTitle="DMZ Example - Build a DMZ to Protect Networks with a Firewall, UDR, and NSG | Azure"
-    description="Build a DMZ with a Firewall, User Defined Routing (UDR), and Network Security Groups (NSG)"
-    services="virtual-network"
-    documentationcenter="na"
-    author="tracsman"
-    manager="rossort"
-    editor="" />
-<tags
-    ms.assetid="dc01ccfb-27b0-4887-8f0b-2792f770ffff"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="02/01/2016"
-    wacn.date=""
-    ms.author="jonor;sivae" />
+---
+title: DMZ Example - Build a DMZ to Protect Networks with a Firewall, UDR, and NSG | Azure
+description: Build a DMZ with a Firewall, User Defined Routing (UDR), and Network Security Groups (NSG)
+services: virtual-network
+documentationcenter: na
+author: tracsman
+manager: rossort
+editor: ''
+
+ms.assetid: dc01ccfb-27b0-4887-8f0b-2792f770ffff
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/01/2016
+wacn.date: ''
+ms.author: jonor;sivae
+---
 
 # Example 3 - Build a DMZ to Protect Networks with a Firewall, UDR, and NSG
 
@@ -53,15 +54,17 @@ Once the script runs successfully the firewall rules will need to be completed, 
 ## User Defined Routing (UDR)
 By default, the following system routes are defined as:
 
-        Effective routes : 
-         Address Prefix    Next hop type    Next hop IP address Status   Source     
-         --------------    -------------    ------------------- ------   ------     
-         {10.0.0.0/16}     VNETLocal                            Active   Default    
-         {0.0.0.0/0}       Internet                             Active   Default    
-         {10.0.0.0/8}      Null                                 Active   Default    
-         {100.64.0.0/10}   Null                                 Active   Default    
-         {172.16.0.0/12}   Null                                 Active   Default    
-         {192.168.0.0/16}  Null                                 Active   Default
+```
+    Effective routes : 
+     Address Prefix    Next hop type    Next hop IP address Status   Source     
+     --------------    -------------    ------------------- ------   ------     
+     {10.0.0.0/16}     VNETLocal                            Active   Default    
+     {0.0.0.0/0}       Internet                             Active   Default    
+     {10.0.0.0/8}      Null                                 Active   Default    
+     {100.64.0.0/10}   Null                                 Active   Default    
+     {172.16.0.0/12}   Null                                 Active   Default    
+     {192.168.0.0/16}  Null                                 Active   Default
+```
 
 The VNETLocal is always the defined address prefix(es) of the VNet for that specific network (ie it will change from VNet to VNet depending on how each specific VNet is defined). The remaining system routes are static and default as above.
 
@@ -79,7 +82,7 @@ If there are two identical prefixes in the route table, the following is the ord
 2. "VPNGateway" = A Dynamic Route (BGP when used with hybrid networks), added by a dynamic network protocol, these routes may change over time as the dynamic protocol automatically reflects changes in peered network
 3. "Default" = The System Routes, the local VNet and the static entries as shown in the route table above.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can now use User Defined Routing (UDR) with ExpressRoute and VPN Gateways to force outbound and inbound cross-premise traffic to be routed to a network virtual appliance (NVA).
 > 
 > 
@@ -93,52 +96,64 @@ In this example, two routing tables are needed, one each for the Frontend and Ba
 
 Once the routing tables are created they are bound to their subnets. For the Frontend subnet routing table, once created and bound to the subnet should look like this:
 
-        Effective routes : 
-         Address Prefix    Next hop type    Next hop IP address Status   Source     
-         --------------    -------------    ------------------- ------   ------     
-         {10.0.1.0/24}     VNETLocal                            Active 
-         {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
-         {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
+```
+    Effective routes : 
+     Address Prefix    Next hop type    Next hop IP address Status   Source     
+     --------------    -------------    ------------------- ------   ------     
+     {10.0.1.0/24}     VNETLocal                            Active 
+     {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
+     {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
+```
 
 For this example, the following commands are used to build the route table, add a user defined route, and then bind the route table to a subnet (Note; any items below beginning with a dollar sign (e.g.: $BESubnet) are user defined variables from the script in the reference section of this document):
 
 1. First the base routing table must be created. This snippet shows the creation of the table for the Backend subnet. In the script, a corresponding table is also created for the Frontend subnet.
-   
-        New-AzureRouteTable -Name $BERouteTableName `
-   
-            -Location $DeploymentLocation `
-            -Label "Route table for $BESubnet subnet"
+
+    ```
+    New-AzureRouteTable -Name $BERouteTableName `
+
+        -Location $DeploymentLocation `
+        -Label "Route table for $BESubnet subnet"
+    ```
 2. Once the route table is created, specific user defined routes can be added. In this snipped, all traffic (0.0.0.0/0) will be routed through the virtual appliance (a variable, $VMIP[0], is used to pass in the IP address assigned when the virtual appliance was created earlier in the script). In the script, a corresponding rule is also created in the Frontend table.
-   
-        Get-AzureRouteTable $BERouteTableName | `
-   
-            Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
+
+    ```
+    Get-AzureRouteTable $BERouteTableName | `
+
+        Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+        -NextHopType VirtualAppliance `
+        -NextHopIpAddress $VMIP[0]
+    ```
 3. The above route entry will override the default "0.0.0.0/0" route, but the default 10.0.0.0/16 rule still existing which would allow traffic within the VNet to route directly to the destination and not to the Network Virtual Appliance. To correct this behavior the follow rule must be added.
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
+
+    ```
+    Get-AzureRouteTable $BERouteTableName | `
+        Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+        -NextHopType VirtualAppliance `
+        -NextHopIpAddress $VMIP[0]
+    ```
 4. At this point there is a choice to be made. With the above two routes all traffic will route to the firewall for assessment, even traffic within a single subnet. This may be desired, however to allow traffic within a subnet to route locally without involvement from the firewall a third, very specific rule can be added. This route states that any address destine for the local subnet can just route there directly (NextHopType = VNETLocal).
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
-            -NextHopType VNETLocal
+
+    ```
+    Get-AzureRouteTable $BERouteTableName | `
+        Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+        -NextHopType VNETLocal
+    ```
 5. Finally, with the routing table created and populated with a user defined routes, the table must now be bound to a subnet. In the script, the front end route table is also bound to the Frontend subnet. Here is the binding script for the back end subnet.
-   
-        Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
-   
-           -SubnetName $BESubnet `
-           -RouteTableName $BERouteTableName
+
+    ```
+    Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
+
+       -SubnetName $BESubnet `
+       -RouteTableName $BERouteTableName
+    ```
 
 ## IP Forwarding
 A companion feature to UDR, is IP Forwarding. This is a setting on a Virtual Appliance that allows it to receive traffic not specifically addressed to the appliance and then forward that traffic to its ultimate destination.
 
 As an example, if traffic from AppVM01 makes a request to the DNS01 server, UDR would route this to the firewall. With IP Forwarding enabled, the traffic for the DNS01 destination (10.0.2.4) will be accepted by the appliance (10.0.0.4) and then forwarded to its ultimate destination (10.0.2.4). Without IP Forwarding enabled on the Firewall, traffic would not be accepted by the appliance even though the route table has the firewall as the next hop. 
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > It's critical to remember to enable IP Forwarding in conjunction with User Defined Routing.
 > 
 > 
@@ -146,10 +161,12 @@ As an example, if traffic from AppVM01 makes a request to the DNS01 server, UDR 
 Setting up IP Forwarding is a single command and can be done at VM creation time. For the flow of this example the code snippet is towards the end of the script and grouped with the UDR commands:
 
 1. Call the VM instance that is your virtual appliance, the firewall in this case, and enable IP Forwarding (Note; any item in red beginning with a dollar sign (e.g.: $VMName[0]) is a user defined variable from the script in the reference section of this document. The zero in brackets, [0], represents the first VM in the array of VMs, for the example script to work without modification, the first VM (VM 0) must be the firewall):
-   
-        Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-   
-           Set-AzureIPForwarding -Enable
+
+    ```
+    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+
+       Set-AzureIPForwarding -Enable
+    ```
 
 ## Network Security Groups (NSG)
 In this example, a NSG group is built and then loaded with a single rule. This group is then bound only to the Frontend and Backend subnets (not the SecNet). Declaratively the following rule is being built:
@@ -160,29 +177,33 @@ Although NSGs are used in this example, it's main purpose is as a secondary laye
 
 One interesting point regarding the Network Security Group in this example is that it contains only one rule, shown below, which is to deny internet traffic to the entire virtual network which would include the Security subnet. 
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
-        from the Internet" `
-        -Type Inbound -Priority 100 -Action Deny `
-        -SourceAddressPrefix INTERNET -SourcePortRange '*' `
-        -DestinationAddressPrefix VIRTUAL_NETWORK `
-        -DestinationPortRange '*' `
-        -Protocol *
+```
+Get-AzureNetworkSecurityGroup -Name $NSGName | `
+    Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
+    from the Internet" `
+    -Type Inbound -Priority 100 -Action Deny `
+    -SourceAddressPrefix INTERNET -SourcePortRange '*' `
+    -DestinationAddressPrefix VIRTUAL_NETWORK `
+    -DestinationPortRange '*' `
+    -Protocol *
+```
 
 However, since the NSG is only bound to the Frontend and Backend subnets, the rule isn't processed on traffic inbound to the Security subnet. As a result, even though the NSG rule says no Internet traffic to any address on the VNet, because the NSG was never bound to the Security subnet, traffic will flow to the Security subnet.
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $FESubnet -VirtualNetworkName $VNetName
+```
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $FESubnet -VirtualNetworkName $VNetName
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $BESubnet -VirtualNetworkName $VNetName
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $BESubnet -VirtualNetworkName $VNetName
+```
 
 ## Firewall Rules
 On the firewall, forwarding rules will need to be created. Since the firewall is blocking or forwarding all inbound, outbound, and intra-VNet traffic many firewall rules are needed. Also, all inbound traffic will hit the Security Service public IP address (on different ports), to be processed by the firewall. A best practice is to diagram the logical flows before setting up the subnets and firewall rules to avoid rework later. The following figure is a logical view of the firewall rules for this example:
 
 ![Logical View of the Firewall Rules][2]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Based on the Network Virtual Appliance used, the management ports will vary. In this example a Barracuda NextGen Firewall is referenced which uses ports 22, 801, and 807. Please consult the appliance vendor documentation to find the exact ports used for management of the device being used.
 > 
 > 
@@ -205,14 +226,14 @@ For this example, we need 7 types of rules, these rule types are described as fo
 * Fail-safe Rule (for traffic that doesn't meet any of the above):
     1. Deny All Traffic Rule: This should always be the final rule (in terms of priority), and as such if a traffic flows fails to match any of the preceding rules it will be dropped by this rule. This is a default rule and usually activated, no modifications are generally needed.
 
-> [AZURE.TIP]
+> [!TIP]
 > On the second application traffic rule, any port is allowed for easy of this example, in a real scenario the most specific port and address ranges should be used to reduce the attack surface of this rule.
 > 
 > 
 
 <br />
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Once all of the above rules are created, it's important to review the priority of each rule to ensure traffic will be allowed or denied as desired. For this example, the rules are in priority order. It's easy to be locked out of the firewall due to mis-ordered rules. At a minimum, ensure the management for the firewall itself is always the absolute highest priority rule.
 > 
 > 
@@ -220,16 +241,18 @@ For this example, we need 7 types of rules, these rule types are described as fo
 ### Rule Prerequisites
 One prerequisite for the Virtual Machine running the firewall are public endpoints. For the firewall to process traffic the appropriate public endpoints must be open. There are three types of traffic in this example; 1) Management traffic to control the firewall and firewall rules, 2) RDP traffic to control the windows servers, and 3) Application Traffic. These are the three columns of traffic types in the upper half of logical view of the firewall rules above.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > A key takeway here is to remember that **all** traffic will come through the firewall. So to remote desktop to the IIS01 server, even though it's in the Front End Cloud Service and on the Front End subnet, to access this server we will need to RDP to the firewall on port 8014, and then allow the firewall to route the RDP request internally to the IIS01 RDP Port. The Azure portal preview's "Connect" button won't work because there is no direct RDP path to IIS01 (as far as the portal can see). This means all connections from the internet will be to the Security Service and a Port, e.g. secscv001.chinacloudapp.cn:xxxx (reference the above diagram for the mapping of External Port and Internal IP and Port).
 > 
 > 
 
 An endpoint can be opened either at the time of VM creation or post build as is done in the example script and shown below in this code snippet (Note; any item beginning with a dollar sign (e.g.: $VMName[$i]) is a user defined variable from the script in the reference section of this document. The "$i" in brackets, [$i], represents the array number of a specific VM in an array of VMs):
 
-    Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
-        -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
-        Update-AzureVM
+```
+Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
+    -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
+    Update-AzureVM
+```
 
 Although not clearly shown here due to the use of variables, but endpoints are **only** opened on the Security Cloud Service. This is to ensure that all inbound traffic is handled (routed, NAT'd, dropped) by the firewall.
 
@@ -261,7 +284,7 @@ The values can then be edited to represent the RDP service for a specific server
 
 This process must be repeated to create RDP Services for the remaining servers; AppVM02, DNS01, and IIS01. The creation of these Services will make the Rule creation simpler and more obvious in the next section.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > An RDP service for the Firewall is not needed for two reasons; 1) first the firewall VM is a Linux based image so SSH would be used on port 22 for VM management instead of RDP, and 2) port 22, and two other management ports are allowed in the first management rule described below to allow for management connectivity.
 > 
 > 
@@ -284,26 +307,26 @@ Once your rules are created and/or modified, they must be pushed to the firewall
 The specifics of each rule required to complete this example are described as follows:
 
 * **Firewall Management Rule**: This App Redirect rule allows traffic to pass to the management ports of the network virtual appliance, in this example a Barracuda NextGen Firewall. The management ports are 801, 807 and optionally 22. The external and internal ports are the same (i.e. no port translation). This rule, SETUP-MGMT-ACCESS, is a default rule and enabled by default (in Barracuda NextGen Firewall version 6.1).
-  
+
     ![Firewall Management Rule][10]
 
-> [AZURE.TIP]
+> [!TIP]
 > The source address space in this rule is Any, if the management IP address ranges are known, reducing this scope would also reduce the attack surface to the management ports.
 > 
 > 
 
 * **RDP Rules**:  These Destination NAT rules will allow management of the individual servers via RDP.
     There are four critical fields needed to create this rule:
-  
+
     1. Source - to allow RDP from anywhere, the reference "Any" is used in the Source field.
     2. Service - use the appropriate Service Object created earlier, in this case "AppVM01 RDP", the external ports redirect to the servers local IP address and to port 3386 (the default RDP port). This specific rule is for RDP access to AppVM01.
     3. Destination - should be the *local port on the firewall*, "DCHP 1 Local IP" or eth0 if using static IPs. The ordinal number (eth0, eth1, etc) may be different if your network appliance has multiple local interfaces. This is the port the firewall is sending out from (may be the same as the receiving port), the actual routed destination is in the Target List field.
     4. Redirection - this section tells the virtual appliance where to ultimately redirect this traffic. The simplest redirection is to place the IP and Port (optional) in the Target List field. If no port is used the destination port on the inbound request will be used (ie no translation), if a port is designated the port will also be NAT'd along with the IP address.
-     
+
         ![Firewall RDP Rule][11]
-     
+
         A total of four RDP rules will need to be created: 
-     
+
         | Rule Name | Server | Service | Target List |
         | --- | --- | --- | --- |
         | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
@@ -311,63 +334,63 @@ The specifics of each rule required to complete this example are described as fo
         | RDP-to-AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
         | RDP-to-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
 
-> [AZURE.TIP]
+> [!TIP]
 > Narrowing down the scope of the Source and Service fields will reduce the attack surface. The most limited scope that will allow functionality should be used.
 > 
 > 
 
 * **Application Traffic Rules**: There are two Application Traffic Rules, the first for the front end web traffic, and the second for the back end traffic (eg web server to data tier). These rules will depend on the network architecture (where your servers are placed) and traffic flows (which direction the traffic flows, and which ports are used).
-  
+
     First discussed is the front end rule for web traffic:
-  
+
     ![Firewall Web Rule][12]
-  
+
     This Destination NAT rule allows the actual application traffic to reach the application server. While the other rules allow for security, management, etc., Application Rules are what allow external users or services to access the application(s). For this example, there is a single web server on port 80, thus the single firewall application rule will redirect inbound traffic to the external IP, to the web servers internal IP address.
-  
+
     **Note**: that there is no port assigned in the Target List field, thus the inbound port 80 (or 443 for the Service selected) will be used in the redirection of the web server. If the web server is listening on a different port, for example port 8080, the Target List field could be updated to 10.0.1.4:8080 to allow for the Port redirection as well.
-  
+
     The next Application Traffic Rule is the back end rule to allow the Web Server to talk to the AppVM01 server (but not AppVM02) via Any service:
-  
+
     ![Firewall AppVM01 Rule][13]
-  
+
     This Pass rule allows any IIS server on the Frontend subnet to reach the AppVM01 (IP Address 10.0.2.5) on Any port, using any Protocol to access data needed by the web application.
-  
+
     In this screen shot an "\<explicit-dest\>" is used in the Destination field to signify 10.0.2.5 as the destination. This could be either explicit as shown or a named Network Object (as was done in the prerequisites for the DNS server). This is up to the administrator of the firewall as to which method will be used. To add 10.0.2.5 as an Explict Desitnation, double-click on the first blank row under \<explicit-dest\> and enter the address in the window that pops up.
-  
+
     With this Pass Rule, no NAT is needed since this is internal traffic, so the Connection Method can be set to "No SNAT".
-  
+
     **Note**: The Source network in this rule is any resource on the FrontEnd subnet, if there will only be one, or a known specific number of web servers, a Network Object resource could be created to be more specific to those exact IP addresses instead of the entire Frontend subnet.
 
-> [AZURE.TIP]
+> [!TIP]
 > This rule uses the service "Any" to make the sample application easier to setup and use, this will also allow ICMPv4 (ping) in a single rule. However, this is not a recommended practice. The ports and protocols ("Services") should be narrowed to the minimum possible that allows application operation to reduce the attack surface across this boundary.
 > 
 > 
 
 <br />
 
-> [AZURE.TIP]
+> [!TIP]
 > Although this rule shows an explicit-dest reference being used, a consistent approach should be used throughout the firewall configuration. It is recommended that the named Network Object be used throughout for easier readability and supportability. The explicit-dest is used here only to show an alternative reference method and is not generally recommended (especially for complex configurations).
 > 
 > 
 
 * **Outbound to Internet Rule**: This Pass rule will allow traffic from any Source network to pass to the selected Destination networks. This rule is a default rule usually already on the Barracuda NextGen firewall, but is in a disabled state. Right-clicking on this rule can access the Activate Rule command. The rule shown here has been modified to add the two local subnets that were created as references in the prerequisite section of this document to the Source attribute of this rule.
-  
+
     ![Firewall Outbound Rule][14]
 * **DNS Rule**: This Pass rule allows only DNS (port 53) traffic to pass to the DNS server. For this environment most traffic from the FrontEnd to the BackEnd is blocked, this rule specifically allows DNS.
-  
+
     ![Firewall DNS Rule][15]
-  
+
     **Note**: In this screen shot the Connection Method is included. Because this rule is for internal IP to internal IP address traffic, no NATing is required, this the Connection Method is set to "No SNAT" for this Pass rule.
 * **Subnet to Subnet Rule**: This Pass rule is a default rule that has been activated and modified to allow any server on the back end subnet to connect to any server on the front end subnet. This rule is all internal traffic so the Connection Method can be set to No SNAT.
-  
+
     ![Firewall Intra-VNet Rule][16]
-  
+
     **Note**: The Bi-directional checkbox is not checked (nor is it checked in most rules), this is significant for this rule in that it makes this rule "one directional", a connection can be initiated from the back end subnet to the front end network, but not the reverse. If that checkbox was checked, this rule would enable bi-directional traffic, which from our logical diagram is not desired.
 * **Deny All Traffic Rule**: This should always be the final rule (in terms of priority), and as such if a traffic flows fails to match any of the preceding rules it will be dropped by this rule. This is a default rule and usually activated, no modifications are generally needed. 
-  
+
     ![Firewall Deny Rule][17]
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Once all of the above rules are created, it's important to review the priority of each rule to ensure traffic will be allowed or denied as desired. For this example, the rules are in the order they should appear in the Main Grid of forwarding rules in the Barracuda Management Client.
 > 
 > 
@@ -382,7 +405,7 @@ In the upper right hand corner of the management client are a cluster of buttons
 With the activation of the firewall ruleset this example environment build is complete.
 
 ## Traffic Scenarios
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > A key takeway is to remember that **all** traffic will come through the firewall. So to remote desktop to the IIS01 server, even though it's in the Front End Cloud Service and on the Front End subnet, to access this server we will need to RDP to the firewall on port 8014, and then allow the firewall to route the RDP request internally to the IIS01 RDP Port. The Azure portal preview's "Connect" button won't work because there is no direct RDP path to IIS01 (as far as the portal can see). This means all connections from the internet will be to the Security Service and a Port, e.g. secscv001.chinacloudapp.cn:xxxx.
 > 
 > 
@@ -584,375 +607,379 @@ This script will, based on the user defined variables:
 
 This PowerShell script should be run locally on an internet connected PC or server.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > When this script is run, there may be warnings or other informational messages that pop in PowerShell. Only error messages in red are cause for concern.
 > 
 > 
 
-    <# 
-     .SYNOPSIS
-      Example of DMZ and User Defined Routing in an isolated network (Azure only, no hybrid connections)
+```
+<# 
+ .SYNOPSIS
+  Example of DMZ and User Defined Routing in an isolated network (Azure only, no hybrid connections)
 
-     .DESCRIPTION
-      This script will build out a sample DMZ setup containing:
-       - A default storage account for VM disks
-       - Three new cloud services
-       - Three Subnets (SecNet, FrontEnd, and BackEnd subnets)
-       - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
-       - One server on the FrontEnd Subnet
-       - Three Servers on the BackEnd Subnet
-       - IP Forwading from the FireWall out to the internet
-       - User Defined Routing FrontEnd and BackEnd Subnets to the NVA
+ .DESCRIPTION
+  This script will build out a sample DMZ setup containing:
+   - A default storage account for VM disks
+   - Three new cloud services
+   - Three Subnets (SecNet, FrontEnd, and BackEnd subnets)
+   - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
+   - One server on the FrontEnd Subnet
+   - Three Servers on the BackEnd Subnet
+   - IP Forwading from the FireWall out to the internet
+   - User Defined Routing FrontEnd and BackEnd Subnets to the NVA
 
-      Before running script, ensure the network configuration file is created in
-      the directory referenced by $NetworkConfigFile variable (or update the
-      variable to reflect the path and file name of the config file being used).
+  Before running script, ensure the network configuration file is created in
+  the directory referenced by $NetworkConfigFile variable (or update the
+  variable to reflect the path and file name of the config file being used).
 
-     .Notes
-      Everyone's security requirements are different and can be addressed in a myriad of ways.
-      Please be sure that any sensitive data or applications are behind the appropriate
-      layer(s) of protection. This script serves as an example of some of the techniques
-      that can be used, but should not be used for all scenarios. You are responsible to
-      assess your security needs and the appropriate protections needed, and then effectively
-      implement those protections.
+ .Notes
+  Everyone's security requirements are different and can be addressed in a myriad of ways.
+  Please be sure that any sensitive data or applications are behind the appropriate
+  layer(s) of protection. This script serves as an example of some of the techniques
+  that can be used, but should not be used for all scenarios. You are responsible to
+  assess your security needs and the appropriate protections needed, and then effectively
+  implement those protections.
 
-      Security Service (SecNet subnet 10.0.0.0/24)
-       myFirewall - 10.0.0.4
+  Security Service (SecNet subnet 10.0.0.0/24)
+   myFirewall - 10.0.0.4
 
-      FrontEnd Service (FrontEnd subnet 10.0.1.0/24)
-       IIS01      - 10.0.1.4
+  FrontEnd Service (FrontEnd subnet 10.0.1.0/24)
+   IIS01      - 10.0.1.4
 
-      BackEnd Service (BackEnd subnet 10.0.2.0/24)
-       DNS01      - 10.0.2.4
-       AppVM01    - 10.0.2.5
-       AppVM02    - 10.0.2.6
+  BackEnd Service (BackEnd subnet 10.0.2.0/24)
+   DNS01      - 10.0.2.4
+   AppVM01    - 10.0.2.5
+   AppVM02    - 10.0.2.6
 
-    #>
+#>
 
-    # Fixed Variables
-        $LocalAdminPwd = Read-Host -Prompt "Enter Local Admin Password to be used for all VMs"
-        $VMName = @()
-        $ServiceName = @()
-        $VMFamily = @()
-        $img = @()
-        $size = @()
-        $SubnetName = @()
-        $VMIP = @()
+# Fixed Variables
+    $LocalAdminPwd = Read-Host -Prompt "Enter Local Admin Password to be used for all VMs"
+    $VMName = @()
+    $ServiceName = @()
+    $VMFamily = @()
+    $img = @()
+    $size = @()
+    $SubnetName = @()
+    $VMIP = @()
 
-    # User Defined Global Variables
-      # These should be changes to reflect your subscription and services
-      # Invalid options will fail in the validation section
+# User Defined Global Variables
+  # These should be changes to reflect your subscription and services
+  # Invalid options will fail in the validation section
 
-      # Subscription Access Details
-        $subID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  # Subscription Access Details
+    $subID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
-      # VM Account, Location, and Storage Details
-        $LocalAdmin = "theAdmin"
-        $DeploymentLocation = "China North"
-        $StorageAccountName = "vmstore02"
+  # VM Account, Location, and Storage Details
+    $LocalAdmin = "theAdmin"
+    $DeploymentLocation = "China North"
+    $StorageAccountName = "vmstore02"
 
-      # Service Details
-        $SecureService = "SecSvc001"
-        $FrontEndService = "FrontEnd001"
-        $BackEndService = "BackEnd001"
+  # Service Details
+    $SecureService = "SecSvc001"
+    $FrontEndService = "FrontEnd001"
+    $BackEndService = "BackEnd001"
 
-      # Network Details
-        $VNetName = "CorpNetwork"
-        $VNetPrefix = "10.0.0.0/16"
-        $SecNet = "SecNet"
-        $FESubnet = "FrontEnd"
-        $FEPrefix = "10.0.1.0/24"
-        $BESubnet = "BackEnd"
-        $BEPrefix = "10.0.2.0/24"
-        $NetworkConfigFile = "C:\Scripts\NetworkConf3.xml"
+  # Network Details
+    $VNetName = "CorpNetwork"
+    $VNetPrefix = "10.0.0.0/16"
+    $SecNet = "SecNet"
+    $FESubnet = "FrontEnd"
+    $FEPrefix = "10.0.1.0/24"
+    $BESubnet = "BackEnd"
+    $BEPrefix = "10.0.2.0/24"
+    $NetworkConfigFile = "C:\Scripts\NetworkConf3.xml"
 
-      # VM Base Disk Image Details
-        $SrvImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Windows Server 2012 R2 Datacenter'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
-        $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NextGen Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
+  # VM Base Disk Image Details
+    $SrvImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Windows Server 2012 R2 Datacenter'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
+    $FWImg = Get-AzureVMImage | Where {$_.ImageFamily -match 'Barracuda NextGen Firewall'} | sort PublishedDate -Descending | Select ImageName -First 1 | ForEach {$_.ImageName}
 
-      # UDR Details
-        $FERouteTableName = "FrontEndSubnetRouteTable"
-        $BERouteTableName = "BackEndSubnetRouteTable"
+  # UDR Details
+    $FERouteTableName = "FrontEndSubnetRouteTable"
+    $BERouteTableName = "BackEndSubnetRouteTable"
 
-      # NSG Details
-        $NSGName = "MyVNetSG"
+  # NSG Details
+    $NSGName = "MyVNetSG"
 
-    # User Defined VM Specific Config
-        # Note: To ensure UDR and IP forwarding is setup
-        # properly this script requires VM 0 be the NVA.
+# User Defined VM Specific Config
+    # Note: To ensure UDR and IP forwarding is setup
+    # properly this script requires VM 0 be the NVA.
 
-        # VM 0 - The Network Virtual Appliance (NVA)
-          $VMName += "myFirewall"
-          $ServiceName += $SecureService
-          $VMFamily += "Firewall"
-          $img += $FWImg
-          $size += "Small"
-          $SubnetName += $SecNet
-          $VMIP += "10.0.0.4"
+    # VM 0 - The Network Virtual Appliance (NVA)
+      $VMName += "myFirewall"
+      $ServiceName += $SecureService
+      $VMFamily += "Firewall"
+      $img += $FWImg
+      $size += "Small"
+      $SubnetName += $SecNet
+      $VMIP += "10.0.0.4"
 
-        # VM 1 - The Web Server
-          $VMName += "IIS01"
-          $ServiceName += $FrontEndService
-          $VMFamily += "Windows"
-          $img += $SrvImg
-          $size += "Standard_D3"
-          $SubnetName += $FESubnet
-          $VMIP += "10.0.1.4"
+    # VM 1 - The Web Server
+      $VMName += "IIS01"
+      $ServiceName += $FrontEndService
+      $VMFamily += "Windows"
+      $img += $SrvImg
+      $size += "Standard_D3"
+      $SubnetName += $FESubnet
+      $VMIP += "10.0.1.4"
 
-        # VM 2 - The First Appliaction Server
-          $VMName += "AppVM01"
-          $ServiceName += $BackEndService
-          $VMFamily += "Windows"
-          $img += $SrvImg
-          $size += "Standard_D3"
-          $SubnetName += $BESubnet
-          $VMIP += "10.0.2.5"
+    # VM 2 - The First Appliaction Server
+      $VMName += "AppVM01"
+      $ServiceName += $BackEndService
+      $VMFamily += "Windows"
+      $img += $SrvImg
+      $size += "Standard_D3"
+      $SubnetName += $BESubnet
+      $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
-          $VMName += "AppVM02"
-          $ServiceName += $BackEndService
-          $VMFamily += "Windows"
-          $img += $SrvImg
-          $size += "Standard_D3"
-          $SubnetName += $BESubnet
-          $VMIP += "10.0.2.6"
+    # VM 3 - The Second Appliaction Server
+      $VMName += "AppVM02"
+      $ServiceName += $BackEndService
+      $VMFamily += "Windows"
+      $img += $SrvImg
+      $size += "Standard_D3"
+      $SubnetName += $BESubnet
+      $VMIP += "10.0.2.6"
 
-        # VM 4 - The DNS Server
-          $VMName += "DNS01"
-          $ServiceName += $BackEndService
-          $VMFamily += "Windows"
-          $img += $SrvImg
-          $size += "Standard_D3"
-          $SubnetName += $BESubnet
-          $VMIP += "10.0.2.4"
+    # VM 4 - The DNS Server
+      $VMName += "DNS01"
+      $ServiceName += $BackEndService
+      $VMFamily += "Windows"
+      $img += $SrvImg
+      $size += "Standard_D3"
+      $SubnetName += $BESubnet
+      $VMIP += "10.0.2.4"
 
-    # ----------------------------- #
-    # No User Defined Varibles or   #
-    # Configuration past this point #
-    # ----------------------------- #
+# ----------------------------- #
+# No User Defined Varibles or   #
+# Configuration past this point #
+# ----------------------------- #
 
-      # Get your Azure accounts
-        Add-AzureAccount -Environment AzureChinaCloud
-        Set-AzureSubscription -SubscriptionId $subID -ErrorAction Stop
-        Select-AzureSubscription -SubscriptionId $subID -Current -ErrorAction Stop
+  # Get your Azure accounts
+    Add-AzureAccount -Environment AzureChinaCloud
+    Set-AzureSubscription -SubscriptionId $subID -ErrorAction Stop
+    Select-AzureSubscription -SubscriptionId $subID -Current -ErrorAction Stop
 
-      # Create Storage Account
-        If (Test-AzureName -Storage -Name $StorageAccountName) { 
-            Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
-            Return}
-        Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
-              New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
-
-      # Update Subscription Pointer to New Storage Account
-        Write-Host "Updating Subscription Pointer to New Storage Account" -ForegroundColor Cyan 
-        Set-AzureSubscription -SubscriptionId $subID -CurrentStorageAccountName $StorageAccountName -ErrorAction Stop
-
-    # Validation
-    $FatalError = $false
-
-    If (-Not (Get-AzureLocation | Where {$_.DisplayName -eq $DeploymentLocation})) {
-         Write-Host "This Azure Location was not found or available for use" -ForegroundColor Yellow
-         $FatalError = $true}
-
-    If (Test-AzureName -Service -Name $SecureService) { 
-        Write-Host "The SecureService service name is already in use, please pick a different service name." -ForegroundColor Yellow
-        $FatalError = $true}
-    Else { Write-Host "The FrontEndService service name is valid for use." -ForegroundColor Green}
-
-    If (Test-AzureName -Service -Name $FrontEndService) { 
-        Write-Host "The FrontEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
-        $FatalError = $true}
-    Else { Write-Host "The FrontEndService service name is valid for use" -ForegroundColor Green}
-
-    If (Test-AzureName -Service -Name $BackEndService) { 
-        Write-Host "The BackEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
-        $FatalError = $true}
-    Else { Write-Host "The BackEndService service name is valid for use." -ForegroundColor Green}
-
-    If (-Not (Test-Path $NetworkConfigFile)) { 
-        Write-Host 'The network config file was not found, please update the $NetworkConfigFile variable to point to the network config xml file.' -ForegroundColor Yellow
-        $FatalError = $true}
-    Else { Write-Host "The network config file was found" -ForegroundColor Green
-            If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
-                $FatalError = $true}
-            Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
-
-    If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+  # Create Storage Account
+    If (Test-AzureName -Storage -Name $StorageAccountName) { 
+        Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
         Return}
-    Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
+    Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
+          New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
 
-    # Create VNET
-        Write-Host "Creating VNET" -ForegroundColor Cyan 
-        Set-AzureVNetConfig -ConfigurationPath $NetworkConfigFile -ErrorAction Stop
+  # Update Subscription Pointer to New Storage Account
+    Write-Host "Updating Subscription Pointer to New Storage Account" -ForegroundColor Cyan 
+    Set-AzureSubscription -SubscriptionId $subID -CurrentStorageAccountName $StorageAccountName -ErrorAction Stop
 
-    # Create Services
-        Write-Host "Creating Services" -ForegroundColor Cyan
-        New-AzureService -Location $DeploymentLocation -ServiceName $SecureService -ErrorAction Stop
-        New-AzureService -Location $DeploymentLocation -ServiceName $FrontEndService -ErrorAction Stop
-        New-AzureService -Location $DeploymentLocation -ServiceName $BackEndService -ErrorAction Stop
+# Validation
+$FatalError = $false
 
-    # Build VMs
-        $i=0
-        $VMName | Foreach {
-            Write-Host "Building $($VMName[$i])" -ForegroundColor Cyan
-            If ($VMFamily[$i] -eq "Firewall") 
-                { 
-                New-AzureVMConfig -Name $VMName[$i] -ImageName $img[$i] -InstanceSize $size[$i] | `
-                    Add-AzureProvisioningConfig -Linux -LinuxUser $LocalAdmin -Password $LocalAdminPwd  | `
-                    Set-AzureSubnet  -SubnetNames $SubnetName[$i] | `
-                    Set-AzureStaticVNetIP -IPAddress $VMIP[$i] | `
-                    New-AzureVM -ServiceName $ServiceName[$i] -VNetName $VNetName -Location $DeploymentLocation
-                # Set up all the EndPoints we'll need once we're up and running
-                # Note: All traffic goes through the firewall, so we'll need to set up all ports here.
-                #       Also, the firewall will be redirecting traffic to a new IP and Port in a forwarding
-                #       rule, so all of these endpoint have the same public and local port and the firewall
-                #       will do the mapping, NATing, and/or redirection as declared in the firewall rules.
-                Add-AzureEndpoint -Name "MgmtPort1" -Protocol tcp -PublicPort 801  -LocalPort 801  -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
-                Add-AzureEndpoint -Name "MgmtPort2" -Protocol tcp -PublicPort 807  -LocalPort 807  -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
-                Add-AzureEndpoint -Name "HTTP"      -Protocol tcp -PublicPort 80   -LocalPort 80   -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
-                Add-AzureEndpoint -Name "RDPWeb"    -Protocol tcp -PublicPort 8014 -LocalPort 8014 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
-                Add-AzureEndpoint -Name "RDPApp1"   -Protocol tcp -PublicPort 8025 -LocalPort 8025 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
-                Add-AzureEndpoint -Name "RDPApp2"   -Protocol tcp -PublicPort 8026 -LocalPort 8026 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
-                Add-AzureEndpoint -Name "RDPDNS01"  -Protocol tcp -PublicPort 8024 -LocalPort 8024 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
-                # Note: A SSH endpoint is automatically created on port 22 when the appliance is created.
-                }
-            Else
-                {
-                New-AzureVMConfig -Name $VMName[$i] -ImageName $img[$i] -InstanceSize $size[$i] | `
-                    Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdmin -Password $LocalAdminPwd  | `
-                    Set-AzureSubnet  -SubnetNames $SubnetName[$i] | `
-                    Set-AzureStaticVNetIP -IPAddress $VMIP[$i] | `
-                    Set-AzureVMMicrosoftAntimalwareExtension -AntimalwareConfiguration '{"AntimalwareEnabled" : true}' | `
-                    Remove-AzureEndpoint -Name "RemoteDesktop" | `
-                    Remove-AzureEndpoint -Name "PowerShell" | `
-                    New-AzureVM -ServiceName $ServiceName[$i] -VNetName $VNetName -Location $DeploymentLocation
-                }
-            $i++
-        }
+If (-Not (Get-AzureLocation | Where {$_.DisplayName -eq $DeploymentLocation})) {
+     Write-Host "This Azure Location was not found or available for use" -ForegroundColor Yellow
+     $FatalError = $true}
 
-    # Configure UDR and IP Forwarding
-        Write-Host "Configuring UDR" -ForegroundColor Cyan
+If (Test-AzureName -Service -Name $SecureService) { 
+    Write-Host "The SecureService service name is already in use, please pick a different service name." -ForegroundColor Yellow
+    $FatalError = $true}
+Else { Write-Host "The FrontEndService service name is valid for use." -ForegroundColor Green}
 
-      # Create the Route Tables
-        Write-Host "Creating the Route Tables" -ForegroundColor Cyan 
-        New-AzureRouteTable -Name $BERouteTableName `
-            -Location $DeploymentLocation `
-            -Label "Route table for $BESubnet subnet"
-        New-AzureRouteTable -Name $FERouteTableName `
-            -Location $DeploymentLocation `
-            -Label "Route table for $FESubnet subnet"
+If (Test-AzureName -Service -Name $FrontEndService) { 
+    Write-Host "The FrontEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
+    $FatalError = $true}
+Else { Write-Host "The FrontEndService service name is valid for use" -ForegroundColor Green}
 
-      # Add Routes to Route Tables
-        Write-Host "Adding Routes to the Route Tables" -ForegroundColor Cyan 
-        Get-AzureRouteTable $BERouteTableName `
-            |Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
-        Get-AzureRouteTable $BERouteTableName `
-            |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
-        Get-AzureRouteTable $BERouteTableName `
-            |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
-            -NextHopType VNETLocal
-        Get-AzureRouteTable $FERouteTableName `
-            |Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
-        Get-AzureRouteTable $FERouteTableName `
-            |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
-        Get-AzureRouteTable $FERouteTableName `
-            |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $FEPrefix `
-            -NextHopType VNETLocal
+If (Test-AzureName -Service -Name $BackEndService) { 
+    Write-Host "The BackEndService service name is already in use, please pick a different service name." -ForegroundColor Yellow
+    $FatalError = $true}
+Else { Write-Host "The BackEndService service name is valid for use." -ForegroundColor Green}
 
-      # Assoicate the Route Tables with the Subnets
-        Write-Host "Binding Route Tables to the Subnets" -ForegroundColor Cyan 
-        Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
-            -SubnetName $BESubnet `
-            -RouteTableName $BERouteTableName
-        Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
-            -SubnetName $FESubnet `
-            -RouteTableName $FERouteTableName
+If (-Not (Test-Path $NetworkConfigFile)) { 
+    Write-Host 'The network config file was not found, please update the $NetworkConfigFile variable to point to the network config xml file.' -ForegroundColor Yellow
+    $FatalError = $true}
+Else { Write-Host "The network config file was found" -ForegroundColor Green
+        If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
+            Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+            $FatalError = $true}
+        Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
-     # Enable IP Forwarding on the Virtual Appliance
-        Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] `
-            |Set-AzureIPForwarding -Enable
+If ($FatalError) {
+    Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+    Return}
+Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
-    # Configure NSG
-        Write-Host "Configuring the Network Security Group (NSG)" -ForegroundColor Cyan
+# Create VNET
+    Write-Host "Creating VNET" -ForegroundColor Cyan 
+    Set-AzureVNetConfig -ConfigurationPath $NetworkConfigFile -ErrorAction Stop
 
-      # Build the NSG
-        Write-Host "Building the NSG" -ForegroundColor Cyan
-        New-AzureNetworkSecurityGroup -Name $NSGName -Location $DeploymentLocation -Label "Security group for $VNetName subnets in $DeploymentLocation"
+# Create Services
+    Write-Host "Creating Services" -ForegroundColor Cyan
+    New-AzureService -Location $DeploymentLocation -ServiceName $SecureService -ErrorAction Stop
+    New-AzureService -Location $DeploymentLocation -ServiceName $FrontEndService -ErrorAction Stop
+    New-AzureService -Location $DeploymentLocation -ServiceName $BackEndService -ErrorAction Stop
 
-      # Add NSG Rule
-        Write-Host "Writing rules into the NSG" -ForegroundColor Cyan
-        Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet from the Internet" -Type Inbound -Priority 100 -Action Deny `
-            -SourceAddressPrefix INTERNET -SourcePortRange '*' `
-            -DestinationAddressPrefix VIRTUAL_NETWORK -DestinationPortRange '*' `
-            -Protocol *
+# Build VMs
+    $i=0
+    $VMName | Foreach {
+        Write-Host "Building $($VMName[$i])" -ForegroundColor Cyan
+        If ($VMFamily[$i] -eq "Firewall") 
+            { 
+            New-AzureVMConfig -Name $VMName[$i] -ImageName $img[$i] -InstanceSize $size[$i] | `
+                Add-AzureProvisioningConfig -Linux -LinuxUser $LocalAdmin -Password $LocalAdminPwd  | `
+                Set-AzureSubnet  -SubnetNames $SubnetName[$i] | `
+                Set-AzureStaticVNetIP -IPAddress $VMIP[$i] | `
+                New-AzureVM -ServiceName $ServiceName[$i] -VNetName $VNetName -Location $DeploymentLocation
+            # Set up all the EndPoints we'll need once we're up and running
+            # Note: All traffic goes through the firewall, so we'll need to set up all ports here.
+            #       Also, the firewall will be redirecting traffic to a new IP and Port in a forwarding
+            #       rule, so all of these endpoint have the same public and local port and the firewall
+            #       will do the mapping, NATing, and/or redirection as declared in the firewall rules.
+            Add-AzureEndpoint -Name "MgmtPort1" -Protocol tcp -PublicPort 801  -LocalPort 801  -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
+            Add-AzureEndpoint -Name "MgmtPort2" -Protocol tcp -PublicPort 807  -LocalPort 807  -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
+            Add-AzureEndpoint -Name "HTTP"      -Protocol tcp -PublicPort 80   -LocalPort 80   -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
+            Add-AzureEndpoint -Name "RDPWeb"    -Protocol tcp -PublicPort 8014 -LocalPort 8014 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
+            Add-AzureEndpoint -Name "RDPApp1"   -Protocol tcp -PublicPort 8025 -LocalPort 8025 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
+            Add-AzureEndpoint -Name "RDPApp2"   -Protocol tcp -PublicPort 8026 -LocalPort 8026 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
+            Add-AzureEndpoint -Name "RDPDNS01"  -Protocol tcp -PublicPort 8024 -LocalPort 8024 -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | Update-AzureVM
+            # Note: A SSH endpoint is automatically created on port 22 when the appliance is created.
+            }
+        Else
+            {
+            New-AzureVMConfig -Name $VMName[$i] -ImageName $img[$i] -InstanceSize $size[$i] | `
+                Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdmin -Password $LocalAdminPwd  | `
+                Set-AzureSubnet  -SubnetNames $SubnetName[$i] | `
+                Set-AzureStaticVNetIP -IPAddress $VMIP[$i] | `
+                Set-AzureVMMicrosoftAntimalwareExtension -AntimalwareConfiguration '{"AntimalwareEnabled" : true}' | `
+                Remove-AzureEndpoint -Name "RemoteDesktop" | `
+                Remove-AzureEndpoint -Name "PowerShell" | `
+                New-AzureVM -ServiceName $ServiceName[$i] -VNetName $VNetName -Location $DeploymentLocation
+            }
+        $i++
+    }
 
-      # Assign the NSG to two Subnets
-        # The NSG is *not* bound to the Security Subnet. The result
-        # is that internet traffic flows only to the Security subnet
-        # since the NSG bound to the Frontend and Backback subnets
-        # will Deny internet traffic to those subnets.
-        Write-Host "Binding the NSG to two subnets" -ForegroundColor Cyan
-        Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $FESubnet -VirtualNetworkName $VNetName
-        Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $BESubnet -VirtualNetworkName $VNetName
+# Configure UDR and IP Forwarding
+    Write-Host "Configuring UDR" -ForegroundColor Cyan
 
-    # Optional Post-script Manual Configuration
-      # Configure Firewall
-      # Install Test Web App (Run Post-Build Script on the IIS Server)
-      # Install Backend resource (Run Post-Build Script on the AppVM01)
-      Write-Host
-      Write-Host "Build Complete!" -ForegroundColor Green
-      Write-Host
-      Write-Host "Optional Post-script Manual Configuration Steps" -ForegroundColor Gray
-      Write-Host " - Configure Firewall" -ForegroundColor Gray
-      Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
-      Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
-      Write-Host
+  # Create the Route Tables
+    Write-Host "Creating the Route Tables" -ForegroundColor Cyan 
+    New-AzureRouteTable -Name $BERouteTableName `
+        -Location $DeploymentLocation `
+        -Label "Route table for $BESubnet subnet"
+    New-AzureRouteTable -Name $FERouteTableName `
+        -Location $DeploymentLocation `
+        -Label "Route table for $FESubnet subnet"
+
+  # Add Routes to Route Tables
+    Write-Host "Adding Routes to the Route Tables" -ForegroundColor Cyan 
+    Get-AzureRouteTable $BERouteTableName `
+        |Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+        -NextHopType VirtualAppliance `
+        -NextHopIpAddress $VMIP[0]
+    Get-AzureRouteTable $BERouteTableName `
+        |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+        -NextHopType VirtualAppliance `
+        -NextHopIpAddress $VMIP[0]
+    Get-AzureRouteTable $BERouteTableName `
+        |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+        -NextHopType VNETLocal
+    Get-AzureRouteTable $FERouteTableName `
+        |Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+        -NextHopType VirtualAppliance `
+        -NextHopIpAddress $VMIP[0]
+    Get-AzureRouteTable $FERouteTableName `
+        |Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+        -NextHopType VirtualAppliance `
+        -NextHopIpAddress $VMIP[0]
+    Get-AzureRouteTable $FERouteTableName `
+        |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $FEPrefix `
+        -NextHopType VNETLocal
+
+  # Assoicate the Route Tables with the Subnets
+    Write-Host "Binding Route Tables to the Subnets" -ForegroundColor Cyan 
+    Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
+        -SubnetName $BESubnet `
+        -RouteTableName $BERouteTableName
+    Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
+        -SubnetName $FESubnet `
+        -RouteTableName $FERouteTableName
+
+ # Enable IP Forwarding on the Virtual Appliance
+    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] `
+        |Set-AzureIPForwarding -Enable
+
+# Configure NSG
+    Write-Host "Configuring the Network Security Group (NSG)" -ForegroundColor Cyan
+
+  # Build the NSG
+    Write-Host "Building the NSG" -ForegroundColor Cyan
+    New-AzureNetworkSecurityGroup -Name $NSGName -Location $DeploymentLocation -Label "Security group for $VNetName subnets in $DeploymentLocation"
+
+  # Add NSG Rule
+    Write-Host "Writing rules into the NSG" -ForegroundColor Cyan
+    Get-AzureNetworkSecurityGroup -Name $NSGName | Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet from the Internet" -Type Inbound -Priority 100 -Action Deny `
+        -SourceAddressPrefix INTERNET -SourcePortRange '*' `
+        -DestinationAddressPrefix VIRTUAL_NETWORK -DestinationPortRange '*' `
+        -Protocol *
+
+  # Assign the NSG to two Subnets
+    # The NSG is *not* bound to the Security Subnet. The result
+    # is that internet traffic flows only to the Security subnet
+    # since the NSG bound to the Frontend and Backback subnets
+    # will Deny internet traffic to those subnets.
+    Write-Host "Binding the NSG to two subnets" -ForegroundColor Cyan
+    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $FESubnet -VirtualNetworkName $VNetName
+    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName -SubnetName $BESubnet -VirtualNetworkName $VNetName
+
+# Optional Post-script Manual Configuration
+  # Configure Firewall
+  # Install Test Web App (Run Post-Build Script on the IIS Server)
+  # Install Backend resource (Run Post-Build Script on the AppVM01)
+  Write-Host
+  Write-Host "Build Complete!" -ForegroundColor Green
+  Write-Host
+  Write-Host "Optional Post-script Manual Configuration Steps" -ForegroundColor Gray
+  Write-Host " - Configure Firewall" -ForegroundColor Gray
+  Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
+  Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
+  Write-Host
+```
 
 #### Network Config File
 Save this xml file with updated location and add the link to this file to the $NetworkConfigFile variable in the script above.
 
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
-      <VirtualNetworkConfiguration>
-        <Dns>
-          <DnsServers>
-            <DnsServer name="DNS01" IPAddress="10.0.2.4" />
-            <DnsServer name="Level3" IPAddress="209.244.0.3" />
-          </DnsServers>
-        </Dns>
-        <VirtualNetworkSites>
-          <VirtualNetworkSite name="CorpNetwork" Location="China North">
-            <AddressSpace>
-              <AddressPrefix>10.0.0.0/16</AddressPrefix>
-            </AddressSpace>
-            <Subnets>
-              <Subnet name="SecNet">
-                <AddressPrefix>10.0.0.0/24</AddressPrefix>
-              </Subnet>
-              <Subnet name="FrontEnd">
-                <AddressPrefix>10.0.1.0/24</AddressPrefix>
-              </Subnet>
-              <Subnet name="BackEnd">
-                <AddressPrefix>10.0.2.0/24</AddressPrefix>
-              </Subnet>
-            </Subnets>
-            <DnsServersRef>
-              <DnsServerRef name="DNS01" />
-              <DnsServerRef name="Level3" />
-            </DnsServersRef>
-          </VirtualNetworkSite>
-        </VirtualNetworkSites>
-      </VirtualNetworkConfiguration>
-    </NetworkConfiguration>
+```
+<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+  <VirtualNetworkConfiguration>
+    <Dns>
+      <DnsServers>
+        <DnsServer name="DNS01" IPAddress="10.0.2.4" />
+        <DnsServer name="Level3" IPAddress="209.244.0.3" />
+      </DnsServers>
+    </Dns>
+    <VirtualNetworkSites>
+      <VirtualNetworkSite name="CorpNetwork" Location="China North">
+        <AddressSpace>
+          <AddressPrefix>10.0.0.0/16</AddressPrefix>
+        </AddressSpace>
+        <Subnets>
+          <Subnet name="SecNet">
+            <AddressPrefix>10.0.0.0/24</AddressPrefix>
+          </Subnet>
+          <Subnet name="FrontEnd">
+            <AddressPrefix>10.0.1.0/24</AddressPrefix>
+          </Subnet>
+          <Subnet name="BackEnd">
+            <AddressPrefix>10.0.2.0/24</AddressPrefix>
+          </Subnet>
+        </Subnets>
+        <DnsServersRef>
+          <DnsServerRef name="DNS01" />
+          <DnsServerRef name="Level3" />
+        </DnsServersRef>
+      </VirtualNetworkSite>
+    </VirtualNetworkSites>
+  </VirtualNetworkConfiguration>
+</NetworkConfiguration>
+```
 
 #### Sample Application Scripts
 If you wish to install a sample application for this, and other DMZ Examples, one has been provided at the following link: [Sample Application Script][SampleApp]
@@ -978,5 +1005,5 @@ If you wish to install a sample application for this, and other DMZ Examples, on
 [18]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/firewallruleactivate.png "Firewall Rule Activation"
 
 <!--Link References-->
-[HOME]: /documentation/articles/best-practices-network-security/
-[SampleApp]: /documentation/articles/virtual-networks-sample-app/
+[HOME]: ../best-practices-network-security.md
+[SampleApp]: ./virtual-networks-sample-app.md

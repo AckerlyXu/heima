@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Azure Monitor partner integrations | Azure"
-	description="Learn about Azure Monitor's partners and how you can access documentation for integrating with them."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Azure Monitor partner integrations | Azure
+description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
+authors: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/10/2017"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/10/2017
+ms.author: johnkem
+---
 
 # Azure Monitor partner integrations
 | Partners |  |  |
@@ -97,10 +97,10 @@ Sumo Logic is a secure, cloud-native, machine data analytics service, delivering
 [Learn more.][sumologic-doc]
 
 ## Next Steps
-* [Learn more about Azure Monitor](/documentation/articles/monitoring-overview/)
-* [Access metrics using the REST API](/documentation/articles/monitoring-rest-api-walkthrough/)
-* [Stream the Activity Log to a 3rd party service](/documentation/articles/monitoring-stream-activity-logs-event-hubs/)
-* [Stream Diagnostic Logs to a 3rd party service](/documentation/articles/monitoring-stream-diagnostic-logs-to-event-hubs/)
+* [Learn more about Azure Monitor](./monitoring-overview.md)
+* [Access metrics using the REST API](./monitoring-rest-api-walkthrough.md)
+* [Stream the Activity Log to a 3rd party service](./monitoring-stream-activity-logs-event-hubs.md)
+* [Stream Diagnostic Logs to a 3rd party service](./monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"

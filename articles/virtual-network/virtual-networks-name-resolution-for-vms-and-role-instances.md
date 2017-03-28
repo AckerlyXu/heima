@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Resolution for VMs and Role Instances"
-    description="Name Resolution scenarios for Azure IaaS , hybrid solutions, between different cloud services, Active Directory and using your own DNS server "
-    services="virtual-network"
-    documentationcenter="na"
-    author="GarethBradshawMSFT"
-    manager="carmonm"
-    editor="tysonn" />
-<tags
-    ms.assetid="5d73edde-979a-470a-b28c-e103fcf07e3e"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="12/06/2016"
-    wacn.date=""
-    ms.author="telmos" />
+---
+title: Resolution for VMs and Role Instances
+description: Name Resolution scenarios for Azure IaaS , hybrid solutions, between different cloud services, Active Directory and using your own DNS server 
+services: virtual-network
+documentationcenter: na
+author: GarethBradshawMSFT
+manager: carmonm
+editor: tysonn
+
+ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 12/06/2016
+wacn.date: ''
+ms.author: telmos
+---
 
 # Name Resolution for VMs and Role Instances
 Depending on how you use Azure to host IaaS, PaaS, and hybrid solutions, you may need to allow the VMs and role instances that you create to communicate with each other. Although this communication can be done by using IP addresses, it is much simpler to use names that can be easily remembered and do not change. 
@@ -41,7 +42,7 @@ The type of name resolution you use depends on how your VMs and role instances n
 ## <a name="azure-provided-name-resolution" id="Azure-provided-name-resolution"></a> Azure-provided name resolution
 Along with resolution of public DNS names, Azure provides internal name resolution for VMs and role instances that reside within the same virtual network or cloud service.  VMs/instances in a cloud service share the same DNS suffix (so the hostname alone is sufficient) but in classic virtual networks different cloud services have different DNS suffixes so the FQDN is needed to resolve names between different cloud services.  In virtual networks in the Resource Manager deployment model, the DNS suffix is consistent across the virtual network (so the FQDN is not needed) and DNS names can be assigned to both NICs and VMs. Although Azure-provided name resolution does not require any configuration, it is not the appropriate choice for all deployment scenarios, as seen on the table above.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > In the case of web and worker roles, you can also access the internal IP addresses of role instances based on the role name and instance number using the Azure Service Management REST API. For more information, see [Service Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/ee460799.aspx).
 > 
 > 
@@ -89,7 +90,7 @@ There are a number of different DNS caching packages available, e.g. dnsmasq, he
     * add "prepend domain-name-servers 127.0.0.1;" to "/etc/dhclient-eth0.conf"
     * restart the network service ("service network restart") to set the cache as the local DNS resolver
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The 'dnsmasq' package is only one of the many DNS caches available for Linux.  Before using it, please check its suitability for your particular needs and that no other cache is installed.
 > 
 > 
@@ -103,7 +104,9 @@ DNS is primarily a UDP protocol.  As the UDP protocol doesn't guarantee message 
 
 To check the current settings on a Linux VM, 'cat /etc/resolv.conf' and look at the 'options' line, e.g.:
 
-    options timeout:1 attempts:5
+```
+options timeout:1 attempts:5
+```
 
 The resolv.conf file is usually auto-generated and should not be edited.  The specific steps for adding the 'options' line vary by distro:
 
@@ -135,20 +138,20 @@ If needed, the Internal DNS suffix can be determined using PowerShell or the API
 
 If forwarding queries to Azure doesn't suit your needs, you will need to provide your own DNS solution.  Your DNS solution will need to:
 
-* Provide appropriate hostname resolution, e.g. via [DDNS](/documentation/articles/virtual-networks-name-resolution-ddns/).  Note, if using DDNS you may need to disable DNS record scavenging as Azure's DHCP leases are very long and scavenging may remove DNS records prematurely. 
+* Provide appropriate hostname resolution, e.g. via [DDNS](./virtual-networks-name-resolution-ddns.md).  Note, if using DDNS you may need to disable DNS record scavenging as Azure's DHCP leases are very long and scavenging may remove DNS records prematurely. 
 * Provide appropriate recursive resolution to allow resolution of external domain names.
 * Be accessible (TCP and UDP on port 53) from the clients it serves and be able to access the internet.
 * Be secured against access from the internet, to mitigate threats posed by external agents.
 
-> [AZURE.NOTE]
-> For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](/documentation/articles/virtual-networks-instance-level-public-ip/) should be assigned to each DNS server VM.  If you choose to use Windows Server as your DNS server, [this article](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) provides additional performance analysis and optimizations.
+> [!NOTE]
+> For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](./virtual-networks-instance-level-public-ip.md) should be assigned to each DNS server VM.  If you choose to use Windows Server as your DNS server, [this article](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) provides additional performance analysis and optimizations.
 > 
 > 
 
 ### Specifying DNS servers
 When using your own DNS servers, Azure provides the ability to specify multiple DNS servers per virtual network or per network interface (Resource Manager) / cloud service (classic).  DNS servers specified for a cloud service/network interface get precedence over those specified for the virtual network.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Network connection properties, such as DNS server IPs, should not be edited directly within Windows VMs as they may get erased during service heal when the virtual network adaptor gets replaced. 
 > 
 > 
@@ -157,7 +160,7 @@ When using the Resource Manager deployment model, DNS servers can be specified i
 
 When using the classic deployment model, DNS servers for the virtual network can be specified in the Portal or [the *Network Configuration* file](https://msdn.microsoft.com/zh-cn/library/azure/jj157100).  For cloud services, the DNS servers are specified via [the *Service Configuration* file](https://msdn.microsoft.com/zh-cn/library/azure/ee758710) or in PowerShell ([New-AzureVM](https://msdn.microsoft.com/zh-cn/library/azure/dn495254.aspx)).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you change the DNS settings for a virtual network/virtual machine that is already deployed, you need to restart each affected VM for the changes to take effect.
 > 
 > 
@@ -174,4 +177,4 @@ Classic deployment model:
 
 * [Azure Service Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/ee758710)
 * [Virtual Network Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100)
-* [Configure a Virtual Network by Using a Network Configuration File](/documentation/articles/virtual-networks-using-network-configuration-file/)
+* [Configure a Virtual Network by Using a Network Configuration File](./virtual-networks-using-network-configuration-file.md)

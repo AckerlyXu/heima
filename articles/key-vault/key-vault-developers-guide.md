@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Key Vault Developer's Guide | Azure"
-    description="Developers can use Azure Key Vault to manage cryptographic keys within the Azure environment. "
-    services="key-vault"
-    documentationcenter=""
-    author="BrucePerlerMS"
-    manager="mbaldwin"
-    editor="bruceper" />
-<tags
-    ms.assetid="b2b1bd28-e149-4d69-b08b-97f6c50ebe30"
-    ms.service="key-vault"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="01/17/2017"
-    wacn.date=""
-    ms.author="bruceper" />
+---
+title: Key Vault Developer's Guide | Azure
+description: Developers can use Azure Key Vault to manage cryptographic keys within the Azure environment. 
+services: key-vault
+documentationcenter: ''
+author: BrucePerlerMS
+manager: mbaldwin
+editor: bruceper
+
+ms.assetid: b2b1bd28-e149-4d69-b08b-97f6c50ebe30
+ms.service: key-vault
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 01/17/2017
+wacn.date: ''
+ms.author: bruceper
+---
 
 # Azure Key Vault Developer's Guide
 Using Key Vault, you are able to securely access sensitive information from within your applications such that:
@@ -25,17 +26,17 @@ Using Key Vault, you are able to securely access sensitive information from with
 - Your application can use keys for signing and encryption yet keeps the key management external from your application hence, your solution is suitable for an application that is geographically distributed.
 - With the September 2016 release of Key Vault, your applications can now make use of Key Vault certificates. For more information, see **About keys, secrets, and certificates** article in the [REST reference](https://msdn.microsoft.com/zh-cn/library/azure/dn903623.aspx).
 
-For more general information on Azure Key Vault, see [What is Key Vault](/documentation/articles/key-vault-whatis/).
+For more general information on Azure Key Vault, see [What is Key Vault](./key-vault-whatis.md).
 
 ## Creating and Managing Key Vaults
 Before working with Azure Key Vault in your code, you can create and manage vaults through REST, Resource Manager Templates, PowerShell or CLI, as described in the following articles:
 
 - [Create and Manage Key Vaults with REST](https://msdn.microsoft.com/zh-cn/library/azure/mt620024.aspx)
-- [Create and Manage Key Vaults with PowerShell](/documentation/articles/key-vault-get-started/)
-- [Create and Manage Key Vaults with CLI](/documentation/articles/key-vault-manage-with-cli/)
-- [Create a key vault and add a secret via an Azure Resource Manager template](/documentation/articles/resource-manager-template-keyvault/)
+- [Create and Manage Key Vaults with PowerShell](./key-vault-get-started.md)
+- [Create and Manage Key Vaults with CLI](./key-vault-manage-with-cli.md)
+- [Create a key vault and add a secret via an Azure Resource Manager template](../azure-resource-manager/resource-manager-template-keyvault.md)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Operations against key vaults are authenticated through AAD and authorized through Key Vault’s own Access Policy, defined per vault.
 >
 >
@@ -56,21 +57,21 @@ The following SDKs are available for working with Key Vault:
 | [.NET SDK Documentation](https://msdn.microsoft.com/zh-cn/library/mt765854.aspx) |[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest) |
 | [.NET SDK Package on NuGet](http://www.nuget.org/packages/Microsoft.Azure.KeyVault) |[Node.js SDK Package](https://www.npmjs.com/package/azure-keyvault) |
 
-For more information on the 2.x version of the .NET SDK, see the [Release notes](/documentation/articles/key-vault-dotnet2api-release-notes/).
+For more information on the 2.x version of the .NET SDK, see the [Release notes](./key-vault-dotnet2api-release-notes.md).
 
 ## Example code
 For complete examples using Key Vault with your applications, see:
 
 - .NET sample application *HelloKeyVault* and an Azure web service example. [Azure Key Vault code samples](http://www.microsoft.com/en-us/download/details.aspx?id=45343)
-- Tutorial to help you learn how to use Azure Key Vault from a web application in Azure. [Use Azure Key Vault from a Web Application](/documentation/articles/key-vault-use-from-web-application/)
+- Tutorial to help you learn how to use Azure Key Vault from a web application in Azure. [Use Azure Key Vault from a Web Application](./key-vault-use-from-web-application.md)
 
 ## How-tos
 The following articles and scenarios provide task-specific guidance for working with Azure Key Vault:
 
-- [Change key vault tenant ID after subscription move](/documentation/articles/key-vault-subscription-move-fix/) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. Fix this using this guide.
-- [Accessing Key Vault behind firewall](/documentation/articles/key-vault-access-behind-firewall/) - To access a key vault your key vault client application needs to be able to access multiple end-points for various functionalities.
+- [Change key vault tenant ID after subscription move](./key-vault-subscription-move-fix.md) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. Fix this using this guide.
+- [Accessing Key Vault behind firewall](./key-vault-access-behind-firewall.md) - To access a key vault your key vault client application needs to be able to access multiple end-points for various functionalities.
 
-- [How to pass secure values (such as passwords) during deployment](/documentation/articles/resource-manager-keyvault-parameter/) - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Key Vault and reference the value in other Resource Manager templates.
+- [How to pass secure values (such as passwords) during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md) - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Key Vault and reference the value in other Resource Manager templates.
 - [How to use Key Vault for extensible key management with SQL Server](https://msdn.microsoft.com/zh-cn/library/dn198405.aspx) - The SQL Server Connector for Azure Key Vault enables SQL Server and SQL-in-a-VM to leverage the Azure Key Vault service as an Extensible Key Management (EKM) provider to protect its encryption keys for applications link; Transparent Data Encryption, Backup Encryption, and Column Level Encryption.
 - [How to deploy Certificates to VMs from Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - A cloud application running in a VM on Azure needs a certificate. How do you get this certificate into this VM today?
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) provides step-by-step instructions for deploying certificates stored in Key Vault as part of [App Service Certificate](https://azure.microsoft.com/en-us/blog/internals-of-app-service-certificate/) offering.

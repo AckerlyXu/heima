@@ -7,8 +7,8 @@ Managing and analyzing data in the cloud is just as important as it is anywhere 
 - [Blob Storage](#blob)
 - [Running a DBMS in a Virtual Machine](#dbinvm)
 - [SQL Database](#sqldb)
-	- [SQL Data Sync](#datasync)
-	- [SQL Data Reporting using Virtual Machines](#datarpt)
+    - [SQL Data Sync](#datasync)
+    - [SQL Data Reporting using Virtual Machines](#datarpt)
 - [Table Storage](#tblstor)
 - [Hadoop](#hadoop)
 
@@ -17,7 +17,7 @@ Managing and analyzing data in the cloud is just as important as it is anywhere 
 The word "blob" is short for "Binary Large OBject", and it describes exactly what a blob is: a collection of binary information. Yet even though they're simple, blobs are quite useful. [Figure 1](#Fig1) illustrates the basics of Azure Blob Storage.
 
 <a name="Fig1"></a>![Diagram of Blobs][blobs]
- 
+
 **Figure 1: Azure Blob Storage stores binary data - blobs - in containers.**
 
 To use blobs, you first create an Azure *storage account*. As part of this, you specify the Azure datacenter that will store the objects you create using this account. Wherever it lives, each blob you create belongs to some container in your storage account. To access a blob, an application provides a URL with the form:
@@ -44,13 +44,12 @@ Data in blobs can also be made available via the Azure *Content Delivery Network
 
 Simple as they are, blobs are the right choice in many situations. Storing and streaming video and audio are obvious examples, as are backups and other kinds of data archiving. Developers can also use blobs to hold any kind of unstructured data they like. Having a straightforward way to store and access binary data can be surprisingly useful.
 
-
 ## <a name="dbinvm"></a>Running a DBMS in a Virtual Machine
 
 Many applications today rely on some kind of database management system (DBMS). Relational systems such as SQL Server are the most frequently used choice, but non-relational approaches, commonly known as *NoSQL* technologies, get more popular every day. To let cloud applications use these data management options, Azure Virtual Machines allows you to run a DBMS (relational or NoSQL) in a VM. [Figure 2](#Fig2) shows how this looks with SQL Server.
 
 <a name="Fig2"></a>![Diagram of SQL Server in a Virtual Machine][SQLSvr-vm]
- 
+
 **Figure 2: Azure Virtual Machines allows running a DBMS in a VM, with persistence provided by blobs.**
 
 To both developers and database administrators, this scenario looks much like running the same software in their own datacenter. In the example shown here, for instance, nearly all of SQL Server's capabilities can be used, and you have full administrative access to the system. You also have the responsibility of managing the database server, of course, just as if it were running locally.
@@ -59,13 +58,12 @@ As [Figure 2](#Fig2) shows, your databases appear to be stored on the local disk
 
 Another way to use SQL Server in a VM is to create a hybrid application, where the data lives on Azure while the application logic runs on-premises. For example, this might make sense when applications running in multiple locations or on various mobile devices must share the same data. To make communication between the cloud database and on-premises logic simpler, an organization can use Azure Virtual Network to create a virtual private network (VPN) connection between an Azure datacenter and its own on-premises datacenter.
 
-
 ## <a name="sqldb"></a>SQL Database
 
 For many people, running a DBMS in a VM is the first option that comes to mind for managing structured data in the cloud. It's not the only choice, though, nor is it always the best choice. In some cases, managing data using a Platform as a Service (PaaS) approach makes more sense. Azure provides a PaaS technology called SQL Database that lets you do this for relational data. [Figure 3](#Fig3) illustrates this option. 
 
 <a name="Fig3"></a>![Diagram of SQL Database][SQL-db]
- 
+
 **Figure 3: SQL Database provides a shared PaaS relational storage service.**
 
 SQL Database doesn't give each customer its own physical instance of SQL Server. Instead, it provides a multi-tenant service, with a logical SQL Database server for each customer. All customers share the compute and storage capacity that the service provides. And as with Blob Storage, all data in SQL Database is stored on three separate computers within an Azure datacenter, giving your databases built-in high availability (HA).
@@ -86,13 +84,12 @@ One simple way to think about it is to view SQL Database as being for new applic
 
 Finally, it's important to point out that SQL Database isn't the only PaaS data service available on Azure. Microsoft partners provide other options as well. For example, ClearDB offers a MySQL PaaS offering, while Cloudant sells a NoSQL option. PaaS data services are the right solution in many situations, and so this approach to data management is an important part of Azure.
 
-
 ### <a name="datasync"></a>SQL Data Sync
 
 While SQL Database does maintain three copies of each database within a single Azure datacenter, it doesn't automatically replicate data between Azure datacenters. Instead, it provides SQL Data Sync, a service that you can use to do this. [Figure 4](#Fig4) shows how this looks.
 
 <a name="Fig4"></a>![Diagram of SQL data sync][SQL-datasync]
- 
+
 **Figure 4: SQL Data Sync synchronizes data in SQL Database with data in other Azure and on-premises datacenters.**
 
 As the diagram shows, SQL Data Sync can synchronize data across different locations. Suppose you're running an application in multiple Azure datacenters, for instance, with data stored in SQL Database. You can use SQL Data Sync to keep that data synchronized. SQL Data Sync can also synchronize data between an Azure datacenter and an instance of SQL Server running in an on-premises datacenter. This might be useful for maintaining both a local copy of data used by on-premises applications and a cloud copy used by applications running on Azure. And although it's not shown in the figure, SQL Data Sync can also be used to synchronize data between SQL Database and SQL Server running in a VM on Azure or elsewhere.
@@ -105,7 +102,7 @@ Synchronization can be bi-directional, and you determine exactly what data is sy
 Once a database contains data, somebody will probably want to create reports using that data. Azure can run SQL Server Reporting Services (SSRS) in Azure Virtual Machines, which is functionally equivalent to running SQL Server Reporting Services on-premises. Then you can use SSRS to run reports on data stored in an Azure SQL Database.  [Figure 5](#Fig5) shows how the process works.
 
 <a name="Fig5"></a>![Diagram of SQL reporting][SQL-report]
- 
+
 **Figure 5: SQL Server Reporting Services running in an Azure Virtual Machines provides reporting services for data in SQL Database. .**
 
 Before a user can see a report, someone defines what that report should look like (step 1). With SSRS on a VM, this can be done using either of two tools: SQL Server Data Tools, part of SQL Server 2012, or its predecessor, Business Intelligence (BI) Development Studio. As with SSRS, these report definitions are expressed in the Report Definition Language (RDL). After the RDL files for a report have been created, they are uploaded to a VM in the cloud (step 2). The report definition is now ready to use.
@@ -117,7 +114,6 @@ Embedding a report in an application, the scenario shown here, isn't the only op
 SSRS on an Azure VM gives you full functionality as a reporting solution in the cloud. Reports can use any data source supported by SSRS. Applications and reports can include embedded code or assemblies to support custom behaviors. Report execution and rendering are fast because report server content and engine run together on the same virtual server.
 </div>
 
-
 ## <a name="tblstor"></a>Table Storage
 
 Relational data is useful in many situations, but it's not always the right choice. If your application needs fast, simple access to very large amounts of loosely structured data, for instance, a relational database might not work well. A NoSQL technology is likely to be a better option.
@@ -125,7 +121,7 @@ Relational data is useful in many situations, but it's not always the right choi
 Azure Table Storage is an example of this kind of NoSQL approach. Despite its name, Table Storage doesn't support standard relational tables. Instead, it provides what's known as a *key/value store*, associating a set of data with a particular key, then letting an application access that data by providing the key. [Figure 6](#Fig6) illustrates the basics.
 
 <a name="Fig6"></a>![Diagram of table storage][SQL-tblstor]
- 
+
 **Figure 6: Azure Table Storage is a key/value store that provides fast, simple access to large amounts of data.**
 
 Like blobs, each table is associated with an Azure storage account. Tables are also named much like blobs, with a URL of the form
@@ -141,7 +137,6 @@ To identify a particular entity within a table, an application provides that ent
 This structure lets tables be big - a single table can contain up to 100 terabytes of data - and it allows fast access to the data they contain. It also brings limitations, however. For example, there's no support for transactional updates that span tables or even partitions in a single table. A set of updates to a table can only be grouped into an atomic transaction if all of the entities involved are in the same partition. There's also no way to query a table based on the value of its properties, nor is there support for joins across multiple tables. And unlike relational databases, tables have no support for stored procedures.
 
 Azure Table Storage is a good choice for applications that need fast, cheap access to large amounts of loosely structured data. For example, an Internet application that stores profile information for lots of users might use tables. Fast access is important in this situation, and the application probably doesn't need the full power of SQL. Giving up this functionality to gain speed and size can sometimes make sense, and so Table Storage is just the right solution for some problems.
-
 
 ## <a name="hadoop"></a>Hadoop
 

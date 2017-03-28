@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Migrate classic resources to Azure Resource Manager - Overview  | Azure"
-    description="This article walks through the platform-supported migration of resources from classic to Azure Resource Manager"
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="singhkays"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="78492a2c-2694-4023-a7b8-c97d3708dcb7"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="kasing" />
+---
+title: Migrate classic resources to Azure Resource Manager - Overview  | Azure
+description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager
+services: virtual-machines-windows
+documentationcenter: ''
+author: singhkays
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: kasing
+---
 
 # Platform-supported migration of IaaS resources from classic to Azure Resource Manager
-In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](/documentation/articles/resource-group-overview/). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways.
+In this article, we describe how we're enabling migration of infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models. You can read more about [Azure Resource Manager features and benefits](../azure-resource-manager/resource-group-overview.md). We detail how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways.
 
 ## Goal for migration
 Resource Manager enables deploying complex applications through templates, configures virtual machines by using VM extensions, and incorporates access management and tagging. Azure Resource Manager includes scalable, parallel deployment for virtual machines into availability sets. The new deployment model also provides lifecycle management of compute, network, and storage independently. Finally, there's a focus on enabling security by default with the enforcement of virtual machines in a virtual network.
@@ -35,7 +36,7 @@ Before we drill down into the details, let's look at the difference between data
 * *Management plane* describes the calls that come into the management plane or the API for modifying resources. For example, operations like creating a VM, restarting a VM, and updating a virtual network with a new subnet manage the running resources. They don't directly affect connecting to the instances.
 * *Data plane* (application) describes the runtime of the application itself and involves interaction with instances that don't go through the Azure API. Accessing your website or pulling data from a running SQL Server instance or a MongoDB server would be considered data plane or application interaction. Copying a blob from a storage account and accessing a public IP address to RDP or SSH into the virtual machine also are data plane. These operations keep the application running across compute, networking, and storage.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > In some migration scenarios, the Azure platform stops, deallocates, and restarts your virtual machines. This incurs a short data-plane downtime.
 >
 >
@@ -49,7 +50,7 @@ In the Resource Manager deployment model, security is enforced for your applicat
 * You can request the platform to create a new virtual network and migrate the virtual machine into the new virtual network.
 * You can migrate the virtual machine into an existing virtual network in Resource Manager.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > In this migration scope, both the management-plane operations and the data-plane operations may not be allowed for a period of time during the migration.
 >
 >
@@ -62,7 +63,7 @@ The following configurations are not currently supported. If support is added in
 * You have more than one availability set in a single cloud service.
 * You have one or more availability sets and VMs that are not in an availability set in a single cloud service.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > In this migration scope, the management plane may not be allowed for a period of time during the migration. For certain configurations as described earlier, data-plane downtime occurs.
 >
 >
@@ -70,7 +71,7 @@ The following configurations are not currently supported. If support is added in
 ### Storage accounts migration
 To allow seamless migration, you can deploy Resource Manager VMs in a classic storage account. With this capability, compute and network resources can and should be migrated independently of storage accounts. Once you migrate over your Virtual Machines and Virtual Network, you need to migrate over your storage accounts to complete the migration process.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The Resource Manager deployment model doesn't have the concept of Classic images and disks. When the storage account is migrated, Classic images and disks are not visible in the Resource Manager stack but the backing VHDs remain in the storage account.
 >
 >
@@ -87,7 +88,7 @@ The following features are not currently supported. You can optionally remove th
 | Compute |Virtual machine images. |
 | Network |Endpoint ACLs. |
 | Network |Virtual network gateways (Azure ExpressRoute Gateways, Application gateway). |
-| Network |Virtual networks using VNet Peering. (Migrate VNet to ARM, then peer) Learn more about [VNet Peering](/documentation/articles/virtual-network-peering-overview/). |
+| Network |Virtual networks using VNet Peering. (Migrate VNet to ARM, then peer) Learn more about [VNet Peering](../virtual-network/virtual-network-peering-overview.md). |
 | Network |Traffic Manager profiles. |
 
 ### Unsupported configurations
@@ -123,7 +124,7 @@ The migration workflow is as follows
 
 ![Screenshot that shows the migration workflow](./media/virtual-machines-windows-migration-classic-resource-manager/migration-workflow.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > All the operations described in the following sections are idempotent. If you have a problem other than an unsupported feature or a configuration error, it is recommended that you retry the prepare, abort, or commit operation. The Azure platform tries the action again.
 >
 >
@@ -149,7 +150,7 @@ The Azure platform then starts the migration of metadata from classic to Resourc
 
 After the prepare operation is complete, you have the option of visualizing the resources in both classic and Resource Manager. For every cloud service in the classic deployment model, the Azure platform creates a resource group name that has the pattern `cloud-service-name>-migrated`.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Virtual Machines that are not in a classic Virtual Network are stopped deallocated in this phase of migration.
 >
 >
@@ -168,7 +169,7 @@ If you see any issues, you can always abort the migration and go back to the cla
 ### Abort
 Abort is an optional step that you can use to revert your changes to the classic deployment model and stop the migration.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This operation cannot be executed after you have triggered the commit operation.     
 >
 >
@@ -176,7 +177,7 @@ Abort is an optional step that you can use to revert your changes to the classic
 ### Commit
 After you finish the validation, you can commit the migration. Resources do not appear anymore in classic and are available only in the Resource Manager deployment model. The migrated resources can be managed only in the new portal.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This is an idempotent operation. If it fails, it is recommended that you retry the operation. If it continues to fail, create a support ticket or create a forum post with a ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/zh-cn/home?forum=WAVirtualMachinesforWindows).
 >
 >
@@ -188,7 +189,7 @@ No. The VMs (classic) are fully supported services in general availability. You 
 
 **What happens to my VMs if I don't plan on migrating in the near future?**
 
-We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](/documentation/articles/resource-manager-deployment-model/) that are part of IaaS under Resource Manager.
+We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../azure-resource-manager/resource-manager-deployment-model.md) that are part of IaaS under Resource Manager.
 
 **What does this migration plan mean for my existing tooling?**
 
@@ -208,7 +209,7 @@ You cannot abort migration if the commit operation fails. All migration operatio
 
 **Do I have to buy another express route circuit if I have to use IaaS under Resource Manager?**
 
-No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](/documentation/articles/expressroute-move/). You don't have to buy a new ExpressRoute circuit if you already have one.
+No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-move.md). You don't have to buy a new ExpressRoute circuit if you already have one.
 
 **What if I had configured Role-Based Access Control policies for my classic IaaS resources?**
 
@@ -216,7 +217,7 @@ During migration, the resources transform from classic to Resource Manager. So w
 
 **What if I'm using Azure Site Recovery or Azure Backup today?**
 
-To migrate your Virtual Machine that are enabled for backup, see [I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode. How Can I backup them in recovery services vault?](/documentation/articles/backup-azure-backup-ibiza-faq/)i have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
+To migrate your Virtual Machine that are enabled for backup, see [I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode. How Can I backup them in recovery services vault?](../backup/backup-azure-backup-ibiza-faq.md)i have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode.  How Can I backup them in recovery services vault?
 
 **Can I validate my subscription or resources to see if they're capable of migration?**
 
@@ -241,8 +242,8 @@ This message is received when the VM does not have outbound connectivity to the 
 ## Next steps
 Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.
 
-* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](/documentation/articles/virtual-machines-windows-migration-classic-resource-manager-deep-dive/)
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](/documentation/articles/virtual-machines-windows-ps-migration-classic-resource-manager/)
-* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](/documentation/articles/virtual-machines-linux-cli-migration-classic-resource-manager/)
-* [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](/documentation/articles/virtual-machines-windows-migration-scripts/)
-* [Review most common migration errors](/documentation/articles/virtual-machines-migration-errors/)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](./virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](./virtual-machines-windows-ps-migration-classic-resource-manager.md)
+* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](./virtual-machines-linux-cli-migration-classic-resource-manager.md)
+* [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](./virtual-machines-windows-migration-scripts.md)
+* [Review most common migration errors](./virtual-machines-migration-errors.md)

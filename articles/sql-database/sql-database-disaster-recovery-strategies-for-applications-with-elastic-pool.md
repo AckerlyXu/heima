@@ -1,20 +1,20 @@
-<properties 
-   pageTitle="Designing Cloud Solutions for Disaster Recovery Using SQL Database Geo-Replication | Azure"
-   description="Learn how to design your cloud solution for disaster recovery by choosing the right failover pattern."
-   services="sql-database"
-   documentationCenter="" 
-   authors="anosov1960" 
-   manager="jhubbard" 
-   editor="monicar"/>
+---
+title: Designing Cloud Solutions for Disaster Recovery Using SQL Database Geo-Replication | Azure
+description: Learn how to design your cloud solution for disaster recovery by choosing the right failover pattern.
+services: sql-database
+documentationCenter: ''
+authors: anosov1960
+manager: jhubbard
+editor: monicar
 
-<tags
-   ms.service="sql-database"
-   ms.date="07/16/2016"
-   wacn.date="05/23/2016"/>
+ms.service: sql-database
+ms.date: 07/16/2016
+wacn.date: 05/23/2016
+---
 
 # Disaster recovery strategies for applications using SQL Database Elastic Pool 
 
-Over the years we have learned that cloud services are not foolproof and catastrophic incidents can and will happen. SQL Database provides a number of capabilities to provide for the business continuity of your application when these incidents occur. [Elastic pools](/documentation/articles/sql-database-elastic-pool/) and standalone databases support the same kind of disaster recovery capabilities. This article describes several DR strategies for elastic pools that leverage these SQL Database business continuity features.
+Over the years we have learned that cloud services are not foolproof and catastrophic incidents can and will happen. SQL Database provides a number of capabilities to provide for the business continuity of your application when these incidents occur. [Elastic pools](./sql-database-elastic-pool.md) and standalone databases support the same kind of disaster recovery capabilities. This article describes several DR strategies for elastic pools that leverage these SQL Database business continuity features.
 
 For the purposes of this article we will use the canonical SaaS ISV application pattern:
 
@@ -42,7 +42,7 @@ At this point your application is back online in the DR region, but some custome
 ![Figure 2](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-2.png)
 
 If the outage was temporary, it is possible that the primary region will be recovered by Azure before all the restores are complete in the DR region. In this case, you should orchestrate moving the application back to the primary region. The process will take the steps illustrated on the next diagram.
- 
+
 - Cancel all outstanding geo-restore requests.   
 - Failover the management database(s) to the primary region (5). Note: After the region’s recovery the old primaries have automatically become secondaries. Now they will switch roles again. 
 - Change the the application's connection string to point back to the primary region. Now all new accounts and tenant databases will be created in the primary region. Some existing customers will see their data temporarily unavailable.   
@@ -83,7 +83,7 @@ If an outage occurs in the primary region, the recovery steps to bring your appl
 At this point your application is back online in the DR region. All paying customers have access to their data while the trial customers will experience delay when accessing their data.
 
 When the primary region is recovered by Azure *after* you have restored the application in the DR region you can continue running the application in that region or you can decide to fail back to the primary region. If the primary region is recovered *before* the failover process is completed, you should consider failing back right away. The failback will take the steps illustrated in the next diagram: 
- 
+
 ![Figure 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 - Cancel all outstanding geo-restore requests.   
@@ -94,7 +94,8 @@ When the primary region is recovered by Azure *after* you have restored the appl
 - Copy the updated databases from the DR pool to the primary pool (12). 
 - Delete the DR pool (13) 
 
-> [AZURE.NOTE] The failover operation is asynchronous. To minimize the recovery time it is important that you execute the tenant databases' failover command in batches of at least 20 databases. 
+> [!NOTE]
+> The failover operation is asynchronous. To minimize the recovery time it is important that you execute the tenant databases' failover command in batches of at least 20 databases. 
 
 The key **benefit** of this strategy is that it provides the highest SLA for the paying customers. It also guarantees that the new trials are unblocked as soon as the trial DR pool is created. The **trade-off** is that this setup will increase the total cost of the tenant databases by the cost of the secondary DR pool for paid customers. In addition, if the secondary pool has a different size, the paying customers will experience lower performance after failover until the pool upgrade in the DR region is completed. 
 
@@ -123,13 +124,13 @@ The next diagram illustrates the recovery steps to take if  an outage occurs in 
 - Create the new elastic pool with the same name and the same configuration in the region B for the trial customers' databases (6). 
 - Once the pool is created use geo-restore to restore the individual trial tenant database into the pool (7). You can consider triggering the individual restores by the end-user connections or use some other application specific priority scheme.
 
-
-> [AZURE.NOTE] The failover operation is asynchronous. To minimize the recovery time it is important that you execute the tenant databases' failover command in batches of at least 20 databases. 
+> [!NOTE]
+> The failover operation is asynchronous. To minimize the recovery time it is important that you execute the tenant databases' failover command in batches of at least 20 databases. 
 
 At this point your application is back online in region B. All paying customers have access to their data while the trial customers will experience delay when accessing their data.
 
 When region A is recovered you need to decide if you want to use region B for trial customers or failback to using the trial customers pool in region A. One criteria could be the % of trial tenant databases modified since the recovery. Regardless of that decision you will need to re-balance the paid tenants between two pools. the next diagram illustrates the process when the trial tenant databases fail back to region A.  
- 
+
 ![Figure 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
 - Cancel all outstanding geo-restore requests to trial DR pool.   
@@ -155,13 +156,12 @@ The main **trade-offs** are:
 
 ## Summary
 
-This article focuses on the disaster recovery strategies for the database tier used by a SaaS ISV multi-tenant application. The strategy you choose should be based on the needs of the application, such as the business model, the SLA you want to offer to your customers, budget constraint etc.. Each described strategy outlines the benefits and trade-off so you could make an informed decision. Also, your specific application will likely include other Azure components. So you should review their business continuity guidance and orchestrate the recovery of the database tier with them. To learn more about managing recovery of database applications in Azure, refer to [Designing cloud solutions for disaster recovery](/documentation/articles/sql-database-designing-cloud-solutions-for-disaster-recovery/) .  
-
+This article focuses on the disaster recovery strategies for the database tier used by a SaaS ISV multi-tenant application. The strategy you choose should be based on the needs of the application, such as the business model, the SLA you want to offer to your customers, budget constraint etc.. Each described strategy outlines the benefits and trade-off so you could make an informed decision. Also, your specific application will likely include other Azure components. So you should review their business continuity guidance and orchestrate the recovery of the database tier with them. To learn more about managing recovery of database applications in Azure, refer to [Designing cloud solutions for disaster recovery](./sql-database-designing-cloud-solutions-for-disaster-recovery.md) .  
 
 ## Next steps
 
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](/documentation/articles/sql-database-automated-backups/)
-- For a business continuity overview and scenarios, see [Business continuity overview](/documentation/articles/sql-database-business-continuity/)
-- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](/documentation/articles/sql-database-recovery-using-backups/)
-- To learn about faster recovery options, see [Active-Geo-Replication](/documentation/articles/sql-database-geo-replication-overview/)  
-- To learn about using automated backups for archiving, see [database copy](/documentation/articles/sql-database-copy/)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](./sql-database-automated-backups.md)
+- For a business continuity overview and scenarios, see [Business continuity overview](./sql-database-business-continuity.md)
+- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](./sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](./sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](./sql-database-copy.md)

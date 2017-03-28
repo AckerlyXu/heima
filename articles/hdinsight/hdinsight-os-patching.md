@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Configure OS patching schedule for Linux-based HDInsight clusters -Azure | Azure"
-    description="Learn how to configure OS patching schedule for Linux-based HDInsight clusters."
-    services="hdinsight"
-    documentationcenter=""
-    author="bhanupr"
-    manager="asadk"
-    editor="bhanupr" />
-<tags
-    ms.assetid=""
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="03/14/2017"
-    wacn.date=""
-    ms.author="bhanupr" />
+---
+title: Configure OS patching schedule for Linux-based HDInsight clusters -Azure | Azure
+description: Learn how to configure OS patching schedule for Linux-based HDInsight clusters.
+services: hdinsight
+documentationcenter: ''
+author: bhanupr
+manager: asadk
+editor: bhanupr
+
+ms.assetid: ''
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 03/14/2017
+wacn.date: ''
+ms.author: bhanupr
+---
 
 # How to configure the OS patching schedule for Linux-based HDInsight clusters
 The virtual machines in an HDInsight cluster need to be rebooted occasionally so that important security patches can be installed. As of August 1, 2016, new Linux-based HDInsight clusters (version 3.4 or greater,) will be rebooted using the following schedule:
@@ -30,7 +31,7 @@ Using the script action described in this article, you can modify the OS patchin
 2. Set the frequency of reboots (days between reboots)
 3. Set the day of the week when a reboot occurs
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This script action will only work with Linux-based HDInsight clusters created after August 1st, 2016. Patches will be effective only when VMs are rebooted. 
 >
 
@@ -38,11 +39,11 @@ Using the script action described in this article, you can modify the OS patchin
 
 When using this script requires the following information:
 1. The script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.
- 	HDInsight uses this URI to find and run the script on all the virtual machines in the cluster.
-  
+     HDInsight uses this URI to find and run the script on all the virtual machines in the cluster.
+
 2. The cluster node types that the script is applied to: headnode, workernode, zookeeper.
 
- > [AZURE.NOTE]
+ > [!NOTE]
  > This script must be applied to all node types in the cluster. If it is not applied to a node type, then the virtual machines for that node type will continue to use the previous patching schedule.
 >
 
@@ -55,14 +56,14 @@ When using this script requires the following information:
     | Day of week |1 to 7 (inclusive). A value of 1 indicates the reboot should occur on a Monday, and 7 indicates a Sunday.For example, using parameters of 1 60 2 results in automatic reboots every 60 days (at most) on Tuesday. |
     | Persistence |When applying a script action to an existing cluster, you can mark the script as persisted. Persisted scripts are applied when new workernodes are added to the cluster through scaling operations. |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You must mark this script as persisted when applying to an existing cluster. Otherwise, any new nodes created through scaling      operations will use the default patching schedule.
- 	If you apply the script as part of the cluster creation process, it is persisted automatically.
+     If you apply the script as part of the cluster creation process, it is persisted automatically.
 >
 
 ## Next steps
 
-For specific steps on using the script action, see the following sections in the [Customize Linuz-based HDInsight clusters using script action](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/):
+For specific steps on using the script action, see the following sections in the [Customize Linuz-based HDInsight clusters using script action](./hdinsight-hadoop-customize-cluster-linux.md):
 
-* [Use a script action during cluster creation](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/#use-a-script-action-during-cluster-creation)
-* [Apply a script action to a running cluster](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/#apply-a-script-action-to-a-running-cluster)
+* [Use a script action during cluster creation](./hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
+* [Apply a script action to a running cluster](./hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

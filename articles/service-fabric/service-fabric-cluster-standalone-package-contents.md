@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Azure Service Fabric Standalone Package for Windows Server | Azure"
-    description="Description and contents of the Azure Service Fabric Standalone package for Windows Server."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="maburlik"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="2/15/2017"
-    wacn.date=""
-    ms.author="chackdan;maburlik" />
+---
+title: Azure Service Fabric Standalone Package for Windows Server | Azure
+description: Description and contents of the Azure Service Fabric Standalone package for Windows Server.
+services: service-fabric
+documentationcenter: .net
+author: maburlik
+manager: timlt
+editor: ''
+
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 2/15/2017
+wacn.date: ''
+ms.author: chackdan;maburlik
+---
 
 # Package contents of Service Fabric Standalone package for Windows Server
 In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric Standalone package, you will find the following files:
@@ -48,5 +49,5 @@ In the [downloaded](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabri
 Latest versions of cluster configuration templates can be found at the Github page: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## Related
-* [Create a standalone Azure Service Fabric cluster](/documentation/articles/service-fabric-cluster-creation-for-windows-server/)
-* [Service Fabric cluster security scenarios](/documentation/articles/service-fabric-windows-cluster-windows-security/)
+* [Create a standalone Azure Service Fabric cluster](./service-fabric-cluster-creation-for-windows-server.md)
+* [Service Fabric cluster security scenarios](./service-fabric-windows-cluster-windows-security.md)

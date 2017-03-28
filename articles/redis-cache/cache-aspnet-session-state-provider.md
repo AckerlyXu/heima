@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Cache ASP.NET Session State Provider | Azure"
-    description="Learn how to store ASP.NET Session State using Azure Redis Cache"
-    services="redis-cache"
-    documentationcenter="na"
-    author="steved0x"
-    manager="douge"
-    editor="tysonn" />
-<tags
-    ms.assetid="192f384c-836a-479a-bb65-8c3e6d6522bb"
-    ms.service="cache"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="cache-redis"
-    ms.workload="tbd"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="sdanie" />
+---
+title: Cache ASP.NET Session State Provider | Azure
+description: Learn how to store ASP.NET Session State using Azure Redis Cache
+services: redis-cache
+documentationcenter: na
+author: steved0x
+manager: douge
+editor: tysonn
+
+ms.assetid: 192f384c-836a-479a-bb65-8c3e6d6522bb
+ms.service: cache
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: cache-redis
+ms.workload: tbd
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: sdanie
+---
 
 # ASP.NET Session State Provider for Azure Redis Cache
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 Azure Redis Cache provides a session state provider that you can use to store your session state in a cache rather than in-memory or in a SQL Server database. To use the caching session state provider, first configure your cache, and then configure your ASP.NET application for cache using the Redis Cache Session State NuGet package.
 
@@ -32,7 +33,7 @@ To configure a client application in Visual Studio using the Redis Cache Session
 
 Type **RedisSessionStateProvider** into the search text box, select it from the results, and click **Install**.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > If you are using the clustering feature from the premium tier, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. Moving to 2.0.1 or higher is a breaking change; for more information, see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 > 
 > 
@@ -41,42 +42,44 @@ Type **RedisSessionStateProvider** into the search text box, select it from the 
 
 The Redis Session State Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package is not present in your project, it is installed.
 
->[AZURE.NOTE]
->In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it, otherwise you get naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#configure-the-cache-clients).
+>[!NOTE]
+>In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it, otherwise you get naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](./cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 >
 >
 
 The NuGet package downloads and adds the required assembly references and adds the following section into your web.config file. This section contains the required configuration for your ASP.NET application to use the Redis Cache Session State Provider.
 
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
-        <providers>
-        <!--
-        <add name="MySessionStateStore"
-               host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-        />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-        </providers>
-    </sessionState>
+```xml
+<sessionState mode="Custom" customProvider="MySessionStateStore">
+    <providers>
+    <!--
+    <add name="MySessionStateStore"
+           host = "127.0.0.1" [String]
+        port = "" [number]
+        accessKey = "" [String]
+        ssl = "false" [true|false]
+        throwOnError = "true" [true|false]
+        retryTimeoutInMilliseconds = "0" [number]
+        databaseId = "0" [number]
+        applicationName = "" [String]
+        connectionTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "5000" [number]
+    />
+    -->
+    <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+    </providers>
+</sessionState>
+```
 
 The commented section provides an example of the attributes and sample settings for each attribute.
 
-Configure the attributes with the values from your cache blade in the Azure portal preview, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Redis cache settings](/documentation/articles/cache-configure/#configure-redis-cache-settings).
+Configure the attributes with the values from your cache blade in the Azure portal preview, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Redis cache settings](./cache-configure.md#configure-redis-cache-settings).
 
 * **host** - specify your cache endpoint.
 * **port** - use either your non-SSL port or your SSL port, depending on the ssl settings.
 * **accessKey** - use either the primary or secondary key for your cache.
 * **ssl** - true if you want to secure cache/client communications with ssl; otherwise false. Be sure to specify the correct port.
-    * The non-SSL port is disabled by default for new caches. Specify true for this setting to use the SSL port. For more information about enabling the non-SSL port, see the [Access Ports](/documentation/articles/cache-configure/#access-ports) section in the [Configure a cache](/documentation/articles/cache-configure/) topic.
+    * The non-SSL port is disabled by default for new caches. Specify true for this setting to use the SSL port. For more information about enabling the non-SSL port, see the [Access Ports](./cache-configure.md#access-ports) section in the [Configure a cache](./cache-configure.md) topic.
 * **throwOnError** - true if you want an exception to be thrown if there is a failure, or false if you want the operation to fail silently. You can check for a failure by checking the static Microsoft.Web.Redis.RedisSessionStateProvider.LastException property. The default is true.
 * **retryTimeoutInMilliseconds** - Operations that fail are retried during this interval, specified in milliseconds. The first retry occurs after 20 milliseconds, and then retries occur every second until the retryTimeoutInMilliseconds interval expires. Immediately after this interval, the operation is retried one final time. If the operation still fails, the exception is thrown back to the caller, depending on the throwOnError setting. The default value is 0, which means no retries.
 * **databaseId** - Specifies which database to use for cache output data. If not specified, the default value of 0 is used.
@@ -88,20 +91,22 @@ For more information about these properties, see the original blog post announce
 
 Don't forget to comment out the standard InProc session state provider section in your web.config.
 
-    <!-- <sessionState mode="InProc"
-         customProvider="DefaultSessionProvider">
-         <providers>
-            <add name="DefaultSessionProvider"
-                  type="System.Web.Providers.DefaultSessionStateProvider,
-                        System.Web.Providers, Version=1.0.0.0, Culture=neutral,
-                        PublicKeyToken=31bf3856ad364e35"
-                  connectionStringName="DefaultConnection" />
-          </providers>
-    </sessionState> -->
+```xml
+<!-- <sessionState mode="InProc"
+     customProvider="DefaultSessionProvider">
+     <providers>
+        <add name="DefaultSessionProvider"
+              type="System.Web.Providers.DefaultSessionStateProvider,
+                    System.Web.Providers, Version=1.0.0.0, Culture=neutral,
+                    PublicKeyToken=31bf3856ad364e35"
+              connectionStringName="DefaultConnection" />
+      </providers>
+</sessionState> -->
+```
 
 Once these steps are performed, your application is configured to use the Redis Cache Session State Provider. When you use session state in your application, it is stored in an Azure Redis Cache instance.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Data stored in the cache must be serializable, unlike the data that can be stored in the default in-memory ASP.NET Session State Provider. When the Session State Provider for Redis is used, be sure that the data types that are being stored in session state are serializable.
 > 
 > 
@@ -114,4 +119,4 @@ Once these steps are performed, your application is configured to use the Redis 
 For more information about session state and other best practices, see [Web Development Best Practices (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## Next steps
-Check out the [ASP.NET Output Cache Provider for Azure Redis Cache](/documentation/articles/cache-aspnet-output-cache-provider/).
+Check out the [ASP.NET Output Cache Provider for Azure Redis Cache](./cache-aspnet-output-cache-provider.md).

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure AD Connect sync: How to manage the Azure AD service account | Azure"
-    description="This topic documents how to restore the Azure AD service account."
-    services="active-directory"
-    keywords="AADSTS70002, AADSTS50054, How to reset the password for the Azure AD Connect sync Connector service account"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="6077043a-27f1-4304-a44b-81dc46620f24"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect sync: How to manage the Azure AD service account | Azure
+description: This topic documents how to restore the Azure AD service account.
+services: active-directory
+keywords: AADSTS70002, AADSTS50054, How to reset the password for the Azure AD Connect sync Connector service account
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+
+ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Azure AD Connect sync: How to manage the Azure AD service account
 The service account used by the Azure AD Connector is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the service account using PowerShell.
@@ -47,6 +48,5 @@ AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for
 ## Next steps
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](/documentation/articles/active-directory-aadconnectsync-whatis/)
-- [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
-
+- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)

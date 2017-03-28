@@ -1,92 +1,97 @@
-<properties
-    pageTitle="Script Action development with HDInsight | Azure"
-    description="Learn how to customize Hadoop clusters with Script Action. Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster."
-    services="hdinsight"
-    documentationcenter=""
-    tags="azure-portal"
-    author="mumian"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="836d68a8-8b21-4d69-8b61-281a7fe67f21"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="jgao" />
+---
+title: Script Action development with HDInsight | Azure
+description: Learn how to customize Hadoop clusters with Script Action. Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster.
+services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: mumian
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: jgao
+---
 
 # Develop Script Action scripts for HDInsight Windows-based clusters
-Learn how to write Script Action scripts for HDInsight. For information on using Script Action scripts, see [Customize HDInsight clusters using Script Action](/documentation/articles/hdinsight-hadoop-customize-cluster/). For the same article written for Linux-based HDInsight clusters, see [Develop Script Action scripts for HDInsight](/documentation/articles/hdinsight-hadoop-script-actions-linux/).
+Learn how to write Script Action scripts for HDInsight. For information on using Script Action scripts, see [Customize HDInsight clusters using Script Action](./hdinsight-hadoop-customize-cluster.md). For the same article written for Linux-based HDInsight clusters, see [Develop Script Action scripts for HDInsight](./hdinsight-hadoop-script-actions-linux.md).
 
-> [AZURE.IMPORTANT]
-> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](/documentation/articles/hdinsight-component-versioning/#hdi-version-32-and-33-nearing-deprecation-date). For information on using script actions with Linux-based clusters, see [Script action development with HDInsight (Linux)](/documentation/articles/hdinsight-hadoop-script-actions-linux/).
+> [!IMPORTANT]
+> The steps in this document only work for Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). For information on using script actions with Linux-based clusters, see [Script action development with HDInsight (Linux)](./hdinsight-hadoop-script-actions-linux.md).
 >
 >
 
 Script Action can be used to install additional software running on a Hadoop cluster or to change the configuration of applications installed on a cluster. Script actions are scripts that run on the cluster nodes when HDInsight clusters are deployed, and they are executed once nodes in the cluster complete HDInsight configuration. A script action is executed under system admin account privileges and provides full access rights to the cluster nodes. Each cluster can be provided with a list of script actions to be executed in the order in which they are specified.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you experience the following error message:
 ><p>
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-> It is because you didn't include the helper methods.  See [Helper methods for custom scripts](/documentation/articles/hdinsight-hadoop-script-actions/#helper-methods-for-custom-scripts).
+> It is because you didn't include the helper methods.  See [Helper methods for custom scripts](./hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 >
 >
 
 ## Sample scripts
 For creating HDInsight clusters on Windows operating system, the Script Action is Azure PowerShell script.The following is a sample script for configure the site configuration files:
 
-[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-    param (
-        [parameter(Mandatory)][string] $ConfigFileName,
-        [parameter(Mandatory)][string] $Name,
-        [parameter(Mandatory)][string] $Value,
-        [parameter()][string] $Description
-    )
+```
+param (
+    [parameter(Mandatory)][string] $ConfigFileName,
+    [parameter(Mandatory)][string] $Name,
+    [parameter(Mandatory)][string] $Value,
+    [parameter()][string] $Description
+)
 
-    if (!$Description) {
-        $Description = ""
-    }
+if (!$Description) {
+    $Description = ""
+}
 
-    $hdiConfigFiles = @{
-        "hive-site.xml" = "$env:HIVE_HOME\conf\hive-site.xml";
-        "core-site.xml" = "$env:HADOOP_HOME\etc\hadoop\core-site.xml";
-        "hdfs-site.xml" = "$env:HADOOP_HOME\etc\hadoop\hdfs-site.xml";
-        "mapred-site.xml" = "$env:HADOOP_HOME\etc\hadoop\mapred-site.xml";
-        "yarn-site.xml" = "$env:HADOOP_HOME\etc\hadoop\yarn-site.xml"
-    }
+$hdiConfigFiles = @{
+    "hive-site.xml" = "$env:HIVE_HOME\conf\hive-site.xml";
+    "core-site.xml" = "$env:HADOOP_HOME\etc\hadoop\core-site.xml";
+    "hdfs-site.xml" = "$env:HADOOP_HOME\etc\hadoop\hdfs-site.xml";
+    "mapred-site.xml" = "$env:HADOOP_HOME\etc\hadoop\mapred-site.xml";
+    "yarn-site.xml" = "$env:HADOOP_HOME\etc\hadoop\yarn-site.xml"
+}
 
-    if (!($hdiConfigFiles[$ConfigFileName])) {
-        Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
-        return
-    }
+if (!($hdiConfigFiles[$ConfigFileName])) {
+    Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
+    return
+}
 
-    [xml]$configFile = Get-Content $hdiConfigFiles[$ConfigFileName]
+[xml]$configFile = Get-Content $hdiConfigFiles[$ConfigFileName]
 
-    $existingproperty = $configFile.configuration.property | where {$_.Name -eq $Name}
+$existingproperty = $configFile.configuration.property | where {$_.Name -eq $Name}
 
-    if ($existingproperty) {
-        $existingproperty.Value = $Value
-        $existingproperty.Description = $Description
-    } else {
-        $newproperty = @($configFile.configuration.property)[0].Clone()
-        $newproperty.Name = $Name
-        $newproperty.Value = $Value
-        $newproperty.Description = $Description
-        $configFile.configuration.AppendChild($newproperty)
-    }
+if ($existingproperty) {
+    $existingproperty.Value = $Value
+    $existingproperty.Description = $Description
+} else {
+    $newproperty = @($configFile.configuration.property)[0].Clone()
+    $newproperty.Name = $Name
+    $newproperty.Value = $Value
+    $newproperty.Description = $Description
+    $configFile.configuration.AppendChild($newproperty)
+}
 
-    $configFile.Save($hdiConfigFiles[$ConfigFileName])
+$configFile.Save($hdiConfigFiles[$ConfigFileName])
 
-    Write-HDILog "$configFileName has been configured."
+Write-HDILog "$configFileName has been configured."
+```
 
 The script takes four parameters, the configuration file name, the property you want to modify, the value you want to set, and a description. For example:
 
-    hive-site.xml hive.metastore.client.socket.timeout 90
+```
+hive-site.xml hive.metastore.client.socket.timeout 90
+```
 
 These parameters will set the hive.metastore.client.socket.timeout value to 90 in the hive-site.xml file.  The default value is 60 seconds.
 
@@ -98,35 +103,37 @@ HDInsight provides several scripts to install additional components on HDInsight
 | --- | --- |
 | **Install Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. See [Install and use Spark on HDInsight clusters][hdinsight-install-spark]. |
 | **Install R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. See [Install and use R on HDInsight clusters][hdinsight-r-scripts]. |
-| **Install Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. See [Install and use Solr on HDInsight clusters](/documentation/articles/hdinsight-hadoop-solr-install/). |
-| - **Install Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](/documentation/articles/hdinsight-hadoop-giraph-install/). |
+| **Install Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. See [Install and use Solr on HDInsight clusters](./hdinsight-hadoop-solr-install.md). |
+| - **Install Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](./hdinsight-hadoop-giraph-install.md). |
 
 Script Action can be deployed from the Azure portal preview, Azure PowerShell or by using the HDInsight .NET SDK.  For more information, see [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize].
 
-> [AZURE.NOTE]
-> The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](/documentation/articles/hdinsight-component-versioning/).
+> [!NOTE]
+> The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](./hdinsight-component-versioning.md).
 >
 >
 
 ## <a name="helper-methods-for-custom-scripts"></a> Helper methods for custom scripts
 Script Action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), and can be included in your scripts using the following:
 
-    # Download config action module from a well-known directory.
-    $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
-    $CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
-    $webclient = New-Object System.Net.WebClient;
-    $webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
+```
+# Download config action module from a well-known directory.
+$CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
+$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
+$webclient = New-Object System.Net.WebClient;
+$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
 
-    # (TIP) Import config action helper method module to make writing config action easy.
-    if (Test-Path ($CONFIGACTIONMODULE))
-    {
-        Import-Module $CONFIGACTIONMODULE;
-    }
-    else
-    {
-        Write-Output "Failed to load HDInsightUtilities module, exiting ...";
-        exit;
-    }
+# (TIP) Import config action helper method module to make writing config action easy.
+if (Test-Path ($CONFIGACTIONMODULE))
+{
+    Import-Module $CONFIGACTIONMODULE;
+}
+else
+{
+    Write-Output "Failed to load HDInsightUtilities module, exiting ...";
+    exit;
+}
+```
 
 Here are the helper methods that are provided by this script:
 
@@ -181,47 +188,59 @@ This section provides guidance on implementing some of the common usage patterns
 ### Configure environment variables
 Often in script action development, you will feel the need to set environment variables. For instance, a most likely scenario is when you download a binary from an external site, install it on the cluster, and add the location of where it is installed to your 'PATH' environment variable. The following snippet shows you how to set environment variables in the custom script.
 
-    Write-HDILog "Starting environment variable setting at: $(Get-Date)";
-    [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
+```
+Write-HDILog "Starting environment variable setting at: $(Get-Date)";
+[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
+```
 
 This statement sets the environment variable **MDS_RUNNER_CUSTOM_CLUSTER** to the value 'true' and also sets the scope of this variable to be machine-wide. At times it is important that environment variables are set at the appropriate scope - machine or user. Refer [here][1] for more information on setting environment variables.
 
 ### Access to locations where the custom scripts are stored
 Scripts used to customize a cluster needs to either be in the default storage account for the cluster or in a public read-only container on any other storage account. If your script accesses resources located elsewhere these need to be in a publicly accessible (at least public read-only). For instance you might want to access a file and save it using the SaveFile-HDI command.
 
-    Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.chinacloudapi.cn/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+```
+Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.chinacloudapi.cn/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+```
 
 In this example, you must ensure that the container 'somecontainer' in storage account 'somestorageaccount' is publicly accessible. Otherwise, the script will throw a 'Not Found' exception and fail.
 
 ### Pass parameters to the Add-AzureRmHDInsightScriptAction cmdlet
 To pass multiple parameters to the Add-AzureRmHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script. For example:
 
-    "-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+```
+"-CertifcateUri wasbs:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+```
 
 or
 
-    $parameters = '-Parameters "{0};{1};{2}"' -f $CertificateName,$certUriWithSasToken,$CertificatePassword
+```
+$parameters = '-Parameters "{0};{1};{2}"' -f $CertificateName,$certUriWithSasToken,$CertificatePassword
+```
 
 ### Throw exception for failed cluster deployment
 If you want to get accurately notified of the fact that cluster customization did not succeed as expected, it is important to throw an exception and fail the cluster creation. For instance, you might want to process a file if it exists and handle the error case where the file does not exist. This would ensure that the script exits gracefully and the state of the cluster is correctly known. The following snippet gives an example of how to achieve this:
 
-    If(Test-Path($SomePath)) {
-        #Process file in some way
-    } else {
-        # File does not exist; handle error case
-        # Print error message
-    exit
-    }
+```
+If(Test-Path($SomePath)) {
+    #Process file in some way
+} else {
+    # File does not exist; handle error case
+    # Print error message
+exit
+}
+```
 
 In this snippet, if the file did not exist, it would lead to a state where the script actually exits gracefully after printing the error message, and the cluster reaches running state assuming it "successfully" completed cluster customization process. If you want to be accurately notified of the fact that cluster customization essentially did not succeed as expected because of a missing file, it is more appropriate to throw an exception and fail the cluster customization step. To achieve this you must use the following sample code snippet instead.
 
-    If(Test-Path($SomePath)) {
-        #Process file in some way
-    } else {
-        # File does not exist; handle error case
-        # Print error message
-    throw
-    }
+```
+If(Test-Path($SomePath)) {
+    #Process file in some way
+} else {
+    # File does not exist; handle error case
+    # Print error message
+throw
+}
+```
 
 ## Checklist for deploying a script action
 Here are the steps we took when preparing to deploy these scripts:
@@ -235,7 +254,7 @@ Here are the steps we took when preparing to deploy these scripts:
 
 ## Debug custom scripts
 The script error logs are stored, along with other output, in the default Storage account that you specified for the cluster at its creation. The logs are stored in a table with the name *u<\cluster-name-fragment><\time-stamp>setuplog*. These are aggregated logs that have records from all of the nodes (head node and worker nodes) on which the script runs in the cluster.
-An easy way to check the logs is to use HDInsight Tools for Visual Studio. For installing the tools, see [Get started using Visual Studio Hadoop tools for HDInsight](/documentation/articles/hdinsight-hadoop-visual-studio-tools-get-started/#install-data-lake-tools-for-visual-studio)
+An easy way to check the logs is to use HDInsight Tools for Visual Studio. For installing the tools, see [Get started using Visual Studio Hadoop tools for HDInsight](./hdinsight-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
 
 **To check the log using Visual Studio**
 
@@ -246,42 +265,44 @@ An easy way to check the logs is to use HDInsight Tools for Visual Studio. For i
 
 You can also remote into the cluster nodes to see the both STDOUT and STDERR for custom scripts. The logs on each node are specific only to that node and are logged into **C:\HDInsightLogs\DeploymentAgent.log**. These log files record all outputs from the custom script. An example log snippet for a Spark script action looks like this:
 
-    Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.chinacloudapi.cn/sparkconfigactions/spark-installer.ps1.;
-    Version : 2.1.0.0;
-    ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
-    AzureVMName : HEADNODE0;
-    IsException : False;
-    ExceptionType : ;
-    ExceptionMessage : ;
-    InnerExceptionType : ;
-    InnerExceptionMessage : ;
-    Exception : ;
-    ...
+```
+Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.chinacloudapi.cn/sparkconfigactions/spark-installer.ps1.;
+Version : 2.1.0.0;
+ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+AzureVMName : HEADNODE0;
+IsException : False;
+ExceptionType : ;
+ExceptionMessage : ;
+InnerExceptionType : ;
+InnerExceptionMessage : ;
+Exception : ;
+...
 
-    Starting Spark installation at: 09/04/2014 21:46:02 Done with Spark installation at: 09/04/2014 21:46:38;
+Starting Spark installation at: 09/04/2014 21:46:02 Done with Spark installation at: 09/04/2014 21:46:38;
 
-    Version : 2.1.0.0;
-    ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
-    AzureVMName : HEADNODE0;
-    IsException : False;
-    ExceptionType : ;
-    ExceptionMessage : ;
-    InnerExceptionType : ;
-    InnerExceptionMessage : ;
-    Exception : ;
-    ...
+Version : 2.1.0.0;
+ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+AzureVMName : HEADNODE0;
+IsException : False;
+ExceptionType : ;
+ExceptionMessage : ;
+InnerExceptionType : ;
+InnerExceptionMessage : ;
+Exception : ;
+...
 
-    Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand;
-    Details : END: Invoking powershell script https://configactions.blob.core.chinacloudapi.cn/sparkconfigactions/spark-installer.ps1.;
-    Version : 2.1.0.0;
-    ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
-    AzureVMName : HEADNODE0;
-    IsException : False;
-    ExceptionType : ;
-    ExceptionMessage : ;
-    InnerExceptionType : ;
-    InnerExceptionMessage : ;
-    Exception : ;
+Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand;
+Details : END: Invoking powershell script https://configactions.blob.core.chinacloudapi.cn/sparkconfigactions/spark-installer.ps1.;
+Version : 2.1.0.0;
+ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+AzureVMName : HEADNODE0;
+IsException : False;
+ExceptionType : ;
+ExceptionMessage : ;
+InnerExceptionType : ;
+InnerExceptionMessage : ;
+Exception : ;
+```
 
 In this log, it is clear that the Spark script action has been executed on the VM named HEADNODE0 and that no exceptions were thrown during the execution.
 
@@ -291,14 +312,14 @@ In the event that an execution failure occurs, the output describing it will als
 * [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize]
 * [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
 * [Install and use R on HDInsight clusters][hdinsight-r-scripts]
-* [Install and use Solr on HDInsight clusters](/documentation/articles/hdinsight-hadoop-solr-install/).
-* [Install and use Giraph on HDInsight clusters](/documentation/articles/hdinsight-hadoop-giraph-install/).
+* [Install and use Solr on HDInsight clusters](./hdinsight-hadoop-solr-install.md).
+* [Install and use Giraph on HDInsight clusters](./hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-cluster-customize]: /documentation/articles/hdinsight-hadoop-customize-cluster/
+[hdinsight-cluster-customize]: ./hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: /documentation/articles/hdinsight-hadoop-spark-install/
-[hdinsight-r-scripts]: /documentation/articles/hdinsight-hadoop-r-scripts/
-[powershell-install-configure]: /documentation/articles/powershell-install-configure/
+[hdinsight-r-scripts]: ./hdinsight-hadoop-r-scripts.md
+[powershell-install-configure]: ../powershell-install-configure.md
 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/zh-cn/library/96xafkes(v=vs.110).aspx

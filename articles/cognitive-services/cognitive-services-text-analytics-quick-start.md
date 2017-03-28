@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Quick start guide: Machine Learning Text Analytics APIs | Azure"
-	description="Azure Machine Learning Text Analytics - Quick Start Guide"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="onewth"
-	manager="paulettm"
-	editor="cgronlun"/>
+---
+title: Quick start guide: Machine Learning Text Analytics APIs | Azure
+description: Azure Machine Learning Text Analytics - Quick Start Guide
+services: cognitive-services
+documentationCenter: ''
+authors: onewth
+manager: paulettm
+editor: cgronlun
 
-<tags
-	ms.service="cognitive-services"
-	ms.date="07/05/2016"
-	wacn.date=""/>
+ms.service: cognitive-services
+ms.date: 07/05/2016
+wacn.date: ''
+---
 
 # Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language
 
@@ -35,8 +35,6 @@ By the end of this tutorial, you will be able to programatically detect:
 
 Note that this API charges 1 transaction per document submitted. As an example, if you request sentiment for 1000 documents in a single call, 1000 transactions will be deducted.
 
-
-
 <a name="Overview"></a>
 ## General overview ##
 
@@ -58,12 +56,12 @@ In this task, you will sign up for the text analytics service.
 
 1. After you sign up for Text Analytics, find your **API Key**. Copy the primary key, as you will need it when using the API services.
 
-
 ## Task 2 - Detect sentiment, key phrases and languages ####
 
 It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](https://text-analytics-demo.azurewebsites.net/) returns.
 
->[AZURE.TIP] For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
+>[!TIP]
+> For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
 
 Note that the supported languages are as follows:
 
@@ -72,96 +70,102 @@ Note that the supported languages are as follows:
 | Sentiment | `en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
 | Key phrases | `en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
 
-
 1. You will need to set the headers to the following. Note that JSON is currently the only accepted input format for the APIs. XML is not supported.
 
-		Ocp-Apim-Subscription-Key: <your API key>
-		Content-Type: application/json
-		Accept: application/json
+    ```
+    Ocp-Apim-Subscription-Key: <your API key>
+    Content-Type: application/json
+    Accept: application/json
+    ```
 
 1. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Note that each ID should be unique and will be the ID returned by the system. The maximum size of a single document that can be submitted is 10KB, and the total maximum size of submitted input is 1MB. No more than 1,000 documents may be submitted in one call. Language is an optional parameter that should be specified if analyzing non-English text. An example of input is shown below, where the optional parameter `language` for sentiment analysis or key phrase extraction is included:
 
-		{
-			"documents": [
-				{
-					"language": "en",
-					"id": "1",
-					"text": "First document"
-				},
-                ...
-                {
-					"language": "en",
-					"id": "100",
-					"text": "Final document"
-				}
-			]
-		}
+    ```
+    {
+        "documents": [
+            {
+                "language": "en",
+                "id": "1",
+                "text": "First document"
+            },
+            ...
+            {
+                "language": "en",
+                "id": "100",
+                "text": "Final document"
+            }
+        ]
+    }
+    ```
 
 1. Make a **POST** call to the system with the input for sentiment, key phrases and language. The URLs will look as follows:
 
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
+    ```
+    POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
+    POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
+    POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
+    ```
 
 1. This call will return a JSON formatted response with the IDs and detected properties. An example of the output for sentiment is shown below (with error details excluded). In the case of sentiment, a score between 0 and 1 will be returned for each document:
 
-        // Sentiment response
-		{
-		  	"documents": [
-				{
-					"id": "1",
-					"score": "0.934"
-		        },
-                ...
-                {
-					"id": "100",
-					"score": "0.002"
-		        },
-			]
-		}
+    ```
+    // Sentiment response
+    {
+          "documents": [
+            {
+                "id": "1",
+                "score": "0.934"
+            },
+            ...
+            {
+                "id": "100",
+                "score": "0.002"
+            },
+        ]
+    }
 
-        // Key phrases response
-        {
-		  	"documents": [
-				{
-					"id": "1",
-					"keyPhrases": ["key phrase 1", ..., "key phrase n"]
-		        },
-                ...
-                {
-					"id": "100",
-					"keyPhrases": ["key phrase 1", ..., "key phrase n"]
-		        },
-			]
-		}
+    // Key phrases response
+    {
+          "documents": [
+            {
+                "id": "1",
+                "keyPhrases": ["key phrase 1", ..., "key phrase n"]
+            },
+            ...
+            {
+                "id": "100",
+                "keyPhrases": ["key phrase 1", ..., "key phrase n"]
+            },
+        ]
+    }
 
-        // Languages response
-        {
-		  	"documents": [
-				{
-					"id": "1",
-					"detectedLanguages": [
-                        {
-                            "name": "English",
-                            "iso6391Name": "en",
-                            "score": "1"
-                        }
-                    ]
-		        },
-                ...
-                {
-                    "id": "100",
-                    "detectedLanguages": [
-                        {
-                            "name": "French",
-                            "iso6391Name": "fr",
-                            "score": "0.985"
-                        }
-                    ]
-		        }
-			]
-		}
-
+    // Languages response
+    {
+          "documents": [
+            {
+                "id": "1",
+                "detectedLanguages": [
+                    {
+                        "name": "English",
+                        "iso6391Name": "en",
+                        "score": "1"
+                    }
+                ]
+            },
+            ...
+            {
+                "id": "100",
+                "detectedLanguages": [
+                    {
+                        "name": "French",
+                        "iso6391Name": "fr",
+                        "score": "0.985"
+                    }
+                ]
+            }
+        ]
+    }
+    ```
 
 ## Task 3 - Detect topics in a corpus of text ####
 
@@ -178,90 +182,102 @@ Follow these steps to detect topics in your text.
 
 1. Format the input in JSON. This time, you can define stop words and stop phrases.
 
-		{
-			"documents": [
-				{
-					"id": "1",
-					"text": "First document"
-				},
-                ...
-                {
-					"id": "100",
-					"text": "Final document"
-				}
-			],
-			"stopWords": [
-				"issue", "error", "user"
-			],
-			"stopPhrases": [
-				"Microsoft", "Azure"
-			]
-		}
+    ```
+    {
+        "documents": [
+            {
+                "id": "1",
+                "text": "First document"
+            },
+            ...
+            {
+                "id": "100",
+                "text": "Final document"
+            }
+        ],
+        "stopWords": [
+            "issue", "error", "user"
+        ],
+        "stopPhrases": [
+            "Microsoft", "Azure"
+        ]
+    }
+    ```
 
 1. Using the same headers as defined in Task 2, make a **POST** call to the topics endpoint:
 
-        POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
+    ```
+    POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
+    ```
 
 1. This will return an `operation-location` as the header in the response, where the value is the URL to query for the resulting topics:
 
-        'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
+    ```
+    'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
+    ```
 
 1. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
 
-        GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
+    ```
+    GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
+    ```
 
 1. The endpoint will return a response including `{"status": "notstarted"}` before processing, `{"status": "running"}` while processing and `{"status": "succeeded"}` with the output once completed. You can then consume the output which will be in the following format (note details like error format and dates have been excluded from this example):
 
-		{
-			"status": "succeeded",
-			"operationProcessingResult": {
-			  	"topics": [
-                    {
-					    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
-					    "score": "5"
-					    "keyPhrase": "first topic name"
-                    },
-                    ...
-                    {
-					    "id": "359ed9cb-f793-4168-9cde-cd63d24e0d6d"
-					    "score": "3"
-					    "keyPhrase": "final topic name"
-                    }
-                ],
-			  	"topicAssignments": [
-                    {
-					    "topicId": "8b89dd7e-de2b-4a48-94c0-8e7844265196",
-					    "documentId": "1",
-					    "distance": "0.354"
-                    },
-                    ...
-                    {
-					    "topicId": "359ed9cb-f793-4168-9cde-cd63d24e0d6d",
-					    "documentId": "55",
-					    "distance": "0.758"
-                    },            
-                ]
-			}
-		}
+    ```
+    {
+        "status": "succeeded",
+        "operationProcessingResult": {
+              "topics": [
+                {
+                    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
+                    "score": "5"
+                    "keyPhrase": "first topic name"
+                },
+                ...
+                {
+                    "id": "359ed9cb-f793-4168-9cde-cd63d24e0d6d"
+                    "score": "3"
+                    "keyPhrase": "final topic name"
+                }
+            ],
+              "topicAssignments": [
+                {
+                    "topicId": "8b89dd7e-de2b-4a48-94c0-8e7844265196",
+                    "documentId": "1",
+                    "distance": "0.354"
+                },
+                ...
+                {
+                    "topicId": "359ed9cb-f793-4168-9cde-cd63d24e0d6d",
+                    "documentId": "55",
+                    "distance": "0.758"
+                },            
+            ]
+        }
+    }
+    ```
 
 Note that the successful response for topics from the `operations` endpoint will have the following schema:
 
-	{
-    		"topics" : [{
-        		"id" : "string",
-        		"score" : "number",
-        		"keyPhrase" : "string"
-    		}],
-    		"topicAssignments" : [{
-        		"documentId" : "string",
-        		"topicId" : "string",
-        		"distance" : "number"
-    		}],
-    		"errors" : [{
-        		"id" : "string",
-        		"message" : "string"
-    		}]
-    	}
+```
+{
+        "topics" : [{
+            "id" : "string",
+            "score" : "number",
+            "keyPhrase" : "string"
+        }],
+        "topicAssignments" : [{
+            "documentId" : "string",
+            "topicId" : "string",
+            "distance" : "number"
+        }],
+        "errors" : [{
+            "id" : "string",
+            "message" : "string"
+        }]
+    }
+```
 
 Explanations for each part of this response are as follows:
 

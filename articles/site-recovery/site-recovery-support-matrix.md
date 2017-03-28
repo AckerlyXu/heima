@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Site Recovery support matrix | Azure"
-    description="Summarizes the supported operating systems and components for Azure Site Recovery"
-    services="site-recovery"
-    documentationcenter=""
-    author="rayne-wiselman"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.assetid="1bbcc13c-ea21-4349-9ddf-0d7dfdcdcbfb"
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="12/04/2016"
-    wacn.date=""
-    ms.author="raynew" />
+---
+title: Azure Site Recovery support matrix | Azure
+description: Summarizes the supported operating systems and components for Azure Site Recovery
+services: site-recovery
+documentationcenter: ''
+author: rayne-wiselman
+manager: jwhit
+editor: ''
+
+ms.assetid: 1bbcc13c-ea21-4349-9ddf-0d7dfdcdcbfb
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 12/04/2016
+wacn.date: ''
+ms.author: raynew
+---
 
 # Azure Site Recovery support matrix
 
@@ -29,7 +30,6 @@ This article summarizes supported operating systems and components for Azure Sit
 **Classic portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only. | Maintenance mode only.
 **PowerShell** | Not currently supported. | Supported | Supported
 
-
 ## Support for secondary site replication scenarios
 
 **Deployment** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
@@ -37,8 +37,6 @@ This article summarizes supported operating systems and components for Azure Sit
 **Azure portal** | On-premises VMware VMs to secondary VMware site.<br/><br/> Download the help guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) the InMage Scout user guide. Not available in the Azure portal | Not supported | On-premises Hyper-V VMs in VMM clouds to a secondary VMM cloud<br/><br/> Standard Hyper-V Replication only, SAN not supported
 **Classic portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only. | Maintenance mode only.
 **PowerShell** | Not supported. | NA | Supported
-
-
 
 ## Support for virtualization server operating systems
 
@@ -54,7 +52,6 @@ vCenter 5.5 or 6.0 (support for 5.5 features only) <br/><br/> vSphere 6.0, 5.5, 
 --- | --- | ---
 vCenter 5.5 or 6.0 (support for 5.5 features only) <br/><br/> vSphere 6.0, 5.5, or 5.1 with latest updates | Windows Server 2016, Windows Server 2012 R2, or Windows Server 2012 with latest updates.<br/><br/> Windows Server 2016 hosts should be managed by VMM running System Center 2016.<br/><br/> A VMM 2016 cloud with a mixture of Windows Server 2016 and earlier hosts isn't currently supported.
 
-
 ## Support for replicated machines
 
 ### Machines (replicate to Azure)
@@ -66,14 +63,12 @@ Virtual machines must meet [Azure requirements](/documentation/articles/site-rec
 What's replicated | Any workload on Windows or Linux VM | Any workload | Any workload
 Host OS | 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<bbr/><br/> Storage required: File system (EXT3, ETX4, ReiserFS, XFS); Multipath software-Device Mapper (multipath)); Volume manager: (LVM2). Physical servers with HP CCISS controller storage are not supported. The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3. | Any guest OS [supported by Azure](https://technet.microsoft.com/zh-cn/library/cc794868.aspx) | Any guest OS [supported by Azure](https://technet.microsoft.com/zh-cn/library/cc794868.aspx)
 
-
 ### Machines (replicate to secondary site)
 
 **Requirement** | **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
 What's replicated | Any workload on Windows or Linux VM | Any workload | Any workload
 Host OS | 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<bbr/><br/> Storage required: File system (EXT3, ETX4, ReiserFS, XFS); Multipath software-Device Mapper (multipath)); Volume manager: (LVM2).<br/><br/> Physical servers with HP CCISS controller storage are not supported. The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3. | Any guest OS supported by Hyper-V](https://technet.microsoft.com/zh-cn/library/mt126277.aspx)
-
 
 ## Support for Provider and agent
 
@@ -133,7 +128,6 @@ Static IP (Windows) | Yes | Yes
 Static IP (Linux) | Yes | Yes
 Multi-NIC | Yes | Yes
 
-
 ## Support for storage
 
 ### Storage (replicate to Azure)
@@ -172,7 +166,6 @@ Hot storage| No | No | No
 Encryption at rest | Yes | Yes | Yes
 Premium storage | Yes | No | No
 Import/export service | No | No | No
-
 
 ### Storage (replicate to secondary site)
 
@@ -217,7 +210,6 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 Move vault across resource groups<br/><br/> Within and across subscriptions | No | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
 
-
 ## Support for Azure compute (replicate to Azure)
 
 **Compute feature** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
@@ -233,8 +225,8 @@ You can deploy Site Recovery to replicate virtual machines and physical servers,
 **Feature** | **Requirements** | **Details**
 --- | --- | ---
 **Hyper-V host** | Should be running Windows Server 2012 R2 or later | Prerequisites check will fail if operating system unsupported
-**VMware hypervisor** | Supported operating system | [Check requirements](/documentation/articles/site-recovery-vmware-to-azure-classic/#before-you-start-deployment)
-**Guest operating system** | Hyper-V to Azure replication: Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/zh-cn/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication: Check the Windows and Linux [prerequisites](/documentation/articles/site-recovery-vmware-to-azure-classic/#before-you-start-deployment) | Prerequisites check will fail if unsupported.
+**VMware hypervisor** | Supported operating system | [Check requirements](./site-recovery-vmware-to-azure-classic.md#before-you-start-deployment)
+**Guest operating system** | Hyper-V to Azure replication: Site Recovery supports all operating systems that are [supported by Azure](https://technet.microsoft.com/zh-cn/library/cc794868%28v=ws.10%29.aspx). <br/><br/> For VMware and physical server replication: Check the Windows and Linux [prerequisites](./site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) | Prerequisites check will fail if unsupported.
 **Guest operating system architecture** | 64-bit | Prerequisites check will fail if unsupported
 **Operating system disk size** | Up to 1023 GB | Prerequisites check will fail if unsupported
 **Operating system disk count** | 1 | Prerequisites check will fail if unsupported.
@@ -250,14 +242,6 @@ You can deploy Site Recovery to replicate virtual machines and physical servers,
 **VM name** | Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. Should start and end with a letter or number | Update the value in the virtual machine properties in Site Recovery
 **VM type** | Generation 1<br/><br/> Generation 2 - Windows | Generation 2 VMs with an OS disk type of basic, which includes one or two data volumes formatted as VHDX and less than 300 GB are supported.<br/><br/>. Linux Generation 2 VM's aren't supported. [Learn more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/) |
 
-
-
-
-
-
-
-
 ## Next steps
 
 [Prepare for deployment](/documentation/articles/site-recovery-best-practices/)
-

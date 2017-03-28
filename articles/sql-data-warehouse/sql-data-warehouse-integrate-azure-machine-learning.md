@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Use Azure Machine Learning with SQL Data Warehouse | Microsoft Azure"
-   description="Tutorial for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="kevinvngo"
-   manager="barbkess"
-   editor=""/>
+---
+title: Use Azure Machine Learning with SQL Data Warehouse | Microsoft Azure
+description: Tutorial for using Azure Machine Learning with Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: kevinvngo
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="kevin;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: kevin;barbkess;sonyama
+---
 
 # Use Azure Machine Learning with SQL Data Warehouse
 
@@ -24,7 +24,6 @@ In this article, you will learn how to do the following using the [Azure Machine
 
 - Read data from your database to create, train and score a predictive model
 - Write data to your database
-
 
 ## Read data from SQL Data Warehouse
 
@@ -54,7 +53,6 @@ Select the Reader module and fill out the properties pane.
 6. Accept any server certificate: Use this option (less secure) if you want to skip reviewing the site certificate before you read your data.
 7. Database query: Enter a SQL statement that describes the data you want to read. In this case, we will read data from Product table using the following query.
 
-
 ```SQL
 SELECT ProductKey, EnglishProductName, StandardCost,
         ListPrice, Size, Weight, DaysToManufacture,
@@ -73,7 +71,6 @@ FROM dbo.DimProduct;
 
 3. To see the imported data, click the output port at the bottom of the automobile dataset and select Visualize.
 
-
 ## Create, train and score a model
 
 Now you can use this dataset to:
@@ -81,7 +78,6 @@ Now you can use this dataset to:
 - Create a Model: Process data and define features
 - Train the model: Choose and apply a learning algorithm
 - Score and test the model: Predict new bicycle price
-
 
 ![][model]
 

@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Azure Storage Security Overview | Microsoft Azure"
-   description=" Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. This article provides an overview of the core Azure security features that can be used with Azure Storage. "
-   services="security"
-   documentationCenter="na"
-   authors="TerryLanfear"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Azure Storage Security Overview | Microsoft Azure
+description:  Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. This article provides an overview of the core Azure security features that can be used with Azure Storage. 
+services: security
+documentationCenter: na
+authors: TerryLanfear
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/16/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/16/2016
+ms.author: terrylan
+---
 
 # Azure storage security overview
 
@@ -79,7 +79,7 @@ For many organizations, [data encryption at rest](https://blogs.microsoft.com/cy
 
 Learn more about Storage Service Encryption:
 
-- [Azure Storage Service Encryption](./storage/) is available for [Azure Blob Storage](https://www.azure.cn/documentation/articles/storage-introduction/). For details on other Azure storage types, see [File](https://www.azure.cn/zh-cn/documentation/articles/storage-dotnet-how-to-use-files/), [Table](https://www.azure.cn/zh-cn/documentation/articles/storage-dotnet-how-to-use-files/), and [Queue](https://www.azure.cn/zh-cn/documentation/articles/storage-dotnet-how-to-use-queues/).
+- [Azure Storage Service Encryption](./storage/) is available for [Azure Blob Storage](../storage/storage-introduction.md). For details on other Azure storage types, see [File](../storage/storage-dotnet-how-to-use-files.md), [Table](../storage/storage-dotnet-how-to-use-files.md), and [Queue](../storage/storage-dotnet-how-to-use-queues.md).
 - [Azure Storage Service Encryption for Data at Rest](../storage/storage-service-encryption.md)
 
 ## Azure Disk Encryption

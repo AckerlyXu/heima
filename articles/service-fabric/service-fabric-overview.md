@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Overview of Service Fabric | Azure"
-    description="An overview of Service Fabric, where applications are composed of many microservices to provide scale and resilience. Service Fabric is a distributed systems platform used to build scalable, reliable, and easily managed applications for the cloud."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="msfussell"
-    manager="timlt"
-    editor="masnider" />
-<tags
-    ms.assetid="bbcc652a-a790-4bc4-926b-e8cd966587c0"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="mfussell" />
+---
+title: Overview of Service Fabric | Azure
+description: An overview of Service Fabric, where applications are composed of many microservices to provide scale and resilience. Service Fabric is a distributed systems platform used to build scalable, reliable, and easily managed applications for the cloud.
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: masnider
+
+ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: mfussell
+---
 
 # Overview of Azure Service Fabric
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, tier-1, cloud-scale applications.
@@ -29,7 +30,6 @@ This longer Microsoft Virtual Academy video describes the Service Fabric core co
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
 <img src="./media/service-fabric-overview/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
-
 
 ## Applications composed of microservices
 Service Fabric enables you to build and manage scalable and reliable applications composed of microservices that run at very high density on a shared pool of machines, which is referred to as a cluster. It provides a sophisticated runtime to build distributed, scalable, stateless and stateful microservices. It also provides comprehensive application management capabilities to provision, deploy, monitor, upgrade/patch, and delete deployed applications.
@@ -47,15 +47,15 @@ Today's Internet-scale services are built of microservices. Examples of microser
 
 Service Fabric provides comprehensive runtime and lifecycle management capabilities to applications that are composed of these microservices. It hosts microservices inside containers that are deployed and activated across the Service Fabric cluster. A move from virtual machines to containers makes possible an order-of-magnitude increase in density. Similarly, another order of magnitude in density becomes possible when you move from containers to microservices. For example, a single cluster for Azure SQL Database comprises hundreds of machines running tens of thousands of containers that host a total of hundreds of thousands of databases. Each database is a Service Fabric stateful microservice. The same is true of the other previously mentioned services, which is why the term *hyperscale* is used to describe Service Fabric capabilities. If containers give you high density, then microservices give you hyperscale.
 
-For more on the microservices approach, read [Why a microservices approach to building applications?](/documentation/articles/service-fabric-overview-microservices/)
+For more on the microservices approach, read [Why a microservices approach to building applications?](./service-fabric-overview-microservices.md)
 
 ## Container deployment and orchestration
-Service Fabric is an [orchestrator](/documentation/articles/service-fabric-cluster-resource-manager-introduction/) of microservices across a cluster of machines. Microservices can be developed in many ways from using the [Service Fabric programming models ](/documentation/articles/service-fabric-choose-framework/) to deploying [guest executables](/documentation/articles/service-fabric-deploy-existing-app/). Service Fabric can deploy services in container images. Importantly, you can mix both services in processes and services in containers in the same application. If you just want to [deploy and manage container images](/documentation/articles/service-fabric-containers-overview/) across a cluster of machines, Service Fabric is a perfect choice.
+Service Fabric is an [orchestrator](./service-fabric-cluster-resource-manager-introduction.md) of microservices across a cluster of machines. Microservices can be developed in many ways from using the [Service Fabric programming models ](./service-fabric-choose-framework.md) to deploying [guest executables](./service-fabric-deploy-existing-app.md). Service Fabric can deploy services in container images. Importantly, you can mix both services in processes and services in containers in the same application. If you just want to [deploy and manage container images](./service-fabric-containers-overview.md) across a cluster of machines, Service Fabric is a perfect choice.
 
 ## Create clusters for Service Fabric anywhere
 You can create clusters for Service Fabric in many environments, including Azure or on premises, on Windows Server, or on Linux. In addition, the development environment in the SDK is identical to the production environment, and no emulators are involved. In other words, what runs on your local development cluster deploys to the same cluster in other environments.
 
-For more information on creating clusters on-premises, read [creating a cluster on Windows Server or Linux](/documentation/articles/service-fabric-deploy-anywhere/) or for Azure creating a cluster [via the Azure Portal](/documentation/articles/service-fabric-cluster-creation-via-portal/).
+For more information on creating clusters on-premises, read [creating a cluster on Windows Server or Linux](./service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure Portal](./service-fabric-cluster-creation-via-portal.md).
 
 ![Service Fabric platform][Image1]
 
@@ -67,7 +67,7 @@ Why have stateful microservices along with stateless ones? The two main reasons 
 * You can build high-throughput, low-latency, failure-tolerant online transaction processing (OLTP) services by keeping code and data close on the same machine. Some examples are interactive storefronts, search, Internet of Things (IoT) systems, trading systems, credit card processing and fraud detection systems, and personal record management.
 * You can simplify application design. Stateful microservices remove the need for additional queues and caches, which are traditionally required to address the availability and latency requirements of a purely stateless application. Stateful services are naturally high-availability and low-latency, which reduces the number of moving parts to manage in your application as a whole.
 
-For more information about application patterns with Service Fabric, read [Application scenarios](/documentation/articles/service-fabric-application-scenarios/) and [Choosing a programming model framework](/documentation/articles/service-fabric-choose-framework/) for your service.
+For more information about application patterns with Service Fabric, read [Application scenarios](./service-fabric-application-scenarios.md) and [Choosing a programming model framework](./service-fabric-choose-framework.md) for your service.
 
 You can also watch this Microsoft Virtual Academy video for an overview of stateless and stateful services:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">  
@@ -81,7 +81,7 @@ Service Fabric application lifecycle management capabilities enable application 
 
 Most applications consist of a combination of stateless and stateful microservices and other executables/runtimes that are deployed together. By having strong types on the applications and packaged microservices, Service Fabric enables the deployment of multiple application instances. Each instance is managed and upgraded independently. Importantly, Service Fabric can deploy *any* executables or runtime and make them reliable. For example, Service Fabric deploys .NET, ASP.NET Core, Node.js, Java virtual machines, scripts, Angular or anything else that makes up your application.
 
-For more information about application lifecycle management, read [Application lifecycle](/documentation/articles/service-fabric-application-lifecycle/). For more about how to deploy any code, see [Deploy a guest executable](/documentation/articles/service-fabric-deploy-existing-app/)
+For more information about application lifecycle management, read [Application lifecycle](./service-fabric-application-lifecycle.md). For more about how to deploy any code, see [Deploy a guest executable](./service-fabric-deploy-existing-app.md)
 
 You can also watch this Microsoft Virtual Academy video for an overview of app lifecycle management:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">  
@@ -112,10 +112,10 @@ By using Service Fabric, you can:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 * For more information:
-	* [Why a microservices approach to building applications?](/documentation/articles/service-fabric-overview-microservices/)
-	* [Terminology overview](/documentation/articles/service-fabric-technical-overview/)
-* Setting up your Service Fabric [development environment](/documentation/articles/service-fabric-get-started/)  
-* [Choosing a programming model framework](/documentation/articles/service-fabric-choose-framework/) for your service
-* Learn about [Service Fabric support options](/documentation/articles/service-fabric-support/)
+    * [Why a microservices approach to building applications?](./service-fabric-overview-microservices.md)
+    * [Terminology overview](./service-fabric-technical-overview.md)
+* Setting up your Service Fabric [development environment](./service-fabric-get-started.md)  
+* [Choosing a programming model framework](./service-fabric-choose-framework.md) for your service
+* Learn about [Service Fabric support options](./service-fabric-support.md)
 
 [Image1]: ./media/service-fabric-overview/Service-Fabric-Overview.png

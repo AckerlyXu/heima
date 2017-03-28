@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Troubleshooting Intel Edison Azure IoT Starter Kit | Azure"
-    description="Troubleshooting page for Intel Edison Node.js experience"
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino troubleshooting" />
-<tags
-    ms.assetid="f11c5521-8a36-44c0-baad-f5ec26ab4618"
-    ms.service="iot-hub"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Troubleshooting Intel Edison Azure IoT Starter Kit | Azure
+description: Troubleshooting page for Intel Edison Node.js experience
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino troubleshooting
+
+ms.assetid: f11c5521-8a36-44c0-baad-f5ec26ab4618
+ms.service: iot-hub
+ms.devlang: nodejs
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Troubleshooting
 ## Hardware issues
@@ -113,7 +114,7 @@ When you're installing **pip**, a permission error is thrown when older packages
 If you've successfully provisioned your Azure IoT hub with `azure-cli`, and you need a tool to manage the devices that are connecting to your IoT hub, try the following tools:
 
 ### Device Explorer
-[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](/documentation/articles/iot-hub-devguide/):
+[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](./iot-hub-devguide.md):
 
 - _Device identity management_ to provision and manage devices registered with your IoT hub.
 - _Receive device-to-cloud_ so you can monitor messages sent from your device to your IoT hub.
@@ -137,7 +138,7 @@ iothub-explorer help
 ```
 
 ### Azure portal
-A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](/documentation/articles/azure-portal-overview/) to help provision, manage, and debug your Azure resources.
+A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
 ## Azure storage issues
 [Microsoft Azure Storage Explorer (preview)](http://storageexplorer.com) is a standalone app from Microsoft that you can use to work with [Azure Storage](/services/storage/) data on Windows, macOS, and Linux. By using this tool, you can connect to your table and see the data in it. You can use this tool to troubleshoot your Azure Storage issues.
@@ -145,7 +146,7 @@ A full CLI experience helps you create and manage all your Azure resources. You 
 ## Next steps
 This page only includes the most common problems of Intel Edison kit. You can also leave bottom comments to report issues for further troubleshooting.
 
-Go back to [Get started with Intel Edison (Node.js)](/documentation/articles/iot-hub-intel-edison-kit-node-get-started/)
+Go back to [Get started with Intel Edison (Node.js)](./iot-hub-intel-edison-kit-node-get-started.md)
 
 <!-- Images and links -->
 

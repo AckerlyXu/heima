@@ -1,23 +1,23 @@
-<properties
-    pageTitle="Visualize and troubleshoot Stream Analytics jobs | Azure"
-    description="Learn how to visualize a Stream Analytics job pipeline for self-service troubleshooting using the diagnostics diagram feature."
-    keywords=""
-    documentationcenter=""
-    services="stream-analytics"
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="d87841cd-c59f-4a46-b46e-8b904fdc12e9"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Visualize and troubleshoot Stream Analytics jobs | Azure
+description: Learn how to visualize a Stream Analytics job pipeline for self-service troubleshooting using the diagnostics diagram feature.
+keywords: ''
+documentationcenter: ''
+services: stream-analytics
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
+ms.assetid: d87841cd-c59f-4a46-b46e-8b904fdc12e9
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Visualize and troubleshoot Stream Analytics jobs
 In Stream Analytics, as with other cloud-based technologies, troubleshooting is sometimes needed to look into why a job does not produce the expected output (or any output for that matter). With this in mind, Stream Analytics provides the capability for visualizing a streaming job. This is also handy as a modeling tool and has the side benefit for those requiring documentation of their work.
@@ -38,8 +38,8 @@ When the user wants to look at intermediate query steps to understand the data f
 ![stream-analytics-troubleshoot-visualization-intermediate-steps](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-intermediate-steps.png)
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/)
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/en-US/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://docs.microsoft.com/en-us/rest/api/streamanalytics/)

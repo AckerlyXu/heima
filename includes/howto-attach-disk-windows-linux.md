@@ -1,4 +1,3 @@
-
 For more details about disks, see [About Disks and VHDs for Virtual Machines](/documentation/articles/virtual-machines-disks-vhds/).
 
 ##<a id="attachempty"></a>How to: Attach an empty disk
@@ -9,29 +8,26 @@ Attaching an empty disk is a simple way to add a data disk, because Azure create
 
 2. On the command bar, click **Attach**, and then click **Attach Empty Disk**.
 
+    ![Attach an empty disk](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
 
-	![Attach an empty disk](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
+3. The **Attach an Empty Disk** dialog box appears.
 
-3.	The **Attach an Empty Disk** dialog box appears.
+    ![Attach a new empty disk](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
 
+    Do the following:
 
-	![Attach a new empty disk](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
+    - In **File Name**, accept the default name or type another one for the .vhd file. The data disk uses an automatically generated name, even if you type another name for the .vhd file.
 
+    - Type the **Size (GB)** of the data disk.
 
-	Do the following:
+    - Click the check mark to finish.
 
-	- In **File Name**, accept the default name or type another one for the .vhd file. The data disk uses an automatically generated name, even if you type another name for the .vhd file.
+4. After the data disk is created and attached, it's listed in the dashboard of the VM.
 
-	- Type the **Size (GB)** of the data disk.
+    ![Empty data disk successfully attached](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
 
-	- Click the check mark to finish.
-
-4.	After the data disk is created and attached, it's listed in the dashboard of the VM.
-
-	![Empty data disk successfully attached](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
-
-> [AZURE.NOTE] After you add a new data disk, you'll need to log on to the VM and initialize the disk so that it can be used. 
-
+> [!NOTE]
+> After you add a new data disk, you'll need to log on to the VM and initialize the disk so that it can be used. 
 
 ##<a id="attachexisting"></a>How to: Attach an existing disk
 
@@ -41,15 +37,12 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 
 2. On the command bar, click **Attach**, and then select **Attach Disk**.
 
-
-	![Attach data disk](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
-
+    ![Attach data disk](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
 
 3. Select the data disk and then click the check mark to attach the data disk.
 
-	![Enter data disk details](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
+    ![Enter data disk details](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
 
-4.	After the data disk is attached, it's listed in the dashboard of the VM.
+4. After the data disk is attached, it's listed in the dashboard of the VM.
 
-
-	![Data disk successfully attached](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
+    ![Data disk successfully attached](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)

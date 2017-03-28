@@ -1,20 +1,21 @@
-<properties 
-   pageTitle="Service Bus messaging exceptions | Azure"
-   description="List of Service Bus messaging exceptions and suggested actions."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/03/2017"
-    ms.author="sethm"
-    wacn.date="" />
+---
+title: Service Bus messaging exceptions | Azure
+description: List of Service Bus messaging exceptions and suggested actions.
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/03/2017
+ms.author: sethm
+wacn.date: ''
+---
 
 # Service Bus messaging exceptions
 
@@ -67,7 +68,7 @@ For queues and topics, this is often the size of the queue. The error message pr
 ```
 Microsoft.ServiceBus.Messaging.QuotaExceededException
 Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
-	Size of entity in bytes:1073742326, Max entity size in bytes:
+    Size of entity in bytes:1073742326, Max entity size in bytes:
 1073741824..TrackingId:xxxxxxxxxxxxxxxxxxxxxxxxxx, TimeStamp:3/15/2013 7:50:18 AM
 ```
 
@@ -88,12 +89,12 @@ ConnectionsQuotaExceeded for namespace xxx.
 There are two common causes for this error: the dead-letter queue, and non-functioning message receivers.
 
 1. **Dead-letter queue**
-	A reader is failing to complete messages and the messages are returned to the queue/topic when the lock expires. This can happen if the reader encounters an exception that prevents it from calling [BrokeredMessage.Complete](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). After a message has been read 10 times, it moves to the dead-letter queue by default. This behavior is controlled by the [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) property and has a default value of 10. As messages pile up in the dead letter queue, they take up space.
+    A reader is failing to complete messages and the messages are returned to the queue/topic when the lock expires. This can happen if the reader encounters an exception that prevents it from calling [BrokeredMessage.Complete](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx). After a message has been read 10 times, it moves to the dead-letter queue by default. This behavior is controlled by the [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) property and has a default value of 10. As messages pile up in the dead letter queue, they take up space.
 
-	To resolve the issue, read and complete the messages from the dead-letter queue, as you would from any other queue. The [QueueClient](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.aspx) class even contains a [FormatDeadLetterPath](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.formatdeadletterpath.aspx) method to help format the dead-letter queue path.
+    To resolve the issue, read and complete the messages from the dead-letter queue, as you would from any other queue. The [QueueClient](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.aspx) class even contains a [FormatDeadLetterPath](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.formatdeadletterpath.aspx) method to help format the dead-letter queue path.
 
 2. **Receiver stopped**
-	A receiver has stopped receiving messages from a queue or subscription. The way to identify this is to look at the [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) property, which shows the full breakdown of the messages. If the [ActiveMessageCount](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) property is high or growing, then the messages are not being read as fast as they're being written.
+    A receiver has stopped receiving messages from a queue or subscription. The way to identify this is to look at the [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) property, which shows the full breakdown of the messages. If the [ActiveMessageCount](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) property is high or growing, then the messages are not being read as fast as they're being written.
 
 ### Event Hubs
 
@@ -115,16 +116,16 @@ For Event Hubs, the timeout is specified either as part of the connection string
 There are two common causes for this error: incorrect configuration, or a transient service error.
 
 1. **Incorrect configuration**
-	The operation timeout might be too small for the operational condition. The default value for the operation timeout in the client SDK is 60 seconds. Check to see if your code has the value set to something too small. Note that the condition of the network and CPU usage can affect the time it takes for a particular operation to complete, so the operation timeout should not be set to a very small value.
+    The operation timeout might be too small for the operational condition. The default value for the operation timeout in the client SDK is 60 seconds. Check to see if your code has the value set to something too small. Note that the condition of the network and CPU usage can affect the time it takes for a particular operation to complete, so the operation timeout should not be set to a very small value.
 
 2. **Transient service error**
-	Sometimes the Service Bus service can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://azure.microsoft.com/status/) to see if there are any known service outages.
+    Sometimes the Service Bus service can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://azure.microsoft.com/status/) to see if there are any known service outages.
 
 ## Next steps
 For the complete Service Bus and Event Hubs .NET API reference, see the [Azure .NET API reference](https://docs.microsoft.com/en-us/dotnet/api/).
 
 To learn more about [Service Bus](/home/feateures/messaging/), see the following topics.
 
-- [Service Bus messaging overview](/documentation/articles/service-bus-messaging-overview/)
-- [Service Bus fundamentals](/documentation/articles/service-bus-fundamentals-hybrid-solutions/)
-- [Service Bus architecture](/documentation/articles/service-bus-architecture/)
+- [Service Bus messaging overview](./service-bus-messaging-overview.md)
+- [Service Bus fundamentals](./service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus architecture](./service-bus-architecture.md)

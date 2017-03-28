@@ -1,28 +1,29 @@
-﻿<properties
-    pageTitle="Security considerations for Resource Manager | Azure"
-    description="Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups."
-    services="azure-resource-manager"
-    documentationcenter=""
-    author="george-moore"
-    manager="georgem"
-    editor="tysonn" />
-<tags
-    ms.assetid="c862e9c7-276b-46bf-bc0a-11868ac11459"
-    ms.service="azure-resource-manager"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/01/2016"
-    wacn.date=""
-    ms.author="georgem;tomfitz" />
+﻿---
+title: Security considerations for Resource Manager | Azure
+description: Shows recommended approaches in Azure Resource Manager for securing resources with keys and secrets, role-based access control and network security groups.
+services: azure-resource-manager
+documentationcenter: ''
+author: george-moore
+manager: georgem
+editor: tysonn
+
+ms.assetid: c862e9c7-276b-46bf-bc0a-11868ac11459
+ms.service: azure-resource-manager
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/01/2016
+wacn.date: ''
+ms.author: georgem;tomfitz
+---
 
 # Security considerations for Azure Resource Manager
 When looking at aspects of security for your Azure Resource Manager templates, there are several areas to consider - keys and secrets, role-based access control,
 and network security groups.
 
 This topic assumes you are familiar with Role-Based Access Control (RBAC) in Azure Resource Manager. For more information, see
-[Azure Role-based Access Control](/documentation/articles/role-based-access-control-configure/).
+[Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
 This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World%20Class%20ARM%20Templates%20-%20Considerations%20and%20Proven%20Practices.pdf).
 
@@ -59,73 +60,75 @@ While most of the fields in this template should be self-explanatory, the **enab
 standing access by any other Azure infrastructure component. By setting this value, it allows the Azure Compute infrastructure components read-only access to this
 specific named vault. Therefore, a further best practice is to not comingle corporate sensitive data in the same vault as virtual machine secrets.
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "keyVaultName": {
-                "type": "string",
-                "metadata": {
-                    "description": "Name of the Vault"
-                }
-            },
-            "location": {
-                "type": "string",
-                "allowedValues": ["China East", "China North"],
-                "metadata": {
-                    "description": "Location of the Vault"
-                }
-            },
-            "tenantId": {
-                "type": "string",
-                "metadata": {
-                    "description": "Tenant Id of the subscription. Get using Get-AzureSubscription cmdlet or Get Subscription API"
-                }
-            },
-            "objectId": {
-                "type": "string",
-                "metadata": {
-                    "description": "Object Id of the AD user. Get using Get-AzureADUser cmdlet"
-                }
-            },
-            "skuName": {
-                "type": "string",
-                "allowedValues": ["Standard", "Premium"],
-                "metadata": {
-                    "description": "SKU for the vault"
-                }
-            },
-            "enableVaultForDeployment": {
-                "type": "bool",
-                "allowedValues": [true, false],
-                "metadata": {
-                    "description": "Specifies if the vault is enabled for a VM deployment"
-                }
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "keyVaultName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Vault"
             }
         },
-        "resources": [{
-            "type": "Microsoft.KeyVault/vaults",
-            "name": "[parameters('keyVaultName')]",
-            "apiVersion": "2014-12-19-preview",
-            "location": "[parameters('location')]",
-            "properties": {
-                "enabledForDeployment": "[parameters('enableVaultForDeployment')]",
-                "tenantid": "[parameters('tenantId')]",
-                "accessPolicies": [{
-                    "tenantId": "[parameters('tenantId')]",
-                    "objectId": "[parameters('objectId')]",
-                    "permissions": {
-                        "secrets": ["all"],
-                        "keys": ["all"]
-                    }
-                }],
-                "sku": {
-                    "name": "[parameters('skuName')]",
-                    "family": "A"
-                }
+        "location": {
+            "type": "string",
+            "allowedValues": ["China East", "China North"],
+            "metadata": {
+                "description": "Location of the Vault"
             }
-        }]
-    }
+        },
+        "tenantId": {
+            "type": "string",
+            "metadata": {
+                "description": "Tenant Id of the subscription. Get using Get-AzureSubscription cmdlet or Get Subscription API"
+            }
+        },
+        "objectId": {
+            "type": "string",
+            "metadata": {
+                "description": "Object Id of the AD user. Get using Get-AzureADUser cmdlet"
+            }
+        },
+        "skuName": {
+            "type": "string",
+            "allowedValues": ["Standard", "Premium"],
+            "metadata": {
+                "description": "SKU for the vault"
+            }
+        },
+        "enableVaultForDeployment": {
+            "type": "bool",
+            "allowedValues": [true, false],
+            "metadata": {
+                "description": "Specifies if the vault is enabled for a VM deployment"
+            }
+        }
+    },
+    "resources": [{
+        "type": "Microsoft.KeyVault/vaults",
+        "name": "[parameters('keyVaultName')]",
+        "apiVersion": "2014-12-19-preview",
+        "location": "[parameters('location')]",
+        "properties": {
+            "enabledForDeployment": "[parameters('enableVaultForDeployment')]",
+            "tenantid": "[parameters('tenantId')]",
+            "accessPolicies": [{
+                "tenantId": "[parameters('tenantId')]",
+                "objectId": "[parameters('objectId')]",
+                "permissions": {
+                    "secrets": ["all"],
+                    "keys": ["all"]
+                }
+            }],
+            "sku": {
+                "name": "[parameters('skuName')]",
+                "family": "A"
+            }
+        }
+    }]
+}
+```
 
 Once the vault is created, the next step is to reference that vault in the deployment template of a new VM.  As mentioned above, a best practice is to have a
 different dev/ops group manage VM deployments, with that group having no direct access to the keys as stored in the vault.
@@ -133,33 +136,35 @@ different dev/ops group manage VM deployments, with that group having no direct 
 The below template fragment would be composed into higher order deployment constructs, each safely and securely referencing highly-sensitive secrets which are not
 under the direct control of the operator.
 
-    "vaultName": {
-        "type": "string",
-        "metadata": {
-            "description": "Name of Key Vault that has a secret"
-        }
-    },
-    {
-        "apiVersion": "2015-05-01-preview",
-        "type": "Microsoft.Compute/virtualMachines",
-        "name": "[parameters('vmName')]",
-        "location": "[parameters('location')]",
-        "properties": {
-            "osProfile": {
-                "secrets": [{
-                    "sourceVault": {
-                        "id": "[resourceId('vaultrg', 'Microsoft.KeyVault/vaults', 'kayvault')]"
-                    },
-                    "vaultCertificates": [{
-                        "certificateUrl": "[parameters('secretUrlWithVersion')]",
-                        "certificateStore": "My"
-                    }]
+```
+"vaultName": {
+    "type": "string",
+    "metadata": {
+        "description": "Name of Key Vault that has a secret"
+    }
+},
+{
+    "apiVersion": "2015-05-01-preview",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[parameters('vmName')]",
+    "location": "[parameters('location')]",
+    "properties": {
+        "osProfile": {
+            "secrets": [{
+                "sourceVault": {
+                    "id": "[resourceId('vaultrg', 'Microsoft.KeyVault/vaults', 'kayvault')]"
+                },
+                "vaultCertificates": [{
+                    "certificateUrl": "[parameters('secretUrlWithVersion')]",
+                    "certificateStore": "My"
                 }]
-            }
+            }]
         }
     }
+}
+```
 
-To pass a value from a key vault as a parameter during deployment of a template, see [Pass secure values during deployment](/documentation/articles/resource-manager-keyvault-parameter/).
+To pass a value from a key vault as a parameter during deployment of a template, see [Pass secure values during deployment](./resource-manager-keyvault-parameter.md).
 
 ## Service principals for cross-subscription interactions
 Service identities are represented by service principals in Active Directory. Service principals will be at the center of enabling key scenarios for Enterprise IT organizations, System Integrators (SI), and Cloud Service Vendors (CSV). Specifically, there will be use cases where one of these organizations will need to interact with the subscription of one of their customers.  
@@ -188,14 +193,14 @@ Group (NSG) to do this as part of an ARM template deployment.
 A network security group is a top-level object that is associated with your subscription. An NSG contains access control rules that allow or deny traffic to
 VM instances. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a virtual network
 that is associated with a region (location). NSGs are not compatible with virtual networks that are associated with an affinity group. If you don't have a
-regional virtual network and you want to control traffic to your endpoints, please see [About Network Access Control Lists (ACLs)](/documentation/articles/virtual-networks-acl/).
+regional virtual network and you want to control traffic to your endpoints, please see [About Network Access Control Lists (ACLs)](../virtual-network/virtual-networks-acl.md).
 
 You can associate an NSG with a VM, or to a subnet within a virtual network. When associated with a VM, the NSG applies to all the traffic that is sent and
 received by the VM instance. When applied to a subnet within your virtual network, it applies to all the traffic that is sent and received by all the VM instances
 in the subnet. A VM or subnet can be associated with only 1 NSG, but each NSG can contain up to 200 rules. You can have 100 NSGs per subscription.
 
-> [AZURE.NOTE]
-> Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](/documentation/articles/virtual-networks-acl-powershell/).
+> [!NOTE]
+> Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 > 
 > 
 
@@ -345,12 +350,12 @@ Every subnet created in a virtual network is automatically associated with a rou
 * Internet Rule: This rule handles all traffic destined to the public Internet and uses the infrastructure internet gateway as the next hop for all traffic destined to the Internet.
 
 ### BGP routes
-At the time of this writing, [ExpressRoute](/documentation/articles/expressroute-introduction/) is not yet supported in the [Network Resource Provider](/documentation/articles/resource-groups-networking/) for Azure Resource Manager.  If you have an ExpressRoute connection between your
+At the time of this writing, [ExpressRoute](../expressroute/expressroute-introduction.md) is not yet supported in the [Network Resource Provider](../virtual-network/resource-groups-networking.md) for Azure Resource Manager.  If you have an ExpressRoute connection between your
 on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure once ExpressRoute is supported in the NRP. These
 BGP routes are used in the same way as default routes and user defined routes in each Azure subnet. For more information see
-[ExpressRoute Introduction](/documentation/articles/expressroute-introduction/).
+[ExpressRoute Introduction](../expressroute/expressroute-introduction.md).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When ExpressRoute on NRP is supported, you will be able to configure your Azure environment to use forced tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop. However, this only works if you are using a VPN gateway, not ExpressRoute. For ExpressRoute, forced tunneling is configured through BGP.
 > 
 > 
@@ -374,7 +379,7 @@ order:
 2. BGP route (when ExpressRoute is used)
 3. Default route
 
-> [AZURE.NOTE]
+> [!NOTE]
 > User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forwards all traffic going to the on-premises address space to the virtual appliance. However, incoming traffic from the on-premises address space will flow through your VPN gateway or ExpressRoute circuit straight to the Azure environment, bypassing the virtual appliance.
 > 
 > 
@@ -387,7 +392,7 @@ This virtual appliance VM must be able to receive incoming traffic that is not a
 you must enable IP Forwarding in the VM.
 
 ## Next steps
-* To understand how to set up security principals with the correct access to work with resources in your organization, see [Authenticating a Service Principal with Azure Resource Manager](/documentation/articles/resource-group-authenticate-service-principal/)
-* If you need to lock access to a resource, you can use management locks. See [Lock Resources with Azure Resource Manager](/documentation/articles/resource-group-lock-resources/)
-* To configure routing and IP forwarding, see [Create User Defined Routes (UDR) in Resource Manager by using a template](/documentation/articles/virtual-network-create-udr-arm-template/)
-* For an overview of role-based access control, see [Role-based access control in the Azure portal preview](/documentation/articles/role-based-access-control-configure/)
+* To understand how to set up security principals with the correct access to work with resources in your organization, see [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)
+* If you need to lock access to a resource, you can use management locks. See [Lock Resources with Azure Resource Manager](./resource-group-lock-resources.md)
+* To configure routing and IP forwarding, see [Create User Defined Routes (UDR) in Resource Manager by using a template](../virtual-network/virtual-network-create-udr-arm-template.md)
+* For an overview of role-based access control, see [Role-based access control in the Azure portal preview](../active-directory/role-based-access-control-configure.md)

@@ -1,25 +1,26 @@
-<properties
-    pageTitle="FAQ: Azure AD password management | Azure"
-    description="Frequently asked questions (FAQ) about password management in Azure AD, including password reset, registration, reports, and writeback to on-premises Active Directory ."
-    services="active-directory"
-    documentationcenter=""
-    author="MicrosoftGuyJFlo"
-    manager="femila"
-    editor="curtand" />
-<tags
-    ms.assetid="3a157d27-a410-4371-bcbf-8312941ae9d1"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/28/2017"
-    wacn.date=""
-    ms.author="joflore" />
+---
+title: FAQ: Azure AD password management | Azure
+description: Frequently asked questions (FAQ) about password management in Azure AD, including password reset, registration, reports, and writeback to on-premises Active Directory .
+services: active-directory
+documentationcenter: ''
+author: MicrosoftGuyJFlo
+manager: femila
+editor: curtand
+
+ms.assetid: 3a157d27-a410-4371-bcbf-8312941ae9d1
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/28/2017
+wacn.date: ''
+ms.author: joflore
+---
 
 # Password management frequently asked questions
-> [AZURE.IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
+> [!IMPORTANT]
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -177,7 +178,7 @@ This FAQ is split into the following sections:
   > **A:** This is possible today if you are using ADFS by following the instructions here: [Sending Password Policy Claims with ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). If you are using password hash synchronization, this is not possible today. This is because we do not sync password policies from on-premises, so it is not possible for us to post expiry notifications to cloud experiences. In either case, it is also possible to [notify users whose passwords are about to expire by using PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
-  
+
 ## Password management reports
 - **Q:  How long does it take for data to show up on the password management reports?**
 
@@ -215,7 +216,7 @@ This FAQ is split into the following sections:
 ## Password writeback
 - **Q:  How does password writeback work behind the scenes?**
 
-  > **A:** See [How password writeback works](/documentation/articles/active-directory-passwords-learn-more/#how-password-writeback-works/) for a detailed explanation of what happens when you enable password writeback, as well as how data flows through the system back into your on-premises environment. See [Password writeback security model](/documentation/articles/active-directory-passwords-learn-more/#password-writeback-security-model/) in How password writeback works to learn how we ensure password writeback is a highly secure service.
+  > **A:** See [How password writeback works](./active-directory-passwords-learn-more.md#how-password-writeback-works) for a detailed explanation of what happens when you enable password writeback, as well as how data flows through the system back into your on-premises environment. See [Password writeback security model](./active-directory-passwords-learn-more.md#password-writeback-security-model) in How password writeback works to learn how we ensure password writeback is a highly secure service.
   >
   >
 - **Q:  How long does password writeback take to work?  Is there a synchronization delay like with password hash sync?**
@@ -235,21 +236,21 @@ This FAQ is split into the following sections:
   >
 - **Q:  Is password writeback secure?  How can I be sure I won’t get hacked?**
 
-  > **A:** Yes, password writeback is extremely secure. To read more about the 4 layers of security implemented by the password writeback service, check out the [Password writeback security model](/documentation/articles/active-directory-passwords-learn-more/#password-writeback-security-model/) in How password writeback works.
+  > **A:** Yes, password writeback is extremely secure. To read more about the 4 layers of security implemented by the password writeback service, check out the [Password writeback security model](./active-directory-passwords-learn-more.md#password-writeback-security-model) in How password writeback works.
   >
   >
 
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
-- [**How it works**](/documentation/articles/active-directory-passwords-how-it-works/) - learn about the six different components of the service and what each does
-- [**Getting started**](/documentation/articles/active-directory-passwords-getting-started/) - learn how to allow you users to reset and change their cloud or on-premises passwords
-- [**Customize**](/documentation/articles/active-directory-passwords-customize/) - learn how to customize the look & feel and behavior of the service to your organization's needs
-- [**Best practices**](/documentation/articles/active-directory-passwords-best-practices/) - learn how to quickly deploy and effectively manage passwords in your organization
-- [**Get insights**](/documentation/articles/active-directory-passwords-get-insights/) - learn about our integrated reporting capabilities
-- [**Troubleshooting**](/documentation/articles/active-directory-passwords-troubleshoot/) - learn how to quickly troubleshoot problems with the service
-- [**Learn more**](/documentation/articles/active-directory-passwords-learn-more/) - go deep into the technical details of how the service works
+- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+- [**How it works**](./active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+- [**Getting started**](./active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+- [**Customize**](./active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+- [**Best practices**](./active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+- [**Get insights**](./active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+- [**Troubleshooting**](./active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+- [**Learn more**](./active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"

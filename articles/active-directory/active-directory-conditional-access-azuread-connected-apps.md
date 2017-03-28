@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Azure Conditional Access Preview for SaaS Apps| Azure"
-	description="Conditional access in Azure AD allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. "
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
-	editor=""/>
+---
+title: Azure Conditional Access Preview for SaaS Apps| Azure
+description: Conditional access in Azure AD allows you to configure per-application multi-factor authentication access rules and the ability to block access for users not on a trusted network. 
+services: active-directory
+documentationCenter: ''
+authors: femila
+manager: swadhwa
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="06/15/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 06/15/2016
+wacn.date: ''
+---
 
 # Azure Conditional Access Preview for SaaS Apps
 
@@ -81,11 +81,13 @@ By default, MFA will occur at a page hosted by Azure Active Directory. In order 
 
 The following example shows how to enable on-premises MFA by using the [Set-MsolDomainFederationSettings cmdlet](https://msdn.microsoft.com/library/azure/dn194088.aspx) on the contoso.com tenant:
 
-    Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true
+```
+Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true
+```
 
 In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for deploying Azure Multi-Factor Authentication on-premises.
 
 ##Related Articles
 
-- [Securing access to Office 365 and other apps connected to Azure Active Directory](/documentation/articles/active-directory-conditional-access/)
-- [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
+- [Securing access to Office 365 and other apps connected to Azure Active Directory](./active-directory-conditional-access.md)
+- [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)

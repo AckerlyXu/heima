@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure App Service plans in-depth overview | Azure"
-    description="Learn how App Service plans for Azure App Service work, and how they benefit your management experience."
-    keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
-    services="app-service"
-    documentationcenter=""
-    author="btardif"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="dea3f41e-cf35-481b-a6bc-33d7fc9d01b1"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/02/2016"
-    wacn.date=""
-    ms.author="byvinyal" />
+---
+title: Azure App Service plans in-depth overview | Azure
+description: Learn how App Service plans for Azure App Service work, and how they benefit your management experience.
+keywords: app service, azure app service, scale, scalable, app service plan, app service cost
+services: app-service
+documentationcenter: ''
+author: btardif
+manager: erikre
+editor: ''
+
+ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/02/2016
+wacn.date: ''
+ms.author: byvinyal
+---
 
 # Azure App Service plans in-depth overview
 App Service plans represent the collection of physical resources used to host your apps.
@@ -28,7 +29,7 @@ App Service plans define:
 - Instance size (Small, Medium, Large)
 - SKU (Free, Shared, Basic, Standard, Premium)
 
-Web Apps, Mobile Apps, Function Apps, or API Apps, in [Azure App Service](/documentation/articles/app-service-changes-existing-services/) all run in an App Service plan.  Apps in the same subscription and region and resource group can share an App Service plan. 
+Web Apps, Mobile Apps, Function Apps, or API Apps, in [Azure App Service](../app-service-web/app-service-changes-existing-services.md) all run in an App Service plan.  Apps in the same subscription and region and resource group can share an App Service plan. 
 
 All applications assigned to an **App Service plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
 
@@ -95,7 +96,7 @@ If you want to move the app to a different region, one alternative is app clonin
 
 You can find **Clone App** on the **Tools** menu.
 
-Cloning has some limitations that you can read about at [Azure App Service App cloning using Azure portal preview](/documentation/articles/app-service-web-app-cloning-portal/).
+Cloning has some limitations that you can read about at [Azure App Service App cloning using Azure portal preview](../app-service-web/app-service-web-app-cloning-portal.md).
 
 ## Scale an App Service plan
 There are three ways to scale a plan:
@@ -116,7 +117,7 @@ To avoid unexpected charges, when the last app hosted in an App Service plan is 
 App Service plans represent a set of features and capacity that you can share across your apps. App Service plans give you the flexibility to allocate specific apps to a set of resources and further optimize your Azure resource utilization. This way, if you want to save money on your testing environment, you can share a plan across multiple apps. You can also maximize throughput for your production environment by scaling it across multiple regions and plans.
 
 ## What's changed
-* For a guide to the change from Websites to App Service, see: [Azure App Service and Its Impact on Existing Azure Services](/documentation/articles/app-service-changes-existing-services/)
+* For a guide to the change from Websites to App Service, see: [Azure App Service and Its Impact on Existing Azure Services](../app-service-web/app-service-changes-existing-services.md)
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png

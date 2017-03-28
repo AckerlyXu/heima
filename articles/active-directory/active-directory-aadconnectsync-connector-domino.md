@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Lotus Domino Connector | Azure"
-    description="This article describes how to configure Microsoft's Lotus Domino Connector."
-    services="active-directory"
-    documentationcenter=""
-    author="AndKjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="e07fd469-d862-470f-a3c6-3ed2a8d745bf"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/10/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Lotus Domino Connector | Azure
+description: This article describes how to configure Microsoft's Lotus Domino Connector.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
+
+ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/10/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Lotus Domino Connector technical reference
 This article describes the Lotus Domino Connector. The article applies to the following products:
@@ -144,7 +145,7 @@ The **Domino Server Time Zone** parameter defines the location of your Domino Se
 
 This configuration option is required to support **delta import** operations because it enables the synchronization service determine changes between the last two imports.
 
->[AZURE.NOTE]
+>[!NOTE]
 Starting in the March 2017 update the Global parameters screen includes the option to delete the user's mail database during the user's deletion.
 
 ![Delete user's mailbox](./media/active-directory-aadconnectsync-connector-domino/AdminP.png)

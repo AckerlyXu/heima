@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Overview of Azure Event Hubs Dedicated capacity | Azure"
-    description="Overview of Azure Event Hubs Dedicated capacity."
-    services="event-hubs"
-    documentationcenter="na"
-    author="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="event-hubs"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/01/2017"
-    wacn.date=""
-    ms.author="sethm;babanisa" />
+---
+title: Overview of Azure Event Hubs Dedicated capacity | Azure
+description: Overview of Azure Event Hubs Dedicated capacity.
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
+
+ms.assetid: ''
+ms.service: event-hubs
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/01/2017
+wacn.date: ''
+ms.author: sethm;babanisa
+---
 
 # Overview of Event Hubs Dedicated
 
@@ -63,5 +64,5 @@ Contact your Microsoft sales representative or Microsoft Support to get addition
 
 For detailed information about pricing, visit the following links:
 
-- [Event Hubs Dedicated pricing](/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated capacity.
-- The [Event Hubs FAQ](/documentation/articles/event-hubs-faq/) contains pricing information and answers some frequently asked questions about Event Hubs.
+- [Event Hubs Dedicated pricing](https://www.azure.cn/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated capacity.
+- The [Event Hubs FAQ](./event-hubs-faq.md) contains pricing information and answers some frequently asked questions about Event Hubs.

@@ -1,41 +1,42 @@
-<properties
-    pageTitle="Create a VM (Classic) with multiple NICs - Azure CLI 1.0 | Azure"
-    description="Learn how to create a VM (Classic) with multiple NICs using the Azure command-line interface (CLI) 1.0."
-    services="virtual-network"
-    documentationcenter="na"
-    author="jimdial"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="b436e41e-866c-439f-a7c7-7b4b041725ef"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="02/02/2016"
-    wacn.date=""
-    ms.author="jdial"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Create a VM (Classic) with multiple NICs - Azure CLI 1.0 | Azure
+description: Learn how to create a VM (Classic) with multiple NICs using the Azure command-line interface (CLI) 1.0.
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: timlt
+editor: ''
+tags: azure-service-management
+
+ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/02/2016
+wacn.date: ''
+ms.author: jdial
+ms.custom: H1Hack27Feb2017
+---
 
 # Create a VM (Classic) with multiple NICs using the Azure CLI 1.0
 
-[AZURE.INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
+[!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multiple NICs enable separation of traffic types across NICs. For example, one NIC might communicate with the Internet, while another communicates only with internal resources not connected to the Internet. The ability to separate network traffic across multiple NICs is required for many network virtual appliances, such as application delivery and WAN optimization solutions.
 
-> [AZURE.IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](/documentation/articles/resource-manager-deployment-model/). This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to perform these steps using the [Resource Manager deployment model](/documentation/articles/virtual-network-deploy-multinic-arm-cli/).
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to perform these steps using the [Resource Manager deployment model](./virtual-network-deploy-multinic-arm-cli.md).
 
-[AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
+[!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
 The following steps use a resource group named *IaaSStory* for the WEB servers and a resource group named *IaaSStory-BackEnd* for the DB servers.
 
 ## <a name="Prerequisites"></a> Prerequisites
-Before you can create the DB servers, you need to create the *IaaSStory* resource group with all the necessary resources for this scenario. To create these resources, complete the steps that follow. Create a virtual network by following the steps in the [Create a virtual network](/documentation/articles/virtual-networks-create-vnet-classic-cli/) article.
+Before you can create the DB servers, you need to create the *IaaSStory* resource group with all the necessary resources for this scenario. To create these resources, complete the steps that follow. Create a virtual network by following the steps in the [Create a virtual network](./virtual-networks-create-vnet-classic-cli.md) article.
 
-[AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
+[!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
 ## Deploy the back-end VMs
 The back-end VMs depend on the creation of the following resources:
@@ -49,124 +50,144 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 
 1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
 
-        location="chinaeast"
-        vnetName="WTestVNet"
-        backendSubnetName="BackEnd"
+    ```azurecli
+    location="chinaeast"
+    vnetName="WTestVNet"
+    backendSubnetName="BackEnd"
+    ```
 
 2. Change the values of the variables below based on the values you want to use for your backend deployment.
 
-        backendCSName="IaaSStory-Backend"
-        prmStorageAccountName="iaasstoryprmstorage"
-        image="0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1"
-        avSetName="ASDB"
-        vmSize="Standard_DS3"
-        diskSize=127
-        vmNamePrefix="DB"
-        osDiskName="osdiskdb"
-        dataDiskPrefix="db"
-        dataDiskName="datadisk"
-        ipAddressPrefix="192.168.2."
-        username='adminuser'
-        password='adminP@ssw0rd'
-        numberOfVMs=2
+    ```azurecli
+    backendCSName="IaaSStory-Backend"
+    prmStorageAccountName="iaasstoryprmstorage"
+    image="0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1"
+    avSetName="ASDB"
+    vmSize="Standard_DS3"
+    diskSize=127
+    vmNamePrefix="DB"
+    osDiskName="osdiskdb"
+    dataDiskPrefix="db"
+    dataDiskName="datadisk"
+    ipAddressPrefix="192.168.2."
+    username='adminuser'
+    password='adminP@ssw0rd'
+    numberOfVMs=2
+    ```
 
 ### Step 2 - Create necessary resources for your VMs
 1. Create a new cloud service for all backend VMs. Notice the use of the `$backendCSName` variable for the resource group name, and `$location` for the Azure region.
 
-        azure service create --serviceName $backendCSName \
-            --location $location
+    ```azurecli
+    azure service create --serviceName $backendCSName \
+        --location $location
+    ```
 
 2. Create a premium storage account for the OS and data disks to be used by yours VMs.
 
-        azure storage account create $prmStorageAccountName \
-            --location $location \
-            --type PLRS
+    ```azurecli
+    azure storage account create $prmStorageAccountName \
+        --location $location \
+        --type PLRS
+    ```
 
 ### Step 3 - Create VMs with multiple NICs
 1. Start a loop to create multiple VMs, based on the `numberOfVMs` variables.
 
-        for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
-        do
+    ```azurecli
+    for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
+    do
+    ```
 
 2. For each VM, specify the name and IP address of each of the two NICs.
 
-        nic1Name=$vmNamePrefix$suffixNumber-DA
-        x=$((suffixNumber+3))
-        ipAddress1=$ipAddressPrefix$x
+    ```azurecli
+    nic1Name=$vmNamePrefix$suffixNumber-DA
+    x=$((suffixNumber+3))
+    ipAddress1=$ipAddressPrefix$x
 
-        nic2Name=$vmNamePrefix$suffixNumber-RA
-        x=$((suffixNumber+53))
-        ipAddress2=$ipAddressPrefix$x
+    nic2Name=$vmNamePrefix$suffixNumber-RA
+    x=$((suffixNumber+53))
+    ipAddress2=$ipAddressPrefix$x
+    ```
 
 3. Create the VM. Notice the usage of the `--nic-config` parameter, containing a list of all NICs with name, subnet, and IP address.
 
-        azure vm create $backendCSName $image $username $password \
-            --connect $backendCSName \
-            --vm-name $vmNamePrefix$suffixNumber \
-            --vm-size $vmSize \
-            --availability-set $avSetName \
-            --blob-url $prmStorageAccountName.blob.core.chinacloudapi.cn/vhds/$osDiskName$suffixNumber.vhd \
-            --virtual-network-name $vnetName \
-            --subnet-names $backendSubnetName \
-            --nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
+    ```azurecli
+    azure vm create $backendCSName $image $username $password \
+        --connect $backendCSName \
+        --vm-name $vmNamePrefix$suffixNumber \
+        --vm-size $vmSize \
+        --availability-set $avSetName \
+        --blob-url $prmStorageAccountName.blob.core.chinacloudapi.cn/vhds/$osDiskName$suffixNumber.vhd \
+        --virtual-network-name $vnetName \
+        --subnet-names $backendSubnetName \
+        --nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
+    ```
 
 4. For each VM, create two data disks.
 
-        azure vm disk attach-new $vmNamePrefix$suffixNumber \
-            $diskSize \
-            vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
+    ```azurecli
+    azure vm disk attach-new $vmNamePrefix$suffixNumber \
+        $diskSize \
+        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
 
-        azure vm disk attach-new $vmNamePrefix$suffixNumber \
-            $diskSize \
-            vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
-        done
+    azure vm disk attach-new $vmNamePrefix$suffixNumber \
+        $diskSize \
+        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
+    done
+    ```
 
 ### Step 4 - Run the script
 Now that you downloaded and changed the script based on your needs, run the script to create the back end database VMs with multiple NICs.
 
 1. Save your script and run it from your **Bash** terminal. You will see the initial output, as shown below.
 
-        info:    Executing command service create
-        info:    Creating cloud service
-        data:    Cloud service name IaaSStory-Backend
-        info:    service create command OK
-        info:    Executing command storage account create
-        info:    Creating storage account
-        info:    storage account create command OK
-        info:    Executing command vm create
-        info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
-        info:    Looking up virtual network
-        info:    Looking up cloud service
-        info:    Getting cloud service properties
-        info:    Looking up deployment
-        info:    Creating VM
+    ```
+    info:    Executing command service create
+    info:    Creating cloud service
+    data:    Cloud service name IaaSStory-Backend
+    info:    service create command OK
+    info:    Executing command storage account create
+    info:    Creating storage account
+    info:    storage account create command OK
+    info:    Executing command vm create
+    info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
+    info:    Looking up virtual network
+    info:    Looking up cloud service
+    info:    Getting cloud service properties
+    info:    Looking up deployment
+    info:    Creating VM
+    ```
 
 2. After a few minutes, the execution will end and you will see the rest of the output as shown below.
 
-        info:    OK
-        info:    vm create command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
-        info:    Executing command vm create
-        info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
-        info:    Looking up virtual network
-        info:    Looking up cloud service
-        info:    Getting cloud service properties
-        info:    Looking up deployment
-        info:    Creating VM
-        info:    OK
-        info:    vm create command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
+    ```
+    info:    OK
+    info:    vm create command OK
+    info:    Executing command vm disk attach-new
+    info:    Getting virtual machines
+    info:    Adding Data-Disk
+    info:    vm disk attach-new command OK
+    info:    Executing command vm disk attach-new
+    info:    Getting virtual machines
+    info:    Adding Data-Disk
+    info:    vm disk attach-new command OK
+    info:    Executing command vm create
+    info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
+    info:    Looking up virtual network
+    info:    Looking up cloud service
+    info:    Getting cloud service properties
+    info:    Looking up deployment
+    info:    Creating VM
+    info:    OK
+    info:    vm create command OK
+    info:    Executing command vm disk attach-new
+    info:    Getting virtual machines
+    info:    Adding Data-Disk
+    info:    vm disk attach-new command OK
+    info:    Executing command vm disk attach-new
+    info:    Getting virtual machines
+    info:    Adding Data-Disk
+    info:    vm disk attach-new command OK
+    ```

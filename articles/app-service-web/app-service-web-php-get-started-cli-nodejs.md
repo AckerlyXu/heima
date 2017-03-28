@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Create, configure, and deploy a PHP web app to Azure | Azure"
-    description="A tutorial that shows how to make a PHP (Laravel) web app run in Azure App Service. Learn how to configure Azure App Service to meet the requirements of the PHP framework you choose."
-    services="app-service\web"
-    documentationcenter="php"
-    author="cephalin"
-    manager="erikre"
-    editor=""
-    tags="mysql" />
-<tags
-    ms.assetid="cb73859d-48aa-470a-b486-d984746d6d26"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="PHP"
-    ms.topic="article"
-    ms.date="12/16/2016"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Create, configure, and deploy a PHP web app to Azure | Azure
+description: A tutorial that shows how to make a PHP (Laravel) web app run in Azure App Service. Learn how to configure Azure App Service to meet the requirements of the PHP framework you choose.
+services: app-service\web
+documentationcenter: php
+author: cephalin
+manager: erikre
+editor: ''
+tags: mysql
+
+ms.assetid: cb73859d-48aa-470a-b486-d984746d6d26
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: PHP
+ms.topic: article
+ms.date: 12/16/2016
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Create, configure, and deploy a PHP web app to Azure
-[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
+[!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 This tutorial shows you how to create, configure, and deploy a PHP web app for Azure, and how to configure Azure App Service to meet the
 requirements of your PHP web app. By the end of the tutorial, you will have a working [Laravel](https://www.laravel.com/) web app running 
-live in [Azure App Service](/documentation/articles/app-service-value-prop-what-is/).
+live in [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
 As a PHP developer, you can bring your favorite PHP framework to Azure. This tutorial uses Laravel simply as a concrete 
 app example. You will learn: 
@@ -40,8 +41,8 @@ You can apply what you learn here to other PHP web apps that you deploy to Azure
 
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](/documentation/articles/app-service-web-php-get-started-cli-nodejs/) - our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0](/documentation/articles/app-service-web-php-get-started/) - our next generation CLI for the resource management deployment model
+- [Azure CLI 1.0](./app-service-web-php-get-started-cli-nodejs.md) - our CLI for the classic and resource management deployment models
+- [Azure CLI 2.0](./app-service-web-php-get-started.md) - our next generation CLI for the resource management deployment model
 
 ## <a name="Prerequisites"></a> Prerequisites
 * [PHP 5.6.29](http://php.net/downloads.php)
@@ -49,40 +50,48 @@ You can complete the task using one of the following CLI versions:
 * [Azure CLI](/documentation/articles/cli-install-nodejs/)
 * [Git](http://www.git-scm.com/downloads)
 * A Azure account. If you don't have an account, you can 
-    [sign up for a trial](/pricing/1rmb-trial/?WT.mc_id=A261C142F).
+    [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
 
 ## Create a PHP (Laravel) app on your dev machine
 1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run the following commands to verify that the required tools are installed 
    properly on your machine. 
-   
-        php --version
-        composer --version
-        azure --version
-        git --version
-   
+
+    ```
+    php --version
+    composer --version
+    azure --version
+    git --version
+    ```
+
     If you haven't installed the tools, see [Prerequisites](#Prerequisites) for download links.
 
 2. Install Laravel like so:
-   
-        composer global require "laravel/installer"
+
+    ```
+    composer global require "laravel/installer"
+    ```
 3. `CD` into a working directory and create a new Laravel application like so:
-   
-        cd <working_directory>
-        laravel new <app_name>
+
+    ```
+    cd <working_directory>
+    laravel new <app_name>
+    ```
 4. `CD` into the newly created `<app_name>` directory and test the app like so:
-   
-        cd <app_name>
-        php artisan serve
-   
+
+    ```
+    cd <app_name>
+    php artisan serve
+    ```
+
     You should be able to navigate to http://localhost:8000 in a browser now and see the Laravel splash screen.
-   
+
     ![Test your PHP (Laravel) app locally before deploying it to Azure](./media/app-service-web-php-get-started/laravel-splash-screen.png)
 
 So far, just the regular Laravel workflow, and you're not here to <a href="https://laravel.com/docs/5.3" rel="nofollow">learn Laravel</a>. So let's move on.
 
 ## Create an Azure web app and set up Git deployment
-> [AZURE.NOTE]
-> "Wait! What if I want to deploy with FTP?" There's an [FTP tutorial](/documentation/articles/web-sites-php-mysql-deploy-use-ftp/) for your needs. 
+> [!NOTE]
+> "Wait! What if I want to deploy with FTP?" There's an [FTP tutorial](./web-sites-php-mysql-deploy-use-ftp.md) for your needs. 
 > 
 > 
 
@@ -90,24 +99,30 @@ With the Azure CLI, you can create an web app in Azure App Service and set it up
 of command. Let's do this.
 
 1. Change into ASM mode and log in to Azure:
-   
-        azure config mode asm
-        azure login -e AzureChinaCloud
-   
+
+    ```
+    azure config mode asm
+    azure login -e AzureChinaCloud
+    ```
+
     Follow the help message to continue the login process.
-   
+
     ![Log in to Azure to deploy your PHP (Laravel) app to Azure](./media/app-service-web-php-get-started/log-in-to-azure-cli.png)
 
 3. Set the deployment user for App Service. You will deploy code using the credentials later.
-   
-        azure site deployment user set --username <username> --pass <password>
+
+    ```
+    azure site deployment user set --username <username> --pass <password>
+    ```
 
 2. Run the command to create the Azure web app with Git deployment. When prompted, specify the number of the desired region.
-   
-        azure site create --git <app_name>
-   
+
+    ```
+    azure site create --git <app_name>
+    ```
+
     ![Create the Azure resource  for your PHP (Laravel) app in Azure](./media/app-service-web-php-get-started/create-site-cli.png)
-   
+
     This command creates a new Git repository on the current directory (with `git init`) 
     and connects it to the repository in Azure as a Git remote (with `git remote add`).
 
@@ -133,21 +148,27 @@ for your PHP framework of choice.
 Let's configure these tasks sequentially.
 
 1. Set the PHP version that your Laravel app requires.
-   
-        azure site set --php-version 5.6
-   
+
+    ```
+    azure site set --php-version 5.6
+    ```
+
     You're done setting the PHP version! 
 2. Generate a new `APP_KEY` for your Azure web app and set it as an app setting for your Azure web app.
-   
-        php artisan key:generate --show
-        azure site appsetting add APP_KEY="<output_of_php_artisan_key:generate_--show>"
+
+    ```
+    php artisan key:generate --show
+    azure site appsetting add APP_KEY="<output_of_php_artisan_key:generate_--show>"
+    ```
 3. Also, turn on Laravel debugging in order to preempt any cryptic `Whoops, looks like something went wrong.` page.
-   
-        azure site appsetting add APP_DEBUG=true
-   
+
+    ```
+    azure site appsetting add APP_DEBUG=true
+    ```
+
     You're done setting environment variables!
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > Wait, let's slow down a bit and explain what Laravel does and what Azure does here. 
     > Laravel uses the `.env` file in the root directory to supply environment variables to the app, where you'll find 
     > the line `APP_DEBUG=true` (and also `APP_KEY=...`). This variable is accessed in `config/app.php` by the code 
@@ -168,57 +189,61 @@ Let's configure these tasks sequentially.
 4. The last two tasks (setting the virtual directory and enabling Composer) requires the [Azure portal preview](https://portal.azure.cn), so log in to 
    the [portal](https://portal.azure.cn) with your Azure account.
 5. Starting from the left menu, click **App Services** > **&lt;app_name>** > **Extensions**.
-   
+
     ![Enable Composer for your PHP (Laravel) app in Azure](./media/app-service-web-php-get-started/configure-composer-tools.png)
-   
+
 6. Click **Add** to add an extension.
-7. Select **Composer** in the **Choose extension** [blade](/documentation/articles/resource-group-portal/#manage-resources) (*blade*: a portal page that opens horizontally).
-8. Click **OK** in the **Accept legal terms** [blade](/documentation/articles/resource-group-portal/#manage-resources). 
-9. Click **OK** in the **Add extension** [blade](/documentation/articles/resource-group-portal/#manage-resources).
-   
+7. Select **Composer** in the **Choose extension** [blade](../azure-resource-manager/resource-group-portal.md#manage-resources) (*blade*: a portal page that opens horizontally).
+8. Click **OK** in the **Accept legal terms** [blade](../azure-resource-manager/resource-group-portal.md#manage-resources). 
+9. Click **OK** in the **Add extension** [blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
+
     When Azure is done adding the extension, you should see a friendly pop-up message in the corner, as well as 
-    **Composer** listed in the **Extensions** [blade](/documentation/articles/resource-group-portal/#manage-resources).
-   
+    **Composer** listed in the **Extensions** [blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
+
     ![Extensions blade after enabling Composer for your PHP (Laravel) app in Azure](./media/app-service-web-php-get-started/configure-composer-end.png)
-   
+
     You're done enabling Composer!
-10. Back in your web app's [resource blade](/documentation/articles/resource-group-portal/#manage-resources), click **Application Settings**.
-    
+10. Back in your web app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources), click **Application Settings**.
+
      ![Access Settings blade to set virtual directory for your PHP (Laravel) app in Azure](./media/app-service-web-php-get-started/configure-virtual-dir-settings.png)
-    
+
      In the **Application Settings** blade, note the PHP version you set earlier:
-    
+
      ![PHP version in Settings blade for your PHP (Laravel) app in Azure](./media/app-service-web-php-get-started/configure-virtual-dir-settings-a.png)
-    
+
      and the app settings you added:
-    
+
      ![App settings in Settings blade for your PHP (Laravel) app in Azure](./media/app-service-web-php-get-started/configure-virtual-dir-settings-b.png)
-11. Scroll to the bottom of the [blade](/documentation/articles/resource-group-portal/#manage-resources) and change the root virtual directory to point to **site\wwwroot\public** instead of **site\wwwroot**.
-    
+11. Scroll to the bottom of the [blade](../azure-resource-manager/resource-group-portal.md#manage-resources) and change the root virtual directory to point to **site\wwwroot\public** instead of **site\wwwroot**.
+
      ![Set virtual directory for your PHP (Laravel) app in Azure](./media/app-service-web-php-get-started/configure-virtual-dir-public.png)
-12. Click **Save** at the top of the [blade](/documentation/articles/resource-group-portal/#manage-resources).
-    
+12. Click **Save** at the top of the [blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
+
      You're done setting the virtual directory! 
 
 ## Deploy your web app with Git (and setting environment variables)
 You're ready to deploy your code now. You'll do this back in your command prompt or terminal.
 
 1. Commit all your changes and deploy your code to the Azure web app like you would in any Git repository:
-   
-        git add .
-        git commit -m "Hurray! My first commit for my Azure app!"
-        git push azure master 
-   
+
+    ```
+    git add .
+    git commit -m "Hurray! My first commit for my Azure app!"
+    git push azure master 
+    ```
+
     When prompted, use the user credentials you created earlier. 
 
 2. Let's see it run in the browser by running this command:
-   
-        azure site browse
-   
+
+    ```
+    azure site browse
+    ```
+
     Your browser should show you the Laravel splash screen.
-   
+
     ![Laravel splash screen after deploying web app to Azure](./media/app-service-web-php-get-started/laravel-azure-splash-screen.png)
-   
+
     Congratulations, you are now running a Laravel web app in Azure.
 
 ## Troubleshoot common errors
@@ -265,6 +290,6 @@ string on the Laravel forums will show you that it is due to not setting the APP
 check out more helpful links for PHP in Azure below:
 
 * [PHP Developer Center](/develop/php/)
-* [Configure PHP in Azure App Service Web Apps](/documentation/articles/web-sites-php-configure/)
-* [Convert WordPress to Multisite in Azure App Service](/documentation/articles/web-sites-php-convert-wordpress-multisite/)
-* [Enterprise-class WordPress on Azure App Service](/documentation/articles/web-sites-php-enterprise-wordpress/)
+* [Configure PHP in Azure App Service Web Apps](./web-sites-php-configure.md)
+* [Convert WordPress to Multisite in Azure App Service](./web-sites-php-convert-wordpress-multisite.md)
+* [Enterprise-class WordPress on Azure App Service](./web-sites-php-enterprise-wordpress.md)

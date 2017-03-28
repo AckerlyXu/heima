@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Testing the performance of a cloud service | Azure"
-    description="Test the performance of a cloud service using the Visual Studio profiler"
-    services="visual-studio-online"
-    documentationcenter="n/a"
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="7a5501aa-f92c-457c-af9b-92ea50914e24"
-    ms.service="visual-studio-online"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="11/11/2016"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: Testing the performance of a cloud service | Azure
+description: Test the performance of a cloud service using the Visual Studio profiler
+services: visual-studio-online
+documentationcenter: n/a
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: 7a5501aa-f92c-457c-af9b-92ea50914e24
+ms.service: visual-studio-online
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 11/11/2016
+wacn.date: ''
+ms.author: tarcher
+---
 
 # Testing the performance of a cloud service
 ## Overview
@@ -58,7 +59,7 @@ When you publish your cloud service from Visual Studio, you can profile the serv
 
 To understand more about performance profiling in Visual Studio, see [Beginners Guide to Performance Profiling](https://msdn.microsoft.com/zh-cn/library/azure/ms182372.aspx) and [Analyzing Application Performance by Using Profiling Tools](https://msdn.microsoft.com/zh-cn/library/azure/z9z62c29.aspx).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can enable either IntelliTrace or profiling when you publish your cloud service. You can't enable both.
 > 
 > 
@@ -77,7 +78,7 @@ The following illustration shows how to configure your profiling settings from t
 
 ![Configure Profiling Settings](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > To enable the **Enable profiling** check box, you must have the profiler installed on the local computer that you are using to publish your cloud service. By default, the profiler is installed when you install Visual Studio.
 > 
 > 
@@ -90,7 +91,7 @@ The following illustration shows how to configure your profiling settings from t
 5. From the **What method of profiling would you like to use** option buttons, choose the type of profiling that you need.
 6. To collect the tier interaction profiling data, select the **Enable Tier Interaction Profiling** check box.
 7. To save the settings, choose the **OK** button.
-   
+
     When you publish this application, these settings are used to create the profiling session for each role.
 
 ## Viewing Profiling Reports
@@ -102,7 +103,7 @@ A profiling session is created for each instance of a role in your cloud service
 1. To view the Server Explorer window in Visual Studio, on the menu bar choose View, Server Explorer.
 2. Choose the Azure Compute node, and then choose the Azure deployment node for the cloud service that you selected to profile when you published from Visual Studio.
 3. To view profiling reports for an instance, choose the role in the service, open the shortcut menu for a specific instance, and then choose **View Profiling Report**.
-   
+
     The report, a .vsp file, is now downloaded from Azure, and the status of the download appears in the  Azure Activity Log. When the download completes, the profiling report appears in a tab in the editor for Visual Studio named <Role name>*<Instance Number>*<identifier>.vsp. Summary data for the report appears.
 4. To display different views of the report, in the Current View list, choose the type of view that you want. For more information, see [Profiling Tools Report Views](https://msdn.microsoft.com/zh-cn/library/azure/bb385755.aspx).
 
@@ -110,4 +111,3 @@ A profiling session is created for each instance of a role in your cloud service
 [Debugging Cloud Services](https://msdn.microsoft.com/zh-cn/library/azure/ee405479.aspx)
 
 [Publishing to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/zh-cn/library/azure/ee460772.aspx)
-

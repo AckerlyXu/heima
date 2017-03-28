@@ -1,24 +1,25 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Azure Quick Start - Create VM CLI | Azure"
-    description="Quickly learn to create virtual machines with the Azure CLI."
-    services="virtual-machines-linux"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="03/10/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Azure Quick Start - Create VM CLI | Azure
+description: Quickly learn to create virtual machines with the Azure CLI.
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 03/10/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Create a Linux virtual machine with the Azure CLI
 
@@ -30,7 +31,9 @@ Before you start, make sure that the Azure CLI has been installed. For more info
 
 Log in to your Azure subscription with the [az login](https://docs.microsoft.com/cli/azure/#login) command and follow the on-screen directions.
 
-    az login
+```azurecli
+az login
+```
 
 ## Create a resource group
 
@@ -38,7 +41,9 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 
 The following example creates a resource group named `myResourceGroup` in the `chinanorth` location.
 
-    az group create --name myResourceGroup --location chinanorth
+```azurecli
+az group create --name myResourceGroup --location chinanorth
+```
 
 ## Create virtual machine
 
@@ -46,35 +51,43 @@ Create a VM with the [az vm create](https://docs.microsoft.com/cli/azure/vm#crea
 
 The following example creates a VM named `myVM` and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
-    az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+```azurecli
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+```
 
 When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the public IP address. This address is used to access the VM.
 
-    {
-      "fqdns": "",
-      "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-      "location": "chinanorth",
-      "macAddress": "00-0D-3A-23-9A-49",
-      "powerState": "VM running",
-      "privateIpAddress": "10.0.0.4",
-      "publicIpAddress": "52.174.34.95",
-      "resourceGroup": "myResourceGroup"
-    }
+```azurecli
+{
+  "fqdns": "",
+  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "chinanorth",
+  "macAddress": "00-0D-3A-23-9A-49",
+  "powerState": "VM running",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "52.174.34.95",
+  "resourceGroup": "myResourceGroup"
+}
+```
 
 ## Connect to virtual machine
 
 Use the following command to create an SSH session with the virtual machine. Replace the IP address with the public IP address of your virtual machine.
 
-    ssh <Public IP Address>
+```bash
+ssh <Public IP Address>
+```
 
 ## Delete virtual machine
 
 When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
 
-    az group delete --name myResourceGroup
+```azurecli
+az group delete --name myResourceGroup
+```
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](/documentation/articles/virtual-machines-linux-create-cli-complete/)
+[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md)
 
-[Explore VM deployment CLI samples](/documentation/articles/virtual-machines-linux-cli-samples/)
+[Explore VM deployment CLI samples](./virtual-machines-linux-cli-samples.md)

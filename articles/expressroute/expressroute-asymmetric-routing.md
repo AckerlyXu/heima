@@ -1,20 +1,21 @@
-<properties
-   pageTitle="Asymmetric routing | Azure"
-   description="This article walks you through the issues a customer might face with asymmetric routing in a network that has multiple links to a destination."
-   documentationCenter="na"
-   services="expressroute"
-   authors="osamazia"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="osamazia"
-   wacn.date=""/>
+---
+title: Asymmetric routing | Azure
+description: This article walks you through the issues a customer might face with asymmetric routing in a network that has multiple links to a destination.
+documentationCenter: na
+services: expressroute
+authors: osamazia
+manager: carmonm
+editor: ''
+
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: osamazia
+wacn.date: ''
+---
 
 # Asymmetric routing with multiple network paths
 
@@ -32,8 +33,8 @@ Although it primarily occurs on the Internet, asymmetric routing also applies to
 
 Each router along the way, from source to destination, computes the best path to reach a destination. The router's determination of best possible path is based on two main factors:
 
--	Routing between external networks is based on a routing protocol, Border Gateway Protocol (BGP). BGP takes advertisements from neighbors and runs them through a series of steps to determine the best path to the intended destination. It stores the best path in its routing table.
--	The length of a subnet mask associated with a route influences routing paths. If a router receives multiple advertisements for the same IP address but with different subnet masks, the router prefers the advertisement with a longer subnet mask because it's considered a more specific route.
+- Routing between external networks is based on a routing protocol, Border Gateway Protocol (BGP). BGP takes advertisements from neighbors and runs them through a series of steps to determine the best path to the intended destination. It stores the best path in its routing table.
+- The length of a subnet mask associated with a route influences routing paths. If a router receives multiple advertisements for the same IP address but with different subnet masks, the router prefers the advertisement with a longer subnet mask because it's considered a more specific route.
 
 ## Stateful devices
 
@@ -45,13 +46,12 @@ A firewall is a common example of a stateful device. A firewall allows or denies
 
 When you connect to Microsoft through Azure ExpressRoute, your network changes like this:
 
--	You have multiple links to Microsoft. One link is your existing Internet connection, and the other is via ExpressRoute. Some traffic to Microsoft might go through the Internet but come back via ExpressRoute, or vice versa.
--	You receive more specific IP addresses via ExpressRoute. So, for traffic from your network to Microsoft for services offered via ExpressRoute, routers always prefer ExpressRoute.
+- You have multiple links to Microsoft. One link is your existing Internet connection, and the other is via ExpressRoute. Some traffic to Microsoft might go through the Internet but come back via ExpressRoute, or vice versa.
+- You receive more specific IP addresses via ExpressRoute. So, for traffic from your network to Microsoft for services offered via ExpressRoute, routers always prefer ExpressRoute.
 
 To understand the effect these two changes have on a network, let’s consider some scenarios. As an example, you have only one circuit to the Internet and you consume all Microsoft services via the Internet. The traffic from your network to Microsoft and back traverses the same Internet link and passes through the firewall. The firewall records the flow as it sees the first packet and return packets are allowed because the flow exists in the state table.
 
 ![Asymmetric routing with ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
-
 
 Then, you turn on ExpressRoute and consume services offered by Microsoft over ExpressRoute. All other services from Microsoft are consumed over the Internet. You deploy a separate firewall at your edge that is connected to ExpressRoute. Microsoft advertises more specific prefixes to your network over ExpressRoute for specific services. Your routing infrastructure chooses ExpressRoute as the preferred path for those prefixes. If you are not advertising your public IP addresses to Microsoft over ExpressRoute, Microsoft communicates with your public IP addresses via the Internet. Forward traffic from your network to Microsoft uses ExpressRoute, and reverse traffic from Microsoft uses the Internet. When the firewall at the edge sees a response packet for a flow that it does not find in the state table, it drops the return traffic.
 
@@ -70,7 +70,6 @@ If you want to use ExpressRoute for authentication, make sure that you are adver
 ### Source-based NAT
 
 Another way of solving asymmetric routing issues is by using SNAT. For example, you have not advertised the public IP address of an on-premises Simple Mail Transfer Protocol (SMTP) server over ExpressRoute because you intend to use the Internet for this type of communication. A request that originates with Microsoft and then goes to your on-premises SMTP server traverses the Internet. You SNAT the incoming request to an internal IP address. Reverse traffic from the SMTP server goes to the edge firewall (which you use for NAT) instead of through ExpressRoute. The return traffic goes back via the Internet.
-
 
 ![Source-based NAT network configuration](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 

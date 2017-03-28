@@ -1,37 +1,39 @@
-<properties
-    pageTitle="Get Started with backup and restore of Azure SQL databases for data protection and recovery | Azure"
-    description="This tutorial shows how to restore from automated backups to a point in time, store automated backups in the Azure Recovery Services vault, and to restore from the Azure Recovery Services vault"
-    keywords="sql database tutorial"
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed"
-    ms.service="sql-database"
-    ms.custom="business continuity"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="12/08/2016"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: Get Started with backup and restore of Azure SQL databases for data protection and recovery | Azure
+description: This tutorial shows how to restore from automated backups to a point in time, store automated backups in the Azure Recovery Services vault, and to restore from the Azure Recovery Services vault
+keywords: sql database tutorial
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
+ms.service: sql-database
+ms.custom: business continuity
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 12/08/2016
+wacn.date: ''
+ms.author: carlrab
+---
 
 <!------------------
 This topic is annotated with TEMPLATE guidelines for TUTORIAL TOPICS.
 
-
 Metadata guidelines
 
 title
-	60 characters or less. Tells users clearly what they will do (deploy an ASP.NET web app to App Service). Not the same as H1. It's 60 characters or fewer including all characters between the quotes and the Microsoft Docs site identifier.
+    60 characters or less. Tells users clearly what they will do (deploy an ASP.NET web app to App Service). Not the same as H1. It's 60 characters or fewer including all characters between the quotes and the Microsoft Docs site identifier.
 
 description
-	115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
+    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
 
-	Example: "This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015."
+```
+Example: "This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015."
+```
 ------------------>
 
 <!----------------
@@ -43,45 +45,47 @@ The tutorial topic shows users how to solve a problem using a product or service
 It is a "solve a problem" topic, not a "learn concepts" topic.
 
 DO include this:
-	• What users will do
-	• What they will create or accomplish by the end of the tutorial
-	• Time estimate
-	• Optional but useful: Include a diagram or video. Diagrams help users see the big picture of what they are doing. A video of the steps can be used by customers as an alternative to following the steps in the topic.
-	• Prerequisites: Technical expertise and software requirements
-	• End-to-end steps. At the end, include next steps to deeper or related tutorials so users can learn more about the service
+    • What users will do
+    • What they will create or accomplish by the end of the tutorial
+    • Time estimate
+    • Optional but useful: Include a diagram or video. Diagrams help users see the big picture of what they are doing. A video of the steps can be used by customers as an alternative to following the steps in the topic.
+    • Prerequisites: Technical expertise and software requirements
+    • End-to-end steps. At the end, include next steps to deeper or related tutorials so users can learn more about the service
 
 DON'T include this:
-	• Conceptual info about the service. This info is in overview topics that you can link to in the prerequisites section if necessary
+    • Conceptual info about the service. This info is in overview topics that you can link to in the prerequisites section if necessary
 
 ------------------->
 
 <!------------------
 GUIDELINES for the H1 
-	
-	The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
-		
-	Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+
+```
+The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
+
+Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+```
 
 -------------------->
 
 # Get Started with Backup and Restore for Data Protection and Recovery
 
 <!------------------
-	GUIDELINES for introduction
-	
-	The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top keywords that you are using throughout the article.The introduction should be brief and to the point of what users will do and what they will accomplish. 
+    GUIDELINES for introduction
 
-	In this example:
-	 
+```
+The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top keywords that you are using throughout the article.The introduction should be brief and to the point of what users will do and what they will accomplish. 
+
+In this example:
+```
 
 Sentence #1 Explains what the user will do. This is also the metadata description. 
-	This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015. 
+    This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015. 
 
 Sentence #2 Explains what users will learn and the benefit.  
-	When you’re finished, you’ll have a simple web application up and running in the cloud.
+    When you’re finished, you’ll have a simple web application up and running in the cloud.
 
 -------------------->
-
 
 In this getting-started tutorial, you learn how to use the Azure portal to:
 
@@ -92,18 +96,17 @@ In this getting-started tutorial, you learn how to use the Azure portal to:
 
 **Time estimate**: This tutorial takes approximately 30 minutes to complete (assuming you have already met the prerequisites).
 
-
 ## Prerequisites
 
-* You need an Azure account. You can [open a 1rmb Azure account](/pricing/1rmb-trial/?WT.mc_id=A261C142F). 
+* You need an Azure account. You can [open a 1rmb Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F). 
 
-* You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](/documentation/articles/role-based-access-control-what-is/).
+* You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
-* You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](/documentation/articles/sql-database-get-started/) or the equivalent [PowerShell version](/documentation/articles/sql-database-get-started-powershell/) of this tutorial. If you have not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](/documentation/articles/sql-database-get-started-powershell/) of this tutorial before continuing.
+* You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](./sql-database-get-started.md) or the equivalent [PowerShell version](./sql-database-get-started-powershell.md) of this tutorial. If you have not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](./sql-database-get-started-powershell.md) of this tutorial before continuing.
 
 <!------------------
-> [AZURE.TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](/documentation/articles/sql-database-get-started-csharp/) or [PowerShell](/documentation/articles/sql-database-get-started-powershell/).
+> [!TIP]
+> You can perform these same tasks in a getting started tutorial by using either [C#](./sql-database-get-started-csharp.md) or [PowerShell](./sql-database-get-started-powershell.md).
 >
 -------------------->
 
@@ -113,15 +116,14 @@ Using your [existing subscription](https://account.windowsazure.cn/Home/Index), 
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.cn/).
 2. Sign in to the [Azure portal](https://portal.azure.cn/).
 3. On the **Sign in** page, provide the credentials for your subscription.
-   
-   ![Sign in](./media/sql-database-get-started/login.png)
 
+   ![Sign in](./media/sql-database-get-started/login.png)
 
 <a name="create-logical-server-bk"></a>
 
 ## View the oldest restore point from the service-generated backups of a database
 
-In this section of the tutorial, you view information about the oldest restore point from the [service-generated automated backups](/documentation/articles/sql-database-automated-backups/) of your database. 
+In this section of the tutorial, you view information about the oldest restore point from the [service-generated automated backups](./sql-database-automated-backups.md) of your database. 
 
 1. Open the **SQL database** blade for your database, **sqldbtutorialdb**.
 
@@ -155,8 +157,8 @@ In this section of the tutorial, you restore the database to a new database as o
 
     ![restore point time](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
-	>[AZURE.NOTE]
-	>Notice that the database name has changed to reflect the date and time that you selected. Notice also that you cannot change the server to which you are restoring to a specific point in time. To restore to a different server, use [Geo-Restore](/documentation/articles/sql-database-disaster-recovery/#recover-using-geo-restore). Finally, notice that you can restore into an [elastic pool](/documentation/articles/sql-database-elastic-jobs-overview/) or to a different pricing tier. 
+    >[!NOTE]
+    >Notice that the database name has changed to reflect the date and time that you selected. Notice also that you cannot change the server to which you are restoring to a specific point in time. To restore to a different server, use [Geo-Restore](./sql-database-disaster-recovery.md#recover-using-geo-restore). Finally, notice that you can restore into an [elastic pool](./sql-database-elastic-jobs-overview.md) or to a different pricing tier. 
     >
 
 4. Click **OK** to restore your database to an earlier point in time to the new database.
@@ -169,13 +171,13 @@ In this section of the tutorial, you restore the database to a new database as o
 
     ![restored database](./media/sql-database-get-started-backup-recovery/restored-database.png)
 
-   > [AZURE.NOTE]
-   > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](/documentation/articles/sql-database-recovery-using-backups/#point-in-time-restore).
+   > [!NOTE]
+   > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](./sql-database-recovery-using-backups.md#point-in-time-restore).
    >
 
 ## Configure long-term retention of automated backups in an Azure Recovery Services vault 
 
-In this section of the tutorial, you [configure an Azure Recovery Services vault to retain automated backups](/documentation/articles/sql-database-long-term-retention/) for a period longer than the retention period for your service tier. 
+In this section of the tutorial, you [configure an Azure Recovery Services vault to retain automated backups](./sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
 
 1. Open the **SQL Server** blade for your server, **sqldbtutorialserver**.
 
@@ -204,7 +206,7 @@ In this section of the tutorial, you [configure an Azure Recovery Services vault
 7. On the **Recovery Services vaults** blade, click **Add**.
 
    ![add new vault link](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
-   
+
 8. On the **Recovery Services vault** blade, provide a valid name for the new Recovery Services vault.
 
    ![new vault name](./media/sql-database-get-started-backup-recovery/new-vault-name.png)
@@ -213,7 +215,7 @@ In this section of the tutorial, you [configure an Azure Recovery Services vault
 
    ![create new vault](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
-   > [AZURE.IMPORTANT]
+   > [!IMPORTANT]
    > The vault must be located in the same region as the Azure SQL logical server, and must use the same resource group as the logical server.
    >
 
@@ -239,13 +241,13 @@ In this section of the tutorial, you [configure an Azure Recovery Services vault
 
    ![view recovery services vault](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
-   > [AZURE.IMPORTANT]
+   > [!IMPORTANT]
    > Once configured, backups show up in the vault within next seven days. Do not continue this tutorial until backups show up in the vault.
    >
 
 ## View backups in long-term retention
 
-In this section of the tutorial, you view information about your database backups in [long-term backup retention](/documentation/articles/sql-database-long-term-retention/). 
+In this section of the tutorial, you view information about your database backups in [long-term backup retention](./sql-database-long-term-retention.md). 
 
 1. Open the **sqldbtutorialvault** blade (go to **All resources** and select it from the list of resources for your subscription) to view the amount of storage used by your database backups in the vault.
 
@@ -287,15 +289,14 @@ In this section of the tutorial, you restore the database to a new database from
 
     ![restored database from vault](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
-   > [AZURE.NOTE]
-   > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](/documentation/articles/sql-database-recovery-using-backups/#point-in-time-restore).
+   > [!NOTE]
+   > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](./sql-database-recovery-using-backups.md#point-in-time-restore).
    >
-
 
 <!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
 ## Next steps
 
-- To learn about service-generated automatic backups, see [automatic backups](/documentation/articles/sql-database-automated-backups/)
-- To learn about long-term backup retention, see [long-term backup retention](/documentation/articles/sql-database-long-term-retention/)
-- To learn about restoring from backups, see [restore from backup](/documentation/articles/sql-database-recovery-using-backups/)
+- To learn about service-generated automatic backups, see [automatic backups](./sql-database-automated-backups.md)
+- To learn about long-term backup retention, see [long-term backup retention](./sql-database-long-term-retention.md)
+- To learn about restoring from backups, see [restore from backup](./sql-database-recovery-using-backups.md)

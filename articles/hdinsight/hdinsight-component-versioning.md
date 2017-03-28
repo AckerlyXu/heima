@@ -1,41 +1,42 @@
-<properties
-    pageTitle="Hadoop components & versions - Azure HDInsight | Azure"
-    description="Learn the Hadoop components and versions in HDInsight and the service levels available in this cloud distribution of HortonWorks Data Platform."
-    services="hdinsight"
-    editor="cgronlun"
-    manager="asadk"
-    author="bprakash"
-    tags="azure-portal"
-    documentationcenter="" />
-<tags
-    ms.assetid="367b3f4a-f7d3-4e59-abd0-5dc59576f1ff"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/02/2017"
-    wacn.date=""
-    ms.author="bprakash" />
+---
+title: Hadoop components & versions - Azure HDInsight | Azure
+description: Learn the Hadoop components and versions in HDInsight and the service levels available in this cloud distribution of HortonWorks Data Platform.
+services: hdinsight
+editor: cgronlun
+manager: asadk
+author: bprakash
+tags: azure-portal
+documentationcenter: ''
+
+ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/02/2017
+wacn.date: ''
+ms.author: bprakash
+---
 
 # What are the different Hadoop components and versions available with HDInsight?
 
 Learn about the service levels offered for Azure HDInsight, as well as the Hadoop ecosystem components and versions included. Each HDInsight version is a cloud distribution of a version of the HortonWorks Data Platform (HDP).
 
-[AZURE.INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 ## HDInsight Standard and HDInsight Premium
 
 Azure HDInsight provides the big data cloud offerings in two categories: **Standard** and **Premium**. The table below section lists the features that are available **only as part of Premium**. Features that are not explicitly called out in the table here are available as part of Standard.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The HDInsight Premium offering is currently in Preview and available only for Linux clusters.
 >
 >
 
 | HDInsight Premium feature | Description |
 | --- | --- |
-| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (AAD) domains for enterprise-level security. You can now configure a list of employees from your enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. The enterprise admin can also configure role based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data accessed by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](/documentation/articles/hdinsight-domain-joined-configure/). |
+| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (AAD) domains for enterprise-level security. You can now configure a list of employees from your enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. The enterprise admin can also configure role based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data accessed by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](./hdinsight-domain-joined-configure.md). |
 
 ### Cluster types supported for HDInsight Premium
 The following table lists the HDInsight cluster type and Premium support matrix.
@@ -59,12 +60,12 @@ The following features are currently not supported for HDInsight Premium cluster
 * **No support for Azure Data Lake Store as primary storage**. You can still use Azure Data Lake Store as add-on storage with HDInsight Premium clusters.
 
 ### Pricing and SLA
-For information on pricing and SLA for HDInsight Premium, see [HDInsight pricing](/pricing/details/hdinsight/).
+For information on pricing and SLA for HDInsight Premium, see [HDInsight pricing](https://www.azure.cn/pricing/details/hdinsight/).
 
 ## Hadoop components available with different HDInsight versions
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The component versions associated with HDInsight cluster versions are itemized in the following table. Note that the default cluster version used by Azure HDInsight is currently 3.5, and, as of 02/17/2017, based on HDP 2.5.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The default version from the service may change without notice. We recommend that you specify the version when you create clusters using .NET SDK/Azure PowerShell and Azure CLI, if you have a version dependency.
 >
 >
@@ -92,7 +93,7 @@ The component versions associated with HDInsight cluster versions may change in 
 
 **Release notes**
 
-See [HDInsight release notes](/documentation/articles/hdinsight-release-notes/) for additional release notes on the latest versions of HDInsight.
+See [HDInsight release notes](./hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
 
 ## <a name="supported-hdinsight-versions"></a> Supported HDInsight versions
 The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform versions that they use, and their release dates. When known, their support expiration and deprecation dates are also provided. Please note the following:
@@ -122,7 +123,7 @@ The SLA is defined in terms of a "Support Window". A Support Window refers to th
 
 The **Deprecation Date** is the date after which the cluster version cannot be created on HDInsight. Starting July 31st 2017, you cannot resize a cluster after it's deprecation date.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Windows-based HDInsight cluster (including version 2.1, 3.0, 3.1, 3.2 and 3.3) run on Azure Guest OS Family 4, which uses the 64-bit version of Windows Server 2012 R2 and supports .NET Framework 4.0, 4.5, 4.5.1, and 4.5.2.
 >
 >
@@ -143,9 +144,9 @@ The **Deprecation Date** is the date after which the cluster version cannot be c
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: /support/forums/
+[wa-forums]: https://www.azure.cn/support/forums/
 
-[connect-excel-with-hive-ODBC]: /documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/
+[connect-excel-with-hive-ODBC]: ./hdinsight-connect-excel-hive-ODBC-driver.md
 
 [hdp-2-2]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/bk_HDP_RelNotes/content/ch_relnotes_v220.html
 

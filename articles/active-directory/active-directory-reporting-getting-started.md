@@ -1,16 +1,16 @@
-<properties
-   pageTitle="Azure AD Reporting: Getting started"
-   description="Azure AD Reporting: Getting started"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Azure AD Reporting: Getting started
+description: Azure AD Reporting: Getting started
+services: active-directory
+documentationCenter: ''
+authors: curtand
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.date="06/30/2015"
-   wacn.date=""/>
+ms.service: active-directory
+ms.date: 06/30/2015
+wacn.date: ''
+---
 
 # Getting started with Azure AD Reporting
 
@@ -44,12 +44,10 @@ Azure Active Directory includes security, activity, and audit reports for your d
 
 - Directory audit report
 
-> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](/documentation/articles/active-directory-view-access-usage-reports/).
-
-
+> [!TIP]
+> For more documentation on Azure AD Reporting, check out [View your access and usage reports](./active-directory-view-access-usage-reports.md).
 
 ## How it works
-
 
 ### Reporting pipeline
 
@@ -67,12 +65,10 @@ You can find the most recent processed sign in by examining the help text at the
 
 ![Help text at the top of each report](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
-> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](/documentation/articles/active-directory-view-access-usage-reports/).
-
-
+> [!TIP]
+> For more documentation on Azure AD Reporting, check out [View your access and usage reports](./active-directory-view-access-usage-reports.md).
 
 ## Getting started
-
 
 ### Sign into the Azure Management Portal
 
@@ -100,11 +96,8 @@ To download any report as a CSV, navigate to the report and click "Download" at 
 
 ![Download button](./media/active-directory-reporting-getting-started/downloadButton.png)
 
-> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](/documentation/articles/active-directory-view-access-usage-reports/).
-
-
-
-
+> [!TIP]
+> For more documentation on Azure AD Reporting, check out [View your access and usage reports](./active-directory-view-access-usage-reports.md).
 
 ## Next steps
 
@@ -120,7 +113,7 @@ Enable or disable the "Email Notifications of Anomalous sign ins" section.
 
 ### Integrate with the Azure AD Reporting API
 
-See [Getting started with the Reporting API](/documentation/articles/active-directory-reporting-api-getting-started/).
+See [Getting started with the Reporting API](./active-directory-reporting-api-getting-started.md).
 
 ### Engage Multi-Factor Authentication on users
 
@@ -130,24 +123,22 @@ Click the "Enable MFA" button at the bottom of the screen.
 
 ![The Multi-Factor Authentication button at the bottom of the screen](./media/active-directory-reporting-getting-started/mfaButton.png)
 
-> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](/documentation/articles/active-directory-view-access-usage-reports/).
-
-
-
+> [!TIP]
+> For more documentation on Azure AD Reporting, check out [View your access and usage reports](./active-directory-view-access-usage-reports.md).
 
 ## Learn more
 
-
 ### Audit events
 
-Learn about what events are audited in the directory in [Azure Active Directory Reporting Audit Events](/documentation/articles/active-directory-reporting-audit-events/).
+Learn about what events are audited in the directory in [Azure Active Directory Reporting Audit Events](./active-directory-reporting-audit-events.md).
 
 ### API Integration
 
-See [Getting started with the Reporting API](/documentation/articles/active-directory-reporting-api-getting-started/) and the [API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/mt126081.aspx).
+See [Getting started with the Reporting API](./active-directory-reporting-api-getting-started.md) and the [API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/mt126081.aspx).
 
 ### Get in touch
 
 Email [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) for feedback, help, or any questions you might have!
 
-> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](/documentation/articles/active-directory-view-access-usage-reports/).
+> [!TIP]
+> For more documentation on Azure AD Reporting, check out [View your access and usage reports](./active-directory-view-access-usage-reports.md).

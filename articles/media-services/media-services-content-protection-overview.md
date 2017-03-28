@@ -1,24 +1,24 @@
-<properties
-    pageTitle="Protect your content with Azure Media Services | Azure"
-    description="This articles give an overview of content protection with Media Services."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="81bc00e1-dcda-4d69-b9ab-8768b793422b"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Protect your content with Azure Media Services | Azure
+description: This articles give an overview of content protection with Media Services.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
+
+ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 #Protecting content overview
-
 
 Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or any of the major DRMs: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. 
 
@@ -26,10 +26,10 @@ The following image demonstrates the content protection workflows that AMS suppo
 
 ![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
->[AZURE.NOTE]
+>[!NOTE]
 >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
-This topic explains [concepts and terminology](/documentation/articles/media-services-content-protection-overview/) relevant to understanding content protection with AMS. The topic also contains [links](/documentation/articles/media-services-content-protection-overview/#common-scenarios) to topics that show how to achieve content protection tasks. 
+This topic explains [concepts and terminology](./media-services-content-protection-overview.md) relevant to understanding content protection with AMS. The topic also contains [links](./media-services-content-protection-overview.md#common-scenarios) to topics that show how to achieve content protection tasks. 
 
 ##Dynamic encryption
 
@@ -42,7 +42,6 @@ If you want for Media Services to encrypt an asset, you need to associate an enc
 You also need to configure the asset's delivery policy. If you want to stream a storage encrypted asset, make sure to specify how you want to deliver it by configuring asset delivery policy.
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES clear key or DRM encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
-
 
 ##Storage encryption
 
@@ -64,7 +63,7 @@ Use this option if you want to protect your content with AES-128 clear key. If y
 
 ##Licenses and keys delivery service
 
-Media Services provides a service for delivering DRM (PlayReady, Widevine, FairPlay) licenses and AES clear keys to authorized clients. You can use [the Azure portal](/documentation/articles/media-services-portal-protect-content/), REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
+Media Services provides a service for delivering DRM (PlayReady, Widevine, FairPlay) licenses and AES clear keys to authorized clients. You can use [the Azure portal](./media-services-portal-protect-content.md), REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
 
 ##Token restriction
 
@@ -82,24 +81,24 @@ The following considerations apply:
 - Encryption type doesn't have to be specified in the url if only one encryption was applied to the asset.
 - Encryption type is case insensitive.
 - The following encryption types can be specified:  
-	- **cenc**:  Common encryption (Playready or Widevine)
-	- **cbcs-aapl**: Fairplay
-	- **cbc**: AES envelope encryption.
+    - **cenc**:  Common encryption (Playready or Widevine)
+    - **cbcs-aapl**: Fairplay
+    - **cbc**: AES envelope encryption.
 
 ##Common scenarios
 
 The following topics demonstrate how to protect content in storage, deliver dynamically encrypted streaming media, use AMS key/license delivery service
 
-- [Protect with AES](/documentation/articles/media-services-protect-with-aes128/) 
-- [Protect with PlayReady and/or Widevine ](/documentation/articles/media-services-protect-with-drm/)
-- [Stream your HLS content Protected with Apple FairPlay and/or PlayReady](/documentation/articles/media-services-protect-hls-with-fairplay/)
+- [Protect with AES](./media-services-protect-with-aes128.md) 
+- [Protect with PlayReady and/or Widevine ](./media-services-protect-with-drm.md)
+- [Stream your HLS content Protected with Apple FairPlay and/or PlayReady](./media-services-protect-hls-with-fairplay.md)
 
 ### Additional scenarios
 
 - [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
-- [Using castLabs to deliver DRM licenses to Azure Media Services](/documentation/articles/media-services-castlabs-integration/)
+- [Using castLabs to deliver DRM licenses to Azure Media Services](./media-services-castlabs-integration.md)
 
->[AZURE.NOTE]
+>[!NOTE]
 >A scenario in which you use an external DRM server(technology) and stream from AMS is currently not supported.
 
 ##Related Links

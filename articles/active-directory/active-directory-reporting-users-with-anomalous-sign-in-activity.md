@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Users with anomalous sign in activity"
-	description="A report that indicates all user accounts for which anomalous sign in activity has been identified."
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
-	editor=""/>
+---
+title: Users with anomalous sign in activity
+description: A report that indicates all user accounts for which anomalous sign in activity has been identified.
+services: active-directory
+documentationCenter: ''
+authors: kenhoff
+manager: ilanas
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="08/17/2015"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 08/17/2015
+wacn.date: ''
+---
 
 # Users with anomalous sign in activity
 This is an aggregate report that combines suspicious sign ins from the following reports:
@@ -21,6 +21,5 @@ This is an aggregate report that combines suspicious sign ins from the following
 <li>Sign ins from possibly infected devices</li>
 <li>Irregular sign in activity</li>
 </ul>
-
 
 ![Users with anomalous sign in activity](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)

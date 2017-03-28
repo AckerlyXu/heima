@@ -1,24 +1,25 @@
-﻿<properties
-    pageTitle="Scenarios and examples for subscription governance | Azure"
-    description="Provides examples of how to implement Azure subscription governance for common scenarios."
-    services="azure-resource-manager"
-    documentationcenter="na"
-    author="rdendtler"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="e8fbeeb8-d7a1-48af-804f-6fe1a6024bcb"
-    ms.service="azure-resource-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/03/2017"
-    wacn.date=""
-    ms.author="rodend;karlku;tomfitz" />
+﻿---
+title: Scenarios and examples for subscription governance | Azure
+description: Provides examples of how to implement Azure subscription governance for common scenarios.
+services: azure-resource-manager
+documentationcenter: na
+author: rdendtler
+manager: timlt
+editor: tysonn
+
+ms.assetid: e8fbeeb8-d7a1-48af-804f-6fe1a6024bcb
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/03/2017
+wacn.date: ''
+ms.author: rodend;karlku;tomfitz
+---
 
 # Examples of implementing Azure enterprise scaffold
-This topic provides examples of how an enterprise can implement the recommendations for an [Azure enterprise scaffold](/documentation/articles/resource-manager-subscription-governance/). It uses a fictional company named Contoso to illustrate best practices for common scenarios.
+This topic provides examples of how an enterprise can implement the recommendations for an [Azure enterprise scaffold](./resource-manager-subscription-governance.md). It uses a fictional company named Contoso to illustrate best practices for common scenarios.
 
 ## Background
 Contoso is a worldwide company that provides supply chain solutions for customers in everything from a "Software as a Service" model to a packaged model deployed on-premises.  They develop software across the country with significant development centers Beijing and Shanghai.
@@ -32,7 +33,7 @@ The following personas are used in this topic:
 * Dave is the ETS Azure administrator.
 * Alice is Contoso's Director of Development in the supply chain business unit.
 
-Contoso needs to build a line-of-business app and a customer-facing app. It has decided to run the apps on Azure. Dave reads the [prescriptive subscription governance](/documentation/articles/resource-manager-subscription-governance/) topic, and  is now ready to implement the recommendations.
+Contoso needs to build a line-of-business app and a customer-facing app. It has decided to run the apps on Azure. Dave reads the [prescriptive subscription governance](./resource-manager-subscription-governance.md) topic, and  is now ready to implement the recommendations.
 
 ## Scenario 1: line-of-business application
 Contoso is building a source code management system (BitBucket) to be used by developers across the world.  The application uses Infrastructure as a Service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wishes to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.  
@@ -53,10 +54,10 @@ Dave assigns the following roles for the subscription:
 
 | Role | Assigned to | Description |
 | --- | --- | --- |
-| [Owner](/documentation/articles/role-based-access-built-in-roles/#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited. |
-| [Security Manager](/documentation/articles/role-based-access-built-in-roles/#security-manager) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources. |
-| [Network Contributor](/documentation/articles/role-based-access-built-in-roles/#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks. |
-| *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](/documentation/articles/role-based-access-control-custom-roles/) |
+| [Owner](../active-directory/role-based-access-built-in-roles.md#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited. |
+| [Security Manager](../active-directory/role-based-access-built-in-roles.md#security-manager) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources. |
+| [Network Contributor](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks. |
+| *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md) |
 
 ### Policies
 Dave has the following requirements for managing resources in the subscription:
@@ -65,7 +66,7 @@ Dave has the following requirements for managing resources in the subscription:
 * He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.  
 * Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
 
-He creates the following [Resource Manager policies](/documentation/articles/resource-manager-policy/):
+He creates the following [Resource Manager policies](./resource-manager-policy.md):
 
 | Field | Effect | Description |
 | --- | --- | --- |
@@ -78,7 +79,7 @@ He creates the following [Resource Manager policies](/documentation/articles/res
 ### Resource tags
 Dave understands that he needs to have specific information on the bill to identify the cost center for the BitBucket implementation. Additionally, Dave wants to know all the resources that ETS owns.
 
-He adds the following [tags](/documentation/articles/resource-group-using-tags/) to the resource groups and resources.
+He adds the following [tags](./resource-group-using-tags.md) to the resource groups and resources.
 
 | Tag name | Tag value |
 | --- | --- |
@@ -100,7 +101,7 @@ He creates the following resources:
 ### Resource locks
 Dave recognizes that the connectivity from Contoso's corporate network to the internal virtual network must be protected from any wayward script or accidental deletion.
 
-He creates the following [resource lock](/documentation/articles/resource-group-lock-resources/):
+He creates the following [resource lock](./resource-group-lock-resources.md):
 
 | Lock type | Resource | Description |
 | --- | --- | --- |
@@ -184,7 +185,7 @@ They create the following lock:
 ### Azure Automation
 Alice and her development team have extensive runbooks to manage the environment for this application. The runbooks allow for the addition/deletion of nodes for the application and other DevOps tasks.
 
-To use these runbooks, they enable [Automation](/documentation/articles/automation-intro/).
+To use these runbooks, they enable [Automation](../automation/automation-intro.md).
 
 ### Azure Security Center
 Contoso IT service management needs to quickly identify and handle threats. They also want to understand what problems may exist.  
@@ -192,4 +193,4 @@ Contoso IT service management needs to quickly identify and handle threats. They
 To fulfill these requirements, Dave enables Azure Security Center. He ensures that the Azure Security Center is monitoring the resources, and provides access to the DevOps and security teams.
 
 ## Next steps
-* To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](/documentation/articles/resource-manager-template-best-practices/).
+* To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](./resource-manager-template-best-practices.md).

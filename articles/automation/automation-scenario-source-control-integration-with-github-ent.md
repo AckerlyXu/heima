@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Azure Automation Source Control Integration with GitHub Enterprise | Azure"
-    description="Describes the details of how to configure integration with GitHub Enterprise  for source control of Automation runbooks."
-    services="automation"
-    documentationCenter=""
-    authors="mgoedtel"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.assetid="e01d817c-7d38-421c-adf5-647a4b526eb4"
-    ms.service="automation"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/05/2016"
-    wacn.date=""
-    ms.author="magoedte" />
+---
+title: Azure Automation Source Control Integration with GitHub Enterprise | Azure
+description: Describes the details of how to configure integration with GitHub Enterprise  for source control of Automation runbooks.
+services: automation
+documentationCenter: ''
+authors: mgoedtel
+manager: jwhit
+editor: ''
+
+ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
+ms.service: automation
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/05/2016
+wacn.date: ''
+ms.author: magoedte
+---
 
 # Azure Automation scenario - Automation source control integration with GitHub Enterprise
 
@@ -29,7 +30,7 @@ This article describes how to set up this configuration in your Azure Automation
 
 ## Getting the scenario
 
-This scenario consists of two PowerShell runbooks that you can import directly from the [Runbook Gallery](/documentation/articles/automation-runbook-gallery/) in the Azure portal preview or download from the [PowerShell Gallery](https://www.powershellgallery.com).
+This scenario consists of two PowerShell runbooks that you can import directly from the [Runbook Gallery](./automation-runbook-gallery.md) in the Azure portal preview or download from the [PowerShell Gallery](https://www.powershellgallery.com).
 
 ### Runbooks
 
@@ -48,31 +49,31 @@ GitHRWCredential | Credential asset you will create that contains the username a
 
 ### Prerequisites
 
-1. The Sync-LocalGitFolderToAutomationAccount runbook authenticates using the [Azure Run As account](/documentation/articles/automation-sec-configure-azure-runas-account/). 
+1. The Sync-LocalGitFolderToAutomationAccount runbook authenticates using the [Azure Run As account](./automation-sec-configure-azure-runas-account.md). 
 
 2. A Microsoft Operations Management Suite (OMS) workspace with the Azure Automation solution enabled and configured is also required.  If you do not have one that is associated with the Automation account used to install and configure this scenario, it will be created and configured for you when you execute the **New-OnPremiseHybridWorker.ps1** script from the hybrid runbook worker.        
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > Currently these are the only regions supported for Automation integration with OMS - **Australia Southeast**, **China East 2**, **China North**, and **China North**. 
 
 3. A computer that can serve as a dedicated Hybrid Runbook Worker that will also host the GitHub software and maintain the runbook files (*runbook*.ps1) in a source directory on the file system to synchronize between GitHub and your Automation account.
 
 ### Import and publish the runbooks
 
-To import the *Export-RunAsCertificateToHybridWorker* and *Sync-LocalGitFolderToAutomationAccount* runbooks from the Runbook Gallery from your Automation account in the Azure portal preview, please follow the procedures in [Import Runbook from the Runbook Gallery](/documentation/articles/automation-runbook-gallery/#to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal). Publish the runbooks after they have been successfully imported into your Automation account.
+To import the *Export-RunAsCertificateToHybridWorker* and *Sync-LocalGitFolderToAutomationAccount* runbooks from the Runbook Gallery from your Automation account in the Azure portal preview, please follow the procedures in [Import Runbook from the Runbook Gallery](./automation-runbook-gallery.md#to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal). Publish the runbooks after they have been successfully imported into your Automation account.
 
 ### Deploy and Configure Hybrid Runbook Worker
 
-If you do not have a Hybrid Runbook Worker already deployed in your data center, you should review the requirements and follow the automated installation steps using the procedure in [Azure Automation Hybrid Runbook Workers - Automate Install and Configuration](/documentation/articles/automation-hybrid-runbook-worker/#automated-deployment).  Once you have successfully installed the hybrid worker on a computer, perform the following steps to complete its configuration to support this scenario.
+If you do not have a Hybrid Runbook Worker already deployed in your data center, you should review the requirements and follow the automated installation steps using the procedure in [Azure Automation Hybrid Runbook Workers - Automate Install and Configuration](./automation-hybrid-runbook-worker.md#automated-deployment).  Once you have successfully installed the hybrid worker on a computer, perform the following steps to complete its configuration to support this scenario.
 
 1. Log onto the computer hosting the Hybrid Runbook Worker role with an account that has local administrative rights and create a directory to hold the Git runbook files.  Clone  the internal Git repository to the directory.
-2. If you do not already have a RunAs account created or you want to create a new one dedicated for this purpose, from the Azure portal preview navigate to Automation accounts, select your Automation account and create a [credential asset](/documentation/articles/automation-credentials/) that contains the username and password for a user with permissions to the hybrid worker.  
-3. From your Automation account, [edit the runbook](/documentation/articles/automation-edit-textual-runbook/)  **Export-RunAsCertificateToHybridWorker** and modify the value for the variable *$Password* with a strong password.  After you modify the value, click **Publish** to have the draft version of the runbook published. 
+2. If you do not already have a RunAs account created or you want to create a new one dedicated for this purpose, from the Azure portal preview navigate to Automation accounts, select your Automation account and create a [credential asset](./automation-credentials.md) that contains the username and password for a user with permissions to the hybrid worker.  
+3. From your Automation account, [edit the runbook](./automation-edit-textual-runbook.md)  **Export-RunAsCertificateToHybridWorker** and modify the value for the variable *$Password* with a strong password.  After you modify the value, click **Publish** to have the draft version of the runbook published. 
 5. Start the runbook **Export-RunAsCertificateToHybridWorker**, and in the **Start Runbook** blade, under the option **Run settings** select the option **Hybrid Worker** and in the drop-down list select the Hybrid worker group you created earlier for this scenario.  
 
     This will export a certificate to the hybrid worker so that runbooks on the worker can authenticate with Azure using the Run As connection in order to manage Azure resources (in particular for this scenario - import runbooks to the Automation account).
 
-4. From your Automation account, select the Hybrid worker group created earlier and [specify a RunAs account](/documentation/articles/automation-hybrid-runbook-worker/#runas-account) for the for the Hybrid worker group, and chose the credential asset you just or already have created.  This assures that the Sync runbook can run Git commands. 
+4. From your Automation account, select the Hybrid worker group created earlier and [specify a RunAs account](./automation-hybrid-runbook-worker.md#runas-account) for the for the Hybrid worker group, and chose the credential asset you just or already have created.  This assures that the Sync runbook can run Git commands. 
 5. Start the runbook **Sync-LocalGitFolderToAutomationAccount**, provide the following required input parameter values and in the **Start Runbook** blade, under the option **Run settings** select the option **Hybrid Worker** and in the drop-down list select the Hybrid worker group you created earlier for this scenario:
     * *ResourceGroup* - the name of your resource group associated with your Automation account
     * *AutomationAccountName* - the name of your Automation account
@@ -86,5 +87,5 @@ If you do not have a Hybrid Runbook Worker already deployed in your data center,
 
 ## Next steps
 
--  To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](/documentation/articles/automation-runbook-types/)
+-  To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](./automation-runbook-types.md)
 -  For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

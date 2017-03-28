@@ -1,28 +1,29 @@
-<properties
-    pageTitle="About images for Windows virtual machines | Azure"
-    description="Learn about how images are used with Windows virtual machines in Azure."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="cynthn"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management" />
-<tags
-    ms.assetid="66ff3fab-8e7f-4dff-b8da-ab1c9c9c9af8"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/21/2016"
-    wacn.date=""
-    ms.author="cynthn" />
+---
+title: About images for Windows virtual machines | Azure
+description: Learn about how images are used with Windows virtual machines in Azure.
+services: virtual-machines-windows
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: tysonn
+tags: azure-service-management
+
+ms.assetid: 66ff3fab-8e7f-4dff-b8da-ab1c9c9c9af8
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 07/21/2016
+wacn.date: ''
+ms.author: cynthn
+---
 
 # About images for Windows virtual machines
-> [AZURE.IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about finding and using images in the Resource Manager model, see [here](/documentation/articles/virtual-machines-windows-cli-ps-findimage/).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about finding and using images in the Resource Manager model, see [here](./virtual-machines-windows-cli-ps-findimage.md).
 
-[AZURE.INCLUDE [virtual-machines-common-classic-about-images](../../includes/virtual-machines-common-classic-about-images.md)]
+[!INCLUDE [virtual-machines-common-classic-about-images](../../includes/virtual-machines-common-classic-about-images.md)]
 
 ## Working with images
 You can use the Azure PowerShell module to manage the images available to your Azure subscription. You also can use the Azure Classic Management Portal for some image tasks, but the command line gives you more options.
@@ -37,4 +38,4 @@ You can use the Azure PowerShell module to manage the images available to your A
 * **Delete an image**: `Remove-AzureVMImage -ImageName "MyOldVmImage"`
 
 ## Next Steps
-You can also [create a Windows machine using the Classic Management Portal](/documentation/articles/virtual-machines-windows-classic-tutorial/)
+You can also [create a Windows machine using the Classic Management Portal](./virtual-machines-windows-classic-tutorial.md)

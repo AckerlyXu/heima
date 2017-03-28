@@ -1,39 +1,40 @@
-<properties
-    pageTitle="Azure Active Directory v2.0 tokens reference | Azure"
-    description="The types of tokens and claims emitted by the Azure AD v2.0 endpoint"
-    services="active-directory"
-    documentationcenter=""
-    author="dstrockis"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="dc58c282-9684-4b38-b151-f3e079f034fd"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="dastrock" />
+---
+title: Azure Active Directory v2.0 tokens reference | Azure
+description: The types of tokens and claims emitted by the Azure AD v2.0 endpoint
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
+
+ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: dastrock
+---
 
 # Azure Active Directory v2.0 tokens reference
-The Azure Active Directory (Azure AD) v2.0 endpoint emits several types of security tokens in each [authentication flow](/documentation/articles/active-directory-v2-flows/). This reference describes the format, security characteristics, and contents of each type of token.
+The Azure Active Directory (Azure AD) v2.0 endpoint emits several types of security tokens in each [authentication flow](./active-directory-v2-flows.md). This reference describes the format, security characteristics, and contents of each type of token.
 
-> [AZURE.NOTE]
-> The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](/documentation/articles/active-directory-v2-limitations/).
+> [!NOTE]
+> The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](./active-directory-v2-limitations.md).
 >
 >
 
 ## Types of tokens
-The v2.0 endpoint supports the [OAuth 2.0 authorization protocol](/documentation/articles/active-directory-v2-protocols/), which uses access tokens and refresh tokens. The v2.0 endpoint also supports authentication and sign-in via [OpenID Connect](/documentation/articles/active-directory-v2-protocols/). OpenID Connect introduces a third type of token, the ID token. Each of these tokens is represented as a *bearer* token.
+The v2.0 endpoint supports the [OAuth 2.0 authorization protocol](./active-directory-v2-protocols.md), which uses access tokens and refresh tokens. The v2.0 endpoint also supports authentication and sign-in via [OpenID Connect](./active-directory-v2-protocols.md). OpenID Connect introduces a third type of token, the ID token. Each of these tokens is represented as a *bearer* token.
 
 A bearer token is a lightweight security token that grants the bearer access to a protected resource. The bearer is any party that can present the token. Although a party must authenticate with Azure AD to receive the bearer token, if steps are not taken to secure the token during transmission and storage, it can be intercepted and used by an unintended party. Some security tokens have a built-in mechanism to prevent unauthorized parties from using them, but bearer tokens do not. Bearer tokens must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted without this type of security, a malicious party could use a "man-in-the-middle attack" to acquire the token and use it for unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app securely transmits and stores bearer tokens. For more security considerations for bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
 Many of the tokens issued by the v2.0 endpoint are implemented as JSON Web Tokens (JWTs). A JWT is a compact, URL-safe way to transfer information between two parties. The information in a JWT is called a *claim*. It's an assertion of information about the bearer and subject of the token. The claims in a JWT are JavaScript Object Notation (JSON) objects that are encoded and serialized for transmission. Because the JWTs issued by the v2.0 endpoint are signed but not encrypted, you can easily inspect the contents of a JWT for debugging purposes. For more information about JWTs, see the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### ID tokens
-An ID token is a form of sign-in security token that your app receives when it performs authentication by using [OpenID Connect](/documentation/articles/active-directory-v2-protocols/). ID tokens are represented as [JWTs](#types-of-tokens), and they contain claims that you can use to sign the user in to your app. You can use the claims in an ID token in various ways. Typically, admins use ID tokens to display account information or to make access control decisions in an app. The v2.0 endpoint issues only one type of ID token, which has a consistent set of claims, regardless of the type of user that is signed in. The format and content of ID tokens are the same for personal Microsoft account users and for work or school accounts.
+An ID token is a form of sign-in security token that your app receives when it performs authentication by using [OpenID Connect](./active-directory-v2-protocols.md). ID tokens are represented as [JWTs](#types-of-tokens), and they contain claims that you can use to sign the user in to your app. You can use the claims in an ID token in various ways. Typically, admins use ID tokens to display account information or to make access control decisions in an app. The v2.0 endpoint issues only one type of ID token, which has a consistent set of claims, regardless of the type of user that is signed in. The format and content of ID tokens are the same for personal Microsoft account users and for work or school accounts.
 
 Currently, ID tokens are signed but not encrypted. When your app receives an ID token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity. The claims validated by an app vary depending on scenario requirements, but your app must perform some [common claim validations](#validating-tokens) in every scenario.
 
@@ -41,10 +42,11 @@ We give you the full details about claims in ID tokens in the following sections
 
 #### Sample ID token
 
-	eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
+```
 
-
-> [AZURE.TIP]
+> [!TIP]
 > For practice, to inspect the claims in the sample ID token, paste the sample ID token into [calebb.net](http://calebb.net/).
 >
 >
@@ -80,7 +82,7 @@ Refresh tokens are security tokens that your app can use to get new access token
 
 Refresh tokens are multi-resource. A refresh token received during a token request for one resource can be redeemed for access tokens to a completely different resource.
 
-To receive a refresh in a token response, your app must request and be granted the `offline_acesss` scope. To learn more about the `offline_access` scope, see the [consent and scopes](/documentation/articles/active-directory-v2-scopes/) article.
+To receive a refresh in a token response, your app must request and be granted the `offline_acesss` scope. To learn more about the `offline_access` scope, see the [consent and scopes](./active-directory-v2-scopes.md) article.
 
 Refresh tokens are, and always will be, completely opaque to your app. They are issued by the Azure AD v2.0 endpoint and can only be inspected and interpreted by the v2.0 endpoint. They are long-lived, but your app should not be written to expect that a refresh token will last for any period of time. Refresh tokens can be invalidated at any moment for various reasons. The only way for your app to know if a refresh token is valid is to attempt to redeem it by making a token request to the v2.0 endpoint.
 
@@ -97,12 +99,13 @@ A JWT contains three segments, which are separated by the `.` character. The fir
 
 ID tokens are signed by using industry-standard asymmetric encryption algorithms, such as RSA 256. The header of the ID token has information about the key and encryption method used to sign the token. For example:
 
-	{
-	  "typ": "JWT",
-	  "alg": "RS256",
-	  "kid": "MnC_VZcATfM5pOYiJHMba9goEKY"
-	}
-
+```
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "MnC_VZcATfM5pOYiJHMba9goEKY"
+}
+```
 
 The `alg` claim indicates the algorithm that was used to sign the token. The `kid` claim indicates the public key that was used to sign the token.
 
@@ -110,11 +113,11 @@ At any time, the v2.0 endpoint might sign an ID token by using any one of a spec
 
 You can acquire the signing key data that you need to validate the signature by using the OpenID Connect metadata document located at:
 
+```
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
+```
 
-	https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
-
-
-> [AZURE.TIP]
+> [!TIP]
 > Try the URL in a browser!
 >
 >

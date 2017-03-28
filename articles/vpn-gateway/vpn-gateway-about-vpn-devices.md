@@ -1,28 +1,29 @@
-<properties
-    pageTitle="About VPN devices for cross-premises Azure connections | Azure"
-    description="This article discusses VPN devices and IPsec parameters for S2S VPN Gateway cross-premises connections. Links are provided to configuration instructions and samples."
-    services="vpn-gateway"
-    documentationcenter="na"
-    author="yushwang"
-    manager="rossort"
-    editor=""
-    tags="azure-resource-manager, azure-service-management" />
-<tags
-    ms.assetid="ba449333-2716-4b7f-9889-ecc521e4d616"
-    ms.service="vpn-gateway"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/03/2017"
-    wacn.date=""
-    ms.author="yushwang;cherylmc" />
+---
+title: About VPN devices for cross-premises Azure connections | Azure
+description: This article discusses VPN devices and IPsec parameters for S2S VPN Gateway cross-premises connections. Links are provided to configuration instructions and samples.
+services: vpn-gateway
+documentationcenter: na
+author: yushwang
+manager: rossort
+editor: ''
+tags: azure-resource-manager, azure-service-management
+
+ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
+ms.service: vpn-gateway
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/03/2017
+wacn.date: ''
+ms.author: yushwang;cherylmc
+---
 
 # About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections
 
 A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN connection using a VPN gateway. Site-to-Site connections can be used to create a hybrid solution, or whenever you want secure connections between your on-premises networks and your virtual networks. This article provides the list of IPsec/IKE parameters for Azure VPN gateways, and a list of validated VPN devices connecting to Azure VPN gateways.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > If you are experiencing connectivity issues between your on-premises VPN devices and Azure VPN
 > gateways, refer to [Known device compatibility issues](#known). 
 
@@ -33,11 +34,11 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
     * Dynamic Routing = RouteBased
 * Specifications for High Performance VPN gateway and RouteBased VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the Azure High Performance VPN gateway.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                               
 
 ## <a name="devicetable"></a>Validated VPN devices
-We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](/documentation/articles/vpn-gateway-about-vpngateways/) to verify the type of gateway that you need to create for the solution you want to configure.
+We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](./vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure.
 
 To help configure your VPN device, refer to the links that correspond to appropriate device family. For VPN device support, contact your device manufacturer.
 
@@ -95,7 +96,7 @@ After you download the provided VPN device configuration sample, you'll need to 
 | &lt;SP_PresharedKey&gt; |This information is specific to your virtual network and is located in the Classic Management Portal as Manage Key. |
 
 ## <a name="IPSec"></a>IPsec/IKE parameters
-> [AZURE.NOTE]
+> [!NOTE]
 > Although the values listed in the following table are supported by the Azure VPN Gateway, currently there
 > is no mechanism for you to specify or select a specific combination of algorithms or parameters from the
 > Azure VPN Gateway. You must specify any constraints from the on-premises VPN device.
@@ -175,7 +176,7 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 
 ## <a name="known"></a>Known device compatibility issues
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > These are the known compatibility issues between third-party VPN devices and Azure VPN gateways. The Azure
 > team is actively working with the vendors to address the issues listed here. Once the issues are resolved,
 > this page will be updated with the most up-to-date information. Please check back periodically.

@@ -1,23 +1,24 @@
-<properties 
-   pageTitle="Service Bus and Python with AMQP 1.0 | Azure"
-   description="Using Service Bus from Python with AMQP."
-   services="service-bus-messaing"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-    editor="" /> 
-<tags 
-    ms.service="service-bus-messaing"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/13/2017"
-    ms.author="sethm" />
+---
+title: Service Bus and Python with AMQP 1.0 | Azure
+description: Using Service Bus from Python with AMQP.
+services: service-bus-messaing
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus-messaing
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/13/2017
+ms.author: sethm
+---
 
 # Using Service Bus from Python with AMQP 1.0
 
-[AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
+[!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 Proton-Python is a Python language binding to Proton-C; that is, Proton-Python is implemented as a wrapper around an engine implemented in C.
 
@@ -211,4 +212,4 @@ Ready to learn more? Visit the following links:
 [BrokeredMessage]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/zh-cn/library/dn574799.aspx
 
-[Service Bus AMQP overview]: /documentation/articles/service-bus-amqp-overview/
+[Service Bus AMQP overview]: ./service-bus-amqp-overview.md

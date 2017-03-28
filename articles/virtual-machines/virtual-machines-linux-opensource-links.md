@@ -1,95 +1,96 @@
-<properties
-    pageTitle="Linux and Open-Source Computing on Azure | Azure"
-    description="Lists Linux and Open-Source Computing articles on Azure, including basic Linux usage, some fundamental concepts about running or uploading Linux images on Azure, and other content about specific technologies and optimizations."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="squillace"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager,azure-service-management" />
-<tags
-    ms.assetid="a7e608b5-26ea-41e0-b46b-1a483a257754"
-    ms.service="virtual-machines-linux"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="06/27/2016"
-    wacn.date=""
-    ms.author="rasquill" />
+---
+title: Linux and Open-Source Computing on Azure | Azure
+description: Lists Linux and Open-Source Computing articles on Azure, including basic Linux usage, some fundamental concepts about running or uploading Linux images on Azure, and other content about specific technologies and optimizations.
+services: virtual-machines-linux
+documentationcenter: ''
+author: squillace
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager,azure-service-management
+
+ms.assetid: a7e608b5-26ea-41e0-b46b-1a483a257754
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 06/27/2016
+wacn.date: ''
+ms.author: rasquill
+---
 
 # Linux and open-source computing on Azure
 Find all the documentation you need to create and manage Linux-based virtual machines in the classic deployment model.
 
-> [AZURE.IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
 
 ## Get Started
-* [Introduction for Linux on Azure](/documentation/articles/virtual-machines-linux-intro-on-azure/)
-* [Frequently asked question about Azure Virtual Machines created with the classic deployment model](/documentation/articles/virtual-machines-linux-classic-faq/)
-* [About images for virtual machines](/documentation/articles/virtual-machines-linux-classic-about-images/)
-* [Uploading your own Distro Image](/documentation/articles/virtual-machines-linux-classic-create-upload-vhd/) (and also instructions using an [Azure-Endorsed Distribution](/documentation/articles/virtual-machines-linux-endorsed-distros/))
-* [Log on to a Linux VM Using the Azure Classic Management Portal](/documentation/articles/virtual-machines-linux-mac-create-ssh-keys/)
+* [Introduction for Linux on Azure](./virtual-machines-linux-intro-on-azure.md)
+* [Frequently asked question about Azure Virtual Machines created with the classic deployment model](./virtual-machines-linux-classic-faq.md)
+* [About images for virtual machines](./virtual-machines-linux-classic-about-images.md)
+* [Uploading your own Distro Image](./virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](./virtual-machines-linux-endorsed-distros.md))
+* [Log on to a Linux VM Using the Azure Classic Management Portal](./virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## Set up
 * [Install Azure Command-Line Interface (Azure CLI)](/documentation/articles/cli-install-nodejs/)
 
 ## Tutorials
-* [Install the LAMP Stack on a Linux virtual machine in Azure](/documentation/articles/virtual-machines-linux-create-lamp-stack/)
-* [Ruby on Rails Web application on an Azure VM](/documentation/articles/virtual-machines-linux-classic-ruby-rails-web-app/)
-* [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](/documentation/articles/service-bus-amqp-apache/)
+* [Install the LAMP Stack on a Linux virtual machine in Azure](./virtual-machines-linux-create-lamp-stack.md)
+* [Ruby on Rails Web application on an Azure VM](./linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md)
+* [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](../service-bus-messaging/service-bus-amqp-apache.md)
 
 ### Databases
-* [Optimize Performance of MySQL on Azure](/documentation/articles/virtual-machines-linux-classic-optimize-mysql/)
-* [MySQL Clusters](/documentation/articles/virtual-machines-linux-classic-mysql-cluster/)
-* [Running Cassandra with Linux on Azure and Accessing it from Node.js](/documentation/articles/virtual-machines-linux-classic-cassandra-nodejs/)
-* [Create a Multi-Master cluster of MariaDbs](/documentation/articles/virtual-machines-linux-classic-mariadb-mysql-cluster/)
+* [Optimize Performance of MySQL on Azure](./virtual-machines-linux-classic-optimize-mysql.md)
+* [MySQL Clusters](./virtual-machines-linux-classic-mysql-cluster.md)
+* [Running Cassandra with Linux on Azure and Accessing it from Node.js](./virtual-machines-linux-classic-cassandra-nodejs.md)
+* [Create a Multi-Master cluster of MariaDbs](./virtual-machines-linux-classic-mariadb-mysql-cluster.md)
 
 ### Ubuntu
-* [How to: MySQL Clusters](/documentation/articles/virtual-machines-linux-classic-mysql-cluster/)
-* [How to: Node.js and Cassandra](/documentation/articles/virtual-machines-linux-classic-cassandra-nodejs/)
+* [How to: MySQL Clusters](./virtual-machines-linux-classic-mysql-cluster.md)
+* [How to: Node.js and Cassandra](./virtual-machines-linux-classic-cassandra-nodejs.md)
 
 ### OpenSUSE
-* [How to: Install and Run MySQL](/documentation/articles/virtual-machines-linux-classic-mysql-on-opensuse/)
+* [How to: Install and Run MySQL](./virtual-machines-linux-classic-mysql-on-opensuse.md)
 
 ### CoreOS
 * [How to: Use CoreOS on Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 ## Planning
-* [Azure infrastructure services implementation guidelines](/documentation/articles/virtual-machines-linux-infrastructure-subscription-accounts-guidelines/)
-* [Selecting Linux Usernames](/documentation/articles/virtual-machines-linux-usernames/)
-* [How to configure an availability set for virtual machines in the classic deployment model](/documentation/articles/virtual-machines-linux-classic-configure-availability/)
-* [How to Schedule Planned Maintenance on Azure VMs](/documentation/articles/virtual-machines-linux-planned-maintenance-schedule/)
-* [Manage the availability of virtual machines](/documentation/articles/virtual-machines-linux-manage-availability/)
-* [Planned maintenance for Linux virtual machines in Azure](/documentation/articles/virtual-machines-linux-planned-maintenance/)
+* [Azure infrastructure services implementation guidelines](./virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
+* [Selecting Linux Usernames](./virtual-machines-linux-usernames.md)
+* [How to configure an availability set for virtual machines in the classic deployment model](./virtual-machines-linux-classic-configure-availability.md)
+* [How to Schedule Planned Maintenance on Azure VMs](./virtual-machines-linux-planned-maintenance-schedule.md)
+* [Manage the availability of virtual machines](./virtual-machines-linux-manage-availability.md)
+* [Planned maintenance for Linux virtual machines in Azure](./virtual-machines-linux-planned-maintenance.md)
 
 ## Deployment
-* [Create a custom virtual machine running Linux](/documentation/articles/virtual-machines-linux-classic-createportal/)
-* [The basics: Capturing a Linux VM to Make a Template](/documentation/articles/virtual-machines-linux-classic-capture-image/)
-* [Information for Non-Endorsed Distributions](/documentation/articles/virtual-machines-linux-create-upload-generic/)
+* [Create a custom virtual machine running Linux](./virtual-machines-linux-classic-createportal.md)
+* [The basics: Capturing a Linux VM to Make a Template](./virtual-machines-linux-classic-capture-image.md)
+* [Information for Non-Endorsed Distributions](./virtual-machines-linux-create-upload-generic.md)
 
 ## Management
-* [SSH](/documentation/articles/virtual-machines-linux-mac-create-ssh-keys/)
-* [How to Reset a Password or SSH Properties for Linux](/documentation/articles/virtual-machines-linux-classic-reset-access/)
-* [Using Root](/documentation/articles/virtual-machines-linux-use-root-privileges/)
+* [SSH](./virtual-machines-linux-mac-create-ssh-keys.md)
+* [How to Reset a Password or SSH Properties for Linux](./virtual-machines-linux-classic-reset-access.md)
+* [Using Root](./virtual-machines-linux-use-root-privileges.md)
 
 ## Azure Resources
-* [The Azure Linux Agent](/documentation/articles/virtual-machines-linux-agent-user-guide/)
-* [Azure VM Extensions and Features](/documentation/articles/virtual-machines-windows-extensions-features/)
-* [Injecting Custom Data into a VM to use with Cloud-init](/documentation/articles/virtual-machines-windows-classic-inject-custom-data/)
+* [The Azure Linux Agent](./virtual-machines-linux-agent-user-guide.md)
+* [Azure VM Extensions and Features](./virtual-machines-windows-extensions-features.md)
+* [Injecting Custom Data into a VM to use with Cloud-init](./virtual-machines-windows-classic-inject-custom-data.md)
 
 ## Storage
-* [Attaching a Data Disk to a Linux VM](/documentation/articles/virtual-machines-linux-classic-attach-disk/)
-* [Detaching a Data Disk from a Linux VM](/documentation/articles/virtual-machines-linux-classic-detach-disk/)
-* [RAID](/documentation/articles/virtual-machines-linux-configure-raid/)
+* [Attaching a Data Disk to a Linux VM](./virtual-machines-linux-classic-attach-disk.md)
+* [Detaching a Data Disk from a Linux VM](./virtual-machines-linux-classic-detach-disk.md)
+* [RAID](./virtual-machines-linux-configure-raid.md)
 
 ## Networking
-* [How to set up endpoints on a classic virtual machine in Azure](/documentation/articles/virtual-machines-linux-classic-setup-endpoints/)
+* [How to set up endpoints on a classic virtual machine in Azure](./virtual-machines-linux-classic-setup-endpoints.md)
 
 ## Troubleshooting
-* [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](/documentation/articles/virtual-machines-linux-troubleshoot-ssh-connection/)
-* [Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure](/documentation/articles/virtual-machines-linux-classic-troubleshoot-deployment-new-vm/)  
-* [Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](/documentation/articles/virtual-machines-linux-classic-restart-resize-error-troubleshooting/) 
+* [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](./virtual-machines-linux-troubleshoot-ssh-connection.md)
+* [Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure](./virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md)  
+* [Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](./virtual-machines-linux-classic-restart-resize-error-troubleshooting.md) 
 
 ## Reference
 * [Azure CLI commands in Azure Service Management (asm) mode](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)

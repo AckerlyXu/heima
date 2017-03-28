@@ -1,30 +1,31 @@
-<properties
-    pageTitle="Advanced usage of Reliable Services | Azure"
-    description="Learn about advanced usage of Service Fabric's Reliable Services for added flexibility in your services."
-    services="Service-Fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="masnider" />
-<tags
-    ms.assetid="f2942871-863d-47c3-b14a-7cdad9a742c7"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Advanced usage of Reliable Services | Azure
+description: Learn about advanced usage of Service Fabric's Reliable Services for added flexibility in your services.
+services: Service-Fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: masnider
+
+ms.assetid: f2942871-863d-47c3-b14a-7cdad9a742c7
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # Advanced usage of the Reliable Services programming model
-Azure Service Fabric simplifies writing and managing reliable stateless and stateful services. This guide will talk about advanced usages of Reliable Services to gain more control and flexibility over your services. Prior to reading this guide, familiarize yourself with [the Reliable Services programming model](/documentation/articles/service-fabric-reliable-services-introduction/).
+Azure Service Fabric simplifies writing and managing reliable stateless and stateful services. This guide will talk about advanced usages of Reliable Services to gain more control and flexibility over your services. Prior to reading this guide, familiarize yourself with [the Reliable Services programming model](./service-fabric-reliable-services-introduction.md).
 
 Both stateful and stateless services have two primary entry points for user code:
 
  - `RunAsync` is a general-purpose entry point for your service code.
  - `CreateServiceReplicaListeners` and `CreateServiceInstanceListeners` is for opening communication listeners for client requests.
- 
+
 For most services, these two entry points are sufficient. In rare cases when more control over a service's lifecycle is required, additional lifecycle events are available.
 
 ## Stateless service instance lifecycle
@@ -60,10 +61,10 @@ A stateful service also provides the same four lifecycle events as a stateless s
 ## Next steps
 For more advanced topics related to Service Fabric, see the following articles:
 
-- [Configuring stateful Reliable Services](/documentation/articles/service-fabric-reliable-services-configuration/)
+- [Configuring stateful Reliable Services](./service-fabric-reliable-services-configuration.md)
 
 - [Service Fabric health introduction](/documentation/articles/service-fabric-health-introduction.md/)
 
-- [Using system health reports for troubleshooting](/documentation/articles/service-fabric-understand-and-troubleshoot-with-system-health-reports/)
+- [Using system health reports for troubleshooting](./service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-- [Configuring Services with the Service Fabric Cluster Resource Manager](/documentation/articles/service-fabric-cluster-resource-manager-configure-services/)
+- [Configuring Services with the Service Fabric Cluster Resource Manager](./service-fabric-cluster-resource-manager-configure-services.md)

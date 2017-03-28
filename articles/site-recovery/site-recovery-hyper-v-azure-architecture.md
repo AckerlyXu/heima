@@ -1,31 +1,30 @@
-<properties
-    pageTitle="How does Hyper-V replication to Azure work in Site Recovery? | Azure"
-    description="This article provides an overview of how Hyper-V replication works in Azure Site Recovery"
-    services="site-recovery"
-    documentationcenter=""
-    author="rayne-wiselman"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.assetid="c413efcd-d750-4b22-b34b-15bcaa03934a"
-    ms.service="site-recovery"
-    ms.workload="backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="03/05/2017"
-    wacn.date=""
-    ms.author="raynew" />
+---
+title: How does Hyper-V replication to Azure work in Site Recovery? | Azure
+description: This article provides an overview of how Hyper-V replication works in Azure Site Recovery
+services: site-recovery
+documentationcenter: ''
+author: rayne-wiselman
+manager: jwhit
+editor: ''
+
+ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
+ms.service: site-recovery
+ms.workload: backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 03/05/2017
+wacn.date: ''
+ms.author: raynew
+---
 
 # How does Hyper-V replication to Azure work?
 
-Read this article to understand the architecture and workflows for Hyper-V replication to Azure using the [Azure Site Recovery](/documentation/articles/site-recovery-overview/) service.
-
+Read this article to understand the architecture and workflows for Hyper-V replication to Azure using the [Azure Site Recovery](./site-recovery-overview.md) service.
 
 You can replicate the following to Azure:
-- **Hyper-V with VMM**: VMs located on on-premises Hyper-V hosts managed in  System Center Virtual MAchine Manager (VMM) clouds. Hosts can be running any [supported operating system](/documentation/articles/site-recovery-support-matrix-to-azure/#support-for-datacenter-management-servers). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/zh-cn/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
-- **Hyper-V without VMM**: On-premises VMs located on Hyper-V hosts that aren't managed in VMM clouds. Hosts can run any of the [supported operating systems](/documentation/articles/site-recovery-support-matrix-to-azure/#support-for-replicated-machine-os-versions). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/zh-cn/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
-
+- **Hyper-V with VMM**: VMs located on on-premises Hyper-V hosts managed in  System Center Virtual MAchine Manager (VMM) clouds. Hosts can be running any [supported operating system](./site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/zh-cn/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- **Hyper-V without VMM**: On-premises VMs located on Hyper-V hosts that aren't managed in VMM clouds. Hosts can run any of the [supported operating systems](./site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/zh-cn/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 ## Architectural components
 
@@ -47,14 +46,13 @@ You can replicate the following to Azure:
     ![Hyper-V/VMM replication to Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
     ![Hyper-V site replication to Azure](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
 
-
 4. **Replication policy**: You create a replication policy for the Hyper-V site or VMM cloud. The policy is applied to all VMs located on hosts in the site or cloud.
 5. **Enable replication**: You enable replication for Hyper-V VMs. Initial replication occurs in accordance with the replication policy settings. Data changes are tracked, and replication of delta changes to Azure begins after the initial replication finishes. Tracked changes for an item are held in a .hrl file.
 6. **Test failover**:  You run a test failover to make sure everything's working as expected.
 
 Learn more about deployment:
-- [Get started with Hyper-V VM replication to Azure - with VMM](/documentation/articles/site-recovery-vmm-to-azure/)
-- [Get started with Hyper-V VM replication to Azure - without VMM](/documentation/articles/site-recovery-hyper-v-site-to-azure/)
+- [Get started with Hyper-V VM replication to Azure - with VMM](./site-recovery-vmm-to-azure.md)
+- [Get started with Hyper-V VM replication to Azure - without VMM](./site-recovery-hyper-v-site-to-azure.md)
 
 ## Hyper-V replication workflow
 
@@ -75,7 +73,6 @@ Learn more about deployment:
 4. The snapshot and log files consume disk resources while initial replication is in progress.
 5. When the initial replication finishes, the VM snapshot is deleted. Delta disk changes in the log are synchronized and merged to the parent disk.
 
-
 ### Finalize protection
 
 1. After the initial replication finishes, the **Finalize protection on the virtual machine** job configures network and other post-replication settings, so that the virtual machine is protected.
@@ -86,7 +83,7 @@ Learn more about deployment:
 
 1. After the initial replication, delta synchronization begins, in accordance with replication settings.
 2. The Hyper-V Replica Replication Tracker tracks the changes to a virtual hard disk as .hrl files. Each disk that's configured for replication has an associated .hrl file. This log is sent to the customer's storage account after initial replication is complete. When a log is in transit to Azure, the changes in the primary disk are tracked in another log file, in the same directory.
-3. During initial and delta replication, you can monitor the VM in the VM view. [Learn more](/documentation/articles/site-recovery-monitoring-and-troubleshooting/#monitor-replication-health-for-virtual-machines).  
+3. During initial and delta replication, you can monitor the VM in the VM view. [Learn more](./site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
 ### Replication synchronization
 
@@ -95,7 +92,6 @@ Learn more about deployment:
 3. After resynchronization finishes, normal delta replication should resume. By default resynchronization is scheduled to run automatically outside office hours, but you can resynchronize a virtual machine manually. For example, you can resume resynchronization if a network outage or another outage occurs. To do this, select the VM in the portal > **Resynchronize**.
 
     ![Manual resynchronization](./media/site-recovery-hyper-v-azure-architecture/image4.png)
-
 
 ### Retries
 
@@ -112,8 +108,8 @@ If a replication error occurs, there's a built-in retry. This logic can be class
 
 ## Next steps
 
-- [Check deployment prerequisites](/documentation/articles/site-recovery-prereq/)
+- [Check deployment prerequisites](./site-recovery-prereq.md)
 - Troubleshoot with:
-    - [Monitor and troubleshoot protection](/documentation/articles/site-recovery-monitoring-and-troubleshooting/)
-    - [Help from Microsoft support](/documentation/articles/site-recovery-monitoring-and-troubleshooting/#reach-out-for-microsoft-support)
-    - [Common errors and resolutions](/documentation/articles/site-recovery-monitoring-and-troubleshooting/#common-azure-site-recovery-errors-and-their-resolutions)
+    - [Monitor and troubleshoot protection](./site-recovery-monitoring-and-troubleshooting.md)
+    - [Help from Microsoft support](./site-recovery-monitoring-and-troubleshooting.md#reach-out-for-microsoft-support)
+    - [Common errors and resolutions](./site-recovery-monitoring-and-troubleshooting.md#common-azure-site-recovery-errors-and-their-resolutions)

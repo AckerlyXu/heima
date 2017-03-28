@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Device firmware update with Azure IoT Hub (Node) | Azure"
-    description="How to use device management on Azure IoT Hub to initiate a device firmware update. You use the Azure IoT SDKs for Node.js to implement a simulated device app and a service app that triggers the firmware update."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="juanjperez"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="70b84258-bc9f-43b1-b7cf-de1bb715f2cf"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="juanpere" />
+---
+title: Device firmware update with Azure IoT Hub (Node) | Azure
+description: How to use device management on Azure IoT Hub to initiate a device firmware update. You use the Azure IoT SDKs for Node.js to implement a simulated device app and a service app that triggers the firmware update.
+services: iot-hub
+documentationcenter: .net
+author: juanjperez
+manager: timlt
+editor: ''
+
+ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: juanpere
+---
 
 # Use device management to initiate a device firmware update (Node/Node)
-[AZURE.INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
+[!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 ## Introduction
 In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
 
@@ -38,36 +39,36 @@ To complete this tutorial, you need the following:
 * Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-Follow the [Get started with device management](/documentation/articles/iot-hub-node-node-device-management-get-started/) article to create your IoT hub and get your connection string.
+Follow the [Get started with device management](./iot-hub-node-node-device-management-get-started.md) article to create your IoT hub and get your connection string.
 
-[AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-[AZURE.INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Trigger a remote firmware update on the device using a direct method
 In this section, you create a Node.js console app that initiates a remote firmware update on a device. The app uses a direct method to initiate the update and uses device twin queries to periodically get the status of the active firmware update.
 
 1. Create a new empty folder called **triggerfwupdateondevice**.  In the **triggerfwupdateondevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
-   
+
     ```
     npm init
     ```
 2. At your command prompt in the **triggerfwupdateondevice** folder, run the following command to install the **azure-iot-hub** and **azure-iot-device-mqtt** Device SDK packages:
-   
+
     ```
     npm install azure-iot-hub --save
     ```
 3. Using a text editor, create a **dmpatterns_getstarted_service.js** file in the **triggerfwupdateondevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
-   
+
     ```
     'use strict';
-   
+
     var Registry = require('azure-iothub').Registry;
     var Client = require('azure-iothub').Client;
     ```
 5. Add the following variable declarations and replace the placeholder values:
-   
+
     ```
     var connectionString = '{device_connectionstring}';
     var registry = Registry.fromConnectionString(connectionString);
@@ -75,7 +76,7 @@ In this section, you create a Node.js console app that initiates a remote firmwa
     var deviceToUpdate = 'myDeviceId';
     ```
 6. Add the following function to find and display the value of the firmwareUpdate reported property.
-   
+
     ```
     var queryTwinFWUpdateReported = function() {
         registry.getTwin(deviceToUpdate, function(err, twin){
@@ -88,22 +89,22 @@ In this section, you create a Node.js console app that initiates a remote firmwa
     };
     ```
 7. Add the following function to invoke the firmwareUpdate method to reboot the target device:
-   
+
     ```
     var startFirmwareUpdateDevice = function() {
       var params = {
           fwPackageUri: 'https://secureurl'
       };
-   
+
       var methodName = "firmwareUpdate";
       var payloadData =  JSON.stringify(params);
-   
+
       var methodParams = {
         methodName: methodName,
         payload: payloadData,
         timeoutInSeconds: 30
       };
-   
+
       client.invokeDeviceMethod(deviceToUpdate, methodParams, function(err, result) {
         if (err) {
           console.error('Could not start the firmware update on the device: ' + err.message)
@@ -112,7 +113,7 @@ In this section, you create a Node.js console app that initiates a remote firmwa
     };
     ```
 8. Finally, Add the following function to code to start the firmware update sequence and start periodically showing the reported properties:
-   
+
     ```
     startFirmwareUpdateDevice();
     setInterval(queryTwinFWUpdateReported, 500);
@@ -125,12 +126,12 @@ In this section, you create a Node.js console app that initiates a remote firmwa
 You are now ready to run the apps.
 
 1. At the command prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
-   
+
     ```
     node dmpatterns_fwupdate_device.js
     ```
 2. At the command prompt in the **triggerfwupdateondevice** folder, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
-   
+
     ```
     node dmpatterns_fwupdate_service.js
     ```
@@ -141,11 +142,11 @@ In this tutorial, you used a direct method to trigger a remote firmware update o
 
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
-[lnk-devtwin]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-c2dmethod]: /documentation/articles/iot-hub-devguide-direct-methods/
-[lnk-dm-getstarted]: /documentation/articles/iot-hub-node-node-device-management-get-started/
-[lnk-tutorial-jobs]: /documentation/articles/iot-hub-node-node-schedule-jobs/
+[lnk-devtwin]: ./iot-hub-devguide-device-twins.md
+[lnk-c2dmethod]: ./iot-hub-devguide-direct-methods.md
+[lnk-dm-getstarted]: ./iot-hub-node-node-device-management-get-started.md
+[lnk-tutorial-jobs]: ./iot-hub-node-node-schedule-jobs.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx

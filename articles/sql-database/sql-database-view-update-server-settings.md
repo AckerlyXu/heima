@@ -1,25 +1,26 @@
-<properties
-    pageTitle="View and update an Azure SQL Database server and its settings | Azure"
-    description="Quick reference on how to view and update Azure SQL Database server settings using the Azure portal and PowerShell."
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.service="sql-database"
-    ms.custom="servers"
-    ms.devlang="NA"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.date="11/14/2016"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: View and update an Azure SQL Database server and its settings | Azure
+description: Quick reference on how to view and update Azure SQL Database server settings using the Azure portal and PowerShell.
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.service: sql-database
+ms.custom: servers
+ms.devlang: NA
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.date: 11/14/2016
+wacn.date: ''
+ms.author: carlrab
+---
 
 # View and update an Azure SQL Database server and its settings
 
-You can view and update an Azure SQL Database server and its settings using the [Azure portal](/documentation/articles/sql-database-manage-portal/), [PowerShell](/documentation/articles/sql-database-manage-powershell/), the REST API, or C#. 
+You can view and update an Azure SQL Database server and its settings using the [Azure portal](./sql-database-manage-portal.md), [PowerShell](./sql-database-manage-powershell.md), the REST API, or C#. 
 
 ## View and update an Azure SQL server settings using the Azure portal
 1. Open the **SQL servers** blade in the [Azure portal](https://portal.azure.cn/). 
@@ -30,14 +31,13 @@ You can view and update an Azure SQL Database server and its settings using the 
 
     ![sql server blade](./media/sql-database-get-started/sql-server-blade.png)
 
-> [AZURE.TIP]
-> For a getting started tutorial using the Azure portal, see [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](/documentation/articles/sql-database-get-started/).
+> [!TIP]
+> For a getting started tutorial using the Azure portal, see [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](./sql-database-get-started.md).
 >
 
 ## Additional resources
-* For an overview of management tools, see [Overview of management tools](/documentation/articles/sql-database-manage-overview/)
-* To see how to perform additional management tasks using the Azure portal, see [Manage Azure SQL Databases using the Azure portal](/documentation/articles/sql-database-manage-portal/)
-* To see how to perform additional management tasks using PowerShell, see [Manage Azure SQL Databases using PowerShell](/documentation/articles/sql-database-manage-powershell/)
-* For information about the SQL Database service, see [What is SQL Database](/documentation/articles/sql-database-technical-overview/). 
-* For information about Azure Database servers and database features, see [Features](/documentation/articles/sql-database-features/).
-
+* For an overview of management tools, see [Overview of management tools](./sql-database-manage-overview.md)
+* To see how to perform additional management tasks using the Azure portal, see [Manage Azure SQL Databases using the Azure portal](./sql-database-manage-portal.md)
+* To see how to perform additional management tasks using PowerShell, see [Manage Azure SQL Databases using PowerShell](./sql-database-manage-powershell.md)
+* For information about the SQL Database service, see [What is SQL Database](./sql-database-technical-overview.md). 
+* For information about Azure Database servers and database features, see [Features](./sql-database-features.md).

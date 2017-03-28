@@ -1,21 +1,20 @@
-<properties 
-    pageTitle="Split-merge security configuration | Azure" 
-    description="Set up x409 certificates for encryption" 
-    metaKeywords="Elastic Database certificates security" 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="torsteng"/>
+---
+title: Split-merge security configuration | Azure
+description: Set up x409 certificates for encryption
+metaKeywords: Elastic Database certificates security
+services: sql-database
+documentationCenter: ''
+manager: jhubbard
+authors: torsteng
 
-<tags 
-    ms.service="sql-database" 
-    ms.date="05/27/2016" 
-    wacn.date="06/01/2016" />
-
+ms.service: sql-database
+ms.date: 05/27/2016
+wacn.date: 06/01/2016
+---
 
 # Split-merge security configuration  
 
-To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](/documentation/articles/sql-database-elastic-scale-configure-deploy-split-and-merge/).
+To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](./sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Configuring certificates
 
@@ -29,7 +28,7 @@ Certificates are configured in two ways.
 Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](http://msdn.microsoft.com/zh-cn/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
 
 If those options are not available, you can generate **self-signed certificates**.
- 
+
 ## Tools to generate certificates
 
 * [makecert.exe](http://msdn.microsoft.com/zh-cn/library/bfsktky3.aspx)
@@ -41,7 +40,9 @@ If those options are not available, you can generate **self-signed certificates*
 
     If installed, go to:
 
-        %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+    ```
+    %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
+    ```
 
 * Get the WDK from [Windows 8.1: Download kits and tools](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
@@ -125,22 +126,26 @@ The default configuration allows all access to the HTTPS endpoint. This setting 
 
 The group of access control rules that apply to and endpoint are configured in the **<EndpointAcls>** section in the **service configuration file**.
 
-    <EndpointAcls>
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-    </EndpointAcls>
+```
+<EndpointAcls>
+  <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+  <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+</EndpointAcls>
+```
 
 The rules in an access control group are configured in a <AccessControl name=""> section of the service configuration file. 
 
 The format is explained in Network Access Control Lists documentation.
 For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to access the HTTPS endpoint, the rules would look like this:
 
-    <AccessControl name="Retricted">
-      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-    </AccessControl>
-    <EndpointAcls>
-    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+```
+<AccessControl name="Retricted">
+  <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+  <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+</AccessControl>
+<EndpointAcls>
+<EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+```
 
 ## Denial of service prevention
 
@@ -158,8 +163,10 @@ These are based on the features further documented in Dynamic IP Security in IIS
 
 The settings that configure this behavior are:
 
-    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
+<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
 
 Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this protection.
 
@@ -167,15 +174,19 @@ Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this prote
 
 The settings that configure this behavior are:
 
-    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
+<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
 
 ## Configuring the response to a denied request
 
 The following setting configures the response to a denied request:
 
-    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
+<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
 Refer to the documentation for Dynamic IP Security in IIS for other supported values.
 
 ## Operations for configuring service certificates
@@ -187,12 +198,14 @@ This topic is for reference only. Please follow the configuration steps outlined
 ## Create a self-signed certificate
 Execute:
 
-    makecert ^
-      -n "CN=myservice.chinacloudapp.cn" ^
-      -e MM/DD/YYYY ^
-      -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
-      -sv MySSL.pvk MySSL.cer
+```
+makecert ^
+  -n "CN=myservice.chinacloudapp.cn" ^
+  -e MM/DD/YYYY ^
+  -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
+  -a sha1 -len 2048 ^
+  -sv MySSL.pvk MySSL.cer
+```
 
 To customize:
 
@@ -204,7 +217,9 @@ Create a strong password and specify it when prompted.
 
 Execute:
 
-        pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```
+    pvk2pfx -pvk MySSL.pvk -spc MySSL.cer
+```
 
 Enter password and then export certificate with these options:
 * Yes, export the private key
@@ -229,7 +244,9 @@ Upload certificate with the existing or generated .PFX file with the SSL key pai
 
 Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```
+<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## Import SSL certification authority
 
@@ -245,28 +262,33 @@ Only client certificate-based authentication is supported and disabling it will 
 
 Change these settings to false in the service configuration file to turn the feature off:
 
-    <Setting name="SetupWebAppForClientCertificates" value="false" />
-    <Setting name="SetupWebserverForClientCertificates" value="false" />
+```
+<Setting name="SetupWebAppForClientCertificates" value="false" />
+<Setting name="SetupWebserverForClientCertificates" value="false" />
+```
 
 Then, copy the same thumbprint as the SSL certificate in the CA certificate setting:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## Create a self-signed certification authority
 Execute the following steps to create a self-signed certificate to act as a Certification Authority:
 
-    makecert ^
-    -n "CN=MyCA" ^
-    -e MM/DD/YYYY ^
-     -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
-      -sr localmachine -ss my ^
-      MyCA.cer
+```
+makecert ^
+-n "CN=MyCA" ^
+-e MM/DD/YYYY ^
+ -r -cy authority -h 1 ^
+ -a sha1 -len 2048 ^
+  -sr localmachine -ss my ^
+  MyCA.cer
+```
 
 To customize it
 
 *    -e with the certification expiration date
-
 
 ## Find CA public key
 
@@ -297,11 +319,15 @@ Upload certificate with the existing or generated .CER file with the CA public k
 
 Update the thumbprint value of the following setting in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 Update the value of the following setting with the same thumbprint:
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
 
 ## Issue client certificates
 
@@ -309,13 +335,15 @@ Each individual authorized to access the service should have a client certificat
 
 The following steps must be executed in the same machine where the self-signed CA certificate was generated and stored:
 
-    makecert ^
-      -n "CN=My ID" ^
-      -e MM/DD/YYYY ^
-      -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
-      -in "MyCA" -ir localmachine -is my ^
-      -sv MyID.pvk MyID.cer
+```
+makecert ^
+  -n "CN=My ID" ^
+  -e MM/DD/YYYY ^
+  -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
+  -a sha1 -len 2048 ^
+  -in "MyCA" -ir localmachine -is my ^
+  -sv MyID.pvk MyID.cer
+```
 
 Customizing:
 
@@ -329,11 +357,15 @@ This command will prompt for a password to be created and then used once. Use a 
 
 For each generated client certificate, execute:
 
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Customizing:
 
-    MyID.pvk and MyID.cer with the filename for the client certificate
+```
+MyID.pvk and MyID.cer with the filename for the client certificate
+```
 
 Enter password and then export certificate with these options:
 
@@ -365,23 +397,31 @@ Each individual for whom a client certificate has been issued must follow these 
 
 Update the value of the following setting in the service configuration file with a comma-separated list of the thumbprints of the client certificates allowed access to the service:
 
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
+```
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+```
 
 ## Configure client certificate revocation check
 
 The default setting does not check with the Certification Authority for client certificate revocation status. To turn on the checks, if the Certification Authority which issued the client certificates supports such checks, change the following setting with one of the values defined in the X509RevocationMode Enumeration:
 
-    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
+<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
 
 ## Create PFX file for self-signed encryption certificates
 
 For an encryption certificate, execute:
 
-    pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
+pvk2pfx -pvk MyID.pvk -spc MyID.cer
+```
 
 Customizing:
 
-    MyID.pvk and MyID.cer with the filename for the encryption certificate
+```
+MyID.pvk and MyID.cer with the filename for the encryption certificate
+```
 
 Enter password and then export certificate with these options:
 *    Yes, export the private key
@@ -407,7 +447,9 @@ Upload certificate with the existing or generated .PFX file with the encryption 
 
 Update the thumbprint value of the following settings in the service configuration file with the thumbprint of the certificate uploaded to the cloud service:
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## Common certificate operations
 
@@ -463,7 +505,7 @@ In the Certificate Import Wizard:
 6.     Click **Browse**.
 7.     Select the desired store.
 8.     Click **Finish**.
-       
+
     * If the Trusted Root Certification Authority store was chosen, click **Yes**.
 9.     Click **OK** on all dialog windows.
 
@@ -480,11 +522,13 @@ In the [Azure Portal](https://portal.azure.cn/)
 7. Once completed, copy the certificate thumbprint from the new entry in the list.
 
 ## Other security considerations
- 
+
 The SSL settings described in this document encrypt communication between the service and its clients when the HTTPS endpoint is used. This is important since credentials for database access and potentially other sensitive information are contained in the communication. Note, however, that the service persists internal status, including credentials, in its internal tables in the Azure SQL database that you have provided for metadata storage in your Azure subscription. That database was defined as part of the following setting in your service configuration file (.CSCFG file): 
 
-    <Setting name="ElasticScaleMetadata" value="Server=…" />
+```
+<Setting name="ElasticScaleMetadata" value="Server=…" />
+```
 
 Credentials stored in this database are encrypted. However, as a best practice, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database and the certificate used for encryption and decryption of stored credentials. 
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

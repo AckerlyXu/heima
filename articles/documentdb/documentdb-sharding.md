@@ -1,24 +1,25 @@
-<properties
-    pageTitle="How to implement client side partitioning with the SDKs | Azure"
-    description="Learn how to use the Azure DocumentDB SDKs to partition (shard) data and route requests across multiple collections"
-    services="documentdb"
-    author="arramac"
-    manager="jhubbard"
-    editor="cgronlun"
-    documentationcenter="" />
-<tags
-    ms.assetid="ab2a63f0-4601-42d8-b5e5-ba943319c1c8"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/27/2016"
-    wacn.date=""
-    ms.author="arramac" />
+---
+title: How to implement client side partitioning with the SDKs | Azure
+description: Learn how to use the Azure DocumentDB SDKs to partition (shard) data and route requests across multiple collections
+services: documentdb
+author: arramac
+manager: jhubbard
+editor: cgronlun
+documentationcenter: ''
+
+ms.assetid: ab2a63f0-4601-42d8-b5e5-ba943319c1c8
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/27/2016
+wacn.date: ''
+ms.author: arramac
+---
 
 # How to partition data using client-side support in DocumentDB
-Azure DocumentDB supports [automatic partitioning of collections](/documentation/articles/documentdb-partition-data/). However, there are use cases where it is beneficial to have fine grained control over partitioning behavior. In order to reduce the boiler-plate code required for partitioning tasks, we have added functionality in the .NET, Node.js, and Java SDKs that makes it easier to build applications that are scaled out across multiple collections.
+Azure DocumentDB supports [automatic partitioning of collections](./documentdb-partition-data.md). However, there are use cases where it is beneficial to have fine grained control over partitioning behavior. In order to reduce the boiler-plate code required for partitioning tasks, we have added functionality in the .NET, Node.js, and Java SDKs that makes it easier to build applications that are scaled out across multiple collections.
 
 In this article, we'll take a look at the classes and interfaces in the .NET SDK and how you can use them to develop partitioned applications. Other SDKs like Java, Node.js and Python support similar methods and interfaces for client-side partitioning.
 
@@ -29,9 +30,10 @@ Before we dig deeper into partitioning, let's recap some basic DocumentDB concep
 - ACID transactions i.e. stored procedures and triggers cannot span a collection. Transactions are scoped within a single partition key value within a collection.
 - Collections do not enforce a schema, so they can be used for JSON documents of the same type or different types.
 
-Starting with version [1.5.x of the Azure DocumentDB SDKs](/documentation/articles/documentdb-sdk-dotnet/), you can perform document operations directly against a database. Internally the [DocumentClient](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.aspx) uses the PartitionResolver that you have specified for the database to route requests to the appropriate collection.
+Starting with version [1.5.x of the Azure DocumentDB SDKs](./documentdb-sdk-dotnet.md), you can perform document operations directly against a database. Internally the [DocumentClient](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.documentclient.aspx) uses the PartitionResolver that you have specified for the database to route requests to the appropriate collection.
 
->[AZURE.NOTE] [Server-side partitioning](/documentation/articles/documentdb-partition-data) introduced in REST API 2015-12-16 and SDKs 1.6.0+ deprecates the client-side partition resolver approach for simple use cases. Client-side partitioning however is more flexible and lets you control performance isolation across partition keys, control degree of parallelism while reading results from multiple partitions, and use range/spatial partitioning approaches vs. hash.
+>[!NOTE]
+> [Server-side partitioning](./documentdb-partition-data.md) introduced in REST API 2015-12-16 and SDKs 1.6.0+ deprecates the client-side partition resolver approach for simple use cases. Client-side partitioning however is more flexible and lets you control performance isolation across partition keys, control degree of parallelism while reading results from multiple partitions, and use range/spatial partitioning approaches vs. hash.
 
 For example, in .NET, each PartitionResolver class is a concrete implementation of an [IPartitionResolver](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) interface that has three methods - [GetPartitionKey](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.ipartitionresolver.getpartitionkey.aspx), [ResolveForCreate](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforcreate.aspx) and [ResolveForRead](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforread.aspx). LINQ queries and ReadFeed iterators use the ResolveForRead method internally to iterate over all the collections that match the partition key for the request. Similarly, create operations use the ResolveForCreate method to route creates to the right partition. There are no changes required for Replace, Delete and Read since they use documents, which already contain the reference to the corresponding collection.
 
@@ -42,59 +44,62 @@ Here's a snippet showing how to create a [HashPartitionResolver](https://msdn.mi
 
 cs
 
-	// Create some collections to partition data.
-	DocumentCollection collection1 = await client.CreateDocumentCollectionAsync(...);
-	DocumentCollection collection2 = await client.CreateDocumentCollectionAsync(...);
+```
+// Create some collections to partition data.
+DocumentCollection collection1 = await client.CreateDocumentCollectionAsync(...);
+DocumentCollection collection2 = await client.CreateDocumentCollectionAsync(...);
 
-	// Initialize a HashPartitionResolver using the "UserId" property and the two collection self-links.
-	HashPartitionResolver hashResolver = new HashPartitionResolver(
-    		u => ((UserProfile)u).UserId, 
-    		new string[] { collection1.SelfLink, collection2.SelfLink });
+// Initialize a HashPartitionResolver using the "UserId" property and the two collection self-links.
+HashPartitionResolver hashResolver = new HashPartitionResolver(
+        u => ((UserProfile)u).UserId, 
+        new string[] { collection1.SelfLink, collection2.SelfLink });
 
-	// Register the PartitionResolver with the database.
-	this.client.PartitionResolvers[database.SelfLink] = hashResolver;
-
-
+// Register the PartitionResolver with the database.
+this.client.PartitionResolvers[database.SelfLink] = hashResolver;
+```
 
 ## Create documents in a partition
 Once the PartitionResolver is registered, you can perform creates and queries directly against the database as shown below. In this example, the SDK uses the PartitionResolver to extract the UserId, hash it, and then use that value to route the create operation to the correct collection.
 
 cs
 
-	Document johnDocument = await this.client.CreateDocumentAsync(
-	    database.SelfLink, new UserProfile("J1", "@John", Region.UnitedStatesEast));
-	Document ryanDocument = await this.client.CreateDocumentAsync(
-	    database.SelfLink, new UserProfile("U4", "@Ryan", Region.AsiaPacific, UserStatus.AppearAway));
-
+```
+Document johnDocument = await this.client.CreateDocumentAsync(
+    database.SelfLink, new UserProfile("J1", "@John", Region.UnitedStatesEast));
+Document ryanDocument = await this.client.CreateDocumentAsync(
+    database.SelfLink, new UserProfile("U4", "@Ryan", Region.AsiaPacific, UserStatus.AppearAway));
+```
 
 ## Create queries against partitions
 You can query using the [CreateDocumentQuery](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) method by passing in the database and a partition key. The query returns a single result-set over all the collections within the database that map to the partition key.  
 
 cs
 
-	// Query for John's document by ID - uses PartitionResolver to restrict the query to the partitions 
-	// containing @John. Again the query uses the database self link, and relies on the hash resolver 
-	// to route the appropriate collection.
-	var query = this.client.CreateDocumentQuery<UserProfile>(
-	    database.SelfLink, null, partitionResolver.GetPartitionKey(johnProfile))
-	    .Where(u => u.UserName == "@John");
-	johnProfile = query.AsEnumerable().FirstOrDefault();
-
+```
+// Query for John's document by ID - uses PartitionResolver to restrict the query to the partitions 
+// containing @John. Again the query uses the database self link, and relies on the hash resolver 
+// to route the appropriate collection.
+var query = this.client.CreateDocumentQuery<UserProfile>(
+    database.SelfLink, null, partitionResolver.GetPartitionKey(johnProfile))
+    .Where(u => u.UserName == "@John");
+johnProfile = query.AsEnumerable().FirstOrDefault();
+```
 
 ## Create queries against all collections in the database
 You can also query all collections within the database and enumerate the results as show below, by skipping the partition key argument.
 
 cs
 
-	// Query for all "Available" users. Here since there is no partition key, the query is serially executed 
-	// across each partition/collection and returns a single result-set. 
-	query = this.client.CreateDocumentQuery<UserProfile>(database.SelfLink)
-	    .Where(u => u.Status == UserStatus.Available);
-	foreach (UserProfile activeUser in query)
-	{
-	    Console.WriteLine(activeUser);
-	}
-
+```
+// Query for all "Available" users. Here since there is no partition key, the query is serially executed 
+// across each partition/collection and returns a single result-set. 
+query = this.client.CreateDocumentQuery<UserProfile>(database.SelfLink)
+    .Where(u => u.Status == UserStatus.Available);
+foreach (UserProfile activeUser in query)
+{
+    Console.WriteLine(activeUser);
+}
+```
 
 ## Hash Partition Resolver
 With hash partitioning, partitions are assigned based on the value of a hash function, allowing you to evenly distribute requests and data across a number of partitions. This approach is commonly used to partition data produced or consumed from a large number of distinct clients, and is useful for storing user profiles, catalog items, and IoT ("Internet of Things") telemetry data. Hash partitioning is also used by DocumentDB's server-side partitioning support within a collection.
@@ -132,12 +137,13 @@ Take a look at the  [DocumentDB Partitioning Samples Github project](https://git
 
 The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers. 
 
->[AZURE.NOTE] Collection creates are rate-limited by DocumentDB, so some of the sample methods shown here might take a few minutes to complete.
+>[!NOTE]
+> Collection creates are rate-limited by DocumentDB, so some of the sample methods shown here might take a few minutes to complete.
 
 ## FAQ
 **Does DocumentDB support server-side partitioning?**
 
-Yes, DocumentDB supports [server-side partitioning](/documentation/articles/documentdb-partition-data/). DocumentDB also supports client-side partitioning via client-side partition resolvers for more advanced use cases.
+Yes, DocumentDB supports [server-side partitioning](./documentdb-partition-data.md). DocumentDB also supports client-side partitioning via client-side partition resolvers for more advanced use cases.
 
 **When should I use server-side vs. client-side partitioning?**
 For the majority of use cases, we recommend the use of server-side partitioning since it handles the administrative tasks of partitioning data and routing requests. However, if you need range partitioning or have a specialized use case for performance isolation between different values of partition keys, then client-side partitioning might be the best approach.
@@ -155,11 +161,10 @@ You can serialize the partitioner state as JSON and store in configuration files
 You can chain PartitionResolvers by implementing your own IPartitionResolver that internally uses one or more existing resolvers. Take a look at TransitionHashPartitionResolver in the samples project for an example.
 
 ## References
-- [Server-side Partitioning in DocumentDB](/documentation/articles/documentdb-partition-data/)
-- [DocumentDB collections and performance levels](/documentation/articles/documentdb-performance-levels/)
+- [Server-side Partitioning in DocumentDB](./documentdb-partition-data.md)
+- [DocumentDB collections and performance levels](./documentdb-performance-levels.md)
 - [Partitioning code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 - [DocumentDB .NET SDK Documentation at MSDN](https://msdn.microsoft.com/zh-cn/library/azure/dn948556.aspx)
 - [DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net)
-- [DocumentDB Limits](/documentation/articles/documentdb-limits/)
+- [DocumentDB Limits](./documentdb-limits.md)
 - [DocumentDB Blog on Performance Tips](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
-

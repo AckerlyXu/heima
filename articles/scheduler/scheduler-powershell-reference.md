@@ -1,28 +1,29 @@
-<properties
- pageTitle="Scheduler PowerShell Cmdlets Reference"
- description="Scheduler PowerShell Cmdlets Reference"
- services="scheduler"
- documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="article"
- ms.date="08/18/2016"
- wacn.date=""
- ms.author="krisragh"/>
+---
+title: Scheduler PowerShell Cmdlets Reference
+description: Scheduler PowerShell Cmdlets Reference
+services: scheduler
+documentationCenter: .NET
+authors: krisragh
+manager: dwrede
+editor: ''
+
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/18/2016
+wacn.date: ''
+ms.author: krisragh
+---
 
 # Scheduler PowerShell Cmdlets Reference
 
 The following table describes and links to the reference page of each of the major cmdlets in Azure Scheduler.
 
-To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/documentation/articles/powershell-install-configure/). 
+To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). 
 
-For more information about [Azure Resource Manager cmdlets](https://msdn.microsoft.com/zh-cn/library/mt125356\(v=azure.200\).aspx), see [Using Azure PowerShell with Azure Resource Manager](/documentation/articles/powershell-azure-resource-manager/).
+For more information about [Azure Resource Manager cmdlets](https://msdn.microsoft.com/zh-cn/library/mt125356\(v=azure.200\).aspx), see [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
 
 |Cmdlet|Cmdlet Description|
 |---|---|
@@ -46,31 +47,27 @@ For more information about [Azure Resource Manager cmdlets](https://msdn.microso
 
 For more detailed information, you can run any of the following cmdlets: 
 
+```
+Get-Help <cmdlet name> -Detailed
 
-	Get-Help <cmdlet name> -Detailed
+Get-Help <cmdlet name> -Examples
 
-
-	Get-Help <cmdlet name> -Examples
-
-
-	Get-Help <cmdlet name> -Full
-
+Get-Help <cmdlet name> -Full
+```
 
 ## See Also
 
+ [What is Scheduler?](./scheduler-intro.md)
 
- [What is Scheduler?](/documentation/articles/scheduler-intro/)
- 
- [Azure Scheduler Concepts, Terminology, and Entity Hierarchy](/documentation/articles/scheduler-concepts-terms/)
- 
- [Get Started Using Scheduler in the Management Portal](/documentation/articles/scheduler-get-started-portal/)
- 
- [Plans and Billing in Azure Scheduler](/documentation/articles/scheduler-plans-billing/)
- 
+ [Azure Scheduler Concepts, Terminology, and Entity Hierarchy](./scheduler-concepts-terms.md)
+
+ [Get Started Using Scheduler in the Management Portal](./scheduler-get-started-portal.md)
+
+ [Plans and Billing in Azure Scheduler](./scheduler-plans-billing.md)
+
  [Azure Scheduler REST API reference](https://msdn.microsoft.com/zh-cn/library/mt629143)
- 
- [Azure Scheduler High-Availability and Reliability](/documentation/articles/scheduler-high-availability-reliability/)
- [Azure Scheduler limits, defaults, and error codes](/documentation/articles/scheduler-limits-defaults-errors/)
 
- [Azure Scheduler outbound authentication](/documentation/articles/scheduler-outbound-authentication/)
-  
+ [Azure Scheduler High-Availability and Reliability](./scheduler-high-availability-reliability.md)
+ [Azure Scheduler limits, defaults, and error codes](./scheduler-limits-defaults-errors.md)
+
+ [Azure Scheduler outbound authentication](./scheduler-outbound-authentication.md)

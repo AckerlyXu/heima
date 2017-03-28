@@ -1,21 +1,22 @@
-<properties
-    pageTitle="What to do in the event of an Azure Storage outage | Azure"
-    description="What to do in the event of an Azure Storage outage"
-    services="storage"
-    documentationcenter=".net"
-    author="robinsh"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="8f040b0f-8926-4831-ac07-79f646f31926"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="1/19/2017"
-    wacn.date=""
-    ms.author="robinsh" />
+---
+title: What to do in the event of an Azure Storage outage | Azure
+description: What to do in the event of an Azure Storage outage
+services: storage
+documentationcenter: .net
+author: robinsh
+manager: timlt
+editor: tysonn
+
+ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 1/19/2017
+wacn.date: ''
+ms.author: robinsh
+---
 
 # What to do if an Azure Storage outage occurs
 At Microsoft, we work hard to make sure our services are always available. Sometimes, forces beyond our control impact us in ways that cause unplanned service outages in one or more regions. To help you handle these rare occurrences, we provide the following high-level guidance for Azure Storage services.
@@ -23,34 +24,34 @@ At Microsoft, we work hard to make sure our services are always available. Somet
 ## How to prepare
 It is critical for every customer to prepare their own disaster recovery plan. The effort to recover from a storage outage typically involves both operations personnel and automated procedures in order to reactivate your applications in a functioning state. Please refer to the Azure documentation below to build your own disaster recovery plan:
 
--   [Disaster recovery and high availability for Azure applications](/documentation/articles/resiliency-disaster-recovery-high-availability-azure-applications/)
+-   [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 
--   [Azure resiliency technical guidance](/documentation/articles/resiliency-technical-guidance/)
+-   [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md)
 
--   [Azure Site Recovery service](/home/features/site-recovery/)
+-   [Azure Site Recovery service](https://www.azure.cn/home/features/site-recovery/)
 
--   [Azure Storage replication](/documentation/articles/storage-redundancy/)
+-   [Azure Storage replication](./storage-redundancy.md)
 
--   [Azure Backup service](/home/features/backup/)
+-   [Azure Backup service](https://www.azure.cn/home/features/backup/)
 
 ## How to detect 
 
-The recommended way to determine the Azure service status is to subscribe to the [Azure Service Health Dashboard](/support/service-dashboard/).
+The recommended way to determine the Azure service status is to subscribe to the [Azure Service Health Dashboard](https://www.azure.cn/support/service-dashboard/).
 
 ## What to do if a Storage outage occurs
 If one or more Storage services are temporarily unavailable at one or more regions, there are two options for you to consider. If you desire immediate access to your data, please consider Option 2.
 
 ### Option 1: Wait for recovery
 
-In this case, no action on your part is required. We are working diligently to restore the Azure service availability. You can monitor the service status on the [Azure Service Health Dashboard](/support/service-dashboard/).
+In this case, no action on your part is required. We are working diligently to restore the Azure service availability. You can monitor the service status on the [Azure Service Health Dashboard](https://www.azure.cn/support/service-dashboard/).
 
 ### Option 2: Copy data from secondary
 
-If you chose [Read-access geo-redundant storage (RA-GRS)](/documentation/articles/storage-redundancy/#read-access-geo-redundant-storage) (recommended) for your storage accounts, you will have read access to your data from the secondary region. You can use tools such as [AzCopy](/documentation/articles/storage-use-azcopy/), [Azure PowerShell](/documentation/articles/storage-powershell-guide-full/), and the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) to copy data from the secondary region into another storage account in an unimpacted region, and then point your applications to that storage account for both read and write availability.
+If you chose [Read-access geo-redundant storage (RA-GRS)](./storage-redundancy.md#read-access-geo-redundant-storage) (recommended) for your storage accounts, you will have read access to your data from the secondary region. You can use tools such as [AzCopy](./storage-use-azcopy.md), [Azure PowerShell](./storage-powershell-guide-full.md), and the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) to copy data from the secondary region into another storage account in an unimpacted region, and then point your applications to that storage account for both read and write availability.
 
 ## What to expect if a Storage failover occurs
 
-If you chose [Geo-redundant storage (GRS)](/documentation/articles/storage-redundancy/#geo-redundant-storage) or [Read-access geo-redundant storage (RA-GRS)](/documentation/articles/storage-redundancy/#read-access-geo-redundant-storage) (recommended), Azure Storage will keep your data durable in two regions (primary and secondary). In both regions, Azure Storage constantly maintains multiple replicas of your data.
+If you chose [Geo-redundant storage (GRS)](./storage-redundancy.md#geo-redundant-storage) or [Read-access geo-redundant storage (RA-GRS)](./storage-redundancy.md#read-access-geo-redundant-storage) (recommended), Azure Storage will keep your data durable in two regions (primary and secondary). In both regions, Azure Storage constantly maintains multiple replicas of your data.
 
 When a regional disaster affects your primary region, we will first try to restore the service in that region. Dependent upon the nature of the disaster and its impacts, in some rare occasions we may not be able to restore the primary region. At that point, we will perform a geo-failover. The cross-region data replication is an asynchronous process which can involve a delay, so it is possible that changes that have not yet been replicated to the secondary region may be lost. You can query the [“Last Sync Time” of your storage account](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) to get details on the replication status.
 
@@ -69,10 +70,9 @@ A couple of points regarding the storage geo-failover experience:
 
 There are some recommended approaches to back up your storage data on a regular basis.
 
-* VM Disks – Use the [Azure Backup service](/home/features/back-up/) to back up the VM disks used by your Azure virtual machines.
-* Block blobs –Create a [snapshot](https://msdn.microsoft.com/zh-cn/library/azure/hh488361.aspx) of each block blob, or copy the blobs to another storage account in another region using [AzCopy](/documentation/articles/storage-use-azcopy/), [Azure PowerShell](/documentation/articles/storage-powershell-guide-full/), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* Tables – use [AzCopy](/documentation/articles/storage-use-azcopy/) to export the table data into another storage account in another region.
-* Files – use [AzCopy](/documentation/articles/storage-use-azcopy/) or [Azure PowerShell](/documentation/articles/storage-powershell-guide-full/) to copy your files to another storage account in another region.
+* VM Disks – Use the [Azure Backup service](https://www.azure.cn/home/features/back-up/) to back up the VM disks used by your Azure virtual machines.
+* Block blobs –Create a [snapshot](https://msdn.microsoft.com/zh-cn/library/azure/hh488361.aspx) of each block blob, or copy the blobs to another storage account in another region using [AzCopy](./storage-use-azcopy.md), [Azure PowerShell](./storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* Tables – use [AzCopy](./storage-use-azcopy.md) to export the table data into another storage account in another region.
+* Files – use [AzCopy](./storage-use-azcopy.md) or [Azure PowerShell](./storage-powershell-guide-full.md) to copy your files to another storage account in another region.
 
-For information about creating applications that take full advantage of the RA-GRS feature, please check out [Designing Highly Available Applications using RA-GRS Storage](/documentation/articles/storage-designing-ha-apps-with-ragrs/)
-
+For information about creating applications that take full advantage of the RA-GRS feature, please check out [Designing Highly Available Applications using RA-GRS Storage](./storage-designing-ha-apps-with-ragrs.md)

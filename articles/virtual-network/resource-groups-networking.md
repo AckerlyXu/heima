@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Network Resource Provider Overview | Azure"
-    description="Learn about the new Network Resource Provider in Azure Resource Manager"
-    services="virtual-network"
-    documentationcenter="na"
-    author="jimdial"
-    manager="carmonm"
-    editor="tysonn" />
-<tags
-    ms.assetid="79bf09da-4809-45cb-8d21-705616ef24dc"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/15/2016"
-    wacn.date=""
-    ms.author="jdial" />
+---
+title: Network Resource Provider Overview | Azure
+description: Learn about the new Network Resource Provider in Azure Resource Manager
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: carmonm
+editor: tysonn
+
+ms.assetid: 79bf09da-4809-45cb-8d21-705616ef24dc
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/15/2016
+wacn.date: ''
+ms.author: jdial
+---
 
 # Network Resource Provider
 An underpinning need in today's business success, is the ability to build and manage large scale network aware applications in an agile, flexible, secure and repeatable way. Azure Resource Manager enables you to create such applications, as a single collection of resources in resource groups. Such resources are managed through various resource providers under Resource Manager.
@@ -56,23 +57,23 @@ Every resource contains a common set of properties, and their individual propert
 
 You can check the individual properties of resources in the sections below.
 
-[AZURE.INCLUDE [virtual-networks-nrp-pip-include](../../includes/virtual-networks-nrp-pip-include.md)]
+[!INCLUDE [virtual-networks-nrp-pip-include](../../includes/virtual-networks-nrp-pip-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-nic-include](../../includes/virtual-networks-nrp-nic-include.md)]
+[!INCLUDE [virtual-networks-nrp-nic-include](../../includes/virtual-networks-nrp-nic-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-nsg-include](../../includes/virtual-networks-nrp-nsg-include.md)]
+[!INCLUDE [virtual-networks-nrp-nsg-include](../../includes/virtual-networks-nrp-nsg-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-udr-include](../../includes/virtual-networks-nrp-udr-include.md)]
+[!INCLUDE [virtual-networks-nrp-udr-include](../../includes/virtual-networks-nrp-udr-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-vnet-include](../../includes/virtual-networks-nrp-vnet-include.md)]
+[!INCLUDE [virtual-networks-nrp-vnet-include](../../includes/virtual-networks-nrp-vnet-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-lb-include](../../includes/virtual-networks-nrp-lb-include.md)]
+[!INCLUDE [virtual-networks-nrp-lb-include](../../includes/virtual-networks-nrp-lb-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-appgw-include](../../includes/virtual-networks-nrp-appgw-include.md)]
+[!INCLUDE [virtual-networks-nrp-appgw-include](../../includes/virtual-networks-nrp-appgw-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-vpn-include](../../includes/virtual-networks-nrp-vpn-include.md)]
+[!INCLUDE [virtual-networks-nrp-vpn-include](../../includes/virtual-networks-nrp-vpn-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-tm-include](../../includes/virtual-networks-nrp-tm-include.md)]
+[!INCLUDE [virtual-networks-nrp-tm-include](../../includes/virtual-networks-nrp-tm-include.md)]
 
 ## Management interfaces
 You can manage your Azure networking resources using different interfaces. In this document we will focus on tow of those interfaces: REST API, and templates.
@@ -82,7 +83,9 @@ As mentioned earlier, network resources can be managed via a variety of interfac
 
 The Rest API's conform to the HTTP 1.1 protocol specification. The general URI structure of the API is presented below:
 
-    https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
+```
+https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
+```
 
 And the parameters in braces represent the following elements:
 
@@ -103,128 +106,134 @@ In addition to managing resources imperatively (via APIs or SDK), you can also u
 
 A sample representation of a template is provided below -
 
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-      "contentVersion": "<version-number-of-template>",
-      "parameters": { <parameter-definitions-of-template> },
-      "variables": { <variable-definitions-of-template> },
-      "resources": [ { <definition-of-resource-to-deploy> } ],
-      "outputs": { <output-of-template> }    
-    }
+```
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "contentVersion": "<version-number-of-template>",
+  "parameters": { <parameter-definitions-of-template> },
+  "variables": { <variable-definitions-of-template> },
+  "resources": [ { <definition-of-resource-to-deploy> } ],
+  "outputs": { <output-of-template> }    
+}
+```
 
 The template is primarily a JSON description of the resources and the instance values injected via parameters. The example below can be used to create a virtual network with 2 subnets.
 
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VNET.json",
-        "contentVersion": "1.0.0.0",
-        "parameters" : {
-          "location": {
-            "type": "String",
-            "allowedValues": ["China East", "China North"],
-            "metadata" : {
-              "Description" : "Deployment location"
-            }
-          },
-          "virtualNetworkName":{
-            "type" : "string",
-            "defaultValue":"myVNET",
-            "metadata" : {
-              "Description" : "VNET name"
-            }
-          },
-          "addressPrefix":{
-            "type" : "string",
-            "defaultValue" : "10.0.0.0/16",
-            "metadata" : {
-              "Description" : "Address prefix"
-            }
-
-          },
-          "subnet1Name": {
-            "type" : "string",
-            "defaultValue" : "Subnet-1",
-            "metadata" : {
-              "Description" : "Subnet 1 Name"
-            }
-          },
-          "subnet2Name": {
-            "type" : "string",
-            "defaultValue" : "Subnet-2",
-            "metadata" : {
-              "Description" : "Subnet 2 name"
-            }
-          },
-          "subnet1Prefix" : {
-            "type" : "string",
-            "defaultValue" : "10.0.0.0/24",
-            "metadata" : {
-              "Description" : "Subnet 1 Prefix"
-            }
-          },
-          "subnet2Prefix" : {
-            "type" : "string",
-            "defaultValue" : "10.0.1.0/24",
-            "metadata" : {
-              "Description" : "Subnet 2 Prefix"
-            }
-          }
-        },
-        "resources": [
-        {
-          "apiVersion": "2015-05-01-preview",
-          "type": "Microsoft.Network/virtualNetworks",
-          "name": "[parameters('virtualNetworkName')]",
-          "location": "[parameters('location')]",
-          "properties": {
-            "addressSpace": {
-              "addressPrefixes": [
-                "[parameters('addressPrefix')]"
-              ]
-            },
-            "subnets": [
-              {
-                "name": "[parameters('subnet1Name')]",
-                "properties" : {
-                  "addressPrefix": "[parameters('subnet1Prefix')]"
-                }
-              },
-              {
-                "name": "[parameters('subnet2Name')]",
-                "properties" : {
-                  "addressPrefix": "[parameters('subnet2Prefix')]"
-                }
-              }
-            ]
-          }
+```
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VNET.json",
+    "contentVersion": "1.0.0.0",
+    "parameters" : {
+      "location": {
+        "type": "String",
+        "allowedValues": ["China East", "China North"],
+        "metadata" : {
+          "Description" : "Deployment location"
         }
+      },
+      "virtualNetworkName":{
+        "type" : "string",
+        "defaultValue":"myVNET",
+        "metadata" : {
+          "Description" : "VNET name"
+        }
+      },
+      "addressPrefix":{
+        "type" : "string",
+        "defaultValue" : "10.0.0.0/16",
+        "metadata" : {
+          "Description" : "Address prefix"
+        }
+
+      },
+      "subnet1Name": {
+        "type" : "string",
+        "defaultValue" : "Subnet-1",
+        "metadata" : {
+          "Description" : "Subnet 1 Name"
+        }
+      },
+      "subnet2Name": {
+        "type" : "string",
+        "defaultValue" : "Subnet-2",
+        "metadata" : {
+          "Description" : "Subnet 2 name"
+        }
+      },
+      "subnet1Prefix" : {
+        "type" : "string",
+        "defaultValue" : "10.0.0.0/24",
+        "metadata" : {
+          "Description" : "Subnet 1 Prefix"
+        }
+      },
+      "subnet2Prefix" : {
+        "type" : "string",
+        "defaultValue" : "10.0.1.0/24",
+        "metadata" : {
+          "Description" : "Subnet 2 Prefix"
+        }
+      }
+    },
+    "resources": [
+    {
+      "apiVersion": "2015-05-01-preview",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('virtualNetworkName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('addressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('subnet1Name')]",
+            "properties" : {
+              "addressPrefix": "[parameters('subnet1Prefix')]"
+            }
+          },
+          {
+            "name": "[parameters('subnet2Name')]",
+            "properties" : {
+              "addressPrefix": "[parameters('subnet2Prefix')]"
+            }
+          }
         ]
+      }
     }
+    ]
+}
+```
 
 You have the option of providing the parameter values manually when using a template, or you can use a parameter file. The example below shows a possible set of parameter values to be used with the template above:
 
-    {
-      "location": {
-          "value": "China East"
-      },
-      "virtualNetworkName": {
-          "value": "VNET1"
-      },
-      "subnet1Name": {
-          "value": "Subnet1"
-      },
-      "subnet2Name": {
-          "value": "Subnet2"
-      },
-      "addressPrefix": {
-          "value": "192.168.0.0/16"
-      },
-      "subnet1Prefix": {
-          "value": "192.168.1.0/24"
-      },
-      "subnet2Prefix": {
-          "value": "192.168.2.0/24"
-      }
-    }
+```
+{
+  "location": {
+      "value": "China East"
+  },
+  "virtualNetworkName": {
+      "value": "VNET1"
+  },
+  "subnet1Name": {
+      "value": "Subnet1"
+  },
+  "subnet2Name": {
+      "value": "Subnet2"
+  },
+  "addressPrefix": {
+      "value": "192.168.0.0/16"
+  },
+  "subnet1Prefix": {
+      "value": "192.168.1.0/24"
+  },
+  "subnet2Prefix": {
+      "value": "192.168.2.0/24"
+  }
+}
+```
 
 The main advantages of using templates are:
 
@@ -234,7 +243,7 @@ The main advantages of using templates are:
 
 For sample templates, see [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates).
 
-For more information on the Resource Manager Template Language, see [Azure Resource Manager Template Language](/documentation/articles/resource-group-authoring-templates/).
+For more information on the Resource Manager Template Language, see [Azure Resource Manager Template Language](../azure-resource-manager/resource-group-authoring-templates.md).
 
 The sample template above uses the virtual network and subnet resources. There are other network resources you can use as listed below:
 
@@ -251,13 +260,14 @@ You can deploy services to Azure from a template by using PowerShell, AzureCLI, 
 
 ![Sample template deployment](./media/resource-groups-networking/Figure6.png)
 
->[AZURE.NOTE] Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+>[!NOTE]
+> Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
 
 ## Next steps
-[Azure Resource Manager Template Language](/documentation/articles/resource-group-authoring-templates/)
+[Azure Resource Manager Template Language](../azure-resource-manager/resource-group-authoring-templates.md)
 
 [Azure Networking - commonly used templates](https://github.com/Azure/azure-quickstart-templates)
 
-[Azure Resource Manager vs. classic deployment](/documentation/articles/resource-manager-deployment-model/)
+[Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md)
 
-[Azure Resource Manager Overview](/documentation/articles/resource-group-overview/)
+[Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md)

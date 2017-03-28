@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Configure web apps in Azure App Service"
-    description="How to configure a web app in Azure App Services"
-    services="app-service\web"
-    documentationcenter=""
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="9af8a367-7d39-4399-9941-b80cbc5f39a0"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm" />
+---
+title: Configure web apps in Azure App Service
+description: How to configure a web app in Azure App Services
+services: app-service\web
+documentationcenter: ''
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm
+---
 
 # Configure web apps in Azure App Service
 This topic explains how to configure a web app using the [Azure Portal Preview].
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Application settings
 1. In the [Azure Portal Preview], open the blade for the web app.
@@ -51,7 +52,7 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 
 **Managed Pipeline Version**. Sets the IIS [pipeline mode]. Leave this set to Integrated (the default) unless you have a legacy app that requires an older version of IIS.
 
-**Auto Swap**. If you enable Auto Swap for a deployment slot, App Service will automatically swap the web app into production when you push an update to that slot. For more information, see [Deploy to staging slots for web apps in Azure App Service](/documentation/articles/web-sites-staged-publishing/).
+**Auto Swap**. If you enable Auto Swap for a deployment slot, App Service will automatically swap the web app into production when you push an update to that slot. For more information, see [Deploy to staging slots for web apps in Azure App Service](./web-sites-staged-publishing.md).
 
 ### Debugging
 **Remote Debugging**. Enables remote debugging. When enabled, you can use the remote debugger in Visual Studio to connect directly to your web app. Remote debugging will remain enabled for 48 hours. 
@@ -129,7 +130,7 @@ Add custom domain names for your web app. For more information, see [Configure a
 To view your domain names, click **All Settings** > **Custom domains and SSL**.
 
 ### Deployments
-* Set up continuous deployment. See [Using Git to deploy Web Apps in Azure App Service](/documentation/articles/web-sites-deploy/).
+* Set up continuous deployment. See [Using Git to deploy Web Apps in Azure App Service](./web-sites-deploy.md).
 * Deployment slots. See [Deploy to Staging Environments for Web Apps in Azure App Service].
 
 To view your deployment slots, click **All Settings** > **Deployment slots**.
@@ -148,14 +149,14 @@ For more information, see [How to: Monitor web endpoint status].
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [Azure Portal Preview]: https://portal.azure.cn/
-[Configure a custom domain name in Azure App Service]: /documentation/articles/web-sites-custom-domain-name/
-[Deploy to Staging Environments for Web Apps in Azure App Service]: /documentation/articles/web-sites-staged-publishing/
-[Enable HTTPS for an app in Azure App Service]: /documentation/articles/web-sites-configure-ssl-certificate/
-[How to: Monitor web endpoint status]: /documentation/articles/web-sites-monitor/
-[Monitoring basics for Web Apps in Azure App Service]: /documentation/articles/web-sites-monitor/
+[Configure a custom domain name in Azure App Service]: ./web-sites-custom-domain-name.md
+[Deploy to Staging Environments for Web Apps in Azure App Service]: ./web-sites-staged-publishing.md
+[Enable HTTPS for an app in Azure App Service]: ./web-sites-configure-ssl-certificate.md
+[How to: Monitor web endpoint status]: ./web-sites-monitor.md
+[Monitoring basics for Web Apps in Azure App Service]: ./web-sites-monitor.md
 [pipeline mode]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Scale a web app in Azure App Service]: /documentation/articles/web-sites-scale/
-[socket.io]: /documentation/articles/web-sites-nodejs-chat-app-socketio/
+[Scale a web app in Azure App Service]: ./web-sites-scale.md
+[socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Try App Service]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->

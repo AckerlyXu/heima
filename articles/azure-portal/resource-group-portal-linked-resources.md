@@ -1,16 +1,16 @@
-<properties 
-	pageTitle="Related and linked resources in the tile gallery" 
-	description="Learn about related and linked resources that are displayed in the tile gallery of the Azure preview portal." 
-	services="azure-portal" 
-	documentationCenter="" 
-	authors="adamabdelhamed" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Related and linked resources in the tile gallery
+description: Learn about related and linked resources that are displayed in the tile gallery of the Azure preview portal.
+services: azure-portal
+documentationCenter: ''
+authors: adamabdelhamed
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="azure-portal" 
-	ms.date="07/16/2015" 
-	wacn.date=""/>
+ms.service: azure-portal
+ms.date: 07/16/2015
+wacn.date: ''
+---
 
 # Related and linked resources in the tile gallery
 
@@ -33,6 +33,5 @@ automatically created for some dependent resources. You can also programmaticall
 [Linked Resources REST API](https://docs.microsoft.com/en-us/rest/api/resources/resourcelinks).
 
 ## Next steps
-* If you need an introduction to writing Resource Manager templates, see [Authoring templates](/documentation/articles/resource-group-authoring-templates/).
-* To understand more about working with resource groups through the portal, see [Using the Azure portal to manage your Azure resources](/documentation/articles/resource-group-portal/).
-
+* If you need an introduction to writing Resource Manager templates, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).
+* To understand more about working with resource groups through the portal, see [Using the Azure portal to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).

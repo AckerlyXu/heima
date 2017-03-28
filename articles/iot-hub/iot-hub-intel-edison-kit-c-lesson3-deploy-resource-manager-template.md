@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Create an Azure function app and storage account | Azure"
-    description="The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="storing data in the cloud, data stored in cloud, iot cloud service" />
-<tags
-    ms.assetid="739b82e9-5d4e-4485-8971-f57cbb682faf"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Create an Azure function app and storage account | Azure
+description: The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: storing data in the cloud, data stored in cloud, iot cloud service
+
+ms.assetid: 739b82e9-5d4e-4485-8971-f57cbb682faf
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Create an Azure function app and Azure storage account
 [Azure Functions](/documentation/articles/functions-overview/) is a solution for easily running *functions* (small pieces of code) in the cloud. An Azure function app hosts the execution of your functions in Azure.
@@ -26,7 +27,7 @@ Use an Azure Resource Manager template to create an Azure function app and an Az
 
 ## What will you learn
 In this article, you will learn:
-* How to use [Azure Resource Manager](/documentation/articles/resource-group-overview/) to deploy Azure resources.
+* How to use [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) to deploy Azure resources.
 * How to use an Azure function app to process IoT hub messages and write them to a table in Azure Table storage.
 
 ## What do you need
@@ -72,10 +73,10 @@ You've created your Azure function app to process IoT hub messages and an Azure 
 [Run a sample application to send device-to-cloud messages on Intel Edison][send-device-to-cloud-messages].
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-node-troubleshooting/
-[get-started-with-your-intel-edison]: /documentation/articles/iot-hub-intel-edison-kit-c-get-started/
-[create-your-azure-iot-hub]: /documentation/articles/iot-hub-intel-edison-kit-c-get-started/
+[troubleshooting]: ./iot-hub-intel-edison-kit-node-troubleshooting.md
+[get-started-with-your-intel-edison]: ./iot-hub-intel-edison-kit-c-get-started.md
+[create-your-azure-iot-hub]: ./iot-hub-intel-edison-kit-c-get-started.md
 [repo-structure]: ./media/iot-hub-intel-edison-lessons/lesson3/repo_structure_c.png
 [arm-template-parameters]: ./media/iot-hub-intel-edison-lessons/lesson3/arm_para_c.png
-[created-your-iot-hub-and-registered-intel-edison]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub/
-[send-device-to-cloud-messages]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson3-run-azure-blink/
+[created-your-iot-hub-and-registered-intel-edison]: ./iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md
+[send-device-to-cloud-messages]: ./iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md

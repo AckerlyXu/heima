@@ -1,23 +1,20 @@
+---
+title: Service Fabric cluster security: client roles | Azure
+description: This article describes the two client roles and the permissions provided to the roles.
+services: service-fabric
+documentationCenter: .net
+authors: mani-ramaswamy
+manager: coreysa
+editor: ''
 
-<properties
-   pageTitle="Service Fabric cluster security: client roles | Azure"
-   description="This article describes the two client roles and the permissions provided to the roles."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="coreysa"
-   editor=""/>
-
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/14/2016"
-   ms.author="subramar"/>
-
-
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/14/2016
+ms.author: subramar
+---
 
 # Role-based access control for Service Fabric clients
 
@@ -25,14 +22,11 @@ Azure Service Fabric supports two different access control types for clients tha
 
 **Administrators** have full access to management capabilities (including read/write capabilities). By default, **users** only have read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
 
-You specify the two client roles (administrator and client) at the time of cluster creation by providing separate certificates for each. See [Service Fabric cluster security](/documentation/articles/service-fabric-cluster-security/) for details on setting up a secure Service Fabric cluster.
-
+You specify the two client roles (administrator and client) at the time of cluster creation by providing separate certificates for each. See [Service Fabric cluster security](./service-fabric-cluster-security.md) for details on setting up a secure Service Fabric cluster.
 
 ## Default access control settings
 
-
 The administrator access control type has full access to all the FabricClient APIs. It can perform any reads and writes on the Service Fabric cluster, including the following operations:
-
 
 ### Application and service operations
 * **CreateService**: service creation 							
@@ -53,7 +47,6 @@ The administrator access control type has full access to all the FabricClient AP
 * **RecoverPartitions**: recovering partitions 							
 * **RecoverServicePartitions**: recovering service partitions 							
 * **RecoverSystemPartitions**: recovering system service partitions 							
-
 
 ### Cluster operations
 * **ProvisionFabric**: MSI and/or cluster manifest provisioning 							
@@ -84,8 +77,6 @@ The administrator access control type has full access to all the FabricClient AP
 * **Query**: all queries allowed
 * **NameExists**: naming URI existence checks 							
 
-
-
 The user access control type is, by default, limited to the following operations: 
 
 * **EnumerateSubnames**: naming URI enumeration 							
@@ -107,10 +98,10 @@ The admin access control also has access to the preceding operations.
 
 ## Changing default settings for client roles
 
-In the cluster manifest file, you can provide admin capabilities to the client if needed. You can change the defaults by going to the **Fabric Settings** option during [cluster creation](/documentation/articles/service-fabric-cluster-creation-via-portal/), and providing the preceding settings in the **name**, **admin**, **user**, and **value** fields.
+In the cluster manifest file, you can provide admin capabilities to the client if needed. You can change the defaults by going to the **Fabric Settings** option during [cluster creation](./service-fabric-cluster-creation-via-portal.md), and providing the preceding settings in the **name**, **admin**, **user**, and **value** fields.
 
 ## Next steps
 
-[Service Fabric cluster security](/documentation/articles/service-fabric-cluster-security/)
+[Service Fabric cluster security](./service-fabric-cluster-security.md)
 
-[Service Fabric cluster creation](/documentation/articles/service-fabric-cluster-creation-via-portal/)
+[Service Fabric cluster creation](./service-fabric-cluster-creation-via-portal.md)

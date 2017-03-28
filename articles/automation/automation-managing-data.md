@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Managing Azure Automation data | Azure"
-    description="This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation."
-    services="automation"
-    documentationcenter=""
-    author="SnehaGunda"
-    manager="stevenka"
-    editor="tysonn" />
-<tags
-    ms.assetid="2896f129-82e3-43ce-b9ee-a3860be0423a"
-    ms.service="automation"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/31/2016"
-    wacn.date=""
-    ms.author="bwren;sngun" />
+---
+title: Managing Azure Automation data | Azure
+description: This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation.
+services: automation
+documentationcenter: ''
+author: SnehaGunda
+manager: stevenka
+editor: tysonn
+
+ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
+ms.service: automation
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: bwren;sngun
+---
 
 # Managing Azure Automation data
 This article contains multiple topics for managing an Azure Automation environment.
@@ -43,17 +44,17 @@ The retention policy applies to all users and currently cannot be customized.
 When you delete an automation account in Azure, all objects in the account are deleted including runbooks, modules, configurations, settings, jobs, and assets. The objects cannot be recovered after the account is deleted.  You can use the following information to backup the contents of your automation account before deleting it. 
 
 ### Runbooks
-You can export your runbooks to script files using either the Azure Classic Management Portal or the [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/zh-cn/library/dn690269.aspx) cmdlet in Windows PowerShell.  These script files can be imported into another automation account as discussed in [Creating or Importing a Runbook](/documentation/articles/automation-creating-importing-runbook/).
+You can export your runbooks to script files using either the Azure Classic Management Portal or the [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/zh-cn/library/dn690269.aspx) cmdlet in Windows PowerShell.  These script files can be imported into another automation account as discussed in [Creating or Importing a Runbook](./automation-creating-importing-runbook.md).
 
 ### Integration modules
 You cannot export integration modules from Azure Automation.  You must ensure that they are available outside of the automation account.
 
 ### Assets
-You cannot export [assets](/documentation/services/automation/) from Azure Automation.  Using the Azure Classic Management Portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
+You cannot export [assets](./index.md) from Azure Automation.  Using the Azure Classic Management Portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
 
 You can use [Azure cmdlets](https://msdn.microsoft.com/zh-cn/library/dn690262.aspx) to retrieve details of unencrypted assets and either save them for future reference or create equivalent assets in another automation account.
 
-You cannot retrieve the value for encrypted variables or the password field of credentials using cmdlets.  If you don't know these values, then you can retrieve them from a runbook using the [Get-AutomationVariable](/documentation/articles/automation-variables/) and [Get-AutomationPSCredential](/documentation/articles/automation-credentials/) activities.
+You cannot retrieve the value for encrypted variables or the password field of credentials using cmdlets.  If you don't know these values, then you can retrieve them from a runbook using the [Get-AutomationVariable](./automation-variables.md) and [Get-AutomationPSCredential](./automation-credentials.md) activities.
 
 You cannot export certificates from Azure Automation.  You must ensure that any certificates are available outside of Azure.
 

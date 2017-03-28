@@ -1,20 +1,20 @@
-<properties
-	pageTitle="MyDriving Azure IoT example: Quick start | Azure"
-	description="Get started with an app that's a comprehensive demonstration of how to architect an IoT system by using Azure, including Stream Analytics, Machine Learning, and Event Hubs."
-	services=""
-    	documentationCenter=".net"
- 	suite=""
-	authors="harikmenon"
-	manager="douge"/>
+---
+title: MyDriving Azure IoT example: Quick start | Azure
+description: Get started with an app that's a comprehensive demonstration of how to architect an IoT system by using Azure, including Stream Analytics, Machine Learning, and Event Hubs.
+services: ''
+documentationCenter: .net
+suite: ''
+authors: harikmenon
+manager: douge
 
-<tags
-	ms.service="iot-suite"
-	ms.date="03/25/2016"
-	wacn.date="05/17/2016"/>
+ms.service: iot-suite
+ms.date: 03/25/2016
+wacn.date: 05/17/2016
+---
 
 # MyDriving IoT system: Quick start
 
-MyDriving is a system that demonstrates the design and implementation of a typical [Internet of Things](/documentation/articles/iot-suite-overview/) (IoT) solution that gathers telemetry from devices, processes that data in the cloud, and applies machine learning to provide an adaptive response. The demonstration logs data about your car trips, by using data from both your mobile phone and an adapter that collects information from your car’s control system. It uses this data to provide feedback on your driving style in comparison to other users.
+MyDriving is a system that demonstrates the design and implementation of a typical [Internet of Things](./iot-suite-overview.md) (IoT) solution that gathers telemetry from devices, processes that data in the cloud, and applies machine learning to provide an adaptive response. The demonstration logs data about your car trips, by using data from both your mobile phone and an adapter that collects information from your car’s control system. It uses this data to provide feedback on your driving style in comparison to other users.
 
 The real purpose of MyDriving is to get you started in creating your own IoT solution. But before that, let’s get you going with the MyDriving app itself--as a member of our test user team. This gives you an experience of the app and the system behind it as a consumer, before you delve into the architecture. It also introduces you to HockeyApp, a cool way of managing the alpha and beta distributions of your apps to test users.
 
@@ -55,7 +55,6 @@ On your device:
  - [Microsoft.NET.Native.Runtime.1.1.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Runtime.1.1.appx) 
 
  - [Microsoft.VCLibs.ARM.14.00.appx](https://download.hockeyapp.net/packages/win10/Microsoft.VCLibs.ARM.14.00.appx)
-
 
 ### iOS installation
 
@@ -158,7 +157,7 @@ We look forward to hearing from you!
 
 -   Explore the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs) to understand how we’ve designed and built the entire MyDriving system.
 
--   [Create and deploy a system of your own](/documentation/articles/iot-solution-build-system/) by using our Azure Resource Manager scripts. The [MyDriving Reference Guide](http://aka.ms/mydrivingdocs) also guides you through areas where you’ll make the most customizations.
+-   [Create and deploy a system of your own](./iot-solution-build-system.md) by using our Azure Resource Manager scripts. The [MyDriving Reference Guide](http://aka.ms/mydrivingdocs) also guides you through areas where you’ll make the most customizations.
 
   [from GitHub]: https://github.com/Azure-Samples/MyDriving
   [using Xamarin]: https://developer.xamarin.com/guides/ios/getting_started/installation/

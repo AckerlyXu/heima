@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Setting Up Named Authentication Credentials | Azure"
-    description="Learn how to to provide credentials that Visual Studio can use to authenticate requests to Azure to publish an application to Azure from Visual Studio or to monitor an existing cloud service.. "
-    services="visual-studio-online"
-    documentationcenter="na"
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="61570907-42a1-40e8-bcd6-952b21a55786"
-    ms.service="multiple"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="multiple"
-    ms.date="11/18/2016"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: Setting Up Named Authentication Credentials | Azure
+description: Learn how to to provide credentials that Visual Studio can use to authenticate requests to Azure to publish an application to Azure from Visual Studio or to monitor an existing cloud service.. 
+services: visual-studio-online
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: 61570907-42a1-40e8-bcd6-952b21a55786
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 11/18/2016
+wacn.date: ''
+ms.author: tarcher
+---
 
 # Setting Up Named Authentication Credentials
 To publish an application to Azure from Visual Studio or to monitor an existing cloud service, you must provide credentials that Visual Studio can use to authenticate requests to Azure. There are several places in Visual Studio where you can sign in to provide these credentials. For example, from the Server Explorer, you can open the shortcut menu for the **Azure** node and choose **Connect to Azure**. When you sign in, the subscription information associated with your Azure account is available in Visual Studio, and there is nothing more you need to do.
@@ -27,7 +28,7 @@ The following items are required for authentication to Azure.
 - Your subscription ID
 - A valid X.509 v3 certificate
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The length of the X.509 v3 certificate's key must be at least 2048 bits. Azure will reject any certificate that doesn’t meet this requirement or that isn’t valid.
 >
 >
@@ -38,7 +39,7 @@ You can edit the subscription information from the **New/Edit Subscription** dia
 
 If you want to create a certificate yourself, you can refer to the instructions in [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/zh-cn/library/windowsazure/gg551722.aspx) and then manually upload the certificate to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > These credentials that Visual Studio requires to manage your cloud services aren’t the same credentials that are required to authenticate a request against the Azure storage services.
 >
 >
@@ -55,7 +56,7 @@ The following procedure assumes that the **New Subscription** dialog box is open
 1. In the **Select an existing certificate** for authentication list, choose a certificate.
 2. Choose the **Copy the full path** button. The path for the certificate (.cer file) is copied to the Clipboard.
 
-   > [AZURE.IMPORTANT]
+   > [!IMPORTANT]
    > To publish your Azure application from Visual Studio, you must upload this certificate to the [Azure Classic Management Portal](https://manage.windowsazure.cn).
    >
    >

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure SQL Database Azure Case Study - Daxko/CSI | Azure"
-    description="Learn about how Daxko/CSI uses SQL Database to accelerate its development cycle and to enhance its customer services and performance"
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b"
-    ms.service="sql-database"
-    ms.custom="app development case study"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: Azure SQL Database Azure Case Study - Daxko/CSI | Azure
+description: Learn about how Daxko/CSI uses SQL Database to accelerate its development cycle and to enhance its customer services and performance
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
+ms.service: sql-database
+ms.custom: app development case study
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/10/2017
+wacn.date: ''
+ms.author: carlrab
+---
 
 # Daxko/CSI used Azure to accelerate its development cycle and to enhance its customer services and performance
 
@@ -86,16 +87,16 @@ Azure SQL Database isn’t just a boon to SpectrumNG customers, who enjoy the fa
 
 ## More information
 
-- To learn more about Azure elastic pools, see [elastic pools](/documentation/articles/sql-database-elastic-pool/).
+- To learn more about Azure elastic pools, see [elastic pools](./sql-database-elastic-pool.md).
 
-- To learn more about database tools and elastic scaling, see [elastic database tools and elastic scaling](/documentation/articles/sql-database-elastic-scale-get-started/).
+- To learn more about database tools and elastic scaling, see [elastic database tools and elastic scaling](./sql-database-elastic-scale-get-started.md).
 
-- To learn more about migrating a SQL Server database, see [Azure SQL Migration Wizard](/documentation/articles/sql-database-cloud-migrate-compatible-using-ssms-migration-wizard/).
+- To learn more about migrating a SQL Server database, see [Azure SQL Migration Wizard](./sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
 
-- To learn more about Active Geo-Replication, see [Active Geo-Replication](/documentation/articles/sql-database-geo-replication-overview/).
+- To learn more about Active Geo-Replication, see [Active Geo-Replication](./sql-database-geo-replication-overview.md).
 
-- To learn more about Web roles and worker roles, see [worker roles](/documentation/articles/fundamentals-introduction-to-azure/#compute).	
+- To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).	
 
-- To learn more about Azure Service Bus,see [Azure Service Bus](/home/features/service-bus/).
+- To learn more about Azure Service Bus,see [Azure Service Bus](https://www.azure.cn/home/features/service-bus/).
 
-- To learn more about auto-scale, see [scaling cloud services](/documentation/articles/cloud-services-how-to-scale/).
+- To learn more about auto-scale, see [scaling cloud services](../cloud-services/cloud-services-how-to-scale.md).

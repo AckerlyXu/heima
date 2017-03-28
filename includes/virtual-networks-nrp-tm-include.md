@@ -22,59 +22,61 @@ An endpoint is a child resource of a Traffic Manager Profile. It represents a se
 
 Sample of Traffic Manager in Json format: 
 
-        {
-            "apiVersion": "[variables('tmApiVersion')]",
-            "type": "Microsoft.Network/trafficManagerProfiles",
-            "name": "VMEndpointExample",
-            "location": "global",
-            "dependsOn": [
-                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'), '0')]",
-                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'), '1')]",
-                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'), '2')]",
-            ],
-            "properties": {
-                "profileStatus": "Enabled",
-                "trafficRoutingMethod": "Weighted",
-                "dnsConfig": {
-                    "relativeName": "[parameters('dnsname')]",
-                    "ttl": 30
-                },
-                "monitorConfig": {
-                    "protocol": "http",
-                    "port": 80,
-                    "path": "/"
-                },
-                "endpoints": [
-                    {
-                        "name": "endpoint0",
-                        "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
-                        "properties": {
-                            "targetResourceId": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('publicIPAddressName'), 0))]",
-                            "endpointStatus": "Enabled",
-                            "weight": 1
-                        }
-                    },
-                    {
-                        "name": "endpoint1",
-                        "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
-                        "properties": {
-                            "targetResourceId": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('publicIPAddressName'), 1))]",
-                            "endpointStatus": "Enabled",
-                            "weight": 1
-                        }
-                    },
-                    {
-                        "name": "endpoint2",
-                        "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
-                        "properties": {
-                            "targetResourceId": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('publicIPAddressName'), 2))]",
-                            "endpointStatus": "Enabled",
-                            "weight": 1
-                        }
+```
+    {
+        "apiVersion": "[variables('tmApiVersion')]",
+        "type": "Microsoft.Network/trafficManagerProfiles",
+        "name": "VMEndpointExample",
+        "location": "global",
+        "dependsOn": [
+            "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'), '0')]",
+            "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'), '1')]",
+            "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'), '2')]",
+        ],
+        "properties": {
+            "profileStatus": "Enabled",
+            "trafficRoutingMethod": "Weighted",
+            "dnsConfig": {
+                "relativeName": "[parameters('dnsname')]",
+                "ttl": 30
+            },
+            "monitorConfig": {
+                "protocol": "http",
+                "port": 80,
+                "path": "/"
+            },
+            "endpoints": [
+                {
+                    "name": "endpoint0",
+                    "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+                    "properties": {
+                        "targetResourceId": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('publicIPAddressName'), 0))]",
+                        "endpointStatus": "Enabled",
+                        "weight": 1
                     }
-                ]
-            }
+                },
+                {
+                    "name": "endpoint1",
+                    "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+                    "properties": {
+                        "targetResourceId": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('publicIPAddressName'), 1))]",
+                        "endpointStatus": "Enabled",
+                        "weight": 1
+                    }
+                },
+                {
+                    "name": "endpoint2",
+                    "type": "Microsoft.Network/trafficManagerProfiles/azureEndpoints",
+                    "properties": {
+                        "targetResourceId": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('publicIPAddressName'), 2))]",
+                        "endpointStatus": "Enabled",
+                        "weight": 1
+                    }
+                }
+            ]
         }
+    }
+```
 
 ## Additional resources
 Read [REST API documentation for Traffic Manager](https://msdn.microsoft.com/zh-cn/library/azure/mt163664.aspx) for more information.

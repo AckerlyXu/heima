@@ -1,19 +1,20 @@
-<properties
-    pageTitle="Azure Service Bus diagnostic logs | Azure"
-    description="Learn how to set up diagnostic logs for Service Bus in Azure."
-    keywords="documentationcenter: ''"
-    services="service-bus-messaging"
-    author="banisadr"
-    manager="editor:" />
-<tags
-    ms.assetid="ms.service: service-bus-messaging"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="02/17/2017"
-    wacn.date=""
-    ms.author="babanisa" />
+---
+title: Azure Service Bus diagnostic logs | Azure
+description: Learn how to set up diagnostic logs for Service Bus in Azure.
+keywords: documentationcenter: ''
+services: service-bus-messaging
+author: banisadr
+manager: editor:
+
+ms.assetid: ms.service: service-bus-messaging
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 02/17/2017
+wacn.date: ''
+ms.author: babanisa
+---
 
 # Service Bus diagnostic logs
 
@@ -24,25 +25,25 @@ You can view two types of logs for Azure Service Bus:
 ## Turn on diagnostic logs
 Diagnostics logs are **off** by default. To turn on diagnostic logs:
 
-1.	In the Azure portal, go to the streaming job blade.
+1. In the Azure portal, go to the streaming job blade.
 
-2.	Under **Monitoring**, go to the **Diagnostics logs** blade.
+2. Under **Monitoring**, go to the **Diagnostics logs** blade.
 
-	![blade navigation to diagnostic logs](./media/service-bus-diagnostic-logs/image1.png)  
+    ![blade navigation to diagnostic logs](./media/service-bus-diagnostic-logs/image1.png)  
 
-3.	Select **Turn on diagnostics**.
+3. Select **Turn on diagnostics**.
 
-	![turn on diagnostic logs](./media/service-bus-diagnostic-logs/image2.png)
+    ![turn on diagnostic logs](./media/service-bus-diagnostic-logs/image2.png)
 
-4.	For **Status**, select **On**.
+4. For **Status**, select **On**.
 
-	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
+    ![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
-5.	Set the archival target that you want, for example, a storage account, an event hub, or Azure Log Analytics.
+5. Set the archival target that you want, for example, a storage account, an event hub, or Azure Log Analytics.
 
-6.	Select the categories of logs that you want to collect, for example, **Execution** or **Authoring**.
+6. Select the categories of logs that you want to collect, for example, **Execution** or **Authoring**.
 
-7.	Save the new diagnostics settings.
+7. Save the new diagnostics settings.
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, on the **Diagnostics logs** blade.
 
@@ -75,15 +76,15 @@ Here's an example of an operation log JSON string:
 ```json
 Example:
 {
-	 "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
-	 "EventName": "Create Queue",
-	 "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/SHOEBOXEHNS-CY4001",
-	 "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
-	 "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
-	 "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
-	 "Status": "Succeeded",
-	 "Caller": "ServiceBus Client",
-	 "category": "OperationalLogs"
+     "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
+     "EventName": "Create Queue",
+     "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.SERVICEBUS/NAMESPACES/SHOEBOXEHNS-CY4001",
+     "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
+     "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
+     "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+     "Status": "Succeeded",
+     "Caller": "ServiceBus Client",
+     "category": "OperationalLogs"
 }
 ```
 

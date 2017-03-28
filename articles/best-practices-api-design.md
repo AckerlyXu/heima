@@ -1,24 +1,22 @@
-<properties
-	pageTitle="API design guidance | Microsoft Docs"
-	description="Guidance upon how to create a well designed API."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="christb"
-	editor="" />
+---
+title: API design guidance | Microsoft Docs
+description: Guidance upon how to create a well designed API.
+services: ''
+documentationCenter: na
+authors: dragon119
+manager: christb
+editor: ''
 
-
-<tags 
-	ms.assetid="19514a32-923a-488c-85f5-b5beec2576de"
-	ms.service="best-practice"
-	ms.devlang="rest-api"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="07/13/2016"
-	ms.author="masashin"
-	wacn.date=""/>
-
+ms.assetid: 19514a32-923a-488c-85f5-b5beec2576de
+ms.service: best-practice
+ms.devlang: rest-api
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/13/2016
+ms.author: masashin
+wacn.date: ''
+---
 
 # API design guidance
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]

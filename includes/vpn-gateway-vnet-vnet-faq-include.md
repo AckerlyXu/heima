@@ -1,5 +1,5 @@
 ###Does Azure charge for traffic between VNets?
-VNet-to-VNet traffic within the same region is free for both directions. Cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Refer to the [pricing page](/pricing/details/vpn-gateway/) for details.
+VNet-to-VNet traffic within the same region is free for both directions. Cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Refer to the [pricing page](https://www.azure.cn/pricing/details/vpn-gateway/) for details.
 
 ###Does VNet-to-VNet traffic travel across the Internet?
 No. VNet-to-VNet traffic travels across the Azure backbone, not the Internet.
@@ -17,7 +17,7 @@ No. The virtual networks can be in the same or different Azure regions (location
 Yes. Virtual network connectivity can be used simultaneously with multi-site VPNs.
 
 ### How many on-premises sites and virtual networks can one virtual network connect to?
-See [Gateway requirements](/documentation/articles/vpn-gateway-about-vpn-gateway-settings/#requirements) table.
+See [Gateway requirements](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#requirements) table.
 
 ###Can I use VNet-to-VNet to connect VMs or cloud services outside of a VNet?
 No. VNet-to-VNet supports connecting virtual networks. It does not support connecting virtual machines or cloud services that are not in a virtual network.

@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Overview of Azure Service Bus fundamentals | Azure" 
-	description="An introduction to using Service Bus to connect Azure applications to other software." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Overview of Azure Service Bus fundamentals | Azure
+description: An introduction to using Service Bus to connect Azure applications to other software.
+services: service-bus
+documentationCenter: .net
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="03/08/2017" 
-	ms.author="sethm"
-	wacn.date=""/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 03/08/2017
+ms.author: sethm
+wacn.date: ''
+---
 
 # Azure Service Bus
 
@@ -69,7 +69,7 @@ Queues are useful in quite a few situations. They enable applications to communi
 Useful as they are, queues aren't always the right solution. Sometimes, Service Bus topics are better. Figure 3 illustrates this idea.
 
 ![][3]
- 
+
 **Figure 3: Based on the filter a subscribing application specifies, it can receive some or all of the messages sent to a Service Bus topic.**
 
 A *topic* is similar in many ways to a queue. Senders submit messages to a topic in the same way that they submit messages to a queue, and those messages look the same as with queues. The big difference is that topics enable each receiving application to create its own *subscription* by defining a *filter*. A subscriber will then see only the messages that match that filter. For example, Figure 3 shows a sender and a topic with three subscribers, each with its own filter:
@@ -84,7 +84,7 @@ As with queues, subscribers to a topic can read messages using either [**Receive
 Both queues and topics provide one-way asynchronous communication through a broker. Traffic flows in just one direction, and there's no direct connection between senders and receivers. But what if you don't want this? Suppose your applications need to both send and receive messages, or perhaps you want a direct link between them and you don't need a broker to store messages. To address scenarios such as this, Service Bus provides *relays*, as Figure 4 shows.
 
 ![][4]
- 
+
 **Figure 4: Service Bus relay provides synchronous, two-way communication between applications.**
 
 The obvious question to ask about relays is this: Why would I use one? Even if I don't need queues, why make applications communicate via a cloud service rather than just interact directly? The answer is that talking directly can be harder than you might think.
@@ -107,10 +107,10 @@ Connecting applications has always been part of building complete solutions, and
 
 Now that you've learned the fundamentals of Azure Service Bus, follow these links to learn more.
 
-- How to use [Service Bus queues](/documentation/articles/service-bus-dotnet-get-started-with-queues/).
-- How to use [Service Bus topics](/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/).
+- How to use [Service Bus queues](./service-bus-dotnet-get-started-with-queues.md).
+- How to use [Service Bus topics](./service-bus-dotnet-how-to-use-topics-subscriptions.md).
 - How to use [Service Bus relay](/documentation/articles/service-bus-dotnet-how-to-use-relay/).
-- [Service Bus samples](/documentation/articles/service-bus-samples/)
+- [Service Bus samples](./service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png

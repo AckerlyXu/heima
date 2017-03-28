@@ -10,7 +10,7 @@ Azure Active Directory must authenticate all the tasks that you perform on resou
     var credential = new ClientCredential(applicationId, password);
     AuthenticationResult token = authContext.AcquireTokenAsync
       ("https://management.core.windows.net/", credential).Result;
-    
+
     if (token == null)
     {
       Console.WriteLine("Failed to obtain the token");

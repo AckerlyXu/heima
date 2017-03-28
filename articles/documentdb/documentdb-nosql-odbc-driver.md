@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Connect to Azure DocumentDB using BI analytics tools | Azure"
-    description="Learn how to use the Azure DocumentDB ODBC driver to create tables and views so that normalized data can be viewed in BI and data analytics software."
-    keywords="odbc, odbc driver"
-    services="documentdb"
-    author="mimig1"
-    manager="jhubbard"
-    editor=""
-    documentationcenter="" />
-<tags
-    ms.assetid="9967f4e5-4b71-4cd7-8324-221a8c789e6b"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="rest-api"
-    ms.topic="article"
-    ms.date="01/26/2017"
-    wacn.date=""
-    ms.author="mimig" />
+---
+title: Connect to Azure DocumentDB using BI analytics tools | Azure
+description: Learn how to use the Azure DocumentDB ODBC driver to create tables and views so that normalized data can be viewed in BI and data analytics software.
+keywords: odbc, odbc driver
+services: documentdb
+author: mimig1
+manager: jhubbard
+editor: ''
+documentationcenter: ''
+
+ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: rest-api
+ms.topic: article
+ms.date: 01/26/2017
+wacn.date: ''
+ms.author: mimig
+---
 
 # Connect to DocumentDB using BI analytics tools with the ODBC driver
 
@@ -54,7 +55,7 @@ Now lets get started with the ODBC driver.
     - **Encrypt Access Key for**: Select the best choice based on the users of this machine. 
 4. Click the **Test** button to make sure you can connect to your DocumentDB account. 
 5. Click **Advanced Options** and set the following values:
-    - **Query Consistency**: Select the [consistency level](/documentation/articles/documentdb-consistency-levels/) for your operations. The default is Session.
+    - **Query Consistency**: Select the [consistency level](./documentdb-consistency-levels.md) for your operations. The default is Session.
     - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service throttling.
     - **Schema File**: You have a number of options here.
         - By default, leaving this entry as is (blank), the driver scans the first page data for all collections to determine the schema of each collection. This is known as Collection Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher start up time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
@@ -134,8 +135,10 @@ You can use your new DSN to connect DocumentADB with any ODBC-compliant tools - 
 
 If you receive the following error, ensure the **Host** and **Access Key** values you copied the Azure portal in [Step 2](#connect) are correct and then retry. Use the copy buttons to the right of the **Host** and **Access Key** values in the Azure portal to copy the values error free.
 
-    [HY000]: [Microsoft][DocumentDB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
+```
+[HY000]: [Microsoft][DocumentDB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
+```
 
 ## Next steps
 
-To learn more about DocumentDB, see [What is DocumentDB?](/documentation/articles/documentdb-introduction/).
+To learn more about DocumentDB, see [What is DocumentDB?](./documentdb-introduction.md).

@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Azure portal: Back up and restore-Azure SQL database | Azure"
-    description="This tutorial shows how to restore from automated backups to a point in time, store automated backups in the Azure Recovery Services vault, and to restore from the Azure Recovery Services vault"
-    keywords="sql database tutorial"
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed"
-    ms.service="sql-database"
-    ms.custom="business continuity"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="12/08/2016"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: Azure portal: Back up and restore-Azure SQL database | Azure
+description: This tutorial shows how to restore from automated backups to a point in time, store automated backups in the Azure Recovery Services vault, and to restore from the Azure Recovery Services vault
+keywords: sql database tutorial
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
+ms.service: sql-database
+ms.custom: business continuity
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 12/08/2016
+wacn.date: ''
+ms.author: carlrab
+---
 
 # Tutorial: Back up and restore an Azure SQL Database using the Azure portal
 In this tutorial, you learn how to use the Azure portal to:
@@ -29,21 +30,20 @@ In this tutorial, you learn how to use the Azure portal to:
 
 **Time estimate**: This tutorial takes approximately 30 minutes to complete (assuming you have already met the prerequisites).
 
-> [AZURE.TIP]
-> You can perform these same tasks in a getting started tutorial by using [PowerShell](/documentation/articles/sql-database-get-started-backup-recovery-powershell/).
+> [!TIP]
+> You can perform these same tasks in a getting started tutorial by using [PowerShell](./sql-database-get-started-backup-recovery-powershell.md).
 >
 
 ## Prerequisites
 
-* You need an Azure account. You can [open a 1rmb Azure account](/pricing/1rmb-trial/). 
+* You need an Azure account. You can [open a 1rmb Azure account](https://www.azure.cn/pricing/1rmb-trial/). 
 
-* You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](/documentation/articles/role-based-access-control-what-is/).
+* You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
-* You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](/documentation/articles/sql-database-get-started/) or the equivalent [PowerShell version](/documentation/articles/sql-database-get-started-powershell/) of this tutorial. If you have not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](/documentation/articles/sql-database-get-started-powershell/) of this tutorial before continuing.
+* You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](./sql-database-get-started.md) or the equivalent [PowerShell version](./sql-database-get-started-powershell.md) of this tutorial. If you have not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](./sql-database-get-started-powershell.md) of this tutorial before continuing.
 
-
-> [AZURE.NOTE]
-> This tutorial helps you to learn the content of these learn topics: [SQL Database backups](/documentation/articles/sql-database-automated-backups/), [Long-term backup retention](/documentation/articles/sql-database-long-term-retention/), and [Recover an Azure SQL database using automated database backups](/documentation/articles/sql-database-recovery-using-backups/).
+> [!NOTE]
+> This tutorial helps you to learn the content of these learn topics: [SQL Database backups](./sql-database-automated-backups.md), [Long-term backup retention](./sql-database-long-term-retention.md), and [Recover an Azure SQL database using automated database backups](./sql-database-recovery-using-backups.md).
 >  
 
 ## Sign in to the Azure portal using your Azure account
@@ -52,14 +52,14 @@ Using your [existing subscription](https://account.windowsazure.cn/Home/Index), 
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.cn/).
 2. Sign in to the [Azure portal](https://portal.azure.cn/).
 3. On the **Sign in** page, provide the credentials for your subscription.
-   
+
    ![Sign in](./media/sql-database-get-started/login.png)
 
 <a name="create-logical-server-bk"></a>
 
 ## View the oldest restore point from the service-generated backups of a database
 
-In this section of the tutorial, you view information about the oldest restore point from the [service-generated automated backups](/documentation/articles/sql-database-automated-backups/) of your database. 
+In this section of the tutorial, you view information about the oldest restore point from the [service-generated automated backups](./sql-database-automated-backups.md) of your database. 
 
 1. Open the **SQL database** blade for your database, **sqldbtutorialdb**.
 
@@ -93,8 +93,8 @@ In this section of the tutorial, you restore the database to a new database as o
 
    ![restore point time](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
-   >[AZURE.NOTE]
-   >Notice that the database name has changed to reflect the date and time that you selected. Notice also that you cannot change the server to which you are restoring to a specific point in time. To restore to a different server, use [Geo-Restore](/documentation/articles/sql-database-disaster-recovery/#recover-using-geo-restore). Finally, notice that you can restore into an [elastic pool](/documentation/articles/sql-database-elastic-jobs-overview/) or to a different pricing tier. 
+   >[!NOTE]
+   >Notice that the database name has changed to reflect the date and time that you selected. Notice also that you cannot change the server to which you are restoring to a specific point in time. To restore to a different server, use [Geo-Restore](./sql-database-disaster-recovery.md#recover-using-geo-restore). Finally, notice that you can restore into an [elastic pool](./sql-database-elastic-jobs-overview.md) or to a different pricing tier. 
    >
 
 4. Click **OK** to restore your database to an earlier point in time to the new database.
@@ -107,17 +107,16 @@ In this section of the tutorial, you restore the database to a new database as o
 
    ![restored database](./media/sql-database-get-started-backup-recovery/restored-database.png)
 
-> [AZURE.NOTE]
-> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](/documentation/articles/sql-database-recovery-using-backups/#point-in-time-restore).
+> [!NOTE]
+> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](./sql-database-recovery-using-backups.md#point-in-time-restore).
 >
 
 ## Configure long-term retention of automated backups in an Azure Recovery Services vault 
 
-In this section of the tutorial, you [configure an Azure Recovery Services vault to retain automated backups](/documentation/articles/sql-database-long-term-retention/) for a period longer than the retention period for your service tier. 
+In this section of the tutorial, you [configure an Azure Recovery Services vault to retain automated backups](./sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
 
-
-> [AZURE.TIP]
-> To delete backups in long-term backup retention, see [Manage long-term backup retention usihg PowerShell](/documentation/articles/sql-database-manage-long-term-backup-retention-powershell/).
+> [!TIP]
+> To delete backups in long-term backup retention, see [Manage long-term backup retention usihg PowerShell](./sql-database-manage-long-term-backup-retention-powershell.md).
 >
 
 1. Open the **SQL Server** blade for your server, **sqldbtutorialserver**.
@@ -147,7 +146,7 @@ In this section of the tutorial, you [configure an Azure Recovery Services vault
 7. On the **Recovery Services vaults** blade, click **Add**.
 
    ![add new vault link](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
-   
+
 8. On the **Recovery Services vault** blade, provide a valid name for the new Recovery Services vault.
 
    ![new vault name](./media/sql-database-get-started-backup-recovery/new-vault-name.png)
@@ -156,7 +155,7 @@ In this section of the tutorial, you [configure an Azure Recovery Services vault
 
    ![create new vault](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
-   > [AZURE.IMPORTANT]
+   > [!IMPORTANT]
    > The vault must be located in the same region as the Azure SQL logical server, and must use the same resource group as the logical server.
    >
 
@@ -182,13 +181,13 @@ In this section of the tutorial, you [configure an Azure Recovery Services vault
 
    ![view recovery services vault](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Once configured, backups show up in the vault within next seven days. Do not continue this tutorial until backups show up in the vault.
 >
 
 ## View backups in long-term retention
 
-In this section of the tutorial, you view information about your database backups in [long-term backup retention](/documentation/articles/sql-database-long-term-retention/). 
+In this section of the tutorial, you view information about your database backups in [long-term backup retention](./sql-database-long-term-retention.md). 
 
 1. Open the **sqldbtutorialvault** blade (go to **All resources** and select it from the list of resources for your subscription) to view the amount of storage used by your database backups in the vault.
 
@@ -230,12 +229,12 @@ In this section of the tutorial, you restore the database to a new database from
 
    ![restored database from vault](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
-> [AZURE.NOTE]
-> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](/documentation/articles/sql-database-recovery-using-backups/#point-in-time-restore).
+> [!NOTE]
+> From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](./sql-database-recovery-using-backups.md#point-in-time-restore).
 >
 
 ## Next steps
 
-- To learn about service-generated automatic backups, see [automatic backups](/documentation/articles/sql-database-automated-backups/)
-- To learn about long-term backup retention, see [long-term backup retention](/documentation/articles/sql-database-long-term-retention/)
-- To learn about restoring from backups, see [restore from backup](/documentation/articles/sql-database-recovery-using-backups/)
+- To learn about service-generated automatic backups, see [automatic backups](./sql-database-automated-backups.md)
+- To learn about long-term backup retention, see [long-term backup retention](./sql-database-long-term-retention.md)
+- To learn about restoring from backups, see [restore from backup](./sql-database-recovery-using-backups.md)

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Create and deploy the blink application into the Azure IoT Starter Kit | Azure"
-    description="Configure Intel Edison for first-time use."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino set up, connect arduino to pc, setup arduino, arduino board" />
-<tags
-    ms.assetid="372c9b6d-e701-4ff6-8151-d262aa76aa55"
-    ms.service="iot-hub"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/7/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Create and deploy the blink application into the Azure IoT Starter Kit | Azure
+description: Configure Intel Edison for first-time use.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino set up, connect arduino to pc, setup arduino, arduino board
+
+ms.assetid: 372c9b6d-e701-4ff6-8151-d262aa76aa55
+ms.service: iot-hub
+ms.devlang: nodejs
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/7/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Configure your Intel Edison
 ## What you will do
@@ -84,7 +85,7 @@ Now your board is assembled.
 
 3. Wait one minute for the board to finish booting up.
 
-   > [AZURE.NOTE]
+   > [!NOTE]
    > If you do not have a DC power supply, you can still power the board through a USB port. See `Connect Edison to your computer` section for details. Powering your board in this fashion may result in unpredictable behavior from your board, especially when using Wi-Fi or driving motors.
 
 ## Connect Edison to your computer
@@ -126,7 +127,7 @@ Get the latest configuration tool from [this link](https://software.intel.com/en
 4. Provide your login and password information, then click `Configure Wi-Fi`.
 5. Mark down the IP address, which is used later.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Make sure that Edison is connected to the same network as your computer. Your computer connects to your Edison by using the IP address.
 
 Congratulations! You've successfully configured Edison.
@@ -138,5 +139,5 @@ In this article, you’ve learned how to assemble the Edison board, flash its fi
 [Get the tools][get-the-tools]
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-node-troubleshooting/
-[get-the-tools]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32/
+[troubleshooting]: ./iot-hub-intel-edison-kit-node-troubleshooting.md
+[get-the-tools]: ./iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md

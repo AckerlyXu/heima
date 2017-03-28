@@ -1,25 +1,26 @@
-<properties
-    pageTitle="How to Schedule Planned Maintenance for Linux VMs in Azure | Azure"
-    description="Learn how to schedule planned maintenance on Azure VMs."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="igalf"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management,azure-resource-manager" />
-<tags
-    ms.assetid="619a65ce-f913-4c92-a7ba-2971a839c306"
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/13/2016"
-    wacn.date=""
-    ms.author="igalf" />
+---
+title: How to Schedule Planned Maintenance for Linux VMs in Azure | Azure
+description: Learn how to schedule planned maintenance on Azure VMs.
+services: virtual-machines-linux
+documentationcenter: ''
+author: igalf
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+
+ms.assetid: 619a65ce-f913-4c92-a7ba-2971a839c306
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 02/13/2016
+wacn.date: ''
+ms.author: igalf
+---
 
 # How to Schedule Planned Maintenance on Azure VMs
-> [AZURE.IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about planned maintenance in the Resource Manager model, see [here](/documentation/articles/virtual-machines-linux-planned-maintenance/).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about planned maintenance in the Resource Manager model, see [here](./virtual-machines-linux-planned-maintenance.md).
 
-[AZURE.INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]
+[!INCLUDE [virtual-machines-common-planned-maintenance-schedule](../../includes/virtual-machines-common-planned-maintenance-schedule.md)]

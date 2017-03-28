@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Locally monitor and diagnose services written with Azure Service Fabric | Azure"
-    description="Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="ms-toddabel"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="edcc0631-ed2d-45a3-851d-2c4fa0f4a326"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="toddabel" />
+---
+title: Locally monitor and diagnose services written with Azure Service Fabric | Azure
+description: Learn how to monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine.
+services: service-fabric
+documentationcenter: .net
+author: ms-toddabel
+manager: timlt
+editor: ''
+
+ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: toddabel
+---
 
 # Monitor and diagnose services in a local machine development setup
->[AZURE.SELECTOR]
-- [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-- [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+>[!div class="op_single_selector"]
+>- [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+>- [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
 Monitoring, detecting, diagnosing, and troubleshooting allow for services to continue with minimal disruption to the user experience. While monitoring and diagnostics are critical in an actual deployed production environment, the efficiency will depend on adopting a similar model during development of services to ensure they work when you move to a real-world setup. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across both single-machine local development setups and real-world production cluster setups.
 
@@ -32,10 +33,9 @@ Monitoring, detecting, diagnosing, and troubleshooting allow for services to con
 * **Service Fabric system code also uses ETW for internal tracing.** This allows you to view your application traces interleaved with Service Fabric system traces. It also helps you to more easily understand the sequences and interrelationships between your application code and events in the underlying system.
 * **There is built-in support in Service Fabric Visual Studio tools to view ETW events.**
 
-
 ## View Service Fabric system events in Visual Studio
 
-Service Fabric emits ETW events to help application developers understand what's happening in the platform. If you haven't already done so, go ahead and follow the steps in [Creating your first application in Visual Studio](/documentation/articles/service-fabric-create-your-first-application-in-visual-studio/). This information will help you get an application up and running with the Diagnostics Events Viewer showing the trace messages.
+Service Fabric emits ETW events to help application developers understand what's happening in the platform. If you haven't already done so, go ahead and follow the steps in [Creating your first application in Visual Studio](./service-fabric-create-your-first-application-in-visual-studio.md). This information will help you get an application up and running with the Diagnostics Events Viewer showing the trace messages.
 
 1. If the diagnostics events window does not automatically show, Go to the **View** tab in Visual Studio, choose **Other Windows** and then **Diagnostic Events Viewer**.
 
@@ -62,6 +62,5 @@ After adding custom ETW tracing to your service code, you can build, deploy, and
 ## Next steps
 The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running your application on an Azure cluster. Check out these articles that discuss the different options for the tools and describe how you can set them up.
 
-* [How to collect logs with Azure Diagnostics](/documentation/articles/service-fabric-diagnostics-how-to-setup-wad/)
-* [Collect logs directly from service process](/documentation/articles/service-fabric-diagnostic-collect-logs-without-an-agent/)
-
+* [How to collect logs with Azure Diagnostics](./service-fabric-diagnostics-how-to-setup-wad.md)
+* [Collect logs directly from service process](./service-fabric-diagnostic-collect-logs-without-an-agent.md)

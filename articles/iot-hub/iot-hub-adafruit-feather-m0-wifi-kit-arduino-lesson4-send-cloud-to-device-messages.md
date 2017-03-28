@@ -1,22 +1,23 @@
-﻿<properties
-    pageTitle="Run a sample application to receive cloud-to-device messages from Azure IoT Hub | Azure"
-    description="A sample application runs on Adafruit Feather M0 WiFi and monitors incoming messages from your IoT hub. A new gulp task sends messages to Adafruit Feather M0 WiFi from your IoT hub to blink the LED."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino control led from web, arduino control led via web" />
-<tags
-    ms.assetid="a0bf53fb-29fb-485f-ba4a-6c715057b1a2"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+﻿---
+title: Run a sample application to receive cloud-to-device messages from Azure IoT Hub | Azure
+description: A sample application runs on Adafruit Feather M0 WiFi and monitors incoming messages from your IoT hub. A new gulp task sends messages to Adafruit Feather M0 WiFi from your IoT hub to blink the LED.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino control led from web, arduino control led via web
+
+ms.assetid: a0bf53fb-29fb-485f-ba4a-6c715057b1a2
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Run a sample application to receive cloud-to-device messages
 In this article, you deploy a sample application on your Adafruit Feather M0 WiFi Arduino board.
@@ -72,7 +73,7 @@ In this article, you will learn:
 
    ![config.json][config-json]
 
-   > [AZURE.NOTE]
+   > [!NOTE]
    > For the COM port, on Windows platform, it has the format of `COM1, COM2, ...`. On macOS or Ubuntu, it will start with `/dev/`.
 
 4. Initialize the configuration file by running the following commands:
@@ -121,16 +122,15 @@ You’ve successfully sent messages from your IoT hub to your Arduino board to b
 ## Next steps
 [Change the on and off behavior of the LED][change-the-on-and-off-led-behavior]
 
-
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/
-[configure-your-device]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device/
-[create-your-azure-iot-hub]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub/
+[troubleshooting]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
+[configure-your-device]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md
+[create-your-azure-iot-hub]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
 [repo-structure]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson4/repo_structure_arduino.png
 [device-discovery]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/device_discovery.png
 [config-json]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/vscode-config-mac.png
-[create-an-azure-function-app-and-storage-account]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template/
+[create-an-azure-function-app-and-storage-account]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md
 [config-arduino-json]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson4/config-arduino.png
 [sample-application]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson4/gulp_blink_arduino.png
-[change-the-on-and-off-led-behavior]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior/
+[change-the-on-and-off-led-behavior]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md

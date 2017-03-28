@@ -1,21 +1,22 @@
-<properties
-    pageTitle="How to crop videos with Media Encoder Standard - Azure | Azure"
-    description="This article shows how to crop videos with Media Encoder Standard."
-    services="media-services"
-    documentationcenter=""
-    author="anilmur"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="7628f674-2005-4531-8b61-d7a4f53e46ba"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="anilmur;juliako;" />
+---
+title: How to crop videos with Media Encoder Standard - Azure | Azure
+description: This article shows how to crop videos with Media Encoder Standard.
+services: media-services
+documentationcenter: ''
+author: anilmur
+manager: erikre
+editor: ''
+
+ms.assetid: 7628f674-2005-4531-8b61-d7a4f53e46ba
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: anilmur;juliako;
+---
 
 # Crop videos with Media Encoder Standard
 
@@ -27,7 +28,7 @@ Suppose you have as input a video that has a resolution of 1920x1080 pixels (16:
 
 Cropping in MES is a pre-processing stage, so the cropping parameters in the encoding preset apply to the original input video. Encoding is a subsequent stage, and the width/height settings apply to the *pre-processed* video, and not to the original video. When designing your preset you need to do the following: (a) select the crop parameters based on the original input video, and (b) select your encode settings based on the cropped video. If you do not match your encode settings to the cropped video, the output will not be as you expect.
 
-The [following](/documentation/articles/media-services-custom-mes-presets-with-dotnet/#encoding_with_dotnet) topic shows how to create an encoding job with MES and how to specify a custom preset for the encoding task. 
+The [following](./media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) topic shows how to create an encoding job with MES and how to specify a custom preset for the encoding task. 
 
 ## Creating a custom preset
 In the example shown in the diagram:
@@ -40,90 +41,90 @@ In the example shown in the diagram:
 
 ###JSON preset
 
-
-	{
-	  "Version": 1.0,
-	  "Sources": [
-	    {
-	      "Streams": [],
-	      "Filters": {
-	        "Crop": {
-	            "X": 240,
-	            "Y": 0,
-	            "Width": 1440,
-	            "Height": 1080
-	        }
-	      },
-	      "Pad": true
-	    }
-	  ],
-	  "Codecs": [
-	    {
-	      "KeyFrameInterval": "00:00:02",
-	      "H264Layers": [
-	        {
-	          "Profile": "Auto",
-	          "Level": "auto",
-	          "Bitrate": 3400,
-	          "MaxBitrate": 3400,
-	          "BufferWindow": "00:00:05",
-	          "Width": 1440,
-	          "Height": 1080,
-	          "BFrames": 3,
-	          "ReferenceFrames": 3,
-	          "AdaptiveBFrame": true,
-	          "Type": "H264Layer",
-	          "FrameRate": "0/1"
-	        },
-	        {
-	          "Profile": "Auto",
-	          "Level": "auto",
-	          "Bitrate": 2250,
-	          "MaxBitrate": 2250,
-	          "BufferWindow": "00:00:05",
-	          "Width": 960,
-	          "Height": 720,
-	          "BFrames": 3,
-	          "ReferenceFrames": 3,
-	          "AdaptiveBFrame": true,
-	          "Type": "H264Layer",
-	          "FrameRate": "0/1"
-	        },
-	        {
-	          "Profile": "Auto",
-	          "Level": "auto",
-	          "Bitrate": 1250,
-	          "MaxBitrate": 1250,
-	          "BufferWindow": "00:00:05",
-	          "Width": 480,
-	          "Height": 360,
-	          "BFrames": 3,
-	          "ReferenceFrames": 3,
-	          "AdaptiveBFrame": true,
-	          "Type": "H264Layer",
-	          "FrameRate": "0/1"
-	        }
-	      ],
-	      "Type": "H264Video"
-	    },
-	    {
-	      "Profile": "AACLC",
-	      "Channels": 2,
-	      "SamplingRate": 48000,
-	      "Bitrate": 128,
-	      "Type": "AACAudio"
-	    }
-	  ],
-	  "Outputs": [
-	    {
-	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
-	      "Format": {
-	        "Type": "MP4Format"
-	      }
-	    }
-	  ]
-	}
-
+```
+{
+  "Version": 1.0,
+  "Sources": [
+    {
+      "Streams": [],
+      "Filters": {
+        "Crop": {
+            "X": 240,
+            "Y": 0,
+            "Width": 1440,
+            "Height": 1080
+        }
+      },
+      "Pad": true
+    }
+  ],
+  "Codecs": [
+    {
+      "KeyFrameInterval": "00:00:02",
+      "H264Layers": [
+        {
+          "Profile": "Auto",
+          "Level": "auto",
+          "Bitrate": 3400,
+          "MaxBitrate": 3400,
+          "BufferWindow": "00:00:05",
+          "Width": 1440,
+          "Height": 1080,
+          "BFrames": 3,
+          "ReferenceFrames": 3,
+          "AdaptiveBFrame": true,
+          "Type": "H264Layer",
+          "FrameRate": "0/1"
+        },
+        {
+          "Profile": "Auto",
+          "Level": "auto",
+          "Bitrate": 2250,
+          "MaxBitrate": 2250,
+          "BufferWindow": "00:00:05",
+          "Width": 960,
+          "Height": 720,
+          "BFrames": 3,
+          "ReferenceFrames": 3,
+          "AdaptiveBFrame": true,
+          "Type": "H264Layer",
+          "FrameRate": "0/1"
+        },
+        {
+          "Profile": "Auto",
+          "Level": "auto",
+          "Bitrate": 1250,
+          "MaxBitrate": 1250,
+          "BufferWindow": "00:00:05",
+          "Width": 480,
+          "Height": 360,
+          "BFrames": 3,
+          "ReferenceFrames": 3,
+          "AdaptiveBFrame": true,
+          "Type": "H264Layer",
+          "FrameRate": "0/1"
+        }
+      ],
+      "Type": "H264Video"
+    },
+    {
+      "Profile": "AACLC",
+      "Channels": 2,
+      "SamplingRate": 48000,
+      "Bitrate": 128,
+      "Type": "AACAudio"
+    }
+  ],
+  "Outputs": [
+    {
+      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+      "Format": {
+        "Type": "MP4Format"
+      }
+    }
+  ]
+}
+```
 
 ## Restrictions on cropping
 The cropping feature is meant to be manual. You would need to load your input video into a suitable editing tool that lets you select frames of interest, position the cursor to determine offsets for the cropping rectangle, to determine the encoding preset that is tuned for that particular video, etc. This feature is not meant to enable things like: automatic detection and removal of black letterbox/pillarbox borders in your input video.
@@ -134,5 +135,3 @@ Following constraints apply to the cropping feature. If these are not met, the e
 2. As mentioned above, the Width & Height in the encode settings have to correspond to the cropped video
 3. Cropping applies to videos captured in landscape mode (i.e. not applicable to videos recorded with a smartphone held vertically or in portrait mode)
 4. Works best with progressive video captured with square pixels
-
-

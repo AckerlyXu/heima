@@ -1,34 +1,35 @@
-<properties
-    pageTitle="Use Redgate to load data to your Azure data warehouse | Azure"
-    description="Learn how to use Redgate's Data Platform Studio for data warehousing scenarios."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="twounder"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="670aef98-31f7-4436-86c0-cc989a39fe7f"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/31/2016"
-    wacn.date=""
-    ms.author="mausher;barbkess" />
+---
+title: Use Redgate to load data to your Azure data warehouse | Azure
+description: Learn how to use Redgate's Data Platform Studio for data warehousing scenarios.
+services: sql-data-warehouse
+documentationcenter: NA
+author: twounder
+manager: jhubbard
+editor: ''
+
+ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: mausher;barbkess
+---
 
 # Load data with Redgate Data Platform Studio
 
-> [AZURE.SELECTOR]
-- [Redgate](/documentation/articles/sql-data-warehouse-load-with-redgate/)
+> [!div class="op_single_selector"]
+>- [Redgate](./sql-data-warehouse-load-with-redgate.md)
 <!-- Data Factory not supported on Azure.cn-->
 <!-- - [Data Factory](/documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/)-->
-- [PolyBase](/documentation/articles/sql-data-warehouse-get-started-load-with-polybase/)
-- [BCP](/documentation/articles/sql-data-warehouse-load-with-bcp/)
+- [PolyBase](./sql-data-warehouse-get-started-load-with-polybase.md)
+- [BCP](./sql-data-warehouse-load-with-bcp.md)
 
 This tutorial shows you how to use [Redgate's Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) to move data from an on-premise SQL Server to Azure SQL Data Warehouse. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with SQL Data Warehouse.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > [Redgate](http://www.red-gate.com) is a long-time Microsoft partner that delivers various SQL Server tools. This feature in Data Platform Studio has been made available freely for both commercial and non-commercial use.
 > 
 > 
@@ -41,7 +42,7 @@ Before starting this tutorial, you need to have:
 * **Azure Storage Account**: Data Platform Studio stages the data in Azure Blob Storage before loading it into SQL Data Warehouse. The storage account must be using the "Resource Manager" deployment model (the default) rather than the "Classic" deployment model. If you don't have a storage account, learn how to Create a storage account. 
 * **SQL Data Warehouse**: This tutorial moves the data from on-premise SQL Server to SQL Data Warehouse, so you need to have a data warehouse online. If you do not already have a data warehouse, learn how to Create an Azure SQL Data Warehouse.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Performance is improved if the storage account and the data warehouse are created in the same region.
 > 
 > 
@@ -49,7 +50,7 @@ Before starting this tutorial, you need to have:
 ## Step 1: Sign in to Data Platform Studio with your Azure account
 Open your web browser and navigate to the [Data Platform Studio](https://www.dataplatformstudio.com/) website. Sign in with the same Azure account that you used to create the storage account and data warehouse. If your email address is associated with both a work or school account and a Microsoft account, be sure to choose the account that has access to your resources.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If this is your first time using Data Platform Studio, you are asked to grant the application permission to manage your Azure resources.
 > 
 > 
@@ -67,7 +68,7 @@ To connect to your on-premise SQL Server database, you need to install the DPS G
 
     ![][2]
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > The Gateway can be installed on any machine with network access to the source SQL Server database. It accesses the SQL Server database using Windows authentication with the credentials of the current user.
     > 
     > 
@@ -84,7 +85,7 @@ DPS inspects the selected database for tables to import. By default, DPS imports
 ## Step 5: Choose a storage account to stage the data
 DPS prompts you for a location to stage the data. Choose an existing storage account from your subscription and select **Next**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > DPS will create a new blob container in the chosen storage account and use a distinct folder for each import.
 > 
 > 
@@ -96,7 +97,7 @@ Next, you select an online [Azure SQL Data Warehouse](http://aka.ms/sqldw) datab
 
 ![][5]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > DPS merges the source data tables into the data warehouse. DPS warns you if the table name requires it to overwrite existing tables in the data warehouse. You may optionally delete any existing objects in the data warehouse by ticking Delete all existing objects before import.
 > 
 > 
@@ -128,9 +129,9 @@ To learn more about Redgate's Data Platform Studio:
 For an overview of other ways to migrate and load your data in SQL Data Warehouse see:
 
 * [Migrate your solution to SQL Data Warehouse][Migrate your solution to SQL Data Warehouse]
-* [Load data into Azure SQL Data Warehouse](/documentation/articles/sql-data-warehouse-overview-load/)
+* [Load data into Azure SQL Data Warehouse](./sql-data-warehouse-overview-load.md)
 
-For more development tips, see the [SQL Data Warehouse development overview](/documentation/articles/sql-data-warehouse-overview-develop/).
+For more development tips, see the [SQL Data Warehouse development overview](./sql-data-warehouse-overview-develop.md).
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-redgate/2016-10-05_15-59-56.png
@@ -143,8 +144,8 @@ For more development tips, see the [SQL Data Warehouse development overview](/do
 [8]: ./media/sql-data-warehouse-redgate/2016-10-05_12-57-10.png
 
 <!--Article references-->
-[Query Azure SQL Data Warehouse (Visual Studio)]: /documentation/articles/sql-data-warehouse-query-visual-studio/
-[Visualize data with Power BI]: /documentation/articles/sql-data-warehouse-get-started-visualize-with-power-bi/
-[Migrate your solution to SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-overview-migrate/
-[Load data into Azure SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-overview-load/
-[SQL Data Warehouse development overview]: /documentation/articles/sql-data-warehouse-overview-develop/
+[Query Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+[Visualize data with Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Migrate your solution to SQL Data Warehouse]: ./sql-data-warehouse-overview-migrate.md
+[Load data into Azure SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md

@@ -1,37 +1,38 @@
-<properties
-    pageTitle="Create and upload a FreeBSD VM image | Azure"
-    description="Learn to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system to create an Azure virtual machine"
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="KylieLiang"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="1ef30f32-61c1-4ba8-9542-801d7b18e9bf"
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="08/29/2016"
-    wacn.date=""
-    ms.author="kyliel" />
+---
+title: Create and upload a FreeBSD VM image | Azure
+description: Learn to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system to create an Azure virtual machine
+services: virtual-machines-linux
+documentationcenter: ''
+author: KylieLiang
+manager: timlt
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 1ef30f32-61c1-4ba8-9542-801d7b18e9bf
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 08/29/2016
+wacn.date: ''
+ms.author: kyliel
+---
 
 # Create and upload a FreeBSD VHD to Azure
 This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system. After you upload it, you can use it as your own image to create a virtual machine (VM) in Azure.
 
-> [AZURE.IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about uploading a VHD using the Resource Manager model, see [here](/documentation/articles/virtual-machines-linux-upload-vhd/).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about uploading a VHD using the Resource Manager model, see [here](./virtual-machines-linux-upload-vhd.md).
 
 ## Prerequisites
 This article assumes that you have the following items:
 
-* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. see [create a trial account](/pricing/1rmb-trial/).  
+* **An Azure subscription**--If you don't have an account, you can create one in just a couple of minutes. see [create a trial account](https://www.azure.cn/pricing/1rmb-trial/).  
 * **Azure PowerShell tools**--The Azure PowerShell module must be installed and configured to use your Azure subscription. To download the module, see [Azure downloads](/downloads/). A tutorial that describes how install and configure the module is available here. Use the [Azure Downloads](/downloads/) cmdlet to upload the VHD.
 * **FreeBSD operating system installed in a .vhd file**--A supported   FreeBSD operating system must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/zh-cn/library/hh846766.aspx).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The newer VHDX format is not supported in Azure. You can convert the disk to VHD format by using Hyper-V Manager or the cmdlet [convert-vhd](https://technet.microsoft.com/zh-cn/library/hh848454.aspx). In addition, there is a [tutorial on MSDN about how to use FreeBSD with Hyper-V](http://blogs.msdn.com/b/kylie/archive/2014/12/25/running-freebsd-on-hyper-v.aspx).
 >
 >
@@ -43,76 +44,96 @@ On the virtual machine where you installed the FreeBSD operating system, complet
 
 1. Enable DHCP.
 
-        # echo 'ifconfig_hn0="SYNCDHCP"' >> /etc/rc.conf
-        # service netif restart
+    ```
+    # echo 'ifconfig_hn0="SYNCDHCP"' >> /etc/rc.conf
+    # service netif restart
+    ```
 2. Enable SSH.
 
     SSH is enabled by default after installation from disc. If it isn't enabled for some reason, or if you use FreeBSD VHD directly, type the following:
 
-        # echo 'sshd_enable="YES"' >> /etc/rc.conf
-        # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-        # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-        # service sshd restart
+    ```
+    # echo 'sshd_enable="YES"' >> /etc/rc.conf
+    # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+    # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
+    # service sshd restart
+    ```
 3. Set up a serial console.
 
-        # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
-        # echo 'comconsole_speed="115200"' >> /boot/loader.conf
+    ```
+    # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
+    # echo 'comconsole_speed="115200"' >> /boot/loader.conf
+    ```
 4. Install sudo.
 
     The root account is disabled in Azure. This means you need to utilize sudo from an unprivileged user to run commands with elevated privileges.
 
-        # pkg install sudo
+    ```
+    # pkg install sudo
+    ```
 
 5. Prerequisites for Azure Agent.
 
-        # pkg install python27  
-        # pkg install Py27-setuptools27   
-        # ln -s /usr/local/bin/python2.7 /usr/bin/python   
-        # pkg install git
+    ```
+    # pkg install python27  
+    # pkg install Py27-setuptools27   
+    # ln -s /usr/local/bin/python2.7 /usr/bin/python   
+    # pkg install git
+    ```
 6. Install Azure Agent.
 
     The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). The version 2.0.10 + officially supports FreeBSD 10 & 10.1, and the version 2.1.4 officially supports FreeBSD 10.2 and later releases.
 
-        # git clone https://github.com/Azure/WALinuxAgent.git  
-        # cd WALinuxAgent  
-        # git tag  
-        …
-        WALinuxAgent-2.0.16
-        …
-        v2.1.4
-        v2.1.4.rc0
-        v2.1.4.rc1
+    ```
+    # git clone https://github.com/Azure/WALinuxAgent.git  
+    # cd WALinuxAgent  
+    # git tag  
+    …
+    WALinuxAgent-2.0.16
+    …
+    v2.1.4
+    v2.1.4.rc0
+    v2.1.4.rc1
+    ```
 
     For 2.0, let's use 2.0.16 as an example:
 
-        # git checkout WALinuxAgent-2.0.16
-        # python setup.py install  
-        # ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
+    ```
+    # git checkout WALinuxAgent-2.0.16
+    # python setup.py install  
+    # ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
+    ```
 
     For 2.1, let's use 2.1.4 as an example:
 
-        # git checkout v2.1.4
-        # python setup.py install  
-        # ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
-        # ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
+    ```
+    # git checkout v2.1.4
+    # python setup.py install  
+    # ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
+    # ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
+    ```
 
-    > [AZURE.IMPORTANT]
+    > [!IMPORTANT]
     > After you install Azure Agent, it's a good idea to verify that it's running:
     >
     >
 
-        # waagent -version
-        WALinuxAgent-2.1.4 running on freebsd 10.3
-        Python: 2.7.11
-        # service -e | grep waagent
-        /etc/rc.d/waagent
-        # cat /var/log/waagent.log
+    ```
+    # waagent -version
+    WALinuxAgent-2.1.4 running on freebsd 10.3
+    Python: 2.7.11
+    # service -e | grep waagent
+    /etc/rc.d/waagent
+    # cat /var/log/waagent.log
+    ```
 7. Deprovision the system.
 
     Deprovision the system to clean it and make it suitable for re-provisioning. The following command also deletes the last provisioned user account and the associated data:
 
-        # echo "y" |  /usr/local/sbin/waagent -deprovision+user  
-        # echo  'waagent_enable="YES"' >> /etc/rc.conf
+    ```
+    # echo "y" |  /usr/local/sbin/waagent -deprovision+user  
+    # echo  'waagent_enable="YES"' >> /etc/rc.conf
+    ```
 
     Now you can shut down your VM.
 
@@ -128,7 +149,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used to c
 
     * In the **URL** field, type a subdomain name to use in the storage account URL. The entry can contain from 3-24 numbers and lowercase letters. This name becomes the host name within the URL that is used to address Azure Blob storage, Azure Queue storage, or Azure Table storage resources for the subscription.
     * In the **Location/Affinity Group** drop-down menu, choose the **location or affinity group** for the storage account. An affinity group lets you put your cloud services and storage in the same data center.
-    * In the **Replication** field, decide whether to use **Geo-Redundant** replication for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. More details about managing geo-replication of storage accounts can be found here: [Azure Storage replication](/documentation/articles/storage-redundancy/).
+    * In the **Replication** field, decide whether to use **Geo-Redundant** replication for the storage account. Geo-replication is turned on by default. This option replicates your data to a secondary location, at no cost to you, so that your storage fails over to that location if a major failure occurs at the primary location. The secondary location is assigned automatically and can't be changed. If you need more control over the location of your cloud-based storage due to legal requirements or organizational policy, you can turn off geo-replication. However, be aware that if you later turn on geo-replication, you will be charged a one-time data transfer fee to replicate your existing data to the secondary location. Storage services without geo-replication are offered at a discount. More details about managing geo-replication of storage accounts can be found here: [Azure Storage replication](../storage/storage-redundancy.md).
 
         ![Enter storage account details](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/Storage-create-account.png)
 5. Select **Create Storage Account**. The account now appears under **storage**.
@@ -144,7 +165,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used to c
 
     ![Container name](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > By default, the container is private and can only be accessed by the account owner. To allow public read access to the blobs in the container, but not to the container properties and metadata, use the **Public Blob** option. To allow full public read access for the container and blobs, use the **Public Container** option.
     >
     >
@@ -188,16 +209,20 @@ When you upload the .vhd file, you can place it anywhere within your Blob storag
 
 From the Azure PowerShell window you used in the previous step, type:
 
-        Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
+```
+    Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
+```
 
 ## Step 5: Create a VM with the uploaded .vhd file
 After you upload the .vhd file, you can add it as an image to the list of custom images that are associated with your subscription and create a virtual machine with this custom image.
 
 1. From the Azure PowerShell window you used in the previous step, type:
 
-        Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
+    ```
+    Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
+    ```
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > Use Linux as the OS type. The current Azure PowerShell version accepts only "Linux" or "Windows" as a parameter.
     >
     >

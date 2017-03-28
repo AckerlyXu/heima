@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Load Balancer custom probes and monitoring health status | Azure"
-    description="Learn how to use custom probes for Azure Load Balancer to monitor instances behind Load Balancer"
-    services="load-balancer"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="46b152c5-6a27-4bfc-bea3-05de9ce06a57"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/24/2016"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Load Balancer custom probes and monitoring health status | Azure
+description: Learn how to use custom probes for Azure Load Balancer to monitor instances behind Load Balancer
+services: load-balancer
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/24/2016
+wacn.date: ''
+ms.author: kumud
+---
 
 # Understand load balancer probes
 
@@ -35,7 +36,7 @@ The timeout and frequency value set in  SuccessFailCount determine whether an in
 
 The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. This means you cannot have a different probe configuration for each role instance or virtual machine in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > A Load Balancer probe uses the IP address 168.63.129.16. This public IP address facilitates communication to internal platform resources for the bring-your-own-IP Azure Virtual Network scenario. The virtual public IP address 168.63.129.16 is used in all regions and will not change. We recommend that you allow this IP address in any local firewall policies. It should not be considered a security risk because only the internal Azure platform can source a message from that address. If you do not do this, there will be unexpected behavior in a variety of scenarios like configuring the same IP address range of 168.63.129.16 and having duplicated IP addresses.
 
 ## Learn about the types of probes
@@ -44,7 +45,7 @@ The probe configuration of all load-balanced instances for an endpoint (that is,
 
 This probe is available for Azure Cloud Services only. Load Balancer utilizes the guest agent inside the virtual machine, and then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state (that is, not in another state such as Busy, Recycling, or Stopping).
 
-For more information, see [Configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx) or [Get started creating an Internet-facing load balancer for cloud services](/documentation/articles/load-balancer-get-started-internet-classic-cloud/#check-load-balancer-health-status-for-cloud-services).
+For more information, see [Configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx) or [Get started creating an Internet-facing load balancer for cloud services](./load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services).
 
 ### What makes a guest agent probe mark an instance as unhealthy?
 
@@ -58,7 +59,7 @@ The custom HTTP Load Balancer probe overrides the default guest agent probe, whi
 
 This can be useful if you want to implement your own logic to remove instances from load balancer rotation. For example, you could decide to remove an instance if it is above 90% CPU and returns a non-200 status. If you have web roles that use w3wp.exe, this also means you get automatic monitoring of your website, because failures in your website code will return a non-200 status to the load balancer probe.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The HTTP custom probe supports relative paths and HTTP protocol only. HTTPS is not supported.
 
 ### What makes an HTTP custom probe mark an instance as unhealthy?
@@ -76,7 +77,7 @@ TCP probes initiate a connection by performing a three-way handshake with the de
 * The TCP server does not respond at all after the timeout period. When the probe is marked as not running depends on the number of failed probe requests that were configured to go unanswered before marking the probe as not running.
 * The probe receives a TCP reset from the role instance.
 
-For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](/documentation/articles/load-balancer-get-started-internet-arm-ps/).
+For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](./load-balancer-get-started-internet-arm-ps.md).
 
 ## Add healthy instances back into load balancer rotation
 
@@ -85,9 +86,9 @@ TCP and HTTP probes are considered healthy and mark the role instance as healthy
 * The load balancer gets a positive probe the first time the VM boots.
 * The number SuccessFailCount (described earlier) defines the value of successful probes that are required to mark the role instance as healthy. If a role instance was removed, the number of successful, successive probes must equal or exceed the value of SuccessFailCount to mark the role instance as running.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If the health of a role instance is fluctuating, the load balancer waits longer before putting the role instance back in the healthy state. This is done via policy to protect the user and the infrastructure.
 
 ## Use log analytics for Load Balancer
 
-You can use [log analytics for Load Balancer](/documentation/articles/load-balancer-monitor-log/) to check on the probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about Load Balancer health status.
+You can use [log analytics for Load Balancer](./load-balancer-monitor-log.md) to check on the probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about Load Balancer health status.

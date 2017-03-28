@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Interact with reports using the JavaScript API | Azure"
-    description="Power BI Embedded, interact with reports using the JavaScript API"
-    services="power-bi-embedded"
-    documentationcenter=""
-    author="guyinacube"
-    manager="erikre"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="bdd885d3-1b00-4dcf-bdff-531eb1f97bfb"
-    ms.service="power-bi-embedded"
-    ms.devlang="NA"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="powerbi"
-    ms.date="01/06/2017"
-    wacn.date=""
-    ms.author="asaxton" />
+---
+title: Interact with reports using the JavaScript API | Azure
+description: Power BI Embedded, interact with reports using the JavaScript API
+services: power-bi-embedded
+documentationcenter: ''
+author: guyinacube
+manager: erikre
+editor: ''
+tags: ''
+
+ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 01/06/2017
+wacn.date: ''
+ms.author: asaxton
+---
 
 # Interact with Power BI reports using the JavaScript API
 The Power BI JavaScript API enables you to easily embed Power BI reports into your applications. With the API, your applications can programmatically interact with different report elements like pages and filters. This interactivity makes Power BI reports a more integrated part of your application.
@@ -48,7 +49,6 @@ The Javascript API enables you to manage behavior at the report and page level:
 
 [Learn more about embedding a report](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
-
 ### Navigate to pages in a report
 The JavaScript API enbales you to discover all pages in a report and to set the current page. Try the [navigation demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
@@ -57,20 +57,20 @@ The JavaScript API enbales you to discover all pages in a report and to set the 
 ### Filter a report
 The JavaScript API provides basic and advanced filtering capabilities for embedded reports and report pages. Try the [filtering demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario4), and review some introductory code here.  
 
-
 #### Basic filters
 A basic filter is placed on a column or hierarchy level and contains a list of values to include or exclude.
 
-	const basicFilter: pbi.models.IBasicFilter = {
-	  $schema: "http://powerbi.com/product/schema#basic",
-	  target: {
-	    table: "Store",
-	    column: "Count"
-	  },
-	  operator: "In",
-	  values: [1,2,3,4]
-	}
-
+```
+const basicFilter: pbi.models.IBasicFilter = {
+  $schema: "http://powerbi.com/product/schema#basic",
+  target: {
+    table: "Store",
+    column: "Count"
+  },
+  operator: "In",
+  values: [1,2,3,4]
+}
+```
 
 #### Advanced filters
 Advanced filters use the logical operator AND or OR, and accept one or two conditions, each with their own operator and value. Supported conditions are:
@@ -89,25 +89,26 @@ Advanced filters use the logical operator AND or OR, and accept one or two condi
 - IsBlank
 - IsNotBlank
 
-
-		const advancedFilter: pbi.models.IAdvancedFilter = {
-		  $schema: "http://powerbi.com/product/schema#advanced",
-		  target: {
-		    table: "Store",
-		    column: "Name"
-		  },
-		  logicalOperator: "Or",
-		  conditions: [
-		    {
-		      operator: "Contains",
-		      value: "Wash"
-		    },
-		    {
-		      operator: "Contains",
-		      value: "Park"
-		    }
-		  ]
-		}
+    ```
+    const advancedFilter: pbi.models.IAdvancedFilter = {
+      $schema: "http://powerbi.com/product/schema#advanced",
+      target: {
+        table: "Store",
+        column: "Name"
+      },
+      logicalOperator: "Or",
+      conditions: [
+        {
+          operator: "Contains",
+          value: "Wash"
+        },
+        {
+          operator: "Contains",
+          value: "Park"
+        }
+      ]
+    }
+    ```
 
 [Learn more about filtering](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
 
@@ -132,4 +133,3 @@ For more information about the Power BI JavaScript API, check out the following 
   - [Angular](http://azure-samples.github.io/powerbi-angular-client)
   - [Ember](https://github.com/Microsoft/powerbi-ember)
 - [Live demo](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-

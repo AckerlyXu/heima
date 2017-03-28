@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Develop Python MapReduce jobs with HDInsight | Azure"
-    description="Learn how to create and run Python MapReduce jobs on Linux-based HDInsight clusters."
-    services="hdinsight"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Develop Python MapReduce jobs with HDInsight | Azure
+description: Learn how to create and run Python MapReduce jobs on Linux-based HDInsight clusters.
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Develop Python streaming programs for HDInsight
 
@@ -30,19 +31,19 @@ To complete the steps in this article, you will need the following:
 
 * A Linux-based Hadoop on HDInsight cluster
 
-    > [AZURE.IMPORTANT]
-    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](/documentation/articles/hdinsight-component-versioning/#hdi-version-32-and-33-nearing-deprecation-date).
+    > [!IMPORTANT]
+    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * A text editor
-  
-    > [AZURE.IMPORTANT]
+
+    > [!IMPORTANT]
     > The text editor must use LF as the line ending. If it uses CRLF, this will cause errors when running the MapReduce job on Linux-based HDInsight clusters. If you are not sure, use the optional step in the [Run MapReduce](#run-mapreduce) section to convert any CRLF to LF.
 
 * **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following:
-  
-    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)
 
-    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/)
+    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](./hdinsight-hadoop-linux-use-ssh-unix.md)
+
+    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## Word count
 
@@ -76,29 +77,31 @@ The mapper and reducer are text files, in this case **mapper.py** and **reducer.
 
 Create a new file named **mapper.py** and use the following code as the content:
 
-    #!/usr/bin/env python
+```python
+#!/usr/bin/env python
 
-    # Use the sys module
-    import sys
+# Use the sys module
+import sys
 
-    # 'file' in this case is STDIN
-    def read_input(file):
-        # Split each line into words
-        for line in file:
-            yield line.split()
+# 'file' in this case is STDIN
+def read_input(file):
+    # Split each line into words
+    for line in file:
+        yield line.split()
 
-    def main(separator='\t'):
-        # Read the data using read_input
-        data = read_input(sys.stdin)
-        # Process each words returned from read_input
-        for words in data:
-            # Process each word
-            for word in words:
-                # Write to STDOUT
-                print '%s%s%d' % (word, separator, 1)
+def main(separator='\t'):
+    # Read the data using read_input
+    data = read_input(sys.stdin)
+    # Process each words returned from read_input
+    for words in data:
+        # Process each word
+        for word in words:
+            # Write to STDOUT
+            print '%s%s%d' % (word, separator, 1)
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
+```
 
 Take a moment to read through the code so you can understand what it does.
 
@@ -106,46 +109,48 @@ Take a moment to read through the code so you can understand what it does.
 
 Create a new file named **reducer.py** and use the following code as the content:
 
-    #!/usr/bin/env python
+```python
+#!/usr/bin/env python
 
-    # import modules
-    from itertools import groupby
-    from operator import itemgetter
-    import sys
+# import modules
+from itertools import groupby
+from operator import itemgetter
+import sys
 
-    # 'file' in this case is STDIN
-    def read_mapper_output(file, separator='\t'):
-        # Go through each line
-        for line in file:
-            # Strip out the separator character
-            yield line.rstrip().split(separator, 1)
+# 'file' in this case is STDIN
+def read_mapper_output(file, separator='\t'):
+    # Go through each line
+    for line in file:
+        # Strip out the separator character
+        yield line.rstrip().split(separator, 1)
 
-    def main(separator='\t'):
-        # Read the data using read_mapper_output
-        data = read_mapper_output(sys.stdin, separator=separator)
-        # Group words and counts into 'group'
-        #   Since MapReduce is a distributed process, each word
-        #   may have multiple counts. 'group' will have all counts
-        #   which can be retrieved using the word as the key.
-        for current_word, group in groupby(data, itemgetter(0)):
-            try:
-                # For each word, pull the count(s) for the word
-                #   from 'group' and create a total count
-                total_count = sum(int(count) for current_word, count in group)
-                # Write to stdout
-                print "%s%s%d" % (current_word, separator, total_count)
-            except ValueError:
-                # Count was not a number, so do nothing
-                pass
+def main(separator='\t'):
+    # Read the data using read_mapper_output
+    data = read_mapper_output(sys.stdin, separator=separator)
+    # Group words and counts into 'group'
+    #   Since MapReduce is a distributed process, each word
+    #   may have multiple counts. 'group' will have all counts
+    #   which can be retrieved using the word as the key.
+    for current_word, group in groupby(data, itemgetter(0)):
+        try:
+            # For each word, pull the count(s) for the word
+            #   from 'group' and create a total count
+            total_count = sum(int(count) for current_word, count in group)
+            # Write to stdout
+            print "%s%s%d" % (current_word, separator, total_count)
+        except ValueError:
+            # Count was not a number, so do nothing
+            pass
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
+```
 
 ## Upload the files
 
 Both **mapper.py** and **reducer.py** must be on the head node of the cluster before we can run them. This section provides an example `scp` command, and an Azure PowerShell script that can be used to upload the files to the cluster.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > There is an important difference between using `scp` and PowerShell to upload the files:
 ><p>
 ><p> * Using `scp` places the files on the primary head node of the cluster. This assumes that you will later connect to the head node and run the job from an SSH session.
@@ -159,59 +164,61 @@ From your development environment, in the same directory as **mapper.py** and **
 
 This copies the files from the local system to the head node.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you used a password to secure your SSH account, you will be prompted for the password. If you used an SSH key, you may have to use the `-i` parameter and the path to the private key, for example, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.cn:`.
 
 ### Upload using PowerShell
 
 1. From your development environment, create a new file named `Put-FilesInHDInsight.ps1` and use the following as the contents of the file:
 
-        param(
-            [Parameter(Mandatory = $true)]
-            [String]$clusterName,
-            [Parameter(Mandatory = $true)]
-            [String]$source,
-            [Parameter(Mandatory = $true)]
-            [String]$destination
-        )
-        # Login to your Azure subscription
-        # Is there an active Azure subscription?
-        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-        if(-not($sub))
-        {
-            Add-AzureRmAccount -EnvironmentName AzureChinaCloud
-        }
+    ```PowerShell
+    param(
+        [Parameter(Mandatory = $true)]
+        [String]$clusterName,
+        [Parameter(Mandatory = $true)]
+        [String]$source,
+        [Parameter(Mandatory = $true)]
+        [String]$destination
+    )
+    # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+    }
 
-        # Get the cluster info
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
+    # Get the cluster info
+    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
 
-        # What type of default storage are we using?
-        switch ($storageInfo[1])
-        {
-            "blob" {
-                # Get the blob storage information for the cluster
-                $resourceGroup = $clusterInfo.ResourceGroup
-                $storageAccountName=$storageInfo[0]
-                $storageContainer=$clusterInfo.DefaultStorageContainer
-                $storageAccountKey=(Get-AzureRmStorageAccountKey `
-                    -Name $storageAccountName `
-                    -ResourceGroupName $resourceGroup)[0].Value
-                # Create a storage context and upload the file
-                $context = New-AzureStorageContext `
-                    -StorageAccountName $storageAccountName `
-                    -StorageAccountKey $storageAccountKey
-                # Upload the file
-                Set-AzureStorageBlobContent `
-                    -File $source `
-                    -Blob $destination `
-                    -Container $storageContainer `
-                    -Context $context
-            }
-            default {
-                Throw "Unknown storage type: $storageInfo[1]"
-            }
+    # What type of default storage are we using?
+    switch ($storageInfo[1])
+    {
+        "blob" {
+            # Get the blob storage information for the cluster
+            $resourceGroup = $clusterInfo.ResourceGroup
+            $storageAccountName=$storageInfo[0]
+            $storageContainer=$clusterInfo.DefaultStorageContainer
+            $storageAccountKey=(Get-AzureRmStorageAccountKey `
+                -Name $storageAccountName `
+                -ResourceGroupName $resourceGroup)[0].Value
+            # Create a storage context and upload the file
+            $context = New-AzureStorageContext `
+                -StorageAccountName $storageAccountName `
+                -StorageAccountKey $storageAccountKey
+            # Upload the file
+            Set-AzureStorageBlobContent `
+                -File $source `
+                -Blob $destination `
+                -Container $storageContainer `
+                -Context $context
         }
+        default {
+            Throw "Unknown storage type: $storageInfo[1]"
+        }
+    }
+    ```
 
 2. To use this script to upload a file, use the following from an Azure PowerShell prompt:
 
@@ -226,23 +233,23 @@ This copies the files from the local system to the head node.
 Use the following steps to connect to the cluster and run the streaming MapReduce job from an SSH session.
 
 1. Connect to the cluster by using SSH:
-   
+
     `ssh username@clustername-ssh.azurehdinsight.cn`
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > If you used a password to secure your SSH account, you will be prompted for the password. If you used an SSH key, you may have to use the `-i` parameter and the path to the private key, for example, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.cn`.
 
 2. (Optional) If you used a text editor that uses CRLF as the line ending when creating the mapper.py and reducer.py files, or do not know what line-ending your editor uses, use the following commands to convert occurrences of CRLF in mapper.py and reducer.py to LF.
-   
+
     `perl -pi -e 's/\r\n/\n/g' mappery.py`
     `perl -pi -e 's/\r\n/\n/g' reducer.py`
 
 3. Use the following command to start the MapReduce job.
-   
+
     `yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input /example/data/gutenberg/davinci.txt -output /example/wordcountout`
-   
+
     This command has the following parts:
-   
+
     * **hadoop-streaming.jar**: Used when performing streaming MapReduce operations. It interfaces Hadoop with the external MapReduce code you provide.
 
     * **-files**: Tells Hadoop that the specified files are needed for this MapReduce job, and they should be copied to all the worker nodes.
@@ -254,15 +261,17 @@ Use the following steps to connect to the cluster and run the streaming MapReduc
     * **-input**: The input file that we should count words from.
 
     * **-output**: The directory that the output will be written to.
-     
-        > [AZURE.NOTE]
+
+        > [!NOTE]
         > This directory will be created by the job.
 
 You should see a bunch of **INFO** statements as the job starts, and finally see the **map** and **reduce** operation displayed as percentages.
 
-    15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
-    15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%
-    15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%
+```
+15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
+15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%
+15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%
+```
 
 You will receive status information about the job when it completes.
 
@@ -272,47 +281,49 @@ Use the following steps to run the streaming MapReduce from PowerShell on your d
 
 1. Create a new file named `Start-HDInsightStreamingPythonJob` and use the following as the contents of the file:
 
-        param(
-            [Parameter(Mandatory = $true)]
-            [String]$clusterName,
-            [Parameter(Mandatory = $true)]
-            [String]$inputPath,
-            [Parameter(Mandatory = $true)]
-            [String]$outputPath
-        )
-        # Login to your Azure subscription
-        # Is there an active Azure subscription?
-        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-        if(-not($sub))
-        {
-            Add-AzureRmAccount -EnvironmentName AzureChinaCloud
-        }
+    ```PowerShell
+    param(
+        [Parameter(Mandatory = $true)]
+        [String]$clusterName,
+        [Parameter(Mandatory = $true)]
+        [String]$inputPath,
+        [Parameter(Mandatory = $true)]
+        [String]$outputPath
+    )
+    # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+    }
 
-        # Get the login (HTTPS) credentials for the cluster
-        $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
+    # Get the login (HTTPS) credentials for the cluster
+    $creds=Get-Credential -Message "Enter the login for the cluster" -UserName "admin"
 
-        # Create the streaming job definition
-        # Note: This assumes that the mapper.py and reducer.py
-        #       are in the root of default storage. If you put them in a 
-        #       subdirectory, change the -Files parameter to the correct path.
-        $jobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
-            -Files "/mapper.py", "/reducer.py" `
-            -Mapper "mapper.py" `
-            -Reducer "reducer.py" `
-            -InputPath $inputPath `
-            -OutputPath $outputPath
+    # Create the streaming job definition
+    # Note: This assumes that the mapper.py and reducer.py
+    #       are in the root of default storage. If you put them in a 
+    #       subdirectory, change the -Files parameter to the correct path.
+    $jobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
+        -Files "/mapper.py", "/reducer.py" `
+        -Mapper "mapper.py" `
+        -Reducer "reducer.py" `
+        -InputPath $inputPath `
+        -OutputPath $outputPath
 
-        # Start the job
-        $job = Start-AzureRmHDInsightJob `
-            -ClusterName $clusterName `
-            -JobDefinition $jobDefinition `
-            -HttpCredential $creds
+    # Start the job
+    $job = Start-AzureRmHDInsightJob `
+        -ClusterName $clusterName `
+        -JobDefinition $jobDefinition `
+        -HttpCredential $creds
 
-        # Wait for the job to complete
-        Wait-AzureRmHDInsightJob `
-            -JobId $job.JobId `
-            -ClusterName $clusterName `
-            -HttpCredential $creds
+    # Wait for the job to complete
+    Wait-AzureRmHDInsightJob `
+        -JobId $job.JobId `
+        -ClusterName $clusterName `
+        -HttpCredential $creds
+    ```
 
 2. Use the following from an Azure PowerShell prompt to run the job:
 
@@ -322,17 +333,19 @@ Use the following steps to run the streaming MapReduce from PowerShell on your d
 
     Information similar to the following is displayed when the job completes:
 
-        Cluster         : myhdicluster
-        HttpEndpoint    : myhdicluster.azurehdinsight.cn
-        State           : SUCCEEDED
-        JobId           : job_1486046226168_0004
-        ParentId        :
-        PercentComplete : map 100% reduce 100%
-        ExitValue       : 0
-        User            : admin
-        Callback        :
-        Completed       : done
-        StatusFolder    : 2017-02-06T19-14-28-a3dda3ca-f489-4287-afc9-b5e16e2e7c7a
+    ```
+    Cluster         : myhdicluster
+    HttpEndpoint    : myhdicluster.azurehdinsight.cn
+    State           : SUCCEEDED
+    JobId           : job_1486046226168_0004
+    ParentId        :
+    PercentComplete : map 100% reduce 100%
+    ExitValue       : 0
+    User            : admin
+    Callback        :
+    Completed       : done
+    StatusFolder    : 2017-02-06T19-14-28-a3dda3ca-f489-4287-afc9-b5e16e2e7c7a
+    ```
 
 ## View the output
 
@@ -344,63 +357,67 @@ To view the data from an SSH session to the cluster, use the following command:
 
 This displays a list of words and how many times the word occurred. The following is an sample of the output data:
 
-    wrenching       1
-    wretched        6
-    wriggling       1
-    wrinkled,       1
-    wrinkles        2
-    wrinkling       2
+```
+wrenching       1
+wretched        6
+wriggling       1
+wrinkled,       1
+wrinkles        2
+wrinkling       2
+```
 
 To view the output from your development environment using PowerShell, use the following steps:
 
 1. Create a new file named `Get-FilesInHDInsight.ps1` and use the following as the file contents:
 
-        param(
-            [Parameter(Mandatory = $true)]
-            [String]$clusterName,
-            [Parameter(Mandatory = $true)]
-            [String]$source
-        )
-        # Login to your Azure subscription
-        # Is there an active Azure subscription?
-        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-        if(-not($sub))
-        {
-            Add-AzureRmAccount -EnvironmentName AzureChinaCloud
-        }
+    ```PowerShell
+    param(
+        [Parameter(Mandatory = $true)]
+        [String]$clusterName,
+        [Parameter(Mandatory = $true)]
+        [String]$source
+    )
+    # Login to your Azure subscription
+    # Is there an active Azure subscription?
+    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+    }
 
-        # Get the cluster info
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
+    # Get the cluster info
+    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
 
-        # What type of default storage are we using?
-        switch ($storageInfo[1])
-        {
-            "blob" {
-                # Get the blob storage information for the cluster
-                $resourceGroup = $clusterInfo.ResourceGroup
-                $storageAccountName=$storageInfo[0]
-                $storageContainer=$clusterInfo.DefaultStorageContainer
-                $storageAccountKey=(Get-AzureRmStorageAccountKey `
-                    -Name $storageAccountName `
-                    -ResourceGroupName $resourceGroup)[0].Value
-                # Create a storage context and download the file
-                $context = New-AzureStorageContext `
-                    -StorageAccountName $storageAccountName `
-                    -StorageAccountKey $storageAccountKey
-                # Download the file
-                Get-AzureStorageBlobContent `
-                    -Container $storageContainer `
-                    -Blob $source `
-                    -Context $context `
-                    -Destination "./output.txt"
-                # Display the output
-                Get-Content "./output.txt"
-            }
-            default {
-                Throw "Unknown storage type: $storageInfo[1]"
-            }
+    # What type of default storage are we using?
+    switch ($storageInfo[1])
+    {
+        "blob" {
+            # Get the blob storage information for the cluster
+            $resourceGroup = $clusterInfo.ResourceGroup
+            $storageAccountName=$storageInfo[0]
+            $storageContainer=$clusterInfo.DefaultStorageContainer
+            $storageAccountKey=(Get-AzureRmStorageAccountKey `
+                -Name $storageAccountName `
+                -ResourceGroupName $resourceGroup)[0].Value
+            # Create a storage context and download the file
+            $context = New-AzureStorageContext `
+                -StorageAccountName $storageAccountName `
+                -StorageAccountKey $storageAccountKey
+            # Download the file
+            Get-AzureStorageBlobContent `
+                -Container $storageContainer `
+                -Blob $source `
+                -Context $context `
+                -Destination "./output.txt"
+            # Display the output
+            Get-Content "./output.txt"
         }
+        default {
+            Throw "Unknown storage type: $storageInfo[1]"
+        }
+    }
+    ```
 
 2. From an Azure PowerShell prompt, use the following to run the script and view the output:
 
@@ -408,17 +425,19 @@ To view the output from your development environment using PowerShell, use the f
 
     This displays a list of words and how many times the word occurred. The following is an sample of the output data:
 
-        wrenching       1
-        wretched        6
-        wriggling       1
-        wrinkled,       1
-        wrinkles        2
-        wrinkling       2
+    ```
+    wrenching       1
+    wretched        6
+    wriggling       1
+    wrinkled,       1
+    wrinkles        2
+    wrinkling       2
+    ```
 
 ## Next steps
 
 Now that you have learned how to use streaming MapRedcue jobs with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Use Hive with HDInsight](/documentation/articles/hdinsight-use-hive/)
-* [Use Pig with HDInsight](/documentation/articles/hdinsight-use-pig/)
-* [Use MapReduce jobs with HDInsight](/documentation/articles/hdinsight-use-mapreduce/)
+* [Use Hive with HDInsight](./hdinsight-use-hive.md)
+* [Use Pig with HDInsight](./hdinsight-use-pig.md)
+* [Use MapReduce jobs with HDInsight](./hdinsight-use-mapreduce.md)

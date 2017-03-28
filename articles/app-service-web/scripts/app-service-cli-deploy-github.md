@@ -1,55 +1,57 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Create a web app with deployment from GitHub | Azure"
-    description="Azure CLI Script Sample - Create a web app with deployment from GitHub"
-    services="app-service\web"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="0205c991-0989-4ca3-bb41-237dcc964460"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Azure CLI Script Sample - Create a web app with deployment from GitHub | Azure
+description: Azure CLI Script Sample - Create a web app with deployment from GitHub
+services: app-service\web
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
+ms.service: app-service-web
+ms.workload: web
+ms.devlang: na
+ms.topic: article
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Create a web app with deployment from GitHub
 
-This sample script creates a web app in App Service with its related resources, and then deploys your web app code from a public GitHub repository (without continuous deployment). For GitHub deployment with continuous deployment, see [Create a web app with continuous deployment from GitHub](/documentation/articles/app-service-cli-continuous-deployment-github/).
+This sample script creates a web app in App Service with its related resources, and then deploys your web app code from a public GitHub repository (without continuous deployment). For GitHub deployment with continuous deployment, see [Create a web app with continuous deployment from GitHub](./app-service-cli-continuous-deployment-github.md).
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure. Also, you need a link to GitHub repository that contains the web app code.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Create app sample
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
-    webappname=mywebapp$RANDOM
+gitrepo=<Replace with a public GitHub repo URL. e.g. https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git>
+webappname=mywebapp$RANDOM
 
-    # Create a resource group.
-    az group create --location chinanorth --name myResourceGroup
+# Create a resource group.
+az group create --location chinanorth --name myResourceGroup
 
-    # Create an App Service plan in `FREE` tier.
-    az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE
+# Create an App Service plan in `FREE` tier.
+az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE
 
-    # Create a web app.
-    az appservice web create --name $webappname --resource-group myResourceGroup --plan $webappname
+# Create a web app.
+az appservice web create --name $webappname --resource-group myResourceGroup --plan $webappname
 
-    # Deploy code from a public GitHub repository. 
-    az appservice web source-control config --name $webappname --resource-group myResourceGroup \
-    --repo-url $gitrepo --branch master --manual-integration
+# Deploy code from a public GitHub repository. 
+az appservice web source-control config --name $webappname --resource-group myResourceGroup \
+--repo-url $gitrepo --branch master --manual-integration
 
-    # Browse to the web app.
-    az appservice web browse --name $webappname --resource-group myResourceGroup
+# Browse to the web app.
+az appservice web browse --name $webappname --resource-group myResourceGroup
+```
 
-
-[AZURE.INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
@@ -67,4 +69,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional App Service CLI script samples can be found in the [Azure App Service documentation](/documentation/articles/app-service-cli-samples/).
+Additional App Service CLI script samples can be found in the [Azure App Service documentation](../app-service-cli-samples.md).

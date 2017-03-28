@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Clusterize MySQL with load-balanced sets | Azure"
-    description="Set up a load-balanced, high availability Linux MySQL cluster created with the classic deployment model on Azure"
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="bureado"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3"
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="04/14/2015"
-    wacn.date=""
-    ms.author="jparrel" />
+---
+title: Clusterize MySQL with load-balanced sets | Azure
+description: Set up a load-balanced, high availability Linux MySQL cluster created with the classic deployment model on Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: bureado
+manager: timlt
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 04/14/2015
+wacn.date: ''
+ms.author: jparrel
+---
 
 # Use load-balanced sets to clusterize MySQL on Linux
-> [AZURE.IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](/documentation/articles/resource-manager-deployment-model/) and classic. This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. A [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/) is available if you need to deploy a MySQL cluster.
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. A [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/) is available if you need to deploy a MySQL cluster.
 
 This article explores and illustrates the different approaches available to deploy highly available Linux-based services on Azure, exploring MySQL Server high availability as a primer. A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -68,7 +69,9 @@ On each VM, create a partition by using `cfdisk` (primary, Linux partition) and 
 ## Set up the cluster
 Use APT to install Corosync, Pacemaker, and DRBD on both Ubuntu VMs. To do so with `apt-get`, run the following code:
 
-    sudo apt-get install corosync pacemaker drbd8-utils.
+```
+sudo apt-get install corosync pacemaker drbd8-utils.
+```
 
 Do not install MySQL at this time. Debian and Ubuntu installation scripts will initialize a MySQL data directory on `/var/lib/mysql`, but because the directory will be superseded by a DRBD file system, you need to install MySQL later.
 
@@ -79,73 +82,93 @@ Create a DRBD resource that uses the underlying `/dev/sdc1` partition to produce
 
 1. Open `/etc/drbd.d/r0.res` and copy the following resource definition on both VMs:
 
-        resource r0 {
-          on `hadb01` {
-            device  /dev/drbd1;
-            disk   /dev/sdc1;
-            address  10.10.10.4:7789;
-            meta-disk internal;
-          }
-          on `hadb02` {
-            device  /dev/drbd1;
-            disk   /dev/sdc1;
-            address  10.10.10.5:7789;
-            meta-disk internal;
-          }
-        }
+    ```
+    resource r0 {
+      on `hadb01` {
+        device  /dev/drbd1;
+        disk   /dev/sdc1;
+        address  10.10.10.4:7789;
+        meta-disk internal;
+      }
+      on `hadb02` {
+        device  /dev/drbd1;
+        disk   /dev/sdc1;
+        address  10.10.10.5:7789;
+        meta-disk internal;
+      }
+    }
+    ```
 
 2. Initialize the resource by using `drbdadm` on both VMs:
 
-        sudo drbdadm -c /etc/drbd.conf role r0
-        sudo drbdadm up r0
+    ```
+    sudo drbdadm -c /etc/drbd.conf role r0
+    sudo drbdadm up r0
+    ```
 
 3. On the primary VM (`hadb01`), force ownership (primary) of the DRBD resource:
 
-        sudo drbdadm primary --force r0
+    ```
+    sudo drbdadm primary --force r0
+    ```
 
 If you examine the contents of /proc/drbd (`sudo cat /proc/drbd`) on both VMs, you should see `Primary/Secondary` on `hadb01` and `Secondary/Primary` on `hadb02`, consistent with the solution at this point. The 5-GB disk is synchronized over the 10.10.10.0/24 network at no charge to customers.
 
 After the disk is synchronized, you can create the file system on `hadb01`. For testing purposes, we used ext2, but the following code will create an ext3 file system:
 
-    mkfs.ext3 /dev/drbd1
+```
+mkfs.ext3 /dev/drbd1
+```
 
 ### Mount the DRBD resource
 You're now ready to mount the DRBD resources on `hadb01`. Debian and derivatives use `/var/lib/mysql` as MySQL's data directory. Because you haven't installed MySQL, create the directory and mount the DRBD resource. To perform this option, run the following code on `hadb01`:
 
-    sudo mkdir /var/lib/mysql
-    sudo mount /dev/drbd1 /var/lib/mysql
+```
+sudo mkdir /var/lib/mysql
+sudo mount /dev/drbd1 /var/lib/mysql
+```
 
 ## Set up MySQL
 Now you're ready to install MySQL on `hadb01`:
 
-    sudo apt-get install mysql-server
+```
+sudo apt-get install mysql-server
+```
 
 For `hadb02`, you have two options. You can install mysql-server, which will create /var/lib/mysql, fill it with a new data directory, and then remove the contents. To perform this option, run the following code on `hadb02`:
 
-    sudo apt-get install mysql-server
-    sudo service mysql stop
-    sudo rm -rf /var/lib/mysql/*
+```
+sudo apt-get install mysql-server
+sudo service mysql stop
+sudo rm -rf /var/lib/mysql/*
+```
 
 The second option is to failover to `hadb02` and then install mysql-server there. Installation scripts will notice the existing installation and won't touch it.
 
 Run the following code on `hadb01`:
 
-    sudo drbdadm secondary -force r0
+```
+sudo drbdadm secondary -force r0
+```
 
 Run the following code on `hadb02`:
 
-    sudo drbdadm primary -force r0
-    sudo apt-get install mysql-server
+```
+sudo drbdadm primary -force r0
+sudo apt-get install mysql-server
+```
 
 If you don't plan to failover DRBD now, the first option is easier although arguably less elegant. After you set this up, you can start working on your MySQL database. Run the following code on `hadb02` (or whichever one of the servers is active, according to DRBD):
 
-    mysql -u root -p
-    CREATE DATABASE azureha;
-    CREATE TABLE things ( id SERIAL, name VARCHAR(255) );
-    INSERT INTO things VALUES (1, "Yet another entity");
-    GRANT ALL ON things.\* TO root;
+```
+mysql -u root -p
+CREATE DATABASE azureha;
+CREATE TABLE things ( id SERIAL, name VARCHAR(255) );
+INSERT INTO things VALUES (1, "Yet another entity");
+GRANT ALL ON things.\* TO root;
+```
 
-> [AZURE.WARNING]
+> [!WARNING]
 > This last statement effectively disables authentication for the root user in this table. This should be replaced by your production-grade GRANT statements and is included only for illustrative purposes.
 
 If you want to make queries from outside the VMs (which is the purpose of this guide), you also need to enable networking for MySQL. On both VMs, open `/etc/mysql/my.cnf` and go to `bind-address`. Change the address from 127.0.0.1 to 0.0.0.0. After saving the file, issue a `sudo service mysql restart` on your current primary.
@@ -160,18 +183,24 @@ You now have everything you need for manual operation of the cluster.
 ### Test the load-balanced set
 Tests can be performed from an outside machine by using any MySQL client, or by using certain applications, like phpMyAdmin running as an Azure website. In this case, you used MySQL's command-line tool on another Linux box:
 
-    mysql azureha -u root -h hadb.chinacloudapp.cn -e "select * from things;"
+```
+mysql azureha -u root -h hadb.chinacloudapp.cn -e "select * from things;"
+```
 
 ### Manually failing over
 You can simulate failovers by shutting down MySQL, switching DRBD's primary, and starting MySQL again.
 
 To perform this task, run the following code on hadb01:
 
-    service mysql stop && umount /var/lib/mysql ; drbdadm secondary r0
+```
+service mysql stop && umount /var/lib/mysql ; drbdadm secondary r0
+```
 
 Then, on hadb02:
 
-    drbdadm primary r0 ; mount /dev/drbd1 /var/lib/mysql && service mysql start
+```
+drbdadm primary r0 ; mount /dev/drbd1 /var/lib/mysql && service mysql start
+```
 
 After you fail over manually, you can repeat your remote query and it should work perfectly.
 
@@ -182,60 +211,66 @@ The main constraint for Corosync on Azure is that Corosync prefers multicast ove
 
 Fortunately, Corosync has a working unicast mode. The only real constraint is that because all nodes are not communicating among themselves, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and change bind address, node lists, and logging directories (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`), and enable quorum tools.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Use the following `transport: udpu` directive and the manually defined IP addresses for both nodes.
 
 Run the following code on `/etc/corosync/corosync.conf` for both nodes:
 
-    totem {
-      version: 2
-      crypto_cipher: none
-      crypto_hash: none
-      interface {
-        ringnumber: 0
-        bindnetaddr: 10.10.10.0
-        mcastport: 5405
-        ttl: 1
-      }
-      transport: udpu
+```
+totem {
+  version: 2
+  crypto_cipher: none
+  crypto_hash: none
+  interface {
+    ringnumber: 0
+    bindnetaddr: 10.10.10.0
+    mcastport: 5405
+    ttl: 1
+  }
+  transport: udpu
+}
+
+logging {
+  fileline: off
+  to_logfile: yes
+  to_syslog: yes
+  logfile: /var/log/corosync/corosync.log
+  debug: off
+  timestamp: on
+  logger_subsys {
+    subsys: QUORUM
+    debug: off
     }
+  }
 
-    logging {
-      fileline: off
-      to_logfile: yes
-      to_syslog: yes
-      logfile: /var/log/corosync/corosync.log
-      debug: off
-      timestamp: on
-      logger_subsys {
-        subsys: QUORUM
-        debug: off
-        }
-      }
+nodelist {
+  node {
+    ring0_addr: 10.10.10.4
+    nodeid: 1
+  }
 
-    nodelist {
-      node {
-        ring0_addr: 10.10.10.4
-        nodeid: 1
-      }
+  node {
+    ring0_addr: 10.10.10.5
+    nodeid: 2
+  }
+}
 
-      node {
-        ring0_addr: 10.10.10.5
-        nodeid: 2
-      }
-    }
-
-    quorum {
-      provider: corosync_votequorum
-    }
+quorum {
+  provider: corosync_votequorum
+}
+```
 
 Copy this configuration file on both VMs and start Corosync in both nodes:
 
-    sudo service start corosync
+```
+sudo service start corosync
+```
 
 Shortly after starting the service, the cluster should be established in the current ring, and quorum should be constituted. We can check this functionality by reviewing logs or by running the following code:
 
-    sudo corosync-quorumtool -l
+```
+sudo corosync-quorumtool -l
+```
 
 You will see output similar to the following image:
 
@@ -248,52 +283,60 @@ We want Pacemaker to "own" the DRBD resource, the mount point, and the MySQL ser
 
 When you first install Pacemaker, your configuration should be simple enough, something like:
 
-    node $id="1" hadb01
-      attributes standby="off"
-    node $id="2" hadb02
-      attributes standby="off"
+```
+node $id="1" hadb01
+  attributes standby="off"
+node $id="2" hadb02
+  attributes standby="off"
+```
 
 1. Check the configuration by running `sudo crm configure show`.
 2. Then create a file (like `/tmp/cluster.conf`) with the following resources:
 
-        primitive drbd_mysql ocf:linbit:drbd \
-              params drbd_resource="r0" \
-              op monitor interval="29s" role="Master" \
-              op monitor interval="31s" role="Slave"
+    ```
+    primitive drbd_mysql ocf:linbit:drbd \
+          params drbd_resource="r0" \
+          op monitor interval="29s" role="Master" \
+          op monitor interval="31s" role="Slave"
 
-        ms ms_drbd_mysql drbd_mysql \
-              meta master-max="1" master-node-max="1" \
-                clone-max="2" clone-node-max="1" \
-                notify="true"
+    ms ms_drbd_mysql drbd_mysql \
+          meta master-max="1" master-node-max="1" \
+            clone-max="2" clone-node-max="1" \
+            notify="true"
 
-        primitive fs_mysql ocf:heartbeat:Filesystem \
-              params device="/dev/drbd/by-res/r0" \
-              directory="/var/lib/mysql" fstype="ext3"
+    primitive fs_mysql ocf:heartbeat:Filesystem \
+          params device="/dev/drbd/by-res/r0" \
+          directory="/var/lib/mysql" fstype="ext3"
 
-        primitive mysqld lsb:mysql
+    primitive mysqld lsb:mysql
 
-        group mysql fs_mysql mysqld
+    group mysql fs_mysql mysqld
 
-        colocation mysql_on_drbd \
-               inf: mysql ms_drbd_mysql:Master
+    colocation mysql_on_drbd \
+           inf: mysql ms_drbd_mysql:Master
 
-        order mysql_after_drbd \
-               inf: ms_drbd_mysql:promote mysql:start
+    order mysql_after_drbd \
+           inf: ms_drbd_mysql:promote mysql:start
 
-        property stonith-enabled=false
+    property stonith-enabled=false
 
-        property no-quorum-policy=ignore
+    property no-quorum-policy=ignore
+    ```
 
 3. Load the file into the configuration. You only need to do this in one node.
 
-        sudo crm configure
-          load update /tmp/cluster.conf
-          commit
-          exit
+    ```
+    sudo crm configure
+      load update /tmp/cluster.conf
+      commit
+      exit
+    ```
 
 4. Make sure that Pacemaker starts at boot in both nodes:
 
-        sudo update-rc.d pacemaker defaults
+    ```
+    sudo update-rc.d pacemaker defaults
+    ```
 
 5. By using `sudo crm_mon -L`, verify that one of your nodes has become the master for the cluster and is running all the resources. You can use mount and ps to check that the resources are running.
 
@@ -317,13 +360,15 @@ It should be possible to issue a VM shutdown via the Azure CLI in lieu of a STON
 
 Sample code for the resource is available on [GitHub](https://github.com/bureado/aztonith). Change the cluster's configuration by adding the following to `sudo crm configure`:
 
-    primitive st-azure stonith:external/azure \
-      params hostlist="hadb01 hadb02" \
-      clone fencing st-azure \
-      property stonith-enabled=true \
-      commit
+```
+primitive st-azure stonith:external/azure \
+  params hostlist="hadb01 hadb02" \
+  clone fencing st-azure \
+  property stonith-enabled=true \
+  commit
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The script doesn't perform up/down checks. The original SSH resource had 15 ping checks, but recovery time for an Azure VM might be more variable.
 
 ## Limitations

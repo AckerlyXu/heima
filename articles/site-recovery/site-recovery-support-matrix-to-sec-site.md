@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Support matrix for replication to a secondary site with Azure Site Recovery | Azure"
-    description="Summarizes the supported operating systems and components for Azure Site Recovery"
-    services="site-recovery"
-    documentationcenter=""
-    author="rayne-wiselman"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="raynew" />
+---
+title: Support matrix for replication to a secondary site with Azure Site Recovery | Azure
+description: Summarizes the supported operating systems and components for Azure Site Recovery
+services: site-recovery
+documentationcenter: ''
+author: rayne-wiselman
+manager: jwhit
+editor: ''
+
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: raynew
+---
 
 # Support matrix for replication to a secondary site with Azure Site Recovery
->[AZURE.SELECTOR]
-- [Replicate to Azure](/documentation/articles/site-recovery-support-matrix-to-azure/)
-- [Replicate to an on-premises location](/documentation/articles/site-recovery-support-matrix-to-sec-site/)
+>[!div class="op_single_selector"]
+>- [Replicate to Azure](./site-recovery-support-matrix-to-azure.md)
+>- [Replicate to an on-premises location](./site-recovery-support-matrix-to-sec-site.md)
 
 This article summarizes what's supported when you use Azure Site Recovery to replicate to a secondary on-premises site.
 
@@ -40,7 +41,7 @@ This article summarizes what's supported when you use Azure Site Recovery to rep
 **VMware VM/physical server** | vSphere 6.0, 5.5, or 5.1 with latest update
 **Hyper-V (with VMM)** | VMM 2016 and VMM 2012 R2
 
-  >[AZURE.NOTE]
+  >[!NOTE]
   > VMM 2016 clouds with a mixture of Windows Server 2016 and 2012 R2 hosts aren't currently supported.
 
 ### Host servers
@@ -58,7 +59,7 @@ The following table summarizes operating system support in various deployment sc
 --- | --- | ---
 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 or 6.5 running the Red Hat compatible kernel, or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest operating system [supported by Hyper-V](https://technet.microsoft.com/zh-cn/library/mt126277.aspx)
 
->[AZURE.NOTE]
+>[!NOTE]
 >Only Linux machines with the following storage can be replicated:
 >File system (EXT3, ETX4, ReiserFS, XFS);
 >Multipath software-device Mapper;
@@ -87,7 +88,6 @@ IPv6 | No | No
 Static IP (Windows) | Yes | Yes
 Static IP (Linux) | Yes | Yes
 Multi-NIC | Yes | Yes
-
 
 ## Storage
 
@@ -134,7 +134,6 @@ Move storage, network, Azure VMs across resource groups (within or across subscr
 **Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure <br/><br/> Installed on on-premises VMM servers, or on Hyper-V servers if there's no VMM server | 5.1.19 ([available from portal](http://aka.ms/downloaddra)) | [Latest features and fixes](https://support.microsoft.com/zh-cn/kb/3155002)
 **Mobility service** | Coordinates replication between on-premises VMware servers or physical servers, and the secondary site<br/><br/> Installed on VMware VM or physical servers that you want to replicate  | N/A (available from portal) | N/A
 
-
 ## Next steps
 
-Learn about [deployment prerequisites](/documentation/articles/site-recovery-prereq/).
+Learn about [deployment prerequisites](./site-recovery-prereq.md).

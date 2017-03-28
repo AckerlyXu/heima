@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Create a Virtual Machine Scale Set using the Azure portal preview | Azure"
-    description="Deploy scale sets using Azure portal preview."
-    keywords="virtual machine scale sets"
-    services="virtual-machine-scale-sets"
-    documentationcenter=""
-    author="gatneil"
-    manager="madhana"
-    editor="tysonn"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="9c1583f0-bcc7-4b51-9d64-84da76de1fda"
-    ms.service="virtual-machine-scale-sets"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/15/2016"
-    wacn.date=""
-    ms.author="negat"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Create a Virtual Machine Scale Set using the Azure portal preview | Azure
+description: Deploy scale sets using Azure portal preview.
+keywords: virtual machine scale sets
+services: virtual-machine-scale-sets
+documentationcenter: ''
+author: gatneil
+manager: madhana
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: 9c1583f0-bcc7-4b51-9d64-84da76de1fda
+ms.service: virtual-machine-scale-sets
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm
+ms.devlang: na
+ms.topic: article
+ms.date: 09/15/2016
+wacn.date: ''
+ms.author: negat
+ms.custom: H1Hack27Feb2017
+---
 
 # How to create a Virtual Machine Scale Set with the Azure portal preview
-This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal preview. If you don't have an Azure subscription, create a [trial account](/pricing/1rmb-trial/) before you begin.
+This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal preview. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
 
 ## Choose the VM image from the marketplace
 From the portal, you can easily deploy a scale set with CentOS, CoreOS, Debian, Open Suse, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, Ubuntu Server, or Windows Server images.
@@ -34,15 +35,15 @@ First, navigate to the [Azure portal preview](https://portal.azure.cn) in a web 
 Now you can use the default settings and quickly create the scale set.
 
 * On the `Basics` blade, enter a name for the scale set. This name becomes the base of the FQDN of the load balancer in front of the scale set, so make sure the name is unique across all Azure.
-* Select your desired OS type, enter your desired username, and select which authentication type you prefer. If you choose a password, it must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](/documentation/articles/virtual-machines-windows-faq/#what-are-the-username-requirements-when-creating-a-vm). If you choose `SSH public key`, be sure to only paste in your public key, NOT your private key:
+* Select your desired OS type, enter your desired username, and select which authentication type you prefer. If you choose a password, it must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). If you choose `SSH public key`, be sure to only paste in your public key, NOT your private key:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
-* Choose whether you would like to limit the scale set to a single placement group or whether it should span multiple placement groups. Allowing the scale set to span placement groups allows for scale sets over 100 VMs in capacity (up to 1,000) with certain limitations. For more information, see [this documentation](/documentation/articles/virtual-machine-scale-sets-placement-groups/).
+* Choose whether you would like to limit the scale set to a single placement group or whether it should span multiple placement groups. Allowing the scale set to span placement groups allows for scale sets over 100 VMs in capacity (up to 1,000) with certain limitations. For more information, see [this documentation](./virtual-machine-scale-sets-placement-groups.md).
 * Enter your desired resource group name and location, and then click `OK`.
 * On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all Azure.
 * Choose your desired operating system disk image, instance count, and machine size.
-* Choose your desired disk type: managed or unmanaged. For more information, see [this documentation](/documentation/articles/virtual-machine-scale-sets-managed-disks/). If you chose to have the scale set span multiple placement groups, this option will not be available because managed disk is required for scale sets to span placement groups.
+* Choose your desired disk type: managed or unmanaged. For more information, see [this documentation](./virtual-machine-scale-sets-managed-disks.md). If you chose to have the scale set span multiple placement groups, this option will not be available because managed disk is required for scale sets to span placement groups.
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
@@ -56,12 +57,12 @@ If you chose to limit your scale set to a single placement group, then the scale
 You can connect to each VM in the scale set using these NAT rules. For instance, for a Windows scale set, if there is a NAT rule on incoming port 50000, you could connect to that machine via RDP on `<load-balancer-ip-address>:50000`. For a Linux scale set, you would connect using the command `ssh -p 50000 <username>@<load-balancer-ip-address>`.
 
 ## Next steps
-For documentation on how to deploy scale sets from the CLI, see [this documentation](/documentation/articles/virtual-machine-scale-sets-cli-quick-create/).
+For documentation on how to deploy scale sets from the CLI, see [this documentation](./virtual-machine-scale-sets-cli-quick-create.md).
 
-For documentation on how to deploy scale sets from PowerShell, see [this documentation](/documentation/articles/virtual-machine-scale-sets-windows-create/).
+For documentation on how to deploy scale sets from PowerShell, see [this documentation](./virtual-machine-scale-sets-windows-create.md).
 
-For documentation on how to deploy scale sets from Visual Studio, see [this documentation](/documentation/articles/virtual-machine-scale-sets-vs-create/).
+For documentation on how to deploy scale sets from Visual Studio, see [this documentation](./virtual-machine-scale-sets-vs-create.md).
 
-For general documentation, check out the [documentation overview page for scale sets](/documentation/articles/virtual-machine-scale-sets-overview/).
+For general documentation, check out the [documentation overview page for scale sets](./virtual-machine-scale-sets-overview.md).
 
-For general information, check out the [main landing page for scale sets](/home/features/virtual-machine-scale-sets/).
+For general information, check out the [main landing page for scale sets](https://www.azure.cn/home/features/virtual-machine-scale-sets/).

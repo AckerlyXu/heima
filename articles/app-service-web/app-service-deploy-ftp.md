@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Deploy your app to Azure App Service using FTP/S | Azure"
-    description="Learn how to deploy your app to Azure App Service using FTP or FTPS."
-    services="app-service"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="ae78b410-1bc0-4d72-8fc4-ac69801247ae"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/05/2016"
-    wacn.date=""
-    ms.author="cephalin;dariac" />
+---
+title: Deploy your app to Azure App Service using FTP/S | Azure
+description: Learn how to deploy your app to Azure App Service using FTP or FTPS.
+services: app-service
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: ''
+
+ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/05/2016
+wacn.date: ''
+ms.author: cephalin;dariac
+---
 
 # Deploy your app to Azure App Service using FTP/S
 This article shows you how to use FTP or FTPS to deploy your web app, mobile app backend, 
-or API app to [Azure App Service](/documentation/articles/app-service-changes-existing-services/).
+or API app to [Azure App Service](./app-service-changes-existing-services.md).
 
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment. 
 
@@ -27,16 +28,16 @@ The FTP/S endpoint for your app is already active. No configuration is necessary
 
 To access the FTP server for your app, you first need deployment credentials. 
 
-To set or reset your deployment credentials, see [Azure App Service Deployment Credentials](/documentation/articles/app-service-deployment-credentials/). This tutorial demonstrates the use of user-level credentials.
+To set or reset your deployment credentials, see [Azure App Service Deployment Credentials](./app-service-deployment-credentials.md). This tutorial demonstrates the use of user-level credentials.
 
 ## Step 2: Get FTP connection information
 
-1. In the [Azure portal preview](https://portal.azure.cn), open your app's [resource blade](/documentation/articles/resource-group-portal/#manage-resources).
+1. In the [Azure portal preview](https://portal.azure.cn), open your app's [resource blade](../azure-resource-manager/resource-group-portal.md#manage-resources).
 2. Select **Overview** in the left menu, then note the values for **FTP/Deployment User**, **FTP Host Name**, and **FTPS Host Name**. 
 
     ![FTP Connection Information](./media/web-sites-deploy/FTP-Connection-Info.PNG)
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > The **FTP/Deployment User** user value as displayed by the Azure Portal Preview including the app name in order to provide proper context for the FTP server.
     > You can find the same information when you select **Properties** in the left menu. 
     ><p>
@@ -51,8 +52,8 @@ use the connection information you gathered to connect to your app.
 3. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure (or the **/site/wwwroot/App_Data/Jobs/** directory for WebJobs).
 4. Browse to your app's URL to verify the app is running properly. 
 
-> [AZURE.NOTE] 
-> Unlike [Git-based deployments](/documentation/articles/app-service-deploy-local-git/), FTP deployment doesn't support the following deployment automations: 
+> [!NOTE] 
+> Unlike [Git-based deployments](./app-service-deploy-local-git.md), FTP deployment doesn't support the following deployment automations: 
 ><p>
 ><p> - dependency restore (such as NuGet, NPM, PIP, and Composer automations)
 ><p> - compilation of .NET binaries
@@ -64,10 +65,10 @@ use the connection information you gathered to connect to your app.
 
 ## Next steps
 
-For more advanced deployment scenarios, try [deploying to Azure with Git](/documentation/articles/app-service-deploy-local-git/). Git-based deployment to Azure
+For more advanced deployment scenarios, try [deploying to Azure with Git](./app-service-deploy-local-git.md). Git-based deployment to Azure
 enables version control, package restore, MSBuild, and more.
 
 ## More Resources
 
-* [Create a PHP-MySQL web app and deploy using FTP](/documentation/articles/web-sites-php-mysql-deploy-use-ftp/).
-* [Azure App Service Deployment Credentials](/documentation/articles/app-service-deploy-ftp/)
+* [Create a PHP-MySQL web app and deploy using FTP](./web-sites-php-mysql-deploy-use-ftp.md).
+* [Azure App Service Deployment Credentials](./app-service-deploy-ftp.md)

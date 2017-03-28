@@ -1,16 +1,16 @@
-<properties
-   pageTitle="Service Fabric architecture | Azure"
-   description="Service Fabric is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud. This article shows the architecture of Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rishirsinha"
-   manager="timlt"
-   editor="rishirsinha"/>
+---
+title: Service Fabric architecture | Azure
+description: Service Fabric is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud. This article shows the architecture of Service Fabric.
+services: service-fabric
+documentationCenter: .net
+authors: rishirsinha
+manager: timlt
+editor: rishirsinha
 
-<tags
-    ms.service="service-fabric"
-   ms.date="06/09/2016"
-    wacn.date=""/>
+ms.service: service-fabric
+ms.date: 06/09/2016
+wacn.date: ''
+---
 
 # Service Fabric architecture
 
@@ -46,7 +46,6 @@ The management subsystem provides end-to-end service and application lifecycle m
 * **Cluster Manager**: This is the primary service that interacts with the Failover Manager from reliability to place the applications on the nodes based on the service placement constraints. The Resource Manager in failover subsystem ensures that the constraints are never broken. The cluster manager manages the lifecycle of the applications from provision to de-provision. It integrates with the health manager to ensure that application availability is not lost from a semantic health perspective during upgrades.
 * **Health Manager**: This service enables health monitoring of applications, services, and cluster entities. Cluster entities (such as nodes, service partitions, and replicas) can report health information, which is then aggregated into the centralized health store. This health information provides an overall point-in-time health snapshot of the services and nodes distributed across multiple nodes in the cluster, enabling you to take any needed corrective actions. Health query APIs enable you to query the health events reported to the health subsystem. The health query APIs return the raw health data stored in the health store or the aggregated, interpreted health data for a specific cluster entity.
 * **Image Store**: This service provides storage and distribution of the application binaries. This service provides a simple distributed file store where the applications are uploaded to and downloaded from.
-
 
 ## Hosting subsystem
 The cluster manager informs the hosting subsystem (running on each node) which services it needs to manage for a particular node. The hosting subsystem then manages the lifecycle of the application on that node. It interacts with the reliability and health components to ensure that the replicas are properly placed and are healthy.

@@ -1,16 +1,16 @@
-<properties 
-	pageTitle="Linking resources in Azure Resource Manager | Azure" 
-	description="Create a link between related resources in different resource groups in Azure Resource Manager." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="timlt" 
-	editor="tysonn"/>
+---
+title: Linking resources in Azure Resource Manager | Azure
+description: Create a link between related resources in different resource groups in Azure Resource Manager.
+services: azure-resource-manager
+documentationCenter: ''
+authors: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags 
-	ms.service="azure-resource-manager" 
-	ms.date="05/16/2016" 
-	wacn.date=""/>
+ms.service: azure-resource-manager
+ms.date: 05/16/2016
+wacn.date: ''
+---
 
 # Linking resources in Azure Resource Manager
 
@@ -24,17 +24,18 @@ All linked resources must belong to the same subscription. Each resource can be 
 
 To define a link in a template, you include a resource type that combines the resource provider namespace and type of the source resource with **/providers/links**. The name must include the name of the source resource. You provide the resource id of the target resource. The following example establishes a link between a web site and a storage account.
 
-    {
-      "type": "Microsoft.Web/sites/providers/links",
-      "apiVersion": "2015-01-01",
-      "name": "[concat(variables('siteName'),'/Microsoft.Resources/SiteToStorage')]",
-      "dependsOn": [ "[variables('siteName')]" ],
-      "properties": {
-        "targetId": "[resourceId('Microsoft.Storage/storageAccounts','storagecontoso')]",
-        "notes": "This web site uses the storage account to store user information."
-      }
-    }
-
+```
+{
+  "type": "Microsoft.Web/sites/providers/links",
+  "apiVersion": "2015-01-01",
+  "name": "[concat(variables('siteName'),'/Microsoft.Resources/SiteToStorage')]",
+  "dependsOn": [ "[variables('siteName')]" ],
+  "properties": {
+    "targetId": "[resourceId('Microsoft.Storage/storageAccounts','storagecontoso')]",
+    "notes": "This web site uses the storage account to store user information."
+  }
+}
+```
 
 For a full description of the template format, see [Resource links - template schema](resource-manager-template-links.md).
 
@@ -42,30 +43,36 @@ For a full description of the template format, see [Resource links - template sc
 
 To define a link between deployed resources, run:
 
-    PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/{provider-namespace}/{resource-type}/{resource-name}/providers/Microsoft.Resources/links/{link-name}?api-version={api-version}
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/{provider-namespace}/{resource-type}/{resource-name}/providers/Microsoft.Resources/links/{link-name}?api-version={api-version}
+```
 
 Replace {subscription-id} with your subscription id. Replace {resource-group}, {provider-namespace, {resource-type}, and {resource-name} with the values that 
 identify the first resource in the link. Replace {link-name} with the name of the link to create. Use 2015-01-01 for the api-version.
 
 In the request, include an object that defines the second resource in the link:
 
-    {
-        "name": "{new-link-name}",
-        "properties": {
-            "targetId": "subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/{provider-namespace}/{resource-type}/{resource-name}/",
-            "notes": "{link-description}",
-        }
+```
+{
+    "name": "{new-link-name}",
+    "properties": {
+        "targetId": "subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/{provider-namespace}/{resource-type}/{resource-name}/",
+        "notes": "{link-description}",
     }
+}
+```
 
 The properties element contains the identifier for the second resource.
 
 You can query links in your subscription with:
 
-    https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Microsoft.Resources/links?api-version={api-version}
+```
+https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Microsoft.Resources/links?api-version={api-version}
+```
 
 For more examples, including how to retrieve information about links, see [Linked Resources](https://msdn.microsoft.com/library/azure/mt238499.aspx).
 
 ## Next steps
 
-- You can also organize your resources with tags. To learn about tagging resources, see [Using tags to organize your resources](/documentation/articles/resource-group-using-tags/).
-- For a description of how to create templates and define the resources to be deployed, see [Authoring templates](/documentation/articles/resource-group-authoring-templates/).
+- You can also organize your resources with tags. To learn about tagging resources, see [Using tags to organize your resources](./azure-resource-manager/resource-group-using-tags.md).
+- For a description of how to create templates and define the resources to be deployed, see [Authoring templates](./azure-resource-manager/resource-group-authoring-templates.md).

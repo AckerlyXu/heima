@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Customize: Azure Active Directory password management | Azure"
-    description="How to customize password management look and feel, behavior, and notifications in Azure AD to meet your needs."
-    services="active-directory"
-    documentationcenter=""
-    author="MicrosoftGuyJFlo"
-    manager="femila"
-    editor="curtand" />
-<tags
-    ms.assetid="2cddd150-8747-447a-a7cf-1d7d5775c0b3"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/28/2017"
-    wacn.date=""
-    ms.author="joflore" />
+---
+title: Customize: Azure Active Directory password management | Azure
+description: How to customize password management look and feel, behavior, and notifications in Azure AD to meet your needs.
+services: active-directory
+documentationcenter: ''
+author: MicrosoftGuyJFlo
+manager: femila
+editor: curtand
+
+ms.assetid: 2cddd150-8747-447a-a7cf-1d7d5775c0b3
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/28/2017
+wacn.date: ''
+ms.author: joflore
+---
 
 # Customizing password management to fit your organization's needs
-> [AZURE.IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
+> [!IMPORTANT]
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -76,7 +77,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines what organizational name users or admins see on password reset email communications</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -114,7 +115,7 @@ The following table describes how each control affects the experience for users 
                 <p>Determines if users visiting the password reset page see the Microsoft logo or your own custom logo.  This configuration item also adds your branding to the access panel and sign in page.</p>
                 <p>You can learn more about the tenant branding and customization feature at <a href="https://technet.microsoft.com/zh-cn/library/dn532270.aspx">Add company branding to your Sign In and Access Panel pages</a>.</p>
                                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -155,7 +156,7 @@ The following table describes how each control affects the experience for users 
 ## Password management behavior
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the **User Password Reset Policy** section of your directory’s **Configure** tab in the [Azure Management Portal](https://manage.windowsazure.cn).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The administrator account you are using must have an AAD Premium license assigned in order to see these policy controls.<br><br>These policy controls only apply to end users resetting their passwords, not administrators.  **Administrators have a default policy of alternate email and/or mobile phone that is specified for them by Microsoft which cannot be changed.**
 >
 >
@@ -187,7 +188,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines if password reset is enabled for users in this directory. </p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -230,7 +231,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines whether only a particular group of users is allowed to use password reset. (Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -269,7 +270,7 @@ The following table describes how each control affects the experience for users 
                 <p>Determines what group of end users is allowed to use password reset. </p>
                 <p>(Only visible if <strong>restrict access to password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -315,7 +316,7 @@ The following table describes how each control affects the experience for users 
                 <p>Determines which challenges a user is allowed to use to reset his or her password.</p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -381,7 +382,7 @@ The following table describes how each control affects the experience for users 
                 <p>Determines the minimum number of the available authentication methods a user must go through to reset his or her password.</p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -426,7 +427,7 @@ The following table describes how each control affects the experience for users 
                 <p>Determines the minimum number of questions a user must answer when registering for the security questions option.</p>
                 <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -466,7 +467,7 @@ The following table describes how each control affects the experience for users 
                 <p>Determines the minimum number of questions a user must answer when resetting a password.</p>
                 <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -506,7 +507,7 @@ The following table describes how each control affects the experience for users 
                 <p>Defines the pre-canned security questions your users may choose from when registering for password reset and when resetting their passwords.</p>
                 <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -563,7 +564,7 @@ The following table describes how each control affects the experience for users 
                 <p>Defines the security questions your users may choose from when registering for password reset and when resetting their passwords.</p>
                 <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -626,7 +627,7 @@ The following table describes how each control affects the experience for users 
                 <p>Enforced registration will only apply to users who are enabled for password reset, so if you have used the "restrict access to password reset" feature and scoped password reset to a specific group of users, then only users in that group will be required to register for password reset when signing in.</p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -666,7 +667,7 @@ The following table describes how each control affects the experience for users 
                 <p>When <strong>require users to register</strong> is turned on, this setting determines the period of time which can elapse before a user must re-confirm their data. </p>
                 <p>(Only visible if <strong>require users to register when signing in to the access panel</strong> is set to <strong>yes</strong>).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -702,7 +703,7 @@ The following table describes how each control affects the experience for users 
                 <p>Controls whether or not the contact your administrator link (shown to the left) that appears on the password reset portal when an error occurs or a user waits too long on an operation points to a custom URL or email address.</p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -754,7 +755,7 @@ The following table describes how each control affects the experience for users 
                 <p>Controls the email address or URL to which the <strong>contact your administrator</strong> link points. </p>
                 <p>(Only visible if <strong>customize contact your administrator link</strong> is set to <strong>yes</strong>).</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -794,7 +795,7 @@ The following table describes how each control affects the experience for users 
                 <p>Controls whether or not Password Writeback is enabled for this directory and, if writeback is on, indicates the status of the on-premises writeback service.</p>
                 <p>This is setting is useful if you want to temporarily disable the service without re-configuring Azure AD Connect.</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>Azure AD Premium P1 or P2 [cloud and on-prem users]</li>
                    <li>Enterprise Mobility Suite [cloud and on-prem users]</li>
@@ -844,7 +845,7 @@ The following table describes how each control affects the experience for users 
               <p>If set to “yes”, then users will be given the option to reset their password and unlock the account, or to unlock without resetting the password. </p>
               <p>If set to “no”, then users will only be able to perform a combined password reset and account unlock operation.</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>Azure AD Premium P1 or P2 [cloud and on-prem users]</li>
                    <li>Enterprise Mobility Suite [cloud and on-prem users]</li>
@@ -902,7 +903,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines whether or not all global admins will be notified via an email to their primary email address when another admin of any type resets his or her own password.</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -941,7 +942,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines whether or not end users or admins who reset their own passwords will receive an email notification that their password has been reset.</p>
                 <br>
-                <p><b><u>Requires one of the following licenses <a href="/documentation/articles/active-directory-passwords#pricing-and-availability/">learn more</a></u></b></p>
+                <p><b><u>Requires one of the following licenses <a href="./active-directory-passwords.md#pricing-and-availability">learn more</a></u></b></p>
                  <ul>
                    <li>O365 (any paid SKU) [cloud users only]</li>
                    <li>Azure AD Basic [cloud users only]</li>
@@ -966,7 +967,6 @@ The following table describes how each control affects the experience for users 
             </tr>
           </tbody></table>
 
-
 <br/>
 <br/>
 <br/>
@@ -974,13 +974,13 @@ The following table describes how each control affects the experience for users 
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
-- [**How it works**](/documentation/articles/active-directory-passwords-how-it-works/) - learn about the six different components of the service and what each does
-- [**Getting started**](/documentation/articles/active-directory-passwords-getting-started/) - learn how to allow you users to reset and change their cloud or on-premises passwords
-- [**Best practices**](/documentation/articles/active-directory-passwords-best-practices/) - learn how to quickly deploy and effectively manage passwords in your organization
-- [**Get insights**](/documentation/articles/active-directory-passwords-get-insights/) - learn about our integrated reporting capabilities
-- [**FAQ**](/documentation/articles/active-directory-passwords-faq/) - get answers to frequently asked questions
-- [**Troubleshooting**](/documentation/articles/active-directory-passwords-troubleshoot/) - learn how to quickly troubleshoot problems with the service
-- [**Learn more**](/documentation/articles/active-directory-passwords-learn-more/) - go deep into the technical details of how the service works
+- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+- [**How it works**](./active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+- [**Getting started**](./active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+- [**Best practices**](./active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+- [**Get insights**](./active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+- [**FAQ**](./active-directory-passwords-faq.md) - get answers to frequently asked questions
+- [**Troubleshooting**](./active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+- [**Learn more**](./active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"

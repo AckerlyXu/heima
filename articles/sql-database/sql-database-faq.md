@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure SQL Database FAQ | Azure"
-    description="Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud."
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="1da12abc-0646-43ba-b564-e3b049a6487f"
-    ms.service="sql-database"
-    ms.custom="overview"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-management"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="sashan;carlrab" />
+---
+title: Azure SQL Database FAQ | Azure
+description: Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud.
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: 1da12abc-0646-43ba-b564-e3b049a6487f
+ms.service: sql-database
+ms.custom: overview
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-management
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: sashan;carlrab
+---
 
 # SQL Database FAQ
 
@@ -24,16 +25,16 @@
 The current version of SQL Database is V12. Version V11 has been retired.
 
 ## What is the SLA for SQL Database?
-We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Azure SQL Database and our Internet gateway. For more information, see [SLA](/support/legal/sla/).
+We guarantee at least 99.99% of the time customers will have connectivity between their single or elastic Basic, Standard, or Premium Azure SQL Database and our Internet gateway. For more information, see [SLA](https://www.azure.cn/support/legal/sla/).
 
 ## How do I reset the password for the server admin?
 In the [Azure portal](https://portal.azure.cn) click **SQL Servers**, select the server from the list, and then click **Reset Password**.
 
 ## How do I manage databases and logins?
-See [Managing databases and logins](/documentation/articles/sql-database-manage-logins/).
+See [Managing databases and logins](./sql-database-manage-logins.md).
 
 ## How do I make sure only authorized IP addresses are allowed to access a server?
-See [How to: Configure firewall settings on SQL Database](/documentation/articles/sql-database-configure-firewall-settings/).
+See [How to: Configure firewall settings on SQL Database](./sql-database-configure-firewall-settings.md).
 
 ## How does the usage of SQL Database show up on my bill?
 SQL Database bills on a predictable hourly rate based on both the service tier + performance level for single databases or eDTUs per elastic pool. Actual usage is computed and pro-rated hourly, so your bill might show fractions of an hour. For example, if a database exists for 12 hours in a month, your bill shows usage of 0.5 days. Additionally, service tiers + performance level and eDTUs per pool are broken out in the bill to make it easier to see the number of database days you used for each in a single month.
@@ -48,7 +49,7 @@ Examples
 * If you downgrade a database from Premium to Basic at 11:00 a.m. and it completes at 2:15 p.m., then the database is charged at the Premium rate until 3:00 p.m., after which it is charged at the Basic rates.
 
 ## How does elastic pool usage show up on my bill and what happens when I change eDTUs per pool?
-Elastic pool charges show up on your bill as Elastic DTUs (eDTUs) in the increments shown under eDTUs per pool on [the pricing page](/pricing/details/sql-database/). There is no per-database charge for elastic pools. You are billed for each hour a pool exists at the highest eDTU, regardless of usage or whether the pool was active for less than an hour. 
+Elastic pool charges show up on your bill as Elastic DTUs (eDTUs) in the increments shown under eDTUs per pool on [the pricing page](https://www.azure.cn/pricing/details/sql-database/). There is no per-database charge for elastic pools. You are billed for each hour a pool exists at the highest eDTU, regardless of usage or whether the pool was active for less than an hour. 
 
 Examples
 
@@ -65,11 +66,11 @@ Elastic pools are billed per the following characteristics:
 * The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the number and utilization of the elastic databases within it.
 * Price is computed by (number of pool eDTUs)x(unit price per eDTU).
 
-The unit eDTU price for an elastic pool is higher than the unit DTU price for a single database in the same service tier. For details, see [SQL Database pricing](/pricing/details/sql-database/). 
+The unit eDTU price for an elastic pool is higher than the unit DTU price for a single database in the same service tier. For details, see [SQL Database pricing](https://www.azure.cn/pricing/details/sql-database/). 
 
 To understand the eDTUs and service tiers, see [SQL Database options and performance](sql-database-service-tiers.md).
 ## How does the use of Active Geo-Replication in an elastic pool show up on my bill?
-Unlike single databases, using [Active Geo-Replication](/documentation/articles/sql-database-geo-replication-overview/) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
+Unlike single databases, using [Active Geo-Replication](./sql-database-geo-replication-overview.md) with elastic databases doesn't have a direct billing impact.  You are only charged for the eDTUs provisioned for each of the pools (primary pool and secondary pool)
 
 ## How does the use of the auditing feature impact my bill?
 Auditing is built into the SQL Database service at no extra cost and is available to Basic, Standard, and Premium databases. However, to store the audit logs, the auditing feature uses an Azure Storage account, and rates for tables and queues in Azure Storage apply based on the size of your audit log.
@@ -78,8 +79,8 @@ Auditing is built into the SQL Database service at no extra cost and is availabl
 There are a few tools available to you. 
 
 - For on-premises databases, use the [DTU sizing advisor](http://dtucalculator.azurewebsites.net/) to recommend the databases and DTUs required, and evaluate multiple databases for elastic pools.
-- If a single database would benefit from being in a pool, Azure's intelligent engine recommends an elastic pool if it sees a historical usage pattern that warrants it. See [Monitor and manage an elastic pool with the Azure portal](/documentation/articles/sql-database-elastic-pool-manage-portal/). For details about how to do the math yourself, see [Price and performance considerations for an elastic pool](/documentation/articles/sql-database-elastic-pool-guidance/)
-- To see whether you need to dial a single database up or down, see [performance guidance for single databases](/documentation/articles/sql-database-performance-guidance/).
+- If a single database would benefit from being in a pool, Azure's intelligent engine recommends an elastic pool if it sees a historical usage pattern that warrants it. See [Monitor and manage an elastic pool with the Azure portal](./sql-database-elastic-pool-manage-portal.md). For details about how to do the math yourself, see [Price and performance considerations for an elastic pool](./sql-database-elastic-pool-guidance.md)
+- To see whether you need to dial a single database up or down, see [performance guidance for single databases](./sql-database-performance-guidance.md).
 
 ## How often can I change the service tier or performance level of a single database?
 With V12 databases, you can change the service tier (between Basic, Standard, and Premium) or the performance level within a service tier (for example, S1 to S2) as often as you want. For earlier version databases, you can change the service tier or performance level a total of four times in a 24-hour period.
@@ -88,16 +89,16 @@ With V12 databases, you can change the service tier (between Basic, Standard, an
 As often as you want.
 
 ## How long does it take to change the service tier or performance level of a single database or move a database in and out of an elastic pool?
-Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. Changing the service tier can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases, see [Change the service tier of a database](/documentation/articles/sql-database-service-tiers/).
+Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. Changing the service tier can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases, see [Change the service tier of a database](./sql-database-service-tiers.md).
 
 ## When should I use a single database vs. elastic databases? 
-In general, elastic pools are designed for a typical [software-as-a-service (SaaS) application pattern](/documentation/articles/sql-database-design-patterns-multi-tenancy-saas-applications/), where there is one database per customer or tenant. Purchasing individual databases and overprovisioning to meet the variable and peak demand for each database is often not cost efficient. With pools, you manage the collective performance of the pool, and the databases scale up and down automatically. Azure's intelligent engine recommends a pool for databases when a usage pattern warrants it. For details, see [Elastic pool guidance](/documentation/articles/sql-database-elastic-pool-guidance/).
+In general, elastic pools are designed for a typical [software-as-a-service (SaaS) application pattern](./sql-database-design-patterns-multi-tenancy-saas-applications.md), where there is one database per customer or tenant. Purchasing individual databases and overprovisioning to meet the variable and peak demand for each database is often not cost efficient. With pools, you manage the collective performance of the pool, and the databases scale up and down automatically. Azure's intelligent engine recommends a pool for databases when a usage pattern warrants it. For details, see [Elastic pool guidance](./sql-database-elastic-pool-guidance.md).
 
 ## What does it mean to have up to 200% of your maximum provisioned database storage for backup storage?
-Backup storage is the storage associated with your automated database backups that are used for [Point-In-Time-Restore](/documentation/articles/sql-database-recovery-using-backups/#point-in-time-restore) and [Geo-Restore](/documentation/articles/sql-database-recovery-using-backups/#geo-restore). Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you are provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
+Backup storage is the storage associated with your automated database backups that are used for [Point-In-Time-Restore](./sql-database-recovery-using-backups.md#point-in-time-restore) and [Geo-Restore](./sql-database-recovery-using-backups.md#geo-restore). Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you are provided with 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support or pay for the extra backup storage billed at standard Read-Access Geographically Redundant Storage (RA-GRS) rate. For more information on RA-GRS billing, see Storage Pricing Details.
 
 ## I'm moving from Web/Business to the new service tiers, what do I need to know?
-Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases. We've additional FAQ that should help you in this transition period. [Web and Business Edition sunset FAQ](/documentation/articles/sql-database-web-business-sunset-faq/)
+Azure SQL Web and Business databases are now retired. The Basic, Standard, Premium, and Elastic tiers replace the retiring Web and Business databases. We've additional FAQ that should help you in this transition period. [Web and Business Edition sunset FAQ](./sql-database-web-business-sunset-faq.md)
 
 ## What is an expected replication lag when geo-replicating a database between two regions within the same Azure geography?
 We are currently supporting an RPO of five seconds and the replication lag has been less than that when the geo-secondary is hosted in the Azure recommended paired region and at the same service tier.

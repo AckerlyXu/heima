@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Azure Virtual Machine Scale Sets: Existing Virtual Network Template | Azure"
-    description="Learn to create a scale set template with existing virtual network"
-    services="virtual-machine-scale-sets"
-    documentationcenter=""
-    author="gatneil"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="76ac7fd7-2e05-4762-88ca-3b499e87906e"
-    ms.service="virtual-machine-scale-sets"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="3/06/2017"
-    wacn.date=""
-    ms.author="negat" />
+---
+title: Azure Virtual Machine Scale Sets: Existing Virtual Network Template | Azure
+description: Learn to create a scale set template with existing virtual network
+services: virtual-machine-scale-sets
+documentationcenter: ''
+author: gatneil
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+ms.service: virtual-machine-scale-sets
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 3/06/2017
+wacn.date: ''
+ms.author: negat
+---
 
 # About this article
 
-This article shows how to modify the [minimum viable scale set template](/documentation/articles/virtual-machine-scale-sets-mvss-start/) to deploy into an existing virtual network instead of creating a new one.
+This article shows how to modify the [minimum viable scale set template](./virtual-machine-scale-sets-mvss-start.md) to deploy into an existing virtual network instead of creating a new one.
 
 ## Modifying the minimum viable scale set to deploy into an existing virtual network
 
@@ -28,66 +29,74 @@ Our minimum viable scale set template can be seen [here](https://raw.githubuserc
 
 First, we add a `subnetId` parameter. This string will be passed into the scale set configuration, allowing the scale set to identify the pre-created subnet to deploy virtual machines into. This string must be of the form: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. For instance, to deploy the scale set into an existing virtual network with name `myvnet`, subnet `mysubnet`, resource group `myrg`, and subscription `00000000-0000-0000-0000-000000000000`, the subnetId would be: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
-         },
-         "adminPassword": {
-           "type": "securestring"
-    +    },
-    +    "subnetId": {
-    +      "type": "string"
-         }
-       },
+```diff
+     },
+     "adminPassword": {
+       "type": "securestring"
++    },
++    "subnetId": {
++      "type": "string"
+     }
+   },
+```
 
 Next, we can delete the virtual network resource from the `resources` array, since we are using an existing virtual network and don't need to deploy a new one.
 
-       "variables": {},
-       "resources": [
-    -    {
-    -      "type": "Microsoft.Network/virtualNetworks",
-    -      "name": "myVnet",
-    -      "location": "[resourceGroup().location]",
-    -      "apiVersion": "2016-12-01",
-    -      "properties": {
-    -        "addressSpace": {
-    -          "addressPrefixes": [
-    -            "10.0.0.0/16"
-    -          ]
-    -        },
-    -        "subnets": [
-    -          {
-    -            "name": "mySubnet",
-    -            "properties": {
-    -              "addressPrefix": "10.0.0.0/16"
-    -            }
-    -          }
-    -        ]
-    -      }
-    -    },
+```diff
+   "variables": {},
+   "resources": [
+-    {
+-      "type": "Microsoft.Network/virtualNetworks",
+-      "name": "myVnet",
+-      "location": "[resourceGroup().location]",
+-      "apiVersion": "2016-12-01",
+-      "properties": {
+-        "addressSpace": {
+-          "addressPrefixes": [
+-            "10.0.0.0/16"
+-          ]
+-        },
+-        "subnets": [
+-          {
+-            "name": "mySubnet",
+-            "properties": {
+-              "addressPrefix": "10.0.0.0/16"
+-            }
+-          }
+-        ]
+-      }
+-    },
+```
 
 The virtual network already exists before the template is deployed, so there is no need to specify a dependsOn clause from the scale set to the virtual network. Thus, we delete these lines:
 
-         {
-           "type": "Microsoft.Compute/virtualMachineScaleSets",
-           "name": "myScaleSet",
-           "location": "[resourceGroup().location]",
-           "apiVersion": "2016-04-30-preview",
-    -      "dependsOn": [
-    -        "Microsoft.Network/virtualNetworks/myVnet"
-    -      ],
-           "sku": {
-             "name": "Standard_A1",
-             "capacity": 2
+```diff
+     {
+       "type": "Microsoft.Compute/virtualMachineScaleSets",
+       "name": "myScaleSet",
+       "location": "[resourceGroup().location]",
+       "apiVersion": "2016-04-30-preview",
+-      "dependsOn": [
+-        "Microsoft.Network/virtualNetworks/myVnet"
+-      ],
+       "sku": {
+         "name": "Standard_A1",
+         "capacity": 2
+```
 
 Finally, we pass in the `subnetId` parameter set by the user (instead of using `resourceId` to get the id of a vnet in the same deployment, which is what the minimum viable scale set template does).
 
-                           "name": "myIpConfig",
-                           "properties": {
-                             "subnet": {
-    -                          "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', 'myVnet'), '/subnets/mySubnet')]"
-    +                          "id": "[parameters('subnetId')]"
-                             }
-                           }
+```diff
+                       "name": "myIpConfig",
+                       "properties": {
+                         "subnet": {
+-                          "id": "[concat(resourceId('Microsoft.Network/virtualNetworks', 'myVnet'), '/subnets/mySubnet')]"
++                          "id": "[parameters('subnetId')]"
                          }
+                       }
+                     }
+```
 
 ## Next Steps
 
-[AZURE.INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
+[!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

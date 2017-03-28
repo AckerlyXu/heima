@@ -1,17 +1,16 @@
-<properties 
-	pageTitle="Using Twilio for Voice, VoIP, and SMS Messaging in Azure" 
-	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Node.js." 
-	services="" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Using Twilio for Voice, VoIP, and SMS Messaging in Azure
+description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Node.js.
+services: ''
+documentationCenter: nodejs
+authors: MikeWasson
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="multiple" 
-	ms.date="11/25/2014" 
-	wacn.date=""/>
-
+ms.service: multiple
+ms.date: 11/25/2014
+wacn.date: ''
+---
 
 # Using Twilio for Voice, VoIP, and SMS Messaging in Azure
 
@@ -90,93 +89,97 @@ This declares the twilio module as a dependency, as well as the popular [express
 
 Let's create a simple form that will place a call to a number we choose.  Open up server.js, and enter the following code.  Note where it says "CHANGE_ME" - put the name of your azure website there:
 
-    // Module dependencies
-    var express = require('express'), 
-      path = require('path'), 
-      http = require('http'), 
-      twilio = require('twilio');
+```javascript
+// Module dependencies
+var express = require('express'), 
+  path = require('path'), 
+  http = require('http'), 
+  twilio = require('twilio');
 
-    // Create Express web site
-    var app = express();
+// Create Express web site
+var app = express();
 
-    // Express configuration
-    app.configure(function(){
-      app.set('port', process.env.PORT || 3000);
-      app.set('views', __dirname + '/views');
-      app.set('view engine', 'ejs');
-      app.use(express.favicon());
-      app.use(express.logger('dev'));
-      app.use(express.bodyParser());
-      app.use(express.methodOverride());
-      app.use(app.router);
-      app.use(express.static(path.join(__dirname, 'public')));
-    });
-    app.configure('development', function(){
-      app.use(express.errorHandler());
-    });
+// Express configuration
+app.configure(function(){
+  app.set('port', process.env.PORT || 3000);
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'ejs');
+  app.use(express.favicon());
+  app.use(express.logger('dev'));
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
+  app.use(express.static(path.join(__dirname, 'public')));
+});
+app.configure('development', function(){
+  app.use(express.errorHandler());
+});
 
-    // Render an HTML user interface for the application's home page
-    app.get('/', function(request, response) {
-      response.render('index');
-    });
+// Render an HTML user interface for the application's home page
+app.get('/', function(request, response) {
+  response.render('index');
+});
 
-    // Handle the form POST to place a call
-    app.post('/call', function(request, response) {
-      var client = twilio();
-      client.makeCall({
-          // make a call to this number
-          to:request.body.number,
+// Handle the form POST to place a call
+app.post('/call', function(request, response) {
+  var client = twilio();
+  client.makeCall({
+      // make a call to this number
+      to:request.body.number,
 
-          // Change to a Twilio number you bought - see:
-          // https://www.twilio.com/user/account/phone-numbers/incoming
-          from:'+15558675309',
+      // Change to a Twilio number you bought - see:
+      // https://www.twilio.com/user/account/phone-numbers/incoming
+      from:'+15558675309',
 
-          // A URL in our app which generates TwiML
-          // Change "CHANGE_ME" to your app's name
-          url:'https://CHANGE_ME.chinacloudsites.cn/outbound_call'
-      }, function(error, data) {
-          // Go back to the home page
-          response.redirect('/');
-      });
-    });
+      // A URL in our app which generates TwiML
+      // Change "CHANGE_ME" to your app's name
+      url:'https://CHANGE_ME.chinacloudsites.cn/outbound_call'
+  }, function(error, data) {
+      // Go back to the home page
+      response.redirect('/');
+  });
+});
 
-    // Generate TwiML to handle an outbound call
-    app.post('/outbound_call', function(request, response) {
-      var twiml = new twilio.TwimlResponse();
+// Generate TwiML to handle an outbound call
+app.post('/outbound_call', function(request, response) {
+  var twiml = new twilio.TwimlResponse();
 
-      // Say a message to the call's receiver 
-      twiml.say('hello - thanks for checking out Twilio and Azure', {
-          voice:'woman'
-      });
+  // Say a message to the call's receiver 
+  twiml.say('hello - thanks for checking out Twilio and Azure', {
+      voice:'woman'
+  });
 
-      response.set('Content-Type', 'text/xml');
-      response.send(twiml.toString());
-    });
+  response.set('Content-Type', 'text/xml');
+  response.send(twiml.toString());
+});
 
-    // Start server
-    http.createServer(app).listen(app.get('port'), function(){
-      console.log("Express server listening on port " + app.get('port'));
-    });
+// Start server
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
+});
+```
 
 Next, create a directory called "views" - inside this directory, create a file named "index.ejs" with the following contents:
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Twilio Test</title>
-      <style>
-        input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
-      </style>
-    </head>
-    <body>
-      <h1>Twilio Test</h1>
-      <form action="/call" method="POST">
-          <input placeholder="Enter a phone number" name="number"/>
-          <br/>
-          <input type="submit" value="Call the number above"/>
-      </form>
-    </body>
-    </html>
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twilio Test</title>
+  <style>
+    input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
+  </style>
+</head>
+<body>
+  <h1>Twilio Test</h1>
+  <form action="/call" method="POST">
+      <input placeholder="Enter a phone number" name="number"/>
+      <br/>
+      <input type="submit" value="Call the number above"/>
+  </form>
+</body>
+</html>
+```
 
 Now, deploy your website to Azure and open your home .  You should be able to enter your phone number in the text field, and receive a call from your Twilio number!
 
@@ -185,34 +188,38 @@ Now, deploy your website to Azure and open your home .  You should be able to en
 
 Now, let's set up a user interface and form handling logic to send a text message.  Open up "server.js", and add the following code after the last call to "app.post":
 
-    app.post('/sms', function(request, response) {
-      var client = twilio();
-      client.sendSms({
-          // send a text to this number
-          to:request.body.number,
+```javascript
+app.post('/sms', function(request, response) {
+  var client = twilio();
+  client.sendSms({
+      // send a text to this number
+      to:request.body.number,
 
-          // A Twilio number you bought - see:
-          // https://www.twilio.com/user/account/phone-numbers/incoming
-          from:'+15558675309',
+      // A Twilio number you bought - see:
+      // https://www.twilio.com/user/account/phone-numbers/incoming
+      from:'+15558675309',
 
-          // The body of the text message
-          body: request.body.message
-          
-      }, function(error, data) {
-          // Go back to the home page
-          response.redirect('/');
-      });
-    });
+      // The body of the text message
+      body: request.body.message
+
+  }, function(error, data) {
+      // Go back to the home page
+      response.redirect('/');
+  });
+});
+```
 
 In "views/index.ejs", add another form under the first one to submit a number and a text message:
 
-    <form action="/sms" method="POST">
-      <input placeholder="Enter a phone number" name="number"/>
-      <br/>
-      <input placeholder="Enter a message to send" name="message"/>
-      <br/>
-      <input type="submit" value="Send text to the number above"/>
-    </form>
+```html
+<form action="/sms" method="POST">
+  <input placeholder="Enter a phone number" name="number"/>
+  <br/>
+  <input placeholder="Enter a message to send" name="message"/>
+  <br/>
+  <input type="submit" value="Send text to the number above"/>
+</form>
+```
 
 Redeploy your application to Azure, and you should now be able to submit that form and send yourself (or any of your closest friends) a text message!
 
@@ -240,6 +247,3 @@ We hope you love hacking node.js and Twilio on Azure!
 [votr]: http://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
-
-
-

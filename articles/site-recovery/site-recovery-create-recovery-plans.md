@@ -1,33 +1,32 @@
-<properties
-    pageTitle="Create recovery plans for failover and recovery in Azure Site Recovery | Azure"
-    description="Describes how to create and customize recovery plans to fail over and recover VMs and physical servers in Azure Site Recovery"
-    services="site-recovery"
-    documentationcenter=""
-    author="rayne-wiselman"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.assetid="72408c62-fcb6-4ee2-8ff5-cab1218773f2"
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="raynew" />
+---
+title: Create recovery plans for failover and recovery in Azure Site Recovery | Azure
+description: Describes how to create and customize recovery plans to fail over and recover VMs and physical servers in Azure Site Recovery
+services: site-recovery
+documentationcenter: ''
+author: rayne-wiselman
+manager: jwhit
+editor: ''
+
+ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: raynew
+---
 
 # Create recovery plans
 
-
-This article provides information about creating and customizing recovery plans in [Azure Site Recovery?](/documentation/articles/site-recovery-overview/).
+This article provides information about creating and customizing recovery plans in [Azure Site Recovery?](./site-recovery-overview.md).
 
  Recovery plans do the following:
 
 * Define groups of machines that fail over together, and then start up together.
 * Model dependencies between machines, by grouping them together into a recovery plan group. For example, to fail over and bring up a specific application, you group all of the VMs for that application into the same recovery plan group.
 * Fail over. You can run a test, planned, or unplanned failover on a recovery plan.
-
 
 ## Create a recovery plan
 
@@ -47,7 +46,7 @@ You can customize and extend recovery plans:
 - **Add new groups**—Add additional recovery plan groups (up to seven) to the default group, and then add more machines or replication groups to those recovery plan groups. Groups are numbered in the order in which you add them. A virtual machine, or replication group, can only be included in one recovery plan group.
 - **Add a manual action**—You can add manual actions that run before or after a recovery plan group. When the recovery plan runs, it stops at the point at which you inserted the manual action. A dialog box prompts you to specify that the manual action was completed.
 - **Add a script**—You can add scripts that run before or after a recovery plan group. When you add a script, it adds a new set of actions for the group. For example, a set of pre-steps for Group 1 will be created with the name: Group 1: pre-steps. All pre-steps will be listed inside this set. You can only add a script on the primary site if you have a VMM server deployed.
-- **Add Azure runbooks**—You can extend recovery plans with Azure runbooks. For example, to automate tasks, or to create single-step recovery. [Learn more](/documentation/articles/site-recovery-runbook-automation/).
+- **Add Azure runbooks**—You can extend recovery plans with Azure runbooks. For example, to automate tasks, or to create single-step recovery. [Learn more](./site-recovery-runbook-automation.md).
 
 ## Add scripts
 
@@ -86,7 +85,6 @@ You can add a script to the default recovery plan group after you've added VMs o
 5. If you add an Azure automation run book, specify the Azure Automation account in which the runbook is located, and select the appropriate Azure runbook script.
 6. Do a failover of the recovery plan, to make sure the script works as expected.
 
-
 ### VMM script
 
 If you have a VMM source site, you can create a script on the VMM server, and include it in your recovery plan.
@@ -95,7 +93,6 @@ If you have a VMM source site, you can create a script on the VMM server, and in
 2. Create the script (for example RPScript), and check it works as expected.
 3. Place the script in the location \<VMMServerName>\MSSCVMMLibrary, on the source and target VMM servers.
 
-
 ## Next steps
 
-[Learn more](/documentation/articles/site-recovery-failover/) about running failovers.
+[Learn more](./site-recovery-failover.md) about running failovers.

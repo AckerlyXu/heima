@@ -1,32 +1,33 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Using Docker VM Extension for Linux | Azure"
-    description="Describes Docker and the Azure Virtual Machines extensions, and how to create Azure Virtual Machines that are docker hosts using the Azure CLI in classic deployment model."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="squillace"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management" />
-<tags
-    ms.assetid="19cf64e8-f92c-43ad-a120-8976cd9102ac"
-    ms.service="virtual-machines-linux"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="05/27/2016"
-    wacn.date=""
-    ms.author="rasquill" />
+---
+title: Using Docker VM Extension for Linux | Azure
+description: Describes Docker and the Azure Virtual Machines extensions, and how to create Azure Virtual Machines that are docker hosts using the Azure CLI in classic deployment model.
+services: virtual-machines-linux
+documentationcenter: ''
+author: squillace
+manager: timlt
+editor: tysonn
+tags: azure-service-management
+
+ms.assetid: 19cf64e8-f92c-43ad-a120-8976cd9102ac
+ms.service: virtual-machines-linux
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 05/27/2016
+wacn.date: ''
+ms.author: rasquill
+---
 
 # Using the Docker VM Extension with the Azure Classic Management Portal
-> [AZURE.IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
 
 [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://zh.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension managed by [Azure Linux Agent] to create a Docker VM that hosts any number of containers for your applications on Azure.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This topic describes how to create a Docker VM from the Azure Classic Management Portal. To see how to create a Docker VM at the command line, see [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
@@ -34,7 +35,7 @@
 ## Create a new VM from the Image Gallery
 The first step requires an Azure VM from a Linux image that supports the Docker VM Extension, using an Ubuntu 14.04 LTS image from the Image Gallery as an example server image and Ubuntu 14.04 Desktop as a client. In the portal, click **+ New** in the bottom left corner to create a new VM instance and select an Ubuntu 14.04 LTS image from the selections available or from the complete Image Gallery, as shown below.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Currently, only Ubuntu 14.04 LTS images more recent than July 2014 support the Docker VM Extension.
 > 
 > 
@@ -46,26 +47,28 @@ After the VM has been created, ensure that Docker is installed on your client co
 
 Create the certificate and key files for Docker communication according to [Running Docker with https] and place them in the **`~/.docker`** directory on your client computer.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The Docker VM Extension in the portal currently requires credentials that are base64 encoded.
 > 
 > 
 
 At the command line, use **`base64`** or another favorite encoding tool to create base64-encoded topics. Doing this with a simple set of certificate and key files might look similar to this:
 
-     ~/.docker$ ls
-     ca-key.pem  ca.pem  cert.pem  key.pem  server-cert.pem  server-key.pem
-     ~/.docker$ base64 ca.pem > ca64.pem
-     ~/.docker$ base64 server-cert.pem > server-cert64.pem
-     ~/.docker$ base64 server-key.pem > server-key64.pem
-     ~/.docker$ ls
-     ca64.pem    ca.pem    key.pem            server-cert.pem   server-key.pem
-     ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
+```
+ ~/.docker$ ls
+ ca-key.pem  ca.pem  cert.pem  key.pem  server-cert.pem  server-key.pem
+ ~/.docker$ base64 ca.pem > ca64.pem
+ ~/.docker$ base64 server-cert.pem > server-cert64.pem
+ ~/.docker$ base64 server-key.pem > server-key64.pem
+ ~/.docker$ ls
+ ca64.pem    ca.pem    key.pem            server-cert.pem   server-key.pem
+ ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
+```
 
 ## Add the Docker VM Extension
 To add the Docker VM Extension, locate the VM instance you created and scroll down to **Extensions** and click it to bring up VM Extensions, as shown below.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This functionality is supported in the Portal Preview only: https://portal.azure.cn/
 > 
 > 
@@ -89,7 +92,7 @@ In the form fields, enter the base64-encoded versions of your CA Certificate, yo
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddExtensionFormFilled.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Note that (as in the preceding image) the 2376 is filled in by default. You can enter any endpoint here, but the next step will be to open up the matching endpoint. If you change the default, make sure to open up the matching endpoint in the next step.
 > 
 > 
@@ -108,22 +111,24 @@ Locate and copy the name of your VM's domain, and at the command line of your cl
 
 The result should appear similar to this:
 
-    $ docker --tls -H tcp://dockerextension.chinacloudapp.cn:2376 info
-    Containers: 0
-    Images: 0
-    Storage Driver: devicemapper
-     Pool Name: docker-8:1-131214-pool
-     Pool Blocksize: 65.54 kB
-     Data file: /var/lib/docker/devicemapper/devicemapper/data
-     Metadata file: /var/lib/docker/devicemapper/devicemapper/metadata
-     Data Space Used: 305.7 MB
-     Data Space Total: 107.4 GB
-     Metadata Space Used: 729.1 kB
-     Metadata Space Total: 2.147 GB
-     Library Version: 1.02.82-git (2013-10-04)
-    Execution Driver: native-0.2
-    Kernel Version: 3.13.0-36-generic
-    WARNING: No swap limit support
+```
+$ docker --tls -H tcp://dockerextension.chinacloudapp.cn:2376 info
+Containers: 0
+Images: 0
+Storage Driver: devicemapper
+ Pool Name: docker-8:1-131214-pool
+ Pool Blocksize: 65.54 kB
+ Data file: /var/lib/docker/devicemapper/devicemapper/data
+ Metadata file: /var/lib/docker/devicemapper/devicemapper/metadata
+ Data Space Used: 305.7 MB
+ Data Space Total: 107.4 GB
+ Metadata Space Used: 729.1 kB
+ Metadata Space Total: 2.147 GB
+ Library Version: 1.02.82-git (2013-10-04)
+Execution Driver: native-0.2
+Kernel Version: 3.13.0-36-generic
+WARNING: No swap limit support
+```
 
 Once you complete the above steps, you now have a fully functional Docker host running on an Azure VM, configured to be connected to remotely from other clients.
 
@@ -152,7 +157,7 @@ You are ready to go to the [Docker User Guide] and use your Docker VM. If you wa
 
 <!--Link references-->
 [How to use the Docker VM Extension from the Azure Command-line Interface (Azure CLI)]: /documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Azure Linux Agent]: /documentation/articles/virtual-machines-linux-agent-user-guide/
+[Azure Linux Agent]: ./virtual-machines-linux-agent-user-guide.md
 [Link 3 to another azure.microsoft.com documentation topic]: /documentation/articles/storage-whatis-account/
 
 [Running Docker with https]: http://docs.docker.com/articles/https/

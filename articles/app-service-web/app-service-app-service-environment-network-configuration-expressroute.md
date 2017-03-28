@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Network Configuration Details for Working with Express Route"
-    description="Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit."
-    services="app-service"
-    documentationcenter=""
-    author="stefsch"
-    manager="nirma"
-    editor="" />
-<tags
-    ms.assetid="34b49178-2595-4d32-9b41-110c96dde6bf"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/14/2016"
-    wacn.date=""
-    ms.author="stefsch" />
+---
+title: Network Configuration Details for Working with Express Route
+description: Network configuration details for running App Service Environments in a Virtual Networks connected to an ExpressRoute Circuit.
+services: app-service
+documentationcenter: ''
+author: stefsch
+manager: nirma
+editor: ''
+
+ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/14/2016
+wacn.date: ''
+ms.author: stefsch
+---
 
 # Network Configuration Details for App Service Environments with ExpressRoute
 ## Overview
@@ -25,14 +26,14 @@ Customers can connect an [Azure ExpressRoute][ExpressRoute] circuit to their vir
 
 An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model virtual network.  With a recent change made in June 2016, ASEs can also now be deployed into virtual networks that use either public address ranges, or RFC1918 address spaces (i.e. private addresses). 
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Required Network Connectivity
 There are network connectivity requirements for App Service Environments that may not be initially met in a virtual network connected to an ExpressRoute.  App Service Environments require all of the following in order to function properly:
 
 * Outbound network connectivity to Azure Storage endpoints worldwide on both ports 80 and 443.  This includes endpoints located in the same region as the App Service Environment, as well as storage endpoints located in **other** Azure regions.  Azure Storage endpoints resolve under the following DNS domains: *table.core.chinacloudapi.cn*, *blob.core.chinacloudapi.cn*, *queue.core.chinacloudapi.cn* and *file.core.chinacloudapi.cn*.  
 * Outbound network connectivity to the Azure Files service on port 445.
-* Outbound network connectivity to Sql DB endpoints located in the same region as the App Service Environment.  Sql DB endpoints resolve under the following domain:  *database.chinacloudapi.cn*.  This requires opening access to ports 1433, 11000-11999 and 14000-14999.  For more details see [this article on Sql Database V12 port usage](/documentation/articles/sql-database-develop-direct-route-ports-adonet-v12/).
+* Outbound network connectivity to Sql DB endpoints located in the same region as the App Service Environment.  Sql DB endpoints resolve under the following domain:  *database.chinacloudapi.cn*.  This requires opening access to ports 1433, 11000-11999 and 14000-14999.  For more details see [this article on Sql Database V12 port usage](../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).
 * Outbound network connectivity to the Azure management plane endpoints (both ASM and ARM endpoints).  This includes outbound connectivity to both *management.core.chinacloudapi.cn* and *management.azure.com*. 
 * Outbound network connectivity to *ocsp.msocsp.com*, *mscrl.microsoft.com* and *crl.microsoft.com*.  This is needed to support SSL functionality.
 * The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points.  If these endpoints cannot be resolved, App Service Environment creation attempts will fail, and existing App Service Environments will be marked as unhealthy.
@@ -59,7 +60,7 @@ If possible, it is recommended to use the following configuration:
 
 The combined effect of these steps is that the subnet level UDR will take precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the App Service Environment.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The routes defined in a UDR **must** be specific enough to  take precedence over any routes advertised by the ExpressRoute configuration.  The example below uses the broad 0.0.0.0/0 address range, and as such can potentially be accidentally overridden by route advertisements using more specific address ranges.
 > 
 > App Service Environments are not supported with ExpressRoute configurations that **cross-advertise routes from the public peering path to the private peering path**.  ExpressRoute configurations that have public peering configured, will receive route advertisements from Microsoft for a large set of Azure IP address ranges.  If these address ranges are cross-advertised on the private peering path, the end result is that all outbound network packets from the App Service Environment's subnet will be force-tunneled to a customer's on-premises network infrastructure.  This network flow is currently not supported with App Service Environments.  One solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.
@@ -81,7 +82,9 @@ Details on creating and configuring user defined routes is available in this [Ho
 
 The following snippet creates a route table called "DirectInternetRouteTable" in the China North Azure region:
 
-    New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location chinanorth
+```
+New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location chinanorth
+```
 
 **Step 2:  Create one or more routes in the route table**
 
@@ -89,7 +92,9 @@ You will need to add one or more routes to the route table in order to enable ou
 
 The recommended approach for configuring outbound access to the Internet is to define a route for 0.0.0.0/0 as shown below.
 
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
+```
+Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
+```
 
 Remember that 0.0.0.0/0 is a broad address range, and as such will be overridden by more specific address ranges advertised by the ExpressRoute.  To re-iterate the earlier recommendation, a UDR with a 0.0.0.0/0 route should be used in conjunction with an ExressRoute configuration that only advertises 0.0.0.0/0 as well. 
 
@@ -101,7 +106,9 @@ Note though that these ranges change over time, thus necessitating periodic manu
 
 The last  configuration step is to associate the route table to the subnet where the App Service Environment will be deployed.  The following command associates the "DirectInternetRouteTable" to the "ASESubnet" that will eventually contain an App Service Environment.
 
-    Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'
+```
+Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'
+```
 
 **Step 4:  Final Steps**
 
@@ -115,7 +122,7 @@ Once the above steps are confirmed, you will need to delete the virtual machine 
 Then proceed with creating an App Service Environment!
 
 ## Getting started
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](/documentation/articles/app-service-app-service-environments-readme/).
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
 To get started with App Service Environments, see [Introduction to App Service Environment][IntroToAppServiceEnvironment]
 
@@ -124,16 +131,16 @@ For more information about the Azure App Service platform, see [Azure App Servic
 <!-- LINKS -->
 [virtualnetwork]: http://azure.microsoft.com/services/networking/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[requiredports]: /documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[NetworkSecurityGroups]: /documentation/articles/virtual-networks-nsg/
-[UDROverview]: /documentation/articles/virtual-networks-udr-overview/
+[requiredports]: ./app-service-app-service-environment-control-inbound-traffic.md
+[NetworkSecurityGroups]: ../virtual-network/virtual-networks-nsg.md
+[UDROverview]: ../virtual-network/virtual-networks-udr-overview.md
 [UDRHowTo]: /documentation/articles/virtual-networks-udr-how-to/
-[HowToCreateAnAppServiceEnvironment]: /documentation/articles/app-service-web-how-to-create-an-app-service-environment/
+[HowToCreateAnAppServiceEnvironment]: ./app-service-web-how-to-create-an-app-service-environment.md
 [AzureDownloads]: /downloads/ 
 [DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653  
-[NetworkSecurityGroups]: /documentation/articles/virtual-networks-nsg/
-[AzureAppService]: /documentation/articles/app-service-value-prop-what-is/
-[IntroToAppServiceEnvironment]:  /documentation/articles/app-service-app-service-environment-intro/
+[NetworkSecurityGroups]: ../virtual-network/virtual-networks-nsg.md
+[AzureAppService]: ../app-service/app-service-value-prop-what-is.md
+[IntroToAppServiceEnvironment]:  ./app-service-app-service-environment-intro.md
 [NewPortal]:  https://portal.azure.cn
 
 <!-- IMAGES -->

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Authentication and authorization in Azure App Service | Azure"
-    description="Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service"
-    services="app-service"
-    documentationcenter=""
-    author="mattchenderson"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="b7151b57-09e5-4c77-a10c-375a262f17e5"
-    ms.service="app-service"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="08/29/2016"
-    wacn.date=""
-    ms.author="mahender" />
+---
+title: Authentication and authorization in Azure App Service | Azure
+description: Conceptual reference and overview of the Authentication / Authorization feature for Azure App Service
+services: app-service
+documentationcenter: ''
+author: mattchenderson
+manager: erikre
+editor: ''
+
+ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
+ms.service: app-service
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 08/29/2016
+wacn.date: ''
+ms.author: mahender
+---
 
 # Authentication and authorization in Azure App Service
 ## What is App Service Authentication / Authorization?
@@ -44,7 +45,7 @@ After everything is configured on the backend, you can modify mobile clients to 
 * Use an SDK that a given identity provider publishes to establish identity and then gain access to App Service.
 * Use a single line of code so that the Mobile Apps client SDK can sign in users.
 
-> [AZURE.TIP]
+> [!TIP]
 > Most applications should use a provider SDK to get a more consistent experience when users sign in, to use refresh support, and to get other benefits that the provider specifies.
 > 
 > 
@@ -61,28 +62,28 @@ Code to start this flow is included in the authentication tutorial for each plat
 ### <a name="service-to-service-authentication"></a> Service-to-service authentication
 Although you can give users access to your application, you can also trust another application to call your own API. For example, you could have one web app call an API in another web app. In this scenario, you use credentials for a service account instead of user credentials to get a token. A service account is also known as a *service principal* in Azure Active Directory parlance, and authentication that uses such an account is also known as a service-to-service scenario.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Because mobile apps run on customer devices, mobile applications do *not* count as trusted applications and should not use a service principal flow. Instead, they should use a user flow that was detailed earlier.
 > 
 > 
 
 For service-to-service scenarios, App Service can protect your application by using Azure Active Directory. The calling application just needs to provide an Azure Active Directory service principal authorization token that is obtained by providing the client ID and client secret from Azure Active Directory. An example of this scenario that uses ASP.NET API apps is explained by the tutorial, [Service principal authentication for API Apps][apia-service].
 
-If you want to use App Service authentication to handle a service-to-service scenario, you can use client certificates or basic authentication. For information about client certificates in Azure, see [How To Configure TLS Mutual Authentication for Web Apps](/documentation/articles/app-service-web-configure-tls-mutual-auth/). For information about basic authentication in ASP.NET, see [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
+If you want to use App Service authentication to handle a service-to-service scenario, you can use client certificates or basic authentication. For information about client certificates in Azure, see [How To Configure TLS Mutual Authentication for Web Apps](../app-service-web/app-service-web-configure-tls-mutual-auth.md). For information about basic authentication in ASP.NET, see [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
 
 ## <a name="authorization"></a>How authorization works in App Service
 You have full control over the requests that can access your application. App Service Authentication / Authorization can be configured with any of the following behaviors:
 
 * Allow only authenticated requests to reach your application.
-  
+
     If a browser receives an anonymous request, App Service will redirect to a page for the identity provider that you choose so that users can sign in. If the request comes from a mobile device, the returned response is an HTTP *401 Unauthorized* response.
-  
+
     With this option, you don't need to write any authentication code at all in your app. If you need finer authorization, information about the user is available to your code.
 * Allow all requests to reach your application, but validate authenticated requests, and pass along authentication information in the HTTP headers.
-  
+
     This option defers authorization decisions to your application code. It provides more flexibility in handling anonymous requests, but you have to write code.
 * Allow all requests to reach your application, and take no action on authentication information in the requests.
-  
+
     In this case, the Authentication / Authorization feature is off. The tasks of authentication and authorization are entirely up to your application code.
 
 The previous behaviors are controlled by the **Action to take when request is not authenticated** option in the Azure portal preview. If you choose **Log in with *provider name* **, all requests have to be authenticated. **Allow request (no action)** defers the authorization decision to your code, but it still provides authentication information. If you want to have your code handle everything, you can disable the Authentication / Authorization feature.
@@ -95,7 +96,7 @@ App Service passes some user information to your application by using special he
 
 Code that is written in any language or framework can get the information that it needs from these headers. For ASP.NET 4.6 apps, the **ClaimsPrincipal** is automatically set with the appropriate values.
 
-Your application can also obtain additional user details through an HTTP GET on the `/.auth/me` endpoint of your application. A valid token that's included with the request will return a JSON payload with details about the provider that's being used, the underlying provider token, and some other user information. The Mobile Apps server SDKs provide helper methods to work with this data. For more information, see [How to use the Azure Mobile Apps Node.js SDK](/documentation/articles/app-service-mobile-node-backend-how-to-use-server-sdk/#howto-tables-getidentity), and [Work with the .NET backend server SDK for Azure Mobile Apps](/documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/#user-info).
+Your application can also obtain additional user details through an HTTP GET on the `/.auth/me` endpoint of your application. A valid token that's included with the request will return a JSON payload with details about the provider that's being used, the underlying provider token, and some other user information. The Mobile Apps server SDKs provide helper methods to work with this data. For more information, see [How to use the Azure Mobile Apps Node.js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), and [Work with the .NET backend server SDK for Azure Mobile Apps](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
 ## Documentation and additional resources
 ### Identity providers
@@ -134,27 +135,27 @@ The following tutorials show how to protect your API apps:
 * [User authentication for API Apps in Azure App Service][apia-user]
 * [Service principal authentication for API Apps in Azure App Service][apia-service]
 
-[apia-user]: /documentation/articles/app-service-api-dotnet-user-principal-auth/
-[apia-service]: /documentation/articles/app-service-api-dotnet-service-principal-auth/
+[apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
+[apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
 
-[web-getstarted]: /documentation/articles/app-service-web-get-started-2/#authenticate-your-users
+[web-getstarted]: ../app-service-web/app-service-web-get-started-2.md#authenticate-your-users
 
-[iOS]: /documentation/articles/app-service-mobile-ios-get-started-users/
-[Android]: /documentation/articles/app-service-mobile-android-get-started-users/
-[Xamarin.iOS]: /documentation/articles/app-service-mobile-xamarin-ios-get-started-users/
-[Xamarin.Android]: /documentation/articles/app-service-mobile-xamarin-android-get-started-users/
-[Xamarin.Forms]: /documentation/articles/app-service-mobile-xamarin-forms-get-started-users/
-[Windows]: /documentation/articles/app-service-mobile-windows-store-dotnet-get-started-users/
-[Cordova]: /documentation/articles/app-service-mobile-cordova-get-started-users/
+[iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
+[Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
+[Xamarin.iOS]: ../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
+[Xamarin.Android]: ../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md
+[Xamarin.Forms]: ../app-service-mobile/app-service-mobile-xamarin-forms-get-started-users.md
+[Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
+[Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
-[AAD]: /documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication/
+[AAD]: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Facebook]: /documentation/articles/app-service-mobile-how-to-configure-facebook-authentication/
 [Google]: /documentation/articles/app-service-mobile-how-to-configure-google-authentication/
-[MSA]: /documentation/articles/app-service-mobile-how-to-configure-microsoft-authentication/
+[MSA]: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Twitter]: /documentation/articles/app-service-mobile-how-to-configure-twitter-authentication/
 
-[custom-auth]: /documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/#custom-auth
+[custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
-[ADAL-Android]: /documentation/articles/app-service-mobile-android-how-to-use-client-library/#adal
-[ADAL-iOS]: /documentation/articles/app-service-mobile-ios-how-to-use-client-library/#adal
-[ADAL-dotnet]: /documentation/articles/app-service-mobile-dotnet-how-to-use-client-library/#adal
+[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
+[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
+[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal

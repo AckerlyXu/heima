@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Submit Hadoop jobs in HDInsight | Azure"
-    description="Learn how to submit Hadoop jobs to Azure HDInsight Hadoop."
-    editor="cgronlun"
-    manager="jhubbard"
-    services="hdinsight"
-    documentationcenter=""
-    tags="azure-portal"
-    author="mumian" />
-<tags
-    ms.assetid="50430b96-2329-4775-9713-19c5795b775f"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="jgao" />
+---
+title: Submit Hadoop jobs in HDInsight | Azure
+description: Learn how to submit Hadoop jobs to Azure HDInsight Hadoop.
+editor: cgronlun
+manager: jhubbard
+services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: mumian
+
+ms.assetid: 50430b96-2329-4775-9713-19c5795b775f
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: jgao
+---
 
 # Submit Hadoop jobs in HDInsight
 
@@ -24,26 +25,26 @@ You can submit Hadoop jobs using .NET SDK, Curl, and Azure PowerShell:
 
 - Use .NET SDK
 
-    - [Create non-interactive authentication .NET applications](/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/)
-    - [Run Hive queries using HDInsight .NET SDK](/documentation/articles/hdinsight-hadoop-use-hive-dotnet-sdk/)
-    - [Run Pig jobs using the .NET SDK for Hadoop in HDInsight](/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/)
-    - [Run Sqoop jobs using .NET SDK for Hadoop in HDInsight](/documentation/articles/hdinsight-hadoop-use-sqoop-dotnet-sdk/)
-    - [Run MapReduce jobs using HDInsight .NET SDK](/documentation/articles/hdinsight-hadoop-use-mapreduce-dotnet-sdk/)
+    - [Create non-interactive authentication .NET applications](./hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+    - [Run Hive queries using HDInsight .NET SDK](./hdinsight-hadoop-use-hive-dotnet-sdk.md)
+    - [Run Pig jobs using the .NET SDK for Hadoop in HDInsight](./hdinsight-hadoop-use-pig-dotnet-sdk.md)
+    - [Run Sqoop jobs using .NET SDK for Hadoop in HDInsight](./hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+    - [Run MapReduce jobs using HDInsight .NET SDK](./hdinsight-hadoop-use-mapreduce-dotnet-sdk.md)
 
 - CURL
 
-    - [Run Hive queries with Hadoop in HDInsight with Curl](/documentation/articles/hdinsight-hadoop-use-hive-curl/)
-    - [Run Pig jobs with Hadoop on HDInsight by using Curl](/documentation/articles/hdinsight-hadoop-use-pig-curl/)
-    - [Run Sqoop jobs with Hadoop in HDInsight with Curl](/documentation/articles/hdinsight-hadoop-use-sqoop-curl/)
-    - [Run MapReduce jobs with Hadoop on HDInsight using Curl](/documentation/articles/hdinsight-hadoop-use-mapreduce-curl/)
+    - [Run Hive queries with Hadoop in HDInsight with Curl](./hdinsight-hadoop-use-hive-curl.md)
+    - [Run Pig jobs with Hadoop on HDInsight by using Curl](./hdinsight-hadoop-use-pig-curl.md)
+    - [Run Sqoop jobs with Hadoop in HDInsight with Curl](./hdinsight-hadoop-use-sqoop-curl.md)
+    - [Run MapReduce jobs with Hadoop on HDInsight using Curl](./hdinsight-hadoop-use-mapreduce-curl.md)
 
 - PowerShell
 
-    - [Run Hive queries using PowerShell](/documentation/articles/hdinsight-hadoop-use-hive-powershell/)
-    - [Run Pig jobs using PowerShell](/documentation/articles/hdinsight-hadoop-use-pig-powershell/)
-    - [Use Sqoop with Hadoop in HDInsight](/documentation/articles/hdinsight-hadoop-use-sqoop-powershell/)
-    - [Run MapReduce jobs with Hadoop on HDInsight using PowerShell](/documentation/articles/hdinsight-hadoop-use-mapreduce-powershell/)
+    - [Run Hive queries using PowerShell](./hdinsight-hadoop-use-hive-powershell.md)
+    - [Run Pig jobs using PowerShell](./hdinsight-hadoop-use-pig-powershell.md)
+    - [Use Sqoop with Hadoop in HDInsight](./hdinsight-hadoop-use-sqoop-powershell.md)
+    - [Run MapReduce jobs with Hadoop on HDInsight using PowerShell](./hdinsight-hadoop-use-mapreduce-powershell.md)
 
 ## See also
 
-- [Azure HDInsight Documentation](/documentation/services/hdinsight/)
+- [Azure HDInsight Documentation](./index.md)

@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Monitor your workload using DMVs | Azure"
-   description="Learn how to monitor your workload using DMVs."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Monitor your workload using DMVs | Azure
+description: Learn how to monitor your workload using DMVs.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="sonyama;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: sonyama;barbkess
+---
 
 # Monitor your workload using DMVs
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload and investigate query execution in Azure SQL Data Warehouse.
@@ -37,7 +37,8 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ## Monitor query execution
 All queries executed on SQL Data Warehouse are logged to [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  This DMV contains the last 10,000 queries executed.  The request_id uniquely identifies each query and is the primary key for this DMV.  The request_id is assigned sequentially for each new query and is prefixed with QID, which stands for query ID.  Querying this DMV for a given session_id shows all queries for a given logon.
 
->[AZURE.NOTE] Stored procedures use multiple Request IDs.  Request IDs are assigned in sequential order. 
+>[!NOTE]
+> Stored procedures use multiple Request IDs.  Request IDs are assigned in sequential order. 
 
 Here are steps to follow to investigate query execution plans and times for a particular query.
 
@@ -172,12 +173,12 @@ See [SQL Data Warehouse best practices][SQL Data Warehouse best practices] for m
 <!--Image references-->
 
 <!--Article references-->
-[Manage overview]: /documentation/articles/sql-data-warehouse-overview-manage
-[SQL Data Warehouse best practices]: /documentation/articles/sql-data-warehouse-best-practices
-[System views]: /documentation/articles/sql-data-warehouse-reference-tsql-system-views
-[Table distribution]: /documentation/articles/sql-data-warehouse-tables-distribute
-[Concurrency and workload management]: /documentation/articles/sql-data-warehouse-develop-concurrency
-[Investigating queries waiting for resources]: /documentation/articles/sql-data-warehouse-manage-monitor#waiting
+[Manage overview]: ./sql-data-warehouse-overview-manage.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[System views]: ./sql-data-warehouse-reference-tsql-system-views.md
+[Table distribution]: ./sql-data-warehouse-tables-distribute.md
+[Concurrency and workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->
 [sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/zh-cn/library/mt203878.aspx

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understand Azure IoT Hub IoT Hub endpoints | Azure"
-    description="Developer guide - reference information about IoT Hub device-facing and service-facing endpoints."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="57ba52ae-19c6-43e4-bc6c-d8a5c2476e95"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Understand Azure IoT Hub IoT Hub endpoints | Azure
+description: Developer guide - reference information about IoT Hub device-facing and service-facing endpoints.
+services: iot-hub
+documentationcenter: .net
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Reference - IoT Hub endpoints
 ## List of built-in IoT Hub endpoints
@@ -30,18 +31,18 @@ The following is a description of the endpoints:
 * **Device twin management**. Each IoT hub exposes a set of service-facing HTTP REST endpoint to query and update [device twins][lnk-twins] (update tags and properties).
 * **Jobs management**. Each IoT hub exposes a set of service-facing HTTP REST endpoint to query and manage [jobs][lnk-jobs].
 * **Device endpoints**. For each device provisioned in the identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages:
-  
+
   * *Send device-to-cloud messages*. Use this endpoint to [send device-to-cloud messages][lnk-d2c].
   * *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted [cloud-to-device messages][lnk-c2d].
   * *Initiate file uploads*. A device uses this endpoint to receive an Azure Storage SAS URI from IoT Hub to [upload a file][lnk-upload].
   * *Retrieve and update device twin properties*. A device uses this endpoint to access its [device twin][lnk-twins]'s properties.
   * *Receive direct method requests*. A device uses this endpoint to listen for [direct method][lnk-methods]'s requests.
-    
+
     These endpoints are exposed using [MQTT v3.1.1][lnk-mqtt], HTTP 1.1, and [AMQP 1.0][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
-    
+
     The device twins and methods endpoints are available only using [MQTT v3.1.1][lnk-mqtt].
 * **Service endpoints**. Each IoT hub exposes a set of endpoints your solution back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol, except for the method invocation endpoint that is exposed via HTTP 1.1.
-  
+
   * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read the [device-to-cloud messages][lnk-d2c] sent by your devices. You can create custom endpoints on your IoT hub in addition to this built-in endpoint.
   * *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your solution back end to send reliable [cloud-to-device messages][lnk-c2d], and to receive the corresponding delivery or expiration acknowledgments.
   * *Receive file notifications*. This messaging endpoint allows you to receive notifications of when your devices successfully upload a file. 
@@ -85,26 +86,25 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-amqp]: https://www.amqp.org/
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
-[lnk-arm]: /documentation/articles/resource-group-overview/
-[lnk-event-hubs]: /documentation/services/event-hubs/
+[lnk-arm]: ../azure-resource-manager/resource-group-overview.md
+[lnk-event-hubs]: ../event-hubs/index.md
 
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
+[lnk-accesscontrol]: ./iot-hub-devguide-security.md#access-control-and-permissions
+[lnk-importexport]: ./iot-hub-devguide-identity-registry.md#import-and-export-device-identities
+[lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-device-identities]: ./iot-hub-devguide-identity-registry.md
+[lnk-upload]: ./iot-hub-devguide-file-upload.md
+[lnk-c2d]: ./iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-methods]: ./iot-hub-devguide-direct-methods.md
+[lnk-twins]: ./iot-hub-devguide-device-twins.md
+[lnk-query]: ./iot-hub-devguide-query-language.md
+[lnk-jobs]: ./iot-hub-devguide-jobs.md
 
-[lnk-sdks]: /documentation/articles/iot-hub-devguide-sdks/
-[lnk-accesscontrol]: /documentation/articles/iot-hub-devguide-security/#access-control-and-permissions
-[lnk-importexport]: /documentation/articles/iot-hub-devguide-identity-registry/#import-and-export-device-identities
-[lnk-d2c]: /documentation/articles/iot-hub-devguide-messaging/#device-to-cloud-messages
-[lnk-device-identities]: /documentation/articles/iot-hub-devguide-identity-registry/
-[lnk-upload]: /documentation/articles/iot-hub-devguide-file-upload/
-[lnk-c2d]: /documentation/articles/iot-hub-devguide-messaging/#cloud-to-device-messages
-[lnk-methods]: /documentation/articles/iot-hub-devguide-direct-methods/
-[lnk-twins]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-query]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-jobs]: /documentation/articles/iot-hub-devguide-jobs/
-
-[lnk-devguide-quotas]: /documentation/articles/iot-hub-devguide-quotas-throttling/
-[lnk-devguide-query]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-devguide-mqtt]: /documentation/articles/iot-hub-mqtt-support/
-[lnk-devguide-messaging]: /documentation/articles/iot-hub-devguide-messaging/
-[lnk-operations-mon]: /documentation/articles/iot-hub-operations-monitoring/
+[lnk-devguide-quotas]: ./iot-hub-devguide-quotas-throttling.md
+[lnk-devguide-query]: ./iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
+[lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
+[lnk-operations-mon]: ./iot-hub-operations-monitoring.md

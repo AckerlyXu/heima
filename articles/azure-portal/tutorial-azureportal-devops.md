@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Tutorial:  DevOps with the Azure Portal | Azure"
-	description="Learn the various DevOps workflows in the Azure Portal."
-	services="azure-portal"
-	documentationCenter=""
-	authors="mlearned"
-	manager="douge"
-	editor="mlearned"/>
+---
+title: Tutorial:  DevOps with the Azure Portal | Azure
+description: Learn the various DevOps workflows in the Azure Portal.
+services: azure-portal
+documentationCenter: ''
+authors: mlearned
+manager: douge
+editor: mlearned
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="06/05/2016"
-	ms.author="mlearned"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 06/05/2016
+ms.author: mlearned
+---
 
 # Tutorial: DevOps with the Azure Portal
 
@@ -30,24 +30,23 @@ The Azure platform is full of flexible DevOps workflows. In this tutorial, you l
 
 ## Creating a web app and enabling continuous deployment
 
-Create a Web app with [Azure App Service](/documentation/services/app-service/), which you’ll use in the rest of this tutorial. You’ll initially enable continuous deployment from your source code repository into our running Azure environment.
+Create a Web app with [Azure App Service](../app-service/index.md), which you’ll use in the rest of this tutorial. You’ll initially enable continuous deployment from your source code repository into our running Azure environment.
 
 1.  Sign into the Azure Portal
 
 2.  Choose **App Services** &gt; **Add icon** and enter a name, choose your subscription, and create a new resource group to serve as the container for the service.
 
-    Resource groups allow you to manage various aspects of the solution such as billing, deployments and monitoring all as a single group via [Azure Resource Manager](/documentation/articles/resource-group-overview/).
+    Resource groups allow you to manage various aspects of the solution such as billing, deployments and monitoring all as a single group via [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-	![image1][image1]
-
+    ![image1][image1]
 
 3.  After a few moments, your app service is created. Take a few minutes to explore the various menu options for the service in the portal.
 
-	![image2][image2]    
+    ![image2][image2]    
 
 4.  Click the URL. Notice the variety of available choices for tools and repositories. You can also use the languages and frameworks of your choice including .NET, Java, and Ruby.
 
-	![image3][image3]    
+    ![image3][image3]    
 
 3.  The Azure portal makes continuous deployment an easy process that involves only a few simple steps. In the Azure portal, choose settings from the icon for the app service you just created.
 
@@ -59,7 +58,7 @@ Create a Web app with [Azure App Service](/documentation/services/app-service/),
 
 4.  Next, configure some settings to enable continuous deployment for the app. Click Deployment Source and then click Choose Source. Notice the variety of options you have for repository sources.
 
-	![image6][image6]
+    ![image6][image6]
 
 1.  For this example choose GitHub. Optionally choose the repository of your choice and setup the authorization credentials.
 
@@ -87,11 +86,11 @@ Create a Web app with [Azure App Service](/documentation/services/app-service/),
 
 7.  At this point, if you try and load the page for the app service, you may receive a 403 error. In this example, it is because there is no typical default document setup for the page such as a file like index.htm or default.html. You can quickly remedy this with the tooling in the Azure Portal.  In the Azure Portal choose Settings &gt; Application Settings.
 
-	 ![image13][image13]
+     ![image13][image13]
 
 8.  A blade opens for application settings. Enter the name of the page “SamplePage.html” and click Save. Take a few minutes to explore the other settings.
 
-	![image14][image14]
+    ![image14][image14]
 
 9.  Optionally refresh your browser URL to ensure you see the expected changes. In this case, there is some simple text now populating the page. Each additional change to the repository would result in a new automatic deployment.
 
@@ -163,7 +162,7 @@ Next, make some changes to the code base and rapidly deploy those changes. You w
 
     ![image30][image30]
 
-	![image31][image31]
+    ![image31][image31]
 
 1.  Once the test starts running, you can monitor the state.
 
@@ -219,7 +218,7 @@ Azure provides many capabilities for monitoring and troubleshooting running appl
 
 7.  Scroll down to the features category, and choose Diagnostic logs.
 
-  	 ![image45][image45]
+       ![image45][image45]
 
 8.  Notice the various options for logging. Toggle on Web server logging and click save.
 
@@ -269,7 +268,7 @@ When managing applications, you often need to perform a broad variety of activit
 
 2.  In the blade on the right, scroll down to the Features category.
 
-	 ![image57][image57]
+     ![image57][image57]
 
 1.  Choose Backups; a blade opens on the right.
 
@@ -319,18 +318,15 @@ When managing applications, you often need to perform a broad variety of activit
 
      ![image69][image69]
 
-
 ## Summary
 
 This tutorial demonstrated some of the power with the Azure platform by quickly enabling continuous deployment for a web app, performing various development and testing activities, monitoring and troubleshooting a live app, and finally managing key strategies such as disaster recovery, identity, and role-based access control. The Azure platform enables an integrated experience for these DevOps workflows, and you can work efficiently by staying in context for the task at hand.
 
-
 ## Next steps 
 
-* Azure Resource Manager is important for enabling DevOps on the Azure platform.  To learn more visit [Azure Resource Manager overview](/documentation/articles/resource-group-overview/).
+* Azure Resource Manager is important for enabling DevOps on the Azure platform.  To learn more visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
-* To learn more about Azure App Service deployment visit [Deploy your app to Azure App Service](/documentation/articles/web-sites-deploy/)
-
+* To learn more about Azure App Service deployment visit [Deploy your app to Azure App Service](../app-service-web/web-sites-deploy.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png

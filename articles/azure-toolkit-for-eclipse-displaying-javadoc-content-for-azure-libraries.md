@@ -1,22 +1,22 @@
-<properties
-    pageTitle="Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java"
-    description="How to display the Javadoc content for the Azure Libraries in Eclipse."
-    services=""
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
+---
+title: Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java
+description: How to display the Javadoc content for the Azure Libraries in Eclipse.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
 
-<tags
-    ms.assetid="30f8b6a1-1d76-4d1c-861b-1db478c46e6b"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm" />
+ms.assetid: 30f8b6a1-1d76-4d1c-861b-1db478c46e6b
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm
+---
 
 # Displaying Javadoc Content in Eclipse for the Azure Libraries Package for Java
 The Javadoc content for the Azure Libraries for Java can be viewed within your Eclipse environment by associating the Javadoc content to the Azure Libraries for Java. The following steps show you how to use this functionality within Eclipse.
@@ -51,9 +51,9 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- URL List -->
 
 [Azure Java Developer Center]:/develop/java/
-[Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse/
-[Creating a Hello World Application for Azure in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/
-[Installing the Azure Toolkit for Eclipse]: /documentation/articles/azure-toolkit-for-eclipse-installation/
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
+[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 
 <!-- IMG List -->
 

@@ -1,27 +1,26 @@
-<properties
-   pageTitle="Upgrade an Azure Service Fabric cluster |  Azure"
-   description="Upgrade the Service Fabric code and/or configuration that runs a Service Fabric cluster, including setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and so on. What can you expect when the upgrades are performed?"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="ChackDan"
-   manager="timlt"
-   editor=""/>
+---
+title: Upgrade an Azure Service Fabric cluster |  Azure
+description: Upgrade the Service Fabric code and/or configuration that runs a Service Fabric cluster, including setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and so on. What can you expect when the upgrades are performed?
+services: service-fabric
+documentationCenter: .net
+authors: ChackDan
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/10/2016"
-   ms.author="chackdan"/>
-
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/10/2016
+ms.author: chackdan
+---
 
 # Upgrade an Azure Service Fabric cluster
 
-> [AZURE.SELECTOR]
-- [Azure Cluster](/documentation/articles/service-fabric-cluster-upgrade/)
-- [Standalone Cluster](/documentation/articles/service-fabric-cluster-upgrade-windows-server/)
+> [!div class="op_single_selector"]
+>- [Azure Cluster](./service-fabric-cluster-upgrade.md)
+>- [Standalone Cluster](./service-fabric-cluster-upgrade-windows-server.md)
 
 For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
 
@@ -31,10 +30,10 @@ You can set your cluster to receive automatic fabric upgrades, when Microsoft re
 
 You do this by setting the "upgradeMode" cluster configuration on the portal or using Resource Manager at the time of creation or later on a live cluster 
 
->[AZURE.NOTE] Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. the  The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/ ). The new release is available to choose then. 
+>[!NOTE]
+> Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. the  The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/ ). The new release is available to choose then. 
 
 14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state until you upgrade to a supported fabric version.
-
 
 ### Setting the upgrade mode via portal 
 
@@ -45,7 +44,7 @@ You can set the cluster to automatic or manual when you are creating the cluster
 You can set the cluster to automatic or manual when on a live cluster, using the manage experience. 
 
 #### Upgrading to a new version on a cluster that is set to Manual mode via portal.
- 
+
 To upgrade to a new version, all you need to do is select the available version from the dropdown and save. The Fabric upgrade gets kicked off automatically. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.
 
 If the cluster health policies are not met, the upgrade is rolled back. Scroll down this document to read more on how to set those custom health policies. 
@@ -57,11 +56,11 @@ Once you have fixed the issues that resulted in the rollback, you need to initia
 ### Setting the upgrade mode via a Resource Manager template 
 
 Add the "upgradeMode" configuration to the Microsoft.ServiceFabric/clusters resource definition and set the "clusterCodeVersion" to one of the supported fabric versions as shown below and then deploy the template. The valid values for "upgradeMode" are "Manual" or "Automatic"
- 
+
 ![ARMUpgradeMode][ARMUpgradeMode]
 
 #### Upgrading to a new version on a cluster that is set to Manual mode via a Resource Manager template.
- 
+
 When the cluster is in Manual mode, to upgrade to a new version, change the "clusterCodeVersion" to a supported version and deploy it. 
 The deployment of the template, kicks of the Fabric upgrade gets kicked off automatically. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.
 
@@ -75,47 +74,45 @@ Run the following command, and you should get an output similar to this.
 
 "supportExpiryUtc" tells your when a given release is expiring or has expired. The latest release does not have a valid date - it has a value of "9999-12-31T23:59:59.9999999", which just means that the expiry date is not yet set.
 
+```REST
+GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/clusterVersions?api-version= 2016-09-01
 
-	GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/clusterVersions?api-version= 2016-09-01
-
-	Output:
-	{
-	                  "value": [
-	                    {
-	                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-	                      "name": "5.0.1427.9490",
-	                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
-	                      "properties": {
-	                        "codeVersion": "5.0.1427.9490",
-	                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-	                        "environment": "Windows"
-	                      }
-	                    },
-	                    {
-	                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-	                      "name": "5.1.1427.9490",
-	                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-	                      "properties": {
-	                        "codeVersion": "5.1.1427.9490",
-	                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-	                        "environment": "Windows"
-	                      }
-	                    },
-	                    {
-	                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-	                      "name": "4.4.1427.9490",
-	                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-	                      "properties": {
-	                        "codeVersion": "4.4.1427.9490",
-	                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-	                        "environment": "Linux"
-	                      }
-	                    }
-	                  ]
-	                }
-
-
-
+Output:
+{
+                  "value": [
+                    {
+                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
+                      "name": "5.0.1427.9490",
+                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
+                      "properties": {
+                        "codeVersion": "5.0.1427.9490",
+                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
+                        "environment": "Windows"
+                      }
+                    },
+                    {
+                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
+                      "name": "5.1.1427.9490",
+                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+                      "properties": {
+                        "codeVersion": "5.1.1427.9490",
+                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+                        "environment": "Windows"
+                      }
+                    },
+                    {
+                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
+                      "name": "4.4.1427.9490",
+                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+                      "properties": {
+                        "codeVersion": "4.4.1427.9490",
+                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+                        "environment": "Linux"
+                      }
+                    }
+                  ]
+                }
+```
 
 ## Fabric upgrade behavior when the cluster Upgrade Mode is Automatic
 
@@ -167,10 +164,9 @@ In addition to the ability to set the cluster upgrade mode, Here are the configu
 
 ### Certificates
 
-You can add new or delete certificates for the cluster and client via the portal easily. Refer to [this document for detailed instructions](/documentation/articles/service-fabric-cluster-security-update-certs-azure/)
+You can add new or delete certificates for the cluster and client via the portal easily. Refer to [this document for detailed instructions](./service-fabric-cluster-security-update-certs-azure.md)
 
 ![Screenshot that shows certificate thumbprints in the Azure portal.][CertificateUpgrade]
-
 
 ### Application ports
 
@@ -190,16 +186,16 @@ To open a new port on all VMs in a node type, do the following:
 
     ![Adding a new rule to a load balancer in the portal.][AddingLBRules]
 
-
 ### Placement properties
 
 For each of the node types, you can add custom placement properties that you want to use in your applications. NodeType is a default property that you can use without adding it explicitly.
 
->[AZURE.NOTE] For details on the use of placement constraints, node properties, and how to define them, refer to the section "Placement Constraints and Node Properties" in the Service Fabric Cluster Resource Manager Document on [Describing Your Cluster](/documentation/articles/service-fabric-cluster-resource-manager-cluster-description/).
+>[!NOTE]
+> For details on the use of placement constraints, node properties, and how to define them, refer to the section "Placement Constraints and Node Properties" in the Service Fabric Cluster Resource Manager Document on [Describing Your Cluster](./service-fabric-cluster-resource-manager-cluster-description.md).
 
 ### Capacity metrics
 
-For each of the node types, you can add custom capacity metrics that you want to use in your applications to report load. For details on the use of capacity metrics to report load, refer to the  Service Fabric Cluster Resource Manager Documents on [Describing Your Cluster](/documentation/articles/service-fabric-cluster-resource-manager-cluster-description/) and [Metrics and Load](/documentation/articles/service-fabric-cluster-resource-manager-metrics/).
+For each of the node types, you can add custom capacity metrics that you want to use in your applications to report load. For details on the use of capacity metrics to report load, refer to the  Service Fabric Cluster Resource Manager Documents on [Describing Your Cluster](./service-fabric-cluster-resource-manager-cluster-description.md) and [Metrics and Load](./service-fabric-cluster-resource-manager-metrics.md).
 
 ### Fabric upgrade settings - Health polices
 
@@ -212,7 +208,7 @@ You can specify the custom health policies or review the current settings under 
 
 ### Customize Fabric settings for your cluster
 
-Refer to [service fabric cluster fabric settings](/documentation/articles/service-fabric-cluster-fabric-settings/) on what and how you can customize them.
+Refer to [service fabric cluster fabric settings](./service-fabric-cluster-fabric-settings.md) on what and how you can customize them.
 
 ### OS patches on the VMs that make up the cluster
 
@@ -223,9 +219,9 @@ This capability is planned for the future as an automated feature. But currently
 If you must upgrade the OS image on the virtual machines of the cluster, you must do it one VM at a time. You are responsible for this upgrade--there is currently no automation for this.
 
 ## Next steps
-- Learn how to customize some of the [service fabric cluster fabric settings](/documentation/articles/service-fabric-cluster-fabric-settings/)
-- Learn how to [scale your cluster in and out](/documentation/articles/service-fabric-cluster-scale-up-down/)
-- Learn about [application upgrades](/documentation/articles/service-fabric-application-upgrade/)
+- Learn how to customize some of the [service fabric cluster fabric settings](./service-fabric-cluster-fabric-settings.md)
+- Learn how to [scale your cluster in and out](./service-fabric-cluster-scale-up-down.md)
+- Learn about [application upgrades](./service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

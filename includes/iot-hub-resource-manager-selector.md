@@ -1,8 +1,8 @@
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/iot-hub-create-through-portal/)
-- [PowerShell](/documentation/articles/iot-hub-create-using-powershell/)
-- [Azure CLI 2.0 Preview](/documentation/articles/iot-hub-create-using-cli/)
-- [CLI](/documentation/articles/iot-hub-create-using-cli/)
-- [PowerShell with template](/documentation/articles/iot-hub-rm-template-powershell/)
-- [C# with REST](/documentation/articles/iot-hub-rm-rest/)
-- [C# with template](/documentation/articles/iot-hub-rm-template/)
+> [!div class="op_single_selector"]
+>- [Azure portal](../articles/iot-hub/iot-hub-create-through-portal.md)
+>- [PowerShell](../articles/iot-hub/iot-hub-create-using-powershell.md)
+>- [Azure CLI 2.0 Preview](../articles/iot-hub/iot-hub-create-using-cli.md)
+>- [CLI](../articles/iot-hub/iot-hub-create-using-cli.md)
+>- [PowerShell with template](../articles/iot-hub/iot-hub-rm-template-powershell.md)
+>- [C# with REST](../articles/iot-hub/iot-hub-rm-rest.md)
+>- [C# with template](../articles/iot-hub/iot-hub-rm-template.md)

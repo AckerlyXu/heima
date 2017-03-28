@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Generic LDAP Connector | Azure"
-    description="This article describes how to configure Microsoft's Generic LDAP Connector."
-    services="active-directory"
-    documentationcenter=""
-    author="AndKjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="984beeb0-4d91-4908-ad81-c19797c4891b"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/10/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Generic LDAP Connector | Azure
+description: This article describes how to configure Microsoft's Generic LDAP Connector.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
+
+ms.assetid: 984beeb0-4d91-4908-ad81-c19797c4891b
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/10/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Generic LDAP Connector technical reference
 This article describes the Generic LDAP Connector. The article applies to the following products:
@@ -227,7 +228,7 @@ It is also possible to select which containers and OUs the Connector should impo
 
 When performing a search this is done across all containers in the partition. In cases where there are large numbers of containers this behavior leads to performance degradation.
 
->[AZURE.NOTE]
+>[!NOTE]
 Starting in the March 2017 update to the Generic LDAP connector searches can be limited in scope to only the selected containers. This can be done by selecting the checkbox 'Search only in selected containers' as shown in the image below.
 
 ![Search only selected containers](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
@@ -236,7 +237,6 @@ Starting in the March 2017 update to the Generic LDAP connector searches can be 
 This page does always have a preconfigured value and cannot be changed. If the server vendor has been identified, then the anchor might be populated with an immutable attribute, for example the GUID for an object. If it has not been detected or is known to not have an immutable attribute, then the connector uses dn (distinguished name) as the anchor.
 
 ![anchors](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
-
 
 The following is a list of LDAP servers and the anchor being used:
 

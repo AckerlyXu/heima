@@ -1,31 +1,32 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-  pageTitle="Preparing your environment to back up workloads using Azure Backup Server | Azure"
-  description="Make sure your environment is properly prepared to back up workloads using Azure Backup Server"
-  services="backup"
-  documentationCenter=""
-  authors="PVRK"
-  manager="shivamg"
-  editor=""
-  keywords="azure backup server; backup vault"/>
+---
+title: Preparing your environment to back up workloads using Azure Backup Server | Azure
+description: Make sure your environment is properly prepared to back up workloads using Azure Backup Server
+services: backup
+documentationCenter: ''
+authors: PVRK
+manager: shivamg
+editor: ''
+keywords: azure backup server; backup vault
 
-<tags
-	ms.service="backup"
-	ms.date="07/20/2016"
-	wacn.date=""/>
+ms.service: backup
+ms.date: 07/20/2016
+wacn.date: ''
+---
 
 # Preparing to back up workloads using Azure Backup Server
 
-> [AZURE.SELECTOR]
-- [Azure Backup Server](/documentation/articles/backup-azure-microsoft-azure-backup/)
-- [SCDPM](/documentation/articles/backup-azure-dpm-introduction/)
-- [Azure Backup Server (Classic)](/documentation/articles/backup-azure-microsoft-azure-backup-classic/)
-- [SCDPM (Classic)](/documentation/articles/backup-azure-dpm-introduction-classic/)
+> [!div class="op_single_selector"]
+>- [Azure Backup Server](./backup-azure-microsoft-azure-backup.md)
+>- [SCDPM](./backup-azure-dpm-introduction.md)
+>- [Azure Backup Server (Classic)](./backup-azure-microsoft-azure-backup-classic.md)
+>- [SCDPM (Classic)](./backup-azure-dpm-introduction-classic.md)
 
 This article explains how to prepare your environment to back up workloads using Azure Backup Server. With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console. You can also protect information as a server (IaaS) workloads such as VMs in Azure.
 
-> [AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](/documentation/articles/resource-manager-deployment-model/). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+> [!NOTE]
+> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 
 Azure Backup Server inherits much of the workload backup functionality from Data Protection Manager (DPM). This article links to DPM documentation to explain some of the shared functionality. Though Azure Backup Server shares much of the same functionality as DPM. Azure Backup Server does not back up to tape, nor does it integrate with System Center.
 
@@ -50,10 +51,10 @@ If you do not want to run the base server in Azure, you can run the server on a 
 |Windows Storage Server 2012 R2 and latest SPs	|64 bit|	Standard, Workgroup|
 |Windows Storage Server 2012 and latest SPs	|64 bit	|Standard, Workgroup|
 
-
 You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/zh-cn/library/dn891438.aspx) work together when deployed in Hyper-V VMs.
 
-> [AZURE.NOTE]  You cannot install Azure Backup Server on a machine running as a domain controller.
+> [!NOTE]
+>  You cannot install Azure Backup Server on a machine running as a domain controller.
 
 If you plan to join this server to a domain at some point, it is recommended that the domain-joining activity be done before the Azure Backup Server installation. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
@@ -83,7 +84,7 @@ To create a recovery services vault:
 
 5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](/documentation/articles/resource-group-overview/)
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 
 7. Click **Location** to select the geographic region for the vault.
 
@@ -92,7 +93,7 @@ Once your vault is created, it opens in the portal.
 
 ### Set Storage Replication
 
-The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](/documentation/articles/storage-redundancy/#geo-redundant-storage) and [locally redundant](/documentation/articles/storage-redundancy/#locally-redundant-storage) storage options in the [Azure Storage replication overview](/documentation/articles/storage-redundancy/).
+The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
 
 To edit the storage replication setting:
 
@@ -142,7 +143,8 @@ on the Hub menu, click **Browse**.
 
 6. Select the workloads you want to protect using Azure Backup Server in *what workloads you want to protect* and click on **OK**.
 
-    > [AZURE.NOTE] If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
+    > [!NOTE]
+    > If you are planning to protect just files and folders, then we recommend using Azure Backup agent. If you are planning to protect more workloads than just files and folders or in future if you are planning to expand the protection needs, select all those workloads.
 
     This will change the Getting Started wizard to prepare infrastructure for protecting workloads from on-premises to Azure.
 
@@ -158,13 +160,12 @@ on the Hub menu, click **Browse**.
 
     Since the download size of all the files together is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete.
 
-
 ### Extracting the software package
 
 After you've downloaded all the files, click **MicrosoftAzureBackupInstaller.exe**. This will start the **Azure Backup Setup Wizard** to extract the setup files to a location specified by you. Continue through the wizard and click on the **Extract** button to begin the extraction process.
 
-> [AZURE.WARNING] At least 4GB of free space is required to extract the setup files.
-
+> [!WARNING]
+> At least 4GB of free space is required to extract the setup files.
 
 ![Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
@@ -186,7 +187,8 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**.
 
-    > [AZURE.NOTE] Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local.
+    > [!NOTE]
+    > Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local.
 
 4. Provide a location for the installation of Azure Backup server files and click **Next**.
 
@@ -200,7 +202,8 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 6. Select whether you want to use *Microsoft Update* to check for updates and click **Next**.
 
-    >[AZURE.NOTE] We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Azure Backup Server.
+    >[!NOTE]
+    > We recommend having Windows Update redirect to Microsoft Update, which offers security and important updates for Windows and other products like Azure Backup Server.
 
     ![Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
@@ -218,14 +221,14 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
-
 When the installation step has completed, the product's desktop icons will have been created as well. Just double-click the icon to launch the product.
 
 ### Add backup storage
 
 The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Configure storage pools and disk storage](https://technet.microsoft.com/zh-cn/library/hh758075.aspx).
 
-> [AZURE.NOTE] You need to add backup storage even if you plan to send data to Azure. In the current architecture of Azure Backup Server, the Azure Backup vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
+> [!NOTE]
+> You need to add backup storage even if you plan to send data to Azure. In the current architecture of Azure Backup Server, the Azure Backup vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
 
 ## 4. Network connectivity
 
@@ -262,12 +265,10 @@ It is possible to take an Azure subscription from an *Expired* or *Deprovisioned
 - A *Deprovisioned* subscription loses functionality for the period that it is deprovisioned. On turning *Active*, the product functionality of backup/restore is revived. The backup data on the local disk also can be retrieved if it was kept with a sufficiently large retention period. However, the backup data in Azure is irretrievably lost once the subscription enters the *Deprovisioned* state.
 - An *Expired* subscription only loses functionality for until it has been made *Active* again. Any backups scheduled for the period that the subscription was *Expired* will not run.
 
-
 ## Troubleshooting
 
 If Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
-You can also refer to [Azure Backup related FAQs](/documentation/articles/backup-azure-backup-faq/)
-
+You can also refer to [Azure Backup related FAQs](./backup-azure-backup-faq.md)
 
 ## Next steps
 
@@ -275,6 +276,6 @@ You can get detailed information about [preparing your environment for DPM](http
 
 You can use these articles to gain a deeper understanding of workload protection using Azure Backup server.
 
-- [SQL Server backup](/documentation/articles/backup-azure-backup-sql/)
-- [SharePoint server backup](/documentation/articles/backup-azure-backup-sharepoint/)
-- [Alternate server backup](/documentation/articles/backup-azure-alternate-dpm-server/)
+- [SQL Server backup](./backup-azure-backup-sql.md)
+- [SharePoint server backup](./backup-azure-backup-sharepoint.md)
+- [Alternate server backup](./backup-azure-alternate-dpm-server.md)

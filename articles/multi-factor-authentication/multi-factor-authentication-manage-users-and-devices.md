@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Admins manage users and devices - Azure MFA | Azure"
-    description="This describes how to change user settings such as forcing the users to do the proof-up process again."
-    documentationcenter=""
-    services="multi-factor-authentication"
-    author="kgremban"
-    manager="femila"
-    editor="yossib" />
-<tags
-    ms.assetid="aac3b922-7cc1-428c-9044-273579aa7b5a"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Admins manage users and devices - Azure MFA | Azure
+description: This describes how to change user settings such as forcing the users to do the proof-up process again.
+documentationcenter: ''
+services: multi-factor-authentication
+author: kgremban
+manager: femila
+editor: yossib
+
+ms.assetid: aac3b922-7cc1-428c-9044-273579aa7b5a
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Managing user settings with Azure Multi-Factor Authentication in the cloud
 As an administrator, you can manage the following user and device settings.  

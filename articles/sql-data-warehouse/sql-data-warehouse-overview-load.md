@@ -1,16 +1,16 @@
-   <properties
-   pageTitle="Load data into Azure SQL Data Warehouse | Azure"
-   description="Learn the common scenarios for data loading into SQL Data Warehouse. These include using PolyBase, Azure blob storage, flat files, and disk shipping. You can also use third-party tools."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+---
+title: Load data into Azure SQL Data Warehouse | Azure
+description: Learn the common scenarios for data loading into SQL Data Warehouse. These include using PolyBase, Azure blob storage, flat files, and disk shipping. You can also use third-party tools.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: lodipalm
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.date="10/31/2016"
-   wacn.date=""/>
+ms.service: sql-data-warehouse
+ms.date: 10/31/2016
+wacn.date: ''
+---
 
 # Load data into Azure SQL Data Warehouse
 A summary of the scenario options and recommendations for loading data into SQL Data Warehouse.
@@ -120,14 +120,14 @@ For more development tips, see the [development overview][development overview].
 <!--Image references-->
 
 <!--Article references-->
-[Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]: /documentation/articles/sql-data-warehouse-load-from-azure-blob-storage-with-polybase/
+[Load data from Azure blob storage to SQL Data Warehouse (PolyBase)]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Load data from Azure blob storage to SQL Data Warehouse (Azure Data Factory)]: /documentation/articles/sql-data-warehouse-load-from-azure-blob-storage-with-data-factory/
-[Load data from SQL Server to Azure SQL Data Warehouse (SSIS)]: /documentation/articles/sql-data-warehouse-load-from-sql-server-with-integration-services/
-[Load data from SQL Server to Azure SQL Data Warehouse (bcp)]: /documentation/articles/sql-data-warehouse-load-from-sql-server-with-bcp/
-[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: /documentation/articles/sql-data-warehouse-load-from-sql-server-with-azcopy/
+[Load data from SQL Server to Azure SQL Data Warehouse (SSIS)]: ./sql-data-warehouse-load-from-sql-server-with-integration-services.md
+[Load data from SQL Server to Azure SQL Data Warehouse (bcp)]: ./sql-data-warehouse-load-from-sql-server-with-bcp.md
+[Load data from SQL Server to Azure SQL Data Warehouse (AZCopy)]: ./sql-data-warehouse-load-from-sql-server-with-azcopy.md
 
-[Load sample databases]: /documentation/articles/sql-data-warehouse-load-sample-databases/
-[Migration overview]: /documentation/articles/sql-data-warehouse-overview-migrate/
+[Load sample databases]: ./sql-data-warehouse-load-sample-databases.md
+[Migration overview]: ./sql-data-warehouse-overview-migrate.md
 [solution partners]: /documentation/articles/sql-data-warehouse-solution-partners/
 [development overview]: sql-data-warehouse-overview-develop
 [Statistics]: /documentation/articles/sql-data-warehouse-develop-statistics/

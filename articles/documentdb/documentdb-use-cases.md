@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Common use cases & NoSQL scenarios for Azure DocumentDB | Azure"
-    description="Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT)."
-    services="documentdb"
-    author="h0n"
-    manager="jhubbard"
-    editor=""
-    documentationcenter="" />
-<tags
-    ms.assetid="eca68a58-1a8c-4851-8cf8-6e4d2b889905"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="hawong" />
+---
+title: Common use cases & NoSQL scenarios for Azure DocumentDB | Azure
+description: Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT).
+services: documentdb
+author: h0n
+manager: jhubbard
+editor: ''
+documentationcenter: ''
+
+ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: hawong
+---
 
 # Common DocumentDB use cases
 This article provides an overview of several common use cases for DocumentDB.  The recommendations in this article serve as a starting point as you develop your application with DocumentDB.   
@@ -57,7 +58,7 @@ Consider an example of a product catalog for an automotive parts supplier. Every
 
 ![Azure DocumentDB retail catalog reference architecture](./media/documentdb-use-cases/documentdb-retail-catalog.png)
 
- In addition, data stored in DocumentDB can be integrated with HDInsight for big data analytics via Pig, Hive, or Map/Reduce jobs. For details on the Hadoop Connector for DocumentDB, see [Run a Hadoop job with DocumentDB and HDInsight](/documentation/articles/documentdb-run-hadoop-with-hdinsight/).
+ In addition, data stored in DocumentDB can be integrated with HDInsight for big data analytics via Pig, Hive, or Map/Reduce jobs. For details on the Hadoop Connector for DocumentDB, see [Run a Hadoop job with DocumentDB and HDInsight](./documentdb-run-hadoop-with-hdinsight.md).
 
  ![Azure DocumentDB retail orders reference architecture](./media/documentdb-use-cases/documentdb-retail-orders.png)
 ## Gaming
@@ -91,7 +92,7 @@ Nowadays, modern applications come with complex views and experiences. These are
 JSON is an effective format to represent UI layout data as it is not only lightweight, but also can be easily interpreted by JavaScript. DocumentDB offers tunable consistency levels that allow fast reads with low latency writes. Hence, storing UI layout data including personalized settings as JSON documents in DocumentDB is an effective means to get this data across the wire.
 
 ## Next steps
-To get started with DocumentDB, you can create an [account](/pricing/1rmb-trial/) and then learn about DocumentDB and find the information you need. 
+To get started with DocumentDB, you can create an [account](https://www.azure.cn/pricing/1rmb-trial/) and then learn about DocumentDB and find the information you need. 
 
 Or, if you'd like to read more about customers using DocumentDB, the following customer stories are available:
 
@@ -110,4 +111,4 @@ Or, if you'd like to read more about customers using DocumentDB, the following c
 - [Weka](https://customers.microsoft.com/story/weka-smart-fridge-improves-vaccine-management-so-more-people-can-be-protected-against-diseases). Weka Smart Fridge improves vaccine management so more people can be protected against diseases
 - [Orange Tribes](https://customers.microsoft.com/en-US/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth). There’s more to that food app than meets the eye, or the mouth.
 - [Real Madrid](https://customers.microsoft.com/en-US/story/real-madrid-brings-the-stadium-closer-to-450-million-f). Real Madrid brings the stadium closer to 450 million fans around the globe, with the Microsoft Cloud.
-- [Tuku](https://customers.microsoft.com/en-US/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU makes car buying fun with help from Azure services 
+- [Tuku](https://customers.microsoft.com/en-US/story/tuku-makes-car-buying-fun-with-help-from-azure-services). TUKU makes car buying fun with help from Azure services

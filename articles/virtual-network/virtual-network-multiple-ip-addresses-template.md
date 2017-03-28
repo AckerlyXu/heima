@@ -1,35 +1,36 @@
-<properties
-    pageTitle="Multiple IP addresses for Azure virtual machines - Template | Azure"
-    description="Learn how to assign multiple IP addresses to a virtual machine using an Azure Resource Manager template."
-    documentationcenter=""
-    author="jimdial"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="12/08/2016"
-    wacn.date=""
-    ms.author="jdial" />
+---
+title: Multiple IP addresses for Azure virtual machines - Template | Azure
+description: Learn how to assign multiple IP addresses to a virtual machine using an Azure Resource Manager template.
+documentationcenter: ''
+author: jimdial
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: ''
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 12/08/2016
+wacn.date: ''
+ms.author: jdial
+---
 
 # Assign multiple IP addresses to virtual machines using an Azure Resource Manager template
 
-[AZURE.INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using a Resource Manager template. Multiple public and private IP addresses cannot be assigned to the same NIC when deploying a VM through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](/documentation/articles/resource-manager-deployment-model/) article.
+This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using a Resource Manager template. Multiple public and private IP addresses cannot be assigned to the same NIC when deploying a VM through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.
 
-[AZURE.INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
+[!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
-[AZURE.INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## Template description
 
-Deploying a template enables you to quickly and consistently create Azure resources with different configuration values. Read the [Resource Manager template walkthrough](/documentation/articles/resource-manager-template-walkthrough/) article if you're not familiar with Azure Resource Manager templates. The [Deploy a VM with multiple IP addresses](https://azure.microsoft.com/resources/templates/101-vm-multiple-ipconfig) template is utilized in this article.
+Deploying a template enables you to quickly and consistently create Azure resources with different configuration values. Read the [Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md) article if you're not familiar with Azure Resource Manager templates. The [Deploy a VM with multiple IP addresses](https://azure.microsoft.com/resources/templates/101-vm-multiple-ipconfig) template is utilized in this article.
 
 <a name="resources"></a>Deploying the template creates the following resources:
 
@@ -45,8 +46,8 @@ Deploying a template enables you to quickly and consistently create Azure resour
 
 |Name|Description|
 |---|---|
-|adminUsername|Admin username. The username must comply with [Azure username requirements](/documentation/articles/virtual-machines-windows-faq/).|
-|adminPassword|Admin password The password must comply with [Azure password requirements](/documentation/articles/virtual-machines-windows-faq/#what-are-the-password-requirements-when-creating-a-vm).|
+|adminUsername|Admin username. The username must comply with [Azure username requirements](../virtual-machines/virtual-machines-windows-faq.md).|
+|adminPassword|Admin password The password must comply with [Azure password requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|DNS name for PublicIPAddressName1. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
 |dnsLabelPrefix1|DNS name for PublicIPAddressName2. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
 |OSVersion|The Windows/Linux version for the VM. The operating system is a fully patched image of the given Windows/Linux version selected.|
@@ -66,25 +67,29 @@ To deploy the template using the Azure portal preview, complete the following st
 
 1. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
 
-        Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
-        Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
 
     Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 
-        FeatureName                            ProviderName      RegistrationState
-        -----------                            ------------      -----------------      
-        AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-        AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
 
-    >[AZURE.NOTE] 
+    >[!NOTE] 
     >This may take a few minutes.
 
-2. Modify the template, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates ](/documentation/articles/resource-group-authoring-templates/)article.
+2. Modify the template, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates ](../azure-resource-manager/resource-group-authoring-templates.md)article.
 3. Deploy the template with one of the following methods:
-    - **Select the template in the portal:** Complete the steps in the [Deploy resources from custom template](/documentation/articles/resource-group-template-deploy-portal/#deploy-resources-from-custom-template) article. Choose the pre-existing template named *101-vm-multiple-ipconfig*.
+    - **Select the template in the portal:** Complete the steps in the [Deploy resources from custom template](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) article. Choose the pre-existing template named *101-vm-multiple-ipconfig*.
     - **Directly:** Click the following button to open the template directly in the portal:
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
@@ -96,29 +101,33 @@ To deploy the template using PowerShell, complete the following steps:
 
 1. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
 
-        Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
-        Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
 
     Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 
-        FeatureName                            ProviderName      RegistrationState
-        -----------                            ------------      -----------------      
-        AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-        AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
 
-    >[AZURE.NOTE] 
+    >[!NOTE] 
     >This may take a few minutes.
 
-2. Deploy the template by completing the steps in the [Deploy a template with PowerShell](/documentation/articles/resource-group-template-deploy-cli/#deploy) article. The article describes multiple options for deploying a template. If you choose to deploy using the `-TemplateUri parameter`, the URI for this template is *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. If you choose to deploy using the `-TemplateFile` parameter, copy the contents of the [template file](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) from GitHub into a new file on your machine. Modify the template contents, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates ](/documentation/articles/resource-group-authoring-templates/)article.
+2. Deploy the template by completing the steps in the [Deploy a template with PowerShell](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy) article. The article describes multiple options for deploying a template. If you choose to deploy using the `-TemplateUri parameter`, the URI for this template is *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. If you choose to deploy using the `-TemplateFile` parameter, copy the contents of the [template file](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) from GitHub into a new file on your machine. Modify the template contents, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates ](../azure-resource-manager/resource-group-authoring-templates.md)article.
 
     Regardless of the option you choose to deploy the template with, you must supply values for the parameter values listed in the [parameters](#parameters) section of this article. If you choose to supply parameters using a parameters file, copy the contents of the [parameters file](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) from GitHub into a new file on your computer. Modify the values in the file. Use the file you created as the value for the `-TemplateParameterFile` parameter.
-	
-    To determine valid values for the OSVersion, ImagePublisher, and imageOffer parameters, complete the steps in the [Navigate and select Windows VM images article](/documentation/articles/virtual-machines-windows-cli-ps-findimage/) article.
 
-    >[AZURE.TIP]
+    To determine valid values for the OSVersion, ImagePublisher, and imageOffer parameters, complete the steps in the [Navigate and select Windows VM images article](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) article.
+
+    >[!TIP]
     >If you're not sure whether a dnslabelprefix is available, enter the `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` command to find out. If it is available, the command will return `True`.
 
 3. After the VM is deployed, connect to the VM and add the private IP addresses to the operating system you deployed by completing the steps in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
@@ -129,28 +138,32 @@ To deploy the template using the Azure CLI 1.0, complete the following steps:
 
 1. Register for the preview by running the following commands in PowerShell after you login and select the appropriate subscription:
 
-        Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
+    ```
+    Register-AzureRmProviderFeature -FeatureName AllowMultipleIpConfigurationsPerNic -ProviderNamespace Microsoft.Network
 
-        Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
+    Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    ```
 
     Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
 
-        FeatureName                            ProviderName      RegistrationState
-        -----------                            ------------      -----------------      
-        AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
-        AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```powershell
+    FeatureName                            ProviderName      RegistrationState
+    -----------                            ------------      -----------------      
+    AllowLoadBalancingOnSecondaryIpConfigs Microsoft.Network Registered       
+    AllowMultipleIpConfigurationsPerNic    Microsoft.Network Registered       
+    ```
 
-    >[AZURE.NOTE] 
+    >[!NOTE] 
     >This may take a few minutes.
 
-2. Deploy the template by completing the steps in the [Deploy a template with the Azure CLI](/documentation/articles/resource-group-template-deploy-cli/#deploy) article. The article describes multiple options for deploying the template. If you choose to deploy using the `--template-uri` (-f), the URI for this template is *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. If you choose to deploy using the `--template-file` (-f) parameter, copy the contents of the [template file](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) from GitHub into a new file on your machine. Modify the template contents, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates ](/documentation/articles/resource-group-authoring-templates/)article.
+2. Deploy the template by completing the steps in the [Deploy a template with the Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md#deploy) article. The article describes multiple options for deploying the template. If you choose to deploy using the `--template-uri` (-f), the URI for this template is *https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json*. If you choose to deploy using the `--template-file` (-f) parameter, copy the contents of the [template file](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.json) from GitHub into a new file on your machine. Modify the template contents, if desired. The template deploys the resources and settings listed in the [resources](#resources) section of this article. To learn more about templates and how to author them, read the [Authoring Azure Resource Manager templates ](../azure-resource-manager/resource-group-authoring-templates.md)article.
 
     Regardless of the option you choose to deploy the template with, you must supply values for the parameter values listed in the [parameters](#parameters) section of this article. If you choose to supply parameters using a parameters file, copy the contents of the [parameters file](https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-multiple-ipconfig/azuredeploy.parameters.json) from GitHub into a new file on your computer. Modify the values in the file. Use the file you created as the value for the `--parameters-file` (-e) parameter.
-	
-    To determine valid values for the OSVersion, ImagePublisher, and imageOffer parameters, complete the steps in the [Navigate and select Windows VM images article](/documentation/articles/virtual-machines-windows-cli-ps-findimage/) article.
+
+    To determine valid values for the OSVersion, ImagePublisher, and imageOffer parameters, complete the steps in the [Navigate and select Windows VM images article](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) article.
 
 3. After the VM is deployed, connect to the VM and add the private IP addresses to the operating system you deployed by completing the steps in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
-[AZURE.INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

@@ -1,19 +1,20 @@
-<properties 
-   pageTitle="Create a volume container"
-   description="Describes how to create a volume container on a StorSimple device."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+---
+title: Create a volume container
+description: Describes how to create a volume container on a StorSimple device.
+services: storsimple
+documentationCenter: NA
+authors: SharS
+manager: adinah
+editor: tysonn
+
+ms.service: storsimple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: TBD
+ms.date: 04/01/2015
+ms.author: v-sharos
+---
 
 ### To create a volume container
 

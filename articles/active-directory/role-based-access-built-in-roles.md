@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Actions and NotActions - roles in Azure RBAC | Azure"
-    description="This topic describes the built in roles for role-based access control (RBAC)."
-    services="active-directory"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="b547c5a5-2da2-4372-9938-481cb962d2d6"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/21/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Actions and NotActions - roles in Azure RBAC | Azure
+description: This topic describes the built in roles for role-based access control (RBAC).
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
+
+ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/21/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Built-in roles for Azure Role-Based Access Control
-Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](/documentation/articles/role-based-access-control-custom-roles/) to fit the specific needs of your organization.
+Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definitions of built-in roles. However, you can create [Custom roles in Azure RBAC](./role-based-access-control-custom-roles.md) to fit the specific needs of your organization.
 
 ## Roles in Azure
 The following table provides brief descriptions of the built-in roles. Click the role name to see the detailed list of **actions** and **notactions** for the role. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **notactions** property specifies the actions that are excluded from the allowed actions.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The Azure role definitions are constantly evolving. This article is kept as up to date as possible, but you can always find the latest roles definitions in Azure PowerShell. Use the cmdlets `(get-azurermroledefinition "<role name>").actions` or `(get-azurermroledefinition "<role name>").notactions` as applicable.
 >
 >
@@ -640,7 +641,7 @@ Can manage websites but not the web plans to which they are connected
 | Microsoft.Web/sites/* |Create and manage websites (site creation also requires write permissions to the associated App Service Plan) |
 
 ## See also
-- [Role-Based Access Control](/documentation/articles/role-based-access-control-configure/): Get started with RBAC in the Azure portal.
-- [Custom roles in Azure RBAC](/documentation/articles/role-based-access-control-custom-roles/): Learn how to create custom roles to fit your access needs.
-- [Create an access change history report](/documentation/articles/role-based-access-control-access-change-history-report/): Keep track of changing role assignments in RBAC.
-- [Role-Based Access Control troubleshooting](/documentation/articles/role-based-access-control-troubleshooting/): Get suggestions for fixing common issues.
+- [Role-Based Access Control](./role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
+- [Custom roles in Azure RBAC](./role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
+- [Create an access change history report](./role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.
+- [Role-Based Access Control troubleshooting](./role-based-access-control-troubleshooting.md): Get suggestions for fixing common issues.

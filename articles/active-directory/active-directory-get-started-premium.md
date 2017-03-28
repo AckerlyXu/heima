@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Getting started with Azure Active Directory Premium"
-	description="A topic that explains how to sign up for Azure Active Directory Premium edition through the Volume Licensing web site."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila" 
-	editor=""/>
+---
+title: Getting started with Azure Active Directory Premium
+description: A topic that explains how to sign up for Azure Active Directory Premium edition through the Volume Licensing web site.
+services: active-directory
+documentationCenter: ''
+authors: markusvi
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/16/2016"
-	ms.author="markvi"
-   	wacn.date=""/>
+ms.service: active-directory
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/16/2016
+ms.author: markvi
+wacn.date: ''
+---
 
 # Getting started with Azure Active Directory Premium
-
 
 To sign up for Active Directory Premium, you have several options: 
 
@@ -27,23 +26,16 @@ For detailed steps, see [How to Purchase Azure Active Directory Premium - Existi
 
 **Enterprise Mobility + Security** - Enterprise Mobility + Security (formerly Enterprise Mobility Suite) is a cost effective way for organizations to use the following services together under one licensing plan: Active Directory Premium, Azure Rights Management, Microsoft Intune. For more information, see the [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web site. To get e free 30-day trial, click [here](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
-
 **Microsoft Volume Licensing** - Azure Active Directory Premium is available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 or more licenses) or the [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5–250 licenses) program.
 
+This topic shows you how to get started with an Azure Active Directory Premium you have purchased through the Volume Licensing program. If you are not yet familiar with the different editions of Azure Active Directory, see [Azure Active Directory editions](./active-directory-editions.md).  
 
-This topic shows you how to get started with an Azure Active Directory Premium you have purchased through the Volume Licensing program. If you are not yet familiar with the different editions of Azure Active Directory, see [Azure Active Directory editions](/documentation/articles/active-directory-editions/).  
-
-> [AZURE.NOTE]
+> [!NOTE]
 Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
-
-
-
 
 ## Step 1: Sign up for Active Directory Premium
 
 To sign up, see [How to purchase through Volume Licensing](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
-
-
 
 ## Step 2: Activate your license plan
 
@@ -53,16 +45,11 @@ You need this email to activate your first license plan.
 
 On any subsequent purchase for this directory, the licenses are automatically activated in the same directory.
 
-
-
 **To activate your license plan, perform one of the following steps:**
-
 
 1. To start the activation, click either **Sign In** or **Sign Up**.
 
     ![Sign in][1]
-
-
 
     - If you have an existing tenant, click **Sign In** to sign in with your existing administrator account. You need to sign in with the global administrator credentials from the directory where the licenses must be activated.
 
@@ -89,15 +76,10 @@ If you Please try again in a few minutes once you have received the email.
 
 New administrators in your subscription can also activate their access to the Azure Classic Management Portal through this link.
 
-
-
-
-
-
 **To activate your Azure Active Directory access, perform the following steps:**
 
 1. In your **Welcome email**, click **Sign In**. 
-    
+
     ![Welcome email][4]
 
 2. When you have signed in successfully, you need to complete a second factor authentication in form of a mobile verification:
@@ -115,8 +97,6 @@ In this case, your Azure access is limited to Azure Active Directory.
 You may already have had access to Azure from prior usage; in addition, you can upgrade your Access Azure Active Directory to full Azure access by activating additional Azure subscriptions. In these cases, the Azure Classic Management Portal has more capabilities.
 
 ![Azure capabilities][8]
-
-
 
 ## Step 4: Assign license to user accounts
 
@@ -148,8 +128,8 @@ The availability of services and features for a Microsoft cloud service varies b
 
 ## What's next
 
-- [Add company branding to your Sign In and Access Panel pages](/documentation/articles/active-directory-add-company-branding/)
-- [View your access and usage reports](/documentation/articles/active-directory-view-access-usage-reports/)
+- [Add company branding to your Sign In and Access Panel pages](./active-directory-add-company-branding.md)
+- [View your access and usage reports](./active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-get-started-premium/MOLSEmail.png

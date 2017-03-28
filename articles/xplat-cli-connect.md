@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Log in to Azure from the CLI | Azure"
-	description="Connect to your Azure subscription from the Azure Command-Line Interface (Azure CLI) for Mac, Linux, and Windows"
-	editor="tysonn"
-	manager="timlt"
-	documentationCenter=""
-	authors="dlepow"
-	services="virtual-machines-linux,virtual-network,storage,azure-resource-manager"
-	tags="azure-resource-manager,azure-service-management"/>
+---
+title: Log in to Azure from the CLI | Azure
+description: Connect to your Azure subscription from the Azure Command-Line Interface (Azure CLI) for Mac, Linux, and Windows
+editor: tysonn
+manager: timlt
+documentationCenter: ''
+authors: dlepow
+services: virtual-machines-linux,virtual-network,storage,azure-resource-manager
+tags: azure-resource-manager,azure-service-management
 
-<tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/04/2016"
-	ms.author="danlep"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: vm-multiple
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: danlep
+---
 
 # Log in to Azure from the Azure CLI
 
@@ -28,11 +28,6 @@ The Azure CLI is a set of open-source, cross-platform commands for working with 
 If you haven't already installed the CLI, see [Install the Azure CLI](xplat-cli-install.md). If you don't have an Azure subscription, you can create a [free account](http://azure.microsoft.com/free/) in just a couple of minutes. 
 
 For background about different account identities and Azure subscriptions, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
-
-
-
-
-
 
 ## Scenario 1: azure login with interactive login 
 
@@ -52,41 +47,49 @@ info:    To sign in, use a web browser to open the page http://aka.ms/devicelogi
 ```
 Copy the code offered to you in the command output, and open a browser to http://aka.ms/devicelogin, or other page if specified. (You can open a browser on the same computer, or on a different computer or device.) Enter the code, and then you are prompted to enter the username and password for the identity you want to use. When that process completes, the command shell completes the login. It might look something like:
 
-	info:    Added subscription Visual Studio Ultimate with MSDN
-	info:    Added subscription Azure Free Trial
-	info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
-	+
-	info:    login command OK
-    
->[AZURE.NOTE]  With interactive login, authentication and authorization are performed using Azure Active Directory. If you use a Microsoft account identity, the login process accesses your Azure Active Directory default domain. (If you signed up for a free Azure account, Azure Active Directory automatically created a default domain for your account.)
+```
+info:    Added subscription Visual Studio Ultimate with MSDN
+info:    Added subscription Azure Free Trial
+info:    Setting subscription "Visual Studio Ultimate with MSDN" as default
++
+info:    login command OK
+```
+
+>[!NOTE]
+>  With interactive login, authentication and authorization are performed using Azure Active Directory. If you use a Microsoft account identity, the login process accesses your Azure Active Directory default domain. (If you signed up for a free Azure account, Azure Active Directory automatically created a default domain for your account.)
 
 ## Scenario 2: azure login with a username and password
 
-
 Use the `azure login` command with the username (`-u`) parameter to authenticate when you want to use a work or school account that doesn't require multifactor authentication. You are prompted at the command line for the password (or you can optionally pass the password as an additional parameter of the `azure login` command). The following example passes the username of an organizational account:
 
-	azure login -u myUserName@contoso.onmicrosoft.com
-	
+```
+azure login -u myUserName@contoso.onmicrosoft.com
+```
+
 You are then prompted to enter your password:
 
-    info:    Executing command login
-	Password: *********
-    
+```
+info:    Executing command login
+Password: *********
+```
+
 The login process then completes.
 
-    info:    Added subscription Visual Studio Ultimate with MSDN
-	+
-	info:    login command OK
+```
+info:    Added subscription Visual Studio Ultimate with MSDN
++
+info:    login command OK
+```
 
 If this is your first time logging in with these credentials, you are asked to verify that you wish to cache an authentication token. This prompt also occurs if you previously used the `azure logout` command (described later in the article). To bypass this prompt for automation scenarios, run `azure login` with the `-q` parameter.
-
-   
 
 ## Scenario 3: azure login with a service principal
 
 If you create a service principal for an Active Directory application, and the service principal has permissions on your subscription, you can use the `azure login` command to authenticate the service principal. Depending on your scenario, you could provide the credentials of the service principal as explicit parameters of the `azure login` command. For example, the following command passes the service principal name and Active Directory tenant ID:
 
-    azure login -u https://www.contoso.org/example --service-principal --tenant myTenantID
+```
+azure login -u https://www.contoso.org/example --service-principal --tenant myTenantID
+```
 
 You are then prompted to provide the password. You can also provide the credentials through a CLI script or application code, or use a certificate to authenticate the service principal non-interactively for automation scenarios. For details and examples, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal-cli.md).
 
@@ -96,19 +99,25 @@ If you only need to use the Azure Service Management mode CLI commands (for exam
 
 * **To download the publish settings file** for your account, ensure that the CLI is in Service Management mode by typing `azure config mode asm`. Then run the following command:
 
-		azure account download
+    ```
+    azure account download
+    ```
 
 This opens your default browser and prompts you to sign in to the [Azure classic portal](https://manage.windowsazure.com). After you sign in, a `.publishsettings` file downloads. Make note of where this file is saved.
 
->[AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
+>[!NOTE]
+> If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 
 Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 * **To import the publish settings file**, run the following command:
 
-		azure account import <path to your .publishsettings file>
+    ```
+    azure account import <path to your .publishsettings file>
+    ```
 
->[AZURE.IMPORTANT]After importing your publish settings, you should delete the `.publishsettings` file. It is no longer required by the Azure CLI and presents a security risk as it could be used to gain access to your subscription.
+>[!IMPORTANT]
+>After importing your publish settings, you should delete the `.publishsettings` file. It is no longer required by the Azure CLI and presents a security risk as it could be used to gain access to your subscription.
 
 ## CLI command modes
 
@@ -120,31 +129,35 @@ The Azure CLI provides two command modes for working with Azure resources, with 
 
 When first installed, the current release of the CLI is in Resource Manager mode.
 
->[AZURE.NOTE]The Resource Manager mode and Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+>[!NOTE]
+>The Resource Manager mode and Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 ## Multiple subscriptions
 
 If you have multiple Azure subscriptions, connecting to Azure grants access to all subscriptions associated with your credentials. One subscription is selected as the default, and used by the Azure CLI when performing operations. You can view the subscriptions, including the current default subscription, using the `azure account list` command. This command returns information similar to the following:
 
-	info:    Executing command account list
-	data:    Name              Id                                    Current
-	data:    ----------------  ------------------------------------  -------
-	data:    Azure-sub-1       ####################################  true
-	data:    Azure-sub-2       ####################################  false
+```
+info:    Executing command account list
+data:    Name              Id                                    Current
+data:    ----------------  ------------------------------------  -------
+data:    Azure-sub-1       ####################################  true
+data:    Azure-sub-2       ####################################  false
+```
 
 In the preceding list, the **Current** column indicates the current default subscription as Azure-sub-1. To change the default subscription, use the `azure account set` command, and specify the subscription that you wish to be the default. For example:
 
-	azure account set Azure-sub-2
+```
+azure account set Azure-sub-2
+```
 
 This changes the default subscription to Azure-sub-2.
 
-> [AZURE.NOTE] Changing the default subscription takes effect immediately, and is a global change; new Azure CLI commands, whether you run them from the same command-line instance or a different instance, use the new default subscription.
+> [!NOTE]
+> Changing the default subscription takes effect immediately, and is a global change; new Azure CLI commands, whether you run them from the same command-line instance or a different instance, use the new default subscription.
 
 If you wish to use a non-default subscription with the Azure CLI, but don't want to change the current default, you can use the `--subscription` option for the command and provide the name of the subscription you wish to use for the operation.
 
 Once you are connected to your Azure subscription, you can start using the Azure CLI commands to work with Azure resources.
-
-
 
 ## Storage of CLI settings
 
@@ -158,7 +171,9 @@ Whether you log in with the `azure login` command or import publish settings, yo
 
 To log out, use the following command:
 
-	azure logout -u <username>
+```
+azure logout -u <username>
+```
 
 If the subscriptions associated with the account are only authenticated with Active Directory, logging out deletes the subscription information from the local profile. However, if a publish settings file was also imported for the subscriptions, logging out only deletes Active Directory related information from the local profile.
 ## Next steps
@@ -168,5 +183,3 @@ If the subscriptions associated with the account are only authenticated with Act
 * To learn more about the Azure CLI, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure CLI](https://github.com/azure/azure-xplat-cli).
 
 * If you encounter problems using the Azure CLI, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
-
-

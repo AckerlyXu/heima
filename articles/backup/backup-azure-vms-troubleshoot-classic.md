@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Troubleshoot Azure backup errors in Classic Management Portal | Azure"
-    description="Troubleshoot Azure Backup and restore of Azure virtual machines in the Classic Management Portal."
-    services="backup"
-    documentationcenter=""
-    author="trinadhk"
-    manager="shreeshd"
-    editor="" />
-<tags
-    ms.assetid="117201fb-c0cd-4be4-b47f-abd88fe914cf"
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="1/23/2017"
-    wacn.date=""
-    ms.author="trinadhk;markgal;" />
+---
+title: Troubleshoot Azure backup errors in Classic Management Portal | Azure
+description: Troubleshoot Azure Backup and restore of Azure virtual machines in the Classic Management Portal.
+services: backup
+documentationcenter: ''
+author: trinadhk
+manager: shreeshd
+editor: ''
+
+ms.assetid: 117201fb-c0cd-4be4-b47f-abd88fe914cf
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 1/23/2017
+wacn.date: ''
+ms.author: trinadhk;markgal;
+---
 
 # Troubleshoot Azure virtual machine backup
-> [AZURE.SELECTOR]
-- [Recovery services vault](/documentation/articles/backup-azure-vms-troubleshoot/)
-- [Backup vault](/documentation/articles/backup-azure-vms-troubleshoot-classic/)
+> [!div class="op_single_selector"]
+>- [Recovery services vault](./backup-azure-vms-troubleshoot.md)
+>- [Backup vault](./backup-azure-vms-troubleshoot-classic.md)
 
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
 
@@ -34,7 +35,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup operation | Error details | Workaround |
 | --- | --- | --- |
 | Register |Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 16 data disks attached to an Azure virtual machine for backup |None |
-| Register |Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. |You can get this error due to one of the following unsupported configuration of VM on  Premium LRS. <br> Premium storage VMs can be backed up using recovery services vault. [Learn More](/documentation/articles/backup-introduction-to-azure-backup/#using-premium-storage-vms-with-azure-backup/) |
+| Register |Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. |You can get this error due to one of the following unsupported configuration of VM on  Premium LRS. <br> Premium storage VMs can be backed up using recovery services vault. [Learn More](./backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) |
 | Register |Registration failed with Install Agent operation timeout |Check if the OS version of the virtual machine is supported. |
 | Register |Command execution failed - Another operation is in progress on this item. Please wait until the previous operation is completed |None |
 | Register |Virtual machines having virtual hard disks stored on Premium storage are not supported for backup |None |
@@ -43,7 +44,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 ## Backup
 | Backup operation | Error details | Workaround |
 | --- | --- | --- |
-| Backup |Could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out. - Please see the troubleshooting guide on how to resolve this. |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. Learn more about [debugging up VM snapshot issues](/documentation/articles/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout/). <br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues and restarting the VM resets this "bad state" |
+| Backup |Could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out. - Please see the troubleshooting guide on how to resolve this. |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. Learn more about [debugging up VM snapshot issues](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md). <br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues and restarting the VM resets this "bad state" |
 | Backup |Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support |Please check if there is a transient issue in accessing VM storage. Please check [Azure Status](https://azure.microsoft.com/en-us/status/) to see if there is any on-going issue related to compute/storage/network in the region. Please retry the backup post issue is mitigated. |
 | Backup |Could not perform the operation as VM no longer exists. |Backup cannot be performed as the VM configured for backup has been deleted. Please stop further backups by going to Protected items view, select protected item and click on Stop Protection. You can retain data by selecting Retain Backup data option. You can later resume protection for this virtual machine by clicking on configure protection from Registered Items view |
 | Backup |Failed to install the Azure Recovery Services extension on the selected item - VM Agent is a pre-requisite for Azure Recovery Services Extension. Please install the Azure VM agent and restart the registration operation |<ol> <li>Check if the VM agent has been installed correctly. <li>Ensure that the flag on the VM config is set correctly.</ol> [Read more](#validating-vm-agent-installation) about VM agent installation, and how to validate the VM agent installation. |
@@ -65,7 +66,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 ## Restore
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Restore |Restore failed with Cloud Internal error |<ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>You are trying to restore a virtual machine with following special network configurations in to same cloud service. <br>- Virtual machines under load balancer configuration (Internal and external)<br>- Virtual machines with multiple Reserved IPs<br>- Virtual machines with multiple NICs<br>Please select a new cloud service in the UI or please refer to [restore considerations](/documentation/articles/backup-azure-restore-vms/#restoring-vms-with-special-network-configurations/) for VMs with special network configurations</ol> |
+| Restore |Restore failed with Cloud Internal error |<ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>You are trying to restore a virtual machine with following special network configurations in to same cloud service. <br>- Virtual machines under load balancer configuration (Internal and external)<br>- Virtual machines with multiple Reserved IPs<br>- Virtual machines with multiple NICs<br>Please select a new cloud service in the UI or please refer to [restore considerations](./backup-azure-restore-vms.md#restoring-vms-with-special-network-configurations) for VMs with special network configurations</ol> |
 | Restore |The selected DNS name is already taken - Please specify a different DNS name and try again. |The DNS name here refers to the cloud service name (usually ending with .chinacloudapp.cn). This needs to be unique. If you encounter this error, you need to choose a different VM name during restore. <br><br> This error is shown only to users of the Azure portal. The restore operation through PowerShell succeeds because it only restores the disks and doesn't create the VM. The error will be faced when the VM is explicitly created by you after the disk restore operation. |
 | Restore |The specified virtual network configuration is not correct - Please specify a different virtual network configuration and try again. |None |
 | Restore |The specified cloud service is using a reserved IP, which doesn't match with the configuration of the virtual machine being restored - Please specify a different cloud service which is not using reserved IP, or choose another recovery point to restore from. |None |
@@ -102,7 +103,7 @@ For Windows VMs:
 
 For Linux VMs:
 
-- Follow the instructions on [Updating Linux VM Agent](/documentation/articles/virtual-machines-linux-update-agent?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/).
+- Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/).
 
 ### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:

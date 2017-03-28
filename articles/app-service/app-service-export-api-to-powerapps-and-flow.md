@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Exporting an Azure hosted API to PowerApps and Microsoft Flow | Azure"
-    description="Overview of how to expose an API hosted in App Service to PowerApps and Microsoft Flow"
-    services="app-service"
-    documentationcenter=""
-    author="mattchenderson"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="mahender" />
+---
+title: Exporting an Azure hosted API to PowerApps and Microsoft Flow | Azure
+description: Overview of how to expose an API hosted in App Service to PowerApps and Microsoft Flow
+services: app-service
+documentationcenter: ''
+author: mattchenderson
+manager: erikre
+editor: ''
+
+ms.assetid: ''
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: mahender
+---
 
 # Exporting an Azure hosted API to PowerApps and Microsoft Flow
 
@@ -25,7 +26,7 @@
 
 The [Microsoft Business Application Platform](https://businessplatform.microsoft.com/) includes a variety of products that help power users get more done. [PowerApps](https://powerapps.com) is a service for building and using custom business apps that connect to your data and work across platforms. [Microsoft Flow](https://flow.microsoft.com) makes it easy to automate workflows and business processes between your favorite apps and services. Both PowerApps and Microsoft Flow come with a variety of built-in connectors to data sources such as Office 365, Dynamics 365, Salesforce, and more. However, users also need to be able to leverage data sources and APIs being built by their organization.
 
-Similarly, developers that want to expose their APIs more broadly within the organization may want to make their APIs available to PowerApps and Microsoft Flow users. This topic will show you how to expose an API built with Azure App Service or Azure Functions to PowerApps and Microsoft Flow. [Azure App Service](/home/features/app-service/) is a platform-as-a-service offering that allows developers to quickly and easily build enterprise-grade web, mobile, and API applications. [Azure Functions](/home/features/functions/) is an event-based serverless compute solution that allows you to quickly author code that can react to other parts of your system and scale based on demand.
+Similarly, developers that want to expose their APIs more broadly within the organization may want to make their APIs available to PowerApps and Microsoft Flow users. This topic will show you how to expose an API built with Azure App Service or Azure Functions to PowerApps and Microsoft Flow. [Azure App Service](https://www.azure.cn/home/features/app-service/) is a platform-as-a-service offering that allows developers to quickly and easily build enterprise-grade web, mobile, and API applications. [Azure Functions](https://www.azure.cn/home/features/functions/) is an event-based serverless compute solution that allows you to quickly author code that can react to other parts of your system and scale based on demand.
 
 To learn more about these services, see:
 - [PowerApps Guided Learning](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) 
@@ -44,7 +45,7 @@ Azure App Service and Azure Functions have [built-in support](https://docs.micro
 
 It is possible that these two steps will need to be carried out by separate individuals within an organization, as a given user may not have permission to perform both actions. In this case, a developer who has contributor access to the App Service or Azure Functions application will need to obtain the API definition (a single JSON file) or a link to it. They will then need to provide that definition to a PowerApps or Microsoft Flow owner. That owner can use the metadata to create the custom API.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Because a copy of the API definition is being used, PowerApps and Microsoft Flow will not immediately know about updates or breaking changes to the application. If a new version of the API is made available, these steps should be repeated for the new version. 
 
 ## <a name="export"></a> Retrieving the API definition from App Service or Azure Functions
@@ -54,18 +55,18 @@ In this section, you will export the API definition for your App Service API, to
 1. Open the [Azure Portal Preview](https://portal.azure.cn) and navigate to your App Service or Azure Functions application.
 
     If using Azure App Service, select **API definition** from the settings list. 
-    
+
     If using Azure Functions, select **Function app settings** and then **Configure API metadata**.
 
 2. If an API definition has been provided, you will see an **Export to PowerApps + Microsoft Flow** button. Click this button to begin the export process.
 
 3. You can choose to either **Download the API definition** or **Get a link**. Whichever you choose, the result will be provided to PowerApps in the next section. Select one of these options and follow the instructions.
- 
+
 4. If your API definition includes any security definitions, these will be called out in step #2. During import, PowerApps and Microsoft Flow will detect these and will prompt for security information. The services use this to log users in, so that they can access the API. If your API requires authentication, ensure that it is captured as a _security definition_ in your Open API document.
 
     Gather the credentials related to each definition for use in the next section. For a list of identity providers which PowerApps supports natively and the credentials each requires, see [Register custom APIs in PowerApps] and [Register custom APIs in Microsoft Flow].
- 
-> [AZURE.NOTE]
+
+> [!NOTE]
 > If using Azure Active Directory authentication, a new AAD app registration will be needed which has delegated access to your API and a reply URL of _https://msmanaged-na.consent.azure-apim.net/redirect_. Please see [this example](
 https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) for more detail, substituting your API for Azure Resource Manager.
 >

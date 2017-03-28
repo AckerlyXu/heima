@@ -1,42 +1,40 @@
-<properties
-    pageTitle="In-Memory OLTP improves SQL txn perf | Azure"
-    description="Adopt In-Memory OLTP to improve transactional performance in an existing SQL database."
-    services="sql-database"
-    documentationcenter=""
-    author="jodebrui"
-    manager="jhubbard"
-    editor="MightyPen" />
-<tags
-    ms.assetid="c2bf14a0-905b-47b4-afb6-efe9a61147d5"
-    ms.service="sql-database"
-    ms.custom="development"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/22/2016"
-    wacn.date=""
-    ms.author="jodebrui" />
+---
+title: In-Memory OLTP improves SQL txn perf | Azure
+description: Adopt In-Memory OLTP to improve transactional performance in an existing SQL database.
+services: sql-database
+documentationcenter: ''
+author: jodebrui
+manager: jhubbard
+editor: MightyPen
+
+ms.assetid: c2bf14a0-905b-47b4-afb6-efe9a61147d5
+ms.service: sql-database
+ms.custom: development
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/22/2016
+wacn.date: ''
+ms.author: jodebrui
+---
 
 # Use In-Memory OLTP to improve your application performance in SQL Database
-[In-Memory OLTP](/documentation/articles/sql-database-in-memory/) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in  [Premium](/documentation/articles/sql-database-service-tiers/) Azure SQL Databases without increasing the pricing tier. 
+[In-Memory OLTP](./sql-database-in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in  [Premium](./sql-database-service-tiers.md) Azure SQL Databases without increasing the pricing tier. 
 
-> [AZURE.NOTE] 
+> [!NOTE] 
 > Learn how [Quorum doubles key database’s workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
-
 
 Follow these steps to adopt In-Memory OLTP in your existing database.
 
 ## Step 1: Ensure you are using a Premium database
 In-Memory OLTP is supported only in v12 Premium databases. In-Memory is supported if the returned result is 1 (not 0):
 
-
-	SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
-
+```
+SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
+```
 
 *XTP* stands for *Extreme Transaction Processing*
-
-
 
 ## Step 2: Identify objects to migrate to In-Memory OLTP
 SSMS includes a **Transaction Performance Analysis Overview** report that you can run against a database with an active workload. The report identifies tables and stored procedures that are candidates for migration to In-Memory OLTP.
@@ -58,10 +56,9 @@ To ease testing, tweak your test database as follows:
 1. Connect to the test database by using SSMS.
 2. To avoid needing the WITH (SNAPSHOT) option in queries, set the database option as shown in the following T-SQL statement:
 
-	ALTER DATABASE CURRENT
-		SET
-			MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
-
+    ALTER DATABASE CURRENT
+        SET
+            MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
 
 ## Step 4: Migrate tables
 You must create and populate a memory-optimized copy of the table you want to test. You can create it by using either:
@@ -74,7 +71,7 @@ To use this migration option:
 
 1. Connect to the test database with SSMS.
 2. In the **Object Explorer**, right-click on the table, and then click **Memory Optimization Advisor**.
-   
+
    * The **Table Memory Optimizer Advisor** wizard is displayed.
 3. In the wizard, click **Migration validation** (or the **Next** button) to see if the table has any unsupported features that are unsupported in memory-optimized tables. For more information, see:
  - The *memory optimization checklist* in [Memory Optimization Advisor](http://msdn.microsoft.com/zh-cn/library/dn284308.aspx).
@@ -88,7 +85,7 @@ To use this migration option:
 
 1. Connect to your test database by using SSMS (or a similar utility).
 2. Obtain the complete T-SQL script for your table and its indexes.
-   
+
    * In SSMS, right-click your table node.
    * Click **Script Table As** > **CREATE To** > **New Query Window**.
 3. In the script window, add WITH (MEMORY_OPTIMIZED = ON) to the CREATE TABLE statement.
@@ -96,12 +93,9 @@ To use this migration option:
 5. Rename the existing table by using SP_RENAME.
 6. Create the new memory-optimized copy of the table by running your edited CREATE TABLE script.
 7. Copy the data to your memory-optimized table by using INSERT...SELECT * INTO:
-	
 
-	INSERT INTO <new_memory_optimized_table>
-			SELECT * FROM <old_disk_based_table>;
-
-
+    INSERT INTO <new_memory_optimized_table>
+            SELECT * FROM <old_disk_based_table>;
 
 ## Step 5 (optional): Migrate stored procedures
 The In-Memory feature can also modify a stored procedure for improved performance.
@@ -112,29 +106,27 @@ A natively compiled stored procedure must have the following options on its T-SQ
 * NATIVE_COMPILATION
 * SCHEMABINDING: meaning tables that the stored procedure cannot have their column definitions changed in any way that would affect the stored procedure, unless you drop the stored procedure.
 
-
 A native module must use one big [ATOMIC blocks](http://msdn.microsoft.com/zh-cn/library/dn452281.aspx) for transaction management. There is no role for an explicit BEGIN TRANSACTION, or for ROLLBACK TRANSACTION. If your code detects a violation of a business rule, it can terminate the atomic block with a [THROW](http://msdn.microsoft.com/zh-cn/library/ee677615.aspx) statement.
 
 ### Typical CREATE PROCEDURE for natively compiled
 Typically the T-SQL to create a natively compiled stored procedure is similar to the following template:
 
-
-	CREATE PROCEDURE schemaname.procedurename
-		@param1 type1, …
-		WITH NATIVE_COMPILATION, SCHEMABINDING
-		AS
-			BEGIN ATOMIC WITH
-				(TRANSACTION ISOLATION LEVEL = SNAPSHOT,
-				LANGUAGE = N'your_language__see_sys.languages'
-				)
-			…
-			END;
-
+```
+CREATE PROCEDURE schemaname.procedurename
+    @param1 type1, …
+    WITH NATIVE_COMPILATION, SCHEMABINDING
+    AS
+        BEGIN ATOMIC WITH
+            (TRANSACTION ISOLATION LEVEL = SNAPSHOT,
+            LANGUAGE = N'your_language__see_sys.languages'
+            )
+        …
+        END;
+```
 
 - For the TRANSACTION_ISOLATION_LEVEL, SNAPSHOT is the most common value for the natively compiled stored procedure. However,  a subset of the other values are also supported:
  - REPEATABLE READ
  - SERIALIZABLE
-
 
 - The LANGUAGE value must be present in the sys.languages view.
 
@@ -157,17 +149,16 @@ Major attributes of the workload are:
 * Number of concurrent connections.
 * Read/write ratio.
 
-
-To tailor and run the test workload, consider using the handy ostress.exe tool, which illustrated in [here](/documentation/articles/sql-database-in-memory/).
+To tailor and run the test workload, consider using the handy ostress.exe tool, which illustrated in [here](./sql-database-in-memory.md).
 
 To minimize network latency, run your test in the same Azure geographic region where the database exists.
 
 ## Step 7: Post-implementation monitoring
 Consider monitoring the performance effects of your In-Memory implementations in production:
 
-- [Monitor In-Memory Storage](/documentation/articles/sql-database-in-memory-oltp-monitoring/).
+- [Monitor In-Memory Storage](./sql-database-in-memory-oltp-monitoring.md).
 
-- [Monitoring Azure SQL Database using dynamic management views](/documentation/articles/sql-database-monitoring-with-dmvs/)
+- [Monitoring Azure SQL Database using dynamic management views](./sql-database-monitoring-with-dmvs.md)
 
 ## Related links
 
@@ -176,4 +167,3 @@ Consider monitoring the performance effects of your In-Memory implementations in
 - [Introduction to Natively Compiled Stored Procedures](http://msdn.microsoft.com/zh-cn/library/dn133184.aspx)
 
 - [Memory Optimization Advisor](http://msdn.microsoft.com/zh-cn/library/dn284308.aspx)
-

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Provision throughput for Azure DocumentDB | Azure"
-    description="Learn  how to set provisioned throughput for your DocumentDB collection."
-    services="documentdb"
-    author="mimig1"
-    manager="jhubbard"
-    editor=""
-    documentationcenter="" />
-<tags
-    ms.assetid="f98def7f-f012-4592-be03-f6fa185e1b1e"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/15/2017"
-    wacn.date=""
-    ms.author="mimig" />
+---
+title: Provision throughput for Azure DocumentDB | Azure
+description: Learn  how to set provisioned throughput for your DocumentDB collection.
+services: documentdb
+author: mimig1
+manager: jhubbard
+editor: ''
+documentationcenter: ''
+
+ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/15/2017
+wacn.date: ''
+ms.author: mimig
+---
 
 # Set throughput for Azure DocumentDB collections
 
@@ -43,7 +44,7 @@ The following table lists the throughput available for collections:
     </tbody>
 </table>
 
-> [AZURE.NOTE] 
+> [!NOTE] 
 > To set partitioned collections to a throughput value betweeen 2,500 RU/s and 10,000 RU/s, you must temporarily use the Azure portal. This functionality is not yet available in the SDKs.
 
 ## To set the throughput by using the Azure portal
@@ -60,25 +61,26 @@ The following table lists the throughput available for collections:
 
 C#
 
-	//Fetch the resource to be updated
-	Offer offer = client.CreateOfferQuery()
-	    .Where(r => r.ResourceLink == collection.SelfLink)    
-	    .AsEnumerable()
-	    .SingleOrDefault();
+```C#
+//Fetch the resource to be updated
+Offer offer = client.CreateOfferQuery()
+    .Where(r => r.ResourceLink == collection.SelfLink)    
+    .AsEnumerable()
+    .SingleOrDefault();
 
-	// Set the throughput to the new value, for example 12,000 request units per second
-	offer = new OfferV2(offer, 12000);
+// Set the throughput to the new value, for example 12,000 request units per second
+offer = new OfferV2(offer, 12000);
 
-	//Now persist these changes to the database by replacing the original resource
-	await client.ReplaceOfferAsync(offer);
-
+//Now persist these changes to the database by replacing the original resource
+await client.ReplaceOfferAsync(offer);
+```
 
 ## Throughput FAQ
 
 **Can I set my throughput to less than 400 RU/s?**
 
-400 RU/s is the minimum throughput available on DocumentDB single partition collections (2500 RU/s is the minimum for partitioned collections). Request units are set in 100 RU/s intervals, but througput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test DocumentDB, you can use the free [DocumentDB Emulator](/documentation/articles/documentdb-nosql-local-emulator/), which you can deploy locally at no cost. 
+400 RU/s is the minimum throughput available on DocumentDB single partition collections (2500 RU/s is the minimum for partitioned collections). Request units are set in 100 RU/s intervals, but througput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test DocumentDB, you can use the free [DocumentDB Emulator](./documentdb-nosql-local-emulator.md), which you can deploy locally at no cost. 
 
 ## Next steps
 
-To learn more about provisioning and going planet-scale with DocumentDB, see [Partitioning and scaling with DocumentDB](/documentation/articles/documentdb-partition-data/).
+To learn more about provisioning and going planet-scale with DocumentDB, see [Partitioning and scaling with DocumentDB](./documentdb-partition-data.md).

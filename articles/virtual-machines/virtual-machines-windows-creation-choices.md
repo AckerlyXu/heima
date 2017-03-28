@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Different ways to create a Windows VM in Azure | Azure"
-    description="Lists the different ways to create a Windows virtual machine with Resource Manager."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="809ba8f4-b54e-43c5-bbe3-8e710c49971f"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure-services"
-    ms.date="03/02/2017"
-    wacn.date=""
-    ms.author="cynthn"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Different ways to create a Windows VM in Azure | Azure
+description: Lists the different ways to create a Windows virtual machine with Resource Manager.
+services: virtual-machines-windows
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 809ba8f4-b54e-43c5-bbe3-8e710c49971f
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/02/2017
+wacn.date: ''
+ms.author: cynthn
+ms.custom: H1Hack27Feb2017
+---
 
 # Different ways to create a Windows virtual machine
 
@@ -31,7 +32,7 @@ Using the Azure portal preview is a simple way to try out a virtual machine, esp
 ## Template
 Virtual machines require a combination of resources (such as a availability sets and storage accounts). Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources in a single, coordinated operation.
 
-* [Create a Windows virtual machine with a Resource Manager template](/documentation/articles/virtual-machines-windows-ps-template/)
+* [Create a Windows virtual machine with a Resource Manager template](./virtual-machines-windows-ps-template.md)
 
 ## Azure PowerShell
 If you prefer working in a command shell, you can use Azure PowerShell.

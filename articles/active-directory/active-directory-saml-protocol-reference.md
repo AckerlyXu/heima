@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Azure AD SAML Protocol Reference | Azure"
-    description="This article provides an overview of the Single Sign-On and Single Sign-Out SAML profiles in Azure Active Directory."
-    services="active-directory"
-    documentationcenter=".net"
-    author="priyamohanram"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="88125cfc-45c1-448b-9903-a629d8f31b01"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="priyamo" />
+---
+title: Azure AD SAML Protocol Reference | Azure
+description: This article provides an overview of the Single Sign-On and Single Sign-Out SAML profiles in Azure Active Directory.
+services: active-directory
+documentationcenter: .net
+author: priyamohanram
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: priyamo
+---
 
 # How Azure Active Directory uses the SAML protocol
-Azure Active Directory (Azure AD) uses the SAML 2.0 protocol to enable applications to provide a single sign-on experience to their users. The [Single Sign-On](/documentation/articles/active-directory-single-sign-on-protocol-reference/) and [Single Sign-Out](/documentation/articles/active-directory-single-sign-out-protocol-reference/) SAML profiles of Azure AD explain how SAML assertions, protocols and bindings are used in the identity provider service.
+Azure Active Directory (Azure AD) uses the SAML 2.0 protocol to enable applications to provide a single sign-on experience to their users. The [Single Sign-On](./active-directory-single-sign-on-protocol-reference.md) and [Single Sign-Out](./active-directory-single-sign-out-protocol-reference.md) SAML profiles of Azure AD explain how SAML assertions, protocols and bindings are used in the identity provider service.
 
 SAML Protocol requires the identity provider (Azure AD) and the service provider (the application) to exchange information about themselves.
 
@@ -33,5 +34,4 @@ Azure Active Directory exposes tenant-specific and common (tenant-independent) s
 - The Tenant-independent endpoint is located at
   `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`.In this endpoint address, **common** appears, instead of a tenant domain name or ID.
 
-For information about the Federation Metadata documents that Azure AD publishes, see [Federation Metadata](/documentation/articles/active-directory-federation-metadata/).
-
+For information about the Federation Metadata documents that Azure AD publishes, see [Federation Metadata](./active-directory-federation-metadata.md).

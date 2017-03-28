@@ -1,6 +1,6 @@
 There are some limits on the number of metrics and events per application (that is, per instrumentation key). 
 
-Limits depend on the [pricing tier](/pricing/details/application-insights/) that you choose.
+Limits depend on the [pricing tier](https://www.azure.cn/pricing/details/application-insights/) that you choose.
 
 **Resource** | **Default Limit** | **Maximum Limit**
 -------- | ------------- | -------------
@@ -24,5 +24,5 @@ Metric name length |  150 |
 <sup>2</sup> A session data point logs the start or end of a session, and logs user identity.
 
 <sup>3</sup> You can purchase additional capacity beyond 50 million.
- 
+
 [About pricing and quotas in Application Insights](/documentation/articles/app-insights-pricing)

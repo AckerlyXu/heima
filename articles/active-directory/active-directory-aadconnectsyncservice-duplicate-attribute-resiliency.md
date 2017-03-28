@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Identity synchronization and duplicate attribute resiliency | Azure"
-    description="New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Azure AD Connect."
-    services="active-directory"
-    documentationcenter=""
-    author="MarkusVi"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="537a92b7-7a84-4c89-88b0-9bce0eacd931"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="markvi" />
+---
+title: Identity synchronization and duplicate attribute resiliency | Azure
+description: New behavior of how to handle objects with UPN or ProxyAddress conflicts during directory sync using Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+editor: ''
+
+ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: markvi
+---
 
 # Identity synchronization and duplicate attribute resiliency
 Duplicate Attribute Resiliency is a feature in Azure Active Directory that will eliminate friction caused by **UserPrincipalName** and **ProxyAddress** conflicts when running one of Microsoft’s synchronization tools.
 
 These two attributes are generally required to be unique across all **User**, **Group**, or **Contact** objects in a given Azure Active Directory tenant.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Only Users can have UPNs.
 > 
 > 
@@ -140,11 +141,11 @@ None of these known issues causes data loss or service degradation. Several of t
 
 1. Objects with specific attribute configurations continue to receive export errors as opposed to the duplicate attribute(s) being quarantined.  
    For example:
-   
+
     a. New user is created in AD with a UPN of **Joe@contoso.com** and ProxyAddress **smtp:Joe@contoso.com**
-   
+
     b. The properties of this object conflict with an existing Group, where ProxyAddress is **SMTP:Joe@contoso.com**.
-   
+
     c. Upon export, a **ProxyAddress conflict** error is thrown instead of having the conflict attributes quarantined. The operation is retried upon each subsequent sync cycle, as it would have been before the resiliency feature was enabled.
 2. If two Groups are created on-premises with the same SMTP address, one fails to provision on the first attempt with a standard duplicate **ProxyAddress** error. However, the duplicate value is properly quarantined upon the next sync cycle.
 
@@ -152,13 +153,13 @@ None of these known issues causes data loss or service degradation. Several of t
 
 1. The detailed error message for two objects in a UPN conflict set is the same. This indicates that they have both had their UPN changed / quarantined, when in fact only a one of them had any data changed.
 2. The detailed error message for a UPN conflict shows the wrong displayName for a user who has had their UPN changed/quarantined. For example:
-   
+
     a. **User A** syncs up first with **UPN = User@contoso.com**.
-   
+
     b. **User B** is attempted to be synced up next with **UPN = User@contoso.com**.
-   
+
     c. **User B’s** UPN is changed to **User1234@contoso.partner.onmschina.cn** and **User@contoso.com** is added to **DirSyncProvisioningErrors**.
-   
+
     d. The error message for **User B** should indicate that **User A** already has **User@contoso.com** as a UPN, but it shows **User B’s** own displayName.
 
 **Identity synchronization error report**:
@@ -169,7 +170,6 @@ The link for *steps on how to resolve this issue* is incorrect:
 It should point to [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
 
 ## See also
-- [Azure AD Connect sync](/documentation/articles/active-directory-aadconnectsync-whatis/)
-- [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+- [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
 - [Identify directory synchronization errors in Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
-

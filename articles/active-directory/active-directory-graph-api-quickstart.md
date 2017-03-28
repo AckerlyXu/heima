@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Quickstart for the Azure AD Graph API | Azure"
-    description="The Azure Active Directory Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects."
-    services="active-directory"
-    documentationcenter="n/a"
-    author="PatAltimore"
-    manager="mbaldwin"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="9dc268a9-32e8-402c-a43f-02b183c295c5"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="patricka" />
+---
+title: Quickstart for the Azure AD Graph API | Azure
+description: The Azure Active Directory Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects.
+services: active-directory
+documentationcenter: n/a
+author: PatAltimore
+manager: mbaldwin
+editor: ''
+tags: ''
+
+ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: patricka
+---
 
 # Quickstart for the Azure AD Graph API
 The Azure Active Directory (AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects. For example, you can use the Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable or delete the user. For more information on the Graph API features and application scenarios, see [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) and [Azure AD Graph API Prerequisites](https://msdn.microsoft.com/zh-cn/library/hh974476.aspx). 
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure AD Graph API functionality is also available through [Microsoft Graph](https://graph.microsoft.io/), a unified API that includes APIs from other Microsoft services such as Outlook, OneDrive, OneNote, Planner, and Office Graph, accessible through a single endpoint and with a single access token.
 > 
 > 
@@ -50,7 +51,7 @@ Or `https://graph.chinacloudapi.cn/contoso.com/users?api-version=1.6` lists all 
 ## Using the Graph Explorer
 You can use the Graph Explorer for the Azure AD Graph API to query the directory data as you build your application.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The Graph Explorer does not support writing or deleting the data from a directory. You can only perform read operations on your Azure AD directory with the Graph Explorer.
 > 
 > 
@@ -76,39 +77,39 @@ For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger 
 
 In the example below, you use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.
 
-**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication Scenarios for Azure AD](/documentation/articles/active-directory-authentication-scenarios/).
+**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication Scenarios for Azure AD](./active-directory-authentication-scenarios.md).
 
 **Compose and run a query**: Complete the following steps:
 
 1. Open Fiddler Web Debugger and switch to the **Composer** tab.
 2. Since you want to create a new security group, select **Post** as the HTTP method from the pull-down menu. For more information about operations and permissions on a group object, see [Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity) within the [Azure AD Graph REST API Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 3. In the field next to **Post**, type in the following as the request URL: `https://graph.chinacloudapi.cn/mytenantdomain/groups?api-version=1.6`.
-   
-	> [AZURE.NOTE]
-	> You must substitute mytenantdomain with the domain name of your own Azure AD directory.
-	> 
 
+    > [!NOTE]
+    > You must substitute mytenantdomain with the domain name of your own Azure AD directory.
+    > 
 
 4. In the field directly below Post pull-down, type the following:
 
-    
-		Host: graph.chinacloudapi.cn
-		Authorization: Bearer <your access token>
-		Content-Type: application/json
+    ```
+    Host: graph.chinacloudapi.cn
+    Authorization: Bearer <your access token>
+    Content-Type: application/json
+    ```
 
-
-	> [AZURE.NOTE] Substitute your &lt;your access token&gt; with the access token for your Azure AD directory.
+    > [!NOTE]
+    > Substitute your &lt;your access token&gt; with the access token for your Azure AD directory.
 
 5. In the **Request body** field, type the following:
 
-    
-        {
-            "displayName":"MyTestGroup",
-            "mailNickname":"MyTestGroup",
-            "mailEnabled":"false",
-            "securityEnabled": true
-        }
-
+    ```
+    {
+        "displayName":"MyTestGroup",
+        "mailNickname":"MyTestGroup",
+        "mailEnabled":"false",
+        "securityEnabled": true
+    }
+    ```
 
     For more information about creating groups, see [Create Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#CreateGroup).
 
@@ -117,4 +118,3 @@ For more information on Azure AD entities and types that are exposed by Graph an
 ## Next steps
 - Learn more about the [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 - Learn more about [Azure AD Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
-

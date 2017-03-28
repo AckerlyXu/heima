@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Create a DocumentDB account for use with MongoDB apps | Azure"
-    description="Use this tutorial to learn how to create a DocumentDB account with protocol support for MongoDB, now available for preview."
-    keywords="mongodb apps, mongodb app"
-    services="documentdb"
-    author="AndrewHoh"
-    manager="jhubbard"
-    editor=""
-    documentationcenter="" />
-<tags
-    ms.assetid="413f3ae1-a68e-43be-b0d7-fa2987644f3e"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/24/2016"
-    wacn.date=""
-    ms.author="anhoh" />
+---
+title: Create a DocumentDB account for use with MongoDB apps | Azure
+description: Use this tutorial to learn how to create a DocumentDB account with protocol support for MongoDB, now available for preview.
+keywords: mongodb apps, mongodb app
+services: documentdb
+author: AndrewHoh
+manager: jhubbard
+editor: ''
+documentationcenter: ''
+
+ms.assetid: 413f3ae1-a68e-43be-b0d7-fa2987644f3e
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/24/2016
+wacn.date: ''
+ms.author: anhoh
+---
 
 # Create a DocumentDB account for use with MongoDB apps
 DocumentDB databases can now be used as the data store for apps written for MongoDB. To use this functionality, you need an Azure account and a DocumentDB account. This tutorial walks you through the process of creating a DocumentDB account for use with MongoDB apps. 
 
 ## Prerequisite
-An Azure account. If you don't have an Azure account, create a [Azure account](/pricing/1rmb-trial/) now.
+An Azure account. If you don't have an Azure account, create a [Azure account](https://www.azure.cn/pricing/1rmb-trial/) now.
 ## Create a DocumentDB account
 
 1. In an internet browser, sign in to the [Azure Portal](https://portal.azure.cn).
@@ -40,7 +41,7 @@ An Azure account. If you don't have an Azure account, create a [Azure account](/
 
 5. In the **DocumentDB account** blade, specify the desired configuration for the account.
 
-	![Screen shot of the New DocumentDB with protocol support for MongoDB blade](./media/documentdb-create-mongodb-account/create-documentdb-mongodb-account.PNG)
+    ![Screen shot of the New DocumentDB with protocol support for MongoDB blade](./media/documentdb-create-mongodb-account/create-documentdb-mongodb-account.PNG)
 
     - In the **ID** box, enter a name to identify the account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which will become your account endpoint.
 
@@ -48,7 +49,7 @@ An Azure account. If you don't have an Azure account, create a [Azure account](/
 
     - For **Subscription**, select the Azure subscription that you want to use for the account. If your account has only one subscription, that account is selected by default.
 
-    - In **Resource Group**, select or create a resource group for the account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add the account. For more information, see [Using the Azure portal to manage your Azure resources](/documentation/articles/resource-group-portal/).
+    - In **Resource Group**, select or create a resource group for the account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add the account. For more information, see [Using the Azure portal to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
 
     - Use **Location** to specify the geographic location in which to host the account.
 
@@ -64,4 +65,4 @@ An Azure account. If you don't have an Azure account, create a [Azure account](/
    ![Screen shot of the default account blade](./media/documentdb-create-mongodb-account/defaultaccountblade.png)
 
 ## Next steps
-- Learn how to [connect](/documentation/articles/documentdb-connect-mongodb-account/) to a DocumentDB account with protocol support for MongoDB.
+- Learn how to [connect](./documentdb-connect-mongodb-account.md) to a DocumentDB account with protocol support for MongoDB.

@@ -1,30 +1,30 @@
-<properties 
-   pageTitle="Azure SQL Database Advisor" 
-   description="The Azure SQL Database Advisor provides recommendations for your existing SQL Databases that can improve current query performance." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jhubbard" 
-   editor="monicar"/>
+---
+title: Azure SQL Database Advisor
+description: The Azure SQL Database Advisor provides recommendations for your existing SQL Databases that can improve current query performance.
+services: sql-database
+documentationCenter: ''
+authors: stevestein
+manager: jhubbard
+editor: monicar
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management" 
-   ms.date="09/30/2016"
-   ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 09/30/2016
+ms.author: sstein
+---
 
 # SQL Database Advisor
 
-> [AZURE.SELECTOR]
-- [SQL Database Advisor Overview](/documentation/articles/sql-database-advisor/)
-- [Portal](/documentation/articles/sql-database-advisor-portal/)
+> [!div class="op_single_selector"]
+>- [SQL Database Advisor Overview](./sql-database-advisor.md)
+>- [Portal](./sql-database-advisor-portal.md)
 
 Azure SQL Database learns and adapts with your application and provides customized recommendations enabling you to maximize the performance of your SQL databases. The SQL Database Advisor provides recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. The advisor assesses performance by analyzing your SQL database's usage history. The recommendations that are best suited for running your database’s typical workload are recommended. 
 
-The following recommendations are available for V12 servers (recommendations are not available for V11 servers). Currently you can set the create and drop index recommendations to be applied automatically, see [Automatic index management](/documentation/articles/sql-database-advisor-portal/#enable-automatic-index-management) for details.
+The following recommendations are available for V12 servers (recommendations are not available for V11 servers). Currently you can set the create and drop index recommendations to be applied automatically, see [Automatic index management](./sql-database-advisor-portal.md#enable-automatic-index-management) for details.
 
 ## Create Index recommendations 
 
@@ -67,13 +67,11 @@ Once you apply this recommendation, it will enable forced parameterization withi
 
 Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database advisor continues to monitor and provide recommendations that can potentially improve your database's performance. 
 
- - See [SQL Database Advisor in the Azure portal](/documentation/articles/sql-database-advisor-portal/) for steps on how to use SQL Database Advisor in the Azure portal.
- - See [Query Performance Insights](/documentation/articles/sql-database-query-performance/) to learn about view the performance impact of your top queries.
+ - See [SQL Database Advisor in the Azure portal](./sql-database-advisor-portal.md) for steps on how to use SQL Database Advisor in the Azure portal.
+ - See [Query Performance Insights](./sql-database-query-performance.md) to learn about view the performance impact of your top queries.
 
 ## Additional resources
 
 - [Query Store](https://msdn.microsoft.com/zh-cn/library/dn817826.aspx)
 - [CREATE INDEX](https://msdn.microsoft.com/zh-cn/library/ms188783.aspx)
-- [Role-based access control](/documentation/articles/role-based-access-control-configure/)
-
-
+- [Role-based access control](../active-directory/role-based-access-control-configure.md)

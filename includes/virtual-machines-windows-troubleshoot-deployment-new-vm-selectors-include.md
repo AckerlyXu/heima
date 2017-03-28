@@ -1,3 +1,3 @@
-> [AZURE.SELECTOR]
-- [Classic](/documentation/articles/virtual-machines-windows-classic-troubleshoot-deployment-new-vm/)
-- [Resource Manager](/documentation/articles/virtual-machines-windows-troubleshoot-deployment-new-vm/)
+> [!div class="op_single_selector"]
+>- [Classic](../articles/virtual-machines/virtual-machines-windows-classic-troubleshoot-deployment-new-vm.md)
+>- [Resource Manager](../articles/virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md)

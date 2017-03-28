@@ -1,26 +1,28 @@
-<properties
-    pageTitle="Azure Storage samples using .NET | Azure"
-    description="View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET storage client libraries."
-    services="storage"
-    documentationcenter="na"
-    author="seguler"
-    manager="jahogg"
-    editor="tysonn" />
-<tags
-    ms.service="storage"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage"
-    ms.date="01/12/2017"
-    wacn.date=""
-    ms.author="seguler" />
+---
+title: Azure Storage samples using .NET | Azure
+description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET storage client libraries.
+services: storage
+documentationcenter: na
+author: seguler
+manager: jahogg
+editor: tysonn
+
+ms.service: storage
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage
+ms.date: 01/12/2017
+wacn.date: ''
+ms.author: seguler
+---
 
 # Azure Storage samples using .NET
 
 ## .NET sample index
 
-[AZURE.IMPORTANT] To use the samples provided in this article, please replace endpoint `windows.net` with `chinacloudapi.cn` if it exists.
+>[!IMPORTANT]
+> To use the samples provided in this article, please replace endpoint `windows.net` with `chinacloudapi.cn` if it exists.
 
 The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in Github.
 
@@ -195,22 +197,20 @@ The following table provides an overview of our samples repository and the scena
 
 ## Azure Code Samples library
 
-
-
-[AZURE.INCLUDE [storage-dotnet-samples-include](../../includes/storage-dotnet-samples-include.md)]
+[!INCLUDE [storage-dotnet-samples-include](../../includes/storage-dotnet-samples-include.md)]
 
 ## Getting started guides
 
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
-* [Getting Started with Azure Blob Service in .NET](/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [Getting Started with Azure Queue Service in .NET](/documentation/articles/storage-dotnet-how-to-use-queues/)
-* [Getting Started with Azure Table Service in .NET](/documentation/articles/storage-dotnet-how-to-use-tables/)
-* [Getting Started with Azure File Service in .NET](/documentation/articles/storage-dotnet-how-to-use-files/)
+* [Getting Started with Azure Blob Service in .NET](./storage-dotnet-how-to-use-blobs.md)
+* [Getting Started with Azure Queue Service in .NET](./storage-dotnet-how-to-use-queues.md)
+* [Getting Started with Azure Table Service in .NET](./storage-dotnet-how-to-use-tables.md)
+* [Getting Started with Azure File Service in .NET](./storage-dotnet-how-to-use-files.md)
 
 ## Next steps
 
 For information on samples for other languages:
 
-* Java: [Azure Storage samples using Java](/documentation/articles/storage-samples-java/)
-* All other languages: [Azure Storage samples](/documentation/articles/storage-samples/)
+* Java: [Azure Storage samples using Java](./storage-samples-java.md)
+* All other languages: [Azure Storage samples](./storage-samples.md)

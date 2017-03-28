@@ -1,24 +1,22 @@
-<properties 
-	pageTitle="Azure Multi-Factor Authentication - How it works" 
-	description="Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy verification options." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+---
+title: Azure Multi-Factor Authentication - How it works
+description: Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy verification options.
+services: multi-factor-authentication
+documentationCenter: ''
+authors: billmath
+manager: stevenpo
+editor: curtland
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.date="08/04/2016"
-	wacn.date=""/>
+ms.service: multi-factor-authentication
+ms.date: 08/04/2016
+wacn.date: ''
+---
 
 #How Azure Multi-Factor Authentication works
 
 The security of multi-factor authentication lies in its layered approach. Compromising multiple authentication factors presents a significant challenge for attackers. Even if an attacker manages to learn the user's password, it is useless without also having possession of the trusted device. Should the user lose the device, the person who finds it won't be able to use it unless he or she also knows the user's password.
 
 ![Proofup](./media/multi-factor-authentication-how-it-works/howitworks.png)
-
-
 
 Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.  It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy verification options:
 
@@ -27,8 +25,6 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 - mobile app notification—allowing users to choose the method they prefer
 - mobile app verification code
 - 3rd party OATH tokens
-
-
 
 ##Methods available for multi-factor authentication
 When a user signs in, an additional verification is sent to the user.  The following are a list of methods that can be used for this second verification. 
@@ -40,7 +36,6 @@ Text Message | A text message will be sent to a user’s smart phone with a 6 di
 Mobile App Notification | A verification request will be sent to a user’s smart phone asking them complete the verification by selecting Verify from the mobile app. This will occur if you selected app notification as your primary verification method.  If they receive this when they are not signing in, they can choose to report it as fraud.
 Verification code with Mobile App | A verification code will be sent to the mobile app that is running on a user’s smart phone.  This will occur if you selected a verification code as your primary verification method.
 
-
 ##Available versions of Azure Multi-Factor Authentication
 Azure Multi-Factor Authentication is available in three different versions.  The table below describes each of these in more detail.
 
@@ -51,7 +46,6 @@ Multi-Factor Authentication for Azure Administrators | The same subset of Multi-
 Azure Multi-Factor Authentication | Azure Multi-Factor Authentication offers the richest set of capabilities. <br><br>It provides additional configuration options via the Azure Management portal, advanced reporting, and support for a range of on-premises and cloud applications. Azure Multi-Factor Authentication can be purchased as a stand-alone license and is bundled within Azure Active Directory Premium and Enterprise Mobility Suite. <br><br>It can also be purchased on a consumption basis by creating an Azure Multi-Factor Authentication Provider in an Azure subscription.
 ##Feature comparison of versions
 The following table below provides a list of the features that are available in the various versions of Azure Multi-Factor Authentication.
-
 
 Feature  | Multi-Factor Authentication for Office 365 (included in Office 365 SKUs)|Multi-Factor Authentication for Azure Administrators (included with Azure subscription) | Azure Multi-Factor Authentication (included in Azure AD Premium and Enterprise Mobility Suite) 
 ------------- | :-------------: |:-------------: |:-------------: |
@@ -73,24 +67,19 @@ Suspend MFA for remembered devices (Public Preview)| | | *
 MFA SDK| | | *
 MFA for on-premises applications using MFA server| | | *
 
-
 ##How to get Azure Multi-Factor Authentication
 
 If you would like the full functionality offered by Azure Multi-Factor Authentication instead of just those provided for Office 365 users and Azure administrators, there are several options to get it:
 
-1.	Purchase Azure Multi-Factor Authentication licenses and assign them to your users.
-2.	Purchase licenses that have Azure Multi-Factor Authentication bundled within them such as Azure Active Directory Premium or Enterprise Mobility Suite and assign them to your users.
-3.	Create an Azure Multi-Factor Authentication Provider within an Azure subscription. If you don’t already have an Azure subscription, you can sign up for an Azure trial subscription. Trial subscriptions will need to be converted to regular subscriptions prior to trial expiration.
+1. Purchase Azure Multi-Factor Authentication licenses and assign them to your users.
+2. Purchase licenses that have Azure Multi-Factor Authentication bundled within them such as Azure Active Directory Premium or Enterprise Mobility Suite and assign them to your users.
+3. Create an Azure Multi-Factor Authentication Provider within an Azure subscription. If you don’t already have an Azure subscription, you can sign up for an Azure trial subscription. Trial subscriptions will need to be converted to regular subscriptions prior to trial expiration.
 
 When using an Azure Multi-Factor Authentication Provider there are two usage models available that are billed through your Azure subscription:
 
 - **Per User**. Generally for enterprises that want to enable multi-factor authentication for a fixed number of employees who regularly need authentication.
 - **Per Authentication**. Generally for enterprises that want to enable multi-factor authentication for a large group of external users who infrequently need authentication.
 
-For pricing details see [Azure MFA Pricing.](/pricing/details/multi-factor-authentication/)
+For pricing details see [Azure MFA Pricing.](https://www.azure.cn/pricing/details/multi-factor-authentication/)
 
-Choose the per-seat or consumption-based model that works best for your organization.   Then to get started see [Getting Started](/documentation/articles/multi-factor-authentication-get-started/)
-
-
-
- 
+Choose the per-seat or consumption-based model that works best for your organization.   Then to get started see [Getting Started](./multi-factor-authentication-get-started.md)

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Connect a web app to a redis cache | Azure"
-    description="Azure CLI Script Sample - Connect a web app to a redis cache"
-    services="appservice"
-    documentationcenter="appservice"
-    author="syntaxc4"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="bc8345b2-8487-40c6-a91f-77414e8688e6"
-    ms.service="app-service"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="web"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cfowler" />
+---
+title: Azure CLI Script Sample - Connect a web app to a redis cache | Azure
+description: Azure CLI Script Sample - Connect a web app to a redis cache
+services: appservice
+documentationcenter: appservice
+author: syntaxc4
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
+ms.service: app-service
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cfowler
+---
 
 # Connect a web app to a redis cache
 
@@ -24,34 +25,36 @@ In this scenario you will learn how to create an Azure redis cache and an Azure 
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-    #/bin/bash
+```
+#/bin/bash
 
-    # Variables
-    resourceGroupName="myResourceGroup$RANDOM"
-    appName="webappwithredis$RANDOM"
-    storageName="webappredis$RANDOM"
-    location="chinanorth"
+# Variables
+resourceGroupName="myResourceGroup$RANDOM"
+appName="webappwithredis$RANDOM"
+storageName="webappredis$RANDOM"
+location="chinanorth"
 
-    # Create a Resource Group 
-    az group create --name $resourceGroupName --location $location
+# Create a Resource Group 
+az group create --name $resourceGroupName --location $location
 
-    # Create an App Service Plan
-    az appservice plan create --name WebAppWithRedisPlan --resource-group $resourceGroupName --location $location
+# Create an App Service Plan
+az appservice plan create --name WebAppWithRedisPlan --resource-group $resourceGroupName --location $location
 
-    # Create a Web App
-    az appservice web create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
+# Create a Web App
+az appservice web create --name $appName --plan WebAppWithRedisPlan --resource-group $resourceGroupName 
 
-    # Create a Redis Cache
-    redis=($(az redis create --name $appName --resource-group $resourceGroupName --location $location --sku-capacity 0 --sku-family C --sku-name Basic --query [hostName,sslPort,accessKeys.primaryKey] --output tsv))
+# Create a Redis Cache
+redis=($(az redis create --name $appName --resource-group $resourceGroupName --location $location --sku-capacity 0 --sku-family C --sku-name Basic --query [hostName,sslPort,accessKeys.primaryKey] --output tsv))
 
-    # Assign the connection string to an App Setting in the Web App
-    az appservice web config appsettings update --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
+# Assign the connection string to an App Setting in the Web App
+az appservice web config appsettings update --settings "REDIS_URL=${redis[0]}" "REDIS_PORT=${redis[1]}" "REDIS_KEY=${redis[2]}" --name $appName --resource-group $resourceGroupName
+```
 
-[AZURE.INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
@@ -70,4 +73,4 @@ This script uses the following commands to create a resource group, web app, red
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional App Service CLI script samples can be found in the [Azure App Service documentation](/documentation/articles/app-service-cli-samples/).
+Additional App Service CLI script samples can be found in the [Azure App Service documentation](../app-service-cli-samples.md).

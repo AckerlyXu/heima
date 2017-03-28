@@ -1,41 +1,42 @@
-<properties
-    pageTitle="Run Hadoop MapReduce samples on HDInsight | Azure"
-    description="Get started using MapReduce samples with HDInsight. Use SSH to connect to the cluster, then use the Hadoop command to run sample jobs."
-    services="hdinsight"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="e1d2a0b9-1659-4fab-921e-4a8990cbb30a"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/12/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Run Hadoop MapReduce samples on HDInsight | Azure
+description: Get started using MapReduce samples with HDInsight. Use SSH to connect to the cluster, then use the Hadoop command to run sample jobs.
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/12/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Run the Hadoop samples in HDInsight
-[AZURE.INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
+[!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 HDInsight clusters provide a set of MapReduce samples that can be used to familiarize yourself with running Hadoop MapReduce jobs. In this document, you learn about the available samples and walk through running a few of them.
 
 ## Prerequisites
 
-* **A Linux-based HDInsight cluster**: See [Get started using Hadoop with Hive in HDInsight on Linux](/documentation/articles/hdinsight-hadoop-linux-tutorial-get-started/)
+* **A Linux-based HDInsight cluster**: See [Get started using Hadoop with Hive in HDInsight on Linux](./hdinsight-hadoop-linux-tutorial-get-started.md)
 
-    [AZURE.INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+    [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-    > [AZURE.IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](/documentation/articles/hdinsight-component-versioning/#hdi-version-32-and-33-nearing-deprecation-date).
+    > [!IMPORTANT]
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * **An SSH client**: For information on using SSH with HDInsight, see the following articles:
-  
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)
-    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/)
+
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## The samples
 **Location**: The samples are located on the HDInsight cluster at  **/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar**
@@ -67,55 +68,67 @@ HDInsight clusters provide a set of MapReduce samples that can be used to famili
 
 **Source code**: Source code for these samples is included on the HDInsight cluster at **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The `2.2.4.9-1` in the path is the version of the Hortonworks Data Platform for the HDInsight cluster, and may change as HDInsight is updated.
 > 
 > 
 
 ## How to run the samples
 1. Connect to HDInsight using SSH as described in the following articles:
-   
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)
-    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/)
+
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
 2. From the `username@#######:~$` prompt, use the following command to list the samples:
-   
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
-   
+
+    ```
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
+    ```
+
     This generates the list of sample from the previous section of this document.
 3. Use the following command to get help on a specific sample. In this case, the **wordcount** sample:
-   
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
-   
+
+    ```
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount
+    ```
+
     You should receive the following message:
-   
-        Usage: wordcount <in> [<in>...] <out>
-   
+
+    ```
+    Usage: wordcount <in> [<in>...] <out>
+    ```
+
     This indicates that you can provide several input paths for the source documents. The final path is where the output (count of words in the source documents,) is stored.
 4. Use the following to count all words in the Notebooks of Leonardo Da Vinci, which are provided as sample data with your cluster:
-   
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
-   
+
+    ```
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
+    ```
+
     Input for this job is read from **wasbs:///example/data/gutenberg/davinci.txt**.
-   
+
     Output for this example is stored in **wasbs:///example/data/davinciwordcount**.
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > As noted in the help for the wordcount sample, you could also specify multiple input files. For example, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` would count words in both davinci.txt and ulysses.txt.
     > 
     > 
 5. Once the job completes, use the following command to view the output:
-   
-        hdfs dfs -cat /example/data/davinciwordcount/*
-   
+
+    ```
+    hdfs dfs -cat /example/data/davinciwordcount/*
+    ```
+
     This concatenates all the output files produced by the job, and display them. For this basic example there is only one file, however if there were more this command would iterate over all of them.
-   
+
     The output is similar to the following:
-   
-        zum     1
-        zur     1
-        zwanzig 1
-        zweite  1
-   
+
+    ```
+    zum     1
+    zur     1
+    zwanzig 1
+    zweite  1
+    ```
+
     Each line represents a word and how many times it occurred in the input data.
 
 ## Sudoku
@@ -129,36 +142,42 @@ The Sudoku example has somewhat unhelpful usage instructions; "Include a puzzle 
 
 There is a certain way to construct Sudoku puzzles; you can't repeat a number in a column or row. There's an example on the HDInsight cluster that is properly constructed. It is located at **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta** and contains the following:
 
-    8 5 ? 3 9 ? ? ? ?
-    ? ? 2 ? ? ? ? ? ?
-    ? ? 6 ? 1 ? ? ? 2
-    ? ? 4 ? ? 3 ? 5 9
-    ? ? 8 9 ? 1 4 ? ?
-    3 2 ? 4 ? ? 8 ? ?
-    9 ? ? ? 8 ? 5 ? ?
-    ? ? ? ? ? ? 2 ? ?
-    ? ? ? ? 4 5 ? 7 8
+```
+8 5 ? 3 9 ? ? ? ?
+? ? 2 ? ? ? ? ? ?
+? ? 6 ? 1 ? ? ? 2
+? ? 4 ? ? 3 ? 5 9
+? ? 8 9 ? 1 4 ? ?
+3 2 ? 4 ? ? 8 ? ?
+9 ? ? ? 8 ? 5 ? ?
+? ? ? ? ? ? 2 ? ?
+? ? ? ? 4 5 ? 7 8
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The `2.2.4.9-1` portion of the path may change as updates are made to the HDInsight cluster.
 > 
 > 
 
 To run this through the Sudoku example, use the following command:
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.9.1-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
+```
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar sudoku /usr/hdp/2.2.9.1-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta
+```
 
 The results should appear similar to the following:
 
-    8 5 1 3 9 2 6 4 7
-    4 3 2 6 7 8 1 9 5
-    7 9 6 5 1 4 3 8 2
-    6 1 4 8 2 3 7 5 9
-    5 7 8 9 6 1 4 2 3
-    3 2 9 4 5 7 8 1 6
-    9 4 7 2 8 6 5 3 1
-    1 8 5 7 3 9 2 6 4
-    2 6 3 1 4 5 9 7 8
+```
+8 5 1 3 9 2 6 4 7
+4 3 2 6 7 8 1 9 5
+7 9 6 5 1 4 3 8 2
+6 1 4 8 2 3 7 5 9
+5 7 8 9 6 1 4 2 3
+3 2 9 4 5 7 8 1 6
+9 4 7 2 8 6 5 3 1
+1 8 5 7 3 9 2 6 4
+2 6 3 1 4 5 9 7 8
+```
 
 ## Pi (π)
 The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, pi/4. The value of pi can be estimated from the value of 4R, where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
@@ -169,7 +188,9 @@ The reducer then accumulates points counted by the mappers and estimates the val
 
 Use the following command to run this sample. This uses 16 maps with 10,000,000 samples each to estimate the value of pi:
 
-    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
+```
+yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar pi 16 10000000
+```
 
 The value returned by this should be similar to **3.14159155000000000000**. For references, the first 10 decimal places of pi are 3.1415926535.
 
@@ -182,27 +203,33 @@ This sample uses three sets of MapReduce programs:
 
 * **TeraGen**: A MapReduce program that generates rows of data to sort
 * **TeraSort**: Samples the input data and uses MapReduce to sort the data into a total order
-  
+
     TeraSort is a standard sort of MapReduce functions, except for a custom partitioner that uses a sorted list of N-1 sampled keys that define the key range for each reduce. In particular, all keys such that sample[i-1] <= key < sample[i] are sent to reduce i. This guarantees that the outputs of reduce i are all less than the output of reduce i+1.
 * **TeraValidate**: A MapReduce program that validates that the output is globally sorted
-  
+
     It creates one map per file in the output directory, and each map ensures that each key is less than or equal to the previous one. The map function also generates records of the first and last keys of each file, and the reduce function ensures that the first key of file i is greater than the last key of file i-1. Any problems are reported as an output of the reduce with the keys that are out of order.
 
 Use the following steps to generate data, sort, and then validate the output:
 
 1. Generate 10GB of data, which will be stored to the HDInsight cluster's default storage at **wasbs:///example/data/10GB-sort-input**:
-   
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
-   
+
+    ```
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
+    ```
+
     The `-Dmapred.map.tasks` tells Hadoop how many map tasks to use for this job. The final two parameters instruct the job to create 10GB worth of data and to store it at **wasbs:///example/data/10GB-sort-input**.
 2. Use the following command to sort the data:
-   
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
-   
+
+    ```
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar terasort -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-input /example/data/10GB-sort-output
+    ```
+
     The `-Dmapred.reduce.tasks` tells Hadoop how many reduce tasks to use for the job. The final two parameters are just the input and output locations for data.
 3. Use the following to validate the data generated by the sort:
-   
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
+
+    ```
+    yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teravalidate -Dmapred.map.tasks=50 -Dmapred.reduce.tasks=25 /example/data/10GB-sort-output /example/data/10GB-sort-validate
+    ```
 
 ## Next steps
 From this article, you learned how to run the samples included with the Linux-based HDInsight clusters. For tutorials about using Pig, Hive, and MapReduce with HDInsight, see the following topics:
@@ -211,14 +238,14 @@ From this article, you learned how to run the samples included with the Linux-ba
 * [Use Hive with Hadoop on HDInsight][hdinsight-use-hive]
 * [Use MapReduce with Hadoop on HDInsight][hdinsight-use-mapreduce]
 
-[hdinsight-errors]: /documentation/articles/hdinsight-debug-jobs/
-[hdinsight-use-mapreduce]: /documentation/articles/hdinsight-use-mapreduce/
+[hdinsight-errors]: ./hdinsight-debug-jobs.md
+[hdinsight-use-mapreduce]: ./hdinsight-use-mapreduce.md
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/zh-cn/library/azure/dn479185.aspx
 
-[hdinsight-submit-jobs]: /documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-introduction]: /documentation/articles/hdinsight-hadoop-introduction/
+[hdinsight-submit-jobs]: ./hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-introduction]: ./hdinsight-hadoop-introduction.md
 
-[hdinsight-samples]: /documentation/articles/hdinsight-run-samples/
+[hdinsight-samples]: ./hdinsight-run-samples.md
 
-[hdinsight-use-hive]: /documentation/articles/hdinsight-use-hive/
-[hdinsight-use-pig]: /documentation/articles/hdinsight-use-pig/
+[hdinsight-use-hive]: ./hdinsight-use-hive.md
+[hdinsight-use-pig]: ./hdinsight-use-pig.md

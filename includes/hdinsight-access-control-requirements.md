@@ -5,5 +5,5 @@ If you use an Azure subscription where you are not the administrator or owner, s
 
 For more information on working with access management, see the following articles:
 
-* [Get started with access management in the Azure portal preview](/documentation/articles/role-based-access-control-what-is/)
-* [Use role assignments to manage access to your Azure subscription resources](/documentation/articles/role-based-access-control-configure/)
+* [Get started with access management in the Azure portal preview](../articles/active-directory/role-based-access-control-what-is.md)
+* [Use role assignments to manage access to your Azure subscription resources](../articles/active-directory/role-based-access-control-configure.md)

@@ -1,22 +1,23 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Compiling configurations in Azure Automation DSC | Azure"
-    description="This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation."
-    services="automation"
-    documentationcenter="na"
-    author="eslesar"
-    manager="carmonm" />
-<tags
-    ms.assetid="49f20b31-4fa5-4712-b1c7-8f4409f1aecc"
-    ms.service="automation"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="powershell"
-    ms.workload="na"
-    ms.date="02/07/2017"
-    wacn.date=""
-    ms.author="magoedte; eslesar" />
+---
+title: Compiling configurations in Azure Automation DSC | Azure
+description: This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation.
+services: automation
+documentationcenter: na
+author: eslesar
+manager: carmonm
+
+ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
+ms.service: automation
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: powershell
+ms.workload: na
+ms.date: 02/07/2017
+wacn.date: ''
+ms.author: magoedte; eslesar
+---
 
 # Compiling configurations in Azure Automation DSC
 
@@ -53,51 +54,57 @@ Once you have decided on a compilation method, you can follow the respective pro
 
 You can use [`Start-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.com/zh-cn/library/mt244118.aspx) to start compiling with Windows PowerShell. The following sample code starts compilation of a DSC configuration called **SampleConfig**.
 
-    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
+```powershell
+Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
+```
 
 `Start-AzureRmAutomationDscCompilationJob` returns a compilation job object that you can use to track its status. You can then use this compilation job object with [`Get-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.com/zh-cn/library/mt244120.aspx) to determine the status of the compilation job, and [`Get-AzureRmAutomationDscCompilationJobOutput`](https://msdn.microsoft.com/zh-cn/library/mt244103.aspx) to view its streams (output). The following sample code starts compilation of the **SampleConfig** configuration, waits until it has completed, and then displays its streams.
 
-    $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
+```powershell
+$CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
 
-    while($CompilationJob.EndTime -eq $null -and $CompilationJob.Exception -eq $null)
-    {
-        $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
-        Start-Sleep -Seconds 3
-    }
+while($CompilationJob.EndTime -eq $null -and $CompilationJob.Exception -eq $null)
+{
+    $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
+    Start-Sleep -Seconds 3
+}
 
-    $CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput -Stream Any
+$CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput -Stream Any
+```
 
 ## Basic Parameters
-Parameter declaration in DSC configurations, including parameter types and properties, works the same as in Azure Automation runbooks. See [Starting a runbook in Azure Automation](/documentation/articles/automation-starting-a-runbook/) to learn more about runbook parameters.
+Parameter declaration in DSC configurations, including parameter types and properties, works the same as in Azure Automation runbooks. See [Starting a runbook in Azure Automation](./automation-starting-a-runbook.md) to learn more about runbook parameters.
 
 The following example uses two parameters called **FeatureName** and **IsPresent**, to determine the values of properties in the **ParametersExample.sample** node configuration, generated during compilation.
 
-    Configuration ParametersExample
+```powershell
+Configuration ParametersExample
+{
+    param(
+        [Parameter(Mandatory=$true)]
+
+        [string] $FeatureName,
+
+        [Parameter(Mandatory=$true)]
+        [boolean] $IsPresent
+    )
+
+    $EnsureString = "Present"
+    if($IsPresent -eq $false)
     {
-        param(
-            [Parameter(Mandatory=$true)]
+        $EnsureString = "Absent"
+    }
 
-            [string] $FeatureName,
-
-            [Parameter(Mandatory=$true)]
-            [boolean] $IsPresent
-        )
-
-        $EnsureString = "Present"
-        if($IsPresent -eq $false)
+    Node "sample"
+    {
+        WindowsFeature ($FeatureName + "Feature")
         {
-            $EnsureString = "Absent"
-        }
-
-        Node "sample"
-        {
-            WindowsFeature ($FeatureName + "Feature")
-            {
-                Ensure = $EnsureString
-                Name = $FeatureName
-            }
+            Ensure = $EnsureString
+            Name = $FeatureName
         }
     }
+}
+```
 
 You can compile DSC Configurations that use basic parameters in the Azure Automation DSC portal, or with Azure PowerShell:
 
@@ -111,73 +118,79 @@ In the portal, you can enter parameter values after clicking **Compile**.
 
 PowerShell requires parameters in a [hashtable](http://technet.microsoft.com/zh-cn/library/hh847780.aspx) where the key matches the parameter name, and the value equals the parameter value.
 
-    $Parameters = @{
-        "FeatureName" = "Web-Server"
-        "IsPresent" = $False
-    }
+```powershell
+$Parameters = @{
+    "FeatureName" = "Web-Server"
+    "IsPresent" = $False
+}
 
-    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters
+Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters
+```
 
 For information about passing PSCredentials as parameters, see <a href="#credential-assets">**Credential Assets**</a> below.
 
 ## ConfigurationData
 **ConfigurationData** allows you to separate structural configuration from any environment specific configuration while using PowerShell DSC. See [Separating "What" from "Where" in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) to learn more about **ConfigurationData**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can use **ConfigurationData** when compiling in Azure Automation DSC using Azure PowerShell, but not in the Azure portal preview.
 
 The following example DSC configuration uses **ConfigurationData** via the **$ConfigurationData** and **$AllNodes** keywords. You'll also need the [**xWebAdministration** module](https://www.powershellgallery.com/packages/xWebAdministration/) for this example:
 
-    Configuration ConfigurationDataSample
+```powershell
+Configuration ConfigurationDataSample
+{
+    Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
+
+    Write-Verbose $ConfigurationData.NonNodeData.SomeMessage
+
+    Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
     {
-        Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
-
-        Write-Verbose $ConfigurationData.NonNodeData.SomeMessage
-
-        Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
+        xWebsite Site
         {
-            xWebsite Site
-            {
-                Name = $Node.SiteName
-                PhysicalPath = $Node.SiteContents
-                Ensure   = "Present"
-            }
+            Name = $Node.SiteName
+            PhysicalPath = $Node.SiteContents
+            Ensure   = "Present"
         }
     }
+}
+```
 
 You can compile the DSC configuration above with PowerShell. The below PowerShell adds two node configurations to the Azure Automation DSC Pull Server: **ConfigurationDataSample.MyVM1** and **ConfigurationDataSample.MyVM3**:
 
-    $ConfigData = @{
-        AllNodes = @(
-            @{
-                NodeName = "MyVM1"
-                Role = "WebServer"
-            },
-            @{
-                NodeName = "MyVM2"
-                Role = "SQLServer"
-            },
-            @{
-                NodeName = "MyVM3"
-                Role = "WebServer"
-            }
-        )
-
-        NonNodeData = @{
-            SomeMessage = "I love Azure Automation DSC!"
+```powershell
+$ConfigData = @{
+    AllNodes = @(
+        @{
+            NodeName = "MyVM1"
+            Role = "WebServer"
+        },
+        @{
+            NodeName = "MyVM2"
+            Role = "SQLServer"
+        },
+        @{
+            NodeName = "MyVM3"
+            Role = "WebServer"
         }
-    }
+    )
 
-    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ConfigurationDataSample" -ConfigurationData $ConfigData
+    NonNodeData = @{
+        SomeMessage = "I love Azure Automation DSC!"
+    }
+}
+
+Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ConfigurationDataSample" -ConfigurationData $ConfigData
+```
 
 ## Assets
 
 Asset references are the same in Azure Automation DSC configurations and runbooks. See the following for more information:
 
-* [Certificates](/documentation/articles/automation-certificates/)
-* [Connections](/documentation/articles/automation-connections/)
-* [Credentials](/documentation/articles/automation-credentials/)
-* [Variables](/documentation/articles/automation-variables/)
+* [Certificates](./automation-certificates.md)
+* [Connections](./automation-connections.md)
+* [Credentials](./automation-credentials.md)
+* [Variables](./automation-variables.md)
 
 ### Credential Assets
 
@@ -189,39 +202,43 @@ You can tell PowerShell DSC that it is okay for credentials to be outputted in p
 
 The following example shows a DSC configuration that uses an Automation credential asset.
 
-    Configuration CredentialSample
-    {
-        $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
+```powershell
+Configuration CredentialSample
+{
+    $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -AutomationAccountName "AutomationAcct" -Name "SomeCredentialAsset"
 
-        Node $AllNodes.NodeName
+    Node $AllNodes.NodeName
+    {
+        File ExampleFile
         {
-            File ExampleFile
-            {
-                SourcePath = "\\Server\share\path\file.ext"
-                DestinationPath = "C:\destinationPath"
-                Credential = $Cred
-            }
+            SourcePath = "\\Server\share\path\file.ext"
+            DestinationPath = "C:\destinationPath"
+            Credential = $Cred
         }
     }
+}
+```
 
 You can compile the DSC configuration above with PowerShell. The below PowerShell adds two node configurations to the Azure Automation DSC Pull Server:  **CredentialSample.MyVM1** and **CredentialSample.MyVM2**.
 
-    $ConfigData = @{
-        AllNodes = @(
-            @{
-                NodeName = "*"
-                PSDscAllowPlainTextPassword = $True
-            },
-            @{
-                NodeName = "MyVM1"
-            },
-            @{
-                NodeName = "MyVM2"
-            }
-        )
-    }
+```powershell
+$ConfigData = @{
+    AllNodes = @(
+        @{
+            NodeName = "*"
+            PSDscAllowPlainTextPassword = $True
+        },
+        @{
+            NodeName = "MyVM1"
+        },
+        @{
+            NodeName = "MyVM2"
+        }
+    )
+}
 
-    Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
+Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
+```
 
 ## Importing node configurations
 
@@ -229,10 +246,10 @@ You can also import node configuratons (MOFs) that you have compiled outside of 
 A signed node configuration is verified locally on a managed node by the DSC agent, ensuring that the configuration being applied to the node comes from an
 authorized source.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can use import signed configurations into your Azure Automation account, but Azure Automation does not currently support compiling signed configurations.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > A node configuration file must be no larger than 1 MB to allow it to be imported into Azure Automation.
 
 You can learn how to sign node configurations at https://msdn.microsoft.com/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
@@ -254,4 +271,6 @@ You can learn how to sign node configurations at https://msdn.microsoft.com/powe
 You can use the [Import-AzureRmAutomationDscNodeConfiguration](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/import-azurermautomationdscnodeconfiguration)
 cmdlet to import a node configuration into your automation account.
 
-    Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName "MyAutomationAccount" -ResourceGroupName "MyResourceGroup" -ConfigurationName "MyNodeConfiguration" -Path "C:\MyConfigurations\TestVM1.mof"
+```powershell
+Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName "MyAutomationAccount" -ResourceGroupName "MyResourceGroup" -ConfigurationName "MyNodeConfiguration" -Path "C:\MyConfigurations\TestVM1.mof"
+```

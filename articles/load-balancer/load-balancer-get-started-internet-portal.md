@@ -1,37 +1,38 @@
-<properties
-    pageTitle="Create an Internet-facing load balancer - Azure portal preview | Azure"
-    description="Learn how to create an Internet-facing load balancer in Resource Manager using the Azure portal preview"
-    services="load-balancer"
-    documentationcenter="na"
-    author="anavinahar"
-    manager="narayan"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="annahar" />
+---
+title: Create an Internet-facing load balancer - Azure portal preview | Azure
+description: Learn how to create an Internet-facing load balancer in Resource Manager using the Azure portal preview
+services: load-balancer
+documentationcenter: na
+author: anavinahar
+manager: narayan
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: annahar
+---
 
 # Creating an Internet-facing load balancer using the Azure portal preview
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/load-balancer-get-started-internet-portal/)
-- [PowerShell](/documentation/articles/load-balancer-get-started-internet-arm-ps/)
-- [Azure CLI](/documentation/articles/load-balancer-get-started-internet-arm-cli/)
-- [Template](/documentation/articles/load-balancer-get-started-internet-arm-template/)
+> [!div class="op_single_selector"]
+>- [Portal](./load-balancer-get-started-internet-portal.md)
+>- [PowerShell](./load-balancer-get-started-internet-arm-ps.md)
+>- [Azure CLI](./load-balancer-get-started-internet-arm-cli.md)
+>- [Template](./load-balancer-get-started-internet-arm-template.md)
 
-[AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
+[!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet-facing load balancer using classic deployment](/documentation/articles/load-balancer-get-started-internet-classic-portal/)
+This article covers the Resource Manager deployment model. You can also [Learn how to create an Internet-facing load balancer using classic deployment](./load-balancer-get-started-internet-classic-portal.md)
 
-[AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
+[!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 This covers the sequence of individual tasks that have to be done to create a load balancer and explain in detail what is being done to accomplish the goal.
 
@@ -45,12 +46,12 @@ You need to create and configure the following objects to deploy a load balancer
 * Inbound NAT rules - contains rules mapping a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
 * Probes - contains health probes used to check availability of virtual machines instances in the back-end address pool.
 
-You can get more information about load balancer components with Azure Resource Manager at [Azure Resource Manager support for Load Balancer](/documentation/articles/load-balancer-arm/).
+You can get more information about load balancer components with Azure Resource Manager at [Azure Resource Manager support for Load Balancer](./load-balancer-arm.md).
 
 ## Set up a load balancer in Azure portal preview
 
-> [AZURE.IMPORTANT]
-> This example assumes you have a virtual network called **myVNet**. Refer to [create virtual network](/documentation/articles/virtual-networks-create-vnet-arm-pportal/) to do this. It also assumes there is a subnet within **myVNet** called **LB-Subnet-BE** and two VMs called **web1** and **web2** respectively within the same availability set called **myAvailSet** in **myVNet**. Refer to [this link](/documentation/articles/virtual-machines-windows-hero-tutorial/) to create VMs.
+> [!IMPORTANT]
+> This example assumes you have a virtual network called **myVNet**. Refer to [create virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) to do this. It also assumes there is a subnet within **myVNet** called **LB-Subnet-BE** and two VMs called **web1** and **web2** respectively within the same availability set called **myAvailSet** in **myVNet**. Refer to [this link](/documentation/articles/virtual-machines-windows-hero-tutorial/) to create VMs.
 
 1. From a browser navigate to the Azure portal preview: [http://portal.azure.cn](http://portal.azure.cn) and login with your Azure account.
 2. On the top left-hand side of the screen select **New** > **Networking** > **Load Balancer.**
@@ -103,8 +104,8 @@ To delete a load balancer, select the load balancer you want to remove. In the *
 
 ## Next steps
 
-[Get started configuring an internal load balancer](/documentation/articles/load-balancer-get-started-ilb-arm-cli/)
+[Get started configuring an internal load balancer](./load-balancer-get-started-ilb-arm-cli.md)
 
-[Configure a load balancer distribution mode](/documentation/articles/load-balancer-distribution-mode/)
+[Configure a load balancer distribution mode](./load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](/documentation/articles/load-balancer-tcp-idle-timeout/)
+[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)

@@ -1,36 +1,37 @@
-<properties
-    pageTitle="VM restarting or resizing issues | Azure"
-    description="Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure"
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="Deland-Han"
-    manager="felixwu"
-    editor=""
-    tags="top-support-issue" />
-<tags
-    ms.assetid="aa854fff-c057-4b8e-ad77-e4dbc39648cc"
-    ms.service="virtual-machines-windows"
-    ms.topic="support-article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="required"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.devlang="na"
-    ms.author="delhan" />
+---
+title: VM restarting or resizing issues | Azure
+description: Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
+services: virtual-machines-windows
+documentationcenter: ''
+author: Deland-Han
+manager: felixwu
+editor: ''
+tags: top-support-issue
+
+ms.assetid: aa854fff-c057-4b8e-ad77-e4dbc39648cc
+ms.service: virtual-machines-windows
+ms.topic: support-article
+ms.tgt_pltfrm: vm-windows
+ms.workload: required
+ms.date: 01/10/2017
+wacn.date: ''
+ms.devlang: na
+ms.author: delhan
+---
 
 # Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
-> [AZURE.SELECTOR]
-- [Classic](/documentation/articles/virtual-machines-windows-classic-restart-resize-error-troubleshooting/)
-- [Resource Manager](/documentation/articles/virtual-machines-windows-restart-resize-error-troubleshooting/)
+> [!div class="op_single_selector"]
+>- [Classic](./virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
+>- [Resource Manager](../../virtual-machines-windows-restart-resize-error-troubleshooting.md)
 
 When you try to start a stopped Azure Virtual Machine (VM), or resize an existing Azure VM, the common error you encounter is an allocation failure. This error results when the cluster or region either does not have resources available or cannot support the requested VM size.
 
-> [AZURE.IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](/documentation/articles/resource-manager-deployment-model/).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
 > 
 > 
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Collect audit logs
 To start troubleshooting, collect the audit logs to identify the error associated with the issue.
@@ -51,7 +52,7 @@ The request to start the stopped VM has to be attempted at the original cluster 
 
 If you get an error when trying to create a new cloud service, either retry at a later time or change the region for the cloud service.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The new cloud service will have a new name and VIP, so you will need to change that information for all the dependencies that use that information for the existing cloud service.
 > 
 > 
@@ -77,4 +78,4 @@ You can consolidate all your VMs in the same cloud service. If your existing clo
 If the existing cloud service is not associated with a region-based virtual network, then you have to delete the VMs in the existing cloud service, and recreate them in the new cloud service from their disks. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to update these for all the dependencies that currently use this information for the existing cloud service.
 
 ## Next steps
-If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](/documentation/articles/virtual-machines-windows-troubleshoot-deployment-new-vm/).
+If you encounter issues when you create a new Windows VM in Azure, see [Troubleshoot deployment issues with creating a new Windows virtual machine in Azure](../../virtual-machines-windows-troubleshoot-deployment-new-vm.md).

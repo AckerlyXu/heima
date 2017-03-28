@@ -1,23 +1,24 @@
-<properties
-    pageTitle=""
-    services="site-recovery"
-    documentationcenter=""
-    author=""
-    editor="" />
-<tags
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="ms.tgt_pltfrm: na"
-    ms.workload="storage-backup-recovery"
-    ms.date=""
-    wacn.date="" />
+---
+title: ''
+services: site-recovery
+documentationcenter: ''
+author: ''
+editor: ''
+
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: ''
+wacn.date: ''
+---
 
 ### Install the Mobility service
 The first step in enabling protection for virtual machines and physical servers is to install the Mobility service. You can do this in a couple of ways:
 
 * **Process server push**: When you enable replication on a machine, push and install the Mobility service component from the process server. 
 *Note* that push installation won't occur if machines are already running an up-to-date version of the component.
-* **Enterprise push**: Automatically install the component using your enterprise push process such as WSUS or System Center Configuration Manager or [Azure Automation and Desired State configuration](/documentation/articles/site-recovery-automate-mobility-service-install/). Set up the configuration server before you do this.
+* **Enterprise push**: Automatically install the component using your enterprise push process such as WSUS or System Center Configuration Manager or [Azure Automation and Desired State configuration](../articles/site-recovery/site-recovery-automate-mobility-service-install.md). Set up the configuration server before you do this.
 * **Manual installation**: Install the component manually on each machine that you want to replicate. Set up the configuration server before you do this.
 
 #### Prepare for automatic push on Windows machines
@@ -25,7 +26,7 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 
 1. Create an account that can be used by the process server to access the machine. The account should have administrator privileges (local or domain), and is only used for the push installation.
 
-   > [AZURE.NOTE]
+   > [!NOTE]
    > If you're not using a domain account, you need to disable Remote User Access control on the local machine. To do this, in the register under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System add the DWORD entry LocalAccountTokenFilterPolicy with a value of 1. To add the registry entry from a CLI type **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
    >
    >
@@ -89,7 +90,9 @@ The installers are available on the Configuration server in **C:\Program Files (
     ``C:\Temp\Extracted> UnifiedAgent.exe /Role "Agent" /CSEndpoint "IP Address of Configuration Server" /PassphraseFilePath <Full path to the passphrase file>``
 
 ##### Full command-line syntax
-    UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Directory>] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log File Path>]<br/>
+```
+UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Directory>] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log File Path>]<br/>
+```
 
 **Parameters**
 
@@ -113,14 +116,14 @@ The mobility service can be uninstalled using Add Remove Programs in the Control
 
 Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the configuration server, and save it as "passphrase.txt" on the configuration server. Then run these commands. In our example, the configuration server IP address is 104.40.75.37 and the HTTPS port should be 443:
 
-
 To install on a production server:
 
-    ./install -t both -a host -R Agent -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
+```
+./install -t both -a host -R Agent -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
+```
 
 To install on the master target server:
 
-    ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
-
-
-
+```
+./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
+```

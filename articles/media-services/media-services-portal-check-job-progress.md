@@ -1,32 +1,33 @@
-<properties 
-	pageTitle="Monitor encoding job progress with the Azure portal" 
-	description="This tutorial walks you through the steps of monitoring your job progress using the Azure portal." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Monitor encoding job progress with the Azure portal
+description: This tutorial walks you through the steps of monitoring your job progress using the Azure portal.
+services: media-services
+documentationCenter: ''
+authors: juliako
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/29/2016"  
-	wacn.date=""
-	ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/29/2016
+wacn.date: ''
+ms.author: juliako
+---
 
 #Monitor encoding job progress with the Azure portal
 
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/media-services-portal-check-job-progress/)
-- [.NET](/documentation/articles/media-services-check-job-progress/)
-- [REST](/documentation/articles/media-services-rest-check-job-progress/)
+> [!div class="op_single_selector"]
+>- [Portal](./media-services-portal-check-job-progress.md)
+>- [.NET](./media-services-check-job-progress.md)
+>- [REST](./media-services-rest-check-job-progress.md)
 
 ## Overview
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Trial](/pricing/1rmb-trial/). 
+> [!NOTE]
+> To complete this tutorial, you need an Azure account. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/). 
 
 When you run jobs, you often require a way to track job progress. 
 
@@ -42,6 +43,4 @@ You can click the job to see more details.
 
 After your encoding job is one, you can publish and play your assets, as described [here](/documentation/artmedia-services-portal-publish.md).
 
-
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
- 

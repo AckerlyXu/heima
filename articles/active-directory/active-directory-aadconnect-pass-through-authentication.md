@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Azure AD Connect: Pass-through authentication | Azure"
-    description="This topic provides you with the information you need to know about how Azure AD pass-through authentications works with on-premises Active Directory (AD) to provide access to Azure Active Directory (Azure AD) and connected services."
-    services="active-directory"
-    keywords="what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on"
-    documentationcenter=""
-    author="billmath"
-    manager="femila"
-    ms.assetid="9f994aca-6088-40f5-b2cc-c753a4f41da7"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    ms.author="billmath" />
+---
+title: Azure AD Connect: Pass-through authentication | Azure
+description: This topic provides you with the information you need to know about how Azure AD pass-through authentications works with on-premises Active Directory (AD) to provide access to Azure Active Directory (Azure AD) and connected services.
+services: active-directory
+keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
+documentationcenter: ''
+author: billmath
+manager: femila
+ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+ms.author: billmath
+---
 
 # What is Azure AD Pass-through Authentication
 Using the same credential (username and password) to access your corporate resources and cloud based services ensures that users don’t have to remember different credentials. It reduces the chances that they forget how to sign in and has the benefit of reducing the involvement of help desk for password reset events.
 
-While many organizations are comfortable with using Azure AD [Password synchronization](/documentation/articles/active-directory-aadconnectsync-implement-password-synchronization/) to provide users with a single credential to access on-premises and cloud services, other organizations require that passwords, even in a hashed form, do not leave their internal organizational boundary.
+While many organizations are comfortable with using Azure AD [Password synchronization](./active-directory-aadconnectsync-implement-password-synchronization.md) to provide users with a single credential to access on-premises and cloud services, other organizations require that passwords, even in a hashed form, do not leave their internal organizational boundary.
 
 Azure AD pass-through authentication provides a simple solution for these customers. It ensures that password validation for Azure AD services is performed against their on-premises Active Directory. Passwords can be validated without the need for complex network infrastructure or for the on-premises passwords to exist in the cloud in any form.
 
-When combined with the [Single Sign on](/documentation/articles/active-directory-aadconnect-sso/) option, users do not need to type their password to sign in to Azure AD or other cloud services. This feature provides these customers with a truly integrated experience on their corporate machines.
+When combined with the [Single Sign on](./active-directory-aadconnect-sso.md) option, users do not need to type their password to sign in to Azure AD or other cloud services. This feature provides these customers with a truly integrated experience on their corporate machines.
 
 ![Pass-through Authentication](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
@@ -31,7 +32,7 @@ Pass-through authentication can be configured with Azure AD Connect and utilizes
 - Windows Server 2012 R2 or higher
 - Joined to a domain in the forest that users are validated in
 
->[AZURE.NOTE]
+>[!NOTE]
 >Multi-forest environments can be supported if there are trusts between the forests and name suffix routing is correctly configured.
 
 ## Supported Clients in the preview
@@ -39,7 +40,7 @@ Pass-through authentication is supported via web browser-based clients and Offic
 
 For customers using Windows 10 joined to Azure AD, pass-through authentication is not currently supported. However, customers can utilize password sync as an automatic fallback for Windows 10 in addition for legacy clients.
 
->[AZURE.NOTE]
+>[!NOTE]
 >During the preview, Password synchronization is enabled by default when Pass-through authentication is selected as the sign-in option in Azure AD Connect. This setting can be disabled on the Options page of Azure AD Connect.
 
 ## How Azure AD Pass-through Authentication works
@@ -55,7 +56,7 @@ Before you can enable and use Azure AD pass-through authentication, you need to 
 - Azure AD Connect
 - An Azure AD tenant for which you are a global administrator.
 
->[AZURE.NOTE]
+>[!NOTE]
 >It is recommended that the account is a cloud-only admin account so that you can manage the configuration of your tenant should your on-premises services fail or be unavailable.
 
 - A server running Windows Server 2012 R2 or higher on which to run Azure AD Connect. This machine must be a member of the same forest as the users who are validated.
@@ -63,12 +64,12 @@ Before you can enable and use Azure AD pass-through authentication, you need to 
 - On-premises UserPrincipalName must be used as the Azure AD username.
 - A second server running Windows Server 2012 R2 or higher on which to run a second connector for high availability and load balancing. Instructions are included below on how to deploy this connector.
 - If there is a firewall between the connector and Azure AD, make sure that:
-	- If URL filtering is enabled, ensure that the connector can communicate with the follow URLs:
-		-  \*.msappproxy.net
-		-  \*.servicebus.chinacloudapi.cn.  
-		-  The connector also makes connection on direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
-	- Ensure that the firewall does not perform SSL inspection as the connector uses client certificates to communicate with Azure AD.
-	- Ensure the connector can make HTTPS (TCP) requests to Azure AD on the ports below.
+    - If URL filtering is enabled, ensure that the connector can communicate with the follow URLs:
+        -  \*.msappproxy.net
+        -  \*.servicebus.chinacloudapi.cn.  
+        -  The connector also makes connection on direct IP connections to the [Azure data center IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+    - Ensure that the firewall does not perform SSL inspection as the connector uses client certificates to communicate with Azure AD.
+    - Ensure the connector can make HTTPS (TCP) requests to Azure AD on the ports below.
 
 |Port Number|Description
 | --- | ---
@@ -94,18 +95,20 @@ To deploy the second connector, follow the instructions below:
 
 ### Step 1: Install the Connector without registration
 
-1.	Download the latest [connector](https://go.microsoft.com/fwlink/?linkid=837580).
-2.	Open a command prompt as an administrator.
-3.	Run the following command in which /q means quiet installation - the installation does not prompt you to accept the End User License Agreement.
+1. Download the latest [connector](https://go.microsoft.com/fwlink/?linkid=837580).
+2. Open a command prompt as an administrator.
+3. Run the following command in which /q means quiet installation - the installation does not prompt you to accept the End User License Agreement.
 
-		AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
+    ```
+    AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
+    ```
 
 ### Step 2: Register the Connector with Azure AD for pass-through authentication
 
-1.	Open a PowerShell window as an administrator
-2.	Navigate to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the script.  
+1. Open a PowerShell window as an administrator
+2. Navigate to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the script.  
 `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Feature PassthroughAuthentication`
-3.	When prompted, enter the credentials of your Azure AD tenant Admin account.
+3. When prompted, enter the credentials of your Azure AD tenant Admin account.
 
 ## Troubleshooting Pass-through authentication
 When troubleshooting Pass-through authentication, there are a few different categories of problems that can occur. Depending on the type of problem, you may need to look in different places.
@@ -114,13 +117,17 @@ For errors that relate to the connector you can check the Event Log of the conne
 
 Additional information can also be found in the trace logs for the connector in **C:\Programdata\Microsoft\Microsoft AAD Application Proxy Connector\Trace**. These logs also include the reason that pass-through authentication failed for an individual user, such as the following entry below that includes the error code 1328:
 
-	ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
-	    ThreadId=5
-	    DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
+```
+ApplicationProxyConnectorService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
+    ThreadId=5
+    DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
+```
 
 You can get the details of the error by starting a command prompt and running the following command: (Replace '1328' with the error number in the request.)
 
-	Net helpmsg 1328
+```
+Net helpmsg 1328
+```
 
 The result is similar to the following response:
 
@@ -128,11 +135,13 @@ The result is similar to the following response:
 
 If audit logging is enabled, then additional information can also be found in the security logs of the Domain Controllers. A simple query for authentication requests by the connector would be as follows:
 
-    <QueryList>
-    <Query Id="0" Path="Security">
-    <Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe')]]</Select>
-    </Query>
-    </QueryList>
+```
+<QueryList>
+<Query Id="0" Path="Security">
+<Select Path="Security">*[EventData[Data[@Name='ProcessName'] and (Data='C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe')]]</Select>
+</Query>
+</QueryList>
+```
 
 Other errors reported on the Azure AD sign-in screen are detailed below together with the appropriate resolution steps.
 

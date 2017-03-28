@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Debugging Azure Applications in Eclipse"
-    description="Learn about the Debugging Azure Applications using the Azure Toolkit for Eclipse."
-    services=""
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="3d1b34bf-399e-421e-bdcc-da2d422dbb4f"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm" />
+---
+title: Debugging Azure Applications in Eclipse
+description: Learn about the Debugging Azure Applications using the Azure Toolkit for Eclipse.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: 3d1b34bf-399e-421e-bdcc-da2d422dbb4f
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm
+---
 
 # Debugging Azure Applications in Eclipse
 Using the Azure Toolkit for Eclipse, you can debug your applications whether they are running in Azure, or in the compute emulator if you are using Windows as your operating system. The following image shows the **Debugging** properties dialog used to enable remote debugging:
@@ -28,19 +29,22 @@ We'll use the application from the [Using the Azure Service Runtime Library in J
 
 ## To debug your application while running in Azure
 
->[AZURE.WARNING] The toolkit's current support for remote Java debugging is intended primarily for deployments running in the Azure compute emulator. Because the debugging connection is not secure, you should not enable remote debugging in production deployments. If you need to debug an application running in the Azure cloud, use a staging deployment, but realize that unauthorized access to your debug session is possible if someone knows the IP address of your cloud deployment, even if it is a staging deployment.
+>[!WARNING]
+> The toolkit's current support for remote Java debugging is intended primarily for deployments running in the Azure compute emulator. Because the debugging connection is not secure, you should not enable remote debugging in production deployments. If you need to debug an application running in the Azure cloud, use a staging deployment, but realize that unauthorized access to your debug session is possible if someone knows the IP address of your cloud deployment, even if it is a staging deployment.
 
 1. Build your project for testing in the emulator: In Eclipse's Project Explorer, right-click **MyAzureProject**, click **Properties**, click **Azure**, and set **Build for** to **Deployment to cloud**.
 2. Rebuild your project: From the Eclipse menu, click **Project**, then click **Build All**.
 3. Deploy your application to *staging* in Azure.
-    >[AZURE.IMPORTANT] As mentioned above, it is highly recommended that you debug in the compute emulator in most cases, then debug in the staging environment only if additional debugging is needed. It is recommended to not debug in the production environment.
+    >[!IMPORTANT]
+    > As mentioned above, it is highly recommended that you debug in the compute emulator in most cases, then debug in the staging environment only if additional debugging is needed. It is recommended to not debug in the production environment.
 4. Once your deployment is ready in Azure, obtain the DNS name for the deployment from the [Azure Management Portal][Azure Management Portal]. A staging deployment has a DNS name in the form of http://*&lt;guid&gt;*.cloudapp.net, where *&lt;guid&gt;* is a GUID value assigned by Azure.
 5. In Eclipse's Project Explorer, right-click **WorkerRole1**, click **Azure**, and then click **Debugging**.
 6. In the **Properties for WorkerRole1 Debugging** dialog:
    1. Check **Enable remote debugging for this role.**
    2. For **Input endpoint to use**, use **Debugging (public:8090, private:8090)**.
    3. Ensure **Start JVM in suspended mode, waiting for a debugger connection** is unchecked.
-       >[AZURE.IMPORTANT] The **Start JVM in suspended mode, waiting for a debugger connection** option is intended for advanced debugging scenarios in the compute emulator only (not for cloud deployments). If the **Start JVM in suspended mode, waiting for a debugger connection** option is used, it will suspend the server's startup process until the Eclipse debugger is connected to its JVM. While you could use this option for a debugging session using the compute emulator, do not use it for a debugging session in a cloud deployment. A server's initialization takes place in an Azure startup task, and the Azure cloud does not make public endpoints available until the startup task is completed. Hence, a startup process will not complete successfully if this option is enabled in a cloud deployment, because it will not be able to receive a connection from an external Eclipse client.
+       >[!IMPORTANT]
+       > The **Start JVM in suspended mode, waiting for a debugger connection** option is intended for advanced debugging scenarios in the compute emulator only (not for cloud deployments). If the **Start JVM in suspended mode, waiting for a debugger connection** option is used, it will suspend the server's startup process until the Eclipse debugger is connected to its JVM. While you could use this option for a debugging session using the compute emulator, do not use it for a debugging session in a cloud deployment. A server's initialization takes place in an Azure startup task, and the Azure cloud does not make public endpoints available until the startup task is completed. Hence, a startup process will not complete successfully if this option is enabled in a cloud deployment, because it will not be able to receive a connection from an external Eclipse client.
    4. Click **Create Debug Configurations**.
 7. In the **Azure Debug Configuration** dialog:
    1. For **Java project to debug**, select the **MyHelloWorld** project.
@@ -57,7 +61,8 @@ We'll use the application from the [Using the Azure Service Runtime Library in J
 12. In the **Debug Configurations** dialog, expand **Remote Java Application** in the left-hand pane, select **Azure Cloud (WorkerRole1)**, and click **Debug**.
 13. Within your browser, run your staged application, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, substituting the GUID from your DNS name for *&lt;guid&gt;*. If prompted by a **Confirm Perspective Switch** dialog box, click **Yes**. Your debug session should now execute to the line of code where the breakpoint was set.
 
->[AZURE.NOTE] If you're attempting to start a remote debugging connection to a deployment that has multiple role instances running, you cannot currently control which instance the debugger will be initially connected to, as the Azure load balancer will pick an instance at random. Once you're connected with that instance, though, you will continue debugging the same instance. Note also, if there is a period of inactivity of more than 4 minutes (for example, when you're stopped at a breakpoint for too long), Azure may close the connection.
+>[!NOTE]
+> If you're attempting to start a remote debugging connection to a deployment that has multiple role instances running, you cannot currently control which instance the debugger will be initially connected to, as the Azure load balancer will pick an instance at random. Once you're connected with that instance, though, you will continue debugging the same instance. Note also, if there is a period of inactivity of more than 4 minutes (for example, when you're stopped at a breakpoint for too long), Azure may close the connection.
 
 ## Debugging a specific role instance in a multi-instance deployment
 When your deployment is running in the cloud, you will most likely be running it in multiple compute, or role, instances. This enables you to take advantage of Azure 99.95% availability guarantee, and to scale out your application.
@@ -74,7 +79,8 @@ Once you know what public port number that instance was assigned, you can refere
 
 ## Windows only: To debug your application while running in the compute emulator
 
->[AZURE.NOTE] The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows. 
+>[!NOTE]
+> The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows. 
 
 1. Build your project for testing in the emulator: In Eclipse's Project Explorer, right-click **MyAzureProject**, click **Properties**, click **Azure**, and set **Build for** to **Testing in emulator**.
 2. Rebuild your project: From the Eclipse menu, click **Project**, then click **Build All**.
@@ -83,7 +89,8 @@ Once you know what public port number that instance was assigned, you can refere
    1. Check **Enable remote debugging for this role.**
    2. For **Input endpoint to use**, use the default endpoint automatically generated by the toolkit, listed as **Debugging (public:8090, private:8090)**.
    3. Ensure the **Start JVM in suspended mode, waiting for a debugger connection** option is unchecked.
-       >[AZURE.IMPORTANT] The **Start JVM in suspended mode, waiting for a debugger connection** option is intended for advanced debugging scenarios in the compute emulator only (not for cloud deployments). If the **Start JVM in suspended mode, waiting for a debugger connection** option is used, it will suspend the server's startup process until the Eclipse debugger is connected to its JVM. While you could use this option for a debugging session using the compute emulator, do not use it for a debugging session in a cloud deployment. A server's initialization takes place in an Azure startup task, and the Azure cloud does not make public endpoints available until the startup task is completed. Hence, a startup process will not complete successfully if this option is enabled in a cloud deployment, because it will not be able to receive a connection from an external Eclipse client.
+       >[!IMPORTANT]
+       > The **Start JVM in suspended mode, waiting for a debugger connection** option is intended for advanced debugging scenarios in the compute emulator only (not for cloud deployments). If the **Start JVM in suspended mode, waiting for a debugger connection** option is used, it will suspend the server's startup process until the Eclipse debugger is connected to its JVM. While you could use this option for a debugging session using the compute emulator, do not use it for a debugging session in a cloud deployment. A server's initialization takes place in an Azure startup task, and the Azure cloud does not make public endpoints available until the startup task is completed. Hence, a startup process will not complete successfully if this option is enabled in a cloud deployment, because it will not be able to receive a connection from an external Eclipse client.
    4. Click **Create Debug Configurations**.
 5. In the **Azure Debug Configuration** dialog:
    1. For **Java project to debug**, select the **MyHelloWorld** project.
@@ -91,11 +98,11 @@ Once you know what public port number that instance was assigned, you can refere
 6. Click **OK** to close the **Azure Debug Configuration** dialog.
 7. Click **OK** to close the **Properties for WorkerRole1 Debugging** dialog.
 8. Set a breakpoint in index.jsp:
-   
+
    1. Within Eclipse's Project Explorer, expand **MyHelloWorld**, expand **WebContent**, and double-click **index.jsp**.
    2. Within index.jsp, right-click in the blue bar to the left of your Java code and click **Toggle Breakpoints**, as shown in the following:
        ![][ic551537]
-      
+
       A breakpoint is set if you see a breakpoint icon within the blue bar to the left of your Java code.
 9. Start the application in the compute emulator by clicking the **Run in Azure Emulator** button on the Azure toolbar.
 10. Within Eclipse's menu, click **Run** and then click **Debug Configurations**.
@@ -123,9 +130,9 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [Azure Java Developer Center]:/develop/java/
 [Azure Management Portal]: https://manage.windowsazure.cn
-[Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse/
-[Creating a Hello World Application for Azure in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/
-[Installing the Azure Toolkit for Eclipse]: /documentation/articles/azure-toolkit-for-eclipse-installation/
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
+[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Using the Azure Service Runtime Library in JSP]: /develop/java/
 
 <!-- IMG List -->

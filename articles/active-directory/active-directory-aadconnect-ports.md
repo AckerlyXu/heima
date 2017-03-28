@@ -1,19 +1,20 @@
-<properties
-    pageTitle="Hybrid Identity required ports and protocols - Azure | Azure"
-    description="This page is a technical reference page for ports that are required to be open for Azure AD Connect"
-    services="active-directory"
-    documentationcenter=""
-    author="billmath"
-    manager="femila"
-    editor="curtand"
-    ms.assetid="de97b225-ae06-4afc-b2ef-a72a3643255b"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/15/2017"
-    ms.author="billmath" />
+---
+title: Hybrid Identity required ports and protocols - Azure | Azure
+description: This page is a technical reference page for ports that are required to be open for Azure AD Connect
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
+ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/15/2017
+ms.author: billmath
+---
 
 # Hybrid Identity Required Ports and Protocols
 The following document is a technical reference on the required ports and protocols for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.
@@ -97,4 +98,3 @@ This table describes the following outbound ports and protocols that are require
 | --- | --- | --- |
 | HTTPS |443(TCP/UDP) |Outbound |
 | Azure Service Bus |5671 (TCP/UDP) |Outbound |
-

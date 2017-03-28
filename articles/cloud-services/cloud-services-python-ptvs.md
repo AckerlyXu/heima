@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Get started with Python and Azure Cloud Services | Azure"
-	description="Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles."
-	services="cloud-services"
-	documentationCenter="python"
-	authors="thraka"
-	manager="timlt"
-	editor=""/>
+---
+title: Get started with Python and Azure Cloud Services | Azure
+description: Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles.
+services: cloud-services
+documentationCenter: python
+authors: thraka
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="hero-article"
-	ms.date="11/16/2016"
-	ms.author="adegeo"
-	wacn.date=""/>
-
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: hero-article
+ms.date: 11/16/2016
+ms.author: adegeo
+wacn.date: ''
+---
 
 # Python web and worker roles with Python Tools for Visual Studio
 
@@ -30,7 +29,7 @@ This article provides an overview of using Python web and worker roles using [Py
 [Azure SDK Tools for VS 2017][Azure SDK Tools for VS 2017]
 * [Python 2.7 32-bit][Python 2.7 32-bit] or [Python 3.5 32-bit][Python 3.5 32-bit]
 
-[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+[!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## What are Python web and worker roles?
 
@@ -38,10 +37,10 @@ Azure provides three compute models for running applications: [Web Apps feature 
 
 For more information, see [What is a Cloud Service?].
 
-> [AZURE.NOTE] *Looking to build a simple website?*
+> [!NOTE]
+> *Looking to build a simple website?*
 If your scenario involves just a simple website front-end, consider using the lightweight Web Apps feature in Azure App Service. You can easily upgrade to a Cloud Service as your website grows and your requirements change. See the <a href="/develop/python/">Python Developer Center</a> for articles that cover development of the Web Apps feature in Azure App Service.
 <br />
-
 
 ## Project creation
 In Visual Studio, you can select **Azure Cloud Service** in the **New Project** dialog box, under **Python**.
@@ -64,12 +63,12 @@ Your cloud service can contain roles implemented in different languages.  For ex
 
 ## Install Python on the cloud service
 
->[AZURE.WARNING] The setup scripts that are installed with Visual Studio (at the time this article was last updated) do not work. This section describes a workaround.
+>[!WARNING]
+> The setup scripts that are installed with Visual Studio (at the time this article was last updated) do not work. This section describes a workaround.
 
-The main problem with the setup scripts are that they do not install python. First, define two [startup tasks](/documentation/articles/cloud-services-startup-tasks/) in the [ServiceDefinition.csdef](/documentation/articles/cloud-services-model-and-package/#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
+The main problem with the setup scripts are that they do not install python. First, define two [startup tasks](./cloud-services-startup-tasks.md) in the [ServiceDefinition.csdef](./cloud-services-model-and-package.md#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
 
 The scripts below were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** for the two startup tasks and the runtime task: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
-
 
 ```xml
 <Startup>
@@ -90,7 +89,7 @@ The scripts below were written targeting Python 3.5. If you want to use the vers
       </Variable>
       <Variable name="PYTHON2" value="off" />
     </Environment>
-	
+
   </Task>
 
 </Startup>
@@ -161,8 +160,6 @@ The **PYTHON2** and **PYPATH** variables needs to be added to the worker startup
 </ServiceDefinition>
 ```
 
-
-
 Next, create the **PrepPython.ps1** and **PipInstaller.ps1** files in the **./bin** folder of your role.
 
 #### PrepPython.ps1
@@ -174,40 +171,40 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Output "Checking if python is installed...$nl"
-	if ($is_python2) {
-		& "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
-	}
-	else {
-		py -V | Out-Null
-	}
+    Write-Output "Checking if python is installed...$nl"
+    if ($is_python2) {
+        & "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
+    }
+    else {
+        py -V | Out-Null
+    }
 
-	if (-not $?) {
+    if (-not $?) {
 
-		$url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
-		$outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
+        $url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
+        $outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
 
-		if ($is_python2) {
-			$url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
-			$outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
-		}
-		
-		Write-Output "Not found, downloading $url to $outFile$nl"
-		Invoke-WebRequest $url -OutFile $outFile
-		Write-Output "Installing$nl"
+        if ($is_python2) {
+            $url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
+            $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
+        }
 
-		if ($is_python2) {
-			Start-Process msiexec.exe -ArgumentList "/q", "/i", "$outFile", "ALLUSERS=1" -Wait
-		}
-		else {
-			Start-Process "$outFile" -ArgumentList "/quiet", "InstallAllUsers=1" -Wait
-		}
+        Write-Output "Not found, downloading $url to $outFile$nl"
+        Invoke-WebRequest $url -OutFile $outFile
+        Write-Output "Installing$nl"
 
-		Write-Output "Done$nl"
-	}
-	else {
-		Write-Output "Already installed"
-	}
+        if ($is_python2) {
+            Start-Process msiexec.exe -ArgumentList "/q", "/i", "$outFile", "ALLUSERS=1" -Wait
+        }
+        else {
+            Start-Process "$outFile" -ArgumentList "/quiet", "InstallAllUsers=1" -Wait
+        }
+
+        Write-Output "Done$nl"
+    }
+    else {
+        Write-Output "Already installed"
+    }
 }
 ```
 
@@ -220,28 +217,29 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Output "Checking if requirements.txt exists$nl"
-	if (Test-Path ..\requirements.txt) {
-		Write-Output "Found. Processing pip$nl"
+    Write-Output "Checking if requirements.txt exists$nl"
+    if (Test-Path ..\requirements.txt) {
+        Write-Output "Found. Processing pip$nl"
 
-		if ($is_python2) {
-			& "${env:SystemDrive}\Python27\python.exe" -m pip install -r ..\requirements.txt
-		}
-		else {
-			py -m pip install -r ..\requirements.txt
-		}
+        if ($is_python2) {
+            & "${env:SystemDrive}\Python27\python.exe" -m pip install -r ..\requirements.txt
+        }
+        else {
+            py -m pip install -r ..\requirements.txt
+        }
 
-		Write-Output "Done$nl"
-	}
-	else {
-		Write-Output "Not found$nl"
-	}
+        Write-Output "Done$nl"
+    }
+    else {
+        Write-Output "Not found$nl"
+    }
 }
 ```
 
 #### Modify LaunchWorker.ps1
 
->[AZURE.NOTE] In the case of a **worker role** project, **LauncherWorker.ps1** file is required to execute the startup file. In a **web role** project, the startup file is instead defined in the project properties.
+>[!NOTE]
+> In the case of a **worker role** project, **LauncherWorker.ps1** file is required to execute the startup file. In a **web role** project, the startup file is instead defined in the project properties.
 
 The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
 
@@ -254,31 +252,31 @@ $nl = [Environment]::NewLine
 
 if (-not $is_emulated)
 {
-	Write-Output "Running worker.py$nl"
+    Write-Output "Running worker.py$nl"
 
-	if ($is_python2) {
-		cd..
-		iex "$env:PYPATH\python.exe worker.py"
-	}
-	else {
-		cd..
-		iex "py worker.py"
-	}
+    if ($is_python2) {
+        cd..
+        iex "$env:PYPATH\python.exe worker.py"
+    }
+    else {
+        cd..
+        iex "py worker.py"
+    }
 }
 else
 {
-	Write-Output "Running (EMULATED) worker.py$nl"
+    Write-Output "Running (EMULATED) worker.py$nl"
 
-	# Customize to your local dev environment
+    # Customize to your local dev environment
 
-	if ($is_python2) {
-		cd..
-		iex "$env:PYPATH\python.exe worker.py"
-	}
-	else {
-		cd..
-		iex "py worker.py"
-	}
+    if ($is_python2) {
+        cd..
+        iex "$env:PYPATH\python.exe worker.py"
+    }
+    else {
+        cd..
+        iex "py worker.py"
+    }
 }
 ```
 
@@ -293,8 +291,6 @@ cd /D %~dp0
 if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 %SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unrestricted -File %* >> "%DiagnosticStore%\LogFiles\%~n1.txt" 2>> "%DiagnosticStore%\LogFiles\%~n1.err.txt"
 ```
-
-
 
 ## Run locally
 
@@ -340,21 +336,19 @@ For more details about using Azure services from your web and worker roles, such
 - [Service Bus Queues][]
 - [Service Bus Topics][]
 
-
 <!--Link references-->
 
-[What is a Cloud Service?]: /documentation/articles/cloud-services-choose-me/
-[execution model-web sites]: /documentation/articles/app-service-web-overview/
-[execution model-vms]: /documentation/articles/virtual-machines-windows-about/
-[execution model-cloud services]: /documentation/articles/cloud-services-choose-me/
+[What is a Cloud Service?]: ./cloud-services-choose-me.md
+[execution model-web sites]: ../app-service-web/app-service-web-overview.md
+[execution model-vms]: ../virtual-machines/virtual-machines-windows-about.md
+[execution model-cloud services]: ./cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: /documentation/articles/storage-python-how-to-use-blob-storage/
-[Queue Service]: /documentation/articles/storage-python-how-to-use-queue-storage/
-[Table Service]: /documentation/articles/storage-python-how-to-use-table-storage/
-[Service Bus Queues]: /documentation/articles/service-bus-python-how-to-use-queues/
-[Service Bus Topics]: /documentation/articles/service-bus-python-how-to-use-topics-subscriptions/
-
+[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
+[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 <!--External Link references-->
 

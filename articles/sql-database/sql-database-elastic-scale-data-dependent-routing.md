@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Data dependent routing | Azure" 
-	description="How to use the ShardMapManager class in .NET apps for data-dependent routing, a feature of elastic databases for Azure SQL Database" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="torsteng" 
-	editor=""/>
+---
+title: Data dependent routing | Azure
+description: How to use the ShardMapManager class in .NET apps for data-dependent routing, a feature of elastic databases for Azure SQL Database
+services: sql-database
+documentationCenter: ''
+manager: jhubbard
+authors: torsteng
+editor: ''
 
-<tags 
-	ms.service="sql-database" 
-	ms.date="05/27/2016" 
-	wacn.date="06/01/2016"/>
+ms.service: sql-database
+ms.date: 05/27/2016
+wacn.date: 06/01/2016
+---
 
 #Data dependent routing
 
 **Data dependent routing** is the ability to use the data in a query to route the request to an appropriate database. This is a fundamental pattern when working with sharded databases. The request context may also be used to route the request, especially if the sharding key is not part of the query. Each specific query or transaction in an application using data dependent routing is restricted to accessing a single database per request. For the SQL Azure Database Elastic tools, this routing is accomplished with the **[ShardMapManager class](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** in ADO.NET applications.
 
-The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](/documentation/articles/sql-database-elastic-scale-shard-map-management/) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
+The application does not need to track various connection strings or DB locations associated with different slices of data in the sharded environment. Instead, the [Shard Map Manager](./sql-database-elastic-scale-shard-map-management.md) opens connections to the correct databases when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. The key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
 
 For more information, see [Scaling Out SQL Server with Data Dependent Routing](https://technet.microsoft.com/zh-cn/library/cc966448.aspx).
 
@@ -28,25 +28,28 @@ To get the class, install the [Elastic Database Client Library](http://www.nuget
 
 Applications should instantiate the **ShardMapManager** during initialization, using the factory call **[GetSQLShardMapManager](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)**. In this example, both a **ShardMapManager** and a specific **ShardMap** that it contains are initialized. This example shows the GetSqlShardMapManager and [GetRangeShardMap](https://msdn.microsoft.com/zh-cn/library/azure/dn824173.aspx) methods.
 
-    ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, 
-                      ShardMapManagerLoadPolicy.Lazy);
-    RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
+```
+ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, 
+                  ShardMapManagerLoadPolicy.Lazy);
+RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
+```
 
 ### Use lowest privilege credentials possible for getting the shard map
 
-If an application is not manipulating the shard map itself, the credentials used in the factory method should have just read-only permissions on the **Global Shard Map** database. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Credentials used to access the Elastic Database client library](/documentation/articles/sql-database-elastic-scale-manage-credentials/). 
+If an application is not manipulating the shard map itself, the credentials used in the factory method should have just read-only permissions on the **Global Shard Map** database. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Credentials used to access the Elastic Database client library](./sql-database-elastic-scale-manage-credentials.md). 
 
 ## Call the OpenConnectionForKey method
 
 The **[ShardMap.OpenConnectionForKey method](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx))** returns an ADO.Net connection ready for issuing commands to the appropriate database based on the value of the **key** parameter. Shard information is cached in the application by the **ShardMapManager**, so these requests do not typically involve a database lookup against the **Global Shard Map** database. 
 
-	// Syntax: 
-	public SqlConnection OpenConnectionForKey<TKey>(
-		TKey key,
-		string connectionString,
-		ConnectionOptions options
-	)
-
+```
+// Syntax: 
+public SqlConnection OpenConnectionForKey<TKey>(
+    TKey key,
+    string connectionString,
+    ConnectionOptions options
+)
+```
 
 * The **key** parameter is used as a lookup key into the shard map to determine the appropriate database for the request. 
 
@@ -60,24 +63,26 @@ Use **ConnectionOptions.None** only when shard mapping changes are not expected 
 
 This example uses the value of an integer key **CustomerID**, using a **ShardMap** object named **customerShardMap**.  
 
-    int customerId = 12345; 
-    int newPersonId = 4321; 
+```
+int customerId = 12345; 
+int newPersonId = 4321; 
 
-    // Connect to the shard for that customer ID. No need to call a SqlConnection 
-	// constructor followed by the Open method.
-    using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, 
-        Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
-    { 
-        // Execute a simple command. 
-        SqlCommand cmd = conn.CreateCommand(); 
-        cmd.CommandText = @"UPDATE Sales.Customer 
-                            SET PersonID = @newPersonID 
-                            WHERE CustomerID = @customerID"; 
+// Connect to the shard for that customer ID. No need to call a SqlConnection 
+// constructor followed by the Open method.
+using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, 
+    Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
+{ 
+    // Execute a simple command. 
+    SqlCommand cmd = conn.CreateCommand(); 
+    cmd.CommandText = @"UPDATE Sales.Customer 
+                        SET PersonID = @newPersonID 
+                        WHERE CustomerID = @customerID"; 
 
-        cmd.Parameters.AddWithValue("@customerID", customerId); 
-        cmd.Parameters.AddWithValue("@newPersonID", newPersonId); 
-        cmd.ExecuteNonQuery(); 
-    }  
+    cmd.Parameters.AddWithValue("@customerID", customerId); 
+    cmd.Parameters.AddWithValue("@newPersonID", newPersonId); 
+    cmd.ExecuteNonQuery(); 
+}  
+```
 
 The **OpenConnectionForKey** method returns a new already-open connection to the correct database. Connections utilized in this way still take full advantage of ADO.Net connection pooling. As long as transactions and requests can be satisfied by one shard at a time, this should be the only modification necessary in an application already using ADO.Net. 
 
@@ -86,7 +91,7 @@ The **[OpenConnectionForKeyAsync method](https://msdn.microsoft.com/zh-cn/librar
 ## Integrating with transient fault handling 
 
 A best practice in developing data access applications in the cloud is to ensure that transient faults are caught by the app, and that the operations are retried several times before throwing an error. Transient fault handling for cloud applications is discussed at [Transient Fault Handling](https://msdn.microsoft.com/zh-cn/library/dn440719(v=pandp.60).aspx). 
- 
+
 Transient fault handling can coexist naturally with the Data Dependent Routing pattern. The key requirement is to retry the entire data access request including the **using** block that obtained the data-dependent routing connection. The example above could be rewritten as follows (note highlighted change). 
 
 ### Example – data dependent routing with transient fault handling 
@@ -103,19 +108,20 @@ int newPersonId = 4321;
             // Execute a simple command 
             SqlCommand cmd = conn.CreateCommand(); 
 
-            cmd.CommandText = @&quot;UPDATE Sales.Customer 
-                            SET PersonID = @newPersonID 
-                            WHERE CustomerID = @customerID&quot;; 
+```
+        cmd.CommandText = @&quot;UPDATE Sales.Customer 
+                        SET PersonID = @newPersonID 
+                        WHERE CustomerID = @customerID&quot;; 
 
-            cmd.Parameters.AddWithValue(&quot;@customerID&quot;, customerId); 
-            cmd.Parameters.AddWithValue(&quot;@newPersonID&quot;, newPersonId); 
-            cmd.ExecuteNonQuery(); 
+        cmd.Parameters.AddWithValue(&quot;@customerID&quot;, customerId); 
+        cmd.Parameters.AddWithValue(&quot;@newPersonID&quot;, newPersonId); 
+        cmd.ExecuteNonQuery(); 
 
-            Console.WriteLine(&quot;Update completed&quot;); 
-        } 
+        Console.WriteLine(&quot;Update completed&quot;); 
+    } 
+```
 <span style="background-color:  #FFFF00">    }); </span> 
 </code></pre>
-
 
 Packages necessary to implement transient fault handling are downloaded automatically when you build the elastic database sample application. Packages are also available separately at [Enterprise Library - Transient Fault Handling Application Block](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling). Use version 6.0 or later. 
 
@@ -124,7 +130,6 @@ Packages necessary to implement transient fault handling are downloaded automati
 Transactional properties are guaranteed for all operations local to a shard. For example, transactions submitted through data-dependent routing execute within the scope of the target shard for the connection. At this time, there are no capabilities provided for enlisting multiple connections into a transaction, and therefore there are no transactional guarantees for operations performed across shards.
 
 ## Next steps
-To detach a shard, or to reattach a shard, see [Using the RecoveryManager class to fix shard map problems](/documentation/articles/sql-database-elastic-database-recovery-manager/)
+To detach a shard, or to reattach a shard, see [Using the RecoveryManager class to fix shard map problems](./sql-database-elastic-database-recovery-manager.md)
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
- 
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

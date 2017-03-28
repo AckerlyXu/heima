@@ -1,21 +1,20 @@
-<properties
-	pageTitle="Manage Azure Service Bus using Azure Automation | Azure"
-	description="Learn how to use the Azure Automation service to manage Azure Service Bus."
-	services="service-bus, automation"
-	documentationCenter=""
-	authors="mgoedtel"
-	manager="jwhit"
-	editor=""/>
+---
+title: Manage Azure Service Bus using Azure Automation | Azure
+description: Learn how to use the Azure Automation service to manage Azure Service Bus.
+services: service-bus, automation
+documentationCenter: ''
+authors: mgoedtel
+manager: jwhit
+editor: ''
 
-<tags
-	ms.service="service-bus"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/29/2016"
-	ms.author="magoedte;csand"/>
-
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/29/2016
+ms.author: magoedte;csand
+---
 
 # Managing Azure Service Bus using Azure Automation
 
@@ -28,7 +27,6 @@ This guide will introduce you to the Azure Automation service, and how it can be
 Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs. In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.
 
 Reduce operational overhead and free up IT and DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.
-
 
 ## How can Azure Automation help manage Azure Service Bus?
 
@@ -46,4 +44,3 @@ Now that you've learned the basics of Azure Automation and how it can be used to
 
 * See the Azure Automation [Getting Started Tutorial](/documentation/articles/automation/automation-first-runbook-graphical/)
 * See how to [Manage Service Bus with PowerShell](/documentation/articles/automation/service-bus-powershell-how-to-provision/)
- 

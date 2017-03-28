@@ -1,108 +1,109 @@
-<properties
-    pageTitle="Azure Import/Export log file format | Azure"
-    description="Learn about the format of the log files created when steps are executed for an Import-Export Service job"
-    author="muralikk"
-    manager="syadav"
-    editor="tysonn"
-    services="storage"
-    documentationcenter="" />
-<tags
-    ms.assetid="38cc16bd-ad55-4625-9a85-e1726c35fd1b"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="muralikk" />
+---
+title: Azure Import/Export log file format | Azure
+description: Learn about the format of the log files created when steps are executed for an Import-Export Service job
+author: muralikk
+manager: syadav
+editor: tysonn
+services: storage
+documentationcenter: ''
+
+ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: muralikk
+---
 
 # Azure Import/Export service log file format
 When the Azure Import/Export service performs an action on a drive as part of an import job or an export job, logs are written to block blobs in the storage account associated with that job.  
-  
+
 There are two logs that may be written by the Import/Export service:  
-  
+
 -   The error log is always generated in the event of an error.  
-  
+
 -   The verbose log is not enabled by default, but may be enabled by setting the `EnableVerboseLog` property on a [Put Job](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) or [Update Job Properties](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs#Jobs_Update) operation.  
-  
+
 ## Log File Location  
 The logs are written to block blobs in the container or virtual directory specified by the `ImportExportStatesPath` setting, which you can set on a `Put Job` operation. The location to which the logs are written depends on how authentication is specified for the job, together with the value specified for `ImportExportStatesPath`. Authentication for the job may be specified via a storage account key, or a container SAS (shared access signature).  
-  
+
 The name of the container or virtual directory may either be the default name of `waimportexport`, or another container or virtual directory name that you specify.  
-  
+
 The table below shows the possible options:  
-  
+
 |Authentication Method|Value of `ImportExportStatesPath`Element|Location of Log Blobs|  
 |---------------------------|----------------------------------------------|---------------------------|  
 |Storage account key|Default value|<p>A container named `waimportexport`, which is the default container. For example:</p><p> `https://myaccount.blob.core.chinacloudapi.cn/waimportexport`</p>|  
 |Storage account key|User-specified value|<p>A container named by the user. For example:</p><p> `https://myaccount.blob.core.chinacloudapi.cn/mylogcontainer`</p>|  
 |Container SAS|Default value|<p>A virtual directory named `waimportexport`, which is the default name, beneath the container specified in the SAS.</p><p> For example, if the SAS specified for the job is  `https://myaccount.blob.core.chinacloudapi.cn/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, then the log location would be `https://myaccount.blob.core.chinacloudapi.cn/mylogcontainer/waimportexport`</p>|  
 |Container SAS|User-specified value|<p>A virtual directory named by the user, beneath the container specified in the SAS.</p><p> For example, if the SAS specified for the job is  `https://myaccount.blob.core.chinacloudapi.cn/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, and the specified virtual directory is named `mylogblobs`, then the log location would be `https://myaccount.blob.core.chinacloudapi.cn/mylogcontainer/waimportexport/mylogblobs`.</p>|  
-  
+
 You can retrieve the URL for the error and verbose logs by calling the [Get Job](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation. The logs are available after processing of the drive is complete.  
-  
+
 ## Log File Format  
 The format for both logs is the same: a blob containing XML descriptions of the events that occurred while copying blobs between the hard drive and the customer's account.  
-  
+
 The verbose log contains complete information about the status of the copy operation for every blob (for an import job) or file (for an export job), whereas the error log contains only the information for blobs or files that encountered errors during the import or export job.  
-  
+
 The verbose log format is shown below. The error log has the same structure, but filters out successful operations.  
 
+```xml
+<DriveLog Version="2014-11-01">  
+  <DriveId>drive-id</DriveId>  
+  [<Blob Status="blob-status">  
+   <BlobPath>blob-path</BlobPath>  
+   <FilePath>file-path</FilePath>  
+   [<Snapshot>snapshot</Snapshot>]  
+   <Length>length</Length>  
+   [<LastModified>last-modified</LastModified>]  
+   [<ImportDisposition Status="import-disposition-status">import-disposition</ImportDisposition>]  
+   [page-range-list-or-block-list]  
+   [metadata-status]  
+   [properties-status]  
+  </Blob>]  
+  [<Blob>  
+    . . .  
+  </Blob>]  
+  <Status>drive-status</Status>  
+</DriveLog>  
 
-	<DriveLog Version="2014-11-01">  
-	  <DriveId>drive-id</DriveId>  
-	  [<Blob Status="blob-status">  
-	   <BlobPath>blob-path</BlobPath>  
-	   <FilePath>file-path</FilePath>  
-	   [<Snapshot>snapshot</Snapshot>]  
-	   <Length>length</Length>  
-	   [<LastModified>last-modified</LastModified>]  
-	   [<ImportDisposition Status="import-disposition-status">import-disposition</ImportDisposition>]  
-	   [page-range-list-or-block-list]  
-	   [metadata-status]  
-	   [properties-status]  
-	  </Blob>]  
-	  [<Blob>  
-	    . . .  
-	  </Blob>]  
-	  <Status>drive-status</Status>  
-	</DriveLog>  
-  
-	page-range-list-or-block-list ::= 
-	  page-range-list | block-list  
-  
-	page-range-list ::=   
-	<PageRangeList>  
-	      [<PageRange Offset="page-range-offset" Length="page-range-length"   
-	       [Hash="md5-hash"] Status="page-range-status"/>]  
-	      [<PageRange Offset="page-range-offset" Length="page-range-length"   
-	       [Hash="md5-hash"] Status="page-range-status"/>]  
-	</PageRangeList>  
-  
-	block-list ::=  
-	<BlockList>  
-	      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
-	       [Hash="md5-hash"] Status="block-status"/>]  
-	      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
-	       [Hash="md5-hash"] Status="block-status"/>]  
-	</BlockList>  
-  
-	metadata-status ::=  
-	<Metadata Status="metadata-status">  
-	   [<GlobalPath Hash="md5-hash">global-metadata-file-path</GlobalPath>]  
-	   [<Path Hash="md5-hash">metadata-file-path</Path>]  
-	</Metadata>  
-  
-	properties-status ::=  
-	<Properties Status="properties-status">  
-	   [<GlobalPath Hash="md5-hash">global-properties-file-path</GlobalPath>]  
-	   [<Path Hash="md5-hash">properties-file-path</Path>]  
-	</Properties>  
+page-range-list-or-block-list ::= 
+  page-range-list | block-list  
 
+page-range-list ::=   
+<PageRangeList>  
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+       [Hash="md5-hash"] Status="page-range-status"/>]  
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+       [Hash="md5-hash"] Status="page-range-status"/>]  
+</PageRangeList>  
+
+block-list ::=  
+<BlockList>  
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
+       [Hash="md5-hash"] Status="block-status"/>]  
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+       [Hash="md5-hash"] Status="block-status"/>]  
+</BlockList>  
+
+metadata-status ::=  
+<Metadata Status="metadata-status">  
+   [<GlobalPath Hash="md5-hash">global-metadata-file-path</GlobalPath>]  
+   [<Path Hash="md5-hash">metadata-file-path</Path>]  
+</Metadata>  
+
+properties-status ::=  
+<Properties Status="properties-status">  
+   [<GlobalPath Hash="md5-hash">global-properties-file-path</GlobalPath>]  
+   [<Path Hash="md5-hash">properties-file-path</Path>]  
+</Properties>  
+```
 
 The following table describes the elements of the log file.  
-  
+
 |XML Element|Type|Description|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML Element|Represents a drive log.|  
@@ -143,10 +144,10 @@ The following table describes the elements of the log file.
 |`Properties/Path`|String|Relative path to the properties file.|  
 |`Properties/Path/@Hash`|Attribute, String|Base16-encoded MD5 hash of the properties file.|  
 |`Blob/Status`|String|Status of processing the blob.|  
-  
+
 ### Drive Status Codes  
 The following table lists the status codes for processing a drive.  
-  
+
 |Status code|Description|  
 |-----------------|-----------------|  
 |`Completed`|The drive has finished processing without any errors.|  
@@ -172,10 +173,10 @@ The following table lists the status codes for processing a drive.
 |`BlobListFormatInvalid`|The export blob list blob does not conform to the required format.|  
 |`BlobRequestForbidden`|Access to the blobs in the storage account is forbidden. This might be due to invalid storage account key or container SAS.|  
 |`InternalError`|And internal error occurred while processing the drive.|  
-  
+
 ### Blob Status Codes  
 The following table lists the status codes for processing a blob.  
-  
+
 |Status code|Description|  
 |-----------------|-----------------|  
 |`Completed`|The blob has finished processing without errors.|  
@@ -191,10 +192,10 @@ The following table lists the status codes for processing a blob.
 |`LeasePresent`|There is a lease present on the blob.|  
 |`IOFailed`|A disk or network I/O failure occurred while processing the blob.|  
 |`Failed`|An unknown failure occurred while processing the blob.|  
-  
+
 ### Import Disposition Status Codes  
 The following table lists the status codes for resolving an import disposition.  
-  
+
 |Status code|Description|  
 |-----------------|-----------------|  
 |`Created`|The blob has been created.|  
@@ -202,10 +203,10 @@ The following table lists the status codes for resolving an import disposition.
 |`Skipped`|The blob has been skipped per `no-overwrite` import disposition.|  
 |`Overwritten`|The blob has overwritten an existing blob per `overwrite` import disposition.|  
 |`Cancelled`|A prior failure has stopped further processing of the import disposition.|  
-  
+
 ### Page Range/Block Status Codes  
 The following table lists the status codes for processing a page range or a block.  
-  
+
 |Status code|Description|  
 |-----------------|-----------------|  
 |`Completed`|The page range or block has finished processing without any errors.|  
@@ -218,10 +219,10 @@ The following table lists the status codes for processing a page range or a bloc
 |`IOFailed`|A disk or network I/O failure occurred while processing the page range or block.|  
 |`Failed`|An unknown failure occurred while processing the page range or block.|  
 |`Cancelled`|A prior failure has stopped further processing of the page range or block.|  
-  
+
 ### Metadata Status Codes  
 The following table lists the status codes for processing blob metadata.  
-  
+
 |Status code|Description|  
 |-----------------|-----------------|  
 |`Completed`|The metadata has finished processing without errors.|  
@@ -236,10 +237,10 @@ The following table lists the status codes for processing blob metadata.
 |`IOFailed`|A disk or network I/O failure occurred while processing the metadata.|  
 |`Failed`|An unknown failure occurred while processing the metadata.|  
 |`Cancelled`|A prior failure has stopped further processing of the metadata.|  
-  
+
 ### Properties Status Codes  
 The following table lists the status codes for processing blob properties.  
-  
+
 |Status code|Description|  
 |-----------------|-----------------|  
 |`Completed`|The properties have finished processing without any errors.|  
@@ -254,104 +255,102 @@ The following table lists the status codes for processing blob properties.
 |`IOFailed`|A disk or network I/O failure occurred while processing the properties.|  
 |`Failed`|An unknown failure occurred while processing the properties.|  
 |`Cancelled`|A prior failure has stopped further processing of the properties.|  
-  
+
 ## Sample Logs  
 The following is an example of verbose log.  
-  
 
-	<?xml version="1.0" encoding="UTF-8"?>  
-	<DriveLog Version="2014-11-01">  
-	    <DriveId>WD-WMATV123456</DriveId>  
-	    <Blob Status="Completed">  
-	       <BlobPath>pictures/bob/wild/desert.jpg</BlobPath>  
-	       <FilePath>\Users\bob\Pictures\wild\desert.jpg</FilePath>  
-	       <Length>98304</Length>  
-	       <ImportDisposition Status="Created">overwrite</ImportDisposition>  
-	       <BlockList>  
-	          <Block Offset="0" Length="65536" Id="AAAAAA==" Hash=" 9C8AE14A55241F98533C4D80D85CDC68" Status="Completed"/>  
-	          <Block Offset="65536" Length="32768" Id="AQAAAA==" Hash=" DF54C531C9B3CA2570FDDDB3BCD0E27D" Status="Completed"/>  
-	       </BlockList>  
-	       <Metadata Status="Completed">  
-	          <GlobalPath Hash=" E34F54B7086BCF4EC1601D056F4C7E37">\Users\bob\Pictures\wild\metadata.xml</GlobalPath>  
-	       </Metadata>  
-	    </Blob>  
-	    <Blob Status="CompletedWithErrors">  
-	       <BlobPath>pictures/bob/animals/koala.jpg</BlobPath>  
-	       <FilePath>\Users\bob\Pictures\animals\koala.jpg</FilePath>  
-	       <Length>163840</Length>  
-	       <ImportDisposition Status="Overwritten">overwrite</ImportDisposition>  
-	       <PageRangeList>  
-	          <PageRange Offset="0" Length="65536" Hash="19701B8877418393CB3CB567F53EE225" Status="Completed"/>  
-	          <PageRange Offset="65536" Length="65536" Hash="AA2585F6F6FD01C4AD4256E018240CD4" Status="Corrupted"/>  
-	          <PageRange Offset="131072" Length="4096" Hash="9BA552E1C3EEAFFC91B42B979900A996" Status="Completed"/>  
-	       </PageRangeList>  
-	       <Properties Status="Completed">  
-	          <Path Hash="38D7AE80653F47F63C0222FEE90EC4E7">\Users\bob\Pictures\animals\koala.jpg.properties</Path>  
-	       </Properties>  
-	    </Blob>  
-	    <Status>CompletedWithErrors</Status>  
-	</DriveLog>  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>  
+<DriveLog Version="2014-11-01">  
+    <DriveId>WD-WMATV123456</DriveId>  
+    <Blob Status="Completed">  
+       <BlobPath>pictures/bob/wild/desert.jpg</BlobPath>  
+       <FilePath>\Users\bob\Pictures\wild\desert.jpg</FilePath>  
+       <Length>98304</Length>  
+       <ImportDisposition Status="Created">overwrite</ImportDisposition>  
+       <BlockList>  
+          <Block Offset="0" Length="65536" Id="AAAAAA==" Hash=" 9C8AE14A55241F98533C4D80D85CDC68" Status="Completed"/>  
+          <Block Offset="65536" Length="32768" Id="AQAAAA==" Hash=" DF54C531C9B3CA2570FDDDB3BCD0E27D" Status="Completed"/>  
+       </BlockList>  
+       <Metadata Status="Completed">  
+          <GlobalPath Hash=" E34F54B7086BCF4EC1601D056F4C7E37">\Users\bob\Pictures\wild\metadata.xml</GlobalPath>  
+       </Metadata>  
+    </Blob>  
+    <Blob Status="CompletedWithErrors">  
+       <BlobPath>pictures/bob/animals/koala.jpg</BlobPath>  
+       <FilePath>\Users\bob\Pictures\animals\koala.jpg</FilePath>  
+       <Length>163840</Length>  
+       <ImportDisposition Status="Overwritten">overwrite</ImportDisposition>  
+       <PageRangeList>  
+          <PageRange Offset="0" Length="65536" Hash="19701B8877418393CB3CB567F53EE225" Status="Completed"/>  
+          <PageRange Offset="65536" Length="65536" Hash="AA2585F6F6FD01C4AD4256E018240CD4" Status="Corrupted"/>  
+          <PageRange Offset="131072" Length="4096" Hash="9BA552E1C3EEAFFC91B42B979900A996" Status="Completed"/>  
+       </PageRangeList>  
+       <Properties Status="Completed">  
+          <Path Hash="38D7AE80653F47F63C0222FEE90EC4E7">\Users\bob\Pictures\animals\koala.jpg.properties</Path>  
+       </Properties>  
+    </Blob>  
+    <Status>CompletedWithErrors</Status>  
+</DriveLog>  
+```
 
-  
 The corresponding error log is shown below.  
-  
 
-	<?xml version="1.0" encoding="UTF-8"?>  
-	<DriveLog Version="2014-11-01">  
-	    <DriveId>WD-WMATV6965824</DriveId>  
-	    <Blob Status="CompletedWithErrors">  
-	       <BlobPath>pictures/bob/animals/koala.jpg</BlobPath>  
-	       <FilePath>\Users\bob\Pictures\animals\koala.jpg</FilePath>  
-	       <Length>163840</Length>  
-	       <ImportDisposition Status="Overwritten">overwrite</ImportDisposition>  
-	       <PageRangeList>  
-	          <PageRange Offset="65536" Length="65536" Hash="AA2585F6F6FD01C4AD4256E018240CD4" Status="Corrupted"/>  
-	       </PageRangeList>  
-	    </Blob>  
-	    <Status>CompletedWithErrors</Status>  
-	</DriveLog>  
-
+```xml
+<?xml version="1.0" encoding="UTF-8"?>  
+<DriveLog Version="2014-11-01">  
+    <DriveId>WD-WMATV6965824</DriveId>  
+    <Blob Status="CompletedWithErrors">  
+       <BlobPath>pictures/bob/animals/koala.jpg</BlobPath>  
+       <FilePath>\Users\bob\Pictures\animals\koala.jpg</FilePath>  
+       <Length>163840</Length>  
+       <ImportDisposition Status="Overwritten">overwrite</ImportDisposition>  
+       <PageRangeList>  
+          <PageRange Offset="65536" Length="65536" Hash="AA2585F6F6FD01C4AD4256E018240CD4" Status="Corrupted"/>  
+       </PageRangeList>  
+    </Blob>  
+    <Status>CompletedWithErrors</Status>  
+</DriveLog>  
+```
 
  The follow error log for an import job contains an error about a file not found on the import drive. Note that the status of subsequent components is `Cancelled`.  
-  
 
-	<?xml version="1.0" encoding="utf-8"?>  
-	<DriveLog Version="2014-11-01">  
-	  <DriveId>9WM35C2V</DriveId>  
-	  <Blob Status="FileNotFound">  
-	    <BlobPath>pictures/animals/koala.jpg</BlobPath>  
-	    <FilePath>\animals\koala.jpg</FilePath>  
-	    <Length>30310</Length>  
-	    <ImportDisposition Status="Cancelled">rename</ImportDisposition>  
-	    <BlockList>  
-	      <Block Offset="0" Length="6062" Id="MD5/cAzn4h7VVSWXf696qp5Uaw==" Hash="700CE7E21ED55525977FAF7AAA9E546B" Status="Cancelled" />  
-	      <Block Offset="6062" Length="6062" Id="MD5/PEnGwYOI8LPLNYdfKr7kAg==" Hash="3C49C6C18388F0B3CB35875F2ABEE402" Status="Cancelled" />  
-	      <Block Offset="12124" Length="6062" Id="MD5/FG4WxqfZKuUWZ2nGTU2qVA==" Hash="146E16C6A7D92AE5166769C64D4DAA54" Status="Cancelled" />  
-	      <Block Offset="18186" Length="6062" Id="MD5/ZzibNDzr3IRBQENRyegeXQ==" Hash="67389B343CEBDC8441404351C9E81E5D" Status="Cancelled" />  
-	      <Block Offset="24248" Length="6062" Id="MD5/ZzibNDzr3IRBQENRyegeXQ==" Hash="67389B343CEBDC8441404351C9E81E5D" Status="Cancelled" />  
-	    </BlockList>  
-	  </Blob>  
-	  <Status>CompletedWithErrors</Status>  
-	</DriveLog>  
-
+    <?xml version="1.0" encoding="utf-8"?>  
+    <DriveLog Version="2014-11-01">  
+      <DriveId>9WM35C2V</DriveId>  
+      <Blob Status="FileNotFound">  
+        <BlobPath>pictures/animals/koala.jpg</BlobPath>  
+        <FilePath>\animals\koala.jpg</FilePath>  
+        <Length>30310</Length>  
+        <ImportDisposition Status="Cancelled">rename</ImportDisposition>  
+        <BlockList>  
+          <Block Offset="0" Length="6062" Id="MD5/cAzn4h7VVSWXf696qp5Uaw==" Hash="700CE7E21ED55525977FAF7AAA9E546B" Status="Cancelled" />  
+          <Block Offset="6062" Length="6062" Id="MD5/PEnGwYOI8LPLNYdfKr7kAg==" Hash="3C49C6C18388F0B3CB35875F2ABEE402" Status="Cancelled" />  
+          <Block Offset="12124" Length="6062" Id="MD5/FG4WxqfZKuUWZ2nGTU2qVA==" Hash="146E16C6A7D92AE5166769C64D4DAA54" Status="Cancelled" />  
+          <Block Offset="18186" Length="6062" Id="MD5/ZzibNDzr3IRBQENRyegeXQ==" Hash="67389B343CEBDC8441404351C9E81E5D" Status="Cancelled" />  
+          <Block Offset="24248" Length="6062" Id="MD5/ZzibNDzr3IRBQENRyegeXQ==" Hash="67389B343CEBDC8441404351C9E81E5D" Status="Cancelled" />  
+        </BlockList>  
+      </Blob>  
+      <Status>CompletedWithErrors</Status>  
+    </DriveLog>  
 
 The following error log for an export job indicates that the blob content has been successfully written to the drive, but that an error occurred while exporting the blob's properties.  
-  
 
-	<?xml version="1.0" encoding="utf-8"?>  
-	<DriveLog Version="2014-11-01">  
-	  <DriveId>9WM35C3U</DriveId>  
-	  <Blob Status="CompletedWithErrors">  
-	    <BlobPath>pictures/wild/canyon.jpg</BlobPath>  
-	    <FilePath>\pictures\wild\canyon.jpg</FilePath>  
-	    <LastModified>2012-09-18T23:47:08Z</LastModified>  
-	    <Length>163840</Length>  
-	    <BlockList />  
-	    <Properties Status="Failed" />  
-	  </Blob>  
-	  <Status>CompletedWithErrors</Status>  
-	</DriveLog>  
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<DriveLog Version="2014-11-01">  
+  <DriveId>9WM35C3U</DriveId>  
+  <Blob Status="CompletedWithErrors">  
+    <BlobPath>pictures/wild/canyon.jpg</BlobPath>  
+    <FilePath>\pictures\wild\canyon.jpg</FilePath>  
+    <LastModified>2012-09-18T23:47:08Z</LastModified>  
+    <Length>163840</Length>  
+    <BlockList />  
+    <Properties Status="Failed" />  
+  </Blob>  
+  <Status>CompletedWithErrors</Status>  
+</DriveLog>  
+```
 
-  
 ## See Also  
 [Storage Import/Export REST](https://docs.microsoft.com/en-us/rest/api/storageimportexport/)

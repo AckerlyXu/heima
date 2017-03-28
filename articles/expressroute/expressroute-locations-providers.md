@@ -1,26 +1,26 @@
-<properties
-   pageTitle="Locations and connectivity providers: Azure ExpressRoute | Azure"
-   description="This article provides a detailed overview of locations where services are offered and how to connect to Azure regions."
-   services="expressroute"
-   documentationCenter="na"
-   author="cherylmc"
-   manager="timlt"
-   editor="" />
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="02/13/2017"
-   ms.author="cherylmc" />
+---
+title: Locations and connectivity providers: Azure ExpressRoute | Azure
+description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions.
+services: expressroute
+documentationCenter: na
+author: cherylmc
+manager: timlt
+editor: ''
+
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/13/2017
+ms.author: cherylmc
+---
 
 # ExpressRoute partners and peering locations
 
-> [AZURE.SELECTOR]
-- [Locations By Provider](/documentation/articles/expressroute-locations/)
-- [Providers By Location](/documentation/articles/expressroute-locations-providers/)
-
+> [!div class="op_single_selector"]
+>- [Locations By Provider](./expressroute-locations.md)
+>- [Providers By Location](./expressroute-locations-providers.md)
 
 The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
@@ -59,8 +59,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 
 ## <a name="locations"></a>Connectivity provider locations
 
-The following table shows connectivity locations and the service providers for each location. If you want to view service providers and the locations for which they can provide service, see [Locations by service provider](/documentation/articles/expressroute-locations/#locations). 
-
+The following table shows connectivity locations and the service providers for each location. If you want to view service providers and the locations for which they can provide service, see [Locations by service provider](./expressroute-locations.md#locations). 
 
 ### Production Azure
 | **Location** | **Service Providers** |
@@ -109,7 +108,7 @@ The following table shows connectivity locations and the service providers for e
 | --- | --- |
 | **Beijing** |China Telecom |
 | **Shanghai** |China Telecom |
-To learn more, see [ExpressRoute in China](/home/features/expressroute/)
+To learn more, see [ExpressRoute in China](https://www.azure.cn/home/features/expressroute/)
 
 ### Germany
 
@@ -158,8 +157,8 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 ## Next steps
 
-- For more information about ExpressRoute, see the [ExpressRoute FAQ](/documentation/articles/expressroute-faqs/).
-- Ensure that all prerequisites are met. See [ExpressRoute prerequisites](/documentation/articles/expressroute-prerequisites/).
+- For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md).
+- Ensure that all prerequisites are met. See [ExpressRoute prerequisites](./expressroute-prerequisites.md).
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Location map"

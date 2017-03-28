@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Balancing Your Cluster With the Azure Service Fabric Cluster Resource Manager | Azure"
-    description="An introduction to balancing your cluster with the Service Fabric Cluster Resource Manager."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="masnider"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="030b1465-6616-4c0b-8bc7-24ed47d054c0"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="masnider" />
+---
+title: Balancing Your Cluster With the Azure Service Fabric Cluster Resource Manager | Azure
+description: An introduction to balancing your cluster with the Service Fabric Cluster Resource Manager.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
+
+ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: masnider
+---
 
 # Balancing your service fabric cluster
 The Service Fabric Cluster Resource Manager supports dynamic load changes, reacting to additions or removals of nodes or services, correcting constraint violations, and rebalancing the cluster. But how often does it do these things, and what triggers it?
@@ -37,37 +38,38 @@ We can see this reflected in the following configuration information:
 
 ClusterManifest.xml:
 
-
-        <Section Name="PlacementAndLoadBalancing">
-            <Parameter Name="PLBRefreshGap" Value="0.1" />
-            <Parameter Name="MinPlacementInterval" Value="1.0" />
-            <Parameter Name="MinConstraintCheckInterval" Value="1.0" />
-            <Parameter Name="MinLoadBalancingInterval" Value="5.0" />
-        </Section>
+```xml
+    <Section Name="PlacementAndLoadBalancing">
+        <Parameter Name="PLBRefreshGap" Value="0.1" />
+        <Parameter Name="MinPlacementInterval" Value="1.0" />
+        <Parameter Name="MinConstraintCheckInterval" Value="1.0" />
+        <Parameter Name="MinLoadBalancingInterval" Value="5.0" />
+    </Section>
+```
 
 via ClusterConfig.json for Standalone deployments or Template.json for Azure hosted clusters:
 
-
-	"fabricSettings": [
-	  {
-	    "name": "PlacementAndLoadBalancing",
-	    "parameters": [
-	      {
-	          "name": "PLBRefreshGap",
-	          "value": "0.10"
-	      },
-	      {
-	          "name": "MinPlacementInterval",
-	          "value": "1.0"
-	      },
-	      {
-	          "name": "MinLoadBalancingInterval",
-	          "value": "5.0"
-	      }
-	    ]
-	  }
-	]
-
+```json
+"fabricSettings": [
+  {
+    "name": "PlacementAndLoadBalancing",
+    "parameters": [
+      {
+          "name": "PLBRefreshGap",
+          "value": "0.10"
+      },
+      {
+          "name": "MinPlacementInterval",
+          "value": "1.0"
+      },
+      {
+          "name": "MinLoadBalancingInterval",
+          "value": "5.0"
+      }
+    ]
+  }
+]
+```
 
 Today the Cluster Resource Manager only performs one of these actions at a time, sequentially (that’s why we refer to these timers as “minimum intervals”). For example, the Cluster Resource Manager takes care of pending requests to create services before balancing the cluster. As you can see by the default time intervals specified, the Cluster Resource Manager scans and checks for anything it needs to do frequently, so the set of changes made at the end of each step is usually small. Making small changes frequently makes the Cluster Resource Manager responsive to things that happen in the cluster. The default timers provide some batching since many of the same types of events tend to occur simultaneously. By default the Cluster Resource Manager is not scanning through hours of changes in the cluster and trying to address all changes at once. Doing so would lead to bursts of churn.
 
@@ -76,35 +78,36 @@ The Cluster Resource Manager also needs some additional information to determine
 ## Balancing thresholds
 A Balancing Threshold is the main control for triggering proactive rebalancing. The MinLoadBalancingInterval timer is just for how often the Cluster Resource Manager should check - it doesn't mean that anything happens. The Balancing Threshold defines how imbalanced the cluster needs to be for a specific metric in order for the Cluster Resource Manager to consider it imbalanced and trigger balancing.
 
-Balancing Thresholds are defined on a per-metric basis as a part of the cluster definition. For more information on metrics, check out [this article](/documentation/articles/service-fabric-cluster-resource-manager-metrics/).
+Balancing Thresholds are defined on a per-metric basis as a part of the cluster definition. For more information on metrics, check out [this article](./service-fabric-cluster-resource-manager-metrics.md).
 
 ClusterManifest.xml
 
-
-    <Section Name="MetricBalancingThresholds">
-      <Parameter Name="MetricName1" Value="2"/>
-      <Parameter Name="MetricName2" Value="3.5"/>
-    </Section>
-
+```xml
+<Section Name="MetricBalancingThresholds">
+  <Parameter Name="MetricName1" Value="2"/>
+  <Parameter Name="MetricName2" Value="3.5"/>
+</Section>
+```
 
 via ClusterConfig.json for Standalone deployments or Template.json for Azure hosted clusters:
 
-
-	"fabricSettings": [
-	  {
-	    "name": "MetricBalancingThresholds",
-	    "parameters": [
-	      {
-	          "name": "MetricName1",
-	          "value": "2"
-	      },
-	      {
-	          "name": "MetricName2",
-	          "value": "3.5"
-	      }
-	    ]
-	  }
-	]
+```json
+"fabricSettings": [
+  {
+    "name": "MetricBalancingThresholds",
+    "parameters": [
+      {
+          "name": "MetricName1",
+          "value": "2"
+      },
+      {
+          "name": "MetricName2",
+          "value": "3.5"
+      }
+    ]
+  }
+]
+```
 
 The Balancing Threshold for a metric is a ratio. If the amount of load on the most loaded node divided by the amount of load on the least loaded node exceeds this number, then the cluster is considered imbalanced. As a result balancing is triggered the next time the Cluster Resource Manager checks.
 
@@ -143,19 +146,19 @@ ClusterManifest.xml
 
 via ClusterConfig.json for Standalone deployments or Template.json for Azure hosted clusters:
 
-
-	"fabricSettings": [
-	  {
-	    "name": "MetricActivityThresholds",
-	    "parameters": [
-	      {
-	          "name": "Memory",
-	          "value": "1536"
-	      }
-	    ]
-	  }
-	]
-
+```json
+"fabricSettings": [
+  {
+    "name": "MetricActivityThresholds",
+    "parameters": [
+      {
+          "name": "Memory",
+          "value": "1536"
+      }
+    ]
+  }
+]
+```
 
 Balancing and activity thresholds are both tied to a specific metric - balancing is triggered only if both the Balancing Threshold and Activity Threshold is exceeded for the same metric.
 
@@ -179,9 +182,9 @@ The Cluster Resource Manager automatically figures out what services are related
 </center>
 
 ## Next steps
-- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](/documentation/articles/service-fabric-cluster-resource-manager-metrics/)
-- Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. For more about movement cost, refer to [this article](/documentation/articles/service-fabric-cluster-resource-manager-movement-cost/)
-- The Cluster Resource Manager has several throttles that you can configure to slow down churn in the cluster. They're not normally necessary, but if you need them you can learn about them [here](/documentation/articles/service-fabric-cluster-resource-manager-advanced-throttling/)
+- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](./service-fabric-cluster-resource-manager-metrics.md)
+- Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. For more about movement cost, refer to [this article](./service-fabric-cluster-resource-manager-movement-cost.md)
+- The Cluster Resource Manager has several throttles that you can configure to slow down churn in the cluster. They're not normally necessary, but if you need them you can learn about them [here](./service-fabric-cluster-resource-manager-advanced-throttling.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

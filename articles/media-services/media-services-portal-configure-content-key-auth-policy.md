@@ -1,25 +1,25 @@
-<properties
-    pageTitle="Configure Content Key Authorization Policy using the Azure portal | Azure"
-    description="Learn how to configure an authorization policy for a content key."
-    services="media-services"
-    documentationcenter=""
-    author="juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="ee82a3fa-c34b-48f2-a108-8ba321f1691e"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Configure Content Key Authorization Policy using the Azure portal | Azure
+description: Learn how to configure an authorization policy for a content key.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
+
+ms.assetid: ee82a3fa-c34b-48f2-a108-8ba321f1691e
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 #Configure Content Key Authorization Policy
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
+[!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ##Overview
 
@@ -33,16 +33,15 @@ When a player requests a stream that is set to be dynamically encrypted, Media S
 
 If you plan to have multiple content keys or want to specify a **Key/License Delivery Service** URL other than the Media Services key delivery service, use Media Services .NET SDK or REST APIs.
 
-[Configure Content Key Authorization Policy using Media Services .NET SDK](/documentation/articles/media-services-dotnet-configure-content-key-auth-policy/)
+[Configure Content Key Authorization Policy using Media Services .NET SDK](./media-services-dotnet-configure-content-key-auth-policy.md)
 
-[Configure Content Key Authorization Policy using Media Services REST API](/documentation/articles/media-services-rest-configure-content-key-auth-policy/)
+[Configure Content Key Authorization Policy using Media Services REST API](./media-services-rest-configure-content-key-auth-policy.md)
 
 ###Some considerations apply:
 
 - When your AMS account is created a **default** streaming endpoint is added  to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, your streaming endpoint has to be in the **Running** state. 
-- Your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](/documentation/articles/media-services-encode-asset/).  
+- Your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](./media-services-encode-asset.md).  
 - The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.  If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.
-
 
 ##How to: configure the key authorization policy
 
@@ -71,21 +70,18 @@ When configuring the **TOKEN** restricted policy, you must set values for **veri
 When protecting your content with **PlayReady**, one of the things you need to specify in your authorization policy is an XML string that defines the PlayReady license template. By default, the following policy is set:
 
 <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
-	  <LicenseTemplates>
-	    <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
-	      <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-	      <LicenseType>Nonpersistent</LicenseType>
-	      <PlayRight>
-	        <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
-	      </PlayRight>
-	    </PlayReadyLicenseTemplate>
-	  </LicenseTemplates>
-	</PlayReadyLicenseResponseTemplate>
+      <LicenseTemplates>
+        <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
+          <ContentKey i:type="ContentEncryptionKeyFromHeader" />
+          <LicenseType>Nonpersistent</LicenseType>
+          <PlayRight>
+            <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
+          </PlayRight>
+        </PlayReadyLicenseTemplate>
+      </LicenseTemplates>
+    </PlayReadyLicenseResponseTemplate>
 
-You can click the **import policy xml** button and provide a different XML which conforms to the  XML Schema defined [here](/documentation/articles/media-services-playready-license-template-overview/).
-
+You can click the **import policy xml** button and provide a different XML which conforms to the  XML Schema defined [here](./media-services-playready-license-template-overview.md).
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
-
- 

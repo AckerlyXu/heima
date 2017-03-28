@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Create a Windows Server 2016 VM with NLB | Azure"
-    description="Azure CLI Script Sample - Create a Windows Server 2016 VM with NLB"
-    services="virtual-machines-Windows"
-    documentationcenter="virtual-machines"
-    author="rickstercdn"
-    manager="timlt"
-    editor="tysonn"
-    tags="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-Windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure"
-    ms.date="02/23/2017"
-    wacn.date=""
-    ms.author="rclaus" />
+---
+title: Azure CLI Script Sample - Create a Windows Server 2016 VM with NLB | Azure
+description: Azure CLI Script Sample - Create a Windows Server 2016 VM with NLB
+services: virtual-machines-Windows
+documentationcenter: virtual-machines
+author: rickstercdn
+manager: timlt
+editor: tysonn
+tags: ''
+
+ms.assetid: ''
+ms.service: virtual-machines-Windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 02/23/2017
+wacn.date: ''
+ms.author: rclaus
+---
 
 # Load balance traffic between highly available virtual machines
 
@@ -24,91 +25,94 @@ This script sample creates everything needed to run several Ubuntu virtual machi
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure. Also, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
 
-This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    # Update for your admin password
-    AdminPassword=ChangeYourAdminPassword1
+# Update for your admin password
+AdminPassword=ChangeYourAdminPassword1
 
-    # Create a resource group.
-    az group create --name myResourceGroup --location chinanorth
+# Create a resource group.
+az group create --name myResourceGroup --location chinanorth
 
-    # Create a virtual network.
-    az network vnet create --resource-group myResourceGroup --name myVnet \
-      --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
+# Create a virtual network.
+az network vnet create --resource-group myResourceGroup --name myVnet \
+  --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
 
-    # Create a public IP address.
-    az network public-ip create --resource-group myResourceGroup --name myPublicIP
+# Create a public IP address.
+az network public-ip create --resource-group myResourceGroup --name myPublicIP
 
-    # Create an Azure Network Load Balancer.
-    az network lb create --resource-group myResourceGroup --name myLoadBalancer --public-ip-address myPublicIP \
-      --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool
+# Create an Azure Network Load Balancer.
+az network lb create --resource-group myResourceGroup --name myLoadBalancer --public-ip-address myPublicIP \
+  --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool
 
-    # Creates an NLB probe on port 80.
-    az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
-      --name myHealthProbe --protocol tcp --port 80
+# Creates an NLB probe on port 80.
+az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
+  --name myHealthProbe --protocol tcp --port 80
 
-    # Creates an NLB rule for port 80.
-    az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer --name myLoadBalancerRuleWeb \
-      --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEndPool \
-      --backend-pool-name myBackEndPool --probe-name myHealthProbe
+# Creates an NLB rule for port 80.
+az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer --name myLoadBalancerRuleWeb \
+  --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEndPool \
+  --backend-pool-name myBackEndPool --probe-name myHealthProbe
 
-    # Create three NAT rules for port 3389.
-    for i in `seq 1 3`; do
-      az network lb inbound-nat-rule create \
-        --resource-group myResourceGroup --lb-name myLoadBalancer \
-        --name myLoadBalancerRuleSSH$i --protocol tcp \
-        --frontend-port 422$i --backend-port 3389 \
-        --frontend-ip-name myFrontEndPool
-    done
+# Create three NAT rules for port 3389.
+for i in `seq 1 3`; do
+  az network lb inbound-nat-rule create \
+    --resource-group myResourceGroup --lb-name myLoadBalancer \
+    --name myLoadBalancerRuleSSH$i --protocol tcp \
+    --frontend-port 422$i --backend-port 3389 \
+    --frontend-ip-name myFrontEndPool
+done
 
-    # Create a network security group
-    az network nsg create --resource-group myResourceGroup --name myNetworkSecurityGroup
+# Create a network security group
+az network nsg create --resource-group myResourceGroup --name myNetworkSecurityGroup
 
-    # Create a network security group rule for port 3389.
-    az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleSSH \
-      --protocol tcp --direction inbound --source-address-prefix '*' --source-port-range '*'  \
-      --destination-address-prefix '*' --destination-port-range 3389 --access allow --priority 1000
+# Create a network security group rule for port 3389.
+az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleSSH \
+  --protocol tcp --direction inbound --source-address-prefix '*' --source-port-range '*'  \
+  --destination-address-prefix '*' --destination-port-range 3389 --access allow --priority 1000
 
-    # Create a network security group rule for port 80.
-    az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleHTTP \
-    --protocol tcp --direction inbound --priority 1001 --source-address-prefix '*' --source-port-range '*' \
-    --destination-address-prefix '*' --destination-port-range 80 --access allow --priority 2000
+# Create a network security group rule for port 80.
+az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleHTTP \
+--protocol tcp --direction inbound --priority 1001 --source-address-prefix '*' --source-port-range '*' \
+--destination-address-prefix '*' --destination-port-range 80 --access allow --priority 2000
 
-    # Create three virtual network cards and associate with public IP address and NSG.
-    for i in `seq 1 3`; do
-      az network nic create \
-        --resource-group myResourceGroup --name myNic$i \
-        --vnet-name myVnet --subnet mySubnet \
-        --network-security-group myNetworkSecurityGroup --lb-name myLoadBalancer \
-        --lb-address-pools myBackEndPool --lb-inbound-nat-rules myLoadBalancerRuleSSH$i
-    done
+# Create three virtual network cards and associate with public IP address and NSG.
+for i in `seq 1 3`; do
+  az network nic create \
+    --resource-group myResourceGroup --name myNic$i \
+    --vnet-name myVnet --subnet mySubnet \
+    --network-security-group myNetworkSecurityGroup --lb-name myLoadBalancer \
+    --lb-address-pools myBackEndPool --lb-inbound-nat-rules myLoadBalancerRuleSSH$i
+done
 
-    # Create an availability set.
-    az vm availability-set create --resource-group myResourceGroup --name myAvailabilitySet --platform-fault-domain-count 3 --platform-update-domain-count 3
+# Create an availability set.
+az vm availability-set create --resource-group myResourceGroup --name myAvailabilitySet --platform-fault-domain-count 3 --platform-update-domain-count 3
 
-    # Create three virtual machines.
-    for i in `seq 1 3`; do
-      az vm create \
-        --resource-group myResourceGroup \
-        --name myVM$i \
-        --availability-set myAvailabilitySet \
-        --nics myNic$i \
-        --image win2016datacenter \
-        --admin-password $AdminPassword \
-        --admin-username azureuser \
-        --no-wait
-    done
-
+# Create three virtual machines.
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroup \
+    --name myVM$i \
+    --availability-set myAvailabilitySet \
+    --nics myNic$i \
+    --image win2016datacenter \
+    --admin-password $AdminPassword \
+    --admin-username azureuser \
+    --no-wait
+done
+```
 
 ## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-    az group delete --name myResourceGroup --yes
+```azurecli
+az group delete --name myResourceGroup --yes
+```
 
 ## Script explanation
 
@@ -134,4 +138,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](/documentation/articles/virtual-machines-windows-cli-samples/).
+Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../virtual-machines-windows-cli-samples.md).

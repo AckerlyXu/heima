@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Avanced Media Encoder Premium Workflow tutorials" 
-	description="This document contains walkthroughs that show how to perform advanced tasks with Media Encoder Premium Workflow and also how to create complex workflows with Workflow Designer." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="xstof" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Avanced Media Encoder Premium Workflow tutorials
+description: This document contains walkthroughs that show how to perform advanced tasks with Media Encoder Premium Workflow and also how to create complex workflows with Workflow Designer.
+services: media-services
+documentationCenter: ''
+authors: xstof
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/03/2016"  
-	ms.author="xstof;xpouyat;juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/03/2016
+ms.author: xstof;xpouyat;juliako
+---
 
 #Advanced Media Encoder Premium Workflow tutorials
 
@@ -27,47 +27,47 @@ This document contains walkthroughs that show how to customize workflows with  *
 
 The following topics are covered:
 
-- [Encoding MXF into a single bitrate MP4](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4)
-	- [Starting a new workflow](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_start_new) 
-	- [Using the Media File Input](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_with_file_input)
-	- [Inspecting media streams](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_streams)
-	- [Adding a video encoder for .MP4 file generation](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_file_generation)
-	- [Encoding the audio stream](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_audio)
-	- [Multiplexing Audio and Video streams into an MP4 container](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_audio_and_fideo)
-	- [Writing the MP4 file](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_writing_mp4)
-	- [Creating a Media Services Asset from the output file](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_asset_from_output)
-	- [Test the finished workflow locally](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_test)
-- [Encoding MXF into multibitrate MP4s - dynamic packaging enabled](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_with_dyn_packaging)
-	- [Adding one or more additional MP4 outputs](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_with_dyn_packaging_more_outputs)
-	- [Configuring the file output names](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_with_dyn_packaging_conf_output_names)
-	- [Adding a separate Audio Track](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_with_dyn_packaging_audio_tracks)
-	- [Adding the .ISM SMIL File](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_with_dyn_packaging_ism_file)
-- [Encoding MXF into multibitrate MP4 - enhanced blueprint](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to__multibitrate_MP4)
-	- [Workflow overview to enhance](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to__multibitrate_MP4_overview)
-	- [File Naming Conventions](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to__multibitrate_MP4_file_naming)
-	- [Publishing component properties onto the workflow root](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to__multibitrate_MP4_publishing)
-	- [Have generated output file names rely on published property values](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to__multibitrate_MP4_output_files)
-- [Adding thumbnails to multibitrate MP4 output](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#thumbnails_to__multibitrate_MP4)
-	- [Workflow overview to add thumbnails to](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#thumbnails_to_multibitrate_MP4_overview)
-	- [Adding JPG Encoding](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#thumbnails_to__multibitrate_MP4__with_jpg)
-	- [Dealing with Color Space conversion](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#thumbnails_to__multibitrate_MP4_color_space)
-	- [Writing the thumbnails](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#thumbnails_to__multibitrate_MP4_writing_thumbnails)
-	- [Detecting errors in a workflow](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#thumbnails_to__multibitrate_MP4_errors)
-	- [Finished Workflow](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#thumbnails_to__multibitrate_MP4_finish)
-- [Time-based trimming of multibitrate MP4 output](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#time_based_trim)
-	- [Workflow overview to start adding trimming to](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#time_based_trim_start)
-	- [Using the Stream Trimmer](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#time_based_trim_use_stream_trimmer)
-	- [Finished Workflow](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#time_based_trim_finish)
-- [Introducing the Scripted Component](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#scripting)
-	- [Scripting within a workflow: hello world](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#scripting_hello_world)
-- [Frame-based trimming of multibitrate MP4 output](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#frame_based_trim)
-	- [Blueprint overview to start adding trimming to](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#frame_based_trim_start)
-	- [Using the Clip List XML](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#frame_based_trim_clip_list)
-	- [Modifying the clip list from a Scripted Component](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#frame_based_trim_modify_clip_list)
-	- [Adding a ClippingEnabled convenience property](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#frame_based_trim_clippingenabled_prop)
+- [Encoding MXF into a single bitrate MP4](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
+    - [Starting a new workflow](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_start_new) 
+    - [Using the Media File Input](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_file_input)
+    - [Inspecting media streams](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_streams)
+    - [Adding a video encoder for .MP4 file generation](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_file_generation)
+    - [Encoding the audio stream](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio)
+    - [Multiplexing Audio and Video streams into an MP4 container](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_audio_and_fideo)
+    - [Writing the MP4 file](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_writing_mp4)
+    - [Creating a Media Services Asset from the output file](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_asset_from_output)
+    - [Test the finished workflow locally](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_test)
+- [Encoding MXF into multibitrate MP4s - dynamic packaging enabled](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging)
+    - [Adding one or more additional MP4 outputs](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_more_outputs)
+    - [Configuring the file output names](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_conf_output_names)
+    - [Adding a separate Audio Track](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
+    - [Adding the .ISM SMIL File](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
+- [Encoding MXF into multibitrate MP4 - enhanced blueprint](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
+    - [Workflow overview to enhance](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_overview)
+    - [File Naming Conventions](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
+    - [Publishing component properties onto the workflow root](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
+    - [Have generated output file names rely on published property values](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
+- [Adding thumbnails to multibitrate MP4 output](./media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
+    - [Workflow overview to add thumbnails to](./media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to_multibitrate_MP4_overview)
+    - [Adding JPG Encoding](./media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
+    - [Dealing with Color Space conversion](./media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
+    - [Writing the thumbnails](./media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
+    - [Detecting errors in a workflow](./media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_errors)
+    - [Finished Workflow](./media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_finish)
+- [Time-based trimming of multibitrate MP4 output](./media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim)
+    - [Workflow overview to start adding trimming to](./media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_start)
+    - [Using the Stream Trimmer](./media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_use_stream_trimmer)
+    - [Finished Workflow](./media-services-media-encoder-premium-workflow-tutorials.md#time_based_trim_finish)
+- [Introducing the Scripted Component](./media-services-media-encoder-premium-workflow-tutorials.md#scripting)
+    - [Scripting within a workflow: hello world](./media-services-media-encoder-premium-workflow-tutorials.md#scripting_hello_world)
+- [Frame-based trimming of multibitrate MP4 output](./media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim)
+    - [Blueprint overview to start adding trimming to](./media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_start)
+    - [Using the Clip List XML](./media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clip_list)
+    - [Modifying the clip list from a Scripted Component](./media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_modify_clip_list)
+    - [Adding a ClippingEnabled convenience property](./media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
 
 ##<a id="MXF_to_MP4"></a>Encoding MXF into a single bitrate MP4
- 
+
 In this walkthrough we'll create a single bitrate .MP4 file with AAC-HE encoded audio from an .MXF input file. 
 
 ###<a id="MXF_to_MP4_start_new"></a>Starting a new workflow 
@@ -193,13 +193,16 @@ To have the workflow automatically determine the output File name property from 
 
 The expression editor allows to enter any literal value, mixed with one or more variables. Variables start with a dollar sign. As you hit the $ key, the editor will show a dropdown box with a choice of available variables. In our case we'll use a combination of the output directory variable and the base input file name variable:
 
-	${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+```
+${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}.MP4
+```
 
 ![Filled out Expression Editor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
 *Filled out Expression Editor*
 
->[AZURE.NOTE]In order to see see an output file of your encoding job in Azure, you must provide a value in the expression editor. 
+>[!NOTE]
+>In order to see see an output file of your encoding job in Azure, you must provide a value in the expression editor. 
 
 When you confirm the expression by hitting ok, the property window will preview to what value the File property resolves at this point in time.
 
@@ -225,7 +228,7 @@ To test the workflow locally, hit the play button in the toolbar at the top. Whe
 
 In this walkthrough we'll create a set of multiple bitrate MP4 files with AAC encoded audio from a single .MXF input file.
 
-When a multi-bitrate asset output is desired for use in combination with the Dynamic Packaging features offered by Azure Media Services, multiple GOP-aligned MP4 files of each a different bitrate and resolution will need to be generated. To do so, the [Encoding MXF into a single bitrate MP4](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4) walkthrough provides us with a good starting point.
+When a multi-bitrate asset output is desired for use in combination with the Dynamic Packaging features offered by Azure Media Services, multiple GOP-aligned MP4 files of each a different bitrate and resolution will need to be generated. To do so, the [Encoding MXF into a single bitrate MP4](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4) walkthrough provides us with a good starting point.
 
 ![Starting Workflow](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow.png)
 
@@ -271,18 +274,24 @@ Note: you may want to repeat this process for any other bitrate and resolution c
 
 We have more than one single file added to the output asset. This provides a need to make sure the filenames for each of the output files are different from each other and maybe even apply a file-naming convention so it becomes clear from the file name what you're dealing with.
 
-File output naming can be controlled through expressions in the designer. Open the property pane for one of the File Output components and open the expression editor for the File property. Our first output file was configured through the following expression (see the tutorial for going from [MXF to a single bitrate MP4 output](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4)):
+File output naming can be controlled through expressions in the designer. Open the property pane for one of the File Output components and open the expression editor for the File property. Our first output file was configured through the following expression (see the tutorial for going from [MXF to a single bitrate MP4 output](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+```
+${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
+```
 
 This means that our filename is determined by two variables: the output directory to write in and the source file base name. The former is exposed as a property on the workflow root and the latter is determined by the incoming file. Note that the output directory is what you use for local testing; this property will be overridden by the workflow engine when the workflow is executed by the cloud-based media processor in Azure Media Services.
 To give both our output files a consistent output naming, change the first file naming expression to:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+```
+${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+```
 
 and the second to:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+```
+${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_960x540_2.MP4
+```
 
 Execute an intermediate test run to make sure both MP4 output files are properly generated.
 
@@ -295,8 +304,10 @@ As we'll see later when we generate an .ism file to go with our MP4 output files
 *Audio Muxer Added*
 
 Create a third File Output component to output the outbound stream from the muxer and configure the file naming expression as:
-	
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+
+```
+${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_128kbps_audio.MP4
+```
 
 ![Audio Muxer creating File Output](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
@@ -305,21 +316,23 @@ Create a third File Output component to output the outbound stream from the muxe
 ###<a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Adding the .ISM SMIL File
 
 For the dynamic packaging to work in combination with both MP4 files (and the audio-only MP4) in our Media Services asset, we also need a manifest file (also called a "SMIL" file: Synchronized Multimedia Integration Language). This file indicates to Azure Media Services what MP4 files are available for dynamic packaging and which of those to consider for the audio streaming. A typical manifest file for a set of MP4's with a single audio stream looks like this:
-	
-	<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-	<smil xmlns="http://www.w3.org/2001/SMIL20/Language">
-	  <head>
-	    <meta name="formats" content="mp4" />
-	  </head>
-	  <body>
-	    <switch>
-	      <video src="H264_1900kbps_AAC_und_ch2_96kbps.mp4" />
-	      <video src="H264_1300kbps_AAC_und_ch2_96kbps.mp4" />
-	      <video src="H264_900kbps_AAC_und_ch2_96kbps.mp4" />
-	      <audio src="AAC_ch2_96kbps.mp4" title="AAC_und_ch2_96kbps" />
-	    </switch>
-	  </body>
-	</smil>
+
+```
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+  <head>
+    <meta name="formats" content="mp4" />
+  </head>
+  <body>
+    <switch>
+      <video src="H264_1900kbps_AAC_und_ch2_96kbps.mp4" />
+      <video src="H264_1300kbps_AAC_und_ch2_96kbps.mp4" />
+      <video src="H264_900kbps_AAC_und_ch2_96kbps.mp4" />
+      <audio src="AAC_ch2_96kbps.mp4" title="AAC_und_ch2_96kbps" />
+    </switch>
+  </body>
+</smil>
+```
 
 The .ism file contains within a switch statement, a reference to each of the individual MP4 video files and in addition to those also one (or more) audio file references to an MP4 that only contains the audio.
 
@@ -327,7 +340,9 @@ Generating the manifest file for our set of MP4's can be done through a componen
 
 As with our other file output components, configure the .ism file output name with an expression:
 
-	${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+```
+${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_manifest.ism
+```
 
 Our finished workflow looks like the below:
 
@@ -337,7 +352,7 @@ Our finished workflow looks like the below:
 
 ##<a id="MXF_to__multibitrate_MP4"></a>Encoding MXF into multibitrate MP4 - enhanced blueprint
 
-In the [previous workflow walkthrough](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_with_dyn_packaging) we've seen how a single MXF input asset can be converted into an output asset with multi-bitrate MP4 files, an audio-only MP4 file and a manifest file for use in conjunction with Azure Media Services dynamic packaging.
+In the [previous workflow walkthrough](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging) we've seen how a single MXF input asset can be converted into an output asset with multi-bitrate MP4 files, an audio-only MP4 file and a manifest file for use in conjunction with Azure Media Services dynamic packaging.
 
 This walkthrough will show how some of the aspects can be enhanced and made more convenient.
 
@@ -353,11 +368,15 @@ In the previous workflow we specified a simple expression as the basis for gener
 
 For example, our file output component for the first video file is configured with this expression:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+```
+${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
+```
 
 While for the second output video, we have an expression like:
 
-	${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+```
+${ROOT_outputWriteDirectory}\\${ROOT_sourceFileBaseName}_960x540_2.MP4
+```
 
 Wouldn't it be cleaner, less error prone and more convenient if we could remove some of this duplication and make things more configurable instead? Luckily we can: the designer's expression capabilities in combination with the ability to create custom properties on our workflow root will give us an added layer of convenience.
 
@@ -387,7 +406,7 @@ Whenever we want to access these properties from code or from an expression, we 
 
 - from inline code from a component right below the root: node.getPropertyAsString('../video1bitrate',null)
 - within an expression: ${ROOT_video1bitrate}
- 
+
 Let's complete the "Streaming Bitrates" group by publishing our audio track bitrate on it as well. Within the properties of the AAC Encoder, search for the Bitrate setting and select Publish from the dropdown next to it. Publish to the root of the graph with name "audio1bitrate" and display name "Audio 1 Bitrate" within our custom group "Streaming Bitrates".
 
 ![Publishing dialog for audio bitrate](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-audio-bitrate.png)
@@ -404,7 +423,9 @@ Note that changing any of those three values also re-configures and changes the 
 
 Instead of hardcoding our generated file names, we can now change our filename expression on each of the File Output components to rely on the bitrate properties we just published on the graph root. Starting with our first file output, find the File property and edit the expression like this:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+```
+${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
+```
 
 The different parameters in this expression can be accessed and entered by hitting the dollar sign on the keyboard while in the expression window. One of the available parameters is our video1bitrate property which we published earlier.
 
@@ -414,17 +435,21 @@ The different parameters in this expression can be accessed and entered by hitti
 
 Do the same for the file output for our second video:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+```
+${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video2bitrate}kbps.MP4
+```
 
 and for the audio-only file output:
 
-	${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+```
+${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_audio1bitrate}bps_audio.MP4
+```
 
 If we now change the bitrate for any of the video or audio files, the respective encoder will be reconfigured and the bitrate-based file name convention will be honored all automatic.
 
 ##<a id="thumbnails_to__multibitrate_MP4"></a>Adding thumbnails to multibitrate MP4 output
 
-Starting from a workflow that generates [a multibitrate MP4 output from an MXF input](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_with_dyn_packaging), we will now be looking into adding thumbnails to the output.
+Starting from a workflow that generates [a multibitrate MP4 output from an MXF input](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), we will now be looking into adding thumbnails to the output.
 
 ###<a id="thumbnails_to__multibitrate_MP4_overview"></a>Workflow overview to add thumbnails to
 
@@ -476,20 +501,20 @@ In the properties window, pick the BGR 24 entry from the Preset list.
 
 Different from our MP4 video's, the JPG Encoder component will output more than one file. In order to deal with this, a Scene Search JPG File Writer component can be used: it will take the incoming JPG thumbnails and write them out, each filename being suffixed by a different number. (The number typically indicating the number of seconds/units in the stream which the thumbnail was drawn from.)
 
-
 ![Introducing the Scene Search JPG File Writer](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer.png)
 
 *Introducing the Scene Search JPG File Writer*
 
 Configure the Output Folder Path property with the expression: 
-	${ROOT_outputWriteDirectory} 
+    ${ROOT_outputWriteDirectory} 
 
 and the Filename Prefix property with: 
 
-	${ROOT_sourceFileBaseName}_thumb_
+```
+${ROOT_sourceFileBaseName}_thumb_
+```
 
 The prefix will determine how the thumbnail files are being named. They will be suffixed with a number indicating the thumb's position in the stream.
-
 
 ![Scene Search JPG File Writer properties](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer-properties.png)
 
@@ -529,7 +554,7 @@ Now that our our workflow is finished, do another test run to see it pass.
 
 ##<a id="time_based_trim"></a>Time-based trimming of multibitrate MP4 output
 
-Starting from a workflow that generates [a multibitrate MP4 output from an MXF input](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_with_dyn_packaging), we will now be looking into trimming the source video based on time-stamps.
+Starting from a workflow that generates [a multibitrate MP4 output from an MXF input](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), we will now be looking into trimming the source video based on time-stamps.
 
 ###<a id="time_based_trim_start"></a>Workflow overview to start adding trimming to
 
@@ -567,7 +592,6 @@ Go to the properties of the Video Stream Trimmer and configure both Start Time (
 
 *Publish property dialog for end time*
 
-
 If we now inspect the root of our workflow, both properties will be neatly displayed and configurable from there.
 
 ![Published properties available on root](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-published-properties-available-on-root.png)
@@ -578,18 +602,21 @@ Now open the trimming properties from the audio trimmer and configure both start
 
 For the audio trimming start time:
 
-	${ROOT_TrimmingStartTime}
+```
+${ROOT_TrimmingStartTime}
+```
 
 and for its end time:
 
-	${ROOT_TrimmingEndTime}
+```
+${ROOT_TrimmingEndTime}
+```
 
 ###<a id="time_based_trim_finish"></a>Finished Workflow
 
 ![Finished Workflow](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
 
 *Finished Workflow*
-
 
 ##<a id="scripting"></a>Introducing the Scripted Component
 
@@ -600,8 +627,7 @@ Scripted Components can execute arbitrary scripts during the execution phases of
 - **processInputScript**
 - **lifeCycleScript**
 
-The documentation of the Scripted Component goes in more detail for each of the above. In [the following section](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#frame_based_trim), the **realizeScript** scripting component is used to construct a cliplist xml on the fly when the workflow starts. This script is called during the component setup, which happens only once in it's lifecycle.
-
+The documentation of the Scripted Component goes in more detail for each of the above. In [the following section](./media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim), the **realizeScript** scripting component is used to construct a cliplist xml on the fly when the workflow starts. This script is called during the component setup, which happens only once in it's lifecycle.
 
 ###<a id="scripting_hello_world"></a>Scripting within a workflow: hello world
 
@@ -623,7 +649,9 @@ Scripts are written in Groovy, a dynamically compiled scripting language for the
 
 Let's write a simple hello world groovy script in the context of our realizeScript. Enter the following in the editor:
 
-	node.log("hello world");
+```
+node.log("hello world");
+```
 
 Now execute a local test run. After this run, inspect (through the System tab on the Scripted Component) the Logs property.
 
@@ -635,20 +663,21 @@ The node object we call the log method on, refers to our current "node" or the c
 
 From within our scripting environment, we also have access to properties on other components. Try this:
 
+```
+//inspect current node: 
+def nodepath = node.getNodePath(); 
+node.log("this node path: " + nodepath);
 
-	//inspect current node: 
-	def nodepath = node.getNodePath(); 
-	node.log("this node path: " + nodepath);
-	
-	//walking up to other nodes: 
-	def parentnode = node.getParentNode(); 
-	def parentnodepath = parentnode.getNodePath(); 
-	node.log("parent node path: " + parentnodepath);
-	
-	//read properties from a node: 
-	def sourceFileExt = parentnode.getPropertyAsString( "sourceFileExtension", null ); 
-	def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null); 
-	node.log("source file name with extension " + sourceFileExt + " is: " + sourceFileName);
+//walking up to other nodes: 
+def parentnode = node.getParentNode(); 
+def parentnodepath = parentnode.getNodePath(); 
+node.log("parent node path: " + parentnodepath);
+
+//read properties from a node: 
+def sourceFileExt = parentnode.getPropertyAsString( "sourceFileExtension", null ); 
+def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null); 
+node.log("source file name with extension " + sourceFileExt + " is: " + sourceFileName);
+```
 
 Our log window will show us the following:
 
@@ -656,10 +685,9 @@ Our log window will show us the following:
 
 *Log output for accessing node paths*
 
-
 ##<a id="frame_based_trim"></a>Frame-based trimming of multibitrate MP4 output
 
-Starting from a workflow that generates [a multibitrate MP4 output from an MXF input](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#MXF_to_MP4_with_dyn_packaging), we will now be looking into trimming the source video based on frame counts.
+Starting from a workflow that generates [a multibitrate MP4 output from an MXF input](./media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), we will now be looking into trimming the source video based on frame counts.
 
 ###<a id="frame_based_trim_start"></a>Blueprint overview to start adding trimming to
 
@@ -699,8 +727,7 @@ If you modify the clip list xml like this above and perform a local test run, yo
 
 Contrary to what happens when you do a local run though, this very same cliplist xml would not have the same effect when applied in a workflow that runs in Azure Media Services. When Azure Premium Encoder starts, the cliplist xml is generated every time again, based on the input file the encoding job was given. This means that any changes we do on the xml would unfortunately be overridden.
 
-To counter the cliplist xml being wiped when an encoding job is started, we can re-generate it on the fly just after the start of our workflow. Such custom actions can be taken through what is called a "Scripted Component". For more information, see [Introducing the Scripted Component](/documentation/articles/media-services-media-encoder-premium-workflow-tutorials/#scripting).
-
+To counter the cliplist xml being wiped when an encoding job is started, we can re-generate it on the fly just after the start of our workflow. Such custom actions can be taken through what is called a "Scripted Component". For more information, see [Introducing the Scripted Component](./media-services-media-encoder-premium-workflow-tutorials.md#scripting).
 
 Drag a Scripted Component onto the designer surface and rename it to "SetClipListXML".
 
@@ -714,14 +741,15 @@ When you inspect the properties of the Scripted Component, the four different sc
 
 *Scripted Component properties*
 
-
 ###<a id="frame_based_trim_modify_clip_list"></a>Modifying the clip list from a Scripted Component
 
 Before we can re-write the cliplist xml that is generated during workflow startup, we'll need to have access to the cliplist xml property and contents. We can do so like this:
 
-	// get cliplist xml: 
-	def clipListXML = node.getProperty("../clipListXml");
-	node.log("clip list xml coming in: " + clipListXML);
+```
+// get cliplist xml: 
+def clipListXML = node.getProperty("../clipListXml");
+node.log("clip list xml coming in: " + clipListXML);
+```
 
 ![Incoming clip list being logged](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-incoming-clip-list-logged.png)
 
@@ -748,35 +776,38 @@ Configure both properties to a suitable value:
 
 Now, from within our script, we can access both properties, like this:
 
-	
-	// get start and end of clipping:
-	def clipstart = node.getProperty("../ClippingTimeStart").toString();
-	def clipend = node.getProperty("../ClippingTimeEnd").toString();
-	
-	node.log("clipping start: " + clipstart);
-	node.log("clipping end: " + clipend);
+```
+// get start and end of clipping:
+def clipstart = node.getProperty("../ClippingTimeStart").toString();
+def clipend = node.getProperty("../ClippingTimeEnd").toString();
+
+node.log("clipping start: " + clipstart);
+node.log("clipping end: " + clipend);
+```
 
 ![Log window showing start and end of clipping](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-show-start-end-clip.png)
 
 *Log window showing start and end of clipping*
 
 Let's parse the timecode strings into a more convenient to use form, using a simple regular expression:
-	
-	//parse the start timing: 
-	def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
-	startregresult.matches(); 
-	def starttimecode = startregresult.group(1); 
-	node.log("timecode start is: " + starttimecode); 
-	def startframerate = startregresult.group(2); 
-	node.log("framerate start is: " + startframerate);
-	
-	//parse the end timing: 
-	def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend); 
-	endregresult.matches(); 
-	def endtimecode = endregresult.group(1); 
-	node.log("timecode end is: " + endtimecode); 
-	def endframerate = endregresult.group(2); 
-	node.log("framerate end is: " + endframerate);
+
+```
+//parse the start timing: 
+def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
+startregresult.matches(); 
+def starttimecode = startregresult.group(1); 
+node.log("timecode start is: " + starttimecode); 
+def startframerate = startregresult.group(2); 
+node.log("framerate start is: " + startframerate);
+
+//parse the end timing: 
+def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend); 
+endregresult.matches(); 
+def endtimecode = endregresult.group(1); 
+node.log("timecode end is: " + endtimecode); 
+def endframerate = endregresult.group(2); 
+node.log("framerate end is: " + endframerate);
+```
 
 ![Log window with output of parsed timecode](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-output-parsed-timecode.png)
 
@@ -799,50 +830,54 @@ Do a test-run to see how the video and audio streams have been clipped. As you'l
 To make our workflow convenient to test locally, we best add some house-keeping code that inspects if a trim element was already present. If so, we can remove it before continuing by modifying the xml with the new values. Rather than using plain string manipulations, it's probably safer to do this through real xml object model parsing.
 
 Before we can add such code though, we'll need to add a number of import statements at the start of our script first:
-	
-	import javax.xml.parsers.*; 
-	import org.xml.sax.*; 
-	import org.w3c.dom.*;
-	import javax.xml.*;
-	import javax.xml.xpath.*; 
-	import javax.xml.transform.*; 
-	import javax.xml.transform.stream.*; 
-	import javax.xml.transform.dom.*;
+
+```
+import javax.xml.parsers.*; 
+import org.xml.sax.*; 
+import org.w3c.dom.*;
+import javax.xml.*;
+import javax.xml.xpath.*; 
+import javax.xml.transform.*; 
+import javax.xml.transform.stream.*; 
+import javax.xml.transform.dom.*;
+```
 
 After this, we can add the required cleaning code:
 
-	//for local testing: delete any pre-existing trim elements from the clip list xml by parsing the xml into a DOM:
-	DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
-	DocumentBuilder builder=factory.newDocumentBuilder();
-	InputSource is=new InputSource(new StringReader(clipListXML)); 
-	Document dom=builder.parse(is);
+```
+//for local testing: delete any pre-existing trim elements from the clip list xml by parsing the xml into a DOM:
+DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+DocumentBuilder builder=factory.newDocumentBuilder();
+InputSource is=new InputSource(new StringReader(clipListXML)); 
+Document dom=builder.parse(is);
 
-	//find the trim element inside videoSource and audioSource and remove it if it exists already: 
-	XPath xpath = XPathFactory.newInstance().newXPath();
-	String findAllTrimElements = "//trim"; 
-	NodeList trimelems = xpath.evaluate(findAllTrimElements,dom,XPathConstants.NODESET);
+//find the trim element inside videoSource and audioSource and remove it if it exists already: 
+XPath xpath = XPathFactory.newInstance().newXPath();
+String findAllTrimElements = "//trim"; 
+NodeList trimelems = xpath.evaluate(findAllTrimElements,dom,XPathConstants.NODESET);
 
-	//copy trim nodes into a "to-be-deleted" collection 
-	Set<Element> elementsToDelete = new HashSet<Element>(); 
-	for (int i = 0; i < trimelems.getLength(); i++) { 
-		Element e = (Element)trimelems.item(i); 
-		elementsToDelete.add(e); 
-	}
+//copy trim nodes into a "to-be-deleted" collection 
+Set<Element> elementsToDelete = new HashSet<Element>(); 
+for (int i = 0; i < trimelems.getLength(); i++) { 
+    Element e = (Element)trimelems.item(i); 
+    elementsToDelete.add(e); 
+}
 
-	node.log("about to delete any existing trim nodes");
-	 //delete the trim nodes: 
-	elementsToDelete.each{ 
-		e -> e.getParentNode().removeChild(e);
-	}; 
-	node.log("deleted any existing trim nodes");
-	
-	//serialize the modified clip list xml dom into a string: 
-	def transformer = TransformerFactory.newInstance().newTransformer();
-	StreamResult result = new StreamResult(new StringWriter());
-	DOMSource source = new DOMSource(dom);
-	transformer.transform(source, result); 
-	clipListXML = result.getWriter().toString();
-	
+node.log("about to delete any existing trim nodes");
+ //delete the trim nodes: 
+elementsToDelete.each{ 
+    e -> e.getParentNode().removeChild(e);
+}; 
+node.log("deleted any existing trim nodes");
+
+//serialize the modified clip list xml dom into a string: 
+def transformer = TransformerFactory.newInstance().newTransformer();
+StreamResult result = new StreamResult(new StringWriter());
+DOMSource source = new DOMSource(dom);
+transformer.transform(source, result); 
+clipListXML = result.getWriter().toString();
+```
+
 This code goes just above the point at which we add the trim elements to the cliplist xml.
 
 At this point, we can run and modify our workflow as much as we want while having the changes applied ever time.	
@@ -859,113 +894,115 @@ Just as before, publish a new property to the root of our workflow called "Clipp
 
 With the below simple guard clause, we can check if trimming is required and decide if our clip list as such needs to be modified or not.
 
-	//check if clipping is required: 
-	def clippingrequired = node.getProperty("../ClippingEnabled"); 
-	node.log("clipping required: " + clippingrequired.toString()); 
-	if(clippingrequired == null || clippingrequired == false) 
-	{
-		node.setProperty("../clipListXml",clipListXML); 
-		node.log("no clipping required"); 
-		return; 
-	}
-
+```
+//check if clipping is required: 
+def clippingrequired = node.getProperty("../ClippingEnabled"); 
+node.log("clipping required: " + clippingrequired.toString()); 
+if(clippingrequired == null || clippingrequired == false) 
+{
+    node.setProperty("../clipListXml",clipListXML); 
+    node.log("no clipping required"); 
+    return; 
+}
+```
 
 ###<a id="code"></a>Complete code
 
-	import javax.xml.parsers.*; 
-	import org.xml.sax.*; 
-	import org.w3c.dom.*;
-	import javax.xml.*;
-	import javax.xml.xpath.*; 
-	import javax.xml.transform.*; 
-	import javax.xml.transform.stream.*; 
-	import javax.xml.transform.dom.*;
-	
-	// get cliplist xml: 
-	def clipListXML = node.getProperty("../clipListXml");
-	node.log("clip list xml coming in: \n" + clipListXML);
-	// get start and end of clipping: 
-	def clipstart = node.getProperty("../ClippingTimeStart").toString();
-	def clipend = node.getProperty("../ClippingTimeEnd").toString();
-	
-	//parse the start timing:
-	def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
-	startregresult.matches(); 
-	def starttimecode = startregresult.group(1);
-	node.log("timecode start is: " + starttimecode);
-	def startframerate = startregresult.group(2);
-	node.log("framerate start is: " + startframerate);
-	
-	//parse the end timing: 
-	def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend);
-	endregresult.matches(); 
-	def endtimecode = endregresult.group(1); 
-	node.log("timecode end is: " + endtimecode); 
-	def endframerate = endregresult.group(2);
+```
+import javax.xml.parsers.*; 
+import org.xml.sax.*; 
+import org.w3c.dom.*;
+import javax.xml.*;
+import javax.xml.xpath.*; 
+import javax.xml.transform.*; 
+import javax.xml.transform.stream.*; 
+import javax.xml.transform.dom.*;
 
-	node.log("framerate end is: " + endframerate);
-	
-	//for local testing: delete any pre-existing trim elements 
-	//from the clip list xml by parsing the xml into a DOM:
-	
-	DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
-	DocumentBuilder builder=factory.newDocumentBuilder(); 
-	InputSource is=new InputSource(new StringReader(clipListXML)); 
-	Document dom=builder.parse(is);
+// get cliplist xml: 
+def clipListXML = node.getProperty("../clipListXml");
+node.log("clip list xml coming in: \n" + clipListXML);
+// get start and end of clipping: 
+def clipstart = node.getProperty("../ClippingTimeStart").toString();
+def clipend = node.getProperty("../ClippingTimeEnd").toString();
 
-	//find the trim element inside videoSource and audioSource and remove it if it exists already:
-	XPath xpath = XPathFactory.newInstance().newXPath(); 
-	String findAllTrimElements = "//trim"; 
-	NodeList trimelems = xpath.evaluate(findAllTrimElements, dom, XPathConstants.NODESET);
+//parse the start timing:
+def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
+startregresult.matches(); 
+def starttimecode = startregresult.group(1);
+node.log("timecode start is: " + starttimecode);
+def startframerate = startregresult.group(2);
+node.log("framerate start is: " + startframerate);
 
-	//copy trim nodes into a "to-be-deleted" collection 
-	Set<Element> elementsToDelete = new HashSet<Element>(); 
-	for (int i = 0; i < trimelems.getLength(); i++) { 
-		Element e = (Element)trimelems.item(i); 
-		elementsToDelete.add(e); 
-	}
-	
-	node.log("about to delete any existing trim nodes");
-	//delete the trim nodes:
-	elementsToDelete.each{ e -> 
-		e.getParentNode().removeChild(e); 
-	};
-	node.log("deleted any existing trim nodes");
+//parse the end timing: 
+def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend);
+endregresult.matches(); 
+def endtimecode = endregresult.group(1); 
+node.log("timecode end is: " + endtimecode); 
+def endframerate = endregresult.group(2);
 
-	//serialize the modified clip list xml dom into a string:
-	def transformer = TransformerFactory.newInstance().newTransformer();
-	StreamResult result = new StreamResult(new StringWriter());
-	DOMSource source = new DOMSource(dom);
-	transformer.transform(source, result);
-	clipListXML = result.getWriter().toString();
+node.log("framerate end is: " + endframerate);
 
-	//check if clipping is required:
-	def clippingrequired = node.getProperty("../ClippingEnabled");
-	node.log("clipping required: " + clippingrequired.toString()); 
-	if(clippingrequired == null || clippingrequired == false) 
-	{
-		node.setProperty("../clipListXml",clipListXML);
-		node.log("no clipping required");
-		return; 
-	}
+//for local testing: delete any pre-existing trim elements 
+//from the clip list xml by parsing the xml into a DOM:
 
-	//add trim elements to cliplist xml 
-	if ( clipListXML.indexOf("<trim>") == -1 ) 
-	{
-		//trim video 
-		clipListXML = clipListXML.replace("<videoSource>","<videoSource>\n <trim>\n <inPoint fps=\""+ 
-			startframerate +"\">" + starttimecode + 
-			"</inPoint>\n" + "<outPoint fps=\"" + endframerate +"\"> " + endtimecode + 
-			" </outPoint>\n </trim> \n"); 
-		//trim audio 
-		clipListXML = clipListXML.replace("<audioSource>","<audioSource>\n <trim>\n <inPoint fps=\""+ 
-			startframerate +"\">" + starttimecode + 
-			"</inPoint>\n" + "<outPoint fps=\""+ endframerate +"\">" + 
-			endtimecode + "</outPoint>\n </trim>\n");
-		node.log( "clip list going out: \n" +clipListXML ); 
-		node.setProperty("../clipListXml",clipListXML); 
-	}
+DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+DocumentBuilder builder=factory.newDocumentBuilder(); 
+InputSource is=new InputSource(new StringReader(clipListXML)); 
+Document dom=builder.parse(is);
 
+//find the trim element inside videoSource and audioSource and remove it if it exists already:
+XPath xpath = XPathFactory.newInstance().newXPath(); 
+String findAllTrimElements = "//trim"; 
+NodeList trimelems = xpath.evaluate(findAllTrimElements, dom, XPathConstants.NODESET);
+
+//copy trim nodes into a "to-be-deleted" collection 
+Set<Element> elementsToDelete = new HashSet<Element>(); 
+for (int i = 0; i < trimelems.getLength(); i++) { 
+    Element e = (Element)trimelems.item(i); 
+    elementsToDelete.add(e); 
+}
+
+node.log("about to delete any existing trim nodes");
+//delete the trim nodes:
+elementsToDelete.each{ e -> 
+    e.getParentNode().removeChild(e); 
+};
+node.log("deleted any existing trim nodes");
+
+//serialize the modified clip list xml dom into a string:
+def transformer = TransformerFactory.newInstance().newTransformer();
+StreamResult result = new StreamResult(new StringWriter());
+DOMSource source = new DOMSource(dom);
+transformer.transform(source, result);
+clipListXML = result.getWriter().toString();
+
+//check if clipping is required:
+def clippingrequired = node.getProperty("../ClippingEnabled");
+node.log("clipping required: " + clippingrequired.toString()); 
+if(clippingrequired == null || clippingrequired == false) 
+{
+    node.setProperty("../clipListXml",clipListXML);
+    node.log("no clipping required");
+    return; 
+}
+
+//add trim elements to cliplist xml 
+if ( clipListXML.indexOf("<trim>") == -1 ) 
+{
+    //trim video 
+    clipListXML = clipListXML.replace("<videoSource>","<videoSource>\n <trim>\n <inPoint fps=\""+ 
+        startframerate +"\">" + starttimecode + 
+        "</inPoint>\n" + "<outPoint fps=\"" + endframerate +"\"> " + endtimecode + 
+        " </outPoint>\n </trim> \n"); 
+    //trim audio 
+    clipListXML = clipListXML.replace("<audioSource>","<audioSource>\n <trim>\n <inPoint fps=\""+ 
+        startframerate +"\">" + starttimecode + 
+        "</inPoint>\n" + "<outPoint fps=\""+ endframerate +"\">" + 
+        endtimecode + "</outPoint>\n </trim>\n");
+    node.log( "clip list going out: \n" +clipListXML ); 
+    node.setProperty("../clipListXml",clipListXML); 
+}
+```
 
 ##Also see 
 
@@ -973,11 +1010,10 @@ With the below simple guard clause, we can check if trimming is required and dec
 
 [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
-[Encoding On-Demand Content with Azure Media Service](/documentation/articles/media-services-encode-asset/#media_encoder_premium_workflow)
+[Encoding On-Demand Content with Azure Media Service](./media-services-encode-asset.md#media_encoder_premium_workflow)
 
-[Media Encoder Premium Workflow Formats and Codecs](/documentation/articles/media-services-premium-workflow-encoder-formats/)
+[Media Encoder Premium Workflow Formats and Codecs](./media-services-premium-workflow-encoder-formats.md)
 
 [Sample workflow files](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Azure Media Services Explorer tool](https://github.com/Azure/Azure-Media-Services-Explorer/releases/tag/v3.42.0.0)
-

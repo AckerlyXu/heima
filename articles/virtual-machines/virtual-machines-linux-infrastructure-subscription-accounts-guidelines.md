@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Subscription and account for Linux VMs in Azure | Azure"
-    description="Learn about the key design and implementation guidelines for subscriptions and accounts on Azure."
-    documentationcenter=""
-    services="virtual-machines-linux"
-    author="iainfoulds"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="19343826-7eef-42a1-98be-4ec65b0f377a"
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/17/2017"
-    wacn.date=""
-    ms.author="iainfou"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Subscription and account for Linux VMs in Azure | Azure
+description: Learn about the key design and implementation guidelines for subscriptions and accounts on Azure.
+documentationcenter: ''
+services: virtual-machines-linux
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 19343826-7eef-42a1-98be-4ec65b0f377a
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 03/17/2017
+wacn.date: ''
+ms.author: iainfou
+ms.custom: H1Hack27Feb2017
+---
 
 # Azure subscription and accounts guidelines for Linux VMs
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
+[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding how to approach subscription and account management as your environment and user base grows.
 
@@ -63,4 +64,4 @@ The organization could look like the following example:
 We provide detailed billing via a downloadable file for a single account, or for all accounts in an enterprise agreement.
 
 ## <a name="next-steps"></a> Next steps
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
+[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]

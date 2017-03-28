@@ -1,29 +1,28 @@
-<properties 
-pageTitle="Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell" 
-description="How to configure your azure cloud service application using PowerShell to allow remote desktop connections" 
-services="cloud-services" 
-documentationCenter="" 
-authors="thraka" 
-manager="timlt" 
-editor=""/>
-<tags 
-ms.service="cloud-services" 
-ms.date="11/22/2016"
-wacn.date=""/>
+---
+title: Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell
+description: How to configure your azure cloud service application using PowerShell to allow remote desktop connections
+services: cloud-services
+documentationCenter: ''
+authors: thraka
+manager: timlt
+editor: ''
+
+ms.service: cloud-services
+ms.date: 11/22/2016
+wacn.date: ''
+---
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell
 
->[AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/cloud-services-role-enable-remote-desktop-new-portal/)
-- [Azure Portal](/documentation/articles/cloud-services-role-enable-remote-desktop/)
-- [PowerShell](/documentation/articles/cloud-services-role-enable-remote-desktop-powershell/)
-- [Visual Studio](/documentation/articles/vs-azure-tools-remote-desktop-roles/)
-
+>[!div class="op_single_selector"]
+>- [Azure portal](./cloud-services-role-enable-remote-desktop-new-portal.md)
+>- [Azure Portal](./cloud-services-role-enable-remote-desktop.md)
+>- [PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md)
+>- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. 
 
-This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell. See [How to install and configure Azure PowerShell](/documentation/articles/powershell-install-configure/) for the prerequisites needed for this article. PowerShell utilizes the Remote Desktop Extension so you can enable Remote Desktop after the application is deployed.
-
+This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for the prerequisites needed for this article. PowerShell utilizes the Remote Desktop Extension so you can enable Remote Desktop after the application is deployed.
 
 ## Configure Remote Desktop from PowerShell
 
@@ -32,7 +31,7 @@ The [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/zh-cn/li
 If you are using PowerShell interactively, you can easily set the PSCredential object by calling the [Get-Credentials](https://technet.microsoft.com/zh-cn/library/hh849815.aspx) cmdlet. 
 
 ```
-	$remoteusercredentials = Get-Credential
+    $remoteusercredentials = Get-Credential
 ```
 
 This command displays a dialog box allowing you to enter the username and password for the remote user in a secure manner.
@@ -42,10 +41,11 @@ Since PowerShell helps in automation scenarios, you can also set up the **PSCred
 You can also create a secure password file so that you don't have to type in the password every time. Also, a secure password file is better than a plain text file. Use the following PowerShell to create a secure password file:
 
 ```
-	ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
+    ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ``` 
 
->[AZURE.IMPORTANT] When setting the password, make sure that you meet the [complexity requirements](https://technet.microsoft.com/zh-cn/library/cc786468.aspx).
+>[!IMPORTANT]
+> When setting the password, make sure that you meet the [complexity requirements](https://technet.microsoft.com/zh-cn/library/cc786468.aspx).
 
 To create the credential object from the secure password file, you must read the file contents and convert them back to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/zh-cn/library/hh849818.aspx).
 
@@ -54,31 +54,29 @@ The [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/zh-cn/li
 This PowerShell example shows you how to set the Remote Desktop Extension on a cloud service:   
 
 ```
-	$servicename = "cloudservice"
-	$username = "RemoteDesktopUser"
-	$securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
-	$expiry = $(Get-Date).AddDays(1)
-	$credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
-	Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
+    $servicename = "cloudservice"
+    $username = "RemoteDesktopUser"
+    $securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
+    $expiry = $(Get-Date).AddDays(1)
+    $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
+    Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry 
 ```
 You can also optionally specify the deployment slot and roles that you want to enable remote desktop on. If these parameters are not specified, the cmdlet enables remote desktop on all roles in the **Production** deployment slot.
 
 The Remote Desktop extension is associated with a deployment. If you create a new deployment for the service, you have to enable remote desktop on that deployment. If you always want to have remote desktop enabled, then you should consider integrating the PowerShell scripts into your deployment workflow.
 
-
 ## Remote Desktop into a role instance
 The [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/zh-cn/library/azure/dn495261.aspx) cmdlet is used to remote desktop into a specific role instance of your cloud service. You can use the *LocalPath* parameter to download the RDP file locally. Or you can use the *Launch* parameter to directly launch the Remote Desktop Connection dialog to access the cloud service role instance.
 
 ```
-	Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
+    Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
-
 
 ## Check if Remote Desktop extension is enabled on a service 
 The [Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/zh-cn/library/azure/dn495261.aspx) cmdlet displays that remote desktop is enabled or disabled on a service deployment. The cmdlet returns the username for the remote desktop user and the roles that the remote desktop extension is enabled for. By default, this happens on the deployment slot and you can choose to use the staging slot instead.
 
 ```
-	Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
+    Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
 ## Remove Remote Desktop extension from a service 
@@ -90,11 +88,10 @@ To remove the remote desktop extension from the deployment, you can use the [Rem
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
->[AZURE.NOTE] To completely remove the extension configuration, you should call the *remove* cmdlet with the **UninstallConfiguration** parameter.
+>[!NOTE]
+> To completely remove the extension configuration, you should call the *remove* cmdlet with the **UninstallConfiguration** parameter.
 >
 >The **UninstallConfiguration** parameter uninstalls any extension configuration that is applied to the service. Every extension configuration is associated with the service configuration. Calling the *remove* cmdlet without **UninstallConfiguration** disassociates the <mark>deployment</mark> from the extension configuration, thus effectively removing the extension. However, the extension configuration remains associated with the service.
-
-
 
 ## Additional Resources
 

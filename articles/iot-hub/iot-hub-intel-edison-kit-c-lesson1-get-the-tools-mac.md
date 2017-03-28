@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Get the tools for your Azure IoT Starter Kit (macOS 10.10) | Azure"
-    description="Download and install the necessary tools and software for the first sample application for Edison on macOS."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino development tools, iot development, iot software, internet of things software, install git on mac, install node js mac" />
-<tags
-    ms.assetid="3f764f2e-25fa-4dde-9e8d-d278453fccfd"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get the tools for your Azure IoT Starter Kit (macOS 10.10) | Azure
+description: Download and install the necessary tools and software for the first sample application for Edison on macOS.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino development tools, iot development, iot software, internet of things software, install git on mac, install node js mac
+
+ms.assetid: 3f764f2e-25fa-4dde-9e8d-d278453fccfd
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get the tools (macOS 10.10)
 > [!div class="op_single_selector"]
@@ -27,7 +28,7 @@
 ## What you will do
 Download the development tools and the software for the first sample application for your Intel Edison. If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Although the programming language of the main logic is C, Node.js tools are used in the lessons to build and deploy sample applications.
 
 ## What you will learn
@@ -83,8 +84,8 @@ You've installed the required development tools and software for the first sampl
 [Create and deploy the blink application][create-and-deploy-the-blink-application]
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-c-troubleshooting/
-[create-and-deploy-the-blink-application]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app/
-[windows]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32/
-[ubuntu]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu/
-[macos]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac/
+[troubleshooting]: ./iot-hub-intel-edison-kit-c-troubleshooting.md
+[create-and-deploy-the-blink-application]: ./iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md
+[windows]: ./iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md
+[ubuntu]: ./iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md
+[macos]: ./iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md

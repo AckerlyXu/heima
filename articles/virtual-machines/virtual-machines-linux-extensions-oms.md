@@ -1,24 +1,25 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="OMS Azure virtual machine extension for Linux | Azure"
-    description="Deploy the OMS agent on Linux virtual machine using a virtual machine extension."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="neilpeterson"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="c7bbf210-7d71-4a37-ba47-9c74567a9ea6"
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="03/14/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: OMS Azure virtual machine extension for Linux | Azure
+description: Deploy the OMS agent on Linux virtual machine using a virtual machine extension.
+services: virtual-machines-linux
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 03/14/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # OMS virtual machine extension for Linux
 
@@ -49,26 +50,28 @@ The OMS Agent extension for Linux requires that the target virtual machine is co
 
 The following JSON shows the schema for the OMS Agent extension. The extension requires the workspace Id and workspace key from the target OMS workspace, these can be found in the OMS portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
 
-    {
-      "type": "extensions",
-      "name": "OMSExtension",
-      "apiVersion": "2015-06-15",
-      "location": "<location>",
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
-      ],
-      "properties": {
-        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
-        "type": "OmsAgentForLinux",
-        "typeHandlerVersion": "1.0",
-        "settings": {
-          "workspaceId": "myWorkspaceId"
-        },
-        "protectedSettings": {
-          "workspaceKey": "myWorkSpaceKey"
-        }
-      }
+```json
+{
+  "type": "extensions",
+  "name": "OMSExtension",
+  "apiVersion": "2015-06-15",
+  "location": "<location>",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+    "type": "OmsAgentForLinux",
+    "typeHandlerVersion": "1.0",
+    "settings": {
+      "workspaceId": "myWorkspaceId"
+    },
+    "protectedSettings": {
+      "workspaceKey": "myWorkSpaceKey"
     }
+  }
+}
+```
 
 ### Property values
 
@@ -85,62 +88,68 @@ The following JSON shows the schema for the OMS Agent extension. The extension r
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to OMS. A sample Resource Manager template that includes the OMS Agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](/documentation/articles/resource-manager-template-child-resource/). 
+The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../azure-resource-manager/resource-manager-template-child-resource.md). 
 
 The following example assumes the OMS extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 
-    {
-      "type": "extensions",
-      "name": "OMSExtension",
-      "apiVersion": "2015-06-15",
-      "location": "<location>",
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
-      ],
-      "properties": {
-        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
-        "type": "OmsAgentForLinux",
-        "typeHandlerVersion": "1.0",
-        "settings": {
-          "workspaceId": "myWorkspaceId"
-        },
-        "protectedSettings": {
-          "workspaceKey": "myWorkSpaceKey"
-        }
-      }
+```json
+{
+  "type": "extensions",
+  "name": "OMSExtension",
+  "apiVersion": "2015-06-15",
+  "location": "<location>",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+    "type": "OmsAgentForLinux",
+    "typeHandlerVersion": "1.0",
+    "settings": {
+      "workspaceId": "myWorkspaceId"
+    },
+    "protectedSettings": {
+      "workspaceKey": "myWorkSpaceKey"
     }
+  }
+}
+```
 
 When placing the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine, and the type reflects the nested configuration.  
 
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "<parentVmResource>/OMSExtension",
-      "apiVersion": "2015-06-15",
-      "location": "<location>",
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
-      ],
-      "properties": {
-        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
-        "type": "OmsAgentForLinux",
-        "typeHandlerVersion": "1.0",
-        "settings": {
-          "workspaceId": "myWorkspaceId"
-        },
-        "protectedSettings": {
-          "workspaceKey": "myWorkSpaceKey"
-        }
-      }
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "<parentVmResource>/OMSExtension",
+  "apiVersion": "2015-06-15",
+  "location": "<location>",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+    "type": "OmsAgentForLinux",
+    "typeHandlerVersion": "1.0",
+    "settings": {
+      "workspaceId": "myWorkspaceId"
+    },
+    "protectedSettings": {
+      "workspaceKey": "myWorkSpaceKey"
     }
+  }
+}
+```
 
 ## Azure CLI deployment
 
 The Azure CLI can be used to deploy the OMS Agent VM extension to an existing virtual machine. Before deploying OMS Agent Extension, create a public.json and protected.json file. The schema for these files is detailed earlier in this document.
 
-    azure vm extension set myResourceGroup myVM \
-      OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
-      --public-config-path public.json  \
-      --private-config-path protected.json
+```azurecli
+azure vm extension set myResourceGroup myVM \
+  OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring 1.0 \
+  --public-config-path public.json  \
+  --private-config-path protected.json
+```
 
 ## Troubleshoot and support
 
@@ -148,7 +157,9 @@ The Azure CLI can be used to deploy the OMS Agent VM extension to an existing vi
 
 Data about the state of extension deployments can be retrieved from the Azure portal preview, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure CLI.
 
-    azure vm extension get myResourceGroup myVM
+```azurecli
+azure vm extension get myResourceGroup myVM
+```
 
 Extension execution output is logged to the following file:
 
@@ -156,4 +167,4 @@ Extension execution output is logged to the following file:
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and CSDN Azure](/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](https://www.azure.cn/support/faq/).

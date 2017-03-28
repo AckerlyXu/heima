@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Row-level security with Power BI Embedded"
-    description="Details about row-level security with Power BI Embedded"
-    services="power-bi-embedded"
-    documentationcenter=""
-    author="guyinacube"
-    manager="erikre"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="7936ade5-2c75-435b-8314-ea7ca815867a"
-    ms.service="power-bi-embedded"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="powerbi"
-    ms.date="01/06/2017"
-    wacn.date=""
-    ms.author="asaxton" />
+---
+title: Row-level security with Power BI Embedded
+description: Details about row-level security with Power BI Embedded
+services: power-bi-embedded
+documentationcenter: ''
+author: guyinacube
+manager: erikre
+editor: ''
+tags: ''
+
+ms.assetid: 7936ade5-2c75-435b-8314-ea7ca815867a
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 01/06/2017
+wacn.date: ''
+ms.author: asaxton
+---
 
 # Row level security with Power BI Embedded
 Row level security (RLS) can be used to restrict user access to particular data within a report or dataset, allowing for multiple different users to use the same report while all seeing different data. Power BI Embedded now supports datasets configured with RLS.
@@ -48,7 +49,7 @@ Here are a few things to notice with this schema:
 - There are four additional related dimension tables: **Item**, **Time**, **Store**, and **District**.
 - The arrows on the relationship lines indicate which way filters can flow from one table to another. For example, if a filter is placed on **Time[Date]**, in the current schema it would only filter down values in the **Sales** table. No other tables would be affected by this filter since all of the arrows on the relationship lines point to the sales table and not away.
 - The **District** table indicates who the manager is for each district:
-  
+
   ![](./media/power-bi-embedded-rls/pbi-embedded-rls-district-table-4.png)
 
 Based on this schema, if we apply a filter to the **District Manager** column in the District table, and if that filter matches the user viewing the report, that filter will also filter down the **Store** and **Sales** tables to only show data for that particular district manager.
@@ -63,7 +64,7 @@ Here’s how:
    ![](./media/power-bi-embedded-rls/pbi-embedded-rls-manager-role-7.png)
 4. To make sure the rules are working, on the **Modeling** tab, click **View as Roles**, and then enter the following:  
    ![](./media/power-bi-embedded-rls/pbi-embedded-rls-view-as-roles-8.png)
-   
+
    The reports will now show data as if you were signed in as **Andrew Ma**.
 
 Applying the filter, the way we did here, will filter down all records in the **District**, **Store**, and **Sales** tables. However, because of the filter direction on the relationships between **Sales** and **Time**, **Sales** and **Item**, and **Item** and **Time** tables will not be filtered down.
@@ -94,11 +95,15 @@ You create the token by using the [CreateReportEmbedToken](https://docs.microsof
 
 For example, you could change the EmbedSample. DashboardController line 55 could be updated from
 
-    var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+```
+var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id);
+```
 
 to
 
-    var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
+```
+var embedToken = PowerBIToken.CreateReportEmbedToken(this.workspaceCollection, this.workspaceId, report.Id, "Andrew Ma", ["Manager"]);'
+```
 
 The full app token will look something like this:
 
@@ -110,4 +115,3 @@ Now, with all the pieces together, when someone logs into our application to vie
 
 ## See also
 [Row-level security (RLS) with Power](https://powerbi.microsoft.com/en-us/documentation/powerbi-admin-rls/)
-

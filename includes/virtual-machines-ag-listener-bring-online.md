@@ -2,10 +2,10 @@
 2. Click the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies.  Click **OK**.
 3. Right-click the listener name and click **Bring Online**.
 4. Once the listener is online, from the **Resources** tab, right-click the availability group and click **Properties**.
-   
+
     ![Configure the Availability Group Resource](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 5. Create a dependency on the listener name resource (not the IP address resources name). Click **OK**.
-   
+
     ![Add Dependency on the Listener Name](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 6. Launch **SQL Server Management Studio** and connect to the primary replica.
 7. Navigate to **AlwaysOn High Availability** | **Availability Groups** | **<AvailabilityGroupName>** | **Availability Group Listeners**. 

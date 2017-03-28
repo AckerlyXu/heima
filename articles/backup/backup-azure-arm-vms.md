@@ -1,32 +1,32 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-	pageTitle="Back up Azure VMs to a Recovery Services vault | Azure"
-	description="Discover, register, and back up Azure virtual machines to a recovery services vault with these procedures for Azure virtual machine backup."
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="cfreeman"
-	editor=""
-	keywords="virtual machine backup; back up virtual machine; backup and disaster recovery; arm vm backup"/>
+---
+title: Back up Azure VMs to a Recovery Services vault | Azure
+description: Discover, register, and back up Azure virtual machines to a recovery services vault with these procedures for Azure virtual machine backup.
+services: backup
+documentationCenter: ''
+authors: markgalioto
+manager: cfreeman
+editor: ''
+keywords: virtual machine backup; back up virtual machine; backup and disaster recovery; arm vm backup
 
-<tags
-	ms.service="backup"
-	ms.date="07/29/2016"
-	wacn.date=""/>
-
+ms.service: backup
+ms.date: 07/29/2016
+wacn.date: ''
+---
 
 # Back up Azure VMs to a Recovery Services vault
 
-> [AZURE.SELECTOR]
-- [Back up VMs to Recovery Services vault](/documentation/articles/backup-azure-arm-vms/)
-- [Back up VMs to Backup vault](/documentation/articles/backup-azure-vms/)
+> [!div class="op_single_selector"]
+>- [Back up VMs to Recovery Services vault](./backup-azure-arm-vms.md)
+>- [Back up VMs to Backup vault](./backup-azure-vms.md)
 
-This article provides the procedure for backing up Azure VMs (both Resource Manager-deployed and Classic-deployed) to a Recovery Services vault. The majority of work for backing up VMs goes into the preparation. Before you can back up or protect a VM, you must complete the [prerequisites](/documentation/articles/backup-azure-arm-vms-prepare/) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the back up operation to take snapshots of your VM.
+This article provides the procedure for backing up Azure VMs (both Resource Manager-deployed and Classic-deployed) to a Recovery Services vault. The majority of work for backing up VMs goes into the preparation. Before you can back up or protect a VM, you must complete the [prerequisites](./backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the back up operation to take snapshots of your VM.
 
->[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/). You can protect Resource Manager-deployed VMs and Classic VMs with Recovery Services vaults. See [Back up Azure virtual machines](/documentation/articles/backup-azure-vms/) for details on working with Classic deployment model VMs.
+>[!NOTE]
+> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). You can protect Resource Manager-deployed VMs and Classic VMs with Recovery Services vaults. See [Back up Azure virtual machines](./backup-azure-vms.md) for details on working with Classic deployment model VMs.
 
-For additional information, see the articles on [planning your VM backup infrastructure in Azure](/documentation/articles/backup-azure-vms-introduction/) and [Azure virtual machines](/documentation/services/virtual-machines/).
+For additional information, see the articles on [planning your VM backup infrastructure in Azure](./backup-azure-vms-introduction.md) and [Azure virtual machines](../virtual-machines/index.md).
 
 ## Triggering the back up job
 
@@ -61,17 +61,17 @@ To run the initial backup job:
 
     ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
 
-    >[AZURE.NOTE] As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all writes and take a consistent snapshot.
+    >[!NOTE]
+    > As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all writes and take a consistent snapshot.
 
     When the backup job is finished, the status is *Completed*.
 
-
 ## Troubleshooting errors
-If you run into issues while backing up your virtual machine, please see the [VM troubleshooting article](/documentation/articles/backup-azure-vms-troubleshoot/) for help.
+If you run into issues while backing up your virtual machine, please see the [VM troubleshooting article](./backup-azure-vms-troubleshoot.md) for help.
 
 ## Next steps
 
 Now that you have protected your VM, check out the following articles for additional management tasks  you can do with your VMs, and how to restore VMs.
 
-- [Manage and monitor your virtual machines](/documentation/articles/backup-azure-manage-vms/)
-- [Restore virtual machines](/documentation/articles/backup-azure-arm-restore-vms/)
+- [Manage and monitor your virtual machines](./backup-azure-manage-vms.md)
+- [Restore virtual machines](./backup-azure-arm-restore-vms.md)

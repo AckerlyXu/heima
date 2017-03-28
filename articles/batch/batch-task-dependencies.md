@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Configure tasks that depend on other tasks - Azure Batch | Azure"
-    description="Create tasks that depend on the successful completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch."
-    services="batch"
-    documentationcenter=".net"
-    author="tamram"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="b8d12db5-ca30-4c7d-993a-a05af9257210"
-    ms.service="batch"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="big-compute"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="tamram" />
+---
+title: Configure tasks that depend on other tasks - Azure Batch | Azure
+description: Create tasks that depend on the successful completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
+services: batch
+documentationcenter: .net
+author: tamram
+manager: timlt
+editor: ''
+
+ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: tamram
+---
 
 # Task dependencies in Azure Batch
 The task dependencies feature of Azure Batch is a good fit if you want to process:
@@ -36,12 +37,13 @@ To use task dependencies in your Batch application, you must first tell the Batc
 
 csharp
 
-	CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
-	    new PoolInformation { PoolId = "pool001" });
+```csharp
+CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
+    new PoolInformation { PoolId = "pool001" });
 
-	// IMPORTANT: This is REQUIRED for using task dependencies.
-	unboundJob.UsesTaskDependencies = true;
-
+// IMPORTANT: This is REQUIRED for using task dependencies.
+unboundJob.UsesTaskDependencies = true;
+```
 
 In the preceding code snippet, "batchClient" is an instance of the [BatchClient][net_batchclient] class.
 
@@ -51,16 +53,18 @@ To create a task that is dependent on the successful completion of one or more o
 
 csharp
 
-	// Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
-	// before it is run.
-	new CloudTask("Flowers", "cmd.exe /c echo Flowers")
-	{
-	    DependsOn = TaskDependencies.OnIds("Rain", "Sun")
-	},
+```csharp
+// Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
+// before it is run.
+new CloudTask("Flowers", "cmd.exe /c echo Flowers")
+{
+    DependsOn = TaskDependencies.OnIds("Rain", "Sun")
+},
+```
 
 This code snippet creates a task with the ID of "Flowers" that will be scheduled to run on a compute node only after the tasks with IDs of "Rain" and "Sun" have completed successfully.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > A task is considered to be completed when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`.
 > 
 > 
@@ -74,7 +78,7 @@ There are three basic task dependency scenarios that you can use in Azure Batch:
 |  [One-to-many](#one-to-many) |*taskC* depends on both *taskA* and *taskB* <p/> *taskC* will not be scheduled for execution until both *taskA* and *taskB* have completed successfully |![Diagram: one-to-many task dependency][2] |
 |  [Task ID range](#task-id-range) |*taskD* depends on a range of tasks <p/> *taskD* will not be scheduled for execution until the tasks with IDs *1* through *10* have completed successfully |![Diagram: Task id range dependency][3] |
 
-> [AZURE.TIP]
+> [!TIP]
 > You can create **many-to-many** relationships, such as where tasks C, D, E, and F each depend on tasks A and B. This is useful, for example, in parallelized preprocessing scenarios where your downstream tasks depend on the output of multiple upstream tasks.
 > 
 > 
@@ -84,14 +88,16 @@ To create a task that has a dependency on the successful completion of one other
 
 csharp
 
-	// Task 'taskA' doesn't depend on any other tasks
-	new CloudTask("taskA", "cmd.exe /c echo taskA"),
+```csharp
+// Task 'taskA' doesn't depend on any other tasks
+new CloudTask("taskA", "cmd.exe /c echo taskA"),
 
-	// Task 'taskB' depends on completion of task 'taskA'
-	new CloudTask("taskB", "cmd.exe /c echo taskB")
-	{
-	    DependsOn = TaskDependencies.OnId("taskA")
-	},
+// Task 'taskB' depends on completion of task 'taskA'
+new CloudTask("taskB", "cmd.exe /c echo taskB")
+{
+    DependsOn = TaskDependencies.OnId("taskA")
+},
+```
 
 ### One-to-many
 
@@ -99,49 +105,53 @@ To create a task that has a dependency on the successful completion of multiple 
 
 csharp
 
-	// 'Rain' and 'Sun' don't depend on any other tasks
-	new CloudTask("Rain", "cmd.exe /c echo Rain"),
-	new CloudTask("Sun", "cmd.exe /c echo Sun"),
+```csharp
+// 'Rain' and 'Sun' don't depend on any other tasks
+new CloudTask("Rain", "cmd.exe /c echo Rain"),
+new CloudTask("Sun", "cmd.exe /c echo Sun"),
 
-	// Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
-	// before it is run.
-	new CloudTask("Flowers", "cmd.exe /c echo Flowers")
-	{
-	    DependsOn = TaskDependencies.OnIds("Rain", "Sun")
-	},
+// Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
+// before it is run.
+new CloudTask("Flowers", "cmd.exe /c echo Flowers")
+{
+    DependsOn = TaskDependencies.OnIds("Rain", "Sun")
+},
+```
 
 ### Task ID range
 To create a task that has a dependency on the successful completion of a group of tasks whose IDs lie within a range, you supply the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values. Additionally, every task in the range must complete successfully for the dependent task to be scheduled for execution.
 > 
 > 
 
 csharp
 
-	// Tasks 1, 2, and 3 don't depend on any other tasks. Because
-	// we will be using them for a task range dependency, we must
-	// specify string representations of integers as their ids.
-	new CloudTask("1", "cmd.exe /c echo 1"),
-	new CloudTask("2", "cmd.exe /c echo 2"),
-	new CloudTask("3", "cmd.exe /c echo 3"),
+```csharp
+// Tasks 1, 2, and 3 don't depend on any other tasks. Because
+// we will be using them for a task range dependency, we must
+// specify string representations of integers as their ids.
+new CloudTask("1", "cmd.exe /c echo 1"),
+new CloudTask("2", "cmd.exe /c echo 2"),
+new CloudTask("3", "cmd.exe /c echo 3"),
 
-	// Task 4 depends on a range of tasks, 1 through 3
-	new CloudTask("4", "cmd.exe /c echo 4")
-	{
-	    // To use a range of tasks, their ids must be integer values.
-	    // Note that we pass integers as parameters to TaskIdRange,
-	    // but their ids (above) are string representations of the ids.
-	    DependsOn = TaskDependencies.OnIdRange(1, 3)
-	},
+// Task 4 depends on a range of tasks, 1 through 3
+new CloudTask("4", "cmd.exe /c echo 4")
+{
+    // To use a range of tasks, their ids must be integer values.
+    // Note that we pass integers as parameters to TaskIdRange,
+    // but their ids (above) are string representations of the ids.
+    DependsOn = TaskDependencies.OnIdRange(1, 3)
+},
+```
 
 ## Code sample
 The [TaskDependencies][github_taskdependencies] sample project is one of the [Azure Batch code samples][github_samples] on GitHub. This Visual Studio 2015 solution demonstrates how to enable task dependency on a job, create tasks that depend on other tasks, and execute those tasks on a pool of compute nodes.
 
 ## Next steps
 ### Application deployment
-The [application packages](/documentation/articles/batch-application-packages/) feature of Batch provides an easy way to both deploy and version the applications that your tasks execute on compute nodes.
+The [application packages](./batch-application-packages.md) feature of Batch provides an easy way to both deploy and version the applications that your tasks execute on compute nodes.
 
 ### Installing applications and staging data
 Check out the [Installing applications and staging data on Batch compute nodes][forum_post] post in the Azure Batch forum for an overview of the various methods to prepare your nodes to run tasks. Written by one of the Azure Batch team members, this post is a good primer on the different ways to get files (including both applications and task input data) onto your compute nodes.

@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Get Started with Event Hubs in C | Azure"
-    description="Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving them in Java using the Event Processor Host."
-    services="event-hubs"
-    documentationcenter=""
-    author="jtaubensee"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="aa6553f9-e12e-4568-9bf3-667f1c47a6cf"
-    ms.service="event-hubs"
-    ms.workload="na"
-    ms.tgt_pltfrm="c"
-    ms.devlang="csharp"
-    ms.topic="article"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="jotaub;sethm" />
+---
+title: Get Started with Event Hubs in C | Azure
+description: Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving them in Java using the Event Processor Host.
+services: event-hubs
+documentationcenter: ''
+author: jtaubensee
+manager: timlt
+editor: ''
+
+ms.assetid: aa6553f9-e12e-4568-9bf3-667f1c47a6cf
+ms.service: event-hubs
+ms.workload: na
+ms.tgt_pltfrm: c
+ms.devlang: csharp
+ms.topic: article
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: jotaub;sethm
+---
 
 # Get started with Event Hubs
 
-[AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
+[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
 ## Introduction
 
@@ -31,27 +32,27 @@ In this tutorial, you will learn how to ingest messages into an Event Hub using 
 
 In order to complete this tutorial you will need the following:
 
-* A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](/documentation/articles/virtual-machines-linux-quick-create-cli/) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
+* A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
 
 * Microsoft Visual Studio Express for Windows
 
-* An active Azure account. <br/>If you don't have an account, you can create a trial account in just a couple of minutes. For details, see <a href="/pricing/free-trial/" target="_blank">Azure Free Trial</a>.
+* An active Azure account. <br/>If you don't have an account, you can create a trial account in just a couple of minutes. For details, see <a href="https://www.azure.cn/pricing/free-trial/" target="_blank">Azure Free Trial</a>.
 
-[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
+[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephjava](../../includes/service-bus-event-hubs-get-started-receive-ephjava.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-receive-ephjava](../../includes/service-bus-event-hubs-get-started-receive-ephjava.md)]
 
 ## Run the applications
 
 Now you are ready to run the applications.
 
 1. Run the **Receiver** project.
-   
+
     ![][21]
 2. Run the **Sender** program, and notice the events appear in the receiver window.
-   
+
     ![][24]
 
 ## Next steps
@@ -68,6 +69,6 @@ Now that you've built a working application that creates an Event Hub and sends 
 
 <!-- Links -->
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: ./event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3

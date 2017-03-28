@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Deploy Linux VMs into existing networks - Azure portal preview | Azure"
-    description="Deploy a Linux VM into an existing Azure Virtual Network using the portal."
-    services="virtual-machines-linux"
-    documentationcenter="virtual-machines-linux"
-    author="vlivech"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-linux"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="11/21/2016"
-    wacn.date=""
-    ms.author="v-livech" />
+---
+title: Deploy Linux VMs into existing networks - Azure portal preview | Azure
+description: Deploy a Linux VM into an existing Azure Virtual Network using the portal.
+services: virtual-machines-linux
+documentationcenter: virtual-machines-linux
+author: vlivech
+manager: timlt
+editor: ''
+
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 11/21/2016
+wacn.date: ''
+ms.author: v-livech
+---
 
 # Deploy a Linux VM into an existing VNet & NSG using the portal
 
@@ -25,7 +26,7 @@ With a correctly configured VNet, we can continue to deploy new servers into tha
 
 ## Create the Resource group
 
-First we deploy a Resource Group to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](/documentation/articles/resource-group-overview/)
+First we deploy a Resource Group to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 
 ![createResourceGroup](./media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/createResourceGroup.png)
 
@@ -43,7 +44,7 @@ Virtual network cards (VNics) are important as you can connect them to different
 
 ## Create the NSG
 
-Azure NSGs are equivalent to a firewall at the network layer. For more information on Azure NSGs, see [What is a Network Security Group](/documentation/articles/virtual-networks-nsg/).
+Azure NSGs are equivalent to a firewall at the network layer. For more information on Azure NSGs, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md).
 
 ![createNSG](./media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/createNSG.png)
 
@@ -69,6 +70,6 @@ By using the portal to choose existing resources, we instruct Azure to deploy th
 
 ## Next steps
 
-* [Use an Azure Resource Manager template to create a specific deployment](/documentation/articles/virtual-machines-linux-cli-deploy-templates/)
-* [Create your own custom environment for a Linux VM using Azure CLI commands directly](/documentation/articles/virtual-machines-linux-create-cli-complete/)
-* [Create a Linux VM on Azure using templates](/documentation/articles/virtual-machines-linux-create-ssh-secured-vm-from-template/)
+* [Use an Azure Resource Manager template to create a specific deployment](./virtual-machines-linux-cli-deploy-templates.md)
+* [Create your own custom environment for a Linux VM using Azure CLI commands directly](./virtual-machines-linux-create-cli-complete.md)
+* [Create a Linux VM on Azure using templates](./virtual-machines-linux-create-ssh-secured-vm-from-template.md)

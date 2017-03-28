@@ -1,22 +1,23 @@
-<properties
-    pageTitle="MongoDB connection string for DocumentDB account | Azure"
-    description="Learn how to connect your MongoDB app to an Azure DocumentDB account using a MongoDB connection string."
-    keywords="mongodb connection string"
-    services="documentdb"
-    author="AndrewHoh"
-    manager="jhubbard"
-    editor=""
-    documentationcenter="" />
-<tags
-    ms.assetid="e36f7375-9329-403b-afd1-4ab49894f75e"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/09/2016"
-    wacn.date=""
-    ms.author="anhoh" />
+---
+title: MongoDB connection string for DocumentDB account | Azure
+description: Learn how to connect your MongoDB app to an Azure DocumentDB account using a MongoDB connection string.
+keywords: mongodb connection string
+services: documentdb
+author: AndrewHoh
+manager: jhubbard
+editor: ''
+documentationcenter: ''
+
+ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/09/2016
+wacn.date: ''
+ms.author: anhoh
+---
 
 # Connect a MongoDB app to a DocumentDB account using a MongoDB connection string
 Learn how to connect your MongoDB app to an Azure DocumentDB account using a MongoDB connection string. By connecting your MongoDB app to an Azure DocumentDB database, you can use a DocumentDB database as the data store for your MongoDB app. 
@@ -28,8 +29,8 @@ This tutorial provides two ways to retrieve connection string information:
 
 ## Prerequisites
 
-- An Azure account. If you don't have an Azure account, create a [Azure account](/pricing/1rmb-trial/) now. 
-- A DocumentDB account. For instructions, see [Create a DocumentDB account for use with MongoDB apps](/documentation/articles/documentdb-create-mongodb-account/).
+- An Azure account. If you don't have an Azure account, create a [Azure account](https://www.azure.cn/pricing/1rmb-trial/) now. 
+- A DocumentDB account. For instructions, see [Create a DocumentDB account for use with MongoDB apps](./documentdb-create-mongodb-account.md).
 
 ## <a id="QuickStartConnection"></a>Get the MongoDB connection string using the Quick start
 1. In an internet browser, sign in to the [Azure Portal](https://portal.azure.cn).
@@ -49,14 +50,16 @@ This tutorial provides two ways to retrieve connection string information:
     ![Screen shot of the connection string blade](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
 
 ## Connection string requirements
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > DocumentDB has strict security requirements and standards. DocumentDB accounts require authentication and secure communication via **SSL**.
 >
 >
 
 It is important to note that DocumentDB supports the standard MongoDB connection string URI format, with a couple of specific requirements: DocumentDB accounts require authentication and secure communication via SSL.  Thus, the connection string format is:
 
-    mongodb://username:password@host:port/[database]?ssl=true
+```
+mongodb://username:password@host:port/[database]?ssl=true
+```
 
 Where the values of this string are available in the Connection String blade shown above.
 
@@ -74,8 +77,10 @@ Where the values of this string are available in the Connection String blade sho
 
 For example, consider the account shown in the Connection String Information above.  A valid connection string is:
 
-    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
+```
+mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
+```
 
 ## Next steps
-- Learn how to [use MongoChef](/documentation/articles/documentdb-mongodb-mongochef/) with a DocumentDB account with protocol support for MongoDB.
-- Explore DocumentDB with protocol support for MongoDB [samples](/documentation/articles/documentdb-mongodb-samples/).
+- Learn how to [use MongoChef](./documentdb-mongodb-mongochef.md) with a DocumentDB account with protocol support for MongoDB.
+- Explore DocumentDB with protocol support for MongoDB [samples](./documentdb-mongodb-samples.md).

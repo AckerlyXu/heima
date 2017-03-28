@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Create identity for Azure app in portal | Azure"
-    description="Describes how to create a new Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources."
-    services="azure-resource-manager"
-    documentationcenter="na"
-    author="tfitzmac"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="7068617b-ac5e-47b3-a1de-a18c918297b6"
-    ms.service="azure-resource-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/17/2017"
-    wacn.date=""
-    ms.author="tomfitz" />
+---
+title: Create identity for Azure app in portal | Azure
+description: Describes how to create a new Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
+
+ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/17/2017
+wacn.date: ''
+ms.author: tomfitz
+---
 
 # Use portal to create Active Directory application and service principal that can access resources
-> [AZURE.SELECTOR]
-- [PowerShell](/documentation/articles/resource-group-authenticate-service-principal/)
-- [Azure CLI](/documentation/articles/resource-group-authenticate-service-principal-cli/)
-- [Portal](/documentation/articles/resource-group-create-service-principal-portal/)
+> [!div class="op_single_selector"]
+>- [PowerShell](./resource-group-authenticate-service-principal.md)
+>- [Azure CLI](./resource-group-authenticate-service-principal-cli.md)
+>- [Portal](./resource-group-create-service-principal-portal.md)
 
 When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This approach is preferable to running the app under your own credentials because:
 
@@ -61,7 +62,7 @@ To complete this topic, you must have sufficient permissions to register an appl
 
 <a name="check-azure-subscription-permissions"></a>
 ### Check Azure subscription permissions
-In your Azure subscription, your account must have `Microsoft.Authorization/*/Write` access to assign an AD app to a role. This action is granted through the [Owner](/documentation/articles/role-based-access-built-in-roles/#owner) role or [User Access Administrator](/documentation/articles/role-based-access-built-in-roles/#user-access-administrator) role. If your account is assigned to the **Contributor** role, you do not have adequate permission. You will receive an error when attempting to assign the service principal to a role. 
+In your Azure subscription, your account must have `Microsoft.Authorization/*/Write` access to assign an AD app to a role. This action is granted through the [Owner](../active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. If your account is assigned to the **Contributor** role, you do not have adequate permission. You will receive an error when attempting to assign the service principal to a role. 
 
 To check your subscription permissions:
 
@@ -73,7 +74,7 @@ To check your subscription permissions:
 2. Search for your account, and select it when you find it.
 
     ![search user](./media/resource-group-create-service-principal-portal/show-user.png) 
-     
+
 3. Select **Azure resources**.
 
     ![select resources](./media/resource-group-create-service-principal-portal/select-azure-resources.png) 
@@ -132,7 +133,7 @@ When programmatically logging in, you need to pass the tenant ID with your authe
     ![tenant id](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
 ## Assign application to role
-To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](/documentation/articles/role-based-access-built-in-roles/).
+To access resources in your subscription, you must assign the application to a role. Decide which role represents the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains.
 
@@ -164,9 +165,9 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 Your application is now set up in Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that gives it certain actions it can perform. 
 
-To log in through PowerShell, see [Provide credentials through PowerShell](/documentation/articles/resource-group-authenticate-service-principal/#provide-credentials-through-powershell).
+To log in through PowerShell, see [Provide credentials through PowerShell](./resource-group-authenticate-service-principal.md#provide-credentials-through-powershell).
 
-To log in through Azure CLI, see [Provide credentials through Azure CLI](/documentation/articles/resource-group-authenticate-service-principal-cli/#provide-credentials-through-azure-cli).
+To log in through Azure CLI, see [Provide credentials through Azure CLI](./resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli).
 
 To get the access token for REST operations, see [Create the request](https://docs.microsoft.com/rest/api/#create-the-request).
 
@@ -202,5 +203,5 @@ The following sample applications show how to log in as the AD application.
 * [Managing Azure Resource and Resource Groups with Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/)
 
 ## Next Steps
-* To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](/documentation/articles/resource-manager-api-authentication/).
-* To learn about specifying security policies, see [Azure Role-based Access Control](/documentation/articles/role-based-access-control-configure/).
+* To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](./resource-manager-api-authentication.md).
+* To learn about specifying security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).

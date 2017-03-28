@@ -1,24 +1,23 @@
+---
+title: Azure Backup FAQ | Azure
+description: Answers to frequently asked questions about the backup service, backup agent, backup and retention, recovery, security and other common questions about backup and disaster recovery.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: carmonm
+editor: ''
+keywords: backup and disaster recovery; backup service
 
-<properties
-    pageTitle="Azure Backup FAQ | Azure"
-    description="Answers to frequently asked questions about the backup service, backup agent, backup and retention, recovery, security and other common questions about backup and disaster recovery."
-    services="backup"
-    documentationcenter=""
-    author="markgalioto"
-    manager="carmonm"
-    editor=""
-    keywords="backup and disaster recovery; backup service" />
-    
-<tags
-    ms.assetid="1011bdd6-7a64-434f-abd7-2783436668d7"
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="2/8/2017"
-    wacn.date=""
-    ms.author="markgal;giridham;arunak;markgal;trinadhk;" />
+ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 2/8/2017
+wacn.date: ''
+ms.author: markgal;giridham;arunak;markgal;trinadhk;
+---
 
 # Azure Backup service- FAQ
 This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup by clicking **Comments** (to the right). Comments appear at the bottom of this article. A Livefyre account is required to comment. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=windowsazureonlinebackup).
@@ -43,7 +42,7 @@ Azure Backup supports the following list of operating systems for backing up: fi
 
 For Azure VM backup,
 
-- **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](/documentation/articles/virtual-machines-linux-endorsed-distros/) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
+- **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
 - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 
 ## Where can I download the latest Azure Backup agent? <br/>
@@ -66,7 +65,7 @@ Backup data is sent to the datacenter of the vault to which it is registered. Th
 
 ## What happens if I rename a Windows server that is backing up data to Azure?<br/>
 When you rename a server, all currently configured backups are stopped.
-Register the new name of the server with the Backup vault. When you register the new name with the vault, the first backup operation is a *full* backup. If you need to recover data backed up to the vault with the old server name, use the [**Another server**](/documentation/articles/backup-azure-restore-windows-server/#use-instant-restore-to-restore-data-to-an-alternate-machine/) option in the **Recover Data** wizard.
+Register the new name of the server with the Backup vault. When you register the new name with the vault, the first backup operation is a *full* backup. If you need to recover data backed up to the vault with the old server name, use the [**Another server**](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) option in the **Recover Data** wizard.
 
 ## What types of drives can I back up files and folders from? <br/>
 You can't back up the following drives/volumes:
@@ -190,16 +189,16 @@ No, the incremental copy is sent based on the time mentioned in the backup sched
 Typical long-term retention point products store backup data as full points. The full points are storage *inefficient* but are easier and faster to restore. Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time. Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This data storage approach ensures that your ingress and egress bandwidth is used efficiently. Both the amount of data storage and the time needed to recover the data, is kept to a minimum. Learn more on how [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/) save are efficient.
 
 ## Is there a limit on the number of recovery points that can be created?<br/>
-You can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload configured to back up data to Azure. There is no limit on the number of protected instances per backup vault. For more information, see the explanations of [Backup and retention](/documentation/articles/backup-introduction-to-azure-backup/#backup-and-retention/), and [What is a protected instance](/documentation/articles/backup-introduction-to-azure-backup/#what-is-a-protected-instance/)?
+You can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload configured to back up data to Azure. There is no limit on the number of protected instances per backup vault. For more information, see the explanations of [Backup and retention](./backup-introduction-to-azure-backup.md#backup-and-retention), and [What is a protected instance](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
 
 ## Why is the amount of data transferred in backup not equal to the amount of data I backed up?<br/>
  All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
 
 ## Is there a way to adjust the amount of bandwidth used by the Backup service?<br/>
- Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. You can adjust the amount of bandwidth and the times when you use that bandwidth. For step-by-step instructions, see **[Enable network throttling](/documentation/articles/backup-configure-vault/#enable-network-throttling/)** in the article, [Back up a Windows Server or client to Azure using the Resource Manager deployment model.
+ Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. You can adjust the amount of bandwidth and the times when you use that bandwidth. For step-by-step instructions, see **[Enable network throttling](./backup-configure-vault.md#enable-network-throttling)** in the article, [Back up a Windows Server or client to Azure using the Resource Manager deployment model.
 
 ## My internet bandwidth is limited for the amount of data I need to back up. Is there a way I can move data to a certain location with a large network pipe and push that data into Azure? <br/>
-You can back up data into Azure via the standard online backup process, or you can use the Azure Import/Export service to transfer data to blob storage in Azure. There are no additional ways of getting backup date into Azure storage. For information on how to use the Azure Import/Export service with Azure Backup, see the [Offline Backup workflow](/documentation/articles/backup-azure-backup-import-export/) article.
+You can back up data into Azure via the standard online backup process, or you can use the Azure Import/Export service to transfer data to blob storage in Azure. There are no additional ways of getting backup date into Azure storage. For information on how to use the Azure Import/Export service with Azure Backup, see the [Offline Backup workflow](./backup-azure-backup-import-export.md) article.
 
 ## How many recoveries can I perform on the data that is backed up to Azure?<br/>
 There is no limit on the number of recoveries from Azure Backup.
@@ -268,6 +267,6 @@ Recovery Services vaults support both models.  You can back up a classic VM (cre
 ## I have backed up my classic VMs in a backup vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
 Classic VM recovery points in a backup vault don't automatically migrate to a Recovery Services vault when you move the VM from classic to Resource Manager mode. Follow these steps to transfer your VM backups:
 
-1. In the backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](/documentation/articles/backup-azure-manage-vms-classic/#stop-protecting-virtual-machines/). Leave *Delete associated backup data* option **unchecked**.
+1. In the backup vault, go to the **Protected Items** tab and select the VM. Click [Stop Protection](./backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
 2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure that storage and network corresponding to virtual machine are also migrated to Resource Manager mode.
-3. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard. 
+3. Create a Recovery Services vault and configure backup on the migrated virtual machine using **Backup** action on top of vault dashboard.

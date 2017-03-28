@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD federation compatibility list"
-    description="This page has non-Microsoft identity providers that can be used to implement single sign-on."
-    services="active-directory"
-    documentationcenter=""
-    author="billmath"
-    manager="femila"
-    editor="curtand" />
-<tags
-    ms.assetid="22c8693e-8915-446d-b383-27e9587988ec"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/01/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD federation compatibility list
+description: This page has non-Microsoft identity providers that can be used to implement single sign-on.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
+
+ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/01/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Azure AD federation compatibility list
 Azure Active Directory provides single-sign on and enhanced application access security for Office 365 and other Microsoft Online services for hybrid and cloud-only implementations without requiring any non-Microsoft solution. Office 365, like most of Microsoft’s Online services, is integrated with Azure Active Directory for directory services, authentication and authorization. Azure Active Directory also provides single sign-on to thousands of SaaS applications and on-premises web applications. Please see the Azure Active Directory application gallery for supported SaaS applications.
@@ -27,7 +28,7 @@ For organizations that have invested in non-Microsoft federation solutions, this
 
 For information on how you can get your third-party identity provider listed here, contact Oxford Computer Group at [idp@oxfordcomputergroup.com](mailto:idp@oxfordcomputergroup.com).
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Oxford Computer Group tested only the federation functionality of these single sign-on scenarios. Oxford Computer Group did not perform any testing of the synchronization, two-factor authentication, etc. components of these single sign-on scenarios.
 > 
 > Use of Sign-in by Alternate ID to UPN is also not tested in this program.
@@ -57,7 +58,7 @@ For information on how you can get your third-party identity provider listed her
 - [Sailpoint IdentityNow](#sailpoint-identitynow)
 - [NetIQ Access Manager 4.x](#netiq-access-manager-4x) 
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Since these are third-party products, Microsoft does not provide support for the deployment, configuration, troubleshooting, best practices, etc. issues and questions regarding these identity providers. For support and questions regarding these identity providers, contact the supported third-parties directly.
 > 
 > These third-party identity providers were tested for interoperability with Microsoft cloud services using WS-Federation and WS-Trust protocols only. Testing did not include using the SAML protocol.
@@ -78,7 +79,7 @@ The following is the scenario support matrix for this sign-on experience:
 
 For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](/documentation/articles/active-directory-aadconnect-get-started-custom/#configuring-federation-with-ad-fs/)
 
-For more information about using Azure Active Directory with Password sync see [Azure AD Connect](/documentation/articles/active-directory-aadconnect/).
+For more information about using Azure Active Directory with Password sync see [Azure AD Connect](./active-directory-aadconnect.md).
 
 ## Optimal IDM Virtual Identity Server Federation Services <a name="optimal-idm-virtual-identity-server-federation-services"></a>
 Optimal IDM Virtual Identity Server Federation Services can authenticate users that reside in customers’ on-premises Active Directories.
@@ -354,4 +355,3 @@ The following is the scenario support matrix for this single sign-on experience:
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 
 For more information, see [NetIQ Access Manager](https://www.netiq.com/documentation/access-manager-43/admin/data/b65ogn0.html#b12iqp0m)
-

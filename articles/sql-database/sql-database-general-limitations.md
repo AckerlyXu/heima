@@ -1,19 +1,20 @@
-<properties
-   pageTitle="Azure SQL Database General Limitations and Guidelines"
-   description="This page describes some general limitations for Azure SQL Database as well as areas of interoperability and support."
-   services="sql-database"
-   documentationCenter="na"
-   authors="CarlRabeler"
-   manager="jhubbard"
-   editor="monicar" />
-<tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="09/06/2016"
-   ms.author="carlrab" />
+---
+title: Azure SQL Database General Limitations and Guidelines
+description: This page describes some general limitations for Azure SQL Database as well as areas of interoperability and support.
+services: sql-database
+documentationCenter: na
+authors: CarlRabeler
+manager: jhubbard
+editor: monicar
+
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 09/06/2016
+ms.author: carlrab
+---
 
 # Azure SQL Database General Limitations and Guidelines
 
@@ -21,7 +22,7 @@ This topic provides general limitations and guidelines for Azure SQL Database. F
 
 ## Connectivity and authentication
 
-  - Windows Authentication is not supported. See [Managing Databases and Logins in Azure SQL Database](/documentation/articles/sql-database-manage-logins/). However, Azure Active Directory Authentication is supported with certain limitations. See [Connect to SQL Database with Azure Active Directory Authentication](/documentation/articles/sql-database-aad-authentication/).
+  - Windows Authentication is not supported. See [Managing Databases and Logins in Azure SQL Database](./sql-database-manage-logins.md). However, Azure Active Directory Authentication is supported with certain limitations. See [Connect to SQL Database with Azure Active Directory Authentication](./sql-database-aad-authentication.md).
 
   - Azure SQL Database supports tabular data stream (TDS) protocol client version 7.3 or later.
 
@@ -31,7 +32,7 @@ This topic provides general limitations and guidelines for Azure SQL Database. F
 
 ## SQL Server Agent/Jobs
 
-Azure SQL Database does not support SQL Server Agent, however you can use Elastic jobs to run jobs across one to many databases. For more information about Elastic jobs, see [Elastic jobs](/documentation/articles/sql-database-elastic-jobs-overview/).
+Azure SQL Database does not support SQL Server Agent, however you can use Elastic jobs to run jobs across one to many databases. For more information about Elastic jobs, see [Elastic jobs](./sql-database-elastic-jobs-overview.md).
 
 ## SQL Server Collation Support
 
@@ -53,12 +54,12 @@ Additionally, login and user names cannot contain the \ character (Windows Authe
 
 ## Additional Guidelines
 
-- In addition to the general limitations outlined in this article, SQL Database has specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](/documentation/articles/sql-database-service-tiers/).
+- In addition to the general limitations outlined in this article, SQL Database has specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](./sql-database-service-tiers.md).
 
-- For other SQL Database limits, see [Azure SQL Database Resource Limits](/documentation/articles/sql-database-resource-limits/).
+- For other SQL Database limits, see [Azure SQL Database Resource Limits](./sql-database-resource-limits.md).
 
-- For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](/documentation/articles/sql-database-security-guidelines/).
+- For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](./sql-database-security-guidelines.md).
 
-- Another related area surrounds the compatibility that Azure SQL Database has with on-premises versions of SQL Server, such as SQL Server 2014 and SQL Server 2016. The latest V12 version of Azure SQL Database has made many improvements in this area. For more details, see [What's new in SQL Database V12](/documentation/articles/sql-database-v12-whats-new/).
+- Another related area surrounds the compatibility that Azure SQL Database has with on-premises versions of SQL Server, such as SQL Server 2014 and SQL Server 2016. The latest V12 version of Azure SQL Database has made many improvements in this area. For more details, see [What's new in SQL Database V12](./sql-database-v12-whats-new.md).
 
-- For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](/documentation/articles/sql-database-libraries/).
+- For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](./sql-database-libraries.md).

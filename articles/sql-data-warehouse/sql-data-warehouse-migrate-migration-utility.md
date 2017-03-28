@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Migrate: Data Warehouse Migration Utility | Azure"
-   description="Migrate to SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+---
+title: Migrate: Data Warehouse Migration Utility | Azure
+description: Migrate to SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: lodipalm
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.date="10/31/2016"
-   wacn.date=""/>
-
+ms.service: sql-data-warehouse
+ms.date: 10/31/2016
+wacn.date: ''
+---
 
 # Data Warehouse Migration Utility (Preview)
 
-> [AZURE.SELECTOR]
-- [Download Migration Utility][]
+> [!div class="op_single_selector"]
+>- [Download Migration Utility][]
 
 The Data Warehouse Migration Utility is a tool designed to migrate schema and data from SQL Server and Azure SQL Database to Azure SQL Data Warehouse. During schema migration, the tool automatically maps the corresponding schema from source to destination. After the schema has been migrated, the tools provides the option to move data with automatically generated scripts.
 
@@ -53,8 +52,8 @@ Now that you've migrated some data, check out how to [develop][develop].
 <!--Image references-->
 
 <!--Article references-->
-[migration documentation]:/documentation/articles/sql-data-warehouse-overview-migrate/
-[develop]:/documentation/articles/sql-data-warehouse-overview-develop/
+[migration documentation]:./sql-data-warehouse-overview-migrate.md
+[develop]:./sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
 [Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip

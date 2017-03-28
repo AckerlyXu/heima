@@ -7,7 +7,8 @@ Azure allows you to create resources, such as VMs, in defined geographic regions
 ## Storage availability
 Understanding Azure regions and geographies becomes important when you consider the available storage replication options. Depending on the storage type, you have different replication options.
 
->[AZURE.NOTE] Azure Managed Disks are not available yet in Azure China.
+>[!NOTE]
+> Azure Managed Disks are not available yet in Azure China.
 
 **Storage account-based disks**
 * Locally redundant storage (LRS)
@@ -27,7 +28,7 @@ The following table provides a quick overview of the differences between the sto
 | Data can be read from the secondary location and from the primary location. |No |No |No |Yes |
 | Number of copies of data maintained on separate nodes. |3 |3 |6 |6 |
 
-You can read more about [Azure Storage replication options here](/documentation/articles/storage-redundancy/).
+You can read more about [Azure Storage replication options here](../articles/storage/storage-redundancy.md).
 
 ### Storage costs
 Prices vary depending on the storage type and availability that you select.
@@ -37,21 +38,21 @@ Prices vary depending on the storage type and availability that you select.
 * Standard storage is backed by regular spinning disks and is charged based on the in-use capacity and desired storage availability.
     * For RA-GRS, there is an additional Geo-Replication Data Transfer charge for the bandwidth of replicating that data to another Azure region.
 
-See [Azure Storage Pricing](/pricing/details/storage/) for pricing information on the different storage types and availability options.
+See [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/) for pricing information on the different storage types and availability options.
 
 ## Azure images
 In Azure, VMs are created from an image. Typically, images are from the Azure Marketplace where partners can provide pre-configured complete OS or application images.
 
-When you create a VM from an image in the Azure Marketplace, you are actually working with templates. Azure Resource Manager templates are declarative JavaScript Object Notation (JSON) files that can be used to create complex application environments comprising VMs, storage, virtual networking, etc. You can read more about using [Azure Resource Manager templates](/documentation/articles/resource-group-overview/), including how to [build your own templates](/documentation/articles/resource-group-authoring-templates/).
+When you create a VM from an image in the Azure Marketplace, you are actually working with templates. Azure Resource Manager templates are declarative JavaScript Object Notation (JSON) files that can be used to create complex application environments comprising VMs, storage, virtual networking, etc. You can read more about using [Azure Resource Manager templates](../articles/azure-resource-manager/resource-group-overview.md), including how to [build your own templates](../articles/azure-resource-manager/resource-group-authoring-templates.md).
 
-You can also create your own custom images and upload them using [Azure CLI](/documentation/articles/virtual-machines-linux-upload-vhd/) or [Azure PowerShell](/documentation/articles/virtual-machines-windows-upload-image/) to quickly create custom VMs to your specific build requirements.
+You can also create your own custom images and upload them using [Azure CLI](../articles/virtual-machines/virtual-machines-linux-upload-vhd.md) or [Azure PowerShell](../articles/virtual-machines/virtual-machines-windows-upload-image.md) to quickly create custom VMs to your specific build requirements.
 
 ## Availability sets
-An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. It is recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](/support/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](/documentation/articles/storage-premium-storage/), the Azure SLA applies for unplanned maintenance events. An availability set is compromised of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs).
+An availability set is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. It is recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://www.azure.cn/support/sla/virtual-machines/). When a single VM is using [Azure Premium Storage](../articles/storage/storage-premium-storage.md), the Azure SLA applies for unplanned maintenance events. An availability set is compromised of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs).
 
 ![Conceptual drawing of the update domain and fault domain configuration](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
 
-You can read more about how to manage the availability of [Linux VMs](/documentation/articles/virtual-machines-linux-manage-availability/) or [Windows VMs](/documentation/articles/virtual-machines-windows-manage-availability/).
+You can read more about how to manage the availability of [Linux VMs](../articles/virtual-machines/virtual-machines-linux-manage-availability.md) or [Windows VMs](../articles/virtual-machines/virtual-machines-windows-manage-availability.md).
 
 ### Fault domains
 A fault domain is a logical group of underlying hardware that share a common power source and network switch, similar to a rack within an on-premises datacenter. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these fault domains. This approach limits the impact of potential physical hardware failures, network outages, or power interruptions.
@@ -60,4 +61,4 @@ A fault domain is a logical group of underlying hardware that share a common pow
 An update domain is a logical group of underlying hardware that can undergo maintenance or be rebooted at the same time. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these update domains. This approach ensures that at least one instance of your application always remains running as the Azure platform undergoes periodic maintenance. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time.
 
 ## Next steps
-You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](/documentation/articles/best-practices-availability-checklist/).
+You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](../articles/best-practices-availability-checklist.md).

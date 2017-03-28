@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Advanced scenarios with Azure MFA and third-party VPNs"
-    description="Step-by-step configuration guides for Azure MFA to integrate with Cisco, Citrix, and Juniper."
-    services="multi-factor-authentication"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="yossib" />
-<tags
-    ms.assetid="1f94a214-d6f6-48a8-8a12-006b5896ae45"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/13/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Advanced scenarios with Azure MFA and third-party VPNs
+description: Step-by-step configuration guides for Azure MFA to integrate with Cisco, Citrix, and Juniper.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: yossib
+
+ms.assetid: 1f94a214-d6f6-48a8-8a12-006b5896ae45
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/13/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Advanced scenarios with Azure Multi-Factor Authentication and third-party VPN solutions
 Azure Multi-Factor Authentication can be used to seamlessly connect with various third-party VPN solutions. This article focuses on Cisco® ASA VPN appliance, Citrix NetScaler SSL VPN appliance, and the Juniper Networks Secure Access/Pulse Secure Connect Secure SSL VPN appliance. 
@@ -46,4 +47,4 @@ Azure Multi-Factor Authentication integrates with your Juniper/Pulse Secure SSL 
 
 ## Next steps
 
-- [Configure Azure Multi-Factor Authentication settings](/documentation/articles/multi-factor-authentication-whats-next/)
+- [Configure Azure Multi-Factor Authentication settings](./multi-factor-authentication-whats-next.md)

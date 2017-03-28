@@ -1,19 +1,20 @@
-<properties
-   pageTitle="ExpressRoute locations | Azure"
-   description="This article provides a detailed overview of locations where services are offered and how to connect to Azure regions."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="11/17/2016"
-   ms.author="cherylmc" />
+---
+title: ExpressRoute locations | Azure
+description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions.
+services: expressroute
+documentationCenter: na
+authors: cherylmc
+manager: carmonm
+editor: ''
+
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 11/17/2016
+ms.author: cherylmc
+---
 
 # ExpressRoute partners and peering locations
 
@@ -49,15 +50,13 @@ The table below provides information on regions and geopolitical boundaries for 
 |**China**|China North, China East|Beijing, Shanghai|
 |**Germany**|Germany Central, Germany East|Berlin, Frankfurt|
 
-
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
-
 
 ## <a name="locations"></a>Connectivity provider locations
 
-> [AZURE.SELECTOR]
-[Locations By Provider](/documentation/articles/expressroute-locations/#connectivity-provider-locations)
-[Providers By Location](/documentation/articles/expressroute-locations-providers/#connectivity-provider-locations)
+> [!div class="op_single_selector"]
+[Locations By Provider](./expressroute-locations.md#connectivity-provider-locations)
+[Providers By Location](./expressroute-locations-providers.md#connectivity-provider-locations)
 
 ### Production Azure
 
@@ -133,16 +132,16 @@ If your connectivity provider is not listed in previous sections, you can still 
 
 - Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
 
-	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
-	- [NextDC](http://www.nextdc.com/)
-	- [CoreSite](http://www.coresite.com/)
-	- [Cologix](http://www.cologix.com/)
+    - [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
+    - [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
+    - [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
+    - [NextDC](http://www.nextdc.com/)
+    - [CoreSite](http://www.coresite.com/)
+    - [Cologix](http://www.cologix.com/)
 - Have your connectivity provider extend your network to the peering location of choice.
-	- Ensure that your connectivity provider extends your connectivity in a highly available manner so that there are no single points of failure.
+    - Ensure that your connectivity provider extends your connectivity in a highly available manner so that there are no single points of failure.
 - Order an ExpressRoute circuit with the exchange as your connectivity provider to connect to Microsoft.
-	- Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
+    - Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
 |**Connectivity provider**|**Exchange**|**Locations**|
 |---|---|---|
@@ -150,7 +149,6 @@ If your connectivity provider is not listed in previous sections, you can still 
 |**Alaska Communications**|Equinix|Seattle|
 |**[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure )**|Equinix|New York, Washington DC|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silicon Valley|
-
 
 ## ExpressRoute system integrators
 
@@ -167,8 +165,8 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 
 ## Next steps
 
-- For more information about ExpressRoute, see the [ExpressRoute FAQ](/documentation/articles/expressroute-faqs/).
-- Ensure that all prerequisites are met. See [ExpressRoute prerequisites](/documentation/articles/expressroute-prerequisites/).
+- For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md).
+- Ensure that all prerequisites are met. See [ExpressRoute prerequisites](./expressroute-prerequisites.md).
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Location map"

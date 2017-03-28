@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Use Visual Studio templates to jump-start your Batch project - Azure | Azure"
-    description="Learn how these Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch"
-    services="batch"
-    documentationcenter=".net"
-    author="fayora"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="5e041ae2-25af-4882-a79e-3aa63c4bfb20"
-    ms.service="batch"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="big-compute"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="tamram" />
+---
+title: Use Visual Studio templates to jump-start your Batch project - Azure | Azure
+description: Learn how these Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch
+services: batch
+documentationcenter: .net
+author: fayora
+manager: timlt
+editor: ''
+
+ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: tamram
+---
 
 # Visual Studio project templates for Azure Batch
 The **Job Manager** and **Task Processor Visual Studio templates** for Batch provide code to help you to implement and run your compute-intensive workloads on Batch with the least amount of effort. This document describes these templates and provides guidance for how to use them.
 
-> [AZURE.IMPORTANT]
-> This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](/documentation/articles/batch-technical-overview/), [Batch feature overview for developers](/documentation/articles/batch-api-basics/), and [Get started with the Azure Batch library for .NET](/documentation/articles/batch-dotnet-get-started/).
+> [!IMPORTANT]
+> This article discusses only information applicable to these two templates, and assumes that you are familiar with the Batch service and key concepts related to it: pools, compute nodes, jobs and tasks, job manager tasks, environment variables, and other relevant information. You can find more information in [Basics of Azure Batch](./batch-technical-overview.md), [Batch feature overview for developers](./batch-api-basics.md), and [Get started with the Azure Batch library for .NET](./batch-dotnet-get-started.md).
 > 
 > 
 
@@ -33,7 +34,7 @@ The Job Manager and Task Processor templates can be used to create two useful co
 
 For example, in a movie rendering scenario, the job splitter would turn a single movie job into hundreds or thousands of separate tasks that would process individual frames separately. Correspondingly, the task processor would invoke the rendering application and all dependent processes that are needed to render each frame, as well as perform any additional actions (for example, copying the rendered frame to a storage location).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The Job Manager and Task Processor templates are independent of each other, so you can choose to use both, or only one of them, depending on the requirements of your compute job and on your preferences.
 > 
 > 
@@ -51,13 +52,13 @@ To use the Batch templates, you will need the following:
 
 - A computer with Visual Studio 2015, or newer, already installed on it.
 - The Batch templates, which are available from the [Visual Studio Gallery][vs_gallery] as Visual Studio extensions. There are two ways to get the templates:
-  
+
   - Install the templates using the **Extensions and Updates** dialog box in Visual Studio (for more information, see [Finding and Using Visual Studio Extensions][vs_find_use_ext]). In the **Extensions and Updates** dialog box, search and download the following two extensions:
-    
+
     - Azure Batch Job Manager with Job Splitter
     - Azure Batch Task Processor
   - Download the templates from the online gallery for Visual Studio: [Azure Batch Project Templates][vs_gallery_templates]
-- If you plan to use the [Application Packages](/documentation/articles/batch-application-packages/) feature to deploy the job manager and task processor to the Batch compute nodes, you need to link a storage account to your Batch account.
+- If you plan to use the [Application Packages](./batch-application-packages.md) feature to deploy the job manager and task processor to the Batch compute nodes, you need to link a storage account to your Batch account.
 
 ## Preparation
 We recommend creating a solution that can contain your job manager as well as your task processor, because this can make it easier to share code between your job manager and task processor programs. To create this solution, follow these steps:
@@ -73,8 +74,8 @@ The Job Manager template helps you to implement a job manager task that can perf
 - Split a job into multiple tasks.
 - Submit those tasks to run on Batch.
 
-> [AZURE.NOTE]
-> For more information about job manager tasks, see [Batch feature overview for developers](/documentation/articles/batch-api-basics/#job-manager-task/).
+> [!NOTE]
+> For more information about job manager tasks, see [Batch feature overview for developers](./batch-api-basics.md#job-manager-task).
 > 
 > 
 
@@ -126,31 +127,33 @@ When you open the Job Manager template project, the project will have the JobSpl
 
 csharp
 
-	/// <summary>
-	/// Gets the tasks into which to split the job. This is where you inject
-	/// your application-specific logic for decomposing the job into tasks.
-	///
-	/// The job manager framework invokes the Split method for you; you need
-	/// only to implement it, not to call it yourself. Typically, your
-	/// implementation should return tasks lazily, for example using a C#
-	/// iterator and the "yield return" statement; this allows tasks to be added
-	/// and to start running while splitting is still in progress.
-	/// </summary>
-	/// <returns>The tasks to be added to the job. Tasks are added automatically
-	/// by the job manager framework as they are returned by this method.</returns>
-	public IEnumerable<CloudTask> Split()
-	{
-	    // Your code for the split logic goes here.
-	    int startFrame = Convert.ToInt32(_parameters["StartFrame"]);
-	    int endFrame = Convert.ToInt32(_parameters["EndFrame"]);
+```csharp
+/// <summary>
+/// Gets the tasks into which to split the job. This is where you inject
+/// your application-specific logic for decomposing the job into tasks.
+///
+/// The job manager framework invokes the Split method for you; you need
+/// only to implement it, not to call it yourself. Typically, your
+/// implementation should return tasks lazily, for example using a C#
+/// iterator and the "yield return" statement; this allows tasks to be added
+/// and to start running while splitting is still in progress.
+/// </summary>
+/// <returns>The tasks to be added to the job. Tasks are added automatically
+/// by the job manager framework as they are returned by this method.</returns>
+public IEnumerable<CloudTask> Split()
+{
+    // Your code for the split logic goes here.
+    int startFrame = Convert.ToInt32(_parameters["StartFrame"]);
+    int endFrame = Convert.ToInt32(_parameters["EndFrame"]);
 
-	    for (int i = startFrame; i <= endFrame; i++)
-	    {
-	        yield return new CloudTask("myTask" + i, "cmd /c dir");
-	    }
-	}
+    for (int i = startFrame; i <= endFrame; i++)
+    {
+        yield return new CloudTask("myTask" + i, "cmd /c dir");
+    }
+}
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The annotated section in the `Split()` method is the only section of the Job Manager template code that is intended for you to modify by adding the logic to split your jobs into different tasks. If you want to modify a different section of the template, please ensure you are familiarized with how Batch works, and try out a few of the [Batch code samples][github_samples].
 > 
 > 
@@ -193,7 +196,7 @@ A job manager task that is implemented with the Job Manager template can return 
 
 In the case of job manager task failure, some tasks may still have been added to the service before the error occurred. These tasks will run as normal. See "Job Splitter Failure" above for discussion of this code path.
 
-All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](/documentation/articles/batch-api-basics/#error-handling/).
+All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](./batch-api-basics.md#error-handling).
 
 ### Client considerations
 This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](#pass-environment-settings) for details on passing parameters and environment settings.
@@ -204,10 +207,12 @@ In order to add tasks to the Azure Batch job, the job manager task requires your
 
 csharp
 
-	job.JobManagerTask.EnvironmentSettings = new [] {
-	    new EnvironmentSetting("YOUR_BATCH_URL", "https://account.region.batch.azure.com"),
-	    new EnvironmentSetting("YOUR_BATCH_KEY", "{your_base64_encoded_account_key}"),
-	};
+```csharp
+job.JobManagerTask.EnvironmentSettings = new [] {
+    new EnvironmentSetting("YOUR_BATCH_URL", "https://account.region.batch.azure.com"),
+    new EnvironmentSetting("YOUR_BATCH_KEY", "{your_base64_encoded_account_key}"),
+};
+```
 
 **Storage credentials**
 
@@ -215,11 +220,13 @@ Typically, the client does not need to provide the linked storage account creden
 
 csharp
 
-	job.JobManagerTask.EnvironmentSettings = new [] {
-	    /* other environment settings */
-	    new EnvironmentSetting("LINKED_STORAGE_ACCOUNT", "{storageAccountName}"),
-	    new EnvironmentSetting("LINKED_STORAGE_KEY", "{storageAccountKey}"),
-	};
+```csharp
+job.JobManagerTask.EnvironmentSettings = new [] {
+    /* other environment settings */
+    new EnvironmentSetting("LINKED_STORAGE_ACCOUNT", "{storageAccountName}"),
+    new EnvironmentSetting("LINKED_STORAGE_KEY", "{storageAccountKey}"),
+};
+```
 
 **Job manager task settings**
 
@@ -301,49 +308,51 @@ When you open the Task Processor template project, the project will have the Tas
 
 csharp
 
-	/// <summary>
-	/// Runs the task processing logic. This is where you inject
-	/// your application-specific logic for decomposing the job into tasks.
-	///
-	/// The task processor framework invokes the Run method for you; you need
-	/// only to implement it, not to call it yourself. Typically, your
-	/// implementation will execute an external program (from resource files or
-	/// an application package), check the exit code of that program and
-	/// save output files to persistent storage.
-	/// </summary>
-	public async Task<int> Run()
+```csharp
+/// <summary>
+/// Runs the task processing logic. This is where you inject
+/// your application-specific logic for decomposing the job into tasks.
+///
+/// The task processor framework invokes the Run method for you; you need
+/// only to implement it, not to call it yourself. Typically, your
+/// implementation will execute an external program (from resource files or
+/// an application package), check the exit code of that program and
+/// save output files to persistent storage.
+/// </summary>
+public async Task<int> Run()
 
-	{
-	    try
-	    {
-	        //Your code for the task processor goes here.
-	        var command = $"compare {_parameters["Frame1"]} {_parameters["Frame2"]} compare.gif";
-	        using (var process = Process.Start($"cmd /c {command}"))
-	        {
-	            process.WaitForExit();
-	            var taskOutputStorage = new TaskOutputStorage(
-	            _configuration.StorageAccount,
-	            _configuration.JobId,
-	            _configuration.TaskId
-	            );
-	            await taskOutputStorage.SaveAsync(
-	            TaskOutputKind.TaskOutput,
-	            @"..\stdout.txt",
-	            @"stdout.txt"
-	            );
-	            return process.ExitCode;
-	        }
-	    }
-	    catch (Exception ex)
-	    {
-	        throw new TaskProcessorException(
-	        $"{ex.GetType().Name} exception in run task processor: {ex.Message}",
-	        ex
-	        );
-	    }
-	}
+{
+    try
+    {
+        //Your code for the task processor goes here.
+        var command = $"compare {_parameters["Frame1"]} {_parameters["Frame2"]} compare.gif";
+        using (var process = Process.Start($"cmd /c {command}"))
+        {
+            process.WaitForExit();
+            var taskOutputStorage = new TaskOutputStorage(
+            _configuration.StorageAccount,
+            _configuration.JobId,
+            _configuration.TaskId
+            );
+            await taskOutputStorage.SaveAsync(
+            TaskOutputKind.TaskOutput,
+            @"..\stdout.txt",
+            @"stdout.txt"
+            );
+            return process.ExitCode;
+        }
+    }
+    catch (Exception ex)
+    {
+        throw new TaskProcessorException(
+        $"{ex.GetType().Name} exception in run task processor: {ex.Message}",
+        ex
+        );
+    }
+}
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The annotated section in the Run() method is the only section of the Task Processor template code that is intended for you to modify by adding the run logic for the tasks in your workload. If you want to modify a different section of the template, please first familiarize yourself with how Batch works by reviewing the Batch documentation and trying out a few of the Batch code samples.
 > 
 > 
@@ -371,7 +380,7 @@ A task processor task that is implemented with the Task Processor template can r
 | 1 |The task processor failed with an exception in an 'expected' part of the program. The exception was translated to a `TaskProcessorException` with diagnostic information and, where possible, suggestions for resolving the failure. |
 | 2 |The task processor failed with an 'unexpected' exception. The exception was logged to standard output, but the task processor was unable to add any additional diagnostic or remediation information. |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If the program you invoke uses exit codes 1 and 2 to indicate specific failure modes, then using exit codes 1 and 2 for task processor errors is ambiguous. You can change these task processor error codes to distinctive exit codes by editing the exception cases in the Program.cs file.
 > 
 > 
@@ -385,11 +394,12 @@ If your task processor uses Azure blob storage to persist outputs, for example u
 
 csharp
 
-	job.CommonEnvironmentSettings = new [] {
-	    new EnvironmentSetting("LINKED_STORAGE_ACCOUNT", "{storageAccountName}"),
-	    new EnvironmentSetting("LINKED_STORAGE_KEY", "{storageAccountKey}"),
-	};
-
+```csharp
+job.CommonEnvironmentSettings = new [] {
+    new EnvironmentSetting("LINKED_STORAGE_ACCOUNT", "{storageAccountName}"),
+    new EnvironmentSetting("LINKED_STORAGE_KEY", "{storageAccountKey}"),
+};
+```
 
 The storage account is then available in the TaskProcessor class via the `_configuration.StorageAccount` property.
 
@@ -414,7 +424,7 @@ For example, to get the `BatchClient` instance for a Batch account, you can pass
 ### Pass parameters to the Job Manager template
 In many cases, it's useful to pass per-job parameters to the job manager task, either to control the job splitting process or to configure the tasks for the job. You can do this by uploading a JSON file named parameters.json as a resource file for the job manager task. The parameters can then become available in the `JobSplitter._parameters` field in the Job Manager template.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The built-in parameter handler supports only string-to-string dictionaries. If you want to pass complex JSON values as parameter values, you will need to pass these as strings and parse them in the job splitter, or modify the framework's `Configuration.GetJobParameters` method.
 > 
 > 
@@ -427,14 +437,14 @@ parameters.json, and if found it loads it as the parameters dictionary. There ar
 - Reuse the job parameters JSON. This works well if the only parameters are job-wide ones (for example, a render height and width). To do this, when creating a CloudTask in the job splitter, add a reference to the parameters.json resource file object from the job manager task's ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) to the CloudTask's ResourceFiles collection.
 - Generate and upload a task-specific parameters.json document as part of job splitter execution, and reference that blob in the task's resource files collection. This is necessary if different tasks have different parameters. An example might be a 3D rendering scenario where the frame index is passed to the task as a parameter.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The built-in parameter handler supports only string-to-string dictionaries. If you want to pass complex JSON values as parameter values, you will need to pass these as strings and parse them in the task processor, or modify the framework's `Configuration.GetTaskParameters` method.
 > 
 > 
 
 ## Next steps
 ### Persist job and task output to Azure Storage
-Another helpful tool in Batch solution development is [Azure Batch File Conventions][nuget_package]. Use this .NET class library (currently in preview) in your Batch .NET applications to easily store and retrieve task outputs to and from Azure Storage. [Persist Azure Batch job and task output](/documentation/articles/batch-task-output/) contains a full discussion of the library and its usage.
+Another helpful tool in Batch solution development is [Azure Batch File Conventions][nuget_package]. Use this .NET class library (currently in preview) in your Batch .NET applications to easily store and retrieve task outputs to and from Azure Storage. [Persist Azure Batch job and task output](./batch-task-output.md) contains a full discussion of the library and its usage.
 
 ### Batch Forum
 The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful "sticky" posts, and post your questions as they arise while you build your Batch solutions.

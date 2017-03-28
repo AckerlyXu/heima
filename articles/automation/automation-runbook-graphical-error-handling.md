@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Error handling in Azure Automation graphical runbooks | Azure"
-    description="This article describes how to implement error handling logic in Azure Automation graphical runbooks."
-    services="automation"
-    documentationcenter=""
-    author="mgoedtel"
-    manager="jwhit"
-    editor="tysonn" />
-<tags
-    ms.assetid=""
-    ms.service="automation"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="12/26/2016"
-    wacn.date=""
-    ms.author="magoedte" />
+---
+title: Error handling in Azure Automation graphical runbooks | Azure
+description: This article describes how to implement error handling logic in Azure Automation graphical runbooks.
+services: automation
+documentationcenter: ''
+author: mgoedtel
+manager: jwhit
+editor: tysonn
+
+ms.assetid: ''
+ms.service: automation
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 12/26/2016
+wacn.date: ''
+ms.author: magoedte
+---
 
 # Error handling in Azure Automation graphical runbooks
 
@@ -68,6 +69,6 @@ Error links flow from these activities to a single **error management** activity
 
 ## Next steps
 
-* To learn more about links and link types in graphical runbooks, see [Graphical authoring in Azure Automation](/documentation/articles/automation-graphical-authoring-intro/#links-and-workflow).
+* To learn more about links and link types in graphical runbooks, see [Graphical authoring in Azure Automation](./automation-graphical-authoring-intro.md#links-and-workflow).
 
-* To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](/documentation/articles/automation-runbook-execution/).
+* To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](./automation-runbook-execution.md).

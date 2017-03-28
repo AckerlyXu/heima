@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Geo Distributed Scale with App Service Environments"
-    description="Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments."
-    services="app-service"
-    documentationcenter=""
-    author="stefsch"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="c1b05ca8-3703-4d87-a9ae-819d741787fb"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/07/2016"
-    wacn.date=""
-    ms.author="stefsch" />
+---
+title: Geo Distributed Scale with App Service Environments
+description: Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments.
+services: app-service
+documentationcenter: ''
+author: stefsch
+manager: erikre
+editor: ''
+
+ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/07/2016
+wacn.date: ''
+ms.author: stefsch
+---
 
 # Geo Distributed Scale with App Service Environments
 ## Overview
@@ -57,7 +58,9 @@ The easiest way to register multiple Azure App Service endpoints, all running in
 
 The first step is to create an Azure Traffic Manager profile.  The code below shows how the profile was created for the sample app:
 
-    $profile = New-AzureTrafficManagerProfile -Name scalableasedemo -ResourceGroupName yourRGNameHere -TrafficRoutingMethod Weighted -RelativeDnsName scalable-ase-demo -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+```
+$profile = New-AzureTrafficManagerProfile -Name scalableasedemo -ResourceGroupName yourRGNameHere -TrafficRoutingMethod Weighted -RelativeDnsName scalable-ase-demo -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+```
 
 Notice how the *RelativeDnsName* parameter was set to *scalable-ase-demo*.  This is how the domain name *scalable-ase-demo.trafficmanager.cn* is created and associated with a Traffic Manager profile.
 
@@ -65,16 +68,18 @@ The *TrafficRoutingMethod* parameter defines the load balancing policy Traffic M
 
 With the profile created, each app instance is added to the profile as a native Azure endpoint.  The code below fetches a reference to each front end web app, and then adds each app as a Traffic Manager endpoint by way of the *TargetResourceId* parameter.
 
-    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
-    Add-AzureTrafficManagerEndpointConfig -EndpointName webfrontend1 -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled -Weight 10
+```
+$webapp1 = Get-AzureRMWebApp -Name webfrontend1
+Add-AzureTrafficManagerEndpointConfig -EndpointName webfrontend1 -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled -Weight 10
 
-    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
-    Add-AzureTrafficManagerEndpointConfig -EndpointName webfrontend2 -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled -Weight 10
+$webapp2 = Get-AzureRMWebApp -Name webfrontend2
+Add-AzureTrafficManagerEndpointConfig -EndpointName webfrontend2 -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled -Weight 10
 
-    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
-    Add-AzureTrafficManagerEndpointConfig -EndpointName webfrontend3 -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp3.Id -EndpointStatus Enabled -Weight 10
+$webapp3 = Get-AzureRMWebApp -Name webfrontend3
+Add-AzureTrafficManagerEndpointConfig -EndpointName webfrontend3 -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp3.Id -EndpointStatus Enabled -Weight 10
 
-    Set-AzureTrafficManagerProfile -TrafficManagerProfile $profile
+Set-AzureTrafficManagerProfile -TrafficManagerProfile $profile
+```
 
 Notice how there is one call to *Add-AzureTrafficManagerEndpointConfig* for each individual app instance.  The *TargetResourceId* parameter in each Powershell command references one of the three deployed app instances.  The Traffic Manager profile will spread load across all three endpoints registered in the profile.
 
@@ -111,18 +116,18 @@ The console picture below shows a DNS lookup for the sample app's custom domain 
 ![DNS Lookup][DNSLookup] 
 
 ## Additional Links and Information
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](/documentation/articles/app-service-app-service-environments-readme/).
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
 Documentation on the Powershell [Azure Resource Manager Traffic Manager support][ARMTrafficManager].  
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[AzureTrafficManagerProfile]:  /documentation/articles/traffic-manager-manage-profiles/
-[ARMTrafficManager]:  /documentation/articles/traffic-manager-powershell-arm/
-[RegisterCustomDomain]:  /documentation/articles/web-sites-custom-domain-name/
+[AzureTrafficManagerProfile]:  ../traffic-manager/traffic-manager-manage-profiles.md
+[ARMTrafficManager]:  ../traffic-manager/traffic-manager-powershell-arm.md
+[RegisterCustomDomain]:  ./web-sites-custom-domain-name.md
 
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-geo-distributed-scale/ConceptualArchitecture-1.png

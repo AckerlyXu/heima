@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Receive alert notifications for Azure services | Azure"
-	description="Be notified when alert rules conditions are met."
-	authors="rboucher"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Receive alert notifications for Azure services | Azure
+description: Be notified when alert rules conditions are met.
+authors: rboucher
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="robb"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2015
+ms.author: robb
+---
 
 # Receive alert notifications
 
@@ -53,16 +53,14 @@ Once you have created an alert rule, you can view  a preview of your alert thres
 
 ![Events](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
-
 You can of course edit this alert rule, and **Disable** or **Enable** it if you want to temporarily stop receiving notifications about it. 
 
 ## Next steps
 
-* [Configure webhooks on your Alerts](/documentation/articles/insights-webhooks-alerts/) to route notifications to various channels
-* [Monitor service metrics](/documentation/articles/insights-how-to-customize-monitoring/) to make sure your service is available and responsive.
-* [Enable monitoring and diagnostics](/documentation/articles/insights-how-to-use-diagnostics/) to collect detailed high-frequency metrics on your service.
+* [Configure webhooks on your Alerts](./insights-webhooks-alerts.md) to route notifications to various channels
+* [Monitor service metrics](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+* [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
 * [Monitor availability and responsiveness of any web page](/documentation/articles/app-insights-monitor-web-app-availability/) with Application Insights so you can find out if your page is down.
 * [Monitor application performance](/documentation/articles/app-insights-azure-web-apps/) if you want to understand exactly how your code is performing in the cloud.
-* [View events and audit logs](/documentation/articles/insights-debugging-with-events/) to learn everything that has happened in your service.
-* [Track service health](/documentation/articles/insights-service-health/) to find out when Azure has experienced performance degradation or service interruptions.
- 
+* [View events and audit logs](./insights-debugging-with-events.md) to learn everything that has happened in your service.
+* [Track service health](./insights-service-health.md) to find out when Azure has experienced performance degradation or service interruptions.

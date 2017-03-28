@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Streaming Azure Diagnostics data in the hot path using Event Hubs | Azure"
-    description="Illustrates how to configure Azure Diagnostics with Event Hubs from end to end, including guidance for common scenarios."
-    services="event-hubs"
-    documentationcenter="na"
-    author="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="edeebaac-1c47-4b43-9687-f28e7e1e446a"
-    ms.service="event-hubs"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="07/14/2016"
-    wacn.date=""
-    ms.author="sethm" />
+---
+title: Streaming Azure Diagnostics data in the hot path using Event Hubs | Azure
+description: Illustrates how to configure Azure Diagnostics with Event Hubs from end to end, including guidance for common scenarios.
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
+
+ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
+ms.service: event-hubs
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/14/2016
+wacn.date: ''
+ms.author: sethm
+---
 
 # Streaming Azure Diagnostics data in the hot path by using Event Hubs
-Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can sink Diagnostics to completely custom data sources and transfer hot path data in seconds by using [Azure Event Hubs](/home/features/event-hubs/).
+Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can sink Diagnostics to completely custom data sources and transfer hot path data in seconds by using [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/).
 
 Supported data types include:
 
@@ -42,18 +43,20 @@ Event Hubs sinking in Azure Diagnostics is supported in Cloud Services, VMs, Vir
 * Azure Diagnostics extension 1.6 ([Azure SDK for .NET 2.9 or later](/downloads/) targets this by default)
 * [Visual Studio 2013 or later](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Existing configurations of Azure Diagnostics in an application by using a *.wadcfgx* file and one of the following methods:
-  * Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](/documentation/articles/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/)
-  * Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](/documentation/articles/cloud-services-diagnostics-powershell/)
-* Event Hubs namespace provisioned per the article, [Get started with Event Hubs](/documentation/articles/event-hubs-csharp-ephcs-getstarted/)
+  * Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
+* Event Hubs namespace provisioned per the article, [Get started with Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)
 
 ## Connect Azure Diagnostics to Event Hubs sink
 Azure Diagnostics always sinks logs and metrics, by default, to an Azure Storage account. An application may additionally sink to Event Hubs by adding a new **Sinks** section to the **WadCfg** element in the **PublicConfig** section of the *.wadcfgx* file. In Visual Studio, the *.wadcfgx* file is stored in the following path: **Cloud Service Project** > **Roles** >  **(RoleName)** > **diagnostics.wadcfgx** file.
 
-    <SinksConfig>
-      <Sink name="HotPath">
-        <EventHub Url="https://diags-mycompany-ns.servicebus.chinacloudapi.cn/diageventhub" SharedAccessKeyName="SendRule" />
-      </Sink>
-    </SinksConfig>
+```xml
+<SinksConfig>
+  <Sink name="HotPath">
+    <EventHub Url="https://diags-mycompany-ns.servicebus.chinacloudapi.cn/diageventhub" SharedAccessKeyName="SendRule" />
+  </Sink>
+</SinksConfig>
+```
 
 In this example, the Event Hub URL is set to the fully qualified namespace of the Event Hub: Event Hubs namespace  + "/" + Event Hub name.  
 
@@ -61,21 +64,23 @@ The Event Hub URL is displayed in the [Azure portal](http://manage.windowsazure.
 
 The **Sink** name can be set to any valid string as long as the same value is used consistently throughout the config file.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > There may be additional sinks, such as *applicationInsights* configured in this section. Azure Diagnostics allows one or more sinks to be defined if each sink is also declared in the **PrivateConfig** section.  
 > 
 > 
 
 The Event Hubs sink must also be declared and defined in the **PrivateConfig** section of the *.wadcfgx* config file.
 
-    <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-      <StorageAccount name="" key="" endpoint="" />
-      <EventHub Url="https://diags-mycompany-ns.servicebus.chinacloudapi.cn/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
-    </PrivateConfig>
+```
+<PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <StorageAccount name="" key="" endpoint="" />
+  <EventHub Url="https://diags-mycompany-ns.servicebus.chinacloudapi.cn/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="9B3SwghJOGEUvXigc6zHPInl2iYxrgsKHZoy4nm9CUI=" />
+</PrivateConfig>
+```
 
 The `SharedAccessKeyName` value must match a Shared Access Signature (SAS) key and policy that has been defined in the **Event Hubs** namespace. Browse to the Event Hubs dashboard in the [Azure portal](https://manage.windowsazure.com), click the **Configure** tab, and set up a named policy (for example, "SendRule") that has *Send* permissions. The **StorageAccount** is also declared in **PrivateConfig**. There is no need to change values here if they are working. In this example, we leave the values empty, which is a sign that a downstream asset will set the values. For example, the *ServiceConfiguration.Cloud.cscfg* environment configuration file sets the environment-appropriate names and keys.  
 
-> [AZURE.WARNING]
+> [!WARNING]
 > The Event Hubs SAS key is stored in plain text in the *.wadcfgx* file. Often, this key is checked in to source code control or is available as an asset in your build server, so you should protect it as appropriate. We recommend that you use a SAS key here with *Send only* permissions so that a malicious user can write to the Event Hub, but not listen to it or manage it.
 > 
 > 
@@ -87,35 +92,41 @@ It is important to consider how many data points should actually be transferred 
 
 The following are some example configurations.
 
-    <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
-      <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" />
-    </PerformanceCounters>
+```xml
+<PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
+  <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" />
+</PerformanceCounters>
+```
 
 In the following example, the sink is applied to the parent **PerformanceCounters** node in the hierarchy, which means all child **PerformanceCounters** will be sent to Event Hubs.  
 
-    <PerformanceCounters scheduledTransferPeriod="PT1M">
-      <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
-      <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" sinks="HotPath" />
-      <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" sinks="HotPath"/>
-      <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" sinks="HotPath"/>
-    </PerformanceCounters>
+```xml
+<PerformanceCounters scheduledTransferPeriod="PT1M">
+  <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
+  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" sinks="HotPath" />
+  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" sinks="HotPath"/>
+  <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" sinks="HotPath"/>
+</PerformanceCounters>
+```
 
 In the previous example, the sink is applied to only three counters: **Requests Queued**, **Requests Rejected**, and **% Processor time**.  
 
 The following example shows how a developer can limit the amount of sent data to be the critical metrics that are used for this service's health.  
 
-    <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
+```
+<Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
+```
 
 In this example, the sink is applied to logs and is filtered only to error level trace.
 
@@ -131,7 +142,7 @@ In the following figure, the Event Hubs dashboard shows healthy sending of diagn
 
 ![][0]  
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When you make updates to the Azure Diagnostics config file (.wadcfgx), it's recommended that you push the updates to the entire application as well as the configuration by using either Visual Studio publishing, or a Windows PowerShell script.  
 > 
 > 
@@ -141,90 +152,92 @@ In the following figure, the Event Hubs dashboard shows healthy sending of diagn
 As discussed previously, there are many use cases for listening to and processing Event Hubs data.
 
 One simple approach is to create a small test console application to listen to the Event Hub and print the output stream. You can place the following code, which is explained in more detail
-in [Get started with Event Hubs](/documentation/articles/event-hubs-csharp-ephcs-getstarted/)), in a console application.  
+in [Get started with Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)), in a console application.  
 
 Note that the console application must include the [Event Processor Host Nuget package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
 Remember to replace the values in angle brackets in the **Main** function with values for your resources.   
 
-    //Console application code for EventHub test client
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Microsoft.ServiceBus.Messaging;
+```csharp
+//Console application code for EventHub test client
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.ServiceBus.Messaging;
 
-    namespace EventHubListener
+namespace EventHubListener
+{
+    class SimpleEventProcessor : IEventProcessor
     {
-        class SimpleEventProcessor : IEventProcessor
+        Stopwatch checkpointStopWatch;
+
+        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
         {
-            Stopwatch checkpointStopWatch;
-
-            async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
+            Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
+            if (reason == CloseReason.Shutdown)
             {
-                Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
-                if (reason == CloseReason.Shutdown)
-                {
-                    await context.CheckpointAsync();
-                }
-            }
-
-            Task IEventProcessor.OpenAsync(PartitionContext context)
-            {
-                Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
-                this.checkpointStopWatch = new Stopwatch();
-                this.checkpointStopWatch.Start();
-                return Task.FromResult<object>(null);
-            }
-
-            async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-            {
-                foreach (EventData eventData in messages)
-                {
-                    string data = Encoding.UTF8.GetString(eventData.GetBytes());
-                        Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-                            context.Lease.PartitionId, data));
-
-                    foreach (var x in eventData.Properties)
-                    {
-                        Console.WriteLine(string.Format("    {0} = {1}", x.Key, x.Value));
-                    }
-                }
-
-                //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
-                if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
-                {
-                    await context.CheckpointAsync();
-                    this.checkpointStopWatch.Restart();
-                }
+                await context.CheckpointAsync();
             }
         }
 
-        class Program
+        Task IEventProcessor.OpenAsync(PartitionContext context)
         {
-            static void Main(string[] args)
+            Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+            this.checkpointStopWatch = new Stopwatch();
+            this.checkpointStopWatch.Start();
+            return Task.FromResult<object>(null);
+        }
+
+        async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        {
+            foreach (EventData eventData in messages)
             {
-                string eventHubConnectionString = "Endpoint= <your connection string>"
-                string eventHubName = "<Event Hub name>";
-                string storageAccountName = "<Storage account name>";
-                string storageAccountKey = "<Storage account key>";
-                string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
+                string data = Encoding.UTF8.GetString(eventData.GetBytes());
+                    Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
+                        context.Lease.PartitionId, data));
 
-                string eventProcessorHostName = Guid.NewGuid().ToString();
-                EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
-                Console.WriteLine("Registering EventProcessor...");
-                var options = new EventProcessorOptions();
-                options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
-                eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
+                foreach (var x in eventData.Properties)
+                {
+                    Console.WriteLine(string.Format("    {0} = {1}", x.Key, x.Value));
+                }
+            }
 
-                Console.WriteLine("Receiving. Press enter key to stop worker.");
-                Console.ReadLine();
-                eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+            //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
+            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
+            {
+                await context.CheckpointAsync();
+                this.checkpointStopWatch.Restart();
             }
         }
     }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string eventHubConnectionString = "Endpoint= <your connection string>"
+            string eventHubName = "<Event Hub name>";
+            string storageAccountName = "<Storage account name>";
+            string storageAccountKey = "<Storage account key>";
+            string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
+
+            string eventProcessorHostName = Guid.NewGuid().ToString();
+            EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+            Console.WriteLine("Registering EventProcessor...");
+            var options = new EventProcessorOptions();
+            options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
+            eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
+
+            Console.WriteLine("Receiving. Press enter key to stop worker.");
+            Console.ReadLine();
+            eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+        }
+    }
+}
+```
 
 ## Troubleshoot Event Hubs sink
 
@@ -241,78 +254,82 @@ Remember to replace the values in angle brackets in the **Main** function with v
     Try looking in the Azure Storage table that contains logs and errors for Azure Diagnostics itself: **WADDiagnosticInfrastructureLogsTable**. One option is to use a tool such as [Azure Storage Explorer](http://www.storageexplorer.com) to connect to this storage account, view this table, and add a query for TimeStamp in the last 24 hours. You can use the tool to export a .csv file and open it in an application such as Microsoft Excel. Excel makes it easy to search for calling-card strings, such as **EventHubs**, to see what error is reported.  
 
 ## Next steps
-•    [Learn more about Event Hubs](/home/features/event-hubs/)
+•    [Learn more about Event Hubs](https://www.azure.cn/home/features/event-hubs/)
 
 ## Appendix: Complete Azure diagnostics configuration file (.wadcfgx) example
-    <?xml version="1.0" encoding="utf-8"?>
-	<DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-	  <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-	    <WadCfg>
-	      <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="applicationInsights.errors">
-	        <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error" />
-	        <Directories scheduledTransferPeriod="PT1M">
-	          <IISLogs containerName="wad-iis-logfiles" />
-	          <FailedRequestLogs containerName="wad-failedrequestlogs" />
-	        </Directories>
-	        <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
-	          <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
-	          <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-	          <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-	          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
-	          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
-	          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" />
-	          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" />
-	          <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" />
-	        </PerformanceCounters>
-	        <WindowsEventLog scheduledTransferPeriod="PT1M">
-	          <DataSource name="Application!*" />
-	        </WindowsEventLog>
-	        <CrashDumps>
-	          <CrashDumpConfiguration processName="WaIISHost.exe" />
-	          <CrashDumpConfiguration processName="WaWorkerHost.exe" />
-	          <CrashDumpConfiguration processName="w3wp.exe" />
-	        </CrashDumps>
-	        <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
-	      </DiagnosticMonitorConfiguration>
-	      <SinksConfig>
-	        <Sink name="HotPath">
-	          <EventHub Url="https://diageventhub-py-ns.servicebus.chinacloudapi.cn/diageventhub-py" SharedAccessKeyName="SendRule" />
-	        </Sink>
-	        <Sink name="applicationInsights">
-	          <ApplicationInsights />
-	          <Channels>
-	            <Channel logLevel="Error" name="errors" />
-	          </Channels>
-	        </Sink>
-	      </SinksConfig>
-	    </WadCfg>
-	    <StorageAccount />
-	  </PublicConfig>
-	  <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-	    <StorageAccount name="" key="" endpoint="" />
-	    <EventHub Url="https://diageventhub-py-ns.servicebus.chinacloudapi.cn/diageventhub-py" SharedAccessKeyName="SendRule" SharedAccessKey="YOUR_KEY_HERE" />
-	  </PrivateConfig>
-	  <IsEnabled>true</IsEnabled>
-    </DiagnosticsConfiguration>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+    <WadCfg>
+      <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="applicationInsights.errors">
+        <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error" />
+        <Directories scheduledTransferPeriod="PT1M">
+          <IISLogs containerName="wad-iis-logfiles" />
+          <FailedRequestLogs containerName="wad-failedrequestlogs" />
+        </Directories>
+        <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
+          <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
+          <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
+          <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
+          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
+          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
+          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" />
+          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" />
+          <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" />
+        </PerformanceCounters>
+        <WindowsEventLog scheduledTransferPeriod="PT1M">
+          <DataSource name="Application!*" />
+        </WindowsEventLog>
+        <CrashDumps>
+          <CrashDumpConfiguration processName="WaIISHost.exe" />
+          <CrashDumpConfiguration processName="WaWorkerHost.exe" />
+          <CrashDumpConfiguration processName="w3wp.exe" />
+        </CrashDumps>
+        <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
+      </DiagnosticMonitorConfiguration>
+      <SinksConfig>
+        <Sink name="HotPath">
+          <EventHub Url="https://diageventhub-py-ns.servicebus.chinacloudapi.cn/diageventhub-py" SharedAccessKeyName="SendRule" />
+        </Sink>
+        <Sink name="applicationInsights">
+          <ApplicationInsights />
+          <Channels>
+            <Channel logLevel="Error" name="errors" />
+          </Channels>
+        </Sink>
+      </SinksConfig>
+    </WadCfg>
+    <StorageAccount />
+  </PublicConfig>
+  <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+    <StorageAccount name="" key="" endpoint="" />
+    <EventHub Url="https://diageventhub-py-ns.servicebus.chinacloudapi.cn/diageventhub-py" SharedAccessKeyName="SendRule" SharedAccessKey="YOUR_KEY_HERE" />
+  </PrivateConfig>
+  <IsEnabled>true</IsEnabled>
+</DiagnosticsConfiguration>
+```
 
 The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like the following.
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ServiceConfiguration serviceName="MyFixItCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
-      <Role name="MyFixIt.WorkerRole">
-        <Instances count="1" />
-        <ConfigurationSettings>
-          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="YOUR_CONNECTION_STRING" />
-        </ConfigurationSettings>
-      </Role>
-    </ServiceConfiguration>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="MyFixItCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="MyFixIt.WorkerRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="YOUR_CONNECTION_STRING" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
+```
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](/documentation/articles/event-hubs-what-is-event-hubs/)
-* [Create an Event Hub](/documentation/articles/event-hubs-create/)
-* [Event Hubs FAQ](/documentation/articles/event-hubs-faq/)
+* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](./event-hubs-create.md)
+* [Event Hubs FAQ](./event-hubs-faq.md)
 
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png

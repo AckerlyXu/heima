@@ -1,28 +1,29 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Onboarding machines for management by Azure Automation DSC | Azure"
-    description="How to setup machines for management with Azure Automation DSC"
-    services="automation"
-    documentationcenter="dev-center-name"
-    author="eslesar"
-    manager="carmonm" />
-<tags
-    ms.assetid="da13e1f5-2a1c-443b-8e3b-9f0d6f9e4810"
-    ms.service="automation"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="powershell"
-    ms.workload="TBD"
-    ms.date="12/13/2016"
-    wacn.date=""
-    ms.author="eslesar" />
+---
+title: Onboarding machines for management by Azure Automation DSC | Azure
+description: How to setup machines for management with Azure Automation DSC
+services: automation
+documentationcenter: dev-center-name
+author: eslesar
+manager: carmonm
+
+ms.assetid: da13e1f5-2a1c-443b-8e3b-9f0d6f9e4810
+ms.service: automation
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: powershell
+ms.workload: TBD
+ms.date: 12/13/2016
+wacn.date: ''
+ms.author: eslesar
+---
 
 # Onboarding machines for management by Azure Automation DSC
 
 ## Why manage machines with Azure Automation DSC?
 
-Like [PowerShell Desired State Configuration](https://technet.microsoft.com/zh-cn/library/dn249912.aspx), Azure Automation Desired State Configuration is a simple, yet powerful, configuration management service for DSC nodes (physical and virtual machines) in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. The Azure Automation DSC management layer is to DSC what the Azure Automation management layer is to PowerShell scripting. In other words, in the same way that Azure Automation helps you manage PowerShell scripts, it also helps you manage DSC configurations. To learn more about the benefits of using Azure Automation DSC, see [Azure Automation DSC overview](/documentation/articles/automation-dsc-overview/).
+Like [PowerShell Desired State Configuration](https://technet.microsoft.com/zh-cn/library/dn249912.aspx), Azure Automation Desired State Configuration is a simple, yet powerful, configuration management service for DSC nodes (physical and virtual machines) in any cloud or on-premises datacenter. It enables scalability across thousands of machines quickly and easily from a central, secure location. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. The Azure Automation DSC management layer is to DSC what the Azure Automation management layer is to PowerShell scripting. In other words, in the same way that Azure Automation helps you manage PowerShell scripts, it also helps you manage DSC configurations. To learn more about the benefits of using Azure Automation DSC, see [Azure Automation DSC overview](./automation-dsc-overview.md).
 
 Azure Automation DSC can be used to manage a variety of machines:
 
@@ -50,65 +51,67 @@ To find the registration URL and key for the Automation account to onboard the m
 
 ### PowerShell
 
-    # log in to both Azure Service Management and Azure Resource Manager
-    Add-AzureAccount -Environment AzureChinaCloud
-    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+```powershell
+# log in to both Azure Service Management and Azure Resource Manager
+Add-AzureAccount -Environment AzureChinaCloud
+Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 
-    # fill in correct values for your VM/Automation account here
-    $VMName = ""
-    $ServiceName = ""
-    $AutomationAccountName = ""
-    $AutomationAccountResourceGroup = ""
+# fill in correct values for your VM/Automation account here
+$VMName = ""
+$ServiceName = ""
+$AutomationAccountName = ""
+$AutomationAccountResourceGroup = ""
 
-    # fill in the name of a Node Configuration in Azure Automation DSC, for this VM to conform to
-    $NodeConfigName = ""
+# fill in the name of a Node Configuration in Azure Automation DSC, for this VM to conform to
+$NodeConfigName = ""
 
-    # get Azure Automation DSC registration info
-    $Account = Get-AzureRmAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
-    $RegistrationInfo = $Account | Get-AzureRmAutomationRegistrationInfo
+# get Azure Automation DSC registration info
+$Account = Get-AzureRmAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
+$RegistrationInfo = $Account | Get-AzureRmAutomationRegistrationInfo
 
-    # use the DSC extension to onboard the VM for management with Azure Automation DSC
-    $VM = Get-AzureVM -Name $VMName -ServiceName $ServiceName
+# use the DSC extension to onboard the VM for management with Azure Automation DSC
+$VM = Get-AzureVM -Name $VMName -ServiceName $ServiceName
 
-    $PublicConfiguration = ConvertTo-Json -Depth 8 @{
-        SasToken = ""
-        ModulesUrl = "https://eus2oaasibizamarketprod1.blob.core.chinacloudapi.cn/automationdscpreview/RegistrationMetaConfigV2.zip"
-        ConfigurationFunction = "RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2"
+$PublicConfiguration = ConvertTo-Json -Depth 8 @{
+    SasToken = ""
+    ModulesUrl = "https://eus2oaasibizamarketprod1.blob.core.chinacloudapi.cn/automationdscpreview/RegistrationMetaConfigV2.zip"
+    ConfigurationFunction = "RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2"
 
-    # update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
-    # See https://technet.microsoft.com/zh-cn/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
-        Properties = @{
-        RegistrationKey = @{
-            UserName = 'notused'
-            Password = 'PrivateSettingsRef:RegistrationKey'
-        }
-        RegistrationUrl = $RegistrationInfo.Endpoint
-        NodeConfigurationName = $NodeConfigName
-        ConfigurationMode = "ApplyAndMonitor"
-        ConfigurationModeFrequencyMins = 15
-        RefreshFrequencyMins = 30
-        RebootNodeIfNeeded = $False
-        ActionAfterReboot = "ContinueConfiguration"
-        AllowModuleOverwrite = $False
-        }
+# update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
+# See https://technet.microsoft.com/zh-cn/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
+    Properties = @{
+    RegistrationKey = @{
+        UserName = 'notused'
+        Password = 'PrivateSettingsRef:RegistrationKey'
     }
-
-    $PrivateConfiguration = ConvertTo-Json -Depth 8 @{
-        Items = @{
-            RegistrationKey = $RegistrationInfo.PrimaryKey
-        }
+    RegistrationUrl = $RegistrationInfo.Endpoint
+    NodeConfigurationName = $NodeConfigName
+    ConfigurationMode = "ApplyAndMonitor"
+    ConfigurationModeFrequencyMins = 15
+    RefreshFrequencyMins = 30
+    RebootNodeIfNeeded = $False
+    ActionAfterReboot = "ContinueConfiguration"
+    AllowModuleOverwrite = $False
     }
+}
 
-    $VM = Set-AzureVMExtension `
-        -VM $vm `
-        -Publisher Microsoft.Powershell `
-        -ExtensionName DSC `
-        -Version 2.19 `
-        -PublicConfiguration $PublicConfiguration `
-        -PrivateConfiguration $PrivateConfiguration `
-        -ForceUpdate
+$PrivateConfiguration = ConvertTo-Json -Depth 8 @{
+    Items = @{
+        RegistrationKey = $RegistrationInfo.PrimaryKey
+    }
+}
 
-    $VM | Update-AzureVM
+$VM = Set-AzureVMExtension `
+    -VM $vm `
+    -Publisher Microsoft.Powershell `
+    -ExtensionName DSC `
+    -Version 2.19 `
+    -PublicConfiguration $PublicConfiguration `
+    -PrivateConfiguration $PrivateConfiguration `
+    -ForceUpdate
+
+$VM | Update-AzureVM
+```
 
 ## Azure virtual machines
 
@@ -146,7 +149,9 @@ On-premises Windows machines and Windows machines in non-Azure clouds (such as A
 2. Follow the directions in section [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) below to generate a folder containing the needed DSC metaconfigurations.
 3. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard. **The machine this command is run from must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed**:
 
-        Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
+    ```powershell
+    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
+    ```
 
 4. If you cannot apply the PowerShell DSC metaconfigurations remotely, copy the metaconfigurations folder from step 2 onto each machine to onboard. Then call **Set-DscLocalConfigurationManager** locally on each machine to onboard.
 5. Using the Azure portal preview or cmdlets, check that the machines to onboard now show up as DSC nodes registered in your Azure Automation account.
@@ -169,15 +174,17 @@ On-premises Linux machines, Linux machines in Azure, and Linux machines in non-A
 3. Follow the directions in the [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) section below to generate a folder containing the needed DSC metaconfigurations.
 4. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard:
 
-        $SecurePass = ConvertTo-SecureString -String "<root password>" -AsPlainText -Force
-        $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurePass
-        $Opt = New-CimSessionOption -UseSsl -SkipCACheck -SkipCNCheck -SkipRevocationCheck
+    ```powershell
+    $SecurePass = ConvertTo-SecureString -String "<root password>" -AsPlainText -Force
+    $Cred = New-Object System.Management.Automation.PSCredential "root", $SecurePass
+    $Opt = New-CimSessionOption -UseSsl -SkipCACheck -SkipCNCheck -SkipRevocationCheck
 
-        # need a CimSession for each Linux machine to onboard
+    # need a CimSession for each Linux machine to onboard
 
-        $Session = New-CimSession -Credential $Cred -ComputerName <your Linux machine> -Port 5986 -Authentication basic -SessionOption $Opt
+    $Session = New-CimSession -Credential $Cred -ComputerName <your Linux machine> -Port 5986 -Authentication basic -SessionOption $Opt
 
-        Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
+    Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
+    ```
 
 The machine this command is run from must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
 
@@ -191,7 +198,7 @@ The machine this command is run from must have the latest version of [WMF 5](htt
 
 To generically onboard any machine to Azure Automation DSC, a [DSC metaconfiguration](https://msdn.microsoft.com/powershell/dsc/metaconfig) can be generated that, when applied, tells the DSC agent on the machine to pull from and/or report to Azure Automation DSC. DSC metaconfigurations for Azure Automation DSC can be generated using either a PowerShell DSC configuration, or the Azure Automation PowerShell cmdlets.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > DSC metaconfigurations contain the secrets needed to onboard a machine to an Automation account for management. Make sure to properly protect any DSC metaconfigurations you create, or delete them after use.
 
 ### Using a DSC Configuration
@@ -199,120 +206,124 @@ To generically onboard any machine to Azure Automation DSC, a [DSC metaconfigura
 1. Open the PowerShell ISE as an administrator in a machine in your local environment. The machine must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
 2. Copy the following script locally. This script contains a PowerShell DSC configuration for creating metaconfigurations, and a command to kick off the metaconfiguration creation.
 
-        # The DSC configuration that will generate metaconfigurations
-        [DscLocalConfigurationManager()]
-        Configuration DscMetaConfigs
+    ```powershell
+    # The DSC configuration that will generate metaconfigurations
+    [DscLocalConfigurationManager()]
+    Configuration DscMetaConfigs
+    {
+
+        param
+        (
+            [Parameter(Mandatory=$True)]
+            [String]$RegistrationUrl,
+
+            [Parameter(Mandatory=$True)]
+            [String]$RegistrationKey,
+
+            [Parameter(Mandatory=$True)]
+            [String[]]$ComputerName,
+
+            [Int]$RefreshFrequencyMins = 30,
+
+            [Int]$ConfigurationModeFrequencyMins = 15,
+
+            [String]$ConfigurationMode = "ApplyAndMonitor",
+
+            [String]$NodeConfigurationName,
+
+            [Boolean]$RebootNodeIfNeeded= $False,
+
+            [String]$ActionAfterReboot = "ContinueConfiguration",
+
+            [Boolean]$AllowModuleOverwrite = $False,
+
+            [Boolean]$ReportOnly
+        )
+
+        if(!$NodeConfigurationName -or $NodeConfigurationName -eq "")
+        {
+            $ConfigurationNames = $null
+        }
+        else
+        {
+            $ConfigurationNames = @($NodeConfigurationName)
+        }
+
+        if($ReportOnly)
+        {
+        $RefreshMode = "PUSH"
+        }
+        else
+        {
+        $RefreshMode = "PULL"
+        }
+
+        Node $ComputerName
         {
 
-            param
-            (
-                [Parameter(Mandatory=$True)]
-                [String]$RegistrationUrl,
-
-                [Parameter(Mandatory=$True)]
-                [String]$RegistrationKey,
-
-                [Parameter(Mandatory=$True)]
-                [String[]]$ComputerName,
-
-                [Int]$RefreshFrequencyMins = 30,
-
-                [Int]$ConfigurationModeFrequencyMins = 15,
-
-                [String]$ConfigurationMode = "ApplyAndMonitor",
-
-                [String]$NodeConfigurationName,
-
-                [Boolean]$RebootNodeIfNeeded= $False,
-
-                [String]$ActionAfterReboot = "ContinueConfiguration",
-
-                [Boolean]$AllowModuleOverwrite = $False,
-
-                [Boolean]$ReportOnly
-            )
-
-            if(!$NodeConfigurationName -or $NodeConfigurationName -eq "")
+            Settings
             {
-                $ConfigurationNames = $null
-            }
-            else
-            {
-                $ConfigurationNames = @($NodeConfigurationName)
+                RefreshFrequencyMins = $RefreshFrequencyMins
+                RefreshMode = $RefreshMode
+                ConfigurationMode = $ConfigurationMode
+                AllowModuleOverwrite = $AllowModuleOverwrite
+                RebootNodeIfNeeded = $RebootNodeIfNeeded
+                ActionAfterReboot = $ActionAfterReboot
+                ConfigurationModeFrequencyMins = $ConfigurationModeFrequencyMins
             }
 
-            if($ReportOnly)
+            if(!$ReportOnly)
             {
-            $RefreshMode = "PUSH"
-            }
-            else
-            {
-            $RefreshMode = "PULL"
-            }
-
-            Node $ComputerName
-            {
-
-                Settings
-                {
-                    RefreshFrequencyMins = $RefreshFrequencyMins
-                    RefreshMode = $RefreshMode
-                    ConfigurationMode = $ConfigurationMode
-                    AllowModuleOverwrite = $AllowModuleOverwrite
-                    RebootNodeIfNeeded = $RebootNodeIfNeeded
-                    ActionAfterReboot = $ActionAfterReboot
-                    ConfigurationModeFrequencyMins = $ConfigurationModeFrequencyMins
-                }
-
-                if(!$ReportOnly)
-                {
-                ConfigurationRepositoryWeb AzureAutomationDSC
-                    {
-                        ServerUrl = $RegistrationUrl
-                        RegistrationKey = $RegistrationKey
-                        ConfigurationNames = $ConfigurationNames
-                    }
-
-                    ResourceRepositoryWeb AzureAutomationDSC
-                    {
-                    ServerUrl = $RegistrationUrl
-                    RegistrationKey = $RegistrationKey
-                    }
-                }
-
-                ReportServerWeb AzureAutomationDSC
+            ConfigurationRepositoryWeb AzureAutomationDSC
                 {
                     ServerUrl = $RegistrationUrl
                     RegistrationKey = $RegistrationKey
+                    ConfigurationNames = $ConfigurationNames
+                }
+
+                ResourceRepositoryWeb AzureAutomationDSC
+                {
+                ServerUrl = $RegistrationUrl
+                RegistrationKey = $RegistrationKey
                 }
             }
-        }
 
-        # Create the metaconfigurations
-        # TODO: edit the below as needed for your use case
-        $Params = @{
-            RegistrationUrl = '<fill me in>';
-            RegistrationKey = '<fill me in>';
-            ComputerName = @('<some VM to onboard>', '<some other VM to onboard>');
-            NodeConfigurationName = 'SimpleConfig.webserver';
-            RefreshFrequencyMins = 30;
-            ConfigurationModeFrequencyMins = 15;
-            RebootNodeIfNeeded = $False;
-            AllowModuleOverwrite = $False;
-            ConfigurationMode = 'ApplyAndMonitor';
-            ActionAfterReboot = 'ContinueConfiguration';
-            ReportOnly = $False;  # Set to $True to have machines only report to AA DSC but not pull from it
+            ReportServerWeb AzureAutomationDSC
+            {
+                ServerUrl = $RegistrationUrl
+                RegistrationKey = $RegistrationKey
+            }
         }
+    }
 
-        # Use PowerShell splatting to pass parameters to the DSC configuration being invoked
-        # For more info about splatting, run: Get-Help -Name about_Splatting
-        DscMetaConfigs @Params
+    # Create the metaconfigurations
+    # TODO: edit the below as needed for your use case
+    $Params = @{
+        RegistrationUrl = '<fill me in>';
+        RegistrationKey = '<fill me in>';
+        ComputerName = @('<some VM to onboard>', '<some other VM to onboard>');
+        NodeConfigurationName = 'SimpleConfig.webserver';
+        RefreshFrequencyMins = 30;
+        ConfigurationModeFrequencyMins = 15;
+        RebootNodeIfNeeded = $False;
+        AllowModuleOverwrite = $False;
+        ConfigurationMode = 'ApplyAndMonitor';
+        ActionAfterReboot = 'ContinueConfiguration';
+        ReportOnly = $False;  # Set to $True to have machines only report to AA DSC but not pull from it
+    }
+
+    # Use PowerShell splatting to pass parameters to the DSC configuration being invoked
+    # For more info about splatting, run: Get-Help -Name about_Splatting
+    DscMetaConfigs @Params
+    ```
 
 3. Fill in the registration key and URL for your Automation account, as well as the names of the machines to onboard. All other parameters are optional. To find the registration key and registration URL for your Automation account, see the [**Secure registration**](#secure-registration) section below.
 4. If you want the machines to report DSC status information to Azure Automation DSC, but not pull configuration or PowerShell modules, set the **ReportOnly** parameter to true.
 5. Run the script. You should now have a folder called **DscMetaConfigs** in your working directory, containing the PowerShell DSC metaconfigurations for the machines to onboard (as an administrator):
 
-        Set-DscLocalConfigurationManager -Path ./DscMetaConfigs
+    ```powershell
+    Set-DscLocalConfigurationManager -Path ./DscMetaConfigs
+    ```
 
 ### Using the Azure Automation cmdlets
 
@@ -322,21 +333,25 @@ If the PowerShell DSC Local Configuration Manager defaults match your use case, 
 2. Connect to Azure Resource Manager using **Add-AzureRmAccount -EnvironmentName AzureChinaCloud**
 3. Download the PowerShell DSC metaconfigurations for the machines you want to onboard from the Automation account to which you want to onboard nodes:
 
-        # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
-        $Params = @{
+    ```powershell
+    # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
+    $Params = @{
 
-            ResourceGroupName = 'ContosoResources'; # The name of the ARM Resource Group that contains your Azure Automation Account
-            AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
-            ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
-            OutputFolder = "$env:UserProfile\Desktop\";
-        }
-        # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
-        # For more info about splatting, run: Get-Help -Name about_Splatting
-        Get-AzureRmAutomationDscOnboardingMetaconfig @Params
+        ResourceGroupName = 'ContosoResources'; # The name of the ARM Resource Group that contains your Azure Automation Account
+        AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
+        ComputerName = @('web01', 'web02', 'sql01'); # The names of the computers that the meta configuration will be generated for
+        OutputFolder = "$env:UserProfile\Desktop\";
+    }
+    # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
+    # For more info about splatting, run: Get-Help -Name about_Splatting
+    Get-AzureRmAutomationDscOnboardingMetaconfig @Params
+    ```
 
 4. You should now have a folder called ***DscMetaConfigs***, containing the PowerShell DSC metaconfigurations for the machines to onboard (as an administrator):
 
-        Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
+    ```powershell
+    Set-DscLocalConfigurationManager -Path $env:UserProfile\Desktop\DscMetaConfigs
+    ```
 
 ## Secure registration
 
@@ -355,7 +370,7 @@ For added security, the primary and secondary access keys of an Automation accou
 
 Azure Automation DSC lets you easily onboard Azure Windows VMs for configuration management. Under the hood, the Azure VM Desired State Configuration extension is used to register the VM with Azure Automation DSC. Since the Azure VM Desired State Configuration extension runs asynchronously, tracking its progress and troubleshooting its execution may be important.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Any method of onboarding an Azure Windows VM to Azure Automation DSC that uses the Azure VM Desired State Configuration extension could take up to an hour for the node to show up as registered in Azure Automation. This is due to the installation of Windows Management Framework 5.0 on the VM by the Azure VM DSC extension, which is required to onboard the VM to Azure Automation DSC.
 
 To troubleshoot or view the status of the Azure VM Desired State Configuration extension, in the Azure portal preview navigate to the VM being onboarded, then click -> **All settings** -> **Extensions** -> **DSC**. For more details, you can click **View detailed status**.
@@ -373,6 +388,6 @@ Reregistration can be performed in the same way you registered the node initiall
 
 ## Related Articles
 
-* [Azure Automation DSC overview](/documentation/articles/automation-dsc-overview/)
+* [Azure Automation DSC overview](./automation-dsc-overview.md)
 * [Azure Automation DSC cmdlets](https://msdn.microsoft.com/zh-cn/library/mt244122.aspx)
-* [Azure Automation DSC pricing](/pricing/details/automation/)
+* [Azure Automation DSC pricing](https://www.azure.cn/pricing/details/automation/)

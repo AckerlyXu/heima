@@ -1,46 +1,50 @@
-<properties
-    pageTitle="Scale media processing by adding encoding units - Azure |  Azure"
-    description="Learn how to how to add encoding units with .NET"
-    services="media-services"
-    documentationcenter=""
-    author="juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="33f7625a-966a-4f06-bc09-bccd6e2a42b5"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="juliako;milangada;" />
+---
+title: Scale media processing by adding encoding units - Azure |  Azure
+description: Learn how to how to add encoding units with .NET
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
+
+ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: juliako;milangada;
+---
 
 #How to scale encoding with .NET SDK
 
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/media-services-portal-scale-media-processing/)
-- [.NET](/documentation/articles/media-services-dotnet-encoding-units/)
-- [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
-- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+> [!div class="op_single_selector"]
+>- [Portal](./media-services-portal-scale-media-processing.md)
+>- [.NET](./media-services-dotnet-encoding-units.md)
+>- [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+>- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+>- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ##Overview
 
->[AZURE.IMPORTANT] Make sure to review the [overview](/documentation/articles/media-services-scale-media-processing-overview/) topic to get more information about scaling media processing topic.
- 
+>[!IMPORTANT]
+> Make sure to review the [overview](./media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
+
 To change the reserved unit type and the number of encoding reserved units using .NET SDK, do the following:
 
-	IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-	encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
-	encodingS1ReservedUnit.Update();
-	Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
-	
-	encodingS1ReservedUnit.CurrentReservedUnits = 2;
-	encodingS1ReservedUnit.Update();
-	
-	Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+```
+IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
+encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
+encodingS1ReservedUnit.Update();
+Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
+
+encodingS1ReservedUnit.CurrentReservedUnits = 2;
+encodingS1ReservedUnit.Update();
+
+Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
+```
 
 ## Opening a Support Ticket
 By default every Media Services account can scale to up to 25 Encoding and 5 On-Demand Streaming Reserved Units. You can request a higher limit by opening a support ticket.
@@ -57,6 +61,3 @@ To open a support ticket do the following:
 7. Click Continue.
 8. Follow instructions on next page and then enter details about your issue.
 9. Click submit to open the ticket.
-
-
-

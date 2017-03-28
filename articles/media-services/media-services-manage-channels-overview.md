@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Overview of Live Streaming using Azure Media Services | Azure"
-    description="This topic gives an overview of live streaming using Azure Media Services."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="fb63502e-914d-4c1f-853c-4a7831bb08e8"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="ne"
-    ms.topic="article"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Overview of Live Streaming using Azure Media Services | Azure
+description: This topic gives an overview of live streaming using Azure Media Services.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
+
+ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: ne
+ms.topic: article
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Overview of Live Streaming using Azure Media Services
 ## Overview
@@ -43,9 +44,9 @@ A **Channel** represents a pipeline for processing live streaming content. A Cha
 
 - An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the Channel that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **Channel**s without any further processing. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
-	>[AZURE.NOTE] Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](/pricing/details/media-services/) details.
-	
-	
+    >[!NOTE]
+    > Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://www.azure.cn/pricing/details/media-services/) details.
+
 - An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). RTP (MPEG-TS) is also supported, provided you have a dedicated connection to the Azure data center. The following live encoders with RTMP output are known to work with channels of this type: Telestream Wirecast, FMLE. The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
 Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:
@@ -61,7 +62,7 @@ Feature|Pass-through Channel|Standard Channel
 Single bitrate input is encoded into multiple bitrates in the cloud|No|Yes
 Maximum resolution, number of layers|1080p, 8 layers, 60+fps|720p, 6 layers, 30 fps
 Input protocols|RTMP, Smooth Streaming|RTMP, Smooth Streaming, and RTP
-Price|See the [pricing page](/pricing/details/media-services/) and click on "Live Video" tab|See the [pricing page](/pricing/details/media-services/) 
+Price|See the [pricing page](https://www.azure.cn/pricing/details/media-services/) and click on "Live Video" tab|See the [pricing page](https://www.azure.cn/pricing/details/media-services/) 
 Maximum run time|24x7|8 hours
 Support for inserting slates|No|Yes
 Support for ad signaling|No|Yes
@@ -76,14 +77,14 @@ The following diagram shows the major parts of the AMS platform that are involve
 
 ![Live workflow](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
-For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](/documentation/articles/media-services-live-streaming-with-onprem-encoders/).
+For more information, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](./media-services-live-streaming-with-onprem-encoders.md).
 
 ## Working with Channels that are enabled to perform live encoding with Azure Media Services
 The following diagram shows the major parts of the AMS platform that are involved in Live Streaming workflow where a Channel is enabled to perform live encoding with Media Services.
 
 ![Live workflow](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
 
-For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](/documentation/articles/media-services-manage-live-encoder-enabled-channels/).
+For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](./media-services-manage-live-encoder-enabled-channels.md).
 
 ## Description of a Channel and its related components
 ### Channel
@@ -111,7 +112,8 @@ The following table shows how Channel states map to billing states in the API an
 To stop the Channel from billing you further, you have to Stop the Channel via the API or in the Azure portal.
 You are responsible for stopping your channels when you are done with the channel. Failure to stop the channel will result in continued billing.
 
->[AZURE.NOTE]When working with Standard channels, AMS will auto shutoff any Channel that is still in “Running” state 12 hours after the input feed is lost, and there are no Programs running. However, you will still be billed for the time the Channel was in “Running” state.
+>[!NOTE]
+>When working with Standard channels, AMS will auto shutoff any Channel that is still in “Running” state 12 hours after the input feed is lost, and there are no Programs running. However, you will still be billed for the time the Channel was in “Running” state.
 
 ### <a id="states"></a>Channel states and how they map to the billing mode
 The current state of a Channel. Possible values include:
@@ -123,7 +125,7 @@ The current state of a Channel. Possible values include:
 * **Deleting**. The Channel is being deleted. No billing occurs in this transient state. No updates or streaming is allowed during this state.
 
 The following table shows how Channel states map to the billing mode. 
- 
+
 Channel state|Portal UI Indicators|Is it Billing?
 ---|---|---
 Starting|Starting|No (transient state)
@@ -131,17 +133,13 @@ Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running p
 Stopping|Stopping|No (transient state)
 Stopped|Stopped|No
 
-
-
-
-
 ## Related topics
-[Azure Media Services Fragmented MP4 Live Ingest Specification](/documentation/articles/media-services-fmp4-live-ingest-overview/)
+[Azure Media Services Fragmented MP4 Live Ingest Specification](./media-services-fmp4-live-ingest-overview.md)
 
-[Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](/documentation/articles/media-services-manage-live-encoder-enabled-channels/)
+[Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](./media-services-manage-live-encoder-enabled-channels.md)
 
-[Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](/documentation/articles/media-services-live-streaming-with-onprem-encoders/)
+[Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](./media-services-live-streaming-with-onprem-encoders.md)
 
-[Quotas and limitations](/documentation/articles/media-services-quotas-and-limitations/).  
+[Quotas and limitations](./media-services-quotas-and-limitations.md).  
 
-[Media Services Concepts](/documentation/articles/media-services-concepts/)
+[Media Services Concepts](./media-services-concepts.md)

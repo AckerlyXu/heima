@@ -1,17 +1,16 @@
-<properties
-	pageTitle="Setting up Azure Active Directory for self service application access management| Azure"
-	description="Self-service group management enables users to create and manage security groups or Office 365 groups in Azure Active Directory and offers users the possibility to request security group or Office 365 group memberships"
-	services="active-directory"
-	documentationCenter=""
-  	authors="curtand"
-	manager="femila"
-	editor=""
-	/>
+---
+title: Setting up Azure Active Directory for self service application access management| Azure
+description: Self-service group management enables users to create and manage security groups or Office 365 groups in Azure Active Directory and offers users the possibility to request security group or Office 365 group memberships
+services: active-directory
+documentationCenter: ''
+authors: curtand
+manager: femila
+editor: ''
 
-<tags 
-	ms.service="active-directory" 
-	ms.date="08/10/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 08/10/2016
+wacn.date: ''
+---
 
 # Setting up Azure Active Directory for self-service group management
 
@@ -20,10 +19,10 @@ Self-service group management enables users to create and manage security groups
 Self-service group management currently comprises two essential scenarios: delegated group management and self-service group management.
 
 - **Delegated group management**
-	An example is an administrator who is managing access to a SaaS application that the company is using. Managing these access rights is becoming cumbersome, so this administrator asks the business owner to create a new group. The administrator assigns access for the application to the new group, and adds to the group all people already accessing to the application. The business owner then can add more users, and those users are automatically provisioned to the application. The business owner doesn't need to wait for the administrator to manage access for users. If the administrator grants the same permission to a manager in a different business group, then that person can also manage access for their own users. Neither the business owner nor the manager can view or manage each other’s users. The administrator can still see all users who have access to the application and block access rights if needed.
+    An example is an administrator who is managing access to a SaaS application that the company is using. Managing these access rights is becoming cumbersome, so this administrator asks the business owner to create a new group. The administrator assigns access for the application to the new group, and adds to the group all people already accessing to the application. The business owner then can add more users, and those users are automatically provisioned to the application. The business owner doesn't need to wait for the administrator to manage access for users. If the administrator grants the same permission to a manager in a different business group, then that person can also manage access for their own users. Neither the business owner nor the manager can view or manage each other’s users. The administrator can still see all users who have access to the application and block access rights if needed.
 
 - **Self-service group management**
-	An example of this scenario is two users who both have SharePoint Online sites that they set up independently. They want to give each other’s teams access to their sites. To accomplish this, they can create one group in Azure AD, and in SharePoint Online each of them selects that group to provide access to their sites. When someone wants access, they request it from the Access Panel, and after approval they get access to both SharePoint Online sites automatically. Later, one of them decides that all people accessing the site should also get access to a particular SaaS application. The administrator of the SaaS application can add access rights for the  application to the SharePoint Online site. From then on, any requests that get approved gives access to the two SharePoint Online sites and also to this SaaS application.
+    An example of this scenario is two users who both have SharePoint Online sites that they set up independently. They want to give each other’s teams access to their sites. To accomplish this, they can create one group in Azure AD, and in SharePoint Online each of them selects that group to provide access to their sites. When someone wants access, they request it from the Access Panel, and after approval they get access to both SharePoint Online sites automatically. Later, one of them decides that all people accessing the site should also get access to a particular SaaS application. The administrator of the SaaS application can add access rights for the  application to the SharePoint Online site. From then on, any requests that get approved gives access to the two SharePoint Online sites and also to this SaaS application.
 
 ## Making a group available for end user self-service
 
@@ -43,9 +42,9 @@ You can also use the **Group that can use self-service for security groups** box
 
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](/documentation/articles/active-directory-manage-groups/)
+* [Managing access to resources with Azure Active Directory groups](./active-directory-manage-groups.md)
 
-* [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
-* [What is Azure Active Directory?](/documentation/articles/active-directory-whatis/)
+* [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
+* [What is Azure Active Directory?](./active-directory-whatis.md)
 
-* [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+* [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)

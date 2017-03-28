@@ -1,25 +1,26 @@
-<properties
-   pageTitle="Moving ExpressRoute circuits from classic to Resource Manager | Azure"
-   description="This page provides an overview of what you need to know about bridging the classic and the Resource Manager deployment models."
-   documentationCenter="na"
-   services="expressroute"
-   authors="ganesr"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="ganesr"/>
+---
+title: Moving ExpressRoute circuits from classic to Resource Manager | Azure
+description: This page provides an overview of what you need to know about bridging the classic and the Resource Manager deployment models.
+documentationCenter: na
+services: expressroute
+authors: ganesr
+manager: carmonm
+editor: ''
+
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: ganesr
+---
 
 # Moving ExpressRoute circuits from the classic to the Resource Manager deployment model
 
 This article provides an overview of what it means to move an Azure ExpressRoute circuit from the classic to the Azure Resource Manager deployment model.
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 You can use a single ExpressRoute circuit to connect to virtual networks that are deployed both in the classic and the Resource Manager deployment models. An ExpressRoute circuit, regardless of how it is created, can now link to virtual networks across both deployment models.
 
@@ -41,17 +42,17 @@ You can enable ExpressRoute circuits that are created in the Resource Manager de
 
 - ExpressRoute circuits that were created in the Resource Manager deployment model do not have access to the classic deployment model by default.
 - ExpressRoute circuits that have been moved from the classic deployment model to the Resource manager deployment model are accessible from both deployment models by default.
-- An ExpressRoute circuit always has access to the Resource Manager deployment model, regardless of whether it was created in the Resource Manager or classic deployment model. This means that you can create connections to virtual networks created in the Resource Manager deployment model by following instructions on [how to link virtual networks](/documentation/articles/expressroute-howto-linkvnet-arm/).
+- An ExpressRoute circuit always has access to the Resource Manager deployment model, regardless of whether it was created in the Resource Manager or classic deployment model. This means that you can create connections to virtual networks created in the Resource Manager deployment model by following instructions on [how to link virtual networks](./expressroute-howto-linkvnet-arm.md).
 - Access to the classic deployment model is controlled by the **allowClassicOperations** parameter in the ExpressRoute circuit.
 
->[AZURE.IMPORTANT] All quotas that are documented on the [service limits](/documentation/articles/azure-subscription-service-limits/) page apply. As an example, a standard circuit can have at most 10 virtual network links/connections across both the classic and the Resource Manager deployment models.
-
+>[!IMPORTANT]
+> All quotas that are documented on the [service limits](../azure-subscription-service-limits.md) page apply. As an example, a standard circuit can have at most 10 virtual network links/connections across both the classic and the Resource Manager deployment models.
 
 ## Controlling access to the classic deployment model
 
 You can enable a single ExpressRoute circuit to link to virtual networks in both deployment models by setting the **allowClassicOperations** parameter of the ExpressRoute circuit.
 
-Setting **allowClassicOperations** to TRUE enables you to link virtual networks from both deployment models to the ExpressRoute circuit. You can link to virtual networks in the classic deployment model by following guidance on [how to link virtual networks in the classic deployment model](/documentation/articles/expressroute-howto-linkvnet-classic/). You can link to virtual networks in the Resource Manager deployment model by following guidance on [how to link virtual networks in the Resource Manager deployment model](/documentation/articles/expressroute-howto-linkvnet-arm/).
+Setting **allowClassicOperations** to TRUE enables you to link virtual networks from both deployment models to the ExpressRoute circuit. You can link to virtual networks in the classic deployment model by following guidance on [how to link virtual networks in the classic deployment model](./expressroute-howto-linkvnet-classic.md). You can link to virtual networks in the Resource Manager deployment model by following guidance on [how to link virtual networks in the Resource Manager deployment model](./expressroute-howto-linkvnet-arm.md).
 
 Setting **allowClassicOperations** to FALSE blocks access to the circuit from the classic deployment model. However, all virtual network links in the classic deployment model are preserved. In this case, the ExpressRoute circuit is not visible in the classic deployment model.
 
@@ -99,13 +100,13 @@ This section describes what's not supported for ExpressRoute circuits:
 
 ## Configuration
 
-Follow the instructions that are described in [Move an ExpressRoute circuit from the classic to the Resource Manager deployment model](/documentation/articles/expressroute-howto-move-arm/).
+Follow the instructions that are described in [Move an ExpressRoute circuit from the classic to the Resource Manager deployment model](./expressroute-howto-move-arm.md).
 
 ## Next steps
 
-- For workflow information, see [ExpressRoute circuit provisioning workflows and circuit states](/documentation/articles/expressroute-workflows/).
+- For workflow information, see [ExpressRoute circuit provisioning workflows and circuit states](./expressroute-workflows.md).
 - To configure your ExpressRoute connection:
 
-	- [Create an ExpressRoute circuit](/documentation/articles/expressroute-howto-circuit-arm/)
-	- [Configure routing](/documentation/articles/expressroute-howto-routing-arm/)
-	- [Link a virtual network to an ExpressRoute circuit](/documentation/articles/expressroute-howto-linkvnet-arm/)
+    - [Create an ExpressRoute circuit](./expressroute-howto-circuit-arm.md)
+    - [Configure routing](./expressroute-howto-routing-arm.md)
+    - [Link a virtual network to an ExpressRoute circuit](./expressroute-howto-linkvnet-arm.md)

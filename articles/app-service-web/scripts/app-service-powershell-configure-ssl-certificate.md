@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure PowerShell Script Sample - Bind a custom SSL certificate to a web app | Azure"
-    description="Azure PowerShell Script Sample - Bind a custom SSL certificate to a web app"
-    services="app-service\web"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="23e83b74-614a-49a0-bc08-7542120eeec5"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Azure PowerShell Script Sample - Bind a custom SSL certificate to a web app | Azure
+description: Azure PowerShell Script Sample - Bind a custom SSL certificate to a web app
+services: app-service\web
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
+ms.service: app-service-web
+ms.workload: web
+ms.devlang: na
+ms.topic: article
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Bind a custom SSL certificate to a web app
 
@@ -29,47 +30,51 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-    $fqdn="<Replace with your custom domain name>"
-    $pfxPath="<Replace with path to your .PFX file>"
-    $pfxPassword="<Replace with your .PFX password>"
-    $webappname="mywebapp$(Get-Random)"
-    $location="China North"
+```
+$fqdn="<Replace with your custom domain name>"
+$pfxPath="<Replace with path to your .PFX file>"
+$pfxPassword="<Replace with your .PFX password>"
+$webappname="mywebapp$(Get-Random)"
+$location="China North"
 
-    # Create a resource group.
-    New-AzureRmResourceGroup -Name $webappname -Location $location
+# Create a resource group.
+New-AzureRmResourceGroup -Name $webappname -Location $location
 
-    # Create an App Service plan in Free tier.
-    New-AzureRmAppServicePlan -Name $webappname -Location $location `
-    -ResourceGroupName $webappname -Tier Free
+# Create an App Service plan in Free tier.
+New-AzureRmAppServicePlan -Name $webappname -Location $location `
+-ResourceGroupName $webappname -Tier Free
 
-    # Create a web app.
-    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
-    -ResourceGroupName $webappname
+# Create a web app.
+New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
+-ResourceGroupName $webappname
 
-    Write-Host "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
-    Read-Host "Press [Enter] key when ready ..."
+Write-Host "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
+Read-Host "Press [Enter] key when ready ..."
 
-    # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-    # instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the 
-    # hostname "www" and point it your web app's default domain name.
+# Before continuing, go to your DNS configuration UI for your custom domain and follow the 
+# instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the 
+# hostname "www" and point it your web app's default domain name.
 
-    # Upgrade App Service plan to Basic tier (minimum required by custom SSL certificates)
-    Set-AzureRmAppServicePlan -Name $webappname -ResourceGroupName $webappname `
-    -Tier Basic
+# Upgrade App Service plan to Basic tier (minimum required by custom SSL certificates)
+Set-AzureRmAppServicePlan -Name $webappname -ResourceGroupName $webappname `
+-Tier Basic
 
-    # Add a custom domain name to the web app. 
-    Set-AzureRmWebApp -Name $webappname -ResourceGroupName $webappname `
-    -HostNames @($fqdn,"$webappname.chinacloudsites.cn")
+# Add a custom domain name to the web app. 
+Set-AzureRmWebApp -Name $webappname -ResourceGroupName $webappname `
+-HostNames @($fqdn,"$webappname.chinacloudsites.cn")
 
-    # Upload and bind the SSL certificate to the web app.
-    New-AzureRmWebAppSSLBinding -WebAppName $webappname -ResourceGroupName $webappname -Name $fqdn `
-    -CertificateFilePath $pfxPath -CertificatePassword $pfxPassword -SslState SniEnabled
+# Upload and bind the SSL certificate to the web app.
+New-AzureRmWebAppSSLBinding -WebAppName $webappname -ResourceGroupName $webappname -Name $fqdn `
+-CertificateFilePath $pfxPath -CertificatePassword $pfxPassword -SslState SniEnabled
+```
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
-    Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## Script explanation
 
@@ -88,4 +93,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](/documentation/articles/app-service-powershell-samples/).
+Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

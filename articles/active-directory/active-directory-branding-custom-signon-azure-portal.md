@@ -1,25 +1,25 @@
-<properties
-pageTitle="Customize your sign-in page in the Azure Active Directory preview | Azure"
-description="Learn how to add a company branding to the Azure sign-in page"
-services="active-directory"
-documentationCenter=""
-authors="curtand"
-manager="femila"
-editor=""/>
+---
+title: Customize your sign-in page in the Azure Active Directory preview | Azure
+description: Learn how to add a company branding to the Azure sign-in page
+services: active-directory
+documentationCenter: ''
+authors: curtand
+manager: femila
+editor: ''
 
-<tags
-ms.service="active-directory"
-ms.workload="identity"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="09/12/2016"
-ms.author="curtand"
-wacn.date=""/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: curtand
+wacn.date: ''
+---
 
 # Add company branding to your sign-in page in the Azure Active Directory preview
 
-To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory preview provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. [What's in the preview?](/documentation/articles/active-directory-preview-explainer/) The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
+To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory preview provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. [What's in the preview?](./active-directory-preview-explainer.md) The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
 
 If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.
 
@@ -31,7 +31,6 @@ The following screenshot shows and example for the Office 365 sign-in page on a 
 
 ![Office 365 sign-in page after customization](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-after-customization.png)
 
-
 ## Customizing the sign-in page
 
 Typically, if you need browser-based access to your cloud apps and services that your organization subscribes to, you use the sign-in page.
@@ -42,7 +41,7 @@ A branded sign-in page only appears when you visit a service with a tenant-speci
 
 When you visit a service with non-tenant specific URLs (e.g.: https://mail.office365.com), a non-branded sign-in page appears. in this case, your branding appears once you have entered your user ID or you have selected a user tile.
 
-> [AZURE.NOTE]
+> [!NOTE]
 >
 - Your domain name must appear as “Active" in the **Domains** portion of the Azure portal in which you have configured branding. For more information, see [Add custom domain names](/documentation/articles/active-directory-domains-add-azure-portal/).
 - Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
@@ -69,4 +68,4 @@ It can take up to an hour for any changes you made to the sign-in page branding 
 
 ## Next steps
 
-[Add language-specific company branding](/documentation/articles/active-directory-branding-localize-azure-portal/)
+[Add language-specific company branding](./active-directory-branding-localize-azure-portal.md)

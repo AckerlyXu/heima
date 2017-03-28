@@ -1,21 +1,22 @@
-<properties
-    pageTitle="How to enable cross-app SSO on Android using ADAL | Azure"
-    description="How to use the features of the ADAL SDK to enable Single Sign On across your applications. "
-    services="active-directory"
-    documentationcenter=""
-    author="xerners"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="40710225-05ab-40a3-9aec-8b4e96b6b5e7"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="android"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="brandwe" />
+---
+title: How to enable cross-app SSO on Android using ADAL | Azure
+description: How to use the features of the ADAL SDK to enable Single Sign On across your applications. 
+services: active-directory
+documentationcenter: ''
+author: xerners
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: android
+ms.devlang: java
+ms.topic: article
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: brandwe
+---
 
 # How to enable cross-app SSO on Android using ADAL
 Providing Single Sign-On (SSO) so that users only need to enter their credentials once and have those credentials automatically work across applications is now expected by customers. The difficulty in entering their username and password on a small screen, often times combined with an additional factor (2FA) like a phone call or a texted code, results in quick dissatisfaction if a user has to do this more than one time for your product.
@@ -64,19 +65,19 @@ These logins have the following drawbacks:
 
 Here is a representation of how the Microsoft Identity SDKs work with the shared storage of your applications to enable SSO:
 
-
-	+------------+ +------------+  +-------------+
-	|            | |            |  |             |
-	|   App 1    | |   App 2    |  |   App 3     |
-	|            | |            |  |             |
-	|            | |            |  |             |
-	+------------+ +------------+  +-------------+
-	| Azure SDK  | | Azure SDK  |  | Azure SDK   |
-	+------------+-+------------+--+-------------+
-	|                                            |
-	|            App Shared Storage              |
-	+--------------------------------------------+
-
+```
++------------+ +------------+  +-------------+
+|            | |            |  |             |
+|   App 1    | |   App 2    |  |   App 3     |
+|            | |            |  |             |
+|            | |            |  |             |
++------------+ +------------+  +-------------+
+| Azure SDK  | | Azure SDK  |  | Azure SDK   |
++------------+-+------------+--+-------------+
+|                                            |
+|            App Shared Storage              |
++--------------------------------------------+
+```
 
 #### Broker assisted logins
 Broker-assisted logins are login experiences that occur within the broker application and use the storage and security of the broker to share credentials across all applications on the device that leverage the Microsoft Identity platform. This means that your applications will rely on the broker in order to sign users in. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages the device for their user. An example of this type of application is the Azure Authenticator application on iOS. In Windows this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
@@ -105,29 +106,29 @@ These logins have the following drawbacks:
 
 Here is a representation of how the Microsoft Identity SDKs work with the broker applications to enable SSO:
 
-	
-	+------------+ +------------+   +-------------+
-	|            | |            |   |             |
-	|   App 1    | |   App 2    |   |   Someone   |
-	|            | |            |   |    Else's   |
-	|            | |            |   |     App     |
-	+------------+ +------------+   +-------------+
-	| Azure SDK  | | Azure SDK  |   | Azure SDK   |
-	+-----+------+-+-----+------+-  +-------+-----+
-	      |              |                  |
-	      |       +------v------+           |
-	      |       |             |           |
-	      |       | Microsoft   |           |
-	      +-------> Broker      |^----------+
-	              | Application
-	              |             |
-	              +-------------+
-	              |             |
-	              |   Broker    |
-	              |   Storage   |
-	              |             |
-	              +-------------+
-	
+```
++------------+ +------------+   +-------------+
+|            | |            |   |             |
+|   App 1    | |   App 2    |   |   Someone   |
+|            | |            |   |    Else's   |
+|            | |            |   |     App     |
++------------+ +------------+   +-------------+
+| Azure SDK  | | Azure SDK  |   | Azure SDK   |
++-----+------+-+-----+------+-  +-------+-----+
+      |              |                  |
+      |       +------v------+           |
+      |       |             |           |
+      |       | Microsoft   |           |
+      +-------> Broker      |^----------+
+              | Application
+              |             |
+              +-------------+
+              |             |
+              |   Broker    |
+              |   Storage   |
+              |             |
+              +-------------+
+```
 
 Armed with this background information you should be able to better understand and implement SSO within your application using the Microsoft Identity platform and SDKs.
 
@@ -161,29 +162,27 @@ App3 Redirect URI: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fej
 
 These are nested under the same client ID / application ID and looked up based on the redirect URI you return to us in your SDK configuration.
 
-
-	+-------------------+
-	|                   |
-	|  Client ID        |
-	+---------+---------+
-	          |
-	          |           +-----------------------------------+
-	          |           |  App 1 Redirect URI               |
-	          +----------^+                                   |
-	          |           +-----------------------------------+
-	          |
-	          |           +-----------------------------------+
-	          +----------^+  App 2 Redirect URI               |
-	          |           |                                   |
-	          |           +-----------------------------------+
-	          |
-	          +----------^+-----------------------------------+
-	                      |  App 3 Redirect URI               |
-	                      |                                   |
-	                      +-----------------------------------+
-	
-	
-
+```
++-------------------+
+|                   |
+|  Client ID        |
++---------+---------+
+          |
+          |           +-----------------------------------+
+          |           |  App 1 Redirect URI               |
+          +----------^+                                   |
+          |           +-----------------------------------+
+          |
+          |           +-----------------------------------+
+          +----------^+  App 2 Redirect URI               |
+          |           |                                   |
+          |           +-----------------------------------+
+          |
+          +----------^+-----------------------------------+
+                      |  App 3 Redirect URI               |
+                      |                                   |
+                      +-----------------------------------+
+```
 
 *Note that the format of these Redirect URIs are explained below. You may use any Redirect URI unless you wish to support the broker, in which case they must look something like the above*
 
@@ -192,7 +191,7 @@ Setting the `SharedUserID` is beyond the scope of this document but can be learn
 
 Once you have the `SharedUserID` in all your applications you are ready to use SSO.
 
-> [AZURE.WARNING]
+> [!WARNING]
 > When you share a storage across your applications any application can delete users, or worse delete all the tokens across your application. This is particularly disastrous if you have applications that rely on the tokens to do background work. Sharing storage means that you must be very careful in any and all remove operations through the Microsoft Identity SDKs.
 > 
 > 
@@ -211,10 +210,9 @@ The steps to follow are:
 #### Step 1: Enable broker mode in your application
 The ability for your application to use the broker is turned on when you create the "settings" or initial setup of your Authentication instance. You do this by setting your ApplicationSettings type in your code:
 
-
-	AuthenticationSettings.Instance.setUseBroker(true);
-
-
+```
+AuthenticationSettings.Instance.setUseBroker(true);
+```
 
 #### Step 2: Establish a new redirect URI with your URL Scheme
 In order to ensure that we always return the credential tokens to the correct application, we need to make sure we call back to your application in a way that the Android operating system can verify. The Android operating system uses the hash of the certificate in the Google Play store. This cannot be spoofed by a rogue application. Therefore, we leverage this along with the URI of our broker application to ensure that the tokens are returned to the correct application. We require you to establish this unique redirect URI both in your application and set as a Redirect URI in our developer portal.
@@ -232,12 +230,11 @@ Our broker application in Android uses the Accounts Manager feature of the Andro
 
 In particular, these permissions are:
 
-	
-	GET_ACCOUNTS
-	USE_CREDENTIALS
-	MANAGE_ACCOUNTS
-
+```
+GET_ACCOUNTS
+USE_CREDENTIALS
+MANAGE_ACCOUNTS
+```
 
 ### You've configured SSO!
 Now the Microsoft Identity SDK will automatically both share credentials across your applications and invoke the broker if it's present on their device.
-

@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Download the Azure SDK for PHP"
-	description="Learn how to download and install the Azure SDK for PHP."
-	documentationCenter="php"
-	services="app-service\web"
-	authors="allclark"
-	manager="douge"
-	editor=""/>
+---
+title: Download the Azure SDK for PHP
+description: Learn how to download and install the Azure SDK for PHP.
+documentationCenter: php
+services: app-service\web
+authors: allclark
+manager: douge
+editor: ''
 
-<tags
-	ms.service="app-service-web"
-	ms.date="06/01/2016"
-	wacn.date=""/>
+ms.service: app-service-web
+ms.date: 06/01/2016
+wacn.date: ''
+---
 
 #Download the Azure SDK for PHP
 
@@ -27,7 +27,8 @@ The sections below describe how to download and install the components described
 
 The instructions in this topic assume that you have [PHP][install-php] installed.
 
-> [AZURE.NOTE] You must have PHP 5.5 or higher to use the PHP client libraries for Azure.
+> [!NOTE]
+> You must have PHP 5.5 or higher to use the PHP client libraries for Azure.
 
 ##PHP client libraries for Azure
 
@@ -39,22 +40,26 @@ For information about how to use the PHP Client Libraries for Azure, see [How to
 
 1. [Install Git][install-git].
 
-
-	> [AZURE.NOTE] On Windows, you will also need to add the Git executable to your PATH environment variable.
+    > [!NOTE]
+    > On Windows, you will also need to add the Git executable to your PATH environment variable.
 
 2. Create a file named **composer.json** in the root of your project and add the following code to it:
 
-        {
-			"require": {
-				"microsoft/windowsazure": "^0.4"
-			}
+    ```
+    {
+        "require": {
+            "microsoft/windowsazure": "^0.4"
         }
+    }
+    ```
 
 3. Download **[composer.phar][composer-phar]** in your project root.
 
 4. Open a command prompt and execute this in your project root
 
-		php composer.phar install
+    ```
+    php composer.phar install
+    ```
 
 ##Azure PowerShell and Azure Emulators
 
@@ -71,7 +76,6 @@ The Azure CLI is a set of commands for deploying and managing Azure services, su
 ## Next steps
 
 For more information, see the [PHP Developer Center](/develop/php/).
-
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer

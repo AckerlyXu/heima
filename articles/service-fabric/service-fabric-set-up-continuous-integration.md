@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Set up Service Fabric continuous integration and deployment with Visual Studio Team Services | Azure"
-    description="Get an overview of how to set up continuous integration and deployment for a Service Fabric application by using Visual Studio Team Services (VSTS)."
-    services="service-fabric"
-    documentationcenter="na"
-    author="mthalman-msft"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="3e8c2290-9e7a-456a-9b2c-db44d1b3988d"
-    ms.service="multiple"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="multiple"
-    ms.date="12/06/2016"
-    wacn.date=""
-    ms.author="mthalman;mikhegn" />
+---
+title: Set up Service Fabric continuous integration and deployment with Visual Studio Team Services | Azure
+description: Get an overview of how to set up continuous integration and deployment for a Service Fabric application by using Visual Studio Team Services (VSTS).
+services: service-fabric
+documentationcenter: na
+author: mthalman-msft
+manager: timlt
+editor: ''
+
+ms.assetid: 3e8c2290-9e7a-456a-9b2c-db44d1b3988d
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 12/06/2016
+wacn.date: ''
+ms.author: mthalman;mikhegn
+---
 
 # Set up Service Fabric continuous integration and deployment with Visual Studio Team Services
 This article describes the steps to set up continuous integration and deployment for an Azure Service Fabric application by using Visual Studio Team Services (VSTS).
@@ -28,33 +29,34 @@ To get started, follow these steps:
 1. Ensure that you have access to a Team Services account or [create one](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) yourself.
 2. Ensure that you have access to a Team Services team project or [create one](https://www.visualstudio.com/docs/setup-admin/create-team-project) yourself.
 
-3. Ensure that you have a Service Fabric cluster to which you can deploy your application or create one using the [Azure Portal](/documentation/articles/service-fabric-cluster-creation-via-portal/), an [Azure Resource Manager template](/documentation/articles/service-fabric-cluster-creation-via-arm/), or [Visual Studio](/documentation/articles/service-fabric-cluster-creation-via-visual-studio/).
+3. Ensure that you have a Service Fabric cluster to which you can deploy your application or create one using the [Azure Portal](./service-fabric-cluster-creation-via-portal.md), an [Azure Resource Manager template](./service-fabric-cluster-creation-via-arm.md), or [Visual Studio](./service-fabric-cluster-creation-via-visual-studio.md).
 
 4. Ensure that you have already created a Service Fabric Application (.sfproj) project. You must have a project that was created or upgraded with Service Fabric SDK 2.1 or higher (the .sfproj file should contain a ProjectVersion property value of 1.1 or higher).
 
->[AZURE.NOTE] Custom build agents are no longer required. Team Services hosted agents now come pre-installed with Service Fabric cluster management software, allowing for deployment of your applications directly from those agents.
+>[!NOTE]
+> Custom build agents are no longer required. Team Services hosted agents now come pre-installed with Service Fabric cluster management software, allowing for deployment of your applications directly from those agents.
 
 ## Configure and share your source files
 The first thing you want to do is prepare a publish profile for use by the deployment process that executes within Team Services.  The publish profile should be configured to target the cluster that you've previously prepared:
 
-1.	Choose a publish profile within your Application project that you want to use for your continuous integration workflow. Follow the [publish instructions](/documentation/articles/service-fabric-publish-app-remote-cluster/) on how to publish an application to a remote cluster. You don't actually need to publish your application though. You can click the **Save** hyperlink in the publish dialog once you have configured things appropriately.
-2.	If you want your application to be upgraded for each deployment that occurs within Team Services, you want to configure the publish profile to enable upgrade. In the same publish dialog used in step 1, ensure that the **Upgrade the Application** checkbox is checked.  Learn more about [configuring additional upgrade settings](/documentation/articles/service-fabric-visualstudio-configure-upgrade/). Click the **Save** hyperlink to save the settings to the publish profile.
-3.	Ensure that you've saved your changes to the publish profile and cancel the publish dialog.
-4.	Now it's time to [share your Application project source files](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#vs) with Team Services. Once your source files are accessible in Team Services, you can now move on to the next step of generating builds. 
+1. Choose a publish profile within your Application project that you want to use for your continuous integration workflow. Follow the [publish instructions](./service-fabric-publish-app-remote-cluster.md) on how to publish an application to a remote cluster. You don't actually need to publish your application though. You can click the **Save** hyperlink in the publish dialog once you have configured things appropriately.
+2. If you want your application to be upgraded for each deployment that occurs within Team Services, you want to configure the publish profile to enable upgrade. In the same publish dialog used in step 1, ensure that the **Upgrade the Application** checkbox is checked.  Learn more about [configuring additional upgrade settings](./service-fabric-visualstudio-configure-upgrade.md). Click the **Save** hyperlink to save the settings to the publish profile.
+3. Ensure that you've saved your changes to the publish profile and cancel the publish dialog.
+4. Now it's time to [share your Application project source files](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services#vs) with Team Services. Once your source files are accessible in Team Services, you can now move on to the next step of generating builds. 
 
 ## Create a build definition
 A Team Services build definition describes a workflow that is composed of a set of build steps that are executed sequentially. The goal of the build definition that you are creating is to produce a Service Fabric application package, and other artifacts, that can be used to deploy the application. Learn more about Team Services [build definitions](https://www.visualstudio.com/docs/build/define/create).
 
 ### Create a definition from the build template
 
-1.	Open your team project in Visual Studio Team Services.
-2.	Select the **Build** tab.
-3.	Select the green **+** sign to create a new build definition.
-4.	In the dialog that opens, select **Azure Service Fabric Application** within the **Build** template category.
-5.	Select **Next**.
-6.	Select the repository and branch associated with your Service Fabric application.
-7.	Select the agent queue you wish to use. Hosted agents are supported.
-8.	Select **Create**.
+1. Open your team project in Visual Studio Team Services.
+2. Select the **Build** tab.
+3. Select the green **+** sign to create a new build definition.
+4. In the dialog that opens, select **Azure Service Fabric Application** within the **Build** template category.
+5. Select **Next**.
+6. Select the repository and branch associated with your Service Fabric application.
+7. Select the agent queue you wish to use. Hosted agents are supported.
+8. Select **Create**.
 9. Save the build definition and provide a name.
 10. The following paragraph is a description of the build steps generated by the template:
 

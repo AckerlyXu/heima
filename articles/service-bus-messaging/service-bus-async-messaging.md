@@ -1,19 +1,20 @@
-<properties 
-   pageTitle="Service Bus asynchronous messaging | Azure"
-   description="Description of Service Bus asynchronous brokered messaging."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" /> 
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/04/2016"
-    ms.author="sethm" />
+---
+title: Service Bus asynchronous messaging | Azure
+description: Description of Service Bus asynchronous brokered messaging.
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/04/2016
+ms.author: sethm
+---
 
 # Asynchronous messaging patterns and high availability
 
@@ -45,7 +46,8 @@ There are several ways to handle message and entity issues, and there are guidel
 
 -   Failure of Service Bus within an Azure datacenter. This is a "catastrophic failure" during which the system is unreachable for many minutes or a few hours.
 
-> [AZURE.NOTE] The term **storage** can mean both Azure Storage and SQL Azure.
+> [!NOTE]
+> The term **storage** can mean both Azure Storage and SQL Azure.
 
 Service Bus contains a number of mitigations for these issues. The following sections discuss each issue and their respective mitigations.
 
@@ -154,7 +156,7 @@ Now that you've learned the basics of asynchronous messaging in Service Bus, rea
   [ServerBusyException]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/zh-cn/library/system.timeoutexception.aspx
   [MessagingException]: https://msdn.microsoft.com/en-us/zh-cn/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
-  [Best practices for insulating applications against Service Bus outages and disasters]: /documentation/articles/service-bus-outages-disasters/
+  [Best practices for insulating applications against Service Bus outages and disasters]: ./service-bus-outages-disasters.md
   [Microsoft.ServiceBus.Messaging.MessagingFactory]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
   [MessageReceiver]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx
   [QueueClient]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.aspx
@@ -169,4 +171,4 @@ Now that you've learned the basics of asynchronous messaging in Service Bus, rea
   [IsTransient]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagingexception.istransient.aspx
   [UnauthorizedAccessException]: https://msdn.microsoft.com/zh-cn/library/azure/system.unauthorizedaccessexception.aspx
   [BacklogQueueCount]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
-  [paired namespaces]: /documentation/articles/service-bus-paired-namespaces/
+  [paired namespaces]: ./service-bus-paired-namespaces.md

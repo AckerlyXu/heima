@@ -1,29 +1,31 @@
-<properties 
-   pageTitle="Learn about the latest Azure Guest OS Releases | Azure" 
-   description="The latest release news and SDK compatibility for Azure Cloud Services Guest OS." 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="raiye" 
-   manager="timlt" 
-   editor=""/>
+---
+title: Learn about the latest Azure Guest OS Releases | Azure
+description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
+services: cloud-services
+documentationCenter: na
+authors: raiye
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="03/08/2017"
-   ms.author="raiye"/>
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 03/08/2017
+ms.author: raiye
+---
 
 # Azure Guest OS releases and SDK compatibility matrix
 Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
 
-> [AZURE.IMPORTANT] This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
+> [!IMPORTANT]
+> This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines. 
 
 <!-- -->
 
-> [AZURE.TIP] Subscribe to the [Guest OS Update RSS Feed][rss] to receive the most timely notification on all Guest OS changes.
+> [!TIP]
+> Subscribe to the [Guest OS Update RSS Feed][rss] to receive the most timely notification on all Guest OS changes.
 
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
@@ -39,7 +41,6 @@ November Guest OS rollout is starting November 8 2016, and projected to be relea
 
 ###### **October 23 2016**
 Windows Server 2016 will be released as OS Family 5 on November 1 2016, with .NET 4.6 support.
-
 
 ## Releases
 ## Family 5 releases
@@ -64,7 +65,8 @@ Windows Server 2016 will be released as OS Family 5 on November 1 2016, with .NE
 
 Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
->[AZURE.NOTE] Dates with a * are subject to change
+>[!NOTE]
+> Dates with a * are subject to change
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
@@ -87,7 +89,8 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
->[AZURE.NOTE] Dates with a * are subject to change
+>[!NOTE]
+> Dates with a * are subject to change
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
@@ -110,7 +113,8 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
->[AZURE.NOTE] Dates with a * are subject to change
+>[!NOTE]
+> Dates with a * are subject to change
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
@@ -186,8 +190,8 @@ If you manually update your Guest OS, please read the [Guest OS retirement polic
 ## Guest OS Supportability and Retirement Policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: /documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
-[Azure Guest OS Update Settings]:/documentation/articles/cloud-services-how-to-configure/
+[Install .NET on a Cloud Service Role]: ./cloud-services-dotnet-install-dotnet.md?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Azure Guest OS Update Settings]:./cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/zh-cn/library/security/3009008.aspx
@@ -196,13 +200,12 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [MS14-046]: https://technet.microsoft.com/zh-cn/library/security/ms14-046.aspx
 [retire policy sdk]: https://msdn.microsoft.com/zh-cn/library/dn479282.aspx
 [server and gos]: https://msdn.microsoft.com/zh-cn/library/dn775043.aspx
-[azuresupport]: /support/options/
+[azuresupport]: https://www.azure.cn/support/options/
 [net install pkg]: http://www.microsoft.com/zh-cn/download/details.aspx?id=42643
 [msrc]: http://www.microsoft.com/security/msrc/default.aspx
 [update guest os portal]: https://msdn.microsoft.com/zh-cn/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/zh-cn/library/gg456324.aspx
 [restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
-[patches]:/documentation/articles/cloud-services-guestos-msrc-releases/
-[retirepolicy]:/documentation/articles/cloud-services-guestos-retirement-policy/
-[fam1retire]:/documentation/articles/cloud-services-guestos-family1-retirement/
- 
+[patches]:./cloud-services-guestos-msrc-releases.md
+[retirepolicy]:./cloud-services-guestos-retirement-policy.md
+[fam1retire]:./cloud-services-guestos-family1-retirement.md

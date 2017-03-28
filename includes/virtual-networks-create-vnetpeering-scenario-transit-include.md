@@ -4,7 +4,7 @@ In this scenario, there are two VNets in a subscription, HubVNet and VNet1 as de
 
 ![NVA Transit](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > For the simplicity, assume all VNets here are in the same subscription. But it also works for cross-subscription scenario.
 > 
 > 

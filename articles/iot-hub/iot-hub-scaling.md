@@ -1,21 +1,20 @@
-<properties
- pageTitle="Azure IoT Hub scaling | Azure"
- description="How to scale your IoT hub to support your anticipated message throughput. Includes a summary of the supported throughput for each tier and options for sharding"
- services="iot-hub"
- documentationCenter=""
- authors="fsautomata"
- manager="timlt"
- editor=""/>
+---
+title: Azure IoT Hub scaling | Azure
+description: How to scale your IoT hub to support your anticipated message throughput. Includes a summary of the supported throughput for each tier and options for sharding
+services: iot-hub
+documentationCenter: ''
+authors: fsautomata
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/19/2016"
- ms.author="elioda"/>
-
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/19/2016
+ms.author: elioda
+---
 
 # Scale your IoT hub solution
 Azure IoT Hub can support up to a million simultaneously connected devices. For more information, see [IoT Hub pricing][lnk-pricing]. Each IoT Hub unit allows a certain number of daily messages.
@@ -54,8 +53,8 @@ To further explore the capabilities of IoT Hub, see:
 - [IoT Hub developer guide][lnk-devguide]
 - [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
-[lnk-pricing]: /pricing/details/iot-hub
-[IoT Hub quotas and throttles]: /documentation/articles/iot-hub-devguide-quotas-throttling/
+[lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub
+[IoT Hub quotas and throttles]: ./iot-hub-devguide-quotas-throttling.md
 
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
-[lnk-gateway]: /documentation/articles/iot-hub-linux-gateway-sdk-simulated-device/
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md

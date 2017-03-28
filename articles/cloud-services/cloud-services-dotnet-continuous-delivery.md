@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Continuous delivery for cloud services with TFS in Azure | Azure"
-	description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts."
-	services="cloud-services"
-	documentationCenter=""
-	authors="TomArcher"
-	manager="douge"
-	editor=""/>
+---
+title: Continuous delivery for cloud services with TFS in Azure | Azure
+description: Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts.
+services: cloud-services
+documentationCenter: ''
+authors: TomArcher
+manager: douge
+editor: ''
 
-<tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="11/18/2016"
-	ms.author="tarcher"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 11/18/2016
+ms.author: tarcher
+---
 
 # Continuous Delivery for Cloud Services in Azure
 
@@ -52,7 +52,7 @@ documentation.
 3. Install the [Azure Libraries for .NET](http://go.microsoft.com/fwlink/?LinkId=623519).
 4. Copy the Microsoft.WebApplication.targets file from a Visual Studio installation to the build server.
 
-	On a computer with Visual Studio installed, this file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications. You should copy it to the same directory on the build server.
+    On a computer with Visual Studio installed, this file is located in the directory C:\\Program Files(x86)\\MSBuild\\Microsoft\\VisualStudio\\v14.0\\WebApplications. You should copy it to the same directory on the build server.
 5.  Install the [Azure Tools for Visual Studio](https://www.visualstudio.com/features/azure-tools-vs.aspx).
 
 ## 2: Build a Package using MSBuild Commands
@@ -77,7 +77,9 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     Framework 4 installed, type the following command at the command
     prompt:
 
-        set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
+    ```
+    set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
+    ```
 
 2.  At the command prompt, navigate to the folder containing the
     Azure project file that you want to build.
@@ -85,7 +87,9 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
 3.  Run MSBuild with the /target:Publish option as in the following
     example:
 
-        MSBuild /target:Publish
+    ```
+    MSBuild /target:Publish
+    ```
 
     This option can be abbreviated as /t:Publish. The /t:Publish option
     in MSBuild should not be confused with the Publish commands
@@ -121,13 +125,17 @@ information about command-line parameters and MSBuild, see [MSBuild Command Line
     TargetProfile property of the MSBuild command, as in the following
     example:
 
-        MSBuild /t:Publish /p:TargetProfile=Cloud
+    ```
+    MSBuild /t:Publish /p:TargetProfile=Cloud
+    ```
 
 6.  Specify the location for the output. Set the path by using the
     /p:PublishDir=*Directory*\\ option, including the trailing
     backslash separator, as in the following example:
 
-        MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
+    ```
+    MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
+    ```
 
     Once you've constructed and tested an appropriate MSBuild command
     line to build your projects and combine them into an Azure package,
@@ -163,8 +171,8 @@ steps:
     **Continuous Integration** to build the package whenever a source
     control check-in occurs.
 
-3.	Choose the **Source Settings** tab, and make sure your project folder is listed
-	in the **Source Control Folder** column, and the status is **Active**.
+3. Choose the **Source Settings** tab, and make sure your project folder is listed
+    in the **Source Control Folder** column, and the status is **Active**.
 
 4.  Choose the **Build Defaults** tab, and under Build controller, verify
     the name of the build server.  Also, choose the option **Copy build
@@ -183,7 +191,7 @@ steps:
 
     ![MSBuild arguments][2]
 
-   > [AZURE.NOTE]
+   > [!NOTE]
    > Copying the files to a public share makes it easier to manually deploy the packages
    > from your development computer.
 7. Test the success of your build step by checking in a change to your
@@ -241,7 +249,9 @@ Template workflow activities in Visual Studio TFS Team Build.
         will be used as a prefix in a fully qualified domain name and
         hence it must be unique.
 
-            New-AzureService -ServiceName "mytestcloudservice" -Location "China North" -Label "mytestcloudservice"
+        ```
+        New-AzureService -ServiceName "mytestcloudservice" -Location "China North" -Label "mytestcloudservice"
+        ```
 
     -   To create a new storage account, you can call this script or use
         the [Azure classic portal](https://manage.windowsazure.cn). The storage account name
@@ -249,13 +259,16 @@ Template workflow activities in Visual Studio TFS Team Build.
         hence it must be unique. You can try using the same name as the
         cloud service.
 
-            New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "China North" -Label "mytestcloudservice"
+        ```
+        New-AzureStorageAccount -ServiceName "mytestcloudservice" -Location "China North" -Label "mytestcloudservice"
+        ```
 
 7.  Call the script directly from Azure PowerShell, or wire up this
     script to your host build automation to occur after the package
     build.
 
-    >[AZURE.IMPORTANT] The script will always delete or replace your existing
+    >[!IMPORTANT]
+    > The script will always delete or replace your existing
     deployments by default if they are detected. This is necessary to
     enable continuous delivery from automation where no user prompting
     is possible.
@@ -263,7 +276,9 @@ Template workflow activities in Visual Studio TFS Team Build.
     **Example scenario 1:** continuous deployment to the staging
     environment of a service:
 
-        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
+    ```
+    PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Staging -serviceName mycloudservice -storageAccountName mystoragesaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
+    ```
 
     This is typically followed up by test run verification and a VIP
     swap. The VIP swap can be done via the [Azure classic portal](https://manage.windowsazure.cn) or 
@@ -272,7 +287,9 @@ Template workflow activities in Visual Studio TFS Team Build.
     **Example scenario 2:** continuous deployment to the production
     environment of a dedicated test service
 
-        PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Production -enableDeploymentUpgrade 1 -serviceName mycloudservice -storageAccountName mystorageaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
+    ```
+    PowerShell c:\scripts\windowsazure\PublishCloudService.ps1 -environment Production -enableDeploymentUpgrade 1 -serviceName mycloudservice -storageAccountName mystorageaccount -packageLocation c:\drops\app.publish\ContactManager.Azure.cspkg -cloudConfigLocation c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg -subscriptionDataFile c:\scripts\default.publishsettings
+    ```
 
     **Remote Desktop:**
 
@@ -287,23 +304,29 @@ Template workflow activities in Visual Studio TFS Team Build.
     also visible in the Remote Desktop Configuration dialog in Visual
     Studio when you Show Options and view the selected certificate.
 
-        <Certificates>
-              <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="C33B6C432C25581601B84C80F86EC2809DC224E8" thumbprintAlgorithm="sha1" />
-        </Certificates>
+    ```
+    <Certificates>
+          <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="C33B6C432C25581601B84C80F86EC2809DC224E8" thumbprintAlgorithm="sha1" />
+    </Certificates>
+    ```
 
     Upload Remote Desktop certificates as a one-time setup step using
     the following cmdlet script:
 
-        Add-AzureCertificate -serviceName <CLOUDSERVICENAME> -certToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
+    ```
+    Add-AzureCertificate -serviceName <CLOUDSERVICENAME> -certToDeploy (get-item cert:\CurrentUser\MY\<THUMBPRINT>)
+    ```
 
     For example:
 
-        Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
+    ```
+    Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
+    ```
 
     Alternatively you can export the certificate file PFX with private
     key and upload certificates to each target cloud service using the
     [Azure classic portal](https://manage.windowsazure.cn). 
-   
+
    <!---
    Fixing broken links for Azure content migration from ACOM to DOCS. I'm unable to find a replacement links, so I'm commenting out this reference for now. The author can investigate in the future. "Read the following article to learn more: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx.
    -->
@@ -323,7 +346,8 @@ Template workflow activities in Visual Studio TFS Team Build.
     script behavior to first delete any existing deployment and then
     create a new deployment.
 
-    >[AZURE.IMPORTANT] The script will always delete or replace your existing
+    >[!IMPORTANT]
+    > The script will always delete or replace your existing
     deployments by default if they are detected. This is necessary to
     enable continuous delivery from automation where no user/operator
     prompting is possible.
@@ -342,14 +366,14 @@ piped into the standard build output.
 
 2.  Select the **Process** tab.
 
-3.	Follow [these instructions](http://msdn.microsoft.com/zh-cn/library/dd647551.aspx) to add an
+3. Follow [these instructions](http://msdn.microsoft.com/zh-cn/library/dd647551.aspx) to add an
     Activity project for the build process template, download the default template, add it to
-	the project and check it in. Give the build process template a new name, such as
-	AzureBuildProcessTemplate.
+    the project and check it in. Give the build process template a new name, such as
+    AzureBuildProcessTemplate.
 
 3.  Return to the **Process** tab, and use **Show Details** to show a list of available
-	build process templates. Choose the **New...** button, and navigate to the project you
-	just added and checked in. Locate the template you just created and choose **OK**.
+    build process templates. Choose the **New...** button, and navigate to the project you
+    just added and checked in. Locate the template you just created and choose **OK**.
 
 4.  Open the selected Process Template for editing. You can open
     directly in the Workflow designer or in the XML editor to work with
@@ -361,59 +385,65 @@ piped into the standard build output.
     parameters from the build definition into the workflow, which then
     get used to call the publish script.
 
-        SubscriptionName
-        StorageAccountName
-        CloudConfigLocation
-        PackageLocation
-        Environment
-        SubscriptionDataFileLocation
-        PublishScriptLocation
-        ServiceName
+    ```
+    SubscriptionName
+    StorageAccountName
+    CloudConfigLocation
+    PackageLocation
+    Environment
+    SubscriptionDataFileLocation
+    PublishScriptLocation
+    ServiceName
+    ```
 
     ![List of arguments][3]
 
     The corresponding XAML looks like this:
 
-        <Activity  _ />
-          <x:Members>
-            <x:Property Name="BuildSettings" Type="InArgument(mtbwa:BuildSettings)" />
-            <x:Property Name="TestSpecs" Type="InArgument(mtbwa:TestSpecList)" />
-            <x:Property Name="BuildNumberFormat" Type="InArgument(x:String)" />
-            <x:Property Name="CleanWorkspace" Type="InArgument(mtbwa:CleanWorkspaceOption)" />
-            <x:Property Name="RunCodeAnalysis" Type="InArgument(mtbwa:CodeAnalysisOption)" />
-            <x:Property Name="SourceAndSymbolServerSettings" Type="InArgument(mtbwa:SourceAndSymbolServerSettings)" />
-            <x:Property Name="AgentSettings" Type="InArgument(mtbwa:AgentSettings)" />
-            <x:Property Name="AssociateChangesetsAndWorkItems" Type="InArgument(x:Boolean)" />
-            <x:Property Name="CreateWorkItem" Type="InArgument(x:Boolean)" />
-            <x:Property Name="DropBuild" Type="InArgument(x:Boolean)" />
-            <x:Property Name="MSBuildArguments" Type="InArgument(x:String)" />
-            <x:Property Name="MSBuildPlatform" Type="InArgument(mtbwa:ToolPlatform)" />
-            <x:Property Name="PerformTestImpactAnalysis" Type="InArgument(x:Boolean)" />
-            <x:Property Name="CreateLabel" Type="InArgument(x:Boolean)" />
-            <x:Property Name="DisableTests" Type="InArgument(x:Boolean)" />
-            <x:Property Name="GetVersion" Type="InArgument(x:String)" />
-            <x:Property Name="PrivateDropLocation" Type="InArgument(x:String)" />
-            <x:Property Name="Verbosity" Type="InArgument(mtbw:BuildVerbosity)" />
-            <x:Property Name="Metadata" Type="mtbw:ProcessParameterMetadataCollection" />
-            <x:Property Name="SupportedReasons" Type="mtbc:BuildReason" />
-            <x:Property Name="SubscriptionName" Type="InArgument(x:String)" />
-            <x:Property Name="StorageAccountName" Type="InArgument(x:String)" />
-            <x:Property Name="CloudConfigLocation" Type="InArgument(x:String)" />
-            <x:Property Name="PackageLocation" Type="InArgument(x:String)" />
-            <x:Property Name="Environment" Type="InArgument(x:String)" />
-            <x:Property Name="SubscriptionDataFileLocation" Type="InArgument(x:String)" />
-            <x:Property Name="PublishScriptLocation" Type="InArgument(x:String)" />
-            <x:Property Name="ServiceName" Type="InArgument(x:String)" />
-          </x:Members>
+    ```
+    <Activity  _ />
+      <x:Members>
+        <x:Property Name="BuildSettings" Type="InArgument(mtbwa:BuildSettings)" />
+        <x:Property Name="TestSpecs" Type="InArgument(mtbwa:TestSpecList)" />
+        <x:Property Name="BuildNumberFormat" Type="InArgument(x:String)" />
+        <x:Property Name="CleanWorkspace" Type="InArgument(mtbwa:CleanWorkspaceOption)" />
+        <x:Property Name="RunCodeAnalysis" Type="InArgument(mtbwa:CodeAnalysisOption)" />
+        <x:Property Name="SourceAndSymbolServerSettings" Type="InArgument(mtbwa:SourceAndSymbolServerSettings)" />
+        <x:Property Name="AgentSettings" Type="InArgument(mtbwa:AgentSettings)" />
+        <x:Property Name="AssociateChangesetsAndWorkItems" Type="InArgument(x:Boolean)" />
+        <x:Property Name="CreateWorkItem" Type="InArgument(x:Boolean)" />
+        <x:Property Name="DropBuild" Type="InArgument(x:Boolean)" />
+        <x:Property Name="MSBuildArguments" Type="InArgument(x:String)" />
+        <x:Property Name="MSBuildPlatform" Type="InArgument(mtbwa:ToolPlatform)" />
+        <x:Property Name="PerformTestImpactAnalysis" Type="InArgument(x:Boolean)" />
+        <x:Property Name="CreateLabel" Type="InArgument(x:Boolean)" />
+        <x:Property Name="DisableTests" Type="InArgument(x:Boolean)" />
+        <x:Property Name="GetVersion" Type="InArgument(x:String)" />
+        <x:Property Name="PrivateDropLocation" Type="InArgument(x:String)" />
+        <x:Property Name="Verbosity" Type="InArgument(mtbw:BuildVerbosity)" />
+        <x:Property Name="Metadata" Type="mtbw:ProcessParameterMetadataCollection" />
+        <x:Property Name="SupportedReasons" Type="mtbc:BuildReason" />
+        <x:Property Name="SubscriptionName" Type="InArgument(x:String)" />
+        <x:Property Name="StorageAccountName" Type="InArgument(x:String)" />
+        <x:Property Name="CloudConfigLocation" Type="InArgument(x:String)" />
+        <x:Property Name="PackageLocation" Type="InArgument(x:String)" />
+        <x:Property Name="Environment" Type="InArgument(x:String)" />
+        <x:Property Name="SubscriptionDataFileLocation" Type="InArgument(x:String)" />
+        <x:Property Name="PublishScriptLocation" Type="InArgument(x:String)" />
+        <x:Property Name="ServiceName" Type="InArgument(x:String)" />
+      </x:Members>
 
-          <this:Process.MSBuildArguments>
+      <this:Process.MSBuildArguments>
+    ```
 
 6.  Add a new sequence at the end of Run On Agent:
 
     1.  Start by adding an If Statement activity to check for a valid
         script file. Set the condition to this value:
 
-            Not String.IsNullOrEmpty(PublishScriptLocation)
+        ```
+        Not String.IsNullOrEmpty(PublishScriptLocation)
+        ```
 
     2.  In the Then case of the If Statement, add a new Sequence
         activity. Set the display name to 'Start publish'
@@ -480,9 +510,9 @@ piped into the standard build output.
         section. Set the Message='data'. This ensures the standard
         errors of the script will get written to the build error output.
 
-	11. Correct any errors, indicated by blue exclamation marks. Hover over the
-		exclamation marks to get a hint about the error. Save the workflow to
-		clear errors.
+    11. Correct any errors, indicated by blue exclamation marks. Hover over the
+        exclamation marks to get a hint about the error. Save the workflow to
+        clear errors.
 
     The final result of the publish workflow activities will look like
     this in the designer:
@@ -492,43 +522,44 @@ piped into the standard build output.
     The final result of the publish workflow activities will look like
     this in XAML:
 
-		<If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap2010:WorkflowViewState.IdRef="If_1">
-	        <If.Then>
-	          <Sequence DisplayName="Start Publish" sap2010:WorkflowViewState.IdRef="Sequence_4">
-	            <Sequence.Variables>
-	              <Variable x:TypeArguments="x:String" Name="SubscriptionDataFilePath" />
-	              <Variable x:TypeArguments="x:String" Name="PublishScriptFilePath" />
-	            </Sequence.Variables>
-	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
-	            <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
-	            <mtbwa:InvokeProcess Arguments="[String.Format(&quot; -File &quot;&quot;{0}&quot;&quot; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation &quot;&quot;{3}&quot;&quot;&#xD;&#xA;            -cloudConfigLocation &quot;&quot;{4}&quot;&quot; -subscriptionDataFile &quot;&quot;{5}&quot;&quot;&#xD;&#xA;            -selectedSubscription {6} -environment &quot;&quot;{7}&quot;&quot;&quot;,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
-	              <mtbwa:InvokeProcess.ErrorDataReceived>
-	                <ActivityAction x:TypeArguments="x:String">
-	                  <ActivityAction.Argument>
-	                    <DelegateInArgument x:TypeArguments="x:String" Name="data" />
-	                  </ActivityAction.Argument>
-	                  <mtbwa:WriteBuildError Message="{x:Null}" sap2010:WorkflowViewState.IdRef="WriteBuildError_1" />
-	                </ActivityAction>
-	              </mtbwa:InvokeProcess.ErrorDataReceived>
-	              <mtbwa:InvokeProcess.OutputDataReceived>
-	                <ActivityAction x:TypeArguments="x:String">
-	                  <ActivityAction.Argument>
-	                    <DelegateInArgument x:TypeArguments="x:String" Name="data" />
-	                  </ActivityAction.Argument>
-	                  <mtbwa:WriteBuildMessage sap2010:WorkflowViewState.IdRef="WriteBuildMessage_2" Importance="[Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High]" Message="[data]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
-	                </ActivityAction>
-	              </mtbwa:InvokeProcess.OutputDataReceived>
-	            </mtbwa:InvokeProcess>
-	          </Sequence>
-	        </If.Then>
-	      </If>
-	    </Sequence>
-
+    ```
+    <If Condition="[Not String.IsNullOrEmpty(PublishScriptLocation)]" sap2010:WorkflowViewState.IdRef="If_1">
+        <If.Then>
+          <Sequence DisplayName="Start Publish" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="SubscriptionDataFilePath" />
+              <Variable x:TypeArguments="x:String" Name="PublishScriptFilePath" />
+            </Sequence.Variables>
+            <mtbwa:ConvertWorkspaceItem DisplayName="Convert publish script filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_1" Input="[PublishScriptLocation]" Result="[PublishScriptFilePath]" Workspace="[Workspace]" />
+            <mtbwa:ConvertWorkspaceItem DisplayName="Convert subscription filename" sap2010:WorkflowViewState.IdRef="ConvertWorkspaceItem_2" Input="[SubscriptionDataFileLocation]" Result="[SubscriptionDataFilePath]" Workspace="[Workspace]" />
+            <mtbwa:InvokeProcess Arguments="[String.Format(&quot; -File &quot;&quot;{0}&quot;&quot; -serviceName {1}&#xD;&#xA;            -storageAccountName {2} -packageLocation &quot;&quot;{3}&quot;&quot;&#xD;&#xA;            -cloudConfigLocation &quot;&quot;{4}&quot;&quot; -subscriptionDataFile &quot;&quot;{5}&quot;&quot;&#xD;&#xA;            -selectedSubscription {6} -environment &quot;&quot;{7}&quot;&quot;&quot;,&#xD;&#xA;            PublishScriptFilePath, ServiceName, StorageAccountName,&#xD;&#xA;            PackageLocation, CloudConfigLocation,&#xD;&#xA;            SubscriptionDataFilePath, SubscriptionName, Environment)]" DisplayName="'Execute Publish Script'" FileName="[PowerShell]" sap2010:WorkflowViewState.IdRef="InvokeProcess_1">
+              <mtbwa:InvokeProcess.ErrorDataReceived>
+                <ActivityAction x:TypeArguments="x:String">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="data" />
+                  </ActivityAction.Argument>
+                  <mtbwa:WriteBuildError Message="{x:Null}" sap2010:WorkflowViewState.IdRef="WriteBuildError_1" />
+                </ActivityAction>
+              </mtbwa:InvokeProcess.ErrorDataReceived>
+              <mtbwa:InvokeProcess.OutputDataReceived>
+                <ActivityAction x:TypeArguments="x:String">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="data" />
+                  </ActivityAction.Argument>
+                  <mtbwa:WriteBuildMessage sap2010:WorkflowViewState.IdRef="WriteBuildMessage_2" Importance="[Microsoft.TeamFoundation.Build.Client.BuildMessageImportance.High]" Message="[data]" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces" />
+                </ActivityAction>
+              </mtbwa:InvokeProcess.OutputDataReceived>
+            </mtbwa:InvokeProcess>
+          </Sequence>
+        </If.Then>
+      </If>
+    </Sequence>
+    ```
 
 7.  Save the build process template workflow and Check In this file.
 
 8.  Edit the build definition (close it if it is already open), and select
-	the **New** button if you do not yet see the new template in the list of Process Templates.
+    the **New** button if you do not yet see the new template in the list of Process Templates.
 
 9.  Set the parameter property values in the Misc section as follows:
 
@@ -578,164 +609,163 @@ Param(  $serviceName = "",
         $subscriptionDataFile = ""
      )
 
-
 function Publish()
 {
-	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue
+    $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot -ErrorVariable a -ErrorAction silentlycontinue
     if ($a[0] -ne $null)
     {
         Write-Output "$(Get-Date -f $timeStampFormat) - No deployment is detected. Creating a new deployment. "
     }
     #check for existing deployment and then either upgrade, delete + deploy, or cancel according to $alwaysDeleteExistingDeployments and $enableDeploymentUpgrade boolean variables
-	if ($deployment.Name -ne $null)
-	{
-		switch ($alwaysDeleteExistingDeployments)
-	    {
-	        1
-			{
+    if ($deployment.Name -ne $null)
+    {
+        switch ($alwaysDeleteExistingDeployments)
+        {
+            1
+            {
                 switch ($enableDeploymentUpgrade)
                 {
                     1  #Update deployment inplace (usually faster, cheaper, won't destroy VIP)
                     {
                         Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename.  Upgrading deployment."
-				        UpgradeDeployment
+                        UpgradeDeployment
                     }
                     0  #Delete then create new deployment
                     {
                         Write-Output "$(Get-Date -f $timeStampFormat) - Deployment exists in $servicename.  Deleting deployment."
-				        DeleteDeployment
+                        DeleteDeployment
                         CreateNewDeployment
 
                     }
                 } # switch ($enableDeploymentUpgrade)
-			}
-	        0
-			{
-				Write-Output "$(Get-Date -f $timeStampFormat) - ERROR: Deployment exists in $servicename.  Script execution cancelled."
-				exit
-			}
-	    } #switch ($alwaysDeleteExistingDeployments)
-	} else {
+            }
+            0
+            {
+                Write-Output "$(Get-Date -f $timeStampFormat) - ERROR: Deployment exists in $servicename.  Script execution cancelled."
+                exit
+            }
+        } #switch ($alwaysDeleteExistingDeployments)
+    } else {
             CreateNewDeployment
     }
 }
 
 function CreateNewDeployment()
 {
-	write-progress -id 3 -activity "Creating New Deployment" -Status "In progress"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: In progress"
+    write-progress -id 3 -activity "Creating New Deployment" -Status "In progress"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: In progress"
 
-	$opstat = New-AzureDeployment -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName
+    $opstat = New-AzureDeployment -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName
 
     $completeDeployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $completeDeploymentID = $completeDeployment.deploymentid
 
     write-progress -id 3 -activity "Creating New Deployment" -completed -Status "Complete"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: Complete, Deployment ID: $completeDeploymentID"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Creating New Deployment: Complete, Deployment ID: $completeDeploymentID"
 
-	StartInstances
+    StartInstances
 }
 
 function UpgradeDeployment()
 {
-	write-progress -id 3 -activity "Upgrading Deployment" -Status "In progress"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: In progress"
+    write-progress -id 3 -activity "Upgrading Deployment" -Status "In progress"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: In progress"
 
     # perform Update-Deployment
-	$setdeployment = Set-AzureDeployment -Upgrade -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName -Force
+    $setdeployment = Set-AzureDeployment -Upgrade -Slot $slot -Package $packageLocation -Configuration $cloudConfigLocation -label $deploymentLabel -ServiceName $serviceName -Force
 
     $completeDeployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $completeDeploymentID = $completeDeployment.deploymentid
 
     write-progress -id 3 -activity "Upgrading Deployment" -completed -Status "Complete"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: Complete, Deployment ID: $completeDeploymentID"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Upgrading Deployment: Complete, Deployment ID: $completeDeploymentID"
 }
 
 function DeleteDeployment()
 {
 
-	write-progress -id 2 -activity "Deleting Deployment" -Status "In progress"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: In progress"
+    write-progress -id 2 -activity "Deleting Deployment" -Status "In progress"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: In progress"
 
     #WARNING - always deletes with force
-	$removeDeployment = Remove-AzureDeployment -Slot $slot -ServiceName $serviceName -Force
+    $removeDeployment = Remove-AzureDeployment -Slot $slot -ServiceName $serviceName -Force
 
-	write-progress -id 2 -activity "Deleting Deployment: Complete" -completed -Status $removeDeployment
-	Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: Complete"
+    write-progress -id 2 -activity "Deleting Deployment: Complete" -completed -Status $removeDeployment
+    Write-Output "$(Get-Date -f $timeStampFormat) - Deleting Deployment: Complete"
 
 }
 
 function StartInstances()
 {
-	write-progress -id 4 -activity "Starting Instances" -status "In progress"
-	Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: In progress"
+    write-progress -id 4 -activity "Starting Instances" -status "In progress"
+    Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: In progress"
 
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
     $runstatus = $deployment.Status
 
     if ($runstatus -ne 'Running')
     {
-	    $run = Set-AzureDeployment -Slot $slot -ServiceName $serviceName -Status Running
+        $run = Set-AzureDeployment -Slot $slot -ServiceName $serviceName -Status Running
     }
-	$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
-	$oldStatusStr = @("") * $deployment.RoleInstanceList.Count
+    $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
+    $oldStatusStr = @("") * $deployment.RoleInstanceList.Count
 
-	while (-not(AllInstancesRunning($deployment.RoleInstanceList)))
-	{
-		$i = 1
-		foreach ($roleInstance in $deployment.RoleInstanceList)
-		{
-			$instanceName = $roleInstance.InstanceName
-			$instanceStatus = $roleInstance.InstanceStatus
+    while (-not(AllInstancesRunning($deployment.RoleInstanceList)))
+    {
+        $i = 1
+        foreach ($roleInstance in $deployment.RoleInstanceList)
+        {
+            $instanceName = $roleInstance.InstanceName
+            $instanceStatus = $roleInstance.InstanceStatus
 
-			if ($oldStatusStr[$i - 1] -ne $roleInstance.InstanceStatus)
-			{
-				$oldStatusStr[$i - 1] = $roleInstance.InstanceStatus
-				Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
-			}
+            if ($oldStatusStr[$i - 1] -ne $roleInstance.InstanceStatus)
+            {
+                $oldStatusStr[$i - 1] = $roleInstance.InstanceStatus
+                Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
+            }
 
-			write-progress -id (4 + $i) -activity "Starting Instance '$instanceName'" -status "$instanceStatus"
-			$i = $i + 1
-		}
+            write-progress -id (4 + $i) -activity "Starting Instance '$instanceName'" -status "$instanceStatus"
+            $i = $i + 1
+        }
 
-		sleep -Seconds 1
+        sleep -Seconds 1
 
-		$deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
-	}
+        $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
+    }
 
-	$i = 1
-	foreach ($roleInstance in $deployment.RoleInstanceList)
-	{
-		$instanceName = $roleInstance.InstanceName
-		$instanceStatus = $roleInstance.InstanceStatus
+    $i = 1
+    foreach ($roleInstance in $deployment.RoleInstanceList)
+    {
+        $instanceName = $roleInstance.InstanceName
+        $instanceStatus = $roleInstance.InstanceStatus
 
-		if ($oldStatusStr[$i - 1] -ne $roleInstance.InstanceStatus)
-		{
-			$oldStatusStr[$i - 1] = $roleInstance.InstanceStatus
-			Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
-		}
+        if ($oldStatusStr[$i - 1] -ne $roleInstance.InstanceStatus)
+        {
+            $oldStatusStr[$i - 1] = $roleInstance.InstanceStatus
+            Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instance '$instanceName': $instanceStatus"
+        }
 
-		$i = $i + 1
-	}
+        $i = $i + 1
+    }
 
     $deployment = Get-AzureDeployment -ServiceName $serviceName -Slot $slot
-	$opstat = $deployment.Status
+    $opstat = $deployment.Status
 
-	write-progress -id 4 -activity "Starting Instances" -completed -status $opstat
-	Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: $opstat"
+    write-progress -id 4 -activity "Starting Instances" -completed -status $opstat
+    Write-Output "$(Get-Date -f $timeStampFormat) - Starting Instances: $opstat"
 }
 
 function AllInstancesRunning($roleInstanceList)
 {
-	foreach ($roleInstance in $roleInstanceList)
-	{
-		if ($roleInstance.InstanceStatus -ne "ReadyRole")
-		{
-			return $false
-		}
-	}
+    foreach ($roleInstance in $roleInstanceList)
+    {
+        if ($roleInstance.InstanceStatus -ne "ReadyRole")
+        {
+            return $false
+        }
+    }
 
-	return $true
+    return $true
 }
 
 #configure powershell with Azure 1.7 modules
@@ -776,7 +806,7 @@ To enable remote debugging when using continuous delivery, see [Enable remote de
   [.NET Framework 4.5.2]: https://www.microsoft.com/zh-cn/download/details.aspx?id=42643
   [Scale out your build system]: https://msdn.microsoft.com/zh-cn/library/dd793166.aspx
   [Deploy and configure a build server]: https://msdn.microsoft.com/zh-cn/library/ms181712.aspx
-  [Azure PowerShell cmdlets]:/documentation/articles/powershell-install-configure/
+  [Azure PowerShell cmdlets]:../powershell-install-configure.md
   [the .publishsettings file]: https://manage.windowsazure.cn/download/publishprofile.aspx?wa=wsignin1.0
   [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png

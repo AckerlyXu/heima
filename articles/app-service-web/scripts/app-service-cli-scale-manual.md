@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Scale a Web App manually using Azure CLI 2.0 | Azure"
-    description="Azure CLI Script Sample - Scale a Web App manually using Azure CLI 2.0"
-    services="appservice"
-    documentationcenter="appservice"
-    author="syntaxc4"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="251d9074-8fff-4121-ad16-9eca9556ac96"
-    ms.service="app-service"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="web"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cfowler" />
+---
+title: Azure CLI Script Sample - Scale a Web App manually using Azure CLI 2.0 | Azure
+description: Azure CLI Script Sample - Scale a Web App manually using Azure CLI 2.0
+services: appservice
+documentationcenter: appservice
+author: syntaxc4
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
+ms.service: app-service
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cfowler
+---
 
 # Scale a web app manually
 
@@ -24,29 +25,31 @@ In this scenario you will learn to create a resource group, app service plan and
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-    #/bin/bash
+```
+#/bin/bash
 
-    # Variables
-    appName="AppServiceManualScale$random"
-    location="ChinaNorth"
+# Variables
+appName="AppServiceManualScale$random"
+location="ChinaNorth"
 
-    # Create a Resource Group
-    az group create --name myResourceGroup --location $location
+# Create a Resource Group
+az group create --name myResourceGroup --location $location
 
-    # Create App Service Plans
-    az appservice plan create --name AppServiceManualScalePlan --resource-group myResourceGroup --location $location --sku B1
+# Create App Service Plans
+az appservice plan create --name AppServiceManualScalePlan --resource-group myResourceGroup --location $location --sku B1
 
-    # Add a Web App
-    az appservice web create --name $appName --plan AppServiceManualScalePlan --resource-group myResourceGroup
+# Add a Web App
+az appservice web create --name $appName --plan AppServiceManualScalePlan --resource-group myResourceGroup
 
-    # Scale Web App to 2 Workers
-    az appservice plan update --number-of-workers 2 --name AppServiceManualScalePlan --resource-group myResourceGroup
+# Scale Web App to 2 Workers
+az appservice plan update --number-of-workers 2 --name AppServiceManualScalePlan --resource-group myResourceGroup
+```
 
-[AZURE.INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
@@ -63,4 +66,4 @@ This script uses the following commands to create a resource group, web app, and
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional App Service CLI script samples can be found in the [Azure App Service documentation](/documentation/articles/app-service-cli-samples/).
+Additional App Service CLI script samples can be found in the [Azure App Service documentation](../app-service-cli-samples.md).

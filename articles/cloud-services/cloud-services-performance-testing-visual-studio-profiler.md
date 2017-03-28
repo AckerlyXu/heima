@@ -1,18 +1,17 @@
-<properties 
-	pageTitle="Profiling a Cloud Service Locally in the Compute Emulator | Azure" 
-	services="cloud-services"
-	description="Investigate performance issues in cloud services with the Visual Studio profiler" 
-	documentationCenter=""
-	authors="TomArcher" 
-	manager="douge" 
-	editor=""
-	tags="" 
-	/>
+---
+title: Profiling a Cloud Service Locally in the Compute Emulator | Azure
+services: cloud-services
+description: Investigate performance issues in cloud services with the Visual Studio profiler
+documentationCenter: ''
+authors: TomArcher
+manager: douge
+editor: ''
+tags: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.date="07/30/2016" 
-	wacn.date="04/20/2016"/>
+ms.service: cloud-services
+ms.date: 07/30/2016
+wacn.date: 04/20/2016
+---
 
 # Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
 
@@ -24,8 +23,6 @@ counters, as described in [Using performance counters in Azure][2].
 You might also want to profile your application locally in the compute emulator before deploying it to the cloud.
 
 This article covers the CPU Sampling method of profiling, which can be done locally in the emulator. CPU sampling is a method of profiling that is not very intrusive. At a designated sampling interval, the profiler takes a snapshot of the call stack. The data is collected over a period of time, and shown in a report. This method of profiling tends to indicate where in a computationally intensive application most of the CPU work is being done.  This gives you the opportunity to focus on the "hot path" where your application is spending the most time.
-
-
 
 ## 1: Configure Visual Studio for profiling
 
@@ -44,31 +41,35 @@ You can use these instructions with an existing project or with a new project.  
 For example purposes, add some code to your project that takes
 a lot of time and demonstrates some obvious performance problem. For example, add the following code to a worker role project:
 
-	public class Concatenator
-	{
-	    public static string Concatenate(int number)
-	    {
-	        int count;
-	        string s = "";
-	        for (count = 0; count < number; count++)
-	        {
-	            s += "\n" + count.ToString();
-	        }
-	        return s;
-	    }
-	}
+```
+public class Concatenator
+{
+    public static string Concatenate(int number)
+    {
+        int count;
+        string s = "";
+        for (count = 0; count < number; count++)
+        {
+            s += "\n" + count.ToString();
+        }
+        return s;
+    }
+}
+```
 
 Call this code from the RunAsync method in the worker role's RoleEntryPoint-derived class. (Ignore the warning about the method running synchronously.)
 
-        private async Task RunAsync(CancellationToken cancellationToken)
+```
+    private async Task RunAsync(CancellationToken cancellationToken)
+    {
+        // TODO: Replace the following with your own logic.
+        while (!cancellationToken.IsCancellationRequested)
         {
-            // TODO: Replace the following with your own logic.
-            while (!cancellationToken.IsCancellationRequested)
-            {
-                Trace.TraceInformation("Working");
-                Concatenator.Concatenate(10000);
-            }
+            Trace.TraceInformation("Working");
+            Concatenator.Concatenate(10000);
         }
+    }
+```
 
 Build and run your cloud service locally without debugging (Ctrl+F5), with the solution configuration set to **Release**. This ensures that all files and folders are created for running the application locally, and ensures that all the emulators are started. Start the Compute Emulator UI from the taskbar to verify that your worker role is running.
 
@@ -90,9 +91,9 @@ If your project folder is on a network drive, the profiler will ask you to provi
  If there are multiple worker role processes in your application, you need to use the processID to distinguish them. You can query the processID programmatically by accessing the Process object. For example, if you add this code to the Run method of the RoleEntryPoint-derived class in a role, you can look at the
 log in the Compute Emulator UI to know what process to connect to.
 
-	var process = System.Diagnostics.Process.GetCurrentProcess();
-	var message = String.Format("Process ID: {0}", process.Id);
-	Trace.WriteLine(message, "Information");
+    var process = System.Diagnostics.Process.GetCurrentProcess();
+    var message = String.Format("Process ID: {0}", process.Id);
+    Trace.WriteLine(message, "Information");
 
 To view the log, start the Compute Emulator UI.
 
@@ -117,7 +118,6 @@ that shows an analysis of this data.
 
 ![Profiler report][11]
 
-
 If you see String.wstrcpy in the Hot Path, click on Just My Code to change the view to show user code only.  If you see String.Concat, try pressing the Show All Code button.
 
 You should see the Concatenate method and String.Concat taking up a large portion
@@ -133,16 +133,18 @@ If you added the string concatenation code in this article, you should see a war
 
 You can also compare the performance before and after a code change.  Stop the running process, and edit the code to replace the string concatenation operation with the use of StringBuilder:
 
-	public static string Concatenate(int number)
-	{
-	    int count;
-	    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
-	    for (count = 0; count < number; count++)
-	    {
-	         builder.Append("\n" + count.ToString());
-	    }
-	    return builder.ToString();
-	}
+```
+public static string Concatenate(int number)
+{
+    int count;
+    System.Text.StringBuilder builder = new System.Text.StringBuilder("");
+    for (count = 0; count < number; count++)
+    {
+         builder.Append("\n" + count.ToString());
+    }
+    return builder.ToString();
+}
+```
 
 Do another performance run, and then compare the performance. In the Performance Explorer, if the runs are in the same session, you can just select both reports, open the shortcut menu, and choose **Compare Performance Reports**. If you want to compare with a run in another performance session, open the **Analyze** menu, and choose **Compare Performance Reports**. Specify both files in the dialog box that appears.
 
@@ -173,8 +175,6 @@ command line, especially the global settings, make sure that VSPerfClrEnv /globa
 
 Instrumenting Azure binaries in the emulator is not supported in the Visual Studio profiler, but if you want to test memory allocation, you can choose that option when profiling. You can also choose concurrency profiling, which helps you determine whether threads are wasting time competing for locks, or tier interaction profiling, which helps you track down performance problems when interacting between tiers of an application, most frequently between the data tier and a worker role.  You can view the database queries that your app generates and use the profiling data to improve your use of the database. For information about tier interaction profiling, see the blog post [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][3].
 
-
-
 [1]: http://msdn.microsoft.com/zh-cn/library/azure/hh369930.aspx
 [2]: http://msdn.microsoft.com/zh-cn/library/azure/hh411542.aspx
 [3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
@@ -191,4 +191,3 @@ Instrumenting Azure binaries in the emulator is not supported in the Visual Stud
 [15]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally013.png
 [16]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally012.png
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
- 

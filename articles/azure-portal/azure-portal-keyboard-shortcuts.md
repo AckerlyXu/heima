@@ -1,16 +1,16 @@
-<properties
-   pageTitle="Azure portal keyboard shortcuts | Azure"
-   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
-   services="azure-portal"
-   documentationCenter=""
-   authors="flanakin"
-   manager="lwelicki"
-   editor=""/>
+---
+title: Azure portal keyboard shortcuts | Azure
+description: This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts.
+services: azure-portal
+documentationCenter: ''
+authors: flanakin
+manager: lwelicki
+editor: ''
 
-<tags
-   ms.service="multiple"
-   ms.date="02/07/2016"
-   wacn.date=""/>
+ms.service: multiple
+ms.date: 02/07/2016
+wacn.date: ''
+---
 
 # Azure portal keyboard shortcuts
 
@@ -40,4 +40,3 @@
 | , | Move focus to command bar |
 | . | Move focus to navigation bar |
 | ? | View keyboard shortcuts |
-

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Troubleshooting | Azure"
-    description="Troubleshooting page for the Raspberry Pi Node.js experience"
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timlt"
-    tags=""
-    keywords="iot issues, internet of things problems" />
-<tags
-    ms.assetid="22cf50dc-8206-42a2-a1fc-f75fa85135fa"
-    ms.service="iot-hub"
-    ms.devlang="node"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Troubleshooting | Azure
+description: Troubleshooting page for the Raspberry Pi Node.js experience
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timlt
+tags: ''
+keywords: iot issues, internet of things problems
+
+ms.assetid: 22cf50dc-8206-42a2-a1fc-f75fa85135fa
+ms.service: iot-hub
+ms.devlang: node
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Troubleshooting
 ## Hardware issues
@@ -65,9 +66,8 @@ When the debug engine is ready, you should see ```Debugger listening on port 585
 2. Click the green **Start Debugging** (F5) button. Visual Studio Code opens a launch.json file.
 3. Update the launch.json file with the following content. Replace `[device hostname or IP address]` with the actual device IP address or host name.   
 
-> [AZURE.NOTE]
+> [!NOTE]
 > To learn more about the Visual Studio Debugging, please refer to [Debugging in Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes).
-
 
 ```json
 {
@@ -142,8 +142,7 @@ iothub-explorer help
 ```
 
 ### Azure portal
-A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](/documentation/articles/azure-portal-overview/) to help provision, manage, and debug your Azure resources.
+A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
 ## Azure Storage issues
 [Microsoft Azure Storage Explorer (preview)](http://storageexplorer.com) is a standalone app from Microsoft that you can use to work with Azure Storage data on Windows, macOS, and Linux. By using this tool, you can connect to your table and see the data in it. You can use this tool to troubleshoot your Azure Storage issues.
-

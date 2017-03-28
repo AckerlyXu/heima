@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Prepare target (VMware to Azure) | Azure"
-    description="This article describes how to prepare your Azure environment to start replicating VMware virtual machines to Azure."
-    services="site-recovery"
-    documentationcenter=""
-    author="bsiva"
-    manager="abhemraj"
-    editor="" />
-<tags
-    ms.assetid="ms.service: site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="backup-recovery"
-    ms.date="2/11/2017"
-    wacn.date=""
-    ms.author="bsiva" />
+---
+title: Prepare target (VMware to Azure) | Azure
+description: This article describes how to prepare your Azure environment to start replicating VMware virtual machines to Azure.
+services: site-recovery
+documentationcenter: ''
+author: bsiva
+manager: abhemraj
+editor: ''
+
+ms.assetid: ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: backup-recovery
+ms.date: 2/11/2017
+wacn.date: ''
+ms.author: bsiva
+---
 
 # Prepare target (VMware to Azure)
->[AZURE.SELECTOR]
-- [VMware Virtual Machines](/documentation/articles/site-recovery-prepare-target-vmware-to-azure/)
-- [Physical Servers](/documentation/articles/site-recovery-prepare-target-physical-to-azur//)
+>[!div class="op_single_selector"]
+>- [VMware Virtual Machines](./site-recovery-prepare-target-vmware-to-azure.md)
+>- [Physical Servers](/documentation/articles/site-recovery-prepare-target-physical-to-azur//)
 
 This article describes how to prepare your Azure environment to start replicating VMware virtual machines to Azure.
 
@@ -27,7 +28,7 @@ This article describes how to prepare your Azure environment to start replicatin
 
 The article assumes the following:
 - You have created a Recovery Services Vault to protect your VMware virtual machines. You can create a Recovery Services Vault from the [Azure portal](http://portal.azure.cn "Azure portal").
-- You have [setup your on-premises environment](/documentation/articles/site-recovery-set-up-vmware-to-azure/) to replicate VMware virtual machines to Azure.
+- You have [setup your on-premises environment](./site-recovery-set-up-vmware-to-azure.md) to replicate VMware virtual machines to Azure.
 
 ## Prepare target
 
@@ -45,4 +46,4 @@ Once the validations complete successfully, click OK to go to the next step.
 If you don't have a compatible Resource Manager storage account or virtual network, or would like to add more, you can do so by clicking the **+ Storage Account** or **+ Network** buttons on the top of the blade.
 
 ## Next steps
-[Configure replication settings](/documentation/articles/site-recovery-setup-replication-settings-vmware/).
+[Configure replication settings](./site-recovery-setup-replication-settings-vmware.md).

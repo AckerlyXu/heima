@@ -1,30 +1,30 @@
-<properties
-    pageTitle="Use Service Bus topics with .NET | Azure"
-    description="Learn how to use Service Bus topics and subscriptions with .NET in Azure. Code samples are written for .NET applications."
-    services="service-bus-messaging"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Use Service Bus topics with .NET | Azure
+description: Learn how to use Service Bus topics and subscriptions with .NET in Azure. Code samples are written for .NET applications.
+services: service-bus-messaging
+documentationCenter: .net
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus-messaging"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="get-started-article"
-    ms.date="12/21/2016"
-    ms.author="sethm"/>
+ms.service: service-bus-messaging
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: get-started-article
+ms.date: 12/21/2016
+ms.author: sethm
+---
 
 # How to use Service Bus topics and subscriptions
 
-[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 This article describes how to use Service Bus topics and subscriptions. The samples are written in C# and use the .NET APIs. The scenarios covered include creating topics and subscriptions, creating subscription filters, sending messages to a topic, receiving messages from a subscription, and deleting topics and subscriptions. For more information about topics and subscriptions, see the [Next steps](#Next-steps) section.
 
-[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-[AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## Configure the application to use Service Bus
 
@@ -150,14 +150,16 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-> [AZURE.NOTE] You can use the [TopicExists](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) method on [NamespaceManager](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.aspx) objects to check whether a topic with a specified name already exists within a namespace.
+> [!NOTE]
+> You can use the [TopicExists](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) method on [NamespaceManager](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.aspx) objects to check whether a topic with a specified name already exists within a namespace.
 
 ## Create a subscription
 
 You can also create topic subscriptions using the [`NamespaceManager`](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.aspx) class. Subscriptions are named and can have an optional filter that
 restricts the set of messages passed to the subscription's virtual queue.
 
-> [AZURE.IMPORTANT] In order for messages to be received by a subscription, you must create that subscription before sending any messages to the topic. If there are no subscriptions to a topic, the topic discards those messages.
+> [!IMPORTANT]
+> In order for messages to be received by a subscription, you must create that subscription before sending any messages to the topic. If there are no subscriptions to a topic, the topic discards those messages.
 
 ### Create a subscription with the default (MatchAll) filter
 
@@ -243,7 +245,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-Service Bus topics support a maximum message size of 256 KB in the [Standard tier](/documentation/articles/service-bus-premium-messaging/) and 1 MB in the [Premium tier](/documentation/articles/service-bus-premium-messaging/). The header, which includes the standard and custom application properties, can have a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For more information, see [Partitioned messaging entities](/documentation/articles/service-bus-partitioning/).
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](./service-bus-premium-messaging.md) and 1 MB in the [Premium tier](./service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB. If partitioning is enabled, the upper limit is higher. For more information, see [Partitioned messaging entities](./service-bus-partitioning.md).
 
 ## How to receive messages from a subscription
 
@@ -328,15 +330,15 @@ Now that you've learned the basics of Service Bus topics and subscriptions, foll
 -   [Topic filters sample][]
 -   API reference for [SqlFilter][].
 -   Build a working application that sends and receives messages to and from a Service Bus queue: [Service Bus brokered messaging .NET tutorial][].
--   Service Bus samples: Download from [Azure samples][] or see the [overview](/documentation/articles/service-bus-samples/).
+-   Service Bus samples: Download from [Azure samples][] or see the [overview](./service-bus-samples.md).
 
   [Azure portal]: https://portal.azure.cn
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [Queues, Topics, and Subscriptions]: /documentation/articles/service-bus-queues-topics-subscriptions/
+  [Queues, Topics, and Subscriptions]: ./service-bus-queues-topics-subscriptions.md
   [Topic filters sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
   [SqlFilter]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Service Bus Brokered Messaging .NET Tutorial]: /documentation/articles/service-bus-brokered-tutorial-dotnet/
+  [Service Bus Brokered Messaging .NET Tutorial]: ./service-bus-brokered-tutorial-dotnet.md
   [Azure Samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2

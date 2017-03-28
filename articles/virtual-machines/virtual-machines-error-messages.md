@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Azure Virtual Machine Error Messages"
-    description=""
-    services="virtual-machines"
-    documentationcenter=""
-    author="xujing-ms"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure-services"
-    ms.date="3/17/2017"
-    wacn.date=""
-    ms.author="xujing" />
+---
+title: Azure Virtual Machine Error Messages
+description: ''
+services: virtual-machines
+documentationcenter: ''
+author: xujing-ms
+manager: timlt
+editor: ''
+
+ms.assetid: ''
+ms.service: virtual-machines
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 3/17/2017
+wacn.date: ''
+ms.author: xujing
+---
 
 # Azure Virtual Machine Error Messages
 This article describes the common error codes and messages you encounter when managing an Azure Virtual Machine(VM).  
 
->[AZURE.NOTE]
+>[!NOTE]
 >Leave comments on this page for error meesgae feedback or through [Azure feedback](https://feedback.azure.com/forums/216843-virtual-machines) with #azerrormessage tag.
 >
 >
@@ -28,19 +29,21 @@ This article describes the common error codes and messages you encounter when ma
 ## Error Response Format 
 Azure VM uses the following JSON format for error response.
 
-    {
-      "status": "status code",
-      "error": {
-        "code":"Top level error code",
-        "message":"Top level error message",
-        "details":[
-         {
-          "code":"Inner evel error code",
-          "message":"Inner level error message"
-         }
-        ]
-       }
-    }
+```json
+{
+  "status": "status code",
+  "error": {
+    "code":"Top level error code",
+    "message":"Top level error message",
+    "details":[
+     {
+      "code":"Inner evel error code",
+      "message":"Inner level error message"
+     }
+    ]
+   }
+}
+```
 
 An error response always includes a status code, an error object. each error object always contains an error code, message. if the VM deployment is created through a template, then the error object also contains a details section, which contains an inner level of error codes and message. Normally, the most inner level of error message is the root failure. 
 

@@ -1,36 +1,37 @@
-<properties
-    pageTitle="Manage NSGs using the Azure portal preview | Azure"
-    description="Learn how to manage existing NSGs using the Azure portal preview."
-    services="virtual-network"
-    documentationcenter="na"
-    author="jimdial"
-    manager="carmonm"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="5d55679d-57da-457c-97dc-1e1973909ee5"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/14/2016"
-    wacn.date=""
-    ms.author="jdial" />
+---
+title: Manage NSGs using the Azure portal preview | Azure
+description: Learn how to manage existing NSGs using the Azure portal preview.
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: carmonm
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 5d55679d-57da-457c-97dc-1e1973909ee5
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/14/2016
+wacn.date: ''
+ms.author: jdial
+---
 
 # Manage NSGs using the portal
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/virtual-network-manage-nsg-arm-portal/)
-- [PowerShell](/documentation/articles/virtual-network-manage-nsg-arm-ps/)
-- [Azure CLI](/documentation/articles/virtual-network-manage-nsg-arm-cli/)
+> [!div class="op_single_selector"]
+>- [Portal](./virtual-network-manage-nsg-arm-portal.md)
+>- [PowerShell](./virtual-network-manage-nsg-arm-ps.md)
+>- [Azure CLI](./virtual-network-manage-nsg-arm-cli.md)
 
-[AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
+[!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-> [AZURE.NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](/documentation/articles/resource-manager-deployment-model/). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
+> [!NOTE]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
 >
 
-[AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
+[!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## Retrieve Information
 You can view your existing NSGs, retrieve rules for an existing NSG, and find out what resources an NSG is associated to.
@@ -77,7 +78,7 @@ To view the rules of an NSG named **NSG-FrontEnd**, complete the following steps
 
 4. In the **Settings** tab, click **Outbound security rules** to see the outbound rules.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > To view default rules, click the **Default rules** icon at the top of the blade that displays the rules.
     >
 
@@ -149,7 +150,7 @@ To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, complete th
 
     ![Azure portal preview - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure13.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can also use this blade to associate the NIC to any existing NSG.
 >
 
@@ -175,7 +176,7 @@ To associate the **NSG-FrontEnd** NSG to the **FronEnd** subnet again, complete 
 2. In the **Settings** blade, click **Subnets** > **FrontEnd** > **Network security group** > **NSG-FrontEnd**.
 3. In the **FrontEnd** blade, click **Save**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can also associate an NSG to a subnet from thh NSG's **Settings** blade.
 >
 
@@ -193,4 +194,4 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
     ![Azure portal preview - NSGs](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
 ## Next steps
-* [Enable logging](/documentation/articles/virtual-network-nsg-manage-log/) for NSGs.
+* [Enable logging](./virtual-network-nsg-manage-log.md) for NSGs.

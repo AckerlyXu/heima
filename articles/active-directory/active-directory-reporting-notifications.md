@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Azure Active Directory Reporting Notifications"
-	description="How to use the Azure Active Directory reporting notifications for suspicious sign ins."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="TerryLan"
-	editor="LisaToft"/>
+---
+title: Azure Active Directory Reporting Notifications
+description: How to use the Azure Active Directory reporting notifications for suspicious sign ins.
+services: active-directory
+documentationCenter: ''
+authors: SSalahAhmed
+manager: TerryLan
+editor: LisaToft
 
-<tags
-	ms.service="active-directory"
-	ms.date="06/24/2015"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 06/24/2015
+wacn.date: ''
+---
 
 # Azure Active Directory Reporting Notifications
 
@@ -59,6 +59,6 @@ When you click on the link, you will be redirected to the report page within the
 Yes, to turn off notifications related to anomalous sign ins within the Azure Management Portal, click **Configure**, and then select **Disabled** under the **Notifications** section.
 
 ## What's next
-- Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](/documentation/articles/active-directory-view-access-usage-reports/)
-- [Getting started with Azure Active Directory Premium](/documentation/articles/active-directory-get-started-premium/)
-- [Add company branding to your Sign In and Access Panel pages](/documentation/articles/active-directory-add-company-branding/)
+- Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](./active-directory-view-access-usage-reports.md)
+- [Getting started with Azure Active Directory Premium](./active-directory-get-started-premium.md)
+- [Add company branding to your Sign In and Access Panel pages](./active-directory-add-company-branding.md)

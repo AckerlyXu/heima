@@ -1,20 +1,20 @@
-<properties 
-   pageTitle="Get the service registration key"
-   description="Explains how to get the registration key used to register all StorSimple devices."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+---
+title: Get the service registration key
+description: Explains how to get the registration key used to register all StorSimple devices.
+services: storsimple
+documentationCenter: NA
+authors: SharS
+manager: adinah
+editor: tysonn
 
+ms.service: storsimple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: TBD
+ms.date: 04/01/2015
+ms.author: v-sharos
+---
 
 ### To get the StorSimple service registration key
 
@@ -32,6 +32,5 @@
 
 5. Click the check icon ![StorSimple Check icon](./media/storsimple-get-service-registration-key/HCS_CheckIcon-include.png) to close this dialog box and return to the **Quick Start** page.
 
-> [AZURE.NOTE] The service registration key is used to register all the devices that need to register with your StorSimple Manager service.
-
- 
+> [!NOTE]
+> The service registration key is used to register all the devices that need to register with your StorSimple Manager service.

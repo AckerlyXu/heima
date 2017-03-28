@@ -19,16 +19,15 @@ ms.author: carlrab
 ---
 # Fix SQL Server database compatibility issues using SQL Server Management Studio before migration to SQL Database
 
-> [AZURE.SELECTOR]
-- Use [SQL Azure Migration Wizard](/documentation/articles/sql-database-cloud-migrate-fix-compatibility-issues/)
-- Use [SSDT](/documentation/articles/sql-database-cloud-migrate-fix-compatibility-issues-ssdt/)
-- Use [SSMS](/documentation/articles/sql-database-cloud-migrate-fix-compatibility-issues-ssms/)
+> [!div class="op_single_selector"]
+>- Use [SQL Azure Migration Wizard](./sql-database-cloud-migrate-fix-compatibility-issues.md)
+>- Use [SSDT](/documentation/articles/sql-database-cloud-migrate-fix-compatibility-issues-ssdt/)
+>- Use [SSMS](/documentation/articles/sql-database-cloud-migrate-fix-compatibility-issues-ssms/)
 
 Advanced users can fix SQL Server database compatibility issues using SQL Server Management Studio before migration to Azure SQL Database.
 
-
-> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
-
+> [!IMPORTANT]
+> It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
 
 ## Using SQL Server Management Studio
 Use SQL Server Management Studio to fix compatibility issues using various Transact-SQL commands, such as **ALTER DATABASE**. This method is primarily for advanced users that are comfortable working Transact-SQL on a live database. Otherwise, it is recommended that you use SSDT. 
@@ -37,10 +36,10 @@ Use SQL Server Management Studio to fix compatibility issues using various Trans
 
 - [Newest version of SSDT](https://msdn.microsoft.com/zh-cn/library/mt204009.aspx)
 - [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx)
-- [Migrate a compatible SQL Server database to SQL Database](/documentation/articles/sql-database-cloud-migrate/#migrate-a-compatible-sql-server-database-to-sql-database)
+- [Migrate a compatible SQL Server database to SQL Database](./sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
 ## Additional resources
 
-- [SQL Database V12](/documentation/articles/sql-database-v12-whats-new/)
-- [Transact-SQL partially or unsupported functions](/documentation/articles/sql-database-transact-sql-information/)
+- [SQL Database V12](./sql-database-v12-whats-new.md)
+- [Transact-SQL partially or unsupported functions](./sql-database-transact-sql-information.md)
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)

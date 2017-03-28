@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Azure SQL Database Scales on the Fly"
-   description="Learn how SQL Database scales on the fly"
-   keywords=""
-   services="sql-database"
-   documentationCenter=""
-   authors="CarlRabeler"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Azure SQL Database Scales on the Fly
+description: Learn how SQL Database scales on the fly
+keywords: ''
+services: sql-database
+documentationCenter: ''
+authors: CarlRabeler
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="10/13/2016"
-   ms.author="carlrab"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-management
+ms.date: 10/13/2016
+ms.author: carlrab
+---
 
 # Azure SQL Database Scales on the fly
 
@@ -43,14 +43,14 @@ SQL Database includes cutting edge in-memory technology to execute extremely fas
 [Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787580)
 
 Go to the homepage to see what else SQL Database has to offer.
-[Check it out](/home/features/sql-database) 
+[Check it out](https://www.azure.cn/home/features/sql-database) 
 
 ## Next steps
 
-Get a [Azure subscription](/pricing/1rmb-trial) and [create your first Azure SQL Database](/documentation/articles/sql-database-get-started/).
+Get a [Azure subscription](https://www.azure.cn/pricing/1rmb-trial) and [create your first Azure SQL Database](./sql-database-get-started.md).
 
 ## Additional resources
 
-Explore all the [capabilities of SQL Database](/home/features/sql-database).
- 
-Review the [technical overview of SQL Database](/documentation/articles/sql-database-technical-overview/).
+Explore all the [capabilities of SQL Database](https://www.azure.cn/home/features/sql-database).
+
+Review the [technical overview of SQL Database](./sql-database-technical-overview.md).

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect: Understanding Declarative Provisioning | Azure"
-    description="Explains the declarative provisioning configuration model in Azure AD Connect."
-    services="active-directory"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="cfbb870d-be7d-47b3-ba01-9e78121f0067"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect: Understanding Declarative Provisioning | Azure
+description: Explains the declarative provisioning configuration model in Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+
+ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Azure AD Connect sync: Understanding Declarative Provisioning
 This topic explains the configuration model in Azure AD Connect. The model is called Declarative Provisioning and it allows you to make a configuration change with ease. Many things described in this topic are advanced and not required for most customer scenarios.
@@ -86,7 +87,7 @@ A metaverse object remains as long as there is one inbound sync rule in scope wi
 When a metaverse object is deleted, all objects associated with an outbound sync rule marked for **provision** are marked for a delete.
 
 ## Transformations
-The transformations are used to define how attributes should flow from the source to the target. The flows can have one of the following **flow types**: Direct, Constant, or Expression. A direct flow, flows an attribute value as-is with no additional transformations. A constant value sets the specified value. An expression uses the declarative provisioning expression language to express how the transformation should be. The details for the expression language can be found in the [understanding declarative provisioning expression language](/documentation/articles/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/) topic.
+The transformations are used to define how attributes should flow from the source to the target. The flows can have one of the following **flow types**: Direct, Constant, or Expression. A direct flow, flows an attribute value as-is with no additional transformations. A constant value sets the specified value. An expression uses the declarative provisioning expression language to express how the transformation should be. The details for the expression language can be found in the [understanding declarative provisioning expression language](./active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) topic.
 
 ![Provision or join](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/transformations1.png)  
 
@@ -146,16 +147,16 @@ For this scenario, you need to change the scope of the sync rules so the source 
 ![Multiple objects joined to the same mv object](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
 ## Next steps
-- Read more about the expression language in [Understanding Declarative Provisioning Expressions](/documentation/articles/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions/).
-- See how declarative provisioning is used out-of-box in [Understanding the default configuration](/documentation/articles/active-directory-aadconnectsync-understanding-default-configuration/).
-- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](/documentation/articles/active-directory-aadconnectsync-change-the-configuration/).
-- Continue to read how users and contacts work together in [Understanding Users and Contacts](/documentation/articles/active-directory-aadconnectsync-understanding-users-and-contacts/).
+- Read more about the expression language in [Understanding Declarative Provisioning Expressions](./active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- See how declarative provisioning is used out-of-box in [Understanding the default configuration](./active-directory-aadconnectsync-understanding-default-configuration.md).
+- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](./active-directory-aadconnectsync-change-the-configuration.md).
+- Continue to read how users and contacts work together in [Understanding Users and Contacts](./active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](/documentation/articles/active-directory-aadconnectsync-whatis/)
-- [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
 
 **Reference topics**
 
-- [Azure AD Connect sync: Functions Reference](/documentation/articles/active-directory-aadconnectsync-functions-reference/)
+- [Azure AD Connect sync: Functions Reference](./active-directory-aadconnectsync-functions-reference.md)

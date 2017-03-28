@@ -1,18 +1,16 @@
-<properties
+---
+title: Managing groups in Azure Active Directory | Azure
+description: How to create and manage groups to manage Azure users using Azure Active Directory.
+services: active-directory
+documentationCenter: ''
+authors: curtand
+manager: femila
+editor: ''
 
-	pageTitle="Managing groups in Azure Active Directory | Azure"
-	description="How to create and manage groups to manage Azure users using Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
-
-<tags
-	ms.service="active-directory" 
-	ms.date="08/10/2016"
-	wacn.date=""/>
-
+ms.service: active-directory
+ms.date: 08/10/2016
+wacn.date: ''
+---
 
 # Managing groups in Azure Active Directory
 
@@ -30,7 +28,7 @@ Depending on the services to which your organization has subscribed, you can cre
 - the Office 365 account portal
 - the Windows Intune account portal
 
-We'll describe tasks as performed in the Azure classic portal. For more information about using non-Azure portals to manage your Azure AD directory, see [Administering your Azure AD directory](/documentation/articles/active-directory-administer/).
+We'll describe tasks as performed in the Azure classic portal. For more information about using non-Azure portals to manage your Azure AD directory, see [Administering your Azure AD directory](./active-directory-administer.md).
 
 1. In the [Azure classic portal](https://manage.windowsazure.cn), select **Active Directory**, and then select the name of your organization’s directory.
 
@@ -39,7 +37,6 @@ We'll describe tasks as performed in the Azure classic portal. For more informat
 3. Select **Add Group**.
 
 4. In the **Add Group** window, specify the name and the description of a group.
-
 
 ## How do I add or remove individual users in a security group?
 
@@ -55,7 +52,6 @@ We'll describe tasks as performed in the Azure classic portal. For more informat
 
 5. On the **Add Members** page, select the name of the user or a group that you want to add as a member of this group. Make sure that this name is added to the **Selected** pane.
 
-
 **To remove an individual user from a group**
 
 1. In the [Azure classic portal](https://manage.windowsazure.cn), select **Active Directory**, and then select the name of your organization’s directory.
@@ -68,12 +64,12 @@ We'll describe tasks as performed in the Azure classic portal. For more informat
 
 6. Confirm at the prompt that you want to remove this member from the group.
 
-
 ## How can I manage the membership of a group dynamically?
 
 In Azure AD, you can very easily set up a simple rule to determine which users are to be members of the group. A simple rule is one that makes only a single comparison. For example, if a group is assigned to a SaaS application, you can set up a rule to add users who have a job title of "Sales Rep." This rule then grants access to this SaaS application to all users with that job title in your directory.
 
-> [AZURE.NOTE] You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships aren't currently supported for group-based assignment to applications.
+> [!NOTE]
+> You can set up a rule for dynamic membership on security groups or Office 365 groups. Nested group memberships aren't currently supported for group-based assignment to applications.
 >
 > Dynamic memberships for groups require an Azure AD Premium license to be assigned to
 >
@@ -94,16 +90,16 @@ In Azure AD, you can very easily set up a simple rule to determine which users a
 
 6. Specify a comparison value for the selected user property.
 
-To learn about how to create *advanced* rules (rules that can contain multiple comparisons) for dynamic group membership, see [Using attributes to create advanced rules](/documentation/articles/active-directory-accessmanagement-groups-with-advanced-rules/).
+To learn about how to create *advanced* rules (rules that can contain multiple comparisons) for dynamic group membership, see [Using attributes to create advanced rules](./active-directory-accessmanagement-groups-with-advanced-rules.md).
 
 ## Additional information
 
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](/documentation/articles/active-directory-manage-groups/)
+* [Managing access to resources with Azure Active Directory groups](./active-directory-manage-groups.md)
 
-* [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
+* [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
 
-* [What is Azure Active Directory?](/documentation/articles/active-directory-whatis/)
+* [What is Azure Active Directory?](./active-directory-whatis.md)
 
-* [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+* [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)

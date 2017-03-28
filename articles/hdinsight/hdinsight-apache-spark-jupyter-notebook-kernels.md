@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Use different kernels with Jupyter notebooks on Azure HDInsight Spark clusters | Azure"
-    description="Learn about the PySpark, PySpark3, and Spark kernels you can use with the Jupyter notebook available with Spark clusters on HDInsight Linux."
-    services="hdinsight"
-    documentationcenter=""
-    author="nitinme"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="0719e503-ee6d-41ac-b37e-3d77db8b121b"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/14/2017"
-    wacn.date=""
-    ms.author="nitinme" />
+---
+title: Use different kernels with Jupyter notebooks on Azure HDInsight Spark clusters | Azure
+description: Learn about the PySpark, PySpark3, and Spark kernels you can use with the Jupyter notebook available with Spark clusters on HDInsight Linux.
+services: hdinsight
+documentationcenter: ''
+author: nitinme
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: 0719e503-ee6d-41ac-b37e-3d77db8b121b
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/14/2017
+wacn.date: ''
+ms.author: nitinme
+---
 
 # Jupyter notebooks kernels with Apache Spark clusters in HDInsight 
 
@@ -30,19 +31,19 @@ In this article, you learn how to use these kernels and the benefits of using th
 
 ## Prerequisites
 
-* An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](/documentation/articles/hdinsight-apache-spark-jupyter-spark-sql/).
+* An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Create a Jupyter notebook
 
-1. From the [Azure portal preview](https://portal.azure.cn/), open your cluster.  See [List and show clusters](/documentation/articles/hdinsight-administer-use-portal-linux/#list-and-show-clusters) for the instructions. The cluster is opened in a new portal blade.
+1. From the [Azure portal preview](https://portal.azure.cn/), open your cluster.  See [List and show clusters](./hdinsight-administer-use-portal-linux.md#list-and-show-clusters) for the instructions. The cluster is opened in a new portal blade.
 
 2. From the **Quick links** section, click **Cluster dashboards** to open the **Cluster dashboards** blade.  If you don't see **Quick Links**, click **Overview** from the left menu on the blade.
 
     ![Cluster dashboards](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-azure-portal-cluster-dashboards.png "Cluster dashboards") 
 
 3. Click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
     ><p>
     > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
@@ -50,7 +51,7 @@ In this article, you learn how to use these kernels and the benefits of using th
     > 
 
 3. Click **New**, and then click either **Pyspark**, **PySpark3**, or **Spark** to create a notebook. Use the Spark kernel for Scala applications, PySpark kernel for Python2 applications, and PySpark3 kernel for Python3 applications.
-   
+
     ![Create a Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-kernels/jupyter-kernels.png "Create a Jupyter notebook") 
 
 4. A notebook opens with the kernel you selected.
@@ -60,19 +61,21 @@ In this article, you learn how to use these kernels and the benefits of using th
 Here are a few benefits of using the new kernels.
 
 - **Preset contexts**. With  **PySpark**, **PySpark3**, or the **Spark** kernels, you do not need to set the Spark or Hive contexts explicitly before you start working with your applications. These are available by default. These contexts are:
-   
+
     * **sc** - for Spark context
     * **sqlContext** - for Hive context
 
     So, you don't have to run statements like the following to set the contexts:
 
-        sc = SparkContext('yarn-client')
-        sqlContext = HiveContext(sc)
+    ```
+    sc = SparkContext('yarn-client')
+    sqlContext = HiveContext(sc)
+    ```
 
     Instead, you can directly use the preset contexts in your application.
 
 - **Cell magics**. The PySpark kernel provides some predefined "magics", which are special commands that you can call with `%%` (for example, `%%MAGIC` <args>). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, causes an error.     For more information on magics, see [here](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
-   
+
     The following table lists the different magics available through the kernels.
 
     | Magic | Example | Description |
@@ -86,7 +89,7 @@ Here are a few benefits of using the new kernels.
     | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. Note that you cannot delete the session that is initiated for the kernel itself. |
     | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode.
     >
     >
@@ -105,8 +108,10 @@ The `%%sql` magic supports different parameters that you can use to control the 
 
 **Example:**
 
-    %%sql -q -m sample -r 0.1 -n 500 -o query2
-    SELECT * FROM hivesampletable
+```
+%%sql -q -m sample -r 0.1 -n 500 -o query2
+SELECT * FROM hivesampletable
+```
 
 The statement above does the following:
 
@@ -134,9 +139,11 @@ Jupyter notebooks are saved to the storage account associated with the cluster u
 
 The way notebooks are saved to the storage account is compatible with HDFS. So, if you SSH into the cluster you can use file management commands as shown in the following snippet:
 
-    hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory - everything in this directory is visible to Jupyter from the home page
-    hdfs dfs -copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
-    hdfs dfs -copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter
+```
+hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory - everything in this directory is visible to Jupyter from the home page
+hdfs dfs -copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
+hdfs dfs -copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it's visible from Jupyter
+```
 
 In case there are issues accessing the storage account for the cluster, the notebooks are also saved on the headnode `/var/lib/jupyter`.
 
@@ -148,24 +155,24 @@ Jupyter notebooks running against HDInsight Spark clusters are supported only on
 The new kernels are in evolving stage and will mature over time. This could also mean that APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. This is useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Comments** section at the bottom of this article.
 
 ## <a name="seealso"></a>See also
-* [Overview: Apache Spark on Azure HDInsight](/documentation/articles/hdinsight-apache-spark-overview/)
+* [Overview: Apache Spark on Azure HDInsight](./hdinsight-apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](/documentation/articles/hdinsight-apache-spark-use-bi-tools/)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](/documentation/articles/hdinsight-apache-spark-ipython-notebook-machine-learning/)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](/documentation/articles/hdinsight-apache-spark-machine-learning-mllib-ipython/)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](/documentation/articles/hdinsight-apache-spark-eventhub-streaming/)
-* [Website log analysis using Spark in HDInsight](/documentation/articles/hdinsight-apache-spark-custom-library-website-log-analysis/)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](./hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](./hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](./hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](./hdinsight-apache-spark-eventhub-streaming.md)
+* [Website log analysis using Spark in HDInsight](./hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
-* [Create a standalone application using Scala](/documentation/articles/hdinsight-apache-spark-create-standalone-application/)
-* [Run jobs remotely on a Spark cluster using Livy](/documentation/articles/hdinsight-apache-spark-livy-rest-interface/)
+* [Create a standalone application using Scala](./hdinsight-apache-spark-create-standalone-application.md)
+* [Run jobs remotely on a Spark cluster using Livy](./hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](/documentation/articles/hdinsight-apache-spark-use-zeppelin-notebook/)
-* [Use external packages with Jupyter notebooks](/documentation/articles/hdinsight-apache-spark-jupyter-notebook-use-external-packages/)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](/documentation/articles/hdinsight-apache-spark-jupyter-notebook-install-locally/)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](./hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use external packages with Jupyter notebooks](./hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](./hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](/documentation/articles/hdinsight-apache-spark-resource-manager/)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](/documentation/articles/hdinsight-apache-spark-job-debugging/)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](./hdinsight-apache-spark-resource-manager.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](./hdinsight-apache-spark-job-debugging.md)

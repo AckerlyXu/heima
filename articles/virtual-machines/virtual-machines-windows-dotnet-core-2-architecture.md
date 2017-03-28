@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Deploying Windows Compute Resources with Azure Resource Manager Templates | Azure"
-    description="Azure Virtual Machine DotNet Core Tutorial"
-    services="virtual-machines-windows"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="b026fe81-1bc1-4899-ac32-886091671498"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure-services"
-    ms.date="11/21/2016"
-    wacn.date=""
-    ms.author="nepeters"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Deploying Windows Compute Resources with Azure Resource Manager Templates | Azure
+description: Azure Virtual Machine DotNet Core Tutorial
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: b026fe81-1bc1-4899-ac32-886091671498
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 11/21/2016
+wacn.date: ''
+ms.author: nepeters
+ms.custom: H1Hack27Feb2017
+---
 
 # Application architecture with Azure Resource Manager templates for Windows VMs
 
@@ -32,32 +33,35 @@ A virtual machine can be added to a template using the Visual Studio Add New Res
 
 Follow this link to see the JSON sample within the Resource Manager template - [Virtual Machine JSON](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L285).
 
->[AZURE.NOTE] Templates you downloaded must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn", and "database.windows.net" by "database.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+>[!NOTE]
+> Templates you downloaded must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn", and "database.windows.net" by "database.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
 
-    {
-      {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Compute/virtualMachines",
-      "name": "[concat(variables('vmName'),copyindex())]",
-      "location": "[resourceGroup().location]",
-      "copy": {
-        "name": "virtualMachineLoop",
-        "count": "[parameters('numberOfInstances')]"
-      },
-      "tags": {
-        "displayName": "virtual-machine"
-      },
-      "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('vhdStorageName'))]",
-        "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]",
-        "nicLoop"
-      ],
-      "properties": {
-        "availabilitySet": {
-          "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
-        },
-      ........<truncated>  
-    }
+```json
+{
+  {
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[concat(variables('vmName'),copyindex())]",
+  "location": "[resourceGroup().location]",
+  "copy": {
+    "name": "virtualMachineLoop",
+    "count": "[parameters('numberOfInstances')]"
+  },
+  "tags": {
+    "displayName": "virtual-machine"
+  },
+  "dependsOn": [
+    "[concat('Microsoft.Storage/storageAccounts/', variables('vhdStorageName'))]",
+    "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]",
+    "nicLoop"
+  ],
+  "properties": {
+    "availabilitySet": {
+      "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
+    },
+  ........<truncated>  
+}
+```
 
 Once deployed, the virtual machine properties can be seen in the Azure portal preview.
 
@@ -68,31 +72,35 @@ Storage accounts have many storage options and capabilities. For the context of 
 
 Follow this link to see the JSON sample within the Resource Manager template - [Storage Account](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L98).
 
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('vhdStorageName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "storage-account"
-      },
-      "properties": {
-        "accountType": "[variables('vhdStorageType')]"
-      }
-    }
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Storage/storageAccounts",
+  "name": "[variables('vhdStorageName')]",
+  "location": "[resourceGroup().location]",
+  "tags": {
+    "displayName": "storage-account"
+  },
+  "properties": {
+    "accountType": "[variables('vhdStorageType')]"
+  }
+}
+```
 
 A storage account is associate with a virtual machine inside the Resource Manager template declaration of the virtual machine. 
 
 Follow this link to see the JSON sample within the Resource Manager template - [Virtual Machine and Storage Account association](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L321).
 
-    "osDisk": {
-      "name": "osdisk",
-      "vhd": {
-        "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/',variables('vhdStorageName')), '2015-06-15').primaryEndpoints.blob,'vhds/osdisk', copyindex(), '.vhd')]"
-      },
-      "caching": "ReadWrite",
-      "createOption": "FromImage"
-    }
+```json
+"osDisk": {
+  "name": "osdisk",
+  "vhd": {
+    "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/',variables('vhdStorageName')), '2015-06-15').primaryEndpoints.blob,'vhds/osdisk', copyindex(), '.vhd')]"
+  },
+  "caching": "ReadWrite",
+  "createOption": "FromImage"
+}
+```
 
 After deployment, the storage account can be viewed in the Azure portal preview.
 
@@ -102,43 +110,45 @@ Clicking into the storage account blob container, the virtual hard drive file fo
 
 ![Virtual Hard Drives](./media/virtual-machines-windows-dotnet-core/vhd-win.png)
 
-For more information on Azure Storage, see [Azure Storage documentation](/documentation/services/storage/).
+For more information on Azure Storage, see [Azure Storage documentation](../storage/index.md).
 
 ## Virtual Network
 If a virtual machine requires internal networking such as the ability to communicate with other virtual machines and Azure resources, an Azure Virtual Network is required.  A virtual network does not make the virtual machine accessible over the internet. Public connectivity requires a public IP address, which is detailed later in this series.
 
 Follow this link to see the JSON sample within the Resource Manager template - [Virtual Network and Subnets](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L126).
 
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[variables('virtualNetworkName')]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.Network/networkSecurityGroups/', variables('networkSecurityGroup'))]"
-      ],
-      "tags": {
-        "displayName": "virtual-network"
-      },
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "10.0.0.0/24"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[variables('subnetName')]",
-            "properties": {
-              "addressPrefix": "10.0.0.0/24",
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroup'))]"
-              }
-            }
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Network/virtualNetworks",
+  "name": "[variables('virtualNetworkName')]",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Network/networkSecurityGroups/', variables('networkSecurityGroup'))]"
+  ],
+  "tags": {
+    "displayName": "virtual-network"
+  },
+  "properties": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.0.0.0/24"
+      ]
+    },
+    "subnets": [
+      {
+        "name": "[variables('subnetName')]",
+        "properties": {
+          "addressPrefix": "10.0.0.0/24",
+          "networkSecurityGroup": {
+            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroup'))]"
           }
-        ]
+        }
       }
-    }
+    ]
+  }
+}
+```
 
 From the Azure portal preview, the virtual network looks like the following image. Notice that all virtual machines deployed with the template are attached to the virtual network.
 
@@ -196,19 +206,21 @@ Each virtual machine resource includes a network profile. The network interface 
 
 Follow this link to see the JSON sample within the Resource Manager template - [Virtual Machine Network Profile](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L330).
 
-    "networkProfile": {
-      "networkInterfaces": [
-        {
-          "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('networkInterfaceName'), copyindex()))]"
-        }
-      ]
+```json
+"networkProfile": {
+  "networkInterfaces": [
+    {
+      "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('networkInterfaceName'), copyindex()))]"
     }
+  ]
+}
+```
 
 From the Azure portal preview, the network interface looks like the following image. The internal IP address and the virtual machine association can be seen on the network interface resource.
 
 ![Network Interface](./media/virtual-machines-windows-dotnet-core/nic-win.png)
 
-For more information on Azure Virtual Networks, see [Azure Virtual Network documentation](/documentation/services/networking/).
+For more information on Azure Virtual Networks, see [Azure Virtual Network documentation](../virtual-network/index.md).
 
 ## Azure SQL Database
 In addition to a virtual machine hosting the Music Store website, an Azure SQL Database is deployed to host the Music Store database. The advantage of using Azure SQL Database here is that a second set of virtual machines is not required, and scale and availability is built into the service.
@@ -217,43 +229,45 @@ An Azure SQL database can be added using the Visual Studio Add New Resource wiza
 
 Follow this link to see the JSON sample within the Resource Manager template - [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L379).
 
+```json
+{
+  "apiVersion": "2014-04-01-preview",
+  "type": "Microsoft.Sql/servers",
+  "name": "[variables('musicstoresqlName')]",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [],
+  "tags": {
+    "displayName": "sql-music-store"
+  },
+  "properties": {
+    "administratorLogin": "[parameters('adminUsername')]",
+    "administratorLoginPassword": "[parameters('adminPassword')]"
+  },
+  "resources": [
     {
       "apiVersion": "2014-04-01-preview",
-      "type": "Microsoft.Sql/servers",
-      "name": "[variables('musicstoresqlName')]",
+      "type": "firewallrules",
+      "name": "firewall-allow-azure",
       "location": "[resourceGroup().location]",
-      "dependsOn": [],
-      "tags": {
-        "displayName": "sql-music-store"
-      },
+      "dependsOn": [
+        "[concat('Microsoft.Sql/servers/', variables('musicstoresqlName'))]"
+      ],
       "properties": {
-        "administratorLogin": "[parameters('adminUsername')]",
-        "administratorLoginPassword": "[parameters('adminPassword')]"
-      },
-      "resources": [
-        {
-          "apiVersion": "2014-04-01-preview",
-          "type": "firewallrules",
-          "name": "firewall-allow-azure",
-          "location": "[resourceGroup().location]",
-          "dependsOn": [
-            "[concat('Microsoft.Sql/servers/', variables('musicstoresqlName'))]"
-          ],
-          "properties": {
-            "startIpAddress": "0.0.0.0",
-            "endIpAddress": "0.0.0.0"
-          }
-        }
-      ]
+        "startIpAddress": "0.0.0.0",
+        "endIpAddress": "0.0.0.0"
+      }
     }
+  ]
+}
+```
 
 A view of the SQL server and MusicStore database as seen in the Azure portal preview.
 
 ![SQL Server](./media/virtual-machines-windows-dotnet-core/sql-win.png)
 
-For more information on deploying Azure SQL Database, see [Azure SQL Database documentation](/documentation/services/sql-databases/).
+For more information on deploying Azure SQL Database, see [Azure SQL Database documentation](../sql-database/index.md).
 
 ## Next step
 <hr>
 
-[Step 2 - Access and Security in Azure Resource Manager Templates](/documentation/articles/virtual-machines-windows-dotnet-core-3-access-security/)
+[Step 2 - Access and Security in Azure Resource Manager Templates](./virtual-machines-windows-dotnet-core-3-access-security.md)

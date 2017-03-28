@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Create your Azure IoT hub and register Adafruit Feather M0 WiFi | Azure"
-    description="Create a resource group, create an Azure IoT hub, and register Adafruit Feather M0 WiFi in the Azure IoT hub by using the Azure CLI."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="connecting arduino to cloud, azure iot hub, internet of things cloud, azure iot hub create device, arduino cloud" />
-<tags
-    ms.assetid="5edc690b-7a1d-4ebc-b011-ff27bfffe6e8"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Create your Azure IoT hub and register Adafruit Feather M0 WiFi | Azure
+description: Create a resource group, create an Azure IoT hub, and register Adafruit Feather M0 WiFi in the Azure IoT hub by using the Azure CLI.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: connecting arduino to cloud, azure iot hub, internet of things cloud, azure iot hub create device, arduino cloud
+
+ms.assetid: 5edc690b-7a1d-4ebc-b011-ff27bfffe6e8
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Create your IoT hub and register your Adafruit Feather M0 WiFi Arduino board
 
@@ -74,9 +75,9 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
    az iot hub create --name {my hub name} --resource-group iot-sample
    ```
 
-By default, the tool creates an IoT Hub in the Free pricing tier. For more infomation, see [Azure IoT Hub pricing](/pricing/details/iot-hub/).
+By default, the tool creates an IoT Hub in the Free pricing tier. For more infomation, see [Azure IoT Hub pricing](https://www.azure.cn/pricing/details/iot-hub/).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The name of your IoT hub must be globally unique.
 > You can create only one F1 edition of Azure IoT Hub under your Azure subscription.
 
@@ -95,8 +96,7 @@ You've created an IoT hub and registered your Arduino board with a device identi
 ## Next steps
 [Create an Azure function app and an Azure Storage account to process and store IoT hub messages][process-and-store-iot-hub-messages].
 
-
 <!-- Images and links -->
 
-[troubleshoot]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/
-[process-and-store-iot-hub-messages]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template/
+[troubleshoot]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
+[process-and-store-iot-hub-messages]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md

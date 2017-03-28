@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Azure Storage Explorer 0.8.7 (Preview)| Azure"
-    description="Release notes for Azure Storage Explorer 0.8.7 (Preview)"
-    services="storage"
-    documentationcenter="na"
-    author="cawa"
-    manager="paulyuk"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="storage"
-    ms.devlang="multiple"
-    ms.topic="release-notes"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/18/2017"
-    wacn.date=""
-    ms.author="cawa" />
+---
+title: Azure Storage Explorer 0.8.7 (Preview)| Azure
+description: Release notes for Azure Storage Explorer 0.8.7 (Preview)
+services: storage
+documentationcenter: na
+author: cawa
+manager: paulyuk
+editor: ''
+
+ms.assetid: ''
+ms.service: storage
+ms.devlang: multiple
+ms.topic: release-notes
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/18/2017
+wacn.date: ''
+ms.author: cawa
+---
 
 # Azure Storage Explorer 0.8.7 (Preview)
 ## Overview
 This article contains the release notes for Azure Storage Explorer 0.8.7 preview release.
 
-[Azure Storage Explorer (Preview)](/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
+[Azure Storage Explorer (Preview)](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
 ## Azure Storage Explorer 0.8.7 (Preview)
 ### Download Azure Storage Explorer 0.8.7 (Preview)

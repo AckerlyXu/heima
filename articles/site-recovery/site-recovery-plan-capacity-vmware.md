@@ -1,44 +1,42 @@
-<properties
-    pageTitle="Plan capacity and scaling for VMware replication to Azure | Azure"
-    description="Use this article to plan capacity and scale when replicating VMware VMs to Azure"
-    services="site-recovery"
-    documentationcenter=""
-    author="rayne-wiselman"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.assetid="0a1cd8eb-a8f7-4228-ab84-9449e0b2887b"
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="02/05/2017"
-    wacn.date=""
-    ms.author="rayne" />
+---
+title: Plan capacity and scaling for VMware replication to Azure | Azure
+description: Use this article to plan capacity and scale when replicating VMware VMs to Azure
+services: site-recovery
+documentationcenter: ''
+author: rayne-wiselman
+manager: jwhit
+editor: ''
+
+ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 02/05/2017
+wacn.date: ''
+ms.author: rayne
+---
 
 # Plan capacity and scaling for VMware replication with Azure Site Recovery
 
-Use this article to figure out how to plan capacity and scaling when replicating on-premises VMware VMs and physical servers to Azure, with [Azure Site Recovery](/documentation/articles/site-recovery-overview/).
+Use this article to figure out how to plan capacity and scaling when replicating on-premises VMware VMs and physical servers to Azure, with [Azure Site Recovery](./site-recovery-overview.md).
 
 ## How do I start capacity planning?
 
 1. Gather information about your replication environment using the Azure Site Recovery Capacity Planner. This includes information about VMs, disks per VM, and storage per disk.
 2. Estimate the daily change (churn rate) of replicated data in your environment.
 
-
 ## Gather information
 
 1. Download and run the [Capacity Planner[(https://gallery.technet.microsoft.com/Azure-Recovery-Capacity-d01dc40e)].
-2. [Get instructions](/documentation/articles/site-recovery-capacity-planner/) for running the tool.
-
+2. [Get instructions](./site-recovery-capacity-planner.md) for running the tool.
 
 ## Estimate the daily churn rate
 
 The Site Recovery Capacity Planner requires you to input an average daily data change rate as a percentage. Currently you can gather this information using the [vSphere capacity planning appliance](https://labs.vmware.com/flings/vsphere-replication-capacity-planning-appliance).
 
 In the tool, you can compute the percentage by pointing the vSphere planning tool to all the source VMs, and getting the total daily change. This is essentially the network traffic. [Learn more](https://blogs.vmware.com/vsphere/2014/04/vsphere-replication-capacity-planning-appliance.html) about running this tool.
-
 
 ## Capacity considerations
 
@@ -87,7 +85,6 @@ The way in which you scale your servers depends on your preference for a scale u
 * Set up the configuration server with 12vCPU, 18 GB of memory, an additional process server with 12vCPU, 24 GB of memory, and configure protected machines to use the additional process server only.
 * Alternatively, you could configure two configuration servers (2 x 8vCPU, 16 GB RAM) and two additional process servers (1 x 8vCPU and 4vCPU x 1 to handle 135 + 85 (220) machines), and configure protected machines to use the additional process servers only.
 
-
 ## Control network bandwidth
 
 You can use the capacity planner tool to calculate the bandwidth you need for replication (initial replication and then delta). To control the amount of bandwidth used for replication, you have a few options:
@@ -108,9 +105,11 @@ You can use the capacity planner tool to calculate the bandwidth you need for re
 
 You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/zh-cn/library/hh770409.aspx) cmdlet to set throttling. Here's a sample:
 
-    $mon = [System.DayOfWeek]::Monday
-    $tue = [System.DayOfWeek]::Tuesday
-    Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
+```
+$mon = [System.DayOfWeek]::Monday
+$tue = [System.DayOfWeek]::Tuesday
+Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth  (512*1024) -NonWorkHourBandwidth (2048*1024)
+```
 
 **Set-OBMachineSetting -NoThrottle** indicates that no throttling is required.
 
@@ -120,7 +119,6 @@ You can also use the [Set-OBMachineSetting](https://technet.microsoft.com/zh-cn/
    * To influence the bandwidth traffic on a replicating disk, modify the value the **UploadThreadsPerVM**, or create the key if it doesn't exist.
    * To influence the bandwidth for failback traffic from Azure, modify the value **DownloadThreadsPerVM**.
 2. The default value is 4. In an “overprovisioned” network, these registry keys should be changed from the default values. The maximum is 32. Monitor traffic to optimize the value.
-
 
 ## Deploy additional process servers
 
@@ -149,10 +147,3 @@ If you have to scale out your deployment beyond 200 source machines, or a total 
 
     ![Update process server](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 3. In **Select target process server**, select the new process server you want to use, and then select the virtual machines that the new process server will handle. Click the information icon to get information about the server. To help you make load decisions, the average space that's needed to replicate each selected virtual machine to the new process server is displayed. Click the check mark to start replicating to the new process server.
-
-
-
-
-
-
-

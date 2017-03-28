@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Monitor DocumentDB requests and storage | Azure"
-    description="Learn how to monitor your DocumentDB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption."
-    services="documentdb"
-    documentationcenter=""
-    author="mimig1"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/15/2016"
-    wacn.date=""
-    ms.author="mimig" />
+---
+title: Monitor DocumentDB requests and storage | Azure
+description: Learn how to monitor your DocumentDB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption.
+services: documentdb
+documentationcenter: ''
+author: mimig1
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2016
+wacn.date: ''
+ms.author: mimig
+---
 
 # Monitor DocumentDB requests, usage, and storage
 You can monitor your Azure DocumentDB accounts in the [Azure portal](https://portal.azure.cn/). For each DocumentDB account, both performance metrics, such as requests and server errors, and usage metrics, such as storage consumption, are available.
@@ -40,16 +41,16 @@ The Metrics blade opens, and you can select the collection to review. You can re
 ## View performance metrics on the account blade
 1. In the [Azure portal](https://portal.azure.cn/), click **More Services**, scroll to **Databases**, click **NoSQL (DocumentDB)**, and then click the name of the DocumentDB account for which you would like to view performance metrics.
 2. The **Monitoring** lens displays the following tiles by default:
-   
+
    - Total requests for the current day.
    - Storage used.
-   
+
    If your table displays **No data available** and you believe there is data in your database, see the [Troubleshooting](#troubleshooting) section.
-   
+
    ![Screen shot of the Monitoring lens which shows the requests and the storage usage](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
 3. Clicking on the **Requests** or **Usage Quota** tile opens a detailed **Metric** blade.
 4. The **Metric** blade shows you details about the metrics you have selected.  At the top of the blade is a graph of requests charted hourly, and below that is table that shows aggregation values for throttled and total requests.  The metric blade also shows the list of alerts which have been defined, filtered to the metrics that appear on the current metric blade (this way, if you have a number of alerts, you'll only see the relevant ones presented here).   
-   
+
    ![Screenshot of the Metric blade which includes throttled requests](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
 
 ## Customize performance metric views in the portal
@@ -59,17 +60,17 @@ The Metrics blade opens, and you can select the collection to review. You can re
    ![Screen shot of the Edit Chart blade](./media/documentdb-monitor-accounts/madocdb4.png)
 3. To change the metrics displayed in the part, simply select or clear the available performance metrics, and then click **OK** at the bottom of the blade.  
 4. To change the time range, choose a different range (for example, **Custom**), and then click **OK** at the bottom of the blade.  
-   
+
    ![Screen shot of the Time Range part of the Edit Chart blade showing how to enter a custom time range](./media/documentdb-monitor-accounts/madocdb5.png)
 
 ## Create side-by-side charts in the portal
 The Azure Portal allows you to create side-by-side metric charts.  
 
 1. First, right-click on the chart you want to copy and select **Customize**.
-   
+
    ![Screen shot of the Total Requests chart with the Customize option highlighted](./media/documentdb-monitor-accounts/madocdb6.png)
 2. Click **Clone** on the menu to copy the part and then click **Done customizing**.
-   
+
    ![Screen shot of the Total Requests chart with the Clone and Done customizing options highlighted](./media/documentdb-monitor-accounts/madocdb7.png)  
 
 You may now treat this part as any other metric part, customizing the metrics and time range displayed in the part.  By doing this, you can see two different metrics chart side-by-side at the same time.  
@@ -82,7 +83,7 @@ You may now treat this part as any other metric part, customizing the metrics an
 3. In the **Alert rules** blade, click **Add alert**.  
    ![Screenshot of the Alert Rules blade, with the Add Alert button highlighted](./media/documentdb-monitor-accounts/madocdb11.png)
 4. In the **Add an alert rule** blade, specify:
-   
+
    - The name of the alert rule you are setting up.
    - A description of the new alert rule.
    - The metric for the alert rule.
@@ -99,11 +100,15 @@ The account level metrics available in the portal, such as account storage usage
 
 To access additional metrics, use the [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights). Available metric definitions can be retrieved by calling:
 
-    https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
+```
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
+```
 
 Queries to retrieve individual metrics use the following format:
 
-    https://management.azure.com/subscriptions/{SubecriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+```
+https://management.azure.com/subscriptions/{SubecriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+```
 
 For more information, see [Retrieving Resource Metrics via the Azure Monitor REST API](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/). Note that "Azure Inights" was renamed "Azure Monitor".  This blog entry refers to the older name.
 
@@ -119,5 +124,4 @@ If your monitoring tiles display the **No data available** message, and you rece
    ![Screen shot of the updated Total requests past hour tile](./media/documentdb-monitor-accounts/documentdb-no-available-data-fixed.png)
 
 ## Next steps
-To learn more about DocumentDB capacity, see [Manage DocumentDB capacity](/documentation/articles/documentdb-manage/).
-
+To learn more about DocumentDB capacity, see [Manage DocumentDB capacity](./documentdb-manage.md).

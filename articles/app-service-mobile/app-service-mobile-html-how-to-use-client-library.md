@@ -1,23 +1,23 @@
-<properties
-	pageTitle="How to Use the JavaScript SDK for Azure Mobile Apps"
-	description="How to Use v for Azure Mobile Apps"
-	services="app-service\mobile"
-	documentationCenter="javascript"
-	authors="adrianhall"
-	manager="erikre"
-	editor=""/>
+---
+title: How to Use the JavaScript SDK for Azure Mobile Apps
+description: How to Use v for Azure Mobile Apps
+services: app-service\mobile
+documentationCenter: javascript
+authors: adrianhall
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="html"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="10/30/2016"
-	ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: html
+ms.devlang: javascript
+ms.topic: article
+ms.date: 10/30/2016
+ms.author: adrianha
+---
 
 # How to Use the JavaScript Client Library for Azure Mobile Apps
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+[!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 This guide teaches you to perform common scenarios using the latest [JavaScript SDK for Azure Mobile Apps]. If you are 
 new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend and create a table. In this 
@@ -69,7 +69,7 @@ Two authentication flows are supported: a server flow and a client flow.  The se
 authentication experience, as it relies on the provider's web authentication interface. The client flow allows for
 deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific SDKs.
 
-[AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
+[!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
 ###<a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for External Redirect URLs.
 
@@ -91,10 +91,12 @@ the server locally:
 6. Click the **Edit** button to enable editing of the resource.
 7. Find the **allowedExternalRedirectUrls** element, which should be null. Add your URLs in an array:
 
-         "allowedExternalRedirectUrls": [
-             "http://localhost:3000",
-             "https://localhost:3000"
-         ],
+    ```
+     "allowedExternalRedirectUrls": [
+         "http://localhost:3000",
+         "https://localhost:3000"
+     ],
+    ```
 
     Replace the URLs in the array with the URLs of your service, which in this example is `http://localhost:3000` for the local Node.js sample service. You could also use `http://localhost:4400` for the Ripple service or some other URL, depending on how your app is configured.
 
@@ -107,15 +109,14 @@ You also need to add the same loopback URLs to the CORS whitelist settings:
 3. Click **CORS** in the **API** menu.
 4. Enter each URL in the empty **Allowed Origins** text box.  A new text box is created.
 5. Click **SAVE**
-    
+
 After the backend updates, you will be able to use the new loopback URLs in your app.
 
 <!-- URLs. -->
-[Azure Mobile Apps Quick Start]: /documentation/articles/app-service-mobile-cordova-get-started/
-[Get started with authentication]: /documentation/articles/app-service-mobile-cordova-get-started-users/
-[Add authentication to your app]: /documentation/articles/app-service-mobile-cordova-get-started-users/
+[Azure Mobile Apps Quick Start]: ./app-service-mobile-cordova-get-started.md
+[Get started with authentication]: ./app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: ./app-service-mobile-cordova-get-started-users.md
 
 [Azure portal]: https://portal.azure.cn/
 [JavaScript SDK for Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/zh-cn/library/azure/jj613353.aspx
-

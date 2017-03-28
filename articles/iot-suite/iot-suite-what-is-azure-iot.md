@@ -1,19 +1,19 @@
-<properties
- pageTitle="Azure solutions for Internet of Things | Azure"
- description="A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and preconfigured solutions"
- services=""
- suite="iot-suite"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Azure solutions for Internet of Things | Azure
+description: A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and preconfigured solutions
+services: ''
+suite: iot-suite
+documentationCenter: ''
+authors: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.date="11/16/2016"
- wacn.date="05/17/2016"/>
+ms.service: iot-suite
+ms.date: 11/16/2016
+wacn.date: 05/17/2016
+---
 
-[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
+[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
 
@@ -36,13 +36,13 @@ Explore these resources to continue learning about IoT Suite and the preconfigur
 - [What is Azure IoT Suite?][lnk-whatissuite]
 - [What are the Azure IoT Suite preconfigured solutions?][lnk-whatarepreconfigured]
 
-[lnk-whatissuite]: /documentation/articles/iot-suite-overview/
-[lnk-whatarepreconfigured]: /documentation/articles/iot-suite-what-are-preconfigured-solutions/
+[lnk-whatissuite]: ./iot-suite-overview.md
+[lnk-whatarepreconfigured]: ./iot-suite-what-are-preconfigured-solutions.md
 
-[lnk-preconfigured-solutions]:/documentation/articles/iot-suite-getstarted-preconfigured-solutions/
-[Azure IoT Hub]: /home/features/iot-hub/
-[Azure Event Hubs]: /home/features/event-hubs/
-[Azure Stream Analytics]: /home/features/stream-analytics/
-[Azure Machine Learning]: /home/features/machine-learning/
-[Azure storage]: /home/features/storage/
-[lnk-predictive-maintenance]:/documentation/articles/iot-suite-predictive-overview/
+[lnk-preconfigured-solutions]:./iot-suite-getstarted-preconfigured-solutions.md
+[Azure IoT Hub]: https://www.azure.cn/home/features/iot-hub/
+[Azure Event Hubs]: https://www.azure.cn/home/features/event-hubs/
+[Azure Stream Analytics]: https://www.azure.cn/home/features/stream-analytics/
+[Azure Machine Learning]: https://www.azure.cn/home/features/machine-learning/
+[Azure storage]: https://www.azure.cn/home/features/storage/
+[lnk-predictive-maintenance]:./iot-suite-predictive-overview.md

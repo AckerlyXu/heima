@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Service Bus authentication with Shared Access Signatures | Azure"
-    description="Overview of Service Bus Authentication using Shared Access Signatures overview, details about SAS authentication with Azure Service Bus."
-    services="service-bus-messaging"
-    documentationcenter="na"
-    author="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="service-bus-messaging"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="sethm" />
+---
+title: Azure Service Bus authentication with Shared Access Signatures | Azure
+description: Overview of Service Bus Authentication using Shared Access Signatures overview, details about SAS authentication with Azure Service Bus.
+services: service-bus-messaging
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
+
+ms.assetid: ''
+ms.service: service-bus-messaging
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: sethm
+---
 
 # Service Bus authentication with Shared Access Signatures
 
@@ -31,7 +32,7 @@ Shared Access Signatures are an authentication mechanism based on SHA-256 secure
 
 SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients claim access to Service Bus resources by presenting a SAS token. This token consists of the resource URI being accessed, and an expiry signed with the configured key.
 
-You can configure Shared Access Signature authorization rules on Service Bus [relays](/documentation/articles/service-bus-fundamentals-hybrid-solutions/#relays), [queues](/documentation/articles/service-bus-fundamentals-hybrid-solutions/#queues), and [topics](/documentation/articles/service-bus-fundamentals-hybrid-solutions/#topics).
+You can configure Shared Access Signature authorization rules on Service Bus [relays](./service-bus-fundamentals-hybrid-solutions.md#relays), [queues](./service-bus-fundamentals-hybrid-solutions.md#queues), and [topics](./service-bus-fundamentals-hybrid-solutions.md#topics).
 
 SAS authentication uses the following elements:
 
@@ -82,7 +83,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 
 Where `signature-string` is the SHA-256 hash of the scope of the token (**scope** as described in the previous section) with a CRLF appended and an expiry time (in seconds since the epoch: `00:00:00 UTC` on 1 January 1970). 
 
-> [AZURE.NOTE]
+> [!NOTE]
 > To avoid a short token expiry time, it is recommended that you encode the expiry time value as at least a 32-bit unsigned integer, or preferably a long (64-bit) integer.  
 > 
 > 
@@ -296,7 +297,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 The `PutCbsToken()` method receives the *connection* (AMQP connection class instance as provided by the [AMQP .NET Lite library](https://github.com/Azure/amqpnetlite)) that represents the TCP connection to the service and the *sasToken* parameter that is the SAS token to send. 
 
-> [AZURE.NOTE]
+> [!NOTE]
 > It's important that the connection is created with **SASL authentication mechanism set to EXTERNAL** (and not the default PLAIN with username and password used when you don't need to send the SAS token).
 > 
 > 
@@ -358,9 +359,9 @@ The following table shows the access rights required for various operations on S
 
 To learn more about Service Bus messaging, see the following topics.
 
-* [Service Bus fundamentals](/documentation/articles/service-bus-fundamentals-hybrid-solutions/)
-* [Service Bus queues, topics, and subscriptions](/documentation/articles/service-bus-queues-topics-subscriptions/)
-* [How to use Service Bus queues](/documentation/articles/service-bus-dotnet-get-started-with-queues/)
-* [How to use Service Bus topics and subscriptions](/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/)
+* [Service Bus fundamentals](./service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus queues, topics, and subscriptions](./service-bus-queues-topics-subscriptions.md)
+* [How to use Service Bus queues](./service-bus-dotnet-get-started-with-queues.md)
+* [How to use Service Bus topics and subscriptions](./service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Azure portal]: https://portal.azure.cn

@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Azure Active Directory audit report events | Microsoft Azure"
-   description="Audited events that are available for viewing and downloading from your Azure Active Directory"
-   services="active-directory"
-   documentationCenter=""
-   authors="dhanyahk"
-   manager="stevenpo"
-   editor=""/>
+---
+title: Azure Active Directory audit report events | Microsoft Azure
+description: Audited events that are available for viewing and downloading from your Azure Active Directory
+services: active-directory
+documentationCenter: ''
+authors: dhanyahk
+manager: stevenpo
+editor: ''
 
-<tags
-   ms.service="active-directory"
- 
-   ms.date="03/07/2016"
-   wacn.date=""/>
+ms.service: active-directory
+ms.date: 03/07/2016
+wacn.date: ''
+---
 
 # Azure Active Directory Audit Report Events
 
 *This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 The Azure Active Directory Audit Report helps customers identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings). The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Management Portal](https://manage.windowsazure.com/), as described in [View your access and usage reports](active-directory-view-access-usage-reports.md).
-
 
 ## List of Audit Report Events
 <!--- audit event descriptions should be in the past tense --->
@@ -99,7 +97,6 @@ Actor         | The user or service principal that performed the action
 Action        | The action that was performed
 Target        | The user or service principal that the action was performed on
 
-
 ## "Update User" attributes
 The "Update user" audit event includes additional information about what user attributes were updated. For each attribute, both the previous value and the new value is included.
 
@@ -118,5 +115,5 @@ StrongAuthenticationUserDetails | The user’s phone number, alternative phone n
 TelephoneNumber                 | The user's telephone number.
 
 <!--
-Audit records are a required control for many compliance regulations. For customers using the Azure Active Directory Audit Report to meet their compliance regulations, it is recommended that the customer submit a copy of this help topic with the copy of the customer’s exported audit report to help explain the report details. If the auditor would like to understand the compliance regulations that Azure currently meets, direct the auditor to the [Compliance page](/support/trust-center/compliance/) of the Microsoft Azure Trust Center.
+Audit records are a required control for many compliance regulations. For customers using the Azure Active Directory Audit Report to meet their compliance regulations, it is recommended that the customer submit a copy of this help topic with the copy of the customer’s exported audit report to help explain the report details. If the auditor would like to understand the compliance regulations that Azure currently meets, direct the auditor to the [Compliance page](https://www.azure.cn/support/trust-center/compliance/) of the Microsoft Azure Trust Center.
 -->

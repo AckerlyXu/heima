@@ -1,19 +1,20 @@
-<properties 
-   pageTitle="Optional: Configure a new storage account for the service"
-   description="Explains how to configure a storage account for th StorSimple service."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+---
+title: Optional: Configure a new storage account for the service
+description: Explains how to configure a storage account for th StorSimple service.
+services: storsimple
+documentationCenter: NA
+authors: SharS
+manager: adinah
+editor: tysonn
+
+ms.service: storsimple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: TBD
+ms.date: 04/01/2015
+ms.author: v-sharos
+---
 
 ### To configure a new storage account
 

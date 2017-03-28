@@ -1,21 +1,20 @@
-<properties
-   pageTitle="SQL Data Warehouse reference topics | Azure"
-   description="Reference content links for SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
-   editor=""/>
+---
+title: SQL Data Warehouse reference topics | Azure
+description: Reference content links for SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: barbkess
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   wacn.date=""/>
-
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+---
 
 # Reference topics for SQL Data Warehouse
 
@@ -32,11 +31,10 @@ For development information, see [development overview][development overview].
 <!--Image references-->
 
 <!--Article references-->
-[development overview]: /documentation/articles/sql-data-warehouse-overview-develop
-[Transact-SQL language elements]: /documentation/articles/sql-data-warehouse-reference-tsql-language-elements
-[Transact-SQL statements]: /documentation/articles/sql-data-warehouse-reference-tsql-statements
-[Transact-SQL system views]: /documentation/articles/sql-data-warehouse-reference-tsql-system-views
-[PowerShell cmdlets]: /documentation/articles/sql-data-warehouse-reference-powershell-cmdlets
-
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Transact-SQL language elements]: ./sql-data-warehouse-reference-tsql-language-elements.md
+[Transact-SQL statements]: ./sql-data-warehouse-reference-tsql-statements.md
+[Transact-SQL system views]: ./sql-data-warehouse-reference-tsql-system-views.md
+[PowerShell cmdlets]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 
 <!--MSDN references-->

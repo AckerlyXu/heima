@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Run a simulated device sample app to send data to Azure IoT Hub | Azure"
-    description="Run a simulated device sample app to send temperature data to your IoT hub"
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="data to cloud" />
-<tags
-    ms.assetid="5d051d99-9749-4150-b3c8-573b0bda9c52"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Run a simulated device sample app to send data to Azure IoT Hub | Azure
+description: Run a simulated device sample app to send temperature data to your IoT hub
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: data to cloud
+
+ms.assetid: 5d051d99-9749-4150-b3c8-573b0bda9c52
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Configure and run a simulated device sample app
 
@@ -25,7 +26,7 @@
 - Clone the sample repository.
 - Use the Azure CLI to get your IoT hub and logical device information for simulated device sample application. Configure and run the simulated device sample application.
 
-If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-gateway-kit-c-sim-troubleshooting/).
+If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## What you will learn
 
@@ -37,7 +38,7 @@ In this article, you will learn:
 
 You must have successfully completed
 
-- [Create an IoT hub and register your device](/documentation/articles/iot-hub-gateway-kit-c-sim-lesson2-register-device/)
+- [Create an IoT hub and register your device](./iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
 ## Clone the sample repository to the host computer
 
@@ -133,4 +134,4 @@ The application sends temperature data to your IoT hub, which lasts for 40 secon
 You've successfully configured and run the simulated device cloud upload sample application which sends data to your IoT hub with simulated device.
 
 ## Next steps
-[Read messages from your IoT hub](/documentation/articles/iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub/)
+[Read messages from your IoT hub](./iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)

@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Managing custom domain names in your Azure Active Directory | Azure"
-	description="Management concepts and how-tos for managing a custom domain in Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="jeffsta"
-	manager="femila"
-	editor=""/>
+---
+title: Managing custom domain names in your Azure Active Directory | Azure
+description: Management concepts and how-tos for managing a custom domain in Azure Active Directory
+services: active-directory
+documentationCenter: ''
+authors: jeffsta
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/04/2016"
-	ms.author="curtand;jeffsta"
-	wacn.date=""/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: curtand;jeffsta
+wacn.date: ''
+---
 
 # Managing custom domain names in your Azure Active Directory
 
@@ -43,7 +43,7 @@ You can change the primary domain name for your directory to be any verified cus
 
 ## Add custom domain names to your Azure AD
 
-You can add up to 900 custom domain names to each Azure AD directory. The process to [add an additional custom domain name](/documentation/articles/active-directory-add-domain/) is the same for the first custom domain name.
+You can add up to 900 custom domain names to each Azure AD directory. The process to [add an additional custom domain name](./active-directory-add-domain.md) is the same for the first custom domain name.
 
 ## Add subdomains of a custom domain
 
@@ -77,6 +77,6 @@ Most management tasks for domain names in Azure Active Directory can also be com
 
 ## Next steps
 
--   [Learn about domain names in Azure AD](/documentation/articles/active-directory-add-domain-concepts/)
+-   [Learn about domain names in Azure AD](./active-directory-add-domain-concepts.md)
 
--   [Manage custom domain names](/documentation/articles/active-directory-add-manage-domain-names/)
+-   [Manage custom domain names](./active-directory-add-manage-domain-names.md)

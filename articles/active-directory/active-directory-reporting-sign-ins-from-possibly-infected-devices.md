@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Sign ins from possibly infected devices"
-	description="A report that includes sign in attempts that have been executed from devices on which some malware (malicious software) may be running."
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
-	editor=""/>
+---
+title: Sign ins from possibly infected devices
+description: A report that includes sign in attempts that have been executed from devices on which some malware (malicious software) may be running.
+services: active-directory
+documentationCenter: ''
+authors: kenhoff
+manager: ilanas
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="07/13/2015"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 07/13/2015
+wacn.date: ''
+---
 
 # Sign ins from possibly infected devices
 

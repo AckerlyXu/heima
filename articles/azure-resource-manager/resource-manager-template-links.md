@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Resource Manager template for linking resources | Azure"
-    description="Shows the Resource Manager schema for deploying links between related resources through a template."
-    services="azure-resource-manager"
-    documentationcenter="na"
-    author="tfitzmac"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="48a13b1a-3208-4f91-ba85-bda2a0e22605"
-    ms.service="azure-resource-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="04/05/2016"
-    wacn.date=""
-    ms.author="tomfitz" />
+---
+title: Resource Manager template for linking resources | Azure
+description: Shows the Resource Manager schema for deploying links between related resources through a template.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: ''
+
+ms.assetid: 48a13b1a-3208-4f91-ba85-bda2a0e22605
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 04/05/2016
+wacn.date: ''
+ms.author: tomfitz
+---
 
 # Resource links template schema
 Creates a link between two resources. The link is applied to a resource known as the source resource. The second resource in the link is known as the target resource.
@@ -23,18 +24,19 @@ Creates a link between two resources. The link is applied to a resource known as
 ## Schema format
 To create a link, add the following schema to the resources section of your template.
 
+```
+{
+    "type": enum,
+    "apiVersion": "2015-01-01",
+    "name": string,
+    "dependsOn": [ array values ],
+    "properties":
     {
-        "type": enum,
-        "apiVersion": "2015-01-01",
-        "name": string,
-        "dependsOn": [ array values ],
-        "properties":
-        {
-            "targetId": string,
-            "notes": string
-        }
+        "targetId": string,
+        "notes": string
     }
-
+}
+```
 
 ## Values
 The following tables describe the values you need to set in the schema.
@@ -65,60 +67,64 @@ To work with links through REST, see [Linked Resources](https://msdn.microsoft.c
 
 Use the following Azure PowerShell command to see all of the links in your subscription. You can provide other parameters to limit the results.
 
-    Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
+```
+Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
+```
 
 ## Examples
 The following example applies a read-only lock to a web app.
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "hostingPlanName": {
-                "type": "string"
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "hostingPlanName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "siteName": "[concat('site',uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-08-01",
+            "type": "Microsoft.Web/serverfarms",
+            "name": "[parameters('hostingPlanName')]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "tier": "Free",
+                "name": "f1",
+                "capacity": 0
+            },
+            "properties": {
+                "numberOfWorkers": 1
             }
         },
-        "variables": {
-            "siteName": "[concat('site',uniqueString(resourceGroup().id))]"
-        },
-        "resources": [
-            {
-                "apiVersion": "2015-08-01",
-                "type": "Microsoft.Web/serverfarms",
-                "name": "[parameters('hostingPlanName')]",
-                "location": "[resourceGroup().location]",
-                "sku": {
-                    "tier": "Free",
-                    "name": "f1",
-                    "capacity": 0
-                },
-                "properties": {
-                    "numberOfWorkers": 1
-                }
-            },
-            {
-                "apiVersion": "2015-08-01",
-                "name": "[variables('siteName')]",
-                "type": "Microsoft.Web/sites",
-                "location": "[resourceGroup().location]",
-                "dependsOn": [ "[parameters('hostingPlanName')]" ],
-                "properties": {
-                    "serverFarmId": "[parameters('hostingPlanName')]"
-                }
-            },
-            {
-                "type": "Microsoft.Web/sites/providers/links",
-                "apiVersion": "2015-01-01",
-                "name": "[concat(variables('siteName'),'/Microsoft.Resources/SiteToStorage')]",
-                "dependsOn": [ "[variables('siteName')]" ],
-                "properties": {
-                    "targetId": "[resourceId('Microsoft.Storage/storageAccounts','storagecontoso')]",
-                    "notes": "This web site uses the storage account to store user information."
-                }
+        {
+            "apiVersion": "2015-08-01",
+            "name": "[variables('siteName')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [ "[parameters('hostingPlanName')]" ],
+            "properties": {
+                "serverFarmId": "[parameters('hostingPlanName')]"
             }
-        ],
-        "outputs": {}
-    }
+        },
+        {
+            "type": "Microsoft.Web/sites/providers/links",
+            "apiVersion": "2015-01-01",
+            "name": "[concat(variables('siteName'),'/Microsoft.Resources/SiteToStorage')]",
+            "dependsOn": [ "[variables('siteName')]" ],
+            "properties": {
+                "targetId": "[resourceId('Microsoft.Storage/storageAccounts','storagecontoso')]",
+                "notes": "This web site uses the storage account to store user information."
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## Next steps
-* For information about the template structure, see [Authoring Azure Resource Manager templates](/documentation/articles/resource-group-authoring-templates/).
+* For information about the template structure, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).

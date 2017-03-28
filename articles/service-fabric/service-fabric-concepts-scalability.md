@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Scalability of Service Fabric services | Azure"
-    description="Describes how to scale Service Fabric services"
-    services="service-fabric"
-    documentationcenter=".net"
-    author="masnider"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="ed324f23-242f-47b7-af1a-e55c839e7d5d"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="12/30/2016"
-    wacn.date=""
-    ms.author="masnider" />
+---
+title: Scalability of Service Fabric services | Azure
+description: Describes how to scale Service Fabric services
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
+
+ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 12/30/2016
+wacn.date: ''
+ms.author: masnider
+---
 
 # Scaling Service Fabric applications
 Azure Service Fabric makes it easy to build scalable applications by managing the services, partitions, and replicas on all the nodes in a cluster. This enables maximum resource utilization.
@@ -39,7 +40,7 @@ If you increase the number of nodes, Service Fabric will utilize the resources o
 </center>
 
 ## Scaling at the service name level
-A service instance is a specific instance of an application name and a service type name (see [Service Fabric application life cycle](/documentation/articles/service-fabric-application-lifecycle/)). During the creation of a service, you specify the partition scheme (see [Partitioning Service Fabric services](/documentation/articles/service-fabric-concepts-partitioning/)) to be used.
+A service instance is a specific instance of an application name and a service type name (see [Service Fabric application life cycle](./service-fabric-application-lifecycle.md)). During the creation of a service, you specify the partition scheme (see [Partitioning Service Fabric services](./service-fabric-concepts-partitioning.md)) to be used.
 
 The first level of scaling is by service name. You can create instances of a service, optionally with different levels of partitioning, as your older service instances become busy. This allows new service consumers to use less-busy service instances, rather than busier ones.
 
@@ -73,9 +74,8 @@ In these types of situations, consider the following pattern instead:
 ## Next steps
 For more information on Service Fabric concepts, see the following articles:
 
-- [Availability of Service Fabric services](/documentation/articles/service-fabric-availability-services/)
+- [Availability of Service Fabric services](./service-fabric-availability-services.md)
 
-- [Partitioning Service Fabric services](/documentation/articles/service-fabric-concepts-partitioning/)
+- [Partitioning Service Fabric services](./service-fabric-concepts-partitioning.md)
 
-- [Defining and managing state](/documentation/articles/service-fabric-concepts-state/)
- 
+- [Defining and managing state](./service-fabric-concepts-state.md)

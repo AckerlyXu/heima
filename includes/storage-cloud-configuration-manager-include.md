@@ -2,12 +2,16 @@ The [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.o
 
 To reference the CloudConfigurationManager package, add the following `using` directive:
 
-	using Microsoft.Azure;	//Namespace for CloudConfigurationManager
+```csharp
+using Microsoft.Azure;	//Namespace for CloudConfigurationManager
+```
 
 Here's an example that shows how to retrieve a connection string from a configuration file:
 
-    // Parse the connection string and return a reference to the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		CloudConfigurationManager.GetSetting("StorageConnectionString"));
+```csharp
+// Parse the connection string and return a reference to the storage account.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+    CloudConfigurationManager.GetSetting("StorageConnectionString"));
+```
 
 Using the Azure Configuration Manager is optional. You can also use an API like the .NET Framework's [ConfigurationManager](https://msdn.microsoft.com/zh-cn/library/system.configuration.configurationmanager.aspx) class.

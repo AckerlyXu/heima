@@ -1,25 +1,24 @@
-<properties
-    pageTitle="Set up your Azure Media Services development environment | Azure"
-    description="Set up your environment for developing with Azure Media Services."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="0258a633-8b42-4853-acc7-3b5162d1d8cd"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Set up your Azure Media Services development environment | Azure
+description: Set up your environment for developing with Azure Media Services.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
 
+ms.assetid: 0258a633-8b42-4853-acc7-3b5162d1d8cd
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Set up your Media Services development environment
-
 
 The following steps describe prerequisites required for developing with Azure Media Services.
 
@@ -30,18 +29,14 @@ Use the Azure portal, the .NET SDK, or the REST API to create an Azure Media Ser
 
 ## Set up the development environment
 
-To set up .NET dev environment, see [this](/documentation/articles/media-services-dotnet-how-to-use/) topic.  
+To set up .NET dev environment, see [this](./media-services-dotnet-how-to-use.md) topic.  
 
-To set up REST dev environment, see [this](/documentation/articles/media-services-rest-how-to-use/) topic.  
+To set up REST dev environment, see [this](./media-services-rest-how-to-use.md) topic.  
 
 <a id="connect"></a>
 
 ## Connect programmatically
 
-To connect to Azure Media Services using .NET, see [this](/documentation/articles/media-services-dotnet-connect-programmatically/) topic.  
+To connect to Azure Media Services using .NET, see [this](./media-services-dotnet-connect-programmatically.md) topic.  
 
-To connect to Azure Media Services using REST, see [this](/documentation/articles/media-services-rest-connect-programmatically/) topic.  
-
-
-
-
+To connect to Azure Media Services using REST, see [this](./media-services-rest-connect-programmatically.md) topic.

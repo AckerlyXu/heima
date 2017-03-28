@@ -1,29 +1,29 @@
-<properties
-pageTitle="Add language-specific company branding to your sign-in page in the Azure Active Directory preview | Azure"
-description="Learn how to add a language specific company branding pictures and text to an Azure sign-in page"
-services="active-directory"
-documentationCenter=""
-authors="curtand"
-manager="femila"
-editor=""/>
+---
+title: Add language-specific company branding to your sign-in page in the Azure Active Directory preview | Azure
+description: Learn how to add a language specific company branding pictures and text to an Azure sign-in page
+services: active-directory
+documentationCenter: ''
+authors: curtand
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="09/12/2016"
-   ms.author="curtand"
-   wacn.date=""/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: curtand
+wacn.date: ''
+---
 
 # Add language-specific company branding to your sign-in page in the Azure Active Directory preview
 
-To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory preview provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. [What's in the preview?](/documentation/articles/active-directory-preview-explainer/) The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
+To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory preview provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. [What's in the preview?](./active-directory-preview-explainer.md) The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
 
 ## Customizing the sign-in page for another language
 
-You can add language-specific elements to your custom sign-in page only if you have already created a custom sign-in page as described in [Add company branding to your sign-in page](/documentation/articles/active-directory-branding-custom-signon-azure-portal/). You can configure one sign-in page per directory with a default set of customizable elements. After you’ve configured the default set of page elements, you can configure more versions for different locales. You can also mix and match various elements. For example, you could:
+You can add language-specific elements to your custom sign-in page only if you have already created a custom sign-in page as described in [Add company branding to your sign-in page](./active-directory-branding-custom-signon-azure-portal.md). You can configure one sign-in page per directory with a default set of customizable elements. After you’ve configured the default set of page elements, you can configure more versions for different locales. You can also mix and match various elements. For example, you could:
 
 - Create a default **Sign-in page image** that works for all cultures, then create specific versions for English and French. When you set your browsers to one of these two languages, the language-specific image appears, while the default illustration appears for all other languages.
 
@@ -53,4 +53,4 @@ It can take up to an hour for any changes you made to the sign-in page branding 
 
 ## Next steps
 
-[Add company branding to your sign-in page](/documentation/articles/active-directory-branding-custom-signon-azure-portal/)
+[Add company branding to your sign-in page](./active-directory-branding-custom-signon-azure-portal.md)

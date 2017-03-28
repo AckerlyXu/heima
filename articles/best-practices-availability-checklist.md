@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Availability checklist | Microsoft Docs"
-	description="Checklist that provides guidance for availability concerns during design."
-	services=""
-	documentationcenter="na"
-	author="dragon119"
-	manager="masimms"
-	editor=""/>
+---
+title: Availability checklist | Microsoft Docs
+description: Checklist that provides guidance for availability concerns during design.
+services: ''
+documentationcenter: na
+author: dragon119
+manager: masimms
+editor: ''
 
-<tags
-	ms.assetid="bc6be15e-b454-4f53-8761-71f0810ce549"
-	ms.service="best-practice"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="07/13/2016"
-	ms.author="masashin"
-	wacn.date=""/>
-
+ms.assetid: bc6be15e-b454-4f53-8761-71f0810ce549
+ms.service: best-practice
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/13/2016
+ms.author: masashin
+wacn.date: ''
+---
 
 # Availability checklist
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
@@ -38,7 +37,7 @@
 - **Consider using staging and production features of the platform** where these are available. For example, using Azure Cloud Services staging and production environments allows applications to be switched from one to another instantly through a virtual IP address swap (VIP Swap). However, if you prefer to stage on-premises, or deploy different versions of the application concurrently and gradually migrate users, you may not be able to use a VIP Swap operation.
 - **Apply configuration changes without recycling** the instance when possible. In many cases, the configuration settings for an Azure application or service can be changed without requiring the role to be restarted. Role expose events that can be handled to detect configuration changes and apply them to components within the application. However, some changes to the core platform settings do require a role to be restarted. When building components and services, maximize availability and minimize downtime by designing them to accept changes to configuration settings without requiring the application as a whole to be restarted.
 - **Use upgrade domains for zero downtime during updates.** Azure compute units such as web and worker roles are allocated to upgrade domains. Upgrade domains group role instances together so that, when a rolling update takes place, each role in the upgrade domain is stopped, updated, and restarted in turn. This minimizes the impact on application availability. You can specify how many upgrade domains should be created for a service when the service is deployed.
-  
+
   > [!NOTE]
   > Roles are also distributed across fault domains, each of which is reasonably independent from other fault domains in terms of server rack, power, and cooling provision, in order to minimize the chance of a failure affecting all role instances. This distribution occurs automatically, and you cannot control it.
   > 
@@ -46,7 +45,7 @@
 - **Configure availability sets for Azure virtual machines.** Placing two or more virtual machines in the same availability set guarantees that these virtual machines will not be deployed to the same fault domain. To maximize availability, you should create multiple instances of each critical virtual machine used by your system and place these instances in the same availability set. If you are running multiple virtual machines that serve different purposes, create an availability set for each virtual machine. Add instances of each virtual machine to each availability set. For example, if you have created separate virtual machines to act as a web server and a reporting server, create an availability set for the web server and another availability set for the reporting server. Add instances of the web server virtual machine to the web server availability set, and add instances of the reporting server virtual machine to the reporting server availability set.
 
 ## Data management
-- **Take advantage of data replication** through both local and geographical redundancy. Data in Azure storage is automatically replicated to protect against loss in case of infrastructure failure, and some aspects of this replication can be configured. For example, read-only copies of data may be replicated in more than one geographical region (referred to as read-access globally redundant storage, or RA-GRS). Note that using RA-GRS incurs additional charges. For details, see [Azure Storage Pricing](/pricing/details/storage/).
+- **Take advantage of data replication** through both local and geographical redundancy. Data in Azure storage is automatically replicated to protect against loss in case of infrastructure failure, and some aspects of this replication can be configured. For example, read-only copies of data may be replicated in more than one geographical region (referred to as read-access globally redundant storage, or RA-GRS). Note that using RA-GRS incurs additional charges. For details, see [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/).
 - **Use optimistic concurrency and eventual consistency** where possible. Transactions that block access to resources through locking (pessimistic concurrency) can cause poor performance and considerably reduce availability. These problems can become especially acute in distributed systems. In many cases, careful design and techniques such as partitioning can minimize the chances of conflicting updates occurring. Where data is replicated, or is read from a separately updated store, the data will only be eventually consistent. But the advantages usually far outweigh the impact on availability of using transactions to ensure immediate consistency.
 - **Use periodic backup and point-in-time restore**, and ensure it meets the Recovery Point Objective (RPO). Regularly and automatically back up data that is not preserved elsewhere, and verify you can reliably restore both the data and the application itself should a failure occur. Data replication is not a backup feature because errors and inconsistencies introduced through failure, error, or malicious operations will be replicated across all stores. The backup process must be secure to protect the data in transit and in storage. Databases or parts of a data store can usually be recovered to a previous point in time by using transaction logs. Azure provides a backup facility for data stored in Azure SQL Database. The data is exported to a backup package on Azure blob storage, and can be downloaded to a secure on-premises location for storage.
 - **Enable the high availability option to maintain a secondary copy of an Azure Redis cache.** When using Azure Redis Cache, choose the standard option to maintain a secondary copy of the contents. For more information, see [Create a cache in Azure Redis Cache](https://msdn.microsoft.com/zh-cn/library/dn690516.aspx).
@@ -65,4 +64,3 @@
 - **Test the monitoring systems.** Automated failover and fallback systems, and manual visualization of system health and performance by using dashboards, all depend on monitoring and instrumentation functioning correctly. If these elements fail, miss critical information, or report inaccurate data, an operator might not realize that the system is unhealthy or failing.
 - **Track the progress of long-running workflows** and retry on failure. Long-running workflows are often composed of multiple steps. Ensure that each step is independent and can be retried to minimize the chance that the entire workflow will need to be rolled back, or that multiple compensating transactions need to be executed. Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor Pattern](https://msdn.microsoft.com/zh-cn/library/dn589780.aspx).
 - **Plan for disaster recovery.** Ensure there is a documented, accepted, and fully tested plan for recovery from any type of failure that may render part or all of the main system unavailable. Test the procedures regularly, and ensure that all operations staff are familiar with the process.
-

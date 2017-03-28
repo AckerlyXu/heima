@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Business continuity and disaster recovery (BCDR): Azure Paired Regions | Azure"
-	description="Azure regional pairs ensure that applications are resilient during data center failures."
-	services="site-recovery"
-	documentationCenter=""
-	authors="rayne-wiselman"
-	manager="jwhit"
-	editor=""/>
+---
+title: Business continuity and disaster recovery (BCDR): Azure Paired Regions | Azure
+description: Azure regional pairs ensure that applications are resilient during data center failures.
+services: site-recovery
+documentationCenter: ''
+authors: rayne-wiselman
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="site-recovery"
-    ms.date="11/15/2016"
-    wacn.date=""/>
+ms.service: site-recovery
+ms.date: 11/15/2016
+wacn.date: ''
+---
 
 # Business continuity and disaster recovery (BCDR): Azure Paired Regions
 
@@ -24,8 +24,6 @@ Each Azure region is paired with another region within the same geography, toget
 
 Figure 1 – Azure regional pair diagram
 
-
-
 | Geography     |  Paired Regions  |                  |
 | :-------------| :-------------   | :-------------   |
 | China         | East China       | North China      |
@@ -33,7 +31,6 @@ Figure 1 – Azure regional pair diagram
 Table 1 - Mapping of azure regional pairs
 
 > (1) Brazil South is unique because it is paired with a region outside of its own geography. Brazil South’s secondary region is South Central US, but South Central US’s secondary region is not Brazil South.
-
 
 We recommend that you replicate workloads across regional pairs to benefit from Azure’s isolation and availability policies. For example, planned Azure system updates are deployed sequentially (not at the same time) across paired regions. That means that even in the rare event of a faulty update, both regions will not be affected simultaneously. Furthermore, in the unlikely event of a broad outage, recovery of at least one region out of every pair is prioritized.
 

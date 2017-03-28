@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Design patterns for multitenant SaaS applications and Azure SQL Database | Azure"
-    description="This article discusses the requirements and common data architecture patterns of multitenant database applications running in a cloud environment need to consider and the various tradeoffs associated with these patterns. It also explains how Azure SQL Database, with its elastic pools and elastic tools, help address these requirements in a no-compromise fashion."
-    keywords=""
-    services="sql-database"
-    documentationcenter=""
-    author="srinia"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="1dd20c6b-ddbb-40ef-ad34-609d398d008a"
-    ms.service="sql-database"
-    ms.custom="development"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="sqldb-design"
-    ms.date="02/01/2017"
-    wacn.date=""
-    ms.author="srinia" />
+---
+title: Design patterns for multitenant SaaS applications and Azure SQL Database | Azure
+description: This article discusses the requirements and common data architecture patterns of multitenant database applications running in a cloud environment need to consider and the various tradeoffs associated with these patterns. It also explains how Azure SQL Database, with its elastic pools and elastic tools, help address these requirements in a no-compromise fashion.
+keywords: ''
+services: sql-database
+documentationcenter: ''
+author: srinia
+manager: jhubbard
+editor: ''
+
+ms.assetid: 1dd20c6b-ddbb-40ef-ad34-609d398d008a
+ms.service: sql-database
+ms.custom: development
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: sqldb-design
+ms.date: 02/01/2017
+wacn.date: ''
+ms.author: srinia
+---
 
 # Design patterns for multitenant SaaS applications and Azure SQL Database
 In this article, you can learn about the requirements and common data architecture patterns of multitenant software as a service (SaaS) database applications that run in a cloud environment. It also explains the factors you need to consider and the trade-offs of different design patterns. Elastic pools and elastic tools in Azure SQL Database can help you meet your specific requirements without compromising other objectives.
@@ -69,7 +70,8 @@ Figure 1: Common design practices for multitenant data models
 * **Shared database-sharded**. Multiple tenants share one of multiple databases. A distinct set of tenants is assigned to each database by using a partitioning strategy such as hash, range, or list partitioning. This data distribution strategy often is referred to as sharding.
 * **Shared database-single**. A single, sometimes large, database contains data for all tenants, which are disambiguated in a tenant ID column.
 
-> [AZURE.NOTE] An application developer might choose to place different tenants in different database schemas, and then use the schema name to disambiguate the different tenants. We do not recommend this approach because it usually requires the use of dynamic SQL, and it can’t be effective in plan caching. In the remainder of this article, we focus on the shared table approach for this category of multitenant application.
+> [!NOTE]
+> An application developer might choose to place different tenants in different database schemas, and then use the schema name to disambiguate the different tenants. We do not recommend this approach because it usually requires the use of dynamic SQL, and it can’t be effective in plan caching. In the remainder of this article, we focus on the shared table approach for this category of multitenant application.
 
 ## Popular multitenant data models
 It’s important to evaluate the different types of multitenant data models in terms of the application design trade-offs we’ve already identified. These factors help characterize the three most common multitenant data models described earlier and their database usage as shown in Figure 2.
@@ -110,12 +112,12 @@ Elastic pools in SQL Database combine tenant isolation with resource sharing amo
 
 | Application requirements | SQL database capabilities |
 | --- | --- |
-| Tenant isolation and resource sharing | [Elastic pools](/documentation/articles/sql-database-elastic-pool/): Allocate a pool of SQL Database resources and share the resources across various databases. Also, individual databases can draw as much resources from the pool as needed to accommodate capacity demand spikes due to changes in tenant workloads. The elastic pool itself can be scaled up or down as needed. Elastic pools also provide ease of manageability and monitoring and troubleshooting at the pool level. |
-| Ease of DevOps across databases | [Elastic pools](/documentation/articles/sql-database-elastic-pool/): As noted earlier.|
-| [Elastic query](/documentation/articles/sql-database-elastic-query-horizontal-partitioning/): Query across databases for reporting or cross-tenant analysis.| |
-| [Elastic jobs](/documentation/articles/sql-database-elastic-jobs-overview/): Package and reliably deploy database maintenance operations or database schema changes to multiple databases.| |
-| [Elastic transactions](/documentation/articles/sql-database-elastic-transactions-overview/): Process changes to several databases in an atomic and isolated way. Elastic transactions are needed when applications need “all or nothing” guarantees over several database operations. | |
-| [Elastic database client library](/documentation/articles/sql-database-elastic-database-client-library/): Manage data distributions and map tenants to databases. | |
+| Tenant isolation and resource sharing | [Elastic pools](./sql-database-elastic-pool.md): Allocate a pool of SQL Database resources and share the resources across various databases. Also, individual databases can draw as much resources from the pool as needed to accommodate capacity demand spikes due to changes in tenant workloads. The elastic pool itself can be scaled up or down as needed. Elastic pools also provide ease of manageability and monitoring and troubleshooting at the pool level. |
+| Ease of DevOps across databases | [Elastic pools](./sql-database-elastic-pool.md): As noted earlier.|
+| [Elastic query](./sql-database-elastic-query-horizontal-partitioning.md): Query across databases for reporting or cross-tenant analysis.| |
+| [Elastic jobs](./sql-database-elastic-jobs-overview.md): Package and reliably deploy database maintenance operations or database schema changes to multiple databases.| |
+| [Elastic transactions](./sql-database-elastic-transactions-overview.md): Process changes to several databases in an atomic and isolated way. Elastic transactions are needed when applications need “all or nothing” guarantees over several database operations. | |
+| [Elastic database client library](./sql-database-elastic-database-client-library.md): Manage data distributions and map tenants to databases. | |
 
 ## Shared models
 As described earlier, for most SaaS providers, a shared model approach might pose problems with tenant isolation issues and complexities with application development and maintenance. However, for multitenant applications that provide a service directly to consumers, tenant isolation requirements may not be as high a priority as minimizing cost. They might be able to pack tenants in one or more databases at a high density to reduce costs. Shared-database models using a single database or multiple sharded databases might result in additional efficiencies in resource sharing and overall cost. Azure SQL Database provides some features that help customers build isolation for improved security and management at scale in the data tier.
@@ -124,11 +126,11 @@ As described earlier, for most SaaS providers, a shared model approach might pos
 | --- | --- |
 | Security Isolation features | [Row level security](https://msdn.microsoft.com/zh-cn/library/dn765131.aspx) |
 | [Database schema](https://msdn.microsoft.com/zh-cn/library/dd207005.aspx) | |
-| Ease of DevOps across databases | [Elastic query](/documentation/articles/sql-database-elastic-query-horizontal-partitioning/) |
-| [Elastic jobs](/documentation/articles/sql-database-elastic-jobs-overview/) | |
-| [Elastic transactions](/documentation/articles/sql-database-elastic-transactions-overview/) | |
-| [Elastic database client library](/documentation/articles/sql-database-elastic-database-client-library/) | |
-| [Elastic database split / merge](/documentation/articles/sql-database-elastic-scale-overview-split-and-merge/) | |
+| Ease of DevOps across databases | [Elastic query](./sql-database-elastic-query-horizontal-partitioning.md) |
+| [Elastic jobs](./sql-database-elastic-jobs-overview.md) | |
+| [Elastic transactions](./sql-database-elastic-transactions-overview.md) | |
+| [Elastic database client library](./sql-database-elastic-database-client-library.md) | |
+| [Elastic database split / merge](./sql-database-elastic-scale-overview-split-and-merge.md) | |
 
 ## Summary
 Tenant isolation requirements are important for most SaaS multitenant applications. The best option to provide isolation leans heavily toward the database-per-tenant approach. The other two approaches require investments in complex application layers that require skilled development staff to provide isolation, which significantly increases cost and risk. If isolation requirements are not accounted for early in the service development, retrofitting them can be even more costly in the first two models. The main drawbacks associated with the database-per-tenant model are related to increased cloud resource costs due to reduced sharing, and maintaining and managing many databases. SaaS application developers often struggle when they make these trade-offs.
@@ -138,22 +140,19 @@ Although trade-offs might be major barriers with most cloud database service pro
 Multitenant application providers who have no tenant isolation requirements and who can pack tenants in a database at a high density might find that shared data models result in additional efficiency in resource sharing and reduce overall cost. Azure SQL Database elastic database tools, sharding libraries, and security features help SaaS providers build and manage multitenant applications.
 
 ## Next steps
-[Get started with elastic database tools](/documentation/articles/sql-database-elastic-scale-get-started/) with a sample app that demonstrates the client library.
+[Get started with elastic database tools](./sql-database-elastic-scale-get-started.md) with a sample app that demonstrates the client library.
 
 Create an [elastic pool custom dashboard for SaaS](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-sql-db-elastic-pools-custom-dashboard) with a sample app that uses elastic pools for a cost-effective, scalable database solution.
 
-Use the Azure SQL Database tools to [migrate existing databases to scale out](/documentation/articles/sql-database-elastic-convert-to-use-elastic-tools/).
+Use the Azure SQL Database tools to [migrate existing databases to scale out](./sql-database-elastic-convert-to-use-elastic-tools.md).
 
-To create an elastic pool using the Azure portal, see [create an elastic pool](/documentation/articles/sql-database-elastic-pool-manage-portal/).  
+To create an elastic pool using the Azure portal, see [create an elastic pool](./sql-database-elastic-pool-manage-portal.md).  
 
-Learn how to [monitor and manage an elastic pool](/documentation/articles/sql-database-elastic-pool-manage-portal/).
+Learn how to [monitor and manage an elastic pool](./sql-database-elastic-pool-manage-portal.md).
 
 ## Additional resources
-- [What is an Azure elastic pool?](/documentation/articles/sql-database-elastic-pool/)
-- [Scaling out with Azure SQL Database](/documentation/articles/sql-database-elastic-scale-introduction/)
-- [Multi-tenant applications with elastic database tools and row-level security](/documentation/articles/sql-database-elastic-tools-multi-tenant-row-level-security/)
+- [What is an Azure elastic pool?](./sql-database-elastic-pool.md)
+- [Scaling out with Azure SQL Database](./sql-database-elastic-scale-introduction.md)
+- [Multi-tenant applications with elastic database tools and row-level security](./sql-database-elastic-tools-multi-tenant-row-level-security.md)
 - [Authentication in multitenant apps by using Azure Active Directory and OpenID Connect](/documentation/articles/guidance-multitenant-identity-authenticate/)
 - [Tailspin Surveys application](/documentation/articles/guidance-multitenant-identity-tailspin/)
-
-
-

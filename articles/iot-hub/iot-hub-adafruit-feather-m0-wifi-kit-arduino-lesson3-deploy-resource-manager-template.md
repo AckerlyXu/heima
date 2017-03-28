@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Create an Azure function app and storage account | Azure"
-    description="The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="storing data in the cloud, data stored in cloud, iot cloud service" />
-<tags
-    ms.assetid="9c8f4cd1-9511-4601-ad7e-51761a986753"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Create an Azure function app and storage account | Azure
+description: The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: storing data in the cloud, data stored in cloud, iot cloud service
+
+ms.assetid: 9c8f4cd1-9511-4601-ad7e-51761a986753
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Create an Azure function app and Azure storage account
 [Azure Functions](/documentation/articles/functions-overview/) is a solution for easily running *functions* (small pieces of code) in the cloud. An Azure function app hosts the execution of your functions in Azure.
@@ -24,11 +25,11 @@
 ## What will you do
 Use an Azure Resource Manager template to create an Azure function app and an Azure storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
 
-If you have any problems, look for solutions on the [troubleshooting page for your Adafruit Feather M0 WiFi Arduino board](/documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/).
+If you have any problems, look for solutions on the [troubleshooting page for your Adafruit Feather M0 WiFi Arduino board](./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md).
 
 ## What will you learn
 In this article, you will learn:
-* How to use [Azure Resource Manager](/documentation/articles/resource-group-overview/) to deploy Azure resources.
+* How to use [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) to deploy Azure resources.
 * How to use an Azure function app to process IoT hub messages and write them to a table in Azure Table storage.
 
 ## What do you need
@@ -76,9 +77,9 @@ You've created your Azure function app to process IoT hub messages and an Azure 
 
 <!-- Images and links -->
 
-[get-started]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started/
-[create-iot-hub]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub/
+[get-started]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
+[create-iot-hub]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
 [repo-structure]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson3/repo_structure_c.png
 [arm-template-params]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson3/arm_para_arduino.png
-[created-iot-hub-and-registered-arduino-board]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub/
-[send-device-to-cloud-messages]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink/
+[created-iot-hub-and-registered-arduino-board]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
+[send-device-to-cloud-messages]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md

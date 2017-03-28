@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Use Hadoop Pig with Curl in HDInsight | Azure"
-    description="Learn how to use Curl to run Pig Latin jobs on a Hadoop cluster in Azure HDInsight."
-    services="hdinsight"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="ed5e10d1-4f47-459c-a0d6-7ff967b468c4"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="02/09/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Use Hadoop Pig with Curl in HDInsight | Azure
+description: Learn how to use Curl to run Pig Latin jobs on a Hadoop cluster in Azure HDInsight.
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: ed5e10d1-4f47-459c-a0d6-7ff967b468c4
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 02/09/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Run Pig jobs with Hadoop on HDInsight by using Curl
 
-[AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
+[!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 In this document, you learn how to use Curl to run Pig Latin jobs on an Azure HDInsight cluster. The Pig Latin programming language allows you to describe transformations that are applied to the input data to produce the desired output.
 
 Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run, monitor, and retrieve the results of Pig jobs. This works by using the WebHCat REST API (formerly known as Templeton) that is provided by your HDInsight cluster.
 
-> [AZURE.NOTE]
-> If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [Linux-based HDInsight Tips](/documentation/articles/hdinsight-hadoop-linux-information/).
+> [!NOTE]
+> If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [Linux-based HDInsight Tips](./hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Prerequisites
 
@@ -35,15 +36,15 @@ To complete the steps in this article, you need the following:
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (Linux-based or Windows-based)
 
-    > [AZURE.IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](/documentation/articles/hdinsight-component-versioning/#hdi-version-32-and-33-nearing-deprecation-date).
+    > [!IMPORTANT]
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * [Curl](http://curl.haxx.se/)
 * [jq](http://stedolan.github.io/jq/)
 
 ## <a id="curl"></a>Run Pig jobs by using Curl
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the administrator user name and password for the HDInsight cluster. You must also use the cluster name as part of the Uniform Resource Identifier (URI) that is used to send the requests to the server.
 ><p> 
 > For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and replace **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
@@ -52,11 +53,15 @@ To complete the steps in this article, you need the following:
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
-        curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
+    ```
+    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
+    ```
 
     You should receive a response similar to the following:
 
-        {"status":"ok","version":"v1"}
+    ```
+    {"status":"ok","version":"v1"}
+    ```
 
     The parameters used in this command are as follows:
 
@@ -67,7 +72,9 @@ To complete the steps in this article, you need the following:
 
 2. Use the following code to submit a Pig Latin job to the cluster:
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/pig
+    ```
+    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'/example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="/example/pigcurl" https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/pig
+    ```
 
     The parameters used in this command are as follows:
 
@@ -77,27 +84,31 @@ To complete the steps in this article, you need the following:
     * **execute**: The Pig Latin statements to execute
     * **statusdir**: The directory that the status for this job will be written to
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > Notice that the spaces in Pig Latin statements are replaced by the `+` character when used with Curl.
 
     This command should return a job ID that can be used to check the status of the job, for example:
 
-        {"id":"job_1415651640909_0026"}
+    ```
+    {"id":"job_1415651640909_0026"}
+    ```
 
 3. To check the status of the job, use the following command. Replace **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then **JOBID** would be `job_1415651640909_0026`.
 
-        curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
+    ```
+    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
+    ```
 
     If the job has finished, the state will be **SUCCEEDED**.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job, and jq is used to retrieve only the state value.
 
 ## <a id="results"></a>View results
 
 When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from the default storage used by the cluster. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **/example/pigcurl**.
 
-The backing store for HDInsight can be either Azure Storage, and there are a variety of ways to get at the data depending on which one you use. For more information on how to work with Azure Storage, see the [HDFS and Blob storage](/documentation/articles/hdinsight-hadoop-linux-information/##hdfs-blob-storage-and-data-lake-store) section of the HDInsight on Linux document.
+The backing store for HDInsight can be either Azure Storage, and there are a variety of ways to get at the data depending on which one you use. For more information on how to work with Azure Storage, see the [HDFS and Blob storage](./hdinsight-hadoop-linux-information.md##hdfs-blob-storage-and-data-lake-store) section of the HDInsight on Linux document.
 
 ## <a id="summary"></a>Summary
 
@@ -109,9 +120,9 @@ For more information about the REST interface used in this article, see the [Web
 
 For general information about Pig on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](/documentation/articles/hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](/documentation/articles/hdinsight-use-hive/)
-* [Use MapReduce with Hadoop on HDInsight](/documentation/articles/hdinsight-use-mapreduce/)
+* [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md)
+* [Use MapReduce with Hadoop on HDInsight](./hdinsight-use-mapreduce.md)

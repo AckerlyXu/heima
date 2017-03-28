@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Application lifecycle in Service Fabric | Azure"
-    description="Describes developing, deploying, testing, upgrading, maintaining, and removing Service Fabric applications."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="rwike77"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="08837cca-5aa7-40da-b087-2b657224a097"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/16/2017"
-    wacn.date=""
-    ms.author="ryanwi" />
+---
+title: Application lifecycle in Service Fabric | Azure
+description: Describes developing, deploying, testing, upgrading, maintaining, and removing Service Fabric applications.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
+
+ms.assetid: 08837cca-5aa7-40da-b087-2b657224a097
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/16/2017
+wacn.date: ''
+ms.author: ryanwi
+---
 
 # Service Fabric application lifecycle
 As with other platforms, an application on Azure Service Fabric usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. Service Fabric provides first-class support for the full application lifecycle of cloud applications, from development through deployment, daily management, and maintenance to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. This article provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.
@@ -37,12 +38,12 @@ The service model roles are:
 - **Operator**: Deploys applications based on the application configuration and requirements specified by the application administrator. For example, an operator provisions and deploys the application and ensures that it is running in Azure. Operators monitor application health and performance information and maintain the physical infrastructure as needed.
 
 ## Develop
-1. A *service developer* develops different types of services using the [Reliable Actors](/documentation/articles/service-fabric-reliable-actors-introduction/) or [Reliable Services](/documentation/articles/service-fabric-reliable-services-introduction/) programming model.
+1. A *service developer* develops different types of services using the [Reliable Actors](./service-fabric-reliable-actors-introduction.md) or [Reliable Services](./service-fabric-reliable-services-introduction.md) programming model.
 2. A *service developer* declaratively describes the developed service types in a service manifest file consisting of one or more code, configuration, and data packages.
 3. An *application developer* then builds an application using different service types.
 4. An *application developer* declaratively describes the application type in an application manifest by referencing the service manifests of the constituent services and appropriately overriding and parameterizing different configuration and deployment settings of the constituent services.
 
-See [Get started with Reliable Actors](/documentation/articles/service-fabric-reliable-actors-get-started/) and [Get started with Reliable Services](/documentation/articles/service-fabric-reliable-services-quick-start/) for examples.
+See [Get started with Reliable Actors](./service-fabric-reliable-actors-get-started.md) and [Get started with Reliable Services](./service-fabric-reliable-services-quick-start.md) for examples.
 
 ## Deploy
 1. An *application administrator* tailors the application type to a specific application to be deployed to a Service Fabric cluster by specifying the appropriate parameters of the **ApplicationType** element in the application manifest.
@@ -57,16 +58,16 @@ See [Get started with Reliable Actors](/documentation/articles/service-fabric-re
 
 6. The application is now running in the Service Fabric cluster.
 
-See [Deploy an application](/documentation/articles/service-fabric-deploy-remove-applications/) for examples.
+See [Deploy an application](./service-fabric-deploy-remove-applications.md) for examples.
 
 ## Test
 1. After deploying to the local development cluster or a test cluster, a *service developer* runs the built-in failover test scenario by using the [**FailoverTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters#System_Fabric_Testability_Scenario_FailoverTestScenarioParameters) and [**FailoverTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario#System_Fabric_Testability_Scenario_FailoverTestScenario) classes, or the [**Invoke-ServiceFabricFailoverTestScenario** cmdlet](https://docs.microsoft.com/powershell/servicefabric/vlatest/invoke-servicefabricfailovertestscenario). The failover test scenario runs a specified service through important transitions and failovers to ensure that it's still available and working.
 
 2. The *service developer* then runs the built-in chaos test scenario using the [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters#System_Fabric_Testability_Scenario_ChaosTestScenarioParameters) and [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario#System_Fabric_Testability_Scenario_ChaosTestScenario) classes, or the [**Invoke-ServiceFabricChaosTestScenario** cmdlet](https://docs.microsoft.com/powershell/servicefabric/vlatest/invoke-servicefabricchaostestscenario). The chaos test scenario randomly induces multiple node, code package, and replica faults into the cluster.
 
-3. The *service developer* [tests service-to-service communication](/documentation/articles/service-fabric-testability-scenarios-service-communication/) by authoring test scenarios that move primary replicas around the cluster.
+3. The *service developer* [tests service-to-service communication](./service-fabric-testability-scenarios-service-communication.md) by authoring test scenarios that move primary replicas around the cluster.
 
-See [Introduction to the Fault Analysis Service](/documentation/articles/service-fabric-testability-overview/) for more information.
+See [Introduction to the Fault Analysis Service](./service-fabric-testability-overview.md) for more information.
 
 ## Upgrade
 1. A *service developer* updates the constituent services of the instantiated application and/or fixes bugs and provides a new version of the service manifest.
@@ -89,7 +90,7 @@ See [Introduction to the Fault Analysis Service](/documentation/articles/service
 
 10. Service Fabric upgrades the target application running in the cluster without losing the availability of any of its constituent services.
 
-See the [Application upgrade tutorial](/documentation/articles/service-fabric-application-upgrade-tutorial/) for examples.
+See the [Application upgrade tutorial](./service-fabric-application-upgrade-tutorial.md) for examples.
 
 ## Maintain
 1. For operating system upgrades and patches, Service Fabric interfaces with the Azure infrastructure to guarantee availability of all the applications running in the cluster.
@@ -111,14 +112,14 @@ See the [Application upgrade tutorial](/documentation/articles/service-fabric-ap
 
 4. An *operator* removes the application package from the ImageStore using the [**RemoveApplicationPackage** method](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.applicationmanagementclient#System_Fabric_FabricClient_ApplicationManagementClient_RemoveApplicationPackage_System_String_System_String_) or the [**Remove-ServiceFabricApplicationPackage** cmdlet](https://docs.microsoft.com/powershell/servicefabric/vlatest/remove-servicefabricapplicationpackage).
 
-See [Deploy an application](/documentation/articles/service-fabric-deploy-remove-applications/) for examples.
+See [Deploy an application](./service-fabric-deploy-remove-applications.md) for examples.
 
 ## Next steps
 For more information on developing, testing, and managing Service Fabric applications and services, see:
 
-- [Reliable Actors](/documentation/articles/service-fabric-reliable-actors-introduction/)
-- [Reliable Services](/documentation/articles/service-fabric-reliable-services-introduction/)
-- [Deploy an application](/documentation/articles/service-fabric-deploy-remove-applications/)
-- [Application upgrade](/documentation/articles/service-fabric-application-upgrade/)
-- [Testability overview](/documentation/articles/service-fabric-testability-overview/)
-- [REST-based application lifecycle sample](/documentation/articles/service-fabric-rest-based-application-lifecycle-sample/)
+- [Reliable Actors](./service-fabric-reliable-actors-introduction.md)
+- [Reliable Services](./service-fabric-reliable-services-introduction.md)
+- [Deploy an application](./service-fabric-deploy-remove-applications.md)
+- [Application upgrade](./service-fabric-application-upgrade.md)
+- [Testability overview](./service-fabric-testability-overview.md)
+- [REST-based application lifecycle sample](./service-fabric-rest-based-application-lifecycle-sample.md)

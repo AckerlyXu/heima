@@ -1,24 +1,25 @@
-<properties
-	pageTitle="Get started by running the Enable Database for Stretch Wizard | Azure"
-	description="Learn how to configure a database for Stretch Database by running the Enable Database for Stretch Wizard."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+---
+title: Get started by running the Enable Database for Stretch Wizard | Azure
+description: Learn how to configure a database for Stretch Database by running the Enable Database for Stretch Wizard.
+services: sql-server-stretch-database
+documentationCenter: ''
+authors: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-	ms.service="sql-server-stretch-database"
-	ms.date="08/05/2016"
-	wacn.date=""/>
+ms.service: sql-server-stretch-database
+ms.date: 08/05/2016
+wacn.date: ''
+---
 
 # Get started by running the Enable Database for Stretch Wizard
 
 To configure a database for Stretch Database, run the Enable Database for Stretch Wizard.  This topic describes the info that you have to enter and the choices that you have to make in the wizard.
 
-To learn more about Stretch Database, see [Stretch Database](/documentation/articles/sql-server-stretch-database-overview/).
+To learn more about Stretch Database, see [Stretch Database](./sql-server-stretch-database-overview.md).
 
- >   [AZURE.NOTE] Later, if you disable Stretch Database, remember that disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them manually. 
+ >   [!NOTE]
+ > Later, if you disable Stretch Database, remember that disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them manually. 
 
 ## Launch the wizard
 
@@ -70,7 +71,8 @@ If you want to provide a filter function to select rows to migrate, do the follo
 
 5. Click **Check** to test the function. If the function returns results from the table - that is, if there are rows to migrate that satisfy the condition - the test reports **Success**.
 
-    >   [AZURE.NOTE] The textbox that displays the filter query is read-only. You can't edit the query in the textbox.
+    >   [!NOTE]
+    > The textbox that displays the filter query is read-only. You can't edit the query in the textbox.
 
 6.  Click Done to return to the **Select tables** page.
 
@@ -102,13 +104,13 @@ If you want to use a different type of filter function to select rows to migrate
 
     If the Active Directory on your SQL Server is federated with Azure Active Directory, you can optionally use a federated service account for SQL Server to communicate with the remote Azure server. For more info about the requirements for this option, see [ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx).
 
-	-   **Create new server**
+    -   **Create new server**
 
         1.  Create a login and password for the server administrator.
 
         2.  Optionally, use a federated service account for SQL Server to communicate with the remote Azure server.
 
-		![Create new Azure server - Stretch Database wizard][StretchWizardImage4]
+        ![Create new Azure server - Stretch Database wizard][StretchWizardImage4]
 
     -   **Existing server**
 
@@ -120,7 +122,7 @@ If you want to use a different type of filter function to select rows to migrate
 
             -   Select **Active Directory Integrated Authentication** to use a federated service account for SQL Server to communicate with the remote Azure server. If the selected server is not integrated with Azure Active Directory, this option doesn't appear.
 
-		![Select existing Azure server - Stretch Database wizard][StretchWizardImage5]
+        ![Select existing Azure server - Stretch Database wizard][StretchWizardImage5]
 
 ## <a name="Credentials"></a>Secure credentials
 You have to have a database master key to secure the credentials that Stretch Database uses to connect to the remote database.  
@@ -150,32 +152,32 @@ Review the values that you entered and the options that you selected in the wiza
 ## <a name="Results"></a>Results
 Review the results.
 
-To monitor the status of data migration, see [Monitor and troubleshoot data migration (Stretch Database)](/documentation/articles/sql-server-stretch-database-monitor/).
+To monitor the status of data migration, see [Monitor and troubleshoot data migration (Stretch Database)](./sql-server-stretch-database-monitor.md).
 
 ![Results page of the Stretch Database wizard][StretchWizardImage9]
 
 ## <a name="KnownIssues"></a>Troubleshooting the wizard
 **The Stretch Database wizard failed.**
-If Stretch Database is not yet enabled at the server level, and you run the wizard without the system administrator permissions to enable it, the wizard fails. Ask the  system administrator to enable Stretch Database on the local server instance, and then run the wizard again. For more info, see [Prerequisite: Permission to enable Stretch Database on the server](/documentation/articles/sql-server-stretch-database-enable-database/#EnableTSQLServer).
+If Stretch Database is not yet enabled at the server level, and you run the wizard without the system administrator permissions to enable it, the wizard fails. Ask the  system administrator to enable Stretch Database on the local server instance, and then run the wizard again. For more info, see [Prerequisite: Permission to enable Stretch Database on the server](./sql-server-stretch-database-enable-database.md#EnableTSQLServer).
 
 ## Next steps
 Enable additional tables for Stretch Database. Monitor data migration and manage Stretch\-enabled databases and tables.
 
--   [Enable Stretch Database for a table](/documentation/articles/sql-server-stretch-database-enable-table/) to enable additional tables.
+-   [Enable Stretch Database for a table](./sql-server-stretch-database-enable-table.md) to enable additional tables.
 
--   [Monitor and troubleshoot data migration](/documentation/articles/sql-server-stretch-database-monitor/) to see the status of data migration.
+-   [Monitor and troubleshoot data migration](./sql-server-stretch-database-monitor.md) to see the status of data migration.
 
--   [Pause and resume Stretch Database](/documentation/articles/sql-server-stretch-database-pause/)
+-   [Pause and resume Stretch Database](./sql-server-stretch-database-pause.md)
 
--   [Manage and troubleshoot Stretch Database](/documentation/articles/sql-server-stretch-database-manage/)
+-   [Manage and troubleshoot Stretch Database](./sql-server-stretch-database-manage.md)
 
--   [Backup Stretch-enabled databases](/documentation/articles/sql-server-stretch-database-backup/)
+-   [Backup Stretch-enabled databases](./sql-server-stretch-database-backup.md)
 
 ## See also
 
-[Enable Stretch Database for a database](/documentation/articles/sql-server-stretch-database-enable-database/)
+[Enable Stretch Database for a database](./sql-server-stretch-database-enable-database.md)
 
-[Enable Stretch Database for a table](/documentation/articles/sql-server-stretch-database-enable-table/)
+[Enable Stretch Database for a table](./sql-server-stretch-database-enable-table.md)
 
 [StretchWizardImage1]: ./media/sql-server-stretch-database-wizard/stretchwiz1.png
 [StretchWizardImage2]: ./media/sql-server-stretch-database-wizard/stretchwiz2.png

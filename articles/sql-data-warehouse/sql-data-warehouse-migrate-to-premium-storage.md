@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Migrate your existing Azure data warehouse to premium storage | Azure"
-    description="Instructions for migrating an existing data warehouse to premium storage"
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="happynicolle"
-    manager="barbkess"
-    editor="" />
-<tags
-    ms.assetid="04b05dea-c066-44a0-9751-0774eb84c689"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="11/29/2016"
-    wacn.date=""
-    ms.author="rortloff;barbkess" />
+---
+title: Migrate your existing Azure data warehouse to premium storage | Azure
+description: Instructions for migrating an existing data warehouse to premium storage
+services: sql-data-warehouse
+documentationcenter: NA
+author: happynicolle
+manager: barbkess
+editor: ''
+
+ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 11/29/2016
+wacn.date: ''
+ms.author: rortloff;barbkess
+---
 
 # Migrate your data warehouse to premium storage
 Azure SQL Data Warehouse recently introduced [premium storage for greater performance predictability][premium storage for greater performance predictability]. Existing data warehouses currently on standard storage can now be migrated to premium storage. You can take advantage of automatic migration, or if you prefer to control when to migrate (which does involve some downtime), you can do the migration yourself.
@@ -30,11 +31,11 @@ If you created a data warehouse before the following dates, you are currently us
 | China East |November 1, 2016 |
 | China North |November 1, 2016 |
 
-
 ## Automatic migration details
 By default, we will migrate your database for you between 6:00 PM and 6:00 AM in your region's local time during the [automatic migration schedule][automatic migration schedule]. Your existing data warehouse will be unusable during the migration. The migration will take approximately one hour per terabyte of storage per data warehouse. You will not be charged during any portion of the automatic migration.
 
-> [AZURE.NOTE] When the migration is complete, your data warehouse will be back online and usable.
+> [!NOTE]
+> When the migration is complete, your data warehouse will be back online and usable.
 
 Microsoft is taking the following steps to complete the migration (these do not require any involvement on your part). In this example, imagine that your existing data warehouse on standard storage is currently named “MyDW.”
 
@@ -44,7 +45,7 @@ Microsoft is taking the following steps to complete the migration (these do not 
 4. After the restore is complete, “MyDW” returns to the same data warehouse units and state (paused or active) that it was before the migration.
 5. After the migration is complete, Microsoft deletes “MyDW_DO_NOT_USE_[Timestamp]”.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The following settings do not carry over as part of the migration:
 >
 > * Auditing at the database level needs to be re-enabled.
@@ -70,7 +71,7 @@ To migrate your data warehouse yourself, use the backup and restore features. Th
 2. [Restore][Restore] from your most recent snapshot.
 3. Delete your existing data warehouse on standard storage. **If you fail to do this step, you will be charged for both data warehouses.**
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The following settings do not carry over as part of the migration:
 >
 > * Auditing at the database level needs to be re-enabled.
@@ -91,7 +92,6 @@ In this example, imagine that your existing data warehouse on standard storage i
 3. [Restore][Restore] from your most recent snapshot a new database with the name it used to be (for example, "MyDW").
 4. Delete "MyDW_BeforeMigration." **If you fail to do this step, you will be charged for both data warehouses.**
 
-
 ## Next steps
 With the change to premium storage, you also have an increased number of database blob files in the underlying architecture of your data warehouse. To maximize the performance benefits of this change, rebuild your clustered columnstore indexes by using the following script. The script works by forcing some of your existing data to the additional blobs. If you take no action, the data will naturally redistribute over time as you load more data into your tables.
 
@@ -101,47 +101,45 @@ With the change to premium storage, you also have an increased number of databas
 - The user executing the script should be in the [mediumrc role][mediumrc role] or higher. To add a user to this role, execute the following:
       ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
+    -------------------------------------------------------------------------------
+    -- Step 1: Create table to control index rebuild
+    -- Run as user in mediumrc or higher
+    --------------------------------------------------------------------------------
+    create table sql_statements
+    WITH (distribution = round_robin)
+    as select
+        'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
+        row_number() over (order by s.name, t.name) as sequence
+    from
+        sys.schemas s
+        inner join sys.tables t
+            on s.schema_id = t.schema_id
+    where
+        is_external = 0
+    ;
+    go
 
-	-------------------------------------------------------------------------------
-	-- Step 1: Create table to control index rebuild
-	-- Run as user in mediumrc or higher
-	--------------------------------------------------------------------------------
-	create table sql_statements
-	WITH (distribution = round_robin)
-	as select
-	    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-	    row_number() over (order by s.name, t.name) as sequence
-	from
-	    sys.schemas s
-	    inner join sys.tables t
-	        on s.schema_id = t.schema_id
-	where
-	    is_external = 0
-	;
-	go
+    --------------------------------------------------------------------------------
+    -- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
+    -- Run as user in mediumrc or higher
+    --------------------------------------------------------------------------------
 
-	--------------------------------------------------------------------------------
-	-- Step 2: Execute index rebuilds. If script fails, the below can be re-run to restart where last left off.
-	-- Run as user in mediumrc or higher
-	--------------------------------------------------------------------------------
-
-	declare @nbr_statements int = (select count(*) from sql_statements)
-	declare @i int = 1
-	while(@i <= @nbr_statements)
-	begin
-	      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-	      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-	      exec (@statement)
-	      delete from sql_statements where sequence = @i
-	      set @i += 1
-	end;
-	go
-	-------------------------------------------------------------------------------
-	-- Step 3: Clean up table created in Step 1
-	--------------------------------------------------------------------------------
-	drop table sql_statements;
-	go
-
+    declare @nbr_statements int = (select count(*) from sql_statements)
+    declare @i int = 1
+    while(@i <= @nbr_statements)
+    begin
+          declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
+          print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
+          exec (@statement)
+          delete from sql_statements where sequence = @i
+          set @i += 1
+    end;
+    go
+    -------------------------------------------------------------------------------
+    -- Step 3: Clean up table created in Step 1
+    --------------------------------------------------------------------------------
+    drop table sql_statements;
+    go
 
 If you encounter any issues with your data warehouse, [create a support ticket][create a support ticket] and reference “migration to premium storage” as the possible cause.
 
@@ -150,17 +148,16 @@ If you encounter any issues with your data warehouse, [create a support ticket][
 <!--Article references-->
 [automatic migration schedule]: #automatic-migration-schedule
 [self-migration to Premium Storage]: #self-migration-to-premium-storage
-[create a support ticket]: /documentation/articles/sql-data-warehouse-get-started-create-support-ticket
-[Azure paired region]: /documentation/articles/best-practices-availability-paired-regions
+[create a support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Azure paired region]: ../best-practices-availability-paired-regions.md
 [main documentation site]: /documentation/articles/services/sql-data-warehouse
-[Pause]: /documentation/articles/sql-data-warehouse-manage-compute-portal/#pause-compute
+[Pause]: ./sql-data-warehouse-manage-compute-portal.md#pause-compute
 [Restore]: /documentation/articles/sql-data-warehouse-manage-database-restore-portal
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: /documentation/articles/sql-data-warehouse-manage-compute-portal/#scale-compute-power
-[mediumrc role]: /documentation/articles/sql-data-warehouse-develop-concurrency/#workload-management
+[scale compute power]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
+[mediumrc role]: ./sql-data-warehouse-develop-concurrency.md#workload-management
 
 <!--MSDN references-->
-
 
 <!--Other Web references-->
 [Premium Storage for greater performance predictability]: https://azure.microsoft.com/en-us/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/

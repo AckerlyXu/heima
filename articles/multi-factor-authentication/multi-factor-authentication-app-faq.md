@@ -1,21 +1,22 @@
-﻿<properties
-    pageTitle="Microsoft Authenticator app FAQ"
-    description="Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication."
-    services="multi-factor-authentication"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="pblachar, librown" />
-<tags
-    ms.assetid="f04d5bce-e99e-4f75-82d1-ef6369be3402"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/02/2016"
-    wacn.date=""
-    ms.author="kgremban" />
+﻿---
+title: Microsoft Authenticator app FAQ
+description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: pblachar, librown
+
+ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/02/2016
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Microsoft Authenticator application FAQ
 The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. This app is available for Windows Phone, Android, and iOS.
@@ -88,7 +89,6 @@ Much of this information can be found on your sign-in page. When you don't verif
 Including this information helps us to solve your problem as quickly as possible.
 
 ## Related topics
-- [Azure Multi-Factor Authentication FAQ](/documentation/articles/multi-factor-authentication-faq/)  
+- [Azure Multi-Factor Authentication FAQ](./multi-factor-authentication-faq.md)  
 - [About two-step verification](https://support.microsoft.com/zh-cn/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
-- [Having trouble with two-step verification?](/documentation/articles/multi-factor-authentication-end-user-troubleshoot/)
-
+- [Having trouble with two-step verification?](./multi-factor-authentication-end-user-troubleshoot.md)

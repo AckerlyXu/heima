@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="Service Bus transactions | Azure" 
-    description="Overview of Azure Service Bus atomic transactions and send via" 
-    services="service-bus" 
-    documentationCenter=".net" 
-    authors="sethmanheim" 
-    manager="timlt" 
-    editor=""/>
+---
+title: Service Bus transactions | Azure
+description: Overview of Azure Service Bus atomic transactions and send via
+services: service-bus
+documentationCenter: .net
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na" 
-    ms.date="10/04/2016"
-    ms.author="clemensv;sethm"/>
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/04/2016
+ms.author: clemensv;sethm
+---
 
 # Overview of Service Bus transaction processing
 
@@ -24,7 +24,7 @@ This article discusses the transaction capabilities of Azure Service Bus. Much o
 
 A [transaction](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions#what-are-transactions) groups two or more operations together into an *execution scope*. By nature, such a transaction must ensure that all operations belonging to a given group of operations either succeed or fail jointly. In this respect transactions act as one unit, which is often referred to as *atomicity*. 
 
-Service Bus is a transactional message broker and ensures transactional integrity for all internal operations against its message stores. All transfers of messages inside of Service Bus, such as moving messages to a [dead-letter queue](/documentation/articles/service-bus-dead-letter-queues/) or [automatic forwarding](/documentation/articles/service-bus-auto-forwarding/) of messages between entities, are transactional. As such, if Service Bus accepts a message, it has already been stored and labeled with a sequence number. From then on, any message transfers within Service Bus are coordinated operations across entities, and will neither lead to loss (source succeeds and target fails) or to duplication (source fails and target succeeds) of the message.
+Service Bus is a transactional message broker and ensures transactional integrity for all internal operations against its message stores. All transfers of messages inside of Service Bus, such as moving messages to a [dead-letter queue](./service-bus-dead-letter-queues.md) or [automatic forwarding](./service-bus-auto-forwarding.md) of messages between entities, are transactional. As such, if Service Bus accepts a message, it has already been stored and labeled with a sequence number. From then on, any message transfers within Service Bus are coordinated operations across entities, and will neither lead to loss (source succeeds and target fails) or to duplication (source fails and target succeeds) of the message.
 
 Service Bus supports grouping operations against a single messaging entity (queue, topic, subscription) within the scope of a transaction. For example, you can send several messages to one queue from within a transaction scope, and the messages will only be committed to the queue's log when the transaction successfully completes.
 
@@ -77,8 +77,8 @@ using (scope = new TransactionScope())
 
 See the following articles for more information about Service Bus queues:
 
-- [Chaining Service Bus entities with auto-forwarding](/documentation/articles/service-bus-auto-forwarding/)
+- [Chaining Service Bus entities with auto-forwarding](./service-bus-auto-forwarding.md)
 - [Auto-forward sample](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward)
 - [Atomic Transactions with Service Bus sample](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
-- [Azure Queues and Service Bus queues compared](/documentation/articles/service-bus-azure-and-service-bus-queues-compared-contrasted/)
-- [How to use Service Bus queues](/documentation/articles/service-bus-dotnet-get-started-with-queues/)
+- [Azure Queues and Service Bus queues compared](./service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [How to use Service Bus queues](./service-bus-dotnet-get-started-with-queues.md)

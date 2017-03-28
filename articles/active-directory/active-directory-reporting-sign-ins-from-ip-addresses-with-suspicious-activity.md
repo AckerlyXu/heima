@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Sign ins from IP addresses with suspicious activity"
-	description="A report that includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted."
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
-	editor=""/>
+---
+title: Sign ins from IP addresses with suspicious activity
+description: A report that includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted.
+services: active-directory
+documentationCenter: ''
+authors: kenhoff
+manager: ilanas
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="07/01/2015"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 07/01/2015
+wacn.date: ''
+---
 
 # Sign ins from IP addresses with suspicious activity
 

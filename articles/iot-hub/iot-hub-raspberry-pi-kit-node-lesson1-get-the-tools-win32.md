@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Get the tools (Windows 7 or later) | Azure"
-    description="Download and install the necessary tools and software for the first sample application for Pi on Windows 7 and later versions."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timlt"
-    tags=""
-    keywords="iot development, iot software, internet of things software, install git on windows, gulp run, install node js windows, install npm on windows, install python on windows" />
-<tags
-    ms.assetid="b3d88e17-97cc-4f23-85fd-a688fc228eb8"
-    ms.service="iot-hub"
-    ms.devlang="node"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get the tools (Windows 7 or later) | Azure
+description: Download and install the necessary tools and software for the first sample application for Pi on Windows 7 and later versions.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timlt
+tags: ''
+keywords: iot development, iot software, internet of things software, install git on windows, gulp run, install node js windows, install npm on windows, install python on windows
+
+ms.assetid: b3d88e17-97cc-4f23-85fd-a688fc228eb8
+ms.service: iot-hub
+ms.devlang: node
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get the tools (Windows 7 or later)
-> [AZURE.SELECTOR]
-- [Windows 7 or later](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32/)
-- [Ubuntu 16.04](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu/)
-- [macOS 10.10](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac/)
+> [!div class="op_single_selector"]
+>- [Windows 7 or later](./iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+>- [Ubuntu 16.04](./iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
+>- [macOS 10.10](./iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 
 ## What you will do
-Download the development tools and the software for the first sample application for Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-raspberry-pi-kit-node-troubleshooting/).
+Download the development tools and the software for the first sample application for Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will learn
 In this article, you will learn:
@@ -58,7 +59,7 @@ Start a command prompt as an administrator. Install `gulp` and `device-discovery
 npm install -g device-discovery-cli gulp
 ```
 
-If you experience issues installing Node.js and these additional Node.js development tools on your computer, see the [troubleshooting guide](/documentation/articles/iot-hub-raspberry-pi-kit-node-troubleshooting/) for solutions to common problems.
+If you experience issues installing Node.js and these additional Node.js development tools on your computer, see the [troubleshooting guide](./iot-hub-raspberry-pi-kit-node-troubleshooting.md) for solutions to common problems.
 
 ## Install Visual Studio Code
 [Download](https://code.visualstudio.com/docs/setup/windows) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux, and macOS. You use this editor later in the tutorial to edit the sample code.
@@ -67,5 +68,4 @@ If you experience issues installing Node.js and these additional Node.js develop
 You've installed the required development tools and software for the first sample application. The next task is to create, deploy, and run the sample application on Pi.
 
 ## Next steps
-[Create and deploy the blink sample application](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app/)
-
+[Create and deploy the blink sample application](./iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)

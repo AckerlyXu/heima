@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Restart VMs | Azure"
-    description="Azure CLI Script Sample - Restart VMs by tag and by ID"
-    services="virtual-machines-linux"
-    documentationcenter="virtual-machines"
-    author="allclark"
-    manager="douge"
-    editor="tysonn"
-    tags="azure-service-management" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="03/01/2017"
-    wacn.date=""
-    ms.author="allclark" />
+---
+title: Azure CLI Script Sample - Restart VMs | Azure
+description: Azure CLI Script Sample - Restart VMs by tag and by ID
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: allclark
+manager: douge
+editor: tysonn
+tags: azure-service-management
+
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 03/01/2017
+wacn.date: ''
+ms.author: allclark
+---
 
 # Restart VMs
 
@@ -24,14 +25,18 @@ This sample shows a couple of ways to get some VMs and restart them.
 
 The first restarts all the VMs in the resource group.
 
-    az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
+```bash
+az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
+```
 
 The second gets the tagged VMs using `az resouce list` and filters to the resources that are VMs,
 and restarts those VMs.
 
-    az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
+```bash
+az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
+```
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
@@ -46,54 +51,60 @@ The third script restarts all the VMs that were provisioned, and then just the t
 This script creates a resource group and then it creates three VMs to restart.
 Two of them are tagged.
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    # Create a resource group where we'll create the VMs that we'll start
-    az group create -n myResourceGroup -l chinanorth
+# Create a resource group where we'll create the VMs that we'll start
+az group create -n myResourceGroup -l chinanorth
 
-    # Create the VMs. Two are tagged and one is not. --generated-ssh-keys will create ssh keys if not present
-    az vm create -g myResourceGroup -n myVM1 --image UbuntuLTS --admin-username deploy --tags "restart-tag" --generate-ssh-keys --no-wait
-    az vm create -g myResourceGroup -n myVM2 --image UbuntuLTS --admin-username deploy --tags "restart-tag" --no-wait
-    az vm create -g myResourceGroup -n myVM3 --image UbuntuLTS --admin-username deploy --no-wait
+# Create the VMs. Two are tagged and one is not. --generated-ssh-keys will create ssh keys if not present
+az vm create -g myResourceGroup -n myVM1 --image UbuntuLTS --admin-username deploy --tags "restart-tag" --generate-ssh-keys --no-wait
+az vm create -g myResourceGroup -n myVM2 --image UbuntuLTS --admin-username deploy --tags "restart-tag" --no-wait
+az vm create -g myResourceGroup -n myVM3 --image UbuntuLTS --admin-username deploy --no-wait
+```
 
 ### Wait
 
 This script checks on the provisioning status every 20 seconds until all three VMs are provisioned,
 or one of them fails to provision.
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    # Wait for the VMs to be provisioned
-    while [[ $(az vm list --resource-group myResourceGroup --query "length([?provisioningState=='Succeeded'])") != 3 ]]; do
-        echo "The VMs are still not provisioned. Trying again in 20 seconds."
-        sleep 20
-        if [[ $(az vm list --resource-group myResorceGroup --query "length([?provisioningState=='Failed'])") != 0 ]]; then
-            echo "At least one of the VMs failed to be provisioned."
-            exit 1
-        fi
-    done
-    echo "The VMs are provisioned."
-
+# Wait for the VMs to be provisioned
+while [[ $(az vm list --resource-group myResourceGroup --query "length([?provisioningState=='Succeeded'])") != 3 ]]; do
+    echo "The VMs are still not provisioned. Trying again in 20 seconds."
+    sleep 20
+    if [[ $(az vm list --resource-group myResorceGroup --query "length([?provisioningState=='Failed'])") != 0 ]]; then
+        echo "At least one of the VMs failed to be provisioned."
+        exit 1
+    fi
+done
+echo "The VMs are provisioned."
+```
 
 ### Restart the VMs
 
 This script restarts all the VMs in the resource group,
 and then it restarts just the tagged VMs.
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    # Get the IDs of all the VMs in the resource group and restart those
-    az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
+# Get the IDs of all the VMs in the resource group and restart those
+az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 
-    # Get the IDs of the tagged VMs and restart those
-    az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
-
+# Get the IDs of the tagged VMs and restart those
+az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
+```
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource groups, VMs, and all related resources.
 
-    az group delete -n myResourceGroup --no-wait --yes
+```azurecli
+az group delete -n myResourceGroup --no-wait --yes
+```
 
 ## Script explanation
 
@@ -112,4 +123,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](/documentation/articles/virtual-machines-linux-cli-samples/).
+Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-cli-samples.md).

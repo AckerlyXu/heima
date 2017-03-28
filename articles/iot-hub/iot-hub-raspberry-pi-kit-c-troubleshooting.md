@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Troubleshooting | Azure"
-    description="Troubleshooting page for Raspberry Pi Node.js experience"
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="iot issues, internet of things problems" />
-<tags
-    ms.assetid="3653c79b-8a0c-41d4-b0bf-f6b4edb4d233"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Troubleshooting | Azure
+description: Troubleshooting page for Raspberry Pi Node.js experience
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: iot issues, internet of things problems
+
+ms.assetid: 3653c79b-8a0c-41d4-b0bf-f6b4edb4d233
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Troubleshooting
 ## Hardware issues
@@ -113,7 +114,7 @@ iothub-explorer help
 ```
 
 ### Azure portal
-A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](/documentation/articles/azure-portal-overview/) to help provision, manage, and debug your Azure resources.
+A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
 ## Azure storage issues
 [Microsoft Azure Storage Explorer (preview)](http://storageexplorer.com) is a standalone app from Microsoft that you can use to work with Azure Storage data on Windows, macOS, and Linux. By using this tool, you can connect to your table and see the data in it. You can use this tool to troubleshoot your Azure Storage issues.

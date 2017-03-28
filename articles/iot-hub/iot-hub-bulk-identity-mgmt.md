@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Import export of Azure IoT Hub device identities | Azure"
-    description="How to use the Azure IoT service SDK to perform bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="2ade1494-45ea-46a7-ade7-cf6e11ce62da"
-    ms.service="iot-hub"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Import export of Azure IoT Hub device identities | Azure
+description: How to use the Azure IoT service SDK to perform bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
+services: iot-hub
+documentationcenter: .net
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Manage your IoT Hub device identities in bulk
 Each IoT hub has an identity registry you can use to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry.
@@ -39,9 +40,8 @@ The following C# code snippet shows how to create an export job:
 JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > To use the **RegistryManager** class in your C# code, add the **Microsoft.Azure.Devices** NuGet package to your project. The **RegistryManager** class is in the **Microsoft.Azure.Devices** namespace.
-
 
 Then you can use the **RegistryManager** class to query the state of the **Job** using the returned **JobProperties** metadata.
 
@@ -66,14 +66,14 @@ while(true)
 
 ## Export devices
 
-Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an [Azure storage](/documentation/services/storage/) blob container using a [Shared Access Signature](https://msdn.microsoft.com/zh-cn/library/ee395415.aspx).
+Use the **ExportDevicesAsync** method to export the entirety of an IoT hub identity registry to an [Azure storage](../storage/index.md) blob container using a [Shared Access Signature](https://msdn.microsoft.com/zh-cn/library/ee395415.aspx).
 
 This method enables you to create reliable backups of your device information in a blob container that you control.
 
 The **ExportDevicesAsync** method requires two parameters:
 
 * A *string* that contains a URI of a blob container. This URI must contain a SAS token that grants write access to the container. The job creates a block blob in this container to store the serialized export device data. The SAS token must include these permissions:
-  
+
    ```
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
    ```
@@ -129,7 +129,8 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 }
 ```
 
-> [AZURE.NOTE]  You can also use the **GetDevicesAsync** method of the **RegistryManager** class to fetch a list of your devices. However, this approach has a hard cap of 1000 on the number of device objects that are returned. The expected use case for the **GetDevicesAsync** method is for development scenarios to aid debugging and is not recommended for production workloads.
+> [!NOTE]
+>  You can also use the **GetDevicesAsync** method of the **RegistryManager** class to fetch a list of your devices. However, this approach has a hard cap of 1000 on the number of device objects that are returned. The expected use case for the **GetDevicesAsync** method is for development scenarios to aid debugging and is not recommended for production workloads.
 
 ## Import devices
 
@@ -137,26 +138,27 @@ The **ImportDevicesAsync** method in the **RegistryManager** class enables you t
 
 Take care using the **ImportDevicesAsync** method because in addition to provisioning new devices in your identity registry, it can also update and delete existing devices.
 
-> [AZURE.WARNING]
+> [!WARNING]
 > An import operation cannot be undone. Always back up your existing data using the **ExportDevicesAsync** method to another blob container before you make bulk changes to your identity registry.
 > 
 > 
 
 The **ImportDevicesAsync** method takes two parameters:
 
-* A *string* that contains a URI of an [Azure Storage](/documentation/services/storage/) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
+* A *string* that contains a URI of an [Azure Storage](../storage/index.md) blob container to use as *input* to the job. This URI must contain a SAS token that grants read access to the container. This container must contain a blob with the name **devices.txt** that contains the serialized device data to import into your identity registry. The import data must contain device information in the same JSON format that the **ExportImportDevice** job uses when it creates a **devices.txt** blob. The SAS token must include these permissions:
 
     ```
     SharedAccessBlobPermissions.Read
     ```
 
-*  A *string* that contains a URI of an [Azure storage](/documentation/services/storage/) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
-    
+*  A *string* that contains a URI of an [Azure storage](../storage/index.md) blob container to use as *output* from the job. The job creates a block blob in this container to store any error information from the completed import **Job**. The SAS token must include these permissions:
+
     ```
     SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
     ```
 
-> [AZURE.NOTE]  The two parameters can point to the same blob container. The separate parameters simply enable more control over your data as the output container requires additional permissions.
+> [!NOTE]
+>  The two parameters can point to the same blob container. The separate parameters simply enable more control over your data as the output container requires additional permissions.
 
 The following C# code snippet shows how to initiate an import job:
 
@@ -187,7 +189,8 @@ Use the optional **importMode** property in the import serialization data for ea
 | **delete** | If a device already exists with the specified **id**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
 | **deleteIfMatchETag** | If a device already exists with the specified **id**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
 
-> [AZURE.NOTE] If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
+> [!NOTE]
+> If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
 
 ## Import devices example – bulk device provisioning 
 
@@ -310,7 +313,6 @@ while(true)
 
 ## Getting the container SAS URI
 
-
 The following code sample shows you how to generate a [SAS URI](/documentation/articles/storage/storage-dotnet-shared-access-signature-part-2/) with read, write, and delete permissions for a blob container:
 
 ```
@@ -348,8 +350,8 @@ To further explore the capabilities of IoT Hub, see:
 * [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
-[lnk-metrics]: /documentation/articles/iot-hub-metrics/
-[lnk-monitor]: /documentation/articles/iot-hub-operations-monitoring/
+[lnk-metrics]: ./iot-hub-metrics.md
+[lnk-monitor]: ./iot-hub-operations-monitoring.md
 
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
-[lnk-gateway]: /documentation/articles/iot-hub-linux-gateway-sdk-simulated-device/
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md

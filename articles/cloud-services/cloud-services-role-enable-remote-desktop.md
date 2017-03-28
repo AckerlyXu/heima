@@ -1,23 +1,24 @@
-<properties 
-pageTitle="Enable Remote Desktop Connection for a Role in Azure Cloud Services" 
-description="How to configure your azure cloud service application to allow remote desktop connections" 
-services="cloud-services" 
-documentationCenter="" 
-authors="sbtron" 
-manager="timlt" 
-editor=""/>
-<tags 
-ms.service="cloud-services"  
-ms.date="11/22/2016" 
-wacn.date=""/>
+---
+title: Enable Remote Desktop Connection for a Role in Azure Cloud Services
+description: How to configure your azure cloud service application to allow remote desktop connections
+services: cloud-services
+documentationCenter: ''
+authors: sbtron
+manager: timlt
+editor: ''
+
+ms.service: cloud-services
+ms.date: 11/22/2016
+wacn.date: ''
+---
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services
 
->[AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/cloud-services-role-enable-remote-desktop-new-portal/)
-- [Azure classic portal](/documentation/articles/cloud-services-role-enable-remote-desktop/)
-- [PowerShell](/documentation/articles/cloud-services-role-enable-remote-desktop-powershell/)
-- [Visual Studio](/documentation/articles/vs-azure-tools-remote-desktop-roles/)
+>[!div class="op_single_selector"]
+>- [Azure portal](./cloud-services-role-enable-remote-desktop-new-portal.md)
+>- [Azure classic portal](./cloud-services-role-enable-remote-desktop.md)
+>- [PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md)
+>- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 You can enable a Remote Desktop connection in your role during development by including the Remote Desktop modules in your service definition or you can choose to enable Remote Desktop through the Remote Desktop Extension. The preferred approach is to use the Remote Desktop extension as you can enable Remote Desktop even after the application is deployed without having to redeploy your application. 
 
@@ -28,26 +29,25 @@ The Azure classic portal uses the Remote Desktop Extension approach so you can e
 2. Click the **Remote** button at the bottom.
 
     ![Cloud services remote](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
-    
-    > [AZURE.WARNING] All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](/documentation/articles/cloud-services-configure-ssl-certificate/#step-3-upload-a-certificate) and then return to this dialog.
-    
+
+    > [!WARNING]
+    > All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](./cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) and then return to this dialog.
 
 3. In **Roles**, select the role you want to update or select **All** for all roles.
 
 4. Make any of the following changes:
-    
+
     - To enable Remote Desktop, select the **Enable Remote Desktop** check box. To disable Remote Desktop, clear the check box.
-    
+
     - Create an account to use in Remote Desktop connections to the role instances.
-    
+
     - Update the password for the existing account.
-    
+
     - Select an uploaded certificate to use for authentication (upload the certificate using **Upload** on the **Certificates** page) or create a new certificate. 
-    
+
     - Change the expiration date for the Remote Desktop configuration.
 
 5. When you finish your configuration updates, click **OK** (checkmark).
-
 
 ## Remote into role instances
 Once Remote Desktop is enabled on the roles you can remote into a role instance through various tools.
@@ -58,7 +58,6 @@ To connect to a role instance from the Azure classic portal:
 2. Select a role instance that has Remote Desktop configured.
 3. Click **Connect**, and follow the instructions to open the desktop.
 4. Click **Open** and then **Connect** to start the Remote Desktop connection.
-
 
 ### Use Visual Studio to remote into a role instance
 
@@ -71,24 +70,21 @@ In Visual Studio, Server Explorer:
 
 ![Server explorer remote desktop](./media/cloud-services-role-enable-remote-desktop/ServerExplorer_RemoteDesktop.png)
 
-
 ### Use PowerShell to get the RDP file
 You can use the [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/zh-cn/library/azure/dn495261.aspx) cmdlet to retrieve the RDP file. You can then use the RDP file with Remote Desktop Connection to access the cloud service.
 
 ### Programmatically download the RDP file through the Service Management REST API
 You can use the [Download RDP File](https://msdn.microsoft.com/zh-cn/library/jj157183.aspx) REST operation to download the RDP file. 
 
-
-
 ## To configure Remote Desktop in the service definition file
 
 This method allows you to enable Remote Desktop for the application during development. This approach requires encrypted passwords be stored in your service configuration file and any updates to the remote desktop configuration would require a redeployment of the application. If you want to avoid these downsides you should use the remote desktop extension based approach described above.  
 
-You can use Visual Studio to [enable a remote desktop connection](/documentation/articles/vs-azure-tools-remote-desktop-roles/) using the service definition file approach.  
+You can use Visual Studio to [enable a remote desktop connection](../vs-azure-tools-remote-desktop-roles.md) using the service definition file approach.  
 The steps below describe the changes needed to the service model files to enable remote desktop. Visual Studio will automatically makes these changes when publishing.
 
 ### Set up the connection in the service model 
-Use the **Imports** element to import the **RemoteAccess** module and the **RemoteForwarder** module to the [ServiceDefinition.csdef](/documentation/articles/cloud-services-model-and-package/#csdef) file.
+Use the **Imports** element to import the **RemoteAccess** module and the **RemoteForwarder** module to the [ServiceDefinition.csdef](./cloud-services-model-and-package.md#csdef) file.
 
 The service definition file should be similar to the following example with the `<Imports>` element added.
 
@@ -113,7 +109,7 @@ The service definition file should be similar to the following example with the 
     </WebRole>
 </ServiceDefinition>
 ```
-The [ServiceConfiguration.cscfg](/documentation/articles/cloud-services-model-and-package/#cscfg) file should be similar to the following example, note the `<ConfigurationSettings>` and `<Certificates>` elements. The Certificate specified must be [uploaded to the cloud service](/documentation/articles/cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service).
+The [ServiceConfiguration.cscfg](./cloud-services-model-and-package.md#cscfg) file should be similar to the following example, note the `<ConfigurationSettings>` and `<Certificates>` elements. The Certificate specified must be [uploaded to the cloud service](./cloud-services-how-to-create-deploy.md#how-to-upload-a-certificate-for-a-cloud-service).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -134,7 +130,6 @@ The [ServiceConfiguration.cscfg](/documentation/articles/cloud-services-model-an
 </ServiceConfiguration>
 ```
 
-
 ## Additional Resources
 
-[How to Configure Cloud Services](/documentation/articles/cloud-services-how-to-configure/)
+[How to Configure Cloud Services](./cloud-services-how-to-configure.md)

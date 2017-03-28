@@ -1,23 +1,23 @@
-<properties
-    pageTitle="Authenticating and authorizing with Power BI Embedded"
-    description="Authenticating and authorizing with Power BI Embedded"
-    services="power-bi-embedded"
-    documentationcenter=""
-    author="guyinacube"
-    manager="erikre"
-    editor=""
-    tags="" />
-    
-<tags
-    ms.assetid="1c1369ea-7dfd-4b6e-978b-8f78908fd6f6"
-    ms.service="power-bi-embedded"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="powerbi"
-    ms.date="01/06/2017"
-    wacn.date=""
-    ms.author="asaxton" />
+---
+title: Authenticating and authorizing with Power BI Embedded
+description: Authenticating and authorizing with Power BI Embedded
+services: power-bi-embedded
+documentationcenter: ''
+author: guyinacube
+manager: erikre
+editor: ''
+tags: ''
+
+ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 01/06/2017
+wacn.date: ''
+ms.author: asaxton
+---
 
 # Authenticating and authorizing with Power BI Embedded
 The Power BI Embedded service uses **Keys** and **App Tokens** for authentication and authorization, instead of explicit end-user authentication. In this model, your application manages authentication and authorization for your end-users. When necessary, your app creates and sends the App Tokens that tells our service to render the requested report. This design doesn't require your app to use Azure Active Directory for user authentication and authorization, although you still can.
@@ -27,7 +27,9 @@ The Power BI Embedded service uses **Keys** and **App Tokens** for authenticatio
 
 To use a key on a REST call, add the following authorization header:            
 
-    Authorization: AppKey {your key}
+```
+Authorization: AppKey {your key}
+```
 
 **App token** - App tokens are used for all embedding requests. They’re designed to be run client-side, so they're restricted to a single report and it’s best practice to set an expiration time.
 
@@ -59,22 +61,22 @@ When decoded, it will look like this:
 
 ## Here's how the flow works
 1. Copy the API keys to your application. You can get the keys in **Azure Portal**.
-   
+
     ![](./media/powerbi-embedded-get-started-sample/azure-portal.png)
 2. Token asserts a claim and has an expiration time.
-   
+
     ![](./media/powerbi-embedded-get-started-sample/power-bi-embedded-token-2.png)
 3. Token gets signed with an API access keys.
-   
+
     ![](./media/powerbi-embedded-get-started-sample/power-bi-embedded-token-3.png)
 4. User requests to view a report.
-   
+
     ![](./media/powerbi-embedded-get-started-sample/power-bi-embedded-token-4.png)
 5. Token is validated with an API access keys.
-   
+
    ![](./media/powerbi-embedded-get-started-sample/power-bi-embedded-token-5.png)
 6. Power BI Embedded sends a report to user.
-   
+
    ![](./media/powerbi-embedded-get-started-sample/power-bi-embedded-token-6.png)
 
 After **Power BI Embedded** sends a report to the user, the user can view the report in your custom app. For example, if you imported the [Analyzing Sales Data PBIX sample](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), the sample web app would look like this:
@@ -82,7 +84,6 @@ After **Power BI Embedded** sends a report to the user, the user can view the re
 ![](./media/powerbi-embedded-get-started-sample/sample-web-app.png)
 
 ## See Also
-- [Get started with Power BI Embedded sample](/documentation/articles/power-bi-embedded-get-started-sample/)
-- [Common Power BI Embedded scenarios](/documentation/articles/power-bi-embedded-scenarios/)
-- [Get started with Power BI Embedded](/documentation/articles/power-bi-embedded-get-started/)
-
+- [Get started with Power BI Embedded sample](./power-bi-embedded-get-started-sample.md)
+- [Common Power BI Embedded scenarios](./power-bi-embedded-scenarios.md)
+- [Get started with Power BI Embedded](./power-bi-embedded-get-started.md)

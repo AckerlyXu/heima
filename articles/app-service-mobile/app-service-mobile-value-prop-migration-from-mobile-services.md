@@ -1,20 +1,20 @@
-<properties
-	pageTitle="I use Mobile Services, how does App Service help?"
-	description="Learn what advantages does App Service bring to your existing Mobile Services projects."
-	services="app-service\mobile"
-	documentationCenter="ios"
-	authors="adrianhall"
-	manager="dwrede"
-	editor=""/>
+---
+title: I use Mobile Services, how does App Service help?
+description: Learn what advantages does App Service bring to your existing Mobile Services projects.
+services: app-service\mobile
+documentationCenter: ios
+authors: adrianhall
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="10/01/2016"
-	ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-multiple
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/01/2016
+ms.author: adrianha
+---
 
 # <a name="getting-started"> </a>I use Mobile Services, how does App Service help?
 
@@ -66,5 +66,4 @@ Automatically back up your backend and database. Your code and data is secure fr
 With *Azure App Service* you can now create multiple private testing and staging environments for your mobile apps. Use them to perform testing
 before you deploy. Swap to production with no downtime. Web apps are pre-loaded, ensuring the best customer experience.
 
-You can get start taking advantage of *App Service* for your existing Mobile Service by following this [tutorial](/documentation/articles/app-service-mobile-migrating-from-mobile-services/).
-
+You can get start taking advantage of *App Service* for your existing Mobile Service by following this [tutorial](./app-service-mobile-migrating-from-mobile-services.md).

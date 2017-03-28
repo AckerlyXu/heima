@@ -1,24 +1,25 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Azure App Service web apps on Linux FAQ | Azure"
-    description="Azure App Service web apps on Linux FAQ."
-    keywords="azure app service, web app, faq, linux, oss"
-    services="app-service"
-    documentationCenter=""
-    authors="ahmedelnably"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="aelnably" />
+---
+title: Azure App Service web apps on Linux FAQ | Azure
+description: Azure App Service web apps on Linux FAQ.
+keywords: azure app service, web app, faq, linux, oss
+services: app-service
+documentationCenter: ''
+authors: ahmedelnably
+manager: erikre
+editor: ''
+
+ms.assetid: ''
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: aelnably
+---
 
 # Azure App Service web apps on Linux FAQ
 
@@ -102,5 +103,5 @@ If you have a question, please comment on the article and we'll answer it as soo
 **A:** You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps-uservoice). Please add "[Linux]" to the title of your idea.
 
 ## Next steps
-* [What is App Service on Linux?](/documentation/articles/app-service-linux-intro/)
-* [Creating web apps in App Service on Linux](/documentation/articles/app-service-linux-how-to-create-a-web-app/)
+* [What is App Service on Linux?](./app-service-linux-intro.md)
+* [Creating web apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)

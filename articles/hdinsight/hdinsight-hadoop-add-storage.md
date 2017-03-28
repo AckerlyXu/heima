@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Add additional Azure storage accounts to HDInsight | Azure"
-    description="Learn how to add additional Azure storage accounts to an existing HDInsight cluster."
-    services="hdinsight"
-    documentationCenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.service="hdinsight"
-    ms.devlang=""
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="02/23/2017"
-    wacn.date=""
-    ms.author="larryfr"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Add additional Azure storage accounts to HDInsight | Azure
+description: Learn how to add additional Azure storage accounts to an existing HDInsight cluster.
+services: hdinsight
+documentationCenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.service: hdinsight
+ms.devlang: ''
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 02/23/2017
+wacn.date: ''
+ms.author: larryfr
+ms.custom: H1Hack27Feb2017
+---
 
 # Add additional storage accounts to HDInsight
 
 Learn how to use script actions to add additional Azure storage accounts to an existing HDInsight cluster that uses Linux as the operating system.
 
-> [AZURE.IMPORTANT]
-> The information in this document is about adding additional storage to a cluster after it has been created. For information on adding additional storage accounts during cluster creation, see the __Use additional storage__ section of the [Create Linux-based HDInsight clusters](/documentation/articles/hdinsight-hadoop-provision-linux-clusters/#use-additional-storage) document.
+> [!IMPORTANT]
+> The information in this document is about adding additional storage to a cluster after it has been created. For information on adding additional storage accounts during cluster creation, see the __Use additional storage__ section of the [Create Linux-based HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md#use-additional-storage) document.
 
 ## How it works
 
@@ -47,7 +48,7 @@ During processing, the script performs the following actions:
 
 * Stops and restarts the Oozie, YARN, MapReduce2, and HDFS services so that they pick up the new storage account information.
 
-> [AZURE.WARNING]
+> [!WARNING]
 > If the storage account is in a different region than the HDInsight cluster, you may experience poor performance. Accessing data in a different region sends network traffic outside the regional Azure data center and across the public internet, which can introduce latency. Also, sending data out of a regional data center may cost more, as an egress charge is applied when data leaves a data center.
 
 ## The script
@@ -60,11 +61,11 @@ __Requirements__:
 
 ## To use the script
 
-See the Apply a script action to a running cluster section of the [Customize Linux-based HDInsight clusters using script action](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/#apply-a-script-action-to-a-running-cluster) document for information on using script actions through the Azure portal preview, Azure PowerShell, and the Azure CLI.
+See the Apply a script action to a running cluster section of the [Customize Linux-based HDInsight clusters using script action](./hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) document for information on using script actions through the Azure portal preview, Azure PowerShell, and the Azure CLI.
 
 When using the information provided in the customization document, replace any example script action URI with the URI for this script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh). Replace any example parameters with the Azure storage account name and key of the storage account to be added to the cluster.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You do not need to mark this script as __Persisted__, as it directly updates the Ambari configuration for the cluster.
 
 ## Known issues
@@ -79,15 +80,21 @@ To view storage account information added to the cluster using this script, use 
 
 PowerShell
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"""] | select(. != null)'
+```
+curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"""] | select(. != null)'
+```
 
 Bash
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"] | select(. != null)'
+```
+curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"] | select(. != null)'
+```
 
 When using this command, replace __CLUSTERNAME__ with the name of the HDInsight cluster. Replace __PASSWORD__ with the HTTP login password for the cluster. Replace __STORAGEACCOUNT__ with the name of the storage account added using script action. Information returned from this command appears similar to the following text:
 
-    "MIIB+gYJKoZIhvcNAQcDoIIB6zCCAecCAQAxggFaMIIBVgIBADA+MCoxKDAmBgNVBAMTH2RiZW5jcnlwdGlvbi5henVyZWhkaW5zaWdodC5uZXQCEA6GDZMW1oiESKFHFOOEgjcwDQYJKoZIhvcNAQEBBQAEggEATIuO8MJ45KEQAYBQld7WaRkJOWqaCLwFub9zNpscrquA2f3o0emy9Vr6vu5cD3GTt7PmaAF0pvssbKVMf/Z8yRpHmeezSco2y7e9Qd7xJKRLYtRHm80fsjiBHSW9CYkQwxHaOqdR7DBhZyhnj+DHhODsIO2FGM8MxWk4fgBRVO6CZ5eTmZ6KVR8wYbFLi8YZXb7GkUEeSn2PsjrKGiQjtpXw1RAyanCagr5vlg8CicZg1HuhCHWf/RYFWM3EBbVz+uFZPR3BqTgbvBhWYXRJaISwssvxotppe0ikevnEgaBYrflB2P+PVrwPTZ7f36HQcn4ifY1WRJQ4qRaUxdYEfzCBgwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAhRdscgRV3wmYBg3j/T1aEnO3wLWCRpgZa16MWqmfQPuansKHjLwbZjTpeirqUAQpZVyXdK/w4gKlK+t1heNsNo1Wwqu+Y47bSAX1k9Ud7+Ed2oETDI7724IJ213YeGxvu4Ngcf2eHW+FRK"
+```
+"MIIB+gYJKoZIhvcNAQcDoIIB6zCCAecCAQAxggFaMIIBVgIBADA+MCoxKDAmBgNVBAMTH2RiZW5jcnlwdGlvbi5henVyZWhkaW5zaWdodC5uZXQCEA6GDZMW1oiESKFHFOOEgjcwDQYJKoZIhvcNAQEBBQAEggEATIuO8MJ45KEQAYBQld7WaRkJOWqaCLwFub9zNpscrquA2f3o0emy9Vr6vu5cD3GTt7PmaAF0pvssbKVMf/Z8yRpHmeezSco2y7e9Qd7xJKRLYtRHm80fsjiBHSW9CYkQwxHaOqdR7DBhZyhnj+DHhODsIO2FGM8MxWk4fgBRVO6CZ5eTmZ6KVR8wYbFLi8YZXb7GkUEeSn2PsjrKGiQjtpXw1RAyanCagr5vlg8CicZg1HuhCHWf/RYFWM3EBbVz+uFZPR3BqTgbvBhWYXRJaISwssvxotppe0ikevnEgaBYrflB2P+PVrwPTZ7f36HQcn4ifY1WRJQ4qRaUxdYEfzCBgwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAhRdscgRV3wmYBg3j/T1aEnO3wLWCRpgZa16MWqmfQPuansKHjLwbZjTpeirqUAQpZVyXdK/w4gKlK+t1heNsNo1Wwqu+Y47bSAX1k9Ud7+Ed2oETDI7724IJ213YeGxvu4Ngcf2eHW+FRK"
+```
 
 This text is an example of an encrypted key, which is used to access the storage account.
 
@@ -109,8 +116,10 @@ To work around this problem, you must remove the existing entry for the storage 
 
     The following are example entries for a storage account named __mystorage__:
 
-        fs.azure.account.keyprovider.mystorage.blob.core.chinacloudapi.cn
-        fs.azure.account.key.mystorage.blob.core.chinacloudapi.cn
+    ```
+    fs.azure.account.keyprovider.mystorage.blob.core.chinacloudapi.cn
+    fs.azure.account.key.mystorage.blob.core.chinacloudapi.cn
+    ```
 
 4. After you have identified the keys for the storage account you need to remove, use the red '-' icon to the right of the entry to delete it. Then use the __Save__ button to save your changes.
 
@@ -126,4 +135,4 @@ If the storage account is in a different region than the HDInsight cluster, you 
 
 ## Next steps
 
-You have learned how to add additional storage accounts to an existing HDInsight cluster. For more information on script actions, see [Customize Linux-based HDInsight clusters using script action](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/)
+You have learned how to add additional storage accounts to an existing HDInsight cluster. For more information on script actions, see [Customize Linux-based HDInsight clusters using script action](./hdinsight-hadoop-customize-cluster-linux.md)

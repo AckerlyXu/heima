@@ -1,27 +1,26 @@
-<properties
-   pageTitle="Connect a device using Node.js | Azure"
-   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in Node.js."
-   services=""
-   suite="iot-suite"
-   documentationCenter="na"
-   authors="dominicbetts"
-   manager="timlt"
-   editor=""/>
+---
+title: Connect a device using Node.js | Azure
+description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in Node.js.
+services: ''
+suite: iot-suite
+documentationCenter: na
+authors: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="iot-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/20/2017"
-   ms.author="dobett"
-   wacn.date=""/>
-
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/20/2017
+ms.author: dobett
+wacn.date: ''
+---
 
 # Connect your device to the remote monitoring preconfigured solution (Node.js)
 
-[AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
+[!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Create a node.js sample solution
 
@@ -244,12 +243,12 @@ Ensure that Node.js version 0.10.x or later is installed on your development mac
 1. Save the changes to the **remote_monitoring.js** file.
 
 1. Run the following command at a command prompt to launch the sample application:
-   
+
     ```
     node remote_monitoring.js
     ```
 
-[AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
+[!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 [lnk-github-repo]: https://github.com/azure/azure-iot-sdk-node
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md

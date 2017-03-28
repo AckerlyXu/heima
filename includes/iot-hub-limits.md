@@ -5,7 +5,7 @@ The following table lists the limits associated with the different service tiers
 | Messages/day |400,000 |6,000,000 |300,000,000 |8,000 |
 | Maximum units |200 |200 |10 |1 |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you anticipate using more than 200 units with an S1 or S2 or 10 units with an S3 tier hub, contact Microsoft support.
 > 
 > 
@@ -35,12 +35,10 @@ The following table lists the limits that apply to IoT Hub resources:
 | Maximum additional endpoints | 10 (for S1, S2, S3) |
 | Maximum message routing rules | 100 (for S1, S2, S3) |
 
-
-> [AZURE.NOTE]
+> [!NOTE]
 > If you need more than 10 paid IoT hubs in an Azure subscription, contact Microsoft support.
 
-
-> [AZURE.NOTE]
+> [!NOTE]
 > Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
 
 The IoT Hub service throttles requests when the following quotas are exceeded:

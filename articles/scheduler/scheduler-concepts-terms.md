@@ -1,20 +1,21 @@
-<properties
- pageTitle="Scheduler concepts, terms, and entities | Azure"
- description="Azure Scheduler concepts, terminology, and entity hierarchy, including jobs and job collections.  Shows a comprehensive example of a scheduled job."
- services="scheduler"
- documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="get-started-article"
- ms.date="08/18/2016"
- wacn.date=""
- ms.author="krisragh"/>
+---
+title: Scheduler concepts, terms, and entities | Azure
+description: Azure Scheduler concepts, terminology, and entity hierarchy, including jobs and job collections.  Shows a comprehensive example of a scheduled job.
+services: scheduler
+documentationCenter: .NET
+authors: krisragh
+manager: dwrede
+editor: ''
+
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: get-started-article
+ms.date: 08/18/2016
+wacn.date: ''
+ms.author: krisragh
+---
 
 # Scheduler concepts, terminology, + entity hierarchy
 
@@ -58,55 +59,57 @@ Internally, a scheduled job also contains system-provided data such as the next 
 
 The following code provides a comprehensive example of a scheduled job. Details are provided in subsequent sections.
 
-	{
-		"startTime": "2012-08-04T00:00Z",               // optional
-		"action":
-		{
-			"type": "http",
-			"retryPolicy": { "retryType":"none" },
-			"request":
-			{
-				"uri": "http://contoso.com/foo",        // required
-				"method": "PUT",                        // required
-				"body": "Posting from a timer",         // optional
-				"headers":                              // optional
+```
+{
+    "startTime": "2012-08-04T00:00Z",               // optional
+    "action":
+    {
+        "type": "http",
+        "retryPolicy": { "retryType":"none" },
+        "request":
+        {
+            "uri": "http://contoso.com/foo",        // required
+            "method": "PUT",                        // required
+            "body": "Posting from a timer",         // optional
+            "headers":                              // optional
 
-				{
-					"Content-Type": "application/json"
-				},
-			},
-		   "errorAction":
-		   {
-			   "type": "http",
-			   "request":
-			   {
-				   "uri": "http://contoso.com/notifyError",
-				   "method": "POST",
-			   },
-		   },
-		},
-		"recurrence":                                   // optional
-		{
-			"frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-			"interval": 1,                              // optional, how often to fire (default to 1)
-			"schedule":                                 // optional (advanced scheduling specifics)
-			{
-				"weekDays": ["monday", "wednesday", "friday"],
-				"hours": [10, 22]
-			},
-			"count": 10,                                 // optional (default to recur infinitely)
-			"endTime": "2012-11-04",                     // optional (default to recur infinitely)
-		},
-		"state": "disabled",                           // enabled or disabled
-		"status":                                       // controlled by Scheduler service
-		{
-			"lastExecutionTime": "2007-03-01T13:00:00Z",
-			"nextExecutionTime": "2007-03-01T14:00:00Z ",
-			"executionCount": 3,
-											    "failureCount": 0,
-												"faultedCount": 0
-		},
-	}
+            {
+                "Content-Type": "application/json"
+            },
+        },
+       "errorAction":
+       {
+           "type": "http",
+           "request":
+           {
+               "uri": "http://contoso.com/notifyError",
+               "method": "POST",
+           },
+       },
+    },
+    "recurrence":                                   // optional
+    {
+        "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
+        "interval": 1,                              // optional, how often to fire (default to 1)
+        "schedule":                                 // optional (advanced scheduling specifics)
+        {
+            "weekDays": ["monday", "wednesday", "friday"],
+            "hours": [10, 22]
+        },
+        "count": 10,                                 // optional (default to recur infinitely)
+        "endTime": "2012-11-04",                     // optional (default to recur infinitely)
+    },
+    "state": "disabled",                           // enabled or disabled
+    "status":                                       // controlled by Scheduler service
+    {
+        "lastExecutionTime": "2007-03-01T13:00:00Z",
+        "nextExecutionTime": "2007-03-01T14:00:00Z ",
+        "executionCount": 3,
+                                            "failureCount": 0,
+                                            "faultedCount": 0
+    },
+}
+```
 
 As seen in the sample scheduled job above, a job definition has several parts:
 
@@ -134,17 +137,19 @@ The “action” is the action invoked on each occurrence and describes a type o
 
 The action in the example above is an HTTP action. Below is an example of a storage queue action:
 
-	{
-			"type": "storageQueue",
-			"queueMessage":
-			{
-				"storageAccount": "myStorageAccount",  // required
-				"queueName": "myqueue",                // required
-				"sasToken": "TOKEN",                   // required
-				"message":                             // required
-					"My message body",
-			},
-	}
+```
+{
+        "type": "storageQueue",
+        "queueMessage":
+        {
+            "storageAccount": "myStorageAccount",  // required
+            "queueName": "myqueue",                // required
+            "sasToken": "TOKEN",                   // required
+            "message":                             // required
+                "My message body",
+        },
+}
+```
 
 Below is an example of a service bus topic action.
 
@@ -167,7 +172,6 @@ Below is an example of a service bus topic action.
   }
 
 Below is an example of a service bus queue action:
-
 
   "action": {
     "serviceBusQueueMessage": {
@@ -209,8 +213,9 @@ A job is recurring if it has a recurring object specified in its JSON definition
 
 The state of the job is one of four values: enabled, disabled, completed, or faulted. You can PUT or PATCH jobs so as to update them to the enabled or disabled state. If a job has been completed or faulted, that is a final state that cannot be updated (though the job can still be DELETED). An example of the state property is as follows:
 
-
-    	"state": "disabled", // enabled, disabled, completed, or faulted
+```
+    "state": "disabled", // enabled, disabled, completed, or faulted
+```
 Completed and faulted jobs are deleted after 60 days.
 
 ## status
@@ -229,21 +234,20 @@ The retry interval, specified with the **retryInterval** object, is the interval
 
 ## See also
 
- [What is Scheduler?](/documentation/articles/scheduler-intro/)
+ [What is Scheduler?](./scheduler-intro.md)
 
- [Get started using Scheduler in the Management portal](/documentation/articles/scheduler-get-started-portal/)
+ [Get started using Scheduler in the Management portal](./scheduler-get-started-portal.md)
 
- [Plans and billing in Azure Scheduler](/documentation/articles/scheduler-plans-billing/)
+ [Plans and billing in Azure Scheduler](./scheduler-plans-billing.md)
 
- [How to build complex schedules and advanced recurrence with Azure Scheduler](/documentation/articles/scheduler-advanced-complexity/)
+ [How to build complex schedules and advanced recurrence with Azure Scheduler](./scheduler-advanced-complexity.md)
 
  [Azure Scheduler REST API reference](https://msdn.microsoft.com/zh-cn/library/mt629143)
 
- [Azure Scheduler PowerShell cmdlets reference](/documentation/articles/scheduler-powershell-reference/)
+ [Azure Scheduler PowerShell cmdlets reference](./scheduler-powershell-reference.md)
 
- [Azure Scheduler high-availability and reliability](/documentation/articles/scheduler-high-availability-reliability/)
+ [Azure Scheduler high-availability and reliability](./scheduler-high-availability-reliability.md)
 
- [Azure Scheduler limits, defaults, and error codes](/documentation/articles/scheduler-limits-defaults-errors/)
+ [Azure Scheduler limits, defaults, and error codes](./scheduler-limits-defaults-errors.md)
 
- [Azure Scheduler outbound authentication](/documentation/articles/scheduler-outbound-authentication/)
- 
+ [Azure Scheduler outbound authentication](./scheduler-outbound-authentication.md)

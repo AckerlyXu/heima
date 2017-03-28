@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Controlling Azure web app traffic with Azure Traffic Manager"
-    description="This article provides summary information for  Azure Traffic Manager as it relates to Azure web apps."
-    services="app-service\web"
-    documentationcenter=""
-    author="cephalin"
-    writer="cephalin"
-    manager="erikre"
-    editor="mollybos" />
-<tags
-    ms.assetid="dabda633-e72f-4dd4-bf1c-6e945da456fd"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/25/2016"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Controlling Azure web app traffic with Azure Traffic Manager
+description: This article provides summary information for  Azure Traffic Manager as it relates to Azure web apps.
+services: app-service\web
+documentationcenter: ''
+author: cephalin
+writer: cephalin
+manager: erikre
+editor: mollybos
+
+ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/25/2016
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Controlling Azure web app traffic with Azure Traffic Manager
-> [AZURE.NOTE]
+> [!NOTE]
 > This article provides summary information for Azure Traffic Manager as it relates to Azure App Service Web Apps. More information about Azure Traffic Manager itself can be found by visiting the links at the end of this article.
 > 
 > 
@@ -44,11 +45,11 @@ When using Azure Traffic Manager with Azure, keep in mind the following points:
 * You can only specify one web app endpoint per region in a profile. When you select a web app as an endpoint for one region, the remaining web apps in that region become unavailable for selection for that profile.
 * The web app endpoints that you specify in a Azure Traffic Manager profile will appear under the **Domain Names** section on the Configure page for the web app in the profile, but will not be configurable there.
 * After you add a web app to a profile, the **Site URL** on the Dashboard of the web app's portal page will display the custom domain URL of the web app if you have set one up. Otherwise, it will display the Traffic Manager profile URL (for example, `contoso.trafficmgr.com`). Both the direct domain name of the web app and the Traffic Manager URL will be visible on the web app's Configure page under the **Domain Names** section.
-* Your custom domain names will work as expected, but in addition to adding them to your web apps, you must also configure your DNS map to point to the Traffic Manager URL. For information on how to set up a custom domain for a Azure web app,  see [Configuring a custom domain name for an Azure web site](/documentation/articles/web-sites-custom-domain-name/).
+* Your custom domain names will work as expected, but in addition to adding them to your web apps, you must also configure your DNS map to point to the Traffic Manager URL. For information on how to set up a custom domain for a Azure web app,  see [Configuring a custom domain name for an Azure web site](./web-sites-custom-domain-name.md).
 * You can only add web apps that are in standard mode to a Azure Traffic Manager profile.
 
 ## Next Steps
-For a conceptual and technical overview of Azure Traffic Manager, see [Traffic Manager Overview](/documentation/articles/traffic-manager-overview/).
+For a conceptual and technical overview of Azure Traffic Manager, see [Traffic Manager Overview](../traffic-manager/traffic-manager-overview.md).
 
 For more information about using Traffic Manager with Web Apps, see the blog posts
 [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) and [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).

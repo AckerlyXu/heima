@@ -1,29 +1,28 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-	pageTitle="Manage Azure recovery services vaults and servers | Azure"
-	description="Use this tutorial to learn how to manage Azure recovery services vaults and servers."
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
-	editor="tysonn"/>
+---
+title: Manage Azure recovery services vaults and servers | Azure
+description: Use this tutorial to learn how to manage Azure recovery services vaults and servers.
+services: backup
+documentationCenter: ''
+authors: Jim-Parker
+manager: jwhit
+editor: tysonn
 
-<tags
-	ms.service="backup"
-	ms.date="07/19/2016"
-	wacn.date=""/>
-
+ms.service: backup
+ms.date: 07/19/2016
+wacn.date: ''
+---
 
 # Monitor and manage Azure recovery services vaults and servers for Windows machines
 
-> [AZURE.SELECTOR]
-- [Resource Manager](/documentation/articles/backup-azure-manage-windows-server/)
-- [Classic](/documentation/articles/backup-azure-manage-windows-server-classic/)
+> [!div class="op_single_selector"]
+>- [Resource Manager](./backup-azure-manage-windows-server.md)
+>- [Classic](./backup-azure-manage-windows-server-classic.md)
 
 In this article you'll find an overview of the backup management tasks available through the Azure management portal and the Azure Backup agent.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 ## Management portal tasks
 
@@ -99,7 +98,8 @@ You inactivate the alert with the **inactivate** button in the job details blade
 
 You choose the columns you want to appear as part of the alert with the **Choose columns** button.
 
->[AZURE.NOTE] From the **Settings** blade, you manage backup alerts by selecting **Monitoring and Reports > Alerts and Events > Backup Alerts** and then clicking **Filter** or **Configure Notifications**.
+>[!NOTE]
+> From the **Settings** blade, you manage backup alerts by selecting **Monitoring and Reports > Alerts and Events > Backup Alerts** and then clicking **Filter** or **Configure Notifications**.
 
 ## Manage Backup items
 Managing on-premises backups is now available in the management portal. In the Backup section of the dashboard, the **Backup Items** tile shows the number of backup items protected to the vault.
@@ -114,7 +114,8 @@ The Backup Items blade opens with the filter set to File-Folder where you see ea
 
 If you click a specific backup items from the list, you see the essential details for that item.
 
->[AZURE.NOTE] From the **Settings** blade, you manage files and folders by selecting **Protected Items > Backup Items** and then selecting **File-Folders** from the drop down menu.
+>[!NOTE]
+> From the **Settings** blade, you manage files and folders by selecting **Protected Items > Backup Items** and then selecting **File-Folders** from the drop down menu.
 
 ![Backup items from settings](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
 
@@ -136,7 +137,8 @@ Use the **Filter** button to select between Files and folders and Azure virtual 
 
 If you don't see your backed up files and folders, click **Filter** button at the top of the page and select **Files and folders** from the Item Type menu.
 
->[AZURE.NOTE] From the **Settings** blade, you manage backup jobs by selecting **Monitoring and Reports > Jobs > Backup Jobs** and then selecting **File-Folders** from the drop down menu.
+>[!NOTE]
+> From the **Settings** blade, you manage backup jobs by selecting **Monitoring and Reports > Jobs > Backup Jobs** and then selecting **File-Folders** from the drop down menu.
 
 ## Monitor Backup usage
 In the Backup section of the dashboard, the Backup Usage tile show the storage consumed in Azure. Storage usage is provided for:
@@ -167,7 +169,8 @@ From the **Actions** available at the right of the backup agent console you perf
 
 ![Azure Backup agent console actions](./media/backup-azure-manage-windows-server/console-actions.png)
 
->[AZURE.NOTE] To **Recover Data**, see [Restore files to a Windows server or Windows client machine](/documentation/articles/backup-azure-restore-windows-server/).
+>[!NOTE]
+> To **Recover Data**, see [Restore files to a Windows server or Windows client machine](./backup-azure-restore-windows-server.md).
 
 ## Modify an existing backup
 
@@ -193,7 +196,8 @@ From the **Actions** available at the right of the backup agent console you perf
 
     ![Items for Windows Server Backup](./media/backup-azure-manage-windows-server/specify-backup-schedule-modify-close.png)
 
-    >[AZURE.NOTE] Specifying the backup schedule is explained in detail in this [article](/documentation/articles/backup-azure-backup-cloud-as-tape/).
+    >[!NOTE]
+    > Specifying the backup schedule is explained in detail in this [article](./backup-azure-backup-cloud-as-tape.md).
 
 6. Select the **Retention Policy** for the backup copy and click **Next**.
 
@@ -280,6 +284,6 @@ A.2 An alert is raised within 5 mins of the Azure backup failure.
 A3. If notifications are configured hourly and an alert is raised and resolved within the hour, an email won't be sent.
 
 ## Next steps
-- [Restore Windows Server or Windows Client from Azure](/documentation/articles/backup-azure-restore-windows-server/)
-- To learn more about Azure Backup, see [Azure Backup Overview](/documentation/articles/backup-introduction-to-azure-backup/)
+- [Restore Windows Server or Windows Client from Azure](./backup-azure-restore-windows-server.md)
+- To learn more about Azure Backup, see [Azure Backup Overview](./backup-introduction-to-azure-backup.md)
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)

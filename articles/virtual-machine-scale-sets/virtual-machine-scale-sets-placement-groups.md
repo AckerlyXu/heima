@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Working with large Azure Virtual Machine Scale Sets | Azure"
-    description="What you need to know to use large Azure virtual machine scale sets"
-    services="virtual-machine-scale-sets"
-    documentationcenter=""
-    author="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="76ac7fd7-2e05-4762-88ca-3b499e87906e"
-    ms.service="virtual-machine-scale-sets"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="2/7/2017"
-    wacn.date=""
-    ms.author="guybo" />
+---
+title: Working with large Azure Virtual Machine Scale Sets | Azure
+description: What you need to know to use large Azure virtual machine scale sets
+services: virtual-machine-scale-sets
+documentationcenter: ''
+author: gbowerman
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+ms.service: virtual-machine-scale-sets
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 2/7/2017
+wacn.date: ''
+ms.author: guybo
+---
 
 # Working with large virtual machine scale sets
 You can now create Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) with a capacity of up to 1,000 VMs. In this document, a _large virtual machine scale set_ is defined as a scale set capable of scaling to greater than 100 VMs. This capability is set by a scale set property (_singlePlacementGroup=False_). 
 
 Certain aspects of large scale sets, such as load balancing and fault domains behave differently to a standard scale set. This document explains the characteristics of large scale sets, and describes what you need to know to successfully use them in your applications. 
 
-A common approach for deploying cloud infrastructure at large scale is to create a set of _scale units_, for example by creating multiple VMs scale sets across multiple VNETs and storage accounts. This approach provides easier management compared to single VMs, and multiple scale units are useful for many applications, particularly those that require other stackable components like multiple virtual networks and endpoints. If your application requires a single large cluster however, it can be more straightforward to deploy a single scale set of up to 1,000 VMs. Example scenarios include centralized big data deployments, or compute grids requiring simple management of a large pool of worker nodes. Combined with VM scale set [attached data disks](/documentation/articles/virtual-machine-scale-sets-attached-disks/), large scale sets enable you to deploy a scalable infrastructure consisting of thousands of cores and petabytes of storage, as a single operation.
+A common approach for deploying cloud infrastructure at large scale is to create a set of _scale units_, for example by creating multiple VMs scale sets across multiple VNETs and storage accounts. This approach provides easier management compared to single VMs, and multiple scale units are useful for many applications, particularly those that require other stackable components like multiple virtual networks and endpoints. If your application requires a single large cluster however, it can be more straightforward to deploy a single scale set of up to 1,000 VMs. Example scenarios include centralized big data deployments, or compute grids requiring simple management of a large pool of worker nodes. Combined with VM scale set [attached data disks](./virtual-machine-scale-sets-attached-disks.md), large scale sets enable you to deploy a scalable infrastructure consisting of thousands of cores and petabytes of storage, as a single operation.
 
 ## Placement groups 
 What makes a _large_ scale set special is not the number of VMs, but the number of _placement groups_ it contains. A placement group is a construct similar to an Azure availability set, with its own fault domains and upgrade domains. By default, a scale set consists of a single placement group with a maximum size of 100 VMs. If a scale set property called _singlePlacementGroup_ is set to _false_, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs. When set to the default value of _true_, a scale set is composed of a single placement group, and has a range of 0-100 VMs.
@@ -47,36 +48,42 @@ When you create a scale set in the Azure portal preview, you can allow it to sca
 
 You can create a large VM scale set using the [Azure CLI](https://github.com/Azure/azure-cli) _az vmss create_ command. This command sets intelligent defaults such as subnet size based on the _instance-count_ argument:
 
-    az group create -l chinaeast -n biginfra
-    az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
+```bash
+az group create -l chinaeast -n biginfra
+az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
+```
 
 Note that the _vmss create_ command defaults certain configuration values if you do not specify them. To see the available options that you can override, try:
 
-    az vmss create --help
+```bash
+az vmss create --help
+```
 
 If you are creating a large scale set by composing an Azure Resource Manager template, make sure the template creates a scale set based on Azure Managed Disks. You can set the _singlePlacementGroup_ property to _false_ in the _properties_ section of the _Microsoft.Compute/virtualMAchineScaleSets_ resource. The following JSON fragment shows the beginning of a scale set template, including the 1,000 VM capacity and the _"singlePlacementGroup" : false_ setting:
 
-    {
-      "type": "Microsoft.Compute/virtualMachineScaleSets",
-      "location": "australiaeast",
-      "name": "bigvmss",
-      "sku": {
-        "name": "Standard_DS1_v2",
-        "tier": "Standard",
-        "capacity": 1000
-      },
-      "properties": {
-        "singlePlacementGroup": false,
-        "upgradePolicy": {
-          "mode": "Automatic"
-        }
+```json
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "location": "australiaeast",
+  "name": "bigvmss",
+  "sku": {
+    "name": "Standard_DS1_v2",
+    "tier": "Standard",
+    "capacity": 1000
+  },
+  "properties": {
+    "singlePlacementGroup": false,
+    "upgradePolicy": {
+      "mode": "Automatic"
+    }
+```
 
 For a complete example of a large scale set template, refer to [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
 ## Converting an existing scale set to span multiple placement groups
 To make an existing VM scale set capable of scaling to more than 100 VMs, you need to change the _singplePlacementGroup_ property to _false_ in the scale set model. You can test changing this property with the [Azure Resource Explorer](https://resources.azure.com/). Find an existing scale set, select _Edit_ and change the _singlePlacementGroup_ property. If you do not see this property, you may be viewing the scale set with an older version of the Microsoft.Compute API.
 
->[AZURE.NOTE] 
+>[!NOTE] 
 You can change a scale set from supporting a single placement group only (the default behavior) to a supporting multiple placement groups, but you cannot convert the other way around. Therefore make sure you understand the properties of large scale sets before converting. In particular, make sure you do not need layer-4 load balancing with the Azure Load Balancer.
 
 ## Additional notes

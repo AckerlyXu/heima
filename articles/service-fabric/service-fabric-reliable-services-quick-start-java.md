@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Create your first reliable Azure microservice in Java | Azure"
-    description="Introduction to creating a Azure Service Fabric application with stateless and stateful services."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="7831886f-7ec4-4aef-95c5-b2469a5b7b5d"
-    ms.service="service-fabric"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Create your first reliable Azure microservice in Java | Azure
+description: Introduction to creating a Azure Service Fabric application with stateless and stateful services.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
+
+ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
+ms.service: service-fabric
+ms.devlang: java
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # Get started with Reliable Services
 
-> [AZURE.SELECTOR]
-- [C# on Windows](/documentation/articles/service-fabric-reliable-services-quick-start/)
-- [Java on Linux](/documentation/articles/service-fabric-reliable-services-quick-start-java/)
+> [!div class="op_single_selector"]
+>- [C# on Windows](./service-fabric-reliable-services-quick-start.md)
+>- [Java on Linux](./service-fabric-reliable-services-quick-start-java.md)
 
 This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java. This Microsoft Virtual Academy video also shows you how to create a stateless Reliable service:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
@@ -30,7 +31,7 @@ This article explains the basics of Azure Service Fabric Reliable Services and w
 
 ## Installation and setup
 Before you start, make sure you have the Service Fabric development environment set up on your machine.
-If you need to set it up, go to [getting started on Mac](/documentation/articles/service-fabric-get-started-mac/) or [getting started on Linux](/documentation/articles/service-fabric-get-started-linux/).
+If you need to set it up, go to [getting started on Mac](./service-fabric-get-started-mac.md) or [getting started on Linux](./service-fabric-get-started-linux.md).
 
 ## Basic concepts
 To get started with Reliable Services, you only need to understand a few basic concepts:

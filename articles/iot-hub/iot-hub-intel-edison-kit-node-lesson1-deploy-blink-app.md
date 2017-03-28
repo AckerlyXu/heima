@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Deploy the blink application to your Azure IoT Starter Kit | Azure"
-    description="Clone the sample C application from GitHub, and run gulp to deploy this application to your Intel Edison board. This sample application blinks the LED connected to the board every two seconds."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino led projects, arduino led blink, arduino led blink code, arduino blink program, arduino blink example" />
-<tags
-    ms.assetid="ed2c21d0-c72c-4ac2-9e70-347e9a0711c0"
-    ms.service="iot-hub"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Deploy the blink application to your Azure IoT Starter Kit | Azure
+description: Clone the sample C application from GitHub, and run gulp to deploy this application to your Intel Edison board. This sample application blinks the LED connected to the board every two seconds.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino led projects, arduino led blink, arduino led blink code, arduino blink program, arduino blink example
+
+ms.assetid: ed2c21d0-c72c-4ac2-9e70-347e9a0711c0
+ms.service: iot-hub
+ms.devlang: nodejs
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Create and deploy the blink application
 ## What you will do
@@ -107,9 +108,9 @@ You've installed the required tools to work with Edison and deployed a sample ap
 
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-node-troubleshooting/
-[Configure-your-device]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson1-configure-your-device/
-[get-the-tools]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32/
+[troubleshooting]: ./iot-hub-intel-edison-kit-node-troubleshooting.md
+[Configure-your-device]: ./iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md
+[get-the-tools]: ./iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md
 [repo-structure]: ./media/iot-hub-intel-edison-lessons/lesson1/repo_structure.png
 [led-blinking]: ./media/iot-hub-intel-edison-lessons/lesson1/led_blinking.png
-[get-the-azure-tools]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32/
+[get-the-azure-tools]: ./iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md

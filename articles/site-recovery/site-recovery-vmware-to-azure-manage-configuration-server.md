@@ -1,21 +1,22 @@
-<properties
-    pageTitle=" Manage a Configuration Server in Azure Site Recovery | Azure"
-    description="This article describes how to set and manage a Configuration Server."
-    services="site-recovery"
-    documentationcenter=""
-    author="AnoopVasudavan"
-    manager="gauravd"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="backup-recovery"
-    ms.date="2/14/2017"
-    wacn.date=""
-    ms.author="anoopkv" />
+---
+title:  Manage a Configuration Server in Azure Site Recovery | Azure
+description: This article describes how to set and manage a Configuration Server.
+services: site-recovery
+documentationcenter: ''
+author: AnoopVasudavan
+manager: gauravd
+editor: ''
+
+ms.assetid: ''
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: backup-recovery
+ms.date: 2/14/2017
+wacn.date: ''
+ms.author: anoopkv
+---
 
 # Manage a Configuration Server
 
@@ -24,10 +25,10 @@ Configuration Server acts as a coordinator between the Site Recovery services an
 ## Prerequisites
 The following are the minimum hardware, software, and network configuration required to set up a Configuration Server.
 
-> [AZURE.NOTE]
-> [Capacity planning](/documentation/articles/site-recovery-capacity-planner/) is an important step to ensure that you deploy the Configuration Server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration Server](#sizing-requirements-for-a-configuration-server).
+> [!NOTE]
+> [Capacity planning](./site-recovery-capacity-planner.md) is an important step to ensure that you deploy the Configuration Server with a configuration that suites your load requirements. Read more about [Sizing requirements for a Configuration Server](#sizing-requirements-for-a-configuration-server).
 
-[AZURE.INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## Downloading the Configuration Server software
 1. Log on to the Azure portal and browse to your Recovery Services Vault.
@@ -40,47 +41,49 @@ The following are the minimum hardware, software, and network configuration requ
 
   ![Download Page](./media/site-recovery-vmware-to-azure-manage-configuration-server/downloadcs.png)
 
-  > [AZURE.TIP]
+  > [!TIP]
   Latest version of the Configuration Server can be downloaded directly from [Microsoft Download Center download page](http://aka.ms/unifiedsetup)
 
 ## Installing and Registering a Configuration Server from GUI
-[AZURE.INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
+[!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 ## Installing and registering a Configuration Server using Command line
 
-
-	  UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
-
+```
+  UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+```
 
 ### Sample usage
 
-	  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
-	  cd C:\Temp\Extracted
-	  UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
-
-
+```
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  cd C:\Temp\Extracted
+  UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
+```
 
 ### Configuration Server installer command-line arguments.
-[AZURE.INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
-
+[!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
 ### Create a MySql credentials file
 MySQLCredsFilePath parameter takes a file as input. Create the file using the following format and pass it as input MySQLCredsFilePath parameter.
 
-	[MySQLCredentials]
-	MySQLRootPassword = "Password>"
-	MySQLUserPassword = "Password"
+```
+[MySQLCredentials]
+MySQLRootPassword = "Password>"
+MySQLUserPassword = "Password"
+```
 
 ### Create a proxy settings configuration file
 ProxySettingsFilePath parameter takes a file as input. Create the file using the following format and pass it as input ProxySettingsFilePath parameter.
 
-
-	[ProxySettings]
-	ProxyAuthentication = "Yes/No"
-	Proxy IP = "IP Address"
-	ProxyPort = "Port"
-	ProxyUserName="UserName"
-	ProxyPassword="Password"
+```
+[ProxySettings]
+ProxyAuthentication = "Yes/No"
+Proxy IP = "IP Address"
+ProxyPort = "Port"
+ProxyUserName="UserName"
+ProxyPassword="Password"
+```
 
 ## Modifying proxy settings for Configuration Server
 1. Login to your Configuration Server.
@@ -93,14 +96,13 @@ ProxySettingsFilePath parameter takes a file as input. Create the file using the
 6. Open an Admin PowerShell command window.
 7. Run the following command
 
-	  $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-	  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-	  net stop obengine
-	  net start obengine
+      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      net stop obengine
+      net start obengine
 
-
-  >[AZURE.WARNING]
-  If you have Scale-out Process servers attached to this Configuration Server, you need to [fix the proxy settings on all the scale-out process servers](/documentation/articles/site-recovery-vmware-to-azure-manage-scaleout-process-server/#modifying-proxy-settings-for-scale-out-process-server) in your deployment.
+  >[!WARNING]
+  If you have Scale-out Process servers attached to this Configuration Server, you need to [fix the proxy settings on all the scale-out process servers](./site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server) in your deployment.
 
 ## Re-register a Configuration Server with the same Recovery Services Vault
   1. Login to your Configuration Server.
@@ -112,23 +114,24 @@ ProxySettingsFilePath parameter takes a file as input. Create the file using the
   6. Open an Admin PowerShell command window.
   7. Run the following command
 
+      ```
+      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+      net stop obengine
+      net start obengine
+      ```
 
-	      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-	      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-	      net stop obengine
-	      net start obengine
-
-
-  >[AZURE.WARNING]
-  If you have Scale-out Process servers attached to this Configuration Server, you need to [re-register all the scale-out process servers](/documentation/articles/site-recovery-vmware-to-azure-manage-scaleout-process-server/#re-registering-a-scale-out-process-server) in your deployment.
+  >[!WARNING]
+  If you have Scale-out Process servers attached to this Configuration Server, you need to [re-register all the scale-out process servers](./site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server) in your deployment.
 
 ## Registering a Configuration Server with a different Recovery Services Vault.
 1. Login to your Configuration Server.
 2. from an admin command prompt, run the command
 
-
-		reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-		net stop dra
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 
 3. Launch the cspsconfigtool.exe using the shortcut on your.
 4. Click the **Vault Registration** tab.
@@ -139,11 +142,12 @@ ProxySettingsFilePath parameter takes a file as input. Create the file using the
 7. Open an Admin PowerShell command window.
 8. Run the following command
 
-	    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-	    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-	    net stop obengine
-	    net start obengine
-
+    ```
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    net stop obengine
+    net start obengine
+    ```
 
 ## Decommissioning a Configuration Server
 Ensure the following before you start decommissioning your Configuration Server.
@@ -159,11 +163,11 @@ Ensure the following before you start decommissioning your Configuration Server.
   ![delete-configuration-server](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. Click **Yes** to confirm the deletion of the server.
 
-  >[AZURE.WARNING]
+  >[!WARNING]
   If you have any virtual machines, Replication policies or vCenter servers/vSphere hosts associated with this Configuration Server, you cannot delete the server. Delete these entities before you try to delete the vault.
 
 ### Uninstall the Configuration Server software and its dependencies
-  > [AZURE.TIP]
+  > [!TIP]
   If you plan to reuse the Configuration Server with Azure Site Recovery again, then you can skip to step 4 directly
 
 1. Log on to the Configuration Server as an Administrator.
@@ -177,13 +181,12 @@ Ensure the following before you start decommissioning your Configuration Server.
   * MySQL Server 5.5
 4. Run the following command from and admin command prompt.
 
-	  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-
+      reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
 
 ## Renew Configuration Server Secure Socket Layer(SSL) Certificates
 The Configuration Server has an inbuilt webserver, which orchestrates the activities of the Mobility Service, Process Servers, and Master Target servers connected to the Configuration Server. The Configuration Server's webserver uses an SSL certificate to authenticate its clients. This certificate has an expiry of three years and can be renewed at any time using the following method:
 
-> [AZURE.WARNING]
+> [!WARNING]
 Certificate expiry can be performed only on version 9.4.XXXX.X or higher. Upgrade all the Azure Site Recovery components (Configuration Server, Process Server, Master Target Server, Mobility Service) before you start the Renew Certificates workflow.
 
 1. On the Azure portal, browse to your Vault > Site Recovery Infrastructure > Configuration Server.
@@ -195,7 +198,7 @@ Certificate expiry can be performed only on version 9.4.XXXX.X or higher. Upgrad
 
 ### Secure Socket Layer certificate expiry warning
 
-> [AZURE.NOTE]
+> [!NOTE]
 The SSL Certificate's validity for all installations that happened before May 2016 was set to one year. you have started seeing certificate expiry notifications showing up in the Azure portal.
 
 1. If the Configuration Server's SSL certificate is going to expire in the next two months, the service starts notifying users via the Azure portal & email (you need to be subscribed to Azure Site Recovery notifications). You start seeing a notification banner on the Vault's resource page.
@@ -205,7 +208,7 @@ The SSL Certificate's validity for all installations that happened before May 20
 
   ![certificate-details](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
 
-  >[AZURE.TIP]
+  >[!TIP]
   If instead of a **Renew Now** button you see an **Upgrade Now** button. This means that there are some components in your environment that have not yet been upgraded to 9.4.xxxx.x or higher versions.
 
 ## Sizing requirements for a Configuration Server
@@ -216,9 +219,8 @@ The SSL Certificate's validity for all installations that happened before May 20
 | 12 vCPUs (2 sockets * 6 cores @ 2.5 GHz) |18 GB |600 GB |500 GB to 1 TB |Replicate between 100-150 machines. |
 | 16 vCPUs (2 sockets * 8 cores @ 2.5 GHz) |32 GB |1 TB |1 TB to 2 TB |Replicate between 150-200 machines. |
 
-  >[AZURE.TIP]
+  >[!TIP]
   If your daily data churn exceeds 2 TB, or you plan to replicate more than 200 virtual machines, it is recommended to deploy additional process servers to load balance the replication traffic. Learn more about How to deploy Scale-out Process severs.
 
-
 ## Common issues
-[AZURE.INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
+[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]

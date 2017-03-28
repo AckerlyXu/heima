@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Irregular sign in activity"
-	description="A report that includes sign ins that have been identified as anomalous by our machine learning algorithms.""
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
-	editor=""/>
+---
+title: Irregular sign in activity
+description: A report that includes sign ins that have been identified as anomalous by our machine learning algorithms.
+services: active-directory
+documentationCenter: ''
+authors: kenhoff
+manager: ilanas
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="07/13/2015"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 07/13/2015
+wacn.date: ''
+---
 
 # Irregular sign in activity
 

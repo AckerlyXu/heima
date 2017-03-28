@@ -1,21 +1,22 @@
-<properties
-    pageTitle="PowerShell Connector | Azure"
-    description="This article describes how to configure Microsoft's Windows PowerShell Connector."
-    services="active-directory"
-    documentationcenter=""
-    author="AndKjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="6dba8e34-a874-4ff0-90bc-bd2b0a4199b5"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: PowerShell Connector | Azure
+description: This article describes how to configure Microsoft's Windows PowerShell Connector.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
+
+ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Windows PowerShell Connector technical reference
 This article describes the Windows PowerShell Connector. The article applies to the following products:
@@ -295,11 +296,11 @@ Read access to the following registry keys:
 - HKEY_USERS\\[SynchronizationServiceServiceAccountSID]\Environment
 
 To determine the Security Identifier (SID) of the Synchronization Service service account, run the following PowerShell commands:
-	
-	
-	$account = New-Object System.Security.Principal.NTAccount "<domain>\<username>"
-	$account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 
+```
+$account = New-Object System.Security.Principal.NTAccount "<domain>\<username>"
+$account.Translate([System.Security.Principal.SecurityIdentifier]).Value
+```
 
 Read access to the following file system folders:
 

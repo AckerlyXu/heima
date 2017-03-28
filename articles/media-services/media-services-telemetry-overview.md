@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Media Services Telemetry | Azure"
-    description="This article gives an overview of Azure Media Services telemetry."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="95c20ec4-c782-4063-8042-b79f95741d28"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/07/2016"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Azure Media Services Telemetry | Azure
+description: This article gives an overview of Azure Media Services telemetry.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
+
+ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/07/2016
+wacn.date: ''
+ms.author: juliako
+---
 
 # Azure Media Services Telemetry
 
@@ -33,10 +34,9 @@ You can configure telemetry on a component level granularity. There are two deta
 
 The following topics show how to enable telemetry:
 
-[Enabling telemetry with .NET](/documentation/articles/media-services-dotnet-telemetry/) 
+[Enabling telemetry with .NET](./media-services-dotnet-telemetry.md) 
 
-[Enabling telemetry with REST](/documentation/articles/media-services-rest-telemetry/)
-
+[Enabling telemetry with REST](./media-services-rest-telemetry.md)
 
 ## Consuming telemetry information
 
@@ -48,8 +48,7 @@ You can consume telemetry data in one of the following ways:
 
 Or
 
-- Use the support in the Media Services .NET SDK for reading storage data, as described in [this](/documentation/articles/media-services-dotnet-telemetry/) topic. 
-
+- Use the support in the Media Services .NET SDK for reading storage data, as described in [this](./media-services-dotnet-telemetry.md) topic. 
 
 The telemetry schema described below is designed to give good performance within the limits of Azure Table Storage:
 
@@ -63,23 +62,20 @@ This should allow many of the common queries to be efficient:
 - Retrieving all data for a given service in a date range.
 - Retrieving the most recent data for a service.
 
-
 ### Telemetry table storage output schema
 
 Telemetry data is stored in aggregate in one table, "TelemetryMetrics20160321" where "20160321" is date of the created table. Telemetry system creates a separate table for each new day based at 00:00 UTC. The table is used to store recurring values such as ingest bitrate within a given window of time, bytes sent, etc. 
 
-
 Property|Value|Examples/notes
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>The account ID is included in the partition key to simplify workflows where multiple Media Services accounts are writing to the same storage account.
-RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>The row key starts with the number of seconds to midnight to allow top n style queries within a partition. For more information, see [this](/documentation/articles/storage-table-design-guide/#log-tail-pattern) article. 
+RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>The row key starts with the number of seconds to midnight to allow top n style queries within a partition. For more information, see [this](../storage/storage-table-design-guide.md#log-tail-pattern) article. 
 Timestamp|Date/Time|Auto timestamp from the Azure table 2016-09-09T22:43:42.241Z
 Type|The type of the entity providing telemetry data|Channel/StreamingEndpoint/Archive<br/><br/>Event type is just a string value.
 Name|The name of the telemetry event|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|The time the telemetry event occurred (UTC)|2016-09-09T22:42:36.924Z<br/><br/>The observed time is provided by the entity sending the telemetry (for example a channel). There can be time synchronization issues between components so this value is approximate
 ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Entity-specific properties|As defined by the event|StreamName: stream1, Bitrate 10123, …<br/><br/>The remaining properties are defined for the given event type. Azure Table content is key value pairs.  (that is, different rows in the table have different sets of properties).
-
 
 ### Entity-specific schema
 
@@ -108,7 +104,6 @@ BytesSent|Aggregated bytes sent|2987358
 ServerLatency|Average server latency (including storage)|129
 E2ELatency|Average end-to-end latency|250
 
-
 **Live channel**
 
 Property|Value|Examples/notes
@@ -134,7 +129,6 @@ UnalignedPresentationTime|Whether we received fragment(s) (across quality levels
 UnexpectedBitrate|True, if calculated/actual bitrate for audio/video track > 40,000 bps and IncomingBitrate == 0 OR IncomingBitrate and actualBitrate differ by 50% |True
 Healthy|True, if <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> are all 0|True<br/><br/>Healthy is a composite function that returns false when any of the following conditions hold:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
-
 **Live archive**
 
 Property|Value|Examples/notes
@@ -152,7 +146,6 @@ TrackType|Type of the track|Audio/video
 CustomAttribute|Hex string that differentiates between different track with same name and bitrate (multi camera angle)|
 Bitrate|Track bitrate|785000
 Healthy|True, if FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False|True (these two values are not present in the metric but they are present in the source event)<br/><br/>Healthy is a composite function that returns false when any of the following conditions hold:<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
-
 
 ## General Q&A
 
@@ -188,7 +181,6 @@ Channel health can be defined as a composite Boolean function such that it is fa
 - UnalignedPresentationTime == True 
 - UnexpectedBitrate == True
 
-
 ### How to detect discontinuities?
 
 To detect discontinuities, find all Channel data entries where DiscontinuityCount > 0. The corresponding ObservedTime timestamp indicates the times at which the discontinuities occurred.
@@ -214,5 +206,3 @@ Telemetric data can be processed and visualized with the following tools:
 ### How to manage data retention?
 
 The telemetry system does not provide data retention management or auto deletion of old records. Thus, you need to manage and delete old records manually from the storage table. You can refer to storage SDK for how to do it.
-
-

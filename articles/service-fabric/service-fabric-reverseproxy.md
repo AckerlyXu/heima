@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Service Fabric Reverse Proxy | Azure"
-    description="Use Service Fabric's reverse proxy for communication to microservices from inside and outside the cluster"
-    services="service-fabric"
-    documentationcenter=".net"
-    author="BharatNarasimman"
-    manager="timlt"
-    editor="vturecek" />
-<tags
-    ms.assetid="47f5c1c1-8fc8-4b80-a081-bc308f3655d3"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="required"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="bharatn" />
+---
+title: Service Fabric Reverse Proxy | Azure
+description: Use Service Fabric's reverse proxy for communication to microservices from inside and outside the cluster
+services: service-fabric
+documentationcenter: .net
+author: BharatNarasimman
+manager: timlt
+editor: vturecek
+
+ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: required
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: bharatn
+---
 
 # Service Fabric Reverse Proxy
 
@@ -30,7 +31,7 @@ Microservices in service fabric typically run on a subset of VM's in the cluster
 3. Determine the cause of connection failures and re-resolve the service location when necessary.
 
 This process generally involves wrapping client-side communication libraries in a retry loop that implements the service resolution and retry policies.
-For more information on this topic, see [communicating with services](/documentation/articles/service-fabric-connect-and-communicate-with-services/).
+For more information on this topic, see [communicating with services](./service-fabric-connect-and-communicate-with-services.md).
 
 ### Communicating via SF reverse proxy
 Service Fabric reverse proxy runs on all the nodes in the cluster. It performs the entire service resolution process on a client's behalf and then forwards the client request. So clients running on the cluster can just use any client-side HTTP communication libraries to talk to the target service via the SF reverse proxy running locally on the same node.
@@ -38,14 +39,14 @@ Service Fabric reverse proxy runs on all the nodes in the cluster. It performs t
 ![Internal communication][1]
 
 ## Reaching Microservices from outside the cluster
-The default external communication model for microservices is **opt-in**  where each service by default cannot be accessed directly from external clients. The [Azure Load Balancer](/documentation/articles/load-balancer-overview/) is a network boundary between microservices and external clients, that performs network address translation and forwards external requests to internal **IP:port** endpoints. In order to make a microservice's endpoint directly accessible to external clients, the Azure Load Balancer must first be configured to forward traffic to each port used by the service in the cluster. Furthermore, most microservices(esp. stateful microservices) dont live on all the nodes of the cluster and they can move between nodes on failover, so in such cases, the Azure Load Balancer cannot effectively determine the target node of the replicas are located to forward the traffic to.
+The default external communication model for microservices is **opt-in**  where each service by default cannot be accessed directly from external clients. The [Azure Load Balancer](../load-balancer/load-balancer-overview.md) is a network boundary between microservices and external clients, that performs network address translation and forwards external requests to internal **IP:port** endpoints. In order to make a microservice's endpoint directly accessible to external clients, the Azure Load Balancer must first be configured to forward traffic to each port used by the service in the cluster. Furthermore, most microservices(esp. stateful microservices) dont live on all the nodes of the cluster and they can move between nodes on failover, so in such cases, the Azure Load Balancer cannot effectively determine the target node of the replicas are located to forward the traffic to.
 
 ### Reaching Microservices via the SF reverse proxy from outside the cluster
 Instead of configuring individual service's ports in the azure load balancer, just the SF Reverse proxy port can be configured in the Azure Load Balancer. This allows clients outside the cluster to reach services inside the cluster via the reverse proxy without additional configuration.
 
 ![External communication][0]
 
-> [AZURE.WARNING]
+> [!WARNING]
 > Configuring the reverse proxy's port on the load balancer makes all micro services in the cluster that expose a http endpoint addressable from outside the cluster.
 > 
 > 
@@ -54,9 +55,9 @@ Instead of configuring individual service's ports in the azure load balancer, ju
 
 The Reverse proxy uses a specific URI format to identify which service partition the incoming request should be forwarded to :
 
-
-	http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
-
+```
+http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
+```
 
  - **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. In case of HTTPS traffic, SSL termination occurs at the reverse proxy. Requests that are forwarded by the reverse proxy to services in the cluster are over http.
  - **Cluster FQDN | internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.chinaeast.chinacloudapp.cn). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
@@ -71,9 +72,9 @@ The Reverse proxy uses a specific URI format to identify which service partition
 
 As an example, let's take service **fabric:/MyApp/MyService** that opens an HTTP listener on the following URL:
 
-
-	http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
-
+```
+http://10.0.05:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
+```
 
 With the following resources:
 
@@ -129,162 +130,167 @@ The gateway thus needs a way to distinguish between these two cases. In order to
 This HTTP response header indicates a normal HTTP 404 situation in which the requested resource does not exist, and the gateway will not attempt to re-resolve the service address.
 
 ## Setup and configuration
-The service fabric Reverse proxy can be enabled for the cluster via the [Azure Resource Manager template](/documentation/articles/service-fabric-cluster-creation-via-arm/).
+The service fabric Reverse proxy can be enabled for the cluster via the [Azure Resource Manager template](./service-fabric-cluster-creation-via-arm.md).
 
 Once you have the template for the cluster that you want to deploy(either from the sample templates or by creating a custom resource manager template) the Reverse proxy can be enabled in the template by the following steps.
 
-1. Define a port for the reverse proxy in the [Parameters section](/documentation/articles/resource-group-authoring-templates/) of the template.
+1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/resource-group-authoring-templates.md) of the template.
 
+    ```json
+    "SFReverseProxyPort": {
+        "type": "int",
+        "defaultValue": 19008,
+        "metadata": {
+            "description": "Endpoint for Service Fabric Reverse proxy"
+        }
+    },
+    ```
 
-    	"SFReverseProxyPort": {
-        	"type": "int",
-        	"defaultValue": 19008,
-        	"metadata": {
-            	"description": "Endpoint for Service Fabric Reverse proxy"
-        	}
-    	},
-
-2. Specify the port for each of the nodetype objects in the **Cluster** [Resource type section](/documentation/articles/resource-group-authoring-templates/)
+2. Specify the port for each of the nodetype objects in the **Cluster** [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md)
 
     For apiVersion's prior to '2016-09-01'  the port is identified by the parameter name ***httpApplicationGatewayEndpointPort***
 
-    	{
-        	"apiVersion": "2016-03-01",
-        	"type": "Microsoft.ServiceFabric/clusters",
-        	"name": "[parameters('clusterName')]",
-        	"location": "[parameters('clusterLocation')]",
-        	...
-       		"nodeTypes": [
-          	   {
-	        	...
-	        	"httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
-	        	...
-          	   },
-        	...
-        	],
-        	...
-    	}
+    ```json
+    {
+        "apiVersion": "2016-03-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        ...
+           "nodeTypes": [
+             {
+            ...
+            "httpApplicationGatewayEndpointPort": "[parameters('SFReverseProxyPort')]",
+            ...
+             },
+        ...
+        ],
+        ...
+    }
+    ```
 
     For apiVersion's on or after '2016-09-01' the port is identified by the parameter name ***reverseProxyEndpointPort***
 
-
-	    {
-	        "apiVersion": "2016-09-01",
-	        "type": "Microsoft.ServiceFabric/clusters",
-	        "name": "[parameters('clusterName')]",
-	        "location": "[parameters('clusterLocation')]",
-	        ...
-	       "nodeTypes": [
-	          {
-	           ...
-	           "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]",
-	           ...
-	          },
-	        ...
-	        ],
-	        ...
-	    }
-
+    ```json
+    {
+        "apiVersion": "2016-09-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        ...
+       "nodeTypes": [
+          {
+           ...
+           "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]",
+           ...
+          },
+        ...
+        ],
+        ...
+    }
+    ```
 
 3. To address the reverse proxy from outside the azure cluster, setup the **azure load balancer rules** for the port specified in step 1.
 
+    ```json
+    {
+        "apiVersion": "[variables('lbApiVersion')]",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        ...
+        "loadBalancingRules": [
+            ...
+            {
+                "name": "LBSFReverseProxyRule",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID0')]"
+                    },
+                    "backendPort": "[parameters('SFReverseProxyPort')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig0')]"
+                    },
+                    "frontendPort": "[parameters('SFReverseProxyPort')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
+                    },
+                    "protocol": "tcp"
+                }
+            }
+        ],
+        "probes": [
+            ...
+            {
+                "name": "SFReverseProxyProbe",
+                "properties": {
+                        "intervalInSeconds": 5,
+                        "numberOfProbes": 2,
+                        "port":     "[parameters('SFReverseProxyPort')]",
+                        "protocol": "tcp"
+                }
+            }  
+        ]
+    }
+    ```
 
-    	{
-        	"apiVersion": "[variables('lbApiVersion')]",
-        	"type": "Microsoft.Network/loadBalancers",
-        	...
-        	...
-        	"loadBalancingRules": [
-            	...
-            	{
-                	"name": "LBSFReverseProxyRule",
-                	"properties": {
-                    	"backendAddressPool": {
-                        	"id": "[variables('lbPoolID0')]"
-                    	},
-                    	"backendPort": "[parameters('SFReverseProxyPort')]",
-                    	"enableFloatingIP": "false",
-                    	"frontendIPConfiguration": {
-                        	"id": "[variables('lbIPConfig0')]"
-                    	},
-                    	"frontendPort": "[parameters('SFReverseProxyPort')]",
-                    	"idleTimeoutInMinutes": "5",
-                    	"probe": {
-                        	"id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    	},
-                    	"protocol": "tcp"
-                	}
-            	}
-        	],
-        	"probes": [
-            	...
-            	{
-                	"name": "SFReverseProxyProbe",
-                	"properties": {
-                    		"intervalInSeconds": 5,
-                    		"numberOfProbes": 2,
-                    		"port":     "[parameters('SFReverseProxyPort')]",
-                    		"protocol": "tcp"
-                	}
-            	}  
-        	]
-    	}
-
-4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section](/documentation/articles/resource-group-authoring-templates/)
+4. To configure SSL certificates on the port for the Reverse proxy, add the certificate to the httpApplicationGatewayCertificate property in the **Cluster** [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md)
 
     For apiVersion's prior to '2016-09-01'  the certificate is identified by the parameter name ***httpApplicationGatewayCertificate***
 
-    	{
-        	"apiVersion": "2016-03-01",
-        	"type": "Microsoft.ServiceFabric/clusters",
-        	"name": "[parameters('clusterName')]",
-        	"location": "[parameters('clusterLocation')]",
-        	"dependsOn": [
-            		"[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-        	],
-        	"properties": {
-            		...
-            		"httpApplicationGatewayCertificate": {
-                		"thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                		"x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-            		},
-            		...
-            		"clusterState": "Default",
-        	}
-    	}
+    ```json
+    {
+        "apiVersion": "2016-03-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+        ],
+        "properties": {
+                ...
+                "httpApplicationGatewayCertificate": {
+                    "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
+                    "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
+                },
+                ...
+                "clusterState": "Default",
+        }
+    }
+    ```
 
     For apiVersion's on or after '2016-09-01'  the certificate is identified by the parameter name ***reverseProxyCertificate***
-    
 
-	    {
-	        "apiVersion": "2016-09-01",
-	        "type": "Microsoft.ServiceFabric/clusters",
-	        "name": "[parameters('clusterName')]",
-	        "location": "[parameters('clusterLocation')]",
-	        "dependsOn": [
-	            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-	        ],
-	        "properties": {
-	            ...
-	            "reverseProxyCertificate": {
-	                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-	                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-	            },
-	            ...
-	            "clusterState": "Default",
-	        }
-	    }
-
+    ```json
+    {
+        "apiVersion": "2016-09-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        "dependsOn": [
+            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+        ],
+        "properties": {
+            ...
+            "reverseProxyCertificate": {
+                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
+                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
+            },
+            ...
+            "clusterState": "Default",
+        }
+    }
+    ```
 
 ## Next steps
  - See an example of HTTP communication between services in a [sample project on GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
 
- - [Remote procedure calls with Reliable Services remoting](/documentation/articles/service-fabric-reliable-services-communication-remoting/)
+ - [Remote procedure calls with Reliable Services remoting](./service-fabric-reliable-services-communication-remoting.md)
 
- - [Web API that uses OWIN in Reliable Services](/documentation/articles/service-fabric-reliable-services-communication-webapi/)
+ - [Web API that uses OWIN in Reliable Services](./service-fabric-reliable-services-communication-webapi.md)
 
- - [WCF communication by using Reliable Services](/documentation/articles/service-fabric-reliable-services-communication-wcf/)
-
+ - [WCF communication by using Reliable Services](./service-fabric-reliable-services-communication-wcf.md)
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png

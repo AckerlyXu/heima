@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure Quick Start - Create VM Portal | Azure"
-    description="Azure Quick Start - Create VM Portal"
-    services="virtual-machines-linux"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="03/15/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Azure Quick Start - Create VM Portal | Azure
+description: Azure Quick Start - Create VM Portal
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 03/15/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Create a Linux virtual machine with the Azure portal preview
 
@@ -24,11 +25,13 @@ Azure virtual machines can be created through the Azure portal preview. This met
 
 ## Create SSH key pair
 
-You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped. If you are using a Windows machine, follow the instructions found [here](/documentation/articles/virtual-machines-linux-ssh-from-windows/). 
+You need an SSH key pair to complete this quick start. If you have an existing SSH key pair, this step can be skipped. If you are using a Windows machine, follow the instructions found [here](./virtual-machines-linux-ssh-from-windows.md). 
 
 From a Bash shell, run this command and follow the on-screen directions. The command output includes the file name of the public key file. The contents of this file are needed when creating the virtual machine.
 
-    ssh-keygen -t rsa -b 2048
+```bash
+ssh-keygen -t rsa -b 2048
+```
 
 ## Log in to Azure 
 
@@ -74,6 +77,6 @@ When no longer needed, delete the resource group, virtual machine, and all relat
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](/documentation/articles/virtual-machines-linux-create-cli-complete/)
+[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md)
 
-[Explore VM deployment CLI samples](/documentation/articles/virtual-machines-linux-cli-samples/)
+[Explore VM deployment CLI samples](./virtual-machines-linux-cli-samples.md)

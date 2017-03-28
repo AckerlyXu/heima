@@ -18,23 +18,25 @@ Public IP addresses have a child object named **dnsSettings** containing the fol
 
 Sample public IP address in JSON format:
 
-    {
-       "name": "PIP01",
-       "location": "North US",
-       "tags": { "key": "value" },
-       "properties": {
-          "publicIPAllocationMethod": "Static",
-          "idleTimeoutInMinutes": 4,
-          "ipAddress": "104.42.233.77",
-          "dnsSettings": {
-             "domainNameLabel": "mylabel",
-             "fqdn": "mylabel.chinanorth.chinacloudapp.cn",
-             "reverseFqdn": "contoso.com."
-          }
-       }
-    } 
+```
+{
+   "name": "PIP01",
+   "location": "North US",
+   "tags": { "key": "value" },
+   "properties": {
+      "publicIPAllocationMethod": "Static",
+      "idleTimeoutInMinutes": 4,
+      "ipAddress": "104.42.233.77",
+      "dnsSettings": {
+         "domainNameLabel": "mylabel",
+         "fqdn": "mylabel.chinanorth.chinacloudapp.cn",
+         "reverseFqdn": "contoso.com."
+      }
+   }
+} 
+```
 
 ### Additional resources
-* Get more information about [public IP addresses](/documentation/articles/virtual-networks-reserved-public-ip/).
-* Learn about [instance level public IP addresses](/documentation/articles/virtual-networks-instance-level-public-ip/).
+* Get more information about [public IP addresses](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
+* Learn about [instance level public IP addresses](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 * Read the [REST API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/mt163638.aspx) for public IP addresses.

@@ -1,20 +1,20 @@
-<properties
-   pageTitle="SQL Data Warehouse Business Intelligence partners | Azure"
-   description="Lists of third-party business intelligence partners with solutions that support SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL Data Warehouse Business Intelligence partners | Azure
+description: Lists of third-party business intelligence partners with solutions that support SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess;sonyama
+---
 
 # SQL Data Warehouse business intelligence partners
 To create your end-to-end data warehouse solution, choose from a wide variety of industry-leading tools.  This article highlights Microsoft partner companies with business intelligence (BI) solutions supporting Azure SQL Data Warehouse.
@@ -53,7 +53,6 @@ To learn more about some of our other partners, see [Data Integration partners][
 [10]: ./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png
 [11]: ./media/sql-data-warehouse-partner-business-intelligence/targit_logo.png
 [12]: ./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png
-
 
 <!--Article links-->
 [bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md

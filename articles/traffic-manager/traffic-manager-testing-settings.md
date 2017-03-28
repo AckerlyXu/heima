@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Verify Azure Traffic Manager settings | Azure"
-    description="This article will help you verify your Traffic Manager settings"
-    services="traffic-manager"
-    documentationcenter=""
-    author="kumudd"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="2180b640-596e-4fb2-be59-23a38d606d12"
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/16/2017"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Verify Azure Traffic Manager settings | Azure
+description: This article will help you verify your Traffic Manager settings
+services: traffic-manager
+documentationcenter: ''
+author: kumudd
+manager: timlt
+editor: ''
+
+ms.assetid: 2180b640-596e-4fb2-be59-23a38d606d12
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/16/2017
+wacn.date: ''
+ms.author: kumud
+---
 
 # Verify Traffic Manager settings
 
@@ -35,7 +36,9 @@ The following examples help you test your Traffic Manager profile.
 2. Type `ipconfig /flushdns` to flush the DNS resolver cache.
 3. Type `nslookup <your Traffic Manager domain name>`. For example, the following command checks the domain name with the prefix *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.cn
+    ```
+    nslookup myapp.contoso.trafficmanager.cn
+    ```
 
     A typical result shows the following information:
 
@@ -68,6 +71,6 @@ Alternatively, there are free web-based DNS lookup and dig services available. S
 
 ## Next steps
 
-* [About Traffic Manager traffic routing methods](/documentation/articles/traffic-manager-routing-methods/)
-* [Traffic Manager performance considerations](/documentation/articles/traffic-manager-performance-considerations/)
-* [Troubleshooting Traffic Manager degraded state](/documentation/articles/traffic-manager-troubleshooting-degraded/)
+* [About Traffic Manager traffic routing methods](./traffic-manager-routing-methods.md)
+* [Traffic Manager performance considerations](./traffic-manager-performance-considerations.md)
+* [Troubleshooting Traffic Manager degraded state](./traffic-manager-troubleshooting-degraded.md)

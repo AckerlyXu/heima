@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (bcp) | Azure"
-    description="For a small data size, uses bcp to export data from SQL Server to flat files and import the data directly into Azure SQL Data Warehouse."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="barbkess"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="f87d8d7c-8276-43c5-90e7-d4ccc0e3a224"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/31/2016"
-    wacn.date=""
-    ms.author="barbkess" />
+---
+title: Load data from SQL Server into Azure SQL Data Warehouse (bcp) | Azure
+description: For a small data size, uses bcp to export data from SQL Server to flat files and import the data directly into Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
+editor: ''
+
+ms.assetid: f87d8d7c-8276-43c5-90e7-d4ccc0e3a224
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: barbkess
+---
 
 # Load data from SQL Server into Azure SQL Data Warehouse (flat files)
 
-> [AZURE.SELECTOR]
-- [SSIS](/documentation/articles/sql-data-warehouse-load-from-sql-server-with-integration-services/)
-- [PolyBase](/documentation/articles/sql-data-warehouse-load-from-sql-server-with-polybase/)
-- [bcp](/documentation/articles/sql-data-warehouse-load-from-sql-server-with-bcp/)
+> [!div class="op_single_selector"]
+>- [SSIS](./sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+>- [PolyBase](./sql-data-warehouse-load-from-sql-server-with-polybase.md)
+>- [bcp](./sql-data-warehouse-load-from-sql-server-with-bcp.md)
 
 For small data sets, you can use the bcp command-line utility to export data from SQL Server and then load it directly to Azure SQL Data Warehouse.
 
@@ -54,50 +55,58 @@ Define a table in SQL Data Warehouse that will be the destination table for the 
 
 To create a table, open a command prompt and use sqlcmd.exe to run the following command:
 
-    sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
-        CREATE TABLE DimDate2
-        (
-            DateId INT NOT NULL,
-            CalendarQuarter TINYINT NOT NULL,
-            FiscalQuarter TINYINT NOT NULL
-        )
-        WITH
-        (
-            CLUSTERED COLUMNSTORE INDEX,
-            DISTRIBUTION = ROUND_ROBIN
-        );
-    "
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    CREATE TABLE DimDate2
+    (
+        DateId INT NOT NULL,
+        CalendarQuarter TINYINT NOT NULL,
+        FiscalQuarter TINYINT NOT NULL
+    )
+    WITH
+    (
+        CLUSTERED COLUMNSTORE INDEX,
+        DISTRIBUTION = ROUND_ROBIN
+    );
+"
+```
 
 ## 2. Create a source data file
 Open Notepad and copy the following lines of data into a new text file and then save this file to your local temp directory, C:\Temp\DimDate2.txt. This data is in ASCII format.
 
-
-    20150301,1,3
-    20150501,2,4
-    20151001,4,2
-    20150201,1,3
-    20151201,4,2
-    20150801,3,1
-    20150601,2,4
-    20151101,4,2
-    20150401,2,4
-    20150701,3,1
-    20150901,3,1
-    20150101,1,3
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
 
 (Optional) To export your own data from a SQL Server database, open a command prompt and run the following command. Replace TableName, ServerName, DatabaseName, Username, and Password with your own information.
 
-    bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```sql
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```
 
 ## 3. Load the data
 To load the data, open a command prompt and run the following command, replacing the values for Server Name, Database name, Username, and Password with your own information.
 
-    bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```sql
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```
 
 Use this command to verify the data was loaded properly
 
-    sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
-
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
+```
 
 The results should look like this:
 
@@ -121,11 +130,13 @@ SQL Data Warehouse does not yet support auto-create or auto-update statistics. T
 
 Run the following command to create statistics on your newly loaded table.
 
-    sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
-        create statistics [DateId] on [DimDate2] ([DateId]);
-        create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
-        create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
-    "
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    create statistics [DateId] on [DimDate2] ([DateId]);
+    create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+    create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+"
+```
 
 ## 5. Export data from SQL Data Warehouse
 For fun, you can export the data that you just loaded back out of SQL Data Warehouse.  The command to export is exactly the same as exporting from SQL Server.
@@ -135,22 +146,26 @@ However, there is a difference in the results. Since the data is stored in distr
 ### Export a table and compare exported results
 To see the exported data, open a command prompt and run this command using your own parameters. ServerName is the name of your Azure logical SQL Server.
 
-    bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
+```sql
+bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
+```
 
 You can verify the data was exported correctly by opening the new file. The data in the file should match the text below, but will likely be sorted in a different order:
 
-    20150301,1,3
-    20150501,2,4
-    20151001,4,2
-    20150201,1,3
-    20151201,4,2
-    20150801,3,1
-    20150601,2,4
-    20151101,4,2
-    20150401,2,4
-    20150701,3,1
-    20150901,3,1
-    20150101,1,3
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
 
 ### Export the results of a query
 You can use the **queryout** function of bcp to export the results of a query instead of exporting the entire table. 
@@ -164,10 +179,10 @@ See [Table Overview][Table Overview] or [CREATE TABLE syntax][CREATE TABLE synta
 
 <!--Article references-->
 
-[Load data into SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-overview-load/
-[SQL Data Warehouse development overview]: /documentation/articles/sql-data-warehouse-overview-develop/
-[Table Overview]: /documentation/articles/sql-data-warehouse-tables-overview/
-[Statistics]: /documentation/articles/sql-data-warehouse-tables-statistics/
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/zh-cn/library/ms162802.aspx

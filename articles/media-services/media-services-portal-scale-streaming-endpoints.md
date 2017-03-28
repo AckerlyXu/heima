@@ -1,35 +1,37 @@
-<properties
-    pageTitle="Scale streaming endpoints with the Azure portal | Azure"
-    description="This tutorial walks you through the steps of scaling streaming endpoints with the Azure portal."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="1008b3a3-2fa1-4146-85bd-2cf43cd1e00e"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Scale streaming endpoints with the Azure portal | Azure
+description: This tutorial walks you through the steps of scaling streaming endpoints with the Azure portal.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
+
+ms.assetid: 1008b3a3-2fa1-4146-85bd-2cf43cd1e00e
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Scale streaming endpoints with the Azure portal
 
 ##Overview
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Trial](/pricing/1rmb-trial/). 
+> [!NOTE]
+> To complete this tutorial, you need an Azure account. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/). 
 
 > 
 
-This topic is useful for customers who have **Streaming Endpoint** of the **Premium** type. For more information about streaming endpoint types and CDN configuration, see the [Streaming Endpoint overview](/documentation/articles/media-services-portal-manage-streaming-endpoints/) topic.
- 
+This topic is useful for customers who have **Streaming Endpoint** of the **Premium** type. For more information about streaming endpoint types and CDN configuration, see the [Streaming Endpoint overview](./media-services-portal-manage-streaming-endpoints.md) topic.
+
 When you have a **Premium** type, by default you get 1 streaming unit (SU). If you need to scale your streaming endpoint, follow the steps in this topic.
 
-For information about pricing details, see [Media Services Pricing Details](/pricing/details/media-services/).
+For information about pricing details, see [Media Services Pricing Details](https://www.azure.cn/pricing/details/media-services/).
 
 ## Scale streaming endpoints
 
@@ -41,4 +43,3 @@ To create and change the number of streaming units, do the following:
 4. Move the slider to specify the number of streaming units.
 
 ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
-

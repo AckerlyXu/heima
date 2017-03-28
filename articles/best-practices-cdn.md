@@ -1,25 +1,25 @@
-<properties
-   pageTitle="Content Delivery Network (CDN) guidance | Azure"
-   description="Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure."
-   services="cdn"
-   documentationCenter="na"
-   authors="dragon119"
-   manager="christb"
-   editor=""
-   tags=""/>
+---
+title: Content Delivery Network (CDN) guidance | Azure
+description: Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure.
+services: cdn
+documentationCenter: na
+authors: dragon119
+manager: christb
+editor: ''
+tags: ''
 
-<tags
-   ms.service="best-practice"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/30/2016"
-   ms.author="masashin"/>
+ms.service: best-practice
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/30/2016
+ms.author: masashin
+---
 
 # Content Delivery Network (CDN) guidance
 
-[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
+[!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Overview
 The Microsoft Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content that is hosted in Azure or any other location. Using the CDN, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, application folder, or other HTTP/HTTPS location. The CDN cache can be held at strategic locations to provide maximum bandwidth for delivering content to users. The CDN is typically used for delivering static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.
@@ -51,7 +51,6 @@ Typical uses for a CDN include:
 + Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increased running costs. For example, when an update to an operating system is released for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.
 
 The following list shows examples of the median time to first byte from various geographic locations. The target web role is deployed to Azure China East. There is a strong correlation between greater boost due to the CDN and proximity to a CDN node. A complete list of Azure CDN node locations is available at [Azure Content Delivery Network (CDN) Node Locations](/documentation/articles/cdn-pop-locations/).
-
 
 || Time (ms) to First Byte (Origin) | Time (ms) to First (CDN) |%CDN time improvement|
 |-------------|------------------------|--------------------|------------------|
@@ -85,11 +84,9 @@ Scenarios where CDN may be less useful include:
 
 + If the data is private, such as for large enterprises or supply chain ecosystems.
 
-
 ## General guidelines and good practices
 
 Using the CDN is a good way to minimize the load on your application, and maximize availability and performance. You should consider adopting this strategy for all of the appropriate content and resources you application uses. Consider the points in the following sections when designing your strategy to use the CDN:  
-
 
 ### Origin
 
@@ -185,7 +182,6 @@ If SEO is an important consideration in your application, perform the following 
 
 + When using Azure blob storage as the origin, maintain the same file structure for resources on the CDN as in the application folders.
 
-
 ### Monitoring and logging
 
 Include the CDN as part of your application monitoring strategy to detect and measure failures or extended latency occurrences.  Monitoring is available from the CDN profile manager located on the Azure portal site
@@ -216,14 +212,11 @@ Bundling and minification can be handled by ASP.NET. In an MVC project, you defi
 
 By default, Azure CDN instances have the *Query String Status* setting disabled. In order for updated script bundles to be handled properly by the CDN, you must enable the *Query String Status* setting for the CDN instance. Note that it may take an hour or more before the setting takes effect.
 
-
 ## Example code
 This section contains some examples of code and techniques for working with the CDN.  
 
-
 ### URL rewriting
 The following excerpt from a Web.config file in the root of a Cloud Services hosted application demonstrates how to perform [URL rewriting](https://technet.microsoft.com/library/ee215194.aspx) when using the CDN. Requests from the CDN for content that is cached are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).  
-
 
 ```XML
 <system.webServer>
@@ -266,9 +259,8 @@ Note that using URL rewriting requires you to make some changes to the bundling 
 
 ## More information
 
-
-+ [Azure CDN](/home/features/caching/)
-+ [Azure Content Delievery Network (CDN) Documentation](/documentation/services/cdn/)
++ [Azure CDN](https://www.azure.cn/home/features/caching/)
++ [Azure Content Delievery Network (CDN) Documentation](./cdn/index.md)
 + [Using Azure CDN](/documentation/articles/dn-create-new-endpoint/)
 + [Integrate a cloud service with Azure CDN](/documentation/articles/cdn-cloud-service-with-cdn/)
 + [Best Practices for the Azure Content Delivery Network](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)

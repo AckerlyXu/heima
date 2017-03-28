@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Azure Storage samples using Java | Azure"
-    description="View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Java storage client libraries."
-    services="storage"
-    documentationcenter="na"
-    author="seguler"
-    manager="jahogg"
-    editor="tysonn" />
-<tags
-    ms.service="storage"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage"
-    ms.date="01/12/2017"
-    wacn.date=""
-    ms.author="seguler" />
+---
+title: Azure Storage samples using Java | Azure
+description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Java storage client libraries.
+services: storage
+documentationcenter: na
+author: seguler
+manager: jahogg
+editor: tysonn
+
+ms.service: storage
+ms.devlang: java
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage
+ms.date: 01/12/2017
+wacn.date: ''
+ms.author: seguler
+---
 
 # Azure Storage samples using Java
 
 ## Java sample index
 
-[AZURE.IMPORTANT] To use the samples provided in this article, please replace endpoint `windows.net` with `chinacloudapi.cn` if it exists.
-
+>[!IMPORTANT]
+> To use the samples provided in this article, please replace endpoint `windows.net` with `chinacloudapi.cn` if it exists.
 
 The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in Github.
 
@@ -198,20 +199,20 @@ The following table provides an overview of our samples repository and the scena
 
 To view the complete sample library, go to the [Azure Code Samples](https://azure.microsoft.com/resources/samples/?service=storage) library, which includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
 
-[AZURE.INCLUDE [storage-java-samples-include](../../includes/storage-java-samples-include.md)]
+[!INCLUDE [storage-java-samples-include](../../includes/storage-java-samples-include.md)]
 
 ## Getting started guides
 
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
-* [Getting Started with Azure Blob Service in Java](/documentation/articles/storage-java-how-to-use-blob-storage/)
-* [Getting Started with Azure Queue Service in Java](/documentation/articles/storage-java-how-to-use-queue-storage/)
-* [Getting Started with Azure Table Service in Java](/documentation/articles/storage-java-how-to-use-table-storage/)
-* [Getting Started with Azure File Service in Java](/documentation/articles/storage-java-how-to-use-file-storage/)
+* [Getting Started with Azure Blob Service in Java](./storage-java-how-to-use-blob-storage.md)
+* [Getting Started with Azure Queue Service in Java](./storage-java-how-to-use-queue-storage.md)
+* [Getting Started with Azure Table Service in Java](./storage-java-how-to-use-table-storage.md)
+* [Getting Started with Azure File Service in Java](./storage-java-how-to-use-file-storage.md)
 
 ## Next steps
 
 For information on samples for other languages:
 
-* .NET: [Azure Storage samples using .NET](/documentation/articles/storage-samples-dotnet/)
-* All other languages: [Azure Storage samples](/documentation/articles/storage-samples/)
+* .NET: [Azure Storage samples using .NET](./storage-samples-dotnet.md)
+* All other languages: [Azure Storage samples](./storage-samples.md)

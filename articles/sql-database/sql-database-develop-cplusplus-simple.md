@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Connect to SQL Database using C and C++ | Azure"
-    description="Use the sample code in this quick start to build a modern application with C++ and backed by a powerful relational database in the cloud with Azure SQL Database."
-    services="sql-database"
-    documentationcenter=""
-    author="asthana86"
-    manager="danmoth"
-    editor="" />
-<tags
-    ms.assetid="07d9e0b1-3234-4f17-a252-a7559160a9db"
-    ms.service="sql-database"
-    ms.custom="development"
-    ms.workload="drivers"
-    ms.tgt_pltfrm="na"
-    ms.devlang="cpp"
-    ms.topic="article"
-    ms.date="02/03/2017"
-    wacn.date=""
-    ms.author="tobiast" />
+---
+title: Connect to SQL Database using C and C++ | Azure
+description: Use the sample code in this quick start to build a modern application with C++ and backed by a powerful relational database in the cloud with Azure SQL Database.
+services: sql-database
+documentationcenter: ''
+author: asthana86
+manager: danmoth
+editor: ''
+
+ms.assetid: 07d9e0b1-3234-4f17-a252-a7559160a9db
+ms.service: sql-database
+ms.custom: development
+ms.workload: drivers
+ms.tgt_pltfrm: na
+ms.devlang: cpp
+ms.topic: article
+ms.date: 02/03/2017
+wacn.date: ''
+ms.author: tobiast
+---
 
 # Connect to SQL Database using C and C++
 This post is aimed at C and C++ developers trying to connect to Azure SQL DB. It is broken down into sections so you can jump to the section that best captures your interest. 
@@ -24,7 +25,7 @@ This post is aimed at C and C++ developers trying to connect to Azure SQL DB. It
 ## Prerequisites for the C/C++ tutorial
 Make sure you have the following items:
 
-* An active Azure account. If you don't have one, you can sign up for an [Azure Trial](/pricing/1rmb-trial/).
+* An active Azure account. If you don't have one, you can sign up for an [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/). You must install the C++ language components to build and run this sample.
 * [Visual Studio Linux Development](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). If you are developing on Linux, you must also install the Visual Studio Linux extension. 
 
@@ -37,7 +38,7 @@ Azure currently has two options for hosting SQL server workloads: Azure SQL data
 Connecting to Azure SQL DB is no different and currently there are two ways to connect to databases: ODBC (Open Database connectivity) and OLE DB (Object Linking and Embedding database). In recent years, Microsoft has aligned with [ODBC for native relational data access](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC is relatively simple, and also much faster than OLE DB. The only caveat here is that ODBC does use an old C-style API. 
 
 ## <a id="Create"></a>Step 1:  Creating your Azure SQL Database
-See the [getting started page](/documentation/articles/sql-database-get-started/) to learn how to create a sample database.  
+See the [getting started page](./sql-database-get-started.md) to learn how to create a sample database.  
 
 ## <a id="ConnectionString"></a>Step 2:  Get connection string
 After your Azure SQL database has been provisioned, you need to carry out the following steps to determine connection information and add your client IP for firewall access. 
@@ -51,7 +52,7 @@ In [Azure portal](https://portal.azure.cn/), go to your Azure SQL database ODBC 
 Copy the contents of the **ODBC (Includes Node.js) [SQL authentication]** string. We use this string later to connect from our C++ ODBC command-line interpreter. This string provides details such as the driver, server, and other database connection parameters. 
 
 ## <a id="Firewall"></a>Step 3:  Add your IP to the firewall
-Go to the firewall section for your Database server and add your [client IP to the firewall using these steps](/documentation/articles/sql-database-configure-firewall-settings/) to make sure we can establish a successful connection: 
+Go to the firewall section for your Database server and add your [client IP to the firewall using these steps](./sql-database-configure-firewall-settings.md) to make sure we can establish a successful connection: 
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
 
@@ -75,18 +76,20 @@ Alternatively, you could create a DSN file using the wizard that is launched whe
 Congratulations! You have now successfully connected to Azure SQL using C++ and ODBC on Windows. You can continue reading to do the same for Linux platform as well. 
 
 ## <a id="Linux"></a>Step 5: Connecting from a Linux C/C++ application
-In case you haven’t heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don’t have one available, you can set one up quickly using [Linux Azure Virtual machines](/documentation/articles/virtual-machines-linux-quick-create-cli/). 
+In case you haven’t heard the news yet, Visual Studio now allows you to develop C++ Linux application as well. You can read about this new scenario in the [Visual C++ for Linux Development](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. To build for Linux, you need a remote machine where your Linux distro is running. If you don’t have one available, you can set one up quickly using [Linux Azure Virtual machines](../virtual-machines/virtual-machines-linux-quick-create-cli.md). 
 
 For this tutorial, let us assume that you have an Ubuntu 16.04 Linux distribution set up. The steps here should also apply to Ubuntu 15.10, Red Hat 6, and Red Hat 7. 
 
 The following steps install the libraries needed for SQL and ODBC for your distro:
 
-    sudo su
-    sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.cn/repos/mssql-ubuntu-test/ xenial main" > /etc/apt/sources.list.d/mssqlpreview.list'
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.cn --recv-keys 417A0893
-    apt-get update
-    apt-get install msodbcsql
-    apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
+```
+sudo su
+sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.cn/repos/mssql-ubuntu-test/ xenial main" > /etc/apt/sources.list.d/mssqlpreview.list'
+sudo apt-key adv --keyserver apt-mo.trafficmanager.cn --recv-keys 417A0893
+apt-get update
+apt-get install msodbcsql
+apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
+```
 
 Launch Visual Studio 2015. Under Tools -> options -> cross platform -> C++ -> connection manager, add a connection to your Linux box: 
 
@@ -99,11 +102,13 @@ After connection over SSH is established, create an Empty project (Linux) templa
 You can then add a [new C source file and replace it with this content](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c). Using the ODBC APIs SQLAllocHandle, SQLSetConnectAttr, and SQLDriverConnect, you should be able to initialize and establish a connection to your database. 
 Like with the Windows ODBC sample, you need to replace the SQLDriverConnect call with the details from your database connection string parameters copied from the Azure portal previously. 
 
-     retcode = SQLDriverConnect(
-        hdbc, NULL, "Driver=ODBC Driver 13 for SQL"
-                    "Server;Server=<yourserver>;Uid=<yourusername>;Pwd=<"
-                    "yourpassword>;database=<yourdatabase>",
-        SQL_NTS, outstr, sizeof(outstr), &outstrlen, SQL_DRIVER_NOPROMPT);
+```
+ retcode = SQLDriverConnect(
+    hdbc, NULL, "Driver=ODBC Driver 13 for SQL"
+                "Server;Server=<yourserver>;Uid=<yourusername>;Pwd=<"
+                "yourpassword>;database=<yourdatabase>",
+    SQL_NTS, outstr, sizeof(outstr), &outstrlen, SQL_DRIVER_NOPROMPT);
+```
 
 The last thing to do before compiling is to add **odbc** as a library dependency: 
 
@@ -126,10 +131,9 @@ You can find the GetStarted solution that contains all the samples in this artic
 * [ODBC C++ Linux sample](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29), Download the Linux C++ ODBC Sample to connect to Azure SQL
 
 ## Next steps
-* Review the [SQL Database Development Overview](/documentation/articles/sql-database-develop-overview/)
+* Review the [SQL Database Development Overview](./sql-database-develop-overview.md)
 * More information on the [ODBC API Reference](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## Additional resources
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](/documentation/articles/sql-database-design-patterns-multi-tenancy-saas-applications/)
-* Explore all the [capabilities of SQL Database](/home/features/sql-database/)
-
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore all the [capabilities of SQL Database](https://www.azure.cn/home/features/sql-database/)

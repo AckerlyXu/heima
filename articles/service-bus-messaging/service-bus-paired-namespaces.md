@@ -1,19 +1,20 @@
-<properties 
-   pageTitle="Service Bus paired namespaces | Azure"
-   description="Paired namespace implementation details and cost"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-    editor="" /> 
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/04/2016"
-    ms.author="sethm" />
+---
+title: Service Bus paired namespaces | Azure
+description: Paired namespace implementation details and cost
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/04/2016
+ms.author: sethm
+---
 
 # Paired Namespace implementation details and cost implications
 
@@ -124,7 +125,7 @@ See [Asynchronous messaging patterns and high availability][] for a detailed dis
   [TopicClient]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.topicclient.aspx
   [ContentType]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx
   [TimeToLive]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
-  [Asynchronous messaging patterns and high availability]: /documentation/articles/service-bus-async-messaging/
+  [Asynchronous messaging patterns and high availability]: ./service-bus-async-messaging.md
   [0]: ./media/service-bus-paired-namespaces/IC673405.png
   [1]: ./media/service-bus-paired-namespaces/IC673406.png
   [2]: ./media/service-bus-paired-namespaces/IC673407.png

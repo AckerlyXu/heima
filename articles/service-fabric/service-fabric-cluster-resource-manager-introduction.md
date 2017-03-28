@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Introducing the Service Fabric Cluster Resource Manager | Azure"
-    description="An introduction to the Service Fabric Cluster Resource Manager."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="masnider"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="cfab735b-923d-4246-a2a8-220d4f4e0c64"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="masnider" />
+---
+title: Introducing the Service Fabric Cluster Resource Manager | Azure
+description: An introduction to the Service Fabric Cluster Resource Manager.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
+
+ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: masnider
+---
 
 # Introducing the Service Fabric cluster resource manager
 Traditionally managing IT systems or a set of services meant getting a few physical or virtual machines dedicated to those specific services or systems. Many major services were broken down into a “web” tier and a “data” or “storage” tier, maybe with a few other specialized components like a cache. Other types of applications would have a messaging tier where requests flowed in and out. This tier would connect to a work tier for any analysis or transformation necessary as a part of the messaging. Each type of workload got specific machines dedicated to it: the database got a couple machines dedicated to it, the web servers a few. If a particular type of workload caused the machines it was on to run too hot, then you added more machines with that same configuration. Most of the time though you replaced a few of the machines with larger machines. Easy. If a machine failed, that part of the overall application ran at lower capacity until the machine could be restored. Still fairly easy (if not necessarily fun).
@@ -57,9 +58,9 @@ While some of these strategies are interesting, the Service Fabric Cluster Resou
 Because the Cluster Resource Manager is responsible for moving services around (not delivering network traffic to where services already are), it contains a different feature set compared to what you would find in a network load balancer. As we look in more detail, we'll find it employs fundamentally different strategies for ensuring that the hardware resources in the cluster are efficiently utilized.
 
 ## Next steps
-- For information on the architecture and information flow within the Cluster Resource Manager, check out [this article ](/documentation/articles/service-fabric-cluster-resource-manager-architecture/)
-- The Cluster Resource Manager has many options for describing the cluster. To find out more about them, check out this article on [describing a Service Fabric cluster](/documentation/articles/service-fabric-cluster-resource-manager-cluster-description/)
-- For more information about the other options available for configuring services, check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](/documentation/articles/service-fabric-cluster-resource-manager-configure-services/)
-- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](/documentation/articles/service-fabric-cluster-resource-manager-metrics/)
-- The Cluster Resource Manager works with Service Fabric's management capabilities. To find out more about that integration, read [this article](/documentation/articles/service-fabric-cluster-resource-manager-management-integration/)
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](/documentation/articles/service-fabric-cluster-resource-manager-balancing/)
+- For information on the architecture and information flow within the Cluster Resource Manager, check out [this article ](./service-fabric-cluster-resource-manager-architecture.md)
+- The Cluster Resource Manager has many options for describing the cluster. To find out more about them, check out this article on [describing a Service Fabric cluster](./service-fabric-cluster-resource-manager-cluster-description.md)
+- For more information about the other options available for configuring services, check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](./service-fabric-cluster-resource-manager-configure-services.md)
+- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](./service-fabric-cluster-resource-manager-metrics.md)
+- The Cluster Resource Manager works with Service Fabric's management capabilities. To find out more about that integration, read [this article](./service-fabric-cluster-resource-manager-management-integration.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](./service-fabric-cluster-resource-manager-balancing.md)

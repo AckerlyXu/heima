@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understanding the OAuth2 implicit grant flow in Azure Active Directory | Azure"
-    description="Learn more about Azure Active Directory's implementation of the OAuth2 implicit grant flow, and whether it's right for your application."
-    services="active-directory"
-    documentationcenter="dev-center-name"
-    author="vibronet"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="90e42ff9-43b0-4b4f-a222-51df847b2a8d"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="11/15/2016"
-    ms.author="vittorib;bryanla" 
-    wacn.date=""/>
+---
+title: Understanding the OAuth2 implicit grant flow in Azure Active Directory | Azure
+description: Learn more about Azure Active Directory's implementation of the OAuth2 implicit grant flow, and whether it's right for your application.
+services: active-directory
+documentationcenter: dev-center-name
+author: vibronet
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 11/15/2016
+ms.author: vittorib;bryanla
+wacn.date: ''
+---
 
 # Understanding the OAuth2 implicit grant flow in Azure Active Directory (AD)
 The OAuth2 implicit grant is notorious for being the grant with the longest list of security concerns in the OAuth2 specification. And yet, that is the approach implemented by ADAL JS and the one we recommend when writing SPA applications. What gives? It’s all a matter of tradeoffs: and as it turns out, the implicit grant is the best approach you can pursue for applications that consume a Web API via JavaScript from a browser.
@@ -61,8 +62,8 @@ If you are developing a Web application which includes a backend, and consuming 
 <!--Image references-->
 
 <!--Reference style links in use-->
-[AAD-Developers-Guide]:/documentation/articles/active-directory-developers-guide/
-[ACOM-How-And-Why-Apps-Added-To-AAD]:/documentation/articles/active-directory-how-applications-are-added/
+[AAD-Developers-Guide]:./active-directory-developers-guide.md
+[ACOM-How-And-Why-Apps-Added-To-AAD]:./active-directory-how-applications-are-added.md
 [ACOM-How-To-Integrate]:/documentation/articles/active-directory-how-to-integrate/
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819

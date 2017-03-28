@@ -1,22 +1,23 @@
-<properties
-    pageTitle="How Azure App Service works"
-    description="Learn how App Service works"
-    keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
-    services="app-service"
-    documentationcenter=""
-    author="yochay"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="ae74fc32-969e-4580-8d61-02c922f1f184"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="02/23/2017"
-    wacn.date=""
-    ms.author="yochayk" />
+---
+title: How Azure App Service works
+description: Learn how App Service works
+keywords: app service, azure app service, scale, scalable, app service plan, app service cost
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: erikre
+editor: ''
+
+ms.assetid: ae74fc32-969e-4580-8d61-02c922f1f184
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 02/23/2017
+wacn.date: ''
+ms.author: yochayk
+---
 
 # How App Service works
 Azure App Service is a cloud service that's designed to solve the practical problems that engineers face today.
@@ -44,11 +45,11 @@ As a whole, App Service capabilities enable developers to focus on their code an
 
 Learn more about App Service in one of the following topics:
 
-* [What is Azure App Service?](/documentation/articles/app-service-value-prop-what-is/)
-    * [Web App](/documentation/articles/app-service-web-overview/)
-    * [Mobile App](/documentation/articles/app-service-mobile-value-prop/)
-    * [API App](/documentation/articles/app-service-api-apps-why-best-platform/)
+* [What is Azure App Service?](./app-service-value-prop-what-is.md)
+    * [Web App](../app-service-web/app-service-web-overview.md)
+    * [Mobile App](../app-service-mobile/app-service-mobile-value-prop.md)
+    * [API App](../app-service-api/app-service-api-apps-why-best-platform.md)
 * [Azure App Service Architecture (presentation)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
-* [Azure App Service, Cloud Services, and Virtual Machines comparison](/documentation/articles/choose-web-site-cloud-service-vm/)
-* [Understanding App Service Plans](/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
+* [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md)
+* [Understanding App Service Plans](./azure-web-sites-web-hosting-plans-in-depth-overview.md)
 * [Azure App Service Development Stacks Support](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/)

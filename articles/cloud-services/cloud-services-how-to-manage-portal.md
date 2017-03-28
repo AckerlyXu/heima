@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Common cloud service management tasks | Azure" 
-	description="Learn how to manage cloud services in the Azure portal. These examples use the Azure portal." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Common cloud service management tasks | Azure
+description: Learn how to manage cloud services in the Azure portal. These examples use the Azure portal.
+services: cloud-services
+documentationCenter: ''
+authors: Thraka
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.date="12/27/2016"
-	wacn.date="05/17/2016"/>
-
+ms.service: cloud-services
+ms.date: 12/27/2016
+wacn.date: 05/17/2016
+---
 
 # How to Manage Cloud Services
 
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/cloud-services/cloud-services-how-to-manage-portal/)
-- [Azure classic portal](/documentation/articles/cloud-services/cloud-services-how-to-manage/)
+> [!div class="op_single_selector"]
+>- [Azure portal](/documentation/articles/cloud-services/cloud-services-how-to-manage-portal/)
+>- [Azure classic portal](/documentation/articles/cloud-services/cloud-services-how-to-manage/)
 
 Your cloud service is managed in the **Cloud Services (classic)** area of the Azure portal. This article describes some common actions you would take while managing your cloud services. Which includes updating, deleting, scaling, and promoting a staged deployment to production.
 
@@ -40,13 +39,11 @@ If you need to update the application code for your cloud service, use **Update*
 
 5. If any roles have only one role instance, select the **Deploy even if one or more roles contain a single instance** to enable the upgrade to proceed. 
 
-	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). With two role instances, one virtual machine will process client requests while the other is updated.
+    Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). With two role instances, one virtual machine will process client requests while the other is updated.
 
 6. Check **Start deployment** to have the update applied after the upload of the package has finished.
 
 7. Click **OK** to begin updating the service.
-
-
 
 ## How to: Swap deployments to promote a staged deployment to production
 
@@ -61,13 +58,13 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 3. The following confirmation prompt opens.
 
-	![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
+    ![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
 4. After you verify the deployment information, click **OK** to swap the deployments.
 
-	The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments.
+    The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments.
 
-	To save compute costs, you can delete the staging deployment after you verify that your production deployment is working as expected.
+    To save compute costs, you can delete the staging deployment after you verify that your production deployment is working as expected.
 
 ### Common questions about swapping deployments
 
@@ -79,7 +76,7 @@ There are two key prerequisites for a successful deployment swap:
 
 - All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the overview blade of the Azure portal or by using [the Get-AzureRole command in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
 
-Note that guest OS updates and service healing operations can also cause deployment swaps to fail. See [Troubleshoot cloud service deployment problems](/documentation/articles/cloud-services-troubleshoot-deployment-problems/) for more details.
+Note that guest OS updates and service healing operations can also cause deployment swaps to fail. See [Troubleshoot cloud service deployment problems](./cloud-services-troubleshoot-deployment-problems.md) for more details.
 
 **Does a swap incur downtime for my application? How should I handle it?**
 
@@ -110,7 +107,7 @@ Use the following procedure to delete a deployment or your cloud service.
 
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When a cloud service is deleted, and verbose monitoring is configured, you must delete the data manually from your storage account. For information about where to find the metrics tables, see [this](/documentation/articles/cloud-services/cloud-services-how-to-monitor/) article.
 
 [Azure portal]: https://portal.azure.cn

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture | Azure"
-    description="Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture"
-    services="app-service\web"
-    documentationcenter=""
-    author="syntaxc4"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="470f0129-1efe-462c-a029-5c66e04158a8"
-    ms.service="app-service"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="web"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cfowler" />
+---
+title: Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture | Azure
+description: Azure PowerShell Script Sample - Scale a web app worldwide with a high-availability architecture
+services: app-service\web
+documentationcenter: ''
+author: syntaxc4
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 470f0129-1efe-462c-a029-5c66e04158a8
+ms.service: app-service
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cfowler
+---
 
 # Scale a web app worldwide with a high-availability architecture
 
@@ -26,39 +27,43 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-    # Generates a Random Value
-    $Random=(New-Guid).ToString().Substring(0,8)
+```
+# Generates a Random Value
+$Random=(New-Guid).ToString().Substring(0,8)
 
-    # Variables
-    $ResourceGroupName="myResourceGroup$Random"
-    $App1Name="AppServiceTM1$Random"
-    $App2Name="AppServiceTM2$Random"
-    $Location1="ChinaNorth"
-    $Location2="ChinaEast"
+# Variables
+$ResourceGroupName="myResourceGroup$Random"
+$App1Name="AppServiceTM1$Random"
+$App2Name="AppServiceTM2$Random"
+$Location1="ChinaNorth"
+$Location2="ChinaEast"
 
-    # Create a Resource Group
-    New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location1
+# Create a Resource Group
+New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location1
 
-    # Create Traffic Manager Profile
-    New-AzureRMTrafficManagerProfile -Name "$ResourceGroupName-tmp" -ResourceGroupName $ResourceGroupName -TrafficRoutingMethod Performance -MonitorPath '/' -MonitorProtocol "HTTP" -RelativeDnsName $ResourceGroupName -Ttl 30 -MonitorPort 80
+# Create Traffic Manager Profile
+New-AzureRMTrafficManagerProfile -Name "$ResourceGroupName-tmp" -ResourceGroupName $ResourceGroupName -TrafficRoutingMethod Performance -MonitorPath '/' -MonitorProtocol "HTTP" -RelativeDnsName $ResourceGroupName -Ttl 30 -MonitorPort 80
 
-    # Create an App Service Plan
-    New-AzureRMAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName $ResourceGroupName -Location $Location1 -Tier Standard
-    New-AzureRMAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName $ResourceGroupName -Location $Location2 -Tier Standard
+# Create an App Service Plan
+New-AzureRMAppservicePlan -Name "$App1Name-Plan" -ResourceGroupName $ResourceGroupName -Location $Location1 -Tier Standard
+New-AzureRMAppservicePlan -Name "$App2Name-Plan" -ResourceGroupName $ResourceGroupName -Location $Location2 -Tier Standard
 
-    # Create a Web App in the App Service Plan
-    $App1ResourceId=(New-AzureRMWebApp -Name $App1Name -ResourceGroupName $ResourceGroupName -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
-    $App2ResourceId=(New-AzureRMWebApp -Name $App2Name -ResourceGroupName $ResourceGroupName -Location $Location2 -AppServicePlan "$App2Name-Plan").Id
+# Create a Web App in the App Service Plan
+$App1ResourceId=(New-AzureRMWebApp -Name $App1Name -ResourceGroupName $ResourceGroupName -Location $Location1 -AppServicePlan "$App1Name-Plan").Id
+$App2ResourceId=(New-AzureRMWebApp -Name $App2Name -ResourceGroupName $ResourceGroupName -Location $Location2 -AppServicePlan "$App2Name-Plan").Id
 
-    # Create Traffic Manager Endpoints for Web Apps
-    New-AzureRMTrafficManagerEndpoint -Name "$App1Name-$Location1" -ResourceGroupName $ResourceGroupName -ProfileName "$ResourceGroupName-tmp" -Type AzureEndpoints -TargetResourceId $App1ResourceId -EndpointStatus "Enabled"
-    New-AzureRMTrafficManagerEndpoint -Name "$App2Name-$Location2" -ResourceGroupName $ResourceGroupName -ProfileName "$ResourceGroupName-tmp" -Type AzureEndpoints -TargetResourceId $App2ResourceId -EndpointStatus "Enabled"
+# Create Traffic Manager Endpoints for Web Apps
+New-AzureRMTrafficManagerEndpoint -Name "$App1Name-$Location1" -ResourceGroupName $ResourceGroupName -ProfileName "$ResourceGroupName-tmp" -Type AzureEndpoints -TargetResourceId $App1ResourceId -EndpointStatus "Enabled"
+New-AzureRMTrafficManagerEndpoint -Name "$App2Name-$Location2" -ResourceGroupName $ResourceGroupName -ProfileName "$ResourceGroupName-tmp" -Type AzureEndpoints -TargetResourceId $App2ResourceId -EndpointStatus "Enabled"
+```
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
-    Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## Script explanation
 
@@ -76,4 +81,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](/documentation/articles/app-service-powershell-samples/).
+Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

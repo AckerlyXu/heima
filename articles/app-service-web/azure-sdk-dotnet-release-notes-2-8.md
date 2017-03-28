@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Azure SDK for .NET 2.8 Release Notes"
-    description="Azure SDK for .NET 2.8 Release Notes"
-    services="app-service\web"
-    documentationcenter=".net"
-    author="chrissfanos"
-    editor="" />
-<tags
-    ms.assetid="de7207ff-ba4f-4008-9141-8742fcaa3254"
-    ms.service="app-service"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="integration"
-    ms.date="02/24/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Azure SDK for .NET 2.8 Release Notes
+description: Azure SDK for .NET 2.8 Release Notes
+services: app-service\web
+documentationcenter: .net
+author: chrissfanos
+editor: ''
+
+ms.assetid: de7207ff-ba4f-4008-9141-8742fcaa3254
+ms.service: app-service
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 02/24/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Azure SDK for .NET 2.8, 2.8.1 and 2.8.2
 ## Overview
@@ -30,7 +31,7 @@ For complete list of new features and updates made in this release, see the [Azu
 
 ### .NET 4.5.2 support
 #### Known issues
-Azure .NET SDK 2.8 allows you to create .NET 4.5.2 Cloud Service packages. However .NET 4.5.2 framework will not be installed on the default Guest OS images until January 2016 Guest OS release. Before that, .NET 4.5.2 framework will be available through a separate Guest OS release version - November 2015-02. See the [Azure Guest OS Releases and SDK Compatibility Matrix](/documentation/articles/cloud-services-guestos-update-matrix/) page to track when the image will be released.  Once the November 2015-02 image is released you can choose to use that image by updating your Cloud Service configuration file (.cscfg) file. In the service configuration file set the osVersion attribute of the ServiceConfiguration element to the string "WA-GUEST-OS-4.26_201511-02". If you choose to opt in to use this image then you will no longer get automatic updates to the Guest OS. To get the automatic updates the osVersion must be set to "*" and .NET 4.5.2 will only be available through automatic updates in January 2016.
+Azure .NET SDK 2.8 allows you to create .NET 4.5.2 Cloud Service packages. However .NET 4.5.2 framework will not be installed on the default Guest OS images until January 2016 Guest OS release. Before that, .NET 4.5.2 framework will be available through a separate Guest OS release version - November 2015-02. See the [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services/cloud-services-guestos-update-matrix.md) page to track when the image will be released.  Once the November 2015-02 image is released you can choose to use that image by updating your Cloud Service configuration file (.cscfg) file. In the service configuration file set the osVersion attribute of the ServiceConfiguration element to the string "WA-GUEST-OS-4.26_201511-02". If you choose to opt in to use this image then you will no longer get automatic updates to the Guest OS. To get the automatic updates the osVersion must be set to "*" and .NET 4.5.2 will only be available through automatic updates in January 2016.
 
 ### Azure Data Factory
 #### Known issues

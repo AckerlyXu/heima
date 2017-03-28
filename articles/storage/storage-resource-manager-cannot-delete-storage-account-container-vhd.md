@@ -1,28 +1,28 @@
-<properties
-    pageTitle="Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment | Azure"
-    description="Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment"
-    services="storage"
-    documentationcenter=""
-    author="genlin"
-    manager="felixwu"
-    editor="na"
-    tags="storage" />
-<tags
-    ms.assetid="17403aa1-fe8d-45ec-bc33-2c0b61126286"
-    ms.service="storage"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/07/2017"
-    wacn.date=""
-    ms.author="genli" />
+---
+title: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment | Azure
+description: Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment
+services: storage
+documentationcenter: ''
+author: genlin
+manager: felixwu
+editor: na
+tags: storage
+
+ms.assetid: 17403aa1-fe8d-45ec-bc33-2c0b61126286
+ms.service: storage
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+wacn.date: ''
+ms.author: genli
+---
 
 # Troubleshoot errors when you delete Azure storage accounts, containers, or VHDs in a Resource Manager deployment
-[AZURE.INCLUDE [storage-selector-cannot-delete-storage-account-container-vhd](../../includes/storage-selector-cannot-delete-storage-account-container-vhd.md)]
+[!INCLUDE [storage-selector-cannot-delete-storage-account-container-vhd](../../includes/storage-selector-cannot-delete-storage-account-container-vhd.md)]
 
 You might receive errors when you try to delete an Azure storage account, container, or virtual hard disk (VHD) in the [Azure portal](https://portal.azure.cn). This article provides troubleshooting guidance to help resolve the problem in an Azure Resource Manager deployment.
-
 
 ## Symptoms
 
@@ -54,7 +54,6 @@ This problem can occur because the storage account contains a VHD that is in the
 To resolve these problems, you must identify the VHD that is causing the error and the associated VM. Then, detach the VHD from the VM (for data disks) or delete the VM that is using the VHD (for OS disks). This removes the lease from the VHD and allows it to be deleted.
 
 ### Step 1: Identify the problem VHD and the associated VM
-
 
 1. Sign in to the [Azure portal](https://portal.azure.cn).
 2. On the **Hub** menu, select **All resources**. Go to the storage account that you want to delete, and then select **Blobs** > **vhds**.
@@ -93,15 +92,13 @@ To detach the VHD from the VM that is using it (for data disks):
 
 A lease is a lock that can be used to control access to a blob (for example, a VHD). When a blob is leased, only the owners of the lease can access the blob. A lease is important for the following reasons:
 
--	It prevents data corruption if multiple owners try to write to the same portion of the blob at the same time.
+- It prevents data corruption if multiple owners try to write to the same portion of the blob at the same time.
 
--	It prevents the blob from being deleted if something is actively using it (for example, a VM).
+- It prevents the blob from being deleted if something is actively using it (for example, a VM).
 
--	It prevents the storage account from being deleted if something is actively using it (for example, a VM).
-
-
+- It prevents the storage account from being deleted if something is actively using it (for example, a VM).
 
 ## Next steps
 
-- [Delete a storage account](/documentation/articles/storage-create-storage-account/#delete-a-storage-account)
+- [Delete a storage account](./storage-create-storage-account.md#delete-a-storage-account)
 - [How to break the locked lease of blob storage in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)

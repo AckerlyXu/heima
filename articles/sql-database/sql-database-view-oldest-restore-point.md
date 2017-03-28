@@ -1,21 +1,22 @@
-<properties
-    pageTitle="View the oldest restore point from the service-generated backups of an Azure SQL database | Azure"
-    description="Quick reference on how to view the oldest restore point from the service-generated backups of a database"
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.service="sql-database"
-    ms.custom="business continuity"
-    ms.devlang="NA"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.date="12/07/2016"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: View the oldest restore point from the service-generated backups of an Azure SQL database | Azure
+description: Quick reference on how to view the oldest restore point from the service-generated backups of a database
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.service: sql-database
+ms.custom: business continuity
+ms.devlang: NA
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.date: 12/07/2016
+wacn.date: ''
+ms.author: carlrab
+---
 
 # View the oldest restore point from the service-generated backups of an Azure SQL database
 
@@ -35,12 +36,12 @@ In this How To topic, you learn how to view the oldest restore point from servic
 
     ![oldest restore point](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
-> [AZURE.TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](/documentation/articles/sql-database-get-started-backup-recovery/)
+> [!TIP]
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](./sql-database-get-started-backup-recovery.md)
 >
 
 ## Next steps
 
-- To learn about service-generated automatic backups, see [automatic backups](/documentation/articles/sql-database-automated-backups/)
-- To learn about long-term backup retention, see [long-term backup retention](/documentation/articles/sql-database-long-term-retention/)
-- To learn about restoring from backups, see [restore from backup](/documentation/articles/sql-database-recovery-using-backups/)
+- To learn about service-generated automatic backups, see [automatic backups](./sql-database-automated-backups.md)
+- To learn about long-term backup retention, see [long-term backup retention](./sql-database-long-term-retention.md)
+- To learn about restoring from backups, see [restore from backup](./sql-database-recovery-using-backups.md)

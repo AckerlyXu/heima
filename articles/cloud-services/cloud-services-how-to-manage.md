@@ -1,29 +1,24 @@
-<properties 
-	pageTitle="Common cloud service management tasks (classic) | Azure" 
-	description="Learn how to manage cloud services in the Azure classic portal." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Common cloud service management tasks (classic) | Azure
+description: Learn how to manage cloud services in the Azure classic portal.
+services: cloud-services
+documentationCenter: ''
+authors: Thraka
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.date="12/27/2016"
-	wacn.date="05/17/2016"/>
-
-
-
-
+ms.service: cloud-services
+ms.date: 12/27/2016
+wacn.date: 05/17/2016
+---
 
 # How to Manage Cloud Services
 
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/cloud-services-how-to-manage-portal/)
-- [Azure classic portal](/documentation/articles/cloud-services-how-to-manage/)
+> [!div class="op_single_selector"]
+>- [Azure portal](./cloud-services-how-to-manage-portal.md)
+>- [Azure classic portal](./cloud-services-how-to-manage.md)
 
 In the **Cloud Services** area of the Azure classic portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
-
 
 ## How to: Update a cloud service role or deployment
 
@@ -31,7 +26,7 @@ If you need to update the application code for your cloud service, use **Update*
 
 1. In the [Azure classic portal](https://manage.windowsazure.cn), on the dashboard, **Cloud Services** page, or **Instances** page, click **Update**.
 
-	![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
+    ![UpdateDeployment](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
 2. In **Deployment label**, enter a name to identify the deployment (for example, mycloudservice4). You'll find the deployment label under **quick start** on the dashboard.
 
@@ -43,15 +38,13 @@ If you need to update the application code for your cloud service, use **Update*
 
 6. If the update changes the number of roles or the size of any role, select the **Allow update if role sizes or number of roles changes** check box to enable the update to proceed. 
 
-	Be aware that if you change the size of a role (that is, the size of a virtual machine that hosts a role instance) or the number of roles, each role instance (virtual machine) must be re-imaged, and any local data will be lost.
+    Be aware that if you change the size of a role (that is, the size of a virtual machine that hosts a role instance) or the number of roles, each role instance (virtual machine) must be re-imaged, and any local data will be lost.
 
 7. If any service roles have only one role instance, select the **Update even if one or more role contain a single instance check box** to enable the upgrade to proceed. 
 
-	Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated.
+    Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). That enables one virtual machine to process client requests while the other is being updated.
 
 8. Click **OK** (checkmark) to begin updating the service.
-
-
 
 ## How to: Swap deployments to promote a staged deployment to production
 
@@ -65,15 +58,15 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 3. Click **Swap**.
 
-	The following confirmation prompt opens.
+    The following confirmation prompt opens.
 
-	![Cloud Services Swap](./media/cloud-services-how-to-manage/CloudServices_Swap.png)
+    ![Cloud Services Swap](./media/cloud-services-how-to-manage/CloudServices_Swap.png)
 
 4. After you verify the deployment information, click **Yes** to swap the deployments.
 
-	The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments.
+    The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments.
 
-	To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
+    To save compute costs, you can delete the deployment in the staging environment when you're sure the new production deployment is performing as expected.
 
 ### Common questions about swapping deployments
 
@@ -109,15 +102,15 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
 2. Click **Linked Resources**.
 
-	The **Linked Resources** page opens.
+    The **Linked Resources** page opens.
 
-	![LinkedResourcesPage](./media/cloud-services-how-to-manage/CloudServices_LinkedResourcesPage.png)
+    ![LinkedResourcesPage](./media/cloud-services-how-to-manage/CloudServices_LinkedResourcesPage.png)
 
 3. Click either **Link a Resource** or **Link**.
 
-	The **Link Resource** wizard starts.
+    The **Link Resource** wizard starts.
 
-	![Link Page1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
+    ![Link Page1](./media/cloud-services-how-to-manage/CloudServices_LinkedResources_LinkPage1.png)
 
 4. Click **Create a new resource** or **Link an existing resource**.
 
@@ -125,10 +118,9 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
 6. To complete the database configuration, follow instructions in help for the **SQL Databases** area of the Azure classic portal.
 
-	You can follow the progress of the linking operation in the message area.
+    You can follow the progress of the linking operation in the message area.
 
-
-	When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](/documentation/articles/cloud-services/cloud-services-how-to-scale/).
+    When linking is complete, you can monitor the status of the linked resource on the cloud service dashboard. For information about scaling a linked SQL Database, see [How to Scale a Cloud Service and Linked Resources](/documentation/articles/cloud-services/cloud-services-how-to-scale/).
 
 ### To unlink a linked resource
 
@@ -138,9 +130,7 @@ The following procedure describes how to link a new SQL Database instance, deplo
 
 3. Click **Unlink**. Then click **Yes** at the confirmation prompt.
 
-	Unlinking a SQL Database has no effect on the database or the application's connections to the database. You can still manage the database in the **SQL Databases** area of the Azure classic portal.
-
-
+    Unlinking a SQL Database has no effect on the database or the application's connections to the database. You can still manage the database in the **SQL Databases** area of the Azure classic portal.
 
 ## How to: Delete deployments and a cloud service
 
@@ -154,10 +144,9 @@ Use the following procedure to delete a deployment or your cloud service.
 
 2. Select the cloud service, and then click **Delete**. (To select a cloud service without opening the dashboard, click anywhere except the name in the cloud service entry.)
 
-	If you have a deployment in staging or production, you will see a menu of choices similar to the following one at the bottom of the window. Before you can delete the cloud service, you must delete any existing deployments.
+    If you have a deployment in staging or production, you will see a menu of choices similar to the following one at the bottom of the window. Before you can delete the cloud service, you must delete any existing deployments.
 
-	![Delete Menu](./media/cloud-services-how-to-manage/CloudServices_DeleteMenu.png)
-
+    ![Delete Menu](./media/cloud-services-how-to-manage/CloudServices_DeleteMenu.png)
 
 3. To delete a deployment, click **Delete production deployment** or **Delete staging deployment**. Then, at the confirmation prompt, click **Yes**. 
 
@@ -165,7 +154,7 @@ Use the following procedure to delete a deployment or your cloud service.
 
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If verbose monitoring is configured for your cloud service, Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see "How to: Access verbose monitoring data outside the Azure classic portal" in [How to Monitor Cloud Services](/documentation/articles/cloud-services/cloud-services-how-to-monitor/).
 
 ## Next steps

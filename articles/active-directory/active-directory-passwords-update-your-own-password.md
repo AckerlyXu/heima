@@ -1,21 +1,22 @@
-<properties
-    pageTitle="How to update your own password using Azure Active Directory| Azure"
-    description="Learn that ways you can register for password reset, how to change your password, and how to reset your own password in case you ever forget it."
-    services="active-directory"
-    documentationcenter=""
-    author="MicrosoftGuyJFlo"
-    manager="femila"
-    editor="curtand" />
-<tags
-    ms.assetid="7ba69b18-317a-4a62-afa3-924c4ea8fb49"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/10/2017"
-    wacn.date=""
-    ms.author="joflore" />
+---
+title: How to update your own password using Azure Active Directory| Azure
+description: Learn that ways you can register for password reset, how to change your password, and how to reset your own password in case you ever forget it.
+services: active-directory
+documentationcenter: ''
+author: MicrosoftGuyJFlo
+manager: femila
+editor: curtand
+
+ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/10/2017
+wacn.date: ''
+ms.author: joflore
+---
 
 # How to update your own password
 If you are unsure how to manage your work or school account password, you've come to the right place! Read below to learn how to perform common steps, like changing a password, resetting a password, or registering for password reset.
@@ -40,7 +41,7 @@ Follow the steps below to change your work or school account password from the [
 ## How to reset your password <a name="how-to-reset-your-password"></a>
 Follow the steps below to reset your work or school account password from any work or school account sign in screen.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > This feature is only available to you if your admin has turned it on. If it's not turned on, you will see a message indicating your account is not enabled for this feature.  You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
 >
 > If your admin has enabled you for this feature, you are required to sign up before you can use it. You can do that here: http://aka.ms/ssprsetup.
@@ -49,11 +50,11 @@ Follow the steps below to reset your work or school account password from any wo
 
 1. On any work or school account sign-in page, click the "can't access your account?" link, or navigate to https://passwordreset.microsoftonline.com directly.
 
-	![][110]
+    ![][110]
 
 2. On the "who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge.
 
-	![][111]
+    ![][111]
 
 3. Click the "next" button.
 4. Choose an option to reset your password. Depending on how your admin has configured the system, you might see one or more of the following choices:
@@ -64,7 +65,7 @@ Follow the steps below to reset your work or school account password from any wo
    - **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
    - **Answer my security questions** - displays your pre-registered security questions for you to answer.
 
-	![][109]
+    ![][109]
 5. We'll use the "text my mobile phone" option as an example. If you are using a phone-based option, you need to verify your phone number before we send a text. Enter your full phone number and then click **Text** to verify it's correct and send a text.
 
 6. When you receive the text, make sure you use the verification code in the message body, not the number the code was sent from. It might take several minutes to get the text.
@@ -74,7 +75,7 @@ Follow the steps below to reset your work or school account password from any wo
 8. Your administrator may require an additional verification step, in which case repeat step 4 with a different option selected.
 9. On the "choose a new password" screen, select a new password and confirm your choice, then click **Finish**.
 
-	![][107]
+    ![][107]
 
 10. Once your password is accepted, you can sign in with the new password.
 
@@ -85,10 +86,10 @@ Run into a problem resetting your password? Read about [common problems and thei
 ## How to unlock your account
 Follow the steps below to unlock your local account from any work or school account sign in screen. 
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You are only able to unlock your account if it has been locked on-premises.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > This feature is only available to you if your admin has turned it on. If it's not turned on, you'll see a message indicating your account is not enabled for this feature. You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
 >
 > If your admin has enabled you for this feature, you'll first need to sign up before you can use it. You can do that here: http://aka.ms/ssprsetup.
@@ -97,11 +98,11 @@ Follow the steps below to unlock your local account from any work or school acco
 
 1. On any work or school account sign in page, click the "can't access your account?" link, or navigate to https://passwordreset.microsoftonline.com directly.
 
-	![][110]
+    ![][110]
 
 2. On the "who are you?" page, enter your work or school account ID and prove you aren't a robot by passing the CAPTCHA challenge.
 
-	![][111]
+    ![][111]
 
 3. Click the "next" button.
 4. Choose an option to unlock your account. Depending on how your administrator has configured the system, you might see one or more of the following choices:
@@ -112,18 +113,18 @@ Follow the steps below to unlock your local account from any work or school acco
    - **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
    - **Answer my security questions** - displays your pre-registered security questions for you to answer.
 
-	![][112]
+    ![][112]
 5. We'll use the "Answer my security questions" option as an example. Fill in the answers to your security questions and select **Next** to verify your identity.
 
 6. Your administrator may require an additional verification step, in which case you must repeat step 4 with a different option selected.
 7. Once you see the success page, you are good to go! Your on-premises account has been unlocked and you can now sign in once more.
 
-	![][113]
+    ![][113]
 
-	> [AZURE.IMPORTANT]
-	> Make sure you update all your devices to your newest password, as often times a rogue app with an old password (like your phone email client) can be the culprit behind why your account got locked out in the first place.
-	>
-	>
+    > [!IMPORTANT]
+    > Make sure you update all your devices to your newest password, as often times a rogue app with an old password (like your phone email client) can be the culprit behind why your account got locked out in the first place.
+    >
+    >
 
 Run into a problem unlocking your account? Read about [common problems and their solutions](#common-problems-and-their-solutions).
 

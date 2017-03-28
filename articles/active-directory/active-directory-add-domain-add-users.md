@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Assign users to a custom domain in Azure Active Directory | Azure"
-	description="How to populate a custom domain in Azure Active Directory with user accounts."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeffsta"
-	manager="femila"
-	editor=""/>
+---
+title: Assign users to a custom domain in Azure Active Directory | Azure
+description: How to populate a custom domain in Azure Active Directory with user accounts.
+services: active-directory
+documentationCenter: ''
+authors: jeffsta
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/04/2016"
-	ms.author="curtand;jeffsta"
-	wacn.date=""/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: curtand;jeffsta
+wacn.date: ''
+---
 
 # Assign users to a custom domain
 
@@ -23,7 +23,7 @@ After you have added your custom domain to Azure Active Directory, you must add 
 
 ## Users synced in from a directory on your corporate network
 
-If you have already set up a connection between your on-premises Active Directory and Azure Active Directory, synchronization can populate the accounts. For more information on how to synchronize Azure Active Directory with your on-premises Active Directory, see [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/).
+If you have already set up a connection between your on-premises Active Directory and Azure Active Directory, synchronization can populate the accounts. For more information on how to synchronize Azure Active Directory with your on-premises Active Directory, see [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).
 
 ## Users added and managed in the cloud
 
@@ -57,8 +57,8 @@ This can also be done using [Microsoft PowerShell](https://msdn.microsoft.com/zh
 
 ## Next steps
 
--   [Using custom domain names to simplify the sign-in experience for your users](/documentation/articles/active-directory-add-domain/)
+-   [Using custom domain names to simplify the sign-in experience for your users](./active-directory-add-domain.md)
 
--   [Manage custom domain names](/documentation/articles/active-directory-add-manage-domain-names/)
+-   [Manage custom domain names](./active-directory-add-manage-domain-names.md)
 
--   [Learn about domain management concepts in Azure AD](/documentation/articles/active-directory-add-domain-concepts/)
+-   [Learn about domain management concepts in Azure AD](./active-directory-add-domain-concepts.md)

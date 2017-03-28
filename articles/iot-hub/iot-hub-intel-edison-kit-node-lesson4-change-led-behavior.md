@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Change the LED blink behavior with messages from Azure IoT Hub | Azure"
-    description="Customize the messages to change the LED's on and off behavior."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="control led with arduino" />
-<tags
-    ms.assetid="387cd97e-b05e-43c4-b252-f68ad45d524a"
-    ms.service="iot-hub"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Change the LED blink behavior with messages from Azure IoT Hub | Azure
+description: Customize the messages to change the LED's on and off behavior.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: control led with arduino
+
+ms.assetid: 387cd97e-b05e-43c4-b252-f68ad45d524a
+ms.service: iot-hub
+ms.devlang: nodejs
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Change the on and off behavior of the LED
 ## What you will do
@@ -100,7 +101,7 @@ This optional section demonstrates how to customize messages so that the sample 
 
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-node-troubleshooting/
-[receive-cloud-to-device-messages]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages/
+[troubleshooting]: ./iot-hub-intel-edison-kit-node-troubleshooting.md
+[receive-cloud-to-device-messages]: ./iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md
 [gulpfile]: ./media/iot-hub-intel-edison-lessons/lesson4/updated_gulpfile_node.png
 [on-and-off]: ./media/iot-hub-intel-edison-lessons/lesson4/gulp_on_and_off_node.png

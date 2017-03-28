@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Resources for developing a data warehouse in Azure | Azure"
-    description="Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="jrowlandjones"
-    manager="barbkess"
-    editor="" />
-<tags
-    ms.assetid="996e3afc-c21c-4e21-b9df-997f953f6dfd"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/31/2016"
-    wacn.date=""
-    ms.author="jrj;barbkess" />
+---
+title: Resources for developing a data warehouse in Azure | Azure
+description: Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
+
+ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: jrj;barbkess
+---
 
 # Design decisions and coding techniques for SQL Data Warehouse
 Take a look through these development articles to better understand key design decisions, recommendations and coding techniques for SQL Data Warehouse.
@@ -51,24 +52,24 @@ Once you have been through the development articles take a look through the [Tra
 <!--Image references-->
 
 <!--Article references-->
-[concurrency]: /documentation/articles/sql-data-warehouse-develop-concurrency/
-[connections]: /documentation/articles/sql-data-warehouse-connect-overview/
-[CTAS]: /documentation/articles/sql-data-warehouse-develop-ctas/
-[dynamic SQL]: /documentation/articles/sql-data-warehouse-develop-dynamic-sql/
-[group by options]: /documentation/articles/sql-data-warehouse-develop-group-by-options/
-[labels]: /documentation/articles/sql-data-warehouse-develop-label/
-[looping]: /documentation/articles/sql-data-warehouse-develop-loops/
-[statistics]: /documentation/articles/sql-data-warehouse-tables-statistics/
-[stored procedures]: /documentation/articles/sql-data-warehouse-develop-stored-procedures/
-[table distribution]: /documentation/articles/sql-data-warehouse-tables-distribute/
-[table indexes]: /documentation/articles/sql-data-warehouse-tables-index/
-[table partitions]: /documentation/articles/sql-data-warehouse-tables-partition/
-[temporary tables]: /documentation/articles/sql-data-warehouse-tables-temporary/
-[transactions]: /documentation/articles/sql-data-warehouse-develop-transactions/
-[user-defined schemas]: /documentation/articles/sql-data-warehouse-develop-user-defined-schemas/
-[variable assignment]: /documentation/articles/sql-data-warehouse-develop-variable-assignment/
-[views]: /documentation/articles/sql-data-warehouse-develop-views/
-[Transact-SQL reference]: /documentation/articles/sql-data-warehouse-overview-reference/
+[concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[connections]: ./sql-data-warehouse-connect-overview.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
+[dynamic SQL]: ./sql-data-warehouse-develop-dynamic-sql.md
+[group by options]: ./sql-data-warehouse-develop-group-by-options.md
+[labels]: ./sql-data-warehouse-develop-label.md
+[looping]: ./sql-data-warehouse-develop-loops.md
+[statistics]: ./sql-data-warehouse-tables-statistics.md
+[stored procedures]: ./sql-data-warehouse-develop-stored-procedures.md
+[table distribution]: ./sql-data-warehouse-tables-distribute.md
+[table indexes]: ./sql-data-warehouse-tables-index.md
+[table partitions]: ./sql-data-warehouse-tables-partition.md
+[temporary tables]: ./sql-data-warehouse-tables-temporary.md
+[transactions]: ./sql-data-warehouse-develop-transactions.md
+[user-defined schemas]: ./sql-data-warehouse-develop-user-defined-schemas.md
+[variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
+[views]: ./sql-data-warehouse-develop-views.md
+[Transact-SQL reference]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/zh-cn/library/mt631611.aspx

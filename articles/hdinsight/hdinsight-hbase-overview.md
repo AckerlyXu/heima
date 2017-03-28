@@ -1,23 +1,24 @@
-<properties
-    pageTitle="What is HBase in HDInsight? | Azure"
-    description="An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about use cases and compare HBase to other Hadoop clusters."
-    keywords="bigtable,nosql,what is hbase"
-    services="hdinsight"
-    documentationcenter=""
-    tags="azure-portal"
-    author="mumian"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="d2a76d53-133a-4849-a30c-88d9c794391c"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="jgao" />
+---
+title: What is HBase in HDInsight? | Azure
+description: An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about use cases and compare HBase to other Hadoop clusters.
+keywords: bigtable,nosql,what is hbase
+services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: mumian
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: d2a76d53-133a-4849-a30c-88d9c794391c
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: jgao
+---
 
 # What is HBase in HDInsight: A NoSQL database that provides BigTable-like capabilities for Hadoop
 Apache HBase is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.
@@ -36,42 +37,42 @@ Data can be managed in HBase by using the `create`, `get`, `put`, and `scan` com
 The canonical use case for which BigTable (and by extension, HBase) was created was web search. Search engines build indexes that map terms to the web pages that contain them. But there are many other use cases that HBase is suitable for--several of which are itemized in this section.
 
 * Key-value store
-  
+
     HBase can be used as a key-value store, and it is suitable for managing message systems. Facebook uses HBase for their messaging system, and it is ideal for storing and managing Internet communications. WebTable uses HBase to search for and manage tables that are extracted from webpages.
 * Sensor data
-  
+
     HBase is useful for capturing data that is collected incrementally from various sources. This includes social analytics, time series, keeping interactive dashboards up-to-date with trends and counters, and managing audit log systems. Examples include Bloomberg trader terminal and the Open Time Series Database (OpenTSDB), which stores and provides access to metrics collected about the health of server systems.
 * Real-time query
-  
+
     [Phoenix](http://phoenix.apache.org/) is a SQL query engine for Apache HBase. It is accessed as a JDBC driver, and it enables querying and managing HBase tables by using SQL.
 * HBase as a platform
-  
+
     Applications can run on top of HBase by using it as a datastore. Examples include Phoenix, OpenTSDB, Kiji, and Titan. Applications can also integrate with HBase. Examples include Hive, Pig, Solr, Storm, Flume, Impala, Spark, Ganglia, and Drill.
 
 ## <a name="next-steps"></a>Next steps
 * [Get started using HBase with Hadoop in HDInsight][hbase-get-started]
 * [Create HDInsight clusters on Azure Virtual Network][hbase-provision-vnet]
-* [Configure HBase replication in HDInsight](/documentation/articles/hdinsight-hbase-replication/)
+* [Configure HBase replication in HDInsight](./hdinsight-hbase-replication.md)
 * [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)][hbase-build-java-maven]
 
 ## <a name="see-also"></a>See also
 * [Apache HBase](https://hbase.apache.org/)
 * [Bigtable: A Distributed Storage System for Structured Data](http://research.google.com/archive/bigtable.html)
 
-[hbase-provision-vnet]: /documentation/articles/hdinsight-hbase-provision-vnet/
+[hbase-provision-vnet]: ./hdinsight-hbase-provision-vnet.md
 
-[hbase-build-java-maven]: /documentation/articles/hdinsight-hbase-build-java-maven/
+[hbase-build-java-maven]: ./hdinsight-hbase-build-java-maven.md
 
-[hdinsight-use-hive]: /documentation/articles/hdinsight-use-hive/
+[hdinsight-use-hive]: ./hdinsight-use-hive.md
 
-[hdinsight-storage]: /documentation/articles/hdinsight-hadoop-use-blob-storage/
+[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
 
 [hbase-get-started]: /documentation/articles/hdinsight-hbase-tutorial-get-started/
 
-[azure-purchase-options]: /pricing/overview/
-[azure-member-offers]: /pricing/member-offers/
-[azure-trial]: /pricing/1rmb-trial/
+[azure-purchase-options]: https://www.azure.cn/pricing/overview/
+[azure-member-offers]: https://www.azure.cn/pricing/member-offers/
+[azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-management-portal]: https://portal.azure.cn/
-[azure-create-storageaccount]: /documentation/articles/storage-create-storage-account/
+[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/

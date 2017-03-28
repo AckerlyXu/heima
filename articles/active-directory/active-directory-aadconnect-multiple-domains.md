@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect Multiple Domains"
-    description="This document describes setting up and configuring multiple top level domains with O365 and Azure AD."
-    services="active-directory"
-    documentationcenter=""
-    author="billmath"
-    manager="femila"
-    editor="curtand" />
-<tags
-    ms.assetid="5595fb2f-2131-4304-8a31-c52559128ea4"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/07/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect Multiple Domains
+description: This document describes setting up and configuring multiple top level domains with O365 and Azure AD.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
+
+ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Multiple Domain Support for Federating with Azure AD
 The following documentation provides guidance on how to use multiple top-level domains and sub-domains when federating with Office 365 or Azure AD domains.
@@ -25,7 +26,7 @@ Federating multiple, top-level domains with Azure AD requires some additional co
 
 When a domain is federated with Azure AD, several properties are set on the domain in Azure.  One important one is IssuerUri.  This is a URI that is used by Azure AD to identify the domain that the token is associated with.  The URI doesn’t need to resolve to anything but it must be a valid URI.  By default, Azure AD sets this to the value of the federation service identifier in your on-premises AD FS configuration.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The federation service identifier is a URI that uniquely identifies a federation service.  The federation service is an instance of AD FS that functions as the security token service. 
 > 
 > 
@@ -67,10 +68,11 @@ For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in
 
 The following is the customized claim rule that implements this logic:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));
+```
 
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > In order to use the -SupportMultipleDomain switch when attempting to add new or convert already added domains, you need to have setup your federated trust to support them originally.  
 > 
 > 
@@ -139,9 +141,11 @@ In order to work around this the AD FS relying party trust for Microsoft Online 
 
 The following claim will do this:
 
-    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
+```
 
-[AZURE.NOTE]
+>[!NOTE]
 The last number in the regular expression set the how many parent domains there is in your root domain. Here i have bmcontoso.com so two parent domains are necessary. If three parent domains were to be kept (i.e.: corp.bmcontoso.com), then the number would have been three. Eventualy a range can be indicated, the match will always be made to match the maximum of domains. "{2,3}" will match two to three domains (i.e.: bmfabrikam.com and corp.bmcontoso.com).
 
 Use the following steps to add a custom claim to support sub-domains.
@@ -151,14 +155,15 @@ Use the following steps to add a custom claim to support sub-domains.
 3. Select the third claim rule, and replace 
    ![Edit claim](./media/active-directory-multiple-domains/sub1.png)
 4. Replace the current claim:
-   
-        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
-   
+
+    ```
+    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+    ```
+
        with
-   
+
         c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));
 
     ![Replace claim](./media/active-directory-multiple-domains/sub2.png)
 
 5. Click Ok.  Click Apply.  Click Ok.  Close AD FS Management.
-

@@ -1,23 +1,23 @@
-<properties
-    pageTitle="Set up two-step verification for my work or school account | Azure"
-    description="When your company configures Azure Multi-Factor Authentication, you will be prompted to sign up for two-step verification. Learn how to set it up. "
-    services="multi-factor-authentication"
-    keywords="how to use azure directory, active directory in the cloud, active directory tutorial"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="pblachar" />
-    
-<tags
-    ms.assetid="46f83a6a-dbdd-4375-8dc4-e7ea77c16357"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/15/2016"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Set up two-step verification for my work or school account | Azure
+description: When your company configures Azure Multi-Factor Authentication, you will be prompted to sign up for two-step verification. Learn how to set it up. 
+services: multi-factor-authentication
+keywords: how to use azure directory, active directory in the cloud, active directory tutorial
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: pblachar
+
+ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2016
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Set up my account for two-step verification
 Two-step verification is an additional security step that helps protect your account by making it harder for other people to break in. If you're reading this article, you probably got an email from your work or school admin about Multi-Factor Authentication. Or maybe you tried to sign in and got a message asking you to set up additional security verification. If that's the case, **you cannot sign in until you have completed the auto-enrollment process**.
@@ -88,10 +88,10 @@ If you want to add an account to the mobile app manually, instead of using the Q
 2. The phone number box is automatically filled with your company contact information. If the number is wrong or missing, ask your admin to make changes.
 3. Select **Contact me** to verify your phone number, and we will call your number. Follow the instructions provided on the screen, then select **Verify**.
 4. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
-5. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, see [What are App Passwords](/documentation/articles/multi-factor-authentication-end-user-app-passwords/).
+5. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, see [What are App Passwords](./multi-factor-authentication-end-user-app-passwords.md).
 6. Click **Done**.
 
 ## Next steps
-- Change your preferred options and [manage your settings for two-step verification](/documentation/articles/multi-factor-authentication-end-user-manage-settings/)
-- Set up [app passwords](/documentation/articles/multi-factor-authentication-end-user-app-passwords/) for native device apps that don't support two-step verification.
+- Change your preferred options and [manage your settings for two-step verification](./multi-factor-authentication-end-user-manage-settings.md)
+- Set up [app passwords](./multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-step verification.
 - Check out the [Microsoft Authenticator app](/documentation/articles/microsoft-authenticator-app-how-to/) for fast, secure authentication even when you don't have cell service.

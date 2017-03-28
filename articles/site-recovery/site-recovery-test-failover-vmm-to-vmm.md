@@ -19,15 +19,12 @@ ms.author: pratshar
 ---
 # Test Failover (VMM to VMM) in Site Recovery
 > [!div class="op_single_selector"]
-> * [Test Failover to Azure](/documentation/articles/site-recovery-test-failover-to-azure/)
-> * [Test Failover (VMM to VMM)](/documentation/articles/site-recovery-test-failover-vmm-to-vmm/)
-
+> * [Test Failover to Azure](./site-recovery-test-failover-to-azure.md)
+> * [Test Failover (VMM to VMM)](./site-recovery-test-failover-vmm-to-vmm.md)
 
 This article provides information and instructions for doing a test failover or a DR drill of virtual machines and physical servers that are protected with Site Recovery using a VMM managed on-premises site as the recovery site. 
 
-
-Test failover is run to validate your replication strategy or perform a disaster recovery drill without any data loss or downtime. Doing a test failover doesn't have any impact on the ongoing replication or on your production environment. Test failover can be done either on a virtual machine or a [recovery plan](/documentation/articles/site-recovery-create-recovery-plans/). When triggering a test failover you need to specify the network to which test virtual machines would connect to. Once a test failover is triggered you can track progress in the **Jobs** page.  
-
+Test failover is run to validate your replication strategy or perform a disaster recovery drill without any data loss or downtime. Doing a test failover doesn't have any impact on the ongoing replication or on your production environment. Test failover can be done either on a virtual machine or a [recovery plan](./site-recovery-create-recovery-plans.md). When triggering a test failover you need to specify the network to which test virtual machines would connect to. Once a test failover is triggered you can track progress in the **Jobs** page.  
 
 ## Preparing infrastructure for test failover
 * If you want to run a test failover using an existing network, prepare Active Directory, DHCP, and DNS in that network.
@@ -39,12 +36,11 @@ Test failover is run to validate your replication strategy or perform a disaster
   * **VM network configured with no isolation or VLAN isolation**—If DHCP is defined for the VM network, the replica virtual machine will be connected to the VLAN ID using the settings that are specified for the network site in the associated logical network. The virtual machine will receive its IP address from the available DHCP server. You don't need a static IP address pool defined for the target VM network. If a static IP address pool is used for the VM network the replica virtual machine will be connected to the VLAN ID using the settings that are specified for the network site in the associated logical network. The virtual machine will receive its IP address from the pool defined for the VM network. If a static IP address pool isn't defined on the target VM network, IP address allocation will fail. The IP address pool should be created on both the source and target VMM servers that you are going to use for protection and recovery.
   * **VM network with Windows network virtualization**—If a VM network is configured with this setting a static pool should be defined for the target VM network, regardless of whether the source VM network is configured to use DHCP or a static IP address pool. If you define DHCP, the target VMM server will act as a DHCP server and provide an IP address from the pool that is defined for the target VM network. If use of a static IP address pool is defined for the source server, the target VMM server will allocate an IP address from the pool. In both cases, IP address allocation will fail if a static IP address pool is not defined.
 
-
 ### Prepare DHCP
 If the virtual machines involved in test failover use DHCP, a test DHCP server should be created within the isolated network that is created for the purpose of test failover.
 
 ### Prepare Active Directory
-To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [test failover considerations for active directory](/documentation/articles/site-recovery-active-directory/#test-failover-considerations) section for more details. 
+To run a test failover for application testing, you’ll need a copy of the production Active Directory environment in your test environment. Go through [test failover considerations for active directory](./site-recovery-active-directory.md#test-failover-considerations) section for more details. 
 
 ### Prepare DNS
 Prepare a DNS server for the test failover as follows:
@@ -52,17 +48,17 @@ Prepare a DNS server for the test failover as follows:
 * **DHCP**—If virtual machines use DHCP, the IP address of the test DNS should be updated on the test DHCP server. If you’re using a network type of Windows Network Virtualization, the VMM server acts as the DHCP server. Therefore, the IP address of DNS should be updated in the test failover network. In this case, the virtual machines will register themselves to the relevant DNS Server.
 * **Static address**—If virtual machines use a static IP address, the IP address of the test DNS server should be updated in test failover network. You might need to update DNS with the IP address of the test virtual machines. You can use the following sample script for this purpose:
 
-        Param(
-        [string]$Zone,
-        [string]$name,
-        [string]$IP
-        )
-        $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
-        $newrecord = $record.clone()
-        $newrecord.RecordData[0].IPv4Address  =  $IP
-        Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
-
-
+    ```
+    Param(
+    [string]$Zone,
+    [string]$name,
+    [string]$IP
+    )
+    $Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
+    $newrecord = $record.clone()
+    $newrecord.RecordData[0].IPv4Address  =  $IP
+    Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+    ```
 
 ## Run a test failover
 This procedure describes how to run a test failover for a recovery plan. Alternatively you can run the failover for a single virtual machine or physical server on the **Virtual Machines** tab.
@@ -74,7 +70,6 @@ This procedure describes how to run a test failover for a recovery plan. Alterna
 1. Track failover progress on the **Jobs** tab. 
 1. After it's complete verify that the virtual machines start successfully.
 1. Once you're done, click on **Cleanup test failover** on the recovery plan. In **Notes** record and save any observations associated with the test failover. This will delete the virtual machines and networks that were created during test failover. 
-
 
 ## Network options in Site Recovery
 
@@ -91,7 +86,6 @@ When you run a test failover you'll be asked to select network settings for test
 >
 >
 
-
 ## Test failover to a production network on recovery site 
 It is recommended that when you are doing a test failover you choose a network that is different from your production recovery site network that you provided in **Network mapping**. But if you really want to validate end to end network connectivity in a failed over virtual machine, please note the following points:
 
@@ -99,6 +93,5 @@ It is recommended that when you are doing a test failover you choose a network t
 1. Any changes that you make into the test failover virtual machines would be lost when you cleanup the test failover virtual machines. These changes will not be replicated back to the primary virtual machine.
 1. This way of doing testing leads to a downtime of your production application. Users of the application should be asked to not to use the application when the DR drill is in progress.  
 
-
 ## Next Steps
-Once you have successfully tried a test failover you can try doing a [failover](/documentation/articles/site-recovery-failover/).
+Once you have successfully tried a test failover you can try doing a [failover](./site-recovery-failover.md).

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Access reporting - Azure RBAC | Azure"
-    description="Generate a report that lists all changes in access to your Azure subscriptions with Role-Based Access Control over the past 90 days."
-    services="active-directory"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="2bc68595-145e-4de3-8b71-3a21890d13d9"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/27/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Access reporting - Azure RBAC | Azure
+description: Generate a report that lists all changes in access to your Azure subscriptions with Role-Based Access Control over the past 90 days.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
+
+ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/27/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Create an access report for Role-Based Access Control
 Any time someone grants or revokes access within your subscriptions, the changes get logged in Azure events. You can create access change history reports to see all changes for the past 90 days.
@@ -42,9 +43,9 @@ When you call this command, you can specify which property of the assignments yo
 
 This example command lists all access changes in the subscription for the past seven days:
 
-	
-	Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
-
+```
+Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
+```
 
 ![PowerShell Get-AzureRMAuthorizationChangeLog - screenshot](./media/role-based-access-control-configure/access-change-history.png)
 
@@ -57,6 +58,5 @@ To save the report, or manipulate the data, export the access changes into a .cs
 ![Changelog viewed as spreadsheet - screenshot](./media/role-based-access-control-configure/change-history-spreadsheet.png)
 
 ## Next steps
-- Work with [Custom roles in Azure RBAC](/documentation/articles/role-based-access-control-custom-roles/)
-- Learn how to manage [Azure RBAC with powershell](/documentation/articles/role-based-access-control-manage-access-powershell/)
-
+- Work with [Custom roles in Azure RBAC](./role-based-access-control-custom-roles.md)
+- Learn how to manage [Azure RBAC with powershell](./role-based-access-control-manage-access-powershell.md)

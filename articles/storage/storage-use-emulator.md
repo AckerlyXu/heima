@@ -1,27 +1,29 @@
-<properties
-    pageTitle="Use the Azure Storage Emulator for Development and Testing | Azure"
-    description="The Azure storage emulator provides a free local development environment for developing and testing against Azure Storage. Learn about the storage emulator, including how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool."
-    services="storage"
-    documentationcenter=""
-    author="mmacy"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="f480b059-df8a-4a63-b05a-7f2f5d1f5c2a"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/08/2016"
-    wacn.date=""
-    ms.author="marsma" />
+---
+title: Use the Azure Storage Emulator for Development and Testing | Azure
+description: The Azure storage emulator provides a free local development environment for developing and testing against Azure Storage. Learn about the storage emulator, including how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool.
+services: storage
+documentationcenter: ''
+author: mmacy
+manager: timlt
+editor: tysonn
+
+ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/08/2016
+wacn.date: ''
+ms.author: marsma
+---
 
 # Use the Azure Storage Emulator for Development and Testing
 ## Overview
 The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure storage account in the cloud.
 
-> [AZURE.NOTE] The storage emulator is available as part of the [Microsoft Azure SDK](/downloads/). You can also install the storage emulator using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). To configure the storage emulator, you must have administrative privileges on the computer.
+> [!NOTE]
+> The storage emulator is available as part of the [Microsoft Azure SDK](/downloads/). You can also install the storage emulator using the [standalone installer](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409). To configure the storage emulator, you must have administrative privileges on the computer.
 > 
 > The storage emulator currently runs only on Windows.
 >  
@@ -38,31 +40,35 @@ Some differences in functionality exist between the storage emulator and Azure s
 Just as with Azure Storage in the cloud, every request that you make against the storage emulator must be authenticated, unless it is an anonymous request. You can authenticate requests against the storage emulator using Shared Key authentication or with a shared access signature (SAS).
 
 ### Authentication with Shared Key credentials
-[AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
+[!INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
-For more details on connection strings, see [Configure Azure Storage Connection Strings](/documentation/articles/storage-configure-connection-string/). 
+For more details on connection strings, see [Configure Azure Storage Connection Strings](./storage-configure-connection-string.md). 
 
 ### Authentication with a shared access signature
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You will need to create this SAS token using a tool or application that supports Shared Key authentication. An easy way to generate the SAS token is via Azure PowerShell:
 
-1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](/documentation/articles/powershell-install-configure/#Install) for installation instructions.
+1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](../powershell-install-configure.md#Install) for installation instructions.
 2. Open Azure PowerShell and run the following commands. Remember to replace *ACCOUNT_NAME* and *ACCOUNT_KEY==* with your own credentials. Replace *CONTAINER_NAME* with a name of your choosing.
-   
-        $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-   
-        New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-   
-        $now = Get-Date 
-   
-        New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+
+    ```powershell
+    $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+
+    New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+
+    $now = Get-Date 
+
+    New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+    ```
 
 The resulting shared access signature URI for the new container should be similar to the following:
 
-	https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+```
+https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+```
 
 The shared access signature created with this example is valid for one day. The signature grants full access (i.e. read, write, delete, list) to blobs within the container.
 
-For more information on shared access signatures, see [Using Shared Access Signatures (SAS)](/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+For more information on shared access signatures, see [Using Shared Access Signatures (SAS)](./storage-dotnet-shared-access-signature-part-1.md).
 
 ## Start and initialize the storage emulator
 To start the Azure storage emulator, select the Start button or press the Windows key. Begin typing **Azure Storage Emulator**, and select the emulator from the list of applications. 
@@ -82,16 +88,22 @@ You can use the storage emulator command-line tool to initialize the storage emu
 
 1. Click the **Start** button or press the **Windows** key. Begin typing `Azure Storage Emulator` and select it when it appears to bring up the storage emulator command-line tool.
 2. In the command prompt window, type the following command, where `<SQLServerInstance>` is the name of the SQL Server instance. To use LocalDb, specify `(localdb)\v11.0` as the SQL Server instance.
-   
-        AzureStorageEmulator init /server <SQLServerInstance> 
-   
+
+    ```
+    AzureStorageEmulator init /server <SQLServerInstance> 
+    ```
+
     You can also use the following command, which directs the emulator to use the default SQL Server instance:
-   
-        AzureStorageEmulator init /server .\\ 
-   
+
+    ```
+    AzureStorageEmulator init /server .\\ 
+    ```
+
     Or, you can use the following command, which re-initializes the database to the default LocalDB instance:
-   
-        AzureStorageEmulator init /forceCreate 
+
+    ```
+    AzureStorageEmulator init /forceCreate 
+    ```
 
 For more information about these commands, see [Storage Emulator Command-Line Tool Reference](#storage-emulator-command-line-tool-reference).
 
@@ -100,41 +112,57 @@ The service endpoints for the storage emulator are different from those of an Az
 
 When you address a resource in an Azure storage account, you use the following scheme, where the account name is part of the URI host name, and the resource being addressed is part of the URI path:
 
-    <http|https>://<account-name>.<service-name>.core.chinacloudapi.cn/<resource-path>
+```
+<http|https>://<account-name>.<service-name>.core.chinacloudapi.cn/<resource-path>
+```
 
 For example, the following URI is a valid address for a blob in an Azure storage account:
 
-	https://myaccount.blob.core.chinacloudapi.cn/mycontainer/myblob.txt
+```
+https://myaccount.blob.core.chinacloudapi.cn/mycontainer/myblob.txt
+```
 
 In the storage emulator, because the local computer does not perform domain name resolution, the account name is part of the URI path instead of the host name. You use the following scheme for a resource running in the storage emulator:
 
-    http://<local-machine-address>:<port>/<account-name>/<resource-path>
+```
+http://<local-machine-address>:<port>/<account-name>/<resource-path>
+```
 
 For example, the following address might be used for accessing a blob in the storage emulator:
 
-    http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt
+```
+http://127.0.0.1:10000/myaccount/mycontainer/myblob.txt
+```
 
 The service endpoints for the storage emulator are:
 
-	Blob Service: http://127.0.0.1:10000/<account-name>/<resource-path>
-	Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
-	Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
+```
+Blob Service: http://127.0.0.1:10000/<account-name>/<resource-path>
+Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
+Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
+```
 
 ### Addressing the account secondary with RA-GRS
 Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS). For storage resources both in the cloud and in the local emulator, you can access the secondary location by appending -secondary to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in the storage emulator:
 
-    http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt 
+```
+http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt 
+```
 
-> [AZURE.NOTE] For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Storage Client Library for .NET](https://msdn.microsoft.com/zh-cn/library/azure/dn261237.aspx) for details.
+> [!NOTE]
+> For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Storage Client Library for .NET](https://msdn.microsoft.com/zh-cn/library/azure/dn261237.aspx) for details.
 
 ##<a name="storage-emulator-command-line-tool-reference"></a> Storage emulator command-line tool reference
 
 Starting in version 3.0, when you launch the Storage Emulator, you will see a command-line window pop up. Use the command-line window to start and stop the emulator as well as to query for status and perform other operations.
 
-> [AZURE.NOTE] If you have the Microsoft Azure compute emulator installed, a system tray icon will appear when you launch the Storage Emulator. Right-click on the icon to reveal a menu, which provides a graphical way to start and stop the Storage Emulator.
+> [!NOTE]
+> If you have the Microsoft Azure compute emulator installed, a system tray icon will appear when you launch the Storage Emulator. Right-click on the icon to reveal a menu, which provides a graphical way to start and stop the Storage Emulator.
 
 ### Command Line Syntax
-    AzureStorageEmulator [start] [stop] [status] [clear] [init] [help]
+```
+AzureStorageEmulator [start] [stop] [status] [clear] [init] [help]
+```
 
 ### Options
 To view the list of options, type `/help` at the command prompt.
@@ -146,7 +174,7 @@ To view the list of options, type `/help` at the command prompt.
 | **Status** | Prints the status of the storage emulator.                     | `AzureStorageEmulator status`                                                                                |                                                                                                                   |
 | **Clear**  | Clears the data in all services specified on the command line. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: Clears blob data. <br/>*queue*: Clears queue data. <br/>*table*: Clears table data. <br/>*all*: Clears all data in all services. |
 | **Init**   | Performs one-time initialization to set up the emulator.       | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName\instanceName*: Specifies the server hosting the SQL instance. <br/>*-sqlinstance instanceName*: Specifies the name of the SQL instance to be used in the default server instance. <br/>*-forcecreate*: Forces creation of the SQL database, even if it already exists. <br/>*-inprocess*: Performs initialization in the current process instead of spawning a new process. You must launch the current process with elevated permissions in order to perform initialization.          |
-                                                                                                                  
+
 ## Differences between the storage emulator and Azure Storage
 
 Because the storage emulator is an emulated enviroment running in a local SQL instance, there are some differences in functionality between the emulator and an Azure storage account in the cloud:
@@ -159,7 +187,7 @@ Because the storage emulator is an emulated enviroment running in a local SQL in
 
 - Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS). In the emulator, all accounts have RA-GRS enabled, and there is never any lag between the primary and secondary replicas. The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats operations are supported on the account secondary and will always return the value of the `LastSyncTime` response element as the current time according to the underlying SQL database.
 
-	For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Storage Client Library for .NET](https://msdn.microsoft.com/zh-cn/library/azure/dn261237.aspx) for details.
+    For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Storage Client Library for .NET](https://msdn.microsoft.com/zh-cn/library/azure/dn261237.aspx) for details.
 
 - The File service and SMB protocol service endpoints are not currently supported in the storage emulator.
 
@@ -222,4 +250,3 @@ There are no differences specific to Queue storage in the emulator.
 * The Azure storage emulator is no longer shipped in the same package as the compute emulator.
 * The storage emulator graphical user interface is deprecated in favor of a scriptable command line interface. For details on the command line interface, see Storage Emulator Command-Line Tool Reference. The graphical interface will continue to be present in version 3.0, but it can only be accessed when the Compute Emulator is installed by right-clicking on the system tray icon and selecting Show Storage Emulator UI.
 * Version 2013-08-15 of the Azure storage services is now fully supported. (Previously this version was only supported by Storage Emulator version 2.2.1 Preview.)
-

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Scaling Media Processing overview | Azure"
-    description="This topic is an overview of scaling Media Processing with Azure Media Services."
-    services="media-services"
-    documentationcenter=""
-    author="juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="780ef5c2-3bd6-4261-8540-6dee77041387"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/06/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Scaling Media Processing overview | Azure
+description: This topic is an overview of scaling Media Processing with Azure Media Services.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
+
+ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/06/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Scaling Media Processing overview
 This page gives an overview of how and why to scale media processing. 
@@ -35,7 +36,8 @@ Benchmark|[Input file: 5 minutes long 640x360p at 29.97 frames/second](https://w
 
 ##Considerations
 
->[AZURE.IMPORTANT] Review considerations described in this section.  
+>[!IMPORTANT]
+> Review considerations described in this section.  
 
 - Reserved Units work for parallelizing all media processing, including indexing jobs using Azure Media Indexer.  However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
 
@@ -47,18 +49,16 @@ Benchmark|[Input file: 5 minutes long 640x360p at 29.97 frames/second](https://w
 
 - The highest number of units specified for the 24-hour period is used in calculating the cost.
 
-
 ##Quotas and limitations
 
-For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](/documentation/articles/media-services-quotas-and-limitations/).
+For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](./media-services-quotas-and-limitations.md).
 
 ## Next step
 Achieve the scaling media processing task with one of these technologies: 
 
-> [AZURE.SELECTOR]
-- [.NET](/documentation/articles/media-services-dotnet-encoding-units/)
-- [Portal](/documentation/articles/media-services-portal-scale-media-processing/)
-- [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
-- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
-
+> [!div class="op_single_selector"]
+>- [.NET](./media-services-dotnet-encoding-units.md)
+>- [Portal](./media-services-portal-scale-media-processing.md)
+>- [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+>- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+>- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)

@@ -1,21 +1,21 @@
-<properties
- pageTitle="Scheduler High-Availability and Reliability"
- description="Scheduler High-Availability and Reliability"
- services="scheduler"
- documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="article"
- ms.date="08/16/2016"
- wacn.date=""
- ms.author="krisragh"/>
+---
+title: Scheduler High-Availability and Reliability
+description: Scheduler High-Availability and Reliability
+services: scheduler
+documentationCenter: .NET
+authors: krisragh
+manager: dwrede
+editor: ''
 
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/16/2016
+wacn.date: ''
+ms.author: krisragh
+---
 
 # Scheduler High-Availability and Reliability
 
@@ -47,7 +47,7 @@ Azure Scheduler allows you to configure a retry policy. By default, if a job fai
 
 As an example of when this may help, you may create a job that runs once a week and invokes an HTTP endpoint. If the HTTP endpoint is down for a few hours when your job runs, you may not want to wait one more week for the job to run again since even the default retry policy will fail. In such cases, you may reconfigure the standard retry policy to retry every three hours (for example) instead of every 30 seconds.
 
-To learn how to configure a retry policy, refer to [retryPolicy](/documentation/articles/scheduler-concepts-terms/#retrypolicy).
+To learn how to configure a retry policy, refer to [retryPolicy](./scheduler-concepts-terms.md#retrypolicy).
 
 ### Alternate Endpoint Configurability via “errorAction”
 
@@ -59,30 +59,28 @@ As an example, in the diagram below, Azure Scheduler follows its retry policy to
 
 Note that the same retry policy applies to both the original action and the alternate error action. It’s also possible to have the alternate error action’s action type be different from the main action’s action type. For example, while the main action may be invoking an HTTP endpoint, the error action may instead be a storage queue, service bus queue, or service bus topic action that does error-logging.
 
-To learn how to configure an alternate endpoint, refer to [errorAction](/documentation/articles/scheduler-concepts-terms/#action-and-erroraction).
+To learn how to configure an alternate endpoint, refer to [errorAction](./scheduler-concepts-terms.md#action-and-erroraction).
 
 ## See Also
- 
- [What is Scheduler?](/documentation/articles/scheduler-intro/)
- 
- [Scheduler Concepts, Terminology, and Entity Hierarchy](/documentation/articles/scheduler-concepts-terms/)
- 
- [Get Started Using Scheduler in the Management Portal](/documentation/articles/scheduler-get-started-portal/)
- 
- [Plans and Billing in Azure Scheduler](/documentation/articles/scheduler-plans-billing/)
- 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](/documentation/articles/scheduler-advanced-complexity/)
- 
+
+ [What is Scheduler?](./scheduler-intro.md)
+
+ [Scheduler Concepts, Terminology, and Entity Hierarchy](./scheduler-concepts-terms.md)
+
+ [Get Started Using Scheduler in the Management Portal](./scheduler-get-started-portal.md)
+
+ [Plans and Billing in Azure Scheduler](./scheduler-plans-billing.md)
+
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](./scheduler-advanced-complexity.md)
+
  [Azure Scheduler REST API reference](https://msdn.microsoft.com/zh-cn/library/mt629143)
- 
- [Scheduler PowerShell Cmdlets Reference](/documentation/articles/scheduler-powershell-reference/)
- 
- [Scheduler Limits, Defaults, and Error Codes](/documentation/articles/scheduler-limits-defaults-errors/)
- 
- [Scheduler Outbound Authentication](/documentation/articles/scheduler-outbound-authentication/)
- 
- 
+
+ [Scheduler PowerShell Cmdlets Reference](./scheduler-powershell-reference.md)
+
+ [Scheduler Limits, Defaults, and Error Codes](./scheduler-limits-defaults-errors.md)
+
+ [Scheduler Outbound Authentication](./scheduler-outbound-authentication.md)
+
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
-

@@ -1,29 +1,29 @@
-<properties
-    pageTitle="How to Encode an Asset using  Media Encoder Standard | Azure"
-    description="Learn how to use the  Media Encoder Standard to encode media content on Media Services. Code samples use REST API."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="2a7273c6-8a22-4f82-9bfe-4509ff32d4a4"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: How to Encode an Asset using  Media Encoder Standard | Azure
+description: Learn how to use the  Media Encoder Standard to encode media content on Media Services. Code samples use REST API.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
+
+ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 #How to encode an asset using Media Encoder Standard
 
-
-> [AZURE.SELECTOR]
-- [.NET](/documentation/articles/media-services-dotnet-encode-with-media-encoder-standard/)
-- [REST](/documentation/articles/media-services-rest-encode-asset/)
-- [Portal](/documentation/articles/media-services-portal-encode/)
+> [!div class="op_single_selector"]
+>- [.NET](./media-services-dotnet-encode-with-media-encoder-standard.md)
+>- [REST](./media-services-rest-encode-asset.md)
+>- [Portal](./media-services-portal-encode.md)
 
 ##Overview
 In order to deliver digital video over the internet you must compress the media. Digital video files are quite large and may be too big to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
@@ -35,20 +35,21 @@ Each Job can have one or more Tasks depending on the type of processing that you
 - Tasks can be defined inline through the Tasks navigation property on Job entities, or
 - through OData batch processing.
 
-It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](/documentation/articles/media-services-dynamic-packaging-overview/).
+It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](./media-services-dynamic-packaging-overview.md).
 
-If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](/documentation/articles/media-services-rest-configure-asset-delivery-policy/).
+If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](./media-services-rest-configure-asset-delivery-policy.md).
 
-
->[AZURE.NOTE]Before you start referencing media processors, verify that you have the correct media processor ID. For more information, see [Get Media Processors](/documentation/articles/media-services-rest-get-media-processor/).
+>[!NOTE]
+>Before you start referencing media processors, verify that you have the correct media processor ID. For more information, see [Get Media Processors](./media-services-rest-get-media-processor.md).
 
 ##Create a job with a single encoding task
 
->[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
+>[!NOTE]
+> When working with the Media Services REST API, the following considerations apply:
 >
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](/documentation/articles/media-services-rest-how-to-use/).
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
 
->After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](/documentation/articles/media-services-rest-connect-programmatically/). 
+>After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](./media-services-rest-connect-programmatically.md). 
 >
 >When using JSON and specifying to use the **__metadata** keyword in the request (for example, to references a linked object) you MUST set the **Accept** header to [JSON Verbose format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 
@@ -56,30 +57,35 @@ The following example shows you how to create and post a Job with one Task set t
 
 Request:
 
-	POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Jobs HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.11
-	Authorization: Bearer <token value>
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-	Host: wamsshaclus001rest-hs.chinacloudapp.cn
+```
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Jobs HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.11
+Authorization: Bearer <token value>
+x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
-	
-	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
+{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
+```
 
 Response:
-	
-	HTTP/1.1 201 Created
 
-	. . . 
+```
+HTTP/1.1 201 Created
+
+. . . 
+```
 
 ###Set the output asset's name
 
 The following example shows how to set the assetName attribute:
 
-	{ "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
+```
+{ "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
+```
 
 ##Considerations
 
@@ -96,41 +102,42 @@ The following example shows how to set the assetName attribute:
 ## Create a job with chained tasks
 In many application scenarios, developers want to create a series of processing tasks. In Media Services, you can create a series of chained tasks. Each task performs different processing steps and can use different media processors. The chained tasks can hand off an asset from one task to another, performing a linear sequence of tasks on the asset. However, the tasks performed in a job are not required to be in a sequence. When you create a chained task, the chained **ITask** objects are created in a single **IJob** object.
 
->[AZURE.NOTE] There is currently a limit of 30 tasks per job. If you need to chain more than 30 tasks, create more than one job to contain the tasks.
+>[!NOTE]
+> There is currently a limit of 30 tasks per job. If you need to chain more than 30 tasks, create more than one job to contain the tasks.
 
+```
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.11
+Authorization: Bearer <token value>
+x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
-	POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.11
-	Authorization: Bearer <token value>
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-
-	{  
-	   "Name":"NewTestJob",
-	   "InputMediaAssets":[  
-	      {  
-	         "__metadata":{  
-	            "uri":"https://testrest.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A910ffdc1-2e25-4b17-8a42-61ffd4b8914c')"
-	         }
-	      }
-	   ],
-	   "Tasks":[  
-	      {  
-	         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-	         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
-	      },
-	      {  
-	         "Configuration":"H264 Smooth Streaming 720p",
-	         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-	         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-16\"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
-	      }
-	   ]
-	}
-
+{  
+   "Name":"NewTestJob",
+   "InputMediaAssets":[  
+      {  
+         "__metadata":{  
+            "uri":"https://testrest.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A910ffdc1-2e25-4b17-8a42-61ffd4b8914c')"
+         }
+      }
+   ],
+   "Tasks":[  
+      {  
+         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
+         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
+      },
+      {  
+         "Configuration":"H264 Smooth Streaming 720p",
+         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-16\"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
+      }
+   ]
+}
+```
 
 ### Considerations
 To enable task chaining:
@@ -140,123 +147,119 @@ To enable task chaining:
 
 ## Use OData batch processing
 The following example shows how to use OData batch processing to create a job and tasks. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
- 
-	POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$batch HTTP/1.1
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Content-Type: multipart/mixed; boundary=batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
-	Accept: multipart/mixed
-	Accept-Charset: UTF-8
-	Authorization: Bearer <token>
-	x-ms-version: 2.11
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-	Host: wamsshaclus001rest-hs.chinacloudapp.cn
-	
-	
-	--batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
-	Content-Type: multipart/mixed; boundary=changeset_122fb0a4-cd80-4958-820f-346309967e4d
-	
-	--changeset_122fb0a4-cd80-4958-820f-346309967e4d
-	Content-Type: application/http
-	Content-Transfer-Encoding: binary
-	
-	POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs HTTP/1.1
-	Content-ID: 1
-	Content-Type: application/json
-	Accept: application/json
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	Accept-Charset: UTF-8
-	Authorization: Bearer <token>
-	x-ms-version: 2.11
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-	
-	{"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
-	
-	--changeset_122fb0a4-cd80-4958-820f-346309967e4d
-	Content-Type: application/http
-	Content-Transfer-Encoding: binary
-	
-	POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$1/Tasks HTTP/1.1
-	Content-ID: 2
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	Accept-Charset: UTF-8
-	Authorization: Bearer <token>
-	x-ms-version: 2.11
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-	
-	{  
-	   "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-	   "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-	   "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"Custom output name\">JobOutputAsset(0)</outputAsset></taskBody>"
-	}
 
-	--changeset_122fb0a4-cd80-4958-820f-346309967e4d--
-	--batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e--
- 
+```
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$batch HTTP/1.1
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Content-Type: multipart/mixed; boundary=batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
+Accept: multipart/mixed
+Accept-Charset: UTF-8
+Authorization: Bearer <token>
+x-ms-version: 2.11
+x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
+--batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
+Content-Type: multipart/mixed; boundary=changeset_122fb0a4-cd80-4958-820f-346309967e4d
+
+--changeset_122fb0a4-cd80-4958-820f-346309967e4d
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs HTTP/1.1
+Content-ID: 1
+Content-Type: application/json
+Accept: application/json
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+Accept-Charset: UTF-8
+Authorization: Bearer <token>
+x-ms-version: 2.11
+x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+
+{"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
+
+--changeset_122fb0a4-cd80-4958-820f-346309967e4d
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$1/Tasks HTTP/1.1
+Content-ID: 2
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+Accept-Charset: UTF-8
+Authorization: Bearer <token>
+x-ms-version: 2.11
+x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+
+{  
+   "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
+   "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+   "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"Custom output name\">JobOutputAsset(0)</outputAsset></taskBody>"
+}
+
+--changeset_122fb0a4-cd80-4958-820f-346309967e4d--
+--batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e--
+```
 
 ## Create a Job using a JobTemplate
 When processing multiple Assets using a common set of Tasks, JobTemplates are useful to specify the default Task presets, order of Tasks, and so on.
 
 The following example shows how to create a JobTemplate with a TaskTemplate defined inline. The TaskTemplate uses the Media Encoder Standard as the MediaProcessor to encode the Asset file; however, other MediaProcessors could be used as well. 
 
+```
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/JobTemplates HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.11
+Authorization: Bearer <token value>
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
-	POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/JobTemplates HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.11
-	Authorization: Bearer <token value>
-	Host: wamsshaclus001rest-hs.chinacloudapp.cn
+{"Name" : "NewJobTemplate25", "JobTemplateBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><jobTemplate><taskBody taskTemplateId=\"nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789\"><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody></jobTemplate>", "TaskTemplates" : [{"Id" : "nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789", "Configuration" : "H264 Smooth Streaming 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56", "Name" : "SampleTaskTemplate2", "NumberofInputAssets" : 1, "NumberofOutputAssets" : 1}] }
+```
 
-	
-	{"Name" : "NewJobTemplate25", "JobTemplateBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><jobTemplate><taskBody taskTemplateId=\"nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789\"><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody></jobTemplate>", "TaskTemplates" : [{"Id" : "nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789", "Configuration" : "H264 Smooth Streaming 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56", "Name" : "SampleTaskTemplate2", "NumberofInputAssets" : 1, "NumberofOutputAssets" : 1}] }
- 
-
->[AZURE.NOTE]Unlike other Media Services entities, you must define a new GUID identifier for each TaskTemplate and place it in the taskTemplateId and Id property in your request body. The content identification scheme must follow the scheme described in Identify Azure Media Services Entities. Also, JobTemplates cannot be updated. Instead, you must create a new one with your updated changes.
- 
+>[!NOTE]
+>Unlike other Media Services entities, you must define a new GUID identifier for each TaskTemplate and place it in the taskTemplateId and Id property in your request body. The content identification scheme must follow the scheme described in Identify Azure Media Services Entities. Also, JobTemplates cannot be updated. Instead, you must create a new one with your updated changes.
 
 If successful, the following response is returned:
-	
-	HTTP/1.1 201 Created
-	
-	. . .
 
+```
+HTTP/1.1 201 Created
+
+. . .
+```
 
 The following example shows how to create a Job referencing a JobTemplate Id:
 
-	POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Jobs HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.11
-	Authorization: Bearer <token value>
-	Host: wamsshaclus001rest-hs.chinacloudapp.cn
+```
+POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Jobs HTTP/1.1
+Content-Type: application/json;odata=verbose
+Accept: application/json;odata=verbose
+DataServiceVersion: 3.0
+MaxDataServiceVersion: 3.0
+x-ms-version: 2.11
+Authorization: Bearer <token value>
+Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
-	
-	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A3f1fe4a2-68f5-4190-9557-cd45beccef92')"}}], "TemplateId" : "nb:jtid:UUID:15e6e5e6-ac85-084e-9dc2-db3645fbf0aa"}
-	 
+{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A3f1fe4a2-68f5-4190-9557-cd45beccef92')"}}], "TemplateId" : "nb:jtid:UUID:15e6e5e6-ac85-084e-9dc2-db3645fbf0aa"}
+```
 
 If successful, the following response is returned:
-	
-	HTTP/1.1 201 Created
-	
-	. . . 
 
+```
+HTTP/1.1 201 Created
 
-
-
+. . . 
+```
 
 ##Next Steps
-Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](/documentation/articles/media-services-rest-check-job-progress/) topic.
-
+Now that you know how to create a job to encode an assset, go to the [How To Check Job Progress with Media Services](./media-services-rest-check-job-progress.md) topic.
 
 ##See Also
 
-[Get Media Processors](/documentation/articles/media-services-rest-get-media-processor/)
+[Get Media Processors](./media-services-rest-get-media-processor.md)

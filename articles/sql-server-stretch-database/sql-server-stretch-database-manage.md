@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Manage and troubleshoot Stretch Database | Azure"
-	description="Learn how to manage and troubleshoot Stretch Database."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+---
+title: Manage and troubleshoot Stretch Database | Azure
+description: Learn how to manage and troubleshoot Stretch Database.
+services: sql-server-stretch-database
+documentationCenter: ''
+authors: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-	ms.service="sql-server-stretch-database"
-	ms.date="06/27/2016"
-	wacn.date=""/>
+ms.service: sql-server-stretch-database
+ms.date: 06/27/2016
+wacn.date: ''
+---
 
 # Manage and troubleshoot Stretch Database
 
@@ -23,24 +23,25 @@ Open the catalog views **sys.databases** and **sys.tables** to see info about St
 
 To see how much space a Stretch\-enabled table is using in SQL Server, run the following statement.
 
-
-	USE <Stretch-enabled database name>;
-	GO
-	EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'LOCAL_ONLY';
-	GO
+```tsql
+USE <Stretch-enabled database name>;
+GO
+EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'LOCAL_ONLY';
+GO
+```
 
 ## Manage data migration
 
 ### Check the filter function applied to a table
-Open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column to identify the function that Stretch Database is using to select rows to migrate. If the value is null, the entire table is eligible to be migrated. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/zh-cn/library/dn935003.aspx) and [Select rows to migrate by using a filter function](/documentation/articles/sql-server-stretch-database-predicate-function).
+Open the catalog view **sys.remote\_data\_archive\_tables** and check the value of the **filter\_predicate** column to identify the function that Stretch Database is using to select rows to migrate. If the value is null, the entire table is eligible to be migrated. For more info, see [sys.remote_data_archive_tables (Transact-SQL)](https://msdn.microsoft.com/zh-cn/library/dn935003.aspx) and [Select rows to migrate by using a filter function](./sql-server-stretch-database-predicate-function.md).
 
 ### <a name="Migration"></a>Check the status of data migration
-Select **Tasks | Stretch | Monitor** for a database in SQL Server Management Studio to monitor data migration in Stretch Database Monitor. For more info, see [Monitor and troubleshoot data migration (Stretch Database)](/documentation/articles/sql-server-stretch-database-monitor/).
+Select **Tasks | Stretch | Monitor** for a database in SQL Server Management Studio to monitor data migration in Stretch Database Monitor. For more info, see [Monitor and troubleshoot data migration (Stretch Database)](./sql-server-stretch-database-monitor.md).
 
 Or, open the dynamic management view **sys.dm\_db\_rda\_migration\_status** to see how many batches and rows of data have been migrated.
 
 ### <a name="Firewall"></a>Troubleshoot data migration
-For troubleshooting suggestions, see [Monitor and troubleshoot data migration (Stretch Database)](/documentation/articles/sql-server-stretch-database-monitor/).
+For troubleshooting suggestions, see [Monitor and troubleshoot data migration (Stretch Database)](./sql-server-stretch-database-monitor.md).
 
 ## Manage remote data
 
@@ -49,10 +50,12 @@ Open the catalog views **sys.remote\_data\_archive\_databases** and **sys.remote
 
 To see how much space a Stretch-enabled table is using in Azure, run the following statement.
 
-	USE <Stretch-enabled database name>;
-	GO
-	EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'REMOTE_ONLY';
-	GO
+```tsql
+USE <Stretch-enabled database name>;
+GO
+EXEC sp_spaceused '<Stretch-enabled table name>', 'true', 'REMOTE_ONLY';
+GO
+```
 
 ### Delete migrated data  
 If you want to delete data that has already been migrated to Azure, follow the steps described in [sys.sp_rda_reconcile_batch](https://msdn.microsoft.com/zh-cn/library/mt707768.aspx).
@@ -100,10 +103,12 @@ When you build, rebuild, or reorganize an index on a large table that's configur
 
 For example, the following query returns local results only.  
 
-	 USE <Stretch-enabled database name>;
-	 GO
-	 SELECT * FROM <Stretch_enabled table name> WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_ONLY) WHERE ... ;
-	 GO
+```tsql
+ USE <Stretch-enabled database name>;
+ GO
+ SELECT * FROM <Stretch_enabled table name> WITH (REMOTE_DATA_ARCHIVE_OVERRIDE = LOCAL_ONLY) WHERE ... ;
+ GO
+```
 
 ## <a name="adminHints"></a>Make administrative updates and deletes  
  By default you can't UPDATE or DELETE rows that are eligible for migration, or rows that have already been migrated, in a Stretch\-enabled table. When you have to fix a problem, a member of the db_owner role can run an UPDATE or DELETE operation by adding the **WITH \( REMOTE_DATA_ARCHIVE_OVERRIDE = *value* \)** query hint to the statement. The REMOTE_DATA_ARCHIVE_OVERRIDE query hint can have the following values.  
@@ -115,8 +120,8 @@ For example, the following query returns local results only.
 
 ## See also
 
-[Monitor Stretch Database](/documentation/articles/sql-server-stretch-database-monitor/)
+[Monitor Stretch Database](./sql-server-stretch-database-monitor.md)
 
-[Backup Stretch-enabled databases](/documentation/articles/sql-server-stretch-database-backup/)
+[Backup Stretch-enabled databases](./sql-server-stretch-database-backup.md)
 
-[Restore Stretch-enabled databases](/documentation/articles/sql-server-stretch-database-restore/)
+[Restore Stretch-enabled databases](./sql-server-stretch-database-restore.md)

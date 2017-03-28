@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Read messages from your Azure IoT hub | Azure"
-    description="Run a sample code on your host computer to read the messages from your IoT hub."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="data in the cloud, cloud data collection, iot cloud service, iot data" />
-<tags
-    ms.assetid="cc88be24-b5c0-4ef2-ba21-4e8f77f3e167"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Read messages from your Azure IoT hub | Azure
+description: Run a sample code on your host computer to read the messages from your IoT hub.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: data in the cloud, cloud data collection, iot cloud service, iot data
+
+ms.assetid: cc88be24-b5c0-4ef2-ba21-4e8f77f3e167
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Read messages from your IoT hub
 
@@ -91,6 +92,4 @@ The messages that are being sent and received are all displayed instantly on the
 You've run a sample code to read messages from your IoT hub. You're ready to read the messages that are stored in your Azure table storage.
 
 ## Next steps
-[Create an Azure function app and Azure Storage account](/documentation/articles/iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template/)
-
-
+[Create an Azure function app and Azure Storage account](./iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)

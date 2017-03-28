@@ -1,31 +1,31 @@
-<properties
-   pageTitle="Partitioning tables in SQL Data Warehouse | Microsoft Azure"
-   description="Getting started with table partitioning in Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Partitioning tables in SQL Data Warehouse | Microsoft Azure
+description: Getting started with table partitioning in Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+---
 
 # Partitioning tables in SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [Overview][]
-- [Data Types][]
-- [Distribute][]
-- [Index][]
-- [Partition][]
-- [Statistics][]
-- [Temporary][]
+> [!div class="op_single_selector"]
+>- [Overview][]
+>- [Data Types][]
+>- [Distribute][]
+>- [Index][]
+>- [Partition][]
+>- [Statistics][]
+>- [Temporary][]
 
 Partitioning is supported on all SQL Data Warehouse table types; including clustered columnstore, clustered index, and heap.  Partitioning is also supported on all distribution types, including both hash or round robin distributed.  Partitioning enables you to divide your data into smaller groups of data and in most cases, partitioning is done on a date column.
 
@@ -174,11 +174,11 @@ VALUES (1,19990101,1,1,1,1,1,1);
 INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
 
-
 CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
-> [AZURE.NOTE] By Creating the statistic object, we ensure that table metadata is more accurate. If we omit creating statistics, then SQL Data Warehouse will use default values. For details on statistics please review [statistics][].
+> [!NOTE]
+> By Creating the statistic object, we ensure that table metadata is more accurate. If we omit creating statistics, then SQL Data Warehouse will use default values. For details on statistics please review [statistics][].
 
 We can then query for the row count using the `sys.partitions` catalog view:
 
@@ -363,6 +363,5 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [partition function]: https://msdn.microsoft.com/library/ms187802.aspx
 [partition scheme]: https://msdn.microsoft.com/library/ms179854.aspx
-
 
 <!-- Other web references -->

@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Use Azure Automation to vertically scale Windows virtual machines | Azure"
-    description="Vertically scale a Windows Virtual Machine in response to monitoring alerts with Azure Automation"
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="singhkays"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="4f964713-fb67-4bcc-8246-3431452ddf7d"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/29/2016"
-    wacn.date=""
-    ms.author="kasing"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Use Azure Automation to vertically scale Windows virtual machines | Azure
+description: Vertically scale a Windows Virtual Machine in response to monitoring alerts with Azure Automation
+services: virtual-machines-windows
+documentationcenter: ''
+author: singhkays
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 4f964713-fb67-4bcc-8246-3431452ddf7d
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 03/29/2016
+wacn.date: ''
+ms.author: kasing
+ms.custom: H1Hack27Feb2017
+---
 
 # Vertically scale Windows VMs with Azure Automation
 
@@ -33,7 +34,7 @@ The outline for the steps to accomplish this is as below
 3. Add a webhook to your runbook
 4. Add an alert to your Virtual Machine
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Because of the size of the first Virtual Machine, the sizes it can be scaled to, may be limited due to the availability of the other sizes in the cluster current Virtual Machine is deployed in. In the published automation runbooks used in this article we take care of this case and only scale within the below VM size pairs. This means that a Standard_D1v2 Virtual Machine will not suddenly be scaled up to Standard_G5 or scaled down to Basic_A0.
 > 
 > | VM sizes scaling pair |  |
@@ -57,12 +58,12 @@ The outline for the steps to accomplish this is as below
 ## Setup Azure Automation to access your Virtual Machines
 The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale a Virtual Machine. Recently the Automation service introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on the user's behalf very easy. You can read more about this in the article below:
 
-* [Authenticate Runbooks with Azure Run As account](/documentation/articles/automation-sec-configure-azure-runas-account/)
+* [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## Import the Azure Automation Vertical Scale runbooks into your subscription
 The runbooks that are needed for Vertically Scaling your Virtual Machine are already published in the Azure Automation Runbook Gallery. You will need to import them into your subscription. You can learn how to import runbooks by reading the following article.
 
-* [Runbook and module galleries for Azure Automation](/documentation/articles/automation-runbook-gallery/)
+* [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md)
 
 The runbooks that need to be imported are shown in the image below
 
@@ -71,7 +72,7 @@ The runbooks that need to be imported are shown in the image below
 ## Add a webhook to your runbook
 Once you've imported the runbooks you'll need to add a webhook to the runbook so it can be triggered by an alert from a Virtual Machine. The details of creating a webhook for your Runbook can be read here
 
-* [Azure Automation webhooks](/documentation/articles/automation-webhooks/)
+* [Azure Automation webhooks](../automation/automation-webhooks.md)
 
 Make sure you copy the webhook before closing the webhook dialog as you will need this in the next section.
 

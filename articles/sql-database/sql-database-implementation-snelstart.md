@@ -1,28 +1,28 @@
-<properties
-    pageTitle="Azure SQL Database Azure Case Study - Snelstart | Azure"
-    description="Learn about how SnelStart uses SQL Database to rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month"
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="fab506b2-439d-4f1a-bdc5-d1d25c80d267"
-    ms.service="sql-database"
-    ms.custom="app development case study"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: Azure SQL Database Azure Case Study - Snelstart | Azure
+description: Learn about how SnelStart uses SQL Database to rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: fab506b2-439d-4f1a-bdc5-d1d25c80d267
+ms.service: sql-database
+ms.custom: app development case study
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/10/2017
+wacn.date: ''
+ms.author: carlrab
+---
 
 # With Azure, SnelStart has rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
 SnelStart makes popular financial- and business-management software for small- and medium-sized businesses (SMBs) in the Netherlands. Its 55,000 customers are serviced by a staff of 110 employees, including an IT staff of 35. By moving from desktop software to a software-as-a-service (SaaS) offering built on Azure, SnelStart made the most of built-in services, automating management using familiar environment in C#, and optimizing performance and scalability by neither over- or under-provisioning businesses using elastic pools. Using Azure provides SnelStart the fluidity of moving customers between on-premises and the cloud.
-
 
 ## Why SnelStart extended services from the desktop to the cloud
 > “Working with Azure means we can deliver software faster, quickly react to customer demands, and scale solutions when demands increase.”
@@ -90,12 +90,10 @@ The immediate goal for SnelStart is to keep growing its satisfied customer base.
 
 ## More information
 
-- To learn more about Azure elastic pools, see [elastic pools](/documentation/articles/sql-database-elastic-pool/).
+- To learn more about Azure elastic pools, see [elastic pools](./sql-database-elastic-pool.md).
 
-- To learn more about Web roles and worker roles, see [worker roles](/documentation/articles/fundamentals-introduction-to-azure/#compute).	
+- To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).	
 
-- To learn more about Azure SQL Data Warehouse,see [SQL Data Warehouse](/documentation/services/sql-data-warehouse/)
+- To learn more about Azure SQL Data Warehouse,see [SQL Data Warehouse](../sql-data-warehouse/index.md)
 
 - To learn more about SnelStart, see [SnelStart](http://www.snelstart.nl).
-
-

@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="How to Configure an App Service Environment | Azure"
-    description="Configuration, management, and monitoring of App Service Environments"
-    services="app-service"
-    documentationcenter=""
-    author="ccompy"
-    manager="stefsch"
-    editor="" />
-<tags
-    ms.assetid="b5a1da49-4cab-460d-b5d2-edd086ec32f4"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/17/2016"
-    wacn.date=""
-    ms.author="ccompy" />
+---
+title: How to Configure an App Service Environment | Azure
+description: Configuration, management, and monitoring of App Service Environments
+services: app-service
+documentationcenter: ''
+author: ccompy
+manager: stefsch
+editor: ''
+
+ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/17/2016
+wacn.date: ''
+ms.author: ccompy
+---
 
 # Configuring an App Service Environment
 ## Overview
@@ -34,7 +35,7 @@ You use the compute resources for your four resource pools.  Each App Service En
 
 The hosts in the resource pools (front ends and workers) are not directly accessible to tenants. You can't use Remote Desktop Protocol (RDP) to connect to them, change their provisioning, or act as an admin on them.
 
-You can set resource pool quantity and size. In an ASE, you have four size options, which are labeled P1 through P4. For details about those sizes and their pricing, see [App Service pricing](/documentation/articles/app-service-value-prop-what-is/).
+You can set resource pool quantity and size. In an ASE, you have four size options, which are labeled P1 through P4. For details about those sizes and their pricing, see [App Service pricing](../app-service/app-service-value-prop-what-is.md).
 Changing the quantity or size is called a scale operation.  Only one scale operation can be in progress at a time.
 
 **Front ends**: The front ends are the HTTP/HTTPS endpoints for your apps that are held in your ASE. You don't run workloads in the front ends.
@@ -92,7 +93,7 @@ For example, you can use VNET Integration to integrate with a virtual network th
 If you do have your virtual network configured with an ExpressRoute VPN, you should be aware of some of the routing needs that an ASE has. There are some user-defined route (UDR) configurations that are incompatible with an ASE. For more details about running an ASE in a virtual network with ExpressRoute, see [Running an App Service Environment in a virtual network with ExpressRoute][ExpressRoute].
 
 #### Securing inbound traffic
-There are two primary methods to control inbound traffic to your ASE.  You can use Network Security Groups(NSGs) to control what IP addresses can access your ASE as described here [How to control inbound traffic in an App Service Environment](/documentation/articles/app-service-app-service-environment-control-inbound-traffic/) and you can also configure your ASE with an Internal Load Balancer(ILB).  These features can also be used together if you want to restrict access using NSGs to your ILB ASE.
+There are two primary methods to control inbound traffic to your ASE.  You can use Network Security Groups(NSGs) to control what IP addresses can access your ASE as described here [How to control inbound traffic in an App Service Environment](./app-service-app-service-environment-control-inbound-traffic.md) and you can also configure your ASE with an Internal Load Balancer(ILB).  These features can also be used together if you want to restrict access using NSGs to your ILB ASE.
 
 When you create an ASE, it will create a VIP in your VNet.  There are two VIP types, external and internal.  When you create an ASE with an external VIP then your apps in your ASE will be accessible via an internet routable IP address. When you select Internal your ASE will be configured with an ILB and will not be directly internet accessible.  An ILB ASE still requires an external VIP but it is only used for Azure management and maintenance access.  
 
@@ -185,13 +186,13 @@ If you want to delete an App Service Environment, then simply use the **Delete**
 ![Delete an App Service Environment UI][9]  
 
 ## Getting started
-To get started with App Service Environments, see [How to create an App Service Environment](/documentation/articles/app-service-web-how-to-create-an-app-service-environment/).
+To get started with App Service Environments, see [How to create an App Service Environment](./app-service-web-how-to-create-an-app-service-environment.md).
 
-For more information about the Azure App Service platform, see [Azure App Service](/documentation/articles/app-service-value-prop-what-is/).
+For more information about the Azure App Service platform, see [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!--Image references-->
 [1]: ./media/app-service-web-configure-an-app-service-environment/ase-icon.png
@@ -205,14 +206,14 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [9]: ./media/app-service-web-configure-an-app-service-environment/aseconfig-deletease.png
 
 <!--Links-->
-[WhatisASE]: /documentation/articles/app-service-app-service-environment-intro/
-[Appserviceplans]: /documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[HowtoCreateASE]: /documentation/articles/app-service-web-how-to-create-an-app-service-environment/
-[HowtoScale]: /documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment/
-[ControlInbound]: /documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[virtualnetwork]: /documentation/articles/virtual-networks-faq/
-[AppServicePricing]: /pricing/overview/app-service/
-[AzureAppService]: /documentation/articles/app-service-value-prop-what-is/
-[ASEAutoscale]: /documentation/articles/app-service-environment-auto-scale/
-[ExpressRoute]: /documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
-[ILBASE]: /documentation/articles/app-service-environment-with-internal-load-balancer/
+[WhatisASE]: ./app-service-app-service-environment-intro.md
+[Appserviceplans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
+[HowtoCreateASE]: ./app-service-web-how-to-create-an-app-service-environment.md
+[HowtoScale]: ./app-service-web-scale-a-web-app-in-an-app-service-environment.md
+[ControlInbound]: ./app-service-app-service-environment-control-inbound-traffic.md
+[virtualnetwork]: ../virtual-network/virtual-networks-faq.md
+[AppServicePricing]: https://www.azure.cn/pricing/overview/app-service/
+[AzureAppService]: ../app-service/app-service-value-prop-what-is.md
+[ASEAutoscale]: ../app-service/app-service-environment-auto-scale.md
+[ExpressRoute]: ./app-service-app-service-environment-network-configuration-expressroute.md
+[ILBASE]: ./app-service-environment-with-internal-load-balancer.md

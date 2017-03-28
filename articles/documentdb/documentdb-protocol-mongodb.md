@@ -1,22 +1,23 @@
-<properties
-    pageTitle="What is DocumentDB protocol support for MongoDB? | Azure"
-    description="What is DocumentDB protocol support for MongoDB? It enables you to use Azure DocumentDB, a managed cloud-based service, as the data store for apps written for MongoDB."
-    keywords="what is MongoDB"
-    services="documentdb"
-    author="AndrewHoh"
-    manager="jhubbard"
-    editor=""
-    documentationcenter="" />
-<tags
-    ms.assetid="4afaf40d-c560-42e0-83b4-a64d94671f0a"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/16/2017"
-    wacn.date=""
-    ms.author="anhoh" />
+---
+title: What is DocumentDB protocol support for MongoDB? | Azure
+description: What is DocumentDB protocol support for MongoDB? It enables you to use Azure DocumentDB, a managed cloud-based service, as the data store for apps written for MongoDB.
+keywords: what is MongoDB
+services: documentdb
+author: AndrewHoh
+manager: jhubbard
+editor: ''
+documentationcenter: ''
+
+ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/16/2017
+wacn.date: ''
+ms.author: anhoh
+---
 
 # What is DocumentDB protocol support for MongoDB?
 
@@ -36,11 +37,10 @@ Create a DocumentDB account with protocol support for MongoDB in the [Azure Port
 
 *And, that's it!*
 
-For more detailed instructions, follow [create account](/documentation/articles/documentdb-create-mongodb-account/) and [connect to your account](/documentation/articles/documentdb-connect-mongodb-account/).
+For more detailed instructions, follow [create account](./documentdb-create-mongodb-account.md) and [connect to your account](./documentdb-connect-mongodb-account.md).
 
 ## Next steps
-- Follow the [Create a DocumentDB account with protocol support for MongoDB](/documentation/articles/documentdb-create-mongodb-account/) tutorial to create a DocumentDB account.
-- Follow the [Connect to a DocumentDB account with protocol support for MongoDB](/documentation/articles/documentdb-connect-mongodb-account/) tutorial to learn how to get your account connection string information.
-- Follow the [Use MongoChef with a DocumentDB account with protocol support for MongoDB](/documentation/articles/documentdb-mongodb-mongochef/) tutorial to learn how to create a connection between your DocumentDB database and MongoDB app in MongoChef.
-- Explore DocumentDB with protocol support for MongoDB [samples](/documentation/articles/documentdb-mongodb-samples/).
-
+- Follow the [Create a DocumentDB account with protocol support for MongoDB](./documentdb-create-mongodb-account.md) tutorial to create a DocumentDB account.
+- Follow the [Connect to a DocumentDB account with protocol support for MongoDB](./documentdb-connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
+- Follow the [Use MongoChef with a DocumentDB account with protocol support for MongoDB](./documentdb-mongodb-mongochef.md) tutorial to learn how to create a connection between your DocumentDB database and MongoDB app in MongoChef.
+- Explore DocumentDB with protocol support for MongoDB [samples](./documentdb-mongodb-samples.md).

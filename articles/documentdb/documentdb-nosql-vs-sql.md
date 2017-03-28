@@ -1,23 +1,24 @@
-<properties
-    pageTitle="When to use NoSQL vs SQL | Azure"
-    description="Compare the benefits of using NoSQL non-relational solutions versus SQL solutions. Learn whether one of the Azure NoSQL services or SQL Server best fits your scenario."
-    keywords="nosql vs sql, when to use NoSQL, sql vs nosql"
-    services="documentdb"
-    documentationcenter=""
-    author="mimig1"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="71ef1798-d709-4ccb-9f5c-57948fb96229"
-    ms.service="documentdb"
-    ms.custom="overview"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="11/22/2016"
-    wacn.date=""
-    ms.author="mimig" />
+---
+title: When to use NoSQL vs SQL | Azure
+description: Compare the benefits of using NoSQL non-relational solutions versus SQL solutions. Learn whether one of the Azure NoSQL services or SQL Server best fits your scenario.
+keywords: nosql vs sql, when to use NoSQL, sql vs nosql
+services: documentdb
+documentationcenter: ''
+author: mimig1
+manager: jhubbard
+editor: ''
+
+ms.assetid: 71ef1798-d709-4ccb-9f5c-57948fb96229
+ms.service: documentdb
+ms.custom: overview
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 11/22/2016
+wacn.date: ''
+ms.author: mimig
+---
 
 # NoSQL vs SQL
 SQL Server and relational databases (RDBMS) have been the go-to databases for over 20 years. However, the increased need to process higher volumes, velocities, and varieties of data at a rapid rate has altered the nature of data storage needs for application developers. In order to enable this scenario, NoSQL databases that enable storing unstructured and heterogeneous data at scale have gained in popularity. For most developers, relational databases are the default or go-to option because a table structure is easy to understand and is familiar, but there are many reasons to explore beyond relational databases.
@@ -39,34 +40,36 @@ So far, so good, but now think about the structure of a single post and how to d
 
 Now you could use a relational solution like SQL Server to store the data and query it using joins, as SQL supports dynamic data [formatted as JSON](https://msdn.microsoft.com/zh-cn/library/dn921897.aspx) - but there's another option, a NoSQL option that simplifies the approach for this specific scenario. By using a single document like the following and storing it in DocumentDB, an Azure NoSQL document database service, you can increase performance and retrieve the whole post with one query and no joins. It's a simpler, more straightforward, and more performant result.
 
-    {
-        "id":"ew12-res2-234e-544f",
-        "title":"post title",
-        "date":"2016-01-01",
-        "body":"this is an awesome post stored on NoSQL",
-        "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
-        "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
-        ],
-        "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
-        ]
-    }
+```
+{
+    "id":"ew12-res2-234e-544f",
+    "title":"post title",
+    "date":"2016-01-01",
+    "body":"this is an awesome post stored on NoSQL",
+    "createdBy":User,
+    "images":["http://myfirstimage.png","http://mysecondimage.png"],
+    "videos":[
+        {"url":"http://myfirstvideo.mp4", "title":"The first video"},
+        {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+    ],
+    "audios":[
+        {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
+        {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+    ]
+}
+```
 
 In addition, this data can be partitioned by post id allowing the data to scale out naturally and take advantage of NoSQL scale characteristics. Also NoSQL systems allow developers to loosen consistency and offer highly available apps with low-latency.  Finally, this solution does not require developers to define, manage and maintain schema in the data tier allowing for rapid iteration.
 
 You can then build on this solution using other Azure services:
 
-- [Azure Search](/home/features/search/) can be used via the web app to enable users to search for posts.
-- [Azure App Services](/home/features/app-service/) can be used to host applications and background processes.
-- [Azure Blob Storage](/home/features/storage/) can be used to store full user profiles including images.
-- [Azure SQL Database](/home/features/sql-database/) can be used to store massive amounts of data such as login information, and data for usage analytics.
-- [Azure Machine Learning](/home/features/machine-learning/)  can be used to build knowledge and intelligence that can provide feedback to the process and help deliver the right content to the right users.
+- [Azure Search](https://www.azure.cn/home/features/search/) can be used via the web app to enable users to search for posts.
+- [Azure App Services](https://www.azure.cn/home/features/app-service/) can be used to host applications and background processes.
+- [Azure Blob Storage](https://www.azure.cn/home/features/storage/) can be used to store full user profiles including images.
+- [Azure SQL Database](https://www.azure.cn/home/features/sql-database/) can be used to store massive amounts of data such as login information, and data for usage analytics.
+- [Azure Machine Learning](https://www.azure.cn/home/features/machine-learning/)  can be used to build knowledge and intelligence that can provide feedback to the process and help deliver the right content to the right users.
 
-This social engagement site is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](/documentation/articles/documentdb-social-media-apps/). 
+This social engagement site is just one one scenario in which a NoSQL database is the right data model for the job. If you're interested in reading more about this scenario and how to model your data for DocumentDB in social media applications, see [Going social with DocumentDB](./documentdb-social-media-apps.md). 
 
 ## NoSQL vs SQL comparison
 The following table compares the main differences between NoSQL and SQL. 
@@ -78,10 +81,10 @@ If a NoSQL database best suits your requirements, continue to the next section t
 ## What are the Azure NoSQL offerings?
 Azure has four fully-managed NoSQL services: 
 
-- [Azure DocumentDB](/home/features/documentdb/)
-- [Azure Table Storage](/home/features/storage/)
-- [Azure HBase as a part of HDInsight](/home/features/hdinsight/)
-- [Azure Redis Cache](/home/features/redis-cache/)
+- [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/)
+- [Azure Table Storage](https://www.azure.cn/home/features/storage/)
+- [Azure HBase as a part of HDInsight](https://www.azure.cn/home/features/hdinsight/)
+- [Azure Redis Cache](https://www.azure.cn/home/features/redis-cache/)
 
 The following comparison chart maps out the key differentiators for each service. Which one most accurately describes the needs of your application? 
 
@@ -89,22 +92,22 @@ The following comparison chart maps out the key differentiators for each service
 
 If one or more of these services might meet the needs of your application, learn more with the following resources: 
 
-- [DocumentDB use cases](/documentation/articles/documentdb-use-cases/)
-- [Get started with Azure table storage](/documentation/articles/storage-dotnet-how-to-use-tables/)
-- [What is HBase in HDInsight](/documentation/articles/hdinsight-hbase-overview/)
+- [DocumentDB use cases](./documentdb-use-cases.md)
+- [Get started with Azure table storage](../storage/storage-dotnet-how-to-use-tables.md)
+- [What is HBase in HDInsight](../hdinsight/hdinsight-hbase-overview.md)
 
 Then go to [Next steps](#next-steps) for trial information.
 
 ## What are the Microsoft SQL offerings?
 Microsoft has five SQL offerings: 
 
-- [Azure SQL Database](/home/features/sql-database/)
-- [SQL Server on Azure Virtual Machines](/home/features/virtual-machines#SQL/)
+- [Azure SQL Database](https://www.azure.cn/home/features/sql-database/)
+- [SQL Server on Azure Virtual Machines](https://www.azure.cn/home/features/virtual-machines#SQL/)
 - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-- [Azure SQL Data Warehouse](/home/features/sql-data-warehouse/)
+- [Azure SQL Data Warehouse](https://www.azure.cn/home/features/sql-data-warehouse/)
 - [Analytics Platform System (on-premises appliance)](https://www.microsoft.com/en-us/server-cloud/products/analytics-platform-system/)
 
-If you're interested in SQL Server on a Virtual Machine or SQL Database, then read [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](/documentation/articles/sql-database-paas-vs-sql-server-iaas/) to learn more about the differences between the two.
+If you're interested in SQL Server on a Virtual Machine or SQL Database, then read [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) to learn more about the differences between the two.
 
 If SQL sounds like the best option, then go to [SQL Server](https://www.microsoft.com/server-cloud/products/) to learn more about what our Microsoft SQL products and services have to offer.
 
@@ -113,16 +116,15 @@ Then go to [Next steps](#next-steps) for trial and evaluation links.
 ## Next steps
 We invite you to learn more about our SQL and NoSQL products by trying them out for free. 
 
-- For all Azure services, you can sign up for a [free one-month trial](/pricing/1rmb-trial/).
-  
-  - [Azure DocumentDB](/home/features/documentdb/)
-  - [Azure HBase as a part of HDInsight](/home/features/hdinsight/)
-  - [Azure Redis Cache](/home/features/redis-cache/)
-  - [Azure SQL Data Warehouse](/home/features/sql-data-warehouse/)
-  - [Azure SQL Database](/home/features/sql-database/)
-  - [Azure Table Storage](/home/features/storage/)
-- You can spin up an evaluation version of SQL Server 2016 on a virtual machine or download an [evaluation version of SQL Server](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).
-  
-  - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
-  - [SQL Server on Azure Virtual Machines](/home/features/virtual-machines#SQL/)
+- For all Azure services, you can sign up for a [free one-month trial](https://www.azure.cn/pricing/1rmb-trial/).
 
+  - [Azure DocumentDB](https://www.azure.cn/home/features/documentdb/)
+  - [Azure HBase as a part of HDInsight](https://www.azure.cn/home/features/hdinsight/)
+  - [Azure Redis Cache](https://www.azure.cn/home/features/redis-cache/)
+  - [Azure SQL Data Warehouse](https://www.azure.cn/home/features/sql-data-warehouse/)
+  - [Azure SQL Database](https://www.azure.cn/home/features/sql-database/)
+  - [Azure Table Storage](https://www.azure.cn/home/features/storage/)
+- You can spin up an evaluation version of SQL Server 2016 on a virtual machine or download an [evaluation version of SQL Server](https://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2016).
+
+  - [SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-2016/)
+  - [SQL Server on Azure Virtual Machines](https://www.azure.cn/home/features/virtual-machines#SQL/)

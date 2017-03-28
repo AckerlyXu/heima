@@ -1,25 +1,25 @@
-<properties
-   pageTitle="Troubleshooting Docker Client Errors on Windows Using Visual Studio | Azure"
-   description="Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio."
-   services="azure-container-service"
-   documentationCenter="na"
-   authors="mlearned"
-   manager="douge"
-   editor="" />
-<tags
-   ms.service="multiple"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="multiple"
-   ms.date="06/08/2016"
-   ms.author="allclark" />
+---
+title: Troubleshooting Docker Client Errors on Windows Using Visual Studio | Azure
+description: Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio.
+services: azure-container-service
+documentationCenter: na
+authors: mlearned
+manager: douge
+editor: ''
+
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 06/08/2016
+ms.author: allclark
+---
 
 # Troubleshooting Visual Studio Docker Development
 
 When working with Visual Studio Tools for Docker Preview, you may encounter some problems due to the preview nature.
 The following are some common issues and resolutions.
-
 
 ## Unable to validate volume mapping
 Volume mapping is required to share the source code and binaries of your application with the app folder in the container.  Specific volume mappings are 
@@ -79,7 +79,6 @@ If this returns an error then attempt to start the **Docker For Windows** deskto
 icon in the tray should be visible. Right click on the tray icon and open **Settings**.  Click on the **Reset** tab and then **Restart Docker..**.
 
 ##Manually upgrading from version 0.31 to 0.40
-
 
 1. Backup the project
 1. Delete the following files in the project:
@@ -143,4 +142,4 @@ We have occasionally seen after uninstalling and installing extensions, Visual S
        MEFCacheBackup
     ```
 1. Open Visual Studio
-1. Attempt the scenario again 
+1. Attempt the scenario again

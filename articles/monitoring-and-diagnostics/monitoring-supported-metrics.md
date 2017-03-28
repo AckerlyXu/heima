@@ -1,25 +1,26 @@
-<properties
-	pageTitle="Azure Monitor metrics - supported metrics per resource type  | Azure"
-	description="List of metrics available for each resource type with Azure Monitor."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Azure Monitor metrics - supported metrics per resource type  | Azure
+description: List of metrics available for each resource type with Azure Monitor.
+authors: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/17/2017"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/17/2017
+ms.author: johnkem
+---
 
 # Supported metrics with Azure Monitor
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline.
 
-> [AZURE.NOTE] Other metrics may be available in the portal or using legacy APIs. This list only includes public preview metrics available using the public preview of the consolidated Azure Monitor metric pipeline.
+> [!NOTE]
+> Other metrics may be available in the portal or using legacy APIs. This list only includes public preview metrics available using the public preview of the consolidated Azure Monitor metric pipeline.
 
 ## Microsoft.AnalysisServices/servers
 
@@ -601,6 +602,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 ## Next steps
 
-- [Read about metrics in Azure Monitor](/documentation/articles/monitoring-overview/#monitoring-sources)
-- [Create alerts on metrics](/documentation/articles/insights-receive-alert-notifications/)
-- [Export metrics to storage, Event Hub, or Log Analytics](/documentation/articles/monitoring-overview-of-diagnostic-logs/)
+- [Read about metrics in Azure Monitor](./monitoring-overview.md#monitoring-sources)
+- [Create alerts on metrics](./insights-receive-alert-notifications.md)
+- [Export metrics to storage, Event Hub, or Log Analytics](./monitoring-overview-of-diagnostic-logs.md)

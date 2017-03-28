@@ -1,17 +1,17 @@
-<properties
-	pageTitle="Finding unmanaged cloud applications with Cloud App Discovery | Azure"
-	description="Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works."
-	services="active-directory"
-	keywords="cloud app discovery, managing applications"
-	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
-	editor=""/>
+---
+title: Finding unmanaged cloud applications with Cloud App Discovery | Azure
+description: Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works.
+services: active-directory
+keywords: cloud app discovery, managing applications
+documentationCenter: ''
+authors: markusvi
+manager: stevenpo
+editor: ''
 
-<tags 
-	ms.service="active-directory" 
-	ms.date="04/30/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 04/30/2016
+wacn.date: ''
+---
 
 # Finding unmanaged cloud applications with Cloud App Discovery
 
@@ -37,10 +37,10 @@ Cloud App Discovery is a feature of Azure Active Directory (AD) Premium that ena
 To get started with Cloud App Discovery, see [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
 ## Related articles
-- [Cloud App Discovery Security and Privacy Considerations](/documentation/articles/active-directory-cloudappdiscovery-security-and-privacy-considerations/)  
+- [Cloud App Discovery Security and Privacy Considerations](./active-directory-cloudappdiscovery-security-and-privacy-considerations.md)  
 - [Cloud App Discovery Group Policy Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)
 - [Cloud App Discovery System Center Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)
-- [Cloud App Discovery Registry Settings for Proxy Servers with Custom Ports](/documentation/articles/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/)
+- [Cloud App Discovery Registry Settings for Proxy Servers with Custom Ports](./active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 - [Cloud App Discovery Agent Changelog ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Cloud App Discovery Frequently Asked Questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
-- [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
+- [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)

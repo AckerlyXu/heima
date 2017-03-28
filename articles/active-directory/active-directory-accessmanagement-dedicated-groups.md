@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Dedicated groups in Azure Active Directory | Azure"
-	description="Overview of how dedicated groups work in Azure Active Directory and how they are created."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""
-	/>
+---
+title: Dedicated groups in Azure Active Directory | Azure
+description: Overview of how dedicated groups work in Azure Active Directory and how they are created.
+services: active-directory
+documentationCenter: ''
+authors: curtand
+manager: femila
+editor: ''
 
-<tags 
-	ms.service="active-directory" 
-	ms.date="08/10/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 08/10/2016
+wacn.date: ''
+---
 
 # Dedicated groups in Azure Active Directory
 
 In Azure Active Directory (Azure AD), the dedicated groups feature automatically creates and populates membership for Azure AD predefined groups. Members of dedicated groups cannot be added or removed using the Azure classic portal, Windows PowerShell cmdlets, or programmatically.
 
->[AZURE.NOTE] Dedicated groups require that an Azure AD Premium license is assigned to
+>[!NOTE]
+> Dedicated groups require that an Azure AD Premium license is assigned to
 >- the administrator who manages the rule on a group
 >- all users who are selected by the rule to be a member of the group
 
@@ -35,19 +35,22 @@ The All Users group can be used to assign the same permissions to all the users 
 
 The dedicated All Users group includes all users in the directory, including guests and external users. If you need a group that excludes external users, then you can accomplish this by creating a group with an attribute-based dynamic rule such as the following:
 
-				(user.userPrincipalName -notContains "#EXT#@")
+```
+            (user.userPrincipalName -notContains "#EXT#@")
+```
 
 For a group that excludes all Guests, use a rule such as the following:
 
-				(user.userType -ne "Guest")
+```
+            (user.userType -ne "Guest")
+```
 
-To learn about how to create *advanced* rules (rules that can contain multiple comparisons) for dynamic group membership, see [Using attributes to create advanced rules](/documentation/articles/active-directory-accessmanagement-groups-with-advanced-rules/).
-
+To learn about how to create *advanced* rules (rules that can contain multiple comparisons) for dynamic group membership, see [Using attributes to create advanced rules](./active-directory-accessmanagement-groups-with-advanced-rules.md).
 
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](/documentation/articles/active-directory-manage-groups/)
-* [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
-* [What is Azure Active Directory?](/documentation/articles/active-directory-whatis/)
+* [Managing access to resources with Azure Active Directory groups](./active-directory-manage-groups.md)
+* [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
+* [What is Azure Active Directory?](./active-directory-whatis.md)
 
-* [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+* [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)

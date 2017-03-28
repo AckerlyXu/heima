@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Resource Manager support for Load Balancer | Azure"
-    description="Using powershell for Load Balancer with Azure Resource Manager. Using templates for load balancer"
-    services="load-balancer"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="d0394f11-ee5a-4407-9d86-79c936297265"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/24/2016"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Azure Resource Manager support for Load Balancer | Azure
+description: Using powershell for Load Balancer with Azure Resource Manager. Using templates for load balancer
+services: load-balancer
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: tysonn
+
+ms.assetid: d0394f11-ee5a-4407-9d86-79c936297265
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/24/2016
+wacn.date: ''
+ms.author: kumud
+---
 
 # Using Azure Resource Manager Support with Azure Load Balancer
 
@@ -39,9 +40,9 @@ Azure Resource Manager allows you to provision your applications using a declara
 
 Templates can include definitions for Virtual Machines, Virtual Networks, Availability Sets, Network Interfaces (NICs), Storage Accounts, Load Balancers, Network Security Groups, and Public IPs. With templates you can create everything you need for a complex application. The template file can be checked into content management system for version control and collaboration.
 
-[Learn more about templates](/documentation/articles/resource-manager-template-walkthrough/)
+[Learn more about templates](../azure-resource-manager/resource-manager-template-walkthrough.md)
 
-[Learn more about Network Resources](/documentation/articles/resource-groups-networking/)
+[Learn more about Network Resources](../virtual-network/resource-groups-networking.md)
 
 Quickstart templates using Azure Load Balancer can be found in a [GitHub repository](https://github.com/Azure/azure-quickstart-templates) hosting a set of community generated templates.
 
@@ -56,12 +57,12 @@ Examples of templates:
 Get started with Azure Resource Manager cmdlets, command line tools, and REST APIs
 
 * [Azure Networking Cmdlets](https://msdn.microsoft.com/zh-cn/library/azure/mt163510.aspx) can be used to create a Load Balancer.
-* [How to create a load balancer using Azure Resource Manager](/documentation/articles/load-balancer-get-started-ilb-arm-ps/)
-* [Using the Azure CLI with Azure Resource Management](/documentation/articles/xplat-cli-azure-resource-manager/)
+* [How to create a load balancer using Azure Resource Manager](./load-balancer-get-started-ilb-arm-ps.md)
+* [Using the Azure CLI with Azure Resource Management](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
 * [Load Balancer REST APIs](https://msdn.microsoft.com/zh-cn/library/azure/mt163651.aspx)
 
 ## Next steps
 
-You can also [get started creating an Internet facing load balancer](/documentation/articles/load-balancer-get-started-internet-arm-ps/) and configure what type of [distribution mode](/documentation/articles/load-balancer-distribution-mode/) for a specific load balancer network traffic behavior.
+You can also [get started creating an Internet facing load balancer](./load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](./load-balancer-distribution-mode.md) for a specific load balancer network traffic behavior.
 
-Learn how to manage [idle TCP timeout settings for a load balancer](/documentation/articles/load-balancer-tcp-idle-timeout/). This is important when your application needs to keep connections alive for servers behind a load balancer.
+Learn how to manage [idle TCP timeout settings for a load balancer](./load-balancer-tcp-idle-timeout.md). This is important when your application needs to keep connections alive for servers behind a load balancer.

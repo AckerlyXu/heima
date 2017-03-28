@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Manage databases in Azure SQL Data Warehouse | Azure"
-   description="Overview of managing SQL Data Warehouse databases. Includes management tools, DWUs and scale-out performance, troubleshooting query performance, establishing good security policies, and restoring a database from data corruption or from a regional outage."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="barbkess"
-   editor=""/>
+---
+title: Manage databases in Azure SQL Data Warehouse | Azure
+description: Overview of managing SQL Data Warehouse databases. Includes management tools, DWUs and scale-out performance, troubleshooting query performance, establishing good security policies, and restoring a database from data corruption or from a regional outage.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: barbkess
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="barbkess;sonyama;"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: barbkess;sonyama;
+---
 
 # Manage databases in Azure SQL Data Warehouse
 SQL Data Warehouse automates many aspects of managing your databases. For example, to scale performance you only need to adjust and pay for the right level of compute resources, and then let SQL Data Warehouse do all the work of scaling out and scaling back.
@@ -88,20 +88,20 @@ Using good database design principles will make it easier to manage your databas
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse (Azure Portal)]: /documentation/articles/sql-data-warehouse-get-started-provision/
-[Create a database (PowerShell)]: /documentation/articles/sql-data-warehouse-get-started-provision-powershell/
+[Create a SQL Data Warehouse (Azure Portal)]: ./sql-data-warehouse-get-started-provision.md
+[Create a database (PowerShell)]: ./sql-data-warehouse-get-started-provision-powershell.md
 [connection]: /documentation/articles/sql-data-warehouse-develop-connections/
 [Query Azure SQL Data Warehouse with Visual Studio]: /documentation/articles/sql-data-warehouse-get-started-connect/
-[Connect and query with sqlcmd]: /documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
+[Connect and query with sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 [Development overview]: /documentation/articles/sql-data-warehouse-overview-development/
-[Monitor your workload using DMVs]: /documentation/articles/sql-data-warehouse-manage-monitor/
+[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute]: /documentation/articles/sql-data-warehouse-overview-scalability/#pause-compute-bk
 [Restore from snapshot]: /documentation/articles/sql-data-warehouse-backup-and-restore-from-snapshot/
 [Resume compute]: /documentation/articles/sql-data-warehouse-overview-scalability/#resume-compute-performance-bk
 [Scale performance]: /documentation/articles/sql-data-warehouse-overview-scalability/#scale-performance-bk
 [Security overview]: /documentation/articles/sql-data-warehouse-overview-security/
-[SQL Data Warehouse Best Practices]: /documentation/articles/sql-data-warehouse-best-practices/
-[SQL Data Warehouse system views]: /documentation/articles/sql-data-warehouse-reference-tsql-system-views/
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse system views]: ./sql-data-warehouse-reference-tsql-system-views.md
 
 <!--MSDN references-->
 [SQL Server Data Tools]: https://msdn.microsoft.com/zh-cn/library/mt204009.aspx

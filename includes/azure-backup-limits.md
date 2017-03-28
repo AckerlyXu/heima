@@ -9,4 +9,3 @@ The following limits apply to Azure Backup.
 | Data disks attached to an Azure virtual machine for backup |16 |
 
 * <sup>1</sup>The 54400 GB limit does not apply to IaaS VM backup.
-

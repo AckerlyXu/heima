@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Run a sample application to send device-to-cloud messages to Azure IoT Hub | Azure"
-    description="Deploy and run a sample application to Intel Edison that sends messages to your IoT hub and blinks the LED."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="iot cloud service, arduino send data to cloud" />
-<tags
-    ms.assetid="12672b64-795a-4dfc-86fd-df53ed3eeef7"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Run a sample application to send device-to-cloud messages to Azure IoT Hub | Azure
+description: Deploy and run a sample application to Intel Edison that sends messages to your IoT hub and blinks the LED.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: iot cloud service, arduino send data to cloud
+
+ms.assetid: 12672b64-795a-4dfc-86fd-df53ed3eeef7
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Run a sample application to send device-to-cloud messages
 ## What you will do
@@ -62,7 +63,7 @@ Use `myinteledison` as the value of `{device id}` if you didn't change the value
    npm install
    gulp init
    ```
-   > [AZURE.NOTE]
+   > [!NOTE]
    > Run **gulp install-tools** as well, if you haven't done it in Lesson 1.
 
 2. Open the device configuration file `config-edison.json` in Visual Studio Code by running the following command:
@@ -83,7 +84,7 @@ Use `myinteledison` as the value of `{device id}` if you didn't change the value
    * Replace **[IoT device connection string]** with the `device connection string` you obtained.
    * Replace **[IoT hub connection string]** with the `iot hub connection string` you obtained.
 
-   > [AZURE.NOTE]
+   > [!NOTE]
    > You don't need `azure_storage_connection_string` in this article. Keep it as is.
 
 ## Deploy and run the sample application
@@ -105,7 +106,7 @@ You've deployed and run the new blink sample application on Edison to send devic
 [Read messages persisted in Azure Storage][read-messages-persisted-in-azure-storage]
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-c-troubleshooting/
-[process-and-store-iot-hub-messages]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template/
+[troubleshooting]: ./iot-hub-intel-edison-kit-c-troubleshooting.md
+[process-and-store-iot-hub-messages]: ./iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
 [sample-application-with-sent-and-received-messages]: ./media/iot-hub-intel-edison-lessons/lesson3/gulp_run_c.png
-[read-messages-persisted-in-azure-storage]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson3-read-table-storage/
+[read-messages-persisted-in-azure-storage]: ./iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md

@@ -1,24 +1,25 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="App Service on Linux | Azure"
-    description="What is Azure App Service on Linux? An introduction to App Service on Linux."
-    keywords="azure app service, linux, oss"
-    services="app-service"
-    documentationcenter=""
-    author="naziml"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="b6a85bc6-5fe2-45d7-aae6-3bf93c314548"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    wacn.date=""
-    ms.author="naziml" />
+---
+title: App Service on Linux | Azure
+description: What is Azure App Service on Linux? An introduction to App Service on Linux.
+keywords: azure app service, linux, oss
+services: app-service
+documentationcenter: ''
+author: naziml
+manager: erikre
+editor: ''
+
+ms.assetid: b6a85bc6-5fe2-45d7-aae6-3bf93c314548
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+wacn.date: ''
+ms.author: naziml
+---
 
 # App Service on Linux Documentation
 App Service on Linux is currently in Public Preview and enables customers to run their web apps natively on a Linux platform. This allows for better application compatibility for certain kinds of applications and makes it easier to migrate existing web apps hosted on a Linux platform elsewhere onto Azure App Services.
@@ -31,6 +32,6 @@ Customers can create web apps on Linux only within a Linux enabled App Service P
 > 
 > 
 
-* [What is App Service on Linux?](/documentation/articles/app-service-linux-intro/)
-* [Creating Apps in an App Service on Linux](/documentation/articles/app-service-linux-how-to-create-a-web-app/)
-* [Azure App Service Web Apps on Linux FAQ](/documentation/articles/app-service-linux-faq/)
+* [What is App Service on Linux?](../app-service-web/app-service-linux-intro.md)
+* [Creating Apps in an App Service on Linux](../app-service-web/app-service-linux-how-to-create-a-web-app.md)
+* [Azure App Service Web Apps on Linux FAQ](../app-service-web/app-service-linux-faq.md)

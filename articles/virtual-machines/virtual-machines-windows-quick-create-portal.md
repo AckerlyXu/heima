@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure Quick Start - Create Windows VM Portal | Azure"
-    description="Azure Quick Start - Create Windows VM Portal"
-    services="virtual-machines-windows"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Azure Quick Start - Create Windows VM Portal | Azure
+description: Azure Quick Start - Create Windows VM Portal
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: ''
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Create a Windows virtual machine with the Azure portal preview
 
@@ -64,6 +65,6 @@ When no longer needed, delete the resource group, virtual machine, and all relat
 
 ## Next steps
 
-[Install a role and configure firewall tutorial](/documentation/articles/virtual-machines-windows-hero-role/)
+[Install a role and configure firewall tutorial](./virtual-machines-windows-hero-role.md)
 
-[Explore VM deployment CLI samples](/documentation/articles/virtual-machines-windows-cli-samples/)
+[Explore VM deployment CLI samples](./virtual-machines-windows-cli-samples.md)

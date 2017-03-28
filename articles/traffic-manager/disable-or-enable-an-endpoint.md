@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Disable or Enable a Traffic Manager endpoint | Azure"
-    description="This article will help disable or enable your Traffic Manager profile endpoints."
-    services="traffic-manager"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="9b2264ce-be06-43b2-a00b-5c724e5d71fd"
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/18/2016"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Disable or Enable a Traffic Manager endpoint | Azure
+description: This article will help disable or enable your Traffic Manager profile endpoints.
+services: traffic-manager
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: tysonn
+
+ms.assetid: 9b2264ce-be06-43b2-a00b-5c724e5d71fd
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+wacn.date: ''
+ms.author: kumud
+---
 
 <!-- repub for nofollow -->
 
 # Disable or Enable a Traffic Manager Endpoint
 You can also disable individual endpoints that are part of a Traffic Manager profile. Endpoints include both cloud services and websites. Disabling an endpoint leaves it as part of the profile, but the profile acts as if the endpoint is not included in it. This action is very useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, it can be enabled
 
-> [AZURE.NOTE]
+> [!NOTE]
 > **Disabling an endpoint has nothing to do with its deployment state in Azure. A healthy endpoint will remain up and able to receive traffic even when disabled in Traffic Manager. Additionally, disabling an endpoint in one profile does not affect its status in another profile.**
 > 
 > 
@@ -40,8 +41,8 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 4. Traffic will start flowing to the service again as dictated by the profile.
 
 ## Next Steps
-[Traffic Manager - Disable, enable or delete a profile](/documentation/articles/disable-enable-or-delete-a-profile/)
+[Traffic Manager - Disable, enable or delete a profile](./disable-enable-or-delete-a-profile.md)
 
-[Troubleshooting Traffic Manager degraded state](/documentation/articles/traffic-manager-troubleshooting-degraded/)
+[Troubleshooting Traffic Manager degraded state](./traffic-manager-troubleshooting-degraded.md)
 
-[Traffic Manager performance considerations](/documentation/articles/traffic-manager-performance-considerations/)
+[Traffic Manager performance considerations](./traffic-manager-performance-considerations.md)

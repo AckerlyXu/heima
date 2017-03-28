@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Availability and consistency in Azure Event Hubs | Azure"
-    description="How to provide the maximum amount of availability and consistency with Azure Event Hubs using partitions."
-    services="event-hubs"
-    documentationcenter="na"
-    author="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="8f3637a1-bbd7-481e-be49-b3adf9510ba1"
-    ms.service="event-hubs"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/16/2017"
-    wacn.date=""
-    ms.author="sethm;jotaub" />
+---
+title: Availability and consistency in Azure Event Hubs | Azure
+description: How to provide the maximum amount of availability and consistency with Azure Event Hubs using partitions.
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
+
+ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/16/2017
+wacn.date: ''
+ms.author: sethm;jotaub
+---
 
 # Availability and consistency in Event Hubs
 
 ## Overview
-Azure Event Hubs uses a [partitioning model](/documentation/articles/event-hubs-what-is-event-hubs/#partitions) that allows for greater uptime within a single Event Hub. For example, if an Event Hub has four partitions, and one of those partitions has failed, or been taken offline for updates, you can still send and receive from three other partitions. However, Event Hubs can only guarantee the ordering of messages on a single partition. For this reason, it can be benefical to send and receive events from a specific partition when ordering matters.
+Azure Event Hubs uses a [partitioning model](./event-hubs-what-is-event-hubs.md#partitions) that allows for greater uptime within a single Event Hub. For example, if an Event Hub has four partitions, and one of those partitions has failed, or been taken offline for updates, you can still send and receive from three other partitions. However, Event Hubs can only guarantee the ordering of messages on a single partition. For this reason, it can be benefical to send and receive events from a specific partition when ordering matters.
 
 To help explain the tradeoff between ordering and availability, we can look to the [CAP theorem](https://en.wikipedia.org/wiki/CAP_theorem), also known as Brewer's theorem. The theorem states that, one must choose between consistency, availability, and partition tolerance.
 
@@ -44,19 +45,21 @@ With this type of configuration, you must keep in mind that if the particular pa
 
 One possible solution to ensure ordering, while also maximizing uptime would be to aggregate events as a part of your event processing applicaton. The easiest way to accomplish this would be to stamp your event with a custom sequence number property. The following is an example of such:
 
-    // Get the latest sequence number from your application
-    var sequenceNumber = GetNextSequenceNumber();
-    // Create a new EventData object by encoding a string as a byte array
-    var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
-    // Set a custom sequence number property
-    data.Properties.Add("SequenceNumber", sequenceNumber);
-    // Send single message async
-    await eventHubClient.SendAsync(data);
+```csharp
+// Get the latest sequence number from your application
+var sequenceNumber = GetNextSequenceNumber();
+// Create a new EventData object by encoding a string as a byte array
+var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
+// Set a custom sequence number property
+data.Properties.Add("SequenceNumber", sequenceNumber);
+// Send single message async
+await eventHubClient.SendAsync(data);
+```
 
 The preceeding example would send your event to one of the available partitions in your Event Hub, and set the corresponding sequence number from your application. This solution requires state to be kept by your processing application, but would give your senders an endpoint that is more likely to be available.
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](/documentation/articles/event-hubs-what-is-event-hubs/)
-* [Create an Event Hub](/documentation/articles/event-hubs-create/)
+* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](./event-hubs-create.md)

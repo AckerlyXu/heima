@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure Network Watcher Agent virtual machine extension for Windows | Azure"
-    description="Deploy the Network Watcher Agent on Windows virtual machine using a virtual machine extension."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="dennisg"
-    manager="amku"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="27e46af7-2150-45e8-b084-ba33de8c5e3f"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure-services"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="dennisg" />
+---
+title: Azure Network Watcher Agent virtual machine extension for Windows | Azure
+description: Deploy the Network Watcher Agent on Windows virtual machine using a virtual machine extension.
+services: virtual-machines-windows
+documentationcenter: ''
+author: dennisg
+manager: amku
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 27e46af7-2150-45e8-b084-ba33de8c5e3f
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: dennisg
+---
 
 # Network Watcher Agent virtual machine extension for Windows
 
@@ -40,21 +41,23 @@ Some of the Network Watcher Agent functionality requires that the target virtual
 
 The following JSON shows the schema for the Network Watcher Agent extension. The extension neither requires nor supports any user-supplied settings at this time and relies on its default configuration.
 
-    {
-        "type": "extensions",
-        "name": "Microsoft.Azure.NetworkWatcher",
-        "apiVersion": "[variables('apiVersion')]",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.Azure.NetworkWatcher",
-            "type": "NetworkWatcherAgentWindows",
-            "typeHandlerVersion": "1.4",
-            "autoUpgradeMinorVersion": true
-        }
+```json
+{
+    "type": "extensions",
+    "name": "Microsoft.Azure.NetworkWatcher",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Azure.NetworkWatcher",
+        "type": "NetworkWatcherAgentWindows",
+        "typeHandlerVersion": "1.4",
+        "autoUpgradeMinorVersion": true
     }
+}
+```
 
 ### Property values
 
@@ -73,13 +76,15 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 
 The `Set-AzureRmVMExtension` command can be used to deploy the Network Watcher Agent virtual machine extension to an existing virtual machine.
 
-    Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
-                           -Location "ChinaNorth" `
-                           -VMName "myVM1" `
-                           -Name "networkWatcherAgent" `
-                           -Publisher "Microsoft.Azure.NetworkWatcher" `
-                           -Type "NetworkWatcherAgentWindows" `
-                           -TypeHandlerVersion "1.4"
+```powershell
+Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
+                       -Location "ChinaNorth" `
+                       -VMName "myVM1" `
+                       -Name "networkWatcherAgent" `
+                       -Publisher "Microsoft.Azure.NetworkWatcher" `
+                       -Type "NetworkWatcherAgentWindows" `
+                       -TypeHandlerVersion "1.4"
+```
 
 ## Troubleshooting and support
 
@@ -87,12 +92,16 @@ The `Set-AzureRmVMExtension` command can be used to deploy the Network Watcher A
 
 Data about the state of extension deployments can be retrieved from the Azure portal preview, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell module.
 
-    Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
+```powershell
+Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
+```
 
 Extension execution output is logged to files found in the following directory:
 
-    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentWindows\
+```cmd
+C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentWindows\
+```
 
 ### Support
 
-If you need more help at any point in this article, you can refer to the Network Watcher User Guide documentation or contact the Azure experts on the [MSDN Azure and CSDN Azure](/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](/support/faq/).
+If you need more help at any point in this article, you can refer to the Network Watcher User Guide documentation or contact the Azure experts on the [MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](https://www.azure.cn/support/faq/).

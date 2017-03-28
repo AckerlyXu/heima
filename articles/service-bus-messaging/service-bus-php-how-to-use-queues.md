@@ -1,40 +1,41 @@
-<properties 
-	pageTitle="How to use Service Bus queues with PHP | Azure" 
-	description="Learn how to use Service Bus queues in Azure. Code samples written in PHP." 
-	services="service-bus" 
-	documentationCenter="php" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+---
+title: How to use Service Bus queues with PHP | Azure
+description: Learn how to use Service Bus queues in Azure. Code samples written in PHP.
+services: service-bus
+documentationCenter: php
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="01/18/2017" 
-	ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: PHP
+ms.topic: article
+ms.date: 01/18/2017
+ms.author: sethm
+---
 
 # How to use Service Bus queues
 
-[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This guide shows you how to use Service Bus queues. The samples are written in PHP and use the [Azure SDK for PHP](/documentation/articles/php-download-sdk/). The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**.
+This guide shows you how to use Service Bus queues. The samples are written in PHP and use the [Azure SDK for PHP](../php-download-sdk.md). The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**.
 
-[AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Create a PHP application
 
-The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP](/documentation/articles/php-download-sdk/) from within your code. You can use any development tools to create your application, or Notepad.
+The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP](../php-download-sdk.md) from within your code. You can use any development tools to create your application, or Notepad.
 
-> [AZURE.NOTE] Your PHP installation must also have the [OpenSSL extension](http://php.net/openssl) installed and enabled.
+> [!NOTE]
+> Your PHP installation must also have the [OpenSSL extension](http://php.net/openssl) installed and enabled.
 
 In this guide, you will use service features which can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ## Get the Azure client libraries
 
-[AZURE.INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
 ## Configure your application to use Service Bus
 
@@ -45,7 +46,8 @@ To use the Service Bus queue APIs, do the following:
 
 The following example shows how to include the autoloader file and reference the `ServicesBuilder` class.
 
-> [AZURE.NOTE] This example (and other examples in this article) assumes you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you must reference the **WindowsAzure.php** autoloader file.
+> [!NOTE]
+> This example (and other examples in this article) assumes you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you must reference the **WindowsAzure.php** autoloader file.
 
 ```
 require_once 'vendor/autoload.php';
@@ -97,24 +99,25 @@ use WindowsAzure\ServiceBus\Models\QueueInfo;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-	
+
 try	{
-	$queueInfo = new QueueInfo("myqueue");
-		
-	// Create queue.
-	$serviceBusRestProxy->createQueue($queueInfo);
+    $queueInfo = new QueueInfo("myqueue");
+
+    // Create queue.
+    $serviceBusRestProxy->createQueue($queueInfo);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179357
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179357
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
-> [AZURE.NOTE] You can use the `listQueues` method on `ServiceBusRestProxy` objects to check if a queue with a specified name already exists within a namespace.
+> [!NOTE]
+> You can use the `listQueues` method on `ServiceBusRestProxy` objects to check if a queue with a specified name already exists within a namespace.
 
 ## How to: send messages to a queue
 To send a message to a Service Bus queue, your application calls the `ServiceBusRestProxy->sendQueueMessage` method. The following code shows how to send a message to the `myqueue` queue previously created within the
@@ -129,28 +132,28 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-		
+
 try	{
-	// Create message.
-	$message = new BrokeredMessage();
-	$message->setBody("my message");
-	
-	// Send message.
-	$serviceBusRestProxy->sendQueueMessage("myqueue", $message);
+    // Create message.
+    $message = new BrokeredMessage();
+    $message->setBody("my message");
+
+    // Send message.
+    $serviceBusRestProxy->sendQueueMessage("myqueue", $message);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/zh-cn/library/windowsazure/hh780775
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/hh780775
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
 Messages sent to (and received from ) Service Bus queues are instances of the [BrokeredMessage][BrokeredMessage] class. [BrokeredMessage][BrokeredMessage] objects have a set of standard methods and properties that are used to hold custom application-specific properties, and a body of arbitrary application data.
 
-Service Bus queues support a maximum message size of 256 KB in the [Standard tier](/documentation/articles/service-bus-premium-messaging/) and 1 MB in the [Premium tier](/documentation/articles/service-bus-premium-messaging). The header, which includes the standard and custom application properties, can have
+Service Bus queues support a maximum message size of 256 KB in the [Standard tier](./service-bus-premium-messaging.md) and 1 MB in the [Premium tier](./service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This upper limit on queue size is 5 GB.
 
 ## How to receive messages from a queue
@@ -171,32 +174,32 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-		
+
 try	{
-	// Set the receive mode to PeekLock (default is ReceiveAndDelete).
-	$options = new ReceiveMessageOptions();
-	$options->setPeekLock();
-		
-	// Receive message.
-	$message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
-	echo "Body: ".$message->getBody()."<br />";
-	echo "MessageID: ".$message->getMessageId()."<br />";
-		
-	/*---------------------------
-		Process message here.
-	----------------------------*/
-		
-	// Delete message. Not necessary if peek lock is not set.
-	echo "Message deleted.<br />";
-	$serviceBusRestProxy->deleteMessage($message);
+    // Set the receive mode to PeekLock (default is ReceiveAndDelete).
+    $options = new ReceiveMessageOptions();
+    $options->setPeekLock();
+
+    // Receive message.
+    $message = $serviceBusRestProxy->receiveQueueMessage("myqueue", $options);
+    echo "Body: ".$message->getBody()."<br />";
+    echo "MessageID: ".$message->getMessageId()."<br />";
+
+    /*---------------------------
+        Process message here.
+    ----------------------------*/
+
+    // Delete message. Not necessary if peek lock is not set.
+    echo "Message deleted.<br />";
+    $serviceBusRestProxy->deleteMessage($message);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here:
-	// http://msdn.microsoft.com/zh-cn/library/windowsazure/hh780735
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here:
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/hh780735
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
@@ -213,6 +216,5 @@ Now that you've learned the basics of Service Bus queues, see [Queues, topics, a
 For more information, also visit the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-[Queues, Topics, and Subscriptions]: /documentation/articles/service-bus-queues-topics-subscriptions/
+[Queues, Topics, and Subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
-

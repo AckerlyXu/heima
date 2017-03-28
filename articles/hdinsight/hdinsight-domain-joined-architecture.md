@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Domain-joined Azure HDInsight architecture| Azure"
-    description="Learn how to plan domain-joined HDInsight."
-    services="hdinsight"
-    documentationcenter=""
-    author="saurinsh"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="7dc6847d-10d4-4b5c-9c83-cc513cf91965"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="02/03/2017"
-    wacn.date=""
-    ms.author="saurinsh" />
+---
+title: Domain-joined Azure HDInsight architecture| Azure
+description: Learn how to plan domain-joined HDInsight.
+services: hdinsight
+documentationcenter: ''
+author: saurinsh
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 02/03/2017
+wacn.date: ''
+ms.author: saurinsh
+---
 
 # Plan Azure domain-joined Hadoop clusters in HDInsight
 
@@ -32,11 +33,11 @@ You can achieve this setup by using multiple architectures. You can choose from 
 
 **HDInsight integrated with Azure AD running on Azure IaaS**
 
-This is the simplest architecture for integrating HDInsight with Azure AD. The Azure AD domain controller runs on one (or multiple) virtual machines (VMs) in Azure. These VMs are usually in a virtual network. You set up another virtual network for the HDInsight cluster. For HDInsight to have a line of sight to Azure AD, you need to peer these virtual networks by using [VNet-to-VNet peering](/documentation/articles/virtual-networks-create-vnetpeering-arm-portal/).
+This is the simplest architecture for integrating HDInsight with Azure AD. The Azure AD domain controller runs on one (or multiple) virtual machines (VMs) in Azure. These VMs are usually in a virtual network. You set up another virtual network for the HDInsight cluster. For HDInsight to have a line of sight to Azure AD, you need to peer these virtual networks by using [VNet-to-VNet peering](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md).
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_1.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > In this architecture, you cannot use Azure Data Lake Store with the HDInsight cluster.
 
 Prerequisites for Azure AD:
@@ -56,7 +57,7 @@ For cloud-only Azure AD, configure a domain controller so that HDInsight can be 
 
 Currently, Azure AD DS exists only in classic virtual networks. It is only accessible by using the Azure Classic Management Portal. The HDInsight virtual network exists in the Azure portal preview, which needs to be peered with the classic virtual network by using VNet-to-VNet peering.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Peering between a classic virtual network and an Azure Resource Manager virtual network requires that both virtual networks are in the same region and under the same Azure subscription.
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
@@ -75,11 +76,11 @@ Prerequisites for Azure AD:
 
 **HDInsight integrated with an on-premises Active Directory via VPN**
 
-This architecture is similar to HDInsight integrated with Azure AD running on Azure IaaS. The only difference is that Azure AD is on-premises and the line of sight for HDInsight to Azure AD is via a [VPN connection from Azure to an on-premises network](/documentation/articles/expressroute-introduction/).
+This architecture is similar to HDInsight integrated with Azure AD running on Azure IaaS. The only difference is that Azure AD is on-premises and the line of sight for HDInsight to Azure AD is via a [VPN connection from Azure to an on-premises network](../expressroute/expressroute-introduction.md).
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_3.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > In this architecture, you cannot use Azure Data Lake Store with the HDInsight cluster.
 
 Prerequisites for Azure AD:
@@ -99,7 +100,7 @@ This architecture is similar to HDInsight integrated with cloud-only Azure AD. T
 
 Currently, Azure AD DS exists only in classic virtual networks. It is only accessible by using the Azure Classic Management Portal. The HDInsight virtual network exists in the Azure portal preview, which needs to be peered with the classic virtual network by using VNet-to-VNet peering.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Peering between a classic virtual network and an Azure Resource Manager virtual network requires that both virtual networks are in the same region and are under the same Azure subscription.
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
@@ -124,7 +125,7 @@ Azure AD DS creates domain controller machines on the cloud and provides IP addr
 
 Azure AD DS exists only in classic virtual networks, so you need access to the Azure Classic Management Portal, and you must create a classic virtual network for configuring Azure AD DS. The HDInsight virtual network exists in the Azure portal preview, which needs to be peered with the classic virtual network by using VNet-to-VNet peering.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Peering between the classic and Azure Resource Manager virtual networks requires that both virtual networks are in the same region and are under the same Azure subscription.
 
 ![Domain-join HDInsight cluster topology](./media/hdinsight-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
@@ -142,7 +143,7 @@ Prerequisites for Azure AD:
     - Permissions to join machines to the Azure Active Directory domain
 
 ## Next steps
-* To configure a domain-joined HDInsight cluster, see [Configure domain-joined HDInsight clusters](/documentation/articles/hdinsight-domain-joined-configure/).
-* To manage domain-joined HDInsight clusters, see [Manage domain-joined HDInsight clusters](/documentation/articles/hdinsight-domain-joined-manage/).
-* To configure Hive policies and run Hive queries, see [Configure Hive policies for domain-joined HDInsight clusters](/documentation/articles/hdinsight-domain-joined-run-hive/).
-* To run Hive queries by using SSH on domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
+* To configure a domain-joined HDInsight cluster, see [Configure domain-joined HDInsight clusters](./hdinsight-domain-joined-configure.md).
+* To manage domain-joined HDInsight clusters, see [Manage domain-joined HDInsight clusters](./hdinsight-domain-joined-manage.md).
+* To configure Hive policies and run Hive queries, see [Configure Hive policies for domain-joined HDInsight clusters](./hdinsight-domain-joined-run-hive.md).
+* To run Hive queries by using SSH on domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md).

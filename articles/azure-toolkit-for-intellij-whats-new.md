@@ -1,27 +1,29 @@
-<properties
-    pageTitle="What's New in the Azure Toolkit for IntelliJ | Azure"
-    description="Learn about the latest features in the Azure Toolkit for IntelliJ."
-    services=""
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="46ed791f-df59-416a-809e-f52345ad973c"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm;asirveda;martinsawicki" />
+---
+title: What's New in the Azure Toolkit for IntelliJ | Azure
+description: Learn about the latest features in the Azure Toolkit for IntelliJ.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: 46ed791f-df59-416a-809e-f52345ad973c
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm;asirveda;martinsawicki
+---
 
 # What's New in the Azure Toolkit for IntelliJ
 ## Azure Toolkit for IntelliJ Releases
 This article contains information on the various releases and latest updates to the Azure Toolkit for IntelliJ.
 
-> [AZURE.NOTE] There is also an Azure Toolkit for the Eclipse IDE. For more information, see [Azure Toolkit for Eclipse].
+> [!NOTE]
+> There is also an Azure Toolkit for the Eclipse IDE. For more information, see [Azure Toolkit for Eclipse].
 
 ### August 26, 2016
 The Azure Toolkit for IntelliJ - August 2016 release includes the following enhancements:
@@ -65,11 +67,11 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse/
-[Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij/
-[Installing the Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-installation/
-[Installing the Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij-installation/
-[What's New in the Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-whats-new/
-[What's New in the Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij-whats-new/
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij.md
+[Installing the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]:/develop/java/

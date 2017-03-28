@@ -1,22 +1,21 @@
-<properties
-	pageTitle="MyDriving Azure IoT example: Build it | Azure"
-	description="Build an app that's a comprehensive demonstration of how to architect an IoT system by using Azure, including Stream Analytics, Machine Learning, and Event Hubs."
-	services=""
- 	documentationCenter=".net"
-    	suite=""
-	authors="harikmenon"
-	manager="douge"/>
+---
+title: MyDriving Azure IoT example: Build it | Azure
+description: Build an app that's a comprehensive demonstration of how to architect an IoT system by using Azure, including Stream Analytics, Machine Learning, and Event Hubs.
+services: ''
+documentationCenter: .net
+suite: ''
+authors: harikmenon
+manager: douge
 
-<tags
-	ms.service="multiple"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="03/25/2016"
-	ms.author="harikm"
-	wacn.date="05/17/2016"/>
-
+ms.service: multiple
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 03/25/2016
+ms.author: harikm
+wacn.date: 05/17/2016
+---
 
 # Build and deploy the MyDriving solution to your environment
 
@@ -24,7 +23,7 @@ MyDriving is an Internet of Things (IoT) solution that gathers data from your ca
 
 We created the MyDriving solution to give you a jumpstart in creating your own IoT system. From the [MyDriving repository on GitHub](https://github.com/Azure-Samples/MyDriving), you can get Azure Resource Manager scripts to deploy the back-end architecture into your own Azure account. From that point, you can reconfigure the different services, modify the queries to suit your own data, and so on. You can find these scripts--along with code for the mobile app, the Azure App Service API project, and more--in the MyDriving repository.
 
-If you haven't tried the app yet, look at the [Get started guide](/documentation/articles/iot-solution-get-started/).
+If you haven't tried the app yet, look at the [Get started guide](./iot-solution-get-started.md).
 
 There's a detailed account of the architecture in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs). In summary, there are several pieces that we set up, and that you would set up to create a similar project:
 
@@ -54,7 +53,8 @@ So let's see how we set up all of that. Note that many of the steps are optional
 
 -   [Power BI](https://powerbi.microsoft.com/) (optional), to create rich visualizations of data across the entire system.
 
-> [AZURE.NOTE] You don't need a GitHub account to access the MyDriving code in [the GitHub MyDriving repository](https://github.com/Azure-Samples/MyDriving).
+> [!NOTE]
+> You don't need a GitHub account to access the MyDriving code in [the GitHub MyDriving repository](https://github.com/Azure-Samples/MyDriving).
 
 ## Install development tools
 
@@ -78,7 +78,7 @@ Install:
 
 -   [Azure SDK for Visual Studio 2015](https://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409). Gives you the SDK for running apps in Azure, along with command-line tools for managing Azure.
 
--   [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Required to build the [microservice](/documentation/articles/service-fabric-get-started/) extension.
+-   [Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric). Required to build the [microservice](../service-fabric/service-fabric-get-started.md) extension.
 
 Also, make sure that you have the right Visual Studio extensions. Check that under **Tools**, you see **Android, iOS, Xamarin…**. If not, open Control Panel, and then select **Programs and Features** > **Microsoft** > **Visual Studio 2015** > **Modify**. Under **Cross-Platform development**, select **C\#/.Net (Xamarin)**. While you're there, check that **Git for Windows** is installed.
 
@@ -117,8 +117,6 @@ Alternatively, if you want to keep up to date with or contribute to our code, cl
 [Register for a Bing Maps API key](https://msdn.microsoft.com/zh-cn/library/ff428642.aspx).
 
 You need to replace this in line 22 in `src/MobileApps/MyDriving/MyDriving.Utils/Logger.cs`.
-
-
 
 ## Build the demo app
 
@@ -236,11 +234,12 @@ To perform an automatic deployment of Azure services and Team Services build ser
 
 Azure provides a wealth of different services that you can use to build cloud applications. Although many can be used individually (such as App Service/Web Apps), they're at their best when they're interconnected to form an integrated system like that we use in MyDriving.
 
-It's possible to create and interconnect Azure services manually, but it's much quicker and more reliable to use Azure Resource Manager templates. [Resource Manager](/documentation/articles/resource-group-overview/) automates the deployment of a solution's resources and making the interconnections between them.
+It's possible to create and interconnect Azure services manually, but it's much quicker and more reliable to use Azure Resource Manager templates. [Resource Manager](../azure-resource-manager/resource-group-overview.md) automates the deployment of a solution's resources and making the interconnections between them.
 
 You'll find the template for the MyDriving system in the GitHub repository under [scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). It provides a comprehensive and concise view of how the different services in our architecture are interconnected. We explain all these in detail in the [MyDriving Reference Guide](http://aka.ms/mydrivingdocs), but you can learn a lot just by reading through the template itself.
 
-> [AZURE.NOTE] Most Azure services have an associated cost, depending on the pricing tier. If you're new to Azure, you can [try it out](/pricing/1rmb-trial/). However, if you don't plan to use certain components in the MyDriving system, be sure to remove them to avoid incurring costs. The "Estimate operational costs" section later in this article provides a summary of typical service expenses.
+> [!NOTE]
+> Most Azure services have an associated cost, depending on the pricing tier. If you're new to Azure, you can [try it out](https://www.azure.cn/pricing/1rmb-trial/). However, if you don't plan to use certain components in the MyDriving system, be sure to remove them to avoid incurring costs. The "Estimate operational costs" section later in this article provides a summary of typical service expenses.
 
 ### Edit the template
 
@@ -415,23 +414,24 @@ We assume:
 
 -   100 users with four trips per day.
 
->[AZURE.NOTE] If you're new to Azure, there's a [Trial](/pricing/1rmb-trial/).
+>[!NOTE]
+> If you're new to Azure, there's a [Trial](https://www.azure.cn/pricing/1rmb-trial/).
 
 | **Service/component**  | **Notes** | **Cost/month** |
 |--------|--------|----------------|
 | [Visual Studio 2015 Community](https://www.visualstudio.com/products/visual-studio-community-vs) with [Xamarin](https://visualstudiogallery.msdn.microsoft.com/dcd5b7bd-48f0-4245-80b6-002d22ea6eee) <br/>Cross-platform dev environment| Visual Studio Community. (Need [Visual Studio Professional](https://www.visualstudio.com/vs-2015-product-editions) for [Xamarin.Forms](https://xamarin.com/forms), to design cross-platform from a single code base.)  | $0   |
 | [Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) <br/>Two-way data connection to devices | 8,000 messages + 0.5 KB/message free. | $0             |
 | [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics)  <br/>   High-volume stream data processing                                                                                                                                                              | Charge of $0.031 per streaming unit per hour, while enabled. You choose the number of streaming units that you want; more to scale up. | $23            |
-| [Machine Learning](/documentation/services/machine-learning)<br/> Adaptive responses                                                                                                                                                                              |  $10/seat/month. <br/>                                                                                                                                                                                 + 3-hour experiment \* $1 / experiment hour. <br/>                                                                                                                                                           + 3.5-hour API CPU \* $2 / production CPU hour. <br/>                                                                                                                                                          API CPU time assumes 5 min/day retraining, though this would rise with more input data.                   <br/>                                                                                                                                                                     + 2 min/day scoring to process 400 trips/day.  | $20            |
+| [Machine Learning](../machine-learning/index.md)<br/> Adaptive responses                                                                                                                                                                              |  $10/seat/month. <br/>                                                                                                                                                                                 + 3-hour experiment \* $1 / experiment hour. <br/>                                                                                                                                                           + 3.5-hour API CPU \* $2 / production CPU hour. <br/>                                                                                                                                                          API CPU time assumes 5 min/day retraining, though this would rise with more input data.                   <br/>                                                                                                                                                                     + 2 min/day scoring to process 400 trips/day.  | $20            |
 | [App Service](https://azure.microsoft.com/pricing/details/app-service)  <br/> Host for mobile back end                                                                                                                                                                              | Tier B1--production web apps. | $56            |
 | [Visual Studio Team Services ](https://azure.microsoft.com/pricing/details/visual-studio-team-services)  <br/> Build, unit test, and release management; task management | Private agents, five users.| $0             |
 | [Application Insights](https://azure.microsoft.com/pricing/details/application-insights) <br/>Monitoring of performance and usage of web services and sites| Free tier.  | $0             |
 | [HockeyApp](http://hockeyapp.net/pricing) <br/> Distribution of beta apps, plus collection of feedback, usage, and crash data                                                                                                                                      | Two free apps for new users.<br/> $30/month thereafter.  | $0    |
 | [Xamarin](https://store.xamarin.com)<br/> Code on a uniform platform for multiple devices | trial. <br/>$25/month thereafter.| $0    |
-| [SQL Database](/pricing/details/sql-database/) for Azure App Service| Basic tier; single database model. | $5             |
+| [SQL Database](https://www.azure.cn/pricing/details/sql-database/) for Azure App Service| Basic tier; single database model. | $5             |
 | [Service Fabric](/documentation/articles/service-fabric/) (optional)  | Run a local cluster. | $0             |
 | [Power BI](https://powerbi.microsoft.com/pricing)<br/> Versatile displays and investigation of streamed and static data| Free tier: 1 GB, 10,000 rows/hour, daily refresh. <br/> $10/user/month for [higher limits](https://powerbi.microsoft.com/documentation/powerbi-power-bi-pro-content-what-is-it), more connection options, collaboration.    | $0             |
-| [Storage](/pricing/details/storage/)   | L (locally redundant) &lt; 100 G $0.024/GB.  | $3             |
+| [Storage](https://www.azure.cn/pricing/details/storage/)   | L (locally redundant) &lt; 100 G $0.024/GB.  | $3             |
 | [Data Factory](https://azure.microsoft.com/pricing/details/data-factory)                                                                                                                       | $0.60 per activity \* (8 - 5 FOC).| $2             |
 | [HDInsight](https://azure.microsoft.com/pricing/details/hdinsight) <br/>  On-demand cluster for daily retraining   | Three A3 nodes at $0.32/hour for 1 hour daily * 31 days. | $30            |
 | [Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs)  | Basic with $11/month throughput unit + $0.028 ingress. | $11            |
@@ -440,9 +440,9 @@ We assume:
 
 For more information, see:
 
--   Summary of [Azure service quotas and limits](/documentation/articles/azure-subscription-service-limits/#iot-hub-limits)
+-   Summary of [Azure service quotas and limits](../azure-subscription-service-limits.md#iot-hub-limits)
 
--   Azure [pricing calculator](/pricing/calculator)
+-   Azure [pricing calculator](https://www.azure.cn/pricing/calculator)
 
 ## Send us your feedback
 

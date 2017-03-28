@@ -9,5 +9,5 @@
 3. Click the save button to save the configuration.
 4. Once the registration is completed, the process server starts showing up under your Configuration server and now can be used for failback.
 
-> [AZURE.TIP]
+> [!TIP]
 > The process server configuration utility can be launched by double-clicking the **cspsconfigtool** shortcut available on the desktop of the virtual machine.

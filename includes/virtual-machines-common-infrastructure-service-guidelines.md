@@ -4,8 +4,8 @@ This guidance identifies many areas for which planning is vital to the success o
 
 This article was adapted from the content in the [Azure implementation guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) blog post. Thanks to Santiago Cánepa (Application Development Manager for Microsoft) and Hugo Salcedo (Application Development Manager for Microsoft) for their original material.
 
-> [AZURE.NOTE]
-> Affinity groups have been deprecated. Their use is not described here. For more information, see [About regional VNets and affinity groups](/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
+> [!NOTE]
+> Affinity groups have been deprecated. Their use is not described here. For more information, see [About regional VNets and affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 > 
 > 
 
@@ -70,7 +70,7 @@ In case a virtual machine is created from a .vhd image file that already contain
 We recommend that the Azure virtual machine name be the same as the underlying operating system computer name. Because of this, follow the NetBIOS naming rules as described in [Microsoft NetBIOS computer naming conventions](https://support.microsoft.com/kb/188997/).
 
 ### Storage account names
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](/documentation/articles/storage-create-storage-account/#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.chinacloudapi.cn, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.chinacloudapi.cn, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
 
 * mystorageaccount.blob.core.chinacloudapi.cn
 * mystorageaccount.table.core.chinacloudapi.cn
@@ -129,7 +129,7 @@ Azure Storage is an integral part of many Azure solutions. Azure Storage provide
 
 There are two types of storage accounts available from Azure. A standard storage account gives you access to blob storage (used for storing Azure virtual machine disks), table storage, queue storage, and file storage. Premium storage is designed for high-performance applications, such as SQL Servers in an AlwaysOn cluster, and currently supports Azure virtual machine disks only.
 
-Storage accounts are bound to scalability targets. See [Azure subscription and service limits, quotas, and constraints](/documentation/articles/azure-subscription-service-limits/#storage-limits) to become familiar with current Azure storage limits. Also see [Azure storage scalability and performance targets](/documentation/articles/storage-scalability-targets/).
+Storage accounts are bound to scalability targets. See [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md#storage-limits) to become familiar with current Azure storage limits. Also see [Azure storage scalability and performance targets](../articles/storage/storage-scalability-targets.md).
 
 Azure creates virtual machines with an operating system disk, a temporary disk, and zero or more optional data disks. The operating system disk and data disks are Azure page blobs, whereas the temporary disk is stored locally on the node where the machine lives. This makes the temporary disk unfit for data that must persist during a system recycle, because the machine might silently be migrated from one node to another, losing any data in that disk. Do not store anything on the temporary drive.
 
@@ -138,7 +138,7 @@ Operating system disks and data disks have a maximum size of 1023 gigabytes (GB)
 ### Striped disks
 Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see Sizes for [Windows](/documentation/articles/virtual-machines-windows-sizes/) or [Linux](/documentation/articles/virtual-machines-linux-sizes/) virtual machines.
+Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see Sizes for [Windows](../articles/virtual-machines/virtual-machines-windows-sizes.md) or [Linux](../articles/virtual-machines/virtual-machines-linux-sizes.md) virtual machines.
 
 If you are using disk striping for Azure data disks, consider the following guidelines:
 
@@ -176,7 +176,7 @@ Cloud services are a fundamental building block in Azure service management, bot
 
 In the case of IaaS, cloud services offer similar functionality, although in most cases, the load balancer functionality is used to forward traffic to specific TCP or UDP ports from the Internet to the many virtual machines within that cloud service.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Cloud services do not exist in Azure Resource Manager. For an introduction to the advantages of Resource Manager, see [Azure compute, network and storage providers under Azure Resource Manager](/documentation/articles/virtual-machines-windows-compare-deployment-models/).
 > 
 > 
@@ -239,7 +239,7 @@ For cross-premises virtual networks, you should design subnets with the same con
 | 28-59 |6 |/26 |
 | 60-123 |7 |/25 |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > For normal on-premises subnets, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> - 2. For an Azure subnet, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> - 5 (2 plus 3 for the addresses that Azure uses on each subnet).
 > 
 > 
@@ -386,11 +386,11 @@ This configuration incorporates:
 * A single resource group
 
 ## Additional resources
-[Azure subscription and service limits, quotas, and constraints](/documentation/articles/azure-subscription-service-limits/#storage-limits)
+[Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Sizes for virtual machines](/documentation/articles/virtual-machines-linux-sizes/)
+[Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md)
 
-[Azure storage scalability and performance targets](/documentation/articles/storage-scalability-targets/)
+[Azure storage scalability and performance targets](../articles/storage/storage-scalability-targets.md)
 
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 

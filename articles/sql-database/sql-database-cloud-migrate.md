@@ -1,30 +1,31 @@
-<properties
-    pageTitle="SQL Server database migration to Azure SQL Database | Azure"
-    description="Learn how about SQL Server database migration to Azure SQL Database in the cloud. Use database migration tools to test compatibility prior to database migration."
-    keywords="database migration,sql server database migration,database migration tools,migrate database,migrate sql database"
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="9cf09000-87fc-4589-8543-a89175151bc2"
-    ms.service="sql-database"
-    ms.custom="migrate and move"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="sqldb-migrate"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: SQL Server database migration to Azure SQL Database | Azure
+description: Learn how about SQL Server database migration to Azure SQL Database in the cloud. Use database migration tools to test compatibility prior to database migration.
+keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
+ms.service: sql-database
+ms.custom: migrate and move
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: sqldb-migrate
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: carlrab
+---
 
 # SQL Server database migration to SQL Database in the cloud
 In this article, you learn about the two primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. The first method is simpler but requires some, possibly substantial, downtime during the migration. The second method is more complex, but substantially eliminates downtime during the migration.
 
-In both cases, you need to ensure that the source database is compatible with Azure SQL Database. With SQL Database V12, we are approaching [feature parity](/documentation/articles/sql-database-features/) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](/documentation/articles/sql-database-transact-sql-information/) need some [re-engineering to fix these incompatibilities](/documentation/articles/sql-database-cloud-migrate/#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
+In both cases, you need to ensure that the source database is compatible with Azure SQL Database. With SQL Database V12, we are approaching [feature parity](./sql-database-features.md) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](./sql-database-transact-sql-information.md) need some [re-engineering to fix these incompatibilities](./sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
 > 
 
@@ -40,19 +41,19 @@ The following list contains the general workflow for a SQL Server database migra
 2. Prepare any necessary fixes as Transact-SQL scripts.
 3. Make a transactionally consistent copy of the source database being migrated - and ensure no further changes are being made to the source database (or you can manually apply any such changes after the migration completes). There are many methods to quiesce a database, from disabling client connectivity to creating a [database snapshot](https://msdn.microsoft.com/zh-cn/library/ms175876.aspx).
 4. Deploy the Transact-SQL scripts to apply the fixes to the database copy.
-5. [Export](/documentation/articles/sql-database-export-sqlpackage/) the database copy to a .BACPAC file on a local drive.
-6. [Import](/documentation/articles/sql-database-import-sqlpackage/) the .BACPAC file as a new Azure SQL database using any of several BACPAC import tools, with SQLPackage.exe being the recommended tool for best performance.
+5. [Export](./sql-database-export-sqlpackage.md) the database copy to a .BACPAC file on a local drive.
+6. [Import](./sql-database-import-sqlpackage.md) the .BACPAC file as a new Azure SQL database using any of several BACPAC import tools, with SQLPackage.exe being the recommended tool for best performance.
 
 ### Optimizing data transfer performance during migration 
 
 The following list contains recommendations for best performance during the import process.
 
-* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. See [Change the service tier and performance level of a single database using the Azure portal](/documentation/articles/sql-database-manage-single-databases-portal/#change-the-service-tier-and-performance-level-of-a-single-database), [Change the service tier and performance level of a single database using PowerShell](/documentation/articles/sql-database-manage-single-databases-powershell/#change-the-service-tier-and-performance-level-of-a-single-database), [Change the service tier and performance level of a single database using Transact-SQL](/documentation/articles/sql-database-manage-single-databases-tsql/#change-the-service-tier-and-performance-level-of-a-single-database)
+* Choose the highest service level and performance tier that your budget allows to maximize the transfer performance. You can scale down after the migration completes to save money. See [Change the service tier and performance level of a single database using the Azure portal](./sql-database-manage-single-databases-portal.md#change-the-service-tier-and-performance-level-of-a-single-database), [Change the service tier and performance level of a single database using PowerShell](./sql-database-manage-single-databases-powershell.md#change-the-service-tier-and-performance-level-of-a-single-database), [Change the service tier and performance level of a single database using Transact-SQL](./sql-database-manage-single-databases-tsql.md#change-the-service-tier-and-performance-level-of-a-single-database)
 * Minimize the distance between your .BACPAC file and the destination data center.
 * Disable auto-statistics during migration
 * Partition tables and indexes
 * Drop indexed views, and recreate them once finished
-* Remove rarely queried historical data to another database and migrate this historical data to a separate Azure SQL database. You can then query this historical data using [elastic queries](/documentation/articles/sql-database-elastic-query-overview/).
+* Remove rarely queried historical data to another database and migrate this historical data to a separate Azure SQL database. You can then query this historical data using [elastic queries](./sql-database-elastic-query-overview.md).
 
 ### Optimize performance after the migration completes
 
@@ -68,13 +69,13 @@ With transactional replication, all changes to your data or schema show up in yo
 
  ![SeedCloudTR diagram](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
-> [AZURE.TIP]
+> [!TIP]
 > You can also use transactional replication to migrate a subset of your source database. The publication that you replicate to Azure SQL Database can be limited to a subset of the tables in the database being replicated. For each table being replicated, you can limit the data to a subset of the rows and/or a subset of the columns.
 >
 
 ### Migration to SQL Database using Transaction Replication workflow
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Use the latest version of SQL Server Management Studio to remain synchronized with updates to Azure and SQL Database. Older versions of SQL Server Management Studio cannot set up SQL Database as a subscriber. [Update SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
 > 
 
@@ -100,7 +101,7 @@ With transactional replication, all changes to your data or schema show up in yo
 ## Resolving database migration compatibility issues
 There are a wide variety of compatibility issues that you might encounter, depending both on the version of SQL Server in the source database and the complexity of the database you are migrating. Older versions of SQL Server have more compatibility issues. Use the following resources, in addition to a targeted Internet search using your search engine of choices:
 
-* [SQL Server database features not supported in Azure SQL Database](/documentation/articles/sql-database-transact-sql-information/)
+* [SQL Server database features not supported in Azure SQL Database](./sql-database-transact-sql-information.md)
 * [Discontinued Database Engine Functionality in SQL Server 2016](https://msdn.microsoft.com/zh-cn/library/ms144262%28v=sql.130%29)
 * [Discontinued Database Engine Functionality in SQL Server 2014](https://msdn.microsoft.com/zh-cn/library/ms144262%28v=sql.120%29)
 * [Discontinued Database Engine Functionality in SQL Server 2012](https://msdn.microsoft.com/zh-cn/library/ms144262%28v=sql.110%29)
@@ -115,5 +116,3 @@ In addition to searching the Internet and using these resources, use the [MSDN S
 * For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * For information about working with UTC time after migration, see [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
 * For information about changing the default language of a database after migration, see [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).
-
-

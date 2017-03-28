@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Best practices for autoscaling. | Azure"
-	description="Learn principles to effectively autoscale Virtual Machines, Virtual Machine Scale Sets, and Cloud Services"
-	authors="kamathashwin"
-	manager="carmonm"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Best practices for autoscaling. | Azure
+description: Learn principles to effectively autoscale Virtual Machines, Virtual Machine Scale Sets, and Cloud Services
+authors: kamathashwin
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/23/2017"
-	ms.author="ashwink"
-	wacn.date=""/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+ms.author: ashwink
+wacn.date: ''
+---
 
 # Best practices Autoscaling Virtual
 This article teaches best practices to autoscale in Azure. It relates to Virtual Machines, Virtual Machine Scale Sets and Cloud Services.  Other Azure services used different scaling methods.
@@ -26,7 +26,7 @@ This article teaches best practices to autoscale in Azure. It relates to Virtual
 - An autoscale setting can have one or more profiles and each profile can have one or more autoscale rules.
 - An autoscale setting scales instances horizontally, which is *out* by increasing the instances and *in* by decreasing the number of instances.
  An autoscale setting has a maximum, minimum, and default value of instances.
-- An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale out or scale in. You can view a list of metrics that autoscale can scale by at [Azure Monitor autoscaling common metrics](/documentation/articles/insights-autoscale-common-metrics/).
+- An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale out or scale in. You can view a list of metrics that autoscale can scale by at [Azure Monitor autoscaling common metrics](./insights-autoscale-common-metrics.md).
 - All thresholds are calculated at an instance level. For example, "scale out by 1 instance when average CPU > 80% when instance count is 2", means scale out when the average CPU across all instances is greater than 80%.
 - You always receive failure notifications via email. Specifically, the owner, contributor, and readers of the target resource receive email. You also always receive a *recovery* email when autoscale recovers from a failure and starts functioning normally.
 - You can opt-in to receive a successful scale action notification via email and webhooks.

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure AD Connect: Single Sign-on | Azure"
-    description="This topic provides you with the information you need to know about how single sign on from an on-premises Active Directory (AD) to cloud-based Azure Active Directory (Azure AD) and connected services."
-    services="active-directory"
-    keywords="what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on"
-    documentationcenter=""
-    author="billmath"
-    manager="femila"
-    ms.assetid="9f994aca-6088-40f5-b2cc-c753a4f41da7"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/15/2017"
-    ms.author="billmath" />
+---
+title: Azure AD Connect: Single Sign-on | Azure
+description: This topic provides you with the information you need to know about how single sign on from an on-premises Active Directory (AD) to cloud-based Azure Active Directory (Azure AD) and connected services.
+services: active-directory
+keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
+documentationcenter: ''
+author: billmath
+manager: femila
+ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/15/2017
+ms.author: billmath
+---
 
 # What is Single Sign On (SSO) (preview)
-Single sign-on is an option that can be enabled in Azure Active Directory Connect with either [Password synchronization](/documentation/articles/active-directory-aadconnectsync-implement-password-synchronization/) or [Pass-through authentication](/documentation/articles/active-directory-aadconnect-pass-through-authentication/). When enabled, users only need to type their username and do not need to type their password to sign in to Azure Active Directory (Azure AD) or other cloud services when they are on their corporate machines and connected on the corporate network.
+Single sign-on is an option that can be enabled in Azure Active Directory Connect with either [Password synchronization](./active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through authentication](./active-directory-aadconnect-pass-through-authentication.md). When enabled, users only need to type their username and do not need to type their password to sign in to Azure Active Directory (Azure AD) or other cloud services when they are on their corporate machines and connected on the corporate network.
 
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -53,11 +54,11 @@ Once this setup is complete, the process of authentication is the same as any ot
 
 First the user attempts to access a resource that trusts tokens issued from Azure AD, such as SharePoint Online. SharePoint Online then redirects the user to authenticate with Azure AD. The user then provides their username so that Azure AD can establish if single sign-on is enabled for their organization. Assuming single sign-on is enabled for the organization the following traffic occurs.
 
-1.	Azure AD challenges the client, via a 401 Unauthorized response, to provide a Kerberos ticket.
-2.	The client requests a ticket from Active Directory for Azure AD.
-3.	Active Directory locates the machine account, created by Azure AD Connect, and returns a Kerberos ticket to the client encrypted with the machine account's secret. The ticket includes the identity of the user currently signed in to the computer.
-4.	The client sends the Kerberos ticket it acquired from Active Directory to Azure AD.
-5.	Azure AD decrypts the Kerberos ticket using the previously shared key. Then it either returns a token to the user or asks the user to provide additional proofs such as multi-factor authentication as required by the resource.
+1. Azure AD challenges the client, via a 401 Unauthorized response, to provide a Kerberos ticket.
+2. The client requests a ticket from Active Directory for Azure AD.
+3. Active Directory locates the machine account, created by Azure AD Connect, and returns a Kerberos ticket to the client encrypted with the machine account's secret. The ticket includes the identity of the user currently signed in to the computer.
+4. The client sends the Kerberos ticket it acquired from Active Directory to Azure AD.
+5. Azure AD decrypts the Kerberos ticket using the previously shared key. Then it either returns a token to the user or asks the user to provide additional proofs such as multi-factor authentication as required by the resource.
 
 Single sign-on is an opportunistic feature, which means that if it fails for some reason, the user only needs to enter their password on the sign-in page as usual.
 
@@ -85,7 +86,7 @@ Once single sign-on is enabled, you can continue through the installation wizard
 
 For each forest listed, provide the appropriate account details and single sign-on is enabled for your Azure directory.
 
->[AZURE.NOTE]
+>[!NOTE]
 >Azure AD Connect needs to be able to communicate with \*.msappproxy.net on port 9090 (TCP) to configure SSO. This port opening is only necessary during configuration and is not used during authentications by end users.
 
 ## Ensuring Clients sign in automatically
@@ -93,46 +94,47 @@ By default, browsers do not attempt to send credentials to web servers unless th
 
 Because the URLs used for single sign-on in Azure AD contain a period, they need to be explicitly added to the machine's Intranet zone. This setting makes the browser to automatically send the currently logged in user's credentials in the form of a Kerberos ticket to Azure AD. The easiest way to add the required URLs to the Intranet zone is to create a group policy in Active Directory.
 
-1.	Open the Group Policy Management tools.
-2.	Edit the Group policy that is applied to all users, for example the **Default Domain Policy**.
-3.	Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** and select **Site to Zone Assignment List**.
+1. Open the Group Policy Management tools.
+2. Edit the Group policy that is applied to all users, for example the **Default Domain Policy**.
+3. Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** and select **Site to Zone Assignment List**.
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso6.png)  
-4.	Enable the policy, and enter the following values/data in the dialog box.  
+4. Enable the policy, and enter the following values/data in the dialog box.  
 
-    	Value: https://autologon.microsoftazuread-sso.com  
-    	Data: 1  
-    	Value: https://aadg.chinacloudapi.cn.nsatc.net  
-    	Data: 1  
-5.	It should look similar to the following:  
+    ```
+    Value: https://autologon.microsoftazuread-sso.com  
+    Data: 1  
+    Value: https://aadg.chinacloudapi.cn.nsatc.net  
+    Data: 1  
+    ```
+5. It should look similar to the following:  
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso7.png)
 
-6.	Click **OK** and **OK** again.
+6. Click **OK** and **OK** again.
 
 Your users are now ready for single sign-on.
 
->[AZURE.NOTE]
+>[!NOTE]
 >By default, Chrome uses the same set of trusted site URLs as Internet Explorer. If you have configured different settings for Chrome, then you need to update these sites separately.
 
 ## Troubleshooting single sign-on issues
 It is important to make sure the client is correctly configured for single sign-on including the following:
 
-1.	Both https://autologon.microsoftazuread-sso.com and https://aadg.chinacloudapi.cn.nsatc.net are defined within the Intranet zone.
-2.	Ensure the workstation is joined to the domain.
-3.	Ensure the user is logged on with a domain account.
-4.	Ensure the machine is connected to the corporate network.
-5.	Ensure that the machine's time is synchronized with the Active Directory and the domain controllers time is within 5 minutes of the correct time.
-6.	Purge the clients existing Kerberos tickets, for example by running the command **klist purge** from a command prompt.
+1. Both https://autologon.microsoftazuread-sso.com and https://aadg.chinacloudapi.cn.nsatc.net are defined within the Intranet zone.
+2. Ensure the workstation is joined to the domain.
+3. Ensure the user is logged on with a domain account.
+4. Ensure the machine is connected to the corporate network.
+5. Ensure that the machine's time is synchronized with the Active Directory and the domain controllers time is within 5 minutes of the correct time.
+6. Purge the clients existing Kerberos tickets, for example by running the command **klist purge** from a command prompt.
 
 If you have been able to confirm the above requirements, then you can review the console logs of the browser for additional information. The console logs can be found under developer tools. These logs help you determine the potential problem.
 
 ## Event log entries
 If success auditing is enabled, then every time a user sign in with single sign-on an entry is recorded in the event log of the domain controller. To find these events, you can review the Event logs for the security Event 4769 associated with computer account **AzureADSSOAcc$**. The filter below finds all security events associated with the computer account:
 
-	<QueryList>
-	  <Query Id="0" Path="Security">
-	<Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
-	  </Query>
-	</QueryList>
-
-
-
+```
+<QueryList>
+  <Query Id="0" Path="Security">
+<Select Path="Security">*[EventData[Data[@Name='ServiceName'] and (Data='AZUREADSSOACC$')]]</Select>
+  </Query>
+</QueryList>
+```

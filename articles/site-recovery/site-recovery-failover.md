@@ -21,38 +21,35 @@ ms.author: pratshar
 This article describes how to failover virtual machines and physical servers protected by Site Recovery. 
 
 ## Prerequisites
-1. Before you do a failover, do a [test failover](/documentation/articles/site-recovery-test-failover-to-azure/) to ensure that everything is working as expected. 
+1. Before you do a failover, do a [test failover](./site-recovery-test-failover-to-azure.md) to ensure that everything is working as expected. 
 1. [Prepare the network](site-recovery-network-design.md) at target location before you do a failover.  
 
-
 ## Run a failover
-This procedure describes how to run a failover for a [recovery plan](/documentation/articles/site-recovery-create-recovery-plans/). Alternatively you can run the failover for a single virtual machine or physical server from the **Replicated items** page
-
+This procedure describes how to run a failover for a [recovery plan](./site-recovery-create-recovery-plans.md). Alternatively you can run the failover for a single virtual machine or physical server from the **Replicated items** page
 
 ![Failover](./media/site-recovery-failover/Failover.png)
 
 1. Select **Recovery Plans** > *recoveryplan_name*. Click **Failover** 
 2. On the **Failover** screen, select a **Recovery Point** to failover to. You can use one of the following options:
-	1.    **Latest** (default): This option first processes all the data that has been sent to Site Recovery service to create a recovery point for each virtual machine before failing them over to it. This option provides the lowest RPO (Recovery Point Objective) as the virtual machine created after failover has all the data that has been replicated to Site Recovery service when the failover was triggered. 
-	1.  **Latest processed**: This option fails over all virtual machines of the recovery plan to the latest recovery point that has already been processed by Site Recovery service. When you are doing test failover of a virtual machine, time stamp of the latest processed recovery point is also shown. If you are doing failover of a recovery plan, you can go to individual virtual machine and look at **Latest Recovery Points** tile to get this information. As no time is spent to process the unprocessed data, this option provides a low RTO (Recovery Time Objective) failover option. 
-	1.    **Latest app-consistent**: This option fails over all virtual machines of the recovery plan to the latest application consistent recovery point that has already been processed by Site Recovery service. When you are doing test failover of a virtual machine, time stamp of the latest app-consistent recovery point is also shown. If you are doing failover of a recovery plan, you can go to individual virtual machine and look at **Latest Recovery Points** tile to get this information. 
-	1.	**Custom**: If you are doing test failover of a virtual machine, then you can use this option to failover to a particular recovery point.
+    1.    **Latest** (default): This option first processes all the data that has been sent to Site Recovery service to create a recovery point for each virtual machine before failing them over to it. This option provides the lowest RPO (Recovery Point Objective) as the virtual machine created after failover has all the data that has been replicated to Site Recovery service when the failover was triggered. 
+    1.  **Latest processed**: This option fails over all virtual machines of the recovery plan to the latest recovery point that has already been processed by Site Recovery service. When you are doing test failover of a virtual machine, time stamp of the latest processed recovery point is also shown. If you are doing failover of a recovery plan, you can go to individual virtual machine and look at **Latest Recovery Points** tile to get this information. As no time is spent to process the unprocessed data, this option provides a low RTO (Recovery Time Objective) failover option. 
+    1.    **Latest app-consistent**: This option fails over all virtual machines of the recovery plan to the latest application consistent recovery point that has already been processed by Site Recovery service. When you are doing test failover of a virtual machine, time stamp of the latest app-consistent recovery point is also shown. If you are doing failover of a recovery plan, you can go to individual virtual machine and look at **Latest Recovery Points** tile to get this information. 
+    1. **Custom**: If you are doing test failover of a virtual machine, then you can use this option to failover to a particular recovery point.
 
-	> [!NOTE]
-	> The option to choose a recovery point is only available when you are failing over to Azure. 
-	>
-	> 
-
+    > [!NOTE]
+    > The option to choose a recovery point is only available when you are failing over to Azure. 
+    >
+    > 
 
 1. If some of the virtual machines in the recovery plan were failed over in a previous run and now the virtual machines are active on both source and target location, you can use **Change direction** option to decide the direction in which the failover should happen.
 1. If you're failing over to Azure and data encryption is enabled for the cloud (applies only when you have protected Hyper-v virtual machines from a VMM Server), in **Encryption Key** select the certificate that was issued when you enabled data encryption during setup on the VMM server.
 1. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt do a shutdown of source virtual machines before triggering the failover. Failover continues even if shutdown fails.  
-	 	 
-	> [!NOTE]
-	> In case of Hyper-v virtual machines, this option also tries to synchronize the on-premises data that has not yet been sent to the service before triggering the failover. 
-	>
-	> 
-	 
+
+    > [!NOTE]
+    > In case of Hyper-v virtual machines, this option also tries to synchronize the on-premises data that has not yet been sent to the service before triggering the failover. 
+    >
+    > 
+
 1. You can follow the failover progress on the **Jobs** page. Even if errors occur during an unplanned failover, the recovery plan runs until it is complete.
 1. After the failover, validate the virtual machine by logging into it. If you want to go another recovery point for the virtual machine, then you can use **Change recovery point** option.
 1. Once you are satisfied with the failed over virtual machine, you can **Commit** the failover. This deletes all the recovery points available with the service and **Change recovery point** option will no longer be available.
@@ -80,20 +77,15 @@ When a  failover is triggered, it involves following steps:
 >
 > 
 
-
-
 ## Using scripts in Failover
-You might want to automate certain actions while doing a failover. You can use scripts or [Azure automation runbooks](/documentation/articles/site-recovery-runbook-automation/) in [recovery plans](/documentation/articles/site-recovery-create-recovery-plans/) to do that.
+You might want to automate certain actions while doing a failover. You can use scripts or [Azure automation runbooks](./site-recovery-runbook-automation.md) in [recovery plans](./site-recovery-create-recovery-plans.md) to do that.
 
 ## Other considerations
 * **Drive letter** — To retain the drive letter on virtual machines after failover you can set the **SAN Policy** for the virtual machine to **OnlineAll**. [Read more](https://support.microsoft.com/zh-cn/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
-
-
 ## Next Steps
-Once you have failed over virtual machines and the on-premises data center is available, you should [**Re-protect**](/documentation/articles/site-recovery-how-to-reprotect/) VMware virtual machines back to the on-premises data center.
+Once you have failed over virtual machines and the on-premises data center is available, you should [**Re-protect**](./site-recovery-how-to-reprotect.md) VMware virtual machines back to the on-premises data center.
 
-Use [**Planned failover**](/documentation/articles/site-recovery-failback-from-azure-to-hyper-v/) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
+Use [**Planned failover**](./site-recovery-failback-from-azure-to-hyper-v.md) option to **Failback** Hyper-v virtual machines back to on-premises from Azure.
 
-If you have failed over a Hyper-v virtual machine to another on-premises data center managed by a VMM server and the primary data center is available, then use **Reverse replicate** option to start the replication back to the primary data center. 
-
+If you have failed over a Hyper-v virtual machine to another on-premises data center managed by a VMM server and the primary data center is available, then use **Reverse replicate** option to start the replication back to the primary data center.

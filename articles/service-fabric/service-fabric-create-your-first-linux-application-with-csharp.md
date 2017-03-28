@@ -1,34 +1,33 @@
-<properties
-   pageTitle="Create your first Service Fabric application on Linux using C#| Azure"
-   description="Create and deploy a Service Fabric application using C#"
-   services="service-fabric"
-   documentationCenter="csharp"
-   authors="mani-ramaswamy"
-   manager="timlt"
-   editor=""/>
+---
+title: Create your first Service Fabric application on Linux using C#| Azure
+description: Create and deploy a Service Fabric application using C#
+services: service-fabric
+documentationCenter: csharp
+authors: mani-ramaswamy
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="csharp"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="10/04/2016"
-   ms.author="subramar"/>
-
+ms.service: service-fabric
+ms.devlang: csharp
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 10/04/2016
+ms.author: subramar
+---
 
 # Create your first Azure Service Fabric application
 
-> [AZURE.SELECTOR]
-- [C# - Windows](/documentation/articles/service-fabric-create-your-first-application-in-visual-studio/)
-- [Java - Linux](/documentation/articles/service-fabric-create-your-first-linux-application-with-java/)
-- [C# - Linux](/documentation/articles/service-fabric-create-your-first-linux-application-with-csharp/)
+> [!div class="op_single_selector"]
+>- [C# - Windows](./service-fabric-create-your-first-application-in-visual-studio.md)
+>- [Java - Linux](./service-fabric-create-your-first-linux-application-with-java.md)
+>- [C# - Linux](./service-fabric-create-your-first-linux-application-with-csharp.md)
 
 Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we look at how to create an application for Linux and build a service using C# (.NET Core).
 
 ## Prerequisites
 
-Before you get started, make sure that you have [set up your Linux development environment](/documentation/articles/service-fabric-get-started-linux/). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](/documentation/articles/service-fabric-get-started-mac/).
+Before you get started, make sure that you have [set up your Linux development environment](./service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](./service-fabric-get-started-mac.md).
 
 ## Create the application
 
@@ -42,7 +41,8 @@ A Service Fabric application can contain one or more services, each with a speci
 
   ![Service Fabric Yeoman generator for C#][sf-yeoman]
 
->[AZURE.NOTE] For more information about the options, see [Service Fabric programming model overview](/documentation/articles/service-fabric-choose-framework/).
+>[!NOTE]
+> For more information about the options, see [Service Fabric programming model overview](./service-fabric-choose-framework.md).
 
 ## Build the application
 
@@ -90,11 +90,10 @@ Actor projects do not do anything on their own. They require another service or 
 
 3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This action restarts one of the five nodes in your local cluster forcing a failover to a secondary replica running on another node. As you perform this action, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
 
-
 ## Next steps
 
-- [Learn more about Reliable Actors](/documentation/articles/service-fabric-reliable-actors-introduction/)
-- [Interacting with Service Fabric clusters using the Azure CLI](/documentation/articles/service-fabric-azure-cli/)
+- [Learn more about Reliable Actors](./service-fabric-reliable-actors-introduction.md)
+- [Interacting with Service Fabric clusters using the Azure CLI](./service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png

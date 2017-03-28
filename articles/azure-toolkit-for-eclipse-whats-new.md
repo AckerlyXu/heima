@@ -1,27 +1,29 @@
-<properties
-    pageTitle="What's New in the Azure Toolkit for Eclipse"
-    description="Learn about the latest features in the Azure Toolkit for Eclipse."
-    services=""
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="16b066ea-aae7-4c30-9a12-fa0c3711b93e"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm;asirveda;martinsawicki" />
+---
+title: What's New in the Azure Toolkit for Eclipse
+description: Learn about the latest features in the Azure Toolkit for Eclipse.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: 16b066ea-aae7-4c30-9a12-fa0c3711b93e
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm;asirveda;martinsawicki
+---
 
 # What's New in the Azure Toolkit for Eclipse
 ## Azure Toolkit for Eclipse Releases
 This article contains information on the various releases and latest updates to the Azure Toolkit for Eclipse.
 
-> [AZURE.NOTE] There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
+> [!NOTE]
+> There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
 
 ### August 26, 2016
 The Azure Toolkit for Eclipse - August 2016 release includes the following enhancements:
@@ -97,7 +99,8 @@ The Azure Toolkit for Eclipse - March 2015 release includes the following enhanc
 
 * **Support for Mac, Ubuntu and additional Linux flavors**. This release of the Azure Toolkit for Eclipse adds support for Mac OS and several Unix platforms, so developers can install the toolkit to create, configure and publish Java projects to Azure Cloud Services (PaaS) from Eclipse running on operating systems other than Windows.
 
->[AZURE.NOTE] This capability is in preview, and it is not recommended for use in production environments. There is no customer support Service Level Agreement (SLA), but all feedback is appreciated and encouraged.
+>[!NOTE]
+> This capability is in preview, and it is not recommended for use in production environments. There is no customer support Service Level Agreement (SLA), but all feedback is appreciated and encouraged.
 
 * **New Application Insights plugin**. Developers are now able to configure automatic server telemetry using Application Insights on Azure.
 * **Ant-based command line deployment automation**. This feature enables developers to automate the publishing for newer versions of their deployments using Ant outside of Eclipse. A pre-generated script is automatically configured for a project after the first time it is deployed from Eclipse, and subsequent deployments can use the script to fully automate deployments via the command line only.
@@ -304,33 +307,33 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse/
-[Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij/
-[Installing the Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-installation/
-[Installing the Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij-installation/
-[What's New in the Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-whats-new/
-[What's New in the Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij-whats-new/
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij.md
+[Installing the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]:/develop/java/
 
 [Azul Systems web page for the Zulu OpenJDK]: http://go.microsoft.com/fwlink/?LinkId=402457
 [Azure Service Endpoints]: http://go.microsoft.com/fwlink/?LinkID=699526
-[Azure Storage Account List]: /documentation/articles/azure-toolkit-for-eclipse-azure-storage-account-list/
-[Components properties]:/documentation/articles/azure-toolkit-for-eclipse-azure-role-properties/#components_properties/
-[Creating a Hello World Application for Azure in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/
-[Debugging Azure Applications in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-debugging-azure-applications/
-[Deploying Large Deployments]:/documentation/articles/azure-toolkit-for-eclipse-deploying-large-deployments/
-[Endpoints properties]:/documentation/articles/azure-toolkit-for-eclipse-azure-role-properties/#endpoints_properties/
-[Environment variables properties]:/documentation/articles/azure-toolkit-for-eclipse-azure-role-properties/#environment_variables_properties/
+[Azure Storage Account List]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
+[Components properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#components_properties/
+[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
+[Debugging Azure Applications in Eclipse]:./azure-toolkit-for-eclipse-debugging-azure-applications.md
+[Deploying Large Deployments]:./azure-toolkit-for-eclipse-deploying-large-deployments.md
+[Endpoints properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#endpoints_properties/
+[Environment variables properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#environment_variables_properties/
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: http://go.microsoft.com/fwlink/?LinkID=264703
 [How to Use SSL Offloading]:/develop/java/
-[Installing the Azure Toolkit for Eclipse]: /documentation/articles/azure-toolkit-for-eclipse-installation/
-[Local storage properties]:/documentation/articles/azure-toolkit-for-eclipse-azure-role-properties/#local_storage_properties/
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Local storage properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#local_storage_properties/
 [Azure Client API]: http://go.microsoft.com/fwlink/?LinkId=280397
-[Server configuration properties]:/documentation/articles/azure-toolkit-for-eclipse-azure-role-properties/#server_configuration_properties/
-[Session Affinity]:/documentation/articles/azure-toolkit-for-eclipse-enable-session-affinity/
+[Server configuration properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#server_configuration_properties/
+[Session Affinity]:./azure-toolkit-for-eclipse-enable-session-affinity.md
 [SSL Offloading]:/develop/java/
-[To create a new storage account]:/documentation/articles/azure-toolkit-for-eclipse-azure-storage-account-list/#create_new/
+[To create a new storage account]:./azure-toolkit-for-eclipse-azure-storage-account-list.md#create_new/
 [Virtual Machine and Cloud Service Sizes for Azure]: http://go.microsoft.com/fwlink/?LinkId=466520
 
 <!-- IMG List -->

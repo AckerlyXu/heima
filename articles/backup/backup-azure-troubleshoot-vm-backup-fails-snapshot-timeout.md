@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Troubleshoot Azure Backup failure: Snapshot VM sub task timed out | Azure"
-    description="Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out"
-    services="backup"
-    documentationcenter=""
-    author="genlin"
-    manager="cshepard"
-    editor="" />
-<tags
-    ms.assetid="4b02ffa4-c48e-45f6-8363-73d536be4639"
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/07/2017"
-    wacn.date=""
-    ms.author="genli;markgal;" />
+---
+title: Troubleshoot Azure Backup failure: Snapshot VM sub task timed out | Azure
+description: Symptoms, causes, and resolutions of Azure Backup failures related to error: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out
+services: backup
+documentationcenter: ''
+author: genlin
+manager: cshepard
+editor: ''
+
+ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+wacn.date: ''
+ms.author: genli;markgal;
+---
 
 # Troubleshoot Azure Backup failure: Snapshot VM sub task timed out
 ## Summary
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of four conditions might prevent the snapshot from being triggered, which in turn can lead to Backup failure. This article provides troubleshooting steps to help you resolve Backup failures related to snapshot time-out errors.
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Symptom
 Azure Backup for an infrastructure as a service (IaaS) VM fails, returning the following error message in the job error details in the [Azure portal](https://portal.azure.cn/): "Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out."
@@ -44,16 +45,16 @@ To resolve the issue, try one of the methods listed here.
 1. If you have network restrictions in place (for example, a network security group), deploy an HTTP proxy server to route the traffic.
 2. To allow access to the Internet from the HTTP proxy server, add rules to the network security group, if you have one.
 
-To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](/documentation/articles/backup-azure-vms-prepare/#using-an-http-proxy-for-vm-backups/).
+To learn how to set up an HTTP proxy for VM backups, see [Prepare your environment to back up Azure virtual machines](./backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
 
 ## Cause 2: The agent installed in the VM is out of date (for Linux VMs)
 
 ### Solution
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an outdated VM agent. To troubleshoot this issue, follow these general guidelines:
 
-1. Follow the instructions for [updating the Linux VM agent](/documentation/articles/virtual-machines-linux-update-agent/).
+1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/virtual-machines-linux-update-agent.md).
 
- >[AZURE.NOTE]
+ >[!NOTE]
  >We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent is unavailable for your distribution, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
 
 2. Make sure that the Azure agent is running on the VM by running the following command: `ps -e`
@@ -114,4 +115,4 @@ The following conditions can cause snapshot task failure:
 | The VM status is reported incorrectly because the VM is shut down in RDP. | If you shut down the VM in Remote Desktop Protocol (RDP), check the portal to determine whether the VM status is correct. If it’s not correct, shut down the VM in the portal by using the **Shutdown** option on the VM dashboard. |
 | Many VMs from the same cloud service are configured to back up at the same time. | It’s a best practice to spread out the backup schedules for VMs from the same cloud service. |
 | The VM is running at high CPU or memory usage. | If the VM is running at high CPU usage (more than 90 percent) or high memory usage, the snapshot task is queued and delayed, and it eventually times out. In this situation, try an on-demand backup. |
-| The VM cannot get the host/fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work.  If the VM cannot get the host/fabric address from DHCP response 245, it cannot download or run any extensions. If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled. For more information, see [Setting a Static Internal Private IP](/documentation/articles/virtual-networks-reserved-private-ip/). |
+| The VM cannot get the host/fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work.  If the VM cannot get the host/fabric address from DHCP response 245, it cannot download or run any extensions. If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled. For more information, see [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md). |

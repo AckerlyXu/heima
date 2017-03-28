@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Overview of BGP with Azure VPN Gateways | Azure"
-    description="This article provides an overview of BGP with Azure VPN Gateways."
-    services="vpn-gateway"
-    documentationcenter="na"
-    author="yushwang"
-    manager="rossort"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="f8c3985c-c128-4f34-835c-0e88742bf36e"
-    ms.service="vpn-gateway"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/12/2017"
-    wacn.date=""
-    ms.author="yushwang" />
+---
+title: Overview of BGP with Azure VPN Gateways | Azure
+description: This article provides an overview of BGP with Azure VPN Gateways.
+services: vpn-gateway
+documentationcenter: na
+author: yushwang
+manager: rossort
+editor: ''
+tags: ''
+
+ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
+ms.service: vpn-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/12/2017
+wacn.date: ''
+ms.author: yushwang
+---
 
 # Overview of BGP with Azure VPN Gateways
 This article provides an overview of BGP (Border Gateway Protocol) support in Azure VPN Gateways.
@@ -48,7 +49,7 @@ The following diagram shows an example of a multi-hop topology with multiple pat
 ![Multi-hop transit](./media/vpn-gateway-bgp-overview/full-mesh-transit.png)
 
 ## BGP FAQ
-[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
+[!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 ## Next steps
-See [Getting started with BGP on Azure VPN gateways](/documentation/articles/vpn-gateway-bgp-resource-manager-ps/) for steps to configure BGP for your cross-premises and VNet-to-VNet connections.
+See [Getting started with BGP on Azure VPN gateways](./vpn-gateway-bgp-resource-manager-ps.md) for steps to configure BGP for your cross-premises and VNet-to-VNet connections.

@@ -1,6 +1,6 @@
-> [AZURE.SELECTOR]
-- [Android](/documentation/articles/app-service-mobile-android-how-to-use-client-library/)
-- [Cordova](/documentation/articles/app-service-mobile-cordova-how-to-use-client-library/)
-- [JavaScript](/documentation/articles/app-service-mobile-html-how-to-use-client-library/)
-- [iOS](/documentation/articles/app-service-mobile-ios-how-to-use-client-library/)
-- [Managed (Windows/Xamarin)](/documentation/articles/app-service-mobile-dotnet-how-to-use-client-library/)
+> [!div class="op_single_selector"]
+>- [Android](../articles/app-service-mobile/app-service-mobile-android-how-to-use-client-library.md)
+>- [Cordova](../articles/app-service-mobile/app-service-mobile-cordova-how-to-use-client-library.md)
+>- [JavaScript](../articles/app-service-mobile/app-service-mobile-html-how-to-use-client-library.md)
+>- [iOS](../articles/app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md)
+>- [Managed (Windows/Xamarin)](../articles/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md)

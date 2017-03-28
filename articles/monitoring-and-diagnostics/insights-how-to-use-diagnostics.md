@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Enable monitoring and diagnostics in Azure | Azure "
-	description="Learn how to set up diagnostics for your resources in Azure."
-	authors="rboucher"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Enable monitoring and diagnostics in Azure | Azure 
+description: Learn how to set up diagnostics for your resources in Azure.
+authors: rboucher
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="robb"
-	wacn.date=""/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2015
+ms.author: robb
+wacn.date: ''
+---
 
 # Enable monitoring and diagnostics
 
@@ -66,10 +66,9 @@ Note that at this time certain distributions of Linux are not supported, and, th
 
 ## Next steps
 
-* [Receive alert notifications](/documentation/articles/insights-receive-alert-notifications/) whenever operational events happen or metrics cross a threshold.
-* [Monitor service metrics](/documentation/articles/insights-how-to-customize-monitoring/) to make sure your service is available and responsive.
-* [Scale instance count automatically](/documentation/articles/insights-how-to-scale/) to make sure your service scale based on demand.
+* [Receive alert notifications](./insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.
+* [Monitor service metrics](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+* [Scale instance count automatically](./insights-how-to-scale.md) to make sure your service scale based on demand.
 * [Monitor application performance](/documentation/articles/app-insights-azure-web-apps/) if you want to understand exactly how your code is performing in the cloud.
-* [View events and audit logs](/documentation/articles/insights-debugging-with-events/) to learn everything that has happened in your service.
-* [Track service health](/documentation/articles/insights-service-health/) to find out when Azure has experienced performance degradation or service interruptions. 
- 
+* [View events and audit logs](./insights-debugging-with-events.md) to learn everything that has happened in your service.
+* [Track service health](./insights-service-health.md) to find out when Azure has experienced performance degradation or service interruptions.

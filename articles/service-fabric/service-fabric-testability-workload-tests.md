@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Custom test scenarios | Microsoft Azure"
-   description="How to harden your services against graceful and ungraceful failures."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="anmolah"
-   manager="timlt"
-   editor=""/>
+---
+title: Custom test scenarios | Microsoft Azure
+description: How to harden your services against graceful and ungraceful failures.
+services: service-fabric
+documentationCenter: .net
+authors: anmolah
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.date="05/17/2016"
-   wacn.date=""/>
+ms.service: service-fabric
+ms.date: 05/17/2016
+wacn.date: ''
+---
 
 # Simulate failures during service workloads
 
 The testability scenarios in Azure Service Fabric enable developers to not worry about dealing with individual faults. There are scenarios, however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults ensures that the service is actually performing some action when failure happens. Given the level of control that testability provides, these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.
 
 ## Sample custom scenario
-This test shows a scenario that interleaves the business workload with [graceful and ungraceful failures](/documentation/articles/service-fabric-testability-actions/#graceful-vs-ungraceful-fault-actions). The faults should be induced in the middle of service operations or compute for best results.
+This test shows a scenario that interleaves the business workload with [graceful and ungraceful failures](./service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). The faults should be induced in the middle of service operations or compute for best results.
 
 Let's walk through an example of a service that exposes four workloads: A, B, C, and D. Each corresponds to a set of workflows and could be compute, storage, or a mix. For the sake of simplicity, we will abstract out the workloads in our example. The different faults executed in this example are:
   + RestartNode: Ungraceful fault to simulate a machine restart.

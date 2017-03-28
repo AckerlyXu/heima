@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Get Insights: Azure AD password management reports | Azure"
-    description="This article describes how to use reports to get insight into password management operations in your organization."
-    services="active-directory"
-    documentationcenter=""
-    author="MicrosoftGuyJFlo"
-    manager="femila"
-    editor="curtand" />
-<tags
-    ms.assetid="1472b51d-53f4-4b0f-b1be-57f6fa88fa65"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/28/2017"
-    wacn.date=""
-    ms.author="joflore" />
+---
+title: Get Insights: Azure AD password management reports | Azure
+description: This article describes how to use reports to get insight into password management operations in your organization.
+services: active-directory
+documentationcenter: ''
+author: MicrosoftGuyJFlo
+manager: femila
+editor: curtand
+
+ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/28/2017
+wacn.date: ''
+ms.author: joflore
+---
 
 # How to get operational insights with password management reports
-> [AZURE.IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
+> [!IMPORTANT]
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -28,7 +29,6 @@ This section describes how you can use Azure Active Directory’s password manag
 - [**How to download password reset registration events quickly with PowerShell**](#how-to-download-password-reset-registration-events-quickly-with-powershell)
 - [**View password reset registration activity in your organization in the Classic Management Portal**](#view-password-reset-registration-activity-in-the-classic-portal)
 - [**View password reset activity in your organization in the Classic Management Portal**](#view-password-reset-activity-in-the-classic-portal)
-
 
 ## How to download password reset registration events quickly with PowerShell
 In addition to using the Azure AD Reports and Events API directly, you may also use the below PowerShell script to recent registration events in your directory. This is useful in case you want to see who has registered recently, or would like to ensure that your password reset rollout is occurring as you expect.
@@ -125,20 +125,20 @@ Below is the list of result types you may expect when using the password reset a
 | We could not reach your on-premises password reset service. Check your sync machine's event log |Failed |
 | We encountered a problem while resetting the user's on-premises password. Check your sync machine's event log |Failed |
 | This user is not a member of the password reset users group. Add this user to that group to resolve this. |Failed |
-| Password reset has been disabled entirely for this tenant. See [here](/documentation/articles/active-directory-passwords-troubleshoot/) to resolve this. |Failed |
+| Password reset has been disabled entirely for this tenant. See [here](./active-directory-passwords-troubleshoot.md) to resolve this. |Failed |
 | User successfully reset password |Succeeded |
 
 ## Next steps
 Below are links to all of the Azure AD Password Reset documentation pages:
 
-- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
-- [**How it works**](/documentation/articles/active-directory-passwords-how-it-works/) - learn about the six different components of the service and what each does
-- [**Getting started**](/documentation/articles/active-directory-passwords-getting-started/) - learn how to allow you users to reset and change their cloud or on-premises passwords
-- [**Customize**](/documentation/articles/active-directory-passwords-customize/) - learn how to customize the look & feel and behavior of the service to your organization's needs
-- [**Best practices**](/documentation/articles/active-directory-passwords-best-practices/) - learn how to quickly deploy and effectively manage passwords in your organization
-- [**FAQ**](/documentation/articles/active-directory-passwords-faq/) - get answers to frequently asked questions
-- [**Troubleshooting**](/documentation/articles/active-directory-passwords-troubleshoot/) - learn how to quickly troubleshoot problems with the service
-- [**Learn more**](/documentation/articles/active-directory-passwords-learn-more/) - go deep into the technical details of how the service works
+- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+- [**How it works**](./active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+- [**Getting started**](./active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+- [**Customize**](./active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+- [**Best practices**](./active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+- [**FAQ**](./active-directory-passwords-faq.md) - get answers to frequently asked questions
+- [**Troubleshooting**](./active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+- [**Learn more**](./active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"

@@ -1,24 +1,24 @@
-<properties
-	pageTitle="Get Started with Event Hubs in C and C# | Azure"
-	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving hem in C# using the EventProcessorHost."
-	services="event-hubs"
-	documentationCenter=""
-	authors="jtaubensee"
-	manager="timlt"
-	editor=""/>
+---
+title: Get Started with Event Hubs in C and C# | Azure
+description: Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving hem in C# using the EventProcessorHost.
+services: event-hubs
+documentationCenter: ''
+authors: jtaubensee
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="c"
-	ms.devlang="csharp"
-	ms.topic="article"
-	ms.date="08/16/2016"
-	ms.author="jotaub;sethm"/>
+ms.service: event-hubs
+ms.workload: na
+ms.tgt_pltfrm: c
+ms.devlang: csharp
+ms.topic: article
+ms.date: 08/16/2016
+ms.author: jotaub;sethm
+---
 
 # Get started with Event Hubs
 
-[AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
+[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
 ## Introduction
 
@@ -36,23 +36,23 @@ To complete this tutorial, you will need the following:
 
 + An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.cn/pricing/1rmb-trial" target="_blank">Azure Trial</a>.
 
-[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
+[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## Run the applications
 
 Now you are ready to run the applications.
 
-1.	Run the **Receiver** project from within Visual Studio, then wait for it to start the receivers for all the partitions.
+1. Run the **Receiver** project from within Visual Studio, then wait for it to start the receivers for all the partitions.
 
-	![][21]
+    ![][21]
 
-2.	Run the **Sender** program, and see the events appear in the receiver window.
+2. Run the **Sender** program, and see the events appear in the receiver window.
 
-	![][24]
+    ![][24]
 
 ## Next steps
 
@@ -69,6 +69,6 @@ Now that you've built a working application that creates an Event Hub and sends 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.cn/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: ./event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3

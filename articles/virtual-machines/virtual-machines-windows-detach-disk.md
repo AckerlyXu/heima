@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Detach a data disk from a Windows VM | Azure"
-    description="Learn to detach a data disk from a virtual machine in Azure using the Resource Manager deployment model."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="13180343-ac49-4a3a-85d8-0ead95e2028c"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    wacn.date=""
-    ms.author="cynthn" />
+---
+title: Detach a data disk from a Windows VM | Azure
+description: Learn to detach a data disk from a virtual machine in Azure using the Resource Manager deployment model.
+services: virtual-machines-windows
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 13180343-ac49-4a3a-85d8-0ead95e2028c
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+wacn.date: ''
+ms.author: cynthn
+---
 
 # How to detach a data disk from a Windows virtual machine
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. 
 
-> [AZURE.WARNING]
-> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](/documentation/articles/storage-premium-storage/#pricing-and-billing). 
+> [!WARNING]
+> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information refer to [Pricing and Billing when using Premium Storage](../storage/storage-premium-storage.md#pricing-and-billing). 
 > 
 > 
 
@@ -46,11 +47,13 @@ The second command removes the data disk named DataDisk3 from the virtual machin
 
 The final command updates the state of the virtual machine to complete the process of removing the data disk.
 
-    $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
-    Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-    Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+```powershell
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
+Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
+Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+```
 
 For more information, see [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/zh-cn/library/mt603614.aspx)
 
 ## Next steps
-If you want to reuse the data disk, you can just [attach it to another VM](/documentation/articles/virtual-machines-windows-attach-disk-portal/)
+If you want to reuse the data disk, you can just [attach it to another VM](./virtual-machines-windows-attach-disk-portal.md)

@@ -1,5 +1,3 @@
-
-
 ## Create new database user using SSMS
 
 Use the following steps to create a new database user in an existing database using SSMS. 
@@ -16,10 +14,8 @@ These steps assume that you are connected to SQL Database in Object Explorer usi
 
 3. In the query window, edit and use the following Transact-SQL statement to create a contained user in your user database. 
 
-    ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
+    ```
+    CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
     ```
 
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
-
-
-

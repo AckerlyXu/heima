@@ -1,39 +1,40 @@
-<properties
-    pageTitle="Connect an Azure virtual network to another VNet: Classic | Azure"
-    description="How to connect Azure virtual networks together using PowerShell and the Azure Classic Management Portal."
-    services="vpn-gateway"
-    documentationcenter="na"
-    author="cherylmc"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="7413827f-233d-4c7c-a133-9c99cf031833"
-    ms.service="vpn-gateway"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="08/31/2016"
-    wacn.date=""
-    ms.author="cherylmc" />
+---
+title: Connect an Azure virtual network to another VNet: Classic | Azure
+description: How to connect Azure virtual networks together using PowerShell and the Azure Classic Management Portal.
+services: vpn-gateway
+documentationcenter: na
+author: cherylmc
+manager: timlt
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 7413827f-233d-4c7c-a133-9c99cf031833
+ms.service: vpn-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/31/2016
+wacn.date: ''
+ms.author: cherylmc
+---
 
 # Configure a VNet-to-VNet connection for the classic deployment model
-> [AZURE.SELECTOR]
-- [Resource Manager - Azure Portal Preview](/documentation/articles/vpn-gateway-howto-vnet-vnet-resource-manager-portal/)
-- [Resource Manager - PowerShell](/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/)
-- [Classic - Classic Management Portal](/documentation/articles/virtual-networks-configure-vnet-to-vnet-connection/)
+> [!div class="op_single_selector"]
+>- [Resource Manager - Azure Portal Preview](./vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+>- [Resource Manager - PowerShell](./vpn-gateway-vnet-vnet-rm-ps.md)
+>- [Classic - Classic Management Portal](./virtual-networks-configure-vnet-to-vnet-connection.md)
 
 This article walks you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The following steps use the Azure Classic Management Portal to create the VNets and gateways, and PowerShell to configure the VNet-to-VNet connection. You cannot configure the connection in the portal.
 
 ![VNet to VNet Connectivity Diagram](./media/virtual-networks-configure-vnet-to-vnet-connection/v2vclassic.png)
 
 ### Deployment models and methods for VNet-to-VNet connections
-[AZURE.INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 The following table shows the currently available deployment models and methods for VNet-to-VNet configurations. When an article with configuration steps is available, we link directly to it from this table.
 
-[AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
+[!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
 ## About VNet-to-VNet connections
 Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. 
@@ -44,14 +45,14 @@ The VNets you connect can be in different subscriptions and different regions. Y
 You may want to connect virtual networks for the following reasons:
 
 * **Cross region geo-redundancy and geo-presence**
-  
+
     * You can set up your own geo-replication or synchronization with secure connectivity without going over Internet-facing endpoints.
     * With Azure Load Balancer and Microsoft or third-party clustering technology, you can set up highly available workload with geo-redundancy across multiple Azure regions. One important example is to set up SQL Always On with Availability Groups spreading across multiple Azure regions.
 * **Regional multi-tier applications with strong isolation boundary**
-  
+
     * Within the same region, you can set up multi-tier applications with multiple VNets connected together with strong isolation and secure inter-tier communication.
 * **Cross subscription, inter-organization communication in Azure**
-  
+
     * If you have multiple Azure subscriptions, you can connect workloads from different subscriptions together securely between virtual networks.
     * For enterprises or service providers, you can enable cross-organization communication with secure VPN technology within Azure.
 
@@ -153,7 +154,7 @@ Configure a Dynamic Routing gateway for each virtual network. This configuration
 2. In the **Name** column, click the name of your virtual network. For this example, we use "VNet1".
 3. On the **Dashboard** page, notice that this VNet doesn't have a gateway configured yet. You'll see this status change as you go through the steps to configure your gateway.
 4. At the bottom of the page, click **Create Gateway** and **Dynamic Routing**. When the system prompts you to confirm that you want the gateway created, click Yes.
-   
+
       ![Gateway type](./media/virtual-networks-configure-vnet-to-vnet-connection/IC717026.png)  
 5. When your gateway is creating, notice the gateway graphic on the page changes to yellow and says "Creating Gateway". It typically takes about 30 minutes for the gateway to create.
 6. Repeat the same steps for VNet2. You don't need the first VNet gateway to complete before you begin to create the gateway for your other VNet.
@@ -167,27 +168,35 @@ Configure a Dynamic Routing gateway for each virtual network. This configuration
 When all the previous steps have been completed, set the IPsec/IKE pre-shared keys and create the connection. This set of steps uses PowerShell and cannot be configured in the portal. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) for more information about installing the Azure PowerShell cmdlets. Make sure to download the latest version of the Service Management (SM) cmdlets. 
 
 1. Open Windows PowerShell and log in.
-   
-        Add-AzureAccount -Environment AzureChinaCloud
+
+    ```
+    Add-AzureAccount -Environment AzureChinaCloud
+    ```
 2. Select the subscription that your VNets reside in.
-   
-        Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
-        Select-AzureSubscription -SubscriptionName "<Subscription Name>"
+
+    ```
+    Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
+    Select-AzureSubscription -SubscriptionName "<Subscription Name>"
+    ```
 3. Create the connections. In the examples, notice that the shared key is exactly the same. The shared key must always match.
 
     VNet1 to VNet2 connection
 
-        Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2Local -SharedKey A1b2C3D4
+    ```
+    Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2Local -SharedKey A1b2C3D4
+    ```
 
     VNet2 to VNet1 connection
 
-        Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
+    ```
+    Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
+    ```
 
 4. Wait for the connections to initialize. Once the gateway has initialized, the gateway looks like the following graphic.
-   
+
     ![Gateway Status - Connected](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)  
-   
-[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
+
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 ## Next steps
-You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/documentation/services/virtual-machines/) for more information.
+You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](../virtual-machines/index.md) for more information.

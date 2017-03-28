@@ -1,4 +1,4 @@
-    Time /t >> C:\Temp\logfile.log
+Time /t >> C:\Temp\logfile.log
     REM ==================================================
     REM ==== Clean up the folders ========================
     RMDIR /S /q %temp%\MobSvc
@@ -30,11 +30,10 @@
     NET START | FIND "InMage Scout Application Service"
     IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UPDATE
     :INSTALL
-    	echo "Install" >> c:\Temp\logfile.log
-    	UnifiedAgent.exe /Role "Agent" /CSEndpoint "10.10.20.168" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
+        echo "Install" >> c:\Temp\logfile.log
+        UnifiedAgent.exe /Role "Agent" /CSEndpoint "10.10.20.168" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
     GOTO :ENDSCRIPT
     :UPDATE
-    	echo "Update" >> C:\Temp\logfile.log
-    	UnifiedAgent.exe /upgrade
+        echo "Update" >> C:\Temp\logfile.log
+        UnifiedAgent.exe /upgrade
     :ENDSCRIPT
-    

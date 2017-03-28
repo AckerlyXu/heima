@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Create your first Service Fabric application on Linux using Java | Azure"
-    description="Create and deploy a Service Fabric application using Java"
-    services="service-fabric"
-    documentationcenter="java"
-    author="seanmck"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="02b51f11-5d78-4c54-bb68-8e128677783e"
-    ms.service="service-fabric"
-    ms.devlang="java"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="seanmck" />
+---
+title: Create your first Service Fabric application on Linux using Java | Azure
+description: Create and deploy a Service Fabric application using Java
+services: service-fabric
+documentationcenter: java
+author: seanmck
+manager: timlt
+editor: ''
+
+ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
+ms.service: service-fabric
+ms.devlang: java
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: seanmck
+---
 
 # Create your first Azure Service Fabric application
 
-> [AZURE.SELECTOR]
-- [C# - Windows](/documentation/articles/service-fabric-create-your-first-application-in-visual-studio/)
-- [Java - Linux](/documentation/articles/service-fabric-create-your-first-linux-application-with-java/)
-- [C# - Linux](/documentation/articles/service-fabric-create-your-first-linux-application-with-csharp/)
+> [!div class="op_single_selector"]
+>- [C# - Windows](./service-fabric-create-your-first-application-in-visual-studio.md)
+>- [Java - Linux](./service-fabric-create-your-first-linux-application-with-java.md)
+>- [C# - Linux](./service-fabric-create-your-first-linux-application-with-csharp.md)
 
 Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we create an application for Linux and build a service using Java.  
 
-> [AZURE.NOTE]
-> Java as a first class built-in programming language is supported for the Linux preview only (Windows support is planned). However, any applications including Java applications can be run as guest executables or inside containers on Windows or Linux. For more information, see [Deploy an existing executable to Azure Service Fabric](/documentation/articles/service-fabric-deploy-existing-app/) and [Deploy containers to Service Fabric](/documentation/articles/service-fabric-deploy-container/).
+> [!NOTE]
+> Java as a first class built-in programming language is supported for the Linux preview only (Windows support is planned). However, any applications including Java applications can be run as guest executables or inside containers on Windows or Linux. For more information, see [Deploy an existing executable to Azure Service Fabric](./service-fabric-deploy-existing-app.md) and [Deploy containers to Service Fabric](./service-fabric-deploy-container.md).
 >
 
 ## Video tutorial
@@ -37,10 +38,9 @@ The following Microsoft Virtual Academy video walks you through the process of c
 <img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
-
 ## Prerequisites
 
-Before you get started, make sure that you have [set up your Linux development environment](/documentation/articles/service-fabric-get-started-linux/). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](/documentation/articles/service-fabric-get-started-mac/).
+Before you get started, make sure that you have [set up your Linux development environment](./service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](./service-fabric-get-started-mac.md).
 
 ## Create the application
 A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later. Let's use Yeoman to create an application with a single service.
@@ -51,7 +51,8 @@ A Service Fabric application can contain one or more services, each with a speci
 
   ![Service Fabric Yeoman generator for Java][sf-yeoman]
 
->[AZURE.NOTE] For more information about the options, see [Service Fabric programming model overview](/documentation/articles/service-fabric-choose-framework/).
+>[!NOTE]
+> For more information about the options, see [Service Fabric programming model overview](./service-fabric-choose-framework.md).
 
 ## Build the application
 The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the app from the terminal.
@@ -128,12 +129,11 @@ To add another service to an application already created using `yo`, perform the
 1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
 2. Run `yo azuresfjava:AddService`
 
-
 ## Next steps
-* [Learn more about Reliable Actors](/documentation/articles/service-fabric-reliable-actors-introduction/)
-* [Interacting with Service Fabric clusters using the Azure CLI](/documentation/articles/service-fabric-azure-cli/)
-* [Troubleshooting deployment](/documentation/articles/service-fabric-azure-cli/#troubleshooting)
-* Learn about [Service Fabric support options](/documentation/articles/service-fabric-support/)
+* [Learn more about Reliable Actors](./service-fabric-reliable-actors-introduction.md)
+* [Interacting with Service Fabric clusters using the Azure CLI](./service-fabric-azure-cli.md)
+* [Troubleshooting deployment](./service-fabric-azure-cli.md#troubleshooting)
+* Learn about [Service Fabric support options](./service-fabric-support.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png

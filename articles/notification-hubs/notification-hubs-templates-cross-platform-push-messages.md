@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Templates"
-	description="This topic explains Templates for Azure notification hubs."
-	services="notification-hubs"
-	documentationCenter=".net"
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""/>
+---
+title: Templates
+description: This topic explains Templates for Azure notification hubs.
+services: notification-hubs
+documentationCenter: .net
+authors: wesmc7777
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="notification-hubs"
-	ms.date="06/29/2016"
-	ms.author="wesmc"/>
+ms.service: notification-hubs
+ms.date: 06/29/2016
+ms.author: wesmc
+---
 
 # Templates
 
@@ -32,17 +32,21 @@ This section provides two in-depth examples of how to use templates to send plat
 
 The standard way to send push notifications is to send, for each notification that is to be sent, a specific payload to platform notification services (WNS, APNS). For example, to send an alert to APNS, the payload is a Json object of the following form:
 
-	{"aps": {"alert" : "Hello!" }}
+```
+{"aps": {"alert" : "Hello!" }}
+```
 
 To send a similar toast message on a Windows Store application, the XML payload is as follows:
 
-	<toast>
-	  <visual>
-	    <binding template=\"ToastText01\">
-	      <text id=\"1\">Hello!</text>
-	    </binding>
-	  </visual>
-	</toast>
+```
+<toast>
+  <visual>
+    <binding template=\"ToastText01\">
+      <text id=\"1\">Hello!</text>
+    </binding>
+  </visual>
+</toast>
+```
 
 You can create similar payloads for MPNS (Windows Phone) and GCM (Android) platforms.
 
@@ -54,20 +58,23 @@ The following picture illustrates the above process:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
-
 The template for the iOS client app registration is as follows:
 
-	{"aps": {"alert": "$(message)"}}
+```
+{"aps": {"alert": "$(message)"}}
+```
 
 The corresponding template for the Windows Store client app is:
 
-	<toast>
-		<visual>
-			<binding template=\"ToastText01\">
-				<text id=\"1\">$(message)</text>
-			</binding>
-		</visual>
-	</toast>
+```
+<toast>
+    <visual>
+        <binding template=\"ToastText01\">
+            <text id=\"1\">$(message)</text>
+        </binding>
+    </visual>
+</toast>
+```
 
 Notice that the actual message is substituted for the expression $(message). This expression instructs the Notification Hub, whenever it sends a message to this particular registration, to build a message that follows it and switches in the common value.
 
@@ -81,18 +88,19 @@ Another advantage to using templates is the ability to use Notification Hubs to 
 
 The template for the one-day forecast with Celsius temperatures is as follows:
 
-	<tile>
-	  <visual>
-	    <binding template="TileWideSmallImageAndText04">
-	      <image id="1" src="$(day1_image)" alt="alt text"/>
-	      <text id="1">Seattle, WA</text>
-	      <text id="2">$(day1_tempC)</text>
-	    </binding>  
-	  </visual>
-	</tile>
+```
+<tile>
+  <visual>
+    <binding template="TileWideSmallImageAndText04">
+      <image id="1" src="$(day1_image)" alt="alt text"/>
+      <text id="1">Seattle, WA</text>
+      <text id="2">$(day1_tempC)</text>
+    </binding>  
+  </visual>
+</tile>
+```
 
 The message sent to the Notification Hub contains all the following properties:
-
 
 <table border="1">
 <tr><td>day1_image</td><td>day2_image</td><td>day3_image</td><td>day4_image</td><td>day5_image</td></tr>
@@ -100,20 +108,17 @@ The message sent to the Notification Hub contains all the following properties:
 <tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
 </table><br/>
 
-
 By using this pattern, the backend only sends a single message without having to store specific personalization options for the app users. The following picture illustrates this scenario:
 
 ![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ##How to register templates
 
-To register with templates using the Installation model (preferred), or the Registration model, see [Registration Management](/documentation/articles/notification-hubs-push-notification-registration-management/).
+To register with templates using the Installation model (preferred), or the Registration model, see [Registration Management](./notification-hubs-push-notification-registration-management.md).
 
 ##Template expression language
 
 Templates are limited to XML or JSON document formats. Also, you can only place expressions in particular places; for example, node attributes or values for XML, string property values for JSON.
-
-
 
 The following table shows the language allowed in templates:
 
@@ -131,25 +136,26 @@ The expressions can be any of the preceding forms.
 
 When using concatenation, the entire expression must be surrounded with {}. For example, {$(prop) + ‘ - ’ + $(prop2)}. |
 
-
 For example, the following is not a valid XML template:
 
-	<tile>
-	  <visual>
-	    <binding $(property)>
-	      <text id="1">Seattle, WA</text>
-	    </binding>  
-	  </visual>
-	</tile>
-
+```
+<tile>
+  <visual>
+    <binding $(property)>
+      <text id="1">Seattle, WA</text>
+    </binding>  
+  </visual>
+</tile>
+```
 
 As explained above, when using concatenation, expressions must be wrapped in curly brackets. For example:
 
-	<tile>
-	  <visual>
-	    <binding template="ToastText01">
-	      <text id="1">{'Hi, ' + $(name)}</text>
-	    </binding>  
-	  </visual>
-	</tile>
-
+```
+<tile>
+  <visual>
+    <binding template="ToastText01">
+      <text id="1">{'Hi, ' + $(name)}</text>
+    </binding>  
+  </visual>
+</tile>
+```

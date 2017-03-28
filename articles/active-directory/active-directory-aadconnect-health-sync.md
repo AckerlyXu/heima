@@ -1,20 +1,19 @@
+---
+title: Using Azure AD Connect Health with sync | Azure
+description: This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync.
+services: active-directory
+documentationCenter: ''
+authors: billmath
+manager: stevenpo
+editor: curtand
 
-<properties
-	pageTitle="Using Azure AD Connect Health with sync | Azure"
-	description="This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
-	editor="curtand"/>
-
-<tags 
-	ms.service="active-directory" 
-	ms.date="08/08/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 08/08/2016
+wacn.date: ''
+---
 
 # Using Azure AD Connect Health for sync
-The following documentation is specific to monitoring Azure AD Connect (Sync) with Azure AD Connect Health.  For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](/documentation/articles/active-directory-aadconnect-health-adfs/).
+The following documentation is specific to monitoring Azure AD Connect (Sync) with Azure AD Connect Health.  For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](./active-directory-aadconnect-health-adfs.md).
 
 ![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/sync.png)
 
@@ -56,9 +55,9 @@ This feature provides a graphical trend of the number of changes that are being 
 
 ## Related links
 
-* [Azure AD Connect Health](/documentation/articles/active-directory-aadconnect-health/)
-* [Azure AD Connect Health Agent Installation](/documentation/articles/active-directory-aadconnect-health-agent-install/)
-* [Azure AD Connect Health Operations](/documentation/articles/active-directory-aadconnect-health-operations/)
-* [Using Azure AD Connect Health with AD FS](/documentation/articles/active-directory-aadconnect-health-adfs/)
-* [Azure AD Connect Health FAQ](/documentation/articles/active-directory-aadconnect-health-faq/)
-* [Azure AD Connect Health Version History](/documentation/articles/active-directory-aadconnect-health-version-history/)
+* [Azure AD Connect Health](./active-directory-aadconnect-health.md)
+* [Azure AD Connect Health Agent Installation](./active-directory-aadconnect-health-agent-install.md)
+* [Azure AD Connect Health Operations](./active-directory-aadconnect-health-operations.md)
+* [Using Azure AD Connect Health with AD FS](./active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health FAQ](./active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health Version History](./active-directory-aadconnect-health-version-history.md)

@@ -1,29 +1,28 @@
-<properties
-   pageTitle="Transparent Data Encryption in SQL Data Warehouse (T-SQL)| Azure"
-   description="Transparent Data Encryption (TDE) in SQL Data Warehouse (T-SQL)"
-   services="sql-data-warehouse"
-   documentationCenter=""
-   authors="ronortloff"
-   manager="barbkess"
-   editor=""/>
+---
+title: Transparent Data Encryption in SQL Data Warehouse (T-SQL)| Azure
+description: Transparent Data Encryption (TDE) in SQL Data Warehouse (T-SQL)
+services: sql-data-warehouse
+documentationCenter: ''
+authors: ronortloff
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.workload="data-management"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="10/31/2016"
-   ms.author="rortloff;barbkess"/>
+ms.service: sql-data-warehouse
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/31/2016
+ms.author: rortloff;barbkess
+---
 
 # Get started with Transparent Data Encryption (TDE)
 
-
-> [AZURE.SELECTOR]
-- [Security Overview](/documentation/articles/sql-data-warehouse-overview-manage-security/)
-- [Authentication](/documentation/articles/sql-data-warehouse-authentication/)
-- [Encryption (Portal)](/documentation/articles/sql-data-warehouse-encryption-tde/)
-- [Encryption (T-SQL)](/documentation/articles/sql-data-warehouse-encryption-tde-tsql/)
+> [!div class="op_single_selector"]
+>- [Security Overview](./sql-data-warehouse-overview-manage-security.md)
+>- [Authentication](./sql-data-warehouse-authentication.md)
+>- [Encryption (Portal)](./sql-data-warehouse-encryption-tde.md)
+>- [Encryption (T-SQL)](./sql-data-warehouse-encryption-tde-tsql.md)
 
 ## Required Permssions
 To enable Transparent Data Encryption (TDE), you must be an administrator or a member of the dbmanager role.
@@ -48,7 +47,8 @@ Follow these steps to disable TDE for a SQL Data Warehouse:
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
-> [AZURE.NOTE] A paused SQL Data Warehouse must be resumed before making changes to the TDE settings.
+> [!NOTE]
+> A paused SQL Data Warehouse must be resumed before making changes to the TDE settings.
 
 ## Verifying Encryption
 To verify encryption status for a SQL Data Warehouse, follow the steps below:

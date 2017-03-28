@@ -1,33 +1,30 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-	pageTitle="Restore virtual machines from backup using Azure portal | Azure"
-	description="Restore an Azure virtual machine from a recovery point using Azure portal"
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="cfreeman"
-	editor=""
-	keywords="restore backup; how to restore; recovery point;"/>
+---
+title: Restore virtual machines from backup using Azure portal | Azure
+description: Restore an Azure virtual machine from a recovery point using Azure portal
+services: backup
+documentationCenter: ''
+authors: markgalioto
+manager: cfreeman
+editor: ''
+keywords: restore backup; how to restore; recovery point;
 
-<tags
-	ms.service="backup"
-	ms.date="08/10/2016"
-	wacn.date=""/>
-
+ms.service: backup
+ms.date: 08/10/2016
+wacn.date: ''
+---
 
 # Use Azure portal to restore virtual machines
 
-> [AZURE.SELECTOR]
-- [Restore VMs in Classic Management Portal](/documentation/articles/backup-azure-restore-vms/)
-- [Restore VMs in Azure portal](/documentation/articles/backup-azure-arm-restore-vms/)
-
+> [!div class="op_single_selector"]
+>- [Restore VMs in Classic Management Portal](./backup-azure-restore-vms.md)
+>- [Restore VMs in Azure portal](./backup-azure-arm-restore-vms.md)
 
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you return or revert the VM to the state when the recovery point was taken. This article explains how to restore a VM.
 
-> [AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](/documentation/articles/resource-manager-deployment-model/). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
-
-
+> [!NOTE]
+> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 
 ## Restore a recovery point
 
@@ -69,7 +66,7 @@ Protect your data by taking snapshots of your data at defined intervals. These s
 
     ![restore blade](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
-    By default, the dialog displays all restore points from the last 30 days. Use the **Filter** to alter the time range of the restore points displayed. By default, restore points of all consistency are displayed. Modify **All Restore points** filter to select a specific consistency of restore points. For more information about each type of restoration point, see the explanation of [Data consistency](/documentation/articles/backup-azure-vms-introduction/#data-consistency).  
+    By default, the dialog displays all restore points from the last 30 days. Use the **Filter** to alter the time range of the restore points displayed. By default, restore points of all consistency are displayed. Modify **All Restore points** filter to select a specific consistency of restore points. For more information about each type of restoration point, see the explanation of [Data consistency](./backup-azure-vms-introduction.md#data-consistency).  
     - **Restore point consistency** from this list choose:
         - Crash consistent restore points,
         - Application consistent restore points,
@@ -92,7 +89,8 @@ Protect your data by taking snapshots of your data at defined intervals. These s
 
 Now that you have selected the restore point, choose a configuration for your restore VM. Your choices for configuring the restored VM are to use: Azure portal or PowerShell.
 
-> [AZURE.NOTE] Portal provides a Quick Create option for restored VM. If you want to customize the VM configuration of the to-be restored VM, use PowerShell to restore backed up disks and attach them to choice of VM configuration. See [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations).
+> [!NOTE]
+> Portal provides a Quick Create option for restored VM. If you want to customize the VM configuration of the to-be restored VM, use PowerShell to restore backed up disks and attach them to choice of VM configuration. See [Restoring a VM with special network configurations](#restoring-vms-with-special-network-configurations).
 
 1. If you are not already there, go to the **Restore** blade. Ensure a **Restore point** has been selected, and click **Restore configuration** to open the **Recovery configuration** blade.
 
@@ -100,12 +98,13 @@ Now that you have selected the restore point, choose a configuration for your re
 
 2. On the **Restore configuration** blade, enter or select values for each of the following fields:
     - **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for a Resource Manager-deployed VM) or cloud service (for a Classic VM). You cannot replace the virtual machine if it already exists in the subscription.
-    - **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. If you are create a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL - for example: [cloudservice].chinacloudapp.cn. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
+    - **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. If you are create a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL - for example: [cloudservice].chinacloudapp.cn. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
     - **Virtual Network** - Select the virtual network (VNET) when creating the VM. The field provides all VNETs associated with the subscription. Resource group of the VM is displayed in parentheses.
     - **Subnet** - If the VNET has subnets, the first subnet is selected by default. If there are additional subnets, select the desired subnet.
     - **Storage account** - This menu lists the storage accounts in the same location as the Recovery Services vault. When choosing a storage account, select an account that shares the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. The storage account's replication type is mentioned in parentheses.
 
-    > [AZURE.NOTE] If you are restoring a Resource Manager-deployed VM, you must identify a virtual network (VNET). A virtual network (VNET) is optional for a Classic VM.
+    > [!NOTE]
+    > If you are restoring a Resource Manager-deployed VM, you must identify a virtual network (VNET). A virtual network (VNET) is optional for a Classic VM.
 
 3. On the **Restore configuration** blade, click **OK** to finalize the restore configuration.
 
@@ -146,20 +145,21 @@ It is possible to backup and restore VMs with the following special network conf
 - VMs with multiple reserved IPs
 - VMs with multiple NICs
 
->[AZURE.IMPORTANT] When creating the special network configuration for VMs, you must use PowerShell to create VMs from the disks restored.
+>[!IMPORTANT]
+> When creating the special network configuration for VMs, you must use PowerShell to create VMs from the disks restored.
 
 To fully recreate the virtual machines after restoring to disk, follow these steps:
 
-1. Restore the disks from a recovery services vault using [PowerShell](/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm)
+1. Restore the disks from a recovery services vault using [PowerShell](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 2. Create the VM configuration required for load balancer/multiple NIC/multiple reserved IP using the PowerShell cmdlets and use it to create the VM of desired configuration.
-	- Create VM in cloud service with [Internal Load balancer ](/documentation/articles/load-balancer-internal-getstarted/)
-	- Create VM to connect to [Internet facing load balancer] (/documentation/articles/load-balancer-internet-getstarted/)
-	- Create VM with [multiple NICs](/documentation/articles/virtual-networks-multiple-nics/)
-	- Create VM with [multiple reserved IPs](/documentation/articles/virtual-networks-reserved-public-ip/)
+    - Create VM in cloud service with [Internal Load balancer ](/documentation/articles/load-balancer-internal-getstarted/)
+    - Create VM to connect to [Internet facing load balancer] (/documentation/articles/load-balancer-internet-getstarted/)
+    - Create VM with [multiple NICs](../virtual-network/virtual-networks-multiple-nics.md)
+    - Create VM with [multiple reserved IPs](../virtual-network/virtual-networks-reserved-public-ip.md)
 
 ## Next steps
 Now that you can restore your VMs, see the troubleshooting article for information on common errors with VMs. Also, check out the article on managing tasks with your VMs.
 
-- [Troubleshooting errors](/documentation/articles/backup-azure-vms-troubleshoot/#restore)
-- [Manage virtual machines](/documentation/articles/backup-azure-manage-vms/)
+- [Troubleshooting errors](./backup-azure-vms-troubleshoot.md#restore)
+- [Manage virtual machines](./backup-azure-manage-vms.md)

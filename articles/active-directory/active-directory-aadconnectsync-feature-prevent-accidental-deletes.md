@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect sync: Prevent accidental deletes | Azure"
-    description="This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect."
-    services="active-directory"
-    documentationcenter=""
-    author="AndKjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="6b852cb4-2850-40a1-8280-8724081601f7"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect sync: Prevent accidental deletes | Azure
+description: This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
+
+ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Azure AD Connect sync: Prevent accidental deletes
 This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect.
@@ -25,7 +26,7 @@ When installing Azure AD Connect, prevent accidental deletes is enabled by defau
 ## What is prevent accidental deletes
 Common scenarios when you see many deletes include:
 
-- Changes to [filtering](/documentation/articles/active-directory-aadconnectsync-configure-filtering/) where an entire [OU](/documentation/articles/active-directory-aadconnectsync-configure-filtering/#organizational-unitbased-filtering/) or [domain](/documentation/articles/active-directory-aadconnectsync-configure-filtering/#domain-based-filtering/) is unselected.
+- Changes to [filtering](./active-directory-aadconnectsync-configure-filtering.md) where an entire [OU](./active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) or [domain](./active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) is unselected.
 - All objects in an OU are deleted.
 - An OU is renamed so all objects in it are considered to be out of scope for synchronization.
 
@@ -62,5 +63,5 @@ If all the deletes are desired, then do the following:
 ## Next steps
 **Overview topics**
 
-- [Azure AD Connect sync: Understand and customize synchronization](/documentation/articles/active-directory-aadconnectsync-whatis/)
-- [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)

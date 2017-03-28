@@ -1,21 +1,22 @@
-<properties
-    pageTitle="High availability for Azure applications | Azure"
-    description="Technical overview and in-depth information about designing and building applications for high availability on Azure."
-    services=""
-    documentationcenter="na"
-    author="adamglick"
-    manager="saladki"
-    editor="" />
-<tags
-    ms.assetid="8be4f323-ca00-4025-9356-c9bbc998eef3"
-    ms.service="resiliency"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/18/2016"
-    wacn.date=""
-    ms.author="aglick"/>
+---
+title: High availability for Azure applications | Azure
+description: Technical overview and in-depth information about designing and building applications for high availability on Azure.
+services: ''
+documentationcenter: na
+author: adamglick
+manager: saladki
+editor: ''
+
+ms.assetid: 8be4f323-ca00-4025-9356-c9bbc998eef3
+ms.service: resiliency
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/18/2016
+wacn.date: ''
+ms.author: aglick
+---
 
 # High availability for applications built on Azure
 
@@ -23,7 +24,7 @@ A highly available application absorbs fluctuations in availability, load, and t
 
 ## Azure high-availability features
 
-Azure has many built-in platform features that support highly available applications. This section describes some of those key features. For a more comprehensive analysis of the platform, see [Azure resiliency technical guidance](/documentation/articles/resiliency-technical-guidance/).
+Azure has many built-in platform features that support highly available applications. This section describes some of those key features. For a more comprehensive analysis of the platform, see [Azure resiliency technical guidance](./resiliency-technical-guidance.md).
 
 ### Fabric controller
 
@@ -35,7 +36,7 @@ The following diagram shows Azure shared resources that the fabric controller de
 
 ![Simplified view of fault domain isolation](./media/resiliency-high-availability-azure-applications/fault-domain-isolation.png)
 
-Upgrade domains are similar to fault domains in function, but they support upgrades rather than failures. An upgrade domain is a logical unit of instance separation that determines which instances in a particular service will be upgraded at a point in time. By default, for your hosted service deployment, five upgrade domains are defined. However, you can change that value in the service definition file. For example, assume that you have eight instances of your web role. There will be two instances in three upgrade domains and two instances in one upgrade domain. Azure defines the update sequence, but it's based on the number of upgrade domains. For more information on upgrade domains, see [Update a cloud service](/documentation/articles/cloud-services-update-azure-service/).
+Upgrade domains are similar to fault domains in function, but they support upgrades rather than failures. An upgrade domain is a logical unit of instance separation that determines which instances in a particular service will be upgraded at a point in time. By default, for your hosted service deployment, five upgrade domains are defined. However, you can change that value in the service definition file. For example, assume that you have eight instances of your web role. There will be two instances in three upgrade domains and two instances in one upgrade domain. Azure defines the update sequence, but it's based on the number of upgrade domains. For more information on upgrade domains, see [Update a cloud service](../cloud-services/cloud-services-update-azure-service.md).
 
 ### Features in other services
 
@@ -59,7 +60,7 @@ The following diagram provides a representation of two availability sets that gr
 
 ![Availability sets for Azure Virtual Machines](./media/resiliency-high-availability-azure-applications/availability-set-for-azure-virtual-machines.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > In the preceding diagram, SQL Server is installed and running on virtual machines. This is different from the previous discussion of Azure SQL Database, which provides a database as a managed service.
 > 
 > 
@@ -74,7 +75,7 @@ Consider asynchronous communication between loosely coupled services to increase
 
 A variation of this uses Azure Storage (blobs, tables, queues) or Service Bus queues as a failover location for failed database calls. For example, a synchronous call within an application to another service (such as Azure SQL Database) fails repeatedly. You might be able to serialize that data into durable storage. At some later point when the service or database is back online, the application can re-submit the request from storage. The difference in this model is that the intermediate location is not a constant part of the application workflow. It is used only in failure scenarios.
 
-In both scenarios, asynchronous communication and intermediate storage prevent a downed back-end service from bringing down the entire application. Queues serve as a logical intermediary. For more guidance on choosing the correct queuing service, see [Azure queues and Azure Service Bus queues--compared and contrasted](/documentation/articles/service-bus-azure-and-service-bus-queues-compared-contrasted/).
+In both scenarios, asynchronous communication and intermediate storage prevent a downed back-end service from bringing down the entire application. Queues serve as a logical intermediary. For more guidance on choosing the correct queuing service, see [Azure queues and Azure Service Bus queues--compared and contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 ### Fault detection and retry logic
 
@@ -145,4 +146,4 @@ It's important to note that the scalability of the cloud service directly affect
 
 ## Next steps
 
-This article is part of a series of articles focused on [disaster recovery and high availability for applications built on Azure](/documentation/articles/resiliency-disaster-recovery-high-availability-azure-applications/). The next article in this series is [Disaster recovery for applications built on Azure](/documentation/articles/resiliency-disaster-recovery-azure-applications/).
+This article is part of a series of articles focused on [disaster recovery and high availability for applications built on Azure](./resiliency-disaster-recovery-high-availability-azure-applications.md). The next article in this series is [Disaster recovery for applications built on Azure](./resiliency-disaster-recovery-azure-applications.md).

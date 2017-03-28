@@ -1,47 +1,50 @@
-<properties
-    pageTitle="How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal | Azure"
-    description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal."
-    services="media-services"
-    documentationcenter=""
-    author="anilmur"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="504f74c2-3103-42a0-897b-9ff52f279e23"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal | Azure
+description: This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal.
+services: media-services
+documentationcenter: ''
+author: anilmur
+manager: erikre
+editor: ''
+
+ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal
 
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/media-services-portal-creating-live-encoder-enabled-channel/)
-- [.NET](/documentation/articles/media-services-dotnet-creating-live-encoder-enabled-channel/)
-- [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+> [!div class="op_single_selector"]
+>- [Portal](./media-services-portal-creating-live-encoder-enabled-channel.md)
+>- [.NET](./media-services-dotnet-creating-live-encoder-enabled-channel.md)
+>- [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 
 This tutorial walks you through the steps of creating a **Channel** that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
 
->[AZURE.NOTE]For more conceptual information related to Channels that are enabled for live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](/documentation/articles/media-services-manage-live-encoder-enabled-channels/).
+>[!NOTE]
+>For more conceptual information related to Channels that are enabled for live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](./media-services-manage-live-encoder-enabled-channels.md).
 
 ## Common Live Streaming Scenario
 The following are general steps involved in creating common live streaming applications.
 
->[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Azure.cn if you need to run a Channel for longer periods of time.
+>[!NOTE]
+> Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Azure.cn if you need to run a Channel for longer periods of time.
 
 1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
-   
+
     This step could also be performed after you create your Channel.
 2. Create and start a Channel. 
 3. Retrieve the Channel ingest URL. 
-   
+
     The ingest URL is used by the live encoder to send the stream to the Channel.
 4. Retrieve the Channel preview URL. 
-   
+
     Use this URL to verify that your channel is properly receiving the live stream.
 5. Create an event/program (that will also create an asset). 
 6. Publish the event (that will create an  OnDemand locator for the associated asset).    
@@ -64,7 +67,7 @@ In this tutorial, the Azure portal is used to accomplish the following tasks:
 The following are required to complete the tutorial.
 
 - To complete this tutorial, you need an Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. 
-For details, see [Azure Trial](/pricing/1rmb-trial/).
+For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/).
 - A Media Services account. To create a Media Services account, see [Create Account](/documentation/articles/media-services-create-account/).
 - A webcam and an encoder that can send a single bitrate live stream.
 
@@ -72,43 +75,43 @@ For details, see [Azure Trial](/pricing/1rmb-trial/).
 1. In the [Azure portal](https://portal.azure.cn/), select Media Services and then click on your Media Services account name.
 2. Select **Live Streaming**.
 3. Select **Custom create**. This option will let you create a channel that is enabled for live encoding.
-   
+
     ![Create a channel](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. Click on **Settings**.
-	
-	1.  Choose the **Live Encoding** channel type. This type specifies that you want to create a Channel that is enabled for live encoding. That means the incoming single bitrate stream is sent to the Channel and encoded into a multi-bitrate stream using specified live encoder settings. For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](/documentation/articles/media-services-manage-live-encoder-enabled-channels/). Click OK.
-	2. Specify a channel's name.
-	3. Click OK at the bottom of the screen.
-	
+
+    1.  Choose the **Live Encoding** channel type. This type specifies that you want to create a Channel that is enabled for live encoding. That means the incoming single bitrate stream is sent to the Channel and encoded into a multi-bitrate stream using specified live encoder settings. For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](./media-services-manage-live-encoder-enabled-channels.md). Click OK.
+    2. Specify a channel's name.
+    3. Click OK at the bottom of the screen.
+
 5. Select the **Ingest** tab.
 
-	1. On this page, you can select a streaming protocol. For the **Live Encoding** channel type, valid protocol options are:
-		
-		- Single bitrate Fragmented MP4 (Smooth Streaming)
-		- Single bitrate RTMP
-		- RTP (MPEG-TS): MPEG-2 Transport Stream over RTP.
-		
-		For detailed explanation about each protocol, see [Live streaming using Azure Media Services to create multi-bitrate streams](/documentation/articles/media-services-manage-live-encoder-enabled-channels/).
-	
-		You cannot change the protocol option while the Channel or its associated events/programs are running. If you require different protocols, you should create separate channels for each streaming protocol.  
+    1. On this page, you can select a streaming protocol. For the **Live Encoding** channel type, valid protocol options are:
 
-	2. You can apply IP restriction on the ingest. 
-	
-		You can define the IP addresses that are allowed to ingest a video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (e.g. '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (e.g. '10.0.0.1(255.255.252.0)').
+        - Single bitrate Fragmented MP4 (Smooth Streaming)
+        - Single bitrate RTMP
+        - RTP (MPEG-TS): MPEG-2 Transport Stream over RTP.
 
-		If no IP addresses are specified and there is no rule definition then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
+        For detailed explanation about each protocol, see [Live streaming using Azure Media Services to create multi-bitrate streams](./media-services-manage-live-encoder-enabled-channels.md).
+
+        You cannot change the protocol option while the Channel or its associated events/programs are running. If you require different protocols, you should create separate channels for each streaming protocol.  
+
+    2. You can apply IP restriction on the ingest. 
+
+        You can define the IP addresses that are allowed to ingest a video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (e.g. '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (e.g. '10.0.0.1(255.255.252.0)').
+
+        If no IP addresses are specified and there is no rule definition then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
 
 6. On the **Preview** tab, apply IP restriction on the preview.
 7. On the **Encoding** tab, specify the encoding preset. 
-   
+
     Currently, the only system preset you can select is **Default 720p**. To specify a custom preset, open a Microsoft support ticket. Then, enter the name of the preset created for you. 
 
-
->[AZURE.NOTE] Currently, the Channel start can take up to 30 minutes. Channel reset can take up to 5 minutes.
+>[!NOTE]
+> Currently, the Channel start can take up to 30 minutes. Channel reset can take up to 5 minutes.
 
 Once you created the Channel, you can click on the channel and select **Settings** where you can view your channels configurations. 
 
-For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](/documentation/articles/media-services-manage-live-encoder-enabled-channels/).
+For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](./media-services-manage-live-encoder-enabled-channels.md).
 
 ## Get ingest URLs
 Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
@@ -138,24 +141,24 @@ If you do want to retain the archived content, but not have it available for str
 ### Create/start/stop events
 Once you have the stream flowing into the Channel you can begin the streaming event by creating an Asset, Program, and Streaming Locator. This will archive the stream and make it available to viewers through the Streaming Endpoint. 
 
->[AZURE.NOTE]
+>[!NOTE]
 >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 
 There are two ways to start event: 
 
 1. From the **Channel** page, press **Live Event** to add a new event.
-   
+
     Specify: event name, asset name, archive window, and encryption option.
-   
+
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-   
+
     If you left **Publish this live event now** checked, the event the PUBLISHING URLs will get created.
-   
+
     You can press **Start**, whenever you are ready to stream the event.
-   
+
     Once you start the event, you can press **Watch** to start playing the content.
 2. Alternatively, you can use a shortcut and press **Go Live** button on the **Channel** page. This will create a default Asset, Program, and Streaming Locator.
-   
+
     The event is named **default** and the archive window is set to 8 hours.
 
 You can watch the published event from the **Live event** page. 
@@ -186,7 +189,3 @@ To manage your assets, select **Setting** and click **Assets**.
 ## Considerations
 - Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Azure.cn if you need to run a Channel for longer periods of time.
 - Make sure the streaming endpoint from which you want to stream  your content is in the **Running** state.
-
-
-
- 

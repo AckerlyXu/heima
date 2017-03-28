@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understand Azure IoT Hub jobs | Azure"
-    description="Developer guide - scheduling jobs to run on multiple devices connected to your IoT hub. Jobs can update tags and desired properties and invoke direct methods on multiple devices."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="juanjperez"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="fe78458f-4f14-4358-ac83-4f7bd14ee8da"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/30/2016"
-    wacn.date=""
-    ms.author="juanpere" />
+---
+title: Understand Azure IoT Hub jobs | Azure
+description: Developer guide - scheduling jobs to run on multiple devices connected to your IoT hub. Jobs can update tags and desired properties and invoke direct methods on multiple devices.
+services: iot-hub
+documentationcenter: .net
+author: juanjperez
+manager: timlt
+editor: ''
+
+ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/30/2016
+wacn.date: ''
+ms.author: juanpere
+---
 
 # Schedule jobs on multiple devices
 ## Overview
@@ -31,7 +32,7 @@ Consider using jobs when: a solution back end needs to schedule and track progre
 ## Job lifecycle
 Jobs are initiated by the solution back end and maintained by IoT Hub.  You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`).  Once a job is initiated, querying for jobs enables the back-end app to refresh the status of running jobs.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
 > 
@@ -42,27 +43,29 @@ The following reference topics provide you with more information about using job
 ## Jobs to execute direct methods
 The following is the HTTP 1.1 request details for executing a [direct method][lnk-dev-methods] on a set of devices using a job:
 
-    ```
-    PUT /jobs/v2/<jobId>?api-version=2016-11-14
+```
+```
+PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
 
-    {
-        jobId: '<jobId>',
-        type: 'scheduleDirectRequest', 
-        cloudToDeviceMethod: {
-            methodName: '<methodName>',
-            payload: <payload>,                 
-            responseTimeoutInSeconds: methodTimeoutInSeconds 
-        },
-        queryCondition: '<queryOrDevices>', // query condition
-        startTime: <jobStartTime>,          // as an ISO-8601 date string
-        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
-    }
-    ```
+{
+    jobId: '<jobId>',
+    type: 'scheduleDirectRequest', 
+    cloudToDeviceMethod: {
+        methodName: '<methodName>',
+        payload: <payload>,                 
+        responseTimeoutInSeconds: methodTimeoutInSeconds 
+    },
+    queryCondition: '<queryOrDevices>', // query condition
+    startTime: <jobStartTime>,          // as an ISO-8601 date string
+    maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
+}
+```
+```
 The query condition can also be on a single device Id or on a list of device Ids as shown below
 
 **Examples**
@@ -76,34 +79,38 @@ queryCondition = "deviceId IN ['MyDevice1']
 ## Jobs to update device twin properties
 The following is the HTTP 1.1 request details for updating device twin properties using a job:
 
-    ```
-    PUT /jobs/v2/<jobId>?api-version=2016-11-14
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
+```
+```
+PUT /jobs/v2/<jobId>?api-version=2016-11-14
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
 
-    {
-        jobId: '<jobId>',
-        type: 'scheduleTwinUpdate', 
-        updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // query condition
-        startTime: <jobStartTime>,          // as an ISO-8601 date string
-        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
-    }
-    ```
+{
+    jobId: '<jobId>',
+    type: 'scheduleTwinUpdate', 
+    updateTwin: <patch>                 // Valid JSON object
+    queryCondition: '<queryOrDevices>', // query condition
+    startTime: <jobStartTime>,          // as an ISO-8601 date string
+    maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
+}
+```
+```
 
 ## Querying for progress on jobs
 The following is the HTTP 1.1 request details for [querying for jobs][lnk-query]:
 
-    ```
-    GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
+```
+```
+GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
-    ```
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
+```
+```
 
 The continuationToken is provided from the response.  
 
@@ -153,13 +160,13 @@ If you would like to try out some of the concepts described in this article, you
 
 <!-- links and images -->
 
-[lnk-endpoints]: /documentation/articles/iot-hub-devguide-endpoints/
-[lnk-quotas]: /documentation/articles/iot-hub-devguide-quotas-throttling/
-[lnk-sdks]: /documentation/articles/iot-hub-devguide-sdks/
-[lnk-query]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-devguide-mqtt]: /documentation/articles/iot-hub-mqtt-support/
+[lnk-endpoints]: ./iot-hub-devguide-endpoints.md
+[lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
+[lnk-query]: ./iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
 [lnk-jobs-tutorial]: /documentation/articles/iot-hub-schedule-jobs/
-[lnk-c2d-methods]: /documentation/articles/iot-hub-node-node-direct-methods/
-[lnk-dev-methods]: /documentation/articles/iot-hub-devguide-direct-methods/
-[lnk-get-started-twin]: /documentation/articles/iot-hub-node-node-twin-getstarted/
-[lnk-twin-devguide]: /documentation/articles/iot-hub-devguide-device-twins/
+[lnk-c2d-methods]: ./iot-hub-node-node-direct-methods.md
+[lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
+[lnk-get-started-twin]: ./iot-hub-node-node-twin-getstarted.md
+[lnk-twin-devguide]: ./iot-hub-devguide-device-twins.md

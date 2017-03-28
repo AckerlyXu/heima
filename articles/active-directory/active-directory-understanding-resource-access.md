@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Understanding resource access in Azure | Azure"
-    description="This topic explains concepts about using subscription administrators to control resource access in the full Azure portal."
-    services="active-directory"
-    documentationcenter=""
-    author="MarkusVi"
-    manager="femila" />
-<tags
-    ms.assetid="174f1706-b959-4230-9a75-bf651227ebf6"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.author="markvi" />
+---
+title: Understanding resource access in Azure | Azure
+description: This topic explains concepts about using subscription administrators to control resource access in the full Azure portal.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+
+ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/10/2017
+wacn.date: ''
+ms.author: markvi
+---
 
 # Understanding resource access in Azure
-> [AZURE.NOTE]
-> This topic explains concepts about using subscription administrators to control resource access in the full Azure portal. As an alternative, the Azure Management portal provides [role-based access control](/documentation/articles/role-based-access-control-configure/) so Azure resources can be managed more precisely.
+> [!NOTE]
+> This topic explains concepts about using subscription administrators to control resource access in the full Azure portal. As an alternative, the Azure Management portal provides [role-based access control](./role-based-access-control-configure.md) so Azure resources can be managed more precisely.
 > 
 > 
 
@@ -34,7 +35,7 @@ Subscriptions also have an association with a directory. The directory defines a
 
 Functionality within the Azure Classic Management Portal enables SAs that are signed in using a Microsoft Account to change the directory that a subscription is associated with by using the **Edit Directory** command on the **Subscriptions** page in **Settings**. Note that this operation has implications on the access control of that subscription.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The **Edit Directory** command in the Azure Classic Management Portal is not available to users who are signed in using a work or school account because those accounts can sign in only to the directory to which they belong.
 > 
 > 
@@ -53,8 +54,8 @@ Users with subscriptions across multiple directories have the ability to switch 
 Operations such as moving resources between subscriptions can be more difficult as a result of this single directory view of subscriptions. To perform the resource transfer, it may be necessary to first use the **Edit Directory** command on the Subscriptions page in **Settings** to associate the subscriptions to the same directory.
 
 ## Next Steps
-- For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](/documentation/articles/active-directory-how-subscriptions-associated-directory/)
-- For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](/documentation/articles/active-directory-assign-admin-roles/)
+- For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory-how-subscriptions-associated-directory.md)
+- For more information on how to assign roles in Azure AD, see [Assigning administrator roles in Azure Active Directory](./active-directory-assign-admin-roles.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-understanding-resource-access/IC707931.png

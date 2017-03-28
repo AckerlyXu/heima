@@ -1,22 +1,23 @@
-<properties
-    pageTitle="My first PowerShell Workflow runbook in Azure Automation | Azure"
-    description="Tutorial that walks you through the creation, testing, and publishing of a simple text runbook using PowerShell Workflow."
-    services="automation"
-    documentationcenter=""
-    author="mgoedtel"
-    manager="jwhit"
-    editor=""
-    keywords="powershell workflow, powershell workflow examples, workflow powershell" />
-<tags
-    ms.assetid="0002d7f7-e2b5-46e3-b5eb-4596b84fd526"
-    ms.service="automation"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="07/19/2016"
-    wacn.date=""
-    ms.author="magoedte;bwren" />
+---
+title: My first PowerShell Workflow runbook in Azure Automation | Azure
+description: Tutorial that walks you through the creation, testing, and publishing of a simple text runbook using PowerShell Workflow.
+services: automation
+documentationcenter: ''
+author: mgoedtel
+manager: jwhit
+editor: ''
+keywords: powershell workflow, powershell workflow examples, workflow powershell
+
+ms.assetid: 0002d7f7-e2b5-46e3-b5eb-4596b84fd526
+ms.service: automation
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 07/19/2016
+wacn.date: ''
+ms.author: magoedte;bwren
+---
 
 # My first PowerShell Workflow runbook
 
@@ -25,8 +26,8 @@ This tutorial walks you through the creation of a PowerShell Workflow runbook in
 ## <a name="prerequisites"></a> Prerequisites
 To complete this tutorial, you will need the following.
 
-* Azure subscription. If you don't have one yet, you can [sign up for an account](/pricing/1rmb-trial).
-* [Automation account](/documentation/articles/automation-security-overview/) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* Azure subscription. If you don't have one yet, you can [sign up for an account](https://www.azure.cn/pricing/1rmb-trial).
+* [Automation account](./automation-security-overview.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. We will stop and start this machine so it should not be production.
 
 ## Step 1 - Create new runbook
@@ -42,16 +43,20 @@ You can either type code directly into the runbook, or you can select cmdlets, r
 
 1. Our runbook is currently empty with only the required *workflow* keyword, the name of our runbook, and the braces that will encase the entire workflow.
 
-        Workflow MyFirstRunbook-Workflow
-        {
-        }
+    ```
+    Workflow MyFirstRunbook-Workflow
+    {
+    }
+    ```
 
 2. Type *Write-Output "Hello World."* between the braces.
 
-        Workflow MyFirstRunbook-Workflow
-        {
-          Write-Output "Hello World"
-        }
+    ```
+    Workflow MyFirstRunbook-Workflow
+    {
+      Write-Output "Hello World"
+    }
+    ```
 
 3. Save the runbook by clicking **Save**.
 
@@ -83,33 +88,39 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 5. In front of **Get-AutomationPSCredential**, type *$Credential =* to assign the credential to a variable. 
 3. On the next line, type *Add-AzureRmAccount -Credential $Credential -EnvironmentName AzureChinaCloud*.
 
-        workflow test
-        {
-            $Credential = Get-AutomationPSCredential -Name "<your credential>"
-            Add-AzureRmAccount -Credential $Credential -EnvironmentName AzureChinaCloud
-        }
+    ```
+    workflow test
+    {
+        $Credential = Get-AutomationPSCredential -Name "<your credential>"
+        Add-AzureRmAccount -Credential $Credential -EnvironmentName AzureChinaCloud
+    }
+    ```
 
 3. Click **Test** and then **Yes** when prompted.
 10.  Once it completes, you should receive output similar to the following that returns the information for the user in the credential.  This confirms that the credential is valid.
 
-        PSComputeerName            : localhost
-        PSSourceJobInstanceID    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        Id                        : azureuser@contoso.com
-        Type                    : User
-        Subscriptions            : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        Tenants                    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ```
+    PSComputeerName            : localhost
+    PSSourceJobInstanceID    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    Id                        : azureuser@contoso.com
+    Type                    : User
+    Subscriptions            : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    Tenants                    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    ```
 
 ## Step 6 - Add code to start a virtual machine
 Now that our runbook is authenticating to our Azure subscription, we can manage resources. We'll add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now we'll be hardcoding that name into the cmdlet.
 
 1. After *Add-AzureRmAccount -EnvironmentName AzureChinaCloud*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
 
-        workflow MyFirstRunbook-Workflow
-        {
-        $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
-        }
+    ```
+    workflow MyFirstRunbook-Workflow
+    {
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+    }
+    ```
 
 2. Save the runbook and then click **Test** so that we can test it.
 
@@ -118,16 +129,18 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
 
 1. Add parameters for *VMName* and *ResourceGroupName* to the runbook and use these variables with the **Start-AzureRmVM** cmdlet as in the example below.
 
-        workflow MyFirstRunbook-Workflow
-        {
-           Param(
-            [string]$VMName,
-            [string]$ResourceGroupName
-           )  
-             $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-             Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-         Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
-        }
+    ```
+    workflow MyFirstRunbook-Workflow
+    {
+       Param(
+        [string]$VMName,
+        [string]$ResourceGroupName
+       )  
+         $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+         Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+    }
+    ```
 
 2. Save the runbook and open the Test pane. Note that you can now provide values for the two input variables that will be used in the test.
 3. Close the Test pane.

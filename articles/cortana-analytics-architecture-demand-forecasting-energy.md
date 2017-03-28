@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Cortana Intelligence Solution Template architecture for demand forecasting of energy | Azure"
-    description="Architecture of the Microsoft Cortana Intelligence Solution Template that helps forecast demand for an energy utility company."
-    keywords="solution accelerator;cortana analytics;energy forecasting"
-    services="cortana-analytics"
-    documentationcenter=""
-    author="garyericson"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="745db9da-9ca1-421a-aa76-13c992f6513d"
-    ms.service="cortana-analytics"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/19/2015"
-    wacn.date=""
-    ms.author="garye" />
+---
+title: Cortana Intelligence Solution Template architecture for demand forecasting of energy | Azure
+description: Architecture of the Microsoft Cortana Intelligence Solution Template that helps forecast demand for an energy utility company.
+keywords: solution accelerator;cortana analytics;energy forecasting
+services: cortana-analytics
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 745db9da-9ca1-421a-aa76-13c992f6513d
+ms.service: cortana-analytics
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/19/2015
+wacn.date: ''
+ms.author: garye
+---
 
 # Cortana Intelligence Solution Template architecture for demand forecasting of energy
-The diagram below provides an architectural overview of the [Cortana Intelligence Solution Template for demand forecasting of energy](/documentation/articles/cortana-analytics-playbook-demand-forecasting-energy/).
+The diagram below provides an architectural overview of the [Cortana Intelligence Solution Template for demand forecasting of energy](./cortana-analytics-playbook-demand-forecasting-energy.md).
 
 You can download a full-size version of the diagram here: [Architecture diagram: Solution Template for demand forecasting of energy](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-energy-forecasting.png).
 

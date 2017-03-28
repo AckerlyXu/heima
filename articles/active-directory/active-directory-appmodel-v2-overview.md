@@ -1,21 +1,22 @@
-<properties
-    pageTitle="v2.0 Endpoint Overview | Azure"
-    description="An introduction to building apps with both Microsoft Account and Azure Active Directory sign-in."
-    services="active-directory"
-    documentationcenter=""
-    author="dstrockis"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="2dee579f-fdf6-474b-bc2c-016c931eaa27"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="dastrock" />
+---
+title: v2.0 Endpoint Overview | Azure
+description: An introduction to building apps with both Microsoft Account and Azure Active Directory sign-in.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: dastrock
+---
 
 # Sign-in Microsoft Account & Azure AD users in a single app
 
@@ -27,24 +28,23 @@ Apps that use the v2.0 endpoint can also consume REST APIs from the [Microsoft G
 Choose your favorite platform from the following list to build an app using our open source libraries & frameworks.  Alternatively, you can use our OAuth 2.0 & OpenID Connect protocol documentation to send & receive protocol messages directly without using an auth library.
 
 <!-- TODO: Finalize this table  -->
-[AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
 ## What's New
 The conceptual information here will be useful in understanding what is & what isn't possible with the v2.0 endpoint.
 
-- Learn about the [types of apps you can build with the v2.0 endpoint](/documentation/articles/active-directory-v2-flows/).
-- Understand the [limitations, restrictions, and constraints](/documentation/articles/active-directory-v2-limitations/) with the v2.0 endpoint.
-- We've recently added support for [admin restricted scopes](/documentation/articles/active-directory-v2-scopes/) and the [OAuth2 client credentials grant](/documentation/articles/active-directory-v2-protocols-oauth-client-creds/).  Try them out!
+- Learn about the [types of apps you can build with the v2.0 endpoint](./active-directory-v2-flows.md).
+- Understand the [limitations, restrictions, and constraints](./active-directory-v2-limitations.md) with the v2.0 endpoint.
+- We've recently added support for [admin restricted scopes](./active-directory-v2-scopes.md) and the [OAuth2 client credentials grant](./active-directory-v2-protocols-oauth-client-creds.md).  Try them out!
 
 ## Reference
 These links will be useful for exploring the platform in depth:
 
 - Get help on Stack Overflow using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
-- [v2.0 Protocol Reference](/documentation/articles/active-directory-v2-protocols/)
-- [v2.0 Token Reference](/documentation/articles/active-directory-v2-tokens/)
-- [v2.0 Library Reference](/documentation/articles/active-directory-v2-libraries/)
-- [Scopes and Consent in the v2.0 endpoint](/documentation/articles/active-directory-v2-scopes/)
+- [v2.0 Protocol Reference](./active-directory-v2-protocols.md)
+- [v2.0 Token Reference](./active-directory-v2-tokens.md)
+- [v2.0 Library Reference](./active-directory-v2-libraries.md)
+- [Scopes and Consent in the v2.0 endpoint](./active-directory-v2-scopes.md)
 - [The Microsoft App Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList)
 - [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [The Microsoft Graph](https://graph.microsoft.io)
-

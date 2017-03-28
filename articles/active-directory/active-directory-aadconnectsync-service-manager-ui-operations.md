@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure AD Connect Synchronization Service Manager Operations | Azure"
-    description="Understand the Operations tab in the Synchronization Service Manager for Azure AD Connect."
-    services="active-directory"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="97a26565-618f-4313-8711-5925eeb47cdc"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/02/2017"
-    wacn.date=""
-    ms.author="billmath"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Azure AD Connect Synchronization Service Manager Operations | Azure
+description: Understand the Operations tab in the Synchronization Service Manager for Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+
+ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/02/2017
+wacn.date: ''
+ms.author: billmath
+ms.custom: H1Hack27Feb2017
+---
 
 # Using the Sync Service Manager Operations tab
 
@@ -25,7 +26,7 @@
 The operations tab shows the results from the most recent operations. This tab is key to understand and troubleshoot issues.
 
 ## Understand the information visible in the operations tab
-The top half shows all runs in chronological order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](/documentation/articles/active-directory-aadconnectsync-feature-scheduler/). You want to look for any run that does not show a success status. You can change the sorting by clicking the headers.
+The top half shows all runs in chronological order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](./active-directory-aadconnectsync-feature-scheduler.md). You want to look for any run that does not show a success status. You can change the sorting by clicking the headers.
 
 The **Status** column is the most important information and shows the most severe problem for a run. Here is a quick summary of the most common statuses in order of priority to investigate (where * indicate several possible error strings).
 
@@ -42,6 +43,6 @@ When you select a row, the bottom updates to show the details of that run. To th
 For more information, see [troubleshoot an object that is not synchronizing](/documentation/articles/active-directory-aadconnectsync-troubleshoot-object-not-syncing/)
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](/documentation/articles/active-directory-aadconnectsync-whatis/) configuration.
+Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).

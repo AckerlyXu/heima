@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Create an Azure IoT hub and register your device | Azure"
-    description="services: iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="azure iot hub, internet of things cloud, azure iot hub create device, ti sensortag, ti ble" />
-<tags
-    ms.assetid="2c18f5ae-e39a-48ae-a9fe-04bb595740a0"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/07/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Create an Azure IoT hub and register your device | Azure
+description: services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: azure iot hub, internet of things cloud, azure iot hub create device, ti sensortag, ti ble
+
+ms.assetid: 2c18f5ae-e39a-48ae-a9fe-04bb595740a0
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/07/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Create your Azure IoT hub and register your device
 
@@ -38,7 +39,7 @@ In this lesson, you will learn:
 
 ## What you need
 
-- An active Azure subscription. If you don't have an Azure account, you can create a [free Azure trial account](/pricing/1rmb-trial/) in just a few minutes.
+- An active Azure subscription. If you don't have an Azure account, you can create a [free Azure trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 - You should have the Azure CLI installed.
 
 ## Create an IoT hub
@@ -72,7 +73,7 @@ To create an IoT hub, follow these steps:
    ```bash
    az group create --name iot-gateway --location chinaeast
    ```
-   
+
    `westus` is the location you create your resource group. If you want to use another location, you can run `az account list-locations -o table` to see all the locations Azure supports.
 
 5. Create an IoT hub in the `iot-gateway` resource group by running the following command:
@@ -81,9 +82,9 @@ To create an IoT hub, follow these steps:
    az iot hub create --name {my hub name} --resource-group iot-gateway
    ```
 
-By default, the tool creates an IoT Hub in the Free pricing tier. For more infomation, see [Azure IoT Hub pricing](/pricing/details/iot-hub/).
+By default, the tool creates an IoT Hub in the Free pricing tier. For more infomation, see [Azure IoT Hub pricing](https://www.azure.cn/pricing/details/iot-hub/).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The name of your IoT hub must be globally unique. You can create only one F1 edition of Azure Iot Hub under your Azure subscription.
 
 ## Register your device in your IoT hub
@@ -100,4 +101,4 @@ az iot device create --device-id mydevice --hub-name {my hub name} --resource-gr
 You've created an IoT hub and registered your logical device with a device identity in your IoT hub. You're ready to learn how to configure and run a gateway sample application to send data from your physical device to your IoT hub in the cloud.
 
 ## Next steps
-[Configure and run a BLE sample app](/documentation/articles/iot-hub-gateway-kit-c-lesson3-configure-ble-app/)
+[Configure and run a BLE sample app](./iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)

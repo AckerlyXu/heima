@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Power BI Embedded - Connecting to a data source"
-    description="Power BI Embedded, connect to data sources"
-    services="power-bi-embedded"
-    documentationcenter=""
-    author="guyinacube"
-    manager="erikre"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="2a4caeb3-255d-4215-9554-0ca8e3568c13"
-    ms.service="power-bi-embedded"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="powerbi"
-    ms.date="01/06/2017"
-    wacn.date=""
-    ms.author="asaxton" />
+---
+title: Power BI Embedded - Connecting to a data source
+description: Power BI Embedded, connect to data sources
+services: power-bi-embedded
+documentationcenter: ''
+author: guyinacube
+manager: erikre
+editor: ''
+tags: ''
+
+ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 01/06/2017
+wacn.date: ''
+ms.author: asaxton
+---
 
 # Connect to a data source
 With **Power BI Embedded**, you can embed reports into your own app. When you embed a Power BI report into your app, the report connects to the underlying data by **importing** a copy of the data or by **connecting directly** to the data source using **DirectQuery**.
@@ -29,7 +30,7 @@ Here are the differences between using **Import** and **DirectQuery**.
 
 With Power BI Embedded, you can use DirectQuery with cloud data sources but not on-premises data sources at this time.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The On-Premises Data Gateway is not supported with Power BI Embedded at this time. This means you cannot use DirectQuery with on-premises data sources.
 
 ## Supported data sources
@@ -63,8 +64,7 @@ There are two primary benefits when using **DirectQuery**:
 To ensure queries sent to the underlying data source have acceptable performance, limitations are imposed on measures. When using **Power BI Desktop**, advanced users can choose to bypass this limitation by choosing **File > Options and settings > Options**. In the **Options** dialog, choose **DirectQuery**, and select the option **Allow unrestricted measures in DirectQuery mode**. When that option is selected, any DAX expression that is valid for a measure can be used. Users must be aware; however, that some expressions that perform very well when the data is imported may result in very slow queries to the backend source when in **DirectQuery** mode. 
 
 ## See Also
-- [Get started with Power BI Embedded](/documentation/articles/power-bi-embedded-get-started/)
+- [Get started with Power BI Embedded](./power-bi-embedded-get-started.md)
 - [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 More questions? [Try the Power BI Community](http://community.powerbi.com/)
-

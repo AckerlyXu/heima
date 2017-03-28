@@ -12,10 +12,10 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 * [Use multiple storage accounts for each availability set]
 
 ### <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a> Configure multiple virtual machines in an availability set for redundancy
-To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](/support/sla/virtual-machines/).
+To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the 99.95% Azure SLA. For more information, see the [SLA for Virtual Machines](https://www.azure.cn/support/sla/virtual-machines/).
 
-> [AZURE.IMPORTANT]
-> Avoid leaving a single instance virtual machine in an availability set by itself. VMs in this configuration do not qualify for a SLA guarantee and face downtime during Azure planned maintenance events, except when a single VM is using [Azure Premium Storage](/documentation/articles/storage-premium-storage/). For single VMs using premium storage, the Azure SLA applies.
+> [!IMPORTANT]
+> Avoid leaving a single instance virtual machine in an availability set by itself. VMs in this configuration do not qualify for a SLA guarantee and face downtime during Azure planned maintenance events, except when a single VM is using [Azure Premium Storage](../articles/storage/storage-premium-storage.md). For single VMs using premium storage, the Azure SLA applies.
 
 Each virtual machine in your availability set is assigned an **update domain** and a **fault domain** by the underlying Azure platform. For a given availability set, five non-user-configurable update domains are assigned by default (Resource Manager deployments can then be increased to provide up to 20 update domains) to indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. When more than five virtual machines are configured within a single availability set, the sixth virtual machine is placed into the same update domain as the first virtual machine, the seventh in the same update domain as the second virtual machine, and so on. The order of update domains being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time.
 
@@ -33,18 +33,19 @@ For example, you could put all the virtual machines in the front-end of your app
 ![Application tiers](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ### <a name="combine-a-load-balancer-with-availability-sets"></a> Combine a load balancer with availability sets
-Combine the [Azure Load Balancer](/documentation/articles/load-balancer-overview/) with an availability set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see Load Balancing [Windows](/documentation/articles/virtual-machines-windows-load-balance/) or [Linux](/documentation/articles/load-balancer-overview/) virtual machines.
+Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) with an availability set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see Load Balancing [Windows](../articles/virtual-machines/virtual-machines-windows-load-balance.md) or [Linux](../articles/load-balancer/load-balancer-overview.md) virtual machines.
 
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event affects the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and availability set enables traffic to be continuously served by at least one instance.
 
 ## <a name="use-multiple-storage-accounts-for-each-availability-set"></a> Use multiple storage accounts for each availability set
 
->[AZURE.NOTE] Azure Managed Disks are not available yet in Azure China.
+>[!NOTE]
+> Azure Managed Disks are not available yet in Azure China.
 
 If you use unmanaged disks, there are best practices to be followed with regards to the storage accounts used by the Virtual Hard Disks (VHDs) within the VM. Each disk (VHD) is a page blob in an Azure Storage account. It is important to ensure that there is redundancy and isolation across the storage accounts to provide high availability for the VMs within the Availability Set.
 
 1. **Keep all disks (OS and data) associated with a VM in the same storage account**
-2. **Storage account [limits](/documentation/articles/storage-scalability-targets/) should be considered** when adding more VHDs to a storage account
+2. **Storage account [limits](../articles/storage/storage-scalability-targets.md) should be considered** when adding more VHDs to a storage account
 3. **Use separate storage account for each VM in an Availability Set.** Multiple VMs in the same availability set must NOT share storage accounts. It is acceptable for VMs across different Availability Sets to share storage accounts as long as the preceding best practices are followed
 
 <!-- Link references -->

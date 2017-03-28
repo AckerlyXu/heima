@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Implementing password synchronization with Azure AD Connect sync | Azure"
-    description="Provides information about how password synchronization works and how to enable it."
-    services="active-directory"
-    documentationcenter=""
-    author="MarkusVi"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="05f16c3e-9d23-45dc-afca-3d0fa9dbf501"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/13/2017"
-    wacn.date=""
-    ms.author="markvi" />
+---
+title: Implementing password synchronization with Azure AD Connect sync | Azure
+description: Provides information about how password synchronization works and how to enable it.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+editor: ''
+
+ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/13/2017
+wacn.date: ''
+ms.author: markvi
+---
 
 # Implementing password synchronization with Azure AD Connect sync
 This topic provides you with the information you need to synchronize your user passwords from an on-premises Active Directory (AD) to a cloud-based Azure Active Directory (Azure AD).
@@ -41,9 +42,9 @@ Password synchronization is an extension to the directory synchronization featur
 - Configure directory synchronization between your on-premises AD and your Azure Active Directory
 - Enable password synchronization
 
-For more details, see [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+For more details, see [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > For more details about Active Directory Domain Services that are configured for FIPS and password synchronization, see [Password Sync and FIPS](#password-synchronization-and-fips).
 >
 >
@@ -63,7 +64,7 @@ The password synchronization feature automatically retries failed synchronizatio
 The synchronization of a password has no impact on the currently logged on user.
 Your current cloud service session is not immediately affected by a synchronized password change that occurs while you are signed in to a cloud service. However, when the cloud service requires you to authenticate again, you need to provide your new password.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
 >
 >
@@ -85,7 +86,7 @@ There are two types of password policies that are affected by enabling password 
 **Password complexity policy**  
 When you enable password synchronization, the password complexity policies in your on-premises Active Directory override complexity policies in the cloud for synchronized users. You can use all valid passwords of your on-premises Active Directory to access Azure AD services.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Passwords for users that are created directly in the cloud are still subject to password policies as defined in the cloud.
 >
 >
@@ -121,12 +122,13 @@ If your server has been locked down according to Federal Information Processing 
 
 For reference, this snip is how it should look like:
 
-    <configuration>
-        <runtime>
-            <enforceFIPSPolicy enabled="false"/>
-        </runtime>
-    </configuration>
-
+```
+<configuration>
+    <runtime>
+        <enforceFIPSPolicy enabled="false"/>
+    </runtime>
+</configuration>
+```
 
 For information about security and FIPS see [AAD Password Sync, Encryption and FIPS compliance](https://blogs.technet.microsoft.com/enterprisemobility/2014/06/28/aad-password-sync-encryption-and-fips-compliance/)
 
@@ -147,14 +149,14 @@ If it is selected, then ask the user to sign in and change the password. Tempora
 
 If it looks correct in Active Directory, then the next step is to follow the user in the sync engine. By following the user from on-premises Active Directory to Azure AD, you can see if there is a descriptive error on the object.
 
-1. Start the **[Synchronization Service Manager](/documentation/articles/active-directory-aadconnectsync-service-manager-ui/)**.
+1. Start the **[Synchronization Service Manager](./active-directory-aadconnectsync-service-manager-ui.md)**.
 2. Click **Connectors**.
 3. Select the **Active Directory Connector** the user is located in.
 4. Select **Search Connector Space**.
 5. Locate the user you are looking for.
 6. Select the **lineage** tab and make sure that at least one Sync Rule shows **Password Sync** as **True**. In the default configuration, the name of the Sync Rule is **In from AD - User AccountEnabled**.  
     ![Lineage information about a user](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync.png)  
-7. Then [follow the user](/documentation/articles/active-directory-aadconnectsync-service-manager-ui-connectors/#follow-an-object-and-its-data-through-the-system/) through the metaverse to the Azure AD Connector space. The connector space object should have an outbound rule with **Password Sync** set to **True**. In the default configuration, the name of the sync rule is **Out to AAD - User Join**.  
+7. Then [follow the user](./active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system) through the metaverse to the Azure AD Connector space. The connector space object should have an outbound rule with **Password Sync** set to **True**. In the default configuration, the name of the sync rule is **Out to AAD - User Join**.  
     ![Connector space properties of a user](./media/active-directory-aadconnectsync-implement-password-synchronization/cspasswordsync2.png)  
 8. To see the password sync details of the object for the past week, click **Log...**.  
     ![Object log details](./media/active-directory-aadconnectsync-implement-password-synchronization/csobjectlog.png)  
@@ -184,73 +186,76 @@ Then look into the application eventlog. If there is a global problem with passw
 
 #### Get the status of password sync settings
 
-	Import-Module ADSync
-	$connectors = Get-ADSyncConnector
-	$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Azure Active Directory (Microsoft)"}
-	$adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
-	if ($aadConnectors -ne $null -and $adConnectors -ne $null)
-	{
-	    if ($aadConnectors.Count -eq 1)
-	    {
-	        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
-	        Write-Host
-	        Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
-	        foreach ($adConnector in $adConnectors)
-	        {
-	            Write-Host
-	            Write-Host "Password sync channel status BEGIN ------------------------------------------------------- "
-	            Write-Host
-	            Get-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector.Name
-	            Write-Host
-	            $pingEvents =
-		                Get-EventLog -LogName "Application" -Source "Directory Synchronization" -InstanceId 654  -After (Get-Date).AddHours(-3) |
-	                    Where-Object { $_.Message.ToUpperInvariant().Contains($adConnector.Identifier.ToString("D").ToUpperInvariant()) } |
-	                    Sort-Object { $_.Time } -Descending
-	            if ($pingEvents -ne $null)
-	            {
-	                Write-Host "Latest heart beat event (within last 3 hours). Time " $pingEvents[0].TimeWritten
-	            }
-	            else
-	            {
-	                Write-Warning "No ping event found within last 3 hours."
-	            }
-	            Write-Host
-	            Write-Host "Password sync channel status END ------------------------------------------------------- "
-	            Write-Host
-	        }
-	    }
-	    else
-	    {
-	        Write-Warning "More than one Azure AD Connectors found. Please update the script to use the appropriate Connector."
-	    }
-	}
-	Write-Host
-	if ($aadConnectors -eq $null)
-	{
-	    Write-Warning "No Azure AD Connector was found."
-	}
-	if ($adConnectors -eq $null)
-	{
-	    Write-Warning "No AD DS Connector was found."
-	}
-	Write-Host
+```
+Import-Module ADSync
+$connectors = Get-ADSyncConnector
+$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Azure Active Directory (Microsoft)"}
+$adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
+if ($aadConnectors -ne $null -and $adConnectors -ne $null)
+{
+    if ($aadConnectors.Count -eq 1)
+    {
+        $features = Get-ADSyncAADCompanyFeature -ConnectorName $aadConnectors[0].Name
+        Write-Host
+        Write-Host "Password sync feature enabled in your Azure AD directory: "  $features.PasswordHashSync
+        foreach ($adConnector in $adConnectors)
+        {
+            Write-Host
+            Write-Host "Password sync channel status BEGIN ------------------------------------------------------- "
+            Write-Host
+            Get-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector.Name
+            Write-Host
+            $pingEvents =
+                    Get-EventLog -LogName "Application" -Source "Directory Synchronization" -InstanceId 654  -After (Get-Date).AddHours(-3) |
+                    Where-Object { $_.Message.ToUpperInvariant().Contains($adConnector.Identifier.ToString("D").ToUpperInvariant()) } |
+                    Sort-Object { $_.Time } -Descending
+            if ($pingEvents -ne $null)
+            {
+                Write-Host "Latest heart beat event (within last 3 hours). Time " $pingEvents[0].TimeWritten
+            }
+            else
+            {
+                Write-Warning "No ping event found within last 3 hours."
+            }
+            Write-Host
+            Write-Host "Password sync channel status END ------------------------------------------------------- "
+            Write-Host
+        }
+    }
+    else
+    {
+        Write-Warning "More than one Azure AD Connectors found. Please update the script to use the appropriate Connector."
+    }
+}
+Write-Host
+if ($aadConnectors -eq $null)
+{
+    Write-Warning "No Azure AD Connector was found."
+}
+if ($adConnectors -eq $null)
+{
+    Write-Warning "No AD DS Connector was found."
+}
+Write-Host
+```
 
 #### Trigger a full sync of all passwords
 You can trigger a full sync of all passwords using the following script:
 
-	$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
-	$aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
-	Import-Module adsync
-	$c = Get-ADSyncConnector -Name $adConnector
-	$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
-	$p.Value = 1
-	$c.GlobalParameters.Remove($p.Name)
-	$c.GlobalParameters.Add($p)
-	$c = Add-ADSyncConnector -Connector $c
-	Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
-	Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
-
+```
+$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
+$aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
+Import-Module adsync
+$c = Get-ADSyncConnector -Name $adConnector
+$p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
+$p.Value = 1
+$c.GlobalParameters.Remove($p.Name)
+$c.GlobalParameters.Add($p)
+$c = Add-ADSyncConnector -Connector $c
+Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
+Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
+```
 
 ## Next steps
-- [Azure AD Connect Sync: Customizing Synchronization options](/documentation/articles/active-directory-aadconnectsync-whatis/)
-- [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+- [Azure AD Connect Sync: Customizing Synchronization options](./active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)

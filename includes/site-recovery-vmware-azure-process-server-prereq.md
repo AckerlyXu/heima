@@ -5,5 +5,5 @@ This article assumes that
 3. Your subscription has a minimum of 4 Cores available to spin up a new Process Server virtual machine.
 4. You have the **Configuration Server Passphrase** available.
 
-> [AZURE.TIP]
+> [!TIP]
 > Ensure that you are able to connect port 443 of the Configuration Server (running on-premises) from the Azure Virtual Network that the virtual machines have been failed over into.

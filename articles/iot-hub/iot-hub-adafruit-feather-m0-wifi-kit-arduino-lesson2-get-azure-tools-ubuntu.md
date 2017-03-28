@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Get Azure tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Azure"
-    description="Install Python and Azure command-line interface (Azure CLI) on Ubuntu."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="azure cli, iot cloud service, arduino cloud" />
-<tags
-    ms.assetid="bb5cb602-7292-4772-ac90-c0b52ebc8340"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get Azure tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Azure
+description: Install Python and Azure command-line interface (Azure CLI) on Ubuntu.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: azure cli, iot cloud service, arduino cloud
+
+ms.assetid: bb5cb602-7292-4772-ac90-c0b52ebc8340
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get Azure tools (Ubuntu 16.04)
 
@@ -27,7 +28,7 @@
 
 ## What you will do
 
-Install the Azure command-line interface (Azure CLI). If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/) for your Adafruit Feather M0 WiFi Arduino board.
+Install the Azure command-line interface (Azure CLI). If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md) for your Adafruit Feather M0 WiFi Arduino board.
 
 ## What you will learn
 In this article, you will learn:
@@ -36,7 +37,7 @@ In this article, you will learn:
 
 ## What you need
 * An Ubuntu computer with an Internet connection.
-* An active Azure subscription. If you don't have an account, you can create a [free trial account](/pricing/1rmb-trial/) in just a few minutes.
+* An active Azure subscription. If you don't have an account, you can create a [free trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 
 ## Install the Azure CLI
 The Azure CLI provides a multiplatform command-line experience for Azure, enabling you to work directly from your command line to provision and manage resources.
@@ -71,8 +72,8 @@ You've installed the Azure CLI. Your next task is to create your Azure IoT hub a
 [Create your IoT hub and register your Arduino board][create-your-iot-hub-and-register-your-arduino-board]
 <!-- Images and links -->
 
-[windows]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32/
-[ubuntu]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu/
-[macos]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac/
+[windows]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md
+[ubuntu]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md
+[macos]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md
 [output]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson2/az_iot_help_ubuntu.png
-[create-your-iot-hub-and-register-your-arduino-board]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub/
+[create-your-iot-hub-and-register-your-arduino-board]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md

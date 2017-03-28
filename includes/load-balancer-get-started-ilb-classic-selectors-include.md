@@ -1,4 +1,4 @@
-> [AZURE.SELECTOR]
-- [PowerShell](/documentation/articles/load-balancer-get-started-ilb-classic-ps/)
-- [Azure CLI](/documentation/articles/load-balancer-get-started-ilb-classic-cli/)
-- [Cloud services](/documentation/articles/load-balancer-get-started-ilb-classic-cloud/)
+> [!div class="op_single_selector"]
+>- [PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+>- [Azure CLI](../articles/load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+>- [Cloud services](../articles/load-balancer/load-balancer-get-started-ilb-classic-cloud.md)

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Introduction to microservices on Azure| Azure"
-    description="An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="msfussell"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="msfussell" />
+---
+title: Introduction to microservices on Azure| Azure
+description: An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this.
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
+
+ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: msfussell
+---
 
 # Why a microservices approach to building applications?
 As software developers, there is nothing new in how we think about factoring an application into component parts. It is the central paradigm of object orientation, software abstractions, and componentization. Today, this factorization tends to take the form of classes and interfaces between shared libraries and technology layers. Typically, a tiered approach is taken with a back-end store, middle-tier business logic, and a front-end user interface (UI). What *has* changed over the last few years is that we, as developers, are building distributed applications that are for the cloud and driven by the business.
@@ -133,7 +134,7 @@ Azure Service Fabric emerged from a transition by Microsoft from delivering box 
 Service Fabric provides two broad areas to help you build applications that use a microservices approach:
 
 * A platform that provides system services to deploy, upgrade, detect, and restart failed services, discover service location, manage state, and monitor health. These system services in effect enable many of the characteristics of microservices previously described.
-* Programming APIs, or frameworks, to help you build applications as microservices: [reliable actors and reliable services](/documentation/articles/service-fabric-choose-framework/). Of course, you can choose any code to build your microservice. But these APIs make the job more straightforward, and they integrate with the platform at a deeper level. This way, for example, you can get health and diagnostics information, or you can take advantage of built-in high availability.
+* Programming APIs, or frameworks, to help you build applications as microservices: [reliable actors and reliable services](./service-fabric-choose-framework.md). Of course, you can choose any code to build your microservice. But these APIs make the job more straightforward, and they integrate with the platform at a deeper level. This way, for example, you can get health and diagnostics information, or you can take advantage of built-in high availability.
 
 ***Service Fabric is agnostic on how you build your service, and you can use any technology.However, it does provide built-in programming APIs that make it easier to build microservices.***
 
@@ -145,9 +146,10 @@ The objective of Service Fabric is to reduce the complexities of building applic
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## Next steps
-    * [Service Fabric terminology overview](/documentation/articles/service-fabric-technical-overview/)
-    * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
-
+```
+* [Service Fabric terminology overview](./service-fabric-technical-overview.md)
+* [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/en-us/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+```
 
 [Image1]: ./media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: ./media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

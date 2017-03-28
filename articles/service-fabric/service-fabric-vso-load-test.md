@@ -29,7 +29,7 @@ Before getting started, you need to do the following:
 
 - Get a Visual Studio Team Services account. You can get one for free at [Visual Studio Team Services](https://www.visualstudio.com).
 - Get and install Visual Studio 2013 or Visual Studio 2015. This article uses Visual Studio 2015 Enterprise edition, but Visual Studio 2013 and other editions should work similarly.
-- Deploy your application to a staging environment. See [How to deploy applications to a remote cluster using Visual Studio](/documentation/articles/service-fabric-publish-app-remote-cluster/) for information about this.
+- Deploy your application to a staging environment. See [How to deploy applications to a remote cluster using Visual Studio](./service-fabric-publish-app-remote-cluster.md) for information about this.
 - Understand your application’s usage pattern. This information is used to simulate the load pattern.
 - Understand the goal for your load testing. This helps you interpret and analyze the load test results.
 
@@ -93,7 +93,8 @@ A load test project is composed of one or more scenarios described by the web pe
 
 4. In the **Run Settings** section, specify the load test duration.
 
-    >[AZURE.NOTE] The **Test Iterations** option is available only when you run a load test locally using Visual Studio.
+    >[!NOTE]
+    > The **Test Iterations** option is available only when you run a load test locally using Visual Studio.
 
 5. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Services account. Log in and then choose a geographic location. When you're done, choose the **Finish** button.
 
@@ -128,7 +129,7 @@ See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](h
 Visual Studio Team Services Load Test provides APIs to help you manage load tests and analyze results in a Team Services account. See [Cloud Load Testing Rest APIs](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) for more information.
 
 ## Next steps
-- [Monitoring and diagnosing services in a local machine development setup](/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)
+- [Monitoring and diagnosing services in a local machine development setup](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [0]: ./media/service-fabric-vso-load-test/OverviewDiagram.png
 [1]: ./media/service-fabric-vso-load-test/NewProjectDialog.png

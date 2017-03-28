@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Azure DMZ Example - Build a Simple DMZ with NSGs | Azure"
-    description="Build a DMZ with Network Security Groups (NSG)"
-    services="virtual-network"
-    documentationcenter="na"
-    author="tracsman"
-    manager="rossort"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/03/2017"
-    wacn.date=""
-    ms.author="jonor" />
+---
+title: Azure DMZ Example - Build a Simple DMZ with NSGs | Azure
+description: Build a DMZ with Network Security Groups (NSG)
+services: virtual-network
+documentationcenter: na
+author: tracsman
+manager: rossort
+editor: ''
+
+ms.assetid: ''
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/03/2017
+wacn.date: ''
+ms.author: jonor
+---
 
 # Example 1 - Build a simple DMZ using NSGs with an Azure Resource Manager template
 [Return to the Security Boundary Best Practices Page][HOME]
-> [AZURE.SELECTOR]
-- [Resource Manager Template](/documentation/articles/virtual-networks-dmz-nsg/)
-- [Classic - PowerShell](/documentation/articles/virtual-networks-dmz-nsg-asm/)
+> [!div class="op_single_selector"]
+>- [Resource Manager Template](./virtual-networks-dmz-nsg.md)
+>- [Classic - PowerShell](./virtual-networks-dmz-nsg-asm.md)
 
 This example creates a primitive DMZ with four Windows servers and Network Security Groups. This example describes each of the relevant template sections to provide a deeper understanding of each step. There is also a Traffic Scenario section to provide an in-depth step-by-step look at how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete template code and instructions to build this environment to test and experiment with various scenarios. 
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 
+[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 
 
 ![Inbound DMZ with NSG][1]
 
@@ -47,7 +48,7 @@ In the references section, there is a link to an Azure Resource Manager template
 1. Deploy the Azure Resource Manager Template at: [Azure Quickstart Templates][Template]
 2. Install the sample application at: [Sample Application Script][SampleApp]
 
->[AZURE.NOTE]
+>[!NOTE]
 >To RDP to any back-end servers in this instance, the IIS server is used as a "jump box." First RDP to the IIS server and then from the IIS Server RDP to the back-end server. Alternately a Public IP can be associated with each server NIC for easier RDP.
 > 
 >
@@ -57,7 +58,7 @@ The following sections provide a detailed description of the Network Security Gr
 ## Network Security Groups (NSG)
 For this example, an NSG group is built and then loaded with six rules. 
 
->[AZURE.TIP]
+>[!TIP]
 >Generally speaking, you should create your specific "Allow" rules first and then the more generic "Deny" rules last. The assigned priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either in the inbound or outbound direction (from the perspective of the subnet).
 >
 >
@@ -79,15 +80,17 @@ Each rule is discussed in more detail as follows:
 
 1. A Network Security Group resource must be instantiated to hold the rules:
 
-        "resources": [
-          {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[variables('NSGName')]",
-            "location": "[resourceGroup().location]",
-            "properties": { }
-          }
-        ]
+    ```JSON
+    "resources": [
+      {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "name": "[variables('NSGName')]",
+        "location": "[resourceGroup().location]",
+        "properties": { }
+      }
+    ]
+    ```
 
 2. The first rule in this example allows DNS traffic between all internal networks to the DNS server on the backend subnet. The rule has some important parameters:
     * "destinationAddressPrefix" - Rules can use a special type of address prefix called a "Default Tag", these tags are system-provided identifiers that allow an easy way to address a larger category of address prefixes. This rule uses the Default Tag "Internet" to signify any address outside of the VNet. Other prefix labels are VirtualNetwork and AzureLoadBalancer.
@@ -95,107 +98,119 @@ Each rule is discussed in more detail as follows:
     * "Priority" sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
     * "Access" signifies if traffic affected by this rule is blocked ("Deny") or allowed ("Allow").
 
+        ```JSON
+        "properties": {
+        "securityRules": [
+          {
+            "name": "enable_dns_rule",
             "properties": {
-            "securityRules": [
-              {
-                "name": "enable_dns_rule",
-                "properties": {
-                  "description": "Enable Internal DNS",
-                  "protocol": "*",
-                  "sourcePortRange": "*",
-                  "destinationPortRange": "53",
-                  "sourceAddressPrefix": "VirtualNetwork",
-                  "destinationAddressPrefix": "10.0.2.4",
-                  "access": "Allow",
-                  "priority": 100,
-                  "direction": "Inbound"
-                }
-              },
+              "description": "Enable Internal DNS",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "53",
+              "sourceAddressPrefix": "VirtualNetwork",
+              "destinationAddressPrefix": "10.0.2.4",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            }
+          },
+        ```
 
 3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. 
 
-        {
-          "name": "enable_rdp_rule",
-          "properties": {
-            "description": "Allow RDP",
-            "protocol": "Tcp",
-            "sourcePortRange": "*",
-            "destinationPortRange": "3389",
-            "sourceAddressPrefix": "*",
-            "destinationAddressPrefix": "*",
-            "access": "Allow",
-            "priority": 110,
-            "direction": "Inbound"
-          }
-        },
+    ```JSON
+    {
+      "name": "enable_rdp_rule",
+      "properties": {
+        "description": "Allow RDP",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "3389",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 110,
+        "direction": "Inbound"
+      }
+    },
+    ```
 
 4. This rule allows inbound internet traffic to hit the web server. This rule does not change the routing behavior. The rule only allows traffic destined for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
 
-        {
-          "name": "enable_web_rule",
-          "properties": {
-            "description": "Enable Internet to [variables('VM01Name')]",
-            "protocol": "Tcp",
-            "sourcePortRange": "*",
-            "destinationPortRange": "80",
-            "sourceAddressPrefix": "Internet",
-            "destinationAddressPrefix": "10.0.1.5",
-            "access": "Allow",
-            "priority": 120,
-            "direction": "Inbound"
-            }
-          },
+    ```JSON
+    {
+      "name": "enable_web_rule",
+      "properties": {
+        "description": "Enable Internet to [variables('VM01Name')]",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "80",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "10.0.1.5",
+        "access": "Allow",
+        "priority": 120,
+        "direction": "Inbound"
+        }
+      },
+    ```
 
 5. This rule allows traffic to pass from the IIS01 server to the AppVM01 server, a later rule blocks all other Frontend to Backend traffic. To improve this rule, if the port is known that should be added. For example, if the IIS server is hitting only SQL Server on AppVM01, the Destination Port Range should be changed from "*" (Any) to 1433 (the SQL port) thus allowing a smaller inbound attack surface on AppVM01 should the web application ever be compromised.
 
-        {
-          "name": "enable_app_rule",
-          "properties": {
-            "description": "Enable [variables('VM01Name')] to [variables('VM02Name')]",
-            "protocol": "*",
-            "sourcePortRange": "*",
-            "destinationPortRange": "*",
-            "sourceAddressPrefix": "10.0.1.5",
-            "destinationAddressPrefix": "10.0.2.5",
-            "access": "Allow",
-            "priority": 130,
-            "direction": "Inbound"
-          }
-        },
+    ```JSON
+    {
+      "name": "enable_app_rule",
+      "properties": {
+        "description": "Enable [variables('VM01Name')] to [variables('VM02Name')]",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "destinationPortRange": "*",
+        "sourceAddressPrefix": "10.0.1.5",
+        "destinationAddressPrefix": "10.0.2.5",
+        "access": "Allow",
+        "priority": 130,
+        "direction": "Inbound"
+      }
+    },
+    ```
 
 6. This rule denies traffic from the internet to any servers on the network. With the rules at priority 110 and 120, the effect is to allow only inbound internet traffic to the firewall and RDP ports on servers and blocks everything else. This rule is a "fail-safe" rule to block all unexpected flows.
 
-        {
-          "name": "deny_internet_rule",
-          "properties": {
-            "description": "Isolate the [variables('VNetName')] VNet from the Internet",
-            "protocol": "*",
-            "sourcePortRange": "*",
-            "destinationPortRange": "*",
-            "sourceAddressPrefix": "Internet",
-            "destinationAddressPrefix": "VirtualNetwork",
-            "access": "Deny",
-            "priority": 140,
-            "direction": "Inbound"
-          }
-        },
+    ```JSON
+    {
+      "name": "deny_internet_rule",
+      "properties": {
+        "description": "Isolate the [variables('VNetName')] VNet from the Internet",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "destinationPortRange": "*",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Deny",
+        "priority": 140,
+        "direction": "Inbound"
+      }
+    },
+    ```
 
 7. The final rule denies traffic from the Frontend subnet to the Backend subnet. Since this rule is an Inbound only rule, reverse traffic is allowed (from the Backend to the Frontend).
 
-        {
-          "name": "deny_frontend_rule",
-          "properties": {
-            "description": "Isolate the [variables('Subnet1Name')] subnet from the [variables('Subnet2Name')] subnet",
-            "protocol": "*",
-            "sourcePortRange": "*",
-            "destinationPortRange": "*",
-            "sourceAddressPrefix": "[variables('Subnet1Prefix')]",
-            "destinationAddressPrefix": "[variables('Subnet2Prefix')]",
-            "access": "Deny",
-            "priority": 150,
-            "direction": "Inbound"
-          }
-        }
+    ```JSON
+    {
+      "name": "deny_frontend_rule",
+      "properties": {
+        "description": "Isolate the [variables('Subnet1Name')] subnet from the [variables('Subnet2Name')] subnet",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "destinationPortRange": "*",
+        "sourceAddressPrefix": "[variables('Subnet1Prefix')]",
+        "destinationAddressPrefix": "[variables('Subnet2Prefix')]",
+        "access": "Deny",
+        "priority": 150,
+        "direction": "Inbound"
+      }
+    }
+    ```
 
 ## Traffic scenarios
 #### (*Allowed*) Internet to web server
@@ -232,7 +247,7 @@ Each rule is discussed in more detail as follows:
 5. RDP session is enabled
 6. IIS01 prompts for the user name and password
 
->[AZURE.NOTE]
+>[!NOTE]
 >To RDP to any back-end servers in this instance, the IIS server is used as a "jump box." First RDP to the IIS server and then from the IIS Server RDP to the back-end server.
 >
 >
@@ -274,7 +289,7 @@ Each rule is discussed in more detail as follows:
 2. Since there are no Public IP addresses associated with this servers NIC, this traffic would never enter the VNet and wouldn't reach the server
 3. However if a Public IP address was enabled for some reason, NSG rule 2 (RDP) would allow this traffic
 
->[AZURE.NOTE]
+>[!NOTE]
 >To RDP to any back-end servers in this instance, the IIS server is used as a "jump box." First RDP to the IIS server and then from the IIS Server RDP to the back-end server.
 >
 >
@@ -321,7 +336,7 @@ To deploy the template that builds this example from GitHub and the Azure portal
 8. Click **Create** to begin the deployment of this template.
 9. Once the deployment finishes successfully, navigate to the Resource Group created for this deployment to see the resources configured inside.
 
->[AZURE.NOTE]
+>[!NOTE]
 >This template enables RDP to the IIS01 server only (find the Public IP for IIS01 on the Portal). To RDP to any back-end servers in this instance, the IIS server is used as a "jump box." First RDP to the IIS server and then from the IIS Server RDP to the back-end server.
 >
 >
@@ -341,6 +356,6 @@ Once the template runs successfully, you can set up the web server and app serve
 [1]: ./media/virtual-networks-dmz-nsg-arm/example1design.png "Inbound DMZ with NSG"
 
 <!--Link References-->
-[HOME]: /documentation/articles/best-practices-network-security/
+[HOME]: ../best-practices-network-security.md
 [Template]: https://github.com/Azure/azure-quickstart-templates/tree/master/301-dmz-nsg
-[SampleApp]: /documentation/articles/virtual-networks-sample-app/
+[SampleApp]: ./virtual-networks-sample-app.md

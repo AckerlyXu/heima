@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure Virtual Machine Agent Overview | Azure"
-    description="Azure Virtual Machine Agent Overview"
-    services="virtual-machines-windows"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="0a1f212e-053e-4a39-9910-8d622959f594"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure-services"
-    ms.date="11/17/2016"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Azure Virtual Machine Agent Overview | Azure
+description: Azure Virtual Machine Agent Overview
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 11/17/2016
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Azure Virtual Machine Agent overview
 
@@ -36,7 +37,9 @@ The Windows VM agent can be manually installed using a Windows installer package
 
 The VM Agent can be installed by double-clicking the windows installer file. For an automated or unattended installation of the VM agent, run the following command.
 
-    msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
+```cmd
+msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
+```
 
 ## Detect the VM Agent
 
@@ -44,25 +47,31 @@ The VM Agent can be installed by double-clicking the windows installer file. For
 
 The Azure Resource Manager PowerShell module can be used to retrieve information about Azure Virtual Machines. Running `Get-AzureRmVM` returns quite a bit of information including the provisioning state for the Azure VM Agent.
 
-    Get-AzureRmVM
+```PowerShell
+Get-AzureRmVM
+```
 
 The following is just a subset of the `Get-AzureRmVM` output. Notice the `ProvisionVMAgent` property nested inside `OSProfile`, this property can be used to determine if the VM agent has been deployed to the virtual machine.
 
-    OSProfile                  :
-      ComputerName             : myVM
-      AdminUsername            : muUserName
-      WindowsConfiguration     :
-        ProvisionVMAgent       : True
-        EnableAutomaticUpdates : True
+```PowerShell
+OSProfile                  :
+  ComputerName             : myVM
+  AdminUsername            : muUserName
+  WindowsConfiguration     :
+    ProvisionVMAgent       : True
+    EnableAutomaticUpdates : True
+```
 
 The following script can be used to return a concise list of virtual machine names and the state of the VM Agent.
 
-    $vms = Get-AzureRmVM
+```PowerShell
+$vms = Get-AzureRmVM
 
-    foreach ($vm in $vms) {
-        $agent = $vm | Select -ExpandProperty OSProfile | Select -ExpandProperty Windowsconfiguration | Select ProvisionVMAgent
-        Write-Host $vm.Name $agent.ProvisionVMAgent
-    }
+foreach ($vm in $vms) {
+    $agent = $vm | Select -ExpandProperty OSProfile | Select -ExpandProperty Windowsconfiguration | Select ProvisionVMAgent
+    Write-Host $vm.Name $agent.ProvisionVMAgent
+}
+```
 
 ### Manual Detection
 

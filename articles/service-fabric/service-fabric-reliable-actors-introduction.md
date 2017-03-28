@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Service Fabric Reliable Actors Overview | Azure"
-    description="Introduction to the Service Fabric Reliable Actors programming model."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="7fdad07f-f2d6-4c74-804d-e0d56131f060"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Service Fabric Reliable Actors Overview | Azure
+description: Introduction to the Service Fabric Reliable Actors programming model.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
+
+ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # Introduction to Service Fabric Reliable Actors
 Reliable Actors is a Service Fabric application framework based on the [Virtual Actor](http://research.microsoft.com/en-us/projects/orleans/) pattern. The Reliable Actors API provides a single-threaded programming model built on the scalability and reliability guarantees provided by Service Fabric.
@@ -34,13 +35,13 @@ Although the actor design pattern can be a good fit to a number of distributed s
 
 ## Actors in Service Fabric
 
-In Service Fabric, actors are implemented in the Reliable Actors framework: An actor-pattern-based application framework built on top of [Service Fabric Reliable Services](/documentation/articles/service-fabric-reliable-services-introduction/). Each Reliable Actor service you write is actually a partitioned, stateful Reliable Service.
+In Service Fabric, actors are implemented in the Reliable Actors framework: An actor-pattern-based application framework built on top of [Service Fabric Reliable Services](./service-fabric-reliable-services-introduction.md). Each Reliable Actor service you write is actually a partitioned, stateful Reliable Service.
 
 Every actor is defined as an instance of an actor type, identical to the way a .NET object is an instance of a .NET type. For example, there may be an actor type that implements the functionality of a calculator and there could be many actors of that type that are distributed on various nodes across a cluster. Each such actor is uniquely identified by an actor ID.
 
 ### Actor Lifetime
 
-Service Fabric actors are virtual, meaning that their lifetime is not tied to their in-memory representation. As a result, they do not need to be explicitly created or destroyed. The Reliable Actors runtime automatically activates an actor the first time it receives a request for that actor ID. If an actor is not used for a period of time, the Reliable Actors runtime garbage-collects the in-memory object. It will also maintain knowledge of the actor's existence should it need to be reactivated later. For more details, see [Actor lifecycle and garbage collection](/documentation/articles/service-fabric-reliable-actors-lifecycle/).
+Service Fabric actors are virtual, meaning that their lifetime is not tied to their in-memory representation. As a result, they do not need to be explicitly created or destroyed. The Reliable Actors runtime automatically activates an actor the first time it receives a request for that actor ID. If an actor is not used for a period of time, the Reliable Actors runtime garbage-collects the in-memory object. It will also maintain knowledge of the actor's existence should it need to be reactivated later. For more details, see [Actor lifecycle and garbage collection](./service-fabric-reliable-actors-lifecycle.md).
 
 This virtual actor lifetime abstraction carries some caveats as a result of the virtual actor model, and in fact the Reliable Actors implementation deviates at times from this model.
 
@@ -50,7 +51,7 @@ This virtual actor lifetime abstraction carries some caveats as a result of the 
 
 ### Distribution and failover
 
-To provide scalability and reliability, Service Fabric distributes actors throughout the cluster and automatically migrates them from failed nodes to healthy ones as required. This is an abstraction over a [partitioned, stateful Reliable Service](/documentation/articles/service-fabric-concepts-partitioning/). Distribution, scalability, reliability, and automatic failover are all provided by virtue of the fact that actors are running inside a stateful Reliable Service called the *Actor Service*. 
+To provide scalability and reliability, Service Fabric distributes actors throughout the cluster and automatically migrates them from failed nodes to healthy ones as required. This is an abstraction over a [partitioned, stateful Reliable Service](./service-fabric-concepts-partitioning.md). Distribution, scalability, reliability, and automatic failover are all provided by virtue of the fact that actors are running inside a stateful Reliable Service called the *Actor Service*. 
 
 Actors are distributed across the partitions of the Actor Service, and those partitions are distributed across the nodes in a Service Fabric cluster. Each service partition contains a set of actors. Service Fabric manages distribution and failover of the service partitions. 
 
@@ -61,19 +62,19 @@ For example, an actor service with nine partitions deployed to three nodes using
 The Actor Framework manages partition scheme and key range settings for you. This simplifies some choices but also carries some consideration:
 
  - Reliable Services allows you to choose a partitioning scheme, key range (when using a range partitioning scheme), and partition count. Reliable Actors is restricted to the range partitioning scheme (the uniform Int64 scheme) and requires you use the full Int64 key range.
- 
+
  - By default, actors are randomly placed into partitions resulting in uniform distribution. 
- 
+
  - Because actors are randomly placed, it should be expected that actor operations will always require network communication, including serialization and deserialization of method call data, incurring latency and overhead.
- 
+
  - In advanced scenarios, it is possible to control actor partition placement by using Int64 actor IDs that map to specific partitions. However, doing so can result in an unbalanced distribution of actors across partitions. 
 
-For more information on how actor services are partitioned, refer to [partitioning concepts for actors](/documentation/articles/service-fabric-reliable-actors-platform/#service-fabric-partition-concepts-for-actors). 
+For more information on how actor services are partitioned, refer to [partitioning concepts for actors](./service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors). 
 
 ### Actor communication
 Actor interactions are defined in an interface that is shared by the actor that implements the interface, and the client that gets a proxy to an actor via the same interface. Because this interface is used to invoke actor methods asynchronously, every method on the interface must be Task-returning.
 
-Method invocations and their responses ultimately result in network requests across the cluster, so the arguments and the result types of the tasks that they return must be serializable by the platform. In particular, they must be [data contract serializable](/documentation/articles/service-fabric-reliable-actors-notes-on-actor-type-serialization/).
+Method invocations and their responses ultimately result in network requests across the cluster, so the arguments and the result types of the tasks that they return must be serializable by the platform. In particular, they must be [data contract serializable](./service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 #### The actor proxy
 The Reliable Actors client API provides communication between an actor instance and an actor client. To communicate with an actor, a client creates an actor proxy object that implements the actor interface. The client interacts with the actor by invoking methods on the proxy object. The actor proxy can be used for client-to-actor and actor-to-actor communication.
@@ -89,7 +90,7 @@ IMyActor myActor = ActorProxy.Create<IMyActor>(actorId, new Uri("fabric:/MyApp/M
 await myActor.DoWorkAsync();
 ```
 
-Note that the two pieces of information used to create the actor proxy object are the actor ID and the application name. The actor ID uniquely identifies the actor, while the application name identifies the [Service Fabric application](/documentation/articles/service-fabric-reliable-actors-platform/#application-model) where the actor is deployed.
+Note that the two pieces of information used to create the actor proxy object are the actor ID and the application name. The actor ID uniquely identifies the actor, while the application name identifies the [Service Fabric application](./service-fabric-reliable-actors-platform.md#application-model) where the actor is deployed.
 
 The `ActorProxy` class on the client side performs the necessary resolution to locate the actor by ID and open a communication channel with it. The `ActorProxy` also retries to locate the actor in the cases of communication failures and failovers. As a result, message delivery has the following characteristics:
 
@@ -106,7 +107,7 @@ The Reliable Actors runtime provides a simple turn-based access model for access
 
 #### Turn-based access
 
-A turn consists of the complete execution of an actor method in response to a request from other actors or clients, or the complete execution of a [timer/reminder](/documentation/articles/service-fabric-reliable-actors-timers-reminders/) callback. Even though these methods and callbacks are asynchronous, the Actors runtime does not interleave them. A turn must be fully finished before a new turn is allowed. In other words, an actor method or timer/reminder callback that is currently executing must be fully finished before a new call to a method or callback is allowed. A method or callback is considered to have finished if the execution has returned from the method or callback and the task returned by the method or callback has finished. It is worth emphasizing that turn-based concurrency is respected even across different methods, timers, and callbacks.
+A turn consists of the complete execution of an actor method in response to a request from other actors or clients, or the complete execution of a [timer/reminder](./service-fabric-reliable-actors-timers-reminders.md) callback. Even though these methods and callbacks are asynchronous, the Actors runtime does not interleave them. A turn must be fully finished before a new turn is allowed. In other words, an actor method or timer/reminder callback that is currently executing must be fully finished before a new call to a method or callback is allowed. A method or callback is considered to have finished if the execution has returned from the method or callback and the task returned by the method or callback has finished. It is worth emphasizing that turn-based concurrency is respected even across different methods, timers, and callbacks.
 
 The Actors runtime enforces turn-based concurrency by acquiring a per-actor lock at the beginning of a turn and releasing the lock at the end of the turn. Thus, turn-based concurrency is enforced on a per-actor basis and not across actors. Actor methods and timer/reminder callbacks can execute simultaneously on behalf of different actors.
 
@@ -130,22 +131,22 @@ Some important points to consider:
 
 #### Reentrancy
 
-The Actors runtime allows reentrancy by default. This means that if an actor method of *Actor A* calls a method on *Actor B*, which in turn calls another method on *Actor A*, that method is allowed to run. This is because it is part of the same logical call-chain context. All timer and reminder calls start with the new logical call context. See the [Reliable Actors reentrancy](/documentation/articles/service-fabric-reliable-actors-reentrancy/) for more details.
+The Actors runtime allows reentrancy by default. This means that if an actor method of *Actor A* calls a method on *Actor B*, which in turn calls another method on *Actor A*, that method is allowed to run. This is because it is part of the same logical call-chain context. All timer and reminder calls start with the new logical call context. See the [Reliable Actors reentrancy](./service-fabric-reliable-actors-reentrancy.md) for more details.
 
 #### Scope of concurrency guarantees
 
-The Actors runtime provides these concurrency guarantees in situations where it controls the invocation of these methods. For example, it provides these guarantees for the method invocations that are done in response to a client request, as well as for timer and reminder callbacks. However, if the actor code directly invokes these methods outside of the mechanisms provided by the Actors runtime, then the runtime cannot provide any concurrency guarantees. For example, if the method is invoked in the context of some task that is not associated with the task returned by the actor methods, then the runtime cannot provide concurrency guarantees. If the method is invoked from a thread that the actor creates on its own, then the runtime also cannot provide concurrency guarantees. Therefore, to perform background operations, actors should use [actor timers and actor reminders](/documentation/articles/service-fabric-reliable-actors-timers-reminders/) that respect turn-based concurrency.
+The Actors runtime provides these concurrency guarantees in situations where it controls the invocation of these methods. For example, it provides these guarantees for the method invocations that are done in response to a client request, as well as for timer and reminder callbacks. However, if the actor code directly invokes these methods outside of the mechanisms provided by the Actors runtime, then the runtime cannot provide any concurrency guarantees. For example, if the method is invoked in the context of some task that is not associated with the task returned by the actor methods, then the runtime cannot provide concurrency guarantees. If the method is invoked from a thread that the actor creates on its own, then the runtime also cannot provide concurrency guarantees. Therefore, to perform background operations, actors should use [actor timers and actor reminders](./service-fabric-reliable-actors-timers-reminders.md) that respect turn-based concurrency.
 
 ## Next steps
- - [Getting started with Reliable Actors](/documentation/articles/service-fabric-reliable-actors-get-started/)
- - [How Reliable Actors use the Service Fabric platform](/documentation/articles/service-fabric-reliable-actors-platform/)
- - [Actor state management](/documentation/articles/service-fabric-reliable-actors-state-management/)
- - [Actor lifecycle and garbage collection](/documentation/articles/service-fabric-reliable-actors-lifecycle/)
- - [Actor timers and reminders](/documentation/articles/service-fabric-reliable-actors-timers-reminders/)
- - [Actor events](/documentation/articles/service-fabric-reliable-actors-events/)
- - [Actor reentrancy](/documentation/articles/service-fabric-reliable-actors-reentrancy/)
- - [Actor polymorphism and object-oriented design patterns](/documentation/articles/service-fabric-reliable-actors-polymorphism/)
- - [Actor diagnostics and performance monitoring](/documentation/articles/service-fabric-reliable-actors-diagnostics/)
+ - [Getting started with Reliable Actors](./service-fabric-reliable-actors-get-started.md)
+ - [How Reliable Actors use the Service Fabric platform](./service-fabric-reliable-actors-platform.md)
+ - [Actor state management](./service-fabric-reliable-actors-state-management.md)
+ - [Actor lifecycle and garbage collection](./service-fabric-reliable-actors-lifecycle.md)
+ - [Actor timers and reminders](./service-fabric-reliable-actors-timers-reminders.md)
+ - [Actor events](./service-fabric-reliable-actors-events.md)
+ - [Actor reentrancy](./service-fabric-reliable-actors-reentrancy.md)
+ - [Actor polymorphism and object-oriented design patterns](./service-fabric-reliable-actors-polymorphism.md)
+ - [Actor diagnostics and performance monitoring](./service-fabric-reliable-actors-diagnostics.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

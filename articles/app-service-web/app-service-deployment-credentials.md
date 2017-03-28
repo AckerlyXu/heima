@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Azure App Service Deployment Credentials | Azure"
-    description="Learn how to use the Azure App Service deployment credentials."
-    services="app-service"
-    documentationcenter=""
-    author="dariagrigoriu"
-    manager="erikre"
-    editor="mollybos" />
-<tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="01/05/2016"
-    wacn.date=""
-    ms.author="dariagrigoriu" />
+---
+title: Azure App Service Deployment Credentials | Azure
+description: Learn how to use the Azure App Service deployment credentials.
+services: app-service
+documentationcenter: ''
+author: dariagrigoriu
+manager: erikre
+editor: mollybos
+
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 01/05/2016
+wacn.date: ''
+ms.author: dariagrigoriu
+---
 
 # Configure deployment credentials for Azure App Service
-[Azure App Service](/documentation/articles/app-service-changes-existing-services/) supports two types of credentials for [local Git deployment](/documentation/articles/app-service-deploy-local-git/) 
-and [FTP/S deployment](/documentation/articles/app-service-deploy-ftp/).
+[Azure App Service](./app-service-changes-existing-services.md) supports two types of credentials for [local Git deployment](./app-service-deploy-local-git.md) 
+and [FTP/S deployment](./app-service-deploy-ftp.md).
 
 * **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. These are the default
 credentials set that can be set or reset from the [Azure Classic Management Portal](https://manage.windowsazure.cn) where each App Service app has an editing entry point under **Dashboard > quick glance**.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > When you delegate access to Azure resources via Role Based Access Control (RBAC) or co-admin permissions, each Azure user that receives access to an app can use his/her personal user-level credentials until access is revoked. These deployment credentials should not be shared with other Azure users.
     >
     >
@@ -43,7 +44,7 @@ and and *FTP* deployment username in your app's **Properties**.
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Azure does not show your user-level deployment password. If you forget the password, you can't retrieve it. However, you can reset your credentials in the [Azure Classic Management Portal](https://manage.windowsazure.cn).
 >
 >  
@@ -76,4 +77,4 @@ To reset the app-level credentials:
 
 ## Next steps
 
-Find out how to use these credentials to deploy your app from [local Git](/documentation/articles/app-service-deploy-local-git/) or using [FTP/S](/documentation/articles/app-service-deploy-ftp/).
+Find out how to use these credentials to deploy your app from [local Git](./app-service-deploy-local-git.md) or using [FTP/S](./app-service-deploy-ftp.md).

@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Shared Access Signatures Overview | Azure"
-   description="What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#."
-    services="service-bus"
-   documentationCenter="na"
-   authors="djrosanova"
-   manager="timlt"
-   editor=""/>
+---
+title: Shared Access Signatures Overview | Azure
+description: What are Shared Access Signatures, how do they work, and how to use them from Node, PHP, and C#.
+services: service-bus
+documentationCenter: na
+authors: djrosanova
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/02/2016"
-    ms.author="darosa;sethm"/>
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/02/2016
+ms.author: darosa;sethm
+---
 
 # Shared Access Signatures
 
@@ -24,7 +24,7 @@
 
 Shared Access Signatures are an authentication mechanism based on SHA-256 secure hashes or URIs. SAS is an extremely powerful mechanism that is used by all Service Bus services. In actual use, SAS has two components: a *Shared Access Policy* and a *Shared Access Signature* (often called a *token*).
 
-You can find more detailed information about Shared Access Signatures with Service Bus in [Shared Access Signature Authentication with Service Bus](/documentation/articles/service-bus-shared-access-signature-authentication/).
+You can find more detailed information about Shared Access Signatures with Service Bus in [Shared Access Signature Authentication with Service Bus](./service-bus-shared-access-signature-authentication.md).
 
 ## Shared Access Policy
 
@@ -104,7 +104,6 @@ private static String GetSASToken(String resourceUri, String keyName, String key
       return sasToken;
   }
 
-
 public static String getHMAC256(String key, String input) {
     Mac sha256_HMAC = null;
     String hash = null;
@@ -148,7 +147,7 @@ $token = "SharedAccessSignature sr=" . $targetUri . "&sig=" . $signature . "&se=
 return $token; 
 }
 ```
- 
+
 ### C&#35;
 
 ```
@@ -166,7 +165,7 @@ private static string createToken(string resourceUri, string keyName, string key
 ```
 
 ## Using the Shared Access Signature (at HTTP level)
- 
+
 Now that you know how to create Shared Access Signatures for any entities in Service Bus, you are ready to perform an HTTP POST:
 
 ```
@@ -175,7 +174,7 @@ Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
-	
+
 Remember, this works for everything. You can create SAS for a queue, topic, subscription, Event Hub, or relay. If you use per-publisher identity for Event Hubs, you simply append `/publishers/< publisherid>`.
 
 If you give a sender or client a SAS token, they don't have the key directly, and they cannot reverse the hash to obtain it. As such, you have control over what they can access, and for how long. An important thing to remember is that if you change the primary key in the policy, any Shared Access Signatures created from it will be invalidated.
@@ -241,7 +240,8 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 The `PutCbsToken()` method receives the *connection* (AMQP connection class instance as provided by the [AMQP .NET Lite library](https://github.com/Azure/amqpnetlite)) that represents the TCP connection to the service and the *sasToken* parameter that is the SAS token to send. 
 
-> [AZURE.NOTE] It's important that the connection is created with **SASL authentication mechanism set to EXTERNAL** (and not the default PLAIN with username and password used when you don't need to send the SAS token).
+> [!NOTE]
+> It's important that the connection is created with **SASL authentication mechanism set to EXTERNAL** (and not the default PLAIN with username and password used when you don't need to send the SAS token).
 
 Next, the publisher creates two AMQP links for sending the SAS token and receiving the reply (the token validation result) from the service.
 
@@ -253,7 +253,7 @@ After sending the SAS token on the sender link, the publisher must read the repl
 
 See the [Service Bus REST API reference](https://msdn.microsoft.com/zh-cn/library/azure/hh780717.aspx) for more information about what you can do with these SAS tokens.
 
-For more information about Service Bus authentication, see [Service Bus Authentication and Authorization](/documentation/articles/service-bus-authentication-and-authorization/). 
+For more information about Service Bus authentication, see [Service Bus Authentication and Authorization](./service-bus-authentication-and-authorization.md). 
 
 More examples of SAS in C# and Java Script are in [this blog post](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 

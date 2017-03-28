@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Manage access to cloud apps by restricting tenants - Azure | Azure"
-    description="How to use Tenant Restrictions to manage which users can access apps based on their Azure AD tenant."
-    services="active-directory"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="yossib" />
-<tags
-    ms.assetid=""
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/30/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Manage access to cloud apps by restricting tenants - Azure | Azure
+description: How to use Tenant Restrictions to manage which users can access apps based on their Azure AD tenant.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: yossib
+
+ms.assetid: ''
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/30/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Use Tenant Restrictions to manage access to SaaS cloud applications
 
@@ -71,7 +72,7 @@ The headers should include the following elements: 
 - For *Restrict-Access-To-Tenants*, a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like:  `Restrict-Access-To-Tenants: contoso.partner.onmschina.cn,fabrikam.partner.onmschina.cn` 
 - For *Restrict-Access-Context*, a value of a single directory ID, declaring which tenant is setting the Tenant Restrictions. For example, to declare Contoso as the tenant that set the Tenant Restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
-> [AZURE.TIP]
+> [!TIP]
 > You can find your directory ID in the [Azure portal](https://portal.azure.cn). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
 
 To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the Restrict-Access-To-Tenants header if it is already present in the incoming request. 
@@ -111,26 +112,25 @@ If you want to try out Tenant Restrictions before implementing it for your whole
 
 Fiddler is a free web debugging proxy that can be used to capture and modify HTTP/HTTPS traffic, including inserting HTTP headers. To configure Fiddler to test Tenant Restrictions, perform the following steps:
 
-1.	[Download and install Fiddler](http://www.telerik.com/fiddler).
-2.	Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
-3.	Configure Fiddler to insert the *Restrict-Access-To-Tenants* and *Restrict-Access-Context* headers using custom rules:
+1. [Download and install Fiddler](http://www.telerik.com/fiddler).
+2. Configure Fiddler to decrypt HTTPS traffic, per [Fiddler’s help documentation](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+3. Configure Fiddler to insert the *Restrict-Access-To-Tenants* and *Restrict-Access-Context* headers using custom rules:
   1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
   2. Add the following lines at the beginning of the *OnBeforeRequest* function. Replace \<tenant domain\> with a domain registered with your tenant, for example, contoso.partner.onmschina.cn. Replace \<directory ID\> with your tenant's Azure AD GUID identifier.
 
+      ```
+        if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.chinacloudapi.cn")){
+              oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
+              oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
+          }
+      ```
 
-			if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.chinacloudapi.cn")){
-			      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";
-			      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";
-			  }
+      >[!NOTE]
+      > The code snippet above should be all on one line. There are no carriage returns until after the closing bracket.
 
-  	>[AZURE.NOTE]
-  	> The code snippet above should be all on one line. There are no carriage returns until after the closing bracket.
+      If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
 
- 	 If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
-
-
-		oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.partner.onmschina.cn,fabrikam.partner.onmschina.cn";
-
+        oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.partner.onmschina.cn,fabrikam.partner.onmschina.cn";
 
 4. Save and close the CustomRules file.
 
@@ -140,8 +140,8 @@ After you configure Fiddler, you can capture traffic by going to the **File** me
 
 Depending on the capabilities of your proxy infrastructure, you may be able to stage the rollout of settings to your users. Here are a couple high-level options for consideration:
 
-1.	Use PAC files to point test users to a test proxy infrastructure, while normal users continue to use the production proxy infrastructure.
-2.	Some proxy servers may support different configurations using groups.
+1. Use PAC files to point test users to a test proxy infrastructure, while normal users continue to use the production proxy infrastructure.
+2. Some proxy servers may support different configurations using groups.
 
 Refer to your proxy server documentation for specific details.
 

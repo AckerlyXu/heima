@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Optimizing your Azure code in Visual Studio | Azure"
-    description="Learn about how Azure code optimization tools in Visual Studio help make your code more robust and better-performing."
-    services="visual-studio-online"
-    documentationcenter="na"
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="ed48ee06-e2d2-4322-af22-07200fb16987"
-    ms.service="multiple"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="multiple"
-    ms.date="11/11/2016"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: Optimizing your Azure code in Visual Studio | Azure
+description: Learn about how Azure code optimization tools in Visual Studio help make your code more robust and better-performing.
+services: visual-studio-online
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 11/11/2016
+wacn.date: ''
+ms.author: tarcher
+---
 
 # Optimizing Your Azure Code
 When you’re programming apps that use Azure, there are some coding practices you should follow to help avoid problems with app scalability, behavior and performance in a cloud environment. Microsoft provides an Azure Code Analysis tool that recognizes and identifies several of these commonly-encountered issues and helps you resolve them. You can download the tool in Visual Studio via NuGet.
@@ -420,7 +421,7 @@ Use the diagnostics configuration designer to move diagnostic settings to the di
 
    ![Accessing the Enable Diagnostics option](./media/vs-azure-tools-optimizing-azure-code-in-visual-studio/IC796660.png)
 
-   See [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](/documentation/articles/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/) for more information.
+   See [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) for more information.
 
 ## Avoid declaring DbContext objects as static
 ### ID
@@ -462,4 +463,4 @@ public class BlogsController : Controller
 ```
 
 ## Next steps
-To learn more about optimizing and troubleshooting Azure apps, see [Troubleshoot a web app in Azure App Service using Visual Studio](/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/).
+To learn more about optimizing and troubleshooting Azure apps, see [Troubleshoot a web app in Azure App Service using Visual Studio](./app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).

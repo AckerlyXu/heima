@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Deploy an existing executable to Azure Service Fabric | Azure"
-    description="Walkthrough on how to package an existing application as a guest executable, so it can be deployed to a Service Fabric cluster"
-    services="service-fabric"
-    documentationcenter=".net"
-    author="msfussell"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="na"
-    ms.date="02/17/2016"
-    wacn.date=""
-    ms.author="msfussell;mikhegn" />
+---
+title: Deploy an existing executable to Azure Service Fabric | Azure
+description: Walkthrough on how to package an existing application as a guest executable, so it can be deployed to a Service Fabric cluster
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
+
+ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 02/17/2016
+wacn.date: ''
+ms.author: msfussell;mikhegn
+---
 
 # Deploy a guest executable to Service Fabric
 You can run any type of application, such as Node.js, Java, or native applications in Azure Service Fabric. Service Fabric refers to these types of applications as guest executables.
@@ -36,11 +37,11 @@ There are several advantages to running a guest executable in a Service Fabric c
 * [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
 ## Overview of application and service manifest files
-As part of deploying a guest executable, it is useful to understand the Service Fabric packaging and deployment model as described in [application model](/documentation/articles/service-fabric-application-model/). The Service Fabric packaging model relies on two XML files: the application and service manifests. The schema definition for the ApplicationManifest.xml and ServiceManifest.xml files is installed with the Service Fabric SDK into *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+As part of deploying a guest executable, it is useful to understand the Service Fabric packaging and deployment model as described in [application model](./service-fabric-application-model.md). The Service Fabric packaging model relies on two XML files: the application and service manifests. The schema definition for the ApplicationManifest.xml and ServiceManifest.xml files is installed with the Service Fabric SDK into *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 * **Application manifest**
   The application manifest is used to describe the application. It lists the services that compose it, and other parameters that are used to define how one or more services should be deployed, such as the number of instances.
-  
+
   In Service Fabric, an application is a unit of deployment and upgrade. An application can be upgraded as a single unit where potential failures and potential rollbacks are managed. Service Fabric guarantees that the upgrade process is either successful, or, if the upgrade fails, does not leave the application in an unknown or unstable state.
 * **Service manifest**
   The service manifest describes the components of a service. It includes data, such as the name and type of service, and its code and configuration. The service manifest also includes some additional parameters that can be used to configure the service once it is deployed.
@@ -66,12 +67,14 @@ The ApplicationPackageRoot contains the ApplicationManifest.xml file that define
 * *Config*. This directory contains a Settings.xml file (and other files if necessary) that the service can access at runtime to retrieve specific configuration settings.
 * *Data*. This is an additional directory to store additional local data that the service may need. Data should be used to store only ephemeral data. Service Fabric does not copy or replicate changes to the data directory if the service needs to be relocated (for example, during failover).
 
->[AZURE.NOTE] You don't have to create the `config` and `data` directories if you don't need them.
+>[!NOTE]
+> You don't have to create the `config` and `data` directories if you don't need them.
 
 ## Package an existing executable
 When packaging a guest executable, you can choose either to use a Visual Studio project template or to [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project template for you.
 
->[AZURE.NOTE] The easiest way to package an existing Windows executable into a service is to use Visual Studio.
+>[!NOTE]
+> The easiest way to package an existing Windows executable into a service is to use Visual Studio.
 
 ## Use Visual Studio to package an existing executable
 Visual Studio provides a Service Fabric service template to help you deploy a guest executable to a Service Fabric cluster.
@@ -102,7 +105,8 @@ The process of manually packaging a guest executable is based on the following g
 4. Edit the application manifest file.
 
 <!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
+>[!NOTE]
+> We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
 -->
 
 ### Create the package directory structure
@@ -113,7 +117,8 @@ After you have created the directory structure, you can add the application's co
 
 Service Fabric does an `xcopy` of the content of the application root directory, so there is no predefined structure to use other than creating two top directories, code and settings. (You can pick different names if you want. More details are in the next section.)
 
->[AZURE.NOTE] Make sure that you include all the files and dependencies that the application needs. Service Fabric copies the content of the application package on all nodes in the cluster where the application's services are going to be deployed. The package should contain all the code that the application needs to run. Do not assume that the dependencies are already installed.
+>[!NOTE]
+> Make sure that you include all the files and dependencies that the application needs. Service Fabric copies the content of the application package on all nodes in the cluster where the application's services are going to be deployed. The package should contain all the code that the application needs to run. Do not assume that the dependencies are already installed.
 
 ### Edit the service manifest file
 The next step is to edit the service manifest file to include the following information:
@@ -183,7 +188,7 @@ The `Name` element is used to specify the name of the directory in the applicati
 ```
 The SetupEntryPoint element is used to specify any executable or batch file that should be executed before the service's code is launched. It is an optional step, so it does not need to be included if there is no initialization required. The SetupEntryPoint is executed every time the service is restarted.
 
-There is only one SetupEntryPoint, so setup scripts need to be grouped in a single batch file if the application's setup requires multiple scripts. The SetupEntryPoint can execute any type of file: executable files, batch files, and PowerShell cmdlets. For more details, see [Configure SetupEntryPoint](/documentation/articles/service-fabric-application-runas-security/).
+There is only one SetupEntryPoint, so setup scripts need to be grouped in a single batch file if the application's setup requires multiple scripts. The SetupEntryPoint can execute any type of file: executable files, batch files, and PowerShell cmdlets. For more details, see [Configure SetupEntryPoint](./service-fabric-application-runas-security.md).
 
 In the preceding example, the SetupEntrypoint runs a batch file called `LaunchConfig.cmd` that is located in the `scripts` subdirectory of the code directory (assuming the WorkingFolder element is set to CodeBase).
 
@@ -228,7 +233,7 @@ In the following example, once the service is deployed, in Service Fabric Explor
    <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000"  UriScheme="http" PathSuffix="myapp/" Type="Input" />
 </Endpoints>
 ```
-You can use these addresses with [reverse proxy](/documentation/articles/service-fabric-reverseproxy/) to communicate between services.
+You can use these addresses with [reverse proxy](./service-fabric-reverseproxy.md) to communicate between services.
 
 ### Edit the application manifest file
 Once you have configured the `Servicemanifest.xml` file, you need to make some changes to the `ApplicationManifest.xml` file to ensure that the correct service type and name are used.
@@ -329,5 +334,5 @@ In this article, you have learned how to package a guest executable and deploy i
 
 - [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication), including a link to the prerelease of the packaging tool
 - [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-- [Deploy multiple guest executables](/documentation/articles/service-fabric-deploy-multiple-apps/)
-- [Create your first Service Fabric application using Visual Studio](/documentation/articles/service-fabric-create-your-first-application-in-visual-studio/)
+- [Deploy multiple guest executables](./service-fabric-deploy-multiple-apps.md)
+- [Create your first Service Fabric application using Visual Studio](./service-fabric-create-your-first-application-in-visual-studio.md)

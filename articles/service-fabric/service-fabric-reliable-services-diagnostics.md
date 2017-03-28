@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Stateful Reliable Services diagnostics | Azure"
-    description="Diagnostic functionality for Stateful Reliable Services"
-    services="service-fabric"
-    documentationcenter=".net"
-    author="AlanWarwick"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="ae0e8f99-69ab-4d45-896d-1fa80ed45659"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="alanwar" />
+---
+title: Stateful Reliable Services diagnostics | Azure
+description: Diagnostic functionality for Stateful Reliable Services
+services: service-fabric
+documentationcenter: .net
+author: AlanWarwick
+manager: timlt
+editor: ''
+
+ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: alanwar
+---
 
 # Diagnostic functionality for Stateful Reliable Services
 The Stateful Reliable Services StatefulServiceBase class emits [EventSource](https://msdn.microsoft.com/zh-cn/library/system.diagnostics.tracing.eventsource.aspx) events that can be used to debug the service, provide insights into how the runtime is operating, and help with troubleshooting.
 
 ## EventSource events
 The EventSource name for the Stateful Reliable Services StatefulServiceBase class is "Microsoft-ServiceFabric-Services". Events from this event source appear in the
-[Diagnostics Events](/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/#view-service-fabric-system-events-in-visual-studio) window when the service is being [debugged in Visual Studio](/documentation/articles/service-fabric-debugging-your-application/).
+[Diagnostics Events](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the service is being [debugged in Visual Studio](./service-fabric-debugging-your-application.md).
 
 Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567),
-[Microsoft Azure Diagnostics](/documentation/articles/cloud-services-dotnet-diagnostics/), and the
+[Microsoft Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), and the
 [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Events

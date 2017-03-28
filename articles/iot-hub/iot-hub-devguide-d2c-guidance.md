@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure IoT Hub device-to-cloud options | Azure"
-    description="Developer guide - guidance on when to use device-to-cloud messages, reported properties, or file upload for cloud-to-device communications."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="fsautomata"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="979136db-c92d-4288-870c-f305e8777bdd"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/09/2017"
-    wacn.date=""
-    ms.author="elioda" />
+---
+title: Azure IoT Hub device-to-cloud options | Azure
+description: Developer guide - guidance on when to use device-to-cloud messages, reported properties, or file upload for cloud-to-device communications.
+services: iot-hub
+documentationcenter: .net
+author: fsautomata
+manager: timlt
+editor: ''
+
+ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/09/2017
+wacn.date: ''
+ms.author: elioda
+---
 
 # Device-to-cloud communications guidance
 When sending information from the device app to the solution back end, IoT Hub exposes three options:
@@ -41,9 +42,8 @@ It is possible that an application requires to both send information as a teleme
 
 Since device-to-cloud messages enable a much higher throughput than device twin updates, it is sometimes desirable to avoid updating the device twin for every device-to-cloud message.
 
-
-[lnk-twins]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-fileupload]: /documentation/articles/iot-hub-devguide-file-upload/
-[lnk-quotas]: /documentation/articles/iot-hub-devguide-quotas-throttling/
-[lnk-query]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-d2c]: /documentation/articles/iot-hub-devguide-messaging/#device-to-cloud-messages
+[lnk-twins]: ./iot-hub-devguide-device-twins.md
+[lnk-fileupload]: ./iot-hub-devguide-file-upload.md
+[lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
+[lnk-query]: ./iot-hub-devguide-query-language.md
+[lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages

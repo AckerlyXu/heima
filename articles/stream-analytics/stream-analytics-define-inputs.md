@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Data connection: Data stream inputs from an event stream | Azure"
-    description="Learn about setting up a data connection to Stream Analytics called 'inputs'. Inputs include a data stream from events, and also reference data."
-    keywords="data stream, data connection, event stream"
-    services="stream-analytics"
-    documentationcenter=""
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="8155823c-9dd8-4a6b-8393-34452d299b68"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Data connection: Data stream inputs from an event stream | Azure
+description: Learn about setting up a data connection to Stream Analytics called 'inputs'. Inputs include a data stream from events, and also reference data.
+keywords: data stream, data connection, event stream
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Data connection: Learn about data stream inputs from events to Stream Analytics
 
@@ -30,17 +31,17 @@ A data stream is unbounded sequence of events coming over time. Stream Analytics
 
 ### Reference data
 Stream Analytics supports a second type of input known as reference data. This is auxiliary data which is either static or slowly changing over time and is typically used for performing correlation and look-ups. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100MB in size.
-    To learn how to create reference data inputs, see [Use Reference Data](/documentation/articles/stream-analytics-use-reference-data/)  
+    To learn how to create reference data inputs, see [Use Reference Data](./stream-analytics-use-reference-data.md)  
 
 ## Create a data stream input with an Event Hub
 
-[Azure Event Hubs](/home/features/event-hubs/) are highly scalable publish-subscribe event ingestor. It can collect millions of events per second, so that you can process and analyze the massive amounts of data produced by your connected devices and applications. It is one of the most commonly used inputs for Stream Analytics. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics. Event Hubs allow customers to feed events into Azure in real time, and Stream Analytics jobs can process them in real time. For example, customers can send web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and correlation.
+[Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/) are highly scalable publish-subscribe event ingestor. It can collect millions of events per second, so that you can process and analyze the massive amounts of data produced by your connected devices and applications. It is one of the most commonly used inputs for Stream Analytics. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics. Event Hubs allow customers to feed events into Azure in real time, and Stream Analytics jobs can process them in real time. For example, customers can send web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and correlation.
 
 It is important to note that the default timestamp of events coming from Event Hubs in Stream Analytics is the timestamp that the event arrived in Event Hub which is EventEnqueuedUtcTime. To process the data as a stream using a timestamp in the event payload, the [TIMESTAMP BY](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx) keyword must be used.
 
 ### Consumer groups
 
-Each Stream Analytics Event Hub input should be configured to have its own consumer group. When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group. To avoid exceeding Event Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](/documentation/articles/event-hubs-programming-guide/).
+Each Stream Analytics Event Hub input should be configured to have its own consumer group. When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group. To avoid exceeding Event Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 
 ### Configure Event Hub as an input data stream
 
@@ -67,19 +68,20 @@ When your data is coming from an Event Hub source, you can access to few metadat
 
 For example, you may write a query like the following:
 
-    SELECT
-        EventProcessedUtcTime,
-        EventEnqueuedUtcTime,
-        PartitionId
-    FROM Input
-
+```
+SELECT
+    EventProcessedUtcTime,
+    EventEnqueuedUtcTime,
+    PartitionId
+FROM Input
+```
 
 ## Create an IoT Hub data stream input
 
 Azure Iot Hub is a highly scalable publish-subscribe event ingestor optimized for IoT scenarios.
 It is important to note that the default timestamp of events coming from IoT Hubs in Stream Analytics is the timestamp that the event arrived in IoT Hub which is EventEnqueuedUtcTime. To process the data as a stream using a timestamp in the event payload, the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword must be used.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Only messages sent with a DeviceClient property can be processed.
 > 
 > 
@@ -120,13 +122,13 @@ When your data is coming from an IoT Hub source, you can access to few metadata 
 ## Create a Blob storage data stream input
 
 <!-- /home/features/storage/blobs/ Not Exists -->
-For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. Data in [Blob storage](/home/features/storage/) is generally considered data "at rest" but it can be processed as a data stream by Stream Analytics. One common scenario for Blob storage inputs with Stream Analytics is log processing, where telemetry is captured from a system and needs to be parsed and processed to extract meaningful data.
+For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. Data in [Blob storage](https://www.azure.cn/home/features/storage/) is generally considered data "at rest" but it can be processed as a data stream by Stream Analytics. One common scenario for Blob storage inputs with Stream Analytics is log processing, where telemetry is captured from a system and needs to be parsed and processed to extract meaningful data.
 
 It is important to note that the default timestamp of Blob storage events in Stream Analytics is the timestamp that the blob was last modified which *isBlobLastModifiedUtcTime*. To process the data as a stream using a timestamp in the event payload, the [TIMESTAMP BY](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx) keyword must be used.
 
 Also note that CSV formatted inputs **require** a header row to define fields for the data set. Further header row fields must all be **unique**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Stream Analytics does not support adding content to an existing blob. Stream Analytics will only view a blob once and any changes done after this read will not be processed. The best practice is to upload all the data once and not add any additional events to the blob store.
 > 
 > 
@@ -195,13 +197,13 @@ When your data is coming from a Blob storage source, you can access a few metada
 
 For example, you may write a query like the following:
 
-    SELECT
-        BlobName,
-        EventProcessedUtcTime,
-        BlobLastModifiedUtcTime
-    FROM Input
-
-
+```
+SELECT
+    BlobName,
+    EventProcessedUtcTime,
+    BlobLastModifiedUtcTime
+FROM Input
+```
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
@@ -209,15 +211,15 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 ## Next steps
 You've learned about data connection options in Azure for your Stream Analytics jobs. To learn more about Stream Analytics, see:
 
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: /documentation/articles/stream-analytics-developer-guide/
-[stream.analytics.scale.jobs]: /documentation/articles/stream-analytics-scale-jobs/
-[stream.analytics.introduction]: /documentation/articles/stream-analytics-introduction/
-[stream.analytics.get.started]: /documentation/articles/stream-analytics-get-started/
+[stream.analytics.scale.jobs]: ./stream-analytics-scale-jobs.md
+[stream.analytics.introduction]: ./stream-analytics-introduction.md
+[stream.analytics.get.started]: ./stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301

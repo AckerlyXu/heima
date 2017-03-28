@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Multi-Tenant Web Site Pattern | Microsoft Azure"
-	description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web site on Azure."
-	services=""
-	documentationCenter=".net"
-	authors="wadepickett" 
-	manager="wpickett"
-	editor=""/>
+---
+title: Multi-Tenant Web Site Pattern | Microsoft Azure
+description: Find architectural overviews and design patterns that describe how to implement a multi-tenant web site on Azure.
+services: ''
+documentationCenter: .net
+authors: wadepickett
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="06/05/2015"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 06/05/2015
+wacn.date: ''
+---
 
 # Multitenant Applications in Azure
 
@@ -43,8 +43,8 @@ Azure provides many features that allow you to address the key problems encounte
 - Segment Website Tenants by Host Headers with or without SSL communication
 - Segment Website Tenants by Query Parameters
 - Web Services in Worker Roles
-	- Worker Roles. that typically process data on the backend of an application.
-	- Web Roles that typically act as the frontend for applications.
+    - Worker Roles. that typically process data on the backend of an application.
+    - Web Roles that typically act as the frontend for applications.
 
 **Storage**
 
@@ -54,7 +54,6 @@ Data management such as Azure SQL Database or Azure Storage services such as the
 - Using Azure Tables for Application Resources By specifying a container level access policy, you can the ability to adjust permissions without having to issue new URL's for the resources protected with shared access signatures.
 - Azure Queues for Application Resources Azure queues are commonly used to drive processing on behalf of tenants, but may also be used to distribute work required for provisioning or management.
 - Service Bus Queues for Application Resources that pushes work to a shared a service, you can use a single queue where each tenant sender only has permissions (as derived from claims issued from ACS) to push to that queue, while only the receivers from the service have permission to pull from the queue the data coming from multiple tenants.
-
 
 **Connection and Security Services**
 
@@ -69,8 +68,6 @@ Azure provides several networking services that support authentication, and impr
 - Azure Active Directory (Azure AD) is a modern, REST-based service that provides identity management and access control capabilities for your cloud applications. Using Azure AD for Application Resources Azure AD to provides an easy way of authenticating and authorizing users to gain access to your web sites and services while allowing the features of authentication and authorization to be factored out of your code.
 - Azure Service Bus provides a secure messaging and data flow capability for distributed and hybrid applications, such as communication between Azure hosted applications and on-premises applications and services, without requiring complex firewall and security infrastructures. Using Service Bus Relay for Application Resources to The services that are exposed as endpoints may belong to the tenant (for example, hosted outside of the system, such as on-premise), or they may be services provisioned specifically for the tenant (because sensitive, tenant-specific data travels across them).
 
-
-
 **Provisioning Resources**
 
 Azure provides a number of ways provision new tenants for the application. For multitenant applications with a large number of tenants, it is usually necessary to automate this process by enabling self-service provisioning.
@@ -79,12 +76,10 @@ Azure provides a number of ways provision new tenants for the application. For m
 - Azure Blobs can be used to provision compute or pre-initialized storage resources for new tenants while providing container level access policies to protect the compute service Packages, VHD images and other resources.
 - Options for provisioning SQL Database resources for a tenant include:
 
-	- 	DDL in scripts or embedded as resources within assemblies
-	- 	SQL Server 2008 R2 DAC Packages deployed programmatically.
-	- 	Copying from a master reference database
-	- 	Using database Import and Export to provision new databases from a file.
-
-
+    - 	DDL in scripts or embedded as resources within assemblies
+    - 	SQL Server 2008 R2 DAC Packages deployed programmatically.
+    - 	Copying from a master reference database
+    - 	Using database Import and Export to provision new databases from a file.
 
 <!--links-->
 

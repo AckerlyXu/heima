@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Get Azure tools (Windows 7 and later) | Azure"
-    description="Install Python and the Azure command-line interface (Azure CLI) on Windows 7 and later versions."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timlt"
-    tags=""
-    keywords="iot cloud service, azure cli" />
-<tags
-    ms.assetid="acfa13e3-6d2c-4e68-9a77-1cbc2cf3f9c1"
-    ms.service="iot-hub"
-    ms.devlang="node"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get Azure tools (Windows 7 and later) | Azure
+description: Install Python and the Azure command-line interface (Azure CLI) on Windows 7 and later versions.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timlt
+tags: ''
+keywords: iot cloud service, azure cli
+
+ms.assetid: acfa13e3-6d2c-4e68-9a77-1cbc2cf3f9c1
+ms.service: iot-hub
+ms.devlang: node
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get Azure tools (Windows 7 and later)
-> [AZURE.SELECTOR]
-- [Windows 7 and later](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32/)
-- [Ubuntu 16.04](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu/)
-- [macOS 10.10](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac/)
+> [!div class="op_single_selector"]
+>- [Windows 7 and later](./iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
+>- [Ubuntu 16.04](./iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
+>- [macOS 10.10](./iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 
 ## What you will do
-Install Python and the Azure command-line interface (Azure CLI). If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-raspberry-pi-kit-node-troubleshooting/ ).
+Install Python and the Azure command-line interface (Azure CLI). If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-raspberry-pi-kit-node-troubleshooting.md ).
 
 ## What you will learn
 In this article, you will learn:
@@ -34,7 +35,7 @@ In this article, you will learn:
 
 ## What you need
 * A Windows computer with an Internet connection.
-* An active Azure subscription. If you don't have an Azure account, create a [Azure trial account](/pricing/1rmb-trial/) in just a few minutes.
+* An active Azure subscription. If you don't have an Azure account, create a [Azure trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 
 ## Install Python
 [Install Python](https://www.python.org/downloads/) on your Windows computer. You can install Python 2.7, 3.4 or 3.5. This tutorial is based on Python 2.7. If you've already installed Python, go to the next section and install the Azure CLI.
@@ -54,7 +55,7 @@ To install the Azure CLI, follow these steps:
    pip install --upgrade azure-cli-iot
    ```
 3. Verify the installation by running the following command:
-   
+
     ```bash
     az iot -h
     ```
@@ -67,5 +68,4 @@ You see the following output if the installation is successful.
 You've installed the Azure CLI. Your next task to create your Azure IoT hub and device identity by using the Azure CLI.
 
 ## Next steps
-[Create your IoT hub and register Raspberry Pi 3](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub/)
-
+[Create your IoT hub and register Raspberry Pi 3](./iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)

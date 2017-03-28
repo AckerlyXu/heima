@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Consistency levels in DocumentDB | Azure"
-    description="DocumentDB has four consistency levels to help balance eventual consistency, availability, and latency trade-offs."
-    keywords="eventual consistency, documentdb, azure, Azure"
-    services="documentdb"
-    author="syamkmsft"
-    manager="jhubbard"
-    editor="cgronlun"
-    documentationcenter="" />
-<tags
-    ms.assetid="3fe51cfa-a889-4a4a-b320-16bf871fe74c"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/16/2016"
-    wacn.date=""
-    ms.author="syamk" />
+---
+title: Consistency levels in DocumentDB | Azure
+description: DocumentDB has four consistency levels to help balance eventual consistency, availability, and latency trade-offs.
+keywords: eventual consistency, documentdb, azure, Azure
+services: documentdb
+author: syamkmsft
+manager: jhubbard
+editor: cgronlun
+documentationcenter: ''
+
+ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/16/2016
+wacn.date: ''
+ms.author: syamk
+---
 
 # Consistency levels in DocumentDB
 Azure DocumentDB is designed from the ground up with global distribution in mind. It is designed to offer predictable low latency guarantees, a 99.99% availability SLA, and multiple well-defined relaxed consistency models. Currently, DocumentDB provides four consistency levels: strong, bounded-staleness, session, and eventual. Besides the **strong** and the **eventual consistency** models commonly offered by other NoSQL databases, DocumentDB also offers two carefully codified and operationalized consistency models - **bounded staleness** and **session**, and has validated their usefulness against real world use cases. Collectively these four consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
@@ -34,7 +35,7 @@ You can configure a default consistency level on your database account that appl
 - Strong consistency offers a [linearizability](https://aphyr.com/posts/313-strong-consistency-models) guarantee with the reads guaranteed to return the most recent version of a document. 
 - Strong consistency guarantees that a write is only visible after it is committed durably by the majority quorum of replicas. A write is either synchronously committed durably by both the primary and the quorum of secondaries, or it is aborted. A read is always acknowledged by the majority read quorum, a client can never see an uncommitted or partial write and is always guaranteed to read the latest acknowledged write. 
 - DocumentDB accounts that are configured to use strong consistency cannot associate more than one Azure region with their DocumentDB account. 
-- The cost of a read operation (in terms of [request units](/documentation/articles/documentdb-request-units/) consumed) with strong consistency is higher than session and eventual, but the same as bounded staleness.
+- The cost of a read operation (in terms of [request units](./documentdb-request-units.md) consumed) with strong consistency is higher than session and eventual, but the same as bounded staleness.
 
 **Bounded staleness**: 
 
@@ -79,12 +80,11 @@ The following table captures various consistency guarantees corresponding to the
 2. In the **DocumentDB (NoSQL)** blade, select the database account to modify.
 3. In the account blade, click **Default consistency**.
 4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
-   
+
     ![Screen shot highlighting the Settings icon and Default Consistency entry](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
-> [AZURE.NOTE]
-> Configuring the default consistency level is not supported within the [Azure DocumentDB Emulator](/documentation/articles/documentdb-nosql-local-emulator). 
-
+> [!NOTE]
+> Configuring the default consistency level is not supported within the [Azure DocumentDB Emulator](./documentdb-nosql-local-emulator.md). 
 
 ## Consistency levels for queries
 By default, for user defined resources, the consistency level for queries is the same as the consistency level for reads. By default, the index is updated synchronously on each insert, replace, or delete of a document to the collection. This enables the queries to honor the same consistency level as that of the document reads. While DocumentDB is write optimized and supports sustained volumes of document writes, synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing further boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
@@ -100,15 +100,15 @@ As with read requests, you can lower the consistency level of a specific query r
 ## Next steps
 If you'd like to do more reading about consistency levels and tradeoffs, we recommend the following resources:
 
--	Doug Terry. Replicated Data Consistency explained through baseball.   
+- Doug Terry. Replicated Data Consistency explained through baseball.   
 [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
--	Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
+- Doug Terry. Session Guarantees for Weakly Consistent Replicated Data.   
 [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
--	Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”.   
+- Daniel Abadi. Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story”.   
 [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
--	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
+- Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums.   
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Werner Vogels. Eventual Consistent - Revisited.    
+- Werner Vogels. Eventual Consistent - Revisited.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png

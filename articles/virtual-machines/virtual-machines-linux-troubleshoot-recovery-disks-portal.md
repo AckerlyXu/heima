@@ -1,22 +1,23 @@
 <!-- need to be verified -->
 
-<properties
-    pageTitle="Use a Linux troubleshooting VM in the Azure portal preview | Azure"
-    description="Learn how to troubleshoot Linux virtual machine issues by connecting the OS disk to a recovery VM using the Azure portal preview"
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="iainfoulds"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="11/14/2016"
-    wacn.date=""
-    ms.author="iainfou" />
+---
+title: Use a Linux troubleshooting VM in the Azure portal preview | Azure
+description: Learn how to troubleshoot Linux virtual machine issues by connecting the OS disk to a recovery VM using the Azure portal preview
+services: virtual-machines-linux
+documentationCenter: ''
+authors: iainfoulds
+manager: timlt
+editor: ''
+
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 11/14/2016
+wacn.date: ''
+ms.author: iainfou
+---
 
 # Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using the Azure portal preview
 If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to use the Azure portal preview to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM.
@@ -90,32 +91,40 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 
 ## Mount the attached data disk
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The following examples detail the steps required on an Ubuntu VM. If you are using a different Linux distro, such as Red Hat Enterprise Linux or SUSE, the log file locations and `mount` commands may be a little different. Refer to the documentation for your specific distro for the appropriate changes in commands.
 
 1. SSH to your troubleshooting VM using the appropriate credentials. If this disk is the first data disk attached to your troubleshooting VM, it is likely connected to `/dev/sdc`. Use `dmseg` to list attached disks:
 
-        dmesg | grep SCSI
+    ```bash
+    dmesg | grep SCSI
+    ```
 
     The output is similar to the following example:
 
-        [    0.294784] SCSI subsystem initialized
-        [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-        [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-        [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-        [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+    ```bash
+    [    0.294784] SCSI subsystem initialized
+    [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+    [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
+    [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
+    [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+    ```
 
     In the preceding example, the OS disk is at `/dev/sda` and the temporary disk provided for each VM is at `/dev/sdb`. If you had multiple data disks, they should be at `/dev/sdd`, `/dev/sde`, and so on.
 
 2. Create a directory to mount your existing virtual hard disk. The following example creates a directory named `troubleshootingdisk`:
 
-        sudo mkdir /mnt/troubleshootingdisk
+    ```bash
+    sudo mkdir /mnt/troubleshootingdisk
+    ```
 
 3. If you have multiple partitions on your existing virtual hard disk, mount the required partition. The following example mounts the first primary partition at `/dev/sdc1`:
 
-        sudo mount /dev/sdc1 /mnt/troubleshootingdisk
+    ```bash
+    sudo mount /dev/sdc1 /mnt/troubleshootingdisk
+    ```
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > Best practice is to mount data disks on VMs in Azure using the universally unique identifier (UUID) of the virtual hard disk. For this short troubleshooting scenario, mounting the virtual hard disk using the UUID is not necessary. However, under normal use, editing `/etc/fstab` to mount virtual hard disks using device name rather than UUID may cause the VM to fail to boot.
 
 ## Fix issues on original virtual hard disk
@@ -126,11 +135,15 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
 
 1. From the SSH session to your troubleshooting VM, unmount the existing virtual hard disk. Change out of the parent directory for your mount point first:
 
-        cd /
+    ```bash
+    cd /
+    ```
 
     Now unmount the existing virtual hard disk. The following example unmounts the device at `/dev/sdc1`:
 
-        sudo umount /dev/sdc1
+    ```bash
+    sudo umount /dev/sdc1
+    ```
 
 2. Now detach the virtual hard disk from the VM. Select your VM in the portal and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
 
@@ -151,6 +164,6 @@ When you create your VM from the existing virtual hard disk, boot diagnostics ma
 ![Update boot diagnostics settings](./media/virtual-machines-linux-troubleshoot-recovery-disks/reenable-boot-diagnostics.png)
 
 ## Next steps
-If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](/documentation/articles/virtual-machines-linux-troubleshoot-ssh-connection/). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](/documentation/articles/virtual-machines-linux-troubleshoot-app-connection/).
+If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](./virtual-machines-linux-troubleshoot-ssh-connection.md). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](./virtual-machines-linux-troubleshoot-app-connection.md).
 
-For more information about using Resource Manager, see [Azure Resource Manager overview](/documentation/articles/resource-group-overview/).
+For more information about using Resource Manager, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).

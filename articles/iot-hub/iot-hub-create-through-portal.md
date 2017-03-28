@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Use the Azure portal to create an IoT Hub | Azure"
-    description="How to create, manage, and delete Azure IoT hubs through the Azure portal. Includes information about pricing tiers, scaling, security, and messaging configuration."
-    services="iot-hub"
-    documentationcenter=""
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="0909cd2b-4c1e-49e0-b68a-75532caf0a6a"
-    ms.service="iot-hub"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Use the Azure portal to create an IoT Hub | Azure
+description: How to create, manage, and delete Azure IoT hubs through the Azure portal. Includes information about pricing tiers, scaling, security, and messaging configuration.
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Create an IoT hub using the Azure portal
 
-[AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
+[!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 This article describes how to find the IoT Hub service in the Azure portal, and how to create and manage IoT hubs.
@@ -50,7 +51,7 @@ You can choose from four tiers: **Free**, **Standard 1** and **Standard 2**, and
 
 ![][4]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > IoT Hub only allows one free hub per Azure subscription.
 > 
 > 
@@ -85,9 +86,9 @@ You can change the settings of an existing IoT hub after it is created from the 
 
 ### Create a policy
 * Click **Add** to open a blade. Here you can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure:
-  
+
     There are several permissions that can be associated with these shared policies. The first two policies, **Registry read** and **Registry write**, grant read and write access rights to the device identity store or the identity registry. Choosing the write option automatically chooses the read option as well.
-  
+
      The **Service connect** policy grants permission to access the cloud-side endpoints such as the consumer group for services connecting to the IoT hub. The **Device connect** policy grants permissions for sending and receiving messages on the device-side endpoints of the IoT hub.
 * Click **Create** to add this newly created policy to the existing list.
 
@@ -110,7 +111,7 @@ There are two built-in endpoints: **Cloud to device feedback** and **Events**.
 
     * **Consumer Groups**: Consumer groups are a setting similar to other messaging systems that can be used to pull data in specific ways to connect other applications or services to IoT Hub. Every IoT hub is created with a default consumer group. However, you can add or delete consumer groups to your IoT hubs using this setting.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The default consumer group cannot be edited or deleted.
 > 
 > 
@@ -169,11 +170,11 @@ To further explore the capabilities of IoT Hub, see:
 [14]: ./media/iot-hub-create-through-portal/routes-list.png
 [15]: ./media/iot-hub-create-through-portal/route-edit.png
 
-[lnk-bulk]: /documentation/articles/iot-hub-bulk-identity-mgmt/
-[lnk-metrics]: /documentation/articles/iot-hub-metrics/
-[lnk-monitor]: /documentation/articles/iot-hub-operations-monitoring/
+[lnk-bulk]: ./iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: ./iot-hub-metrics.md
+[lnk-monitor]: ./iot-hub-operations-monitoring.md
 
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
-[lnk-gateway]: /documentation/articles/iot-hub-linux-gateway-sdk-simulated-device/
-[lnk-securing]: /documentation/articles/iot-hub-security-ground-up/
-[lnk-devguide-endpoints]: /documentation/articles/iot-hub-devguide-endpoints/
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-securing]: ./iot-hub-security-ground-up.md
+[lnk-devguide-endpoints]: ./iot-hub-devguide-endpoints.md

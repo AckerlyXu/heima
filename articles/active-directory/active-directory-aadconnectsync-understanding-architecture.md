@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect sync: Understanding the architecture | Azure"
-    description="This topic describes the architecture of Azure AD Connect sync and explains the terms used."
-    services="active-directory"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="465bcbe9-3bdd-4769-a8ca-f8905abf426d"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect sync: Understanding the architecture | Azure
+description: This topic describes the architecture of Azure AD Connect sync and explains the terms used.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+
+ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Azure AD Connect sync: Understanding the architecture
 This topic covers the basic architecture for Azure AD Connect sync. In many aspects, it is similar to its predecessors MIIS 2003, ILM 2007, and FIM 2010. Azure AD Connect sync is the evolution of these technologies. If you are familiar with any of these earlier technologies, the content of this topic will be familiar to you as well. If you are new to synchronization, then this topic is for you. It is however not a requirement to know the details of this topic to be successful in making customizations to Azure AD Connect sync (called sync engine in this topic).
@@ -251,7 +252,6 @@ The sync engine stores export and import status information about each staging o
 For example, if sync engine exports attribute C, which has a value of 5, to a connected data source, it stores C=5 in its export status memory. Each additional export on this object results in an attempt to export C=5 to the connected data source again because sync engine assumes that this value has not been persistently applied to the object (that is, unless a different value was imported recently from the connected data source). The export memory is cleared when C=5 is received during an import operation on the object.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](/documentation/articles/active-directory-aadconnectsync-whatis/) configuration.
+Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/).
-
+Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).

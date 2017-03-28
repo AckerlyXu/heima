@@ -1,27 +1,28 @@
-<properties
-    pageTitle="What is Traffic Manager | Azure"
-    description="This article will help you understand what Traffic Manager is, and whether it is the right traffic routing choice for your application"
-    services="traffic-manager"
-    documentationcenter=""
-    author="kumudd"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="75d5ff9a-f4b9-4b05-af32-700e7bdfea5a"
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/16/2017"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: What is Traffic Manager | Azure
+description: This article will help you understand what Traffic Manager is, and whether it is the right traffic routing choice for your application
+services: traffic-manager
+documentationcenter: ''
+author: kumudd
+manager: timlt
+editor: ''
+
+ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/16/2017
+wacn.date: ''
+ms.author: kumud
+---
 
 # Overview of Traffic Manager
 
 Azure Traffic Manager allows you to control the distribution of user traffic for service endpoints in different datacenters. Service endpoints supported by Traffic Manager include Azure VMs, Web Apps, and cloud services. You can also use Traffic Manager with external, non-Azure endpoints.
 
-Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a [traffic-routing method](/documentation/articles/traffic-manager-routing-methods/) and the health of the endpoints. Traffic Manager provides a range of traffic-routing methods to suit different application needs, endpoint health [monitoring](/documentation/articles/traffic-manager-monitoring/), and automatic failover. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
+Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a [traffic-routing method](./traffic-manager-routing-methods.md) and the health of the endpoints. Traffic Manager provides a range of traffic-routing methods to suit different application needs, endpoint health [monitoring](./traffic-manager-monitoring.md), and automatic failover. Traffic Manager is resilient to failure, including the failure of an entire Azure region.
 
 ## Traffic Manager benefits
 
@@ -45,7 +46,7 @@ Traffic Manager can help you:
 
 * **Distribute traffic for large, complex deployments**
 
-    Using [nested Traffic Manager profiles](/documentation/articles/traffic-manager-nested-profiles/), traffic-routing methods can be combined to create sophisticated and flexible rules to support the needs of larger, more complex deployments.
+    Using [nested Traffic Manager profiles](./traffic-manager-nested-profiles.md), traffic-routing methods can be combined to create sophisticated and flexible rules to support the needs of larger, more complex deployments.
 
 ## How Traffic Manager works
 
@@ -53,8 +54,8 @@ Azure Traffic Manager enables you to control the distribution of traffic across 
 
 Traffic Manager provides two key benefits:
 
-1. Distribution of traffic according to one of several [traffic-routing methods](/documentation/articles/traffic-manager-routing-methods/)
-2. [Continuous monitoring of endpoint health](/documentation/articles/traffic-manager-monitoring/) and automatic failover when endpoints fail
+1. Distribution of traffic according to one of several [traffic-routing methods](./traffic-manager-routing-methods.md)
+2. [Continuous monitoring of endpoint health](./traffic-manager-monitoring.md) and automatic failover when endpoints fail
 
 When a client attempts to connect to a service, it must first resolve the DNS name of the service to an IP address. The client then connects to that IP address to access the service.
 
@@ -72,7 +73,7 @@ To achieve this configuration:
 
 ![Traffic Manager DNS configuration][1]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When using a vanity domain with Azure Traffic Manager, you must use a CNAME to point your vanity domain name to your Traffic Manager domain name. DNS standards do not allow you to create a CNAME at the 'apex' (or root) of a domain. Thus you cannot create a CNAME for 'contoso.com' (sometimes called a 'naked' domain). You can only create a CNAME for a domain under 'contoso.com', such as 'www.contoso.com'. To work around this limitation, we recommend using a simple HTTP redirect to direct requests for 'contoso.com' to an alternative name such as 'www.contoso.com'.
 
 ### How clients connect using Traffic Manager
@@ -87,8 +88,8 @@ Continuing from the previous example, when a client requests the page https://pa
 4. The Traffic Manager name servers receive the request. They choose an endpoint based on:
 
     - The configured state of each endpoint (disabled endpoints are not returned)
-    - The current health of each endpoint, as determined by the Traffic Manager health checks. For more information, see [Traffic Manager Endpoint Monitoring](/documentation/articles/traffic-manager-monitoring/).
-    - The chosen traffic-routing method. For more information, see [Traffic Manager Routing Methods](/documentation/articles/traffic-manager-routing-methods/).
+    - The current health of each endpoint, as determined by the Traffic Manager health checks. For more information, see [Traffic Manager Endpoint Monitoring](./traffic-manager-monitoring.md).
+    - The chosen traffic-routing method. For more information, see [Traffic Manager Routing Methods](./traffic-manager-routing-methods.md).
 
 5. The chosen endpoint is returned as another DNS CNAME record. In this case, let us suppose contoso-us.chinacloudapp.cn is returned.
 6. Next, the recursive DNS service finds the name servers for the 'chinacloudapp.cn' domain. It contacts those name servers to request the 'contoso-us.chinacloudapp.cn' DNS record. A DNS 'A' record containing the IP address of the US-based service endpoint is returned.
@@ -99,13 +100,13 @@ The recursive DNS service caches the DNS responses it receives. The DNS resolver
 
 ## Pricing
 
-For pricing information, see [Traffic Manager Pricing](/pricing/details/traffic-manager/).
+For pricing information, see [Traffic Manager Pricing](https://www.azure.cn/pricing/details/traffic-manager/).
 
 ## Next steps
 
-Learn more about Traffic Manager [endpoint monitoring and automatic failover](/documentation/articles/traffic-manager-monitoring/).
+Learn more about Traffic Manager [endpoint monitoring and automatic failover](./traffic-manager-monitoring.md).
 
-Learn more about Traffic Manager [traffic routing methods](/documentation/articles/traffic-manager-routing-methods/).
+Learn more about Traffic Manager [traffic routing methods](./traffic-manager-routing-methods.md).
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png

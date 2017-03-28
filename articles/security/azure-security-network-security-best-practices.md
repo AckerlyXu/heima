@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Azure Network Security Best Practices | Microsoft Azure"
-   description="This article provides a set of best practices for network security using built in Azure capabilities."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="swadhwa"
-   editor="TomShinder"/>
+---
+title: Azure Network Security Best Practices | Microsoft Azure
+description: This article provides a set of best practices for network security using built in Azure capabilities.
+services: security
+documentationCenter: na
+authors: TomShinder
+manager: swadhwa
+editor: TomShinder
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/25/2016"
-   ms.author="TomSh"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/25/2016
+ms.author: TomSh
+---
 
 # Azure Network Security Best Practices
 
@@ -45,10 +45,9 @@ Azure Network security best practices discussed in this article include:
 - Disable RDP Access to Azure Virtual Machines
 - Extend your datacenter into Azure
 
-
 ## Logically segment subnets
 
-[Azure Virtual Networks](https://www.azure.cn/documentation/services/networking/) are similar to a LAN on your on-premises network. The idea behind an Azure Virtual Network is that you create a single private IP address space-based network on which you can place all your [Azure Virtual Machines](https://www.azure.cn/documentation/services/virtual-machines). The private IP address spaces available are in the Class A (10.0.0.0/8), Class B (172.16.0.0/12) and Class C (192.168.0.0/16) ranges.
+[Azure Virtual Networks](../virtual-network/index.md) are similar to a LAN on your on-premises network. The idea behind an Azure Virtual Network is that you create a single private IP address space-based network on which you can place all your [Azure Virtual Machines](../virtual-machines/index.md). The private IP address spaces available are in the Class A (10.0.0.0/8), Class B (172.16.0.0/12) and Class C (192.168.0.0/16) ranges.
 
 Similar to what you do on-premises, you’ll want to segment the larger address space into subnets. You can use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) based subnetting principles to create your subnets.
 
@@ -72,7 +71,8 @@ While the default system routes are useful for many deployment scenarios, there 
 
 We recommend that you configure User Defined Routes when you deploy a virtual network security appliance, which we’ll talk about in a later best practice.
 
-> [AZURE.NOTE] user Defined Routes are not required and the default system routes will work in most instances.
+> [!NOTE]
+> user Defined Routes are not required and the default system routes will work in most instances.
 
 You can learn more about User Defined Routes and how to configure them by reading the article [What are User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
@@ -117,7 +117,6 @@ DMZs are useful because you can focus your network access control management, mo
 While this is the basic design of a DMZ, there are many different DMZ designs, such as back-to-back, tri-homed, multi-homed, and others.
 
 We recommend for all high security deployments that you consider deploying a DMZ to enhance the level of network security for your Azure resources.
-
 
 ## Avoid exposure to the Internet with dedicated WAN links
 Many organizations have chosen the Hybrid IT route. In hybrid IT, some of the company’s information assets are in Azure, while others remain on-premises. In many cases some components of a service will be running in Azure while other components remain on-premises.
@@ -180,7 +179,7 @@ To learn more about how Azure Internal Load Balancing works and how you can depl
 ## Use global load balancing
 Public cloud computing makes it possible to deploy globally distributed applications that have components located in datacenters all over the world. This is possible on Microsoft Azure due to Azure’s global datacenter presence. In contrast to the load balancing technologies mentioned earlier, global load balancing makes it possible to make services available even when entire datacenters might become unavailable.
 
-You can get this type of global load balancing in Azure by taking advantage of [Azure Traffic Manager](https://www.azure.cn/documentation/services/traffic-manager/). Traffic Manager makes is possible to load balance connections to your services based on the location of the user.
+You can get this type of global load balancing in Azure by taking advantage of [Azure Traffic Manager](../traffic-manager/index.md). Traffic Manager makes is possible to load balance connections to your services based on the location of the user.
 
 For example, if the user is making a request to your service from the EU, the connection is directed to your services located in an EU datacenter. This part of Traffic Manager global load balancing helps to improve performance because connecting to the nearest datacenter is faster than connecting to datacenters that are far away.
 
@@ -209,7 +208,7 @@ Point-to-site VPN is more secure than direct RDP or SSH connections because the 
 
 A [site-to-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) connects an entire network to another network over the Internet. You can use a site-to-site VPN to connect your on-premises network to an Azure Virtual Network. If you deploy a site-to-site VPN, users on your on-premises network will be able to connect to virtual machines on your Azure Virtual Network by using the RDP or SSH protocol over the site-to-site VPN connection and does not require you to allow direct RDP or SSH access over the Internet.
 
-You can also use a dedicated WAN link to provide functionality similar to the site-to-site VPN. The main differences are 1. the dedicated WAN link doesn’t traverse the Internet, and 2. dedicated WAN links are typically more stable and performant. Azure provides you a dedicated WAN link solution in the form of [ExpressRoute](https://www.azure.cn/documentation/services/expressroute/).
+You can also use a dedicated WAN link to provide functionality similar to the site-to-site VPN. The main differences are 1. the dedicated WAN link doesn’t traverse the Internet, and 2. dedicated WAN links are typically more stable and performant. Azure provides you a dedicated WAN link solution in the form of [ExpressRoute](../expressroute/index.md).
 
 ## Securely extend your datacenter into Azure
 Many enterprise IT organizations are looking to expand into the cloud instead of growing their on-premises datacenters. This expansion represents an extension of existing IT infrastructure into the public cloud. By taking advantage of cross-premises connectivity options it’s possible to treat your Azure Virtual Networks as just another subnet on your on-premises network infrastructure.

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Configure Traffic Manager routing methods | Azure"
-    description="This article explains how to configures different routing methods in Traffic Manager"
-    services="traffic-manager"
-    documentationcenter=""
-    author="kumudd"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="6dca6de1-18f7-4962-bd98-6055771fab22"
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/18/2016"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Configure Traffic Manager routing methods | Azure
+description: This article explains how to configures different routing methods in Traffic Manager
+services: traffic-manager
+documentationcenter: ''
+author: kumudd
+manager: timlt
+editor: ''
+
+ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+wacn.date: ''
+ms.author: kumud
+---
 
 # Configure Traffic Manager routing methods
 
@@ -48,7 +49,7 @@ A common pattern for service failover is to send traffic to a primary service an
 
 A common traffic routing method pattern is to provide a set of identical endpoints, which include cloud services and websites, and send traffic to each in a round-robin fashion. The following steps outline how to configure this type of traffic routing method.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Azure Websites already provide round-robin load balancing functionality for websites within a datacenter (also known as a region). Traffic Manager allows you to specify round-robin traffic routing method for websites in different datacenters.
 
 1. In the Azure Classic Management Portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane.
@@ -77,9 +78,9 @@ The Performance traffic routing method allows you to direct traffic to the endpo
 
 ## Next steps
 
-* [Manage Traffic Manager Profiles](/documentation/articles/traffic-manager-manage-profiles/)
-* [Traffic Manager routing methods](/documentation/articles/traffic-manager-routing-methods/)
-* [Testing Traffic Manager Settings](/documentation/articles/traffic-manager-testing-settings/)
-* [Point a company Internet domain to a Traffic Manager domain](/documentation/articles/traffic-manager-point-internet-domain/)
-* [Manage Traffic Manager endpoints](/documentation/articles/traffic-manager-manage-endpoints/)
-* [Troubleshooting Traffic Manager degraded state](/documentation/articles/traffic-manager-troubleshooting-degraded/)
+* [Manage Traffic Manager Profiles](./traffic-manager-manage-profiles.md)
+* [Traffic Manager routing methods](./traffic-manager-routing-methods.md)
+* [Testing Traffic Manager Settings](./traffic-manager-testing-settings.md)
+* [Point a company Internet domain to a Traffic Manager domain](./traffic-manager-point-internet-domain.md)
+* [Manage Traffic Manager endpoints](./traffic-manager-manage-endpoints.md)
+* [Troubleshooting Traffic Manager degraded state](./traffic-manager-troubleshooting-degraded.md)

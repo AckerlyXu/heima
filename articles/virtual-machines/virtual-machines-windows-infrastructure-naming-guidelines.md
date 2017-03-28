@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Azure infrastructure naming guidelines - Windows | Azure"
-    description="Learn about the key design and implementation guidelines for naming in Azure infrastructure services."
-    documentationcenter=""
-    services="virtual-machines-windows"
-    author="iainfoulds"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="660765fa-4d42-49cb-a9c6-8c596d26d221"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/17/2017"
-    wacn.date=""
-    ms.author="iainfou"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Azure infrastructure naming guidelines - Windows | Azure
+description: Learn about the key design and implementation guidelines for naming in Azure infrastructure services.
+documentationcenter: ''
+services: virtual-machines-windows
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 660765fa-4d42-49cb-a9c6-8c596d26d221
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 03/17/2017
+wacn.date: ''
+ms.author: iainfou
+ms.custom: H1Hack27Feb2017
+---
 
 # Azure infrastructure naming guidelines for Windows VMs
 
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding how to approach naming conventions for all your various Azure resources to build a logical and easily identifiable set of resources across your environment.
 
@@ -94,11 +95,11 @@ In case a VM is created from a .vhd image file that already contains an operatin
 We recommend that the Azure VM name is the same as the underlying operating system computer name.
 
 ## Storage account names
-This section does not apply to [Azure Managed Disks](/documentation/articles/storage-managed-disks-overview/), as you do not create a separate storage account. For unmanaged disks, storage accounts have special rules governing their names. You can only use lowercase letters and numbers. For more information, see [Create a storage account](/documentation/articles/storage-create-storage-account/#create-a-storage-account). Additionally, the storage account name, along with core.chinacloudapi.cn, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+This section does not apply to [Azure Managed Disks](../storage/storage-managed-disks-overview.md), as you do not create a separate storage account. For unmanaged disks, storage accounts have special rules governing their names. You can only use lowercase letters and numbers. For more information, see [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account). Additionally, the storage account name, along with core.chinacloudapi.cn, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
 
 * mystorageaccount.blob.core.chinacloudapi.cn
 * mystorageaccount.table.core.chinacloudapi.cn
 * mystorageaccount.queue.core.chinacloudapi.cn
 
 ## <a name="next-steps"></a> Next steps
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

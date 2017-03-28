@@ -1,16 +1,16 @@
-<properties 
-	pageTitle="What is the Azure .NET SDK" 
-	description="Learn what is included in the Azure .NET SDK." 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
-	editor="mollybos" 
-	services=""/>
+---
+title: What is the Azure .NET SDK
+description: Learn what is included in the Azure .NET SDK.
+documentationCenter: .net
+authors: tdykstra
+manager: wpickett
+editor: mollybos
+services: ''
 
-<tags 
-	ms.service="multiple" 
-	ms.date="06/30/2016" 
-	wacn.date=""/>
+ms.service: multiple
+ms.date: 06/30/2016
+wacn.date: ''
+---
 
 # What is the Azure SDK for .NET?
 
@@ -104,7 +104,8 @@ This enables you to work with Azure Websites:
 * [Manage and troubleshoot Azure Websites in Server Explorer](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#sitemanagement).
 * [Run in debug mode remotely for Websites and WebJobs](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug). 
 
->[AZURE.NOTE] You don't have to install the Azure SDK for .NET to use these features; they are also included in Visual Studio Updates. 
+>[!NOTE]
+> You don't have to install the Azure SDK for .NET to use these features; they are also included in Visual Studio Updates. 
 
 ##<a id="datalake"></a>Microsoft Azure Data Lake Tools for Visual Studio
 
@@ -116,15 +117,15 @@ There are a few things that you might want for Azure development that aren't inc
 
 * [Client libraries](http://go.microsoft.com/fwlink/?LinkId=510472). 
 
-	The Azure SDK includes client libraries for consuming Azure services, but not all of them are installed when you install the SDK. If your application needs a client library that the SDK doesn't install, you can get it from [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472). If your application uses a client library that the SDK does install, it's a good practice to update it with the current version at NuGet.org.
+    The Azure SDK includes client libraries for consuming Azure services, but not all of them are installed when you install the SDK. If your application needs a client library that the SDK doesn't install, you can get it from [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472). If your application uses a client library that the SDK does install, it's a good practice to update it with the current version at NuGet.org.
 
-  	**Local copies of client libraries.** The Azure SDK for .NET copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new cloud service projects, so the local NuGet packages enable Visual Studio to create projects even if you're not connected to the Internet. Client libraries are generally updated more frequently than new SDK versions are released, so the client libraries at NuGet.org are often more current than what you get with the SDK. 
+      **Local copies of client libraries.** The Azure SDK for .NET copies to your computer the NuGet packages for some Azure client libraries, such as Storage, Service Bus, and Caching. These client libraries are automatically included in new cloud service projects, so the local NuGet packages enable Visual Studio to create projects even if you're not connected to the Internet. Client libraries are generally updated more frequently than new SDK versions are released, so the client libraries at NuGet.org are often more current than what you get with the SDK. 
 
-	**Project templates that include client libraries.** Only [Azure Cloud Service](/documentation/articles/cloud-services-dotnet-get-started/) and [Azure Mobile Service](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://go.microsoft.com/fwlink/?LinkId=510472) that you need.
+    **Project templates that include client libraries.** Only [Azure Cloud Service](./cloud-services/cloud-services-dotnet-get-started.md) and [Azure Mobile Service](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) project templates automatically include some client libraries. For other libraries or other templates, install the [client library NuGet packages](http://go.microsoft.com/fwlink/?LinkId=510472) that you need.
 
 * [Azure Mobile Service project templates](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
 
-	Mobile Service templates are available only in Visual Studio 2013 Update 2 and later. They are not available in Visual Studio 2012 or earlier versions, and not in Visual Studio 2013 Update 1 or earlier, even if you install the Azure SDK for .NET.
+    Mobile Service templates are available only in Visual Studio 2013 Update 2 and later. They are not available in Visual Studio 2012 or earlier versions, and not in Visual Studio 2013 Update 1 or earlier, even if you install the Azure SDK for .NET.
 
 ##<a id="faq"></a>Frequently Asked Questions
 
@@ -173,8 +174,6 @@ This article does not list every program that every earlier version of the Azure
 
 > **Note:** Some of the programs that the SDK includes may also be installed separately in other contexts and may be needed even if you don't need the full SDK. The same may be true of programs that were installed by earlier SDK versions but were omitted from later SDK versions. When you uninstall programs, be careful to avoid removing something that is still needed on your computer.
 
-
-
 ##<a id="versions"></a>Versions
 
 To see which version is current or to download older versions, see the [Azure SDK for .NET Version History](/downloads/archive-net-downloads/) page. 
@@ -185,4 +184,4 @@ To download the current Azure SDK for .NET or a client library, see the [Azure D
 
 For the Azure SDK for .NET source code, including client libraries, see [GitHub.com/Azure](https://github.com/azure/).
 
-For Azure client library reference documentation, see [Azure .NET Reference](/documentation/api/). 
+For Azure client library reference documentation, see [Azure .NET Reference](/documentation/api/).

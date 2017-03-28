@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Hybrid connection with 2-tier application | Azure"
-    description="Learn how to deploy virtual appliances and UDR to create a multi-tier application environment in Azure"
-    services="virtual-network"
-    documentationcenter="na"
-    author="jimdial"
-    manager="carmonm"
-    editor="tysonn" />
-<tags
-    ms.assetid="1f509bec-bdd1-470d-8aa4-3cf2bb7f6134"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="05/05/2016"
-    wacn.date=""
-    ms.author="jdial" />
+---
+title: Hybrid connection with 2-tier application | Azure
+description: Learn how to deploy virtual appliances and UDR to create a multi-tier application environment in Azure
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: carmonm
+editor: tysonn
+
+ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 05/05/2016
+wacn.date: ''
+ms.author: jdial
+---
 
 # Virtual appliance scenario
 A common scenario among larger Azure customer is the need to provide a two-tiered application exposed to the Internet, while allowing access to the back tier from an on-premises datacenter. This document will walk you through a scenario using User Defined Routes (UDR), a VPN Gateway, and network virtual appliances to deploy a two-tier environment that meets the following requirements:
@@ -67,7 +68,7 @@ In this example there is a subscription that contains the following:
     * **AZF3**. Management firewall accessible to administrators from the on-premises datacenter, and connected to a management subnet used to manage all firewall appliances. You can find 2-NIC virtual appliance templates in the Marketplace, or request one directly from your appliance vendor.
 
 ## User Defined Routing (UDR)
-Each subnet in Azure can be linked to a UDR table used to define how traffic initiated in that subnet is routed. If no UDRs are defined, Azure uses default routes to allow traffic to flow from one subnet to another. To better understand UDRs, visit [What are User Defined Routes and IP Forwarding](/documentation/articles/virtual-networks-udr-overview/#ip-forwarding).
+Each subnet in Azure can be linked to a UDR table used to define how traffic initiated in that subnet is routed. If no UDRs are defined, Azure uses default routes to allow traffic to flow from one subnet to another. To better understand UDRs, visit [What are User Defined Routes and IP Forwarding](./virtual-networks-udr-overview.md#ip-forwarding).
 
 To ensure communication is done through the right firewall appliance, based on the last requirement above, you need to create the following route table containing UDRs in **azurevnet**.
 
@@ -107,7 +108,7 @@ UDR and IP Forwarding are features that you can use in combination to allow virt
 
 This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding for the VM. This is an Azure setting, not a setting in the guest operating system. Your virtual appliance still needs to run some type of application to handle the incoming traffic, and route it appropriately.
 
-To learn more about IP Forwarding, visit [What are User Defined Routes and IP Forwarding](/documentation/articles/virtual-networks-udr-overview/#ip-forwarding).
+To learn more about IP Forwarding, visit [What are User Defined Routes and IP Forwarding](./virtual-networks-udr-overview.md#ip-forwarding).
 
 As an example, imagine you have the following setup in an Azure vnet:
 

@@ -1,22 +1,22 @@
-<properties
- pageTitle="Device information metadata in the remote monitoring solution | Azure"
- description="A description of the Azure IoT preconfigured solution remote monitoring and its architecture."
- services=""
- suite="iot-suite"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Device information metadata in the remote monitoring solution | Azure
+description: A description of the Azure IoT preconfigured solution remote monitoring and its architecture.
+services: ''
+suite: iot-suite
+documentationCenter: ''
+authors: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="02/15/2017"
- ms.author="dobett"
- wacn.date=""/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/15/2017
+ms.author: dobett
+wacn.date: ''
+---
 
 # Device information metadata in the remote monitoring preconfigured solution
 The Azure IoT Suite remote monitoring preconfigured solution demonstrates an approach for managing device metadata. This article outlines the approach this solution takes to enable you to understand:
@@ -35,7 +35,7 @@ The remote monitoring preconfigured solution uses [Azure IoT Hub][lnk-iot-hub] t
 
 IoT Hub includes a [device identity registry][lnk-identity-registry] to manage access to an IoT hub and uses [device twins][lnk-device-twin] to manage device metadata. There is also a remote monitoring solution-specific *device registry* that stores command and method history. The remote monitoring solution uses a [DocumentDB][lnk-docdb] database to implement a custom store for command and method history.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The remote monitoring preconfigured solution keeps the device identity registry in sync with the information in the DocumentDB database. Both use the same device id to uniquely identify each device connected to your IoT hub.
 > 
 > 
@@ -51,7 +51,7 @@ A device twin stores three types of metadata:
 
 Example reported properties from the simulated devices include manufacturer, model number, latitude, and longitude. Simulated devices also return the list of supported methods as a reported property.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The simulated device code only uses the **Desired.Config.TemperatureMeanValue** and **Desired.Config.TelemetryInterval** desired properties to update the reported properties sent back to IoT Hub. All other desired property change requests are ignored.
 
 A device information metadata JSON document stored in the device registry DocumentDB database has the following structure:
@@ -75,8 +75,7 @@ A device information metadata JSON document stored in the device registry Docume
 }
 ```
 
-
-> [AZURE.NOTE]
+> [!NOTE]
 > Device information can also include metadata to describe the telemetry the device sends to IoT Hub. The remote monitoring solution uses this telemetry metadata to customize how the dashboard displays [dynamic telemetry][lnk-dynamic-telemetry].
 > 
 > 
@@ -102,7 +101,7 @@ You can use the solution portal to remove a device from your solution. When you 
 ## Device information message processing
 Device information messages sent by a device are distinct from telemetry messages. Device information messages include the commands a device can respond to, and any command history. IoT Hub itself has no knowledge of the metadata contained in a device information message and processes the message in the same way it processes any device-to-cloud message. In the remote monitoring solution, an [Azure Stream Analytics][lnk-stream-analytics] (ASA) job reads the messages from IoT Hub. The **DeviceInfo** stream analytics job filters for messages that contain **"ObjectType": "DeviceInfo"** and forwards them to the **EventProcessorHost** host instance that runs in a web job. Logic in the **EventProcessorHost** instance uses the device id to find the DocumentDB record for the specific device and update the record.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > A device information message is a standard device-to-cloud message. The solution distinguishes between device information messages and telemetry messages by using ASA queries.
 > 
 > 
@@ -114,19 +113,17 @@ Now you've finished learning how you can customize the preconfigured solutions, 
 - [Frequently asked questions for IoT Suite][lnk-faq]
 - [IoT security from the ground up][lnk-security-groundup]
 
-
-
 <!-- Images and links -->
 [img-device-list]: ./media/iot-suite-remote-monitoring-device-info/image1.png
 [img-device-edit]: ./media/iot-suite-remote-monitoring-device-info/image2.png
 [img-device-remove]: ./media/iot-suite-remote-monitoring-device-info/image3.png
 
-[lnk-iot-hub]: /documentation/services/iot-hub/
-[lnk-identity-registry]: /documentation/articles/iot-hub-devguide-identity-registry/
+[lnk-iot-hub]: ../iot-hub/index.md
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-docdb]: /documentation/services/documentdb/
-[lnk-stream-analytics]: /documentation/services/stream-analytics/
-[lnk-dynamic-telemetry]: /documentation/articles/iot-suite-dynamic-telemetry/
-[lnk-predictive-overview]: /documentation/articles/iot-suite-predictive-overview/
-[lnk-faq]: /documentation/articles/iot-suite-faq/
-[lnk-security-groundup]: /documentation/articles/securing-iot-ground-up/
+[lnk-docdb]: ../documentdb/index.md
+[lnk-stream-analytics]: ../stream-analytics/index.md
+[lnk-dynamic-telemetry]: ./iot-suite-dynamic-telemetry.md
+[lnk-predictive-overview]: ./iot-suite-predictive-overview.md
+[lnk-faq]: ./iot-suite-faq.md
+[lnk-security-groundup]: ./securing-iot-ground-up.md

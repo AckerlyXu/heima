@@ -1,24 +1,24 @@
-<properties
-	pageTitle="How to Use Apache Cordova Plugin for Azure Mobile Apps"
-	description="How to Use Apache Cordova Plugin for Azure Mobile Apps"
-	services="app-service\mobile"
-	documentationCenter="javascript"
-	authors="adrianhall"
-	manager="erikre"
-	editor=""/>
+---
+title: How to Use Apache Cordova Plugin for Azure Mobile Apps
+description: How to Use Apache Cordova Plugin for Azure Mobile Apps
+services: app-service\mobile
+documentationCenter: javascript
+authors: adrianhall
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-html"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="10/30/2016"
-	ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-html
+ms.devlang: javascript
+ms.topic: article
+ms.date: 10/30/2016
+ms.author: adrianha
+---
 
 # How to Use Apache Cordova Client Library for Azure Mobile Apps
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+[!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 This guide teaches you to perform common scenarios using the latest [Apache Cordova Plugin for Azure Mobile Apps]. If you are new to Azure Mobile
 Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built Apache Cordova project. In this
@@ -40,7 +40,9 @@ This guide assumes that you have created a backend with a table. This guide assu
 tutorials. This guide also assumes that you have added the Apache Cordova Plugin to your code.  If you have not done so, you may add the Apache
 Cordova plugin to your project on the command line:
 
-    cordova plugin add cordova-plugin-ms-azure-mobile-apps
+```
+cordova plugin add cordova-plugin-ms-azure-mobile-apps
+```
 
 For more information on creating [your first Apache Cordova app], see their documentation.
 
@@ -89,7 +91,7 @@ authentication experience, as it relies on the provider's web authentication int
 for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific
 device-specific SDKs.
 
-[AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
+[!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
 ### <a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for External Redirect URLs.
 
@@ -113,10 +115,12 @@ Follow these instructions to add your local settings to the configuration:
 7. Look for the "allowedExternalRedirectUrls" element.  It may be set to null or an array of values.  Change 
    the value to the following value:
 
-         "allowedExternalRedirectUrls": [
-             "http://localhost:3000",
-             "https://localhost:3000"
-         ],
+    ```
+     "allowedExternalRedirectUrls": [
+         "http://localhost:3000",
+         "https://localhost:3000"
+     ],
+    ```
 
     Replace the URLs with the URLs of your service.  Examples include "http://localhost:3000" (for the Node.js sample
     service), or "http://localhost:4400" (for the Ripple service).  However, these URLs are examples - your situation,
@@ -190,9 +194,9 @@ You can find detailed API details in our [API documentation](http://azure.github
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.cn
-[Azure Mobile Apps Quick Start]: /documentation/articles/app-service-mobile-cordova-get-started/
-[Get started with authentication]: /documentation/articles/app-service-mobile-cordova-get-started-users/
-[Add authentication to your app]: /documentation/articles/app-service-mobile-cordova-get-started-users/
+[Azure Mobile Apps Quick Start]: ./app-service-mobile-cordova-get-started.md
+[Get started with authentication]: ./app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: ./app-service-mobile-cordova-get-started-users.md
 
 [Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [your first Apache Cordova app]: http://cordova.apache.org/#getstarted

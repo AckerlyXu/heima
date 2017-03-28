@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Tenant admin elevate access - Azure AD | Azure"
-    description="This topic describes the built in roles for role-based access control (RBAC)."
-    services="active-directory"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="rqureshi" />
-<tags
-    ms.assetid="b547c5a5-2da2-4372-9938-481cb962d2d6"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/09/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Tenant admin elevate access - Azure AD | Azure
+description: This topic describes the built in roles for role-based access control (RBAC).
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: rqureshi
+
+ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/09/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Elevate access as a tenant admin with Role-Based Access Control
 
@@ -50,7 +51,6 @@ The basic process works with the following steps:
 3. While a User Access Admin, you can also delete role assignments at "/" scope.
 
 4. Revoke your User Access Admin privileges until they're needed again.
-
 
 ## How to undo the elevateAccess action
 
@@ -100,5 +100,4 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 
 ## Next steps
 
-- Learn more about [managing Role-Based Access Control with REST](/documentation/articles/role-based-access-control-manage-access-rest/)
-
+- Learn more about [managing Role-Based Access Control with REST](./role-based-access-control-manage-access-rest.md)

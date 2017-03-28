@@ -1,7 +1,7 @@
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/virtual-networks-create-nsg-arm-pportal/)
-- [PowerShell](/documentation/articles/virtual-networks-create-nsg-arm-ps/)
-- [Azure CLI](/documentation/articles/virtual-networks-create-nsg-arm-cli/)
-- [ARM template](/documentation/articles/virtual-networks-create-nsg-arm-template/)
-- [PowerShell (Classic)](/documentation/articles/virtual-networks-create-nsg-classic-ps/)
-- [Azure CLI (Classic)](/documentation/articles/virtual-networks-create-nsg-classic-cli/)
+> [!div class="op_single_selector"]
+>- [Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+>- [PowerShell](../articles/virtual-network/virtual-networks-create-nsg-arm-ps.md)
+>- [Azure CLI](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md)
+>- [ARM template](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md)
+>- [PowerShell (Classic)](../articles/virtual-network/virtual-networks-create-nsg-classic-ps.md)
+>- [Azure CLI (Classic)](../articles/virtual-network/virtual-networks-create-nsg-classic-cli.md)

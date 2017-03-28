@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Learn Azure Service Fabric terminology | Azure"
-    description="A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="rwike77"
-    manager="timlt"
-    editor="chackdan;subramar" />
-<tags
-    ms.assetid="3a970679-e19e-43b3-9be8-71773f307c57"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="2/17/2017"
-    wacn.date=""
-    ms.author="ryanwi" />
+---
+title: Learn Azure Service Fabric terminology | Azure
+description: A terminology overview of Service Fabric. Discusses key terminology concepts and terms used in the rest of the documentation.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: chackdan;subramar
+
+ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 2/17/2017
+wacn.date: ''
+ms.author: ryanwi
+---
 
 # Service Fabric terminology overview
 Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. This topic details the terminology used by Service Fabric in order to understand the terms used in the documentation.
@@ -30,7 +31,7 @@ The concepts listed in this section are also discussed in the following Microsof
 ## Application concepts
 **Application Type**: The name/version assigned to a collection of service types. Defined in an `ApplicationManifest.xml` file, embedded in an application package directory, which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster.
 
-Read the [Application Model](/documentation/articles/service-fabric-application-model/) article for more information.
+Read the [Application Model](./service-fabric-application-model.md) article for more information.
 
 **Application Package**: A disk directory containing the application type's `ApplicationManifest.xml` file. References the service packages for each service type that makes up the application type. The files in the application package directory are copied to Service Fabric cluster's image store. For example, an application package for an email application type could contain references to a queue service package, a frontend service package, and a database service package.
 
@@ -38,7 +39,7 @@ Read the [Application Model](/documentation/articles/service-fabric-application-
 
 **Service Type**: The name/version assigned to a service's code packages, data packages, and configuration packages. Defined in a `ServiceManifest.xml` file, embedded in a service package directory and the service package directory is then referenced by an application package's `ApplicationManifest.xml` file. Within the cluster, after creating a named application, you can create a named service from one of the application type's service types. The service type's `ServiceManifest.xml` file describes the service.
 
-Read the [Application Model](/documentation/articles/service-fabric-application-model/) article for more information.
+Read the [Application Model](./service-fabric-application-model.md) article for more information.
 
 There are two types of services:
 
@@ -58,24 +59,24 @@ There are two types of services:
 
 **Configuration Package**: A disk directory containing the service type's static, read-only configuration files (typically text files). The files in the configuration package directory are referenced by the service type's `ServiceManifest.xml` file. When a named service is created, the files in the configuration package are copied to the one or more nodes selected to run the named service. Then the code starts running and can now access the configuration files.
 
-**Containers**: By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in container images. Containers are a virtualization technology that virtualizes the underlying operating system from applications. An application and its runtime, dependencies, and system libraries run inside a container with full, private access to the container's own isolated view of operating system constructs. Service Fabric supports Docker containers on Linux and Windows Server containers.  For more information, read [Service Fabric and containers](/documentation/articles/service-fabric-containers-overview/).
+**Containers**: By default, Service Fabric deploys and activates services as processes. Service Fabric can also deploy services in container images. Containers are a virtualization technology that virtualizes the underlying operating system from applications. An application and its runtime, dependencies, and system libraries run inside a container with full, private access to the container's own isolated view of operating system constructs. Service Fabric supports Docker containers on Linux and Windows Server containers.  For more information, read [Service Fabric and containers](./service-fabric-containers-overview.md).
 
 **Partition Scheme**: When creating a named service, you specify a partition scheme. Services with large amounts of state split the data across partitions which spreads it across the cluster's nodes. This allows your named service's state to scale. Within a partition, stateless named services have instances while stateful named services have replicas. Usually, stateless named services only ever have one partition since they have no internal state. The partition instances provide for availability; if one instance fails, other instances continue to operate normally and then Service Fabric will create a new instance. Stateful named services maintain their state within replicas and each partition has its own replica set with all the state being kept in sync. Should a replica fail, Service Fabric builds a new replica from the existing replicas.
 
-Read the [Partition Service Fabric reliable services](/documentation/articles/service-fabric-concepts-partitioning/) article for more information.
+Read the [Partition Service Fabric reliable services](./service-fabric-concepts-partitioning.md) article for more information.
 
 ## System services
 There are system services that are created in every cluster that provide the platform capabilities of Service Fabric.
 
 **Naming Service**: Each Service Fabric cluster has a Naming service, which resolves service names to a location in the cluster. You manage the service names and properties, similar to an internet Domain Name Service (DNS) for the cluster. Clients securely communicate with any node in the cluster using the Naming Service to resolve a service name and its location.  Clients obtain the actual machine IP address and port where it is currently running. You can develop services and clients capable of resolving the current network location despite applications being moved within the cluster for example due to failures, resource balancing, or the resizing of the cluster.
 
-Read [Communicate with services](/documentation/articles/service-fabric-connect-and-communicate-with-services/) for more information on the client and service communication APIs that work with the Naming service.
+Read [Communicate with services](./service-fabric-connect-and-communicate-with-services.md) for more information on the client and service communication APIs that work with the Naming service.
 
 **Image Store Service**: Each Service Fabric cluster has an Image Store service where deployed, versioned application packages are kept. Copy an application package to the Image Store and then register the application type contained within that application package. After the application type is provisioned, you create a named applications from it. You can unregister an application type from the Image Store service after all its named applications have been deleted.
 
-Read [Understand the ImageStoreConnectionString setting](/documentation/articles/service-fabric-image-store-connection-string/) for more information about the Image Store service.
+Read [Understand the ImageStoreConnectionString setting](./service-fabric-image-store-connection-string.md) for more information about the Image Store service.
 
-Read the [Deploy an application](/documentation/articles/service-fabric-deploy-remove-applications/) article for more information on deploying applications to the Image store service.
+Read the [Deploy an application](./service-fabric-deploy-remove-applications.md) article for more information on deploying applications to the Image store service.
 
 ## Built-in programming models
 There are .NET Framework programming models available for you to build Service Fabric services:
@@ -84,12 +85,12 @@ There are .NET Framework programming models available for you to build Service F
 
 **Reliable Actors**: An API to build stateless and stateful objects through the virtual Actor programming model. This model can be useful when you have lots of independent units of computation/state. Because this model uses a turn-based threading model, it is best to avoid code that calls out to other actors or services since an individual actor cannot process other incoming requests until all its outbound requests have completed.
 
-Read the [Choose a Programming Model for your service](/documentation/articles/service-fabric-choose-framework/) article for more information.
+Read the [Choose a Programming Model for your service](./service-fabric-choose-framework.md) article for more information.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 To learn more about Service Fabric:
 
-- [Overview of Service Fabric](/documentation/articles/service-fabric-overview/)
-- [Why a microservices approach to building applications?](/documentation/articles/service-fabric-overview-microservices/)
-- [Application scenarios](/documentation/articles/service-fabric-application-scenarios/)
+- [Overview of Service Fabric](./service-fabric-overview.md)
+- [Why a microservices approach to building applications?](./service-fabric-overview-microservices.md)
+- [Application scenarios](./service-fabric-application-scenarios.md)

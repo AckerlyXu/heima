@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Storage Account List"
-    description="Manage your storage account settings using the Azure Toolkit for Eclipse"
-    services=""
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="bbacfcd8-dbf5-4265-a930-59f508de5325"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm" />
+---
+title: Azure Storage Account List
+description: Manage your storage account settings using the Azure Toolkit for Eclipse
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: bbacfcd8-dbf5-4265-a930-59f508de5325
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm
+---
 
 # Azure Storage Account List
 Azure storage accounts enable download locations to be used for your JDK, application server, and arbitrary components, as well as for storing state when using caching. Eclipse maintains a list of known storage accounts that are available to your projects in your Eclipse workspace. To open the **Storage Accounts** dialog, which is used to manage that list, within Eclipse, click **Window**, click **Preferences**, expand **Azure**, and then click **Storage Accounts**.
@@ -53,7 +54,7 @@ It may take several minutes for your storage account to be created. After it is 
 1. If you do not already have a Azure storage account, create one by following the steps listed in the **To create a new storage account section** above. (Alternatively, you can create a new storage account at the [Azure Management Portal][Azure Management Portal].)
 2. Within the **Storage Accounts** dialog, click **Add**.
 3. Within the **Add Storage Account** dialog, enter values for **Name** and **Access Key**. The account name and access key must be for an existing Azure storage account. Use the **Storage** section of the [Azure Management Portal][Azure Management Portal] to view your storage account names and keys. Your **Add Storage Account** dialog will look similar to the following.
-   
+
     ![][ic719497]
 4. Click **OK** to close the **Add Storage Account** dialog.
 
@@ -66,7 +67,8 @@ It may take several minutes for your storage account to be created. After it is 
 1. Within the **Storage Accounts** dialog, click the storage account that you want to edit and then click **Remove**.
 2. Click **OK** when prompted to remove the storage account.
 
->[AZURE.NOTE] Removing the storage account through the **Storage Accounts** dialog only removes it from the list of storage accounts viewable within Eclipse. It does not remove the storage account from your Azure subscription. Additionally, the storage account could appear again in your list after Eclipse reloads the details of your subscription.
+>[!NOTE]
+> Removing the storage account through the **Storage Accounts** dialog only removes it from the list of storage accounts viewable within Eclipse. It does not remove the storage account from your Azure subscription. Additionally, the storage account could appear again in your list after Eclipse reloads the details of your subscription.
 
 ## See Also
 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
@@ -80,11 +82,11 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- URL List -->
 
 [Azure Java Developer Center]:/develop/java/
-[Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse/
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
 [Azure Management Portal]: https://manage.windowsazure.cn
-[Creating a Hello World Application for Azure in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/
-[Installing the Azure Toolkit for Eclipse]: /documentation/articles/azure-toolkit-for-eclipse-installation/
-[What's New in the Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-whats-new/
+[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[What's New in the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-whats-new.md
 
 <!-- IMG List -->
 

@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Assigning groups to Azure AD apps | Azure'"
-    description="How to implement group assignment for Azure applications."
-    services="active-directory"
-    documentationcenter=""
-    author="IHenkel"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="29b5ba89-a1c7-4f1f-a294-248a40106617"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="inhenk" />
+---
+title: Assigning groups to Azure AD apps | Azure'
+description: How to implement group assignment for Azure applications.
+services: active-directory
+documentationcenter: ''
+author: IHenkel
+manager: femila
+editor: ''
+
+ms.assetid: 29b5ba89-a1c7-4f1f-a294-248a40106617
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: inhenk
+---
 
 # Azure AD and Applications: Assign groups to an application
-Before you can assign users and groups to an application, you must require user assignment. To learn how to require user assignment, see the [Requiring User Assignment](/documentation/articles/active-directory-applications-guiding-developers-requiring-user-assignment/) article.
+Before you can assign users and groups to an application, you must require user assignment. To learn how to require user assignment, see the [Requiring User Assignment](./active-directory-applications-guiding-developers-requiring-user-assignment.md) article.
 
 This article assumes that you have already created groups in the active directory you are using for this application.
 
@@ -35,4 +36,4 @@ This article assumes that you have already created groups in the active director
 10. Click **yes** when prompted.
 
 ## Next Steps
-[AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+[!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]

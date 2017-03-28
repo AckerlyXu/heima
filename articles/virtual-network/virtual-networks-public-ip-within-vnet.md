@@ -1,21 +1,22 @@
-<properties
-    pageTitle="How to use public IP addresses in a virtual network"
-    description="Learn how to configure a virtual network to use public IP addresses"
-    services="virtual-network"
-    documentationcenter="na"
-    author="jimdial"
-    manager="carmonm"
-    editor="tysonn" />
-<tags
-    ms.assetid="b6e5dd7c-84ea-491d-8314-88e63a4da108"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="04/27/2016"
-    wacn.date=""
-    ms.author="jdial" />
+---
+title: How to use public IP addresses in a virtual network
+description: Learn how to configure a virtual network to use public IP addresses
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: carmonm
+editor: tysonn
+
+ms.assetid: b6e5dd7c-84ea-491d-8314-88e63a4da108
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 04/27/2016
+wacn.date: ''
+ms.author: jdial
+---
 
 # Public IP address space in a Virtual Network (VNet)
 Virtual networks (VNets) can contain both public and private (RFC 1918 address blocks) IP address spaces. When you add a public IP address range, it will be treated as part of the private VNet IP address space that is only reachable within the VNet, interconnected VNets, and from your on-premises location.
@@ -39,4 +40,4 @@ There are a few IP address ranges that are not allowed:
 * 168.63.129.16/32 (Internal DNS)
 
 ## Next Steps
-[How to manage DNS servers used by a VNet](/documentation/articles/virtual-networks-manage-dns-in-vnet/)
+[How to manage DNS servers used by a VNet](./virtual-networks-manage-dns-in-vnet.md)

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Traffic Manager Endpoint Types | Azure"
-    description="This article explains different types of endpoints that can be used with Azure Traffic Manager"
-    services="traffic-manager"
-    documentationcenter=""
-    author="kumudd"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="4e506986-f78d-41d1-becf-56c8516e4d21"
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/16/2017"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Traffic Manager Endpoint Types | Azure
+description: This article explains different types of endpoints that can be used with Azure Traffic Manager
+services: traffic-manager
+documentationcenter: ''
+author: kumudd
+manager: timlt
+editor: ''
+
+ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/16/2017
+wacn.date: ''
+ms.author: kumud
+---
 
 # Traffic Manager endpoints
 Azure Traffic Manager allows you to control how network traffic is distributed to application deployments running in different datacenters. You configure each application deployment as an 'endpoint' in Traffic Manager. When Traffic Manager receives a DNS request, it chooses an available endpoint to return in the DNS response. Traffic manager bases the choice on the current endpoint status and the traffic-routing method. For more information, see [How Traffic Manager Works](/documentation/articles/traffic-manager-how-traffic-manager-works/).
@@ -40,21 +41,21 @@ Azure endpoints are used for Azure-based services in Traffic Manager. The follow
 
 PublicIPAddress resources are Azure Resource Manager resources. They do not exist in the classic deployment model. Thus they are only supported in Traffic Manager's Azure Resource Manager experiences. The other endpoint types are supported via both Resource Manager and the classic deployment model.
 
-When using Azure endpoints, Traffic Manager detects when a 'Classic' IaaS VM, cloud service, or a Web App is stopped and started. This status is reflected in the endpoint status. See [Traffic Manager endpoint monitoring](/documentation/articles/traffic-manager-monitoring/#endpoint-and-profile-status) for details. When the underlying service is stopped, Traffic Manager does not perform endpoint health checks or direct traffic to the endpoint. No Traffic Manager billing events occur for the stopped instance. When the service is restarted, billing resumes and the endpoint is eligible to receive traffic. This detection does not apply to PublicIpAddress endpoints.
+When using Azure endpoints, Traffic Manager detects when a 'Classic' IaaS VM, cloud service, or a Web App is stopped and started. This status is reflected in the endpoint status. See [Traffic Manager endpoint monitoring](./traffic-manager-monitoring.md#endpoint-and-profile-status) for details. When the underlying service is stopped, Traffic Manager does not perform endpoint health checks or direct traffic to the endpoint. No Traffic Manager billing events occur for the stopped instance. When the service is restarted, billing resumes and the endpoint is eligible to receive traffic. This detection does not apply to PublicIpAddress endpoints.
 
 ## External endpoints
 
 External endpoints are used for services outside of Azure. For example, a service hosted on-premises or with a different provider. External endpoints can be used individually or combined with Azure Endpoints in the same Traffic Manager profile. Combining Azure endpoints with External endpoints enables various scenarios:
 
 * In either an active-active or active-passive failover model, use Azure to provide increased redundancy for an existing on-premises application.
-* To reduce application latency for users around the world, extend an existing on-premises application to additional geographic locations in Azure. For more information, see [Traffic Manager 'Performance' traffic routing](/documentation/articles/traffic-manager-routing-methods/#performance-traffic-routing-method).
+* To reduce application latency for users around the world, extend an existing on-premises application to additional geographic locations in Azure. For more information, see [Traffic Manager 'Performance' traffic routing](./traffic-manager-routing-methods.md#performance-traffic-routing-method).
 * Use Azure to provide additional capacity for an existing on-premises application, either continuously or as a 'burst-to-cloud' solution to meet a spike in demand.
 
 In certain cases, it is useful to use External endpoints to reference Azure services (for examples, see the [FAQ](#faq)). In this case, health checks are billed at the Azure endpoints rate, not the External endpoints rate. However, unlike Azure endpoints, if you stop or delete the underlying service, health check billing continues until you disable or delete the endpoint in Traffic Manager.
 
 ## Nested endpoints
 
-Nested endpoints combine multiple Traffic Manager profiles to create flexible traffic-routing schemes and support the needs of larger, complex deployments. With Nested endpoints, a 'child' profile is added as an endpoint to a 'parent' profile. Both the child and parent profiles can contain other endpoints of any type, including other nested profiles. For more information, see [nested Traffic Manager profiles](/documentation/articles/traffic-manager-nested-profiles/).
+Nested endpoints combine multiple Traffic Manager profiles to create flexible traffic-routing schemes and support the needs of larger, complex deployments. With Nested endpoints, a 'child' profile is added as an endpoint to a 'parent' profile. Both the child and parent profiles can contain other endpoints of any type, including other nested profiles. For more information, see [nested Traffic Manager profiles](./traffic-manager-nested-profiles.md).
 
 ## Web Apps as endpoints
 
@@ -70,7 +71,7 @@ Disabling an endpoint in Traffic Manager can be useful to temporarily remove tra
 
 Endpoints can be enabled and disabled via the Traffic Manager portal, PowerShell, CLI or REST API, all of which are supported in both Resource Manager and the classic deployment model.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Disabling an Azure endpoint has nothing to do with its deployment state in Azure. An Azure service (such as a VM or Web App remains running and able to receive traffic even when disabled in Traffic Manager. Traffic can be addressed directly to the service instance rather than via the Traffic Manager profile DNS name. For more information, see [how Traffic Manager works](/documentation/articles/traffic-manager-how-traffic-manager-works/).
 
 The current eligibility of each endpoint to receive traffic depends on the following factors:
@@ -79,9 +80,9 @@ The current eligibility of each endpoint to receive traffic depends on the follo
 * The endpoint status (enabled/disabled)
 * The results of the health checks for that endpoint
 
-For details, see [Traffic Manager endpoint monitoring](/documentation/articles/traffic-manager-monitoring/#endpoint-and-profile-status).
+For details, see [Traffic Manager endpoint monitoring](./traffic-manager-monitoring.md#endpoint-and-profile-status).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Since Traffic Manager works at the DNS level, it is unable to influence existing connections to any endpoint. When an endpoint is unavailable, Traffic Manager directs new connections to another available endpoint. However, the host behind the disabled or unhealthy endpoint may continue to receive traffic via existing connections until those sessions are terminated. Applications should limit the session duration to allow traffic to drain from existing connections.
 
 If all endpoints in a profile are disabled, or if the profile itself is disabled, then Traffic Manager sends an 'NXDOMAIN' response to a new DNS query.
@@ -89,5 +90,5 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 ## Next steps
 
 * Learn [how Traffic Manager works](/documentation/articles/traffic-manager-how-traffic-manager-works/).
-* Learn about Traffic Manager [endpoint monitoring and automatic failover](/documentation/articles/traffic-manager-monitoring/).
-* Learn about Traffic Manager [traffic routing methods](/documentation/articles/traffic-manager-routing-methods/).
+* Learn about Traffic Manager [endpoint monitoring and automatic failover](./traffic-manager-monitoring.md).
+* Learn about Traffic Manager [traffic routing methods](./traffic-manager-routing-methods.md).

@@ -9,6 +9,8 @@ We will describe each parameter in the template.
 ### logicAppName
 The name of the logic app to create.
 
-    "logicAppName": {
-        "type": "string"
-    }
+```
+"logicAppName": {
+    "type": "string"
+}
+```

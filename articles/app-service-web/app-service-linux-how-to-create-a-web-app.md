@@ -1,24 +1,25 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Create an Azure web app running on Linux | Azure"
-    description="Web app creation workflow for App Service on Linux."
-    keywords="azure app service, web app, linux, oss"
-    services="app-service"
-    documentationcenter=""
-    author="naziml"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="3a71d10a-a0fe-4d28-af95-03b2860057d5"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/16/2017"
-    wacn.date=""
-    ms.author="naziml;wesmc" />
+---
+title: Create an Azure web app running on Linux | Azure
+description: Web app creation workflow for App Service on Linux.
+keywords: azure app service, web app, linux, oss
+services: app-service
+documentationcenter: ''
+author: naziml
+manager: erikre
+editor: ''
+
+ms.assetid: 3a71d10a-a0fe-4d28-af95-03b2860057d5
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/16/2017
+wacn.date: ''
+ms.author: naziml;wesmc
+---
 
 # Create an Azure web app running on Linux
 ## Use the Azure portal preview to create your web app
@@ -31,8 +32,8 @@ Next, the **Create blade** opens as shown in the following image:
 ![The Create blade][2]
 
 1. Give your web app a name.
-2. Choose an existing resource group or create a new one. (See available regions in the [limitations section](/documentation/articles/app-service-linux-intro/).)
-3. Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](/documentation/articles/app-service-linux-intro/).)
+2. Choose an existing resource group or create a new one. (See available regions in the [limitations section](./app-service-linux-intro.md).)
+3. Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](./app-service-linux-intro.md).)
 4. Choose the application stack that you intend to use. You can choose between several versions of Node.js, PHP, .Net Core, and Ruby.
 
 Once you have created the app, you can change the application stack from the application settings as shown in the following image:
@@ -40,17 +41,17 @@ Once you have created the app, you can change the application stack from the app
 ![Application settings][3]
 
 ## Deploy your web app
-Choosing **deployment options** from the management portal gives you the option to use local a Git or GitHub repository to deploy your application. The rest of the instructions are similar to those for a non-Linux web app. You can follow the instructions in [local Git deployment](/documentation/articles/app-service-deploy-local-git/) or [continuous deployment](/documentation/articles/app-service-continuous-deployment/) to deploy your app.
+Choosing **deployment options** from the management portal gives you the option to use local a Git or GitHub repository to deploy your application. The rest of the instructions are similar to those for a non-Linux web app. You can follow the instructions in [local Git deployment](./app-service-deploy-local-git.md) or [continuous deployment](./app-service-continuous-deployment.md) to deploy your app.
 
 You can also use FTP to upload your application to your site. You can get the FTP endpoint for your web app from the diagnostics logs section as shown in the following image:
 
 ![Diagnostics logs][4]
 
 ## Next steps
-* [What is App Service on Linux?](/documentation/articles/app-service-linux-intro/)
-* [Using PM2 Configuration for Node.js in Web Apps on Linux](/documentation/articles/app-service-linux-using-nodejs-pm2/)
-* [Using Ruby in Azure App Service Web Apps on Linux](/documentation/articles/app-service-linux-using-ruby/)
-* [Azure App Service Web Apps on Linux FAQ](/documentation/articles/app-service-linux-faq/)
+* [What is App Service on Linux?](./app-service-linux-intro.md)
+* [Using PM2 Configuration for Node.js in Web Apps on Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Using Ruby in Azure App Service Web Apps on Linux](./app-service-linux-using-ruby.md)
+* [Azure App Service Web Apps on Linux FAQ](./app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-how-to-create-a-web-app/top-level-create.png

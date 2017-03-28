@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Manage VMs using Azure Automation | Azure"
-    description="Learn about how the Azure Automation service can be used to manage Azure virtual machines at scale."
-    services="virtual-machines-windows, automation"
-    documentationcenter=""
-    author="jodoglevy"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="ce49f83a-f409-42ee-af74-a8ea2caa9ae8"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="04/19/2016"
-    wacn.date=""
-    ms.author="timlt" />
+---
+title: Manage VMs using Azure Automation | Azure
+description: Learn about how the Azure Automation service can be used to manage Azure virtual machines at scale.
+services: virtual-machines-windows, automation
+documentationcenter: ''
+author: jodoglevy
+manager: timlt
+editor: ''
+
+ms.assetid: ce49f83a-f409-42ee-af74-a8ea2caa9ae8
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/19/2016
+wacn.date: ''
+ms.author: timlt
+---
 
 # Managing Azure Virtual Machines using Azure Automation
 This guide introduces you to the Azure Automation service and how it can be used to simplify managing your Azure virtual machines.
 
 ## What is Azure Automation?
-[Azure Automation](/home/features/automation/) is an Azure service for simplifying cloud management through process automation. By using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time-to-value for your organization.
+[Azure Automation](https://www.azure.cn/home/features/automation/) is an Azure service for simplifying cloud management through process automation. By using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time-to-value for your organization.
 
 Azure Automation provides a highly reliable and highly available workflow execution engine that scales to meet your needs as your organization grows. In Azure Automation, processes can be kicked off manually, by third-party systems, or at scheduled intervals so that tasks happen exactly when needed.
 
@@ -33,5 +34,5 @@ Virtual machines can be managed in Azure Automation by using [Azure PowerShell](
 ## Next steps
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure virtual machines, learn more:
 
-* [Azure Automation Overview](/documentation/articles/automation-intro/)
-* [My first runbook](/documentation/articles/automation-first-runbook-textual/)
+* [Azure Automation Overview](../automation/automation-intro.md)
+* [My first runbook](../automation/automation-first-runbook-textual.md)

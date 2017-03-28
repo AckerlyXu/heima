@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure Quick Start - Create Windows VM PowerShell | Azure"
-    description="Quickly learn to create a Windows virtual machines with PowerShell"
-    services="virtual-machines-windows"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure"
-    ms.date="03/14/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Azure Quick Start - Create Windows VM PowerShell | Azure
+description: Quickly learn to create a Windows virtual machines with PowerShell
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: ''
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 03/14/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Create a Windows virtual machine with PowerShell
 
@@ -28,62 +29,76 @@ Before you start, make sure that the latest version of the Azure PowerShell modu
 
 Log in to your Azure subscription with the `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` command and follow the on-screen directions.
 
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+```powershell
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+```
 
 ## Create resource group
 
 Create an Azure resource group. A resource group is a logical container into which Azure resources are deployed and managed. 
 
-    New-AzureRmResourceGroup -Name myResourceGroup -Location chinanorth
+```powershell
+New-AzureRmResourceGroup -Name myResourceGroup -Location chinanorth
+```
 
 ## Create networking resources
 
 Create a virtual network, subnet, and a public IP address. These resources are used to provide network connectivity to the virtual machine and connect it to the internet.
 
-    # Create a subnet configuration
-    $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+```powershell
+# Create a subnet configuration
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
-    # Create a virtual network
-    $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location chinanorth `
-    -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+# Create a virtual network
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location chinanorth `
+-Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
-    # Create a public IP address and specify a DNS name
-    $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location chinanorth `
-    -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
+# Create a public IP address and specify a DNS name
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location chinanorth `
+-AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
+```
 
 Create a network security group and a network security group rule. The network security group secures the virtual machine using inbound and outbound rules. In this case, an inbound rule is created for port 3389, which allows incoming remote desktop connections.
 
-    # Create an inbound network security group rule for port 3389
-    $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
-    -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-    -DestinationPortRange 3389 -Access Allow
+```powershell
+# Create an inbound network security group rule for port 3389
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+-Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 3389 -Access Allow
 
-    # Create a network security group
-    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location chinanorth `
-    -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+# Create a network security group
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location chinanorth `
+-Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+```
 
 Create a network card for the virtual machine. The network card connects the virtual machine to a subnet, network security group, and public IP address.
 
-    # Create a virtual network card and associate with public IP address and NSG
-    $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location chinanorth `
-    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+```powershell
+# Create a virtual network card and associate with public IP address and NSG
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location chinanorth `
+-SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+```
 
 ## Create virtual machine
 
 Create a virtual machine configuration. This configuration includes the settings that are used when deploying the virtual machine such as a virtual machine image, size, and authentication configuration. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
 
-    # Define a credential object
-    $cred = Get-Credential
+```powershell
+# Define a credential object
+$cred = Get-Credential
 
-    # Create a virtual machine configuration
-    $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1 | `
-    Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-    Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
-    Add-AzureRmVMNetworkInterface -Id $nic.Id
+# Create a virtual machine configuration
+$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1 | `
+Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
+Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
+Add-AzureRmVMNetworkInterface -Id $nic.Id
+```
 
 Create the virtual machine.
 
-    New-AzureRmVM -ResourceGroupName myResourceGroup -Location chinanorth -VM $vmConfig
+```powershell
+New-AzureRmVM -ResourceGroupName myResourceGroup -Location chinanorth -VM $vmConfig
+```
 
 ## Connect to virtual machine
 
@@ -91,20 +106,26 @@ After the deployment has completed, create a remote desktop connection with the 
 
 Run the following commands to return the public IP address of the virtual machine.
 
-    Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```powershell
+Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```
 
 Use the following command to create a remote desktop session with the virtual machine. Replace the IP address with the public IP address of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
 
-    mstsc /v:<Public IP Address>
+```bash
+mstsc /v:<Public IP Address>
+```
 
 ## Delete virtual machine
 
 When no longer needed, the following command can be used to remove the Resource Group, VM, and all related resources.
 
-    Remove-AzureRmResourceGroup -Name myResourceGroup
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup
+```
 
 ## Next steps
 
-[Install a role and configure firewall tutorial](/documentation/articles/virtual-machines-windows-hero-role/)
+[Install a role and configure firewall tutorial](./virtual-machines-windows-hero-role.md)
 
-[Explore VM deployment PowerShell samples](/documentation/articles/virtual-machines-windows-powershell-samples/)
+[Explore VM deployment PowerShell samples](./virtual-machines-windows-powershell-samples.md)

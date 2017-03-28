@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure PowerShell Script Sample - Connect a web app to a storage account | Azure"
-    description="Azure PowerShell Script Sample - Connect a web app to a storage account"
-    services="app-service\web"
-    documentationcenter=""
-    author="syntaxc4"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="e4831bdc-2068-4883-9474-0b34c2e3e255"
-    ms.service="app-service"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="web"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cfowler" />
+---
+title: Azure PowerShell Script Sample - Connect a web app to a storage account | Azure
+description: Azure PowerShell Script Sample - Connect a web app to a storage account
+services: app-service\web
+documentationcenter: ''
+author: syntaxc4
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: e4831bdc-2068-4883-9474-0b34c2e3e255
+ms.service: app-service
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cfowler
+---
 
 # Connect a web app to a storage account
 
@@ -26,38 +27,42 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-    # Generates a Random Value
-    $Random=(New-Guid).ToString().Substring(0,8)
+```
+# Generates a Random Value
+$Random=(New-Guid).ToString().Substring(0,8)
 
-    # Variables
-    $ResourceGroup="MyResourceGroup$Random"
-    $AppName="webappwithStorage$Random"
-    $StorageName="webappstorage$Random"
-    $Location="China North"
+# Variables
+$ResourceGroup="MyResourceGroup$Random"
+$AppName="webappwithStorage$Random"
+$StorageName="webappstorage$Random"
+$Location="China North"
 
-    # Create a Resource Group
-    New-AzureRMResourceGroup -Name $ResourceGroup -Location $Location
+# Create a Resource Group
+New-AzureRMResourceGroup -Name $ResourceGroup -Location $Location
 
-    # Create an App Service Plan
-    New-AzureRMAppservicePlan -Name WebAppwithStoragePlan -ResourceGroupName $ResourceGroup -Location $Location -Tier Basic
+# Create an App Service Plan
+New-AzureRMAppservicePlan -Name WebAppwithStoragePlan -ResourceGroupName $ResourceGroup -Location $Location -Tier Basic
 
-    # Create a Web App in the App Service Plan
-    New-AzureRMWebApp -Name $AppName -ResourceGroupName $ResourceGroup -Location $Location -AppServicePlan WebAppwithStoragePlan
+# Create a Web App in the App Service Plan
+New-AzureRMWebApp -Name $AppName -ResourceGroupName $ResourceGroup -Location $Location -AppServicePlan WebAppwithStoragePlan
 
-    # Create Storage Account
-    New-AzureRMStorageAccount -Name $StorageName -ResourceGroupName $ResourceGroup -Location $Location -SkuName Standard_LRS
+# Create Storage Account
+New-AzureRMStorageAccount -Name $StorageName -ResourceGroupName $ResourceGroup -Location $Location -SkuName Standard_LRS
 
-    # Get Connection String for Storage Account
-    $StorageKey=(Get-AzureRMStorageAccountKey -ResourceGroupName $ResourceGroup -Name $StorageName).Value[0]
+# Get Connection String for Storage Account
+$StorageKey=(Get-AzureRMStorageAccountKey -ResourceGroupName $ResourceGroup -Name $StorageName).Value[0]
 
-    # Assign Connection String to App Setting 
-    Set-AzureRMWebApp -ConnectionStrings @{ MyStorageConnStr = @{ Type="Custom"; Value="DefaultEndpointsProtocol=https;AccountName=$StorageName;AccountKey=$StorageKey;" } } -Name $AppName -ResourceGroupName $ResourceGroup
+# Assign Connection String to App Setting 
+Set-AzureRMWebApp -ConnectionStrings @{ MyStorageConnStr = @{ Type="Custom"; Value="DefaultEndpointsProtocol=https;AccountName=$StorageName;AccountKey=$StorageKey;" } } -Name $AppName -ResourceGroupName $ResourceGroup
+```
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
-    Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## Script explanation
 
@@ -76,4 +81,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](/documentation/articles/app-service-powershell-samples/).
+Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

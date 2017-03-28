@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances) | Azure"
-    description="Troubleshoot and monitor SAP HANA on an Azure (Large Instances)."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="RicksterCDN"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="virtual-machines-linux"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="12/01/2016"
-    wacn.date=""
-    ms.author="rclaus"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances) | Azure
+description: Troubleshoot and monitor SAP HANA on an Azure (Large Instances).
+services: virtual-machines-linux
+documentationcenter: ''
+author: RicksterCDN
+manager: timlt
+editor: ''
+
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 12/01/2016
+wacn.date: ''
+ms.author: rclaus
+ms.custom: H1Hack27Feb2017
+---
 
 # How to troubleshoot and monitor SAP HANA (large instances) on Azure
 
@@ -115,7 +116,7 @@ Refer to [SAP Note #2081065 - Troubleshooting SAP HANA Network](https://launchpa
 
 1. Analyzing round-trip time between server and client.
   A. Run the SQL script [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
-  
+
 2. Analyze internode communication.
   A. Run SQL script [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
 

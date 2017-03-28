@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Internal load balancer Overview | Azure"
-    description="Overview for internal load balancer and its features.How a load balancer works for Azure and possible scenarios to configure internal endpoints"
-    services="load-balancer"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="36065bfe-0ef1-46f9-a9e1-80b229105c85"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/24/2016"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Internal load balancer Overview | Azure
+description: Overview for internal load balancer and its features.How a load balancer works for Azure and possible scenarios to configure internal endpoints
+services: load-balancer
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: tysonn
+
+ms.assetid: 36065bfe-0ef1-46f9-a9e1-80b229105c85
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/24/2016
+wacn.date: ''
+ms.author: kumud
+---
 
 # Internal load balancer overview
 
@@ -71,12 +72,12 @@ Figure 4 - On-premises network traffic routed to the ILB endpoint
 
 ## Next Steps
 
-[Azure Resource Manager support for Azure Load Balancer](/documentation/articles/load-balancer-arm/)
+[Azure Resource Manager support for Azure Load Balancer](./load-balancer-arm.md)
 
-[Get started configuring an Internet facing load balancer](/documentation/articles/load-balancer-get-started-internet-arm-ps/)
+[Get started configuring an Internet facing load balancer](./load-balancer-get-started-internet-arm-ps.md)
 
-[Get started configuring an Internal load balancer](/documentation/articles/load-balancer-get-started-ilb-arm-ps/)
+[Get started configuring an Internal load balancer](./load-balancer-get-started-ilb-arm-ps.md)
 
-[Configure a Load balancer distribution mode](/documentation/articles/load-balancer-distribution-mode/)
+[Configure a Load balancer distribution mode](./load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](/documentation/articles/load-balancer-tcp-idle-timeout/)
+[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)

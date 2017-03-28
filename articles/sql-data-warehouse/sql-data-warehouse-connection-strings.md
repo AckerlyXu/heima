@@ -1,21 +1,20 @@
-<properties
-   pageTitle="Drivers for SQL Data Warehouse | Azure"
-   description="Connection strings and drivers for SQL Data Warehouse"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Drivers for SQL Data Warehouse | Azure
+description: Connection strings and drivers for SQL Data Warehouse
+services: sql-data-warehouse
+documentationCenter: NA
+authors: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="sonyama;barbkess"/>
-
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: sonyama;barbkess
+---
 
 # Drivers for Azure SQL Data Warehouse
 You can connect to SQL Data Warehouse with several different application protocols such as, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] and [JDBC][JDBC]. Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  To build your connection string using the Azure portal, navigate to your database blade, under *Essentials* click on *Show database connection strings*.
@@ -44,7 +43,8 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
-> [AZURE.NOTE] Consider setting the connection timeout to 300 seconds in order to allow the connection to survive short periods of  unavailability.
+> [!NOTE]
+> Consider setting the connection timeout to 300 seconds in order to allow the connection to survive short periods of  unavailability.
 
 ## Next steps
 To start querying your data warehouse with Visual Studio and other applications, see [Query with Visual Studio][Query with Visual Studio].
@@ -52,8 +52,8 @@ To start querying your data warehouse with Visual Studio and other applications,
 <!--Image references-->
 
 <!--Azure.com references-->
- [Query with Visual Studio]: /documentation/articles/sql-data-warehouse-query-visual-studio/
- 
+ [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
+
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/zh-cn/library/e80y5yhx(v=vs.110).aspx
 [ODBC]: https://msdn.microsoft.com/zh-cn/library/jj730314.aspx

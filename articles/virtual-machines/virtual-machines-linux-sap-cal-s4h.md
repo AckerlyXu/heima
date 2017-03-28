@@ -1,30 +1,31 @@
 <!-- need to be tested -->
 
-<properties
-    pageTitle="Deploy SAP S/4HANA or BW/4HANA on an Azure VM | Azure"
-    description="Deploy SAP S/4HANA or BW/4HANA on an Azure VM"
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="hermanndms"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"
-    keywords="" />
-<tags
-    ms.assetid="44bbd2b6-a376-4b5c-b824-e76917117fa9"
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="09/15/2016"
-    wacn.date=""
-    ms.author="hermannd" />
+---
+title: Deploy SAP S/4HANA or BW/4HANA on an Azure VM | Azure
+description: Deploy SAP S/4HANA or BW/4HANA on an Azure VM
+services: virtual-machines-linux
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
+
+ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/15/2016
+wacn.date: ''
+ms.author: hermannd
+---
 
 # Deploy SAP S/4HANA or BW/4HANA on Azure
 This article describes how to deploy S/4HANA on Azure by using SAP Cloud Appliance Library (SAP CAL) 3.0. Deploying other SAP HANA-based solutions, like BW/4HANA, works the same way from a process perspective. You just select a different solution.
 
-> [AZURE.NOTE]
+> [!NOTE]
 For more information about the SAP Cloud Appliance Library, see the [home page of their site](https://cal.sap.com/). There is also a blog from SAP about [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
 ## Step-by-step process to deploy the solution
@@ -43,7 +44,7 @@ Then, enter the Azure subscription ID that can be found on the Azure portal prev
 
 ![Screenshot of the SAP Cloud Appliance Library Accounts window](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic3b.jpg)
 
-> [AZURE.NOTE]
+> [!NOTE]
 To find your Azure subscription ID, you should use the Azure Classic Management Portal, not the more recent Azure portal preview. This is because SAP CAL isn't adapted yet for the new model, and still requires the Classic Management Portal to work with management certificates.
 
 The following screenshot shows the Classic Management Portal. From **SETTINGS**, select the **SUBSCRIPTIONS** tab to find the subscription ID to be entered in the SAP CAL Accounts window.

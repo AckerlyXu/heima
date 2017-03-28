@@ -1,4 +1,3 @@
-
 <!--
 ../includes/sql-database-include-ip-address-22-v12portal.md
 
@@ -8,12 +7,10 @@ As of circa 2015-09-04, the following topics might include this include:
 /documentation/articles/sql-database-configure-firewall-settings/
 /documentation/articles/sql-database-connect-query
 
-
 ## Server-level firewall rules
 
 ### Add a server-level firewall rule through the new Azure portal
 -->
-
 
 1. Log in to the [Azure portal](https://manage.windowsazure.cn) at http://manage.windowsazure.cn/.
 
@@ -34,11 +31,9 @@ As of circa 2015-09-04, the following topics might include this include:
 9. Click **Add Client IP**. Type in a name for your new rule into the first text box.
 
 10. Type in the low and high IP address values for the range you want to enable.
-	- It can be handy to have the low value end with **.0** and the high with **.255**.
+    - It can be handy to have the low value end with **.0** and the high with **.255**.
 
 11. Click **Save**.
-
-
 
 <!-- Image references. -->
 
@@ -47,8 +42,6 @@ As of circa 2015-09-04, the following topics might include this include:
 [b31-SettingsFirewallNavig]: ./media/sql-database-include-ip-address-22-v12portal/firewall-ip-b31-v12portal-settingsfirewall.png
 
 [b41-AddRange]: ./media/sql-database-include-ip-address-22-v12portal/firewall-ip-b41-v12portal-addrange.png
-
-
 
 <!--
 These includes/ files are a sequenced set, but you can pick and choose:

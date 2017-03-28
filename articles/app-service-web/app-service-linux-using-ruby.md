@@ -1,24 +1,25 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Using Ruby in Azure App Service Web Apps on Linux | Azure"
-    description="Using Ruby in Azure App Service Web Apps on Linux."
-    keywords="azure app service, web app, faq, linux, oss, ruby"
-    services="app-service"
-    documentationCenter=""
-    authors="aelnably"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/16/2017"
-    wacn.date=""
-    ms.author="aelnably;wesmc" />
+---
+title: Using Ruby in Azure App Service Web Apps on Linux | Azure
+description: Using Ruby in Azure App Service Web Apps on Linux.
+keywords: azure app service, web app, faq, linux, oss, ruby
+services: app-service
+documentationCenter: ''
+authors: aelnably
+manager: erikre
+editor: ''
+
+ms.assetid: ''
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/16/2017
+wacn.date: ''
+ms.author: aelnably;wesmc
+---
 
 # Using Ruby in Web Apps on Linux #
 
@@ -35,17 +36,17 @@ Next, the **Create blade** opens as shown in the following image:
 ![The Create blade][2]
 
 1. Give your web app a name.
-2. Choose an existing resource group or create a new one. (See available regions in the [limitations section](/documentation/articles/app-service-linux-intro/).)
-3. Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](/documentation/articles/app-service-linux-intro/).)
+2. Choose an existing resource group or create a new one. (See available regions in the [limitations section](./app-service-linux-intro.md).)
+3. Choose an existing Azure App Service plan or create a new one. (See App Service plan notes in the [limitations section](./app-service-linux-intro.md).)
 4. Choose the Ruby from the Built-in Runtime stacks.
 
 After your Ruby web app gets created, you can deploy to it using Git or FTP.
 
 ## Next steps
-* [What is App Service on Linux?](/documentation/articles/app-service-linux-intro/)
-* [Creating Web Apps in App Service on Linux](/documentation/articles/app-service-linux-how-to-create-a-web-app/)
-* [Local Git Deployment to Azure App Service](/documentation/articles/app-service-deploy-local-git/)
-* [Azure App Service Web Apps on Linux FAQ](/documentation/articles/app-service-linux-faq/)
+* [What is App Service on Linux?](./app-service-linux-intro.md)
+* [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
+* [Local Git Deployment to Azure App Service](./app-service-deploy-local-git.md)
+* [Azure App Service Web Apps on Linux FAQ](./app-service-linux-faq.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-using-ruby/New-Linux.png

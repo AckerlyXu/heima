@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Access Key Vault behind a firewall | Azure"
-    description="Learn how to access Azure Key Vault from an application behind a firewall"
-    services="key-vault"
-    documentationcenter=""
-    author="amitbapat"
-    manager="mbaldwin"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="50d21774-2ee1-4212-8995-570c9de603c5"
-    ms.service="key-vault"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="ambapat" />
+---
+title: Access Key Vault behind a firewall | Azure
+description: Learn how to access Azure Key Vault from an application behind a firewall
+services: key-vault
+documentationcenter: ''
+author: amitbapat
+manager: mbaldwin
+tags: azure-resource-manager
+
+ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
+ms.service: key-vault
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: ambapat
+---
 
 # Access Azure Key Vault behind a firewall
 ### Q: My key vault client application needs to be behind a firewall. What ports, hosts, or IP addresses should I open to enable access to a key vault?
@@ -39,7 +40,7 @@ Key vault client applications will need to access Azure Active Directory endpoin
 | User or service principal using a work or school account with Azure AD (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
 | User or service principal using a work or school account, plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) |All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
-There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/), [Integrating Applications with Azure Active Directory](/documentation/articles/active-directory-integrating-applications/), and [Active Directory Authentication Protocols](/documentation/articles/active-directory-developers-guide/) for additional information.  
+There are other possible complex scenarios. Refer to [Azure Active Directory Authentication Flow](../active-directory/active-directory-authentication-scenarios.md), [Integrating Applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md), and [Active Directory Authentication Protocols](../active-directory/active-directory-developers-guide.md) for additional information.  
 
 ## Key Vault management
 For Key Vault management (CRUD and setting access policy), the key vault client application needs to access an Azure Resource Manager endpoint.  
@@ -61,4 +62,3 @@ The Key Vault service uses other Azure resources like PaaS infrastructure. So it
 
 ## Next steps
 If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=AzureKeyVault).
-

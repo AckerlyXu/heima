@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Automate Mobility Service installation for Azure Site Recovery using software deployment tools | Azure."
-    description="This article helps you automate Mobility Service Installation using Software deployment tools like System Center Configuration Manager"
-    services="site-recovery"
-    documentationcenter=""
-    author="AnoopVasudavan"
-    manager="gauravd"
-    editor="" />
-<tags
-    ms.service="site-recovery"
-    ms.workload="backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="1/10/2017"
-    wacn.date=""
-    ms.author="anoopkv" />
+---
+title: Automate Mobility Service installation for Azure Site Recovery using software deployment tools | Azure.
+description: This article helps you automate Mobility Service Installation using Software deployment tools like System Center Configuration Manager
+services: site-recovery
+documentationcenter: ''
+author: AnoopVasudavan
+manager: gauravd
+editor: ''
+
+ms.service: site-recovery
+ms.workload: backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 1/10/2017
+wacn.date: ''
+ms.author: anoopkv
+---
 
 # Automate Mobility Service installation using software deployment tools
 
@@ -22,9 +23,8 @@ This article provides you an example of how you can use System Center Configurat
 * Scheduling deployment -fresh installs and upgrades, during your planned maintenance window for software updates.
 * Deploy at scale to hundreds of servers simultaneously
 
-
-> [AZURE.NOTE]
-> This article uses System Center Configuration Manager 2012 R2 to demonstrate the deployment activity. You could also automate Mobility Service Installation using [Azure Automation and Desired State Configuration](/documentation/articles/site-recovery-automate-mobility-service-install/) .
+> [!NOTE]
+> This article uses System Center Configuration Manager 2012 R2 to demonstrate the deployment activity. You could also automate Mobility Service Installation using [Azure Automation and Desired State Configuration](./site-recovery-automate-mobility-service-install.md) .
 
 ## Prerequisites
 1. A software deployment tool like System Center Configuration Manager(SCCM) that is already deployed in your environment.
@@ -33,7 +33,7 @@ This article provides you an example of how you can use System Center Configurat
 4. A secure network file share (SMB share) that can be accessed by the SCCM Server.
 
 ## Deploy Mobility Service on computers running Microsoft Windows Operating Systems
-> [AZURE.NOTE]
+> [!NOTE]
 > This article assumes the following
 > 1. The IP Address of the configuration server is 192.168.3.121
 > 2. The secure network file share is \\\ContosoSecureFS\MobilityServiceInstallers
@@ -52,10 +52,10 @@ This article provides you an example of how you can use System Center Configurat
   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 6. Copy the **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** to the **MobSvcWindows** folder on your network share.
 7. Copy the code listed below and save it as **install.bat** into the **MobSvcWindows** folder
-> [AZURE.NOTE]
+> [!NOTE]
 > Remember to replace the [CSIP] place holders in the below script with the actual values of the IP Address of your Configuration Server.
 
-  [AZURE.INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-sccm-windows-script.md)]
+  [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-sccm-windows-script.md)]
 
 ### Step 2: Create a Package
 
@@ -82,7 +82,7 @@ This article provides you an example of how you can use System Center Configurat
 9. In the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2.
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
 10. Complete Next twice to complete the wizard.
-> [AZURE.NOTE]
+> [!NOTE]
 > The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
 
 ### Step 3: Deploy the Package
@@ -102,14 +102,14 @@ This article provides you an example of how you can use System Center Configurat
 8. Specify a schedule in the **Specify the schedule for this deployment**. Read more about [scheduling packages](https://technet.microsoft.com/zh-cn/library/gg682178.aspx)
 9. Configure the properties on the **Distribution Points** page as per the needs of your Datacenter and complete the wizard.
 
-> [AZURE.TIP]
+> [!TIP]
 > To avoid unnecessary reboots, schedule the package installation during your monthly maintenance window or Software Updates window.
 
 You can monitor the deployment progress using the SCCM console by going to **Monitoring** > **Deployments** > *[your package name]*
   ![monitor-sccm](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
 
 ## Deploy Mobility Service on computers running Linux Operating Systems
-> [AZURE.NOTE]
+> [!NOTE]
 > This article assumes the following
 > 1. The IP Address of the configuration server is 192.168.3.121
 > 2. The secure network file share is \\\ContosoSecureFS\MobilityServiceInstallers
@@ -133,10 +133,10 @@ You can monitor the deployment progress using the SCCM console by going to **Mon
   * Microsoft-ASR\_UA\_*version*\_SLES11-SP3-64\_GA\_*date*\_Release.tar.gz
 
 7. Copy the code listed below and save it as **install_linux.sh** into the **MobSvcLinux** folder
-> [AZURE.NOTE]
+> [!NOTE]
 > Remember to replace the [CSIP] place holders in the below script with the actual values of the IP Address of your Configuration Server.
 
-  [AZURE.INCLUDE [site-recovery-sccm-linux-script](../../includes/site-recovery-sccm-linux-script.md)]
+  [!INCLUDE [site-recovery-sccm-linux-script](../../includes/site-recovery-sccm-linux-script.md)]
 
 ### Step 2: Create a Package
 
@@ -165,7 +165,7 @@ You can monitor the deployment progress using the SCCM console by going to **Mon
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)   
 
 10. Click **Next** twice to complete the wizard.
-> [AZURE.NOTE]
+> [!NOTE]
 > The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
 
 ### Step 3: Deploy the Package
@@ -189,10 +189,10 @@ Mobility Service gets installed on the Linux Server Device Collection as per the
 
 ## Other methods to install mobility services
 Read more about other ways to install mobility services.
-* [Manual Installation using GUI](/documentation/articles/site-recovery-vmware-to-azure/#install-the-mobility-service-manually)
-* [Manual Installation using command-line](/documentation/articles/site-recovery-vmware-to-azure/#install-mobility-service-on-a-windows-server-using-the-command-prompt)
-* [Push Installation using Configuration Server ](/documentation/articles/site-recovery-vmware-to-azure/#install-the-mobility-service)
-* [Automated Installation using Azure Automation & Desired State Configuration ](/documentation/articles/site-recovery-automate-mobility-service-install/)
+* [Manual Installation using GUI](./site-recovery-vmware-to-azure.md#install-the-mobility-service-manually)
+* [Manual Installation using command-line](./site-recovery-vmware-to-azure.md#install-mobility-service-on-a-windows-server-using-the-command-prompt)
+* [Push Installation using Configuration Server ](./site-recovery-vmware-to-azure.md#install-the-mobility-service)
+* [Automated Installation using Azure Automation & Desired State Configuration ](./site-recovery-automate-mobility-service-install.md)
 
 ## Next steps
-You are now ready to [Enable protection](/documentation/articles/site-recovery-vmware-to-azure#step-6-replicate-applications/) for your virtual machines.
+You are now ready to [Enable protection](./site-recovery-vmware-to-azure.md#step-6-replicate-applications) for your virtual machines.

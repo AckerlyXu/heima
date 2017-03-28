@@ -1,21 +1,21 @@
-<properties
-   pageTitle="SQL Data Warehouse Transact-SQL language elements | Azure"
-   description="List of links to reference content for the Transact-SQL language elements used for SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL Data Warehouse Transact-SQL language elements | Azure
+description: List of links to reference content for the Transact-SQL language elements used for SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: barbkess
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   wacn.date=""
-   ms.author="barbkess;sonyama;kevin"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: barbkess;sonyama;kevin
+---
 
 # Language elements
 ## Core elements
@@ -280,6 +280,6 @@ For more reference information, see [SQL Data Warehouse reference overview][SQL 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: /documentation/articles/sql-data-warehouse-overview-reference/
+[SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->

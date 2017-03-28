@@ -7,7 +7,6 @@ author: rayne-wiselman"
 manager: cfreeman
 editor: ''
 
-
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
 ms.workload: backup-recovery
@@ -39,8 +38,6 @@ You have a couple of deployment choices for protecting Hyper-V virtual machines.
 **Providers and agents** | During deployment you'll install the Azure Site Recovery Provider on VMM servers. On Hyper-V servers in VMM clouds you'll install the Azure Recovery Services agent. | During deployment you'll install both the Azure Site Recovery Provider and the Azure Recovery Services agent on the Hyper-V host server or cluster| During deployment you'll install the Azure Site Recovery Provider on VMM servers. On Hyper-V servers in VMM clouds you'll install the Azure Recovery Services agent. | Providers and agents connect to Site Recovery over the internet using an encrypted HTTPS connection. You don't need to add firewall exceptions or create a specific proxy for the Provider connection.
 **Internet connectivity** | Only the VMM servers need an internet connection | Only the Hyper-V host servers need an internet connection | Only VMM servers need an internet connection | Virtual machines don't need anything installed on them and don't connect directly to the internet.
 
-
-
 ## Protect VMware virtual machines or physical servers
 
 You have a couple of deployment choices for protecting VMware virtual machines or Windows/Linux physical servers. You can replicate them to Azure, or  to a secondary datacenter. There are different requirements for each deployment.
@@ -52,13 +49,9 @@ You have a couple of deployment choices for protecting VMware virtual machines o
 **Azure** | **Subscription**: You'll need a subscription for the Site Recovery service. <br/><br/> **Storage account**: You'll need a storage account with geo-replication enabled. The account should be in the same region as the Site Recovery vault and be associated with the same subscription. <br/><br/> **Configuration server**: You'll need to set up the configuration server as an Azure VM <br/><br/> **Master target server**: You'll need to set up the master target server as an Azure VM <br/><br/> Configure with Windows to protect Windows machines, or Linux to protect Linux.<br/><br/> **Azure virtual network**:  You'll need an Azure virtual network on which the configuration server and master target server will be deployed. It should be in the same subscription and region as the Azure Site Recovery vault | NA  
 **Virtual machines/physical servers** | At least one VMware virtual machine or physical Windows/Linux server.<br/><br/>During deployment the Mobility service will be installed on each machine| At least one VMware VM or physical Windows/Linux server.<br/><br/> During deployment the Unified agent is installed on each machine.
 
-
-
-
 ## Azure virtual machine requirements
 
 You can deploy Site Recovery to replicate virtual machines and physical servers running any operating system supported by Azure. This includes most versions of Windows and Linux. You will need to make sure that on-premises virtual machines that you want to protect conform with Azure requirements.
-
 
 ## Optimizing your deployment
 
@@ -70,8 +63,8 @@ Use the following tips to help you optimize and scale your deployment.
 - **Azure service limits**: Every Azure subscription comes with a set of default limits on cores, cloud services etc. We recommend that you run a test failover to validate the availability of resources in your subscription. You can modify these limits via Azure support.
 - **Capacity planning**: Plan for scaling and performance.
 - **Replication bandwidth**: If you're short on replication bandwidth note that:
-	- **ExpressRoute**: Site Recovery works with Azure ExpressRoute and WAN optimizers such as Riverbed.
-	- **Replication traffic**: Site Recovery uses performs a smart initial replication using only data blocks and not the entire VHD. Only changes are replicated during ongoing replication.
-	- **Network traffic**: You can control network traffic used for replication by setting up Windows QoS with a policy based on the destination IP address and port.  In addition if you're replicating to Azure Site Recovery using the Azure Backup agent. You can configure throttling for that agent.
+    - **ExpressRoute**: Site Recovery works with Azure ExpressRoute and WAN optimizers such as Riverbed.
+    - **Replication traffic**: Site Recovery uses performs a smart initial replication using only data blocks and not the entire VHD. Only changes are replicated during ongoing replication.
+    - **Network traffic**: You can control network traffic used for replication by setting up Windows QoS with a policy based on the destination IP address and port.  In addition if you're replicating to Azure Site Recovery using the Azure Backup agent. You can configure throttling for that agent.
 - **RTO**: If you want to measure the recovery time objective (RTO) you can expect with Site Recovery we suggest you run a test failover and view the Site Recovery jobs to analyze how much time it takes to complete the operations. If you're failing over to Azure, for the best RTO we recommend that you automate all manual actions by integrating with Azure automation and recovery plans.
 - **RPO**: Site Recovery supports a near-synchronous recovery point objective (RPO) when you replicate to Azure. This assumes sufficient bandwidth between your datacenter and Azure.

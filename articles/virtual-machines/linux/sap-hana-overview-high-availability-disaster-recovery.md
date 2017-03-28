@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="High availability and disaster recovery of SAP HANA on Azure (large instances) | Azure"
-    description="Establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances)."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="RicksterCDN"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="virtual-machines-linux"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="12/01/2016"
-    wacn.date=""
-    ms.author="rclaus"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: High availability and disaster recovery of SAP HANA on Azure (large instances) | Azure
+description: Establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances).
+services: virtual-machines-linux
+documentationcenter: ''
+author: RicksterCDN
+manager: timlt
+editor: ''
+
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 12/01/2016
+wacn.date: ''
+ms.author: rclaus
+ms.custom: H1Hack27Feb2017
+---
 
 # SAP HANA (large instances) high availability and disaster recovery on Azure 
 
@@ -97,7 +98,7 @@ SAP HANA on Azure (large instances) offers two backup and restore options:
 - Do it yourself (DIY). After you calculate to ensure enough disk space, perform full database and log backups by using disk backup methods (to those disks). Over time, the backups are copied to an Azure storage account (after you set up an Azure-based file server with virtually unlimited storage), or use an Azure Backup vault or Azure cold storage. Another option is to use a third-party data protection tool, such as Commvault, to store the backups after they are copied to a storage account. The DIY backup option might also be necessary for data that needs to be stored for longer periods for compliancy and auditing purposes.
 - Use the backup and restore functionality that the underlying infrastructure of SAP HANA on Azure (large instances) provides. This option fulfills the need for backups, and it makes manual backups nearly obsolete (except where data backups are required for compliance purposes). The rest of this section addresses the backup and restore functionality that's offered with HANA (large instances).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The snapshot technology that is used by the underlying infrastructure of HANA (large instances) has a dependency on SAP HANA snapshots. SAP HANA snapshots do not work in conjunction with SAP HANA Multitenant Database Containers. As a result, this method of backup cannot be used to deploy SAP HANA Multitenant Database Containers.
 
 ### Using storage snapshots of SAP HANA on Azure (large instances)
@@ -121,7 +122,7 @@ Specifying the backup\_name creates a snapshot of the following volumes:
 
 ### Storage snapshot considerations
 
->[AZURE.NOTE]
+>[!NOTE]
 >Storage snapshots are _not_ provided free of charge, because additional storage space must be allocated.
 
 The specific mechanics of storage snapshots for SAP HANA on Azure (large instances) include:
@@ -161,40 +162,44 @@ The Linux installed on SAP HANA on Azure (large instances) includes the folders 
 
 Change /etc/ssh/ssh\_config by adding _MACs hmac-sha1_ line as shown here:
 
-    #   RhostsRSAAuthentication no
-    #   RSAAuthentication yes
-    #   PasswordAuthentication yes
-    #   HostbasedAuthentication no
-    #   GSSAPIAuthentication no
-    #   GSSAPIDelegateCredentials no
-    #   GSSAPIKeyExchange no
-    #   GSSAPITrustDNS no
-    #   BatchMode no
-    #   CheckHostIP yes
-    #   AddressFamily any
-    #   ConnectTimeout 0
-    #   StrictHostKeyChecking ask
-    #   IdentityFile ~/.ssh/identity
-    #   IdentityFile ~/.ssh/id_rsa
-    #   IdentityFile ~/.ssh/id_dsa
-    #   Port 22
-    Protocol 2
-    #   Cipher 3des
-    #   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc
-    #   MACs hmac-md5,hmac-sha1,umac-64@openssh.com,hmac-ripemd160
-    MACs hmac-sha1
-    #   EscapeChar ~
-    #   Tunnel no
-    #   TunnelDevice any:any
-    #   PermitLocalCommand no
-    #   VisualHostKey no
-    #   ProxyCommand ssh -q -W %h:%p gateway.example.com
+```
+#   RhostsRSAAuthentication no
+#   RSAAuthentication yes
+#   PasswordAuthentication yes
+#   HostbasedAuthentication no
+#   GSSAPIAuthentication no
+#   GSSAPIDelegateCredentials no
+#   GSSAPIKeyExchange no
+#   GSSAPITrustDNS no
+#   BatchMode no
+#   CheckHostIP yes
+#   AddressFamily any
+#   ConnectTimeout 0
+#   StrictHostKeyChecking ask
+#   IdentityFile ~/.ssh/identity
+#   IdentityFile ~/.ssh/id_rsa
+#   IdentityFile ~/.ssh/id_dsa
+#   Port 22
+Protocol 2
+#   Cipher 3des
+#   Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,aes128-cbc,3des-cbc
+#   MACs hmac-md5,hmac-sha1,umac-64@openssh.com,hmac-ripemd160
+MACs hmac-sha1
+#   EscapeChar ~
+#   Tunnel no
+#   TunnelDevice any:any
+#   PermitLocalCommand no
+#   VisualHostKey no
+#   ProxyCommand ssh -q -W %h:%p gateway.example.com
+```
 
 ### Step 3: Create a public key
 
 On the first SAP HANA on Azure (large instances) server in each Azure region, create a public key to be used to access the storage infrastructure so that you can create snapshots. The public key ensures that a password is not required to sign in to the storage and that password credentials are not maintained. In Linux on the SAP HANA (large instances) server, execute the following command to generate the public key:
 
-      ssh-keygen -t dsa -b 1024
+```
+  ssh-keygen -t dsa -b 1024
+```
 
 The new location is _/root/.ssh/id\_dsa.pub. Do not enter an actual passphrase, or else you will be required to enter the passphrase each time you sign in. Instead, press **Enter** twice to remove the enter passphrase requirement for signing in.
 
@@ -214,7 +219,7 @@ Create an SAP HANA user account within SAP HANA Studio for backup purposes. This
 
 Authorize the SAP HANA user account (to be used by the scripts without requiring authorization every time the script is run). The SAP HANA command `hdbuserstore` allows the creation of an SAP HANA user key, which is stored on one or more SAP HANA nodes. The user key also allows the user to access SAP HANA without having to manage passwords from within the scripting process that's discussed later.
 
->[AZURE.IMPORTANT]
+>[!IMPORTANT]
 >Run the following command as `_root_`. Otherwise, the script cannot work properly.
 
 Enter the `hdbuserstore` command as follows:
@@ -223,76 +228,88 @@ Enter the `hdbuserstore` command as follows:
 
 In the following example, where the user is SCADMIN01 and the hostname is lhanad01, the command is:
 
-    hdbuserstore set SCADMIN01 lhanad01:30115 <backup username> <password>
+```
+hdbuserstore set SCADMIN01 lhanad01:30115 <backup username> <password>
+```
 
 Manage all scripting from a single server for scale-out HANA instances. In this example, the SAP HANA key SCADMIN01 must be altered for each host in a way that reflects the host that is related to the key. That is, the SAP HANA backup account is amended with the instance number of the HANA DB, **lhanad**. The key must have administrative privileges on the host it is assigned to, and the backup user for scale-out must have access rights to all SAP HANA instances.
 
-    hdbuserstore set SCADMIN01 lhanad:30015 SCADMIN <password>
-    hdbuserstore set SCADMIN02 lhanad:30115 SCADMIN <password>
-    hdbuserstore set SCADMIN03 lhanad:30215 SCADMIN <password>
+```
+hdbuserstore set SCADMIN01 lhanad:30015 SCADMIN <password>
+hdbuserstore set SCADMIN02 lhanad:30115 SCADMIN <password>
+hdbuserstore set SCADMIN03 lhanad:30215 SCADMIN <password>
+```
 
 ### Step 6: Copy items from the /scripts folder
 
 Copy the following items from the /scripts folder (included on the gold image of the installation) to the working directory for **hdbsql**. For current HANA installations, this directory is /hana/shared/D01/exe/linuxx86\_64/hdb.
 
-    azure\_hana\_backup.pl
-    testHANAConnection.pl
-    testStorageSnapshotConnection.pl
-    removeTestStorageSnapshot.pl
-    HANABackupCustomerDetails.txt
+```
+azure\_hana\_backup.pl
+testHANAConnection.pl
+testStorageSnapshotConnection.pl
+removeTestStorageSnapshot.pl
+HANABackupCustomerDetails.txt
+```
 
 Copy the following items if they are running scale-out or OLAP:
 
-    azure\_hana\_backup\_bw.pl
-    testHANAConnectionBW.pl
-    testStorageSnapshotConnectionBW.pl
-    removeTestStorageSnapshotBW.pl
-    HANABackupCustomerDetailsBW.txt
+```
+azure\_hana\_backup\_bw.pl
+testHANAConnectionBW.pl
+testStorageSnapshotConnectionBW.pl
+removeTestStorageSnapshotBW.pl
+HANABackupCustomerDetailsBW.txt
+```
 
 The HANABackupCustomerDetails.txt file is modifiable as follows for a scale-up deployment. It is the control and configuration file for the script that runs the storage snapshots. You should have received the _Storage Backup Name_ and _Storage IP Address_ from SAP HANA on Azure Service Management when your instances were deployed. You cannot modify the sequence, ordering, or spacing of any of the variables, or the script does not run properly.
 
 For a scale-up deployment, the configuration file would look like:
 
-    #Provided by Microsoft Service Management
-    Storage Backup Name: lhanad01backup
-    Storage IP Address: 10.250.20.21
-    #Created by customer using hdbuserstore
-    HANA Backup Name: SCADMIND01
+```
+#Provided by Microsoft Service Management
+Storage Backup Name: lhanad01backup
+Storage IP Address: 10.250.20.21
+#Created by customer using hdbuserstore
+HANA Backup Name: SCADMIND01
+```
 
 For a scale-out configuration, the HANABackupCustomerDetailsBW.txt file would look like:
 
-    #Provided by Microsoft Service Management
-    Storage Backup Name: lhanad01backup
-    Storage IP Address: 10.250.20.21
-    #Node IP addresses, instance numbers, and HANA backup name
-    #provided by customer.  HANA backup name created using
-    #hdbuserstore utility.
-    Node 1 IP Address: 10.254.15.21
-    Node 1 HANA instance number: 01
-    Node 1 HANA Backup Name: SCADMIN01
-    Node 2 IP Address: 10.254.15.22
-    Node 2 HANA instance number: 02
-    Node 2 HANA Backup Name: SCADMIN02
-    Node 3 IP Address: 10.254.15.23
-    Node 3 HANA instance number: 03
-    Node 3 HANA Backup Name: SCADMIN03
-    Node 4 IP Address: 10.254.15.24
-    Node 4 HANA instance number: 04
-    Node 4 HANA Backup Name: SCADMIN04
-    Node 5 IP Address: 10.254.15.25
-    Node 5 HANA instance number: 05
-    Node 5 HANA Backup Name: SCADMIN05
-    Node 6 IP Address: 10.254.15.26
-    Node 6 HANA instance number: 06
-    Node 6 HANA Backup Name: SCADMIN06
-    Node 7 IP Address: 10.254.15.27
-    Node 7 HANA instance number: 07
-    Node 7 HANA Backup Name: SCADMIN07
-    Node 8 IP Address: 10.254.15.28
-    Node 8 HANA instance number: 08
-    Node 8 HANA Backup Name: SCADMIN08
+```
+#Provided by Microsoft Service Management
+Storage Backup Name: lhanad01backup
+Storage IP Address: 10.250.20.21
+#Node IP addresses, instance numbers, and HANA backup name
+#provided by customer.  HANA backup name created using
+#hdbuserstore utility.
+Node 1 IP Address: 10.254.15.21
+Node 1 HANA instance number: 01
+Node 1 HANA Backup Name: SCADMIN01
+Node 2 IP Address: 10.254.15.22
+Node 2 HANA instance number: 02
+Node 2 HANA Backup Name: SCADMIN02
+Node 3 IP Address: 10.254.15.23
+Node 3 HANA instance number: 03
+Node 3 HANA Backup Name: SCADMIN03
+Node 4 IP Address: 10.254.15.24
+Node 4 HANA instance number: 04
+Node 4 HANA Backup Name: SCADMIN04
+Node 5 IP Address: 10.254.15.25
+Node 5 HANA instance number: 05
+Node 5 HANA Backup Name: SCADMIN05
+Node 6 IP Address: 10.254.15.26
+Node 6 HANA instance number: 06
+Node 6 HANA Backup Name: SCADMIN06
+Node 7 IP Address: 10.254.15.27
+Node 7 HANA instance number: 07
+Node 7 HANA Backup Name: SCADMIN07
+Node 8 IP Address: 10.254.15.28
+Node 8 HANA instance number: 08
+Node 8 HANA Backup Name: SCADMIN08
+```
 
->[AZURE.NOTE]
+>[!NOTE]
 >Currently, only Node 1 details are used in the actual HANA storage snapshot script. We recommend that you test access to or from all HANA nodes so that, if the master backup node ever changes, you have already ensured that any other node can take its place by modifying the details in Node 1.
 
 To check for the correct configurations in the configuration file or proper connectivity to the HANA instances, run either of the following scripts:
@@ -308,7 +325,9 @@ Ensure that the master HANA instance has access to all required HANA servers. Th
 
 To run the script:
 
-     ./testHANAConnection.pl
+```
+ ./testHANAConnection.pl
+```
 
  If the script successfully obtains the status of the HANA instance, it displays a message that the HANA connection was successful.
 
@@ -321,11 +340,15 @@ For this reason, the HANA instance is included as an argument. Again, it is not 
 
 The script is run as:
 
-     ./testStorageSnapshotConnection.pl <hana instance>
+```
+ ./testStorageSnapshotConnection.pl <hana instance>
+```
 
 Or it is run as:
 
-    ./testStorageSnapshotConnectionBW.pl <hana instance>
+```
+./testStorageSnapshotConnectionBW.pl <hana instance>
+```
 
 The script also displays a message that you are able to sign in appropriately to your deployed storage tenant, which is organized around the logical unit numbers (LUNs) that are used by the server instances you own.
 
@@ -333,11 +356,15 @@ Before you execute the first storage snapshot-based backups, run the next script
 
 After running these scripts, you can delete the snapshots by executing:
 
-    ./removeTestStorageSnapshot.pl <hana instance>
+```
+./removeTestStorageSnapshot.pl <hana instance>
+```
 
 Or
 
-    ./removeTestStorageSnapshot.pl <hana instance>
+```
+./removeTestStorageSnapshot.pl <hana instance>
+```
 
 ### Step 7: Perform on-demand snapshots
 
@@ -345,11 +372,15 @@ Perform on-demand snapshots (as well as schedule regular snapshots by using cron
 
 For scale-up configurations, execute the following script:
 
-    ./azure_hana_backup.pl lhanad01 customer 20
+```
+./azure_hana_backup.pl lhanad01 customer 20
+```
 
 For scale-out configurations, execute the following script:
 
-    ./azure_hana_backup_bw.pl lhanad01 customer 20
+```
+./azure_hana_backup_bw.pl lhanad01 customer 20
+```
 
 The scale-out script does some additional checking to make sure that all HANA servers can be accessed, and all HANA instances return appropriate status of the instance before proceeding with creating SAP HANA or storage snapshots.
 
@@ -369,21 +400,25 @@ The execution of the script creates the storage snapshot in these three distinct
 
 Execute the script by calling it from the HDB executable folder that it was copied to. It backs up at least the following volumes, but it also backs up any volume that has the explicit SAP HANA instance name in the volume name.
 
-    hana_data_<hana instance>_prod_t020_vol
-    hana_log_<hana instance>_prod_t020_vol
-    hana_log_backup_<hana instance>_prod_t020_vol
-    hana_shared_<hana instance>_prod_t020_vol
+```
+hana_data_<hana instance>_prod_t020_vol
+hana_log_<hana instance>_prod_t020_vol
+hana_log_backup_<hana instance>_prod_t020_vol
+hana_shared_<hana instance>_prod_t020_vol
+```
 
 The retention period is strictly administered, with the number of snapshots submitted as a parameter when you execute the script (such as 20, shown previously). So the amount of time is a function of the period of execution and the number of snapshots in the call of the script. If the number of snapshots that are kept exceeds the number that are named as a parameter in the call of the script, the oldest storage snapshot of this label (in our previous case, _custom_) is deleted before a new snapshot is executed. This means the number you give as the last parameter of the call is the number you can use to control the number of snapshots.
 
->[AZURE.NOTE]
+>[!NOTE]
 >As soon as you change the label, the counting starts again.
 
 You need to include the HANA instance name that's provided by SAP HANA on Azure Service Management as an argument if they are creating snapshots in multi-node environments. In single-node environments, the name of the SAP HANA on Azure (large instances) unit is sufficient, but the HANA instance name is still recommended.
 
 Additionally, you can back up boot volumes\LUNs by using the same script. You must back up your boot volume at least once when you first run HANA, although we recommend a weekly or nightly backup schedule for booting in cron. Rather than add an SAP HANA instance name, insert _boot_ as the argument into the script as follows:
 
-    ./azure_hana_backup boot customer 20
+```
+./azure_hana_backup boot customer 20
+```
 
 The same retention policy is afforded to the boot volume as well. Use on-demand snapshots, as described previously, for special cases only, such as during an SAP enhancement package (EHP) upgrade, or when you need to create a distinct storage snapshot.
 
@@ -393,16 +428,20 @@ The entries in the following cron script run every hour at the tenth minute, eve
 
 The default cron scheduling in /etc/crontab is as follows:
 
-    10 1-11,13-23 * * * ./azure_hana_backup.pl lhanad01 hourly 66
-    10 12 * * *  ./azure_hana_backup.pl lhanad01 12hour 14
+```
+10 1-11,13-23 * * * ./azure_hana_backup.pl lhanad01 hourly 66
+10 12 * * *  ./azure_hana_backup.pl lhanad01 12hour 14
+```
 
 In the previous cron instructions, the HANA volumes (without boot volume) get an hourly snapshot with the label. Of these snapshots, 66 are retained. Additionally, 14 snapshots with the 12-hour label are retained. You potentially get hourly snapshots for three days, plus 12-hour snapshots for another four days, which gives you an entire week of snapshots.
 
 Scheduling within cron can be tricky, because only one script should be executed at any particular time, unless the scripts are staggered by several minutes. If you want daily backups for long-term retention, either a daily snapshot is kept along with a 12-hour snapshot (with a retention count of seven each), or the hourly snapshot is staggered to take place 10 minutes later. Only one daily snapshot is kept in the production volume.
 
-    10 1-11,13-23 * * * ./azure_hana_backup.pl lhanad01 hourly 66
-    10 12 * * *  ./azure_hana_backup.pl lhanad01 12hour 7
-    10 0 * * * ./azure_hana_backup.pl lhanad01 daily 7
+```
+10 1-11,13-23 * * * ./azure_hana_backup.pl lhanad01 hourly 66
+10 12 * * *  ./azure_hana_backup.pl lhanad01 12hour 7
+10 0 * * * ./azure_hana_backup.pl lhanad01 daily 7
+```
 
 The frequencies listed here are only examples. To derive your optimum number of snapshots, use the following criteria:
 
@@ -411,7 +450,7 @@ The frequencies listed here are only examples. To derive your optimum number of 
 - Requirements in recovery point objective and recovery time objective for potential disaster recovery.
 - Eventual execution of HANA full database backups against disks. Whenever a full database backup against disks, or _backint_ interface, is performed, the execution of storage snapshots fails. If you plan to execute full database backups on top of storage snapshots, make sure that the execution of storage snapshots is disabled during this time.
 
->[AZURE.IMPORTANT]
+>[!IMPORTANT]
 > The use of storage snapshots for SAP HANA backups is valid only when the snapshots are performed in conjunction with SAP HANA log backups. These log backups need to be able to cover the time periods between the storage snapshots. If you've set a commitment to users of a point-in-time recovery of 30 days, you need the following:
 
 - Ability to access a storage snapshot that is 30 days old.
@@ -446,15 +485,19 @@ Use these commands to make sure that the snapshots that are taken and stored are
 
 As explained earlier, you can reduce the number of certain labels of snapshots that you store. The last two parameters of the command to initiate a snapshot are a label and the number of snapshots you want to retain.
 
-    ./azure_hana_backup.pl lhanad01 customer 20
+```
+./azure_hana_backup.pl lhanad01 customer 20
+```
 
 In the previous example, the snapshot label is _customer_ and the number of snapshots with this label to be retained is _20_. As you respond to disk space consumption, you might want to reduce the number of stored snapshots. The easy way to reduce the number of snapshots is to run the script with the last parameter set to 5:
 
-    ./azure_hana_backup.pl lhanad01 customer 5
+```
+./azure_hana_backup.pl lhanad01 customer 5
+```
 
 As a result of running the script with this setting, the number of snapshots, including the new storage snapshot, is _5_.
 
- >[AZURE.NOTE]
+ >[!NOTE]
  > This script reduces the number of snapshots only if the most recent previous snapshot is more than one hour old. The script does not delete snapshots that are less than one hour old.
 
 These restrictions are related to the optional disaster-recovery functionality offered.
@@ -469,7 +512,7 @@ On the other hand, a point-in-time recovery could be low urgency and planned for
 
 Before you issue the request, you need to do some preparation. SAP HANA on Azure Service Management team can then handle the request and provide the restored volumes. Afterward, it is up to you to restore the HANA database based on the snapshots. Here is how to prepare for the request:
 
->[AZURE.NOTE]
+>[!NOTE]
 >Your user interface might vary from the following screenshots, depending on the SAP HANA release you are using.
 
 1. Decide which snapshot to restore. Only the hana/data volume would be restored unless you are instructed otherwise.
@@ -520,7 +563,7 @@ Before you issue the request, you need to do some preparation. SAP HANA on Azure
 
 The following process restores the HANA snapshot that is included in the storage snapshot. It then restores the transaction log backups to the most recent state of the database before restoring the storage snapshot.
 
->[AZURE.IMPORTANT]
+>[!IMPORTANT]
 >Before you proceed, make sure that you have a complete and contiguous chain of transaction log backups. Without these backups, you cannot restore the current state of the database.
 
 1. Complete steps 1-6 of the preceding procedure in "Recovering to the most recent HANA snapshot."
@@ -566,22 +609,24 @@ You need to monitor the execution of storage snapshots. The script that executes
 
 The most important part of the script is this:
 
-    **********************Creating HANA snapshot**********************
-    Creating the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN01 "backup data create snapshot"" ...
-    HANA snapshot created successfully.
-    **********************Creating Storage snapshot**********************
-    Taking snapshot hourly.recent for hana_data_lhanad01_t020_vol ...
-    Snapshot created successfully.
-    Taking snapshot hourly.recent for hana_log_backup_lhanad01_t020_vol ...
-    Snapshot created successfully.
-    Taking snapshot hourly.recent for hana_log_lhanad01_t020_vol ...
-    Snapshot created successfully.
-    Taking snapshot hourly.recent for hana_shared_lhanad01_t020_vol ...
-    Snapshot created successfully.
-    Taking snapshot hourly.recent for sapmnt_lhanad01_t020_vol ...
-    Snapshot created successfully.
-    **********************Deleting HANA snapshot**********************
-    Deleting the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN01 "backup data drop snapshot"" ...
-    HANA snapshot deletion successfully.
+```
+**********************Creating HANA snapshot**********************
+Creating the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN01 "backup data create snapshot"" ...
+HANA snapshot created successfully.
+**********************Creating Storage snapshot**********************
+Taking snapshot hourly.recent for hana_data_lhanad01_t020_vol ...
+Snapshot created successfully.
+Taking snapshot hourly.recent for hana_log_backup_lhanad01_t020_vol ...
+Snapshot created successfully.
+Taking snapshot hourly.recent for hana_log_lhanad01_t020_vol ...
+Snapshot created successfully.
+Taking snapshot hourly.recent for hana_shared_lhanad01_t020_vol ...
+Snapshot created successfully.
+Taking snapshot hourly.recent for sapmnt_lhanad01_t020_vol ...
+Snapshot created successfully.
+**********************Deleting HANA snapshot**********************
+Deleting the HANA snapshot with command: "./hdbsql -n localhost -i 01 -U SCADMIN01 "backup data drop snapshot"" ...
+HANA snapshot deletion successfully.
+```
 
 You can see from this sample how the script records the creation of the HANA snapshot. In the scale-out case, this process is initiated on the master node. The master node initiates the synchronous creation of the snapshots on each of the worker nodes. Then the storage snapshot is taken. After the successful execution of the storage snapshots, the HANA snapshot is deleted.

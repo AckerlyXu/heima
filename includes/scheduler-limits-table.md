@@ -16,4 +16,3 @@ The following table describes each of the major quotas, limits, defaults, and th
 | **Job history retention** |Job history is retained for up to 2 months or up to the last 1000 executions. |
 | **Completed and faulted job retention** |Completed and faulted jobs are retained for 60 days. |
 | **Timeout** |There’s a static (not configurable) request timeout of 60 seconds for HTTP actions. For longer running operations, follow HTTP asynchronous protocols; for example, return a 202 immediately but continue working in the background. |
-

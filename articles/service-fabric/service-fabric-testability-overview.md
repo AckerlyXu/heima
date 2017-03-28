@@ -1,16 +1,16 @@
-<properties
-   pageTitle="Testability overview | Microsoft Azure"
-   description="This article describes the Testability subsystem in Service Fabric for inducing faults and running test scenarios. against your services."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rishirsinha"
-   manager="timlt"
-   editor=""/>
+---
+title: Testability overview | Microsoft Azure
+description: This article describes the Testability subsystem in Service Fabric for inducing faults and running test scenarios. against your services.
+services: service-fabric
+documentationCenter: .net
+authors: rishirsinha
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.date="04/06/2016"
-   wacn.date=""/>
+ms.service: service-fabric
+ms.date: 04/06/2016
+wacn.date: ''
+---
 
 # Testability overview
 
@@ -105,10 +105,8 @@ To create truly cloud-scale services, it is critical to ensure, both before and 
 
 ## Next steps
 
-- [Testability actions](/documentation/articles/service-fabric-testability-actions/)
-- [Testability scenarios](/documentation/articles/service-fabric-testability-actions/)
+- [Testability actions](./service-fabric-testability-actions.md)
+- [Testability scenarios](./service-fabric-testability-actions.md)
 - How to test your service
-  - [Simulate failures during service workloads](/documentation/articles/service-fabric-testability-workload-tests/)
-  - [Service-to-service communication failures](/documentation/articles/service-fabric-testability-scenarios-service-communication/)
-
- 
+  - [Simulate failures during service workloads](./service-fabric-testability-workload-tests.md)
+  - [Service-to-service communication failures](./service-fabric-testability-scenarios-service-communication.md)

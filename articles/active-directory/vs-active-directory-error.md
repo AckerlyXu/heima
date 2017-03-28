@@ -1,21 +1,22 @@
-<properties
-    pageTitle="How to diagnose errors with the Azure Active Directory Connection Wizard"
-    description="The active directory connection wizard detected an incompatible authentication type"
-    services="active-directory"
-    documentationcenter=""
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="dd89ea63-4e45-4da1-9642-645b9309670a"
-    ms.service="active-directory"
-    ms.workload="web"
-    ms.tgt_pltfrm="vs-getting-started"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/05/2017"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: How to diagnose errors with the Azure Active Directory Connection Wizard
+description: The active directory connection wizard detected an incompatible authentication type
+services: active-directory
+documentationcenter: ''
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
+ms.service: active-directory
+ms.workload: web
+ms.tgt_pltfrm: vs-getting-started
+ms.devlang: na
+ms.topic: article
+ms.date: 03/05/2017
+wacn.date: ''
+ms.author: tarcher
+---
 
 # Diagnosing errors with the Azure Active Directory Connection Wizard
 While detecting previous authentication code, the wizard detected an incompatible authentication type.   
@@ -31,16 +32,20 @@ The wizard also checks for authentication settings that have been previously con
 
 In an MVC project, the wizard checks for any of the following settings, which result from previous use of the wizard:
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:AADInstance" value="" />
-    <add key="ida:PostLogoutRedirectUri" value="" />
+```
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:AADInstance" value="" />
+<add key="ida:PostLogoutRedirectUri" value="" />
+```
 
 In addition, the wizard checks for any of the following settings in a Web API project, which result from previous use of the wizard:
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:Audience" value="" />
+```
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:Audience" value="" />
+```
 
 ### Incompatible Authentication Code
 Finally, the wizard attempts to detect versions of authentication code that have been configured with previous versions of Visual Studio. If you received this error, it means your project contains an incompatible authentication type. The wizard detects the following types of authentication from previous versions of Visual Studio:
@@ -89,7 +94,7 @@ To detect an old form of Organizational Account authentication, the wizard looks
 
 To change the authentication type, remove the incompatible authentication type and run the wizard again.
 
-For more information, see [Authentication Scenarios for Azure AD](/documentation/articles/active-directory-authentication-scenarios/).
+For more information, see [Authentication Scenarios for Azure AD](./active-directory-authentication-scenarios.md).
 
 #Next steps
-- [Authentication Scenarios for Azure AD](/documentation/articles/active-directory-authentication-scenarios/)
+- [Authentication Scenarios for Azure AD](./active-directory-authentication-scenarios.md)

@@ -1,56 +1,59 @@
-<properties
-    pageTitle="Deploy Linux VMs into existing networks - Azure CLI | Azure"
-    description="Deploy a Linux VM into an existing Virtual Network using the CLI."
-    services="virtual-machines-linux"
-    documentationcenter="virtual-machines"
-    author="vlivech"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/05/2016"
-    wacn.date=""
-    ms.author="v-livech" />
+---
+title: Deploy Linux VMs into existing networks - Azure CLI | Azure
+description: Deploy a Linux VM into an existing Virtual Network using the CLI.
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: vlivech
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.workload: infrastructure
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 12/05/2016
+wacn.date: ''
+ms.author: v-livech
+---
 
 # Deploy a Linux VM into an existing Azure Virtual Network using the CLI
 
 This article shows you how to use CLI flags to deploy a VM into an existing Virtual Network (VNet).  The requirements are:
 
-- [an Azure account](/pricing/1rmb-trial/)
-- [SSH public and private key files](/documentation/articles/virtual-machines-linux-mac-create-ssh-keys/)
+- [an Azure account](https://www.azure.cn/pricing/1rmb-trial/)
+- [SSH public and private key files](./virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands) - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](/documentation/articles/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli/) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](./virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md) - our next generation CLI for the resource management deployment model
 
 ## <a name="quick-commands"></a> Quick Commands
 
-If you need to quickly accomplish the task, the following section details the  commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](/documentation/articles/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli/#detailed-walkthrough).
+If you need to quickly accomplish the task, the following section details the  commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](./virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md#detailed-walkthrough).
 
 Pre-requirements: Resource Group, VNet, NSG with SSH inbound, Subnet. Replace any examples with your own settings.
 
 ### Deploy the VM into the virtual network infrastructure
 
-    azure vm create myVM \
-    -g myResourceGroup \
-    -l chinanorth \
-    -y linux \
-    -Q Debian \
-    -o myStorageAcct \
-    -u myAdminUser \
-    -M ~/.ssh/id_rsa.pub \
-    -n myVM \
-    -F myVNet \
-    -j mySubnet \
-    -N myVNic
+```azurecli
+azure vm create myVM \
+-g myResourceGroup \
+-l chinanorth \
+-y linux \
+-Q Debian \
+-o myStorageAcct \
+-u myAdminUser \
+-M ~/.ssh/id_rsa.pub \
+-n myVM \
+-F myVNet \
+-j mySubnet \
+-N myVNic
+```
 
 ## <a name="detailed-walkthrough"></a> Detailed walkthrough
 
@@ -58,53 +61,63 @@ It is recommended that Azure assets like the VNets and NSGs should be static and
 
 ## Create the Resource group
 
-First we create a Resource Group to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](/documentation/articles/resource-group-overview/)
+First we create a Resource Group to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 
-    azure group create myResourceGroup \
-    --location chinanorth
+```azurecli
+azure group create myResourceGroup \
+--location chinanorth
+```
 
 ## Create the VNet
 
-The first step is to build a VNet to launch the VMs into.  The VNet contains one subnet for this walkthrough.  For more information on Azure VNets, see [Create a virtual network by using the Azure CLI](/documentation/articles/virtual-networks-create-vnet-arm-cli/)
+The first step is to build a VNet to launch the VMs into.  The VNet contains one subnet for this walkthrough.  For more information on Azure VNets, see [Create a virtual network by using the Azure CLI](../virtual-network/virtual-networks-create-vnet-arm-cli.md)
 
-    azure network vnet create myVNet \
-    --resource-group myResourceGroup \
-    --address-prefixes 10.10.0.0/24 \
-    --location chinanorth
+```azurecli
+azure network vnet create myVNet \
+--resource-group myResourceGroup \
+--address-prefixes 10.10.0.0/24 \
+--location chinanorth
+```
 
 ## Create the NSG
 
-The Subnet is built behind an existing Network Security Group so we build the NSG before the Subnet.  Azure NSGs are equivalent to a firewall at the network layer.  For more information on Azure NSGs, see [How to create NSGs in the Azure CLI](/documentation/articles/virtual-networks-create-nsg-arm-cli/)
+The Subnet is built behind an existing Network Security Group so we build the NSG before the Subnet.  Azure NSGs are equivalent to a firewall at the network layer.  For more information on Azure NSGs, see [How to create NSGs in the Azure CLI](../virtual-network/virtual-networks-create-nsg-arm-cli.md)
 
-    azure network nsg create myNSG \
-    --resource-group myResourceGroup \
-    --location chinanorth
+```azurecli
+azure network nsg create myNSG \
+--resource-group myResourceGroup \
+--location chinanorth
+```
 
 ## Add an inbound SSH allow rule
 
 The Linux VM needs access from the internet so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the Linux VM is needed.
 
-    azure network nsg rule create inboundSSH \
-    --resource-group myResourceGroup \
-    --nsg-name myNSG \
-    --access Allow \
-    --protocol Tcp \
-    --direction Inbound \
-    --priority 100 \
-    --source-address-prefix Internet \
-    --source-port-range 22 \
-    --destination-address-prefix 10.10.0.0/24 \
-    --destination-port-range 22
+```azurecli
+azure network nsg rule create inboundSSH \
+--resource-group myResourceGroup \
+--nsg-name myNSG \
+--access Allow \
+--protocol Tcp \
+--direction Inbound \
+--priority 100 \
+--source-address-prefix Internet \
+--source-port-range 22 \
+--destination-address-prefix 10.10.0.0/24 \
+--destination-port-range 22
+```
 
 ## Add a subnet to the VNet
 
 VMs within the VNet must be located in a subnet.  Each VNet can have multiple subnets.  Create the subnet and associate the subnet with the NSG to add a firewall to the subnet.
 
-    azure network vnet subnet create mySubNet \
-    --resource-group myResourceGroup \
-    --vnet-name myVNet \
-    --address-prefix 10.10.0.0/26 \
-    --network-security-group-name myNSG
+```azurecli
+azure network vnet subnet create mySubNet \
+--resource-group myResourceGroup \
+--vnet-name myVNet \
+--address-prefix 10.10.0.0/26 \
+--network-security-group-name myNSG
+```
 
 The Subnet is now added inside the VNet and associated with the NSG and the NSG rule.
 
@@ -112,34 +125,38 @@ The Subnet is now added inside the VNet and associated with the NSG and the NSG 
 
 Virtual network cards (VNics) are important as you can reuse them by connecting them to different VMs, which keeps the VNic as a static resource while the VMs can be temporary.  Create a VNic and associate it with the Subnet created in the previous step.
 
-    azure network nic create myVNic \
-    -g myResourceGroup \
-    -l chinanorth \
-    -m myVNet \
-    -k mySubNet
+```azurecli
+azure network nic create myVNic \
+-g myResourceGroup \
+-l chinanorth \
+-m myVNet \
+-k mySubNet
+```
 
 ## Deploy the VM into the VNet and NSG
 
 We now have a VNet, a subnet inside that VNet, and an NSG acting as a firewall to protect our subnet by blocking all inbound traffic except port 22 for SSH.  The VM can now be deployed inside this existing network infrastructure.
 
-Using the Azure CLI, and the `azure vm create` command, the Linux VM is deployed to the existing Azure Resource Group, VNet, Subnet, and VNic.  For more information on using the CLI to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](/documentation/articles/virtual-machines-linux-create-cli-complete/)
+Using the Azure CLI, and the `azure vm create` command, the Linux VM is deployed to the existing Azure Resource Group, VNet, Subnet, and VNic.  For more information on using the CLI to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](./virtual-machines-linux-create-cli-complete.md)
 
-    azure vm create myVM \
-    --resource-group myResourceGroup \
-    --location chinanorth \
-    --os-type linux \
-    --image-urn Debian \
-    --storage-account-name mystorageaccount \
-    --admin-username myAdminUser \
-    --ssh-publickey-file ~/.ssh/id_rsa.pub \
-    --vnet-name myVNet \
-    --vnet-subnet-name mySubnet \
-    --nic-name myVNic
+```azurecli
+azure vm create myVM \
+--resource-group myResourceGroup \
+--location chinanorth \
+--os-type linux \
+--image-urn Debian \
+--storage-account-name mystorageaccount \
+--admin-username myAdminUser \
+--ssh-publickey-file ~/.ssh/id_rsa.pub \
+--vnet-name myVNet \
+--vnet-subnet-name mySubnet \
+--nic-name myVNic
+```
 
 By using the CLI flags to call out existing resources, we instruct Azure to deploy the VM inside the existing network.  To reiterate, once a VNet and subnet have been deployed, they can be left as static or permanent resources inside your Azure region.  
 
 ## Next steps
 
-* [Use an Azure Resource Manager template to create a specific deployment](/documentation/articles/virtual-machines-linux-cli-deploy-templates/)
-* [Create your own custom environment for a Linux VM using Azure CLI commands directly](/documentation/articles/virtual-machines-linux-create-cli-complete/)
-* [Create a Linux VM on Azure using templates](/documentation/articles/virtual-machines-linux-create-ssh-secured-vm-from-template/)
+* [Use an Azure Resource Manager template to create a specific deployment](./virtual-machines-linux-cli-deploy-templates.md)
+* [Create your own custom environment for a Linux VM using Azure CLI commands directly](./virtual-machines-linux-create-cli-complete.md)
+* [Create a Linux VM on Azure using templates](./virtual-machines-linux-create-ssh-secured-vm-from-template.md)

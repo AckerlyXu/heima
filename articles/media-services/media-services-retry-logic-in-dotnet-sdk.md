@@ -1,21 +1,22 @@
-﻿<properties
-    pageTitle="Retry logic in the Media Services SDK for .NET | Azure"
-    description="The topic gives an overview of retry logic in the Media Services SDK for .NET."
-    author="Juliako"
-    manager="erikre"
-    editor=""
-    services="media-services"
-    documentationcenter="" />
-<tags
-    ms.assetid="527b61a6-c862-4bd8-bcbc-b9aea1ffdee3"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/25/2016"
-    wacn.date=""
-    ms.author="juliako" />
+﻿---
+title: Retry logic in the Media Services SDK for .NET | Azure
+description: The topic gives an overview of retry logic in the Media Services SDK for .NET.
+author: Juliako
+manager: erikre
+editor: ''
+services: media-services
+documentationcenter: ''
+
+ms.assetid: 527b61a6-c862-4bd8-bcbc-b9aea1ffdee3
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+wacn.date: ''
+ms.author: juliako
+---
 
 # Retry logic in the Media Services SDK for .NET
 When working with Azure services, transient faults can occur. If a transient fault occurs, in most cases, after a few retries the operation succeeds. The Media Services SDK for .NET implements the retry logic to handle transient faults associated with exceptions and errors that are caused by web requests, executing queries, saving changes, and storage operations.  By default, the Media Services SDK for .NET executes four retries before re-throwing the exception to your application. The code in your application must then handle this exception properly.  
@@ -26,7 +27,7 @@ When working with Azure services, transient faults can occur. If a transient fau
 * The Web Request policy is used for generic web requests (for example, for getting an authentication token and resolving the users cluster endpoint).  
 * The Query policy is used for querying entities from REST (for example, mediaContext.Assets.Where(…)).  
 * The SaveChanges policy is used for doing anything that changes data within the service (for example, creating an entity updating an entity, calling a service function for an operation).  
-  
+
   This topic lists exception types and error codes that are handled by the Media Services SDK for .NET retry logic.  
 
 ## Exception types
@@ -34,10 +35,10 @@ The following table describes exceptions that the Media Services SDK for .NET ha
 
 | Exception | Web Request | Storage | Query | SaveChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>For more information, see the [WebException status codes](/documentation/articles/media-services-retry-logic-in-dotnet-sdk/#WebExceptionStatus) section. |Yes |Yes |Yes |Yes |
-| DataServiceClientException<br/> For more information, see [HTTP error status codes](/documentation/articles/media-services-retry-logic-in-dotnet-sdk/#HTTPStatusCode). |No |Yes |Yes |Yes |
-| DataServiceQueryException<br/> For more information, see [HTTP error status codes](/documentation/articles/media-services-retry-logic-in-dotnet-sdk/#HTTPStatusCode). |No |Yes |Yes |Yes |
-| DataServiceRequestException<br/> For more information, see [HTTP error status codes](/documentation/articles/media-services-retry-logic-in-dotnet-sdk/#HTTPStatusCode). |No |Yes |Yes |Yes |
+| WebException<br/>For more information, see the [WebException status codes](./media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) section. |Yes |Yes |Yes |Yes |
+| DataServiceClientException<br/> For more information, see [HTTP error status codes](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
+| DataServiceQueryException<br/> For more information, see [HTTP error status codes](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
+| DataServiceRequestException<br/> For more information, see [HTTP error status codes](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |No |Yes |Yes |Yes |
 | DataServiceTransportException |No |No |Yes |Yes |
 | TimeoutException |Yes |Yes |Yes |No |
 | SocketException |Yes |Yes |Yes |Yes |
@@ -60,7 +61,7 @@ The following table shows for which WebException error codes the retry logic is 
 | ReceiveFailure |Yes |Yes |Yes |No |
 | RequestCanceled |Yes |Yes |Yes |No |
 | Timeout |Yes |Yes |Yes |No |
-| ProtocolError <br/>The retry on ProtocolError is controlled by the HTTP status code handling. For more information, see [HTTP error status codes](/documentation/articles/media-services-retry-logic-in-dotnet-sdk/#HTTPStatusCode). |Yes |Yes |Yes |Yes |
+| ProtocolError <br/>The retry on ProtocolError is controlled by the HTTP status code handling. For more information, see [HTTP error status codes](./media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Yes |Yes |Yes |Yes |
 
 ### <a name="HTTPStatusCode"></a> HTTP error status codes
 When Query and SaveChanges operations throw DataServiceClientException, DataServiceQueryException, or DataServiceQueryException, the HTTP error status code is returned in the StatusCode property.  The following table shows for which error codes the retry logic is implemented.  
@@ -77,6 +78,3 @@ When Query and SaveChanges operations throw DataServiceClientException, DataServ
 | 504 |Yes |Yes |Yes |No |
 
 If you want to take a look at the actual implementation of the Media Services SDK for .NET retry logic, see [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
-
-
-

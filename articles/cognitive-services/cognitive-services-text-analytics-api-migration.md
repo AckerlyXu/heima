@@ -1,22 +1,22 @@
-<properties
-	pageTitle="Upgrading to Version 2 of the Text Analytics API | Azure"
-	description="Azure Machine Learning Text Analytics - Upgrade to Version 2"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="onewth"
-	manager="paulettm"
-	editor="cgronlun"/>
+---
+title: Upgrading to Version 2 of the Text Analytics API | Azure
+description: Azure Machine Learning Text Analytics - Upgrade to Version 2
+services: cognitive-services
+documentationCenter: ''
+authors: onewth
+manager: paulettm
+editor: cgronlun
 
-<tags
-	ms.service="cognitive-services"
-	ms.date="07/05/2016"
-	wacn.date=""/>
+ms.service: cognitive-services
+ms.date: 07/05/2016
+wacn.date: ''
+---
 
 # Upgrading to Version 2 of the Text Analytics API #
 
 This guide will take you through the process of upgrading your code from using the [first version of the API](/documentation/articles/machine-learning-apps-text-analytics/) to using the second version. 
 
-If you have not used the API and would like to learn more, you can **[learn more about the API here](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)** or **[follow the Quick Start Guide](/documentation/articles/cognitive-services-text-analytics-quick-start/)**. For technical reference, refer to the **[API Definition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)**.
+If you have not used the API and would like to learn more, you can **[learn more about the API here](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)** or **[follow the Quick Start Guide](./cognitive-services-text-analytics-quick-start.md)**. For technical reference, refer to the **[API Definition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)**.
 
 ### Part 1. Get a new key ###
 
@@ -36,25 +36,32 @@ Update the submitted header values as shown below. Note that the account key is 
 
 **Version 1**
 
-    Authorization: Basic base64encode(<your Data Market account key>)
-    Accept: application/json
+```
+Authorization: Basic base64encode(<your Data Market account key>)
+Accept: application/json
+```
 
 **Version 2**
 
-    Content-Type: application/json
-    Accept: application/json
-    Ocp-Apim-Subscription-Key: <your Azure Portal account key>
-
+```
+Content-Type: application/json
+Accept: application/json
+Ocp-Apim-Subscription-Key: <your Azure Portal account key>
+```
 
 ### Part 3. Update the base URL ###
 
 **Version 1**
 
-    https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/
+```
+https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/
+```
 
 **Version 2**
 
-    https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/
+```
+https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/
+```
 
 ### Part 4a. Update the formats for sentiment, key phrases and languages ###
 
@@ -75,119 +82,133 @@ Note that only POST format is now accepted, so you should reformat any input whi
 
 **Version 1 (batch)**
 
+```
+{
+  "Inputs": [
     {
-      "Inputs": [
-        {
-          "Id": "string",
-          "Text": "string"
-        }
-      ]
+      "Id": "string",
+      "Text": "string"
     }
+  ]
+}
+```
 
 **Version 2**
 
+```
+{
+  "documents": [
     {
-      "documents": [
-        {
-          "id": "string",
-          "text": "string"
-        }
-      ]
+      "id": "string",
+      "text": "string"
     }
+  ]
+}
+```
 
 #### Output from sentiment ####
 
 **Version 1**
 
-    {
-      "SentimentBatch":[{
-        "Id":"string",
-        "Score":"double"
-      }],
-      "Errors" : [{
-        "Id":"string",
-        "Message":"string"
-      }]
-    }
+```
+{
+  "SentimentBatch":[{
+    "Id":"string",
+    "Score":"double"
+  }],
+  "Errors" : [{
+    "Id":"string",
+    "Message":"string"
+  }]
+}
+```
 
 **Version 2**
 
-    {
-      "documents":[{
-        "id":"string",
-        "score":"double"
-      }],
-      "errors" : [{
-        "id":"string",
-        "message":"string"
-      }]
-    }
+```
+{
+  "documents":[{
+    "id":"string",
+    "score":"double"
+  }],
+  "errors" : [{
+    "id":"string",
+    "message":"string"
+  }]
+}
+```
 
 #### Output from key phrases ####
 
 **Version 1**
 
-    {
-      "KeyPhrasesBatch":[{
-        "Id":"string",
-        "KeyPhrases":["string"]
-      }],
-      "Errors" : [{
-        "Id":"string",
-        "Message":"string"
-      }]
-    }
+```
+{
+  "KeyPhrasesBatch":[{
+    "Id":"string",
+    "KeyPhrases":["string"]
+  }],
+  "Errors" : [{
+    "Id":"string",
+    "Message":"string"
+  }]
+}
+```
 
 **Version 2**
 
-    {
-      "documents":[{
-        "id":"string",
-        "keyPhrases":["string"]
-      }],
-      "errors" : [{
-        "id":"string",
-        "message":"string"
-      }]
-    }
+```
+{
+  "documents":[{
+    "id":"string",
+    "keyPhrases":["string"]
+  }],
+  "errors" : [{
+    "id":"string",
+    "message":"string"
+  }]
+}
+```
 
 #### Output from languages ####
 
-
 **Version 1**
 
-    {
-      "LanguageBatch":[{
-        "id":"string",
-        "detectedLanguages": [{
-          "Score":"double"
-          "Name":"string",
-          "Iso6391Name":"string"
-        }]
-      }],
-      "Errors" : [{
-        "Id":"string",
-        "Message":"string"
-      }]
-    }
+```
+{
+  "LanguageBatch":[{
+    "id":"string",
+    "detectedLanguages": [{
+      "Score":"double"
+      "Name":"string",
+      "Iso6391Name":"string"
+    }]
+  }],
+  "Errors" : [{
+    "Id":"string",
+    "Message":"string"
+  }]
+}
+```
 
 **Version 2**
 
-    {
-      "documents":[{
-        "id":"string",
-        "detectedLanguages": [{
-          "score":"double"
-          "name":"string",
-          "iso6391Name":"string"
-        }]
-      }],
-      "errors" : [{
-        "id":"string",
-        "message":"string"
-      }]
-    }
-
+```
+{
+  "documents":[{
+    "id":"string",
+    "detectedLanguages": [{
+      "score":"double"
+      "name":"string",
+      "iso6391Name":"string"
+    }]
+  }],
+  "errors" : [{
+    "id":"string",
+    "message":"string"
+  }]
+}
+```
 
 ### Part 4b. Update the formats for topics ###
 
@@ -202,37 +223,41 @@ Note that only POST format is now accepted, so you should reformat any input whi
 
 **Version 1**
 
+```
+{
+  "StopWords": [
+    "string"
+  ],
+  "StopPhrases": [
+    "string"
+  ], 
+  "Inputs": [
     {
-      "StopWords": [
-        "string"
-      ],
-      "StopPhrases": [
-        "string"
-      ], 
-      "Inputs": [
-        {
-          "Id": "string",
-          "Text": "string"
-        }
-      ]
+      "Id": "string",
+      "Text": "string"
     }
+  ]
+}
+```
 
 **Version 2**
 
+```
+{
+  "stopWords": [
+    "string"
+  ],
+  "stopPhrases": [
+    "string"
+  ],
+  "documents": [
     {
-      "stopWords": [
-        "string"
-      ],
-      "stopPhrases": [
-        "string"
-      ],
-      "documents": [
-        {
-          "id": "string",
-          "text": "string"
-        }
-      ]
+      "id": "string",
+      "text": "string"
     }
+  ]
+}
+```
 
 #### Submission results ####
 
@@ -240,37 +265,43 @@ Note that only POST format is now accepted, so you should reformat any input whi
 
 Previously, when the job finished, you would receive the following JSON output, where the jobId would be appended to a URL to fetch the output.
 
-    {
-        "odata.metadata":"<url>",
-        "JobId":"<JobId>"
-    }
+```
+{
+    "odata.metadata":"<url>",
+    "JobId":"<JobId>"
+}
+```
 
 **Version 2 (POST)**
 
 The response will now include a header value as follows, where `operation-location` is used as the endpoint to poll for the results:
 
-    'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
+```
+'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
+```
 
 #### Operation results ####
 
 **Version 1 (GET)**
 
-    {
-      "TopicInfo" : [{
-        "TopicId" : "string"
-        "Score" : "double"
-        "KeyPhrase" : "string"
-      }],
-      "TopicAssignment" : [{
-        "Id" : "string",
-        "TopicId" : "string",
-        "Distance" : "double"
-      }],
-      "Errors" : [{
-        "Id":"string",
-        "Message":"string"
-      }]
-    }
+```
+{
+  "TopicInfo" : [{
+    "TopicId" : "string"
+    "Score" : "double"
+    "KeyPhrase" : "string"
+  }],
+  "TopicAssignment" : [{
+    "Id" : "string",
+    "TopicId" : "string",
+    "Distance" : "double"
+  }],
+  "Errors" : [{
+    "Id":"string",
+    "Message":"string"
+  }]
+}
+```
 
 **Version 2 (GET)**
 
@@ -278,27 +309,29 @@ As before, **periodically poll the output** (the suggested period is every minut
 
 When the topics API has finished, a status reading `succeeded` will be returned. This will then include the output results in the format shown below:
 
-    {
-        "status": "succeeded",
-        "createdDateTime": "string",
-        "operationType": "topics",
-        "processingResult": {
-            "topics" : [{
-            "id" : "string"
-            "score" : "double"
-            "keyPhrase" : "string"
-          }],
-          "topicAssignments" : [{
-            "topicId" : "string",
-            "documentId" : "string",
-            "distance" : "double"
-          }],
-          "errors" : [{
-              "id":"string",
-              "message":"string"
-          }]
-        }
+```
+{
+    "status": "succeeded",
+    "createdDateTime": "string",
+    "operationType": "topics",
+    "processingResult": {
+        "topics" : [{
+        "id" : "string"
+        "score" : "double"
+        "keyPhrase" : "string"
+      }],
+      "topicAssignments" : [{
+        "topicId" : "string",
+        "documentId" : "string",
+        "distance" : "double"
+      }],
+      "errors" : [{
+          "id":"string",
+          "message":"string"
+      }]
     }
+}
+```
 
 ### Part 5. Test it! ###
 

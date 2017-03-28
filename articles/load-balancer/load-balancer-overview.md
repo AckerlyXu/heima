@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Load Balancer overview | Azure"
-    description="Overview of Azure Load Balancer features, architecture, and implementation. Learn how the load balancer works and leverage it in the cloud."
-    services="load-balancer"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="0f313dc0-f007-4cee-b2b9-f542357925a3"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/24/2016"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Azure Load Balancer overview | Azure
+description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the load balancer works and leverage it in the cloud.
+services: load-balancer
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: ''
+
+ms.assetid: 0f313dc0-f007-4cee-b2b9-f542357925a3
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/24/2016
+wacn.date: ''
+ms.author: kumud
+---
 
 # Azure Load Balancer overview
 
@@ -23,15 +24,15 @@ Azure Load Balancer delivers high availability and network performance to your a
 
 Azure Load Balancer can be configured to:
 
-* Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](/documentation/articles/load-balancer-internet-overview/).
-* Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](/documentation/articles/load-balancer-internal-overview/).
+* Load balance incoming Internet traffic to virtual machines. This configuration is known as [Internet-facing load balancing](./load-balancer-internet-overview.md).
+* Load balance traffic between virtual machines in a virtual network, between virtual machines in cloud services, or between on-premises computers and virtual machines in a cross-premises virtual network. This configuration is known as [internal load balancing](./load-balancer-internal-overview.md).
 * Forward external traffic to a specific virtual machine.
 
 All resources in the cloud need a public IP address to be reachable from the Internet. The cloud infrastructure in Azure uses non-routable IP addresses for its resources. Azure uses network address translation (NAT) with public IP addresses to communicate to the Internet.
 
 ## Azure deployment models
 
-It's important to understand the differences between the Azure classic and Resource Manager [deployment models](/documentation/articles/resource-manager-deployment-model/). Azure Load Balancer is configured differently in each model.
+It's important to understand the differences between the Azure classic and Resource Manager [deployment models](../azure-resource-manager/resource-manager-deployment-model.md). Azure Load Balancer is configured differently in each model.
 
 ### Azure classic deployment model
 
@@ -59,7 +60,7 @@ The following graphic shows the Azure Load Balancer in this model:
 
 Figure 2 - Azure Load Balancer in Resource Manager
 
-The load balancer can be managed through Resource Manager-based templates, APIs, and tools. To learn more about Resource Manager, see the [Resource Manager overview](/documentation/articles/resource-group-overview/).
+The load balancer can be managed through Resource Manager-based templates, APIs, and tools. To learn more about Resource Manager, see the [Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="load-balancer-features"></a> Load Balancer features
 
@@ -67,7 +68,7 @@ The load balancer can be managed through Resource Manager-based templates, APIs,
 
     Azure Load Balancer uses a hash-based distribution algorithm. By default, it uses a 5-tuple hash composed of source IP, source port, destination IP, destination port, and protocol type to map traffic to available servers. It provides stickiness only *within* a transport session. Packets in the same TCP or UDP session will be directed to the same instance behind the load-balanced endpoint. When the client closes and reopens the connection or starts a new session from the same source IP, the source port changes. This may cause the traffic to go to a different endpoint in a different datacenter.
 
-    For more details, see [Load balancer distribution mode](/documentation/articles/load-balancer-distribution-mode/). The following graphic shows the hash-based distribution:
+    For more details, see [Load balancer distribution mode](./load-balancer-distribution-mode.md). The following graphic shows the hash-based distribution:
 
     ![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
 
@@ -106,19 +107,19 @@ The load balancer can be managed through Resource Manager-based templates, APIs,
 
     The load balancer configuration supports full cone NAT for UDP. Full cone NAT is a type of NAT where the port allows inbound connections from any external host (in response to an outbound request).
 
-    For each new outbound connection that a virtual machine initiates, an outbound port is also allocated by the load balancer. The external host sees traffic with a virtual IP (VIP)-allocated port. For scenarios that require a large number of outbound connections, it is recommended to use [instance-level public IP](/documentation/articles/virtual-networks-instance-level-public-ip/) addresses so that the VMs have a dedicated outbound IP address for SNAT. This reduces the risk of port exhaustion.
+    For each new outbound connection that a virtual machine initiates, an outbound port is also allocated by the load balancer. The external host sees traffic with a virtual IP (VIP)-allocated port. For scenarios that require a large number of outbound connections, it is recommended to use [instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) addresses so that the VMs have a dedicated outbound IP address for SNAT. This reduces the risk of port exhaustion.
 
     The maximum number of ports that can be used by the VIP or an instance-level public IP (PIP) is 64,000. This is a TCP standard limitation.
 
 ### Support for multiple load-balanced IP addresses for virtual machines
-You can assign more than one load-balanced public IP address to a set of virtual machines. With this ability, you can host multiple SSL websites and/or multiple SQL Server AlwaysOn Availability Group listeners on the same set of virtual machines. For more information, see [Multiple VIPs per cloud service](/documentation/articles/load-balancer-multivip/).
+You can assign more than one load-balanced public IP address to a set of virtual machines. With this ability, you can host multiple SSL websites and/or multiple SQL Server AlwaysOn Availability Group listeners on the same set of virtual machines. For more information, see [Multiple VIPs per cloud service](./load-balancer-multivip.md).
 
-[AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
+[!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## Next steps
 
-[Internet-facing load balancer overview](/documentation/articles/load-balancer-internet-overview/)
+[Internet-facing load balancer overview](./load-balancer-internet-overview.md)
 
-[Internal load balancer overview](/documentation/articles/load-balancer-internal-overview/)
+[Internal load balancer overview](./load-balancer-internal-overview.md)
 
-[Get started creating an Internet-facing load balancer](/documentation/articles/load-balancer-get-started-internet-arm-ps/)
+[Get started creating an Internet-facing load balancer](./load-balancer-get-started-internet-arm-ps.md)

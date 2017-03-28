@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Advanced Application Upgrade Topics | Azure"
-    description="This article covers some advanced topics pertaining to upgrading a Service Fabric application."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="mani-ramaswamy"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="e29585ff-e96f-46f4-a07f-6682bbe63281"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/02/2017"
-    wacn.date=""
-    ms.author="subramar;chackdan" />
+---
+title: Advanced Application Upgrade Topics | Azure
+description: This article covers some advanced topics pertaining to upgrading a Service Fabric application.
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: timlt
+editor: ''
+
+ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/02/2017
+wacn.date: ''
+ms.author: subramar;chackdan
+---
 
 # Service Fabric application upgrade: advanced topics
 ## Adding or removing services during an application upgrade
@@ -25,7 +26,8 @@ Services can also be removed from an application as part of an upgrade. However,
 
 ## Manual upgrade mode
 
-> [AZURE.NOTE]  The unmonitored manual mode should be considered only for a failed or suspended upgrade. The monitored mode is the recommended upgrade mode for Service Fabric applications.
+> [!NOTE]
+>  The unmonitored manual mode should be considered only for a failed or suspended upgrade. The monitored mode is the recommended upgrade mode for Service Fabric applications.
 
 Azure Service Fabric provides multiple upgrade modes to support development and production clusters. Deployment options chosen may be different for different environments.
 
@@ -87,13 +89,12 @@ app1/
 
 ## Next steps
 
-[Upgrading your Application Using Visual Studio](/documentation/articles/service-fabric-application-upgrade-tutorial/) walks you through an application upgrade using Visual Studio.
+[Upgrading your Application Using Visual Studio](./service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Upgrading your Application Using Powershell](/documentation/articles/service-fabric-application-upgrade-tutorial-powershell/) walks you through an application upgrade using PowerShell.
+[Upgrading your Application Using Powershell](./service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
-Control how your application upgrades by using [Upgrade Parameters](/documentation/articles/service-fabric-application-upgrade-parameters/).
+Control how your application upgrades by using [Upgrade Parameters](./service-fabric-application-upgrade-parameters.md).
 
-Make your application upgrades compatible by learning how to use [Data Serialization](/documentation/articles/service-fabric-application-upgrade-data-serialization/).
+Make your application upgrades compatible by learning how to use [Data Serialization](./service-fabric-application-upgrade-data-serialization.md).
 
-Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](/documentation/articles/service-fabric-application-upgrade-troubleshooting/).
- 
+Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](./service-fabric-application-upgrade-troubleshooting.md).

@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Export the DocumentDB Emulator Certificates | Azure"
-    description="When developing in languages and runtimes that do not use the Windows Certificate Store you will need to export and manage the SSL certificates. This post gives step by step instructions."
-    services="documentdb"
-    documentationcenter=""
-    keywords="DocumentDB Emulator"
-    author="voellm"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="ef43deda-c2e9-4193-99e2-7f6a88a0319f"
-    ms.service="documentdb"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/22/2017"
-    wacn.date=""
-    ms.author="tvoellm" />
+---
+title: Export the DocumentDB Emulator Certificates | Azure
+description: When developing in languages and runtimes that do not use the Windows Certificate Store you will need to export and manage the SSL certificates. This post gives step by step instructions.
+services: documentdb
+documentationcenter: ''
+keywords: DocumentDB Emulator
+author: voellm
+manager: jhubbard
+editor: ''
+
+ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
+ms.service: documentdb
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/22/2017
+wacn.date: ''
+ms.author: tvoellm
+---
 
 # Export the DocumentDB Emulator Certificates
 
 [**Download the Emulator**](https://aka.ms/documentdb-emulator)
 
-The Azure DocumentDB Emulator provides a local environment that emulates the Azure DocumentDB service for development purposes including its use of SSL connections. This post demonstrates how to export the SSL certificates for use in languages and runtimes that do not integrate with the Windows Certificate Store such as Java which uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) and Python which uses [socket wrappers](https://docs.python.org/2/library/ssl.html) and Node.js which uses [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). You can read more about the emulator in [Use the Azure DocumentDB Emulator for development and testing](/documentation/articles/documentdb-nosql-local-emulator/).
+The Azure DocumentDB Emulator provides a local environment that emulates the Azure DocumentDB service for development purposes including its use of SSL connections. This post demonstrates how to export the SSL certificates for use in languages and runtimes that do not integrate with the Windows Certificate Store such as Java which uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) and Python which uses [socket wrappers](https://docs.python.org/2/library/ssl.html) and Node.js which uses [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). You can read more about the emulator in [Use the Azure DocumentDB Emulator for development and testing](./documentdb-nosql-local-emulator.md).
 
 ## Certification rotation
 
@@ -76,12 +77,12 @@ Once the "DocumentDBEmulatorCertificate" SSL certificate is installed your appli
 
 ## How to use the certificate in Python
 
-By default the [Python SDK(version 2.0.0 or higher)](/documentation/articles/documentdb-sdk-python/) for DocumentDB will not try and use the SSL certificate when connecting to the local emulator. If however you want to use SSL validation you can follow the examples in the [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentation.
+By default the [Python SDK(version 2.0.0 or higher)](./documentdb-sdk-python.md) for DocumentDB will not try and use the SSL certificate when connecting to the local emulator. If however you want to use SSL validation you can follow the examples in the [Python socket wrappers](https://docs.python.org/2/library/ssl.html) documentation.
 
 ## How to use the certificate in Node.js
 
-By default the [Node.js SDK(version 1.10.1 or higher)](/documentation/articles/documentdb-sdk-node/) for DocumentDB will not try and use the SSL certificate when connecting to the local emulator. If however you want to use SSL validation you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+By default the [Node.js SDK(version 1.10.1 or higher)](./documentdb-sdk-node.md) for DocumentDB will not try and use the SSL certificate when connecting to the local emulator. If however you want to use SSL validation you can follow the examples in the [Node.js documentation](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## Next steps
-- To learn more about DocumentDB, see [Introduction to Azure DocumentDB](/documentation/articles/documentdb-introduction/)
-- To start developing against the DocumentDB Emulator, download one of the [supported DocumentDB SDKs](/documentation/articles/documentdb-sdk-dotnet/).
+- To learn more about DocumentDB, see [Introduction to Azure DocumentDB](./documentdb-introduction.md)
+- To start developing against the DocumentDB Emulator, download one of the [supported DocumentDB SDKs](./documentdb-sdk-dotnet.md).

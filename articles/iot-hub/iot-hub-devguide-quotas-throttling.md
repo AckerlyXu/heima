@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understand Azure IoT Hub quotas and throttling | Azure"
-    description="Developer guide - description of the quotas that apply to IoT Hub and the expected throttling behavior."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="425e1b08-8789-4377-85f7-c13131fae4ce"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Understand Azure IoT Hub quotas and throttling | Azure
+description: Developer guide - description of the quotas that apply to IoT Hub and the expected throttling behavior.
+services: iot-hub
+documentationcenter: .net
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 425e1b08-8789-4377-85f7-c13131fae4ce
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Reference - IoT Hub quotas and throttling
 
@@ -51,9 +52,11 @@ For example, if you buy a single S1 unit, you get a throttle of 100 connections 
 
 For an in-depth discussion of IoT Hub throttling behavior, see the blog post [IoT Hub throttling and you][lnk-throttle-blog].
 
->[AZURE.NOTE] At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
+>[!NOTE]
+> At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 
->[AZURE.IMPORTANT] Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs][lnk-importexport].
+>[!IMPORTANT]
+> Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs][lnk-importexport].
 
 ## Other limits
 
@@ -66,7 +69,7 @@ IoT Hub enforces other limits on its different functionalities.
 | Additional endpoints | Paid SKU hubs may have 10 additional endpoints. Free SKU hubs may have one additional endpoint. |
 | Message routing rules | Paid SKU hubs may have 100 routing rules. Free SKU hubs may have five routing rules. |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Currently, the maximum number of devices you can connect to a single IoT hub is 500,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
 
 ## Next steps
@@ -77,10 +80,10 @@ Other reference topics in this IoT Hub developer guide include:
 - [IoT Hub query language for device twins and jobs][lnk-devguide-query]
 - [IoT Hub MQTT support][lnk-devguide-mqtt]
 
-[lnk-pricing]: /pricing/details/iot-hub
+[lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
-[lnk-importexport]: /documentation/articles/iot-hub-devguide-identity-registry/#import-and-export-device-identities
+[lnk-importexport]: ./iot-hub-devguide-identity-registry.md#import-and-export-device-identities
 
-[lnk-devguide-endpoints]: /documentation/articles/iot-hub-devguide-endpoints/
-[lnk-devguide-query]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-devguide-mqtt]: /documentation/articles/iot-hub-mqtt-support/
+[lnk-devguide-endpoints]: ./iot-hub-devguide-endpoints.md
+[lnk-devguide-query]: ./iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md

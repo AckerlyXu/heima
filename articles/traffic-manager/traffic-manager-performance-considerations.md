@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Performance considerations for Azure Traffic Manager | Azure"
-    description="Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager"
-    services="traffic-manager"
-    documentationcenter=""
-    author="kumudd"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="3ba5dfa1-2922-43f1-9a23-d06969c4a516"
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/16/2017"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Performance considerations for Azure Traffic Manager | Azure
+description: Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager
+services: traffic-manager
+documentationcenter: ''
+author: kumudd
+manager: timlt
+editor: ''
+
+ms.assetid: 3ba5dfa1-2922-43f1-9a23-d06969c4a516
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/16/2017
+wacn.date: ''
+ms.author: kumud
+---
 
 # Performance considerations for Traffic Manager
 
@@ -75,9 +76,9 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 ## Next Steps
 
-[About Traffic Manager traffic routing methods](/documentation/articles/traffic-manager-routing-methods/)
+[About Traffic Manager traffic routing methods](./traffic-manager-routing-methods.md)
 
-[Test your Traffic Manager settings](/documentation/articles/traffic-manager-testing-settings/)
+[Test your Traffic Manager settings](./traffic-manager-testing-settings.md)
 
 [Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/zh-cn/library/hh758255.aspx)
 

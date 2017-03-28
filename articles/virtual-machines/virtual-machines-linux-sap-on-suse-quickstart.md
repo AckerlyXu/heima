@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Testing SAP NetWeaver on Azure SUSE Linux VMs | Azure"
-    description="Testing SAP NetWeaver on Azure SUSE Linux VMs"
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="hermanndms"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"
-    keywords="" />
-<tags
-    ms.assetid="645e358b-3ca1-4d3d-bf70-b0f287498d7a"
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="hermannd" />
+---
+title: Testing SAP NetWeaver on Azure SUSE Linux VMs | Azure
+description: Testing SAP NetWeaver on Azure SUSE Linux VMs
+services: virtual-machines-linux
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
+
+ms.assetid: 645e358b-3ca1-4d3d-bf70-b0f287498d7a
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: hermannd
+---
 
 # Running SAP NetWeaver on Azure SUSE Linux VMs
 This article describes various things to consider when you're running SAP NetWeaver on Azure SUSE Linux virtual machines (VMs). As of May 19 2016 SAP NetWeaver is officially supported on SUSE Linux VMs on Azure. All details regarding Linux versions, 
@@ -35,33 +36,41 @@ While it's still possible to use the standard SLES images for SAP installations 
 
 * Look for existing publishers, including SUSE:
 
-        PS  : Get-AzureRmVMImagePublisher -Location "China North"  | where-object { $_.publishername -like "*US*"  }
-        CLI : azure vm image list-publishers chinanorth | grep "US"
+    ```
+    PS  : Get-AzureRmVMImagePublisher -Location "China North"  | where-object { $_.publishername -like "*US*"  }
+    CLI : azure vm image list-publishers chinanorth | grep "US"
+    ```
 
 * Look for existing offerings from SUSE:
 
-        PS  : Get-AzureRmVMImageOffer -Location "China North" -Publisher "SUSE"
-        CLI : azure vm image list-offers chinanorth SUSE
+    ```
+    PS  : Get-AzureRmVMImageOffer -Location "China North" -Publisher "SUSE"
+    CLI : azure vm image list-offers chinanorth SUSE
+    ```
 
 * Look for SUSE SLES offerings:
 
-        PS  : Get-AzureRmVMImageSku -Location "China North" -Publisher "SUSE" -Offer "SLES"
-        PS  : Get-AzureRmVMImageSku -Location "China North" -Publisher "SUSE" -Offer "SLES-SAP"
-        CLI : azure vm image list-skus chinanorth SUSE SLES
-        CLI : azure vm image list-skus chinanorth SUSE SLES-SAP
+    ```
+    PS  : Get-AzureRmVMImageSku -Location "China North" -Publisher "SUSE" -Offer "SLES"
+    PS  : Get-AzureRmVMImageSku -Location "China North" -Publisher "SUSE" -Offer "SLES-SAP"
+    CLI : azure vm image list-skus chinanorth SUSE SLES
+    CLI : azure vm image list-skus chinanorth SUSE SLES-SAP
+    ```
 
 * Look for a specific version of a SLES SKU:
 
-        PS  : Get-AzureRmVMImage -Location "China North" -Publisher "SUSE" -Offer "SLES" -skus "12-SP2"
-        PS  : Get-AzureRmVMImage -Location "China North" -Publisher "SUSE" -Offer "SLES-SAP" -skus "12-SP2"
-        CLI : azure vm image list chinanorth SUSE SLES 12-SP2
-        CLI : azure vm image list chinanorth SUSE SLES-SAP 12-SP2
+    ```
+    PS  : Get-AzureRmVMImage -Location "China North" -Publisher "SUSE" -Offer "SLES" -skus "12-SP2"
+    PS  : Get-AzureRmVMImage -Location "China North" -Publisher "SUSE" -Offer "SLES-SAP" -skus "12-SP2"
+    CLI : azure vm image list chinanorth SUSE SLES 12-SP2
+    CLI : azure vm image list chinanorth SUSE SLES-SAP 12-SP2
+    ```
 
 ## Installing WALinuxAgent in a SUSE VM
 The agent called WALinuxAgent is part of the SLES images in the Azure Marketplace. For information about installing it manually (for example, when uploading a SLES OS virtual hard disk (VHD) from on-premises), see:
 
 * [OpenSUSE](http://software.opensuse.org/package/WALinuxAgent)
-* [Azure](/documentation/articles/virtual-machines-linux-endorsed-distros/)
+* [Azure](./virtual-machines-linux-endorsed-distros.md)
 * [SUSE](https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
 ## SAP "enhanced monitoring"
@@ -90,7 +99,7 @@ There are two ways to avoid this:
 * Don't attach the damaged OS disk from another VM by using UUID--use something else.
 
 ## Uploading a SUSE VM from on-premises to Azure
-For a description of the steps to upload a SUSE VM from on-premises to Azure, see [Prepare a SLES or openSUSE virtual machine for Azure](/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/).
+For a description of the steps to upload a SUSE VM from on-premises to Azure, see [Prepare a SLES or openSUSE virtual machine for Azure](./virtual-machines-linux-suse-create-upload-vhd.md).
 
 If you want to upload a VM without the deprovision step at the end (for example, to keep an existing SAP installation, as well as the host name), check the following items:
 
@@ -99,7 +108,9 @@ If you want to upload a VM without the deprovision step at the end (for example,
 
 In addition to what's described in the article, we recommend that you remove this:
 
-    /lib/udev/rules.d/75-persistent-net-generator.rules
+```
+/lib/udev/rules.d/75-persistent-net-generator.rules
+```
 
 You can also install the Azure Linux Agent (waagent) to help you avoid potential issues, as long as there are not multiple NICs.
 
@@ -107,11 +118,13 @@ You can also install the Azure Linux Agent (waagent) to help you avoid potential
 You should create new SUSE VMs by using JSON template files in the new Azure Resource Manager model. After the JSON template
 file is created, you can deploy the VM by using the following CLI command as an alternative to PowerShell:
 
-       azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
+```
+   azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
+```
 
-For more details about JSON template files, see [Authoring Azure Resource Manager templates](/documentation/articles/resource-group-authoring-templates/) and [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/).
+For more details about JSON template files, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) and [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/).
 
-For more details about CLI and Azure Resource Manager, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](/documentation/articles/xplat-cli-azure-resource-manager/).
+For more details about CLI and Azure Resource Manager, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../azure-resource-manager/xplat-cli-azure-resource-manager.md).
 
 ## SAP license and hardware key
 For the official SAP-Azure certification, a new mechanism was introduced to calculate the SAP hardware key that's used for the SAP license. The SAP kernel had to be adapted to make use
@@ -131,25 +144,31 @@ Tuning Systems for SAP Workloads with tuned-adm - can be found [here](https://ww
 If you have a distributed installation--for example, where you want to install the database and the SAP application servers in separate VMs--you can share the /sapmnt directory via Network File System (NFS). If you have problems with the installation steps after you create the NFS share for /sapmnt, check to see if "no_root_squash" is set for the share.
 
 ## Logical volumes
-In the past if one needed a large logical volume across multiple Azure data disks (for example, for the SAP database), it was recommended to use mdadm as lvm wasn't fully validated yet on Azure. To learn how to set up Linux RAID on Azure by using mdadm, see [Configure software RAID on Linux](/documentation/articles/virtual-machines-linux-configure-raid/). In the meantime as of beginning of May 2016 also lvm is fully supported on Azure and can be used as an alternative to mdadm. For additional information regarding lvm on Azure see
-[Configure LVM on a Linux VM in Azure](/documentation/articles/virtual-machines-linux-configure-lvm/).
+In the past if one needed a large logical volume across multiple Azure data disks (for example, for the SAP database), it was recommended to use mdadm as lvm wasn't fully validated yet on Azure. To learn how to set up Linux RAID on Azure by using mdadm, see [Configure software RAID on Linux](./virtual-machines-linux-configure-raid.md). In the meantime as of beginning of May 2016 also lvm is fully supported on Azure and can be used as an alternative to mdadm. For additional information regarding lvm on Azure see
+[Configure LVM on a Linux VM in Azure](./virtual-machines-linux-configure-lvm.md).
 
 ## Azure SUSE repository
 If you have an issue with access to the standard Azure SUSE repository, you can use a simple command to reset it. This might happen if you create a private OS image in an Azure
 region and then copy the image to a different region where you want to deploy new VMs that are based on this private OS image. Just run the following command inside the VM:
 
-       service guestregister restart
+```
+   service guestregister restart
+```
 
 ## Gnome desktop
 If you want to use the Gnome desktop to install a complete SAP demo system inside a single VM--including a SAP GUI, browser, and SAP management console--use this hint to install it on the Azure SLES images:
 
 For SLES 11:
 
-    zypper in -t pattern gnome
+```
+zypper in -t pattern gnome
+```
 
 For SLES 12:
 
-    zypper in -t pattern gnome-basic
+```
+zypper in -t pattern gnome-basic
+```
 
 ## SAP support for Oracle on Linux in the cloud
 There is a support restriction from Oracle on Linux in virtualized environments. Although this is not an Azure-specific topic, it's important to understand. SAP does not support Oracle on SUSE or Red Hat in a public cloud like Azure. To discuss this topic, contact Oracle directly.

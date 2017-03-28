@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Developer guide for Azure IoT Hub | Azure"
-    description="The Azure IoT Hub developer guide includes discussions of endpoints, security, the identity registry, device management, direct methods, device twins, file uploads, jobs, the IoT Hub query language, and messaging."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="d534ff9d-2de5-4995-bb2d-84a02693cb2e"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Developer guide for Azure IoT Hub | Azure
+description: The Azure IoT Hub developer guide includes discussions of endpoints, security, the identity registry, device management, direct methods, device twins, file uploads, jobs, the IoT Hub query language, and messaging.
+services: iot-hub
+documentationcenter: .net
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: d534ff9d-2de5-4995-bb2d-84a02693cb2e
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Azure IoT Hub developer guide
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end.
@@ -46,22 +47,19 @@ This IoT Hub developer guide includes the following articles:
 * [Reference - IoT Hub MQTT support][devguide-mqtt] provides detailed information about how IoT Hub supports the MQTT protocol. The article describes the support for the MQTT protocol built-in to the Azure IoT SDKs and provides information about using the MQTT protocol directly.
 * [Glossary][devguide-glossary] a list of common IoT Hub-related terms.
 
-
-
-[devguide-messaging]: /documentation/articles/iot-hub-devguide-messaging/
-[devguide-upload]: /documentation/articles/iot-hub-devguide-file-upload/
-[devguide-identities]: /documentation/articles/iot-hub-devguide-identity-registry/
-[devguide-security]: /documentation/articles/iot-hub-devguide-security/
-[devguide-device-twins]: /documentation/articles/iot-hub-devguide-device-twins/
-[devguide-directmethods]: /documentation/articles/iot-hub-devguide-direct-methods/
-[devguide-jobs]: /documentation/articles/iot-hub-devguide-jobs/
-[devguide-endpoints]: /documentation/articles/iot-hub-devguide-endpoints/
-[devguide-quotas]: /documentation/articles/iot-hub-devguide-quotas-throttling/
-[devguide-query]: /documentation/articles/iot-hub-devguide-query-language/
-[devguide-sdks]: /documentation/articles/iot-hub-devguide-sdks/
-[devguide-mqtt]: /documentation/articles/iot-hub-mqtt-support/
-[devguide-glossary]: /documentation/articles/iot-hub-devguide-glossary/
-[devguide-pricing]: /documentation/articles/iot-hub-devguide-pricing/
-[lnk-c2d-guidance]: /documentation/articles/iot-hub-devguide-c2d-guidance/
-[lnk-d2c-guidance]: /documentation/articles/iot-hub-devguide-d2c-guidance/
-
+[devguide-messaging]: ./iot-hub-devguide-messaging.md
+[devguide-upload]: ./iot-hub-devguide-file-upload.md
+[devguide-identities]: ./iot-hub-devguide-identity-registry.md
+[devguide-security]: ./iot-hub-devguide-security.md
+[devguide-device-twins]: ./iot-hub-devguide-device-twins.md
+[devguide-directmethods]: ./iot-hub-devguide-direct-methods.md
+[devguide-jobs]: ./iot-hub-devguide-jobs.md
+[devguide-endpoints]: ./iot-hub-devguide-endpoints.md
+[devguide-quotas]: ./iot-hub-devguide-quotas-throttling.md
+[devguide-query]: ./iot-hub-devguide-query-language.md
+[devguide-sdks]: ./iot-hub-devguide-sdks.md
+[devguide-mqtt]: ./iot-hub-mqtt-support.md
+[devguide-glossary]: ./iot-hub-devguide-glossary.md
+[devguide-pricing]: ./iot-hub-devguide-pricing.md
+[lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md
+[lnk-d2c-guidance]: ./iot-hub-devguide-d2c-guidance.md

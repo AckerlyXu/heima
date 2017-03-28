@@ -1,32 +1,33 @@
-<properties
-    pageTitle="Archive cold data to Azure - Stretch Database | Azure"
-    description="Learn how Stretch Database migrates your cold data transparently and securely to the Azure cloud."
-    services="sql-server-stretch-database"
-    documentationcenter=""
-    author="douglaslMS"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="c360dc10-a02b-446f-91a0-278358f7a297"
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="06/27/2016"
-    wacn.date=""
-    ms.author="douglasl" />
+---
+title: Archive cold data to Azure - Stretch Database | Azure
+description: Learn how Stretch Database migrates your cold data transparently and securely to the Azure cloud.
+services: sql-server-stretch-database
+documentationcenter: ''
+author: douglaslMS
+manager: jhubbard
+editor: ''
+
+ms.assetid: c360dc10-a02b-446f-91a0-278358f7a297
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 06/27/2016
+wacn.date: ''
+ms.author: douglasl
+---
 
 # Introduction to Stretch Database
 Stretch Database migrates your cold data transparently and securely to the Azure cloud.
 
-If you just want to get started with Stretch Database right away, see [Get started by running the Enable Database for Stretch Wizard](/documentation/articles/sql-server-stretch-database-wizard/).
+If you just want to get started with Stretch Database right away, see [Get started by running the Enable Database for Stretch Wizard](./sql-server-stretch-database-wizard.md).
 
 ## What are the benefits of Stretch Database?
 Stretch Database provides the following benefits:
 
 ### Provides cost\-effective availability for cold data
-Stretch warm and cold transactional data dynamically from SQL Server to Azure with SQL Server Stretch Database. Unlike typical cold data storage, your data is always online and available to query. You can provide longer data retention timelines without breaking the bank for large tables like Customer Order History. Benefit from the low cost of Azure rather than scaling expensive, on\-premises storage. You choose the pricing tier and configure settings in the Azure Portal Preview to maintain control over costs. Scale up or down as needed. Visit [SQL Server Stretch Database Pricing](/pricing/details/sql-server-stretch-database/) page for details.
+Stretch warm and cold transactional data dynamically from SQL Server to Azure with SQL Server Stretch Database. Unlike typical cold data storage, your data is always online and available to query. You can provide longer data retention timelines without breaking the bank for large tables like Customer Order History. Benefit from the low cost of Azure rather than scaling expensive, on\-premises storage. You choose the pricing tier and configure settings in the Azure Portal Preview to maintain control over costs. Scale up or down as needed. Visit [SQL Server Stretch Database Pricing](https://www.azure.cn/pricing/details/sql-server-stretch-database/) page for details.
 
 ### Doesn't require changes to queries or applications
 Access your SQL Server data seamlessly regardless of whether it's on\-premises or stretched to the cloud.  You set the policy that determines where data is stored, and SQL Server handles the data movement in the background. The entire table is always online and queryable. And, Stretch Database doesn't require any changes to existing queries or applications - the location of the data is completely transparent to the application.
@@ -67,13 +68,13 @@ Stretch Database targets transactional databases with large amounts of cold data
 
 If you use the temporal table feature of SQL Server 2016, use Stretch Database to migrate all or part of the associated history table to cost\-effective storage in Azure. For more info, see [Manage Retention of Historical Data in System-Versioned Temporal Tables](https://msdn.microsoft.com/zh-cn/library/mt637341.aspx).
 
-Use Stretch Database Advisor, a feature of SQL Server 2016 Upgrade Advisor, to identify databases and tables for Stretch Database. For more info, see [Identify databases and tables for Stretch Database](/documentation/articles/sql-server-stretch-database-identify-databases/). To learn more about potential blocking issues, see [Limitations for Stretch Database](/documentation/articles/sql-server-stretch-database-limitations/).
+Use Stretch Database Advisor, a feature of SQL Server 2016 Upgrade Advisor, to identify databases and tables for Stretch Database. For more info, see [Identify databases and tables for Stretch Database](./sql-server-stretch-database-identify-databases.md). To learn more about potential blocking issues, see [Limitations for Stretch Database](./sql-server-stretch-database-limitations.md).
 
 ## Test drive Stretch Database
 **Test drive Stretch Database with the AdventureWorks sample database.** To get the AdventureWorks sample database, download at least the database file and the samples and scripts file from [here](https://www.microsoft.com/download/details.aspx?id=49502). After you restore the sample database to an instance of SQL Server 2016, unzip the samples file and open the Stretch DB Samples file from the Stretch DB folder. Run the scripts in this file to check the space used by your data before and after you enable Stretch Database,  to track the progress of data migration, and to confirm that you can continue to query existing data and insert new data both during and after data migration.
 
 ## Next step
-**Identify databases and tables that are candidates for Stretch Database.** Download SQL Server 2016 Upgrade Advisor and run the Stretch Database Advisor to identify databases and tables that are candidates for Stretch Database. Stretch Database Advisor also identifies blocking issues. For more info, see [Identify databases and tables for Stretch Database](/documentation/articles/sql-server-stretch-database-identify-databases/).
+**Identify databases and tables that are candidates for Stretch Database.** Download SQL Server 2016 Upgrade Advisor and run the Stretch Database Advisor to identify databases and tables that are candidates for Stretch Database. Stretch Database Advisor also identifies blocking issues. For more info, see [Identify databases and tables for Stretch Database](./sql-server-stretch-database-identify-databases.md).
 
 <!--Image references-->
 [StretchOverviewImage1]: ./media/sql-server-stretch-database-overview/StretchDBOverview.png

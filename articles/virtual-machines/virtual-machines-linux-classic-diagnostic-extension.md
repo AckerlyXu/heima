@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Monitoring a Linux VM with a VM extension | Azure"
-    description="Learn how to use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM in Azure."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="NingKuang"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="f54a11c5-5a0e-40ff-af6c-e60bd464058b"
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/15/2015"
-    wacn.date=""
-    ms.author="Ning" />
+---
+title: Monitoring a Linux VM with a VM extension | Azure
+description: Learn how to use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM in Azure.
+services: virtual-machines-linux
+documentationcenter: ''
+author: NingKuang
+manager: timlt
+editor: ''
+tags: azure-service-management
+
+ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2015
+wacn.date: ''
+ms.author: Ning
+---
 
 # Use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM
 ## Introduction
@@ -48,7 +49,7 @@ This article focuses on how to enable and configure the extension by using Azure
 * **Azure Linux Agent version 2.0.6 or later**.
   Note that most Azure VM Linux gallery images include version 2.0.6 or later. You can run **WAAgent -version** to confirm which version is installed on the VM. If the VM is running a version that's earlier than 2.0.6, you can follow [these instructions on GitHub](https://github.com/Azure/WALinuxAgent "instructions") to update it.
 * **Azure CLI**. Follow [this guidance for installing CLI](/documentation/articles/cli-install-nodejs/) to set up the Azure CLI environment on your machine. After Azure CLI is installed, you can use the **azure** command from your command-line interface (Bash, Terminal, or command prompt) to access the Azure CLI commands. For example:
-  
+
     * Run **azure vm extension set --help** for detailed help information.
     * Run **azure login -e AzureChinaCloud** to sign in to Azure.
     * Run **azure vm list** to list all the virtual machines that you have on Azure.
@@ -64,11 +65,13 @@ In version 2.3 or later, the default data that will be collected includes:
 
 Step 1. Create a file named PrivateConfig.json with the following content:
 
-    {
-        "storageAccountName" : "the storage account to receive data",
-        "storageAccountKey": "the key of the account", 
-    	"endpoint":"table.core.chinacloudapi.cn"
-    }
+```
+{
+    "storageAccountName" : "the storage account to receive data",
+    "storageAccountKey": "the key of the account", 
+    "endpoint":"table.core.chinacloudapi.cn"
+}
+```
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
 
@@ -81,15 +84,17 @@ For all supported providers and variables, reference the [System Center Cross Pl
 
 By default, the Rsyslog data is always collected.
 
-    {
-          "perfCfg":
-          [
-              {
-                  "query" : "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
-                  "table" : "LinuxMemory"
-              }
-          ]
-    }
+```
+{
+      "perfCfg":
+      [
+          {
+              "query" : "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+              "table" : "LinuxMemory"
+          }
+      ]
+}
+```
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.\*'
 --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
@@ -99,15 +104,17 @@ This section describes how to collect and upload specific log files to your stor
 
 Step 1. Create a file named PrivateConfig.json with the content that was described in Scenario 1. Then create another file named PublicConfig.json with the following content:
 
-    {
-        "fileCfg" :
-        [
-            {
-                "file" : "/var/log/mysql.err",
-                "table" : "mysqlerr"
-             }
-        ]
-    }
+```
+{
+    "fileCfg" :
+    [
+        {
+            "file" : "/var/log/mysql.err",
+            "table" : "mysqlerr"
+         }
+    ]
+}
+```
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.\*'
 --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
@@ -119,16 +126,18 @@ This section describes how to stop the extension from collecting logs. Note that
 
 Step 1. Create a file named PrivateConfig.json with the content that was described in Scenario 1. Create another file named PublicConfig.json with the following content:
 
-    {
-        "perfCfg" : [],
-        "enableSyslog" : "false"
-    }
+```
+{
+    "perfCfg" : [],
+    "enableSyslog" : "false"
+}
+```
 
 Step 2. Run **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.\*'
 --private-config-path PrivateConfig.json --public-config-path PublicConfig.json**.
 
 ## Review your data
-The performance and diagnostic data are stored in an Azure Storage table. Review [How to use Azure Table Storage from Ruby](/documentation/articles/storage-ruby-how-to-use-table-storage/) to learn how to access the data in the storage table by using Azure CLI scripts.
+The performance and diagnostic data are stored in an Azure Storage table. Review [How to use Azure Table Storage from Ruby](../storage/storage-ruby-how-to-use-table-storage.md) to learn how to access the data in the storage table by using Azure CLI scripts.
 
 In addition, you can use following UI tools to access the data:
 

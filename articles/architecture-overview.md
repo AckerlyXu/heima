@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Application Architecture on Azure | Azure" 
-	description="Architecture overview that covers common design patterns" 
-	services="" 
-	documentationCenter="" 
-	authors="Rboucher" 
-	manager="jwhit" 
-	editor="mattshel"/>
+---
+title: Application Architecture on Azure | Azure
+description: Architecture overview that covers common design patterns
+services: ''
+documentationCenter: ''
+authors: Rboucher
+manager: jwhit
+editor: mattshel
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/13/2016" 
-	ms.author="robb"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/13/2016
+ms.author: robb
+---
 
 # Application Architecture on Microsoft Azure
 Resources for building applications that use Microsoft Azure. This includes tools to help you draw diagrams to visually describe software systems.

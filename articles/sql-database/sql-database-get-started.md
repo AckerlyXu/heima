@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Quick start: Your first Azure SQL Database | Azure"
-    description="Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal. You also learn to use SQL Server Management Studio with Azure SQL Database."
-    keywords="sql database tutorial, create a sql database"
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed"
-    ms.service="sql-database"
-    ms.custom="single databases"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="02/17/2017"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: Quick start: Your first Azure SQL Database | Azure
+description: Learn how to create a SQL Database logical server, server-level firewall rule, and databases in the Azure portal. You also learn to use SQL Server Management Studio with Azure SQL Database.
+keywords: sql database tutorial, create a sql database
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
+ms.service: sql-database
+ms.custom: single databases
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 02/17/2017
+wacn.date: ''
+ms.author: carlrab
+---
 
 # Create, connect to, and query your first Azure SQL databases in the Azure portal and using SSMS
 
@@ -29,19 +30,19 @@ In this tutorial, you learn how to create, connect to, and query Azure SQL datab
 
 **Time estimate**: This tutorial takes approximately 30 minutes (assuming you already meet the prerequisites).
 
-> [AZURE.TIP]
-> You can also learn how to create, connect to, and query an Azure SQL database using either [PowerShell](/documentation/articles/sql-database-get-started-powershell/) or [C#](/documentation/articles/sql-database-get-started-csharp/).
+> [!TIP]
+> You can also learn how to create, connect to, and query an Azure SQL database using either [PowerShell](./sql-database-get-started-powershell.md) or [C#](./sql-database-get-started-csharp.md).
 >
 
-> [AZURE.NOTE]
-> This tutorial helps you to learn the content of these learn topics: [SQL Database server overview](/documentation/articles/sql-database-server-overview/), [SQL database overview](/documentation/articles/sql-database-overview/), and [Overview of Azure SQL Database firewall rules](/documentation/articles/sql-database-firewall-configure/). For an overview of the SQL Database service, see [What is SQL Database?](/documentation/articles/sql-database-technical-overview/).
+> [!NOTE]
+> This tutorial helps you to learn the content of these learn topics: [SQL Database server overview](./sql-database-server-overview.md), [SQL database overview](./sql-database-overview.md), and [Overview of Azure SQL Database firewall rules](./sql-database-firewall-configure.md). For an overview of the SQL Database service, see [What is SQL Database?](./sql-database-technical-overview.md).
 >  
 
 ## Prerequisites
 
-* **An Azure account**. You can [open a 1rmb Azure account](/pricing/1rmb-trial/).
+* **An Azure account**. You can [open a 1rmb Azure account](https://www.azure.cn/pricing/1rmb-trial/).
 
-* **Azure create permissions**. You must be able to connect to the Azure portal with an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](/documentation/articles/role-based-access-control-what-is/).
+* **Azure create permissions**. You must be able to connect to the Azure portal with an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
 * **SQL Server Management Studio**. You can download and install the latest version of SQL Server Management Studio (SSMS) at [Download SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx). Always use the latest version of SSMS when connecting to Azure SQL Database as new capabilities are continually being released.
 
@@ -52,9 +53,8 @@ The steps in this procedure show you how to connect to the Azure portal using  y
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.cn/).
 2. Sign in to the [Azure portal](https://portal.azure.cn/).
 3. On the **Sign in** page, provide the credentials for your subscription.
-   
-   ![Sign in](./media/sql-database-get-started/login.png)
 
+   ![Sign in](./media/sql-database-get-started/login.png)
 
 <a name="create-logical-server-bk"></a>
 
@@ -66,24 +66,24 @@ The steps in this procedure show you how to create a logical server in the Azure
 
     ![logical sql server](./media/sql-database-get-started/logical-sql-server.png)
 2. Click **SQL server (logical server)**.
-   
+
     ![create-logical sql server](./media/sql-database-get-started/create-logical-sql-server.png)
 3. Click **Create** to open the new SQL Server (logical server) only blade.
 
     ![new-logical sql server](./media/sql-database-get-started/new-logical-sql-server.png)
 3. In the **Server name** text box, provide a valid name for the new logical server. A green check mark indicates that you have provided a valid name.
-    
+
     ![new server name](./media/sql-database-get-started/new-server-name.png)
 
-    > [AZURE.IMPORTANT]
+    > [!IMPORTANT]
     > The fully qualified name for your new server must be globally unique and is in the form of: **<your_server_name>.database.chinacloudapi.cn**. You use this fully qualified server name later in this tutorial to connect to your server and your databases.
     >
-    
+
 4. In the **Server admin login** text box, provide a user name for the SQL authentication login for this server. This login is referred to as the server principal login. A green check mark indicates that you have provided a valid name.
-    
+
     ![SQL admin login](./media/sql-database-get-started/sql-admin-login.png)
 5. In the **Password** and **Confirm password** text boxes, provide a password for the server principal login account. A green check mark indicates that you have provided a valid password.
-    
+
     ![SQL admin password](./media/sql-database-get-started/sql-admin-password.png)
 6. In the **Subscription** drop-down box, select a subscription in which you have permission to create objects.
 
@@ -93,13 +93,13 @@ The steps in this procedure show you how to create a logical server in the Azure
     ![new resource group](./media/sql-database-get-started/new-resource-group.png)
 
 8. In the **Location** text box, select a data center in which to create your logical server.
-    
+
     ![server location](./media/sql-database-get-started/server-location.png)
-    
-    > [AZURE.TIP]
-    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](/documentation/articles/sql-database-control-access-sql-authentication-get-started/).
+
+    > [!TIP]
+    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](./sql-database-control-access-sql-authentication-get-started.md).
     >
-    
+
 9. Select the **Pin to dashboard** checkbox.
 
 10. Click **Create** to deploy this script to Azure to create your logical server.
@@ -118,7 +118,7 @@ The steps in this procedure show you how to create a logical server in the Azure
 
 ## Create a server-level firewall rule
 
-The steps in this procedure show you how to create a server-level firewall rule in the Azure portal. By default, an Azure SQL Database firewall prevents external connectivity to your logical server and its databases. To enable you to connect to your server, you need to create a firewall rule for the IP address of the computer from which you connect in the next procedure. For more information, see [Overview of Azure SQL Database firewall rules](/documentation/articles/sql-database-firewall-configure/).
+The steps in this procedure show you how to create a server-level firewall rule in the Azure portal. By default, an Azure SQL Database firewall prevents external connectivity to your logical server and its databases. To enable you to connect to your server, you need to create a firewall rule for the IP address of the computer from which you connect in the next procedure. For more information, see [Overview of Azure SQL Database firewall rules](./sql-database-firewall-configure.md).
 
 1. On the SQL server blade, click **Firewall** to open the Firewall blade for your server. Notice that the IP address is displayed for your client computer.
 
@@ -128,7 +128,7 @@ The steps in this procedure show you how to create a server-level firewall rule 
 
     ![add client IP](./media/sql-database-get-started/add-client-ip.png)
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > You can create a firewall rule for a single IP address or an entire range of addresses. Opening the firewall enables SQL administrators and users to log in to any database on the server for which they have valid credentials.
     >
 
@@ -158,14 +158,14 @@ The steps in this procedure show you how to connect to your SQL logical server u
 
 8. In the query window, type the following query:
 
-   	select * from sys.objects
+       select * from sys.objects
 
 9.  On toolbar, click **Execute** to return a list of all system objects in the master database.
 
     ![query master database system objects](./media/sql-database-get-started/query-master-database-system-objects.png)
 
-    > [AZURE.NOTE]
-    > To get started with SQL security, see [Get Started with SQL authentication](/documentation/articles/sql-database-control-access-sql-authentication-get-started/)
+    > [!NOTE]
+    > To get started with SQL security, see [Get Started with SQL authentication](./sql-database-control-access-sql-authentication-get-started.md)
     >
 
 ## Create a database with sample data
@@ -184,9 +184,9 @@ The steps in this procedure show you how to create a database with sample data i
 
     ![sql database name](./media/sql-database-get-started/sql-database-name.png)
 4. Under **Select source**, select **Sample (AdventureWorksLT)**.
-   
+
     ![adventure works lt](./media/sql-database-get-started/adventureworkslt.png)
-5. Under **Server**, verify that your server is selected. Notice also that when adding a database to a server, it can be added as a single database (this is the default) or added to an elastic pool. For more information on elastic pools, see [Elastic pools](/documentation/articles/sql-database-elastic-pool/).
+5. Under **Server**, verify that your server is selected. Notice also that when adding a database to a server, it can be added as a single database (this is the default) or added to an elastic pool. For more information on elastic pools, see [Elastic pools](./sql-database-elastic-pool.md).
 
 6. Under **Pricing tier**, change the pricing tier to **Basic** and click **Select**. You can increase the pricing tier later if desired, but for learning purposes, we recommend you use the lowest cost tier.
 
@@ -219,7 +219,9 @@ The steps in this procedure show you how to query the database directly in the A
 6. Click **OK** to attempt to login.
 7. After you are authenticated, type the following query in the query window, and then click **Run**.
 
-		select * from sys.objects
+    ```
+    select * from sys.objects
+    ```
 
     ![query editor query](./media/sql-database-get-started/query-editor-query.png)
 
@@ -242,8 +244,8 @@ The steps in this procedure show you how to connect to the database using SQL Se
     ![new sample db query with ssms](./media/sql-database-get-started/new-sample-db-query-ssms.png)
 4. In the query window, type the following query:
 
-   	select * from sys.objects
-   
+       select * from sys.objects
+
 9.  On toolbar, click **Execute** to return a list of all system objects in the sample database.
 
     ![new sample db query system objects with ssms](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
@@ -264,7 +266,7 @@ The steps in this procedure show you how to create a new database using SQL Serv
 
     ![new blank database options with ssms](./media/sql-database-get-started/new-blank-database-options-ssms.png)
 
-    > [AZURE.TIP]
+    > [!TIP]
     > Review the other options in this dialog box that you can modify for an Azure SQL Database. For more information on these options, see [Create Database](https://msdn.microsoft.com/zh-cn/library/dn268335.aspx).
     >
 
@@ -289,23 +291,21 @@ The steps in this procedure show you how to delete a single database with the Az
 
     ![delete-database-yes](./media/sql-database-get-started/delete-database-yes.png)
 
-> [AZURE.TIP]
-> During the retention period for your database, you can restore it from the service-initiated automatic backups (provided you do not delete the server itself). For Basic edition databases, you can restore them within seven days. For all other editions, you can restore them within 35 days. If you do delete the server itself, you cannot recover the server or any of its deleted databases. For more information about database backups, see [Learn about SQL Database backups](/documentation/articles/sql-database-automated-backups/) and for information about restoring a database from backups, see [Database recovery](/documentation/articles/sql-database-recovery-using-backups/). For a how-to article on restoring a deleted database, see [Restore a deleted Azure SQL database - Azure portal](/documentation/articles/sql-database-restore-deleted-database-portal/).
+> [!TIP]
+> During the retention period for your database, you can restore it from the service-initiated automatic backups (provided you do not delete the server itself). For Basic edition databases, you can restore them within seven days. For all other editions, you can restore them within 35 days. If you do delete the server itself, you cannot recover the server or any of its deleted databases. For more information about database backups, see [Learn about SQL Database backups](./sql-database-automated-backups.md) and for information about restoring a database from backups, see [Database recovery](./sql-database-recovery-using-backups.md). For a how-to article on restoring a deleted database, see [Restore a deleted Azure SQL database - Azure portal](./sql-database-restore-deleted-database-portal.md).
 >
-
 
 ## Next steps
 Now that you've completed this tutorial, there are number of additional tutorials that you may wish to explore that build what you have learned in this tutorial. 
 
-- For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](/documentation/articles/sql-database-control-access-sql-authentication-get-started/)
-- For a getting started with Azure Active Directory authentication tutorial, see [AAD authentication and authorization](/documentation/articles/sql-database-control-access-aad-authentication-get-started/)
-* If you know Excel, learn how to [Connect to a SQL database in Azure with Excel](/documentation/articles/sql-database-connect-excel/).
-* If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](/documentation/articles/sql-database-libraries/).
-* If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](/documentation/articles/sql-database-cloud-migrate/).
-* If you want to load some data into a new table from a CSV file with the BCP command-line tool, see [Loading data into SQL Database from a CSV file with BCP](/documentation/articles/sql-database-load-from-csv-with-bcp/).
+- For a getting started with SQL Server authentication tutorial, see [SQL authentication and authorization](./sql-database-control-access-sql-authentication-get-started.md)
+- For a getting started with Azure Active Directory authentication tutorial, see [AAD authentication and authorization](./sql-database-control-access-aad-authentication-get-started.md)
+* If you know Excel, learn how to [Connect to a SQL database in Azure with Excel](./sql-database-connect-excel.md).
+* If you're ready to start coding, choose your programming language at [Connection libraries for SQL Database and SQL Server](./sql-database-libraries.md).
+* If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](./sql-database-cloud-migrate.md).
+* If you want to load some data into a new table from a CSV file with the BCP command-line tool, see [Loading data into SQL Database from a CSV file with BCP](./sql-database-load-from-csv-with-bcp.md).
 * If you want to start creating tables and other objects, see the "To create a table" topic in [Creating a table](https://msdn.microsoft.com/zh-cn/library/ms365315.aspx).
 
 ## Additional resources
-- For a technical overview, see [What is SQL Database?](/documentation/articles/sql-database-technical-overview/)
-- For pricing information, see [Azure SQL Database pricing](/pricing/details/sql-database/).
-
+- For a technical overview, see [What is SQL Database?](./sql-database-technical-overview.md)
+- For pricing information, see [Azure SQL Database pricing](https://www.azure.cn/pricing/details/sql-database/).

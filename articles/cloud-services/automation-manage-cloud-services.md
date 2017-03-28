@@ -1,18 +1,16 @@
-<properties
-	pageTitle="Manage Azure Cloud Services using Azure Automation | Azure"
-	description="Learn about how the Azure Automation service can be used to manage Azure cloud services at scale."
-	services="cloud-services, automation"
-	documentationCenter=""
-	authors="jodoglevy"
-	manager="timlt"
-	editor=""/>
+---
+title: Manage Azure Cloud Services using Azure Automation | Azure
+description: Learn about how the Azure Automation service can be used to manage Azure cloud services at scale.
+services: cloud-services, automation
+documentationCenter: ''
+authors: jodoglevy
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="cloud-services"
-	ms.date="06/20/2016"
-	wacn.date="04/20/2016"/>
-
-
+ms.service: cloud-services
+ms.date: 06/20/2016
+wacn.date: 04/20/2016
+---
 
 #Managing Azure Cloud Services using Azure Automation
 
@@ -20,12 +18,11 @@ This guide will introduce you to the Azure Automation service, and how it can be
 
 ## What is Azure Automation?
 
-[Azure Automation](/home/features/automation) is an Azure service for simplifying cloud management through process automation. Using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time to value for your organization.
+[Azure Automation](https://www.azure.cn/home/features/automation) is an Azure service for simplifying cloud management through process automation. Using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time to value for your organization.
 
 Azure Automation provides a highly-reliable and highly-available workflow execution engine that scales to meet your needs as your organization grows. In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.
 
 Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.
-
 
 ## How can Azure Automation help manage Azure cloud services?
 
@@ -40,7 +37,6 @@ Some example uses of Azure Automation to manage Azure Cloud Services include:
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure cloud services, follow these links to learn more about Azure Automation.
 
-- [Azure Automation Overview](/documentation/articles/automation-intro/)
-- [My first runbook](/documentation/articles/automation-first-runbook-graphical/)
+- [Azure Automation Overview](../automation/automation-intro.md)
+- [My first runbook](../automation/automation-first-runbook-graphical.md)
 - [Azure Automation learning map](https://azure.microsoft.com/documentation/learning-paths/automation)
- 

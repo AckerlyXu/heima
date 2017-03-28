@@ -24,7 +24,7 @@ The following steps show how to set up password authentication for an AD applica
     ```
     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
     ```
-    
+
 4. Make a note of the **ApplicationId** of the application you created. You will need this later.
 
 5. Create a new service principal using the following command, replacing **{MyApplicationId}** with the **ApplicationId** from the previous step:
@@ -32,13 +32,13 @@ The following steps show how to set up password authentication for an AD applica
     ```
     New-AzureRmADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-    
+
 6. Setup a role assignment using the following command, replacing **{MyApplicationId}** with your **ApplicationId**.
 
     ```
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
-    
+
 You have now finished creating the Azure AD application that will enable you to authenticate from your custom C# application. You will need the following values later in this tutorial:
 
 - TenantId
@@ -47,4 +47,4 @@ You have now finished creating the Azure AD application that will enable you to 
 - Password
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/zh-cn/library/azure/dn790557.aspx
-[lnk-powershell-install]: /documentation/articles/powershell-install-configure/
+[lnk-powershell-install]: ../articles/powershell-install-configure.md

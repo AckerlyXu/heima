@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Resource Manager Architecture | Azure"
-    description="An architectural overview of Service Fabric Cluster Resource Manager."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="masnider"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="6c4421f9-834b-450c-939f-1cb4ff456b9b"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="masnider" />
+---
+title: Resource Manager Architecture | Azure
+description: An architectural overview of Service Fabric Cluster Resource Manager.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
+
+ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: masnider
+---
 
 # Cluster resource manager architecture overview
 To manage the resources in your cluster, the Service Fabric Cluster Resource Manager must have several pieces of information. It has to know which services currently exist and the current (or default) amount of resources that those services are consuming. To track the available resources in the cluster, it has to know the capacity of the nodes in the cluster and the amount of resources consumed on each. The resource consumption of a given service can change over time, and services usually care about more than one type of resource. Across different services, there may be both real physical and physical resources being measured. Services may track physical metrics like memory and disk consumption. More commonly, services may care about logical metrics - things like "WorkQueueDepth" or "TotalRequests". Both logical and physical metrics may be used across many different types of services or maybe specific to only a couple services.
@@ -46,7 +47,7 @@ Let’s look at the following diagram and see what happens next. Let’s say tha
 </center>
 
 ## Next steps
-- The Cluster Resource Manager has many options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](/documentation/articles/service-fabric-cluster-resource-manager-cluster-description/)
+- The Cluster Resource Manager has many options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](./service-fabric-cluster-resource-manager-cluster-description.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
 [Image2]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png

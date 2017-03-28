@@ -1,29 +1,27 @@
-<properties
-   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (SSIS) | Azure"
-   description="Shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+---
+title: Load data from SQL Server into Azure SQL Data Warehouse (SSIS) | Azure
+description: Shows you how to create a SQL Server Integration Services (SSIS) package to move data from a wide variety of data sources to SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: lodipalm
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   wacn.date=""/>
-
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+---
 
 # Load data from SQL Server into Azure SQL Data Warehouse (SSIS)
 
-> [AZURE.SELECTOR]
-- [SSIS](/documentation/articles/sql-data-warehouse-load-from-sql-server-with-integration-services/)
-- [PolyBase](/documentation/articles/sql-data-warehouse-load-from-sql-server-with-polybase/)
-- [bcp](/documentation/articles/sql-data-warehouse-load-from-sql-server-with-bcp/)
-
+> [!div class="op_single_selector"]
+>- [SSIS](./sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+>- [PolyBase](./sql-data-warehouse-load-from-sql-server-with-polybase.md)
+>- [bcp](./sql-data-warehouse-load-from-sql-server-with-bcp.md)
 
 Create a SQL Server Integration Services (SSIS) package to load data from SQL Server into Azure SQL Data Warehouse. You can optionally restructure, transform, and cleanse the data as it passes through the SSIS data flow.
 
@@ -67,46 +65,46 @@ Visual Studio opens and creates a new Integration Services (SSIS) project. Then 
 * On the left, the **Toolbox** of SSIS components.
 * In the middle, the design surface, with multiple tabs. You typically use at least the **Control Flow** and the **Data Flow** tabs.
 * On the right, the **Solution Explorer** and the **Properties** panes.
-  
+
     ![][01]
 
 ## Step 2: Create the basic data flow
 1. Drag a Data Flow Task from the Toolbox to the center of the design surface (on the **Control Flow** tab).
-   
+
     ![][02]
 2. Double-click the Data Flow Task to switch to the Data Flow tab.
 3. From the Other Sources list in the Toolbox, drag an ADO.NET Source to the design surface. With the source adapter still selected, change its name to **SQL Server source** in the **Properties** pane.
 4. From the Other Destinations list in the Toolbox, drag an ADO.NET Destination to the design surface under the ADO.NET Source. With the destination adapter still selected, change its name to **SQL DW destination** in the **Properties** pane.
-   
+
     ![][09]
 
 ## Step 3: Configure the source adapter
 1. Double-click the source adapter to open the **ADO.NET Source Editor**.
-   
+
     ![][03]
 2. On the **Connection Manager** tab of the **ADO.NET Source Editor**, click the **New** button next to the **ADO.NET connection manager** list to open the **Configure ADO.NET Connection Manager** dialog box and create connection settings for the SQL Server database from which this tutorial loads data.
-   
+
     ![][04]
 3. In the **Configure ADO.NET Connection Manager** dialog box, click the **New** button to open the **Connection Manager** dialog box and create a new data connection.
-   
+
     ![][05]
 4. In the **Connection Manager** dialog box, do the following things.
-   
+
    1. For **Provider**, select the SqlClient Data Provider.
    2. For **Server name**, enter the SQL Server name.
    3. In the **Log on to the server** section, select or enter authentication information.
    4. In the **Connect to a database** section, select the AdventureWorks sample database.
    5. Click **Test Connection**.
-      
+
        ![][06]
    6. In the dialog box that reports the results of the connection test, click **OK** to return to the **Connection Manager** dialog box.
    7. In the **Connection Manager** dialog box, click **OK** to return to the **Configure ADO.NET Connection Manager** dialog box.
 5. In the **Configure ADO.NET Connection Manager** dialog box, click **OK** to return to the **ADO.NET Source Editor**.
 6. In the **ADO.NET Source Editor**, in the **Name of the table or the view** list, select the **Sales.SalesOrderDetail** table.
-   
+
     ![][07]
 7. Click **Preview** to see the first 200 rows of data in the source table in the **Preview Query Results** dialog box.
-   
+
     ![][08]
 8. In the **Preview Query Results** dialog box, click **Close** to return to the **ADO.NET Source Editor**.
 9. In the **ADO.NET Source Editor**, click **OK** to finish configuring the data source.
@@ -114,14 +112,14 @@ Visual Studio opens and creates a new Integration Services (SSIS) project. Then 
 ## Step 4: Connect the source adapter to the destination adapter
 1. Select the source adapter on the design surface.
 2. Select the blue arrow that extends from the source adapter and drag it to the destination editor until it snaps into place.
-   
+
     ![][10]
-   
+
     In a typical SSIS package, you use a number of other components from the SSIS Toolbox in between the source and the destination to restructure, transform, and cleanse your data as it passes through the SSIS data flow. To keep this example as simple as possible, we’re connecting the source directly to the destination.
 
 ## Step 5: Configure the destination adapter
 1. Double-click the destination adapter to open the **ADO.NET Destination Editor**.
-   
+
     ![][11]
 2. On the **Connection Manager** tab of the **ADO.NET Destination Editor**, click the **New** button next to the **Connection manager** list to open the **Configure ADO.NET Connection Manager** dialog box and create connection settings for the Azure SQL Data Warehouse database into which this tutorial loads data.
 3. In the **Configure ADO.NET Connection Manager** dialog box, click the **New** button to open the **Connection Manager** dialog box and create a new data connection.
@@ -135,18 +133,18 @@ Visual Studio opens and creates a new Integration Services (SSIS) project. Then 
    7. In the **Connection Manager** dialog box, click **OK** to return to the **Configure ADO.NET Connection Manager** dialog box.
 5. In the **Configure ADO.NET Connection Manager** dialog box, click **OK** to return to the **ADO.NET Destination Editor**.
 6. In the **ADO.NET Destination Editor**, click **New** next to the **Use a table or view** list to open the **Create Table** dialog box to create a new destination table with a column list that matches the source table.
-   
+
     ![][12a]
 7. In the **Create Table** dialog box, do the following things.
-   
+
    1. Change the name of the destination table to **SalesOrderDetail**.
    2. Remove the **rowguid** column. The **uniqueidentifier** data type is not supported in SQL Data Warehouse.
    3. Change the data type of the **LineTotal** column to **money**. The **decimal** data type is not supported in SQL Data Warehouse. For info about supported data types, see [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)].
-      
+
        ![][12b]
    4. Click **OK** to create the table and return to the **ADO.NET Destination Editor**.
 8. In the **ADO.NET Destination Editor**, select the **Mappings** tab to see how columns in the source are mapped to columns in the destination.
-   
+
     ![][13]
 9. Click **OK** to finish configuring the data source.
 

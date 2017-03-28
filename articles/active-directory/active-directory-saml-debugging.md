@@ -1,13 +1,15 @@
-<properties 
-    pageTitle="How to debug SAML-based single sign-on to applications in Azure Active Directory | Azure" 
-    description="Learn how to debug SAML-based single sign-on to applications in Azure Active Directory " 
-    services="active-directory" 
-    authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
-<tags 
-    ms.service="active-directory" 
-    ms.date="02/09/2016" 
-    wacn.date="" />
+---
+title: How to debug SAML-based single sign-on to applications in Azure Active Directory | Azure
+description: Learn how to debug SAML-based single sign-on to applications in Azure Active Directory 
+services: active-directory
+authors: asmalser-msft
+documentationCenter: na
+manager: stevenpo
+
+ms.service: active-directory
+ms.date: 02/09/2016
+wacn.date: ''
+---
 
 #How to debug SAML-based single sign-on to applications in Azure Active Directory
 
@@ -16,16 +18,16 @@ When debugging a SAML-based application integration, it is often helpful to use 
 ![][1]
 
 The response from Azure AD that contains the SAML token is typically the one that occurs after an HTTP 302 redirect from https://login.chinacloudapi.cn, and is sent to the configured **Reply URL** of the application. 
- 
+
 You can view the SAML token by selecting this line and then selecting the **Inspectors > WebForms** tab in the right panel. From there, right-click the **SAMLResponse** value and select **Send to TextWizard**. Then select **From Base64** from the **Transform** menu to decode the token and see its contents.
- 
+
 **Note**: To see the contents of this HTTP request, Fiddler may prompt you to configure decryption of HTTPS traffic, which you will need to do.
 
 ## Related Articles
 
-- [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
+- [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
 - [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](/documentation/articles/active-directory-saas-custom-apps/)
-- [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](/documentation/articles/active-directory-saml-claims-customization/)
+- [How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](./active-directory-saml-claims-customization.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png

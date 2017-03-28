@@ -1,25 +1,24 @@
-<properties
-	pageTitle="Simulate a device with the Azure IoT Gateway SDK (Windows)| Azure"
-	description="How to use the Azure IoT Gateway SDK on Windows to create a simulated device that sends telemetry through a gateway to an IoT hub"
-	services="iot-hub"
-	documentationCenter=""
-	author="chipalost"
-	manager="timlt"
-	editor=""/>
+---
+title: Simulate a device with the Azure IoT Gateway SDK (Windows)| Azure
+description: How to use the Azure IoT Gateway SDK on Windows to create a simulated device that sends telemetry through a gateway to an IoT hub
+services: iot-hub
+documentationCenter: ''
+author: chipalost
+manager: timlt
+editor: ''
 
-<tags
-     ms.service="iot-hub"
-     ms.devlang="cpp"
-     ms.topic="article"
-     ms.tgt_pltfrm="na"
-     ms.workload="na"
-     ms.date="02/08/2017"
-     ms.author="andbuc"/>
-
+ms.service: iot-hub
+ms.devlang: cpp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/08/2017
+ms.author: andbuc
+---
 
 # Use the Azure IoT Gateway SDK to send device-to-cloud messages with a simulated device (Windows)
 
-[AZURE.INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
+[!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample
 
@@ -141,7 +140,7 @@ To run the sample:
 
 1. At a command prompt, navigate to the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
 2. Run the following command:
-   
+
     ```
     build\samples\simulated_device_cloud_upload\Debug\simulated_device_cloud_upload_sample.exe samples\simulated_device_cloud_upload\src\simulated_device_cloud_upload_win.json
     ```
@@ -160,12 +159,12 @@ To further explore the capabilities of IoT Hub, see:
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
 [lnk-iothub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-[lnk-physical-device]: /documentation/articles/iot-hub-gateway-sdk-physical-device/
+[lnk-physical-device]: ./iot-hub-gateway-sdk-physical-device.md
 
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
-[lnk-create-hub]: /documentation/articles/iot-hub-create-through-portal/ 
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-create-hub]: ./iot-hub-create-through-portal.md

@@ -1,4 +1,3 @@
-
 <!--
 includes/sql-database-include-getting-started-v12portal-gettings-an-account.md
 
@@ -25,9 +24,6 @@ If you have an existing subscription to Azure, follow the steps below to connect
 <!-- Image references. -->
 
 [1]: ./media/sql-database-getting-started-tutorial/login.png
-
-
-
 
 <!--
 

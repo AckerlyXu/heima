@@ -1,32 +1,33 @@
-<properties
-    pageTitle="Use SSH with HDInsight clusters from PuTTY on Windows | Azure"
-    description="Learn how to create and use SSH keys to authenticate to Linux-based HDInsight clusters from Windows-based clients by using the PuTTY SSH client."
-    services="hdinsight"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="639328ca-d800-4fa9-97ed-5664477b88cd"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="01/12/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Use SSH with HDInsight clusters from PuTTY on Windows | Azure
+description: Learn how to create and use SSH keys to authenticate to Linux-based HDInsight clusters from Windows-based clients by using the PuTTY SSH client.
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: 639328ca-d800-4fa9-97ed-5664477b88cd
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 01/12/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Use SSH with HDInsight (Hadoop) from PuTTY on Windows
-> [AZURE.SELECTOR]
-- [PuTTY (Windows)](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/)
-- [SSH (Windows, Linux, Unix, OS X)](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)
+> [!div class="op_single_selector"]
+>- [PuTTY (Windows)](./hdinsight-hadoop-linux-use-ssh-windows.md)
+>- [SSH (Windows, Linux, Unix, OS X)](./hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://zh.wikipedia.org/wiki/Secure_Shell) allows you to remotely perform operations on your Linux-based HDInsight clusters using a command-line interface. This document provides information on connecting to HDInsight from Windows-based clients by using the PuTTY SSH client.
 
-> [AZURE.NOTE]
-> The steps in this article assume you are using a Windows-based system with the PuTTY SSH client. If you are using a Linux, Unix, OS X, or Windows system that provides the `ssh` command, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
+> [!NOTE]
+> The steps in this article assume you are using a Windows-based system with the PuTTY SSH client. If you are using a Linux, Unix, OS X, or Windows system that provides the `ssh` command, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Prerequisites
 
@@ -58,30 +59,30 @@ Use the following information if you plan on using SSH keys with your cluster. I
 1. Open PuTTYGen.
 
 2. For **Type of key to generate**, select **SSH-2 RSA**, and then click **Generate**.
-   
+
     ![PuTTYGen interface](./media/hdinsight-hadoop-linux-use-ssh-windows/puttygen.png)
 
 3. Move the mouse around in the area below the progress bar, until the bar fills. Moving the mouse generates random data that is used to generate the key.
-   
+
     ![moving the mouse around](./media/hdinsight-hadoop-linux-use-ssh-windows/movingmouse.png)
-   
+
     Once the key has been generated, the public key will be displayed.
 
 4. For added security, you can enter a passphrase in the **Key passphrase** field, and then type the same value in the **Confirm passphrase** field.
-   
+
     ![passphrase](./media/hdinsight-hadoop-linux-use-ssh-windows/key.png)
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > We strongly recommend that you use a secure passphrase for the key. However, if you forget the passphrase, there is no way to recover it.
 
 5. Click **Save private key** to save the key to a **.ppk** file. This key will be used to authenticate to your Linux-based HDInsight cluster.
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > You should store this key in a secure location, as it can be used to access your Linux-based HDInsight cluster.
 
 6. Click **Save public key** to save the key as a **.txt** file. This allows you to reuse the public key in the future when you create additional Linux-based HDInsight clusters.
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > The public key is also displayed at the top of PuTTYGen. You can right-click this field, copy the value, and then paste it into a form when creating a cluster using the Azure Portal Preview.
 
 ## <a name="connect-to-a-linux-based-hdinsight-cluster"></a> Create a Linux-based HDInsight cluster
@@ -92,7 +93,7 @@ When creating a Linux-based HDInsight cluster, you must provide the public key c
 
 * **Azure CLI for Mac, Linux and Windows** - Uses command-line commands to create the cluster.
 
-Each of these methods will require the public key. For complete information on creating a Linux-based HDInsight cluster, see [Provision Linux-based HDInsight clusters](/documentation/articles/hdinsight-hadoop-provision-linux-clusters/).
+Each of these methods will require the public key. For complete information on creating a Linux-based HDInsight cluster, see [Provision Linux-based HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md).
 
 ### Azure Portal Preview
 
@@ -108,17 +109,17 @@ This creates a login for the specified user, and enables either password authent
 
 You can use the [Azure CLI for Mac, Linux and Windows](/documentation/articles/cli-install-nodejs/) to create a new cluster by using the `azure hdinsight cluster create` command.
 
-For more information on using this command, see [Provision Hadoop Linux clusters in HDInsight using custom options](/documentation/articles/hdinsight-hadoop-provision-linux-clusters/).
+For more information on using this command, see [Provision Hadoop Linux clusters in HDInsight using custom options](./hdinsight-hadoop-provision-linux-clusters.md).
 
 ## Connect to a Linux-based HDInsight cluster
 
 1. Open PuTTY.
-   
+
     ![putty interface](./media/hdinsight-hadoop-linux-use-ssh-windows/putty.png)
 2. If you provided an SSH key when you created your user account, you must perform the following step to select the private key to use when authenticating to the cluster:
-   
+
     In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
-   
+
     ![putty interface, select private key](./media/hdinsight-hadoop-linux-use-ssh-windows/puttykey.png)
 
 3. In **Category**, select **Session**. From the **Basic options for your PuTTY session** screen, enter the SSH address of your HDInsight server in the **Host name (or IP address)** field. There are two possible SSH addresses you may use when connecting to a cluster:
@@ -126,19 +127,19 @@ For more information on using this command, see [Provision Hadoop Linux clusters
     ![putty interface with ssh address entered](./media/hdinsight-hadoop-linux-use-ssh-windows/puttyaddress.png)
 
     * **Head node address**: To connect to the head node of the cluster, use your cluster name, then **-ssh.azurehdinsight.cn**. For example, **mycluster-ssh.azurehdinsight.cn**.
-   
+
     * **Edge node address**: If you are connecting to an R Server on HDInsight cluster, you can connect to the R Server edge node using the address **RServer.CLUSTERNAME.ssh.azurehdinsight.cn**, where CLUSTERNAME is the name of your cluster. For example, **RServer.mycluster.ssh.azurehdinsight.cn**.
-     
+
 4. To save the connection information for future use, enter a name for this connection under **Saved Sessions**, and then click **Save**. The connection will be added to the list of saved sessions.
 5. Click **Open** to connect to the cluster.
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > If this is the first time you have connected to the cluster, you will receive a security alert. This is normal. Select **Yes** to cache the server's RSA2 key to continue.
 
 6. When prompted, enter the user that you entered when you created the cluster. If you provided a password for the user, you will be prompted to enter it also.
 
-> [AZURE.NOTE]
-> The above steps assume you are using port 22, which will connect to the primary headnode on the HDInsight cluster. If you use port 23, you will connect to the secondary. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](/documentation/articles/hdinsight-high-availability-linux/).
+> [!NOTE]
+> The above steps assume you are using port 22, which will connect to the primary headnode on the HDInsight cluster. If you use port 23, you will connect to the secondary. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](./hdinsight-high-availability-linux.md).
 
 ### Connect to worker nodes
 
@@ -149,39 +150,45 @@ If you provided an SSH key when you created your user account, you must perform 
 1. Install Pageant from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). This utility is used to cache SSH keys for PuTTY.
 
 2. Run Pageant. It will minimize to an icon in the status tray. Right-click the icon and select **Add Key**.
-   
+
     ![adding key](./media/hdinsight-hadoop-linux-use-ssh-windows/addkey.png)
 
 3. When the browse dialog appears, select the .ppk file that contains the key, and then click **Open**. This adds the key to Pageant, which will provide it to PuTTY when connecting to the cluster.
-   
-    > [AZURE.IMPORTANT]
+
+    > [!IMPORTANT]
     > If you used an SSH key to secure your account, you must complete the previous steps before you will be able to connect to worker nodes.
 
 4. Open PuTTY.
 
 5. If you use an SSH key to authenticate, in the **Category** section, expand **Connection**, expand **SSH**, and then select **Auth**.
-   
+
     In the **Authentication parameters** section, enable **Allow agent forwarding**. This allows PuTTY to automatically pass the certificate authentication through the connection to the cluster head node when connecting to worker nodes.
-   
+
     ![allow agent forwarding](./media/hdinsight-hadoop-linux-use-ssh-windows/allowforwarding.png)
 
 6. Connect to the cluster as documented earlier. If you use an SSH key for authentication, you do not need to select the key - the SSH key added to Pageant will be used to authenticate to the cluster.
 
 7. After the connection has been established, use the following to retrieve a list of the nodes in your cluster. Replace *ADMINPASSWORD* with the password for your cluster admin account. Replace *CLUSTERNAME* with the name of your cluster.
-   
-        curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/hosts
-   
+
+    ```
+    curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/hosts
+    ```
+
     This will return information in JSON format for the nodes in the cluster, including `host_name`, which contains the fully qualified domain name (FQDN) for each node. The following is an example of a `host_name` entry returned by the **curl** command:
-   
-        "host_name" : "workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.chinacloudapp.cn"
+
+    ```
+    "host_name" : "workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.chinacloudapp.cn"
+    ```
 
 8. Once you have a list of the worker nodes you want to connect to, use the following command from the PuTTY session to open a connection to a worker node:
-   
-        ssh USERNAME@FQDN
-   
+
+    ```
+    ssh USERNAME@FQDN
+    ```
+
     Replace *USERNAME* with your SSH user name and *FQDN* with the FQDN for the worker node. For example, `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.chinacloudapp.cn`.
-    
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > If you use a password to authentication your SSH session, you will be prompted to enter the password again. If you use an SSH key, the connection should finish without any prompts.
 
 9. Once the session has been established, the prompt for your PuTTY session will change from `username@hn#-clustername` to `username@wn#-clustername` to indicate that you are connected to the worker node. Any commands you run at this point will run on the worker node.
@@ -195,24 +202,30 @@ If you need to add more accounts to your cluster, perform the following steps:
 1. Generate a new public key and private key for the new user account as described previously.
 
 2. From an SSH session to the cluster, add the new user with the following command:
-   
-        sudo adduser --disabled-password <username>
-   
+
+    ```
+    sudo adduser --disabled-password <username>
+    ```
+
     This will create a new user account, but will disable password authentication.
 
 3. Create the directory and files to hold the key by using the following commands:
-   
-        sudo mkdir -p /home/<username>/.ssh
-        sudo touch /home/<username>/.ssh/authorized_keys
-        sudo nano /home/<username>/.ssh/authorized_keys
+
+    ```
+    sudo mkdir -p /home/<username>/.ssh
+    sudo touch /home/<username>/.ssh/authorized_keys
+    sudo nano /home/<username>/.ssh/authorized_keys
+    ```
 
 4. When the nano editor opens, copy and paste in the contents of the public key for the new user account. Finally, use **Ctrl-X** to save the file and exit the editor.
-   
+
     ![image of nano editor with example key](./media/hdinsight-hadoop-linux-use-ssh-windows/nano.png)
 
 5. Use the following command to change ownership of the .ssh folder and contents to the new user account:
-   
-        sudo chown -hR <username>:<username> /home/<username>/.ssh
+
+    ```
+    sudo chown -hR <username>:<username> /home/<username>/.ssh
+    ```
 
 6. You should now be able to authenticate to the server with the new user account and private key.
 
@@ -220,17 +233,17 @@ If you need to add more accounts to your cluster, perform the following steps:
 
 SSH can be used to tunnel local requests, such as web requests, to the HDInsight cluster. The request will then be routed to the requested resource as if it had originated on the HDInsight cluster head node.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > An SSH tunnel is a requirement for accessing the web UI for some Hadoop services. For example, both the Job History UI or Resource Manager UI can only be accessed using an SSH tunnel.
 
-For more information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](/documentation/articles/hdinsight-linux-ambari-ssh-tunnel/).
+For more information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## Next steps
 
 Now that you understand how to authenticate by using an SSH key, learn how to use MapReduce with Hadoop on HDInsight.
 
-* [Use Hive with HDInsight](/documentation/articles/hdinsight-use-hive/)
-* [Use Pig with HDInsight](/documentation/articles/hdinsight-use-pig/)
-* [Use MapReduce jobs with HDInsight](/documentation/articles/hdinsight-use-mapreduce/)
+* [Use Hive with HDInsight](./hdinsight-use-hive.md)
+* [Use Pig with HDInsight](./hdinsight-use-pig.md)
+* [Use MapReduce jobs with HDInsight](./hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.cn/

@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Use Apache Phoenix and SQuirreL with Azure HDInsight (HBase) | Azure"
-    description="Learn how to use Apache Phoenix in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight."
-    services="hdinsight"
-    documentationcenter=""
-    author="mumian"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="cda0f33b-a2e8-494c-972f-ae0bb482b818"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="jgao" />
+---
+title: Use Apache Phoenix and SQuirreL with Azure HDInsight (HBase) | Azure
+description: Learn how to use Apache Phoenix in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight.
+services: hdinsight
+documentationcenter: ''
+author: mumian
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: cda0f33b-a2e8-494c-972f-ae0bb482b818
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: jgao
+---
 
 # Use Apache Phoenix with Linux-based HBase clusters in HDInsight
 Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to use SQLLine. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
-> [AZURE.NOTE]
-> For the Phoenix version information in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](/documentation/articles/hdinsight-component-versioning/).
+> [!NOTE]
+> For the Phoenix version information in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](./hdinsight-component-versioning.md).
 >
 >
 
@@ -45,22 +46,26 @@ When you connect to an HBase cluster, you will need to connect to one of the Zoo
 
 **To use SQLLine**
 
-1. Connect to the cluster using SSH. For instructions, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/) depending on your client computer OS.
+1. Connect to the cluster using SSH. For instructions, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md) depending on your client computer OS.
 2. From SSH, run the following commands to run SQLLine:
 
-        cd /usr/hdp/2.2.9.1-7/phoenix/bin
-        ./sqlline.py <ClusterName>:2181:/hbase-unsecure
+    ```
+    cd /usr/hdp/2.2.9.1-7/phoenix/bin
+    ./sqlline.py <ClusterName>:2181:/hbase-unsecure
+    ```
 3. Run the following commands to create a HBase table, and insert some data:
 
-        CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
+    ```
+    CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
 
-        !tables
+    !tables
 
-        UPSERT INTO Company VALUES(1, 'Microsoft');
+    UPSERT INTO Company VALUES(1, 'Microsoft');
 
-        SELECT * FROM Company;
+    SELECT * FROM Company;
 
-        !quit
+    !quit
+    ```
 
 For more information, see [SQLLine manual](http://sqlline.sourceforge.net/#manual) and [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
@@ -71,15 +76,15 @@ In this article, you have learned how to use Apache Phoenix in HDInsight.  To le
   HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.
 * [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]:
   With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.
-* [Configure HBase replication in HDInsight](/documentation/articles/hdinsight-hbase-replication/): Learn how to configure HBase replication across two Azure datacenters.
+* [Configure HBase replication in HDInsight](./hdinsight-hbase-replication.md): Learn how to configure HBase replication across two Azure datacenters.
 
 [azure-portal]: https://portal.azure.cn
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/zh-cn/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-hbase-get-started]: /documentation/articles/hdinsight-hbase-tutorial-get-started/
-[hdinsight-manage-portal]: /documentation/articles/hdinsight-administer-use-management-portal/#connect-to-clusters-using-rdp
-[hdinsight-hbase-provision-vnet]: /documentation/articles/hdinsight-hbase-provision-vnet/
-[hdinsight-hbase-overview]: /documentation/articles/hdinsight-hbase-overview/
+[hdinsight-manage-portal]: ./hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
+[hdinsight-hbase-provision-vnet]: ./hdinsight-hbase-provision-vnet.md
+[hdinsight-hbase-overview]: ./hdinsight-hbase-overview.md
 
 [hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
 [img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png

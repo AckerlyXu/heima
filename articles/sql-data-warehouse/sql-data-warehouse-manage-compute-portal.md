@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Manage compute power in Azure SQL Data Warehouse (Azure portal preview) | Azure"
-    description="Azure portal preview tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="barbkess"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="233b0da5-4abd-4d1d-9586-4ccc5f50b071"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/31/2016"
-    wacn.date=""
-    ms.author="barbkess" />
+---
+title: Manage compute power in Azure SQL Data Warehouse (Azure portal preview) | Azure
+description: Azure portal preview tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
+services: sql-data-warehouse
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
+editor: ''
+
+ms.assetid: 233b0da5-4abd-4d1d-9586-4ccc5f50b071
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: barbkess
+---
 
 # Manage compute power in Azure SQL Data Warehouse (Azure portal)
 
-> [AZURE.SELECTOR]
-- [Overview](/documentation/articles/sql-data-warehouse-manage-compute-overview/)
-- [Portal](/documentation/articles/sql-data-warehouse-manage-compute-portal/)
-- [PowerShell](/documentation/articles/sql-data-warehouse-manage-compute-powershell/)
-- [REST](/documentation/articles/sql-data-warehouse-manage-compute-rest-api/)
-- [TSQL](/documentation/articles/sql-data-warehouse-manage-compute-tsql/)
+> [!div class="op_single_selector"]
+>- [Overview](./sql-data-warehouse-manage-compute-overview.md)
+>- [Portal](./sql-data-warehouse-manage-compute-portal.md)
+>- [PowerShell](./sql-data-warehouse-manage-compute-powershell.md)
+>- [REST](./sql-data-warehouse-manage-compute-rest-api.md)
+>- [TSQL](./sql-data-warehouse-manage-compute-tsql.md)
 
 ## Scale compute power
-[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+[!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
 To change compute resources:
 
@@ -42,7 +43,7 @@ To change compute resources:
     ![Click Save][3]
 
 ## <a name="pause-compute-bk"></a> Pause compute
-[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
+[!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
 To pause a database:
 
@@ -58,7 +59,7 @@ To pause a database:
     ![Pause status][4]
 
 ## <a name="resume-compute-bk"></a> Resume compute
-[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
+[!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
 To resume a database:
 
@@ -86,11 +87,10 @@ For more information, see [Management overview][Management overview].
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[Management overview]: /documentation/articles/sql-data-warehouse-overview-manage/
-[Manage compute overview]: /documentation/articles/sql-data-warehouse-manage-compute-overview/
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
-
 
 <!--Other Web references-->
 

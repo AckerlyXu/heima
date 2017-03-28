@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Test results for Hyper-V replication between sites with Azure Site Recovery | Azure"
-    description="This article provides information about performance testing for on-premises to on-premises replication using Azure Site Recovery."
-    services="site-recovery"
-    documentationcenter=""
-    author="rayne-wiselman"
-    manager="jwhit"
-    editor="tysonn" />
-<tags
-    ms.assetid="96ff404f-0d88-43fa-a00b-2dffde93d192"
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="raynew" />
+---
+title: Test results for Hyper-V replication between sites with Azure Site Recovery | Azure
+description: This article provides information about performance testing for on-premises to on-premises replication using Azure Site Recovery.
+services: site-recovery
+documentationcenter: ''
+author: rayne-wiselman
+manager: jwhit
+editor: tysonn
+
+ms.assetid: 96ff404f-0d88-43fa-a00b-2dffde93d192
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: raynew
+---
 
 # Test results for on-premises to on-premises Hyper-V replication with Site Recovery
 You can use Microsoft Azure Site Recovery to orchestrate and manage replication of virtual machines and physical servers to Azure, or to a secondary datacenter. This article provides the results of performance testing we did when replicating Hyper-V virtual machines between two on-premises datacenters.
@@ -166,5 +167,4 @@ The table summarizes the performance metrics and counters that were measured in 
 | VM write throughput |\Hyper-V Virtual Storage Device(<VHD>)\Write Bytes/sec |
 
 ## Next steps
-- [Set up protection between two on-premises VMM sites](/documentation/articles/site-recovery-vmm-to-vmm/)
-
+- [Set up protection between two on-premises VMM sites](./site-recovery-vmm-to-vmm.md)

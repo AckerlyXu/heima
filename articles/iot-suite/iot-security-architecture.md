@@ -1,21 +1,21 @@
-<properties
- pageTitle="IoT Security Architecture | Azure"
- description="IoT security architecture guidelines and considerations"
- services=""
- suite="iot-suite"
- documentationCenter=""
- authors="YuriDio"
- manager="timlt"
- editor=""/>
+---
+title: IoT Security Architecture | Azure
+description: IoT security architecture guidelines and considerations
+services: ''
+suite: iot-suite
+documentationCenter: ''
+authors: YuriDio
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="01/04/2017"
- ms.author="yurid"/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/04/2017
+ms.author: yurid
+---
 
 # Internet of Things security architecture
 When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is particularly important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning. 
@@ -260,5 +260,5 @@ You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-[lnk-security-deployment]: /documentation/articles/iot-suite-security-deployment/
-[lnk-devguide-security]: /documentation/articles/iot-hub-devguide-security/
+[lnk-security-deployment]: ./iot-suite-security-deployment.md
+[lnk-devguide-security]: ../iot-hub/iot-hub-devguide-security.md

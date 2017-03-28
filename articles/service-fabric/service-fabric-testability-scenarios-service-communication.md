@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Testability: Service communication | Azure"
-    description="Service-to-service communication is a critical integration point of a Service Fabric application. This article discusses design considerations and testing techniques."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="017557df-fb59-4e4a-a65d-2732f29255b8"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Testability: Service communication | Azure
+description: Service-to-service communication is a critical integration point of a Service Fabric application. This article discusses design considerations and testing techniques.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
+
+ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # Service Fabric testability scenarios: Service communication
 Microservices and service-oriented architectural styles surface naturally in Azure Service Fabric. In these types of distributed architectures, componentized microservice applications are typically composed of multiple services that need to talk to each other. In even the simplest cases, you generally have at least a stateless web service and a stateful data storage service that need to communicate.
@@ -53,11 +54,9 @@ By using Service Fabric's testability tools, you can author a test scenario to t
 
     The primary replica of a stateful service partition can be moved for any number of reasons. Use this to target the primary replica of a specific partition to see how your services react to the move in a very controlled manner.
 
-
-
-    	PS > Move-ServiceFabricPrimaryReplica -PartitionId 6faa4ffa-521a-44e9-8351-dfca0f7e0466 -ServiceName fabric:/MyApplication/MyService
-
-
+    ```powershell
+    PS > Move-ServiceFabricPrimaryReplica -PartitionId 6faa4ffa-521a-44e9-8351-dfca0f7e0466 -ServiceName fabric:/MyApplication/MyService
+    ```
 
 2. Stop a node.
 
@@ -65,11 +64,9 @@ By using Service Fabric's testability tools, you can author a test scenario to t
 
     You can stop a node by using the PowerShell **Stop-ServiceFabricNode** cmdlet:
 
-
-
-    	PS > Restart-ServiceFabricNode -NodeName Node_1
-
-
+    ```powershell
+    PS > Restart-ServiceFabricNode -NodeName Node_1
+    ```
 
 ## Maintain service availability
 
@@ -83,16 +80,14 @@ By using the testability tools in Service Fabric, you can inject a fault that in
 
 You can induce quorum loss by using the PowerShell **Invoke-ServiceFabricPartitionQuorumLoss** cmdlet:
 
-
-
-	PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode QuorumReplicas -QuorumLossDurationInSeconds 20
-
-
+```powershell
+PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode QuorumReplicas -QuorumLossDurationInSeconds 20
+```
 
 In this example, we set `QuorumLossMode` to `QuorumReplicas` to indicate that we want to induce quorum loss without taking down all replicas. This way, read operations are still possible. To test a scenario where an entire partition is unavailable, you can set this switch to `AllReplicas`.
 
 ## Next steps
 
-[Learn more about testability actions](/documentation/articles/service-fabric-testability-actions/)
+[Learn more about testability actions](./service-fabric-testability-actions.md)
 
-[Learn more about testability scenarios](/documentation/articles/service-fabric-testability-scenarios/)
+[Learn more about testability scenarios](./service-fabric-testability-scenarios.md)

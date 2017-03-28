@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure PowerShell Script Sample - Create a web app and deploy code to a staging environment | Azure"
-    description="Azure PowerShell Script Sample - Create a web app and deploy code to a staging environment"
-    services="app-service\web"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="27cf0680-c3a9-4a58-9f71-6dec09f6b874"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Azure PowerShell Script Sample - Create a web app and deploy code to a staging environment | Azure
+description: Azure PowerShell Script Sample - Create a web app and deploy code to a staging environment
+services: app-service\web
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 27cf0680-c3a9-4a58-9f71-6dec09f6b874
+ms.service: app-service-web
+ms.workload: web
+ms.devlang: na
+ms.topic: article
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Create a web app and deploy code to a staging environment
 
@@ -25,47 +26,51 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-    $gitrepo="<Replace with your GitHub repo URL>"
-    $webappname="mywebapp$(Get-Random)"
-    $location="China North"
+```
+$gitrepo="<Replace with your GitHub repo URL>"
+$webappname="mywebapp$(Get-Random)"
+$location="China North"
 
-    # Create a resource group.
-    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+# Create a resource group.
+New-AzureRmResourceGroup -Name myResourceGroup -Location $location
 
-    # Create an App Service plan in Free tier.
-    New-AzureRmAppServicePlan -Name $webappname -Location $location `
-    -ResourceGroupName myResourceGroup -Tier Free
+# Create an App Service plan in Free tier.
+New-AzureRmAppServicePlan -Name $webappname -Location $location `
+-ResourceGroupName myResourceGroup -Tier Free
 
-    # Create a web app.
-    New-AzureRmWebApp -Name $webappname -Location $location `
-    -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+# Create a web app.
+New-AzureRmWebApp -Name $webappname -Location $location `
+-AppServicePlan $webappname -ResourceGroupName myResourceGroup
 
-    # Upgrade App Service plan to Standard tier (minimum required by deployment slots)
-    Set-AzureRmAppServicePlan -Name $webappname -ResourceGroupName myResourceGroup `
-    -Tier Standard
+# Upgrade App Service plan to Standard tier (minimum required by deployment slots)
+Set-AzureRmAppServicePlan -Name $webappname -ResourceGroupName myResourceGroup `
+-Tier Standard
 
-    #Create a deployment slot with the name "staging".
-    New-AzureRmWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
-    -Slot staging
+#Create a deployment slot with the name "staging".
+New-AzureRmWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
+-Slot staging
 
-    # Configure GitHub deployment to the staging slot from your GitHub repo and deploy once.
-    $PropertiesObject = @{
-        repoUrl = "$gitrepo";
-        branch = "master";
-    }
-    Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName myResourceGroup `
-    -ResourceType Microsoft.Web/sites/slots/sourcecontrols `
-    -ResourceName $webappname/staging/web -ApiVersion 2015-08-01 -Force
+# Configure GitHub deployment to the staging slot from your GitHub repo and deploy once.
+$PropertiesObject = @{
+    repoUrl = "$gitrepo";
+    branch = "master";
+}
+Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName myResourceGroup `
+-ResourceType Microsoft.Web/sites/slots/sourcecontrols `
+-ResourceName $webappname/staging/web -ApiVersion 2015-08-01 -Force
 
-    # Swap the verified/warmed up staging slot into production.
-    Swap-AzureRmWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
-    -SourceSlotName staging -DestinationSlotName production
+# Swap the verified/warmed up staging slot into production.
+Swap-AzureRmWebAppSlot -Name $webappname -ResourceGroupName myResourceGroup `
+-SourceSlotName staging -DestinationSlotName production
+```
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
-    Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## Script explanation
 
@@ -85,4 +90,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](/documentation/articles/app-service-powershell-samples/).
+Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

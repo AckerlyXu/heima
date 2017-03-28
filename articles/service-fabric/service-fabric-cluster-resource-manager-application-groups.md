@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Service Fabric Cluster Resource Manager - Application Groups | Azure"
-    description="Overview of the Application Group functionality in the Service Fabric Cluster Resource Manager"
-    services="service-fabric"
-    documentationcenter=".net"
-    author="masnider"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="4cae2370-77b3-49ce-bf40-030400c4260d"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="masnider" />
+---
+title: Service Fabric Cluster Resource Manager - Application Groups | Azure
+description: Overview of the Application Group functionality in the Service Fabric Cluster Resource Manager
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
+
+ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: masnider
+---
 
 # Introduction to Application Groups
-Service Fabric's Cluster Resource Manager typically manages cluster resources by spreading the load (represented via [Metrics](/documentation/articles/service-fabric-cluster-resource-manager-metrics/)) evenly throughout the cluster. Service Fabric also manages the capacity of the nodes in the cluster and the cluster as a whole through the notion of [capacity](/documentation/articles/service-fabric-cluster-resource-manager-cluster-description/). Metrics and capacity work great for many workloads, but patterns that make heavy use of different Service Fabric Application Instances sometimes bring in additional requirements. Some additional requirements are typically:
+Service Fabric's Cluster Resource Manager typically manages cluster resources by spreading the load (represented via [Metrics](./service-fabric-cluster-resource-manager-metrics.md)) evenly throughout the cluster. Service Fabric also manages the capacity of the nodes in the cluster and the cluster as a whole through the notion of [capacity](./service-fabric-cluster-resource-manager-cluster-description.md). Metrics and capacity work great for many workloads, but patterns that make heavy use of different Service Fabric Application Instances sometimes bring in additional requirements. Some additional requirements are typically:
 
 * Ability to reserve capacity for an Application Instance's services in the cluster
 * Ability to limit the total number of nodes that the services within an application run on
@@ -153,11 +154,11 @@ The restrictions are enforced both during application creation (on the client si
 * Do not try to use the Application Capacity to ensure that two services from the same application are placed alongside each other. Ensuring services run on the same node can be achieved by using affinity or with placement constraints depending on the specific requirements.
 
 ## Next steps
-- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](/documentation/articles/service-fabric-cluster-resource-manager-configure-services/)
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](/documentation/articles/service-fabric-cluster-resource-manager-balancing/)
-- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](/documentation/articles/service-fabric-cluster-resource-manager-introduction/)
-- For more information on how metrics work generally, read up on [Service Fabric Load Metrics](/documentation/articles/service-fabric-cluster-resource-manager-metrics/)
-- The Cluster Resource Manager has many options for describing the cluster. To find out more about them, check out this article on [describing a Service Fabric cluster](/documentation/articles/service-fabric-cluster-resource-manager-cluster-description/)
+- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](./service-fabric-cluster-resource-manager-configure-services.md)
+- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](./service-fabric-cluster-resource-manager-balancing.md)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](./service-fabric-cluster-resource-manager-introduction.md)
+- For more information on how metrics work generally, read up on [Service Fabric Load Metrics](./service-fabric-cluster-resource-manager-metrics.md)
+- The Cluster Resource Manager has many options for describing the cluster. To find out more about them, check out this article on [describing a Service Fabric cluster](./service-fabric-cluster-resource-manager-cluster-description.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png

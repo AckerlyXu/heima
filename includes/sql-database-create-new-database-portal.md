@@ -1,4 +1,3 @@
-
 <!--
 includes/sql-database-create-new-database-portal.md
 
@@ -20,7 +19,7 @@ Use the following steps in the Azure portal to create a new Azure SQL database o
 3. Click **SQL Database (new database)**.
 
      ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
-   
+
 4. Click **Create** to create a new database in the SQL Database service.
 
      ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)

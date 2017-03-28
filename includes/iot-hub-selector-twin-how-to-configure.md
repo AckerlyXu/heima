@@ -1,6 +1,6 @@
-> [AZURE.SELECTOR]
-- [Node.js](/documentation/articles/iot-hub-node-node-twin-how-to-configure/)
-- [C#](/documentation/articles/iot-hub-csharp-node-twin-how-to-configure/)
+> [!div class="op_single_selector"]
+>- [Node.js](../articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md)
+>- [C#](../articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md)
 
 ## Introduction
 In [Get started with IoT Hub device twins][lnk-twin-tutorial], you learned how to set device metadata from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
@@ -18,63 +18,69 @@ In this tutorial, the solution back end changes the telemetry configuration of a
 
 The solution back end stores the configuration in the device twin's desired properties in the following way:
 
-        {
+```
+    {
+        ...
+        "properties": {
             ...
-            "properties": {
-                ...
-                "desired": {
-                    "telemetryConfig": {
-                        "configId": "{id of the configuration}",
-                        "sendFrequency": "{config}"
-                    }
+            "desired": {
+                "telemetryConfig": {
+                    "configId": "{id of the configuration}",
+                    "sendFrequency": "{config}"
                 }
-                ...
             }
             ...
         }
+        ...
+    }
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Since configurations can be complex objects, they are usually assigned unique ids (hashes or [GUIDs][lnk-guid]) to simplify their comparisons.
 > 
 > 
 
 The device app reports its current configuration mirroring the desired property **telemetryConfig** in the reported properties:
 
-        {
-            "properties": {
-                ...
-                "reported": {
-                    "telemetryConfig": {
-                        "changeId": "{id of the current configuration}",
-                        "sendFrequency": "{current configuration}",
-                        "status": "Success",
-                    }
+```
+    {
+        "properties": {
+            ...
+            "reported": {
+                "telemetryConfig": {
+                    "changeId": "{id of the current configuration}",
+                    "sendFrequency": "{current configuration}",
+                    "status": "Success",
                 }
-                ...
             }
+            ...
         }
+    }
+```
 
 Note how the reported **telemetryConfig** has an additional property **status**, used to report the state of the configuration update process.
 
 When a new desired configuration is received, the device app reports a pending configuration by changing the information:
 
-        {
-            "properties": {
-                ...
-                "reported": {
-                    "telemetryConfig": {
-                        "changeId": "{id of the current configuration}",
-                        "sendFrequency": "{current configuration}",
-                        "status": "Pending",
-                        "pendingConfig": {
-                            "changeId": "{id of the pending configuration}",
-                            "sendFrequency": "{pending configuration}"
-                        }
+```
+    {
+        "properties": {
+            ...
+            "reported": {
+                "telemetryConfig": {
+                    "changeId": "{id of the current configuration}",
+                    "sendFrequency": "{current configuration}",
+                    "status": "Pending",
+                    "pendingConfig": {
+                        "changeId": "{id of the pending configuration}",
+                        "sendFrequency": "{pending configuration}"
                     }
                 }
-                ...
             }
+            ...
         }
+    }
+```
 
 Then, at some later time, the device app will report the success or failure of this operation by updating the above property.
 Note how the solution back end is able, at any time, to query the status of the configuration process across all the devices.
@@ -86,7 +92,7 @@ This tutorial shows you how to:
 
 <!-- links -->
 
-[lnk-methods]: /documentation/articles/iot-hub-devguide-direct-methods/
-[lnk-dm-overview]: /documentation/articles/iot-hub-device-management-overview/
-[lnk-twin-tutorial]: /documentation/articles/iot-hub-node-node-twin-getstarted/
+[lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
+[lnk-dm-overview]: ../articles/iot-hub/iot-hub-device-management-overview.md
+[lnk-twin-tutorial]: ../articles/iot-hub/iot-hub-node-node-twin-getstarted.md
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier

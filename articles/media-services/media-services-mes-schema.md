@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Media Encoder Standard schema | Azure"
-    description="The topic gives an overview of the Media Encoder Standard schema."
-    author="Juliako"
-    manager="erikre"
-    editor=""
-    services="media-services"
-    documentationcenter="" />
-<tags
-    ms.assetid="4c060062-8ef2-41d9-834e-e81e8eafcf2e"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Media Encoder Standard schema | Azure
+description: The topic gives an overview of the Media Encoder Standard schema.
+author: Juliako
+manager: erikre
+editor: ''
+services: media-services
+documentationcenter: ''
+
+ms.assetid: 4c060062-8ef2-41d9-834e-e81e8eafcf2e
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/10/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Media Encoder Standard schema
-This topic describes some of the elements and types of the XML schema on which [Media Encoder Standard presets](/documentation/articles/media-services-mes-presets-overview/) are based. The topic gives explanation of elements and their valid values. The full schema will be published at a later date.  
+This topic describes some of the elements and types of the XML schema on which [Media Encoder Standard presets](./media-services-mes-presets-overview.md) are based. The topic gives explanation of elements and their valid values. The full schema will be published at a later date.  
 
 ## <a name="Preset"></a> Preset (root element)
 Defines an encoding preset.  
@@ -26,8 +27,8 @@ Defines an encoding preset.
 ### Elements
 | Name | Type | Description |
 | --- | --- | --- |
-| **Encoding** |[Encoding](/documentation/articles/media-services-mes-schema/#Encoding) |Root element, indicates that the input sources are to be encoded. |
-| **Outputs** |[Outputs](/documentation/articles/media-services-mes-schema/#Output) |Collection of desired output files. |
+| **Encoding** |[Encoding](./media-services-mes-schema.md#Encoding) |Root element, indicates that the input sources are to be encoded. |
+| **Outputs** |[Outputs](./media-services-mes-schema.md#Output) |Collection of desired output files. |
 
 ### Attributes
 | Name | Type | Description |
@@ -40,11 +41,11 @@ Contains a sequence of the following elements.
 ### Elements
 | Name | Type | Description |
 | --- | --- | --- |
-| **H264Video** |[H264Video](/documentation/articles/media-services-mes-schema/#H264Video) |Settings for H.264 encoding of video. |
-| **AACAudio** |[AACAudio](/documentation/articles/media-services-mes-schema/#AACAudio) |Settings for AAC encoding of audio. |
-| **BmpImage** |[BmpImage](/documentation/articles/media-services-mes-schema/#BmpImage) |Settings for Bmp image. |
-| **PngImage** |[PngImage](/documentation/articles/media-services-mes-schema/#PngImage) |Settings for Png image. |
-| **JpgImage** |[JpgImage](/documentation/articles/media-services-mes-schema/#JpgImage) |Settings for Jpg image. |
+| **H264Video** |[H264Video](./media-services-mes-schema.md#H264Video) |Settings for H.264 encoding of video. |
+| **AACAudio** |[AACAudio](./media-services-mes-schema.md#AACAudio) |Settings for AAC encoding of audio. |
+| **BmpImage** |[BmpImage](./media-services-mes-schema.md#BmpImage) |Settings for Bmp image. |
+| **PngImage** |[PngImage](./media-services-mes-schema.md#PngImage) |Settings for Png image. |
+| **JpgImage** |[JpgImage](./media-services-mes-schema.md#JpgImage) |Settings for Jpg image. |
 
 ## <a name="H264Video"></a> H264Video
 ### Elements
@@ -55,17 +56,17 @@ Contains a sequence of the following elements.
 | **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default=”false” |**xs:boolean** |If set to true, encoder attempts to detect scene change in the video and inserts an IDR frame. |
 | **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Controls the trade-off between encode speed and video quality. Could be one of the following values: **Speed**, **Balanced**, or **Quality**<br/><br/> Default: **Balanced** |
 | **SyncMode**<br/><br/> minOccurs="0" | |Feature will be exposed in a future releases. |
-| **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](/documentation/articles/media-services-mes-schema/#H264Layers) |Collection of output video layers. |
+| **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](./media-services-mes-schema.md#H264Layers) |Collection of output video layers. |
 
 ## <a name="H264Layers"></a> H264Layers
 ### Elements
 | Name | Type | Description |
 | --- | --- | --- |
-| **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](/documentation/articles/media-services-mes-schema/#H264Layer) |A collection of H264 layers. |
+| **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](./media-services-mes-schema.md#H264Layer) |A collection of H264 layers. |
 
 ## <a name="H264Layer"></a> H264Layer
-> [AZURE.NOTE]Video limits are based on the values described in the [H264 Levels](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) table.  
-
+> [!NOTE]
+>Video limits are based on the values described in the [H264 Levels](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) table.  
 
 ### Elements
 | Name | Type | Description |
@@ -102,7 +103,7 @@ Contains a sequence of the following elements.
 ### Groups
 | Reference | Description |
 | --- | --- |
-| [AudioGroup](/documentation/articles/media-services-mes-schema/#AudioGroup)<br/><br/> minOccurs="0" |See description of [AudioGroup](/documentation/articles/media-services-mes-schema/#AudioGroup) to know the appropriate number of channels, sampling rate, and bit rate that could be set for each profile. |
+| [AudioGroup](./media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |See description of [AudioGroup](./media-services-mes-schema.md#AudioGroup) to know the appropriate number of channels, sampling rate, and bit rate that could be set for each profile. |
 
 ## <a name="AudioGroup"></a> AudioGroup
 For details about what values are valid for each profile, see the “Audio codec details” table that follows.  
@@ -120,7 +121,6 @@ Audio Codec|Details
 **AACLC**|1:<br/><br/> - 11025 : 8 &lt;= bitrate &lt; 16<br/><br/> - 12000 : 8 &lt;= bitrate &lt; 16<br/><br/> - 16000 : 8 &lt;= bitrate &lt;32<br/><br/>- 22050 : 24 &lt;= bitrate &lt; 32<br/><br/> - 24000 : 24 &lt;= bitrate &lt; 32<br/><br/> - 32000 : 32 &lt;= bitrate &lt;= 192<br/><br/> - 44100 : 56 &lt;= bitrate &lt;= 288<br/><br/> - 48000 : 56 &lt;= bitrate &lt;= 288<br/><br/> - 88200 : 128 &lt;= bitrate &lt;= 288<br/><br/> - 96000 : 128 &lt;= bitrate &lt;= 288<br/><br/> 2:<br/><br/> - 11025 : 16 &lt;= bitrate &lt; 24<br/><br/> - 12000 : 16 &lt;= bitrate &lt; 24<br/><br/> - 16000 : 16 &lt;= bitrate &lt; 40<br/><br/> - 22050 : 32 &lt;= bitrate &lt; 40<br/><br/> - 24000 : 32 &lt;= bitrate &lt; 40<br/><br/> - 32000 :  40 &lt;= bitrate &lt;= 384<br/><br/> - 44100 : 96 &lt;= bitrate &lt;= 576<br/><br/> - 48000 : 96 &lt;= bitrate &lt;= 576<br/><br/> - 88200 : 256 &lt;= bitrate &lt;= 576<br/><br/> - 96000 : 256 &lt;= bitrate &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000 : 160 &lt;= bitrate &lt;= 896<br/><br/> - 44100 : 240 &lt;= bitrate &lt;= 1024<br/><br/> - 48000 : 240 &lt;= bitrate &lt;= 1024<br/><br/> - 88200 : 640 &lt;= bitrate &lt;= 1024<br/><br/> - 96000 : 640 &lt;= bitrate &lt;= 1024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= bitrate &lt;= 1024<br/><br/> - 44100 : 384 &lt;= bitrate &lt;= 1024<br/><br/> - 48000 : 384 &lt;= bitrate &lt;= 1024<br/><br/> - 88200 : 896 &lt;= bitrate &lt;= 1024<br/><br/> - 96000 : 896 &lt;= bitrate &lt;= 1024  
 **HEAACV1**|1:<br/><br/> - 22050 : bitrate = 8<br/><br/> - 24000 : 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000 : 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100 : 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000 : 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200 : bitrate = 64<br/><br/> 2:<br/><br/> - 32000 : 16 &lt;= bitrate &lt;= 128<br/><br/> - 44100 : 16 &lt;= bitrate &lt;= 128<br/><br/> - 48000 : 16 &lt;= bitrate &lt;= 128<br/><br/> - 88200 : 96 &lt;= bitrate &lt;= 128<br/><br/> - 96000 : 96 &lt;= bitrate &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 44100 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 48000 : 64 &lt;= bitrate &lt;= 320<br/><br/> - 88200 : 256 &lt;= bitrate &lt;= 320<br/><br/> - 96000 : 256 &lt;= bitrate &lt;= 320<br/><br/> 8:<br/><br/> - 32000 : 96 &lt;= bitrate &lt;= 448<br/><br/> - 44100 : 96 &lt;= bitrate &lt;= 448<br/><br/> - 48000 : 96 &lt;= bitrate &lt;= 448<br/><br/> - 88200 : 384 &lt;= bitrate &lt;= 448<br/><br/> - 96000 : 384 &lt;= bitrate &lt;= 448  
 **HEAACV2**|2:<br/><br/> - 22050 : 8 &lt;= bitrate &lt;= 10<br/><br/> - 24000 : 8 &lt;= bitrate &lt;= 10<br/><br/> - 32000 : 12 &lt;= bitrate &lt;= 64<br/><br/> - 44100 : 20 &lt;= bitrate &lt;= 64<br/><br/> - 48000 : 20 &lt;= bitrate &lt;= 64<br/><br/> - 88200 : 64 &lt;= bitrate &lt;= 64  
-  
 
 ## <a name="Clip"></a> Clip
 ### Attributes
@@ -154,7 +154,7 @@ Audio Codec|Details
 | **Start** |**xs:string** | |
 | **Step** |**xs:string** | |
 | **Range** |**xs:string** | |
-| **PreserveResolutionAfterRotation** |**xs:boolean** |For detailed explanation, see the following section: [PreserveResolutionAfterRotation](/documentation/articles/media-services-mes-schema/#PreserveResolutionAfterRotation) |
+| **PreserveResolutionAfterRotation** |**xs:boolean** |For detailed explanation, see the following section: [PreserveResolutionAfterRotation](./media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
 It is recommended to use the PreserveResolutionAfterRotation flag in combination with resolution values expressed in percentage terms (Width=”100%” , Height = “100%”).  
@@ -220,40 +220,37 @@ If the above is not the desired behavior, then you can make use of the PreserveR
 ### Elements
 | Name | Type | Description |
 | --- | --- | --- |
-| **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](/documentation/articles/media-services-mes-schema/#PngLayer) | |
+| **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](./media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### Elements
 | Name | Type | Description |
 | --- | --- | --- |
-| **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](/documentation/articles/media-services-mes-schema/#BmpLayer) | |
+| **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](./media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### Elements
 | Name | Type | Description |
 | --- | --- | --- |
-| **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](/documentation/articles/media-services-mes-schema/#JpgLayer) | |
+| **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](./media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage (complex type inherits from Video)
 ### Elements
 | Name | Type | Description |
 | --- | --- | --- |
-| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](/documentation/articles/media-services-mes-schema/#PngLayers) |Png layers |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](./media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="JpgImage"></a> JpgImage (complex type inherits from Video)
 ### Elements
 | Name | Type | Description |
 | --- | --- | --- |
-| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](/documentation/articles/media-services-mes-schema/#PngLayers) |Png layers |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](./media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## <a name="PngImage"></a> PngImage (complex type inherits from Video)
 ### Elements
 | Name | Type | Description |
 | --- | --- | --- |
-| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](/documentation/articles/media-services-mes-schema/#PngLayers) |Png layers |
+| **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](./media-services-mes-schema.md#PngLayers) |Png layers |
 
 ## Examples
-See examples of XML presets that are built based on this schema, see [Task Presets for MES (Media Encoder Standard)](/documentation/articles/media-services-mes-presets-overview/).
-
-
-
+See examples of XML presets that are built based on this schema, see [Task Presets for MES (Media Encoder Standard)](./media-services-mes-presets-overview.md).

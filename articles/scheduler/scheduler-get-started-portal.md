@@ -1,15 +1,16 @@
-<properties
- pageTitle="Get started with Azure Scheduler in Azure portal |  Azure"
- description="Get started with Azure Scheduler in Azure portal"
- services="scheduler"
- documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.date="08/10/2016"
- wacn.date=""/>
+---
+title: Get started with Azure Scheduler in Azure portal |  Azure
+description: Get started with Azure Scheduler in Azure portal
+services: scheduler
+documentationCenter: .NET
+authors: krisragh
+manager: dwrede
+editor: ''
+
+ms.service: scheduler
+ms.date: 08/10/2016
+wacn.date: ''
+---
 
 # Get started with Azure Scheduler in Azure portal
 
@@ -77,7 +78,6 @@ These read-only properties describe the management metadata for the Scheduler jo
 
    ![][job-properties]
 
-
 ### Action settings
 
 Clicking on a job in the **Jobs** screen allows you to configure that job. This lets you configure advanced settings, if you didn't configure them in the quick-create wizard.
@@ -96,12 +96,11 @@ For service bus action types, you may change the namespace, topic/queue path, au
 
 This lets you reconfigure the schedule, if you'd like to change the schedule you created in the quick-create wizard.
 
-This is an opportunity to build [complex schedules and advanced recurrence in your job](/documentation/articles/scheduler-advanced-complexity/)
+This is an opportunity to build [complex schedules and advanced recurrence in your job](./scheduler-advanced-complexity.md)
 
 You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)
 
    ![][job-schedule]
-
 
 ### History
 
@@ -129,27 +128,25 @@ You can click on a run to view its **History Details**, including the whole resp
 
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
 
-
 ## See also
 
- [What is Scheduler?](/documentation/articles/scheduler-intro/)
+ [What is Scheduler?](./scheduler-intro.md)
 
- [Scheduler Concepts, Terminology, and Entity Hierarchy](/documentation/articles/scheduler-concepts-terms/)
+ [Scheduler Concepts, Terminology, and Entity Hierarchy](./scheduler-concepts-terms.md)
 
- [Plans and Billing in Azure Scheduler](/documentation/articles/scheduler-plans-billing/)
+ [Plans and Billing in Azure Scheduler](./scheduler-plans-billing.md)
 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](/documentation/articles/scheduler-advanced-complexity/)
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](./scheduler-advanced-complexity.md)
 
  [Scheduler REST API Reference](https://msdn.microsoft.com/zh-CN/library/dn528946)   
 
- [Scheduler PowerShell Cmdlets Reference](/documentation/articles/scheduler-powershell-reference/)
+ [Scheduler PowerShell Cmdlets Reference](./scheduler-powershell-reference.md)
 
- [Scheduler High-Availability and Reliability](/documentation/articles/scheduler-high-availability-reliability/)
+ [Scheduler High-Availability and Reliability](./scheduler-high-availability-reliability.md)
 
- [Scheduler Limits, Defaults, and Error Codes](/documentation/articles/scheduler-limits-defaults-errors/)
+ [Scheduler Limits, Defaults, and Error Codes](./scheduler-limits-defaults-errors.md)
 
- [Scheduler Outbound Authentication](/documentation/articles/scheduler-outbound-authentication/)
-
+ [Scheduler Outbound Authentication](./scheduler-outbound-authentication.md)
 
 [marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
 [action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
@@ -160,7 +157,6 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 [job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
 [job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
 [job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
-
 
 [1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
 [2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png

@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Preparing hard drives for an Azure Import/Export import job | Azure"
-    description="Learn how to prepare hard drives using the WAImportExport tool to create an import job for the Azure Import/Export service."
-    author="muralikk"
-    manager="syadav"
-    editor="tysonn"
-    services="storage"
-    documentationcenter="" />
-<tags
-    ms.assetid="ms.service: storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/15/2017"
-    wacn.date=""
-    ms.author="muralikk" />
+---
+title: Preparing hard drives for an Azure Import/Export import job | Azure
+description: Learn how to prepare hard drives using the WAImportExport tool to create an import job for the Azure Import/Export service.
+author: muralikk
+manager: syadav
+editor: tysonn
+services: storage
+documentationcenter: ''
+
+ms.assetid: ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/15/2017
+wacn.date: ''
+ms.author: muralikk
+---
 
 # Preparing hard drives for an Import Job
 ## Overview
 
-The WAImportExport tool is the drive preparation and repair tool that you can use with the [Azure Import/Export service](/documentation/articles/storage-import-export-service/). You can use this tool to copy data to the hard drives you are going to ship to an Azure datacenter. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives. In this article we will go over the working of this tool.
+The WAImportExport tool is the drive preparation and repair tool that you can use with the [Azure Import/Export service](./storage-import-export-service.md). You can use this tool to copy data to the hard drives you are going to ship to an Azure datacenter. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives. In this article we will go over the working of this tool.
 
 ## Prerequisites
 
@@ -70,11 +71,11 @@ The following table shows some examples of blob targets:
 
 ### Sample dataset.csv
 
-
-	BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
-	"F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
-	"F:\50M_original\","containername/",BlockBlob,rename,"None",None
-
+```
+BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+"F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
+"F:\50M_original\","containername/",BlockBlob,rename,"None",None
+```
 
 ### Dataset CSV file fields
 
@@ -82,10 +83,10 @@ The following table shows some examples of blob targets:
 | --- | --- |
 | BasePath | <p>**[Required]**</p><p>The value of this parameter represents the source where the data to be imported is located.The tool will recursively copy all data located under this path.</p><p>**Allowed Values**: This has to be a valid path on local computer or a valid share path and should be accessible by the user. The directory path must be an absolute path (not a relative path).If the path ends with "\\", it represents a directory else a path ending without "\\" represents a file.</p><p>No regex are allowed in this field. If the path contains spaces, put it in "".</p><p>**Example**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory 1"  |
 | DstBlobPathOrPrefix | **[Required]**<br/> The path to the destination virtual directory in your Windows Azure storage account. The virtual directory may or may not already exist. If it does not exist, Import/Export Service will create one.<br/><br/>Be sure to use valid container names when specifying destination virtual directories or blobs. Keep in mind that container names must be lowercase. For container naming rules, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/fileservices/naming-and-referencing-containers--blobs--and-metadata).If only root is specified, the directory structure of the source is replicated in the destination blob container.If a different directory structure is desired than the one in source, multiple rows of mapping in CSV<br/><br/>You can specify a container, or a blob prefix like music/70s/. The destination directory must begin with the container name, followed by a forward slash "/", and optionally may include a virtual blob directory that ends with "/".<br/><br/>When the destination container is the root container, you must explicitly specify the root container, including the forward slash, as $root/. Since blobs under the root container cannot include "/" in their names, any subdirectories in the source directory will not be copied when the destination directory is the root container.<br/><br/>**Example**<br/>If the destination blob path is https://mystorageaccount.blob.core.chinacloudapi.cn/video, the value of this field can be video/  |
-| BlobType | <p>**[Optional]** block &#124; page</p><p>Currently Import/Export Service supports 2 kinds of Blobs. Page blobs and Block BlobsBy default all files will be imported as Block Blobs. And \*.vhd and \*.vhdx will be imported as Page BlobsThere is a limit on the block-blob and page-blob allowed size. See [Storage scalability targets](/documentation/articles/storage-scalability-targets/#scalability-targets-for-blobs-queues-tables-and-files) for more information.</p>  |
+| BlobType | <p>**[Optional]** block &#124; page</p><p>Currently Import/Export Service supports 2 kinds of Blobs. Page blobs and Block BlobsBy default all files will be imported as Block Blobs. And \*.vhd and \*.vhdx will be imported as Page BlobsThere is a limit on the block-blob and page-blob allowed size. See [Storage scalability targets](./storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) for more information.</p>  |
 | Disposition | <p>**[Optional]** rename &#124; no-overwrite &#124; overwrite </p><p> This field specifies the copy-behavior during import i.e when data is being uploaded to the storage account from the disk.Available options are: rename&#124;overwite&#124;no-overwrite.Defaults to "rename" if nothing specified. </p><p>**Rename**: If the object with same name present, creates a copy in destination.</p><p>Overwrite: overwrites the file with newer file. The file with last-modified wins.</p><p>**No-overwrite**: Skips writing the file if already present.</p>|
-| MetadataFile | <p>**[Optional]** </p><p>The value to this field is the metadata file which can be provided if the one needs to preserve the metadata of the objects or provide custom metadata. Path to the metadata file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](/documentation/articles/storage-import-export-file-format-metadata-and-properties/) for more information</p> |
-| PropertiesFile | <p>**[Optional]** </p><p>Path to the property file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](/documentation/articles/storage-import-export-file-format-metadata-and-properties/) for more information.</p> |
+| MetadataFile | <p>**[Optional]** </p><p>The value to this field is the metadata file which can be provided if the one needs to preserve the metadata of the objects or provide custom metadata. Path to the metadata file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](./storage-import-export-file-format-metadata-and-properties.md) for more information</p> |
+| PropertiesFile | <p>**[Optional]** </p><p>Path to the property file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](./storage-import-export-file-format-metadata-and-properties.md) for more information.</p> |
 
 ## Prepare InitialDriveSet or AdditionalDriveSet CSV file
 
@@ -101,11 +102,11 @@ In order to create a basic volume and assign a drive letter, by following the in
 
 ### Sample InitialDriveSet and AdditionalDriveSet CSV file
 
-
-	DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-	G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
-	H,Format,SilentMode,Encrypt,
-
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
+H,Format,SilentMode,Encrypt,
+```
 
 ### Driveset CSV file fields
 
@@ -126,59 +127,60 @@ To prepare drives for an import job, call the WAImportExport tool with the **Pre
 First Copy Session to Copy a Single/Multiple Directory to a single/multiple Disk (depending on what is specified in CSV file)
 WAImportExport tool PrepImport command for the first copy session to copy directories and/or files with a new copy session:
 
-
-	WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
-
+```
+WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+```
 
 **Example:**
 
-
-	WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*\*\*\*\*\*\*\* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
-
+```
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*\*\*\*\*\*\*\* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
+```
 
 ### Add data in subsequent session
 
 In subsequent copy sessions, you do not need to specify the initial parameters. You need to use the same journal file in order for the tool to remember where it left in the previous session. The state of the copy session is written to the journal file. Here is the syntax for a subsequent copy session to copy additional directories and or files:
 
-
-	WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<DifferentSessionId>  [DataSet:<differentdataset.csv>]
-
+```
+WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<DifferentSessionId>  [DataSet:<differentdataset.csv>]
+```
 
 **Example:**
 
-
-	WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
-
+```
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
+```
 
 ### Add drives to latest session
 
 If the data did not fit in specified drives in InitialDriveset, one can use the tool to add additional drives to same copy session. 
 
->[AZURE.NOTE] The session id should match the previous session id. Journal file should match the one specified in previous session.
+>[!NOTE]
+> The session id should match the previous session id. Journal file should match the one specified in previous session.
 
-
-	WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-
+```
+WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+```
 
 **Example:**
 
-
-	WAImportExport.exe PrepImport /j:SameJournalTest.jrn /id:session#2  /AdditionalDriveSet:driveset-2.csv
-
+```
+WAImportExport.exe PrepImport /j:SameJournalTest.jrn /id:session#2  /AdditionalDriveSet:driveset-2.csv
+```
 
 ### Abort the latest session:
 
 If a copy session is interrupted and it is not possible to resume (for example, if a source directory proved inaccessible), you must abort the current session so that it can be rolled back and new copy sessions can be started:
 
-
-	WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AbortSession
-
+```
+WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AbortSession
+```
 
 **Example:**
 
-
-	WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
-
+```
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
+```
 
 Only the last copy session, if terminated abnormally, can be aborted. Note that you cannot abort the first copy session for a drive. Instead you must restart the copy session with a new journal file.
 
@@ -186,17 +188,18 @@ Only the last copy session, if terminated abnormally, can be aborted. Note that 
 
 If a copy session is interrupted for any reason, you can resume it by running the tool with only the journal file specified:
 
-
-	WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /ResumeSession
-
+```
+WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /ResumeSession
+```
 
 **Example:**
 
+```
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
+```
 
-	WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
-
-
-> [AZURE.IMPORTANT] When you resume a copy session, do not modify the source data files and directories by adding or removing files.
+> [!IMPORTANT]
+> When you resume a copy session, do not modify the source data files and directories by adding or removing files.
 
 ## WAImportExport Parameters
 
@@ -225,76 +228,76 @@ If a copy session is interrupted for any reason, you can resume it by running th
 
 ### Sample Drive Manifest file
 
-
-	<?xml version="1.0" encoding="UTF-8"?>
-	<DriveManifest Version="2011-MM-DD">
-	   <Drive>
-	      <DriveId>drive-id</DriveId>
-	      <StorageAccountKey>storage-account-key</StorageAccountKey>
-	      <ClientCreator>client-creator</ClientCreator>
-	      <!-- First Blob List -->
-	      <BlobList Id="session#1-0">
-	         <!-- Global properties and metadata that applies to all blobs -->
-	         <MetadataPath Hash="md5-hash">global-metadata-file-path</MetadataPath>
-	         <PropertiesPath Hash="md5-hash">global-properties-file-path</PropertiesPath>
-	         <!-- First Blob -->
-	         <Blob>
-	            <BlobPath>blob-path-relative-to-account</BlobPath>
-	            <FilePath>file-path-relative-to-transfer-disk</FilePath>
-	            <ClientData>client-data</ClientData>
-	            <Length>content-length</Length>
-	            <ImportDisposition>import-disposition</ImportDisposition>
-	            <!-- page-range-list-or-block-list -->
-	            <!-- page-range-list -->
-	            <PageRangeList>
-	               <PageRange Offset="1073741824" Length="512" Hash="md5-hash" />
-	               <PageRange Offset="1073741824" Length="512" Hash="md5-hash" />
-	            </PageRangeList>
-	            <!-- block-list -->
-	            <BlockList>
-	               <Block Offset="1073741824" Length="4194304" Id="block-id" Hash="md5-hash" />
-	               <Block Offset="1073741824" Length="4194304" Id="block-id" Hash="md5-hash" />
-	            </BlockList>
-	            <MetadataPath Hash="md5-hash">metadata-file-path</MetadataPath>
-	            <PropertiesPath Hash="md5-hash">properties-file-path</PropertiesPath>
-	         </Blob>
-	      </BlobList>
-	   </Drive>
-	</DriveManifest>
-
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<DriveManifest Version="2011-MM-DD">
+   <Drive>
+      <DriveId>drive-id</DriveId>
+      <StorageAccountKey>storage-account-key</StorageAccountKey>
+      <ClientCreator>client-creator</ClientCreator>
+      <!-- First Blob List -->
+      <BlobList Id="session#1-0">
+         <!-- Global properties and metadata that applies to all blobs -->
+         <MetadataPath Hash="md5-hash">global-metadata-file-path</MetadataPath>
+         <PropertiesPath Hash="md5-hash">global-properties-file-path</PropertiesPath>
+         <!-- First Blob -->
+         <Blob>
+            <BlobPath>blob-path-relative-to-account</BlobPath>
+            <FilePath>file-path-relative-to-transfer-disk</FilePath>
+            <ClientData>client-data</ClientData>
+            <Length>content-length</Length>
+            <ImportDisposition>import-disposition</ImportDisposition>
+            <!-- page-range-list-or-block-list -->
+            <!-- page-range-list -->
+            <PageRangeList>
+               <PageRange Offset="1073741824" Length="512" Hash="md5-hash" />
+               <PageRange Offset="1073741824" Length="512" Hash="md5-hash" />
+            </PageRangeList>
+            <!-- block-list -->
+            <BlockList>
+               <Block Offset="1073741824" Length="4194304" Id="block-id" Hash="md5-hash" />
+               <Block Offset="1073741824" Length="4194304" Id="block-id" Hash="md5-hash" />
+            </BlockList>
+            <MetadataPath Hash="md5-hash">metadata-file-path</MetadataPath>
+            <PropertiesPath Hash="md5-hash">properties-file-path</PropertiesPath>
+         </Blob>
+      </BlobList>
+   </Drive>
+</DriveManifest>
+```
 
 ### Sample journal file for each drive: ending with .xml
 
-
-	[BeginUpdateRecord][2016/11/01 21:22:25.379][Type:ActivityRecord]
-	ActivityId: DriveInfo
-	DriveState: [BeginValue]
-	<?xml version="1.0" encoding="UTF-8"?>
-	<Drive>
-	   <DriveId>drive-id</DriveId>
-	   <BitLockerKey>*******</BitLockerKey>
-	   <ManifestFile>\DriveManifest.xml</ManifestFile>
-	   <ManifestHash>D863FE44F861AE0DA4DCEAEEFFCCCE68</ManifestHash> </Drive>
-	[EndValue]
-	SaveCommandOutput: Completed
-	[EndUpdateRecord]
-
+```xml
+[BeginUpdateRecord][2016/11/01 21:22:25.379][Type:ActivityRecord]
+ActivityId: DriveInfo
+DriveState: [BeginValue]
+<?xml version="1.0" encoding="UTF-8"?>
+<Drive>
+   <DriveId>drive-id</DriveId>
+   <BitLockerKey>*******</BitLockerKey>
+   <ManifestFile>\DriveManifest.xml</ManifestFile>
+   <ManifestHash>D863FE44F861AE0DA4DCEAEEFFCCCE68</ManifestHash> </Drive>
+[EndValue]
+SaveCommandOutput: Completed
+[EndUpdateRecord]
+```
 
 ### Sample journal file for session: ended with .jrn  which records the trail of sessions
 
-
-	[BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
-	VocabularyVersion: 2013-02-01
-	[EndUpdateRecord]
-	[BeginUpdateRecord][2016/11/02 18:24:14.749][Type:ActivityRecord]
-	ActivityId: PrepImportDriveCommandContext
-	LogDirectory: F:\logs
-	[EndUpdateRecord]
-	[BeginUpdateRecord][2016/11/02 18:24:14.754][Type:ActivityRecord]
-	ActivityId: PrepImportDriveCommandContext
-	StorageAccountKey: *******
-	[EndUpdateRecord]
-
+```
+[BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
+VocabularyVersion: 2013-02-01
+[EndUpdateRecord]
+[BeginUpdateRecord][2016/11/02 18:24:14.749][Type:ActivityRecord]
+ActivityId: PrepImportDriveCommandContext
+LogDirectory: F:\logs
+[EndUpdateRecord]
+[BeginUpdateRecord][2016/11/02 18:24:14.754][Type:ActivityRecord]
+ActivityId: PrepImportDriveCommandContext
+StorageAccountKey: *******
+[EndUpdateRecord]
+```
 
 ## FAQ
 
@@ -310,7 +313,7 @@ If the data size is greater than the disk size, the WAImportExport tool will dis
 
 #### Where can I find previous version of WAImportExport tool?
 
-WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple source and write to multiple drives. Additionally, one can easily manage multiple source locations from which the data needs to be copied in a single CSV file. However, in case you need SAS support or want to copy single source to single disk, you can [download WAImportExport V1 Tool] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](/documentation/articles/storage-import-export-tool-how-to-v1/) for help with WAImportExport V1 usage.
+WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple source and write to multiple drives. Additionally, one can easily manage multiple source locations from which the data needs to be copied in a single CSV file. However, in case you need SAS support or want to copy single source to single disk, you can [download WAImportExport V1 Tool] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](./storage-import-export-tool-how-to-v1.md) for help with WAImportExport V1 usage.
 
 #### What is a Session ID?
 
@@ -351,7 +354,8 @@ Here is an article on [how to enable BitLocker](https://technet.microsoft.com/zh
 It is possible that your machine does not have tpm chip. If you do not get an output using tpm.msc, look at the next FAQ.
 
 #### How to disable Trusted Platform Module (TPM) in BitLocker?
-> [AZURE.NOTE] Only if there is no TPM in their servers, you need to disable TPM policy.It is not necessary to disable TPM if there is a trusted TPM in user's server. 
+> [!NOTE]
+> Only if there is no TPM in their servers, you need to disable TPM policy.It is not necessary to disable TPM if there is a trusted TPM in user's server. 
 
 In order to disable TPM in BitLocker, go through the following steps:
 

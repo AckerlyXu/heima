@@ -1,24 +1,25 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="HPC Pack 2016 cluster in Azure | Azure"
-    description="Learn how to deploy an HPC Pack 2016 cluster in Azure"
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="dlepow"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-multiple"
-    ms.workload="big-compute"
-    ms.date="12/15/2016"
-    wacn.date=""
-    ms.author="danlep" />
+---
+title: HPC Pack 2016 cluster in Azure | Azure
+description: Learn how to deploy an HPC Pack 2016 cluster in Azure
+services: virtual-machines-windows
+documentationcenter: ''
+author: dlepow
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 3dde6a68-e4a6-4054-8b67-d6a90fdc5e3f
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-multiple
+ms.workload: big-compute
+ms.date: 12/15/2016
+wacn.date: ''
+ms.author: danlep
+---
 
 # Deploy an HPC Pack 2016 cluster in Azure
 
@@ -40,63 +41,69 @@ If you don't already have a certificate that meets these requirements, you can r
 
 * **For Windows 10 or Windows Server 2016**, run the built-in **New-SelfSignedCertificate** PowerShell cmdlet as follows:
 
-        New-SelfSignedCertificate -Subject "CN=HPC Pack 2016 Communication" -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2") -CertStoreLocation cert:\CurrentUser\My -KeyExportPolicy Exportable -NotAfter (Get-Date).AddYears(5)
+    ```PowerShell
+    New-SelfSignedCertificate -Subject "CN=HPC Pack 2016 Communication" -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2") -CertStoreLocation cert:\CurrentUser\My -KeyExportPolicy Exportable -NotAfter (Get-Date).AddYears(5)
+    ```
 
 * **For operating systems earlier than Windows 10 or Windows Server 2016**, download the [self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) from the Microsoft Script Center. Extract its contents and run the following commands at a PowerShell prompt:
 
-        Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
-  
-        New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
+    ```PowerShell
+    Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+
+    New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
+    ```
 
 ### Upload certificate to an Azure key vault
 
 Before deploying the HPC cluster, upload the certificate to an [Azure key vault](/documentation/articles/index/) as a secret, and record the following information for use during the deployment: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
 
-A sample PowerShell script to upload the certificate follows. For more information about uploading a certificate to an Azure key vault, see [Get started with Azure Key Vault](/documentation/articles/key-vault-get-started/).
+A sample PowerShell script to upload the certificate follows. For more information about uploading a certificate to an Azure key vault, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
 
-    #Give the following values
-    $VaultName = "mytestvault"
-    $SecretName = "hpcpfxcert"
-    $VaultRG = "myresourcegroup"
-    $location = "chinanorth"
-    $PfxFile = "c:\Temp\mytest.pfx"
-    $Password = "yourpfxkeyprotectionpassword"
-    #Validate the pfx file
-    try {
-        $pfxCert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList $PfxFile, $Password
-    }
-    catch [System.Management.Automation.MethodInvocationException]
-    {
-        throw $_.Exception.InnerException
-    }
-    $thumbprint = $pfxCert.Thumbprint
-    $pfxCert.Dispose()
-    # Create and encode the JSON object
-    $pfxContentBytes = Get-Content $PfxFile -Encoding Byte
-    $pfxContentEncoded = [System.Convert]::ToBase64String($pfxContentBytes)
-    $jsonObject = @"
-    {
-    "data": "$pfxContentEncoded",
-    "dataType": "pfx",
-    "password": "$Password"
-    }
-    "@
-    $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-    $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-    #Create an Azure key vault and upload the certificate as a secret
-    $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-    $rg = Get-AzureRmResourceGroup -Name $VaultRG -Location $location -ErrorAction SilentlyContinue
-    if($null -eq $rg)
-    {
-        $rg = New-AzureRmResourceGroup -Name $VaultRG -Location $location
-    }
-    $hpcKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $VaultRG -Location $location -EnabledForDeployment -EnabledForTemplateDeployment
-    $hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secret
-    "The following Information will be used in the deployment template"
-    "Vault Name             :   $VaultName"
-    "Vault Resource Group   :   $VaultRG"
-    "Certificate URL        :   $($hpcSecret.Id)"
-    "Certificate Thumbprint :   $thumbprint"
+```powershell
+#Give the following values
+$VaultName = "mytestvault"
+$SecretName = "hpcpfxcert"
+$VaultRG = "myresourcegroup"
+$location = "chinanorth"
+$PfxFile = "c:\Temp\mytest.pfx"
+$Password = "yourpfxkeyprotectionpassword"
+#Validate the pfx file
+try {
+    $pfxCert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList $PfxFile, $Password
+}
+catch [System.Management.Automation.MethodInvocationException]
+{
+    throw $_.Exception.InnerException
+}
+$thumbprint = $pfxCert.Thumbprint
+$pfxCert.Dispose()
+# Create and encode the JSON object
+$pfxContentBytes = Get-Content $PfxFile -Encoding Byte
+$pfxContentEncoded = [System.Convert]::ToBase64String($pfxContentBytes)
+$jsonObject = @"
+{
+"data": "$pfxContentEncoded",
+"dataType": "pfx",
+"password": "$Password"
+}
+"@
+$jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+$jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+#Create an Azure key vault and upload the certificate as a secret
+$secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+$rg = Get-AzureRmResourceGroup -Name $VaultRG -Location $location -ErrorAction SilentlyContinue
+if($null -eq $rg)
+{
+    $rg = New-AzureRmResourceGroup -Name $VaultRG -Location $location
+}
+$hpcKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $VaultRG -Location $location -EnabledForDeployment -EnabledForTemplateDeployment
+$hpcSecret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secret
+"The following Information will be used in the deployment template"
+"Vault Name             :   $VaultName"
+"Vault Resource Group   :   $VaultRG"
+"Certificate URL        :   $($hpcSecret.Id)"
+"Certificate Thumbprint :   $thumbprint"
+```
 
 ## Supported topologies
 
@@ -124,7 +131,7 @@ The **Subscription** and the **Location** must be same that you specified when y
 
 ### Step 2: Specify the parameter settings
 
-Enter or modify values for the template parameters. Click the icon next to each parameter for help information. Also see the guidance for [available VM sizes](/documentation/articles/virtual-machines-windows-sizes/).
+Enter or modify values for the template parameters. Click the icon next to each parameter for help information. Also see the guidance for [available VM sizes](./virtual-machines-windows-sizes.md).
 
 Specify the values you recorded in the Prerequisites for the following parameters: **Vault name**, **Vault resource group**, **Certificate URL**, and **Certificate thumbprint**.
 
@@ -143,4 +150,4 @@ Click **Review legal terms** to review the terms. If you agree, click **Purchase
 3. Click **Connect** to log on to any of the head nodes using Remote Desktop with your specified administrator user name. If the cluster you deployed is in an Active Directory Domain, the user name is of the form <privateDomainName>\<adminUsername> (for example, hpc.local\hpcadmin).
 
 ## Next steps
-* Submit jobs to your cluster. See [Submit jobs to HPC an HPC Pack cluster in Azure](/documentation/articles/virtual-machines-windows-hpcpack-cluster-submit-jobs/) and [Manage an HPC Pack 2016 cluster in Azure using Azure Active Directory](/documentation/articles/virtual-machines-windows-hpcpack-cluster-active-directory/).
+* Submit jobs to your cluster. See [Submit jobs to HPC an HPC Pack cluster in Azure](./virtual-machines-windows-hpcpack-cluster-submit-jobs.md) and [Manage an HPC Pack 2016 cluster in Azure using Azure Active Directory](./virtual-machines-windows-hpcpack-cluster-active-directory.md).

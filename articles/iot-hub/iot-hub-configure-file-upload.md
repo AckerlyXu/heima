@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Use the Azure portal to configure file upload | Azure"
-    description="How to use the Azure portal to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account."
-    services="iot-hub"
-    documentationcenter=""
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="915f1597-272d-4fd4-8c5b-a0ccb1df0d91"
-    ms.service="iot-hub"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/30/2016"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Use the Azure portal to configure file upload | Azure
+description: How to use the Azure portal to configure your IoT hub to enable file uploads from connected devices. Includes information about configuring the destination Azure storage account.
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/30/2016
+wacn.date: ''
+ms.author: dobett
+---
 
 # Configure IoT Hub file uploads using the Azure portal
 ## File upload
@@ -52,17 +53,16 @@ To further explore the capabilities of IoT Hub, see:
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 * [Secure your IoT solution from the ground up][lnk-securing]
 
-
   [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
   [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png
   [15]: ./media/iot-hub-configure-file-upload/file-upload-selected-container.png
 
-[lnk-upload]: /documentation/articles/iot-hub-devguide-file-upload/
+[lnk-upload]: ./iot-hub-devguide-file-upload.md
 
-[lnk-bulk]: /documentation/articles/iot-hub-bulk-identity-mgmt/
-[lnk-metrics]: /documentation/articles/iot-hub-metrics/
-[lnk-monitor]: /documentation/articles/iot-hub-operations-monitoring/
+[lnk-bulk]: ./iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: ./iot-hub-metrics.md
+[lnk-monitor]: ./iot-hub-operations-monitoring.md
 
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
-[lnk-gateway]: /documentation/articles/iot-hub-linux-gateway-sdk-simulated-device/
-[lnk-securing]: /documentation/articles/iot-hub-security-ground-up/
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-securing]: ./iot-hub-security-ground-up.md

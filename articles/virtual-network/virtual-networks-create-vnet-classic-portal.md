@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Create an Azure virtual network (classic) - Classic Management Portal | Azure"
-    description="Learn how to create a virtual network (classic) with a netcfg file in the Azure Classic Management Portal."
-    services="virtual-network"
-    documentationcenter=""
-    author="jimdial"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="69894a0b-8050-451e-8a25-c513e1bd271e"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/30/2017"
-    wacn.date=""
-    ms.author="jdial" />
+---
+title: Create an Azure virtual network (classic) - Classic Management Portal | Azure
+description: Learn how to create a virtual network (classic) with a netcfg file in the Azure Classic Management Portal.
+services: virtual-network
+documentationcenter: ''
+author: jimdial
+manager: timlt
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 69894a0b-8050-451e-8a25-c513e1bd271e
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/30/2017
+wacn.date: ''
+ms.author: jdial
+---
 
 # Create a virtual network (classic) with a netcfg file using the Azure Classic Management Portal
-[AZURE.INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
+[!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
+[!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article explains how to create a virtual network with a netcfg file through the classic deployment model using the Azure Classic Management Portal. You can also [create a virtual network through the classic deployment model without using a netcfg file](/documentation/articles/virtual-networks-create-vnet-classic-pportal/) or [create a virtual network through the Azure Resource Manager deployment model](/documentation/articles/virtual-networks-create-vnet-arm-pportal/) using the Azure portal preview.
+This article explains how to create a virtual network with a netcfg file through the classic deployment model using the Azure Classic Management Portal. You can also [create a virtual network through the classic deployment model without using a netcfg file](./virtual-networks-create-vnet-classic-pportal.md) or [create a virtual network through the Azure Resource Manager deployment model](./virtual-networks-create-vnet-arm-pportal.md) using the Azure portal preview.
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
+[!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 ## How to create a VNet with a network config file in the Azure Classic Management Portal
 Azure uses an xml file to define all VNets available to a subscription. You can download this file and edit it to create VNets through the classic deployment model or to modify or delete existing VNets. This article explains how to download this file, referred to as a network configuration (or netcfg) file, add a VNet to it, and upload the file to create the VNet. To learn more about the network configuration file, review the [Azure virtual network configuration schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100.aspx).
@@ -43,25 +44,27 @@ To create a VNet using a netcfg file through the Azure Classic Management Portal
 5. Open the file you saved in step 4 using any XML or text editor application, and look for the `<VirtualNetworkSites>` element within the `<VirtualNetworkConfiguration>` element. If you have any existing VNets, each is listed in its own `<VirtualNetworkSite>` element. If the file does not contain a `<VirtualNetworkSites>` element within the `<VirtualNetworkConfiguration>` element, create one.
 6. If your existing NetworkConfig file doesn't have any VNets in it, your NetworkConfig.xml file will resemble the following example after you add the VNet described in this scenario to it:
 
-        <NetworkConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
-          <VirtualNetworkConfiguration>
-            <VirtualNetworkSites>
-              <VirtualNetworkSite name="TestVNet" Location="China North">
-                <AddressSpace>
-                  <AddressPrefix>192.168.0.0/16</AddressPrefix>
-                </AddressSpace>
-                <Subnets>
-                  <Subnet name="FrontEnd">
-                    <AddressPrefix>192.168.1.0/24</AddressPrefix>
-                  </Subnet>
-                  <Subnet name="BackEnd">
-                    <AddressPrefix>192.168.2.0/24</AddressPrefix>
-                  </Subnet>
-                </Subnets>
-              </VirtualNetworkSite>
-            </VirtualNetworkSites>
-          </VirtualNetworkConfiguration>
-        </NetworkConfiguration>
+    ```xml
+    <NetworkConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+      <VirtualNetworkConfiguration>
+        <VirtualNetworkSites>
+          <VirtualNetworkSite name="TestVNet" Location="China North">
+            <AddressSpace>
+              <AddressPrefix>192.168.0.0/16</AddressPrefix>
+            </AddressSpace>
+            <Subnets>
+              <Subnet name="FrontEnd">
+                <AddressPrefix>192.168.1.0/24</AddressPrefix>
+              </Subnet>
+              <Subnet name="BackEnd">
+                <AddressPrefix>192.168.2.0/24</AddressPrefix>
+              </Subnet>
+            </Subnets>
+          </VirtualNetworkSite>
+        </VirtualNetworkSites>
+      </VirtualNetworkConfiguration>
+    </NetworkConfiguration>
+    ```
 
 7. Save the network configuration file.
 8. In the Azure Classic Management Portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, and click **IMPORT CONFIGURATION** as shown in the following picture:

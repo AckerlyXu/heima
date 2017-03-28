@@ -19,10 +19,9 @@ ms.author: pratshar
 ---
 # Protect SQL Server using SQL Server disaster recovery and Azure Site Recovery
 
-This article describes how to protect the SQL Server back end of an application using a combination of SQL Server business continuity and disaster recovery (BCDR) technologies, and [Azure Site Recovery](/documentation/articles/site-recovery-overview/).
+This article describes how to protect the SQL Server back end of an application using a combination of SQL Server business continuity and disaster recovery (BCDR) technologies, and [Azure Site Recovery](./site-recovery-overview.md).
 
 Before you start, make sure you understand SQL Server disaster recovery capabilities, including failover clustering, AlwaysOn availability groups, database mirroring, and log shipping.
-
 
 ## SQL Server deployments
 
@@ -83,7 +82,7 @@ This table summarizes our recommendations for integrating SQL Server BCDR techno
 ## Deployment prerequisites
 
 * An on-premises SQL Server deployment, running a supported SQL Server version. Typically, you also need Active Directory for your SQL server.
-* The requirements for the scenario you want to deploy. Learn more about support requirements for [replication to Azure](/documentation/articles/site-recovery-support-matrix-to-azure/) and [on-premises](/documentation/articles/site-recovery-support-matrix/), and [deployment prerequisites](/documentation/articles/site-recovery-prereq/).
+* The requirements for the scenario you want to deploy. Learn more about support requirements for [replication to Azure](./site-recovery-support-matrix-to-azure.md) and [on-premises](./site-recovery-support-matrix.md), and [deployment prerequisites](./site-recovery-prereq.md).
 * To set up recovery in Azure, run the [Azure Virtual Machine Readiness Assessment](http://www.microsoft.com/download/details.aspx?id=40898) tool on your SQL Server virtual machines, to make sure they're compatible with Azure and Site Recovery.
 
 ## Set up Active Directory
@@ -93,18 +92,16 @@ Set up Active Directory, in the secondary recovery site, for SQL Server to run p
 * **Small enterprise**—With a small number of applications, and single domain controller for the on-premises site, if you want to fail over the entire site, we recommend you use Site Recovery replication to replicate the domain controller to the secondary datacenter, or to Azure.
 * **Medium to large enterprise**—If you have a large number of applications, an Active Directory forest, and you want to fail over by application or workload, we recommend you set up an additional domain controller in the secondary datacenter, or in Azure. If you're using AlwaysOn availability groups to recover to a remote site, we recommend you set up another additional domain controller on the secondary site or in Azure, to use for the recovered SQL Server instance.
 
-The instructions in this article presume that a domain controller is available in the secondary location. [Read more](/documentation/articles/site-recovery-active-directory/) about protecting Active Directory with Site Recovery.
+The instructions in this article presume that a domain controller is available in the secondary location. [Read more](./site-recovery-active-directory.md) about protecting Active Directory with Site Recovery.
 
 ## Integrate with SQL Server AlwaysOn for replication to Azure (classic portal with a VMM/configuration server)
-
 
 Site Recovery natively supports SQL AlwaysOn. If you've created a SQL Availability Group with an Azure virtual machine set up as secondary location, then you can use Site Recovery to manage the failover of the Availability Groups.
 
 > [!NOTE]
-> This capability is currently in preview. It's available when the primary site has Hyper-V host servers managed in System Center VMM clouds, or when you've set up [VMware replication](/documentation/articles/site-recovery-vmware-to-azure/). The functionality isn't currently available in the new Azure portal. Follow the steps in [this section](/documentation/articles/site-recovery-sql/#integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server) if you are using new Azure portal.
+> This capability is currently in preview. It's available when the primary site has Hyper-V host servers managed in System Center VMM clouds, or when you've set up [VMware replication](./site-recovery-vmware-to-azure.md). The functionality isn't currently available in the new Azure portal. Follow the steps in [this section](./site-recovery-sql.md#integrate-with-sql-server-alwayson-for-replication-to-azure-azure-portalclassic-portal-with-no-vmmconfiguration-server) if you are using new Azure portal.
 >
 >
-
 
 #### Before you start
 
@@ -202,104 +199,108 @@ Here's what you need to do:
 
 1. Create a local file for a script that fails over an availability group. This sample script specifies a path to the availability group on the Azure replica, and fails it over to that replica instance. This script is run on the SQL Server replica virtual machine, by passing it with the custom script extension.
 
-    	Param(
-    	[string]$SQLAvailabilityGroupPath
-    	)
-    	import-module sqlps
-    	Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
+    ```
+    Param(
+    [string]$SQLAvailabilityGroupPath
+    )
+    import-module sqlps
+    Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
+    ```
 
-2.	Upload the script to a blob in an Azure storage account. Use this example:
+2. Upload the script to a blob in an Azure storage account. Use this example:
 
-    	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
-    	Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
+    ```
+    $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
+    Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
+    ```
 
-3. Create an Azure automation runbook to invoke the scripts, on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](/documentation/articles/site-recovery-runbook-automation/) about using automation runbooks in recovery plans.
+3. Create an Azure automation runbook to invoke the scripts, on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](./site-recovery-runbook-automation.md) about using automation runbooks in recovery plans.
 
 4. When you create a recovery plan for the application, add a "pre-Group 1 boot" script step that invokes the automation runbook to fail over the availability group.
 
-
 5. SQL AlwaysOn doesn’t natively support test failover. Therefore, we recommend the following:
-	1. Set up [Azure Backup](/documentation/articles/backup-azure-vms/) on the virtual machine that hosts the availability group replica in Azure.
-	1. Before triggering test failover of the recovery plan, recover the virtual machine from the backup taken in the previous step.
-	1. Do a test failover of the recovery plan.
-
+    1. Set up [Azure Backup](../backup/backup-azure-vms.md) on the virtual machine that hosts the availability group replica in Azure.
+    1. Before triggering test failover of the recovery plan, recover the virtual machine from the backup taken in the previous step.
+    1. Do a test failover of the recovery plan.
 
 > [!NOTE]
 > The script below assumes that the SQL Availability Group is hosted in a classic Azure VM, and that the name of restored virtual machine in Step-2 is SQLAzureVM-Test. Modify the script, based on the name you use for the recovered virtual machine.
 >
 >
 
-    	workflow SQLAvailabilityGroupFailover
-    	{
-    		param (
-        		[Object]$RecoveryPlanContext
-    		)
+```
+    workflow SQLAvailabilityGroupFailover
+    {
+        param (
+            [Object]$RecoveryPlanContext
+        )
 
-    		$Cred = Get-AutomationPSCredential -name 'AzureCredential'
-	
-    		#Connect to Azure
-    		$AzureAccount = Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred
-    		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-    		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-    
-    		InLineScript
-    		{
-     		#Update the script with name of your storage account, key and blob name
-     		$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key";
-     		$sasuri = New-AzureStorageBlobSASToken -Container "script-container"- Blob "AGFailover.ps1" -Permission r -FullUri -Context $context;
-     
-     		Write-output "failovertype " + $Using:RecoveryPlanContext.FailoverType;
-               
-     		if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
-       			{
-	                    Write-output "tfo"
-                    
-	                    Write-Output "Creating ILB"
-	                    Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
-	                    Write-Output "ILB Created"
+        $Cred = Get-AutomationPSCredential -name 'AzureCredential'
 
-						#Update the script with name of the virtual machine recovered using Azure Backup
-	                    Write-Output "Adding SQL AG Endpoint"
-	                    Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
+        #Connect to Azure
+        $AzureAccount = Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred
+        $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+        Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
 
-	                    Write-Output "Added Endpoint"
-        
-	                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
-                       
-	                    Write-Output "UnInstalling custom script extension"
-	                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM 
-	                    Write-Output "Installing custom script extension"
-	                    Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $vm -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM   
-                    
-	                    Write-output "Starting AG Failover"
-	                    Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument "-Path sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag"  | Update-AzureVM
-	                    Write-output "Completed AG Failover"
-       			}
-     		else
-       			{
-           		Write-output "pfo/ufo";
-           		#Get the SQL Azure Replica VM.
-           		#Update the script to use the name of your VM and Cloud Service
-           		$VM = Get-AzureVM -Name "SQLAzureVM" -ServiceName "SQLAzureReplica";     
-       
-           		Write-Output "Installing custom script extension"
-           		#Install the Custom Script Extension on teh SQL Replica VM
-                	Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM;
-                    
-           		Write-output "Starting AG Failover";
-           		#Execute the SQL Failover script
-           		#Pass the SQL AG path as the argument.
-       
-           		$AGArgs="-SQLAvailabilityGroupPath sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag";
-       
-           		Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument $AGArgs | Update-AzureVM;
-       
-           		Write-output "Completed AG Failover";
+        InLineScript
+        {
+         #Update the script with name of your storage account, key and blob name
+         $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key";
+         $sasuri = New-AzureStorageBlobSASToken -Container "script-container"- Blob "AGFailover.ps1" -Permission r -FullUri -Context $context;
 
-       			}
-        
-    		}
-    	}
+         Write-output "failovertype " + $Using:RecoveryPlanContext.FailoverType;
+
+         if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
+               {
+                    Write-output "tfo"
+
+                    Write-Output "Creating ILB"
+                    Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
+                    Write-Output "ILB Created"
+
+                    #Update the script with name of the virtual machine recovered using Azure Backup
+                    Write-Output "Adding SQL AG Endpoint"
+                    Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
+
+                    Write-Output "Added Endpoint"
+
+                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
+
+                    Write-Output "UnInstalling custom script extension"
+                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM 
+                    Write-Output "Installing custom script extension"
+                    Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $vm -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM   
+
+                    Write-output "Starting AG Failover"
+                    Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument "-Path sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag"  | Update-AzureVM
+                    Write-output "Completed AG Failover"
+               }
+         else
+               {
+               Write-output "pfo/ufo";
+               #Get the SQL Azure Replica VM.
+               #Update the script to use the name of your VM and Cloud Service
+               $VM = Get-AzureVM -Name "SQLAzureVM" -ServiceName "SQLAzureReplica";     
+
+               Write-Output "Installing custom script extension"
+               #Install the Custom Script Extension on teh SQL Replica VM
+                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM;
+
+               Write-output "Starting AG Failover";
+               #Execute the SQL Failover script
+               #Pass the SQL AG path as the argument.
+
+               $AGArgs="-SQLAvailabilityGroupPath sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag";
+
+               Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument $AGArgs | Update-AzureVM;
+
+               Write-output "Completed AG Failover";
+
+               }
+
+        }
+    }
+```
 
 ## Integrate with SQL Server AlwaysOn for replication to a secondary on-premises site
 
@@ -313,22 +314,24 @@ If the SQL Server is using availability groups for high availability (or an FCI)
 6. Create an availability group listener, or update the existing listener to include the asynchronous replica virtual machine.
 7. Make sure that the application farm is set up using the listener. If it's setup up using the database server name, update it to use the listener, so you don't need to reconfigure it after the failover.
 
-For applications that use distributed transactions, we recommend you deploy Site Recovery with [SAN replication](/documentation/articles/site-recovery-vmm-san/), or [VMware/physical server site-to-site replication](/documentation/articles/site-recovery-vmware-to-vmware/).
+For applications that use distributed transactions, we recommend you deploy Site Recovery with [SAN replication](./site-recovery-vmm-san.md), or [VMware/physical server site-to-site replication](./site-recovery-vmware-to-vmware.md).
 
 ### Recovery plan considerations
 1. Add this sample script to the VMM library, on the primary and secondary sites.
 
-    	Param(
-    	[string]$SQLAvailabilityGroupPath
-    	)
-    	import-module sqlps
-    	Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
+    ```
+    Param(
+    [string]$SQLAvailabilityGroupPath
+    )
+    import-module sqlps
+    Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
+    ```
 
 2. When you create a recovery plan for the application, add a "pre-Group 1 boot" scripted step, that invokes the script to fail over availability groups.
 
 ## Protect a standalone SQL Server
 
-In this scenario, we recommend that you use Site Recovery replication to protect the SQL Server machine. The exact steps will depend whether SQL Server is a VM or a physical server, and whether you want to replicate to Azure or a secondary on-premises site. Learn about [Site Recovery scenarios](/documentation/articles/site-recovery-overview/).
+In this scenario, we recommend that you use Site Recovery replication to protect the SQL Server machine. The exact steps will depend whether SQL Server is a VM or a physical server, and whether you want to replicate to Azure or a secondary on-premises site. Learn about [Site Recovery scenarios](./site-recovery-overview.md).
 
 ## Protect a SQL Server cluster (standard edition/Windows Server 2008 R2)
 
@@ -336,7 +339,7 @@ For a cluster running SQL Server Standard edition, or SQL Server 2008 R2, we rec
 
 ### On-premises to on-premises
 
-* If the app uses distributed transactions we recommend you deploy [Site Recovery with SAN replication](/documentation/articles/site-recovery-vmm-san/) for a Hyper-V environment, or [VMware/physical server to VMware](/documentation/articles/site-recovery-vmware-to-vmware/) for a VMware environment.
+* If the app uses distributed transactions we recommend you deploy [Site Recovery with SAN replication](./site-recovery-vmm-san.md) for a Hyper-V environment, or [VMware/physical server to VMware](./site-recovery-vmware-to-vmware.md) for a VMware environment.
 * For non-DTC applications, use the above approach to recover the cluster as a standalone server, by leveraging a local high safety DB mirror.
 
 ### On-premises to Azure
@@ -345,9 +348,8 @@ Site Recovery doesn't provide guest cluster support when replicating to Azure. S
 
 1. Configure an additional standalone SQL Server instance on the on-premises site.
 2. Configure the instance to serve as a mirror for the databases you want to protect. Configure mirroring in high safety mode.
-3. Configure Site Recovery on the on-premises site, for ([Hyper-V](/documentation/articles/site-recovery-hyper-v-site-to-azure/) or [VMware VMs/physical servers](/documentation/articles/site-recovery-vmware-to-azure-classic/).
+3. Configure Site Recovery on the on-premises site, for ([Hyper-V](./site-recovery-hyper-v-site-to-azure.md) or [VMware VMs/physical servers](./site-recovery-vmware-to-azure-classic.md).
 4. Use Site Recovery replication to replicate the new SQL Server instance to Azure. Since it's a high safety mirror copy, it will be synchronized with the primary cluster, but it will be replicated to Azure using Site Recovery replication.
-
 
 ![Standard cluster](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)
 
@@ -356,4 +358,4 @@ Site Recovery doesn't provide guest cluster support when replicating to Azure. S
 For SQL Server Standard clusters, failback after an unplanned failover requires a SQL server backup and restore, from the mirror instance to the original cluster, with reestablishment of the mirror.
 
 ## Next steps
-[Learn more](/documentation/articles/site-recovery-components/) about Site Recovery architecture.
+[Learn more](./site-recovery-components.md) about Site Recovery architecture.

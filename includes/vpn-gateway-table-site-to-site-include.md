@@ -1,7 +1,7 @@
 | **Deployment Model/Method** | **Azure Portal Preview** | **Classic Management Portal** | **PowerShell** |
 | --- | --- | --- | --- |
-| **Resource Manager** |[Article](/documentation/articles/vpn-gateway-howto-site-to-site-resource-manager-portal/) |Not Supported |[Article](/documentation/articles/vpn-gateway-create-site-to-site-rm-powershell/) |
-| **Classic** |[Article**](/documentation/articles/vpn-gateway-howto-site-to-site-classic-portal/) |[Article*](/documentation/articles/vpn-gateway-site-to-site-create/) |[Article+](/documentation/articles/vpn-gateway-multi-site/) |
+| **Resource Manager** |[Article](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) |Not Supported |[Article](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) |
+| **Classic** |[Article**](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) |[Article*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |[Article+](../articles/vpn-gateway/vpn-gateway-multi-site.md) |
 
 (*) denotes that the Classic Management Portal can only support creating one S2S VPN connection.
 

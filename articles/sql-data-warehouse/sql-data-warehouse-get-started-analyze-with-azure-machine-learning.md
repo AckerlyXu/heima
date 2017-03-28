@@ -1,30 +1,31 @@
-<properties
-    pageTitle="Analyze data with Azure Machine Learning | Azure"
-    description="Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="kevinvngo"
-    manager="barbkess"
-    editor="" />
-<tags
-    ms.assetid="95635460-150f-4a50-be9c-5ddc5797f8a9"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/31/2016"
-    wacn.date=""
-    ms.author="kevin;barbkess" />
+---
+title: Analyze data with Azure Machine Learning | Azure
+description: Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: kevinvngo
+manager: barbkess
+editor: ''
+
+ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: kevin;barbkess
+---
 
 # Analyze data with Azure Machine Learning
 
-> [AZURE.SELECTOR]
-- [Power BI](/documentation/articles/sql-data-warehouse-get-started-visualize-with-power-bi/)
-- [Azure Machine Learning](/documentation/articles/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/)
-- [Visual Studio](/documentation/articles/sql-data-warehouse-query-visual-studio/)
-- [sqlcmd](/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/)
-- [SSMS](/documentation/articles/sql-data-warehouse-query-ssms/)
+> [!div class="op_single_selector"]
+>- [Power BI](./sql-data-warehouse-get-started-visualize-with-power-bi.md)
+>- [Azure Machine Learning](./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+>- [Visual Studio](./sql-data-warehouse-query-visual-studio.md)
+>- [sqlcmd](./sql-data-warehouse-get-started-connect-sqlcmd.md)
+>- [SSMS](./sql-data-warehouse-query-ssms.md)
 
 This tutorial uses Azure Machine Learning to build a predictive machine learning model based on data stored in Azure SQL Data Warehouse. Specifically, this builds a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
 
@@ -134,9 +135,8 @@ To learn more about building predictive machine learning models, refer to [Intro
 [11]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
 [12]:./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
-
 <!--Article references-->
 [Azure Machine Learning studio]: https://studio.azureml.net/
 [Introduction to Machine Learning on Azure]: /documentation/articles/machine-learning-what-is-machine-learning/
-[load sample data manually]: /documentation/articles/sql-data-warehouse-load-sample-databases/
-[Create a SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-get-started-provision/
+[load sample data manually]: ./sql-data-warehouse-load-sample-databases.md
+[Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md

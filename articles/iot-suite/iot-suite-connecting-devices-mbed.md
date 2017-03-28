@@ -1,26 +1,25 @@
-<properties
-   pageTitle="Connect a device using C on mbed | Azure"
-   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on an mbed device."
-   services=""
-   suite="iot-suite"
-   documentationCenter="na"
-   authors="dominicbetts"
-   manager="timlt"
-   editor=""/>
+---
+title: Connect a device using C on mbed | Azure
+description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on an mbed device.
+services: ''
+suite: iot-suite
+documentationCenter: na
+authors: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="iot-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="02/18/2017"
-   ms.author="dobett"/>
-
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/18/2017
+ms.author: dobett
+---
 
 # Connect your device to the remote monitoring preconfigured solution (mbed)
 
-[AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
+[!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Build and run the C sample solution
 
@@ -43,15 +42,15 @@ Follow these steps to add some sample code to an mbed project. You import the re
 2. Make sure the hardware platform you're using appears in the upper right-hand corner of the window, or click the icon in the right-hand corner to select your hardware platform.
 
 1. Click **Import** on the main menu. Then click **Click here to import from URL**.
-   
+
     ![Start import to mbed workspace][6]
 
 1. In the pop-up window, enter the link for the sample code https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/ then click **Import**.
-   
+
     ![Import sample code to mbed workspace][7]
 
 1. You can see in the mbed compiler window that importing this project also imports various libraries. Some are provided and maintained by the Azure IoT team ([azureiot_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub_amqp_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), while others are third-party libraries available in the mbed libraries catalog.
-   
+
     ![View mbed project][8]
 
 1. In the **Program Workspace**, right-click the **iothub\_amqp\_transport** library, click **Delete**, and then click **OK** to confirm.
@@ -59,11 +58,11 @@ Follow these steps to add some sample code to an mbed project. You import the re
 1. In the **Program Workspace**, right-click the **azure\_amqp\_c** library, click **Delete**, and then click **OK** to confirm.
 
 1. Right-click the **remote_monitoring** project in the **Program Workspace**, select **Import Library**, then select **From URL**.
-   
+
     ![Start library import to mbed workspace][6]
 
 1. In the pop-up window, enter the link for the MQTT transport library https://developer.mbed.org/users/AzureIoTClient/code/iothub\_mqtt\_transport/ then click **Import**.
-   
+
     ![Import library to mbed workspace][12]
 
 1. Repeat the previous step to add the MQTT library from https://developer.mbed.org/users/AzureIoTClient/code/azure\_umqtt\_c/.
@@ -90,14 +89,14 @@ Follow these steps to add some sample code to an mbed project. You import the re
     ```
 1. Delete all the remaining code in the remote\_monitoring\remote\_monitoring.c file.
 
-[AZURE.INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
+[!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
 ## Build and run the sample
 
 Add code to invoke the **remote\_monitoring\_run** function and then build and run the device application.
 
 1. Add a **main** function with following code at the end of the remote\_monitoring.c file to invoke the **remote\_monitoring\_run** function:
-   
+
     ```
     int main()
     {
@@ -120,8 +119,7 @@ Add code to invoke the **remote\_monitoring\_run** function and then build and r
 
     ![][10]
 
-[AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-
+[!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 [6]: ./media/iot-suite-connecting-devices-mbed/mbed1.png
 [7]: ./media/iot-suite-connecting-devices-mbed/mbed2a.png

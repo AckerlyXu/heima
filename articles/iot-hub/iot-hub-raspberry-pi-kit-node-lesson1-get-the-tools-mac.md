@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Get the tools (macOS 10.10) | Azure"
-    description="Download and install the necessary tools and software for the first sample application for Pi on macOS."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timlt"
-    tags=""
-    keywords="iot development, iot software, internet of things software, install python mac, install git on mac, gulp run, install node js mac" />
-<tags
-    ms.assetid="2ea6d211-c0e8-4ade-ac69-d1c2261d78c4"
-    ms.service="iot-hub"
-    ms.devlang="node"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get the tools (macOS 10.10) | Azure
+description: Download and install the necessary tools and software for the first sample application for Pi on macOS.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timlt
+tags: ''
+keywords: iot development, iot software, internet of things software, install python mac, install git on mac, gulp run, install node js mac
+
+ms.assetid: 2ea6d211-c0e8-4ade-ac69-d1c2261d78c4
+ms.service: iot-hub
+ms.devlang: node
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get the tools (macOS 10.10)
-> [AZURE.SELECTOR]
-- [Windows 7 or later](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32/)
-- [Ubuntu 16.04](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu/)
-- [macOS 10.10](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac/)
+> [!div class="op_single_selector"]
+>- [Windows 7 or later](./iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+>- [Ubuntu 16.04](./iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
+>- [macOS 10.10](./iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 
 ## What you will do
-Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-raspberry-pi-kit-node-troubleshooting/).
+Download the development tools and the software for the first sample application for your Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## What you will learn
 In this article, you will learn:
@@ -47,15 +48,15 @@ To complete this operation, you will need:
 To install Git and Node.js, use the [Homebrew](http://brew.sh) package management utility by following these steps:
 
 1. Install Homebrew. If you've already installed Homebrew, go to step 2.
-   
+
    1. Press `Cmd + Space` and enter `Terminal` to open a terminal.
    2. Run the following command:
-      
+
       ```bash
       /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
       ```
 2. Install Git and Node.js by running the following command:
-   
+
     ```bash
     brew install node git
     ```
@@ -69,7 +70,7 @@ Install `gulp` and `device-discovery-cli` by running the following command in th
 npm install -g device-discovery-cli gulp
 ```
 
-If you experience issues installing Node.js and these additional development tools on macOS, see the [troubleshooting guide](/documentation/articles/iot-hub-raspberry-pi-kit-node-troubleshooting/) for solutions to common problems.
+If you experience issues installing Node.js and these additional development tools on macOS, see the [troubleshooting guide](./iot-hub-raspberry-pi-kit-node-troubleshooting.md) for solutions to common problems.
 
 ## Install Visual Studio Code
 [Download](https://code.visualstudio.com/docs/setup/osx) and install Visual Studio Code. Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux, and macOS. You use this editor later in the tutorial to edit the sample code.
@@ -78,5 +79,4 @@ If you experience issues installing Node.js and these additional development too
 You've installed the required development tools and software for the first sample application. The next task is to create, deploy, and run the sample application on Pi.
 
 ## Next steps
-[Create and deploy the blink sample application](/documentation/articles/iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app/)
-
+[Create and deploy the blink sample application](./iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)

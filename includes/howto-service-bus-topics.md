@@ -31,27 +31,25 @@ To create a namespace:
 
 8. In **Location**, choose the country or region in which your namespace should be hosted.
 
-	![Create namespace][create-namespace]
+    ![Create namespace][create-namespace]
 
 6. Click the **Create** button. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
- 
+
 ### Obtain the credentials
 
 1. In the list of namespaces, click the newly created namespace name.
- 
+
 3. In the **Service Bus namespace** blade, click **Shared access policies**.
 
 4. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
 
-	![connection-info][connection-info]
+    ![connection-info][connection-info]
 
 5. In the **Policy: RootManageSharedAccessKey** blade, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use.
 
-	![connection-string][connection-string]
+    ![connection-string][connection-string]
 
 [Azure portal]: https://portal.azure.cn
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
-
-

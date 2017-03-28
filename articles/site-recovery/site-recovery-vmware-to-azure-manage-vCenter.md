@@ -1,21 +1,22 @@
-<properties
-    pageTitle=" Manage a VMware vCenter server in Azure Site Recovery | Azure"
-    description="This article describes how add and manage VMware vCenter in Azure Site Recovery."
-    services="site-recovery"
-    documentationcenter=""
-    author="AnoopVasudavan"
-    manager="gauravd"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="backup-recovery"
-    ms.date="2/14/2017"
-    wacn.date=""
-    ms.author="anoopkv" />
+---
+title:  Manage a VMware vCenter server in Azure Site Recovery | Azure
+description: This article describes how add and manage VMware vCenter in Azure Site Recovery.
+services: site-recovery
+documentationcenter: ''
+author: AnoopVasudavan
+manager: gauravd
+editor: ''
+
+ms.assetid: ''
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: backup-recovery
+ms.date: 2/14/2017
+wacn.date: ''
+ms.author: anoopkv
+---
 
 # Manage VMware vCenter Server in Azure Site Recovery
 This article discusses the various Site Recovery operations that can be performed on a VMware vCenter.
@@ -33,7 +34,6 @@ Site Recovery needs access to VMware for the process server to automatically dis
 * **Replicate/Recover**: If you want to deploy full replication (replicate, failover, failback) the account must be able to run operations such as creating and removing disks, powering on virtual machine.
 * **Automatic discovery**: At least a read-only account is required.
 
-
 |**Tasks** | **Required account/role** | **Permissions** | **Details**|
 |--- | --- | --- | ---|
 |**Process server automatically discovers VMware virtual machines** | You need at least a read-only user | Data Center object –> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, virtual machines, and networks).|
@@ -47,15 +47,14 @@ Site Recovery needs access to VMware for the process server to automatically dis
   ![add-account](./media/site-recovery-vmware-to-azure-manage-vcenter/addaccount.png)
 3. Provide the account details and click OK to add the account. The account should have the privileges listed in the [Prepare an account for automatic discovery](#prepare-an-account-for-automatic-discovery) section.
 
-  >[AZURE.NOTE]
+  >[!NOTE]
   It takes about 15 minutes for the account information to be synced up with the Site Recovery service.
-
 
 ## Associate a VMware vCenter/ VMware vSphere ESX host (Add vCenter)
 * On the Azure portal, browse to *YourRecoveryServicesVault* > **Site Recovery Infrastructure** > **Configuration Severs** > *ConfigurationServer*
 * In the Configuration server's details page click the +vCenter button.
 
-[AZURE.INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
+[!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
 ## Modify credentials used to connect to the vCenter server/ vSphere ESXi host
 
@@ -78,5 +77,5 @@ Site Recovery needs access to VMware for the process server to automatically dis
 
   ![delete-account](./media/site-recovery-vmware-to-azure-manage-vcenter/delete-vcenter.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 If you need to modify the vCenters IP Address/FQDN, Port details then you need to delete the vCenter Server and add it back again.

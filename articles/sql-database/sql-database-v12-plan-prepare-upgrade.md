@@ -26,8 +26,8 @@ The following table lists other Help topics for V12.
 
 | Title and link | Description of content |
 | :--- | :--- |
-| [What's new in SQL Database V12](/documentation/articles/sql-database-v12-whats-new/) | Describes the details of how V12 brings Azure SQL Database closer to full parity with Microsoft SQL Server. |
-| [Create a database in SQL Database V12](/documentation/articles/sql-database-get-started/) | Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
+| [What's new in SQL Database V12](./sql-database-v12-whats-new.md) | Describes the details of how V12 brings Azure SQL Database closer to full parity with Microsoft SQL Server. |
+| [Create a database in SQL Database V12](./sql-database-get-started.md) | Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
 
 ## Plan ahead
 The following subsections describe the learning and decision making you must address before you take an actions toward upgrading your Azure SQL database to V12.
@@ -44,8 +44,8 @@ Starting with V12, Azure SQL Database will support only the service tiers named 
 
 For detailed information about the Basic, Standard, and Premium service tiers, see:
 
-- [SQL Database service tiers](/documentation/articles/sql-database-service-tiers/)
-- [Upgrade SQL Database Web/Business Databases to New Service Tiers](/documentation/articles/sql-database-upgrade-server-portal/)
+- [SQL Database service tiers](./sql-database-service-tiers.md)
+- [Upgrade SQL Database Web/Business Databases to New Service Tiers](./sql-database-upgrade-server-portal.md)
 
 ### Review the Geo-Replication configuration
 If your Azure SQL database is configured for Geo-Replication, you should document its current configuration, and stop Geo-Replication, before you start the upgrade preparation actions. After upgrade completes you must reconfigure your database for Geo-Replication.
@@ -77,26 +77,23 @@ If your client program connects to SQL Database V12 while your client runs on an
 * 11000-11999
 * 14000-14999
 
-Click [here](/documentation/articles/sql-database-develop-direct-route-ports-adonet-v12/) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
+Click [here](./sql-database-develop-direct-route-ports-adonet-v12.md) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
 
 ## <a id="limitations"></a>Limitations during and after upgrade to V12
 ### Portals for V12
 There are three portals for Azure, and each has different abilities regarding SQL Database V12.
 
-- [http://portal.azure.cn/](https://portal.azure.cn)<br/>This Azure Portal is new and is still at preview status. This portal is not quite yet at full General Availability (GA). This portal:
+- [https://portal.azure.cn](https://portal.azure.cn)<br/>This Azure Portal is new and is still at preview status. This portal is not quite yet at full General Availability (GA). This portal:
  - Can manage your V12 server and database.
  - Can upgrade your V11 database to V12.
-
 
 - [http://manage.windowsazure.cn](http://manage.windowsazure.cn)<br/>This Azure Classic Portal might eventually be phased out. This portal:
  - Can manage your V12 server and database.
  - Can *not* upgrade your V11 database to V12.
 
-
 - (http://*yourservername*.database.chinacloudapi.cn)<br/>
 Azure SQL Database Classic Portal:
  - Can*not* manage V12 servers.
-
 
 We encourage you to connect to your Azure SQL databases with Visual Studio 2013 (VS2013). VS2013 can be used for tasks such as the following:
 
@@ -110,9 +107,8 @@ In the older Azure Classic Portal, on the database page, you can click **Open in
 
 For another alternative, you can use SQL Server Management Studio (SSMS) 2014 with [CU6](http://support.microsoft.com/zh-cn/kb/3031047) to connect to Azure SQL Database. More details are on this blog post:<br/>[Client tooling updates for Azure SQL Database](https://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database).
 
-
-> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
-
+> [!IMPORTANT]
+> It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
 
 ### Limitation *during* upgrade to V12
 The V11 database remains available for data access during the upgrade to V12. Yet there are a couple limitations to consider.
@@ -142,10 +138,8 @@ However, to use the tools, you must first have or install their latest updates t
 - [February 2015 Update for SQL Server Database Tooling in Visual Studio 2013](https://msdn.microsoft.com/data/hh297027)
 - [February 2015 Data-Tier Application Framework (DacFx) for Azure SQL Database V12](http://www.microsoft.com/zh-cn/download/details.aspx?id=45886)
 
-
-> [AZURE.NOTE] The preceding tool links were updated on or after March 2, 2015. We recommend that you use these newer updates of these tools.
-
-
+> [!NOTE]
+> The preceding tool links were updated on or after March 2, 2015. We recommend that you use these newer updates of these tools.
 
 ### Restore to V12 of a deleted V11 database
 The following scenario explains that a deleted V11 Azure SQL database can be restored onto a V12 Azure SQL Database server.
@@ -159,7 +153,7 @@ The following scenario explains that a deleted V11 Azure SQL database can be res
 ### PowerShell cmdlets
 PowerShell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
 
-- [Upgrade to SQL Database V12 using PowerShell](/documentation/articles/sql-database-upgrade-server-powershell/)
+- [Upgrade to SQL Database V12 using PowerShell](./sql-database-upgrade-server-powershell.md)
 
 For reference documentation about these PowerShell cmdlets, see:
 
@@ -173,7 +167,7 @@ The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, 
 If the upgrade fails for any odd reason, your V11 database remains active and available as normal.
 
 ## Related links
-- Azure [Preview features](/home/features/preview)
+- Azure [Preview features](https://www.azure.cn/home/features/preview)
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1

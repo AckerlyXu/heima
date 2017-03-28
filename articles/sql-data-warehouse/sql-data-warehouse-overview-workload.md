@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Learn about Azure SQL Data Warehouse operations | Azure"
-    description="SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. "
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="barbkess"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="cadffa9c-589d-4db7-888a-1f202a753bc5"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/31/2016"
-    wacn.date=""
-    ms.author="barbkess;mausher" />
+---
+title: Learn about Azure SQL Data Warehouse operations | Azure
+description: SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. 
+services: sql-data-warehouse
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
+editor: ''
+
+ms.assetid: cadffa9c-589d-4db7-888a-1f202a753bc5
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: barbkess;mausher
+---
 
 # Data warehouse workload
 A data warehouse workload refers to all of the operations that transpire against a data warehouse. The data warehouse workload encompasses the entire process of loading data into the warehouse, performing analysis and reporting on the data warehouse, managing data in the data warehouse, and exporting data from the data warehouse. The depth and breadth of these components are often commensurate with the maturity level of the data warehouse.
@@ -27,7 +28,7 @@ Data warehouses are characterized by queries that scan larger numbers of rows, l
 
 * A data warehouse performs best when the data is stored in a way that optimizes queries that need to scan large numbers of rows or large ranges of data. This type of scanning works best when the data is stored and searched by columns, instead of by rows.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The in-memory columnstore index, which uses column storage, provides up to 10x compression gains and 100x query performance gains over traditional binary trees for reporting and analytics queries. We consider columnstore indexes as the standard for storing and scanning large data in a data warehouse.
 > 
 > 
@@ -39,7 +40,7 @@ Data loading is a big part of the data warehouse workload. Businesses usually ha
 
 * Traditionally, the process of loading is called ETL for Extract, Transform, and Load. Data usually needs to be transformed so it is consistent with other data in the data warehouse. Previously, businesses used dedicated ETL servers to perform the transformations. Now, with such fast massively parallel processing you can load data into SQL Data Warehouse first, and then perform the transformations. This process is called Extract, Load, and Transform (ELT), and is becoming a new standard for the data warehouse workload.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > With SQL Server 2016, you can now perform analytics in real-time on an OLTP table. This does not replace the need for a data warehouse to store and analyze data, but it does provide a way to perform analysis in real-time.
 > 
 > 
@@ -67,8 +68,8 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 <!--Image references-->
 
 <!--Article references-->
-[load sample data]: /documentation/articles/sql-data-warehouse-load-sample-databases/
-[create a SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-get-started-provision/
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 

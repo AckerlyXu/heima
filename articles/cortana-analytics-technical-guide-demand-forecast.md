@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Demand Forecast in Energy Technical Guide | Azure"
-    description="A technical guide to the Solution Template with Microsoft Cortana Intelligence for demand forecast in energy."
-    services="cortana-analytics"
-    documentationcenter=""
-    author="yijichen"
-    manager="ilanr9"
-    editor="yijichen" />
-<tags
-    ms.assetid="7f1a866b-79b7-4b97-ae3e-bc6bebe8c756"
-    ms.service="cortana-analytics"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/16/2016"
-    wacn.date=""
-    ms.author="inqiu;yijichen;ilanr9" />
+---
+title: Demand Forecast in Energy Technical Guide | Azure
+description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for demand forecast in energy.
+services: cortana-analytics
+documentationcenter: ''
+author: yijichen
+manager: ilanr9
+editor: yijichen
+
+ms.assetid: 7f1a866b-79b7-4b97-ae3e-bc6bebe8c756
+ms.service: cortana-analytics
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/16/2016
+wacn.date: ''
+ms.author: inqiu;yijichen;ilanr9
+---
 
 # Technical guide to the Cortana Intelligence Solution Template for demand forecast in energy
 ## **Overview**
@@ -48,21 +49,21 @@ while it's executing on your computer.
 
 ### Azure Event Hub
 The [Azure Event
-Hub](/home/features/event-hubs/) service is
+Hub](https://www.azure.cn/home/features/event-hubs/) service is
 the recipient of the input provided by the Synthetic Data Source
 described above.
 
 ## **Data Preparation and Analysis**
 ### Azure Stream Analytics
 The [Azure Stream
-Analytics](/home/features/stream-analytics/)
+Analytics](https://www.azure.cn/home/features/stream-analytics/)
 service is used to provide near real-time analytics on the input stream
 from the [Azure Event Hub](#azure-event-hub) service and publish results
 onto a [Power BI](https://powerbi.microsoft.com) dashboard as well as
 archiving all raw incoming events to the [Azure
-Storage](/home/features/storage/) service
+Storage](https://www.azure.cn/home/features/storage/) service
 for later processing by the [Azure Data
-Factory](/documentation/services/data-factory/)
+Factory](./data-factory/index.md)
 service.
 
 ### HD Insights Custom Aggregation
@@ -74,13 +75,13 @@ service.
 
 ### Azure Machine Learning
 The [Azure Machine
-Learning](/home/features/machine-learning/)
+Learning](https://www.azure.cn/home/features/machine-learning/)
 service is used (orchestrated by Azure Data Factory) to make forecast on future power consumption of a particular region given the inputs received.
 
 ## **Data Publishing**
 ### Azure SQL Database Service
 The [Azure SQL
-Database](/home/features/sql-database/)
+Database](https://www.azure.cn/home/features/sql-database/)
 service is used to store (managed by Azure Data Factory) the predictions
 received by the Azure Machine Learning service that will be consumed in
 the [Power BI](https://powerbi.microsoft.com) dashboard.
@@ -88,9 +89,9 @@ the [Power BI](https://powerbi.microsoft.com) dashboard.
 ## **Data Consumption**
 ### Power BI
 The [Power BI](https://powerbi.microsoft.com) service is used to show a dashboard that contains aggregations provided by the [Azure
-Stream Analytics](/home/features/stream-analytics/) service as well as demand forecast results stored in [Azure SQL Database](/home/features/sql-database/) that
+Stream Analytics](https://www.azure.cn/home/features/stream-analytics/) service as well as demand forecast results stored in [Azure SQL Database](https://www.azure.cn/home/features/sql-database/) that
 were produced using the [Azure Machine
-Learning](/home/features/machine-learning/)
+Learning](https://www.azure.cn/home/features/machine-learning/)
 service. For Instructions on how to build the Power BI dashboard for this
 Solution Template, refer to the section below.
 
@@ -110,17 +111,17 @@ The following sections will discuss the sections of the template that
 will require modifications when a new dataset is introduced.
 
 ### Azure Event Hub
-The [Azure Event Hub](/home/features/event-hubs/) service is very generic, such that data can be posted to the hub in either CSV or JSON format. No special processing occurs in the Azure Event Hub, but it is important you understand the data that is fed into it.
+The [Azure Event Hub](https://www.azure.cn/home/features/event-hubs/) service is very generic, such that data can be posted to the hub in either CSV or JSON format. No special processing occurs in the Azure Event Hub, but it is important you understand the data that is fed into it.
 
 This document does not describe how to ingest your data, but one can easily send events or data to an Azure Event Hub, using the [Event Hub
 API](event-hubs/event-hubs-programming-guide.md).
 
 ### Azure Stream Analytics
-The [Azure Stream Analytics](/home/features/stream-analytics/) service is used to provide near real-time analytics by reading from data streams and outputting data to any number of sources.
+The [Azure Stream Analytics](https://www.azure.cn/home/features/stream-analytics/) service is used to provide near real-time analytics by reading from data streams and outputting data to any number of sources.
 
 For the Demand Forecasting for Energy Solution Template, the Azure Stream Analytics query consists of two sub-queries, each consuming events from the Azure Event Hub service as inputs and having outputs to two distinct locations. These outputs consist of one Power BI dataset and one Azure Storage location.
 
-The [Azure Stream Analytics](/home/features/stream-analytics/) query can be found by:
+The [Azure Stream Analytics](https://www.azure.cn/home/features/stream-analytics/) query can be found by:
 
 - Logging into the [Azure management portal](https://manage.windowsazure.cn/)
 - Locating the stream analytics jobs ![](./media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) that were
@@ -139,12 +140,12 @@ on MSDN.
 In this solution, the Azure Stream Analytics job which outputs dataset with near real-time analytics information about the incoming data stream to a Power BI dashboard is provided as part of this solution template. Because there's implicit knowledge about the incoming data format, these queries would need to be altered based on your data format.
 
 The other Azure Stream Analytics job outputs all [Event
-Hub](/home/features/event-hubs/) events to
-[Azure Storage](/home/features/storage/) and hence requires no alteration regardless of your data format as the full event information is streamed to storage.
+Hub](https://www.azure.cn/home/features/event-hubs/) events to
+[Azure Storage](https://www.azure.cn/home/features/storage/) and hence requires no alteration regardless of your data format as the full event information is streamed to storage.
 
 ### Azure Data Factory
 The [Azure Data
-Factory](/documentation/services/data-factory/)
+Factory](./data-factory/index.md)
 service orchestrates the movement and processing of data. In the Demand Forecasting for Energy Solution Template the data factory is made up of twelve
 [pipelines](/documentation/articles/data-factory-create-pipelines/)
 that move and process the data using various technologies.
@@ -152,14 +153,14 @@ that move and process the data using various technologies.
   You can access your data factory by opening the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure management portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
 
 This section discusses the necessary [pipelines](/documentation/articles/data-factory-create-pipelines/) and [activities](/documentation/articles/data-factory-create-pipelines/) contained in the [Azure Data
-Factory](/documentation/services/data-factory/). Below is the diagram view of the solution.
+Factory](./data-factory/index.md). Below is the diagram view of the solution.
 
 ![](./media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
 Five of the pipelines of this factory contain
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts that are used to partition and aggregate the data. When noted, the scripts will be located in the [Azure
-Storage](/home/features/storage/) account
+Storage](https://www.azure.cn/home/features/storage/) account
 created during setup. Their location will be:
 demandforecasting\\\\script\\\\hive\\\\ (or https://[Your solution name].blob.core.chinacloudapi.cn/demandforecasting).
 
@@ -180,7 +181,7 @@ activity using a
 [HDInsightLinkedService](https://msdn.microsoft.com/zh-cn/library/azure/dn893526.aspx)
 that runs a
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
-script to aggregate the every 10 seconds streamed in demand data in substation level to hourly region level and put in [Azure Storage](/home/features/storage/) through the Azure Stream Analytics job.
+script to aggregate the every 10 seconds streamed in demand data in substation level to hourly region level and put in [Azure Storage](https://www.azure.cn/home/features/storage/) through the Azure Stream Analytics job.
 
 The
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
@@ -213,7 +214,7 @@ These [pipelines](/documentation/articles/data-factory-create-pipelines/) contai
 
 ### Azure Machine Learning
 The [Azure Machine
-Learning](/home/features/machine-learning/) experiment used for this solution template provides the prediction of demand of region. The experiment is specific to the data set consumed and therefore will require modification or replacement specific to the data that is brought in.
+Learning](https://www.azure.cn/home/features/machine-learning/) experiment used for this solution template provides the prediction of demand of region. The experiment is specific to the data set consumed and therefore will require modification or replacement specific to the data that is brought in.
 
 ## **Monitor Progress**
 Once the Data Generator is launched, the pipeline begins to get hydrated and the different components of your solution start kicking into action following the commands issued by the Data Factory. There are two ways you can monitor the pipeline.
@@ -246,7 +247,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 1. Add Power BI output in Azure Stream Analytics (ASA).
 
    - You will need to follow the instructions in
-     [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](/documentation/articles/stream-analytics-power-bi-dashboard/)
+     [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](./stream-analytics/stream-analytics-power-bi-dashboard.md)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
    - Locate the stream analytics job in your [Azure management portal](https://manage.windowsazure.cn). The name of the job should be: YourSolutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
    - Add a PowerBI output for the ASA job. Set the **Output Alias** as **‘PBIoutput’**. Set your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
@@ -273,7 +274,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 ### Setup Cold Path Dashboard
 In cold path data pipeline, the essential goal is to get the demand forecast of each region. Power BI connects to an Azure SQL database as its data source, where the prediction results are stored.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > 1) It takes few hours to collect enough forecast results for the dashboard. We recommend you start this process 2-3 hours after you lunch the data generator. 2) In this step, the prerequisite is to download and install the free software [Power BI desktop](https://powerbi.microsoft.com/desktop).
 >
 >
@@ -345,7 +346,7 @@ total costs involved in running the Demand Forecasting for Energy
 Solution Template in your subscription:
 
 - [Azure Cost Estimator
-  Tool (online)](/pricing/calculator/)
+  Tool (online)](https://www.azure.cn/pricing/calculator/)
 - [Azure Cost Estimator
   Tool (desktop)](http://www.microsoft.com/zh-cn/download/details.aspx?id=43376)
 

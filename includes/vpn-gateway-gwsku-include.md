@@ -6,7 +6,7 @@ VPN Gateway can use the following SKUs:
 * Standard
 * HighPerformance
 
-VPN Gateway does not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](/documentation/articles/expressroute-about-virtual-network-gateways/) documentation.
+VPN Gateway does not use the UltraPerformance gateway SKU. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
 
 When selecting a SKU, consider the following:
 

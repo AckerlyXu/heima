@@ -1,16 +1,16 @@
-<properties
-   pageTitle="Azure Active Directory B2B collaboration | Azure"
-   description="Azure Active Directory B2B collaboration enables business partners to access your corporate applications, with each of their users represented by a single Azure AD account"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+---
+title: Azure Active Directory B2B collaboration | Azure
+description: Azure Active Directory B2B collaboration enables business partners to access your corporate applications, with each of their users represented by a single Azure AD account
+services: active-directory
+documentationCenter: ''
+authors: curtand
+manager: stevenpo
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.date="05/09/2016"
-   wacn.date=""/>
+ms.service: active-directory
+ms.date: 05/09/2016
+wacn.date: ''
+---
 
 # Azure Active Directory B2B collaboration
 
@@ -52,5 +52,4 @@ Browse our other articles on Azure AD B2B collaboration.
 - [External user token format](/documentation/articles/active-directory-b2b-references-external-user-token-format/)
 - [External user object attribute changes](/documentation/articles/active-directory-b2b-references-external-user-object-attribute-changes/)
 - [Current preview limitations](/documentation/articles/active-directory-b2b-current-preview-limitations/)
-- [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
-
+- [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)

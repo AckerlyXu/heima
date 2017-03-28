@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Debug using operation and service logs in Stream Analytics | Azure"
-    description="How-to use Stream Analytics operation logs"
-    keywords="service logs"
-    services="stream-analytics"
-    documentationcenter=""
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="a2ed9676-f0bd-4398-87c8-a592779ac728"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Debug using operation and service logs in Stream Analytics | Azure
+description: How-to use Stream Analytics operation logs
+keywords: service logs
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: a2ed9676-f0bd-4398-87c8-a592779ac728
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Debug Stream Analytics jobs using service and operation logs
 
@@ -41,7 +42,7 @@ To manually navigate to the Operation Logs for Stream Analytics and other servic
 
 1. Click on **Management Services** in the [Azure Classic Management Portal](https://manage.windowsazure.cn).
 2. Select **Stream Analytics** for **Type** and the name of the job for **Service Name**.  
-   
+
     ![Select Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  
 
 ## Find audit logs in the Azure portal
@@ -84,15 +85,15 @@ You can select any one of the failures, and click on the **Details** for more in
 
   ![Operation Details](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)  
 
-In case you need to contact [Support](/support/contact/) or provide information to the team via the [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics), please note the Operation Details, specifically the **Correlation ID**. 
+In case you need to contact [Support](https://www.azure.cn/support/contact/) or provide information to the team via the [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics), please note the Operation Details, specifically the **Correlation ID**. 
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 
-* [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/)
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)

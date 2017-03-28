@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Troubleshooting Azure SQL Data Warehouse | Azure"
-   description="Troubleshooting Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Troubleshooting Azure SQL Data Warehouse | Azure
+description: Troubleshooting Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="sonyama;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: sonyama;barbkess
+---
 
 # Troubleshooting Azure SQL Data Warehouse
 This topic lists some of the more common troubleshooting questions we hear from our customers.
@@ -125,4 +125,3 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-

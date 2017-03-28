@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Concurrency and workload management in SQL Data Warehouse | Azure"
-   description="Understand concurrency and workload management in Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Concurrency and workload management in SQL Data Warehouse | Azure
+description: Understand concurrency and workload management in Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="sonyama;barbkess;jrj"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: sonyama;barbkess;jrj
+---
 
 # Concurrency and workload management in SQL Data Warehouse
 To deliver predictable performance at scale, Microsoft Azure SQL Data Warehouse helps you control concurrency levels and resource allocations like memory and CPU prioritization. This article introduces you to the concepts of concurrency and workload management, explaining how both features have been implemented and how you can control them in your data warehouse. SQL Data Warehouse workload management is intended to help you support multi-user environments. It is not intended for multi-tenant workloads.
@@ -47,7 +47,8 @@ The following table describes the limits for both concurrent queries and concurr
 
 When one of these thresholds is met, new queries are queued and executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots falls below the limits, queued queries are released. 
 
-> [AZURE.NOTE]  *Select* queries executing exclusively on dynamic management views (DMVs) or catalog views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
+> [!NOTE]
+>  *Select* queries executing exclusively on dynamic management views (DMVs) or catalog views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
 
 ## Resource classes
 Resource classes help you control memory allocation and CPU cycles given to a query. You can assign four resource classes to a user in the form of *database roles*. The four resource classes are **smallrc**, **mediumrc**, **largerc**, and **xlargerc**. Users in smallrc are given a smaller amount of memory and can take advantage of higher concurrency. In contrast, users assigned to xlargerc are given large amounts of memory, and therefore fewer of their queries can run concurrently.
@@ -183,7 +184,7 @@ AS
     FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
     JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    
             ON  wg.pdw_node_id  = rp.pdw_node_id
-    	    AND wg.pool_id      = rp.pool_id
+            AND wg.pool_id      = rp.pool_id
     JOIN    sys.dm_pdw_nodes pn
             ON	wg.pdw_node_id	= pn.pdw_node_id
     WHERE   wg.name like 'SloDWGroup%'
@@ -202,7 +203,7 @@ SELECT	pool_name
 ,       group_queued_request_count
 FROM	rg
 ORDER BY
-	node_name
+    node_name
 ,	group_request_max_memory_grant_pcnt
 ,	group_importance
 ;
@@ -257,38 +258,40 @@ Removed as these two are not confirmed / supported under SQLDW
 ## Change a user resource class example
 1. **Create login:** Open a connection to your **master** database on the SQL server hosting your SQL Data Warehouse database and execute the following commands.
 
-	```sql
-	CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
-	CREATE USER newperson for LOGIN newperson;
-	```
+    ```sql
+    CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
+    CREATE USER newperson for LOGIN newperson;
+    ```
 
-	> [AZURE.NOTE] It is a good idea to create a user in the master database for Azure SQL Data Warehouse users. Creating a user in master allows a user to login using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.  For more details about creating and managing users, see [Secure a database in SQL Data Warehouse][].
+    > [!NOTE]
+    > It is a good idea to create a user in the master database for Azure SQL Data Warehouse users. Creating a user in master allows a user to login using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.  For more details about creating and managing users, see [Secure a database in SQL Data Warehouse][].
 
 2. **Create SQL Data Warehouse user:** Open a connection to the **SQL Data Warehouse** database and execute the following command.
 
-	```sql
-	CREATE USER newperson FOR LOGIN newperson;
-	```
+    ```sql
+    CREATE USER newperson FOR LOGIN newperson;
+    ```
 
 3. **Grant permissions:** The following example grants `CONTROL` on the **SQL Data Warehouse** database. `CONTROL` at the database level is the equivalent of db_owner in SQL Server.
 
-	```sql
-	GRANT CONTROL ON DATABASE::MySQLDW to newperson;
-	```
+    ```sql
+    GRANT CONTROL ON DATABASE::MySQLDW to newperson;
+    ```
 
 4. **Increase resource class:** Use the following query to add a user to a higher workload management role.
 
-	```sql
-	EXEC sp_addrolemember 'largerc', 'newperson'
-	```
+    ```sql
+    EXEC sp_addrolemember 'largerc', 'newperson'
+    ```
 
 5. **Decrease resource class:** Use the following query to remove a user from a workload management role.
 
-	```sql
-	EXEC sp_droprolemember 'largerc', 'newperson';
-	```
+    ```sql
+    EXEC sp_droprolemember 'largerc', 'newperson';
+    ```
 
-	> [AZURE.NOTE] It is not possible to remove a user from smallrc.
+    > [!NOTE]
+    > It is not possible to remove a user from smallrc.
 
 ## Queued query detection and other DMVs
 
@@ -404,9 +407,9 @@ For more information about managing database users and security, see [Secure a d
 <!--Image references-->
 
 <!--Article references-->
-[Secure a database in SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-overview-manage-security/
-[Rebuilding indexes to improve segment quality]: /documentation/articles/sql-data-warehouse-tables-index#rebuilding-indexes-to-improve-segment-quality
-[Secure a database in SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-overview-manage-security/
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
+[Rebuilding indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 [Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/zh-cn/library/azure/ee336235.aspx

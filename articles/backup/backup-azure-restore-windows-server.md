@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Restore data in Azure to a Windows Server or Windows computer | Azure"
-    description="Learn how to restore data stored in Azure to a Windows Server or Windows computer."
-    services="backup"
-    documentationcenter=""
-    author="saurabhsensharma"
-    manager="shivamg"
-    editor="" />
-<tags
-    ms.assetid="742f4b9e-c0ab-4eeb-8e22-ee29b83c22c4"
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="2/1/2017"
-    wacn.date=""
-    ms.author="saurse;trinadhk;markgal;" />
+---
+title: Restore data in Azure to a Windows Server or Windows computer | Azure
+description: Learn how to restore data stored in Azure to a Windows Server or Windows computer.
+services: backup
+documentationcenter: ''
+author: saurabhsensharma
+manager: shivamg
+editor: ''
+
+ms.assetid: 742f4b9e-c0ab-4eeb-8e22-ee29b83c22c4
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 2/1/2017
+wacn.date: ''
+ms.author: saurse;trinadhk;markgal;
+---
 
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/backup-azure-restore-windows-server/)
-- [Classic Management Portal](/documentation/articles/backup-azure-restore-windows-server-classic/)
+> [!div class="op_single_selector"]
+>- [Azure portal](./backup-azure-restore-windows-server.md)
+>- [Classic Management Portal](./backup-azure-restore-windows-server-classic.md)
 
 This article explains how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Azure Recovery Services (MARS) agent. When you restore data, it is possible to:
 
@@ -29,13 +30,13 @@ This article explains how to restore data from a backup vault. To restore data, 
 
 In January 2017, Microsoft released a Preview update to the MARS agent. Along with bug fixes, this update enables Instant Restore, which allows you to mount a writeable recovery point snapshot as a recovery volume. You can then explore the recovery volume and copy files to a local computer thereby selectively restoring files.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The [January 2017 Azure Backup update](https://support.microsoft.com/zh-cn/help/3216528?preview) is required if you want to use Instant Restore to restore data. Also the backup data must be protected in vaults in locales listed in the support article. Consult the [January 2017 Azure Backup update](https://support.microsoft.com/zh-cn/help/3216528?preview) for the latest list of locales that support Instant Restore. Instant Restore is **not** currently available in all locales.
 >
 
 Instant Restore is available for use in Recovery Services vaults in the Azure portal and Backup vaults in the Classic Management Portal. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## Recover data to the same machine
 If you accidentally deleted a file and wish to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.
@@ -104,7 +105,6 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
 
     ![Recovery options](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
-
 8. In Windows Explorer, copy the files and/or folders you want to restore and paste them to any location local to the server or computer. You can open or stream the files directly from the recovery volume and verify the correct versions are recovered.
 
     ![Copy and paste files and folders from mounted volume to local location](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
@@ -127,7 +127,7 @@ The terminology used in these steps includes:
 - *Target machine* - The machine to which the data is being recovered.
 - *Sample vault* - The Backup vault to which the *Source machine* and *Target machine* are registered. <br/>
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Backups taken from a machine cannot be restored on a machine which is running an earlier version of the operating system. For example, if backups are taken from a Windows 7 machine, it can be restored on a Windows 8 or above machine. However, the vice-versa does not hold true.
 >
 >
@@ -158,10 +158,8 @@ The terminology used in these steps includes:
     ![Encryption](./media/backup-azure-restore-windows-server-classic/encryption.png)
 11. Once the input is provided, click **Recover**, which triggers the restore of the backed up files to the destination provided.
 
-
 ## Use Instant Restore to restore data to an alternate machine
 If your entire server is lost, you can still recover data from Azure Backup to a different machine. The following steps illustrate the workflow.
-
 
 The terminology used in these steps includes:
 
@@ -169,7 +167,7 @@ The terminology used in these steps includes:
 - *Target machine* - The machine to which the data is being recovered.
 - *Sample vault* - The Recovery Services vault to which the *Source machine* and *Target machine* are registered. <br/>
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Backups can't be restored to a target machine running an earlier version of the operating system. For example, a backup taken from a Windows 7 computer can be restored on a Windows 8, or later, computer. A backup taken from a Windows 8 computer cannot be restored to a Windows 7 computer.
 >
 >
@@ -223,4 +221,4 @@ The terminology used in these steps includes:
     >
 
 ## Next steps
-- Now that you've recovered your files and folders, you can [manage your backups](/documentation/articles/backup-azure-manage-windows-server-classic/).
+- Now that you've recovered your files and folders, you can [manage your backups](./backup-azure-manage-windows-server-classic.md).

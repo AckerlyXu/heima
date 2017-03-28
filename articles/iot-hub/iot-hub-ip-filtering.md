@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure IoT Hub IP connection filters | Azure"
-    description="How to use IP filtering to block connections from specific IP addresses for to your Azure IoT hub. You can block connections from individual or ranges of IP addresses."
-    services="iot-hub"
-    documentationcenter=""
-    author="BeatriceOltean"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="f833eac3-5b5f-46a7-a47b-f4f6fc927f3f"
-    ms.service="iot-hub"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="boltean" />
+---
+title: Azure IoT Hub IP connection filters | Azure
+description: How to use IP filtering to block connections from specific IP addresses for to your Azure IoT hub. You can block connections from individual or ranges of IP addresses.
+services: iot-hub
+documentationcenter: ''
+author: BeatriceOltean
+manager: timlt
+editor: ''
+
+ms.assetid: f833eac3-5b5f-46a7-a47b-f4f6fc927f3f
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: boltean
+---
 
 # Use IP filters
 
@@ -57,7 +58,7 @@ The **Add** option is disabled when you reach the maximum of ten IP filter rules
 
 You can edit an existing rule by double-clicking the row that contains the rule.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Rejecting IP addresses can prevent other Azure Services (such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in the portal) from interacting with the IoT hub.
 
 ## Delete an IP filter rule
@@ -92,11 +93,10 @@ To further explore the capabilities of IoT Hub, see:
 [img-ip-filter-delete-rule]: ./media/iot-hub-ip-filtering/ip-filter-delete-rule.png
 [img-ip-filter-rule-order]: ./media/iot-hub-ip-filtering/ip-filter-rule-order.png
 
-
 <!-- Links -->
 
-[IoT Hub Developer Guide]: /documentation/articles/iot-hub-devguide
-[Azure Express Route]:  /documentation/articles/expressroute-faqs/#supported-services
+[IoT Hub Developer Guide]: ./iot-hub-devguide.md
+[Azure Express Route]:  ../expressroute/expressroute-faqs.md#supported-services
 
-[lnk-monitor]: /documentation/articles/iot-hub-operations-monitoring/
-[lnk-metrics]: /documentation/articles/iot-hub-metrics/
+[lnk-monitor]: ./iot-hub-operations-monitoring.md
+[lnk-metrics]: ./iot-hub-metrics.md

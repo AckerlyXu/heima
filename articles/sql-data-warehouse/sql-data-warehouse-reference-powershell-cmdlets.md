@@ -1,48 +1,52 @@
-<properties
-   pageTitle="PowerShell cmdlets for Azure SQL Data Warehouse"
-   description="Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: PowerShell cmdlets for Azure SQL Data Warehouse
+description: Find the top PowerShell cmdlets for Azure SQL Data Warehouse including how to pause and resume a database.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   wacn.date=""
-   ms.author="sonyama;barbkess;mausher"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: sonyama;barbkess;mausher
+---
 
 # PowerShell cmdlets and REST APIs for SQL Data Warehouse
 Many SQL Data Warehouse administration tasks can be managed using either Azure PowerShell cmdlets or REST APIs.  Below are some examples of how to use PowerShell commands to automate common tasks in your SQL Data Warehouse.  For some good REST examples, see the article [Manage scalability with REST][Manage scalability with REST].
 
-> [AZURE.NOTE]  In order to use Azure PowerShell with SQL Data Warehouse, you need Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
+> [!NOTE]
+>  In order to use Azure PowerShell with SQL Data Warehouse, you need Azure PowerShell version 1.0.3 or greater.  You can check your version by running **Get-Module -ListAvailable -Name Azure**.  The latest version can be installed from  [Microsoft Web Platform Installer][].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][].
 
 ## Get started with Azure PowerShell cmdlets
 1. Open Windows PowerShell.
 2. At the PowerShell prompt, run these commands to sign in to the Azure Resource Manager and select your subscription.
 
-
-		Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-	    	Get-AzureRmSubscription
-	    	Select-AzureRmSubscription -SubscriptionName "MySubscription"
- 
+    ```PowerShell
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+        Get-AzureRmSubscription
+        Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```
 
 ## Pause SQL Data Warehouse Example
 Pause a database named "Database02" hosted on a server named "Server01."  The server is in an Azure resource group named "ResourceGroup1."
 
-
-    Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
+```
+Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
+```
 
 A variation, this example pipes the retrieved object to [Suspend-AzureRmSqlDatabase][].  As a result, the database is paused. The final command shows the results.
 
-    $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
-    $resultDatabase = $database | Suspend-AzureRmSqlDatabase
-    $resultDatabase
+```
+$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
+$resultDatabase = $database | Suspend-AzureRmSqlDatabase
+$resultDatabase
+```
 
 ## Start SQL Data Warehouse Example
 
@@ -59,7 +63,8 @@ $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –Serv
 $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ```
 
-> [AZURE.NOTE] Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the PowerShell cmdlets.
+> [!NOTE]
+> Note that if your server is foo.database.windows.net, use "foo" as the -ServerName in the PowerShell cmdlets.
 
 ## Frequently Used PowerShell cmdlets
 These PowerShell cmdlets are frequently used with Azure SQL Data Warehouse.
@@ -86,10 +91,10 @@ For a list of all tasks which can be automated with PowerShell, see [Azure SQL D
 <!--Image references-->
 
 <!--Article references-->
-[How to install and configure Azure PowerShell]: /documentation/articles/powershell-install-configure/
-[Create a SQL Data Warehouse using PowerShell]: /documentation/articles/sql-data-warehouse-get-started-provision-powershell/
+[How to install and configure Azure PowerShell]: ../powershell-install-configure.md
+[Create a SQL Data Warehouse using PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
 [Database restore]: /documentation/articles/sql-data-warehouse-manage-database-restore-powershell/
-[Manage scalability with REST]: /documentation/articles/sql-data-warehouse-manage-compute-rest-api/
+[Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
 
 <!--MSDN references-->
 [Azure SQL Database Cmdlets]: https://msdn.microsoft.com/zh-cn/library/mt574084.aspx

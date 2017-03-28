@@ -1,27 +1,28 @@
-<properties
- pageTitle="Virtual Machine Sizes for Azure cloud services"
- description="Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles."
- services="cloud-services"
- documentationCenter=""
- authors="Thraka"
- manager="timlt"
- editor=""/>
-<tags
- ms.service="cloud-services"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="01/12/2017"
- ms.author="adegeo"
- wacn.date=""/>
+---
+title: Virtual Machine Sizes for Azure cloud services
+description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
+services: cloud-services
+documentationCenter: ''
+authors: Thraka
+manager: timlt
+editor: ''
+
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 01/12/2017
+ms.author: adegeo
+wacn.date: ''
+---
 
 # Sizes for Cloud Services
 
-This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you put in your [service definition file](/documentation/articles/cloud-services-model-and-package/#csdef). Prices for each size are available on the [Cloud Services Pricing](/pricing/details/cloud-services/) page.
+This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you put in your [service definition file](./cloud-services-model-and-package.md#csdef). Prices for each size are available on the [Cloud Services Pricing](https://www.azure.cn/pricing/details/cloud-services/) page.
 
-
-> [AZURE.NOTE]To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](/documentation/articles/azure-subscription-service-limits/)
+> [!NOTE]
+>To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
 
 ## Sizes for web and worker role instances
 There are multiple standard sizes to choose from on Azure. Considerations for some of these sizes include:
@@ -32,7 +33,7 @@ There are multiple standard sizes to choose from on Azure. Considerations for so
 * The A-series VMs can be deployed on various hardware types and processors. The size is throttled, based on the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
 * The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
 
-The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Cloud Services Pricing Details](/pricing/details/cloud-services/) and [Azure Storage Pricing](/pricing/details/storage/).
+The size of the virtual machine affects the pricing. The size also affects the processing, memory, and storage capacity of the virtual machine. Storage costs are calculated separately based on used pages in the storage account. For details, see [Cloud Services Pricing Details](https://www.azure.cn/pricing/details/cloud-services/) and [Azure Storage Pricing](https://www.azure.cn/pricing/details/storage/).
 
 The following considerations might help you decide on a size:
 
@@ -44,7 +45,7 @@ The following considerations might help you decide on a size:
 ## Performance considerations
 We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs and to identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The ACU is only a guideline.  The results for your workload may vary. 
 > 
 > 
@@ -110,7 +111,6 @@ For information and considerations about using these sizes, see [About the H-ser
 | Standard_A4m_v2 | 4         | 32           | 40                   | 4 / high                     |
 | Standard_A8m_v2 | 8         | 64           | 80                   | 8 / high                     |
 
-
 ## D-series
 | Size            | CPU cores | Memory: GiB  | Local SSD: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -164,7 +164,7 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 
 ## Configure sizes for Cloud Services
 
-You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](/documentation/articles/cloud-services-model-and-package/#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
+You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](./cloud-services-model-and-package.md#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
 
 Here is an example for setting the role size to be [Standard_D2](#general-purpose-d) for a Web Role instance:
 
@@ -178,8 +178,8 @@ Here is an example for setting the role size to be [Standard_D2](#general-purpos
 
 As the nature of your workload changes or new VM sizes become available, you may want to change the size of your role. To do so, you must change the VM size in your service definition file (as shown above), repackage your Cloud Service, and deploy it. It is not possible to change VM sizes directly from the portal or PowerShell.
 
->[AZURE.TIP]
-> You may want to use different VM sizes for your role in different environments (eg. test vs production). One way to do this is to create multiple service definition (.csdef) files in your project, then create different cloud service packages per environment during your automated build using the CSPack tool. To learn more about the elements of a cloud services package and how to create them, see [What is the cloud services model and how do I package it?](/documentation/articles/cloud-services-model-and-package/)
+>[!TIP]
+> You may want to use different VM sizes for your role in different environments (eg. test vs production). One way to do this is to create multiple service definition (.csdef) files in your project, then create different cloud service packages per environment during your automated build using the CSPack tool. To learn more about the elements of a cloud services package and how to create them, see [What is the cloud services model and how do I package it?](./cloud-services-model-and-package.md)
 >
 >
 
@@ -191,6 +191,5 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ```
 
 ## Next steps
-* Learn about [azure subscription and service limits, quotas, and constraints](/documentation/articles/azure-subscription-service-limits/).
-* Learn more [about the H-series and compute-intensive A-series VMs](/documentation/articles/virtual-machines-windows-a8-a9-a10-a11-specs/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for workloads like High-performance Computing (HPC).
-
+* Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+* Learn more [about the H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for workloads like High-performance Computing (HPC).

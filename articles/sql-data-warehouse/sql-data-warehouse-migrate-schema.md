@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Migrate your schema to SQL Data Warehouse | Azure"
-   description="Tips for migrating your schema to Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Migrate your schema to SQL Data Warehouse | Azure
+description: Tips for migrating your schema to Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess;sonyama
+---
 
 # Migrate your schema to SQL Data Warehouse#
 The following summaries help you understand the differences between SQL Server and SQL Data Warehouse to help you migrate your database.
@@ -35,16 +35,15 @@ For more about SQL Data Warehouse best practices, see the [best practices][best 
 <!--Image references-->
 
 <!--Article references-->
-[Migrate your code]: /documentation/articles/sql-data-warehouse-migrate-code/
-[Migrate your data]: /documentation/articles/sql-data-warehouse-migrate-data/
+[Migrate your code]: ./sql-data-warehouse-migrate-code.md
+[Migrate your data]: ./sql-data-warehouse-migrate-data.md
 [best practices]: ./sql-data-warehouse-best-practices.md
-[table overview]: /documentation/articles/sql-data-warehouse-overview-develop/
+[table overview]: ./sql-data-warehouse-overview-develop.md
 [unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [data types]: ./sql-data-warehouse-tables-data-types.md
 [unsupported data types]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [data type best practices]: ./sql-data-warehouse-tables-data-types.md#data-type-best-practices
 
 <!--MSDN references-->
-
 
 <!--Other Web references-->

@@ -1,20 +1,20 @@
-<properties 
-   pageTitle="Create a new StorSimple Manager service"
-   description="Describes how to create a new instance of the StorSimple Manager service."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
+---
+title: Create a new StorSimple Manager service
+description: Describes how to create a new instance of the StorSimple Manager service.
+services: storsimple
+documentationCenter: NA
+authors: SharS
+manager: adinah
+editor: tysonn
 
+ms.service: storsimple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: TBD
+ms.date: 04/01/2015
+ms.author: v-sharos
+---
 
 ### To create a new service
 
@@ -32,5 +32,5 @@
        ![create a service](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
      You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
- 
+
        ![service creation](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)

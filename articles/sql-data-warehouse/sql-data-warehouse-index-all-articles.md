@@ -1,21 +1,20 @@
-<properties
-	pageTitle="All topics for SQL Data Warehouse service | Azure"
-	description="Table of all topics for the Azure service named SQL Data Warehouse that exist on http://azure.cn/documentation/articles/, Title and description."
-	services="sql-data-warehouse"
-	documentationCenter=""
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""/>
+---
+title: All topics for SQL Data Warehouse service | Azure
+description: Table of all topics for the Azure service named SQL Data Warehouse that exist on http://azure.cn/documentation/articles/, Title and description.
+services: sql-data-warehouse
+documentationCenter: ''
+authors: barbkess
+manager: jhubbard
+editor: ''
 
-<tags
-	ms.service="sql-data-warehouse"
-	ms.workload="sql-data-warehouse"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/31/2016"
-	ms.author="barbkess"/>
-
+ms.service: sql-data-warehouse
+ms.workload: sql-data-warehouse
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/31/2016
+ms.author: barbkess
+---
 
 # All topics for Azure SQL Data Warehouse service
 
@@ -161,4 +160,3 @@ This section lists articles which were updated recently, where the update was bi
 | 85 |[Get started with threat detection](sql-data-warehouse-security-threat-detection.md) |How to get started with Threat Detection |
 | 86 |[SQL Data Warehouse capacity limits](sql-data-warehouse-service-capacity-limits.md) |Maximum values for connections, databases, tables and queries for SQL Data Warehouse. |
 | 87 |[Troubleshooting Azure SQL Data Warehouse](sql-data-warehouse-troubleshoot.md) |Troubleshooting Azure SQL Data Warehouse. |
-

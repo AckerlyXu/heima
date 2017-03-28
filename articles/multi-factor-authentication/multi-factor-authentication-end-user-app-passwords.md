@@ -1,26 +1,27 @@
-<properties
-    pageTitle="What are App Passwords in Azure MFA? | Azure"
-    description="This page will help users understand what app passwords are and what they are used for with regard to Azure MFA."
-    services="multi-factor-authentication"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="pblachar" />
-<tags
-    ms.assetid="345b757b-5a2b-48eb-953f-d363313be9e5"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/15/2016"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: What are App Passwords in Azure MFA? | Azure
+description: This page will help users understand what app passwords are and what they are used for with regard to Azure MFA.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: pblachar
+
+ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2016
+wacn.date: ''
+ms.author: kgremban
+---
 
 # What are App Passwords in Azure Multi-Factor Authentication?
 Certain non-browser apps, such as the Apple native email client that uses Exchange Active Sync, currently do not support multi-factor authentication. Multi-factor authentication is enabled per user. This means that if a user has been enabled for multi-factor authentication and they are attempting to use non-browser apps, they will be unable to do so. An app password allows this to occur.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Modern Authentication for the Office 2013 Clients
 >
 > Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).

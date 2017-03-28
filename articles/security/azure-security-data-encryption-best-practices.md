@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Data Security and Encryption Best Practices | Microsoft Azure"
-   description="This article provides a set of best practices for data security and encryption using built in Azure capabilities."
-   services="security"
-   documentationCenter="na"
-   authors="YuriDio"
-   manager="swadhwa"
-   editor="TomSh"/>
+---
+title: Data Security and Encryption Best Practices | Microsoft Azure
+description: This article provides a set of best practices for data security and encryption using built in Azure capabilities.
+services: security
+documentationCenter: na
+authors: YuriDio
+manager: swadhwa
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/16/2016"
-   ms.author="yuridio"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/16/2016
+ms.author: yuridio
+---
 
 #Azure Data Security and Encryption Best Practices
 
@@ -46,7 +46,6 @@ Azure data security and encryption best practices discussed in this article incl
 - Enable SQL data encryption
 - Protect data in transit
 - Enforce file level data encryption
-
 
 ## Enforce Multi-factor Authentication
 

@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Retry general guidance | Microsoft Docs"
-	description="Guidance on retry for transient fault handling."
-	services=""
-	documentationcenter="na"
-	author="dragon119"
-	manager="christb"
-	editor="" />
+---
+title: Retry general guidance | Microsoft Docs
+description: Guidance on retry for transient fault handling.
+services: ''
+documentationcenter: na
+author: dragon119
+manager: christb
+editor: ''
 
-<tags
-	ms.assetid="5115cbf2-ecdd-42a4-8191-886de7bbadef"
-	ms.service="best-practice"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="07/13/2016"
-	ms.author="masashin"
-	wacn.date=""/>
-
+ms.assetid: 5115cbf2-ecdd-42a4-8191-886de7bbadef
+ms.service: best-practice
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/13/2016
+ms.author: masashin
+wacn.date: ''
+---
 
 # Retry general guidance
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
@@ -93,14 +92,14 @@ The following guidelines will help you to design a suitable transient fault hand
   - Consider measuring and logging the overall time taken for operations that include a retry mechanism. This is a good indicator of the overall effect of transient faults on user response times, process latency, and the efficiency of the application use cases. Also log the number of retries occurred in order to understand the factors that contributed to the response time.
   - Consider implementing a telemetry and monitoring system that can raise alerts when the number and rate of failures, the average number of retries, or the overall times taken for operations to succeed, is increasing.
 - **Manage operations that continually fail:**
-  
+
   - There will be circumstances where the operation continues to fail at every attempt, and it is vital to consider how you will handle this situation:
     - Although a retry strategy will define the maximum number of times that an operation should be retried, it does not prevent the application repeating the operation again, with the same number of retries. For example, if an order processing service fails with a fatal error that puts it out of action permanently, the retry strategy may detect a connection timeout and consider it to be a transient fault. The code will retry the operation a specified number of times and then give up. However, when another customer places an order, the operation will be attempted again - even though it is sure to fail every time.
     - To prevent continual retries for operations that continually fail, consider implementing the [Circuit Breaker pattern](http://msdn.microsoft.com/zh-cn/library/dn589784.aspx). In this pattern, if the number of failures within a specified time window exceeds the threshold, requests are returned to the caller immediately as errors, without attempting to access the failed resource or service.
     - The application can periodically test the service, on an intermittent basis and with very long intervals between requests, to detect when it becomes available. An appropriate interval will depend on the scenario, such as the criticality of the operation and the nature of the service, and might be anything between a few minutes and several hours. At the point where the test succeeds, the application can resume normal operations and pass requests to the newly recovered service.
     - In the meantime, it may be possible to fall back to another instance of the service (perhaps in a different datacenter or application), use a similar service that offers compatible (perhaps simpler) functionality, or perform some alternative operations in the hope that the service will become available soon. For example, it may be appropriate to store requests for the service in a queue or data store and replay them later. Otherwise you might be able to redirect the user to an alternative instance of the application, degrade the performance of the application but still offer acceptable functionality, or just return a message to the user indicating that the application is not available at present.
 - **Other considerations**
-  
+
   - When deciding on the values for the number of retries and the retry intervals for a policy, consider if the operation on the service or resource is part of a long-running or multi-step operation. It may be difficult or expensive to compensate all the other operational steps that have already succeeded when one fails. In this case, a very long interval and a large number of retries may be acceptable as long as it does not block other operations by holding or locking scarce resources.
   - Consider if retrying the same operation may cause inconsistencies in data. If some parts of a multi-step process are repeated, and the operations are not idempotent, it may result in an inconsistency. For example, an operation that increments a value, if repeated, will produce an invalid result. Repeating an operation that sends a message to a queue may cause an inconsistency in the message consumer if it cannot detect duplicate messages. To prevent this, ensure that you design each step as an idempotent operation. For more information about idempotency, see [Idempotency Patterns](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/).
   - Consider the scope of the operations that will be retried. For example, it may be easier to implement retry code at a level that encompasses several operations, and retry them all if one fails. However, doing this may result in idempotency issues or unnecessary rollback operations.
@@ -113,4 +112,3 @@ The following guidelines will help you to design a suitable transient fault hand
 - [Circuit Breaker Pattern](http://msdn.microsoft.com/zh-cn/library/dn589784.aspx)
 - [Compensating Transaction Pattern](http://msdn.microsoft.com/zh-cn/library/dn589804.aspx)
 - [Idempotency Patterns](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
-

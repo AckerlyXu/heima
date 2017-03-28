@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Expand a data disk attached to a Windows VM in Azure | Azure"
-    description="Expand the size of a data disk that is attached to a Windows virtual machine using PowerShell."
-    services="virtual-machines-windows"
-    documentationcenter="na"
-    author="cynthn"
-    manager="timlt"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/02/2017"
-    wacn.date=""
-    ms.author="cynthn" />
+---
+title: Expand a data disk attached to a Windows VM in Azure | Azure
+description: Expand the size of a data disk that is attached to a Windows virtual machine using PowerShell.
+services: virtual-machines-windows
+documentationcenter: na
+author: cynthn
+manager: timlt
+editor: ''
+tags: ''
+
+ms.assetid: ''
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/02/2017
+wacn.date: ''
+ms.author: cynthn
+---
 
 # Increase the size of a data disk attached to a Windows VM
 
@@ -35,51 +36,53 @@ To increase the size of a managed data disk, use the following PowerShell cmdlet
 
 The following script will walk you through getting the VM information, selecting the data disk and specifying the new size.
 
-    # Select resource group
-     
-        $rg = Get-AzureRMReseourceGroup | Out-GridView `
-            -Title "Select the resource group" `
-            -PassThru
-     
-        $rgName = $rg.ResourceGroupName
+```powershell
+# Select resource group
 
-    # Select the VM
-     
-        $vm = Get-AzureRMVM -ResourceGroupName $rgName `
-            | Out-GridView `
-                -Title "Select a VM" `
-                 -PassThru
+    $rg = Get-AzureRMReseourceGroup | Out-GridView `
+        -Title "Select the resource group" `
+        -PassThru
 
-    # Select data disk
-     
-        $disk = $vm.dataDiskNames | Out-GridView `
-            -Title "Select a data disk" `
-            -PassThru
-    
-    # Specify a larger size for the data disk 
-       
-        $size =  Read-Host `
-            -Prompt "New size in GB"
+    $rgName = $rg.ResourceGroupName
 
-    # Stop and Deallocate VM prior to resizing data disk
-     
-        $vm | Stop-AzureRMVM -Force
+# Select the VM
 
-    # Set the new disk size
-    
-        Set-AzureRmVMDataDisk -VM $vm -Name "$disk" -DiskSizeInGB $size
+    $vm = Get-AzureRMVM -ResourceGroupName $rgName `
+        | Out-GridView `
+            -Title "Select a VM" `
+             -PassThru
 
-    # View the new size of the data disk(s)
-    
-        $vm.StorageProfile.DataDisks
+# Select data disk
 
-    # Update the configuration in Azure
-    
-        Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+    $disk = $vm.dataDiskNames | Out-GridView `
+        -Title "Select a data disk" `
+        -PassThru
 
-    # Start the VM
-    
-        Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.name
+# Specify a larger size for the data disk 
+
+    $size =  Read-Host `
+        -Prompt "New size in GB"
+
+# Stop and Deallocate VM prior to resizing data disk
+
+    $vm | Stop-AzureRMVM -Force
+
+# Set the new disk size
+
+    Set-AzureRmVMDataDisk -VM $vm -Name "$disk" -DiskSizeInGB $size
+
+# View the new size of the data disk(s)
+
+    $vm.StorageProfile.DataDisks
+
+# Update the configuration in Azure
+
+    Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+
+# Start the VM
+
+    Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.name
+```
 
 ## Use PowerShell to increase the size of an unmanaged data disk
 
@@ -95,67 +98,73 @@ To increase the size of unmanaged data disks in a storage account, use the follo
 
 The following script will walk you through getting the VM and storage account information, selecting the data disk and specifying the new size.
 
-    # Select Azure Storage Account
-     
-        $storageAccount =
-            Get-AzureRMStorageAccount | Out-GridView `
-                -Title "Select Azure Storage Account" `
-                -PassThru
-     
-        $rgName = $storageAccount.ResourceGroupName
+```powershell
+# Select Azure Storage Account
 
-    # Select the VM
-     
-        $vm = Get-AzureRMVM `
-        -ResourceGroupName $rgName | Out-GridView `
-                -Title "Select a VM …" `
-                -PassThru
+    $storageAccount =
+        Get-AzureRMStorageAccount | Out-GridView `
+            -Title "Select Azure Storage Account" `
+            -PassThru
 
-    # Select Data Disk to resize
-     
-        $disk =
-            $vm.DataDiskNames | Out-GridView `
-                -Title "Select a data disk to resize" `
-                -PassThru
-     
-    # Specify a larger data disk size 
-       
-        $size =  Read-Host `
-            -Prompt "New size in GB"
+    $rgName = $storageAccount.ResourceGroupName
 
-    # Stop and Deallocate VM prior to resizing data disk
-     
-        $vm | Stop-AzureRMVM -Force
+# Select the VM
 
-    # Set the new disk size
+    $vm = Get-AzureRMVM `
+    -ResourceGroupName $rgName | Out-GridView `
+            -Title "Select a VM …" `
+            -PassThru
 
-        Set-AzureRmVMDataDisk -VM $vm -Name "$disk" `
-            -DiskSizeInGB $size
+# Select Data Disk to resize
 
-    # Update the configuration in Azure
-    
-        Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+    $disk =
+        $vm.DataDiskNames | Out-GridView `
+            -Title "Select a data disk to resize" `
+            -PassThru
 
-    # Start the VM
-        Start-AzureRmVM -ResourceGroupName $rgName `
-        -VMName $vm.name
-    
+# Specify a larger data disk size 
+
+    $size =  Read-Host `
+        -Prompt "New size in GB"
+
+# Stop and Deallocate VM prior to resizing data disk
+
+    $vm | Stop-AzureRMVM -Force
+
+# Set the new disk size
+
+    Set-AzureRmVMDataDisk -VM $vm -Name "$disk" `
+        -DiskSizeInGB $size
+
+# Update the configuration in Azure
+
+    Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+
+# Start the VM
+    Start-AzureRmVM -ResourceGroupName $rgName `
+    -VMName $vm.name
+```
+
 ## Allocate the unallocated disk space 
 
 Once you have made the drive larger, you need to allocate the new unallocated space from within the VM. To allocate the space, you can connect to the VM use Disk Management (diskmgmt.msc). Or, if you enabled WinRM and a certificate on the VM when you created it, you can use remote PowerShell to initialize the disk. You can also use a custom script extension: 
 
-        $location = "location-name"
-        $scriptName = "script-name"
-        $fileName = "script-file-name"
-        Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
+```powershell
+    $location = "location-name"
+    $scriptName = "script-name"
+    $fileName = "script-file-name"
+    Set-AzureRmVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
+```
 
 The script file can contain something like this code to increase the drive allocation to the maximum size the disks:
 
-    $driveLetter= "F"
+```powershell
+$driveLetter= "F"
 
-    $MaxSize = (Get-PartitionSupportedSize -DriveLetter $driveLetter).sizeMax
+$MaxSize = (Get-PartitionSupportedSize -DriveLetter $driveLetter).sizeMax
 
-    Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
+Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
+```
 
 ## Next Steps
-- [Learn more about disks and VHDs](/documentation/articles/storage-about-disks-and-vhds-windows/)
+- [Learn more about disks and VHDs](../storage/storage-about-disks-and-vhds-windows.md)

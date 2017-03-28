@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Troubleshoot Azure RBAC | Azure"
-    description="Get help with issues or questions about Role Based Access Control resources."
-    services="azure-portal"
-    documentationcenter="na"
-    author="kgremban"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="df42cca2-02d6-4f3c-9d56-260e1eb7dc44"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/02/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Troubleshoot Azure RBAC | Azure
+description: Get help with issues or questions about Role Based Access Control resources.
+services: azure-portal
+documentationcenter: na
+author: kgremban
+manager: femila
+editor: ''
+
+ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/02/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Role-Based Access Control troubleshooting
 
@@ -25,7 +26,7 @@ This document article answers common questions about the specific access rights 
 - Contributor  
 - Reader  
 
-Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users. Things get a little more interesting with the reader role, so that’s where we'll spend some time. See the [Role-Based Access Control get-started article](/documentation/articles/role-based-access-control-configure/) for details on how to grant access.
+Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users. Things get a little more interesting with the reader role, so that’s where we'll spend some time. See the [Role-Based Access Control get-started article](./role-based-access-control-configure.md) for details on how to grant access.
 
 ## App service workloads
 ### Write access capabilities
@@ -86,8 +87,7 @@ These require **write** access to both the **Virtual machine**, and the **Resour
 If you can't access any of these tiles, youneed to ask your administrator for Contributor access to the Resource group.
 
 ## See more
-- [Role Based Access Control](/documentation/articles/role-based-access-control-configure/): Get started with RBAC in the Azure portal.
-- [Built-in roles](/documentation/articles/role-based-access-built-in-roles/): Get details about the roles that come standard in RBAC.
-- [Custom roles in Azure RBAC](/documentation/articles/role-based-access-control-custom-roles/): Learn how to create custom roles to fit your access needs.
-- [Create an access change history report](/documentation/articles/role-based-access-control-access-change-history-report/): Keep track of changing role assignments in RBAC.
-
+- [Role Based Access Control](./role-based-access-control-configure.md): Get started with RBAC in the Azure portal.
+- [Built-in roles](./role-based-access-built-in-roles.md): Get details about the roles that come standard in RBAC.
+- [Custom roles in Azure RBAC](./role-based-access-control-custom-roles.md): Learn how to create custom roles to fit your access needs.
+- [Create an access change history report](./role-based-access-control-access-change-history-report.md): Keep track of changing role assignments in RBAC.

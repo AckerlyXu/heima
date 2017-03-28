@@ -1,36 +1,36 @@
-<properties
-    pageTitle="Restore Azure SQL Data Warehouse (Azure portal preview) | Azure"
-    description="Azure portal preview tasks for restoring Azure SQL Data Warehouse."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="Lakshmi1812"
-    manager="barbkess"
-    editor="" />
-<tags
-    ms.assetid="b0aef539-7657-4b0e-9899-74098f5c21bc"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="09/21/2016"
-    wacn.date=""
-    ms.author="lakshmir;barbkess;sonyama" />
+---
+title: Restore Azure SQL Data Warehouse (Azure portal preview) | Azure
+description: Azure portal preview tasks for restoring Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: Lakshmi1812
+manager: barbkess
+editor: ''
+
+ms.assetid: b0aef539-7657-4b0e-9899-74098f5c21bc
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 09/21/2016
+wacn.date: ''
+ms.author: lakshmir;barbkess;sonyama
+---
 
 # Restore Azure SQL Data Warehouse (portal)
 
-> [AZURE.SELECTOR]
-- [Overview][Overview]
-- [Portal][Portal]
-- [PowerShell][PowerShell]
-- [REST][REST]
+> [!div class="op_single_selector"]
+>- [Overview][Overview]
+>- [Portal][Portal]
+>- [PowerShell][PowerShell]
+>- [REST][REST]
 
 In this article, you will learn how to restore Azure SQL Data Warehouse by using the Azure portal.
 
 ## Before you begin
 
 **Verify your DTU capacity.** Each instance of SQL Data Warehouse is hosted by a SQL server (for example, myserver.database.chinacloudapi.cn) which has a default data throughput unit (DTU) quota. Before you can restore SQL Data Warehouse, verify that your SQL server has enough remaining DTU quota for the database that you're restoring. To learn how to calculate DTU quota or to request more DTUs, see [Request a DTU quota change][Request a DTU quota change].
-
 
 ## Restore an active or paused database
 
@@ -39,19 +39,19 @@ To restore a database:
 1. Sign in to the [Azure portal][Azure portal].
 
 2. In the left pane, select **Browse**, and then select **SQL servers**.
-    
+
     ![Select Browse > SQL servers](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
-    
+
 3. Find your server, and then select it.
-    
+
     ![Select your server](./media/sql-data-warehouse-restore-database-portal/01-select-server.png)
 
 4. Find the instance of SQL Data Warehouse that you want to restore from, and then select it.
-    
+
     ![Select the instance of SQL Data Warehouse to restore](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
-    
+
 5. At the top of the Data Warehouse blade, select **Restore**.
-    
+
     ![Select Restore](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
 
 6. Specify a new **Database name**.
@@ -66,7 +66,7 @@ To restore a database:
 
 9. The database restore process will begin, and you can use **NOTIFICATIONS** to monitor the process.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > After the restore has finished, you can configure your recovered database by following [Configure your database after recovery][Configure your database after recovery].
 >
 >
@@ -78,32 +78,32 @@ To restore a deleted database:
 1. Sign in to the [Azure portal][Azure portal].
 
 2. In the left pane, select **Browse**, and then select **SQL servers**.
-    
+
     ![Select Browse > SQL servers](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 
 3. Find your server, and then select it.
-    
+
     ![Select your server](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
 
 4. Scroll down to the **Operations** section on your server's blade.
 
 5. Select the **Deleted databases** tile.
-    
+
     ![Select the Deleted databases tile](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
 
 6. Select the deleted database that you want to restore.
-    
+
     ![Select a database to restore](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
 
 7. Specify a new **Database name**.
-    
+
     ![Add a name for the database](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
-    
+
 8. Select **OK**.
 
 9. The database restore process will begin, and you can use **NOTIFICATIONS** to monitor the process.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > To configure your database after the restore has finished, see [Configure your database after recovery][Configure your database after recovery].
 >
 >
@@ -114,13 +114,13 @@ To learn about the business continuity features of Azure SQL Database editions, 
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL Database business continuity overview]: /documentation/articles/sql-database-business-continuity/
-[Overview]: /documentation/articles/sql-data-warehouse-restore-database-overview/
-[Portal]: /documentation/articles/sql-data-warehouse-restore-database-portal/
-[PowerShell]: /documentation/articles/sql-data-warehouse-restore-database-powershell/
-[REST]: /documentation/articles/sql-data-warehouse-restore-database-rest-api/
-[Configure your database after recovery]: /documentation/articles/sql-database-disaster-recovery/#configure-your-database-after-recovery
-[Request a DTU quota change]: /documentation/articles/sql-data-warehouse-get-started-create-support-ticket/#request-quota-change
+[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
+[Portal]: ./sql-data-warehouse-restore-database-portal.md
+[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
+[REST]: ./sql-data-warehouse-restore-database-rest-api.md
+[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 
 <!--MSDN references-->
 

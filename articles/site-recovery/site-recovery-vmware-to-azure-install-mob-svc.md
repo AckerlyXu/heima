@@ -20,16 +20,14 @@ ms.author: anoopkv
 # Install Mobility Service (VMware or physical to Azure)
 Azure Site Recovery Mobility Service captures data writes on a computer, and then forwards them to the process server. Deploy Mobility Service to every computer (VMware VM or physical server) that you want to replicate to Azure. You can deploy Mobility Service to the servers that you want to protect by using the following methods:
 
-
-* [Install Mobility Service by using software deployment tools like System Center Configuration Manager](/documentation/articles/site-recovery-install-mobility-service-using-sccm/)
-* [Install Mobility Service by using Azure Automation and Desired State Configuration (Automation DSC)](/documentation/articles/site-recovery-automate-mobility-service-install/)
-* [Install Mobility Service manually by using the graphical user interface (GUI)](/documentation/articles/site-recovery-vmware-to-azure-install-mob-svc/#install-mobility-service-manually-by-using-the-gui)
-* [Install Mobility Service manually at a command prompt](/documentation/articles/site-recovery-vmware-to-azure-install-mob-svc/#install-mobility-service-manually-at-a-command-prompt)
-* [Install Mobility Service by push installation from Azure Site Recovery](/documentation/articles/site-recovery-vmware-to-azure-install-mob-svc/#install-mobility-service-by-push-installation-from-azure-site-recovery)
-
+* [Install Mobility Service by using software deployment tools like System Center Configuration Manager](./site-recovery-install-mobility-service-using-sccm.md)
+* [Install Mobility Service by using Azure Automation and Desired State Configuration (Automation DSC)](./site-recovery-automate-mobility-service-install.md)
+* [Install Mobility Service manually by using the graphical user interface (GUI)](./site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui)
+* [Install Mobility Service manually at a command prompt](./site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt)
+* [Install Mobility Service by push installation from Azure Site Recovery](./site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 >[!IMPORTANT]
-> Beginning with version 9.7.0.0, on Windows virtual machines (VMs), the Mobility Service installer also installs the latest available [Azure VM agent](/documentation/articles/virtual-machines-windows-extensions-features/#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
+> Beginning with version 9.7.0.0, on Windows virtual machines (VMs), the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/virtual-machines-windows-extensions-features.md#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
 
 ## Prerequisites
 Complete these prerequisite steps before you manually install Mobility Service on your server:
@@ -52,29 +50,26 @@ Complete these prerequisite steps before you manually install Mobility Service o
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64-bit only)|
 |Microsoft-ASR_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64-bit only)|
 
-
 ## Install Mobility Service manually by using the GUI
 
 >[!NOTE]
 > The GUI-based installation works only with Windows operating systems.
 
-[AZURE.INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
+[!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 
 ## Install Mobility Service manually using Command-line
 ### Command-line installation on a Windows computer
-[AZURE.INCLUDE [site-recovery-install-mob-svc-win-cmd](../../includes/site-recovery-install-mob-svc-win-cmd.md)]
+[!INCLUDE [site-recovery-install-mob-svc-win-cmd](../../includes/site-recovery-install-mob-svc-win-cmd.md)]
 
 ### Command-line installation on a Linux computer
-[AZURE.INCLUDE [site-recovery-install-mob-svc-lin-cmd](../../includes/site-recovery-install-mob-svc-lin-cmd.md)]
-
+[!INCLUDE [site-recovery-install-mob-svc-lin-cmd](../../includes/site-recovery-install-mob-svc-lin-cmd.md)]
 
 ## Install Mobility Service by push installation from Azure Site Recovery
 To do a push installation of Mobility Service by using Site Recovery, all target computers must meet the following prerequisites.
 
-[AZURE.INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
+[!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
-[AZURE.INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
-
+[!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
 
 > [!NOTE]
 After Mobility Service is installed, in the Azure portal, select the **Replicate** button to start protecting these VMs.
@@ -90,15 +85,15 @@ Use one of the following methods to uninstall Mobility Service on a Windows Serv
 1. Open a Command Prompt window as an administrator.
 2. To uninstall Mobility Service, run the following command:
 
-
-		MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-
+    ```
+    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
+    ```
 
 ## Uninstall Mobility Service on a Linux computer
 1. On your Linux server, sign in as a **root** user.
 2. In a terminal, go to /user/local/ASR.
 3. To uninstall Mobility Service, run the following command:
 
-
-		uninstall.sh -Y
-
+    ```
+    uninstall.sh -Y
+    ```

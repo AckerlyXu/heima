@@ -1,17 +1,16 @@
+---
+title: Azure Authenticator for Android | Azure
+description: Microsoft Azure Authenticator app can be used to sign-in to access work resources. The Azure Authenticator app notifies you of a pending two-factor verification request by displaying an alert to your mobile device.
+services: active-directory
+documentationCenter: ''
+authors: femila
+manager: stevenpo
+editor: ''
 
-<properties
-	pageTitle="Azure Authenticator for Android | Azure"
-	description="Microsoft Azure Authenticator app can be used to sign-in to access work resources. The Azure Authenticator app notifies you of a pending two-factor verification request by displaying an alert to your mobile device."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""/>
-
-<tags
-	ms.service="active-directory"
-	ms.date="03/07/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 03/07/2016
+wacn.date: ''
+---
 
 # Azure Authenticator for Android
 
@@ -43,7 +42,7 @@ The following instructions are applicable to Samsung GS3 and above phones or Not
 9. The Workplace Join screen displays the message, “**Joining your workplace**”. The Azure authenticator app is attempting to join your device to your workplace.
 10. You should see the Workplace Joined message on the next screen.
 
->[AZURE.NOTE]
+>[!NOTE]
 > You are allowed a single work account on your device.
 
 ### Adding the work account from the settings menu
@@ -67,7 +66,7 @@ On the Workplace Join screen, enter the userID provided by your organization and
 the message, “Joining your workplace”. The Azure authenticator app is attempting to join your device to your workplace.
 You should see the Workplace Joined message on the next screen.
 
->[AZURE.NOTE]
+>[!NOTE]
 > You are allowed a single work account on your device.
 
 After you have installed the Azure Authenticator app, you can also create a work account from the Android Account Manager.
@@ -80,7 +79,7 @@ After you have installed the Azure Authenticator app, you can also create a work
 1. You can find out which version of the Azure Authenticator app and associated service versions are installed on your device.
 2. From the pop up menu, click **About**.
 3. The About screen displays the services of the app and the versions installed on your device.
- 
+
 ### Sending log files to report issues
 
 1. Follow the guidance on Microsoft Support to report an incident with the Azure Authenticator app, obtain an incident number, and send log files against the assigned incident number as follows:
@@ -104,7 +103,7 @@ You can remove the work account you created at any time as follows:
 4. Click **OK** when the message “Are you sure you want to leave workplace” is displayed.
 5. This ensures that you have deleted your work account from your workplace.
 
->[AZURE.NOTE]
+>[!NOTE]
 >It is recommended that you do not use the Remove Account option to delete a work account as this option might not work in some earlier versions of Android.
 
 ##Uninstalling the app

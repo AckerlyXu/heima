@@ -1,26 +1,26 @@
-<properties
-   pageTitle="Query Azure SQL Data Warehouse (sqlcmd)| Azure"
-   description="Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Query Azure SQL Data Warehouse (sqlcmd)| Azure
+description: Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: barbkess;sonyama
+---
 
 # Query Azure SQL Data Warehouse (sqlcmd)
 
-> [AZURE.SELECTOR]
-- [Visual Studio](/documentation/articles/sql-data-warehouse-query-visual-studio/)
-- [sqlcmd](/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/)
+> [!div class="op_single_selector"]
+>- [Visual Studio](./sql-data-warehouse-query-visual-studio.md)
+>- [sqlcmd](./sql-data-warehouse-get-started-connect-sqlcmd.md)
 
 Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL Data Warehouse.  
 
@@ -52,7 +52,8 @@ For example, your connection string might look like the following:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
-> [AZURE.NOTE] You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
+> [!NOTE]
+> You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
 
 ## 2. Query
 After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.

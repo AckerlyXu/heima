@@ -1,21 +1,20 @@
-<properties
-   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (PolyBase) | Azure"
-   description="Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+---
+title: Load data from SQL Server into Azure SQL Data Warehouse (PolyBase) | Azure
+description: Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: lodipalm
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   wacn.date=""/>
-
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+---
 
 # Load data from SQL Server into Azure SQL Data Warehouse (AZCopy)
 Use bcp and AZCopy command-line utilities to load data from SQL Server to Azure blob storage. Then use PolyBase or Azure Data Factory to load the data into Azure SQL Data Warehouse. 
@@ -27,7 +26,8 @@ To step through this tutorial, you need:
 * The bcp command line utility installed
 * The SQLCMD command line utility installed
 
->[AZURE.NOTE] You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][].
+>[!NOTE]
+> You can download the bcp and sqlcmd utilities from the [Microsoft Download Center][].
 
 ## Import data into SQL Data Warehouse
 In this tutorial, you will create a table in Azure SQL Data Warehouse and import data into the table.
@@ -51,7 +51,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] See [Table Overview][] or [CREATE TABLE syntax][] for more information about creating a table on SQL Data Warehouse and the  options available in the WITH clause.
+>[!NOTE]
+> See [Table Overview][] or [CREATE TABLE syntax][] for more information about creating a table on SQL Data Warehouse and the  options available in the WITH clause.
 
 ### Step 2: Create a source data file
 Open Notepad and copy the following lines of data into a new text file and then save this file to your local temp directory, C:\Temp\DimDate2.txt.
@@ -71,7 +72,8 @@ Open Notepad and copy the following lines of data into a new text file and then 
 20150101,1,3
 ```
 
-> [AZURE.NOTE] It is important to remember that bcp.exe does not support the UTF-8 file encoding. Please use ASCII files or UTF-16 encoded files when using bcp.exe.
+> [!NOTE]
+> It is important to remember that bcp.exe does not support the UTF-8 file encoding. Please use ASCII files or UTF-16 encoded files when using bcp.exe.
 
 ### Step 3: Connect and import the data
 Using bcp, you can connect and import the data using the following command replacing the values as appropriate:
@@ -143,7 +145,8 @@ You can verify the data was exported correctly by opening the new file. The data
 20150101,1,3
 ```
 
->[AZURE.NOTE] Due to the nature of distributed systems, the data order may not be the same across SQL Data Warehouse databases. Another option is to use the **queryout** function of bcp to write a query extract rather than export the entire table.
+>[!NOTE]
+> Due to the nature of distributed systems, the data order may not be the same across SQL Data Warehouse databases. Another option is to use the **queryout** function of bcp to write a query extract rather than export the entire table.
 
 ## Next steps
 For an overview of loading, see [Load data into SQL Data Warehouse][Load data into SQL Data Warehouse].
@@ -153,8 +156,8 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 
 <!--Article references-->
 
-[Load data into SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-overview-load
-[SQL Data Warehouse development overview]: /documentation/articles/sql-data-warehouse-overview-develop
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 [Table Design]: /documentation/articles/sql-data-warehouse-develop-table-design
 [Statistics]: /documentation/articles/sql-data-warehouse-develop-statistics
 

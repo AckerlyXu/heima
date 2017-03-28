@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Create a web app with continuous deployment from Visual Studio Team Services | Azure"
-    description="Azure CLI Script Sample - Create a web app with continuous deployment from Visual Studio Team Services"
-    services="app-service\web"
-    documentationcenter=""
-    author="syntaxc4"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="389d3bd3-cd8e-4715-a3a1-031ec061d385"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cfowler" />
+---
+title: Azure CLI Script Sample - Create a web app with continuous deployment from Visual Studio Team Services | Azure
+description: Azure CLI Script Sample - Create a web app with continuous deployment from Visual Studio Team Services
+services: app-service\web
+documentationcenter: ''
+author: syntaxc4
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
+ms.service: app-service-web
+ms.workload: web
+ms.devlang: na
+ms.topic: article
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cfowler
+---
 
 # Create a web app with continuous deployment from Visual Studio Team Services
 
@@ -27,35 +28,36 @@ If needed, install the Azure CLI using the instruction found in the [Azure CLI i
 - The application code is in a Visual Studio Team Services repository that you own.
 - You have [created an access token in your Visual Studio Team Services account](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../../virtual-machines/virtual-machines-windows-cli-options.md).
 
 ## Create app sample
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    gitrepo=<Replace with your Visual Studio Team Services repo URL>
-    token=<Replace with a Visual Studio Team Services personal access token>
-    webappname=mywebapp$RANDOM
+gitrepo=<Replace with your Visual Studio Team Services repo URL>
+token=<Replace with a Visual Studio Team Services personal access token>
+webappname=mywebapp$RANDOM
 
-    # Create a resource group.
-    az group create --location chinanorth --name myResourceGroup
+# Create a resource group.
+az group create --location chinanorth --name myResourceGroup
 
-    # Create an App Service plan in `FREE` tier.
-    az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE
+# Create an App Service plan in `FREE` tier.
+az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE
 
-    # Create a web app.
-    az appservice web create --name $webappname --resource-group myResourceGroup --plan $webappname
+# Create a web app.
+az appservice web create --name $webappname --resource-group myResourceGroup --plan $webappname
 
-    # Configure continuous deployment from Visual Studio Team Services. 
-    # --git-token parameter is required only once per Azure account (Azure remembers token).
-    az appservice web source-control config --name $webappname --resource-group myResourceGroup \
-    --repo-url $gitrepo --branch master --git-token $token
+# Configure continuous deployment from Visual Studio Team Services. 
+# --git-token parameter is required only once per Azure account (Azure remembers token).
+az appservice web source-control config --name $webappname --resource-group myResourceGroup \
+--repo-url $gitrepo --branch master --git-token $token
 
-    # Browse to the web app.
-    az appservice web browse --name $webappname --resource-group myResourceGroup
+# Browse to the web app.
+az appservice web browse --name $webappname --resource-group myResourceGroup
+```
 
-
-[AZURE.INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 
@@ -73,4 +75,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional App Service CLI script samples can be found in the [Azure App Service documentation](/documentation/articles/app-service-cli-samples/).
+Additional App Service CLI script samples can be found in the [Azure App Service documentation](../app-service-cli-samples.md).

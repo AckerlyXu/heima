@@ -1,24 +1,24 @@
-<properties
-    pageTitle="Enable offline sync for your Azure Mobile App (Xamarin Android)"
-    description="Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin Android application"
-    documentationCenter="xamarin"
-    authors="adrianhall"
-    manager="dwrede"
-    editor=""
-    services="app-service\mobile"/>
+---
+title: Enable offline sync for your Azure Mobile App (Xamarin Android)
+description: Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin Android application
+documentationCenter: xamarin
+authors: adrianhall
+manager: dwrede
+editor: ''
+services: app-service\mobile
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-xamarin-android"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-xamarin-android
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: adrianha
+---
 
 # Enable offline sync for your Xamarin.Android mobile app
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+[!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## Overview
 
@@ -28,7 +28,7 @@ Once the device is back online, these changes are synced with the remote service
 
 In this tutorial, you update the client project from the tutorial [Create a Xamarin Android app] to support the offline features
 of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access extension packages to your
-project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](/documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/).
+project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
@@ -53,9 +53,11 @@ the mobile app backend when a push is executed in a connected state.
 
 1. Edit ToDoActivity.cs in the shared project. Change the **applicationURL** to point to an invalid URL:
 
-         const string applicationURL = @"https://your-service.azurewebsites.fail";
+    ```
+     const string applicationURL = @"https://your-service.azurewebsites.fail";
+    ```
 
-	You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or using airplane mode.
+    You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or using airplane mode.
 
 2. Press **F5** to build and run the app. Notice your sync failed on refresh when the app launched.
 
@@ -102,55 +104,58 @@ ode. For a conceptual overview of the feature, see [Offline Data Sync in Azure M
    when `ToDoActivity.OnCreate()` executes `ToDoActivity.InitLocalStoreAsync()`. This method creates a local SQLite database using
    the `MobileServiceSQLiteStore` class provided by the Azure Mobile Apps client SDK.
 
-	The `DefineTable` method creates a table in the local store that matches the fields in the provided type, `ToDoItem` in this case. The type
+    The `DefineTable` method creates a table in the local store that matches the fields in the provided type, `ToDoItem` in this case. The type
     doesn't have to include all the columns that are in the remote database. It is possible to store just a subset of columns.
 
-		// ToDoActivity.cs
-        private async Task InitLocalStoreAsync()
+    ```
+    // ToDoActivity.cs
+    private async Task InitLocalStoreAsync()
+    {
+        // new code to initialize the SQLite store
+        string path = Path.Combine(System.Environment
+            .GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
+
+        if (!File.Exists(path))
         {
-            // new code to initialize the SQLite store
-            string path = Path.Combine(System.Environment
-				.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
-
-            if (!File.Exists(path))
-            {
-                File.Create(path).Dispose();
-            }
-
-            var store = new MobileServiceSQLiteStore(path);
-            store.DefineTable<ToDoItem>();
-
-            // Uses the default conflict handler, which fails on conflict
-            // To use a different conflict handler, pass a parameter to InitializeAsync.
-			// For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
-            await client.SyncContext.InitializeAsync(store);
+            File.Create(path).Dispose();
         }
 
+        var store = new MobileServiceSQLiteStore(path);
+        store.DefineTable<ToDoItem>();
+
+        // Uses the default conflict handler, which fails on conflict
+        // To use a different conflict handler, pass a parameter to InitializeAsync.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
+        await client.SyncContext.InitializeAsync(store);
+    }
+    ```
 
 * The `toDoTable` member of `ToDoActivity` is of the `IMobileServiceSyncTable` type instead of `IMobileServiceTable`. The IMobileServiceSyncTable
   directs all create, read, update, and delete (CRUD) table operations to the local store database.
 
-	You decide when changes are pushed to the Azure Mobile App backend by calling `IMobileServiceSyncContext.PushAsync()`. The sync context helps
+    You decide when changes are pushed to the Azure Mobile App backend by calling `IMobileServiceSyncContext.PushAsync()`. The sync context helps
     preserve table relationships by tracking and pushing changes in all tables a client app has modified when `PushAsync` is called.
 
-	The provided code calls `ToDoActivity.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. The code
+    The provided code calls `ToDoActivity.SyncAsync()` to sync whenever the todoitem list is refreshed or a todoitem is added or completed. The code
     syncs after every local change.
 
     In the provided code, all records in the remote `TodoItem` table are queried, but it is also possible to filter records by passing a query
     id and query to `PushAsync`. For more information, see the section *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
 
-		// ToDoActivity.cs
-        private async Task SyncAsync()
-        {
-			try {
-	            await client.SyncContext.PushAsync();
-	            await toDoTable.PullAsync("allTodoItems", toDoTable.CreateQuery()); // query ID is used for incremental sync
-			} catch (Java.Net.MalformedURLException) {
-				CreateAndShowDialog (new Exception ("There was an error creating the Mobile Service. Verify the URL"), "Error");
-			} catch (Exception e) {
-				CreateAndShowDialog (e, "Error");
-			}
+    ```
+    // ToDoActivity.cs
+    private async Task SyncAsync()
+    {
+        try {
+            await client.SyncContext.PushAsync();
+            await toDoTable.PullAsync("allTodoItems", toDoTable.CreateQuery()); // query ID is used for incremental sync
+        } catch (Java.Net.MalformedURLException) {
+            CreateAndShowDialog (new Exception ("There was an error creating the Mobile Service. Verify the URL"), "Error");
+        } catch (Exception e) {
+            CreateAndShowDialog (e, "Error");
         }
+    }
+    ```
 
 ## Additional Resources
 
@@ -158,15 +163,15 @@ ode. For a conceptual overview of the feature, see [Offline Data Sync in Azure M
 * [Azure Mobile Apps .NET SDK HOWTO][8]
 
 <!-- URLs. -->
-[Create a Xamarin Android app]: /documentation/articles/app-service-mobile-xamarin-android-get-started/
-[Offline Data Sync in Azure Mobile Apps]: /documentation/articles/app-service-mobile-offline-data-sync/
+[Create a Xamarin Android app]: ./app-service-mobile-xamarin-android-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
 
 <!-- Images -->
 
 <!-- URLs. -->
-[Create a Xamarin Android app]: /documentation/articles/app-service-mobile-xamarin-android-get-started/
-[Offline Data Sync in Azure Mobile Apps]: /documentation/articles/app-service-mobile-offline-data-sync/
+[Create a Xamarin Android app]: ./app-service-mobile-xamarin-android-get-started.md
+[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
 [Xamarin Studio]: http://xamarin.com/download
 [Xamarin extension]: http://xamarin.com/visual-studio
 [SyncContext]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
-[8]: /documentation/articles/app-service-mobile-dotnet-how-to-use-client-library/
+[8]: ./app-service-mobile-dotnet-how-to-use-client-library.md

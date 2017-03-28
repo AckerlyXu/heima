@@ -19,7 +19,7 @@ ms.author: jotaub;sethm
 ---
 # Get started with Event Hubs
 
-[AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
+[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
 ## Introduction
 
@@ -33,11 +33,11 @@ To complete this tutorial, you'll need the following:
 
 + An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
 
-[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
+[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## Run the applications
 
@@ -46,28 +46,28 @@ Now you are ready to run the applications.
 1. From within Visual Studio, open the **Receiver** project you created earlier.
 
 2. Right-click the **Receiver** solution, then click **Add**, and then click **Existing Project**.
- 
+
 3. Locate the existing Sender.csproj file, then double-click it to add it to the solution.
- 
+
 4. Again, right-click the **Receiver** solution and then click **Properties**. The **Receiver** property page is displayed.
 
 5. Click **Startup Project**, then click the **Multiple startup projects** button. Set the **Action** box for both the **Receiver** and **Sender** projects to **Start**.
 
-	![][19]
+    ![][19]
 
 6. Click **Project Dependencies**. In the **Projects** box, click **Sender**. In the **Depends on** box, make sure **Receiver** is checked.
 
-	![][20]
+    ![][20]
 
 7. Click **OK** to dismiss the **Properties** dialog.
 
-1.	Press F5 to run the **Receiver** project from within Visual Studio, then wait for it to start the receivers for all the partitions.
+1. Press F5 to run the **Receiver** project from within Visual Studio, then wait for it to start the receivers for all the partitions.
 
-	![][21]
+    ![][21]
 
-2.	The **Sender** project will run automatically. Press **Enter** in the console window, and see the events appear in the receiver window.
+2. The **Sender** project will run automatically. Press **Enter** in the console window, and see the events appear in the receiver window.
 
-	![][22]
+    ![][22]
 
 Press **Ctrl+C** in the **Sender** window to end the Sender application, then press **Enter** in the Receiver window to shut down that application.
 
@@ -89,8 +89,7 @@ Now that you've built a working application that creates an Event Hub and sends 
 <!-- Links -->
 [Azure Classic Portal]: https://manage.windowsazure.cn/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: ./event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[queued messaging solution]: /documentation/articles/service-bus-dotnet-multi-tier-app-using-service-bus-queues/
- 
+[queued messaging solution]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md

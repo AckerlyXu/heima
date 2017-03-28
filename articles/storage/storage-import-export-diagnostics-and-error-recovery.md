@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Diagnostics and error recovery for Azure Import/Export jobs | Azure"
-    description="Learn how to enable verbose logging for the Microsoft Azure Import/Export service jobs"
-    author="muralikk"
-    manager="syadav"
-    editor="tysonn"
-    services="storage"
-    documentationcenter="" />
-<tags
-    ms.assetid="096cc795-9af6-4335-9fe8-fffa9f239a17"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="muralikk" />
+---
+title: Diagnostics and error recovery for Azure Import/Export jobs | Azure
+description: Learn how to enable verbose logging for the Microsoft Azure Import/Export service jobs
+author: muralikk
+manager: syadav
+editor: tysonn
+services: storage
+documentationcenter: ''
+
+ms.assetid: 096cc795-9af6-4335-9fe8-fffa9f239a17
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: muralikk
+---
 
 # Diagnostics and error recovery for Azure Import/Export jobs
 For each drive processed, the Azure Import/Export service creates an error log in the associated storage account. You can also enable verbose logging by setting the `LogLevel` property to `Verbose` when calling the [Put Job](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) or [Update Job Properties](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs#Jobs_Update) operations.
@@ -50,7 +51,7 @@ You can use the logging data to identify the following issues:
 
 -   Incorrect schema for the blob properties and/or metadata files
 
-There may be cases where some parts of an import or export job do not complete successfully, while the overall job still completes. In this case, you can either upload or download the missing pieces of the data over network, or you can create a new job to transfer the data. See the [Azure Import-Export Tool Reference](/documentation/articles/storage-import-export-tool-how-to-v1/) to learn how to repair the data over network.
+There may be cases where some parts of an import or export job do not complete successfully, while the overall job still completes. In this case, you can either upload or download the missing pieces of the data over network, or you can create a new job to transfer the data. See the [Azure Import-Export Tool Reference](./storage-import-export-tool-how-to-v1.md) to learn how to repair the data over network.
 
 ## See Also
-[Using the Import/Export service REST API](/documentation/articles/storage-import-export-using-the-rest-api/)
+[Using the Import/Export service REST API](./storage-import-export-using-the-rest-api.md)

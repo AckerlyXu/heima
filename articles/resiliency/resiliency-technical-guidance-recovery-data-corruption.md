@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Resiliency technical guidance for recovering from data corruption or accidental deletion | Azure"
-   description="Article on understanding how to recover from data corruption of data or accidental data deletion to and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery"
-   services=""
-   documentationCenter="na"
-   authors="adamglick"
-   manager="saladki"
-   editor=""/>
+---
+title: Resiliency technical guidance for recovering from data corruption or accidental deletion | Azure
+description: Article on understanding how to recover from data corruption of data or accidental data deletion to and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery
+services: ''
+documentationCenter: na
+authors: adamglick
+manager: saladki
+editor: ''
 
-<tags
-   ms.service="resiliency"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/18/2016"
-   ms.author="aglick"/>
+ms.service: resiliency
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/18/2016
+ms.author: aglick
+---
 
 #Azure resiliency technical guidance: recovery from data corruption or accidental deletion
 
@@ -39,13 +39,14 @@ For Azure Blobs, you can perform point-in-time backups using the [blob snapshot 
 
 ##Database
 
-There are several [business continuity](/documentation/articles/sql-database-business-continuity/) (backup, restore) options available for Azure SQL Database. Databases can be copied by using the [Database Copy](/documentation/articles/sql-database-copy/) functionality, or by  [exporting](/documentation/articles/sql-database-export/) and [importing](https://msdn.microsoft.com/zh-cn/library/hh710052.aspx) a SQL Server bacpac file. Database Copy provides transactionally consistent results, while a bacpac (through the import/export service) does not. Both of these options run as queue-based services within the data center, and they do not currently provide a time-to-completion SLA.
+There are several [business continuity](../sql-database/sql-database-business-continuity.md) (backup, restore) options available for Azure SQL Database. Databases can be copied by using the [Database Copy](../sql-database/sql-database-copy.md) functionality, or by  [exporting](../sql-database/sql-database-export.md) and [importing](https://msdn.microsoft.com/zh-cn/library/hh710052.aspx) a SQL Server bacpac file. Database Copy provides transactionally consistent results, while a bacpac (through the import/export service) does not. Both of these options run as queue-based services within the data center, and they do not currently provide a time-to-completion SLA.
 
->[AZURE.NOTE]The database copy and import/export options place a significant degree of load on the source database. They can trigger resource contention or throttling events.
+>[!NOTE]
+>The database copy and import/export options place a significant degree of load on the source database. They can trigger resource contention or throttling events.
 
 ###SQL Database Backup
 
-Point-in-time backups for Azure SQL Database are achieved by [copying your Azure SQL database](/documentation/articles/sql-database-copy/). You can use this command to create a transactionally consistent copy of a database on the same logical database server or to a different server. In either case, the database copy is fully functional and completely independent of the source database. Each copy you create represents a point-in-time recovery option. You can recover the database state completely by renaming the new database with the source database name. Alternatively, you can recover a specific subset of data from the new database by using Transact-SQL queries. For additional details about SQL Database, see [Cloud business continuity and database disaster recovery with SQL Database](/documentation/articles/sql-database-business-continuity/).
+Point-in-time backups for Azure SQL Database are achieved by [copying your Azure SQL database](../sql-database/sql-database-copy.md). You can use this command to create a transactionally consistent copy of a database on the same logical database server or to a different server. In either case, the database copy is fully functional and completely independent of the source database. Each copy you create represents a point-in-time recovery option. You can recover the database state completely by renaming the new database with the source database name. Alternatively, you can recover a specific subset of data from the new database by using Transact-SQL queries. For additional details about SQL Database, see [Cloud business continuity and database disaster recovery with SQL Database](../sql-database/sql-database-business-continuity.md).
 
 ###SQL Server on Virtual Machines Backup
 
@@ -95,4 +96,4 @@ For more information about backup and restore features in Azure, see [Storage, b
 
 ##Next steps
 
-This article is part of a series focused on [Azure resiliency technical guidance](/documentation/articles/resiliency-technical-guidance/). If you are looking for more resiliency, disaster recovery, and high availability resources, see the Azure resiliency technical guidance [additional resources](/documentation/articles/resiliency-technical-guidance/#additional-resources).
+This article is part of a series focused on [Azure resiliency technical guidance](./resiliency-technical-guidance.md). If you are looking for more resiliency, disaster recovery, and high availability resources, see the Azure resiliency technical guidance [additional resources](./resiliency-technical-guidance.md#additional-resources).

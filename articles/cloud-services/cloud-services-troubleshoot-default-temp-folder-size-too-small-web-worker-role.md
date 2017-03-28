@@ -1,26 +1,27 @@
-<properties
-   pageTitle="Default TEMP folder size is too small for a role | Azure"
-   description="A cloud service role has a limited amount of space for the TEMP folder. This article provides some suggestions on how to avoid running out of space."
-   services="cloud-services"
-   documentationCenter=""
-   authors="simonxjx"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue"/>
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="10/12/2016"
-   ms.author="v-six" />
+---
+title: Default TEMP folder size is too small for a role | Azure
+description: A cloud service role has a limited amount of space for the TEMP folder. This article provides some suggestions on how to avoid running out of space.
+services: cloud-services
+documentationCenter: ''
+authors: simonxjx
+manager: felixwu
+editor: ''
+tags: top-support-issue
+
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 10/12/2016
+ms.author: v-six
+---
 
 # Default TEMP folder size is too small on a cloud service web/worker role
 
 The default temporary directory of a cloud service worker or web role has a maximum size of 100 MB, which may become full at some point. This article describes how to avoid running out of space for the temporary directory.
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Why do I run out of space?
 
@@ -35,7 +36,6 @@ Implement one of the following alternatives:
 - Configure a local storage resource, and point the TEMP and TMP directories to point to the path of the local storage resource. This modification should be performed within the [RoleEntryPoint.OnStart](https://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) method.
 
 The following code example shows how to modify the target directories for TEMP and TMP from within the OnStart method:
-
 
 ```csharp
 using System;

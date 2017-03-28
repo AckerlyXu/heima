@@ -1,35 +1,35 @@
-<properties
-    pageTitle="Configure asset delivery policies with .NET SDK | Azure"
-    description="This topic shows how to configure different asset delivery policies with Azure Media Services .NET SDK."
-    services="media-services"
-    documentationcenter=""
-    author="Mingfeiy"
-    manager="dwrede"
-    editor="" />
-<tags
-    ms.assetid="3ec46f58-6cbb-4d49-bac6-1fd01a5a456b"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="juliako;mingfeiy" />
+---
+title: Configure asset delivery policies with .NET SDK | Azure
+description: This topic shows how to configure different asset delivery policies with Azure Media Services .NET SDK.
+services: media-services
+documentationcenter: ''
+author: Mingfeiy
+manager: dwrede
+editor: ''
+
+ms.assetid: 3ec46f58-6cbb-4d49-bac6-1fd01a5a456b
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: juliako;mingfeiy
+---
 
 #Configure asset delivery policies with .NET SDK
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
+[!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 ## Overview
 If you plan to delivery encrypted assets, one of the steps in the Media Services content delivery workflow is configuring delivery policies for assets. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).
 
 This topic discusses why and how to create and configure asset delivery policies.
 
->[AZURE.NOTE]
+>[!NOTE]
 >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 >
 >Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
-
 
 You could apply different policies to the same asset. For example, you could apply PlayReady encryption to Smooth Streaming and AES Envelope encryption to MPEG DASH and HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
 
@@ -41,16 +41,21 @@ The following list shows the formats that you use to stream Smooth, HLS, and DAS
 
 Smooth Streaming:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
+```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
+```
 
 HLS:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+```
 
 MPEG DASH
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
-
+```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
+```
 
 ## Considerations
 * You cannot delete an AssetDeliveryPolicy associated with an asset while an OnDemand (streaming) locator exists for that asset. The recommendation is to remove the policy from the asset before deleting the policy.
@@ -58,290 +63,296 @@ MPEG DASH
 * You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.  Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.
 * If you have an asset with an existing streaming locator, you cannot link a new policy to the asset (you can either unlink an existing policy from the asset, or update a delivery policy associated with the asset).  You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.  You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.
 
-
 ##Clear asset delivery policy 
 
 The following **ConfigureClearAssetDeliveryPolicy** method specifies to not apply dynamic encryption and to deliver the stream in any of the following protocols:  MPEG DASH, HLS, and Smooth Streaming protocols. You might want to apply this policy to your storage encrypted assets.
-  
+
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section. 
 
-    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
-    {
-        IAssetDeliveryPolicy policy =
-            _context.AssetDeliveryPolicies.Create("Clear Policy",
-            AssetDeliveryPolicyType.NoDynamicEncryption, 
-            AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
+```
+static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
+{
+    IAssetDeliveryPolicy policy =
+        _context.AssetDeliveryPolicies.Create("Clear Policy",
+        AssetDeliveryPolicyType.NoDynamicEncryption, 
+        AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
 
-        asset.DeliveryPolicies.Add(policy);
-    }
+    asset.DeliveryPolicies.Add(policy);
+}
+```
 
 ##DynamicCommonEncryption asset delivery policy 
 
-
-The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to a smooth streaming protocol (other protocols will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **CommonEncryption** type, for more information, see: [Creating a content key](/documentation/articles/media-services-dotnet-create-contentkey/#common_contentkey)).
+The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic common encryption (**DynamicCommonEncryption**) to a smooth streaming protocol (other protocols will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **CommonEncryption** type, for more information, see: [Creating a content key](./media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section. 
 
+```
+static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+{
+    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 
-    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
     {
-        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+    };
 
-        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-            new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-        {
-            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-        };
+    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+            "AssetDeliveryPolicy",
+        AssetDeliveryPolicyType.DynamicCommonEncryption,
+        AssetDeliveryProtocol.SmoothStreaming,
+        assetDeliveryPolicyConfiguration);
 
-        var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-                "AssetDeliveryPolicy",
-            AssetDeliveryPolicyType.DynamicCommonEncryption,
-            AssetDeliveryProtocol.SmoothStreaming,
-            assetDeliveryPolicyConfiguration);
+    // Add AssetDelivery Policy to the asset
+    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
-        // Add AssetDelivery Policy to the asset
-        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-
-        Console.WriteLine();
-        Console.WriteLine("Adding Asset Delivery Policy: " +
-            assetDeliveryPolicy.AssetDeliveryPolicyType);
-    }
+    Console.WriteLine();
+    Console.WriteLine("Adding Asset Delivery Policy: " +
+        assetDeliveryPolicy.AssetDeliveryPolicyType);
+}
+```
 
 Azure Media Services also enables you to add Widevine encryption. The following example demonstrates both PlayReady and Widevine being added to the asset delivery policy.
 
+```
+static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+{
+    // Get the PlayReady license service URL.
+    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 
-    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+    // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
+    // For example: https://amsaccount1.keydelivery.mediaservices.chinacloudapi.cn/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
+    // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+    // to append /? KID =< keyId > to the end of the url when creating the manifest.
+    // As a result Widevine license acquisition URL will have KID appended twice, 
+    // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
+
+    Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+    UriBuilder uriBuilder = new UriBuilder(widevineUrl);
+    uriBuilder.Query = String.Empty;
+    widevineUrl = uriBuilder.Uri;
+
+    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
     {
-    	// Get the PlayReady license service URL.
-        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-        
+        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+        {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineUrl.ToString()}
 
-        // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
-        // For example: https://amsaccount1.keydelivery.mediaservices.chinacloudapi.cn/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
-        // to append /? KID =< keyId > to the end of the url when creating the manifest.
-        // As a result Widevine license acquisition URL will have KID appended twice, 
-        // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
+    };
 
-        Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
-        UriBuilder uriBuilder = new UriBuilder(widevineUrl);
-        uriBuilder.Query = String.Empty;
-        widevineUrl = uriBuilder.Uri;
+    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+            "AssetDeliveryPolicy",
+        AssetDeliveryPolicyType.DynamicCommonEncryption,
+        AssetDeliveryProtocol.Dash,
+        assetDeliveryPolicyConfiguration);
 
-        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-            new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-        {
-            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-            {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineUrl.ToString()}
+    // Add AssetDelivery Policy to the asset
+    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
-        };
+}
+```
 
-        var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-                "AssetDeliveryPolicy",
-            AssetDeliveryPolicyType.DynamicCommonEncryption,
-            AssetDeliveryProtocol.Dash,
-            assetDeliveryPolicyConfiguration);
-
-
-        // Add AssetDelivery Policy to the asset
-        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-
-    }
-
->[AZURE.NOTE]When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH in the asset delivery protocol.
-
+>[!NOTE]
+>When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH in the asset delivery protocol.
 
 ##DynamicEnvelopeEncryption asset delivery policy 
 
-The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to Smooth Streaming, HLS, and DASH protocols (if you decide to not specify some protocols, they will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **EnvelopeEncryption** type, for more information, see: [Creating a content key](/documentation/articles/media-services-dotnet-create-contentkey/#envelope_contentkey)).
-
+The following **CreateAssetDeliveryPolicy** method creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to Smooth Streaming, HLS, and DASH protocols (if you decide to not specify some protocols, they will be blocked from streaming). The method takes two parameters : **Asset** (the asset to which you want to apply the delivery policy) and **IContentKey** (the content key of the **EnvelopeEncryption** type, for more information, see: [Creating a content key](./media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
-    private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+```
+private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+{
+
+    //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
+    //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
+    //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
+    //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
+    //  allows the AssetDelivery policy to be reused by more than one asset.
+    //
+    Uri keyAcquisitionUri = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.BaselineHttp);
+    UriBuilder uriBuilder = new UriBuilder(keyAcquisitionUri);
+    uriBuilder.Query = String.Empty;
+    keyAcquisitionUri = uriBuilder.Uri;
+
+    // The following policy configuration specifies: 
+    //   key url that will have KID=<Guid> appended to the envelope and
+    //   the Initialization Vector (IV) to use for the envelope encryption.
+    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+        new Dictionary<AssetDeliveryPolicyConfigurationKey, string> 
     {
-        
-        //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
-        //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
-        //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
-        //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
-        //  allows the AssetDelivery policy to be reused by more than one asset.
-        //
-        Uri keyAcquisitionUri = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.BaselineHttp);
-        UriBuilder uriBuilder = new UriBuilder(keyAcquisitionUri);
-        uriBuilder.Query = String.Empty;
-        keyAcquisitionUri = uriBuilder.Uri;
+        {AssetDeliveryPolicyConfigurationKey.EnvelopeBaseKeyAcquisitionUrl, keyAcquisitionUri.ToString()},
+    };
 
-        // The following policy configuration specifies: 
-        //   key url that will have KID=<Guid> appended to the envelope and
-        //   the Initialization Vector (IV) to use for the envelope encryption.
-        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-            new Dictionary<AssetDeliveryPolicyConfigurationKey, string> 
-        {
-            {AssetDeliveryPolicyConfigurationKey.EnvelopeBaseKeyAcquisitionUrl, keyAcquisitionUri.ToString()},
-        };
+    IAssetDeliveryPolicy assetDeliveryPolicy =
+        _context.AssetDeliveryPolicies.Create(
+                    "AssetDeliveryPolicy",
+                    AssetDeliveryPolicyType.DynamicEnvelopeEncryption,
+                    AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
+                    assetDeliveryPolicyConfiguration);
 
-        IAssetDeliveryPolicy assetDeliveryPolicy =
-            _context.AssetDeliveryPolicies.Create(
-                        "AssetDeliveryPolicy",
-                        AssetDeliveryPolicyType.DynamicEnvelopeEncryption,
-                        AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
-                        assetDeliveryPolicyConfiguration);
+    // Add AssetDelivery Policy to the asset
+    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
-        // Add AssetDelivery Policy to the asset
-        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-
-        Console.WriteLine();
-        Console.WriteLine("Adding Asset Delivery Policy: " + assetDeliveryPolicy.AssetDeliveryPolicyType);
-    }
-
+    Console.WriteLine();
+    Console.WriteLine("Adding Asset Delivery Policy: " + assetDeliveryPolicy.AssetDeliveryPolicyType);
+}
+```
 
 ##<a id="types"></a>Types used when defining AssetDeliveryPolicy
 
 ###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
 
+```
+/// <summary>
+/// Delivery protocol for an asset delivery policy.
+/// </summary>
+[Flags]
+public enum AssetDeliveryProtocol
+{
     /// <summary>
-    /// Delivery protocol for an asset delivery policy.
+    /// No protocols.
     /// </summary>
-    [Flags]
-    public enum AssetDeliveryProtocol
-    {
-        /// <summary>
-        /// No protocols.
-        /// </summary>
-        None = 0x0,
+    None = 0x0,
 
-        /// <summary>
-        /// Smooth streaming protocol.
-        /// </summary>
-        SmoothStreaming = 0x1,
+    /// <summary>
+    /// Smooth streaming protocol.
+    /// </summary>
+    SmoothStreaming = 0x1,
 
-        /// <summary>
-        /// MPEG Dynamic Adaptive Streaming over HTTP (DASH)
-        /// </summary>
-        Dash = 0x2,
+    /// <summary>
+    /// MPEG Dynamic Adaptive Streaming over HTTP (DASH)
+    /// </summary>
+    Dash = 0x2,
 
-        /// <summary>
-        /// Apple HTTP Live Streaming protocol.
-        /// </summary>
-        HLS = 0x4,
+    /// <summary>
+    /// Apple HTTP Live Streaming protocol.
+    /// </summary>
+    HLS = 0x4,
 
-        /// <summary>
-        /// Include all protocols.
-        /// </summary>
-        All = 0xFFFF
-    }
+    /// <summary>
+    /// Include all protocols.
+    /// </summary>
+    All = 0xFFFF
+}
+```
 
 ###<a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
+```
+/// <summary>
+/// Policy type for dynamic encryption of assets.
+/// </summary>
+public enum AssetDeliveryPolicyType
+{
     /// <summary>
-    /// Policy type for dynamic encryption of assets.
+    /// Delivery Policy Type not set.  An invalid value.
     /// </summary>
-    public enum AssetDeliveryPolicyType
-    {
-        /// <summary>
-        /// Delivery Policy Type not set.  An invalid value.
-        /// </summary>
-        None,
+    None,
 
-        /// <summary>
-        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
-        /// </summary>
-        Blocked, 
+    /// <summary>
+    /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+    /// </summary>
+    Blocked, 
 
-        /// <summary>
-        /// Do not apply dynamic encryption to the asset.
-        /// </summary>
-        /// 
-        NoDynamicEncryption,  
+    /// <summary>
+    /// Do not apply dynamic encryption to the asset.
+    /// </summary>
+    /// 
+    NoDynamicEncryption,  
 
-        /// <summary>
-        /// Apply Dynamic Envelope encryption.
-        /// </summary>
-        DynamicEnvelopeEncryption,
+    /// <summary>
+    /// Apply Dynamic Envelope encryption.
+    /// </summary>
+    DynamicEnvelopeEncryption,
 
-        /// <summary>
-        /// Apply Dynamic Common encryption.
-        /// </summary>
-        DynamicCommonEncryption
-    }
+    /// <summary>
+    /// Apply Dynamic Common encryption.
+    /// </summary>
+    DynamicCommonEncryption
+}
+```
 
 ###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
+```
+/// <summary>
+/// Delivery method of the content key to the client.
+/// </summary>
+public enum ContentKeyDeliveryType
+{
     /// <summary>
-    /// Delivery method of the content key to the client.
+    /// None.
     /// </summary>
-    public enum ContentKeyDeliveryType
-    {
-        /// <summary>
-        /// None.
-        /// </summary>
-        None = 0,
+    None = 0,
 
-        /// <summary>
-        /// Use PlayReady License acquistion protocol
-        /// </summary>
-        PlayReadyLicense = 1,
+    /// <summary>
+    /// Use PlayReady License acquistion protocol
+    /// </summary>
+    PlayReadyLicense = 1,
 
-        /// <summary>
-        /// Use MPEG Baseline HTTP key protocol.
-        /// </summary>
-        BaselineHttp = 2,
+    /// <summary>
+    /// Use MPEG Baseline HTTP key protocol.
+    /// </summary>
+    BaselineHttp = 2,
 
-        /// <summary>
-        /// Use Widevine License acquistion protocol
-        ///
-        </summary>
-        Widevine = 3
+    /// <summary>
+    /// Use Widevine License acquistion protocol
+    ///
+    </summary>
+    Widevine = 3
 
-    }
+}
+```
 
 ###<a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
+```
+/// <summary>
+/// Keys used to get specific configuration for an asset delivery policy.
+/// </summary>
+public enum AssetDeliveryPolicyConfigurationKey
+{
     /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
+    /// No policies.
     /// </summary>
-    public enum AssetDeliveryPolicyConfigurationKey
-    {
-        /// <summary>
-        /// No policies.
-        /// </summary>
-        None,
+    None,
 
-        /// <summary>
-        /// Exact Envelope key URL.
-        /// </summary>
-        EnvelopeKeyAcquisitionUrl,
+    /// <summary>
+    /// Exact Envelope key URL.
+    /// </summary>
+    EnvelopeKeyAcquisitionUrl,
 
-        /// <summary>
-        /// Base key url that will have KID=<Guid> appended for Envelope.
-        /// </summary>
-        EnvelopeBaseKeyAcquisitionUrl,
-        
-        /// <summary>
-        /// The initialization vector to use for envelope encryption in Base64 format.
-        /// </summary>
-        EnvelopeEncryptionIVAsBase64,
+    /// <summary>
+    /// Base key url that will have KID=<Guid> appended for Envelope.
+    /// </summary>
+    EnvelopeBaseKeyAcquisitionUrl,
 
-        /// <summary>
-        /// The PlayReady License Acquisition Url to use for common encryption.
-        /// </summary>
-        PlayReadyLicenseAcquisitionUrl,
+    /// <summary>
+    /// The initialization vector to use for envelope encryption in Base64 format.
+    /// </summary>
+    EnvelopeEncryptionIVAsBase64,
 
-        /// <summary>
-        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
-        /// </summary>
-        PlayReadyCustomAttributes,
+    /// <summary>
+    /// The PlayReady License Acquisition Url to use for common encryption.
+    /// </summary>
+    PlayReadyLicenseAcquisitionUrl,
 
-        /// <summary>
-        /// The initialization vector to use for envelope encryption.
-        /// </summary>
-        EnvelopeEncryptionIV,
+    /// <summary>
+    /// The PlayReady Custom Attributes to add to the PlayReady Content Header
+    /// </summary>
+    PlayReadyCustomAttributes,
 
-        /// <summary>
-        /// Widevine DRM acquisition url
-        /// </summary>
-        WidevineLicenseAcquisitionUrl
-    }
+    /// <summary>
+    /// The initialization vector to use for envelope encryption.
+    /// </summary>
+    EnvelopeEncryptionIV,
 
-
+    /// <summary>
+    /// Widevine DRM acquisition url
+    /// </summary>
+    WidevineLicenseAcquisitionUrl
+}
+```

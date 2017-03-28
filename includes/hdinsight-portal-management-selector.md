@@ -1,5 +1,5 @@
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/hdinsight-administer-use-portal-linux/)
-- [Azure CLI](/documentation/articles/hdinsight-administer-use-command-line/)
-- [Azure PowerShell](/documentation/articles/hdinsight-administer-use-powershell/)
-- [.NET SDK](/documentation/articles/hdinsight-administer-use-dotnet-sdk/)
+> [!div class="op_single_selector"]
+>- [Portal](../articles/hdinsight/hdinsight-administer-use-portal-linux.md)
+>- [Azure CLI](../articles/hdinsight/hdinsight-administer-use-command-line.md)
+>- [Azure PowerShell](../articles/hdinsight/hdinsight-administer-use-powershell.md)
+>- [.NET SDK](../articles/hdinsight/hdinsight-administer-use-dotnet-sdk.md)

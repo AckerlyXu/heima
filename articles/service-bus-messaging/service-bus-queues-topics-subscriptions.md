@@ -1,19 +1,20 @@
-<properties 
-   pageTitle="Overview of Service Bus messaging queues, topics, and subscriptions | Azure"
-   description="Overview of Service Bus messaging entities."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="12/20/2016"
-    ms.author="sethm" />
+---
+title: Overview of Service Bus messaging queues, topics, and subscriptions | Azure
+description: Overview of Service Bus messaging entities.
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/20/2016
+ms.author: sethm
+---
 
 # Service Bus queues, topics, and subscriptions
 Microsoft Azure Service Bus supports a set of cloud-based, message-oriented-middleware technologies including reliable message queuing and durable publish/subscribe messaging. These "brokered" messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load balancing scenarios using the Service Bus messaging fabric. Decoupled communication has many advantages; for example, clients and servers can connect as needed and perform their operations in an asynchronous fashion.
@@ -77,7 +78,7 @@ If the application is unable to process the message for some reason, it can call
 
 Note that in the event that the application crashes after processing the message, but before the **Complete** request is issued, the message is redelivered to the application when it restarts. This is often called *At Least Once* processing; that is, each message is processed at least once. However, in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then additional logic is required in the application to detect duplicates which can be achieved based upon the **MessageId** property of the message, which remains constant across delivery attempts. This is known as *Exactly Once* processing.
 
-For more information and a working example of how to create and send messages to and from queues, see the [Service Bus brokered messaging .NET Tutorial](/documentation/articles/service-bus-brokered-tutorial-dotnet/).
+For more information and a working example of how to create and send messages to and from queues, see the [Service Bus brokered messaging .NET Tutorial](./service-bus-brokered-tutorial-dotnet.md).
 
 ## Topics and subscriptions
 In contrast to queues, in which each message is processed by a single consumer, *topics* and *subscriptions* provide a one-to-many form of communication, in a *publish/subscribe* pattern. Useful for scaling to very large numbers of recipients, each published message is made available to each subscription registered with the topic. Messages are sent to a topic and delivered to one or more associated subscriptions, depending on filter rules that can be set on a per-subscription basis. The subscriptions can use additional filters to restrict the messages that they want to receive. Messages are sent to a topic in the same way they are sent to a queue, but messages are not received from the topic directly. Instead, they are received from subscriptions. A topic subscription resembles a virtual queue that receives copies of the messages that are sent to the topic. Messages are received from a subscription identically to the way they are received from a queue.
@@ -155,9 +156,8 @@ For more information about possible filter values, see the documentation for the
 ## Next steps
 See the following advanced topics for more information and examples of using Service Bus messaging.
 
-- [Service Bus messaging overview](/documentation/articles/service-bus-messaging-overview/)
-- [Service Bus brokered messaging .NET tutorial](/documentation/articles/service-bus-brokered-tutorial-dotnet/)
-- [Service Bus brokered messaging REST tutorial](/documentation/articles/service-bus-brokered-tutorial-rest/)
+- [Service Bus messaging overview](./service-bus-messaging-overview.md)
+- [Service Bus brokered messaging .NET tutorial](./service-bus-brokered-tutorial-dotnet.md)
+- [Service Bus brokered messaging REST tutorial](./service-bus-brokered-tutorial-rest.md)
 - [Topic Filters sample ](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [Brokered Messaging: Advanced Filters sample](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
-

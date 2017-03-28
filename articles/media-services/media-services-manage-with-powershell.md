@@ -1,31 +1,31 @@
-<properties 
-	pageTitle="Manage Azure Media Services Accounts with PowerShell" 
-	description="Learn how to manage Azure Media Services accounts with PowerShell cmdlets." 
-	authors="Juliako" 
-	manager="erikre" 
-	editor="" 
-	services="media-services" 
-	documentationCenter=""/>
+---
+title: Manage Azure Media Services Accounts with PowerShell
+description: Learn how to manage Azure Media Services accounts with PowerShell cmdlets.
+authors: Juliako
+manager: erikre
+editor: ''
+services: media-services
+documentationCenter: ''
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/03/2016"
-	wacn.date=""
-	ms.author="juliako"/>
-
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/03/2016
+wacn.date: ''
+ms.author: juliako
+---
 
 #Manage Azure Media Services Accounts with PowerShell
 
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/media-services-portal-create-account/)
-- [PowerShell](/documentation/articles/media-services-manage-with-powershell/)
-- [REST](http://msdn.microsoft.com/zh-cn/library/azure/dn194267.aspx)
+> [!div class="op_single_selector"]
+>- [Portal](./media-services-portal-create-account.md)
+>- [PowerShell](./media-services-manage-with-powershell.md)
+>- [REST](http://msdn.microsoft.com/zh-cn/library/azure/dn194267.aspx)
 
-> [AZURE.NOTE] To be able to create an Azure Media Services account, you must have an Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. For details, see <a href="/pricing/1rmb-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Trial</a>.
+> [!NOTE]
+> To be able to create an Azure Media Services account, you must have an Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. For details, see <a href="https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Trial</a>.
 
 ##Overview 
 
@@ -34,7 +34,6 @@ This article lists the Azure PowerShell cmdlets for Azure Media Services (AMS) i
 ## Versions
 
 **ApiVersion**:   "2015-10-01"
-               
 
 ## New-AzureRmMediaService
 
@@ -44,11 +43,15 @@ Creates a media service.
 
 Parameter Set: StorageAccountIdParamSet
 
-	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
+```
+New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
+```
 
 Parameter Set: StorageAccountsParamSet
 
-	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
+```
+New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
+```
 
 ### Parameters
 
@@ -156,7 +159,9 @@ Updates a media service.
 
 ### Syntax
 
-	Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
+```
+Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
+```
 
 ### Parameters
 
@@ -235,7 +240,9 @@ Removes a media service.
 
 ### Syntax
 
-	Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+```
+Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+```
 
 ### Parameters
 
@@ -283,11 +290,15 @@ Gets all media services in a resource group or a media service with a given name
 
 ParameterSet: ResourceGroupParameterSet
 
-	Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]	
+```
+Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]	
+```
 
 ParameterSet: AccountNameParameterSet
 
-	Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+```
+Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+```
 
 ### Parameters
 
@@ -335,7 +346,9 @@ Gets keys of a media service.
 
 ### Syntax
 
-	Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+```
+Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+```
 
 ### Parameters
 
@@ -381,7 +394,9 @@ Regenerates a primary or secondary key of a media service.
 
 ### Syntax
 
-	Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
+```
+Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
+```
 
 ### Parameters
 
@@ -443,7 +458,9 @@ the media service.
 
 ### Syntax
 
-	Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
+```
+Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
+```
 
 ### Parameters
 
@@ -494,9 +511,3 @@ The input type is the type of the objects that you can pipe to the cmdlet.
 ### Outputs
 
 The output type is the type of the objects that the cmdlet emits.
-
-
-
-
-
- 

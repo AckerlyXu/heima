@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Azure SDK for .NET 2.9 Release Notes"
-    description="Azure SDK for .NET 2.9 Release Notes"
-    services="app-service\web"
-    documentationcenter=".net"
-    author="chrissfanos"
-    editor="" />
-<tags
-    ms.assetid="c83d815b-fc19-4260-821e-7d2a7206dffc"
-    ms.service="app-service"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="integration"
-    ms.date="02/24/2017"
-    wacn.date=""
-    ms.author="juliako;mikhegn" />
+---
+title: Azure SDK for .NET 2.9 Release Notes
+description: Azure SDK for .NET 2.9 Release Notes
+services: app-service\web
+documentationcenter: .net
+author: chrissfanos
+editor: ''
+
+ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
+ms.service: app-service
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 02/24/2017
+wacn.date: ''
+ms.author: juliako;mikhegn
+---
 
 # Azure SDK for .NET 2.9 release notes
 
@@ -23,7 +24,7 @@ This topic includes release notes for versions 2.9 and 2.9.6 of Azure SDK for .N
 ##Azure SDK for .NET 2.9.6 release summary
 
 Release date: 11/16/2016
- 
+
 No breaking changes to the Azure SDK 2.9 have been introduced in this release. There is also no upgrade process needed to leverage this SDK with existing Cloud Service projects.
 
 ### Visual Studio 2017 Release Candidate
@@ -35,10 +36,10 @@ No breaking changes to the Azure SDK 2.9 have been introduced in this release. T
 - Changed the behavior to only store a partial connection string with the key replaced by a token for Cloud Services diagnostics storage connection string. The actual storage key is now stored in the user profile folder so its access can be controlled. Visual Studio will read the storage key from user profile folder for local debugging and publishing process. 
 - In response to the change described above, Visual Studio Online team enhanced the Azure Cloud Services deployment task template so users could specify the storage key for setting diagnostics extension when publishing to Azure in Continuous Integration and Deployment.
 - We've made it possible to store secure connection string and tokenization for Azure Diagnostics (WAD), to help you solve problems with configuration across environements.
- 
+
 ### Windows Server 2016 virtual machines
 
-- Visual Studio now supports deploying Cloud Services to OS Family 5 (Windows Server 2016) virtual machines. For existing cloud services, you can change your settings to target the new OS Family. When creating new cloud services, if you choose to create the service using .net 4.6 or higher, it will default the service to use OS Family 5.  For more information, you can review the [Guest OS Family support table](/documentation/articles/cloud-services-guestos-update-matrix/).
+- Visual Studio now supports deploying Cloud Services to OS Family 5 (Windows Server 2016) virtual machines. For existing cloud services, you can change your settings to target the new OS Family. When creating new cloud services, if you choose to create the service using .net 4.6 or higher, it will default the service to use OS Family 5.  For more information, you can review the [Guest OS Family support table](../cloud-services/cloud-services-guestos-update-matrix.md).
 
 #### Known issues
 
@@ -73,7 +74,7 @@ This update includes the following new feature:
 This updates includes the following:
 
 * **Azure Data Lake Tools** for Visual Studio is now merged into the Azure SDK for .NET release. The tool is automatically installed when you install Azure SDK. 
-  
+
     The tool is updated frequently, go [here](http://aka.ms/datalaketool) to get the updates.
 * **Server Explorer** now enables you to view all and create some U-SQL metadata entities. 
 
@@ -81,7 +82,7 @@ This updates includes the following:
 **HDInsight Tools** for Visual Studio now supports HDInsight version 3.3, including showing Tez graphs and other language fixes.
 
 ## Azure Resource Manager
-This release adds [KeyVault](/documentation/articles/resource-manager-keyvault-parameter/) support for Resource Manager templates.
+This release adds [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) support for Resource Manager templates.
 
 ## See also
 [Azure SDK 2.9 announcement post](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)

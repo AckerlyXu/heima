@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Get Started with Event Hubs in Java | Azure"
-    description="Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in C# using the EventProcessorHost."
-    services="event-hubs"
-    documentationcenter=""
-    author="jtaubensee"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="1c9988ca-1473-4287-a033-f99122c429bc"
-    ms.service="event-hubs"
-    ms.workload="core"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="jotaub;sethm" />
+---
+title: Get Started with Event Hubs in Java | Azure
+description: Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in C# using the EventProcessorHost.
+services: event-hubs
+documentationcenter: ''
+author: jtaubensee
+manager: timlt
+editor: ''
+
+ms.assetid: 1c9988ca-1473-4287-a033-f99122c429bc
+ms.service: event-hubs
+ms.workload: core
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: jotaub;sethm
+---
 
 # Get started with Event Hubs
 
-[AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
+[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
 ## Introduction
 
@@ -35,25 +36,25 @@ In order to complete this tutorial, you will need the following:
 
 * [Microsoft Visual Studio](http://visualstudio.com)
 
-* An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="/pricing/1rmb-trial/" target="_blank">Azure Trial</a>.
+* An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">Azure Trial</a>.
 
-[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
+[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-java](../../includes/service-bus-event-hubs-get-started-send-java.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-send-java](../../includes/service-bus-event-hubs-get-started-send-java.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## Run the applications
 
 Now you are ready to run the applications.
 
-1.	Run the **Receiver** project from Visual Studio, then wait for it to start the receivers for all partitions.
+1. Run the **Receiver** project from Visual Studio, then wait for it to start the receivers for all partitions.
 
-	![][21]
+    ![][21]
 
-2.	Run the **Sender** project.
+2. Run the **Sender** project.
 
-	![][22]
+    ![][22]
 
 ## Next steps
 
@@ -70,7 +71,6 @@ For more information, see the [Java Developer Center](/develop/java/).
 
 <!-- Links -->
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: ./event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
- 

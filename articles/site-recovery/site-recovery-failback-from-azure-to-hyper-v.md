@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Failback in Azure Site Recovery for Hyper-v virtual machines | Azure"
-    description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failback from Azure to on-premises datacenter."
-    services="site-recovery"
-    documentationcenter=""
-    author="ruturaj"
-    manager="gauravd"
-    editor="" />
-<tags
-    ms.assetid="44813a48-c680-4581-a92e-cecc57cc3b1e"
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="2/15/2017"
-    wacn.date=""
-    ms.author="ruturajd" />
+---
+title: Failback in Azure Site Recovery for Hyper-v virtual machines | Azure
+description: Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failback from Azure to on-premises datacenter.
+services: site-recovery
+documentationcenter: ''
+author: ruturaj
+manager: gauravd
+editor: ''
+
+ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 2/15/2017
+wacn.date: ''
+ms.author: ruturajd
+---
 
 # Failback in Site Recovery
-> [AZURE.SELECTOR]
-- [VMware/physical machines from Azure](/documentation/articles/site-recovery-failback-azure-to-vmware/)
-- [Hyper-V VMs from Azure](/documentation/articles/site-recovery-failback-from-azure-to-hyper-v/)
+> [!div class="op_single_selector"]
+>- [VMware/physical machines from Azure](./site-recovery-failback-azure-to-vmware.md)
+>- [Hyper-V VMs from Azure](./site-recovery-failback-from-azure-to-hyper-v.md)
 
 This article describes how to failback virtual machines protected by Site Recovery. 
 
@@ -49,13 +50,10 @@ After failover from the primary to secondary location, replicated virtual machin
 
     - **Synchronize data during failover only(full download)**—Use this option if you've been running on Azure for a long time. This option is faster because we expect that most of the disk has changed and we don't want to spend time in checksum calculation. It performs a download of the disk. It is also useful when the on-prem virtual machine has been deleted.
 
-	>[AZURE.NOTE] 
-	>We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem virtual machine has been deleted.This option doesn't perform any checksum calculations.
-	>
-	>
-
-
-
+    >[!NOTE] 
+    >We recommend you use this option if you've been running Azure for a while (a month or more) or the on-prem virtual machine has been deleted.This option doesn't perform any checksum calculations.
+    >
+    >
 
 4. If data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued when you enabled data encryption during Provider installation on the VMM server.
 5. Initiate the failover. You can follow the failover progress on the **Jobs** tab.
@@ -65,7 +63,7 @@ After failover from the primary to secondary location, replicated virtual machin
 9. Now in order to complete the failback click **Reverse Replicate** to start protecting the virtual machine in the primary site.
 
 ## Failback to an alternate location
-If you've deployed protection between a [Hyper-V site and Azure](/documentation/articles/site-recovery-hyper-v-site-to-azure/) you have to ability to failback from Azure to an alternate on-premises location. This is useful if you need to set up new on-premises hardware. Here's how you do it.
+If you've deployed protection between a [Hyper-V site and Azure](./site-recovery-hyper-v-site-to-azure.md) you have to ability to failback from Azure to an alternate on-premises location. This is useful if you need to set up new on-premises hardware. Here's how you do it.
 
 1. If you're setting up new hardware install Windows Server 2012 R2 and the Hyper-V role on the server.
 2. Create a virtual network switch with the same name that you had on the original server.
@@ -81,17 +79,13 @@ If you've deployed protection between a [Hyper-V site and Azure](/documentation/
 9. You can log onto the on-premises virtual machine to verify everything is working as expected. Then click **Commit** to finish the failover.
 10. Click **Reverse Replicate** to start protecting the on-premises virtual machine.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > If you cancel the failback job while it is in Data Synchronization step, the on-premises VM will be in a corrupted state. This is because Data Synchronization copies the latest data from Azure VM disks to the on-prem data disks, and until the synchronization completes, the disk data may not be in a consistent state. If the On-prem VM is booted after Data Synchronization is canceled, it may not boot. Re-trigger failover to complete the Data Synchronization.
     >
     >
-
-
 
 ## Next Steps
 
 Once you have completed the failback job, **Commit** the virtual machine. Commit deletes the Azure virtual machine and its disks and prepares the VM to be protected again.
 
 After **Commit**, you can initiate the *Reverse Replicate*. This will start protecting the virtual machine from on-premises back to Azure. Note that this will only replicate the changes since the VM has been turned off in Azure and hence sends differential changes only.
-
-

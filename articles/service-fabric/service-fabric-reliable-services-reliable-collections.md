@@ -71,7 +71,8 @@ Following is the table that depicts isolation level defaults for Reliable Dictio
 | Single Entity Read |Repeatable Read |Snapshot |
 | Enumeration \ Count |Snapshot |Snapshot |
 
->[AZURE.NOTE] Common examples for Single Entity Operations are `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
+>[!NOTE]
+> Common examples for Single Entity Operations are `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
 
 Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.
 In other words, any write within a transaction will be visible to a following read
@@ -128,7 +129,8 @@ It is the Reliable Collections' responsibility to persist its state up to that p
 Once the Reliable Collections complete their checkpoints, the Reliable State Manager can truncate the log to free up disk space.
 This way, when the replica needs to be restarted, Reliable Collections will recover their checkpointed state, and the Reliable State Manager will recover and play back all the state changes that occurred since the checkpoint.
 
->[AZURE.NOTE] Another value add of checkpointing is that it improves recovery performance in common cases.
+>[!NOTE]
+> Another value add of checkpointing is that it improves recovery performance in common cases.
 This is because checkpoints contain only the latest versions.
 
 ## Recommendations
@@ -156,11 +158,11 @@ Of course, reads from Primary are always stable: can never be false progressed.
 
 ## Next steps
 
-- [Reliable Services quick start](/documentation/articles/service-fabric-reliable-services-quick-start/)
-- [Working with Reliable Collections](/documentation/articles/service-fabric-work-with-reliable-collections/)
-- [Reliable Services notifications](/documentation/articles/service-fabric-reliable-services-notifications/)
-- [Reliable Services backup and restore (disaster recovery)](/documentation/articles/service-fabric-reliable-services-backup-restore/)
-- [Reliable State Manager configuration](/documentation/articles/service-fabric-reliable-services-configuration/)
-- [Getting started with Service Fabric Web API services](/documentation/articles/service-fabric-reliable-services-communication-webapi/)
-- [Advanced usage of the Reliable Services programming model](/documentation/articles/service-fabric-reliable-services-advanced-usage/)
+- [Reliable Services quick start](./service-fabric-reliable-services-quick-start.md)
+- [Working with Reliable Collections](./service-fabric-work-with-reliable-collections.md)
+- [Reliable Services notifications](./service-fabric-reliable-services-notifications.md)
+- [Reliable Services backup and restore (disaster recovery)](./service-fabric-reliable-services-backup-restore.md)
+- [Reliable State Manager configuration](./service-fabric-reliable-services-configuration.md)
+- [Getting started with Service Fabric Web API services](./service-fabric-reliable-services-communication-webapi.md)
+- [Advanced usage of the Reliable Services programming model](./service-fabric-reliable-services-advanced-usage.md)
 - [Developer reference for Reliable Collections](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicefabric.data.collections.aspx)

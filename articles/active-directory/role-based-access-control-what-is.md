@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Manage access and permissions with roles - Azure RBAC | Azure"
-    description="Get started in access management with Azure role-based access control in the Azure Portal. Use role assignments to assign permissions in your directory."
-    services="active-directory"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="8f8aadeb-45c9-4d0e-af87-f1f79373e039"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Manage access and permissions with roles - Azure RBAC | Azure
+description: Get started in access management with Azure role-based access control in the Azure Portal. Use role assignments to assign permissions in your directory.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
+
+ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Get started with access management in the Azure portal
 Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions exposes an account to attackers. Too few permissions means that employees can't get their work done efficiently. Azure Role-Based Access Control (RBAC) helps address this problem by offering fine-grained access management for Azure.
@@ -40,7 +41,7 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the virtual network or the subnet that the virtual machine connects to.
 
-[RBAC built-in roles](/documentation/articles/role-based-access-built-in-roles/) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](/documentation/articles/role-based-access-control-custom-roles/).
+[RBAC built-in roles](./role-based-access-built-in-roles.md) lists the roles available in Azure. It specifies the operations and scope that each built-in role grants to users. If you're looking to define your own roles for even more control, see how to build [Custom roles in Azure RBAC](./role-based-access-control-custom-roles.md).
 
 ## Resource hierarchy and access inheritance
 - Each **subscription** in Azure belongs to only one directory.
@@ -61,6 +62,6 @@ Only the Azure portal and the new Azure Resource Manager APIs support Azure RBAC
 Azure RBAC only supports management operations of the Azure resources in the Azure portal and Azure Resource Manager APIs. It cannot authorize all data level operations for Azure resources. For example, you can authorize someone to manage Storage Accounts, but not to the blobs or tables within a Storage Account cannot. Similarly, a SQL database can be managed, but not the tables within it.
 
 ## Next Steps
-- Get started with [Role-Based Access Control in the Azure portal](/documentation/articles/role-based-access-control-configure/).
-- See the [RBAC built-in roles](/documentation/articles/role-based-access-built-in-roles/)
-- Define your own [Custom roles in Azure RBAC](/documentation/articles/role-based-access-control-custom-roles/)
+- Get started with [Role-Based Access Control in the Azure portal](./role-based-access-control-configure.md).
+- See the [RBAC built-in roles](./role-based-access-built-in-roles.md)
+- Define your own [Custom roles in Azure RBAC](./role-based-access-control-custom-roles.md)

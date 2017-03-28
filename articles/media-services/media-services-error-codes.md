@@ -1,21 +1,22 @@
-﻿<properties
-    pageTitle="Azure Media Services error codes | Azure"
-    description="The topic gives an overview of Azure Media Services error codes."
-    author="Juliako"
-    manager="erikre"
-    editor=""
-    services="media-services"
-    documentationcenter="" />
-<tags
-    ms.assetid="d3a62a64-7608-4b17-8667-479b26ba0d6c"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.author="juliako" />
+﻿---
+title: Azure Media Services error codes | Azure
+description: The topic gives an overview of Azure Media Services error codes.
+author: Juliako
+manager: erikre
+editor: ''
+services: media-services
+documentationcenter: ''
+
+ms.assetid: d3a62a64-7608-4b17-8667-479b26ba0d6c
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/10/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Azure Media Services error codes
 When using Azure Media Services, you may receive HTTP error codes from the service depending on issues such as authentication tokens expiring to actions that are not supported in Media Services. The following is a list of **HTTP error codes** that may be returned by Media Services and the possible causes for them.  
@@ -23,10 +24,11 @@ When using Azure Media Services, you may receive HTTP error codes from the servi
 ## 400 Bad Request
 The request contains invalid information and is rejected due to one of the following reasons:
 
-* An unsupported API version is specified. For the most current version, see [Setup for Media Services REST API Development](/documentation/articles/media-services-rest-how-to-use/).
-* The API version of Media Services is not specified. For information on how to specify the API version, see [Connecting to Media Services with the Media Services REST API](/documentation/articles/media-services-rest-connect-programmatically/).
-  
-  > [AZURE.NOTE]If you are using the .NET or Java SDKs to connect to Media Services, the API version is specified for you whenever you try and perform some action against Media Services.
+* An unsupported API version is specified. For the most current version, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
+* The API version of Media Services is not specified. For information on how to specify the API version, see [Connecting to Media Services with the Media Services REST API](./media-services-rest-connect-programmatically.md).
+
+  > [!NOTE]
+  >If you are using the .NET or Java SDKs to connect to Media Services, the API version is specified for you whenever you try and perform some action against Media Services.
 
 * An undefined property has been specified. The property name is in the error message. Only those properties that are members of a given entity can be specified. See [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) for a list of entities and their properties.
 * An invalid property value has been specified. The property name is in the error message. See the previous link for valid property types and their values.
@@ -42,7 +44,7 @@ The request could not be authenticated (before it can be authorized) due to one 
 
 * Missing authentication header.
 * Bad authentication header value.
-  * The token has expired. If using the REST APIs directly, see [Connecting to Media Services with the Media Services REST API](/documentation/articles/media-services-rest-connect-programmatically/) to learn how to generate a new authentication token. If you are using the .NET or Java SDKs, create a CloudMediaContext or MediaContract object to generate the token. For more information on how to do this, see [Connecting to Media Services with the Media Services SDK for .NET](/documentation/articles/media-services-dotnet-connect-programmatically/).
+  * The token has expired. If using the REST APIs directly, see [Connecting to Media Services with the Media Services REST API](./media-services-rest-connect-programmatically.md) to learn how to generate a new authentication token. If you are using the .NET or Java SDKs, create a CloudMediaContext or MediaContract object to generate the token. For more information on how to do this, see [Connecting to Media Services with the Media Services SDK for .NET](./media-services-dotnet-connect-programmatically.md).
   * The token contains an invalid signature.</li></ul></li></ul>
 
 ## 403 Forbidden
@@ -52,12 +54,12 @@ The request is not allowed due to one of the following reasons:
 * The Media Services account is disabled and the request type is not HTTP GET. Service operations will return a 403 response as well.
 * The authentication token does not contain the user’s credential information: AccountName and/or SubscriptionId. You can find this information in the Media Services UI extension for your Media Services account in the Azure Management Portal.
 * The resource cannot be accessed.
-  
+
   * An attempt was made to use a MediaProcessor that is not available for your Media Services account.
   * An attempt was made to update a JobTemplate defined by Media Services.
   * An attempt was made to overwrite some other Media Services account's Locator.
   * An attempt was made to overwrite some other Media Services account's ContentKey.
-* The resource could not be created due to a service quota that was reached for the Media Services account. For more information on the service quotas, see [Quotas and Limitations](/documentation/articles/media-services-quotas-and-limitations/).
+* The resource could not be created due to a service quota that was reached for the Media Services account. For more information on the service quotas, see [Quotas and Limitations](./media-services-quotas-and-limitations.md).
 
 ## 404 Not Found
 The request is not allowed on a resource due to one of the following reasons:
@@ -92,7 +94,8 @@ During the processing of the request, Media Services encounters some error that 
 ## 503 Service Unavailable
 The server is currently unable to receive requests. This error may be caused by excessive requests to the service. Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service.
 
-> [AZURE.NOTE]Check the error message and error code string to get more detailed information about the reason you got the 503 error. This error does not always mean throttling.
+> [!NOTE]
+>Check the error message and error code string to get more detailed information about the reason you got the 503 error. This error does not always mean throttling.
 
 Possible status descriptions are:
 
@@ -102,11 +105,8 @@ Possible status descriptions are:
 
 To handle this error, we recommend using exponential back-off retry logic. That means using progressively longer waits between retries for consecutive error responses.  For more information, see [Transient Fault Handling Application Block](https://msdn.microsoft.com/zh-cn/library/hh680905.aspx).
 
-> [AZURE.NOTE]If you are using [Azure Media Services SDK for .Net](https://github.com/Azure/azure-sdk-for-media-services/tree/master), the retry logic for the 503 error has been implemented by the SDK.  
-
+> [!NOTE]
+>If you are using [Azure Media Services SDK for .Net](https://github.com/Azure/azure-sdk-for-media-services/tree/master), the retry logic for the 503 error has been implemented by the SDK.  
 
 ## See Also
 [Media Services Management Error Codes](http://msdn.microsoft.com/zh-cn/library/windowsazure/dn167016.aspx)
-
-
-

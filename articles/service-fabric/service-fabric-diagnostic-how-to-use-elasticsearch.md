@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Using Elasticsearch as a Service Fabric application trace store | Azure"
-    description="Describes how Service Fabric applications can use Elasticsearch and Kibana to store, index, and search through application traces (logs)"
-    services="service-fabric"
-    documentationcenter=".net"
-    author="karolz-ms"
-    manager="adegeo"
-    editor="" />
-<tags
-    ms.assetid="e59b0c39-e468-4d9e-b453-d5f2a8ad20d8"
-    ms.service="service-fabric"
-    ms.devlang="dotNet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="karolz@microsoft.com" />
+---
+title: Using Elasticsearch as a Service Fabric application trace store | Azure
+description: Describes how Service Fabric applications can use Elasticsearch and Kibana to store, index, and search through application traces (logs)
+services: service-fabric
+documentationcenter: .net
+author: karolz-ms
+manager: adegeo
+editor: ''
+
+ms.assetid: e59b0c39-e468-4d9e-b453-d5f2a8ad20d8
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: karolz@microsoft.com
+---
 
 # Use Elasticsearch as a Service Fabric application trace store
 ## Introduction
-This article describes how [Azure Service Fabric](/documentation/services/service-fabric/) applications can use **Elasticsearch** and **Kibana** for application trace storage, indexing, and search. [Elasticsearch](https://www.elastic.co/guide/index.html) is an open-source, distributed, and scalable real-time search and analytics engine that is well-suited for this task. It can be installed on Windows and Linux virtual machines running in Azure. Elasticsearch can very efficiently process *structured* traces produced using technologies such as **Event Tracing for Windows (ETW)**.
+This article describes how [Azure Service Fabric](./index.md) applications can use **Elasticsearch** and **Kibana** for application trace storage, indexing, and search. [Elasticsearch](https://www.elastic.co/guide/index.html) is an open-source, distributed, and scalable real-time search and analytics engine that is well-suited for this task. It can be installed on Windows and Linux virtual machines running in Azure. Elasticsearch can very efficiently process *structured* traces produced using technologies such as **Event Tracing for Windows (ETW)**.
 
-ETW is used by Service Fabric runtime to source diagnostic information (traces). It is the recommended method for Service Fabric applications to source their diagnostic information, too. Using the same mechanism allows for correlation between runtime-supplied and application-supplied traces and makes troubleshooting easier. Service Fabric project templates in Visual Studio include a logging API (based on the .NET **EventSource** class) that emits ETW traces by default. For a general overview of Service Fabric application tracing using ETW, see [Monitoring and diagnosing services in a local machine development setup](/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+ETW is used by Service Fabric runtime to source diagnostic information (traces). It is the recommended method for Service Fabric applications to source their diagnostic information, too. Using the same mechanism allows for correlation between runtime-supplied and application-supplied traces and makes troubleshooting easier. Service Fabric project templates in Visual Studio include a logging API (based on the .NET **EventSource** class) that emits ETW traces by default. For a general overview of Service Fabric application tracing using ETW, see [Monitoring and diagnosing services in a local machine development setup](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 For the traces to show up in Elasticsearch, they need to be captured at the Service Fabric cluster nodes in real time (while the application is running) and sent to an Elasticsearch endpoint. There are two major options for trace capturing:
 
@@ -33,7 +34,7 @@ For the traces to show up in Elasticsearch, they need to be captured at the Serv
 Below, we describe how to set up Elasticsearch on Azure, discuss the pros and cons for both capture options, and explain how to configure a Service Fabric service to send data to Elasticsearch.
 
 ## Set up Elasticsearch on Azure
-The most straightforward way to set up the Elasticsearch service on Azure is through [**Azure Resource Manager templates**](/documentation/articles/resource-group-overview/). A comprehensive [Quickstart Azure Resource Manager template for Elasticsearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) is available from Azure Quickstart templates repository. This template uses separate storage accounts for scale units (groups of nodes). It can also provision separate client and server nodes with different configurations and various numbers of data disks attached.
+The most straightforward way to set up the Elasticsearch service on Azure is through [**Azure Resource Manager templates**](../azure-resource-manager/resource-group-overview.md). A comprehensive [Quickstart Azure Resource Manager template for Elasticsearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) is available from Azure Quickstart templates repository. This template uses separate storage accounts for scale units (groups of nodes). It can also provision separate client and server nodes with different configurations and various numbers of data disks attached.
 
 Here, we use another template, called **ES-MultiNode** from the [Azure diagnostic tools repository](https://github.com/Azure/azure-diagnostics-tools). This template is easier to use, and it creates an Elasticsearch cluster protected by HTTP basic authentication. Before you proceed, download the repository from GitHub to your machine (by either cloning the repository or downloading a zip file). The ES-MultiNode template is located in the folder with the same name.
 
@@ -51,7 +52,7 @@ The easiest way to use the ES-MultiNode template is through a provided Azure Pow
     $ENV:PATH += ";<Git installation folder>\usr\bin"
     $ENV:OPENSSL_CONF = "<Git installation folder>\usr\ssl\openssl.cnf"
     ```
-   
+
     Replace the `<Git installation folder>` with the Git location on your machine; the default is **"C:\Program Files\Git"**. Note the semicolon character at the beginning of the first path.
 
 4. Ensure that you are logged on to Azure (via [`Add-AzureRmAccount`](https://msdn.microsoft.com/zh-cn/library/mt619267.aspx) cmdlet) and that you have selected the subscription that should be used to create your Elastic Search cluster. You can verify that correct subscription is selected using `Get-AzureRmContext` and `Get-AzureRmSubscription` cmdlets.
@@ -85,7 +86,8 @@ where
 | `<azure-region>` |The name of the Azure region where the Elastic Search cluster should be created. |
 | `<es-password>` |The password for the Elastic Search user. |
 
->[AZURE.NOTE] If you get a NullReferenceException from the Test-AzureResourceGroup cmdlet, you have forgotten to log on to Azure (`Add-AzureRmAccount`).
+>[!NOTE]
+> If you get a NullReferenceException from the Test-AzureResourceGroup cmdlet, you have forgotten to log on to Azure (`Add-AzureRmAccount`).
 
 If you get an error from running the script and you determine that the error was caused by a wrong template parameter value, correct the parameter file and run the script again with a different resource group name. You can also reuse the same resource group name and have the script clean up the old one by adding the `-RemoveExistingResourceGroup` parameter to the script invocation.
 
@@ -249,7 +251,7 @@ That's it! Now, whenever the service is run, it starts sending traces to the Ela
 ![Kibana showing PartyCluster application events][2]
 
 ## Next steps
-- [Learn more about diagnosing and monitoring a Service Fabric service](/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)
+- [Learn more about diagnosing and monitoring a Service Fabric service](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png

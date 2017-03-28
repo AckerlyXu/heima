@@ -1,19 +1,20 @@
-<properties
-    pageTitle="Azure Active Directory certificate-based authentication - Get started  | Azure"
-    description="Learn how to configure certificate-based authentication in your environment"
-    author="MarkusVi"
-    documentationcenter="na"
-    manager="femila" />
-<tags
-    ms.assetid="c6ad7640-8172-4541-9255-770f39ecce0e"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/09/2017"
-    wacn.date=""
-    ms.author="markvi" />
+---
+title: Azure Active Directory certificate-based authentication - Get started  | Azure
+description: Learn how to configure certificate-based authentication in your environment
+author: MarkusVi
+documentationcenter: na
+manager: femila
+
+ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/09/2017
+wacn.date: ''
+ms.author: markvi
+---
 
 # Get started with certificate-based authentication in Azure Active Directory
 
@@ -29,8 +30,7 @@ This topic:
 
 - Provides you with the steps to configure and utilize certificate-based authentication for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. This feature is available in preview in Office 365 China, US Government Defense, and US Government Federal plans. 
 
-- Assumes that you already have a [public key infrastructure (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) and [AD FS](/documentation/articles/active-directory-aadconnectfed-whatis/) configured.    
-
+- Assumes that you already have a [public key infrastructure (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) and [AD FS](./active-directory-aadconnectfed-whatis.md) configured.    
 
 ## Requirements
 
@@ -48,9 +48,6 @@ To configure certificate-based authentication, the following must be true:
 
 - A client certificate for client authentication must have been issued to your client.  
 
-
-
-
 ## Step 1: Select your device platform
 
 As a first step, for the device platform you care about, you need to review the following:
@@ -60,9 +57,8 @@ As a first step, for the device platform you care about, you need to review the 
 
 The related information exists for the following device platforms:
 
-- [Android](/documentation/articles/active-directory-certificate-based-authentication-android/)
-- [iOS](/documentation/articles/active-directory-certificate-based-authentication-ios/)
-
+- [Android](./active-directory-certificate-based-authentication-android.md)
+- [iOS](./active-directory-certificate-based-authentication-ios.md)
 
 ## Step 2: Configure the certificate authorities 
 
@@ -73,34 +69,38 @@ To configure your certificate authorities in Azure Active Directory, for each ce
 
 The schema for a certificate authority looks as follows: 
 
-    class TrustedCAsForPasswordlessAuth 
-    { 
-       CertificateAuthorityInformation[] certificateAuthorities;    
-    } 
+```
+class TrustedCAsForPasswordlessAuth 
+{ 
+   CertificateAuthorityInformation[] certificateAuthorities;    
+} 
 
-    class CertificateAuthorityInformation 
+class CertificateAuthorityInformation 
 
-    { 
-        CertAuthorityType authorityType; 
-        X509Certificate trustedCertificate; 
-        string crlDistributionPoint; 
-        string deltaCrlDistributionPoint; 
-        string trustedIssuer; 
-        string trustedIssuerSKI; 
-    }                
+{ 
+    CertAuthorityType authorityType; 
+    X509Certificate trustedCertificate; 
+    string crlDistributionPoint; 
+    string deltaCrlDistributionPoint; 
+    string trustedIssuer; 
+    string trustedIssuerSKI; 
+}                
 
-    enum CertAuthorityType 
-    { 
-        RootAuthority = 0, 
-        IntermediateAuthority = 1 
-    } 
+enum CertAuthorityType 
+{ 
+    RootAuthority = 0, 
+    IntermediateAuthority = 1 
+} 
+```
 
 For the configuration, you can use the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/):  
 
 1. Start Windows PowerShell with administrator privileges. 
 2. Install the Azure AD module. You need to install Version [2.0.0.33 ](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher.  
-   
-        Install-Module -Name AzureAD -RequiredVersion 2.0.0.33 
+
+    ```
+    Install-Module -Name AzureAD -RequiredVersion 2.0.0.33 
+    ```
 
 As a first configuration step, you need to establish a connection with your tenant. As soon as a connection to your tenant exists, you can review, add, delete and modify the trusted certificate authorities that are defined in your directory. 
 
@@ -108,43 +108,48 @@ As a first configuration step, you need to establish a connection with your tena
 
 To establish a connection with your tenant, use the [Connect-AzureAD](https://docs.microsoft.com/powershell/azuread/v2/connect-azuread) cmdlet:
 
-    Connect-AzureAD 
-
+```
+Connect-AzureAD 
+```
 
 ### Retrieve 
 
 To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/get-azureadtrustedcertificateauthority) cmdlet. 
 
-    Get-AzureADTrustedCertificateAuthority 
- 
+```
+Get-AzureADTrustedCertificateAuthority 
+```
 
 ### Add
 
 To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/new-azureadtrustedcertificateauthority) cmdlet: 
-   
-    $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
-    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
-    $new_ca.AuthorityType=0 
-    $new_ca.TrustedCertificate=$cert 
-    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
 
+```
+$cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
+$new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
+$new_ca.AuthorityType=0 
+$new_ca.TrustedCertificate=$cert 
+New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
+```
 
 ### Remove
 
 To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/remove-azureadtrustedcertificateauthority) cmdlet:
-   
-    $c=Get-AzureADTrustedCertificateAuthority 
-    Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
 
+```
+$c=Get-AzureADTrustedCertificateAuthority 
+Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
+```
 
 ### Modfiy
 
 To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/azuread/v2/set-azureadtrustedcertificateauthority) cmdlet:
 
-    $c=Get-AzureADTrustedCertificateAuthority 
-    $c[0].AuthorityType=1 
-    Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
-
+```
+$c=Get-AzureADTrustedCertificateAuthority 
+$c[0].AuthorityType=1 
+Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
+```
 
 ## Step 3: Configure revocation
 
@@ -159,21 +164,26 @@ The following steps outline the process for updating and invalidating the author
 **To configure revocation:** 
 
 1. Connect with admin credentials to the MSOL service: 
-   
-        $msolcred = get-credential 
-        connect-msolservice -credential $msolcred 
+
+    ```
+    $msolcred = get-credential 
+    connect-msolservice -credential $msolcred 
+    ```
 
 2. Retrieve the current StsRefreshTokensValidFrom value for a user: 
-   
-        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-        $user.StsRefreshTokensValidFrom 
+
+    ```
+    $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
+    $user.StsRefreshTokensValidFrom 
+    ```
 
 3. Configure a new StsRefreshTokensValidFrom value for the user equal to the current timestamp: 
-   
-        Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+
+    ```
+    Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+    ```
 
 The date you set must be in the future. If the date is not in the future, the **StsRefreshTokensValidFrom** property is not set. If the date is in the future, **StsRefreshTokensValidFrom** is set to the current time (not the date indicated by Set-MsolUser command). 
-
 
 ## Step 4: Test your configuration
 
@@ -185,7 +195,6 @@ If your sign-in is successful, then you know that:
 
 - The user certificate has been provisioned to your test device
 - AD FS is configured correctly  
-
 
 ### Testing Office mobile applications
 
@@ -214,5 +223,4 @@ An EAS profile can be configured and placed on the device through the utilizatio
 **To test certificate authentication:**  
 
 1. Configure an EAS profile in the application that satisfies the requirements above.  
-2. Open the application, and verify that mail is synchronizing. 
-
+2. Open the application, and verify that mail is synchronizing.

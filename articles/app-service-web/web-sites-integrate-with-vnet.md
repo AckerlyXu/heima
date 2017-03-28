@@ -1,26 +1,27 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Integrate an app with an Azure Virtual Network"
-    description="Shows you how to connect an app in Azure App Service to a new or existing Azure virtual network"
-    services="app-service"
-    documentationcenter=""
-    author="ccompy"
-    manager="erikre"
-    editor="cephalin" />
-<tags
-    ms.assetid="90bc6ec6-133d-4d87-a867-fcf77da75f5a"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/11/2016"
-    wacn.date=""
-    ms.author="ccompy" />
+---
+title: Integrate an app with an Azure Virtual Network
+description: Shows you how to connect an app in Azure App Service to a new or existing Azure virtual network
+services: app-service
+documentationcenter: ''
+author: ccompy
+manager: erikre
+editor: cephalin
+
+ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/11/2016
+wacn.date: ''
+ms.author: ccompy
+---
 
 # Integrate your app with an Azure Virtual Network
-This document describes the Azure App Service virtual network integration feature and shows how to set it up with apps in [Azure App Service](/documentation/articles/app-service-changes-existing-services/).  If you are unfamiliar with Azure Virtual Networks (VNETs), this is a capability that allows you to place many of your Azure resources in a non-internet routeable network that you control access to.  These networks can then be connected to your on premise networks using a variety of VPN technologies.  To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview][VNETOverview].  
+This document describes the Azure App Service virtual network integration feature and shows how to set it up with apps in [Azure App Service](./app-service-changes-existing-services.md).  If you are unfamiliar with Azure Virtual Networks (VNETs), this is a capability that allows you to place many of your Azure resources in a non-internet routeable network that you control access to.  These networks can then be connected to your on premise networks using a variety of VPN technologies.  To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview][VNETOverview].  
 
 The Azure App Service has two forms.  
 
@@ -65,7 +66,7 @@ This document is focused primarily on using the Azure Portal Preview for VNET In
 
 You have the option to connect your app to a new or existing virtual network.  If you create a new network as a part of your integration then in addition to just creating the VNET, a dynamic routing gateway will be pre-configured for you and Point to Site VPN will be enabled.  
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Configuring a new virtual network integration can take several minutes.  
 > 
 > 
@@ -109,7 +110,7 @@ To create a Resource Manager VNET through the VNET Integration UI, simply select
 
 If you want this VNET to connect to any of your other network then you should avoid picking IP address space that overlaps with those networks.  
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Resource Manager VNET creation with a gateway takes about 30 minutes and currently will not integrate the VNET with your app.  After your VNET is created with the gateway you need to come back to your app VNET Integration UI and select your new VNET.
 > 
 > 
@@ -180,7 +181,7 @@ If those certificates or network information is changed then you will need to cl
 ## Accessing on premise resources
 One of the benefits of the VNET Integration feature is that if your VNET is connected to your on premise network with a Site to Site VPN then your apps can have access to your on premise resources from your app.  For this to work though you may need to update your on premise VPN gateway with the routes for your Point to Site IP range.  When the Site to Site VPN is first set up then the scripts used to configure it should set up routes including your Point to Site VPN.  If you add the Point to Site VPN after your create your Site to Site VPN then you will need to update the routes manually.  Details on how to do that will vary per gateway and are not described here.  
 
-> [AZURE.NOTE]
+> [!NOTE]
 > While the VNET Integration feature will work with a Site to Site VPN to access on premise resources it currently will not work with an ExpressRoute VPN to do the same.  This is true when integrating with either a Classic or Resource Manager VNET.  If you need to access resources through an ExpressRoute VPN then you can use an ASE which can run in your VNET. 
 > 
 > 
@@ -204,13 +205,17 @@ While the feature is easy to set up that doesn't mean that your experience will 
 #### Tools
 The tools ping, nslookup and tracert won't work through the console due to security constraints.  To fill the void there have been two separate tools added.  In order to test DNS functionality we added a tool named nameresolver.exe.  The syntax is:
 
-    nameresolver.exe hostname [optional: DNS Server]
+```
+nameresolver.exe hostname [optional: DNS Server]
+```
 
 You can use nameresolver to check the hostnames that your app depends on.  This way you can test if you have anything mis-configured with your DNS or perhaps don't have access to your DNS server.
 
 The next tool allows you to test for TCP connectivity to a host and port combination.  This tool is called  tcpping.exe and the syntax is:
 
-    tcpping.exe hostname [optional: port]
+```
+tcpping.exe hostname [optional: port]
+```
 
 This tool will tell you if you can reach a specific host and port but will not perform the same task you get with the ICMP based ping utility.  The ICMP ping utility will tell you if your host is up.  With tcpping you find out if you can access a specific port on a host.  
 
@@ -291,12 +296,12 @@ Beyond the functional differences there are also pricing differences.  The App S
 [8]: ./media/web-sites-integrate-with-vnet/vnetint-vnetp2s.png
 
 <!--Links-->
-[VNETOverview]: /documentation/articles/virtual-networks-overview/ 
+[VNETOverview]: ../virtual-network/virtual-networks-overview.md 
 [AzurePortal]: http://portal.azure.cn/
-[ASPricing]: /pricing/overview/app-service/
-[VNETPricing]: /pricing/overview/vpn-gateway/
-[DataPricing]: /pricing/overview/data-transfers/
-[V2VNETP2S]: /documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
-[IntPowershell]: /documentation/articles/app-service-vnet-integration-powershell/
-[ASEintro]: /documentation/articles/app-service-app-service-environment-intro/
-[ILBASE]: /documentation/articles/app-service-environment-with-internal-load-balancer/
+[ASPricing]: https://www.azure.cn/pricing/overview/app-service/
+[VNETPricing]: https://www.azure.cn/pricing/overview/vpn-gateway/
+[DataPricing]: https://www.azure.cn/pricing/overview/data-transfers/
+[V2VNETP2S]: ../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md
+[IntPowershell]: ./app-service-vnet-integration-powershell.md
+[ASEintro]: ./app-service-app-service-environment-intro.md
+[ILBASE]: ./app-service-environment-with-internal-load-balancer.md

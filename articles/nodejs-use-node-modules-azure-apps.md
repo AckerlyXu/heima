@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Working with Node.js Modules"
-    description="Learn how to work with Node.js modules when using Azure App Service or Cloud Services."
-    services=""
-    documentationcenter="nodejs"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="c0e6cd3d-932d-433e-b72d-e513e23b4eb6"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm" />
+---
+title: Working with Node.js Modules
+description: Learn how to work with Node.js modules when using Azure App Service or Cloud Services.
+services: ''
+documentationcenter: nodejs
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: nodejs
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm
+---
 
 # Using Node.js Modules with Azure applications
 This document provides guidance on using Node.js modules with applications hosted on Azure. It provides guidance on ensuring that your application uses a specific version of module as well as using native modules with Azure.
@@ -27,7 +28,8 @@ If you are already familiar with using Node.js modules, **package.json** and **n
   modules using **package.json** or **npm-shrinkwrap.json** files on Cloud Services, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see
   [Azure Startup task to run npm install to avoid deploying node modules](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
-> [AZURE.NOTE] Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.
+> [!NOTE]
+> Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.
 
 ## Node.js Modules
 Modules are loadable JavaScript packages that provide specific functionality for your application. A module is usually installed using the **npm** command-line tool, however some (such as the http module) are provided as part of the core Node.js package.
@@ -52,7 +54,7 @@ During development, you can use the **--save**, **--save-dev**, or **--save-opti
 
 One potential problem with the **package.json** file is that it only specifies the version for top level dependencies. Each module installed may or may not specify the version of the modules it depends on, and so it is possible that you may end up with a different dependency chain than the one used in development.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When deploying to Azure App Service, if your <b>package.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
 > 
 > npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
@@ -66,7 +68,7 @@ The **npm-shrinkwrap.json** file is an attempt to address the module versioning 
 
 When your application is ready for production, you can lock-down version requirements and create an **npm-shrinkwrap.json** file by using the **npm shrinkwrap** command. This will use the versions currently installed in the **node\_modules** folder, and record these to the **npm-shrinkwrap.json** file. After the application has been deployed to the hosting environment, the **npm install** command is used to parse the **npm-shrinkwrap.json** file and install all the dependencies listed. For more information, see [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When deploying to Azure App Service, if your <b>npm-shrinkwrap.json</b> file references a native module you will see an error similar to the following when publishing the application using Git:
 > 
 > npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
@@ -76,11 +78,11 @@ When your application is ready for production, you can lock-down version require
 > 
 
 ## Next Steps
-Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js web app](/documentation/articles/web-sites-nodejs-develop-deploy-mac/), and [How to use the Azure Command-Line Interface for Mac and Linux].
+Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js web app](./app-service-web/web-sites-nodejs-develop-deploy-mac.md), and [How to use the Azure Command-Line Interface for Mac and Linux].
 
 For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
-[specify the Node.js version]:/documentation/articles/nodejs-specify-node-version-azure-apps/
+[specify the Node.js version]:./nodejs-specify-node-version-azure-apps.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:/documentation/articles/xplat-cli-install/
-[build and deploy a Node.js web app]:/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Build and deploy a Node.js application to an Azure Cloud Service]:/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+[build and deploy a Node.js web app]:./app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Build and deploy a Node.js application to an Azure Cloud Service]:./cloud-services/cloud-services-nodejs-develop-deploy-app.md

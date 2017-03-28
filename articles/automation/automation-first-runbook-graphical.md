@@ -1,38 +1,39 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="My first graphical runbook in Azure Automation | Azure"
-    description="Tutorial that walks you through the creation, testing, and publishing of a simple graphical runbook."
-    services="automation"
-    documentationcenter=""
-    author="mgoedtel"
-    manager="jwhit"
-    editor=""
-    keywords="runbook, runbook template, runbook automation, azure runbook" />
-<tags
-    ms.assetid="dcb88f19-ed2b-4372-9724-6625cd287c8a"
-    ms.service="automation"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="07/06/2016"
-    wacn.date=""
-    ms.author="magoedte;bwren" />
+---
+title: My first graphical runbook in Azure Automation | Azure
+description: Tutorial that walks you through the creation, testing, and publishing of a simple graphical runbook.
+services: automation
+documentationcenter: ''
+author: mgoedtel
+manager: jwhit
+editor: ''
+keywords: runbook, runbook template, runbook automation, azure runbook
+
+ms.assetid: dcb88f19-ed2b-4372-9724-6625cd287c8a
+ms.service: automation
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 07/06/2016
+wacn.date: ''
+ms.author: magoedte;bwren
+---
 
 # My first graphical runbook
-> [AZURE.SELECTOR]
-- [Graphical](/documentation/articles/automation-first-runbook-graphical/)
-- [PowerShell](/documentation/articles/automation-first-runbook-textual-powershell/)
-- [PowerShell Workflow](/documentation/articles/automation-first-runbook-textual/)
+> [!div class="op_single_selector"]
+>- [Graphical](./automation-first-runbook-graphical.md)
+>- [PowerShell](./automation-first-runbook-textual-powershell.md)
+>- [PowerShell Workflow](./automation-first-runbook-textual.md)
 
-This tutorial walks you through the creation of a [graphical runbook](/documentation/articles/automation-runbook-types/#graphical-runbooks) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters and conditional links.
+This tutorial walks you through the creation of a [graphical runbook](./automation-runbook-types.md#graphical-runbooks) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters and conditional links.
 
 ## Prerequisites
 To complete this tutorial, you will need the following.
 
-* Azure subscription.  If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](/pricing/1rmb-trial/).
-* [Azure Run As Account](/documentation/articles/automation-sec-configure-azure-runas-account/) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* Azure subscription.  If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="https://www.azure.cn/pricing/free-account/" target="_blank">[sign up for a free account](https://www.azure.cn/pricing/1rmb-trial/).
+* [Azure Run As Account](./automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine.  We will stop and start this machine so it should not be production.
 
 ## Step 1 - Create new runbook
@@ -43,7 +44,7 @@ We'll start by creating a simple runbook that outputs the text *Hello World*.
 2. Click on the **Runbooks** tile to open the list of runbooks.<br> ![Runbooks control](./media/automation-first-runbook-graphical/runbooks-control.png)
 3. Create a new runbook by clicking on the **Add a runbook** button and then **Create a new runbook**.
 4. Give the runbook the name *MyFirstRunbook-Graphical*.
-5. In this case, we're going to create a [graphical runbook](/documentation/articles/automation-graphical-authoring-intro/) so select **Graphical** for **Runbook type**.<br> ![New runbook](./media/automation-first-runbook-graphical/create-new-runbook.png)<br>
+5. In this case, we're going to create a [graphical runbook](./automation-graphical-authoring-intro.md) so select **Graphical** for **Runbook type**.<br> ![New runbook](./media/automation-first-runbook-graphical/create-new-runbook.png)<br>
 6. Click **Create** to create the runbook and open the graphical editor.
 
 ## Step 2 - Add activities to the runbook
@@ -66,7 +67,7 @@ Before we publish the runbook to make it available in production, we want to tes
 
 1. Click **Test pane** to open the Test blade.<br> ![Test pane](./media/automation-first-runbook-graphical/runbook-toolbar-test-revised20165.png)
 2. Click **Start** to start the test.  This should be the only enabled option.
-3. A [runbook job](/documentation/articles/automation-runbook-execution/) is created and its status displayed in the pane.  
+3. A [runbook job](./automation-runbook-execution.md) is created and its status displayed in the pane.  
    The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available.  It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
 4. When the runbook job completes, its output is displayed. In our case, we should see *Hello World*.<br> ![Hello World](./media/automation-first-runbook-graphical/runbook-test-results.png)
 5. Close the Test blade to return to the canvas.
@@ -77,7 +78,7 @@ The runbook that we just created is still in Draft mode. We need to publish it b
 1. Click **Publish** to publish the runbook and then **Yes** when prompted.<br> ![Publish](./media/automation-first-runbook-graphical/runbook-toolbar-publish-revised20166.png)
 2. If you scroll left to view the runbook in the **Runbooks** blade, it will show an **Authoring Status** of **Published**.
 3. Scroll back to the right to view the blade for **MyFirstRunbook**.  
-   The options across the top allow us to start the runbook, schedule it to start at some time in the future, or create a [webhook](/documentation/articles/automation-webhooks/) so it can be started through an HTTP call.
+   The options across the top allow us to start the runbook, schedule it to start at some time in the future, or create a [webhook](./automation-webhooks.md) so it can be started through an HTTP call.
 4. We just want to start the runbook so click **Start** and then **Yes** when prompted.<br> ![Start runbook](./media/automation-first-runbook-graphical/runbook-controls-start-revised20165.png)
 5. A job blade is opened for the runbook job that we just created.  We can close this blade, but in this case we'll leave it open so we can watch the job's progress.
 6. The job status is shown in **Job Summary** and matches the statuses that we saw when we tested the runbook.<br> ![Job Summary](./media/automation-first-runbook-graphical/runbook-job-summary.png)
@@ -175,14 +176,16 @@ We will now modify the runbook so that it will only attempt to start the virtual
 13. Select **Code** parameter, and the **Code Editor** blade appears.  
 14. In the code editor, paste the following snippet of code:
 
-         $StatusesJson = $ActivityOutput['Get-AzureRmVM'].StatusesText
-         $Statuses = ConvertFrom-Json $StatusesJson
-         $StatusOut =""
-         foreach ($Status in $Statuses){
-         if($Status.Code -eq "Powerstate/running"){$StatusOut = "running"}
-         elseif ($Status.Code -eq "Powerstate/deallocated") {$StatusOut = "stopped"}
-         }
-         $StatusOut
+    ```
+     $StatusesJson = $ActivityOutput['Get-AzureRmVM'].StatusesText
+     $Statuses = ConvertFrom-Json $StatusesJson
+     $StatusOut =""
+     foreach ($Status in $Statuses){
+     if($Status.Code -eq "Powerstate/running"){$StatusOut = "running"}
+     elseif ($Status.Code -eq "Powerstate/deallocated") {$StatusOut = "stopped"}
+     }
+     $StatusOut
+    ```
 
 15. Create a link from **Get Status** to **Start-AzureRmVM**.<br> ![Runbook with Code Module](./media/automation-first-runbook-graphical/runbook-startvm-get-status.png)  
 16. Select the link and in the Configuration pane, change **Apply condition** to **Yes**.   Note the link turns to a dashed line indicating that the target activity will only be run if the condition resolves to true.  
@@ -202,6 +205,6 @@ We will now modify the runbook so that it will only attempt to start the virtual
 30. Start the runbook with the virtual machine stopped, and it should start.
 
 ## Next steps
-* To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](/documentation/articles/automation-graphical-authoring-intro/)
-* To get started with PowerShell runbooks, see [My first PowerShell runbook](/documentation/articles/automation-first-runbook-textual-powershell/)
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](/documentation/articles/automation-first-runbook-textual/)
+* To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](./automation-graphical-authoring-intro.md)
+* To get started with PowerShell runbooks, see [My first PowerShell runbook](./automation-first-runbook-textual-powershell.md)
+* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](./automation-first-runbook-textual.md)

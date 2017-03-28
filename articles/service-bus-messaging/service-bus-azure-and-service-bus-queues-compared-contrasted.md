@@ -1,19 +1,20 @@
-<properties 
-   pageTitle="Azure Storage Queues and Service Bus queues - compared and contrasted | Azure"
-   description="Analyzes differences and similarities between two types of queues offered by Azure."
-   services="service-bus"
-   documentationCenter="na"
-   author="sethmanheim"
-   manager="timlt"
-   editor="tysonn"/>
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="tbd"
-    ms.date="01/19/2017"
-    ms.author="sethm" />
+---
+title: Azure Storage Queues and Service Bus queues - compared and contrasted | Azure
+description: Analyzes differences and similarities between two types of queues offered by Azure.
+services: service-bus
+documentationCenter: na
+author: sethmanheim
+manager: timlt
+editor: tysonn
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 01/19/2017
+ms.author: sethm
+---
 
 # Storage queues and Service Bus queues - compared and contrasted
 This article analyzes the differences and similarities between the two types of queues offered by Azure today: Storage queues and Service Bus queues. By using this information, you can compare and contrast the respective technologies and be able to make a more informed decision about which solution best meets your needs.
@@ -21,9 +22,9 @@ This article analyzes the differences and similarities between the two types of 
 ## Introduction
 Azure supports two types of queue mechanisms: **Storage queues** and **Service Bus queues**.
 
-**Storage Queues**, which are part of the [Azure storage](/home/features/storage/) infrastructure, feature a simple REST-based Get/Put/Peek interface, providing reliable, persistent messaging within and between services.
+**Storage Queues**, which are part of the [Azure storage](https://www.azure.cn/home/features/storage/) infrastructure, feature a simple REST-based Get/Put/Peek interface, providing reliable, persistent messaging within and between services.
 
-**Service Bus queues** are part of a broader [Azure messaging](/home/features/messaging/) infrastructure that supports queuing as well as publish/subscribe, and more advanced integration patterns. For more information about Service Bus queues/topics/subscriptions, see the [overview of Service Bus](/documentation/articles/service-bus-messaging-overview/).
+**Service Bus queues** are part of a broader [Azure messaging](https://www.azure.cn/home/features/messaging/) infrastructure that supports queuing as well as publish/subscribe, and more advanced integration patterns. For more information about Service Bus queues/topics/subscriptions, see the [overview of Service Bus](./service-bus-messaging-overview.md).
 
 While both queuing technologies exist concurrently, Storage queues were introduced first, as a dedicated queue storage mechanism built on top of the Azure storage services. Service Bus queues are built on top of the broader "messaging" infrastructure designed to integrate applications or application components that may span multiple communication protocols, data contracts, trust domains, and/or network environments.
 
@@ -62,7 +63,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 
 - Your queue size will not grow larger than 80 GB.
 
-- You want to use the AMQP 1.0 standards-based messaging protocol. For more information about AMQP, see [Service Bus AMQP Overview](/documentation/articles/service-bus-amqp-overview/).
+- You want to use the AMQP 1.0 standards-based messaging protocol. For more information about AMQP, see [Service Bus AMQP Overview](./service-bus-amqp-overview.md).
 
 - You can envision an eventual migration from queue-based point-to-point communication to a message exchange pattern that enables seamless integration of additional receivers (subscribers), each of which receives independent copies of either some or all messages sent to the queue. The latter refers to the publish/subscribe capability natively provided by Service Bus.
 
@@ -130,7 +131,7 @@ This section compares advanced capabilities provided by Storage queues and Servi
 * Both queuing technologies enable a message to be scheduled for delivery at a later time.
 * Queue auto-forwarding enables thousands of queues to auto-forward their messages to a single queue, from which the receiving application consumes the message. You can use this mechanism to achieve security, control flow, and isolate storage between each message publisher.
 * Storage queues provide support for updating message content. You can use this functionality for persisting state information and incremental progress updates into the message so that it can be processed from the last known checkpoint, instead of starting from scratch. With Service Bus queues, you can enable the same scenario through the use of message sessions. Sessions enable you to save and retrieve the application processing state (by using [SetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx) and [GetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx)).
-* [Dead lettering](/documentation/articles/service-bus-dead-letter-queues/), which is only supported by Service Bus queues, can be useful for isolating messages that cannot be processed successfully by the receiving application or when messages cannot reach their destination due to an expired time-to-live (TTL) property. The TTL value specifies how long a message remains in the queue. With Service Bus, the message will be moved to a special queue called $DeadLetterQueue when the TTL period expires.
+* [Dead lettering](./service-bus-dead-letter-queues.md), which is only supported by Service Bus queues, can be useful for isolating messages that cannot be processed successfully by the receiving application or when messages cannot reach their destination due to an expired time-to-live (TTL) property. The TTL value specifies how long a message remains in the queue. With Service Bus, the message will be moved to a special queue called $DeadLetterQueue when the TTL period expires.
 * To find "poison" messages in Storage queues, when dequeuing a message the application examines the **[DequeueCount](https://msdn.microsoft.com/library/azure/dd179474.aspx)** property of the message. If **DequeueCount** is above a given threshold, the application moves the message to an application-defined "dead letter" queue.
 * Storage queues enable you to obtain a detailed log of all of the transactions executed against the queue, as well as aggregated metrics. Both of these options are useful for debugging and understanding how your application uses Storage queues. They are also useful for performance-tuning your application and reducing the costs of using queues.
 * The concept of "message sessions" supported by Service Bus enables messages that belong to a certain logical group to be associated with a given receiver, which in turn creates a session-like affinity between messages and their respective receivers. You can enable this advanced functionality in Service Bus by setting the [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) property on a message. Receivers can then listen on a specific session ID and receive messages that share the specified session identifier.
@@ -138,7 +139,7 @@ This section compares advanced capabilities provided by Storage queues and Servi
 
 ## <a name="capacity-and-quotas"></a> Capacity and quotas
 
-This section compares Storage Queues and Service Bus queues from the perspective of [capacity and quotas](/documentation/articles/service-bus-quotas/) that may apply.
+This section compares Storage Queues and Service Bus queues from the perspective of [capacity and quotas](./service-bus-quotas.md) that may apply.
 
 | Comparison Criteria | Storage queues | Service Bus Queues |
 | --- | --- | --- |
@@ -150,7 +151,7 @@ This section compares Storage Queues and Service Bus queues from the perspective
 
 ### Additional information
 
-- Service Bus enforces queue size limits. The maximum queue size is specified upon creation of the queue and can have a value between 1 and 80 GB. If the queue size value set on creation of the queue is reached, additional incoming messages will be rejected and an exception will be received by the calling code. For more information about quotas in Service Bus, see [Service Bus Quotas](/documentation/articles/service-bus-quotas/).
+- Service Bus enforces queue size limits. The maximum queue size is specified upon creation of the queue and can have a value between 1 and 80 GB. If the queue size value set on creation of the queue is reached, additional incoming messages will be rejected and an exception will be received by the calling code. For more information about quotas in Service Bus, see [Service Bus Quotas](./service-bus-quotas.md).
 
 - You can create Service Bus queues in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled (which is the default), Service Bus creates 16 partitions for each GB you specify. As such, if you create a queue that is 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure classic portal][].
 
@@ -202,7 +203,7 @@ This section discusses the authentication and authorization features supported b
 
 ### Additional information
 
-- Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access are not supported. Using [SAS](/documentation/articles/service-bus-sas-overview/), you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
+- Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access are not supported. Using [SAS](./service-bus-sas-overview.md), you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
 
 - The authentication scheme provided by Storage queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
 
@@ -214,13 +215,12 @@ Because Service Bus queues provide a number of advanced features, such as sessio
 ## Next steps
 The following articles provide more guidance and information about using Storage queues or Service Bus queues.
 
-- [How to Use Service Bus Queues](/documentation/articles/service-bus-dotnet-get-started-with-queues/)
-- [How to Use the Queue Storage Service](/documentation/articles/storage-dotnet-how-to-use-queues/)
-- [Best practices for performance improvements using Service Bus brokered messaging](/documentation/articles/service-bus-performance-improvements/)
+- [How to Use Service Bus Queues](./service-bus-dotnet-get-started-with-queues.md)
+- [How to Use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md)
+- [Best practices for performance improvements using Service Bus brokered messaging](./service-bus-performance-improvements.md)
 - [Introducing Queues and Topics in Azure Service Bus](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [The Developer's Guide to Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 - [Using the Queuing Service in Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure classic management portal]: http://manage.windowsazure.cn
- 

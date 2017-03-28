@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Service Fabric Cluster Resource Manager: Movement cost | Azure"
-    description="Overview of movement cost for Service Fabric services"
-    services="service-fabric"
-    documentationcenter=".net"
-    author="masnider"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="f022f258-7bc0-4db4-aa85-8c6c8344da32"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="masnider" />
+---
+title: Service Fabric Cluster Resource Manager: Movement cost | Azure
+description: Overview of movement cost for Service Fabric services
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
+
+ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: masnider
+---
 
 # Service movement cost for influencing Cluster Resource Manager choices
 An important factor that the Service Fabric Cluster Resource Manager considers when trying to determine what changes to make to a cluster is the overall cost of achieving that solution. The notion of "cost" is traded off against the amount of balance that can be achieved.
@@ -50,7 +51,7 @@ MoveCost helps you find the solutions that cause the least disruption overall an
 * The cost of interrupting an in-flight operation. Some operations at the data store level or operations performed in response to a client call are costly. After a certain point, you don’t want to stop them if you don’t have to. So while the operation is going on, you increase the move cost of this service object to reduce the likelihood that it moves. When the operation is done, you set the cost back to normal.
 
 ## Next steps
-- Service Fabric Cluster Resource Manger uses metrics to manage consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [Managing resource consumption and load in Service Fabric with metrics](/documentation/articles/service-fabric-cluster-resource-manager-metrics/).
-- To learn about how the Cluster Resource Manager manages and balances load in the cluster, check out [Balancing your Service Fabric cluster](/documentation/articles/service-fabric-cluster-resource-manager-balancing/).
+- Service Fabric Cluster Resource Manger uses metrics to manage consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [Managing resource consumption and load in Service Fabric with metrics](./service-fabric-cluster-resource-manager-metrics.md).
+- To learn about how the Cluster Resource Manager manages and balances load in the cluster, check out [Balancing your Service Fabric cluster](./service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png

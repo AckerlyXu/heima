@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure PowerShell Script Sample - Assign a custom domain to a web app | Azure"
-    description="Azure PowerShell Script Sample - Assign a custom domain to a web app"
-    services="app-service\web"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="356f5af9-f62e-411c-8b24-deba05214103"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Azure PowerShell Script Sample - Assign a custom domain to a web app | Azure
+description: Azure PowerShell Script Sample - Assign a custom domain to a web app
+services: app-service\web
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
+ms.service: app-service-web
+ms.workload: web
+ms.devlang: na
+ms.topic: article
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Assign a custom domain to a web app
 
@@ -25,42 +26,45 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-    $fqdn="<Replace with your custom domain name>"
-    $webappname="mywebapp$(Get-Random)"
-    $location="China North"
+```
+$fqdn="<Replace with your custom domain name>"
+$webappname="mywebapp$(Get-Random)"
+$location="China North"
 
-    # Create a resource group.
-    New-AzureRmResourceGroup -Name $webappname -Location $location
+# Create a resource group.
+New-AzureRmResourceGroup -Name $webappname -Location $location
 
-    # Create an App Service plan in Free tier.
-    New-AzureRmAppServicePlan -Name $webappname -Location $location `
-    -ResourceGroupName $webappname -Tier Free
+# Create an App Service plan in Free tier.
+New-AzureRmAppServicePlan -Name $webappname -Location $location `
+-ResourceGroupName $webappname -Tier Free
 
-    # Create a web app.
-    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
-    -ResourceGroupName $webappname
+# Create a web app.
+New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
+-ResourceGroupName $webappname
 
-    Write-Host "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
-    Read-Host "Press [Enter] key when ready ..."
+Write-Host "Configure a CNAME record that maps $fqdn to $webappname.chinacloudsites.cn"
+Read-Host "Press [Enter] key when ready ..."
 
-    # Before continuing, go to your DNS configuration UI for your custom domain and follow the 
-    # instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the 
-    # hostname "www" and point it your web app's default domain name.
+# Before continuing, go to your DNS configuration UI for your custom domain and follow the 
+# instructions at https://aka.ms/appservicecustomdns to configure a CNAME record for the 
+# hostname "www" and point it your web app's default domain name.
 
-    # Upgrade App Service plan to Shared tier (minimum required by custom domains)
-    Set-AzureRmAppServicePlan -Name $webappname -ResourceGroupName $webappname `
-    -Tier Shared
+# Upgrade App Service plan to Shared tier (minimum required by custom domains)
+Set-AzureRmAppServicePlan -Name $webappname -ResourceGroupName $webappname `
+-Tier Shared
 
-    # Add a custom domain name to the web app. 
-    Set-AzureRmWebApp -Name $webappname -ResourceGroupName $webappname `
-    -HostNames @($fqdn,"$webappname.chinacloudsites.cn")
-
+# Add a custom domain name to the web app. 
+Set-AzureRmWebApp -Name $webappname -ResourceGroupName $webappname `
+-HostNames @($fqdn,"$webappname.chinacloudsites.cn")
+```
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
-    Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
 
 ## Script explanation
 
@@ -78,4 +82,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](/documentation/articles/app-service-powershell-samples/).
+Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

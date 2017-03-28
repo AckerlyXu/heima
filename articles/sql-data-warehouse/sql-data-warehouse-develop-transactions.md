@@ -1,21 +1,20 @@
-<properties
-   pageTitle="Transactions in SQL Data Warehouse | Azure"
-   description="Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Transactions in SQL Data Warehouse | Azure
+description: Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   wacn.date=""/>
-
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+---
 
 # Transactions in SQL Data Warehouse
 As you would expect, SQL Data Warehouse supports transactions as part of the data warehouse workload. However, to ensure the performance of SQL Data Warehouse is maintained at scale some features are limited when compared to SQL Server. This article highlights the differences and lists the others. 
@@ -50,49 +49,53 @@ The transaction size limit is applied per transaction or operation. It is not ap
 
 To optimize and minimize the amount of data written to the log please refer to the [Transactions best practices][Transactions best practices] article.
 
-> [AZURE.WARNING] The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
+> [!WARNING]
+> The maximum transaction size can only be achieved for HASH or ROUND_ROBIN distributed tables where the spread of the data is even. If the transaction is writing data in a skewed fashion to the distributions then the limit is likely to be reached prior to the maximum transaction size.
 <!--REPLICATED_TABLE-->
 
 ## Transaction state
 SQL Data Warehouse uses the XACT_STATE() function to report a failed transaction using the value -2. This means that the transaction has failed and is marked for rollback only
 
-> [AZURE.NOTE] The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an un-committable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as un-committable. For example `SELECT 1/0` would cause an error but not force a transaction into an un-committable state. SQL Server also permits reads in the un-committable transaction. However, SQL Data Warehouse does not let you do this. If an error occurs inside a SQL Data Warehouse transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
+> [!NOTE]
+> The use of -2 by the XACT_STATE function to denote a failed transaction represents different behavior to SQL Server. SQL Server uses the value -1 to represent an un-committable transaction. SQL Server can tolerate some errors inside a transaction without it having to be marked as un-committable. For example `SELECT 1/0` would cause an error but not force a transaction into an un-committable state. SQL Server also permits reads in the un-committable transaction. However, SQL Data Warehouse does not let you do this. If an error occurs inside a SQL Data Warehouse transaction it will automatically enter the -2 state and you will not be able to make any further select statements until the statement has been rolled back. It is therefore important to check that your application code to see if it uses  XACT_STATE() as you may need to make code modifications.
 
 For example, in SQL Server you might see a transaction that looks like this:
 
-	SET NOCOUNT ON;
-	DECLARE @xact_state smallint = 0;
+```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
 
-	BEGIN TRAN
-	    BEGIN TRY
-	        DECLARE @i INT;
-	        SET     @i = CONVERT(int,'ABC');
-	    END TRY
-	    BEGIN CATCH
-        	SET @xact_state = XACT_STATE();
-	
-	        SELECT  ERROR_NUMBER()    AS ErrNumber
-	        ,       ERROR_SEVERITY()  AS ErrSeverity
-	        ,       ERROR_STATE()     AS ErrState
-	        ,       ERROR_PROCEDURE() AS ErrProcedure
-	        ,       ERROR_MESSAGE()   AS ErrMessage
-	        ;
+BEGIN TRAN
+    BEGIN TRY
+        DECLARE @i INT;
+        SET     @i = CONVERT(int,'ABC');
+    END TRY
+    BEGIN CATCH
+        SET @xact_state = XACT_STATE();
 
-	        IF @@TRANCOUNT > 0
-	        BEGIN
-	            PRINT 'ROLLBACK';
-	            ROLLBACK TRAN;
-	        END
-	
-	    END CATCH;
-	
-	IF @@TRANCOUNT >0
-	BEGIN
-	    PRINT 'COMMIT';
-	    COMMIT TRAN;
-	END
-	
-	SELECT @xact_state AS TransactionState;
+        SELECT  ERROR_NUMBER()    AS ErrNumber
+        ,       ERROR_SEVERITY()  AS ErrSeverity
+        ,       ERROR_STATE()     AS ErrState
+        ,       ERROR_PROCEDURE() AS ErrProcedure
+        ,       ERROR_MESSAGE()   AS ErrMessage
+        ;
+
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
+
+    END CATCH;
+
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
+```
 
 If you leave your code as it is above then you will get the following error message:
 
@@ -103,38 +106,40 @@ You will also not get the output of the ERROR_* functions.
 
 In SQL Data Warehouse the code needs to be slightly altered:
 
-	SET NOCOUNT ON;
-	DECLARE @xact_state smallint = 0;
-		
-	BEGIN TRAN
-	    BEGIN TRY
-	        DECLARE @i INT;
-        	SET     @i = CONVERT(INT,'ABC');
-	    END TRY
-	    BEGIN CATCH
-	        SET @xact_state = XACT_STATE();
-        		
-	        IF @@TRANCOUNT > 0
-	        BEGIN
-	            PRINT 'ROLLBACK';
-	            ROLLBACK TRAN;
-	        END
-	
-	        SELECT  ERROR_NUMBER()    AS ErrNumber
-	        ,       ERROR_SEVERITY()  AS ErrSeverity
-	        ,       ERROR_STATE()     AS ErrState
-	        ,       ERROR_PROCEDURE() AS ErrProcedure
-	        ,       ERROR_MESSAGE()   AS ErrMessage
-	        ;
-	    END CATCH;
-	
-	IF @@TRANCOUNT >0
-	BEGIN
-	    PRINT 'COMMIT';
-	    COMMIT TRAN;
-	END
-	
-	SELECT @xact_state AS TransactionState;
+```sql
+SET NOCOUNT ON;
+DECLARE @xact_state smallint = 0;
+
+BEGIN TRAN
+    BEGIN TRY
+        DECLARE @i INT;
+        SET     @i = CONVERT(INT,'ABC');
+    END TRY
+    BEGIN CATCH
+        SET @xact_state = XACT_STATE();
+
+        IF @@TRANCOUNT > 0
+        BEGIN
+            PRINT 'ROLLBACK';
+            ROLLBACK TRAN;
+        END
+
+        SELECT  ERROR_NUMBER()    AS ErrNumber
+        ,       ERROR_SEVERITY()  AS ErrSeverity
+        ,       ERROR_STATE()     AS ErrState
+        ,       ERROR_PROCEDURE() AS ErrProcedure
+        ,       ERROR_MESSAGE()   AS ErrMessage
+        ;
+    END CATCH;
+
+IF @@TRANCOUNT >0
+BEGIN
+    PRINT 'COMMIT';
+    COMMIT TRAN;
+END
+
+SELECT @xact_state AS TransactionState;
+```
 
 The expected behavior is now observed. The error in the transaction is managed and the ERROR_* functions provide values as expected.
 
@@ -169,10 +174,10 @@ To learn more about optimizing transactions, see [Transactions best practices][T
 
 <!--Article references-->
 [DWU]: /documentation/articles/sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[development overview]: /documentation/articles/sql-data-warehouse-overview-develop
-[Transactions best practices]: /documentation/articles/sql-data-warehouse-develop-best-practices-transactions
-[SQL Data Warehouse best practices]: /documentation/articles/sql-data-warehouse-best-practices
-[LABEL]: /documentation/articles/sql-data-warehouse-develop-label
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
+[LABEL]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 

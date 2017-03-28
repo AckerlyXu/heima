@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Deploy an app on virtual machine scale sets| Azure"
-    description="Deploy an app on virtual machine scale sets"
-    services="virtual-machine-scale-sets"
-    documentationcenter=""
-    author="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="e229664e-ee4e-4f12-9d2e-a4f456989e5d"
-    ms.service="virtual-machine-scale-sets"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/13/2016"
-    wacn.date=""
-    ms.author="guybo" />
+---
+title: Deploy an app on virtual machine scale sets| Azure
+description: Deploy an app on virtual machine scale sets
+services: virtual-machine-scale-sets
+documentationcenter: ''
+author: gbowerman
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
+ms.service: virtual-machine-scale-sets
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/13/2016
+wacn.date: ''
+ms.author: guybo
+---
 
 # Upgrade a virtual machine scale set
 This article describes how you can roll out an OS update to an Azure virtual machine scale set without any downtime. In this context, an OS update involves changing the version or SKU of the OS or changing the URI of a custom image. Updating without downtime means updating virtual machines one at a time or in groups (such as one fault domain at a time) rather than all at once. By doing so, any virtual machines that are not being upgraded can keep running.
@@ -29,7 +30,7 @@ To avoid ambiguity, let's distinguish three types of OS update you might want to
 
 The first two options are supported requirements covered by this article. You'll need to create a new scale set to execute the third option.
 
-Virtual machine scale sets that are deployed as part of an [Azure Service Fabric](/home/features/service-fabric/) cluster are not covered here.
+Virtual machine scale sets that are deployed as part of an [Azure Service Fabric](https://www.azure.cn/home/features/service-fabric/) cluster are not covered here.
 
 The basic sequence for changing the OS version/SKU of a platform image or the URI of a custom image looks as follows:
 
@@ -43,27 +44,31 @@ With this background information in mind, let's see how you could update the ver
 ## PowerShell
 This example updates a Windows virtual machine scale set to the new version 4.0.20160229. After updating the model, it does an update one virtual machine instance at a time.
 
-    $rgname = "myrg"
-    $vmssname = "myvmss"
-    $newversion = "4.0.20160229"
-    $instanceid = "1"
+```powershell
+$rgname = "myrg"
+$vmssname = "myvmss"
+$newversion = "4.0.20160229"
+$instanceid = "1"
 
-    # get the VMSS model
-    $vmss = Get-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
+# get the VMSS model
+$vmss = Get-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
 
-    # set the new version in the model data
-    $vmss.virtualMachineProfile.storageProfile.imageReference.version = $newversion
+# set the new version in the model data
+$vmss.virtualMachineProfile.storageProfile.imageReference.version = $newversion
 
-    # update the virtual machine scale set model
-    Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $vmss
+# update the virtual machine scale set model
+Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $vmss
 
-    # now start updating instances
-    Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
+# now start updating instances
+Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
+```
 
 If you are updating the URI for a custom image instead of changing a platform image version, replace the "set the new version" line with something like the following:
 
-    # set the new version in the model data
-    $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
+```powershell
+# set the new version in the model data
+$vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
+```
 
 ## The REST API
 Here are a couple of Python examples that use the Azure REST API to roll out an OS version update. Both use the lightweight [azurerm](https://pypi.python.org/pypi/azurerm) library of Azure REST API wrapper functions to do a GET on the scale set model, followed by a PUT with an updated model. They also look at virtual machine instances views to identify the virtual machines by update domain.

@@ -1,18 +1,16 @@
+---
+title: Using a group to manage access to SaaS Applications| Azure
+description: How to use groups in Azure Active Directory Premium or Basic to assign access to SaaS applications that are integrated with Azure Active Directory.
+services: active-directory
+documentationCenter: ''
+authors: curtand
+manager: femila
+editor: ''
 
-<properties
-	pageTitle="Using a group to manage access to SaaS Applications| Azure"
-	description="How to use groups in Azure Active Directory Premium or Basic to assign access to SaaS applications that are integrated with Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
-
-<tags 
-	ms.service="active-directory" 
-	ms.date="08/10/2016"
-	wacn.date=""/>
-
+ms.service: active-directory
+ms.date: 08/10/2016
+wacn.date: ''
+---
 
 # Using a group to manage access to SaaS applications
 
@@ -34,18 +32,17 @@ This capability can be used with hundreds of applications that you can add from 
 
 6. You can also see which users are assigned to the application, either directly or by membership in a group. To do this, change the **Show dropdown from 'Groups'** to **'All Users'**. The list shows users in the directory and whether or not each user is assigned to the application. The list also shows whether the assigned users are assigned to the application directly (assignment type shown as 'Direct'), or by virtue of group membership (assignment type shown as 'Inherited.')
 
-
-> [AZURE.NOTE]
+> [!NOTE]
 >You can see the Users and Groups tab only after you have enabled Azure AD Premium or Azure AD Basic.
 
 ##Related Articles
 
 These articles provide additional information on Azure Active Directory.
 
-* [Managing access to resources with Azure Active Directory groups](/documentation/articles/active-directory-manage-groups/)
+* [Managing access to resources with Azure Active Directory groups](./active-directory-manage-groups.md)
 
-* [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
+* [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
 
-* [What is Azure Active Directory?](/documentation/articles/active-directory-whatis/)
+* [What is Azure Active Directory?](./active-directory-whatis.md)
 
-* [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+* [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)

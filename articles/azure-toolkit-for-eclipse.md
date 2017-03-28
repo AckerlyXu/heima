@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Toolkit for Eclipse | Azure"
-    description="Learn about the Azure Toolkit for Eclipse."
-    services=""
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="ef2f3839-2549-4471-9b53-0deb7f4c128b"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm;asirveda" />
+---
+title: Azure Toolkit for Eclipse | Azure
+description: Learn about the Azure Toolkit for Eclipse.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: ef2f3839-2549-4471-9b53-0deb7f4c128b
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm;asirveda
+---
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx -->
 
@@ -24,7 +25,7 @@ The Azure Toolkit for Eclipse provides templates and functionality that allow yo
 
 - <https://github.com/microsoft/azure-tools-for-java>
 
-> [AZURE.NOTE]
+> [!NOTE]
 > There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
 > 
 > 
@@ -67,27 +68,27 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse/
-[Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij/
-[Installing the Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-installation/
-[Installing the Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij-installation/
-[What's New in the Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-whats-new/
-[What's New in the Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij-whats-new/
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij.md
+[Installing the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
-[Azure Project Properties]:/documentation/articles/azure-toolkit-for-eclipse-azure-project-properties/
-[Azure Role Properties]:/documentation/articles/azure-toolkit-for-eclipse-azure-role-properties/
-[Azure Service Endpoints]:/documentation/articles/azure-toolkit-for-eclipse-azure-service-endpoints/
-[Azure Storage Account List]:/documentation/articles/azure-toolkit-for-eclipse-azure-storage-account-list/
-[Create a Hello World Cloud Service for Azure in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/
-[Debugging Azure Applications in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-debugging-azure-applications/
-[Deploying Large Deployments]:/documentation/articles/azure-toolkit-for-eclipse-deploying-large-deployments/
-[Displaying Javadoc Content in Eclipse for the Package for Azure Libraries for Java]:/documentation/articles/azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries/
-[Enabling Remote Access for Azure Deployments in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/
-[Enable Session Affinity]:/documentation/articles/azure-toolkit-for-eclipse-enable-session-affinity/
-[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]:/documentation/articles/active-directory-java-authenticate-users-access-control-eclipse/
+[Azure Project Properties]:./azure-toolkit-for-eclipse-azure-project-properties.md
+[Azure Role Properties]:./azure-toolkit-for-eclipse-azure-role-properties.md
+[Azure Service Endpoints]:./azure-toolkit-for-eclipse-azure-service-endpoints.md
+[Azure Storage Account List]:./azure-toolkit-for-eclipse-azure-storage-account-list.md
+[Create a Hello World Cloud Service for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
+[Debugging Azure Applications in Eclipse]:./azure-toolkit-for-eclipse-debugging-azure-applications.md
+[Deploying Large Deployments]:./azure-toolkit-for-eclipse-deploying-large-deployments.md
+[Displaying Javadoc Content in Eclipse for the Package for Azure Libraries for Java]:./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
+[Enabling Remote Access for Azure Deployments in Eclipse]:./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
+[Enable Session Affinity]:./azure-toolkit-for-eclipse-enable-session-affinity.md
+[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]:./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
 
 <!-- [How to Maintain Session Data with Session Affinity]: /develop/java/ -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->

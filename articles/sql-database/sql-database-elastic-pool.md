@@ -1,38 +1,38 @@
-<properties
-    pageTitle="What is an Azure elastic pool? | Azure"
-    description="Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will."
-    keywords="elastic pool,sql databases"
-    services="sql-database"
-    documentationcenter=""
-    author="ddove"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e"
-    ms.service="sql-database"
-    ms.custom="multiple databases"
-    ms.devlang="NA"
-    ms.date="02/01/2017"
-    wacn.date=""
-    ms.author="ddove"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA" />
+---
+title: What is an Azure elastic pool? | Azure
+description: Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will.
+keywords: elastic pool,sql databases
+services: sql-database
+documentationcenter: ''
+author: ddove
+manager: jhubbard
+editor: ''
+
+ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
+ms.service: sql-database
+ms.custom: multiple databases
+ms.devlang: NA
+ms.date: 02/01/2017
+wacn.date: ''
+ms.author: ddove
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
+---
 
 # What is an Azure SQL elastic pool?
 A SQL elastic pool is given a set number of eDTUs, for a set price, on an Azure logical server that are shared amongst a pool of databases on that server. SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
 >
 >
 
 ## How it works
 
-A common SaaS application pattern is the single-tenant database model: each customer is given their own database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources efficiently and cost-effectively? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic pools solve this problem by ensuring that databases get the performance resources they need and when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](/documentation/articles/sql-database-design-patterns-multi-tenancy-saas-applications/).
+A common SaaS application pattern is the single-tenant database model: each customer is given their own database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources efficiently and cost-effectively? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic pools solve this problem by ensuring that databases get the performance resources they need and when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-
-In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for databases in an elastic pool. See [Introduction to SQL Database](/documentation/articles/sql-database-technical-overview/) to learn more about DTUs and eDTUs.
+In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for databases in an elastic pool. See [Introduction to SQL Database](./sql-database-technical-overview.md) to learn more about DTUs and eDTUs.
 
 A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load consume no eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool.
 
@@ -45,13 +45,13 @@ And you can add or subtract databases to the pool. If a database is predictably 
 
 Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
 
-[Price and performance considerations for an elastic pool](/documentation/articles/sql-database-elastic-pool-guidance/).
+[Price and performance considerations for an elastic pool](./sql-database-elastic-pool-guidance.md).
 
 ## eDTU and storage limits for elastic pools
 
 The following table describes the characteristics of Basic, Standard, and Premium elastic pools.
 
-[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
+[!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
@@ -78,21 +78,21 @@ The following tables describes the limits for elastic pools and pooled databases
 | Max storage per database (GB) |The maximum storage for a database in a pool. Pooled databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. Max storage per database refers to the maximum size of the data files and does not include the space used by log files. |
 
 ## Elastic jobs
-With a pool, management tasks are simplified by running scripts in **[elastic jobs](/documentation/articles/sql-database-elastic-jobs-overview/)**. An elastic job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic jobs](/documentation/articles/sql-database-elastic-jobs-getting-started/).
+With a pool, management tasks are simplified by running scripts in **[elastic jobs](./sql-database-elastic-jobs-overview.md)**. An elastic job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic jobs](./sql-database-elastic-jobs-getting-started.md).
 
-For more information about other database tools for working with multiple  databases, see [Scaling out with Azure SQL Database](/documentation/articles/sql-database-elastic-scale-introduction/).
+For more information about other database tools for working with multiple  databases, see [Scaling out with Azure SQL Database](./sql-database-elastic-scale-introduction.md).
 
 ## Business continuity features for databases in a pool
-Pooled databases generally support the same [business continuity features](/documentation/articles/sql-database-business-continuity/) that are available to single databases.
+Pooled databases generally support the same [business continuity features](./sql-database-business-continuity.md) that are available to single databases.
 
 ### Point in time restore
-Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](/documentation/articles/sql-database-recovery-using-backups/#point-in-time-restore)
+Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](./sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### Geo-Restore
-Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](/documentation/articles/sql-database-disaster-recovery/) 
+Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](./sql-database-disaster-recovery.md) 
 
 ### Active Geo-Replication
-For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure Active Geo-Replication using the [Azure portal](/documentation/articles/sql-database-geo-replication-portal/), [PowerShell](/documentation/articles/sql-database-geo-replication-powershell/), or [Transact-SQL](/documentation/articles/sql-database-geo-replication-transact-sql/).
+For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure Active Geo-Replication using the [Azure portal](./sql-database-geo-replication-portal.md), [PowerShell](./sql-database-geo-replication-powershell.md), or [Transact-SQL](./sql-database-geo-replication-transact-sql.md).
 
 ## Additional resources
 * [Microsoft Virtual Academy video course on Azure SQL Database elastic capabilities](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)

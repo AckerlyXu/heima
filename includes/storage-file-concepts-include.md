@@ -29,13 +29,13 @@ File storage contains the following components:
 
 -   **Directory:** An optional hierarchy of directories. 
 
--	**File:** A file in the share. A file may be up to 1 TB in size.
+- **File:** A file in the share. A file may be up to 1 TB in size.
 
 -   **URL format:** Files are addressable using the following URL
     format:   
     https://`<storage
     account>`.file.core.chinacloudapi.cn/`<share>`/`<directory/directories>`/`<file>`  
-    
+
     The following example URL could be used to address one of the files in the
     diagram above:  
     `http://samples.file.core.chinacloudapi.cn/logs/CustomLogs/Log1.txt`

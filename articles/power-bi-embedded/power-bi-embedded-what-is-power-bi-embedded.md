@@ -1,22 +1,23 @@
-<properties
-    pageTitle="What is Power BI Embedded?"
-    description="Power BI Embedded enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions."
-    services="power-bi-embedded"
-    documentationcenter=""
-    author="guyinacube"
-    manager="erikre"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="03649b72-b7d7-40ca-b077-12356d72d4f3"
-    ms.service="power-bi-embedded"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="powerbi"
-    ms.date="01/06/2017"
-    wacn.date=""
-    ms.author="asaxton" />
+---
+title: What is Power BI Embedded?
+description: Power BI Embedded enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions.
+services: power-bi-embedded
+documentationcenter: ''
+author: guyinacube
+manager: erikre
+editor: ''
+tags: ''
+
+ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 01/06/2017
+wacn.date: ''
+ms.author: asaxton
+---
 
 # What is Power BI Embedded?
 With **Power BI Embedded**, you can integrate Power BI reports right into your web or mobile applications.
@@ -60,8 +61,8 @@ Cached datasets can be used in Preview.  However, you cannot refresh cached data
 2. Development Tokens - Used when making calls directly to the **Power BI REST APIs**
 3. Embedding Tokens - Used when making calls to render a report in the embedded iframe
 
-These tokens are used for the various phases of your interactions with **Power BI Embedded**.  The tokens are designed so that you can delegate permissions from your app to Power BI. For more information, see [App Token Flow](/documentation/articles/power-bi-embedded-app-token-flow/).
+These tokens are used for the various phases of your interactions with **Power BI Embedded**.  The tokens are designed so that you can delegate permissions from your app to Power BI. For more information, see [App Token Flow](./power-bi-embedded-app-token-flow.md).
 
 ## See Also
-- [Common Power BI Embedded scenarios](/documentation/articles/power-bi-embedded-scenarios/)
-- [Get started with Power BI Embedded](/documentation/articles/power-bi-embedded-get-started/)
+- [Common Power BI Embedded scenarios](./power-bi-embedded-scenarios.md)
+- [Get started with Power BI Embedded](./power-bi-embedded-get-started.md)

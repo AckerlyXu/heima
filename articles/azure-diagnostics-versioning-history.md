@@ -1,29 +1,26 @@
-<properties
-	pageTitle="Azure Diagnostics Version History"
-	description="Explanation of changes in the different versions of Azure diagnostics as shipped with different Microsoft Azure SDKs versions."
-	services="multiple"
-	documentationCenter=".net"
-	authors="rboucher"
-	manager="jwhit"
-	editor=""/>
+---
+title: Azure Diagnostics Version History
+description: Explanation of changes in the different versions of Azure diagnostics as shipped with different Microsoft Azure SDKs versions.
+services: multiple
+documentationCenter: .net
+authors: rboucher
+manager: jwhit
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="02/12/2016"
-	ms.author="robb"/>
-
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 02/12/2016
+ms.author: robb
+---
 
 # Microsoft Azure Diagnostics Version History
 
 New to Azure Diagnostics? See [Azure Diagnostics Overview](azure-diagnostics.md).
 
 Each version of Azure SDK typically ships with a new version of Azure Diagnostics. The table below describes the Azure SDK and Azure Diagnostics versions associated with the SDK release.
-
-
 
 Azure SDK version | Azure Diagnostics version | Model
 --- | --- | ---
@@ -33,7 +30,6 @@ Azure SDK version | Azure Diagnostics version | Model
 2.6      | 1.3 | "
 2.7      | 1.4 | "
 2.8      | 1.5 | "
-
 
 The latest version is 1.5, which shipped with Azure SDK 2.8. The version of Azure Diagnostics extension that ships with the SDK is only used for local emulator scenarios. Any deployed application automatically uses the latest version when running in Azure, irrespective of which version of the SDK the application is built with. However, unless you install the latest Azure SDK, you may not have all the tools that help you utilize the new features.
 

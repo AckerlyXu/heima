@@ -1,24 +1,25 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Twitter trending topics with Apache Storm on HDInsight | Azure"
-    description="Learn how to use Trident to create an Apache Storm topology that determines trending topics on Twitter based on hashtags."
-    services="hdinsight"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="63b280ea-5c07-4dc8-a35f-dccf5a96ba93"
-    ms.service="hdinsight"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="01/17/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Twitter trending topics with Apache Storm on HDInsight | Azure
+description: Learn how to use Trident to create an Apache Storm topology that determines trending topics on Twitter based on hashtags.
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: 63b280ea-5c07-4dc8-a35f-dccf5a96ba93
+ms.service: hdinsight
+ms.devlang: java
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 01/17/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Determine Twitter trending topics with Apache Storm on HDInsight
 
@@ -26,7 +27,7 @@ Learn how to use Trident to create a Storm topology that determines trending top
 
 Trident is a high-level abstraction that provides tools such as joins, aggregations, grouping, functions, and filters. Additionally, Trident adds primitives for doing stateful, incremental processing. This example demonstrates how you can build a topology using a custom spout, function, and several built-in functions provided by Trident.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This example is heavily based on the [Trident Storm](https://github.com/jalonsoramos/trident-storm) example by Juan Alonso.
 
 ## Requirements
@@ -38,25 +39,29 @@ Trident is a high-level abstraction that provides tools such as joins, aggregati
 ## Download the project
 Use the following code to clone the project locally.
 
-    git clone https://github.com/Blackmist/TwitterTrending
+```
+git clone https://github.com/Blackmist/TwitterTrending
+```
 
 ## Topology
 The topology for this example is as follows:
 
 ![topology](./media/hdinsight-storm-twitter-trending/trident.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This is a simplified view of the topology. Multiple instances of the components will be distributed across the nodes in the cluster.
 
 The Trident code that implements the topology is as follows:
 
-    topology.newStream("spout", spout)
-        .each(new Fields("tweet"), new HashtagExtractor(), new Fields("hashtag"))
-        .groupBy(new Fields("hashtag"))
-        .persistentAggregate(new MemoryMapState.Factory(), new Count(), new Fields("count"))
-        .newValuesStream()
-        .applyAssembly(new FirstN(10, "count"))
-        .each(new Fields("hashtag", "count"), new Debug());
+```
+topology.newStream("spout", spout)
+    .each(new Fields("tweet"), new HashtagExtractor(), new Fields("hashtag"))
+    .groupBy(new Fields("hashtag"))
+    .persistentAggregate(new MemoryMapState.Factory(), new Count(), new Fields("count"))
+    .newValuesStream()
+    .applyAssembly(new FirstN(10, "count"))
+    .each(new Fields("hashtag", "count"), new Debug());
+```
 
 This code does the following:
 
@@ -65,7 +70,7 @@ This code does the following:
 3. The stream is grouped by hash tag, and passed to an aggregator. This aggregator creates a count of how many times each hash tag has occurred. This data is persisted in memory. Finally, a new stream is emitted that contains the hash tag and the count.
 4. Because we are only interested in the most popular hash tags for a given batch of tweets, the **FirstN** assembly is applied to return only the top 10 values, based on the count field.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Other than the spout and HashtagExtractor, we are using built-in Trident functionality.
 > 
 > For information about built-in operations, see <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">Package storm.trident.operation.builtin</a>.
@@ -95,34 +100,40 @@ Use the following steps to register a new Twitter application and obtain the con
 ## Build the topology
 Use the following code to build the project:
 
-        cd [directoryname]
-        mvn compile
+```
+    cd [directoryname]
+    mvn compile
+```
 
 ## Test the topology
 Use the following command to test the topology locally:
 
-    mvn compile exec:java -Dstorm.topology=com.microsoft.example.TwitterTrendingTopology
+```
+mvn compile exec:java -Dstorm.topology=com.microsoft.example.TwitterTrendingTopology
+```
 
 After the topology starts, you should see debug information that contains the hash tags and counts emitted by the topology. The output should appear similar to the following:
 
-    DEBUG: [Quicktellervalentine, 7]
-    DEBUG: [GRAMMYs, 7]
-    DEBUG: [AskSam, 7]
-    DEBUG: [poppunk, 1]
-    DEBUG: [rock, 1]
-    DEBUG: [punkrock, 1]
-    DEBUG: [band, 1]
-    DEBUG: [punk, 1]
-    DEBUG: [indonesiapunkrock, 1]
+```
+DEBUG: [Quicktellervalentine, 7]
+DEBUG: [GRAMMYs, 7]
+DEBUG: [AskSam, 7]
+DEBUG: [poppunk, 1]
+DEBUG: [rock, 1]
+DEBUG: [punkrock, 1]
+DEBUG: [band, 1]
+DEBUG: [punk, 1]
+DEBUG: [indonesiapunkrock, 1]
+```
 
 ## Next steps
-Now that you have tested the topology locally, discover how to deploy the topology: [Deploy and manage Apache Storm topologies on HDInsight](/documentation/articles/hdinsight-storm-deploy-monitor-topology/).
+Now that you have tested the topology locally, discover how to deploy the topology: [Deploy and manage Apache Storm topologies on HDInsight](./hdinsight-storm-deploy-monitor-topology.md).
 
 You may also be interested in the following Storm topics:
 
-* [Develop Java topologies for Storm on HDInsight using Maven](/documentation/articles/hdinsight-storm-develop-java-topology/)
-* [Develop C# topologies for Storm on HDInsight using Visual Studio](/documentation/articles/hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Develop Java topologies for Storm on HDInsight using Maven](./hdinsight-storm-develop-java-topology.md)
+* [Develop C# topologies for Storm on HDInsight using Visual Studio](./hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 For more Storm examples for HDinsight:
 
-* [Example topologies for Storm on HDInsight](/documentation/articles/hdinsight-storm-example-topology/)
+* [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md)

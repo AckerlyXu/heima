@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Managing Applications with Azure Active Directory | Azure"
-    description="This article the benefits of integrating Azure Active Directory with your on-premises, cloud and SaaS applications."
-    services="active-directory"
-    documentationcenter=""
-    author="MarkusVi"
-    manager="femila" />
-<tags
-    ms.assetid="95b96f10-2d5c-4b78-8af8-d3657a24140f"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="01/11/2017"
-    wacn.date=""
-    ms.author="markvi" />
+---
+title: Managing Applications with Azure Active Directory | Azure
+description: This article the benefits of integrating Azure Active Directory with your on-premises, cloud and SaaS applications.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+
+ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 01/11/2017
+wacn.date: ''
+ms.author: markvi
+---
 
 # Managing Applications with Azure Active Directory
 Beyond the actual workflow or content, businesses have two basic requirements for all applications:
@@ -102,11 +103,10 @@ The built in application proxy enables you to publish your on-premises applicati
 Azure AD provides you with pre-integrated reporting and monitoring capabilities that enable you to know who has access to applications and when they actually used them.
 
 ## Related capabilities
-With Azure AD you can secure your applications with granular access policies and pre-integrated MFA. To learn more about Azure MFA see [Azure MFA](/home/features/multi-factor-authentication/).
+With Azure AD you can secure your applications with granular access policies and pre-integrated MFA. To learn more about Azure MFA see [Azure MFA](https://www.azure.cn/home/features/multi-factor-authentication/).
 
 ## Getting started
-To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](/documentation/articles/active-directory-integrating-applications-getting-started/).
+To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](./active-directory-integrating-applications-getting-started.md).
 
 ## See also
-[Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
-
+[Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)

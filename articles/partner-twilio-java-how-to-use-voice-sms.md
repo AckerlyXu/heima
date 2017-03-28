@@ -1,16 +1,16 @@
-<properties 
-	pageTitle="How to Use Twilio for Voice and SMS (Java) | Microsoft Azure" 
-	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." 
-	services="" 
-	documentationCenter="java" 
-	authors="devinrader" 
-	manager="twilio" 
-	editor="mollybos"/>
+---
+title: How to Use Twilio for Voice and SMS (Java) | Microsoft Azure
+description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java.
+services: ''
+documentationCenter: java
+authors: devinrader
+manager: twilio
+editor: mollybos
 
-<tags 
-	ms.service="multiple" 
-	ms.date="11/25/2014" 
-	wacn.date=""/>
+ms.service: multiple
+ms.date: 11/25/2014
+wacn.date: ''
+---
 
 # How to Use Twilio for Voice and SMS Capabilities in Java
 
@@ -50,10 +50,12 @@ TwiML is a set of XML-based instructions based on the Twilio verbs that inform T
 
 As an example, the following TwiML would convert the text **Hello World** to speech.
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <Response>
-       <Say>Hello World</Say>
-    </Response>
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+   <Say>Hello World</Say>
+</Response>
+```
 
 When your application calls the Twilio API, one of the API parameters is the URL that returns the TwiML response. For development purposes, you can use Twilio-provided URLs to provide the TwiML responses used by your applications. You could also host your own URLs to produce the TwiML responses, and another option is to use the **TwiMLResponse** object.
 
@@ -75,49 +77,55 @@ Within your code, you can add **import** statements at the top of your source fi
 
 For Java source files:
 
-    import com.twilio.*;
-    import com.twilio.sdk.*;
-    import com.twilio.sdk.resource.factory.*;
-    import com.twilio.sdk.resource.instance.*;
+```java
+import com.twilio.*;
+import com.twilio.sdk.*;
+import com.twilio.sdk.resource.factory.*;
+import com.twilio.sdk.resource.instance.*;
+```
 
 For Java Server Page (JSP) source files:
 
-    import="com.twilio.*"
-    import="com.twilio.sdk.*"
-    import="com.twilio.sdk.resource.factory.*"
-    import="com.twilio.sdk.resource.instance.*"
+```java
+import="com.twilio.*"
+import="com.twilio.sdk.*"
+import="com.twilio.sdk.resource.factory.*"
+import="com.twilio.sdk.resource.instance.*"
+```
 Depending on which Twilio packages or classes you want to use, your **import** statements may be different.
 
 ## <a id="howto_make_call"></a>How to: Make an outgoing call
 The following shows how to make an outgoing call using the **CallFactory** class. This code also uses a Twilio-provided site to return the Twilio Markup Language (TwiML) response. Substitute your values for the **From** and **To** phone numbers, and ensure that you verify the **From** phone number for your Twilio account prior to running the code.
 
-    // Use your account SID and authentication token instead
-    // of the placeholders shown here.
-    String accountSID = "your_twilio_account";
-    String authToken = "your_twilio_authentication_token";
+```
+// Use your account SID and authentication token instead
+// of the placeholders shown here.
+String accountSID = "your_twilio_account";
+String authToken = "your_twilio_authentication_token";
 
-    // Create an instance of the Twilio client.
-    TwilioRestClient client;
-    client = new TwilioRestClient(accountSID, authToken);
+// Create an instance of the Twilio client.
+TwilioRestClient client;
+client = new TwilioRestClient(accountSID, authToken);
 
-    // Retrieve the account, used later to create an instance of the CallFactory.
-    Account account = client.getAccount();
+// Retrieve the account, used later to create an instance of the CallFactory.
+Account account = client.getAccount();
 
-    // Use the Twilio-provided site for the TwiML response.
-    String Url="http://twimlets.com/message";
-    Url = Url + "?Message%5B0%5D=Hello%20World";
+// Use the Twilio-provided site for the TwiML response.
+String Url="http://twimlets.com/message";
+Url = Url + "?Message%5B0%5D=Hello%20World";
 
-    // Place the call From, To and URL values into a hash map. 
-    HashMap<String, String> params = new HashMap<String, String>();
-    params.put("From", "NNNNNNNNNN"); // Use your own value for the second parameter.
-    params.put("To", "NNNNNNNNNN");   // Use your own value for the second parameter.
-    params.put("Url", Url);
+// Place the call From, To and URL values into a hash map. 
+HashMap<String, String> params = new HashMap<String, String>();
+params.put("From", "NNNNNNNNNN"); // Use your own value for the second parameter.
+params.put("To", "NNNNNNNNNN");   // Use your own value for the second parameter.
+params.put("Url", Url);
 
-    // Create an instance of the CallFactory class.
-    CallFactory callFactory = account.getCallFactory();
+// Create an instance of the CallFactory class.
+CallFactory callFactory = account.getCallFactory();
 
-    // Make the call.
-    Call call = callFactory.create(params);
+// Make the call.
+Call call = callFactory.create(params);
+```
 
 For more information about the parameters passed in to the **CallFactory.create** method, see [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
@@ -126,28 +134,30 @@ As mentioned, this code uses a Twilio-provided site to return the TwiML response
 ## <a id="howto_send_sms"></a>How to: Send an SMS message
 The following shows how to send an SMS message using the **SmsFactory** class. The **From** number, **4155992671**, is provided by Twilio for trial accounts to send SMS messages. The **To** number must be verified for your Twilio account prior to running the code.
 
-    // Use your account SID and authentication token instead
-    // of the placeholders shown here.
-    String accountSID = "your_twilio_account";
-    String authToken = "your_twilio_authentication_token";
+```
+// Use your account SID and authentication token instead
+// of the placeholders shown here.
+String accountSID = "your_twilio_account";
+String authToken = "your_twilio_authentication_token";
 
-    // Create an instance of the Twilio client.
-    TwilioRestClient client;
-    client = new TwilioRestClient(accountSID, authToken);
+// Create an instance of the Twilio client.
+TwilioRestClient client;
+client = new TwilioRestClient(accountSID, authToken);
 
-    // Retrieve the account, used later to create an instance of the SmsFactory.
-    Account account = client.getAccount();
+// Retrieve the account, used later to create an instance of the SmsFactory.
+Account account = client.getAccount();
 
-    // Send an SMS message.
-    MessageFactory messageFactory = account.getMessageFactory();
-    
-    List<NameValuePair> params = new ArrayList<NameValuePair>();
-    params.add(new BasicNameValuePair("To", "+14159352345")); // Replace with a valid phone number for your account.
-    params.add(new BasicNameValuePair("From", "+14158141829")); // Replace with a valid phone number for your account.
-    params.add(new BasicNameValuePair("Body", "Where's Wallace?"));
-    
-    Message sms = messageFactory.create(params);
-        
+// Send an SMS message.
+MessageFactory messageFactory = account.getMessageFactory();
+
+List<NameValuePair> params = new ArrayList<NameValuePair>();
+params.add(new BasicNameValuePair("To", "+14159352345")); // Replace with a valid phone number for your account.
+params.add(new BasicNameValuePair("From", "+14158141829")); // Replace with a valid phone number for your account.
+params.add(new BasicNameValuePair("Body", "Where's Wallace?"));
+
+Message sms = messageFactory.create(params);
+```
+
 For more information about the parameters passed in to the **SmsFactory.create** method, see [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
 ## <a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own Website
@@ -157,36 +167,41 @@ Instead of relying on the Twilio-provided URL, you can create your own URL site 
 
 The following JSP page results in a TwiML response that says **Hello World** on the call.
 
-    <%@ page contentType="text/xml" %>
-    <Response> 
-        <Say>Hello World</Say>
-    </Response>
+```xml
+<%@ page contentType="text/xml" %>
+<Response> 
+    <Say>Hello World</Say>
+</Response>
+```
 
 The following JSP page results in a TwiML response that says some text, has several pauses, and says information about the Twilio API version and the Azure role name.
 
-
-    <%@ page contentType="text/xml" %>
-    <Response> 
-        <Say>Hello from Azure</Say>
-        <Pause></Pause>
-        <Say>The Twilio API version is <%= request.getParameter("ApiVersion") %>.</Say>
-        <Say>The Azure role name is <%= System.getenv("RoleName") %>.</Say>
-        <Pause></Pause>
-        <Say>Good bye.</Say>
-    </Response>
+```xml
+<%@ page contentType="text/xml" %>
+<Response> 
+    <Say>Hello from Azure</Say>
+    <Pause></Pause>
+    <Say>The Twilio API version is <%= request.getParameter("ApiVersion") %>.</Say>
+    <Say>The Azure role name is <%= System.getenv("RoleName") %>.</Say>
+    <Pause></Pause>
+    <Say>Good bye.</Say>
+</Response>
+```
 
 The **ApiVersion** parameter is available in Twilio voice requests (not SMS requests). To see the available request parameters for Twilio voice and SMS requests, see <https://www.twilio.com/docs/api/twiml/twilio_request> and <https://www.twilio.com/docs/api/twiml/sms/twilio_request>, respectively. The **RoleName** environment variable is available as part of an Azure deployment. (If you want to add custom environment variables so they could be picked up from **System.getenv**, see the environment variables section at [Miscellaneous Role Configuration Settings][misc_role_config_settings].)
 
 Once you have your JSP page set up to provide TwiML responses, use the URL of the JSP page as the URL passed into the **CallFactory.create** method. For example, if you have a Web Site named MyTwiML deployed to an Azure hosted service, and the name of the JSP page is mytwiml.jsp, the URL can be passed to **CallFactory.create** as shown in the following:
 
-    // Place the call From, To and URL values into a hash map. 
-    HashMap<String, String> params = new HashMap<String, String>();
-    params.put("From", "NNNNNNNNNN");
-    params.put("To", "NNNNNNNNNN");
-    params.put("Url", "http://<your_hosted_service>.chinacloudapp.cn/MyTwiML/mytwiml.jsp");
+```
+// Place the call From, To and URL values into a hash map. 
+HashMap<String, String> params = new HashMap<String, String>();
+params.put("From", "NNNNNNNNNN");
+params.put("To", "NNNNNNNNNN");
+params.put("Url", "http://<your_hosted_service>.chinacloudapp.cn/MyTwiML/mytwiml.jsp");
 
-    CallFactory callFactory = account.getCallFactory();
-    Call call = callFactory.create(params);
+CallFactory callFactory = account.getCallFactory();
+Call call = callFactory.create(params);
+```
 
 Another option for responding with TwiML is via the **TwiMLResponse** class, which is available in the **com.twilio.sdk.verbs** package.
 

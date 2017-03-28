@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Active Directory Developer Glossary | Azure"
-    description="A list of terms for commonly used Azure Active Directory developer concepts and features."
-    services="active-directory"
-    documentationcenter=""
-    author="bryanla"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="551512df-46fb-4219-a14b-9c9fc23998ba"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="bryanla" />
+---
+title: Azure Active Directory Developer Glossary | Azure
+description: A list of terms for commonly used Azure Active Directory developer concepts and features.
+services: active-directory
+documentationcenter: ''
+author: bryanla
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: bryanla
+---
 
 # Azure Active Directory developer glossary
 This article contains definitions for some of the core Azure Active Directory (AD) developer concepts, which are helpful when learning about application development for Azure AD.
@@ -177,21 +178,21 @@ Please use the following comments section to provide feedback and help us refine
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]:/documentation/articles/active-directory-application-manifest/
-[AAD-App-SP-Objects]:/documentation/articles/active-directory-application-objects/
-[AAD-Auth-Scenarios]:/documentation/articles/active-directory-authentication-scenarios/
-[AAD-Dev-Guide]:/documentation/articles/active-directory-developers-guide/
+[AAD-App-Manifest]:./active-directory-application-manifest.md
+[AAD-App-SP-Objects]:./active-directory-application-objects.md
+[AAD-Auth-Scenarios]:./active-directory-authentication-scenarios.md
+[AAD-Dev-Guide]:./active-directory-developers-guide.md
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]:/documentation/articles/active-directory-how-subscriptions-associated-directory/
+[AAD-How-Subscriptions-Assoc]:./active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]:/documentation/articles/active-directory-how-to-integrate/
-[AAD-How-To-Tenant]:/documentation/articles/active-directory-howto-tenant/
-[AAD-Integrating-Apps]:/documentation/articles/active-directory-integrating-applications/
-[AAD-Multi-Tenant-Overview]:/documentation/articles/active-directory-devhowto-multi-tenant-overview/
+[AAD-How-To-Tenant]:./active-directory-howto-tenant.md
+[AAD-Integrating-Apps]:./active-directory-integrating-applications.md
+[AAD-Multi-Tenant-Overview]:./active-directory-devhowto-multi-tenant-overview.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
-[AAD-Tokens-Claims]:/documentation/articles/active-directory-token-and-claims/
+[AAD-Tokens-Claims]:./active-directory-token-and-claims.md
 [AZURE-classic-portal]: https://manage.windowsazure.cn
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32

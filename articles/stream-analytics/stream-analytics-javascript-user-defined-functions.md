@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Stream Analytics JavaScript user-defined functions | Azure"
-    description="Perform advanced query mechanics with JavaScript user-defined functions"
-    keywords="javascript, user defined functions, udf"
-    services="stream-analytics"
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid=""
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="02/01/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Azure Stream Analytics JavaScript user-defined functions | Azure
+description: Perform advanced query mechanics with JavaScript user-defined functions
+keywords: javascript, user defined functions, udf
+services: stream-analytics
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: ''
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 02/01/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Azure Stream Analytics JavaScript user-defined functions
 Azure Stream Analytics supports user-defined functions written in JavaScript. With the rich set of **String**, **RegExp**, **Math**, **Array**, and **Date** methods that JavaScript provides, complex data transformations with Stream Analytics jobs become easier to create.
@@ -45,10 +46,12 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
 4. On the **New Function** blade, for **Function Type**, select **JavaScript**. A default function template appears in the editor.
 5. For the **UDF alias**, enter **hex2Int**, and change the function implementation as follows:
 
-        // Convert Hex value to integer.
-        function main(hexValue) {
-            return parseInt(hexValue, 16);
-        }
+    ```
+    // Convert Hex value to integer.
+    function main(hexValue) {
+        return parseInt(hexValue, 16);
+    }
+    ```
 
 6. Select **Save**. Your function appears in the list of functions.
 7. Select the new **hex2Int** function, and check the function definition. All functions have a **UDF** prefix added to the function alias. You need to *include the prefix* when you call the function in your Stream Analytics query. In this case, you call **UDF.hex2Int**.
@@ -58,13 +61,15 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
 1. In the query editor, under **JOB TOPOLOGY**, select **Query**.
 2. Edit your query, and then call the user-defined function, like this:
 
-        SELECT
-            time,
-            UDF.hex2Int(offset) AS IntOffset
-        INTO
-            output
-        FROM
-            InputStream
+    ```
+    SELECT
+        time,
+        UDF.hex2Int(offset) AS IntOffset
+    INTO
+        output
+    FROM
+        InputStream
+    ```
 
 3. To upload the sample data file, right-click the job input.
 4. To test your query, select **Test**.
@@ -108,28 +113,32 @@ If you have a follow-up processing step that uses a Stream Analytics job output 
 
 **JavaScript user-defined function definition:**
 
-    function main(x) {
-    return JSON.stringify(x);
-    }
+```
+function main(x) {
+return JSON.stringify(x);
+}
+```
 
 **Sample query:**
 
-    SELECT
-        DataString,
-        DataValue,
-        HexValue,
-        UDF.json_stringify(input) As InputEvent
-    INTO
-        output
-    FROM
-        input PARTITION BY PARTITIONID
+```
+SELECT
+    DataString,
+    DataValue,
+    HexValue,
+    UDF.json_stringify(input) As InputEvent
+INTO
+    output
+FROM
+    input PARTITION BY PARTITIONID
+```
 
 ## Get help
 For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/)
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics query language reference](https://msdn.microsoft.com/zh-cn/library/azure/dn834998.aspx)
 * [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/zh-cn/library/azure/dn835031.aspx)

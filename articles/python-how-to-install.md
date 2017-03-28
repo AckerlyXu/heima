@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Install Python and the SDK - Azure"
-	description="Learn how to install Python and the SDK to use with Azure."
-	services=""
-	documentationCenter="python"
-	authors="lmazuel"
-	manager="wpickett"
-	editor=""/>
+---
+title: Install Python and the SDK - Azure
+description: Learn how to install Python and the SDK to use with Azure.
+services: ''
+documentationCenter: python
+authors: lmazuel
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="lmazuel"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: lmazuel
+---
 
 # Installing Python and the SDK
 
@@ -81,7 +81,7 @@ Since it's a preview release, you need to use the `--pre` flag:
 ```console
    $ pip install --pre azure
 ```
-   
+
 or directly
 
 ```console
@@ -91,7 +91,6 @@ or directly
 ## Getting More Packages
 
 The [Python Package Index][] (PyPI) has a rich selection of Python libraries.  If you chose to install a Distro, you'll already have most of the interesting bits for various scenarios from web development to Technical Computing.
-
 
 ## Python Tools for Visual Studio
 
@@ -124,7 +123,6 @@ For information on how to setup a Linux VM, please see the [Create a Virtual Mac
 Using Git deployment, you can develop a Python web application and publish it to an Azure Website from any operating system.  When you push your repository to Azure, it will automatically create a virtual environment and pip install your required packages.
 
 For more information on developing and publishing Azure Websites, see the tutorials for [Creating Websites with Django][], [Creating Websites with Bottle][], and [Creating Websites with Flask][]. For more general information on using any WSGI-compliant framework, see [Configuring Python with Azure Websites][].
-
 
 ## Additional Software and Resources:
 

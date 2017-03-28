@@ -1,28 +1,28 @@
-<properties
-    pageTitle="Azure Site Recovery support matrix for replicating to Azure | Azure"
-    description="Summarizes the supported operating systems and components for Azure Site Recovery"
-    services="site-recovery"
-    documentationcenter=""
-    author="Rajani-Janaki-Ram"
-    manager="rochakm"
-    editor="" />
-<tags
-    ms.assetid="ms.service: site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="01/25/2017"
-    wacn.date=""
-    ms.author="rajanaki" />
+---
+title: Azure Site Recovery support matrix for replicating to Azure | Azure
+description: Summarizes the supported operating systems and components for Azure Site Recovery
+services: site-recovery
+documentationcenter: ''
+author: Rajani-Janaki-Ram
+manager: rochakm
+editor: ''
+
+ms.assetid: ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 01/25/2017
+wacn.date: ''
+ms.author: rajanaki
+---
 
 # Azure Site Recovery support matrix for replicating to Azure
->[AZURE.SELECTOR]
-- [Replicate to Azure](site-recovery-support-matrix-to-azure.md)
-- [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
+>[!div class="op_single_selector"]
+>- [Replicate to Azure](site-recovery-support-matrix-to-azure.md)
+>- [Replicate to customer-owned secondary site](site-recovery-support-matrix-to-sec-site.md)
 
 This article summarizes supported configurations and components for Azure Site Recovery when replicating and recovering to Azure. For more about prerequisites for Azure Site Recovery, see [Site Recovery best practices](site-recovery-best-practices.md).
-
 
 ## Support for deployment options
 
@@ -31,7 +31,6 @@ This article summarizes supported configurations and components for Azure Site R
 **Azure portal** | On-premises VMware VMs to Azure storage, with Azure Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V VMs (not in Virtual Machine Manager clouds) to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs. | On-premises Hyper-V (VMs in Virtual Machine Manager clouds) to Azure storage, with Resource Manager or classic storage and networks.<br/><br/> Failover to Resource Manager-based or classic VMs.
 **Classic portal** | Maintenance mode only. New vaults can't be created. | Maintenance mode only. | Maintenance mode only.
 **PowerShell** | Not currently supported. | Supported | Supported
-
 
 ## Support for datacenter management servers
 
@@ -64,7 +63,6 @@ The following table summarizes replicated operating system support in various de
  **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
 --- | --- | ---
 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 7.1, 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
-
 
 >[!Note]
 >Storage support for Linux versions
@@ -110,7 +108,6 @@ Reserved IP | Yes | Yes | Yes
 IPv4 | Yes | Yes | Yes
 Retain source IP | Yes | Yes | Yes
 
-
 ## Support for storage
 The following tables summarize storage configuration support in various deployment scenarios that use Azure Site Recovery to replicate to Azure.
 
@@ -153,7 +150,6 @@ Encryption at rest(SSE)| Yes | Yes | Yes
 Premium storage | Yes | No | No
 Import/export service | No | No | No
 
-
 ## Support for Azure compute configuration
 
 **Compute feature** | **VMware/physical server** | **Hyper-V (no Virtual Machine Manager)** | **Hyper-V (with Virtual Machine Manager)**
@@ -188,7 +184,6 @@ You can deploy Site Recovery to replicate virtual machines and physical servers 
 Move vault across resource groups<br/><br/> Within and across subscriptions | No | No | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No | No
 
-
 ## Support for Provider and Agent
 
 **Name** | **Description** | **Latest version** | **Details**
@@ -197,11 +192,6 @@ Move storage, network, Azure VMs across resource groups<br/><br/> Within and acr
 **Azure Site Recovery Unified Setup (VMware to Azure)** | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | 9.3.4246.1 (available from portal) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
 **Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate  | N/A (available from portal) | N/A
 **Microsoft Azure Recovery Services (MARS) agent** | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without a Virtual Machine Manager server) | Latest agent ([available from portal](http://aka.ms/latestmarsagent)) |
-
-
-
-
-
 
 ## Next steps
 [Prepare for deployment](site-recovery-best-practices.md)

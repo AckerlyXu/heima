@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure App Service: Scaling App Service Applications"
-    description="Learn the ins and outs of scaling Application in App Service."
-    keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
-    services="app-service"
-    documentationcenter=""
-    author="btardif"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="f403c971-4450-432b-8cea-3eeb426c0147"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/07/2016"
-    wacn.date=""
-    ms.author="byvinyal" />
+---
+title: Azure App Service: Scaling App Service Applications
+description: Learn the ins and outs of scaling Application in App Service.
+keywords: app service, azure app service, scale, scalable, app service plan, app service cost
+services: app-service
+documentationcenter: ''
+author: btardif
+manager: erikre
+editor: ''
+
+ms.assetid: f403c971-4450-432b-8cea-3eeb426c0147
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/07/2016
+wacn.date: ''
+ms.author: byvinyal
+---
 
 # Azure App Service: Scaling App Service Applications
 Applications hosted in Azure App Service can achieve massive scale.
@@ -41,4 +42,4 @@ This section will help you understand all the factors and help you devise a
 strategy that takes advantage of the necessary App Service features to achieve
 your scalability goals.
 
-[AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
+[!INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]

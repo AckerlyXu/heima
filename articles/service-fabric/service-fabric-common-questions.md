@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Common questions about Microsoft Azure Service Fabric | Azure"
-    description="Frequently asked questions about Service Fabric and their answers"
-    services="service-fabric"
-    documentationcenter=".net"
-    author="seanmck"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="5a179703-ff0c-4b8e-98cd-377253295d12"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/19/2017"
-    wacn.date=""
-    ms.author="seanmck" />
+---
+title: Common questions about Microsoft Azure Service Fabric | Azure
+description: Frequently asked questions about Service Fabric and their answers
+services: service-fabric
+documentationcenter: .net
+author: seanmck
+manager: timlt
+editor: ''
+
+ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/19/2017
+wacn.date: ''
+ms.author: seanmck
+---
 
 # Commonly asked Service Fabric questions
 
@@ -59,18 +60,17 @@ The three node cluster configuration is supported for dev/test because you can s
 
 In general, no. Service Fabric stores state on local, ephemeral disks, meaning that if the virtual machine is moved to a different host, the data does not move with it. In normal operation, that is not a problem as the new node is brought up to date by other nodes. However, if you stop all nodes and restart them later, there is a significant possibility that most of the nodes start on new hosts and make the system unable to recover.
 
-If you would like to create clusters for testing your application before it is deployed, we recommend that you dynamically create those clusters as part of your [continuous integration/continuous deployment pipeline](/documentation/articles/service-fabric-set-up-continuous-integration/).
+If you would like to create clusters for testing your application before it is deployed, we recommend that you dynamically create those clusters as part of your [continuous integration/continuous deployment pipeline](./service-fabric-set-up-continuous-integration.md).
 
 ## Application Design
 
 ### What's the best way to query data across partitions of a Reliable Collection?
 
-Reliable collections are typically [partitioned](/documentation/articles/service-fabric-concepts-partitioning/) to enable scale out for greater performance and throughput. That means that the state for a given service may be spread across 10s or 100s of machines. To perform operations over that full data set, you have a few options:
+Reliable collections are typically [partitioned](./service-fabric-concepts-partitioning.md) to enable scale out for greater performance and throughput. That means that the state for a given service may be spread across 10s or 100s of machines. To perform operations over that full data set, you have a few options:
 
 - Create a service that queries all partitions of another service to pull in the required data.
 - Create a service that can receive data from all partitions of another service.
 - Periodically push data from each service to an external store. This approach is only appropriate if the queries you're performing are not part of your core business logic.
-
 
 ### What's the best way to query data across my actors?
 
@@ -103,7 +103,7 @@ As with reliable services, the amount of data that you can store in an actor ser
 
 ### How does Service Fabric relate to containers?
 
-Containers offer a simple way to package services and their dependencies such that they run consistently in all environments and can operate in an isolated fashion on a single machine. Service Fabric offers a way to deploy and manage services, including [services that have been packaged in a container](/documentation/articles/service-fabric-containers-overview/).
+Containers offer a simple way to package services and their dependencies such that they run consistently in all environments and can operate in an isolated fashion on a single machine. Service Fabric offers a way to deploy and manage services, including [services that have been packaged in a container](./service-fabric-containers-overview.md).
 
 ### Are you planning to open source Service Fabric?
 

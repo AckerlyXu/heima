@@ -1,19 +1,19 @@
-<properties
-	pageTitle="How to send scheduled notifications | Azure"
-	description="This topic describes using Scheduled Notifications with Azure Notification Hubs."
-	services="notification-hubs"
-	documentationCenter=".net"
-	keywords="push notifications,push notification,scheduling push notifications"
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""/>
-<tags
-	ms.service="notification-hubs"
-	ms.date="06/29/2016"
-	wacn.date=""/>
+---
+title: How to send scheduled notifications | Azure
+description: This topic describes using Scheduled Notifications with Azure Notification Hubs.
+services: notification-hubs
+documentationCenter: .net
+keywords: push notifications,push notification,scheduling push notifications
+authors: wesmc7777
+manager: erikre
+editor: ''
+
+ms.service: notification-hubs
+ms.date: 06/29/2016
+wacn.date: ''
+---
 
 # How To: Send scheduled notifications
-
 
 ##Overview
 
@@ -21,11 +21,15 @@ If you have a scenario in which you want to send a notification at some point in
 
 When sending a notification, simply use the [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) class in the Notification Hubs SDK as shown in the following example:
 
-	Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
-	var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
+```
+Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
+var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
+```
 
 Also, you can cancel a previously scheduled notification using its notificationId:
 
-	await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
+```
+await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
+```
 
 There are no limits on the number of scheduled notifications you can send.

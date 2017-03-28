@@ -1,25 +1,25 @@
-<properties
-    pageTitle="Azure Monitor Overview | Azure"
-    description="Azure Monitor collects stats for use in alerts, webhooks, autoscale, and automation. Article also list other Microsoft monitoring options."
-    author="rboucher"
-    manager="carmonm"
-    editor=""
-    services="monitoring-and-diagnostics"
-    documentationcenter="monitoring-and-diagnostics" />
-<tags
-    ms.assetid="1b962c74-8d36-4778-b816-a893f738f92d"
-    ms.service="monitoring-and-diagnostics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/02/2017"
-    wacn.date=""
-    ms.author="robb" />
+---
+title: Azure Monitor Overview | Azure
+description: Azure Monitor collects stats for use in alerts, webhooks, autoscale, and automation. Article also list other Microsoft monitoring options.
+author: rboucher
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+
+ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/02/2017
+wacn.date: ''
+ms.author: robb
+---
 
 # Overview of Azure Monitor
 This article provides a conceptual overview of monitoring Azure resources. It provides pointers to information on specific types of resources.  For high-level information on monitoring your application from non-Azure point of view, see [Monitoring and diagnostics guidance](../best-practices-monitoring.md).
-
 
 Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
@@ -51,7 +51,7 @@ Collectable metrics vary based on the resource type. For example, Virtual Machin
 
 For compute resources you can obtain metrics on the Guest OS and diagnostics modules like Azure Diagnostics. Azure Diagnostics helps gather and route diagnostic data to other locations, including Azure storage.
 
-A list of currently collectable metrics is available at [supported metrics](/documentation/articles/monitoring-supported-metrics/).
+A list of currently collectable metrics is available at [supported metrics](./monitoring-supported-metrics.md).
 
 ### Application - Diagnostics Logs, Application Logs, and Metrics
 **Compute Only**
@@ -68,7 +68,6 @@ Types of metrics include
 - Manifest based ETW
 - Crash Dumps
 - Customer Error Logs
-
 
 ## Uses for Monitoring Data
 
@@ -116,14 +115,12 @@ Examples include:
 - Call a web URL (webhook) to execute an action in a system outside of Azure
 - Start a runbook in Azure automation to perform any variety of tasks
 
-
-
 ## Methods of Use
 In general, you can manipulate data tracking, routing, and retrieval using one of the following methods. Not all methods are available for all actions or data types.
 
 - [Azure portal](https://portal.azure.cn)
-- [PowerShell](/documentation/articles/insights-powershell-samples/)  
-- [Cross-platform Command Line Interface (CLI)](/documentation/articles/insights-cli-samples/)
+- [PowerShell](./insights-powershell-samples.md)  
+- [Cross-platform Command Line Interface (CLI)](./insights-cli-samples.md)
 - [REST API](https://msdn.microsoft.com/zh-cn/library/dn931943.aspx)
 - [.NET SDK](https://msdn.microsoft.com/zh-cn/library/dn802153.aspx)
 
@@ -132,14 +129,13 @@ Azure has offerings available for monitoring your services from bare-metal infra
 
 - [Azure Monitor](http://aka.ms/azmondocs) – Offers visualization, query, routing, alerting, autoscale, and automation on data both from the Azure infrastructure (Activity Log) and each individual Azure resource (Diagnostic Logs). This article is part of the Azure Monitor documentation. The Azure Monitor name was released September 27 at Ignite 2016.  The previous name was "Azure Insights."  
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) – Provides rich detection and diagnostics for issues at the application layer of your service, well-integrated on top of data from Azure Monitoring. It's the default diagnostics platform for App Service Web Apps.  You can route data from other services to it.  
-- [Log Analytics](/documentation/services/log-analytics/) part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) – Provides a holistic IT management solution for both on-premises and third-party cloud-based infrastructure (such as AWS) in addition to Azure resources.  Data from Azure Monitor can be routed directly to Log Analytics so you can see metrics and logs for your entire environment in one place.     
-
+- [Log Analytics](../log-analytics/index.md) part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) – Provides a holistic IT management solution for both on-premises and third-party cloud-based infrastructure (such as AWS) in addition to Azure resources.  Data from Azure Monitor can be routed directly to Log Analytics so you can see metrics and logs for your entire environment in one place.     
 
 ## Next steps
 Learn more about
 
-- [Getting Started with Azure Monitor](/documentation/articles/monitoring-get-started/) 
-- [Azure Diagnostics](/documentation/articles/azure-diagnostics/) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, or Service Fabric application.
-- [Application Insights](/documentation/services/application-insights/) if you are trying to diagnostic problems in your App Service Web app.
-- [Troubleshooting Azure Storage](/documentation/articles/storage-e2e-troubleshooting/) when using Storage Blobs, Tables or Queues
-- [Log Analytics](/documentation/services/log-analytics/) and the [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
+- [Getting Started with Azure Monitor](./monitoring-get-started.md) 
+- [Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, or Service Fabric application.
+- [Application Insights](../application-insights/index.md) if you are trying to diagnostic problems in your App Service Web app.
+- [Troubleshooting Azure Storage](../storage/storage-e2e-troubleshooting.md) when using Storage Blobs, Tables or Queues
+- [Log Analytics](../log-analytics/index.md) and the [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure IoT Hub How To | Azure"
-    description="As a developer, how do I use the various IoT Hub features?"
-    services="iot-hub"
-    documentationcenter=""
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="24376318-5344-4a81-a1e6-0003ed587d53"
-    ms.service="iot-hub"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Azure IoT Hub How To | Azure
+description: As a developer, how do I use the various IoT Hub features?
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # How to use Azure IoT Hub
 
@@ -24,7 +25,6 @@ You have various options to learn how to develop for the IoT Hub service. You ca
 ## The developer guide
 
 As a developer, you can read detailed conceptual guidance about IoT Hub in the [Developer Guide][lnk-devguide]. This guide includes detailed descriptions of all IoT Hub features that help you to learn how to use them and how to choose between them when multiple options are available
-
 
 ## The tutorials
 
@@ -52,13 +52,13 @@ If you prefer to learn about specific IoT Hub features by working through hands-
 
 To learn more about the IoT Hub service, see the [Developer Guide][lnk-devguide].
 
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
-[lnk-routes-tutorial]: /documentation/articles/iot-hub-csharp-csharp-process-d2c/
-[lnk-c2d-tutorial]: /documentation/articles/iot-hub-csharp-csharp-c2d/
-[lnk-upload-tutorial]: /documentation/articles/iot-hub-csharp-csharp-file-upload/
-[lnk-twin-tutorial]: /documentation/articles/iot-hub-node-node-twin-getstarted/
-[lnk-methods-tutorial]: /documentation/articles/iot-hub-node-node-direct-methods/
-[lnk-dm-tutorial]: /documentation/articles/iot-hub-node-node-device-management-get-started/
-[lnk-properties-tutorial]: /documentation/articles/iot-hub-node-node-twin-how-to-configure/
-[lnk-jobs-tutorial]: /documentation/articles/iot-hub-node-node-firmware-update/
-[lnk-schedule-tutorial]: /documentation/articles/iot-hub-node-node-schedule-jobs/
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-routes-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d-tutorial]: ./iot-hub-csharp-csharp-c2d.md
+[lnk-upload-tutorial]: ./iot-hub-csharp-csharp-file-upload.md
+[lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
+[lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
+[lnk-dm-tutorial]: ./iot-hub-node-node-device-management-get-started.md
+[lnk-properties-tutorial]: ./iot-hub-node-node-twin-how-to-configure.md
+[lnk-jobs-tutorial]: ./iot-hub-node-node-firmware-update.md
+[lnk-schedule-tutorial]: ./iot-hub-node-node-schedule-jobs.md

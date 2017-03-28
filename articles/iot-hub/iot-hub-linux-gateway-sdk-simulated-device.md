@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Simulate a device with the Azure IoT Gateway SDK (Linux) | Azure"
-    description="How to use the Azure IoT Gateway SDK on Linux to create a simulated device that sends telemetry through a gateway to an IoT hub."
-    services="iot-hub"
-    documentationcenter=""
-    author="chipalost"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="11e7bf28-ee3d-48d6-a386-eb506c7a31cf"
-    ms.service="iot-hub"
-    ms.devlang="cpp"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/29/2016"
-    wacn.date=""
-    ms.author="andbuc" />
+---
+title: Simulate a device with the Azure IoT Gateway SDK (Linux) | Azure
+description: How to use the Azure IoT Gateway SDK on Linux to create a simulated device that sends telemetry through a gateway to an IoT hub.
+services: iot-hub
+documentationcenter: ''
+author: chipalost
+manager: timlt
+editor: ''
+
+ms.assetid: 11e7bf28-ee3d-48d6-a386-eb506c7a31cf
+ms.service: iot-hub
+ms.devlang: cpp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/29/2016
+wacn.date: ''
+ms.author: andbuc
+---
 
 # Use the Azure IoT Gateway SDK to send device-to-cloud messages with a simulated device (Linux)
 
-[AZURE.INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
+[!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample
 
@@ -35,7 +36,8 @@ To build the sample:
 2. Navigate to the root folder in your local copy of the **azure-iot-gateway-sdk** repository.
 3. Run the **tools/build.sh --skip-unittests** script. This script uses the **cmake** utility to create a folder called **build** in the root folder of your local copy of the **azure-iot-gateway-sdk** repository and generate a makefile. The script then builds the solution, skipping unit tests. Remove the **--skip-unittests** parameter if you want to build and run the unit tests. 
 
-> [AZURE.NOTE]  Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
+> [!NOTE]
+>  Every time you run the **build.sh** script, it deletes and then recreates the **build** folder in the root folder of your local copy of the **azure-iot-gateway-sdk** repository.
 
 To run the sample:
 
@@ -150,7 +152,7 @@ To run the sample:
 
 1. In your shell, navigate to the **azure-iot-gateway-sdk/build** folder.
 2. Run the following command:
-   
+
     ```
     ./samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./../samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
     ```
@@ -169,12 +171,12 @@ To further explore the capabilities of IoT Hub, see:
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-[lnk-physical-device]: /documentation/articles/iot-hub-gateway-sdk-physical-device/
+[lnk-physical-device]: ./iot-hub-gateway-sdk-physical-device.md
 
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
-[lnk-securing]: /documentation/articles/iot-hub-security-ground-up/
-[lnk-create-hub]: /documentation/articles/iot-hub-create-through-portal/
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-securing]: ./iot-hub-security-ground-up.md
+[lnk-create-hub]: ./iot-hub-create-through-portal.md

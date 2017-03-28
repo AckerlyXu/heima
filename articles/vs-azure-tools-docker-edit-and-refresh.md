@@ -1,15 +1,16 @@
-<properties
-   pageTitle="Debugging apps in a local Docker container | Azure"
-   description="Learn how to modify an app that is running in a local Docker container, refresh the container via Edit and Refresh and set debugging breakpoints"
-   services="azure-container-service"
-   documentationCenter="na"
-   authors="allclark"
-   manager="douge"
-   editor="" />
-<tags
-   ms.service="multiple"
-   ms.date="07/22/2016"
-   wacn.date="" />
+---
+title: Debugging apps in a local Docker container | Azure
+description: Learn how to modify an app that is running in a local Docker container, refresh the container via Edit and Refresh and set debugging breakpoints
+services: azure-container-service
+documentationCenter: na
+authors: allclark
+manager: douge
+editor: ''
+
+ms.service: multiple
+ms.date: 07/22/2016
+wacn.date: ''
+---
 
 # Debugging apps in a local Docker container
 
@@ -20,7 +21,8 @@ This article will illustrate how to use the "Edit and Refresh" feature to start 
 make any necessary changes, and then refresh the browser to see those changes.
 It will also show you how to set breakpoints for debugging.
 
-> [AZURE.NOTE] Windows Container support will be coming in a future release
+> [!NOTE]
+> Windows Container support will be coming in a future release
 
 ## Prerequisites
 The following tools need to be installed.
@@ -33,16 +35,15 @@ To run Docker containers locally, you'll need a local docker client.
 You can use the released [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) which requires Hyper-V to be disabled,
 or you can use [Docker for Windows Beta](https://beta.docker.com) which uses Hyper-V, and requires Windows 10.
 
-If using Docker Toolbox, you'll need to [configure the Docker client](/documentation/articles/vs-azure-tools-docker-setup/)
+If using Docker Toolbox, you'll need to [configure the Docker client](./vs-azure-tools-docker-setup.md)
 
 ## 1. Create a web app
 
-[AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
+[!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
 ## 2. Add Docker support
 
-[AZURE.INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
-
+[!INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
 ## 3. Edit your code and refresh
 
@@ -59,29 +60,30 @@ To quickly iterate changes, you can start your application within a container, a
 
 1. Add the following HTML content to the end of the file and save the changes.
 
-	```
-	<h1>Hello from a Docker Container!</h1>
-	```
+    ```
+    <h1>Hello from a Docker Container!</h1>
+    ```
 
-1.	Viewing the output window, when the .NET build is completed and you see these lines, switch back to your browser and refresh the About page.
+1. Viewing the output window, when the .NET build is completed and you see these lines, switch back to your browser and refresh the About page.
 
+    ```
+    Now listening on: http://*:80
+    Application started. Press Ctrl+C to shut down
+    ```
 
-	    Now listening on: http://*:80
-	    Application started. Press Ctrl+C to shut down
-
-1.	Your changes have been applied!
+1. Your changes have been applied!
 
 ## 4. Debug with breakpoints
 
 Often, changes will need further inspection, leveraging the debugging features of Visual Studio.
 
-1.	Return to Visual Studio and open `Controllers\HomeController.cs`
+1. Return to Visual Studio and open `Controllers\HomeController.cs`
 
 1.  Replace the contents of the About() method with the following:
 
-	```
-	string message = "Your application description page from wthin a Container";
-	ViewData["Message"] = message;
+    ```
+    string message = "Your application description page from wthin a Container";
+    ViewData["Message"] = message;
     ````
 
 1.  Set a breakpoint to the left of the `string message`... line.
@@ -92,7 +94,7 @@ Often, changes will need further inspection, leveraging the debugging features o
 
 1.  Switch to Visual Studio to view the breakpoint, and inspect the value of message.
 
-	![][2]
+    ![][2]
 
 ##Summary
 
@@ -101,7 +103,7 @@ with the production realism of developing within a Docker container.
 
 ## Troubleshooting
 
-[Troubleshooting Visual Studio Docker Development](/documentation/articles/vs-azure-tools-docker-troubleshooting-docker-errors/)
+[Troubleshooting Visual Studio Docker Development](./vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## More about Docker with Visual Studio, Windows, and Azure
 

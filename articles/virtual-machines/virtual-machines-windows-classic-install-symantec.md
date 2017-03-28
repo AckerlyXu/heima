@@ -1,28 +1,29 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Install Symantec Endpoint Protection on a Windows VM in Azure | Azure"
-    description="Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM created with the Classic deployment model."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="iainfoulds"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="19dcebc7-da6b-4510-907b-d64088e81fa2"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-multiple"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/14/2017"
-    wacn.date=""
-    ms.author="iainfou" />
+---
+title: Install Symantec Endpoint Protection on a Windows VM in Azure | Azure
+description: Learn how to install and configure the Symantec Endpoint Protection security extension on a new or existing Azure VM created with the Classic deployment model.
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 19dcebc7-da6b-4510-907b-d64088e81fa2
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-multiple
+ms.devlang: na
+ms.topic: article
+ms.date: 03/14/2017
+wacn.date: ''
+ms.author: iainfou
+---
 
 # How to install and configure Symantec Endpoint Protection on a Windows VM
-> [AZURE.IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
 
 This article shows you how to install and configure the Symantec Endpoint Protection client on an existing virtual machine (VM) running Windows Server. This full client includes services such as virus and spyware protection, firewall, and intrusion prevention. The client is installed as a security extension by using the VM Agent.
 
@@ -36,22 +37,26 @@ Before you begin, you need the following:
 
 First, verify that the VM Agent is already installed on the virtual machine. Fill in the cloud service name and virtual machine name, and then run the following commands at an administrator-level Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters.
 
-> [AZURE.TIP]
+> [!TIP]
 > If you don't know the cloud service and virtual machine names, run **Get-AzureVM** to list the names for all virtual machines in your current subscription.
 
-    $CSName = "<cloud service name>"
-    $VMName = "<virtual machine name>"
-    $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
-    write-host $vm.VM.ProvisionGuestAgent
+```powershell
+$CSName = "<cloud service name>"
+$VMName = "<virtual machine name>"
+$vm = Get-AzureVM -ServiceName $CSName -Name $VMName
+write-host $vm.VM.ProvisionGuestAgent
+```
 
 If the **write-host** command displays **True**, the VM Agent is installed. If it displays **False**, see the instructions and a link to the download in the Azure blog post [VM Agent and Extensions - Part 2][Agent].
 
 If the VM Agent is installed, run these commands to install the Symantec Endpoint Protection agent.
 
-    $Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
+```powershell
+$Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
 
-    Set-AzureVMExtension -Publisher Symantec -Version $Agent.Version -ExtensionName SymantecEndpointProtection \
-        -VM $vm | Update-AzureVM
+Set-AzureVMExtension -Publisher Symantec -Version $Agent.Version -ExtensionName SymantecEndpointProtection \
+    -VM $vm | Update-AzureVM
+```
 
 To verify that the Symantec security extension has been installed and is up-to-date:
 
@@ -69,12 +74,12 @@ To verify that the Symantec security extension has been installed and is up-to-d
 
 [Portal]: http://manage.windowsazure.cn
 
-[Create]: /documentation/articles/virtual-machines-windows-classic-tutorial/
+[Create]: ./virtual-machines-windows-classic-tutorial.md
 
 [PS]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
 [Agent]: https://azure.microsoft.com/zh-cn/blog/vm-agent-and-extensions-part-2/
 
-[Logon]: /documentation/articles/virtual-machines-windows-classic-connect-logon/
+[Logon]: ./virtual-machines-windows-classic-connect-logon.md
 
-[Ext]: /documentation/articles/virtual-machines-windows-extensions-features/
+[Ext]: ./virtual-machines-windows-extensions-features.md

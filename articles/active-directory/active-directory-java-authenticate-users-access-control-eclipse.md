@@ -1,26 +1,27 @@
-<properties
-    pageTitle="How to use Access Control (Java) | Azure"
-    description="Learn how to develop and use Access Control with Java in Azure."
-    services="active-directory"
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="247dfd59-0221-4193-97ec-4f3ebe01d3c7"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm" />
+---
+title: How to use Access Control (Java) | Azure
+description: Learn how to develop and use Access Control with Java in Azure.
+services: active-directory
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm
+---
 
 # How to Authenticate Web Users with Azure Access Control Service Using Eclipse
 This guide will show you how to use the Azure Access Control Service (ACS) within the Azure Toolkit for Eclipse. For more information on ACS, see the [Next steps](#next_steps) section.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The Azure Access Services Control Filter is a community technology preview. As pre-release software, it is not formally supported by Microsoft.
 > 
 > 
@@ -123,9 +124,9 @@ To complete the tasks in this guide, you will need the following:
 - Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>. 
 - A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, or Jetty.
 - an Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
-- The Azure Toolkit for Eclipse, April 2014 release or later. For more information, see [Installing the Azure Toolkit for Eclipse](/documentation/articles/azure-toolkit-for-eclipse-installation/).
+- The Azure Toolkit for Eclipse, April 2014 release or later. For more information, see [Installing the Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse-installation.md).
 - An X.509 certificate to use with your application. You will need this certificate in both public certificate (.cer) and Personal Information Exchange (.PFX) format. (Options for creating this certificate will be described later in this tutorial).
-- Familiarity with the Azure compute emulator and deployment techniques discussed at [Creating a Hello World Application for Azure in Eclipse](/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/).
+- Familiarity with the Azure compute emulator and deployment techniques discussed at [Creating a Hello World Application for Azure in Eclipse](../azure-toolkit-for-eclipse-creating-a-hello-world-application.md).
 
 ## Create an ACS Namespace
 To begin using Access Control Service (ACS) in Azure, you must
@@ -163,7 +164,7 @@ application as a valid RP application.
 1. On the ACS Management Portal, click **Relying party applications**.
 2. On the **Relying Party Applications** page, click **Add**.
 3. On the **Add Relying Party Application** page, do the following:
-   
+
    1. In **Name**, type the name of the RP. For purposes of this tutorial, type **Azure Web
       App**.
    2. In **Mode**, select **Enter settings manually**.
@@ -224,32 +225,34 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 
 ## <a name="create-java-app"></a>Create a Java web application
 1. Within Eclipse, at the menu click **File**, click **New**, and then click **Dynamic Web Project**. (If you don't see **Dynamic Web Project** listed as an available project after clicking **File**, **New**, then do the following: click **File**, click **New**, click **Project**, expand **Web**, click **Dynamic Web Project**, and click **Next**.) For purposes of this tutorial, name the project **MyACSHelloWorld**. (Ensure you use this name, subsequent steps in this tutorial expect your WAR file to be named MyACSHelloWorld). Your screen will appear similar to the following:
-   
+
     ![Create a Hello World project for ACS exampple][create_acs_hello_world]
-   
+
     Click **Finish**.
 2. Within Eclipse's Project Explorer view, expand **MyACSHelloWorld**. Right-click **WebContent**, click **New**, and then click **JSP File**.
 3. In the **New JSP File** dialog, name the file **index.jsp**. Keep the parent folder as MyACSHelloWorld/WebContent, as shown in the following:
-   
+
     ![Add a JSP file for ACS example][add_jsp_file_acs]
-   
+
     Click **Next**.
 4. In the **Select JSP Template** dialog, select **New JSP File (html)** and click **Finish**.
 5. When the index.jsp file opens in Eclipse, add in text to display **Hello ACS World!** within the existing `<body>` element. Your updated `<body>` content should appear as the following:
-   
-        <body>
-          <b><% out.println("Hello ACS World!"); %></b>
-        </body>
-   
+
+    ```
+    <body>
+      <b><% out.println("Hello ACS World!"); %></b>
+    </body>
+    ```
+
     Save index.jsp.
-  
+
 ## <a name="add_acs_filter_library"></a>Add the ACS Filter library to your application
 
 1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Build Path**, and then click **Configure Build Path**.
 2. In the **Java Build Path** dialog, click the **Libraries** tab.
 3. Click **Add Library**.
 4. Click **Azure Access Control Services Filter (by MS Open Tech)** and then click **Next**. The **Azure Access Control Services Filter** dialog is displayed.  (The **Location** field may have a different path, depending on where you installed Eclipse, and the version number could be different, depending on software updates.)
-   
+
     ![Add ACS Filter library][add_acs_filter_lib]
 5. Using a browser opened to the **Login Page Integration** page of the Management Portal, copy the URL listed in the **Option 1: Link to an ACS-hosted login page** field and paste it into the **ACS Authentication Endpoint** field of the Eclipse dialog.
 6. Using a browser opened to the **Edit Relying Party Application** page of the Management Portal, copy the URL listed in the **Realm** field and paste it into the **Relying Party Realm** field of the Eclipse dialog.
@@ -257,7 +260,7 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 8. Check **Embed the certificate in the WAR file**. Embedding the certificate in this manner includes it in your deployment without requiring you to manually add it as a component. (If instead you must store your certificate externally from your WAR file, you could add the certificate as a role component and uncheck **Embed the certificate in the WAR file**.)
 9. [Optional] Keep **Require HTTPS connections** checked. If you set this option, you'll need to access your application using the HTTPS protocol. If you don't want to require HTTPS connections, uncheck this option.
 10. For a deployment to the compute emulator, your **Azure ACS Filter** settings will look similar to the following.
-    
+
     ![Azure ACS Filter settings for a deployment to the compute emulator][add_acs_filter_lib_emulator]
 11. Click **Finish**.
 12. Click **Yes** when presented with with a dialog box stating that a web.xml file will be created.
@@ -267,7 +270,7 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 
 1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Azure**, and then click **Package for Azure**.
 2. For **Project name**, type **MyAzureACSProject** and click **Next**.
-3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Azure in Eclipse](/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/) tutorial).
+3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Azure in Eclipse](../azure-toolkit-for-eclipse-creating-a-hello-world-application.md) tutorial).
 4. Click **Finish**.
 5. Click the **Run in Azure Emulator** button.
 6. After your Java web application starts in the compute emulator, close all instances of your browser (so that any current browser sessions do not interfere with your ACS login test).
@@ -279,10 +282,10 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 To deploy to Azure, you'll need to change the relying party realm and return URL for your ACS namespace.
 
 1. Within the Azure Management Portal, in the **Edit Relying Party Application** page, modify **Realm** to be the URL of your deployed site. Replace **example** with the DNS name you specified for your deployment.
-   
+
     ![Relying party realm for use in production][relying_party_realm_production]
 2. Modify **Return URL** to be the URL of your application. Replace **example** with the DNS name you specified for your deployment.
-   
+
     ![Relying party return URL for use in production][relying_party_return_url_production]
 3. Click **Save** to save your updated replying party realm and return URL changes.
 4. Keep the **Login Page Integration** page open in your browser, you'll need to copy from it shortly.
@@ -294,15 +297,15 @@ To deploy to Azure, you'll need to change the relying party realm and return URL
 10. Keep **Embed the certificate in the WAR file** checked, assuming you want to embed the certificate in the WAR file.
 11. [Optional] Keep **Require HTTPS connections** checked. If you set this option, you'll need to access your application using the HTTPS protocol. If you don't want to require HTTPS connections, uncheck this option.
 12. For a deployment to Azure, your Azure ACS Filter settings will look similar to the following.
-    
+
     ![Azure ACS Filter settings for a production deployment][add_acs_filter_lib_production]
 13. Click **Finish** to close the **Edit Library** dialog.
 14. Click **OK** to close the **Properties for MyACSHelloWorld** dialog.
-15. In Eclipse, click the **Publish to Azure Cloud** button. Respond to the prompts, similar as done in the **To deploy your application to Azure** section of the [Creating a Hello World Application for Azure in Eclipse](/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/) topic. 
+15. In Eclipse, click the **Publish to Azure Cloud** button. Respond to the prompts, similar as done in the **To deploy your application to Azure** section of the [Creating a Hello World Application for Azure in Eclipse](../azure-toolkit-for-eclipse-creating-a-hello-world-application.md) topic. 
 
 After your web application has been deployed, close any open browser sessions, run your web application, and you should be prompted to sign in with Windows Live ID credentials, followed by being sent to the return URL of your relying party application.
 
-When you are done using your ACS Hello World application, remember to delete the deployment (you can learn how to delete a deployment in the [Creating a Hello World Application for Azure in Eclipse](/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/) topic).
+When you are done using your ACS Hello World application, remember to delete the deployment (you can learn how to delete a deployment in the [Creating a Hello World Application for Azure in Eclipse](../azure-toolkit-for-eclipse-creating-a-hello-world-application.md) topic).
 
 ## <a name="next_steps"></a>Next steps
 To further explore ACS's functionality and to experiment with more sophisticated scenarios, see [Access Control Service 2.0][Access Control Service 2.0].
@@ -313,7 +316,7 @@ Also, this example used the **Embed the certificate in the WAR file** option. Th
 2. Copy the certificate as a component in your deployment: In Eclipse's Project Explorer, expand **MyAzureACSProject**, right-click **WorkerRole1**, click **Properties**, expand **Azure Role**, and click **Components**.
 3. Click **Add**.
 4. Within the **Add Component** dialog:
-   
+
    1. In the **Import** section:
       1. Use the **File** button to navigate to the certificate you want to use. 
       2. For **Method**, select **copy**.
@@ -322,7 +325,7 @@ Also, this example used the **Embed the certificate in the WAR file** option. Th
       1. For **Method**, select **copy**.
       2. For **To directory**, type **%JAVA_HOME%**.
    4. Your **Add Component** dialog should look similar to the following.
-      
+
        ![Add certificate component][add_cert_component]
    5. Click **OK**.
 
@@ -363,4 +366,3 @@ At this point, your certificate would be included in your deployment. Note that 
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-

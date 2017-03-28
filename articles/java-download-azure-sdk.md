@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Download the Azure SDK for Java | Azure"
-    description="Learn how to download the Azure SDK for Java, with sample code provided for Maven projects."
-    services=""
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="4b8f8fe6-1b26-4bb4-9be9-6ae757a59e66"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm;asirveda" />
+---
+title: Download the Azure SDK for Java | Azure
+description: Learn how to download the Azure SDK for Java, with sample code provided for Maven projects.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: 4b8f8fe6-1b26-4bb4-9be9-6ae757a59e66
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm;asirveda
+---
 
 # Download the Azure SDK for Java
 This article contains instructions for downloading and installing the Azure Management Libraries for Java.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The Azure Management Libraries for Java are distributed under the [Apache License, Version 2.0][license].
 >
 
@@ -32,7 +33,7 @@ Once you have downloaded the zip file to your computer, extract the contents and
 - Import the JAR files into your Java project in Eclipse or IntelliJ.
 - Configure the build paths for your Java projects in Eclipse or IntelliJ to include the path to the JAR files.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > See the license.txt and ThirdPartyNotices.txt file inside the ZIP for license and other information.
 >
 
@@ -43,56 +44,58 @@ To create Maven projects in Eclipse which use the Azure Management Libraries for
 ### Step 2 - Configure your Maven settings with the requisite dependencies
 Once your project has been configured to use Maven for build, you can add the requisite dependencies to your pom.xml file using syntax like the following example. Note that you do not need to add every dependency that is listed in the following example; you only need to add the specific dependencies which your project requires.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Within each `<version>` element in the following sample, replace the "n.n.n" placeholders in this example with valid version numbers, which can be obtained from the [Azure Libraries Repository on Maven].
 >
 >
 
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-svc-mgmt</artifactId>
-        <version>n.n.n</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-svc-mgmt-compute</artifactId>
-        <version>n.n.n</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-svc-mgmt-network</artifactId>
-        <version>n.n.n</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-svc-mgmt-sql</artifactId>
-        <version>n.n.n</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-svc-mgmt-storage</artifactId>
-        <version>n.n.n</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-svc-mgmt-websites</artifactId>
-        <version>n.n.n</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-svc-mgmt-media</artifactId>
-        <version>n.n.n</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-servicebus</artifactId>
-        <version>n.n.n</version>
-    </dependency>
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-serviceruntime</artifactId>
-        <version>n.n.n</version>
-    </dependency>
+```
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-svc-mgmt</artifactId>
+    <version>n.n.n</version>
+</dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-svc-mgmt-compute</artifactId>
+    <version>n.n.n</version>
+</dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-svc-mgmt-network</artifactId>
+    <version>n.n.n</version>
+</dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-svc-mgmt-sql</artifactId>
+    <version>n.n.n</version>
+</dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-svc-mgmt-storage</artifactId>
+    <version>n.n.n</version>
+</dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-svc-mgmt-websites</artifactId>
+    <version>n.n.n</version>
+</dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-svc-mgmt-media</artifactId>
+    <version>n.n.n</version>
+</dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-servicebus</artifactId>
+    <version>n.n.n</version>
+</dependency>
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-serviceruntime</artifactId>
+    <version>n.n.n</version>
+</dependency>
+```
 
 ## See Also
 For more information about the Azure Toolkits for Java IDEs, see the following links:
@@ -106,18 +109,18 @@ For more information about the Azure Toolkits for Java IDEs, see the following l
 
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 
-> [AZURE.NOTE]
+> [!NOTE]
 > For detailed information on setting up build paths in Eclipse, see the [Java Build Path] article at the Eclipse website.
 >
 
 <!-- URL List -->
 
-[Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse/
-[Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij/
-[Installing the Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-installation/
-[Installing the Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij-installation/
-[What's New in the Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-whats-new/
-[What's New in the Azure Toolkit for IntelliJ]:/documentation/articles/azure-toolkit-for-intellij-whats-new/
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij.md
+[Installing the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]:./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]:/develop/java/
 [Azure Libraries Repository on Maven]: http://go.microsoft.com/fwlink/?LinkID=286274

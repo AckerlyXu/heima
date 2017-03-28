@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understanding the Azure Active Directory Application Manifest | Azure"
-    description="Detailed coverage of the Azure Active Directory application manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more."
-    services="active-directory"
-    documentationcenter=""
-    author="bryanla"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="4804f3d4-0ff1-4280-b663-f8f10d54d184"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="dkershaw;bryanla" />
+---
+title: Understanding the Azure Active Directory Application Manifest | Azure
+description: Detailed coverage of the Azure Active Directory application manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more.
+services: active-directory
+documentationcenter: ''
+author: bryanla
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: dkershaw;bryanla
+---
 
 # Understanding the Azure Active Directory application manifest
 Applications that integrate with Azure Active Directory (AD) must be registered with an Azure AD tenant, providing a persistent identity configuration for the application. This configuration is consulted at runtime, enabling scenarios that allow an application to outsource and broker authentication/authorization through Azure AD. For more information about the Azure AD application model, see the [Adding, Updating, and Removing an Application][ADD-UPD-RMV-APP] article.
@@ -48,52 +49,54 @@ Now lets walk through the steps required to update your application's identity c
 
 1. Navigate to the [Azure Classic Management Portal][AZURE-CLASSIC-PORTAL] and sign in with an account that has service administrator or co-administrator privileges.
 2. After you've authenticated, scroll down and select the Azure "Active Directory" extension in the left navigation panel (1), then click on the Azure AD tenant where your application is registered (2).
-   
+
     ![Select the Azure AD tenant][SELECT-AZURE-AD-TENANT]
 3. When the directory page comes up, click "Applications" (1) on the top of the page to see a list of applications registered in the tenant. Then find the application you want to update in the list and click on it (2).
-   
+
     ![Select the Azure AD tenant][SELECT-AZURE-AD-APP]
 4. Now that you've selected the application's main page, notice the "Manage Manifest" feature on the bottom of the page (1). If you click this link, you will be prompted to either download or upload the JSON manifest file. Click "Download Manifest" (2). This will be immediately followed with the download confirmation dialog prompting you to confirm by clicking "Download Manifest" (3), then either open or save the file locally (4).
-   
+
     ![Manage the manifest, download option][MANAGE-MANIFEST-DOWNLOAD]
-   
+
     ![Download the manifest][DOWNLOAD-MANIFEST]
 5. In this example, we saved the file locally, allowing us to open in an editor, make changes to the JSON, and save again. Here's what the JSON structure looks like inside the Visual Studio JSON editor. Note that it follows the schema for the [Application entity][APPLICATION-ENTITY] as we mentioned earlier:
-   
+
     ![Update the manifest JSON][UPDATE-MANIFEST]
-   
+
     For example, assuming we want to implement/expose a new permission called "Employees.Read.All" on our resource application (API), you would simply add a new/second element to the oauth2Permissions collection, ie:
-   
-        "oauth2Permissions": [
-        {
-        "adminConsentDescription": "Allow the application to access MyWebApplication on behalf of the signed-in user.",
-        "adminConsentDisplayName": "Access MyWebApplication",
-        "id": "aade5b35-ea3e-481c-b38d-cba4c78682a0",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to access MyWebApplication on your behalf.",
-        "userConsentDisplayName": "Access MyWebApplication",
-        "value": "user_impersonation"
-        },
-        {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-        }
-        ],
-   
+
+    ```
+    "oauth2Permissions": [
+    {
+    "adminConsentDescription": "Allow the application to access MyWebApplication on behalf of the signed-in user.",
+    "adminConsentDisplayName": "Access MyWebApplication",
+    "id": "aade5b35-ea3e-481c-b38d-cba4c78682a0",
+    "isEnabled": true,
+    "type": "User",
+    "userConsentDescription": "Allow the application to access MyWebApplication on your behalf.",
+    "userConsentDisplayName": "Access MyWebApplication",
+    "value": "user_impersonation"
+    },
+    {
+    "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
+    "adminConsentDisplayName": "Read-only access to Employee records",
+    "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
+    "isEnabled": true,
+    "type": "User",
+    "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
+    "userConsentDisplayName": "Read-only access to your Employee records",
+    "value": "Employees.Read.All"
+    }
+    ],
+    ```
+
     The entry must be unique, and you must therefore generate a new Globally Unique ID (GUID) for the `"id"` property. In this case, because we specified `"type": "User"`, this permission can be consented to by any account authenticated by the Azure AD tenant in which the resource/API application is registered. This grants the client application permission to access it on the account's behalf. The description and display name strings are used during consent and for display in the Azure Classic Management Portal.
 6. When you're finished updating the manifest, return to the Azure AD application page in the Azure Classic Management Portal, and click the "Manage Manifest" feature again (1). But this time, select the "Upload Manifest" option (2). Similar to the download, you will be greeted again with a second dialog, prompting you for the location of the JSON file. Click "Browse for file ..." (3), then use the "Choose File to Upload" dialog to select the JSON file (4), and press "Open". Once the dialog goes away, select the "OK" check mark (5) and your manifest will be uploaded.  
-   
+
     ![Manage the manifest, upload option][MANAGE-MANIFEST-UPLOAD]
-   
+
     ![Upload the manifest JSON][UPLOAD-MANIFEST]
-   
+
     ![Upload the manifest JSON - confirmation][UPLOAD-MANIFEST-CONFIRM]
 
 Now that the manifest is saved, you can give a registered client application access to the new permission we added above. This time you can use the Azure Classic Management Portal's Web UI instead of editing the client application's manifest:  
@@ -131,19 +134,18 @@ Please use the DISQUS comments section below to provide feedback and help us ref
 [UPLOAD-MANIFEST-CONFIRM]: ./media/active-directory-application-manifest/upload-manifest-confirm.png
 
 <!--article references -->
-[AAD-APP-OBJECTS]:/documentation/articles/active-directory-application-objects/
-[AAD-DEVELOPER-GLOSSARY]:/documentation/articles/active-directory-dev-glossary/
+[AAD-APP-OBJECTS]:./active-directory-application-objects.md
+[AAD-DEVELOPER-GLOSSARY]:./active-directory-dev-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
-[ADD-UPD-RMV-APP]:/documentation/articles/active-directory-integrating-applications/
+[ADD-UPD-RMV-APP]:./active-directory-integrating-applications.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.cn
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
-[GRAPH-API]:/documentation/articles/active-directory-graph-api/
-[IMPLICIT-GRANT]:/documentation/articles/active-directory-dev-understanding-oauth2-implicit-grant/
-[INTEGRATING-APPLICATIONS-AAD]: /documentation/articles/active-directory-integrating-applications/
+[GRAPH-API]:./active-directory-graph-api.md
+[IMPLICIT-GRANT]:./active-directory-dev-understanding-oauth2-implicit-grant.md
+[INTEGRATING-APPLICATIONS-AAD]: ./active-directory-integrating-applications.md
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
-

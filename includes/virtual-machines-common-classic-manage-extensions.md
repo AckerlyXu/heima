@@ -1,8 +1,8 @@
 ## Using VM Extensions
 Azure VM Extensions implement behaviors or features that either help other programs work on Azure VMs (for example, the **WebDeployForVSDevTest** extension allows Visual Studio to Web Deploy solutions on your Azure VM) or provide the ability for you to interact with the VM to support some other behavior (for example, you can use the VM Access extensions from PowerShell, the Azure CLI, and REST clients to reset or modify remote access values on your Azure VM).
 
-> [AZURE.IMPORTANT]
-> For a complete list of extensions by the features they support, see Azure [Windows](/documentation/articles/virtual-machines-windows-extensions-features/) or [Linux](/documentation/articles/virtual-machines-linux-extensions-features/) VM Extensions and Features. Because each VM extension supports a specific feature, exactly what you can and cannot do with an extension depends on the extension. Therefore, before modifying your VM, make sure you have read the documentation for the VM Extension you want to use. Removing some VM Extensions is not supported; others have properties that can be set that change VM behavior radically.
+> [!IMPORTANT]
+> For a complete list of extensions by the features they support, see Azure [Windows](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) or [Linux](../articles/virtual-machines/virtual-machines-linux-extensions-features.md) VM Extensions and Features. Because each VM extension supports a specific feature, exactly what you can and cannot do with an extension depends on the extension. Therefore, before modifying your VM, make sure you have read the documentation for the VM Extension you want to use. Removing some VM Extensions is not supported; others have properties that can be set that change VM behavior radically.
 > 
 > 
 
@@ -28,30 +28,32 @@ You can use the following cmdlets to obtain information about available extensio
 * For instances of web roles or worker roles, you can use the [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/zh-cn/library/azure/dn722498.aspx)
     cmdlet.
 * For instances of Virtual Machines, you can use the [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/zh-cn/library/azure/dn722480.aspx) cmdlet.
-  
+
     For example, the following code example shows how to list the
     information for the **IaaSDiagnostics** extension using PowerShell.
-  
-        PS C:\> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
-  
-        Publisher                   : Microsoft.Azure.Diagnostics
-        ExtensionName               : IaaSDiagnostics
-        Version                     : 1.2
-        Label                       : Microsoft Monitoring Agent Diagnostics
-        Description                 : Microsoft Monitoring Agent Extension
-        PublicConfigurationSchema   :
-        PrivateConfigurationSchema  :
-        IsInternalExtension         : False
-        SampleConfig                :
-        ReplicationCompleted        : True
-        Eula                        :
-        PrivacyUri                  :
-        HomepageUri                 :
-        IsJsonExtension             : True
-        DisallowMajorVersionUpgrade : False
-        SupportedOS                 :
-        PublishedDate               :
-        CompanyName                 :
+
+    ```
+    PS C:\> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
+
+    Publisher                   : Microsoft.Azure.Diagnostics
+    ExtensionName               : IaaSDiagnostics
+    Version                     : 1.2
+    Label                       : Microsoft Monitoring Agent Diagnostics
+    Description                 : Microsoft Monitoring Agent Extension
+    PublicConfigurationSchema   :
+    PrivateConfigurationSchema  :
+    IsInternalExtension         : False
+    SampleConfig                :
+    ReplicationCompleted        : True
+    Eula                        :
+    PrivacyUri                  :
+    HomepageUri                 :
+    IsJsonExtension             : True
+    DisallowMajorVersionUpgrade : False
+    SupportedOS                 :
+    PublishedDate               :
+    CompanyName                 :
+    ```
 
 ### Azure Command Line Interface (Azure CLI)
 Some extensions have Azure CLI commands that are specific to them, which may make their configuration easier; but the following commands work for all VM extensions.
@@ -60,18 +62,20 @@ You can use the **azure vm extension list** command to obtain information about 
 
 For example, the following code example shows how to list the information for the **IaaSDiagnostics** extension using the Azure CLI **azure vm extension list** command and uses the **--json** option to return complete information.
 
-    $ azure vm extension list -n IaaSDiagnostics --json
-    [
-      {
-        "publisher": "Microsoft.Azure.Diagnostics",
-        "name": "IaaSDiagnostics",
-        "version": "1.2",
-        "label": "Microsoft Monitoring Agent Diagnostics",
-        "description": "Microsoft Monitoring Agent Extension",
-        "replicationCompleted": true,
-        "isJsonExtension": true
-      }
-    ]
+```
+$ azure vm extension list -n IaaSDiagnostics --json
+[
+  {
+    "publisher": "Microsoft.Azure.Diagnostics",
+    "name": "IaaSDiagnostics",
+    "version": "1.2",
+    "label": "Microsoft Monitoring Agent Diagnostics",
+    "description": "Microsoft Monitoring Agent Extension",
+    "replicationCompleted": true,
+    "isJsonExtension": true
+  }
+]
+```
 
 ### Service Management REST APIs
 You can use the following REST APIs to obtain information about available extensions:
@@ -99,7 +103,7 @@ You can use the following REST APIs to know whether an extension requires a conf
 * For instances of web roles or worker roles, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Available Extensions](https://msdn.microsoft.com/zh-cn/library/dn169559.aspx) operation.
 * For instances of Virtual Machines, the **PublicConfigurationSchema** and **PrivateConfigurationSchema** elements contain the information in the response from the [List Resource Extensions](https://msdn.microsoft.com/zh-cn/library/dn495441.aspx) operation.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Extensions can also use configurations that are defined with JSON. When these types of extensions are used, only the **SampleConfig** element is used.
 > 
 >

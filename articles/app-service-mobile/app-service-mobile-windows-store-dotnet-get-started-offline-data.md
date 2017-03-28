@@ -1,24 +1,24 @@
-<properties
-	pageTitle="Enable offline sync for your Universal Windows Platform (UWP) app with Mobile Apps| Azure App Service"
-	description="Learn how to use an Azure Mobile App to cache and sync offline data in your Universal Windows Platform (UWP) app."
-	documentationCenter="windows"
-	authors="adrianhall"
-	manager="erikre"
-	editor=""
-	services="app-service\mobile"/>
+---
+title: Enable offline sync for your Universal Windows Platform (UWP) app with Mobile Apps| Azure App Service
+description: Learn how to use an Azure Mobile App to cache and sync offline data in your Universal Windows Platform (UWP) app.
+documentationCenter: windows
+authors: adrianhall
+manager: erikre
+editor: ''
+services: app-service\mobile
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: adrianha
+---
 
 # Enable offline sync for your Windows app
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+[!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## Overview
 
@@ -30,7 +30,7 @@ are synced with the remote backend.
 In this tutorial, you update the UWP app project from the tutorial [Create a Windows app] to support the offline
 features of Azure Mobile Apps. If you do not use the downloaded quick start server project, you must add the data access
 extension packages to your project. For more information about server extension packages, see
-[Work with the .NET backend server SDK for Azure Mobile Apps](/documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk).
+[Work with the .NET backend server SDK for Azure Mobile Apps](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
@@ -73,9 +73,11 @@ the mobile app backend when push is next run in a connected state.
 1. Edit App.xaml.cs in the shared project. Comment out the initialization of the **MobileServiceClient** and add the following line,
    which uses an invalid mobile app URL:
 
-         public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
+    ```
+     public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
+    ```
 
-	You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or use airplane mode.
+    You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or use airplane mode.
 
 2. Press **F5** to build and run the app. Notice your sync failed on refresh when the app launched.
 
@@ -114,7 +116,6 @@ local store with the backend database. The app attempts to sync on startup.
   all tables in the local store along with relationships remain consistent. This behavior may result in an unexpected push.  For more information on
   this behavior, see [Offline Data Sync in Azure Mobile Apps].
 
-
 ##API Summary
 
 To support the offline features of mobile services, we used the [IMobileServiceSyncTable] interface and initialized
@@ -131,13 +132,13 @@ the local store with the server:
    that all tables in the local store along with relationships remain consistent. The *pushOtherTables* parameter controls whether other
    tables in the context are pushed in an implicit push. The *query* parameter takes an [IMobileServiceTableQuery<T>][IMobileServiceTableQuery]
    or OData query string to filter the returned data. The *queryId* parameter is used to define incremental sync. For more information, see
-   [Offline Data Sync in Azure Mobile Apps](/documentation/articles/app-service-mobile-offline-data-sync/#how-sync-works).
+   [Offline Data Sync in Azure Mobile Apps](./app-service-mobile-offline-data-sync.md#how-sync-works).
 
 * **[PurgeAsync]**
  Your app should periodically call this method to purge stale data from the local store. Use the *force* parameter when you need to purge
  any changes that have not yet been synced.
 
-For more information about these concepts, see [Offline Data Sync in Azure Mobile Apps](/documentation/articles/app-service-mobile-offline-data-sync/#how-sync-works).
+For more information about these concepts, see [Offline Data Sync in Azure Mobile Apps](./app-service-mobile-offline-data-sync.md#how-sync-works).
 
 ## More info
 
@@ -157,10 +158,9 @@ The following topics provide additional background information on the offline sy
 [11]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/app-service-mobile-add-wp81-reference-sqlite-dialog.png
 [13]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/cpu-architecture.png
 
-
 <!-- URLs. -->
-[Offline Data Sync in Azure Mobile Apps]: /documentation/articles/app-service-mobile-offline-data-sync/
-[create a windows app]: /documentation/articles/app-service-mobile-windows-store-dotnet-get-started/
+[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
+[create a windows app]: ./app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
@@ -175,4 +175,4 @@ The following topics provide additional background information on the offline sy
 [PullAsync]: https://msdn.microsoft.com/zh-cn/library/azure/mt667558(v=azure.10).aspx
 [PushAsync]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync(v=azure.10).aspx
 [PurgeAsync]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync(v=azure.10).aspx
-[8]: /documentation/articles/app-service-mobile-dotnet-how-to-use-client-library/
+[8]: ./app-service-mobile-dotnet-how-to-use-client-library.md

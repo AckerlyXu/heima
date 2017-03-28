@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Create a Hello World Cloud Service for Azure in Eclipse"
-    description="Learn how to create a simple Hello World application using the Azure Toolkit for Eclipse."
-    services=""
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="7262e705-59d6-43ce-b888-29a21c8e0cb7"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm" />
+---
+title: Create a Hello World Cloud Service for Azure in Eclipse
+description: Learn how to create a simple Hello World application using the Azure Toolkit for Eclipse.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: 7262e705-59d6-43ce-b888-29a21c8e0cb7
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm
+---
 
 # Create a Hello World Cloud Service for Azure in Eclipse
 The following steps show you how to create and deploy a basic JSP application to Azure using the Azure Toolkit for Eclipse. A JSP example is shown for simplicity, but highly similar steps would be appropriate for a Java servlet, as far as Azure deployment is concerned.
@@ -58,7 +59,7 @@ As soon as you have a Java web application ready to test, you can use the follow
     ![][publishDropdownButton]
 3. If you are publishing this application to Azure for the first time and you have not created an Azure deployment project for this application before, an Azure deployment project be created for you automatically. You should see the following prompt, which also lists the JDK package and application server that will be automatically deployed to run your application.
     ![][ic789598]
-   
+
     This shortcut approach enables a quick and easy way to test your application in Azure without having to configure a specific server or JDK that is different from the defaults. If you are satisfied with the defaults, you can click **OK** to continue with the following steps.
     However, if you want to change the JDK or application server to use for your application, you can do that later by editing the Azure deployment project that was automatically created for you, or you can click **Cancel** now and read the **About Azure deployment projects section** of this tutorial.
 4. In the **Publish to Azure** dialog:
@@ -89,7 +90,8 @@ Because this was a deployment to a staging environment, the DNS name will be of 
 
 Although this walk-through was for a deployment to the staging environment, a deployment to production follows the same steps, except within the **Publish to Azure** dialog, select **Production** instead of **Staging** for the **Target environment**. A deployment to production results in a URL based on the DNS name of your choice, instead of a GUID as used for staging.
 
->[AZURE.WARNING] At this point you have deployed your Azure application to the cloud. However, before proceeding, realize that a deployed application, even if it is not running, will continue to accrue billable time for your subscription. Therefore, it is extremely important that you delete unwanted deployments from your Azure subscription.
+>[!WARNING]
+> At this point you have deployed your Azure application to the cloud. However, before proceeding, realize that a deployed application, even if it is not running, will continue to accrue billable time for your subscription. Therefore, it is extremely important that you delete unwanted deployments from your Azure subscription.
 
 ## About Azure deployment projects
 In order to deploy one or more Java applications to Azure, an Azure Deployment Project is needed. It plays the role of the "package" that your applications need to be wrapped into in order to be published on Azure.
@@ -117,7 +119,8 @@ Regardless of whether you started these server configuration steps by editing an
 
 ## Windows only: To deploy your application to the compute emulator
 
->[AZURE.NOTE] The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows.
+>[!NOTE]
+> The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows.
 
 If you have created a new Azure deployment project following the steps described earlier, i.e. implicitly, by publishing your application to Azure, the JDK and application servers have been configured for the cloud, but not for local emulation. To prepare your project for testing in the local emulator, follow these steps:
 
@@ -131,7 +134,8 @@ If you have created a new Azure deployment project following the steps described
 8. Click **OK**.
 9. In the Eclipse toolbar, click the **Run in Azure Emulator** button, ![][ic710879]. If the **Run in Azure Emulator** button is not enabled, ensure that **MyHelloWorld_onAzure** is selected in Eclipse's Project Explorer, and ensure that Eclipse's Project Explorer has focus as the current window. This will first start a full build of your project and then launch your Java web application in the compute emulator. (Note that depending on your computer's performance characteristics, the first build may take between a few seconds to a few minutes, but subsequent builds will get faster.) After the first build step has been completed, you will be prompted by Windows User Account Control (UAC) to allow this command to make changes to your computer. Click **Yes**.
 
->[AZURE.IMPORTANT] If you do not see the UAC prompt, check the Windows taskbar for the UAC icon and click it first. Sometimes the UAC prompt does not show up as a topmost window, but is visible only as a taskbar icon.
+>[!IMPORTANT]
+> If you do not see the UAC prompt, check the Windows taskbar for the UAC icon and click it first. Sometimes the UAC prompt does not show up as a topmost window, but is visible only as a taskbar icon.
 
 1. Examine the output of the compute emulator UI to determine if there are any issues with your project. Depending on the contents of your deployment, it may take a couple minutes for your application to be fully started within the compute emulator.
 2. Start your browser and use the URL `http://localhost:8080/MyHelloWorld` as the address (the `MyHelloWorld` portion of the URL is case-sensitive). You should see your MyHelloWorld application (the output of index.jsp), similar to the following image:
@@ -161,12 +165,12 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [Azure Java Developer Center]:/develop/java/
 [Azure Management Portal]: https://manage.windowsazure.cn
-[Azure Role Properties]: /documentation/articles/azure-toolkit-for-eclipse-azure-role-properties/
-[Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse/
-[Enabling Remote Access for Azure Deployments in Eclipse]: /documentation/articles/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments
-[Installing the Azure Toolkit for Eclipse]: /documentation/articles/azure-toolkit-for-eclipse-installation/
-[Server configuration properties]:/documentation/articles/azure-toolkit-for-eclipse-azure-role-properties/#server_configuration_properties/
-[What's New in the Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-whats-new/
+[Azure Role Properties]: ./azure-toolkit-for-eclipse-azure-role-properties.md
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
+[Enabling Remote Access for Azure Deployments in Eclipse]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Server configuration properties]:./azure-toolkit-for-eclipse-azure-role-properties.md#server_configuration_properties/
+[What's New in the Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse-whats-new.md
 
 <!-- IMG List -->
 

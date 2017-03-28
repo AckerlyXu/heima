@@ -4,7 +4,7 @@ The DNS system is based on *records*. Records associate a specific *name*, such 
 
 When you create an web app in App Service, a DNS name is automatically assigned to the web app. This name takes the form of **&lt;yourwebappname&gt;.chinacloudsites.cn**. There is also a virtual IP address available for use when creating DNS records, so you can either create records that point to the **.chinacloudsites.cn**, or you can point to the IP address.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The IP address of your web app will change if you delete and recreate your web app, or change the App Service plan mode to **Free** after it has been set to **Basic**, **Shared**, or **Standard**.
 > 
 > 
@@ -19,7 +19,7 @@ The main benefits of an A record over a CNAME record are:
 * You can map a root domain such as **contoso.com** to an IP address; many registrars only allow this using A records
 * You can have one entry that uses a wildcard, such as **\*.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **blogs.contoso.com**, or **www.contso.com**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your web app. An IP address for use with A records is provided when you configure custom domain name settings for your web app; however, this value may change if you delete and recreate your web app, or change the App Service plan mode to back to **Free**.
 > 
 > 
@@ -27,7 +27,7 @@ The main benefits of an A record over a CNAME record are:
 ### Alias record (CNAME record)
 A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of App Service Web Apps, the canonical domain name is the **&lt;yourwebappname>.chinacloudsites.cn** domain name of your web app. Once created, the CNAME creates an alias for the **&lt;yourwebappname>.chinacloudsites.cn** domain name. The CNAME entry will resolve to the IP address of your **&lt;yourwebappname>.chinacloudsites.cn** domain name automatically, so if the IP address of the web app changes, you do not have to take any action.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
 > 
 > 
@@ -45,13 +45,13 @@ You can find the IP address and **.chinacloudsites.cn** names for your web app b
 
 1. In your browser, open the [Azure Portal Preview](https://portal.azure.cn).
 2. In the **Web Apps** blade, click the name of your web app, and then select **Custom domains** from the bottom of the page.
-   
+
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 3. In the **Custom domains** blade, you will see the virtual IP address. Save this information, as it will be used when creating DNS records
-   
+
     ![](./media/custom-dns-web-site/virtual-ip-address.png)
-   
-    > [AZURE.NOTE]
-    > You cannot use custom domain names with a **Free** web app, and must upgrade the App Service plan to **Shared**, **Basic**, **Standard**, or **Premium** tier. For more information on the App Service plan's pricing tiers, including how to change the pricing tier of your web app, see [How to scale web apps](/documentation/articles/web-sites-scale/).
+
+    > [!NOTE]
+    > You cannot use custom domain names with a **Free** web app, and must upgrade the App Service plan to **Shared**, **Basic**, **Standard**, or **Premium** tier. For more information on the App Service plan's pricing tiers, including how to change the pricing tier of your web app, see [How to scale web apps](../articles/app-service-web/web-sites-scale.md).
     > 
     >

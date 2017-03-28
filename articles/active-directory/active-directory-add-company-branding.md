@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Add company branding to your sign-in and Access Panel pages"
-    description="Learn how to add a company branding to the Azure sign-in page and the access panel page"
-    services="active-directory"
-    documentationcenter=""
-    author="curtand"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="f74621b4-4ef0-4899-8c0e-0c20347a8c31"
-    ms.service="active-directory"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="03/03/2017"
-    wacn.date=""
-    ms.author="curtand" />
+---
+title: Add company branding to your sign-in and Access Panel pages
+description: Learn how to add a company branding to the Azure sign-in page and the access panel page
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
+
+ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
+ms.service: active-directory
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 03/03/2017
+wacn.date: ''
+ms.author: curtand
+---
 
 # Add company branding to your sign-in and Access Panel pages
 To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory provides this capability by allowing you to customize the appearance of the following web pages with your company logo and custom color schemes:
@@ -25,8 +26,8 @@ To avoid confusion, many companies want to apply a consistent look and feel acro
 
 This topic explains how you can customize the sign-in page and the access panel page.
 
-> [AZURE.NOTE]
-> * Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory, or are an Office 365 user. For more information, see [Azure Active Directory editions](/documentation/articles/active-directory-editions/).
+> [!NOTE]
+> * Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory, or are an Office 365 user. For more information, see [Azure Active Directory editions](./active-directory-editions.md).
 > * Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 >
 >
@@ -40,7 +41,7 @@ A branded sign-in page only appears when you visit a service with a tenant-speci
 
 When you visit a service with non-tenant specific URLs (e.g.: https://mail.office365.com), a non-branded sign-in page appears. in this case, your branding appears once you have entered your user ID or you have selected a user tile.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > * Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure Classic Management Portal where you have configured branding.
 > * Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a personal Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
 >
@@ -86,7 +87,7 @@ You can customize the following elements on the sign-in page:
 | Keep me signed-in |Shown under the Password textbox. |
 | Sign-in Page Text |Shown above the page footer when you need to convey helpful information before a sign-in with a work or school account. For example, you may want to include the phone number to your help desk, or a legal statement. |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > All elements are optional. For example, if you specify a Banner Logo but no Large Illustration, the sign-in page shows your logo and the illustration for the destination site (that is, the Office 365 California highway image).
 >
 >
@@ -99,7 +100,7 @@ Whether the checkbox is displayed depends on the setting of **Hide KMSI**.
 
 To hide the checkbox, configure this setting to **Hidden**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Some features of SharePoint Online and Office 2010 depend on users being able to check this box. If you configure this setting to hidden, your users may see additional and unexpected prompts to sign-in.
 >
 >
@@ -130,10 +131,10 @@ If your language preference is German, you get the default Banner Logo but the G
 
 While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Yammer does not show the Azure AD branded sign-in page until after the user signs in. The user sees the generic Office 365 sign-in page first, and then the branded page after that.   
  
- 
+
 **To add company branding to your directory, perform the following steps:**
 
 1. Sign in to the [Azure Classic Management Portal](https://manage.windowsazure.cn) as an administrator of the directory you want to customize.
@@ -209,8 +210,8 @@ Some customizable elements in Azure AD have multiple use cases. You can configur
 | Sign-in Page Background Color |The sign-in page background color is used in the area to the left of the sign-in page form. |Must be an RGB color in hexadecimal form (example: #FFFFFF) |<p>The background color may be shown in place of the large Illustration on low-bandwidth connections</p><p>We suggest picking the primary color of the Banner Logo</p> |
 
 ## Next steps
-- [Getting started with Azure Active Directory Premium](/documentation/articles/active-directory-get-started-premium/)
-- [View your access and usage reports](/documentation/articles/active-directory-view-access-usage-reports/)
+- [Getting started with Azure Active Directory Premium](./active-directory-get-started-premium.md)
+- [View your access and usage reports](./active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png

@@ -1,24 +1,25 @@
-<properties
-	pageTitle="Restore Stretch-enabled databases | Azure"
-	description="Learn how to restore Stretch\-enabled databases."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+---
+title: Restore Stretch-enabled databases | Azure
+description: Learn how to restore Stretch\-enabled databases.
+services: sql-server-stretch-database
+documentationCenter: ''
+authors: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-	ms.service="sql-server-stretch-database"
-	ms.date="08/01/2016"
-	wacn.date=""/>
+ms.service: sql-server-stretch-database
+ms.date: 08/01/2016
+wacn.date: ''
+---
 
 # Restore Stretch-enabled databases
 
 Restore a backed up database when necessary to recover from many types of failures, errors, and disasters.
 
-For more info about backup, see [Backup Stretch-enabled databases](/documentation/articles/sql-server-stretch-database-backup).
+For more info about backup, see [Backup Stretch-enabled databases](./sql-server-stretch-database-backup.md).
 
->   [AZURE.NOTE] Backup is only one part of a complete high availability and business continuity solution. For more info about high availability, see [High Availability Solutions](https://msdn.microsoft.com/library/ms190202.aspx).
+>   [!NOTE]
+> Backup is only one part of a complete high availability and business continuity solution. For more info about high availability, see [High Availability Solutions](https://msdn.microsoft.com/library/ms190202.aspx).
 
 ## Restore your SQL Server data
 To recover from hardware failure or corruption, restore the Stretch\-enabled SQL Server database from a backup. You can continue to use the SQL Server restore methods that you currently use. For more info, see [Restore and Recovery Overview](https://msdn.microsoft.com/library/ms191253.aspx).
@@ -58,22 +59,22 @@ To restore a deleted Azure database to the point when it was deleted by using th
 
 2.  Run the stored procedure [sys.sp_rda_reauthorize_db](https://msdn.microsoft.com/library/mt131016.aspx) to reconnect the local Stretch\-enabled database to the Azure database.  
 
-	-   Provide the existing database scoped credential as a sysname or a varchar\(128\) value. \(Don't use varchar\(max\).\) You can look up the credential name in the view **sys.database\_scoped\_credentials**.  
+    -   Provide the existing database scoped credential as a sysname or a varchar\(128\) value. \(Don't use varchar\(max\).\) You can look up the credential name in the view **sys.database\_scoped\_credentials**.  
 
-	-   Specify whether to make a copy of the remote data and connect to the copy (recommended).  
+    -   Specify whether to make a copy of the remote data and connect to the copy (recommended).  
 
-
-	    	USE <Stretch-enabled database name>;
-		GO
-		EXEC sp_rda_reauthorize_db
-		    @credential = N'<existing_database_scoped_credential_name>',
-			@with_copy = 1 ;  
-		GO
-
+        ```
+        USE <Stretch-enabled database name>;
+        ```
+        GO
+        EXEC sp_rda_reauthorize_db
+            @credential = N'<existing_database_scoped_credential_name>',
+            @with_copy = 1 ;  
+        GO
 
 ## See also
 
-[Manage and troubleshoot Stretch Database](/documentation/articles/sql-server-stretch-database-manage/)
+[Manage and troubleshoot Stretch Database](./sql-server-stretch-database-manage.md)
 
 [sys.sp_rda_reauthorize_db (Transact-SQL)](https://msdn.microsoft.com/zh-cn/library/mt131016.aspx)
 

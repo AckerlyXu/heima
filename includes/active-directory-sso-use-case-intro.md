@@ -8,7 +8,6 @@ Organizations are using more Software as a Service (SaaS) applications for produ
 
 A solution for all of these challenges is single sign-on (SSO). It's the simplest way to manage multiple apps and provide users with a consistent sign-on experience. Azure Active Directory (Azure AD) provides a robust SSO solution and has many available pre-integrated applications, with tutorials for admins to quickly set up a new app and start provisioning users.
 
-
 ## How does Azure Active Directory integrate apps?  
 
 Azure AD allows you to integrate your apps and provisioned accounts. This can be done through either of two approaches.
@@ -17,6 +16,6 @@ Azure AD allows you to integrate your apps and provisioned accounts. This can be
 
 - If the app is not in the Gallery, you can still set up most apps in Azure AD as a custom app. This requires a bit more technical expertise to configure. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app.
 
-In the case where users have created their own accounts for SaaS apps that aren't managed by IT, the [Cloud App Discovery](/documentation/articles/active-directory-cloudappdiscovery-whatis/) tool provides a solution. This tool monitors the web traffic to identify which apps are being used throughout the organization, and the number of people using each of them. IT can use this information to learn what apps the users prefer and decide which to integrate into Azure AD for SSO.  
+In the case where users have created their own accounts for SaaS apps that aren't managed by IT, the [Cloud App Discovery](../articles/active-directory/active-directory-cloudappdiscovery-whatis.md) tool provides a solution. This tool monitors the web traffic to identify which apps are being used throughout the organization, and the number of people using each of them. IT can use this information to learn what apps the users prefer and decide which to integrate into Azure AD for SSO.  
 
-When you integrate an app into Azure AD, you can map the users' established application identities to their respective Azure AD identities.  
+When you integrate an app into Azure AD, you can map the users' established application identities to their respective Azure AD identities.

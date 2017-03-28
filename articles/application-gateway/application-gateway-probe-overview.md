@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Health monitoring overview for Azure Application Gateway | Azure"
-    description="Learn about the monitoring capabilities in Azure Application Gateway"
-    services="application-gateway"
-    documentationcenter="na"
-    author="georgewallace"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="7eeba328-bb2d-4d3e-bdac-7552e7900b7f"
-    ms.service="application-gateway"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="12/14/2016"
-    wacn.date=""
-    ms.author="gwallace" />
+---
+title: Health monitoring overview for Azure Application Gateway | Azure
+description: Learn about the monitoring capabilities in Azure Application Gateway
+services: application-gateway
+documentationcenter: na
+author: georgewallace
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 7eeba328-bb2d-4d3e-bdac-7552e7900b7f
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 12/14/2016
+wacn.date: ''
+ms.author: gwallace
+---
 
 # Application Gateway health monitoring overview
 
@@ -43,7 +44,7 @@ If the default probe check fails for server A, the application gateway removes i
 | Time-out |30 |Probe time-out in seconds |
 | Unhealthy threshold |3 |Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The port is the same port as the back-end HTTP settings.
 
 The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps:
@@ -66,11 +67,11 @@ The following table provides definitions for the properties of a custom health p
 | Time-out |Probe time-out in seconds. If a valid response is not received within this time-out period, the probe is marked as failed.  |
 | Unhealthy threshold |Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 > For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>. The port used will be the same port as defined in the back-end HTTP settings.
 
 ## Next steps
-After learning about Application Gateway health monitoring, you can configure a [custom health probe](/documentation/articles/application-gateway-create-probe-portal/) in the Azure portal preview or a [custom health probe](/documentation/articles/application-gateway-create-probe-ps/) using PowerShell and the Azure Resource Manager deployment model.
+After learning about Application Gateway health monitoring, you can configure a [custom health probe](./application-gateway-create-probe-portal.md) in the Azure portal preview or a [custom health probe](./application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

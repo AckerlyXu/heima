@@ -1,16 +1,16 @@
-<properties
-   pageTitle="Azure portal dashboard access | Azure"
-   description="This article explains how to share access to a dashboard in the Azure portal."
-   services="azure-portal"
-   documentationCenter=""
-   authors="tfitzmac"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Azure portal dashboard access | Azure
+description: This article explains how to share access to a dashboard in the Azure portal.
+services: azure-portal
+documentationCenter: ''
+authors: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="multiple"
-   ms.date="08/01/2016"
-   wacn.date=""/>
+ms.service: multiple
+ms.date: 08/01/2016
+wacn.date: ''
+---
 
 # Sharing Azure dashboards
 
@@ -18,7 +18,8 @@ After configuring a dashboard, you can publish it and share it with other users 
 
 All published dashboards are implemented as Azure resources, which means they exist as manageable items within your subscription and are contained in a resource group.  From an access control perspective, dashboards are no different than other resources, such as a virtual machine or a storage account.
 
-> [AZURE.TIP] Individual tiles on the dashboard enforce their own access control requirements based on the resources they display.  Therefore, you can design a dashboard that is shared broadly while still protecting the data on individual tiles.
+> [!TIP]
+> Individual tiles on the dashboard enforce their own access control requirements based on the resources they display.  Therefore, you can design a dashboard that is shared broadly while still protecting the data on individual tiles.
 
 ## Understanding access control for dashboards
 

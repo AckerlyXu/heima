@@ -1,22 +1,23 @@
-﻿<properties
-    pageTitle="Run a sample application to receive cloud-to-device messages from Azure IoT Hub | Azure"
-    description="A sample application runs on Edison and monitors incoming messages from your IoT hub. A new gulp task sends messages to Edison from your IoT hub to blink the LED."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino control led from web, arduino control led via web" />
-<tags
-    ms.assetid="bc738bf6-e38d-4024-82d7-39b6c2d4bacb"
-    ms.service="iot-hub"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+﻿---
+title: Run a sample application to receive cloud-to-device messages from Azure IoT Hub | Azure
+description: A sample application runs on Edison and monitors incoming messages from your IoT hub. A new gulp task sends messages to Edison from your IoT hub to blink the LED.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino control led from web, arduino control led via web
+
+ms.assetid: bc738bf6-e38d-4024-82d7-39b6c2d4bacb
+ms.service: iot-hub
+ms.devlang: nodejs
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Run a sample application to receive cloud-to-device messages
 In this article, you deploy a sample application on Intel Edison. The sample application monitors incoming messages from your IoT hub. You also run a gulp task on your computer to send messages to Edison from your IoT hub. When the sample application receives the messages, it blinks the LED. If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].
@@ -84,10 +85,10 @@ You’ve successfully sent messages from your IoT hub to Edison to blink the LED
 
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-node-troubleshooting/
-[configure-your-device]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson1-configure-your-device/
-[create-your-azure-iot-hub]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub/
+[troubleshooting]: ./iot-hub-intel-edison-kit-node-troubleshooting.md
+[configure-your-device]: ./iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md
+[create-your-azure-iot-hub]: ./iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md
 [repo-structure]: ./media/iot-hub-intel-edison-lessons/lesson4/repo_structure.png
-[create-an-azure-function-app-and-storage-account]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template/
+[create-an-azure-function-app-and-storage-account]: ./iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md
 [gulp-command-and-blink-messages]: ./media/iot-hub-intel-edison-lessons/lesson4/gulp_blink.png
-[change-the-on-and-off-behavior-of-the-led]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson4-change-led-behavior/
+[change-the-on-and-off-behavior-of-the-led]: ./iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md

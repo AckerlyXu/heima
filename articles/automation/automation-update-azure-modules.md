@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Update Azure modules in Azure Automation | Azure"
-    description="This article describes how you can now update common Azure PowerShell modules provided by default in Azure Automation."
-    services="automation"
-    documentationcenter=""
-    author="MGoedtel"
-    manager="carmonm"
-    editor="tysonn" />
-<tags
-    ms.assetid=""
-    ms.service="automation"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="02/13/2017"
-    wacn.date=""
-    ms.author="magoedte" />
+---
+title: Update Azure modules in Azure Automation | Azure
+description: This article describes how you can now update common Azure PowerShell modules provided by default in Azure Automation.
+services: automation
+documentationcenter: ''
+author: MGoedtel
+manager: carmonm
+editor: tysonn
+
+ms.assetid: ''
+ms.service: automation
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/13/2017
+wacn.date: ''
+ms.author: magoedte
+---
 
 # How to update Azure PowerShell modules in Azure Automation
 
@@ -32,12 +33,12 @@ The most common Azure PowerShell modules are provided by default in each Automat
 3. Click **Yes** and the module update process will begin.  The update process takes about 15-20 minutes to update the following modules:
 
     * Azure
-    *	Azure.Storage
-    *	AzureRm.Automation
-    *	AzureRm.Compute
-    *	AzureRm.Profile
-    *	AzureRm.Resources
-    *	AzureRm.Sql
+    * Azure.Storage
+    * AzureRm.Automation
+    * AzureRm.Compute
+    * AzureRm.Profile
+    * AzureRm.Resources
+    * AzureRm.Sql
     * AzureRm.Storage
 
         If the modules are already up to date, then the process will complete in a few seconds.  When the update process completes you will be notified.<br><br> ![Update Azure Modules update status](./media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
@@ -48,4 +49,4 @@ If you use cmdlets from these Azure PowerShell modules in your runbooks to manag
 
 ## Next steps
 
-To learn more about Integration Modules and how to create custom modules to further integrate Automation with other systems, services, or solutions, see [Integration Modules](/documentation/articles/automation-integration-modules/).
+To learn more about Integration Modules and how to create custom modules to further integrate Automation with other systems, services, or solutions, see [Integration Modules](./automation-integration-modules.md).

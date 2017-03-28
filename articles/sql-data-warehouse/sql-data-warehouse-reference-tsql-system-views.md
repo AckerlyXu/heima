@@ -1,20 +1,20 @@
-<properties
-   pageTitle="SQL Data Warehouse system views | Azure"
-   description="Links to system views content for SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL Data Warehouse system views | Azure
+description: Links to system views content for SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: barbkess
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: barbkess;sonyama
+---
 
 # System views
 ## SQL Data Warehouse catalog views
@@ -135,8 +135,8 @@ Since SQL Data Warehouse is built on Microsoft's MPP technology, both SQL Data W
 
 This is why each of these DMV's has a specific column called pdw_node_id. This is the the identifier for the Compute node. In PDW the Compute node is a stronger concept for the architecture. In SQL Data Warehouse, the architecture relies more heavily on the distributions.
 
->[AZURE.NOTE] To use these view, insert ‘pdw_nodes_’ into the name, as shown in the following table.
-
+>[!NOTE]
+> To use these view, insert ‘pdw_nodes_’ into the name, as shown in the following table.
 
 | DMV name in SQL Data Warehouse | Link to SQL Server Transact-SQL topic on MSDN |
 |:--- |:--- |
@@ -228,9 +228,8 @@ For more reference information, see [SQL Data Warehouse reference overview][SQL 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: /documentation/articles/sql-data-warehouse-overview-reference/
+[SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-
 
 <!--Other Web references-->

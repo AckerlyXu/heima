@@ -1,17 +1,17 @@
-<properties
-	pageTitle="Authenticating identities without passwords through Microsoft Passport | Azure"
-	description="Provides an overview of Microsoft Passport and additional information on deploying Microsoft Passport."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""
-	tags="azure-classic-portal"/>
+---
+title: Authenticating identities without passwords through Microsoft Passport | Azure
+description: Provides an overview of Microsoft Passport and additional information on deploying Microsoft Passport.
+services: active-directory
+documentationCenter: ''
+authors: femila
+manager: stevenpo
+editor: ''
+tags: azure-classic-portal
 
-<tags 
-	ms.service="active-directory" 
-	ms.date="02/26/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 02/26/2016
+wacn.date: ''
+---
 
 # Authenticating identities without passwords through Microsoft Passport
 
@@ -68,12 +68,10 @@ The preceding diagram illustrates the private/public key pair and the validation
 
 For detailed deployment instructions, see [Enable Microsoft Passport for work in the organization](/documentation/articles/active-directory-azureadjoin-passport-deployment/).
 
-
 ## Additional information
 * [Windows 10 for the enterprise: Ways to use devices for work](/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/)
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](/documentation/articles/active-directory-azureadjoin-user-upgrade/)
-* [Authenticating identities without passwords through Microsoft Passport](/documentation/articles/active-directory-azureadjoin-passport/)
-* [Learn about usage scenarios for Azure AD Join](/documentation/articles/active-directory-azureadjoin-deployment-aadjoindirect/)
+* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](./active-directory-azureadjoin-user-upgrade.md)
+* [Authenticating identities without passwords through Microsoft Passport](./active-directory-azureadjoin-passport.md)
+* [Learn about usage scenarios for Azure AD Join](./active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
-* [Set up Azure AD Join](/documentation/articles/active-directory-azureadjoin-setup/)
-
+* [Set up Azure AD Join](./active-directory-azureadjoin-setup.md)

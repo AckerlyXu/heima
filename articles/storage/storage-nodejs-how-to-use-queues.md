@@ -1,27 +1,28 @@
-<properties
-    pageTitle="How to use Queue storage from Node.js | Azure"
-    description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js."
-    services="storage"
-    documentationcenter="nodejs"
-    author="robinsh"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="a8a92db0-4333-43dd-a116-28b3147ea401"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.date="12/08/2016"
-    wacn.date=""
-    ms.author="robinsh" />
+---
+title: How to use Queue storage from Node.js | Azure
+description: Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js.
+services: storage
+documentationcenter: nodejs
+author: robinsh
+manager: timlt
+editor: tysonn
+
+ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: nodejs
+ms.topic: article
+ms.date: 12/08/2016
+wacn.date: ''
+ms.author: robinsh
+---
 
 # How to use Queue storage from Node.js
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+[!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 <br/>
-[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 This guide shows you how to perform common scenarios using the Microsoft
@@ -30,9 +31,9 @@ API. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting** queue messages, as well as **creating and
 deleting queues**.
 
-[AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
+[!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## Create a Node.js Application
 Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service], [Build and deploy a Node.js application to an Azure Cloud Service] using Windows PowerShell, or [Build and deploy a Node.js web app to Azure using Web Matrix].
@@ -47,16 +48,18 @@ communicate with the storage REST services.
 
 2.  Type **npm install azure-storage** in the command window. Output from the command is similar to the following example.
 
-		azure-storage@0.5.0 node_modules\azure-storage
-		+-- extend@1.2.1
-		+-- xmlbuilder@0.4.3
-		+-- mime@1.2.11
-		+-- node-uuid@1.4.3
-		+-- validator@3.22.2
-		+-- underscore@1.4.4
-		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
-		+-- xml2js@0.2.7 (sax@0.5.2)
-		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+    ```
+    azure-storage@0.5.0 node_modules\azure-storage
+    +-- extend@1.2.1
+    +-- xmlbuilder@0.4.3
+    +-- mime@1.2.11
+    +-- node-uuid@1.4.3
+    +-- validator@3.22.2
+    +-- underscore@1.4.4
+    +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+    +-- xml2js@0.2.7 (sax@0.5.2)
+    +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
+    ```
 
 3.  You can manually run the **ls** command to verify that a
     **node_modules** folder was created. Inside that folder you will
@@ -68,7 +71,9 @@ communicate with the storage REST services.
 Using Notepad or another text editor, add the following to the top the
 **server.js** file of the application where you intend to use storage:
 
-	var azure = require('azure-storage');
+```
+var azure = require('azure-storage');
+```
 
 ## Setup an Azure Storage Connection
 
@@ -81,17 +86,21 @@ For an example of setting the environment variables in the [Azure Portal](https:
 The following code creates a **QueueService** object, which enables you
 to work with queues.
 
-	var queueSvc = azure.createQueueService();
+```
+var queueSvc = azure.createQueueService();
+```
 
 Use the **createQueueIfNotExists** method, which returns the specified
 queue if it already exists or creates a new queue with the specified
 name if it does not already exist.
 
-	queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
-	  if(!error){
-	    // Queue created or exists
-	  }
-	});
+```
+queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
+  if(!error){
+    // Queue created or exists
+  }
+});
+```
 
 If the queue is created, `result.created` is true. If the queue exists, `result.created` is false.
 
@@ -99,29 +108,37 @@ If the queue is created, `result.created` is true. If the queue exists, `result.
 
 Optional filtering operations can be applied to operations performed using **QueueService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
-	function handle (requestOptions, next)
+```
+function handle (requestOptions, next)
+```
 
 After doing its preprocessing on the request options, the method needs to call "next" passing a callback with the following signature:
 
-	function (returnObject, finalCallback, next)
+```
+function (returnObject, finalCallback, next)
+```
 
 In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end up the service invocation.
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **QueueService** object that uses the **ExponentialRetryPolicyFilter**:
 
-	var retryOperations = new azure.ExponentialRetryPolicyFilter();
-	var queueSvc = azure.createQueueService().withFilter(retryOperations);
+```
+var retryOperations = new azure.ExponentialRetryPolicyFilter();
+var queueSvc = azure.createQueueService().withFilter(retryOperations);
+```
 
 ## How To: Insert a Message into a Queue
 
 To insert a message into a queue, use the **createMessage** method to
 create a new message and add it to the queue.
 
-	queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
-	  if(!error){
-	    // Message inserted
-	  }
-	});
+```
+queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
+  if(!error){
+    // Message inserted
+  }
+});
+```
 
 ## How To: Peek at the Next Message
 
@@ -129,15 +146,18 @@ You can peek at the message in the front of a queue without removing it
 from the queue by calling the **peekMessages** method. By default,
 **peekMessages** peeks at a single message.
 
-	queueSvc.peekMessages('myqueue', function(error, result, response){
-	  if(!error){
-	    // Message text is in messages[0].messageText
-	  }
-	});
+```
+queueSvc.peekMessages('myqueue', function(error, result, response){
+  if(!error){
+    // Message text is in messages[0].messageText
+  }
+});
+```
 
 The `result` contains the message.
 
-> [AZURE.NOTE] Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
+> [!NOTE]
+> Using **peekMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## How To: Dequeue the Next Message
 
@@ -149,38 +169,43 @@ Processing a message is a two-stage process:
 
 To dequeue a message, use **getMessages**. This makes the messages invisible in the queue, so no other clients can process them. Once your application has processed a message, call **deleteMessage** to delete it from the queue. The following example gets a message, then deletes it:
 
-	queueSvc.getMessages('myqueue', function(error, result, response){
-	  if(!error){
-	    // Message text is in messages[0].messageText
-	    var message = result[0];
-	    queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
-	      if(!error){
-	        //message deleted
-	      }
-	    });
-	  }
-	});
+```
+queueSvc.getMessages('myqueue', function(error, result, response){
+  if(!error){
+    // Message text is in messages[0].messageText
+    var message = result[0];
+    queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
+      if(!error){
+        //message deleted
+      }
+    });
+  }
+});
+```
 
-> [AZURE.NOTE] By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilityTimeout` with **getMessages**.
+> [!NOTE]
+> By default, a message is only hidden for 30 seconds, after which it is visible to other clients. You can specify a different value by using `options.visibilityTimeout` with **getMessages**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Using **getMessages** when there are no messages in the queue will not return an error, however no messages will be returned.
 
 ## How To: Change the Contents of a Queued Message
 
 You can change the contents of a message in-place in the queue using **updateMessage**. The following example updates the text of a message:
 
-	queueSvc.getMessages('myqueue', function(error, result, response){
-	  if(!error){
-	    // Got the message
-	    var message = result[0];
-	    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
-	      if(!error){
-	        // Message updated successfully
-	      }
-	    });
-	  }
-	});
+```
+queueSvc.getMessages('myqueue', function(error, result, response){
+  if(!error){
+    // Got the message
+    var message = result[0];
+    queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
+      if(!error){
+        // Message updated successfully
+      }
+    });
+  }
+});
+```
 
 ## How To: Additional Options for Dequeuing Messages
 
@@ -192,40 +217,46 @@ There are two ways you can customize message retrieval from a queue:
 The following example uses the **getMessages** method to get 15 messages in one call. Then it processes
 each message using a for loop. It also sets the invisibility timeout to five minutes for all messages returned by this method.
 
-	queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
-	  if(!error){
-	    // Messages retreived
-	    for(var index in result){
-	      // text is available in result[index].messageText
-	      var message = result[index];
-	      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
-	        if(!error){
-	          // Message deleted
-	        }
-	      });
-	    }
-	  }
-	});
+```
+queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
+  if(!error){
+    // Messages retreived
+    for(var index in result){
+      // text is available in result[index].messageText
+      var message = result[index];
+      queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, response){
+        if(!error){
+          // Message deleted
+        }
+      });
+    }
+  }
+});
+```
 
 ## How To: Get the Queue Length
 
 The **getQueueMetadata** returns metadata about the queue, including the approximate number of messages waiting in the queue.
 
-	queueSvc.getQueueMetadata('myqueue', function(error, result, response){
-	  if(!error){
-	    // Queue length is available in result.approximateMessageCount
-	  }
-	});
+```
+queueSvc.getQueueMetadata('myqueue', function(error, result, response){
+  if(!error){
+    // Queue length is available in result.approximateMessageCount
+  }
+});
+```
 
 ## How To: List Queues
 
 To retrieve a list of queues, use **listQueuesSegmented**. To retrieve a list filtered by a specific prefix, use **listQueuesSegmentedWithPrefix**.
 
-	queueSvc.listQueuesSegmented(null, function(error, result, response){
-	  if(!error){
-	    // result.entries contains the list of queues
-	  }
-	});
+```
+queueSvc.listQueuesSegmented(null, function(error, result, response){
+  if(!error){
+    // result.entries contains the list of queues
+  }
+});
+```
 
 If all queues cannot be returned, `result.continuationToken` can be used as the first parameter of **listQueuesSegmented** or the second parameter of **listQueuesSegmentedWithPrefix** to retrieve more results.
 
@@ -234,11 +265,13 @@ If all queues cannot be returned, `result.continuationToken` can be used as the 
 To delete a queue and all the messages contained in it, call the
 **deleteQueue** method on the queue object.
 
-	queueSvc.deleteQueue(queueName, function(error, response){
-	  if(!error){
-	    // Queue has been deleted
-	  }
-	});
+```
+queueSvc.deleteQueue(queueName, function(error, response){
+  if(!error){
+    // Queue has been deleted
+  }
+});
+```
 
 To clear all messages from a queue without deleting it, use **clearMessages**.
 
@@ -250,32 +283,36 @@ A trusted application such as a cloud-based service generates a SAS using the **
 
 The following example generates a new shared access policy that will allow the SAS holder to add messages to the queue, and expires 100 minutes after the time it is created.
 
-	var startDate = new Date();
-	var expiryDate = new Date(startDate);
-	expiryDate.setMinutes(startDate.getMinutes() + 100);
-	startDate.setMinutes(startDate.getMinutes() - 100);
+```
+var startDate = new Date();
+var expiryDate = new Date(startDate);
+expiryDate.setMinutes(startDate.getMinutes() + 100);
+startDate.setMinutes(startDate.getMinutes() - 100);
 
-	var sharedAccessPolicy = {
-	  AccessPolicy: {
-	    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
-	    Start: startDate,
-	    Expiry: expiryDate
-	  }
-	};
+var sharedAccessPolicy = {
+  AccessPolicy: {
+    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+    Start: startDate,
+    Expiry: expiryDate
+  }
+};
 
-	var queueSAS = queueSvc.generateSharedAccessSignature('myqueue', sharedAccessPolicy);
-	var host = queueSvc.host;
+var queueSAS = queueSvc.generateSharedAccessSignature('myqueue', sharedAccessPolicy);
+var host = queueSvc.host;
+```
 
 Note that the host information must be provided also, as it is required when the SAS holder attempts to access the queue.
 
 The client application then uses the SAS with **QueueServiceWithSAS** to perform operations against the queue. The following example connects to the queue and creates a message.
 
-	var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
-	sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
-	  if(!error){
-	    //message added
-	  }
-	});
+```
+var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
+sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
+  if(!error){
+    //message added
+  }
+});
+```
 
 Since the SAS was generated with add access, if an attempt were made to read, update or delete messages, an error would be returned.
 
@@ -285,36 +322,42 @@ You can also use an Access Control List (ACL) to set the access policy for a SAS
 
 An ACL is implemented using an array of access policies, with an ID associated with each policy. The  following example defines two policies; one for 'user1' and one for 'user2':
 
-	var sharedAccessPolicy = {
-	  user1: {
-	    Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
-	    Start: startDate,
-	    Expiry: expiryDate
-	  },
-	  user2: {
-	    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
-	    Start: startDate,
-	    Expiry: expiryDate
-	  }
-	};
+```
+var sharedAccessPolicy = {
+  user1: {
+    Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
+    Start: startDate,
+    Expiry: expiryDate
+  },
+  user2: {
+    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
+    Start: startDate,
+    Expiry: expiryDate
+  }
+};
+```
 
 The following example gets the current ACL for **myqueue**, then adds the new policies using **setQueueAcl**. This approach allows:
 
-	var extend = require('extend');
-	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
-	  if(!error){
-	    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
-	    queueSvc.setQueueAcl('myqueue', newSignedIdentifiers, function(error, result, response){
-	      if(!error){
-	        // ACL set
-	      }
-	    });
-	  }
-	});
+```
+var extend = require('extend');
+queueSvc.getQueueAcl('myqueue', function(error, result, response) {
+  if(!error){
+    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
+    queueSvc.setQueueAcl('myqueue', newSignedIdentifiers, function(error, result, response){
+      if(!error){
+        // ACL set
+      }
+    });
+  }
+});
+```
 
 Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following example creates a new SAS for 'user2':
 
-	queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
+```
+queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
+```
 
 ## Next Steps
 
@@ -327,17 +370,14 @@ to learn about more complex storage tasks.
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/zh-cn/library/azure/hh264518.aspx
   [Azure Portal]: https://portal.azure.cn
-  [Create a Node.js web app in Azure App Service]: /documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Node.js Cloud Service with Storage]: /documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Node.js web app using the Azure Table Service]: /documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Create a Node.js web app in Azure App Service]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: ./storage-nodejs-use-table-storage-cloud-service-app.md
+  [Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 
-  
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
   [plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
   [quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
 
-
-
-  [Build and deploy a Node.js application to an Azure Cloud Service]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Build and deploy a Node.js application to an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Build and deploy a Node.js web app to Azure using Web Matrix]: /documentation/articles/web-sites-nodejs-use-webmatrix/

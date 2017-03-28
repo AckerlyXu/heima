@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Azure Active Directory password reset | Azure"
-    description="Description of password management capabilities in Azure AD, including password reset, change, password management reporting, and writeback to your local on-premises Active Directory."
-    services="active-directory"
-    documentationcenter=""
-    author="MicrosoftGuyJFlo"
-    manager="femila"
-    editor="curtand" />
-<tags
-    ms.assetid="be6164fc-bae1-49df-af76-761329ba70a1"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/28/2017"
-    wacn.date=""
-    ms.author="joflore" />
+---
+title: Azure Active Directory password reset | Azure
+description: Description of password management capabilities in Azure AD, including password reset, change, password management reporting, and writeback to your local on-premises Active Directory.
+services: active-directory
+documentationcenter: ''
+author: MicrosoftGuyJFlo
+manager: femila
+editor: curtand
+
+ms.assetid: be6164fc-bae1-49df-af76-761329ba70a1
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/28/2017
+wacn.date: ''
+ms.author: joflore
+---
 
 # Azure Active Directory password reset for IT administrators
-> [AZURE.IMPORTANT]
-> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
+> [!IMPORTANT]
+> **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
 >
 >
 
@@ -68,47 +69,46 @@ Azure AD password reset is available in 3 tiers, depending on which subscription
 
 - **Azure AD Free** - cloud-only administrators can reset their own passwords
 - **Azure AD Basic or any Paid O365 Subscription** - cloud-only users and cloud-only administrators can reset their own passwords
-- **Azure AD Premium** - any user or administrator, including cloud-only, federated, or password synced users, can reset their own passwords (requires [password writeback to be enabled](/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-ad-passwords/))
+- **Azure AD Premium** - any user or administrator, including cloud-only, federated, or password synced users, can reset their own passwords (requires [password writeback to be enabled](./active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords))
 
-For more information on Azure AD Premium or Basic pricing, visit the [Active Directory Pricing Details](/pricing/details/identity/) page.
+For more information on Azure AD Premium or Basic pricing, visit the [Active Directory Pricing Details](https://www.azure.cn/pricing/details/identity/) page.
 
 ## Enable password reset for your users
 | Topic |  |
 | --- | --- |
-| How do I enable password reset for cloud users? |[Enable users to reset their cloud Azure Active Directory passwords](/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-their-azure-ad-passwords/) |
-| How do I enable password reset and change for on-premises users? |[Enable users to reset or change their on-premises Active Directory passwords](/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-ad-passwords/) |
-| How do I scope password reset to a specific set of users? |[Restrict password reset to specific users](/documentation/articles/active-directory-passwords-customize/#restrict-access-to-password-reset/) |
-| How do I test cloud password reset? |[Reset your Azure AD password as a user](/documentation/articles/active-directory-passwords-getting-started/#step-3-reset-your-azure-ad-password-as-a-user/) |
-| How do I test on-premises password reset? |[Reset your on-premises AD password as a user](/documentation/articles/active-directory-passwords-getting-started/#step-5-reset-your-ad-password-as-a-user/) |
-| How do I disable password reset at a later time? |[Setting: users enabled for password reset](/documentation/articles/active-directory-passwords-customize/#users-enabled-for-password-reset/) |
+| How do I enable password reset for cloud users? |[Enable users to reset their cloud Azure Active Directory passwords](./active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) |
+| How do I enable password reset and change for on-premises users? |[Enable users to reset or change their on-premises Active Directory passwords](./active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) |
+| How do I scope password reset to a specific set of users? |[Restrict password reset to specific users](./active-directory-passwords-customize.md#restrict-access-to-password-reset) |
+| How do I test cloud password reset? |[Reset your Azure AD password as a user](./active-directory-passwords-getting-started.md#step-3-reset-your-azure-ad-password-as-a-user) |
+| How do I test on-premises password reset? |[Reset your on-premises AD password as a user](./active-directory-passwords-getting-started.md#step-5-reset-your-ad-password-as-a-user) |
+| How do I disable password reset at a later time? |[Setting: users enabled for password reset](./active-directory-passwords-customize.md#users-enabled-for-password-reset) |
 
 ## Customize password reset behavior
 | Topic |  |
 | --- | --- |
-| How do I change what authentication methods are supported? |[Setting: authentication methods available to users](/documentation/articles/active-directory-passwords-customize/#authentication-methods-available-to-users/) |
-| How do I change number of authentication methods required? |[Setting: number of authentication methods required](/documentation/articles/active-directory-passwords-customize/#number-of-authentication-methods-required/) |
-| How do I set up custom security questions? |[Setting: custom security questions](/documentation/articles/active-directory-passwords-customize/#custom-security-questions/) |
-| How do I set up pre-canned localized security questions? |[Setting: knowledge-based security questions](/documentation/articles/active-directory-passwords-customize/#knowledge-based-security-questions/) |
-| How can I change how many security questions are required? |[Setting: number of security questions for registration or reset](/documentation/articles/active-directory-passwords-customize/#number-of-questions-required-to-register/) |
-| How can I customize how a user gets in touch with an admin? |[Setting: customize the "contact your administrator" link](/documentation/articles/active-directory-passwords-customize/#customize-the-contact-your-administrator-link/) |
-| How can I allow users to unlock AD accounts without resetting a password? |[Setting: enable users to unlock their AD accounts without resetting a password](/documentation/articles/active-directory-passwords-customize/#allow-users-to-unlock-accounts-without-resetting-their-password/) |
-| How can I enable password reset notifications for users? |[Setting: notify users when their passwords have been reset](/documentation/articles/active-directory-passwords-customize/#notify-users-and-admins-when-their-own-password-has-been-reset/) |
-| How can I enable password reset notifications for admins? |[Setting: notify other admins when an admin reset their own password](/documentation/articles/active-directory-passwords-customize/#notify-admins-when-other-admins-reset-their-own-passwords/) |
-| How can I customize password reset look and feel? |[Setting: company name, branding, and logo ](/documentation/articles/active-directory-passwords-customize/#password-management-look-and-feel/) |
+| How do I change what authentication methods are supported? |[Setting: authentication methods available to users](./active-directory-passwords-customize.md#authentication-methods-available-to-users) |
+| How do I change number of authentication methods required? |[Setting: number of authentication methods required](./active-directory-passwords-customize.md#number-of-authentication-methods-required) |
+| How do I set up custom security questions? |[Setting: custom security questions](./active-directory-passwords-customize.md#custom-security-questions) |
+| How do I set up pre-canned localized security questions? |[Setting: knowledge-based security questions](./active-directory-passwords-customize.md#knowledge-based-security-questions) |
+| How can I change how many security questions are required? |[Setting: number of security questions for registration or reset](./active-directory-passwords-customize.md#number-of-questions-required-to-register) |
+| How can I customize how a user gets in touch with an admin? |[Setting: customize the "contact your administrator" link](./active-directory-passwords-customize.md#customize-the-contact-your-administrator-link) |
+| How can I allow users to unlock AD accounts without resetting a password? |[Setting: enable users to unlock their AD accounts without resetting a password](./active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| How can I enable password reset notifications for users? |[Setting: notify users when their passwords have been reset](./active-directory-passwords-customize.md#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| How can I enable password reset notifications for admins? |[Setting: notify other admins when an admin reset their own password](./active-directory-passwords-customize.md#notify-admins-when-other-admins-reset-their-own-passwords) |
+| How can I customize password reset look and feel? |[Setting: company name, branding, and logo ](./active-directory-passwords-customize.md#password-management-look-and-feel) |
 
 ## Configure your users to use password reset
 | Topic |  |
 | --- | --- |
-| How do I know if an account is configured for password reset? |[What makes an account configured for password reset?](/documentation/articles/active-directory-passwords-best-practices/#what-makes-an-account-configured/) |
-| How do I get my users configured for password reset? |[Ways to populate password reset authentication data for your users](/documentation/articles/active-directory-passwords-best-practices/#ways-to-populate-authentication-data/) |
-| How do I manually upload data for my users? |[Uploading password reset data yourself](/documentation/articles/active-directory-passwords-best-practices/#uploading-data-yourself/) |
-| How do I use PowerShell to read or set data for my users? |[How to access password reset data for your users](/documentation/articles/active-directory-passwords-learn-more/#how-to-access-password-reset-data-for-your-users/) |
-| How can I synchronize password reset data from on-premises? |[What data is used by password reset](/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset/) |
-| How can I use an email campaign to get my users to register for and use password reset? |[Email-based rollout of password reset](/documentation/articles/active-directory-passwords-best-practices/#email-based-rollout/) |
-| How can I force my users to register when signing in? |[Enforced registration-based rollout of password reset](/documentation/articles/active-directory-passwords-customize/#require-users-to-register-when-signing-in/) |
-| How can I force my users to re-confirm their registered periodically? |[Setting: number of days before users must re-confirm their authentication data](/documentation/articles/active-directory-passwords-customize/#number-of-days-before-users-must-confirm-their-contact-data/) |
-| What are best practices around communicating password reset to end users? |[Creating your own password portal for your users to use](/documentation/articles/active-directory-passwords-best-practices/#creating-your-own-password-portal/) |
-
+| How do I know if an account is configured for password reset? |[What makes an account configured for password reset?](./active-directory-passwords-best-practices.md#what-makes-an-account-configured) |
+| How do I get my users configured for password reset? |[Ways to populate password reset authentication data for your users](./active-directory-passwords-best-practices.md#ways-to-populate-authentication-data) |
+| How do I manually upload data for my users? |[Uploading password reset data yourself](./active-directory-passwords-best-practices.md#uploading-data-yourself) |
+| How do I use PowerShell to read or set data for my users? |[How to access password reset data for your users](./active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) |
+| How can I synchronize password reset data from on-premises? |[What data is used by password reset](./active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
+| How can I use an email campaign to get my users to register for and use password reset? |[Email-based rollout of password reset](./active-directory-passwords-best-practices.md#email-based-rollout) |
+| How can I force my users to register when signing in? |[Enforced registration-based rollout of password reset](./active-directory-passwords-customize.md#require-users-to-register-when-signing-in) |
+| How can I force my users to re-confirm their registered periodically? |[Setting: number of days before users must re-confirm their authentication data](./active-directory-passwords-customize.md#number-of-days-before-users-must-confirm-their-contact-data) |
+| What are best practices around communicating password reset to end users? |[Creating your own password portal for your users to use](./active-directory-passwords-best-practices.md#creating-your-own-password-portal) |
 
 ## Manage your users' passwords
 | Topic |  |
@@ -126,39 +126,39 @@ For more information on Azure AD Premium or Basic pricing, visit the [Active Dir
 ## Troubleshoot a problem
 | Topic |  |
 | --- | --- |
-| What information should I provide to support if I need help? |[Information to include when you need help](/documentation/articles/active-directory-passwords-troubleshoot/#information-to-include-when-you-need-help/) |
-| How can I fix a problem with password reset |[Troubleshoot the password reset portal](/documentation/articles/active-directory-passwords-troubleshoot/#troubleshoot-the-password-reset-portal/) |
-| How can I fix a problem with password writeback |[Troubleshoot password writeback](/documentation/articles/active-directory-passwords-troubleshoot/#troubleshoot-password-writeback/) |
-| How can I fix a problem with password writeback connectivity |[Troubleshoot password writeback connectivity](/documentation/articles/active-directory-passwords-troubleshoot/#troubleshoot-password-writeback-connectivity/) |
-| How can I fix a problem with password reset configuration |[Troubleshoot password reset configuration in the azure management portal](/documentation/articles/active-directory-passwords-troubleshoot/#troubleshoot-password-reset-configuration-in-the-azure-management-portal/) |
-| How can I fix a problem with password reset reports |[Troubleshoot password management reports in the azure management portal](/documentation/articles/active-directory-passwords-troubleshoot/#troubleshoot-password-management-reports-in-the-azure-management-portal/) |
-| How can I fix a problem with password reset registration |[Troubleshoot the password reset registration portal](/documentation/articles/active-directory-passwords-troubleshoot/#troubleshoot-the-password-reset-registration-portal/) |
-| Password writeback event log error codes |[Password writeback event log error codes](/documentation/articles/active-directory-passwords-troubleshoot/#password-writeback-event-log-error-codes/) |
+| What information should I provide to support if I need help? |[Information to include when you need help](./active-directory-passwords-troubleshoot.md#information-to-include-when-you-need-help) |
+| How can I fix a problem with password reset |[Troubleshoot the password reset portal](./active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-portal) |
+| How can I fix a problem with password writeback |[Troubleshoot password writeback](./active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| How can I fix a problem with password writeback connectivity |[Troubleshoot password writeback connectivity](./active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) |
+| How can I fix a problem with password reset configuration |[Troubleshoot password reset configuration in the azure management portal](./active-directory-passwords-troubleshoot.md#troubleshoot-password-reset-configuration-in-the-azure-management-portal) |
+| How can I fix a problem with password reset reports |[Troubleshoot password management reports in the azure management portal](./active-directory-passwords-troubleshoot.md#troubleshoot-password-management-reports-in-the-azure-management-portal) |
+| How can I fix a problem with password reset registration |[Troubleshoot the password reset registration portal](./active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-registration-portal) |
+| Password writeback event log error codes |[Password writeback event log error codes](./active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes) |
 
 ## Read a FAQ
 | Topic |  |
 | --- | --- |
-| I want to read a FAQ about password reset registration |[Password reset registration FAQ](/documentation/articles/active-directory-passwords-faq/#password-reset-registration/) |
-| I want to read a FAQ about password reset |[Password reset FAQ](/documentation/articles/active-directory-passwords-faq/#password-reset/) |
-| I want to read a FAQ about password reset reports |[Password management reports FAQ](/documentation/articles/active-directory-passwords-faq/#password-management-reports/) |
-| I want to read a FAQ about password writeback |[Password writeback FAQ](/documentation/articles/active-directory-passwords-faq/#password-writeback/) |
+| I want to read a FAQ about password reset registration |[Password reset registration FAQ](./active-directory-passwords-faq.md#password-reset-registration) |
+| I want to read a FAQ about password reset |[Password reset FAQ](./active-directory-passwords-faq.md#password-reset) |
+| I want to read a FAQ about password reset reports |[Password management reports FAQ](./active-directory-passwords-faq.md#password-management-reports) |
+| I want to read a FAQ about password writeback |[Password writeback FAQ](./active-directory-passwords-faq.md#password-writeback) |
 
 ## Understand the technical details
 | Topic |  |
 | --- | --- |
-| I want to learn about what password writeback is |[Password writeback overview](/documentation/articles/active-directory-passwords-learn-more/#password-writeback-overview/) |
-| I want to learn about how password writeback works |[How does password writeback work?](/documentation/articles/active-directory-passwords-learn-more/#how-password-writeback-works/) |
-| I want to learn about what scenarios are supported by password writeback |[Scenarios supported for password writeback](/documentation/articles/active-directory-passwords-learn-more/#scenarios-supported-for-password-writeback/) |
-| I want to learn about how password writeback is secured |[Password writeback security model](/documentation/articles/active-directory-passwords-learn-more/#password-writeback-security-model/) |
-| I want to learn about how the password reset portal works |[How does the password reset portal work?](/documentation/articles/active-directory-passwords-learn-more/#how-does-the-password-reset-portal-work/) |
-| I want to learn about what data is used by password reset |[What data is used by password reset?](/documentation/articles/active-directory-passwords-learn-more/#what-data-is-used-by-password-reset/) |
+| I want to learn about what password writeback is |[Password writeback overview](./active-directory-passwords-learn-more.md#password-writeback-overview) |
+| I want to learn about how password writeback works |[How does password writeback work?](./active-directory-passwords-learn-more.md#how-password-writeback-works) |
+| I want to learn about what scenarios are supported by password writeback |[Scenarios supported for password writeback](./active-directory-passwords-learn-more.md#scenarios-supported-for-password-writeback) |
+| I want to learn about how password writeback is secured |[Password writeback security model](./active-directory-passwords-learn-more.md#password-writeback-security-model) |
+| I want to learn about how the password reset portal works |[How does the password reset portal work?](./active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work) |
+| I want to learn about what data is used by password reset |[What data is used by password reset?](./active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
 
 ## Recent service updates
 #### Enforce password reset registration at sign-in to Office 365 apps - November 2015
-- Now, after enabling the [enforced registration](/documentation/articles/active-directory-passwords-customize/#require-users-to-register-when-signing-in/) feature, your users will be required to register from anywhere they sign in with a work or school account.  This dramatically increases the speed at which many organizations can onboard to password reset.  With this new feature we've seen large organizations onboarding in as little as 2 weeks!
+- Now, after enabling the [enforced registration](./active-directory-passwords-customize.md#require-users-to-register-when-signing-in) feature, your users will be required to register from anywhere they sign in with a work or school account.  This dramatically increases the speed at which many organizations can onboard to password reset.  With this new feature we've seen large organizations onboarding in as little as 2 weeks!
 
 #### Support for unlocking on-premises AD Accounts without resetting a password - November 2015
-- Unlock only (without reset) is a huge helpdesk driver these days.  In fact, many organizations spend up to 70% of their password reset budget unlocking accounts!  To meet this demand, now with Azure AD password reset, you can enable a feature to let your users unlock on-premises AD accounts separately from password reset.  Check out how to turn it on here: [Setting: enable users to unlock their on-premises AD accounts without resetting a password](/documentation/articles/active-directory-passwords-customize/#allow-users-to-unlock-accounts-without-resetting-their-password/).
+- Unlock only (without reset) is a huge helpdesk driver these days.  In fact, many organizations spend up to 70% of their password reset budget unlocking accounts!  To meet this demand, now with Azure AD password reset, you can enable a feature to let your users unlock on-premises AD accounts separately from password reset.  Check out how to turn it on here: [Setting: enable users to unlock their on-premises AD accounts without resetting a password](./active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
 
 #### Usability updates to registration page - October 2015
 - Now, when a user has data already registered, he or she can just click "looks good" to update the data without needing to re-send the email or phone call.
@@ -200,12 +200,12 @@ Below are some of the cool features we're working on right now!
 ## Next steps
 Below are links to all of the Azure AD password reset documentation pages:
 
-- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](/documentation/articles/active-directory-passwords-update-your-own-password/#how-to-reset-your-password/).
-- [**How it works**](/documentation/articles/active-directory-passwords-how-it-works/) - learn about the six different components of the service and what each does
-- [**Getting started**](/documentation/articles/active-directory-passwords-getting-started/) - learn how to allow you users to reset and change their cloud or on-premises passwords
-- [**Customize**](/documentation/articles/active-directory-passwords-customize/) - learn how to customize the look & feel and behavior of the service to your organization's needs
-- [**Best practices**](/documentation/articles/active-directory-passwords-best-practices/) - learn how to quickly deploy and effectively manage passwords in your organization
-- [**Get insights**](/documentation/articles/active-directory-passwords-get-insights/) - learn about our integrated reporting capabilities
-- [**FAQ**](/documentation/articles/active-directory-passwords-faq/) - get answers to frequently asked questions
-- [**Troubleshooting**](/documentation/articles/active-directory-passwords-troubleshoot/) - learn how to quickly troubleshoot problems with the service
-- [**Learn more**](/documentation/articles/active-directory-passwords-learn-more/) - go deep into the technical details of how the service works
+- **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](./active-directory-passwords-update-your-own-password.md#how-to-reset-your-password).
+- [**How it works**](./active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+- [**Getting started**](./active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+- [**Customize**](./active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+- [**Best practices**](./active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+- [**Get insights**](./active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+- [**FAQ**](./active-directory-passwords-faq.md) - get answers to frequently asked questions
+- [**Troubleshooting**](./active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+- [**Learn more**](./active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works

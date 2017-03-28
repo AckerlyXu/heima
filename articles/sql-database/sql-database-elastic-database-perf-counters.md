@@ -1,24 +1,24 @@
-<properties
-    pageTitle="Performance counters for shard map manager"
-    description="ShardMapManager class and data dependent routing performance counters"
-    services="sql-database"
-    documentationCenter=""
-    manager="jhubbard"
-    authors="SilviaDoomra"
-    editor=""/>
+---
+title: Performance counters for shard map manager
+description: ShardMapManager class and data dependent routing performance counters
+services: sql-database
+documentationCenter: ''
+manager: jhubbard
+authors: SilviaDoomra
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.date="05/23/2016"
-    wacn.date=""/>
+ms.service: sql-database
+ms.date: 05/23/2016
+wacn.date: ''
+---
 
 # Performance counters for shard map manager
 
-You can capture the performance of a [shard map manager](/documentation/articles/sql-database-elastic-scale-shard-map-management/), especially when using [data dependent routing](/documentation/articles/sql-database-elastic-scale-data-dependent-routing/). Counters are created with methods of the Microsoft.Azure.SqlDatabase.ElasticScale.Client class.  
+You can capture the performance of a [shard map manager](./sql-database-elastic-scale-shard-map-management.md), especially when using [data dependent routing](./sql-database-elastic-scale-data-dependent-routing.md). Counters are created with methods of the Microsoft.Azure.SqlDatabase.ElasticScale.Client class.  
 
-Counters are used to track the performance of [data dependent routing](/documentation/articles/sql-database-elastic-scale-data-dependent-routing/) operations. These counters are accessible in the Performance Monitor, under the "Elastic Database: Shard Management" category.
+Counters are used to track the performance of [data dependent routing](./sql-database-elastic-scale-data-dependent-routing.md) operations. These counters are accessible in the Performance Monitor, under the "Elastic Database: Shard Management" category.
 
-**For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). See also [Upgrade an app to use the latest elastic database client library](/documentation/articles/sql-database-elastic-scale-upgrade-client-library/).
+**For the latest version:** Go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). See also [Upgrade an app to use the latest elastic database client library](./sql-database-elastic-scale-upgrade-client-library.md).
 
 ## Prerequisites
 
@@ -30,7 +30,9 @@ Counters are used to track the performance of [data dependent routing](/document
 
 To create the counters, call the CreatePeformanceCategoryAndCounters method of the [ShardMapManagmentFactory class](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Only an administrator can execute the method: 
 
-	ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
+```
+ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
+```
 
 You can also use [this](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) PowerShell script to execute the method. 
 The method creates the following performance counters:  
@@ -43,7 +45,6 @@ The method creates the following performance counters:
 *  **Mappings removed from cache/sec**: Rate at which mappings are being removed from cache for the shard map. 
 
 Performance counters are created for each cached shard map per process.  
-
 
 ## Notes
 The following events trigger the creation of the performance counters:  
@@ -63,10 +64,9 @@ The performance counters will be updated by all cache operations performed on th
 
 ### See also
 
-[Elastic Database features overview](/documentation/articles/sql-database-elastic-scale-introduction/)  
+[Elastic Database features overview](./sql-database-elastic-scale-introduction.md)  
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
 <!--Image references-->
-

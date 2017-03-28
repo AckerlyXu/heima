@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure IoT Hub get started | Azure"
-    description="How to get started with the IoT Hub service"
-    services="iot-hub"
-    documentationcenter=""
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="24376318-5344-4a81-a1e6-0003ed587d53"
-    ms.service="iot-hub"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Azure IoT Hub get started | Azure
+description: How to get started with the IoT Hub service
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Get started with Azure IoT Hub or Azure IoT Gateway SDK
 
@@ -47,16 +48,16 @@ To get started with the Gateway SDK, you can:
 
 When you are finished with the get started tutorials, you can explore more features of IoT Hub and the Gateway SDK in the [Developer Guide][lnk-devguide] and [How To][lnk-howto] tutorials.
 
-[lnk-dotnet]: /documentation/articles/iot-hub-csharp-csharp-getstarted/
-[lnk-java]: /documentation/articles/iot-hub-java-java-getstarted/
-[lnk-nodejs]: /documentation/articles/iot-hub-node-node-getstarted/
-[lnk-c-intro]: /documentation/articles/iot-hub-device-sdk-c-intro/
-[lnk-rasp-pi]: /documentation/articles/iot-hub-raspberry-pi-kit-node-get-started/
-[lnk-edison]: /documentation/articles/iot-hub-intel-edison-kit-node-get-started/
-[lnk-arduino]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started/
-[lnk-linux]: /documentation/articles/iot-hub-linux-gateway-sdk-get-started/
-[lnk-windows]: /documentation/articles/iot-hub-windows-gateway-sdk-get-started/
-[lnk-gateway-sim]: /documentation/articles/iot-hub-gateway-kit-c-sim-get-started/
-[lnk-gateway-tag]: /documentation/articles/iot-hub-gateway-kit-c-get-started/
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
-[lnk-howto]: /documentation/articles/iot-hub-how-to/
+[lnk-dotnet]: ./iot-hub-csharp-csharp-getstarted.md
+[lnk-java]: ./iot-hub-java-java-getstarted.md
+[lnk-nodejs]: ./iot-hub-node-node-getstarted.md
+[lnk-c-intro]: ./iot-hub-device-sdk-c-intro.md
+[lnk-rasp-pi]: ./iot-hub-raspberry-pi-kit-node-get-started.md
+[lnk-edison]: ./iot-hub-intel-edison-kit-node-get-started.md
+[lnk-arduino]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
+[lnk-linux]: ./iot-hub-linux-gateway-sdk-get-started.md
+[lnk-windows]: ./iot-hub-windows-gateway-sdk-get-started.md
+[lnk-gateway-sim]: ./iot-hub-gateway-kit-c-sim-get-started.md
+[lnk-gateway-tag]: ./iot-hub-gateway-kit-c-get-started.md
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-howto]: ./iot-hub-how-to.md

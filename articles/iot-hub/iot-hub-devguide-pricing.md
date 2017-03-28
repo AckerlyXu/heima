@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understand Azure IoT Hub pricing | Azure"
-    description="Developer guide - information about how metering and pricing works with IoT Hub including worked examples."
-    services="iot-hub"
-    documentationcenter=""
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="1ac90923-1edf-4134-bbd4-77fee9b68d24"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="12/12/2016"
-    wacn.date=""
-    ms.author="elioda" />
+---
+title: Understand Azure IoT Hub pricing | Azure
+description: Developer guide - information about how metering and pricing works with IoT Hub including worked examples.
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/12/2016
+wacn.date: ''
+ms.author: elioda
+---
 
 # Azure IoT Hub pricing information
 
@@ -36,7 +37,7 @@
 | Jobs operations <br/> (create, update, list, delete) | Not charged. |
 | Jobs per-device operations | Jobs operations (such as device twin updates, and methods) are charged as normal. For instance, a job resulting in 1000 method calls with 1KB requests and empty-body responses is charged 1000 messages. |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > All sizes are computed considering the payload size in bytes (protocol framing is ignored). In case of messages (which have properties and body) the size is computed in a protocol-agnostic way, as described in the [IoT Hub messaging developer's guide][lnk-message-size].
 
 ## Example #1
@@ -54,6 +55,5 @@ The solution back end consumes 28 messages (14KB / 0.5KB) to read the device twi
 
 In total, the device and the solution back end consume 185 messages per day.
 
-
-[lnk-pricing]: /pricing/details/iot-hub
-[lnk-message-size]: /documentation/articles/iot-hub-devguide-messaging/#message-size
+[lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub
+[lnk-message-size]: ./iot-hub-devguide-messaging.md#message-size

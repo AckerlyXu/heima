@@ -39,9 +39,9 @@ The client access point is the network name that applications use to connect to 
 1. In the **Name** box, create a name for this new listener. 
 
     The name for the new listener is the network name that applications use to connect to databases in the SQL Server Availability Group.
-   
+
     To finish creating the listener, click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
-   
+
 #### <a name="congroup"></a>Configure the IP resource for the Availability Group
 
 1. Click the **Resources** tab, then expand the client access point you created. The client access point is offline.
@@ -88,16 +88,18 @@ The client access point is the network name that applications use to connect to 
 
 1. Copy the following PowerShell script to one of your SQL Servers. Update the variables for your environment.     
 
-        $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP Address resource name
-        $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal preview.
-        [int]$ProbePort = <nnnnn>
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<IPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal preview.
+    [int]$ProbePort = <nnnnn>
 
-        Import-Module FailoverClusters
+    Import-Module FailoverClusters
 
-        Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
 
 2. Set the cluster parameters by running the PowerShell script on one of the cluster nodes.  
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If your SQL Servers are in separate regions, you need to run the PowerShell script twice. The first time, use the `$ILBIP` and `$ProbePort` from the first region. The second time, use the `$ILBIP` and `$ProbePort` from the second region. The cluster network name, and the cluster IP resource name are the same.

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="High availability features of HDInsight (Hadoop) | Azure"
-    description="Learn how Linux-based HDInsight clusters improve reliability and availability by using an additional head node. You will learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH."
-    services="hdinsight"
-    editor="cgronlun"
-    manager="jhubbard"
-    author="Blackmist"
-    documentationcenter=""
-    tags="azure-portal" />
-<tags
-    ms.assetid="99c9f59c-cf6b-4529-99d1-bf060435e8d4"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="01/12/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: High availability features of HDInsight (Hadoop) | Azure
+description: Learn how Linux-based HDInsight clusters improve reliability and availability by using an additional head node. You will learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH.
+services: hdinsight
+editor: cgronlun
+manager: jhubbard
+author: Blackmist
+documentationcenter: ''
+tags: azure-portal
+
+ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 01/12/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Availability and reliability of Hadoop clusters in HDInsight
 
@@ -24,34 +25,34 @@ Hadoop achieves high availability and reliability by distributing redundant copi
 
 To address this potential problem, HDInsight clusters on Azure provide two head nodes to increase the availability and reliability of Hadoop services and jobs running.
 
-[AZURE.INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-> [AZURE.IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](/documentation/articles/hdinsight-component-versioning/#hdi-version-32-and-33-nearing-deprecation-date).
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Understanding the nodes
 Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. In the event that a node fails, it is taken offline and a new node is created to replace the failed node. While the node is offline, another node of the same type will be used until the new node is brought online.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If the node is analyzing data when it fails, its progress on the job is lost. The job that the failing node was working on will be resubmitted to another node.
 > 
 > 
 
-The following sections discuss the individual node types used with HDInsight. Not all node types are used for a cluster type. For example, a Hadoop cluster type will not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of [Create Linux-based Hadoop clusters in HDInsight](/documentation/articles/hdinsight-hadoop-provision-linux-clusters/#cluster-types).
+The following sections discuss the individual node types used with HDInsight. Not all node types are used for a cluster type. For example, a Hadoop cluster type will not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of [Create Linux-based Hadoop clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 ### Head nodes
 Some implementations of Hadoop have a single head node that hosts services and components that manage the failure of worker nodes smoothly. But any outages of master services running on the head node would cause the cluster to cease to work.
 
 HDInsight clusters provide a secondary head node, which allows master services and components to continue to run on on the secondary node in the event of a failure on the primary.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Both head nodes are active and running within the cluster simultaneously. Some services, such as HDFS or YARN, are only 'active' on one head node at any given time (and 'standby' on the other head node). Other services such as HiveServer2 or Hive MetaStore are active on both head nodes at the same time.
 > 
 > 
 
 Head nodes (and other nodes in HDInsight,) have a numeric value as part of the hostname of the node. For example, `hn0-CLUSTERNAME` or `hn4-CLUSTERNAME`. 
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Do not associate the numeric value with whether a node is primary or secondary; the numeric value is only present to provide a unique name for each node.
 > 
 > 
@@ -77,7 +78,7 @@ Access to the cluster over the internet is provided through a public gateway, an
 
 When accessing the cluster using SSH, connecting through port 22 (the default for SSH,) will connect to the primary head node; connecting through port 23 will connect to the secondary head node. For example, `ssh username@mycluster-ssh.azurehdinsight.cn` will connect to the primary head node of the cluster named **mycluster**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This also applies to protocols based on SSH, such as the SSH File Transfer Protocol (SFTP).
 > 
 > 
@@ -89,17 +90,21 @@ Nodes in an HDInsight cluster have an internal IP address and FQDN that can only
 
 For example, the Oozie service can only run on one head node, and using the `oozie` command from an SSH session requires the URL to the service. This can be retrieved from Ambari by using the following command:
 
-    curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
+```
+curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
+```
 
 This will return a value similar to the following, which contains the internal URL to use with the `oozie` command:
 
-    "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.chinacloudapp.cn:11000/oozie"
+```
+"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.chinacloudapp.cn:11000/oozie"
+```
 
 ### Accessing other node types
 You can connect to nodes that are not directly accessible over the internet by using the following methods.
 
 * **SSH**: Once connected to a head node using SSH, you can then use SSH from the head node to connect to other nodes in the cluster.
-* **SSH Tunnel**: If you need to access a web service hosted on one of the nodes that is not exposed to the internet, you must [use an SSH tunnel](/documentation/articles/hdinsight-linux-ambari-ssh-tunnel/).
+* **SSH Tunnel**: If you need to access a web service hosted on one of the nodes that is not exposed to the internet, you must [use an SSH tunnel](./hdinsight-linux-ambari-ssh-tunnel.md).
 * **Azure Virtual Network**: If your HDInsight cluster is part of an Azure Virtual Network, any resource on the same Virtual Network can directly access all nodes in the cluster.
 
 ## How to check on a service status
@@ -127,7 +132,9 @@ The Ambari REST API is available over the internet, and the public gateway handl
 
 You can use the following command to check the state of a service through the Ambari REST API:
 
-    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
+```
+curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
+```
 
 * Replace **PASSWORD** with the HTTP user (admin,) account password
 * Replace **CLUSTERNAME** with the name of the cluster
@@ -135,18 +142,22 @@ You can use the following command to check the state of a service through the Am
 
 For example, to check the status of the **HDFS** service on a cluster named **mycluster**, with a password of **password**, you would use the following:
 
-    curl -u admin:password https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
+```
+curl -u admin:password https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
+```
 
 The response will be similar to the following:
 
-    {
-      "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
-      "ServiceInfo" : {
-        "cluster_name" : "mycluster",
-        "service_name" : "HDFS",
-        "state" : "STARTED"
-      }
-    }
+```
+{
+  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+  "ServiceInfo" : {
+    "cluster_name" : "mycluster",
+    "service_name" : "HDFS",
+    "state" : "STARTED"
+  }
+}
+```
 
 The URL tells us that the service is currently running on a head node named **hn0-CLUSTERNAME**.
 
@@ -154,16 +165,22 @@ The state tells us that the service is currently running, or **STARTED**.
 
 If you do not know what services are installed on the cluster, you can use the following to retrieve a list:
 
-    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services
+```
+curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services
+```
 
 #### Service components
 Services may contain components that you wish to check the status of individually. For example, HDFS contains the NameNode component. To view information on a component, the command would be:
 
-    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
+```
+curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
+```
 
 If you do not know what components are provided by a service, you can use the following to retrieve a list:
 
-    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
+```
+curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
+```
 
 ## How to access log files on the head nodes
 ### SSH
@@ -178,29 +195,31 @@ Similar to using an SSH client, when connecting to the cluster you must provide 
 
 Once connected, you are presented with a `sftp>` prompt. From this prompt, you can change directories, upload and download files. For example, the following commands change directories to the **/var/log/hadoop/hdfs** directory and then download all files in the directory.
 
-    cd /var/log/hadoop/hdfs
-    get *
+```
+cd /var/log/hadoop/hdfs
+get *
+```
 
 For a list of available commands, enter `help` at the `sftp>` prompt.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > There are also graphical interfaces that allow you to visualize the file system when connected using SFTP. For example, [MobaXTerm](http://mobaxterm.mobatek.net/) allows you to browse the file system using an interface similar to Windows Explorer.
 
 ### Ambari
-> [AZURE.NOTE]
-> Accessing log files through Ambari requires an SSH tunnel, as the web sites for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](/documentation/articles/hdinsight-linux-ambari-ssh-tunnel/).
+> [!NOTE]
+> Accessing log files through Ambari requires an SSH tunnel, as the web sites for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md).
 
 From the Ambari Web UI, select the service you wish to view logs for (for example, YARN,) and then use **Quick Links** to select which head node to view the logs for.
 
 ![Using quick links to view logs](./media/hdinsight-high-availability-linux/viewlogs.png)
 
 ## How to configure the node size
-The size of the a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight, including the core, memory, and local storage for each, on the [HDInsight pricing page](/pricing/details/hdinsight/).
+The size of the a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight, including the core, memory, and local storage for each, on the [HDInsight pricing page](https://www.azure.cn/pricing/details/hdinsight/).
 
 When creating a new cluster, you can specify the size of the nodes. The following provide information on how to specify the size using the [Azure Portal Preview][preview-portal], [Azure PowerShell][azure-powershell], and the [Azure CLI][azure-cli]:
 
 * **Azure Portal Preview**: When creating a new cluster, you are given the option of setting the size (pricing tier,) of the head, worker and (if used by the cluster type,) ZooKeeper nodes for the cluster:
-  
+
     ![Image of cluster creation wizard with node size selection](./media/hdinsight-high-availability-linux/headnodesize.png)
 * **Azure CLI**: When using the `azure hdinsight cluster create` command, you can set the size of the head, worker, and ZooKeeper nodes by using the `--headNodeSize`, `--workerNodeSize`, and `--zookeeperNodeSize` parameters.
 * **Azure PowerShell**: When using the `New-AzureRmHDInsightCluster` cmdlet, you can set the size of the head, worker, and ZooKeeper nodes by using the `-HeadNodeVMSize`, `-WorkerNodeSize`, and `-ZookeeperNodeSize` parameters.
@@ -211,8 +230,8 @@ In this document you have learned how Azure HDInsight provides high availability
 * [Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Install and configure the Azure CLI](/documentation/articles/cli-install-nodejs/)
 * [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-* [Manage HDInsight using Ambari](/documentation/articles/hdinsight-hadoop-manage-ambari/)
-* [Provision Linux-based HDInsight clusters](/documentation/articles/hdinsight-hadoop-provision-linux-clusters/)
+* [Manage HDInsight using Ambari](./hdinsight-hadoop-manage-ambari.md)
+* [Provision Linux-based HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.cn/
 [azure-powershell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs

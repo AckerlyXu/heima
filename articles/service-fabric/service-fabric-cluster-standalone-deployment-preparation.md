@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Azure Service Fabric Standalone Cluster Deployment Preparation | Azure"
-    description="Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="maburlik"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="1/17/2016"
-    wacn.date=""
-    ms.author="dkshir;chackdan;maburlik" />
+---
+title: Azure Service Fabric Standalone Cluster Deployment Preparation | Azure
+description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload.
+services: service-fabric
+documentationcenter: .net
+author: maburlik
+manager: timlt
+editor: ''
+
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 1/17/2016
+wacn.date: ''
+ms.author: dkshir;chackdan;maburlik
+---
 
 <a id="preparemachines"></a>
 
@@ -62,7 +63,7 @@ When you specify UDs in ClusterConfig.json, you can choose the name for each UD.
 * "upgradeDomain": "DomainRed"
 * "upgradeDomain": "Blue"
 
-For more detailed information on upgrade domains and fault domains, see [Describing a Service Fabric cluster](/documentation/articles/service-fabric-cluster-resource-manager-cluster-description/).
+For more detailed information on upgrade domains and fault domains, see [Describing a Service Fabric cluster](./service-fabric-cluster-resource-manager-cluster-description.md).
 
 ### Step 5: Download the Service Fabric standalone package for Windows Server
 [Download Link - Service Fabric Standalone Package - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) and unzip the package, either to a deployment machine that is not part of the cluster, or to one of the machines that will be a part of your cluster.
@@ -71,7 +72,7 @@ For more detailed information on upgrade domains and fault domains, see [Describ
 To create a standalone cluster you have to create a standalone cluster configuration ClusterConfig.json file, which describes the specification of the cluster. You can base the configuration file on the templates found at the below link. <br>
 [Standalone Cluster Configurations](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
-For details on the sections in this file, see [Configuration settings for standalone Windows cluster](/documentation/articles/service-fabric-cluster-manifest/).
+For details on the sections in this file, see [Configuration settings for standalone Windows cluster](./service-fabric-cluster-manifest.md).
 
 Open one of the ClusterConfig.json files from the package you downloaded and modify the following settings:
 | **Configuration Setting** | **Description** |
@@ -129,32 +130,29 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
 | FileStoreService.exe |
 
 ### Step 8. Validate environment using TestConfiguration script
-The TestConfiguration.ps1 script can be found in the standalone package. It is used as a Best Practices Analyzer to validate some of the criteria above and should be used as a sanity check to validate whether a cluster can be deployed on a given environment. If there is any failure, refer to the list under [Environment Setup](/documentation/articles/service-fabric-cluster-standalone-deployment-preparation/) for troubleshooting. 
+The TestConfiguration.ps1 script can be found in the standalone package. It is used as a Best Practices Analyzer to validate some of the criteria above and should be used as a sanity check to validate whether a cluster can be deployed on a given environment. If there is any failure, refer to the list under [Environment Setup](./service-fabric-cluster-standalone-deployment-preparation.md) for troubleshooting. 
 
 This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on does not have to be part of the cluster.
 
+```powershell
+PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
+Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
+Running Best Practices Analyzer...
+Best Practices Analyzer completed successfully.
 
-	PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
-	Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
-	Running Best Practices Analyzer...
-	Best Practices Analyzer completed successfully.
-
-
-	LocalAdminPrivilege        : True
-	IsJsonValid                : True
-	IsCabValid                 : True
-	RequiredPortsOpen          : True
-	RemoteRegistryAvailable    : True
-	FirewallAvailable          : True
-	RpcCheckPassed             : True
-	NoConflictingInstallations : True
-	FabricInstallable          : True
-	Passed                     : True
-
+LocalAdminPrivilege        : True
+IsJsonValid                : True
+IsCabValid                 : True
+RequiredPortsOpen          : True
+RemoteRegistryAvailable    : True
+FirewallAvailable          : True
+RpcCheckPassed             : True
+NoConflictingInstallations : True
+FabricInstallable          : True
+Passed                     : True
+```
 
 Currently this configuration testing module does not validate the security configuration so this has to be done independently.  
 
-
-
 ## Next steps
-* [Create a standalone cluster running on Windows Server](/documentation/articles/service-fabric-cluster-creation-for-windows-server/)
+* [Create a standalone cluster running on Windows Server](./service-fabric-cluster-creation-for-windows-server.md)

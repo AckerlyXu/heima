@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Command-line build for Azure | Azure"
-    description="Command-line build for Azure"
-    services="visual-studio-online"
-    documentationcenter="na"
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="94b35d0d-0d35-48b6-b48b-3641377867fd"
-    ms.service="multiple"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/11/2016"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: Command-line build for Azure | Azure
+description: Command-line build for Azure
+services: visual-studio-online
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: 94b35d0d-0d35-48b6-b48b-3641377867fd
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/11/2016
+wacn.date: ''
+ms.author: tarcher
+---
 
 # Command-Line Build for Azure
 ## Overview
@@ -33,10 +34,10 @@ As the following procedure describes, you must install software and tools on the
 2. Install the [Azure Authoring Tools](http://go.microsoft.com/fwlink/?LinkId=394615) (look for MicrosoftAzureAuthoringTools-x64.msi or MicrosoftAzureAuthoringTools-x86.msi.
 3. Install the [Azure Libraries for .NET](http://go.microsoft.com/fwlink/?LinkId=394616) (look for MicrosoftAzureLibsForNet-x64.msi or MicrosoftAzureLibs-x86.msi.
 4. Copy the Microsoft.WebApplication.targets file from a Visual Studio installation on another computer.
-   
+
     The file is located in the directory C:\Program Files (x86)\MSBuild\Microsoft\Visual Studio\v12.0\WebApplications (v11.0 for Visual Studio 2012), and you should copy it to the same directory on the build server.
 5. Install the [Azure Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=394616).
-   
+
     Look for WindowsAzureTools.vs120.exe to build Visual Studio 2013 projects.
 
 ## MSBuild Parameters
@@ -50,5 +51,4 @@ By default, each Azure project includes one service-configuration file for local
 If you want to use an alternate directory for the stored package and configuration files, set the path by using the `/p:PublishDir=Directory\` option, including the trailing backslash separator.
 
 ## Deployment
-After the package is built, you can deploy it to Azure. For a tutorial that demonstrates that process, see the Azure website. For information about how to automate that process, see [Continuous Delivery for Cloud Services in Azure](/documentation/articles/cloud-services-dotnet-continuous-delivery/).
-
+After the package is built, you can deploy it to Azure. For a tutorial that demonstrates that process, see the Azure website. For information about how to automate that process, see [Continuous Delivery for Cloud Services in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).

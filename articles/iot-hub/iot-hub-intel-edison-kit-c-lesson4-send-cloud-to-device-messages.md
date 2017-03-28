@@ -1,22 +1,23 @@
-﻿<properties
-    pageTitle="Run a sample application to receive cloud-to-device messages from Azure IoT Hub | Azure"
-    description="A sample application runs on Edison and monitors incoming messages from your IoT hub. A new gulp task sends messages to Edison from your IoT hub to blink the LED."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino control led from web, arduino control led via web" />
-<tags
-    ms.assetid="820d38f3-d3b8-4249-9e2b-f1b9b771e62f"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+﻿---
+title: Run a sample application to receive cloud-to-device messages from Azure IoT Hub | Azure
+description: A sample application runs on Edison and monitors incoming messages from your IoT hub. A new gulp task sends messages to Edison from your IoT hub to blink the LED.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino control led from web, arduino control led via web
+
+ms.assetid: 820d38f3-d3b8-4249-9e2b-f1b9b771e62f
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Run a sample application to receive cloud-to-device messages
 In this article, you deploy a sample application on Intel Edison. The sample application monitors incoming messages from your IoT hub. You also run a gulp task on your computer to send messages to Edison from your IoT hub. When the sample application receives the messages, it blinks the LED. If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].
@@ -61,7 +62,7 @@ In this article, you will learn:
    * Replace **[IoT device connection string]** with the device connection string that you get by running the `az iot device show-connection-string --hub-name {my hub name} --device-id {device id}` command.
    * Replace **[IoT hub connection string]** with the IoT hub connection string that you get by running the `az iot hub show-connection-string --name {my hub name}` command.
 
-   > [AZURE.NOTE]
+   > [!NOTE]
    > Run **gulp install-tools** as well, if you haven't done it in Lesson 1.
 
 ## Deploy and run the sample application
@@ -87,10 +88,10 @@ You’ve successfully sent messages from your IoT hub to Edison to blink the LED
 
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-c-troubleshooting/
-[configure-your-device]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson1-configure-your-device/
-[create-your-azure-iot-hub]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub/
+[troubleshooting]: ./iot-hub-intel-edison-kit-c-troubleshooting.md
+[configure-your-device]: ./iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md
+[create-your-azure-iot-hub]: ./iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md
 [repo-structure]: ./media/iot-hub-intel-edison-lessons/lesson4/repo_structure_c.png
-[create-an-azure-function-app-and-storage-account]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template/
+[create-an-azure-function-app-and-storage-account]: ./iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
 [gulp-command-and-blink-messages]: ./media/iot-hub-intel-edison-lessons/lesson4/gulp_blink_c.png
-[change-the-on-and-off-behavior-of-the-led]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson4-change-led-behavior/
+[change-the-on-and-off-behavior-of-the-led]: ./iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md

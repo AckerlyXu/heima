@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Create multiple virtual machines | Azure"
-    description="Options for creating multiple virtual machines on Windows"
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="dfc1d1bb-a47d-4d7c-9fd2-f12050baacab"
-    ms.service="virtual-machines-windows"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/25/2016"
-    wacn.date=""
-    ms.author="guybo" />
+---
+title: Create multiple virtual machines | Azure
+description: Options for creating multiple virtual machines on Windows
+services: virtual-machines-windows
+documentationcenter: ''
+author: gbowerman
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: dfc1d1bb-a47d-4d7c-9fd2-f12050baacab
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+wacn.date: ''
+ms.author: guybo
+---
 
 # Create multiple Azure virtual machines
 There are many scenarios where you need to create a large number of similar virtual machines (VMs). Some examples include high-performance computing (HPC), large-scale data analysis, scalable and often stateless middle-tier or backend servers (such as webservers), and distributed databases.
@@ -42,4 +43,4 @@ For applications that need to scale Compute resources out and in, scale operatio
 
 Instead of correlating multiple resources such as NICs and VMs, a VM scale set has network, storage, virtual machine, and extension properties that you can configure centrally.
 
-For an introduction to VM scale sets, refer to the [Virtual machine scale sets product page](/home/features/virtual-machine-scale-sets/). For more detailed information, go to the [Virtual machines scale sets documentation](/documentation/services/virtual-machine-scale-sets/).
+For an introduction to VM scale sets, refer to the [Virtual machine scale sets product page](https://www.azure.cn/home/features/virtual-machine-scale-sets/). For more detailed information, go to the [Virtual machines scale sets documentation](../virtual-machine-scale-sets/index.md).

@@ -1,24 +1,24 @@
-<properties
-    pageTitle="Enable offline sync for your Azure Mobile App (Cordova) | Azure"
-    description="Learn how to use App Service Mobile App to cache and sync offline data in your Cordova application"
-    documentationCenter="cordova"
-    authors="adrianhall"
-    manager="erikre"
-    editor=""
-    services="app-service\mobile"/>
+---
+title: Enable offline sync for your Azure Mobile App (Cordova) | Azure
+description: Learn how to use App Service Mobile App to cache and sync offline data in your Cordova application
+documentationCenter: cordova
+authors: adrianhall
+manager: erikre
+editor: ''
+services: app-service\mobile
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-cordova-ios"
-    ms.devlang="dotnet"
-    ms.topic="article"
-	ms.date="10/30/2016"
-    ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-cordova-ios
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/30/2016
+ms.author: adrianha
+---
 
 # Enable offline sync for your Cordova mobile app
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+[!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 This tutorial introduces the offline sync feature of Azure Mobile Apps for Cordova. Offline sync allows
 end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there
@@ -39,37 +39,45 @@ project includes both of these plugins.
 
 1. In Visual Studio's Solution Explorer, open index.js and replace the following code
 
-        var client,            // Connection to the Azure Mobile App backend
-          todoItemTable;      // Reference to a table endpoint on backend
+    ```
+    var client,            // Connection to the Azure Mobile App backend
+      todoItemTable;      // Reference to a table endpoint on backend
+    ```
 
     with this code:
 
-        var client,            // Connection to the Azure Mobile App backend
-           todoItemTable,      // Reference to a table endpoint on backend
-           syncContext;        // Reference to offline data sync context
+    ```
+    var client,            // Connection to the Azure Mobile App backend
+       todoItemTable,      // Reference to a table endpoint on backend
+       syncContext;        // Reference to offline data sync context
+    ```
 
 2. Next, replace the following code:
 
-        client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.cn');
+    ```
+    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.cn');
+    ```
 
-	with this code:
+    with this code:
 
-        client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.cn');
+    ```
+    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.cn');
 
-        var store = new WindowsAzure.MobileServiceSqliteStore('store.db');
+    var store = new WindowsAzure.MobileServiceSqliteStore('store.db');
 
-        store.defineTable({
-          name: 'todoitem',
-          columnDefinitions: {
-              id: 'string',
-              text: 'string',
-              complete: 'boolean',
-              version: 'string'
-          }
-        });
+    store.defineTable({
+      name: 'todoitem',
+      columnDefinitions: {
+          id: 'string',
+          text: 'string',
+          complete: 'boolean',
+          version: 'string'
+      }
+    });
 
-        // Get the sync context from the client
-        syncContext = client.getSyncContext();
+    // Get the sync context from the client
+    syncContext = client.getSyncContext();
+    ```
 
     The preceding code additions initialize the local store and define a local table that matches the column values
     used in your Azure back end. (You don't need to include all column values in this code.)  The `version` field
@@ -82,39 +90,43 @@ project includes both of these plugins.
 
 4. Next, replace this code:
 
-        todoItemTable = client.getTable('todoitem'); // todoitem is the table name
+    ```
+    todoItemTable = client.getTable('todoitem'); // todoitem is the table name
+    ```
 
     with this code:
 
-        // Initialize the sync context with the store
-        syncContext.initialize(store).then(function () {
+    ```
+    // Initialize the sync context with the store
+    syncContext.initialize(store).then(function () {
 
-        // Get the local table reference.
-        todoItemTable = client.getSyncTable('todoitem');
+    // Get the local table reference.
+    todoItemTable = client.getSyncTable('todoitem');
 
-        syncContext.pushHandler = {
-            onConflict: function (pushError) {
-                // Handle the conflict.
-                console.log("Sync conflict! " + pushError.getError().message);
-                // Update failed, revert to server's copy.
-                pushError.cancelAndDiscard();
-              },
-              onError: function (pushError) {
-                  // Handle the error
-                  // In the simulated offline state, you get "Sync error! Unexpected connection failure."
-                  console.log("Sync error! " + pushError.getError().message);
-              }
-        };
+    syncContext.pushHandler = {
+        onConflict: function (pushError) {
+            // Handle the conflict.
+            console.log("Sync conflict! " + pushError.getError().message);
+            // Update failed, revert to server's copy.
+            pushError.cancelAndDiscard();
+          },
+          onError: function (pushError) {
+              // Handle the error
+              // In the simulated offline state, you get "Sync error! Unexpected connection failure."
+              console.log("Sync error! " + pushError.getError().message);
+          }
+    };
 
-        // Call a function to perform the actual sync
-        syncBackend();
+    // Call a function to perform the actual sync
+    syncBackend();
 
-        // Refresh the todoItems
-        refreshDisplay();
+    // Refresh the todoItems
+    refreshDisplay();
 
-        // Wire up the UI Event Handler for the Add Item
-        $('#add-item').submit(addItemHandler);
-        $('#refresh').on('click', refreshDisplay);
+    // Wire up the UI Event Handler for the Add Item
+    $('#add-item').submit(addItemHandler);
+    $('#refresh').on('click', refreshDisplay);
+    ```
 
     The preceding code initializes the sync context and then calls getSyncTable (instead of getTable) to get a reference to the local table.
 
@@ -125,17 +137,19 @@ project includes both of these plugins.
 
 5. Next, add this function to perform the actual sync.
 
-        function syncBackend() {
+    ```
+    function syncBackend() {
 
-          // Sync local store to Azure table when app loads, or when login complete.
-          syncContext.push().then(function () {
-              // Push completed
+      // Sync local store to Azure table when app loads, or when login complete.
+      syncContext.push().then(function () {
+          // Push completed
 
-          });
+      });
 
-          // Pull items from the Azure table after syncing to Azure.
-          syncContext.pull(new WindowsAzure.Query('todoitem'));
-        }
+      // Pull items from the Azure table after syncing to Azure.
+      syncContext.pull(new WindowsAzure.Query('todoitem'));
+    }
+    ```
 
     You decide when to push changes to the Mobile App backend by calling **syncContext.push()**. For example,
     you could call **syncBackend** in a button event handler tied to a sync button.
@@ -160,14 +174,16 @@ If you don't want to set up authentication before testing offline sync, comment 
 for login, but leave the code inside the callback function uncommented.  After commenting out the login lines,
 the code follows:
 
-      // Login to the service.
-      // client.login('twitter')
-      //    .then(function () {
-        syncContext.initialize(store).then(function () {
-          // Leave the rest of the code in this callback function  uncommented.
-                ...
-        });
-      // }, handleError);
+```
+  // Login to the service.
+  // client.login('twitter')
+  //    .then(function () {
+    syncContext.initialize(store).then(function () {
+      // Leave the rest of the code in this callback function  uncommented.
+            ...
+    });
+  // }, handleError);
+```
 
 Now, the app syncs with the Azure backend when you run the app.
 
@@ -184,11 +200,15 @@ local store, but are not synced to the backend data store until the connection i
 1. In the Solution Explorer, open the index.js project file and change the application URL to point to
     an invalid URL, like the following code:
 
-        client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
+    ```
+    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
+    ```
 
 2. In index.html, update the CSP `<meta>` element with the same invalid URL.
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
+    ```
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
+    ```
 
 3. Build and run the client app and notice that an exception is logged in the console when the app attempts to
     sync with the backend after login. Any new items you add exist only in the local store until they are pushed
@@ -228,15 +248,15 @@ an online state. When you log in, data is synced to your mobile backend.
 <!-- Images -->
 
 <!-- URLs. -->
-[Apache Cordova quick start]: /documentation/articles/app-service-mobile-cordova-get-started/
+[Apache Cordova quick start]: ./app-service-mobile-cordova-get-started.md
 [offline sync sample]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
-[Offline Data Sync in Azure Mobile Apps]: /documentation/articles/app-service-mobile-offline-data-sync/
-[Offline Data Sync in Azure Mobile Apps]: /documentation/articles/app-service-mobile-offline-data-sync/
-[Adding Authentication]: /documentation/articles/app-service-mobile-cordova-get-started-users/
-[authentication]: /documentation/articles/app-service-mobile-cordova-get-started-users/
-[Work with the .NET backend server SDK for Azure Mobile Apps]: /documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/
+[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
+[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
+[Adding Authentication]: ./app-service-mobile-cordova-get-started-users.md
+[authentication]: ./app-service-mobile-cordova-get-started-users.md
+[Work with the .NET backend server SDK for Azure Mobile Apps]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Apache Cordova SDK]: /documentation/articles/app-service-mobile-cordova-how-to-use-client-library/
-[ASP.NET Server SDK]: /documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/
-[Node.js Server SDK]: /documentation/articles/app-service-mobile-node-backend-how-to-use-server-sdk/
+[Apache Cordova SDK]: ./app-service-mobile-cordova-how-to-use-client-library.md
+[ASP.NET Server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js Server SDK]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md

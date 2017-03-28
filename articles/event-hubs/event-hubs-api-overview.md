@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Event Hubs API overview | Azure"
-    description="Overview of available Azure Event Hubs APIs"
-    services="event-hubs"
-    documentationcenter="na"
-    author="jtaubensee"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed"
-    ms.service="event-hubs"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="jotaub" />
+---
+title: Azure Event Hubs API overview | Azure
+description: Overview of available Azure Event Hubs APIs
+services: event-hubs
+documentationcenter: na
+author: jtaubensee
+manager: timlt
+editor: ''
+
+ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: jotaub
+---
 
 # Available Event Hubs APIs
 
@@ -53,6 +54,6 @@ The following is a listing of all currently available management specific librar
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](/documentation/articles/event-hubs-what-is-event-hubs/)
-* [Create an Event Hub](/documentation/articles/event-hubs-create/)
-* [Event Hubs FAQ](/documentation/articles/event-hubs-faq/)
+* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](./event-hubs-create.md)
+* [Event Hubs FAQ](./event-hubs-faq.md)

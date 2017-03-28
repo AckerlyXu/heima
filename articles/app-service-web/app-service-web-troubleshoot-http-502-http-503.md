@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Fix 502 bad gateway, 503 service unavailable errors | Azure"
-    description="Troubleshoot 502 bad gateway and 503 service unavailable errors in your web app hosted in Azure App Service."
-    services="app-service\web"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor=""
-    tags="top-support-issue"
-    keywords="502 bad gateway, 503 service unavailable, error 503, error 502" />
-<tags
-    ms.assetid="51cd331a-a3fa-438f-90ef-385e755e50d5"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/06/2016"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Fix 502 bad gateway, 503 service unavailable errors | Azure
+description: Troubleshoot 502 bad gateway and 503 service unavailable errors in your web app hosted in Azure App Service.
+services: app-service\web
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: ''
+tags: top-support-issue
+keywords: 502 bad gateway, 503 service unavailable, error 503, error 502
+
+ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/06/2016
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps
-"502 bad gateway" and "503 service unavailable" are common errors in your web app hosted in [Azure App Service](/documentation/articles/app-service-changes-existing-services/). This article helps you troubleshoot these errors.
+"502 bad gateway" and "503 service unavailable" are common errors in your web app hosted in [Azure App Service](./app-service-changes-existing-services.md). This article helps you troubleshoot these errors.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the CSDN Azure](/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](/support/contact/) and click on **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://www.azure.cn/support/contact/) and click on **Get Support**.
 
 ## Symptom
 When you browse to the web app, it returns a HTTP "502 Bad Gateway" error or a HTTP "503 Service Unavailable" error.
@@ -41,11 +42,11 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 2. [Collect data](#collect)
 3. [Mitigate the issue](#mitigate)
 
-[App Service Web Apps](/home/features/app-service/web-apps/) gives you various options at each step.
+[App Service Web Apps](https://www.azure.cn/home/features/app-service/web-apps/) gives you various options at each step.
 
 ### <a name="observe"></a> 1. Observe and monitor application behavior
 #### Track Service health
-Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal Preview](https://portal.azure.cn/). For more information, see [Track service health](/documentation/articles/insights-service-health/).
+Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal Preview](https://portal.azure.cn/). For more information, see [Track service health](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### Monitor your web app
 This option enables you to find out if your application is having any issues. In your web app's blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.
@@ -62,8 +63,8 @@ Some of the metrics that you might want to monitor for your web app are
 
 For more information, see:
 
-* [Monitor Web Apps in Azure App Service](/documentation/articles/web-sites-monitor/)
-* [Receive alert notifications](/documentation/articles/insights-receive-alert-notifications/)
+* [Monitor Web Apps in Azure App Service](./web-sites-monitor.md)
+* [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 ### <a name="collect"></a> 2. Collect data
 #### Use the Azure App Service Support Portal
@@ -104,7 +105,7 @@ For more information on features available in Kudu, see
 #### Scale the web app
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
-For more information on scaling, see [Scale a web app in Azure App Service](/documentation/articles/web-sites-scale/).
+For more information on scaling, see [Scale a web app in Azure App Service](./web-sites-scale.md).
 
 Additionally, you can choose to run your application on more than one instance . This not only provides you with more processing capability, but also gives you some amount of fault tolerance. If the process goes down on one instance, the other instance will still continue serving requests.
 
@@ -121,4 +122,4 @@ This is often the simplest way to recover from one-time issues. On the [Azure Po
  ![restart app to solve HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 You can also manage your web app using Azure Powershell. For more information, see
-[Using Azure PowerShell with Azure Resource Manager](/documentation/articles/powershell-azure-resource-manager/).
+[Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).

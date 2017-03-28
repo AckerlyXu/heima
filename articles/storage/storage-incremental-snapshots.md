@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Use incremental snapshots for backup and recovery of unmanaged Azure VM disks | Azure"
-    description="Create a custom solution for backup and recovery of your Azure virtual machine disks using incremental snapshots."
-    services="storage"
-    documentationcenter="na"
-    author="aungoo-msft"
-    manager="tadb"
-    editor="tysonn" />
-<tags
-    ms.assetid="3524b987-bd65-4e35-83e7-fbc2136643e5"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="aungoo" />
+---
+title: Use incremental snapshots for backup and recovery of unmanaged Azure VM disks | Azure
+description: Create a custom solution for backup and recovery of your Azure virtual machine disks using incremental snapshots.
+services: storage
+documentationcenter: na
+author: aungoo-msft
+manager: tadb
+editor: tysonn
+
+ms.assetid: 3524b987-bd65-4e35-83e7-fbc2136643e5
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: aungoo
+---
 
 # Back up Azure unmanaged VM disks with incremental snapshots
 ## Overview
@@ -29,10 +30,11 @@ A blob snapshot is a read-only version of a blob that is captured at a point in 
 ## Full snapshot copy
 Snapshots can be copied to another storage account as a blob to keep backups of the base blob. You can also copy a snapshot over its base blob, which is like restoring the blob to an earlier version. When a snapshot is copied from one storage account to another, it will occupy the same space as the base page blob. Therefore, copying whole snapshots from one storage account to another will be slow and will also consume lot of space in the target storage account.
 
->[AZURE.NOTE] If you copy the base blob to another destination, the snapshots of the blob are not copied along with it. Similarly, if you overwrite a base blob with a copy, snapshots associated with the base blob are not affected and stay intact under base blob name.
+>[!NOTE]
+> If you copy the base blob to another destination, the snapshots of the blob are not copied along with it. Similarly, if you overwrite a base blob with a copy, snapshots associated with the base blob are not affected and stay intact under base blob name.
 
 ### Back up disks using snapshots
-As a backup strategy for your virtual machine disks, you can take periodic snapshots of the disk or page blob, and copy them to another storage account using tools like [Copy Blob](https://msdn.microsoft.com/zh-cn/library/azure/dd894037.aspx) operation or [AzCopy](/documentation/articles/storage-use-azcopy/). You can copy a snapshot to a destination page blob with a different name. The resulting destination page blob is a writeable page blob and not a snapshot. Later in this article we will describe steps to take backups of virtual machine disks using snapshots.
+As a backup strategy for your virtual machine disks, you can take periodic snapshots of the disk or page blob, and copy them to another storage account using tools like [Copy Blob](https://msdn.microsoft.com/zh-cn/library/azure/dd894037.aspx) operation or [AzCopy](./storage-use-azcopy.md). You can copy a snapshot to a destination page blob with a different name. The resulting destination page blob is a writeable page blob and not a snapshot. Later in this article we will describe steps to take backups of virtual machine disks using snapshots.
 
 ### Restore disks using snapshots
 When it is time to restore your disk to a previous stable version captured in one of the backup snapshots, you can copy a snapshot over the base page blob. After the snapshot is promoted to the base page blob, the snapshot remains, but its source is overwritten with a copy that can be both read and written. Later in this article we will describe steps to restore a previous version of your disk from its snapshot.
@@ -78,7 +80,7 @@ In this section we will describe a scenario that involves a custom backup strate
 
 Consider a DS-series Azure VM with a premium storage P30 disk attached. The P30 disk called *mypremiumdisk* is stored in a premium storage account called *mypremiumaccount*. A standard storage account called *mybackupstdaccount* will be used for storing the backup of *mypremiumdisk*. We would like to keep a snapshot of *mypremiumdisk* every 12 hours.
 
-To learn about creating storage account and disks, refer to [About Azure storage accounts](/documentation/articles/storage-create-storage-account/).
+To learn about creating storage account and disks, refer to [About Azure storage accounts](./storage-create-storage-account.md).
 
 To learn about backing up Azure VMs, refer to [Plan Azure VM backups](/documentation/articles//backup-azure-vms-introduction).
 
@@ -112,4 +114,4 @@ The steps described below will restore premium disk, *mypremiumdisk* to an earli
 Learn more about creating snapshots of a blob and planning your VM backup infrastructure using the links below.
 
 - [Creating a Snapshot of a Blob](https://msdn.microsoft.com/zh-cn/library/azure/hh488361.aspx)
-- [Plan your VM Backup Infrastructure](/documentation/articles/backup-azure-vms-introduction/)
+- [Plan your VM Backup Infrastructure](../backup/backup-azure-vms-introduction.md)

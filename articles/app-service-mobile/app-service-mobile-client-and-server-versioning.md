@@ -1,20 +1,20 @@
-<properties
-  pageTitle="Client and server SDK versioning in Mobile Apps and Mobile Services | Azure App Service"
-  description="List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps"
-  services="app-service\mobile"
-  documentationCenter=""
-  authors="adrianhall"
-  manager="erikre"
-  editor=""/>
+---
+title: Client and server SDK versioning in Mobile Apps and Mobile Services | Azure App Service
+description: List of client SDKs and compatibility with server SDK versions for Mobile Services and Azure Mobile Apps
+services: app-service\mobile
+documentationCenter: ''
+authors: adrianhall
+manager: erikre
+editor: ''
 
-<tags
-  ms.service="app-service-mobile"
-  ms.workload="mobile"
-  ms.tgt_pltfrm="mobile-multiple"
-  ms.devlang="dotnet"
-  ms.topic="article"
-  ms.date="10/01/2016"
-  ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: adrianha
+---
 
 # Client and server versioning in Mobile Apps and Mobile Services
 
@@ -44,7 +44,8 @@ POST https://service.chinacloudsites.cn/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 You can opt out of version checking by setting a value of **true** for the app setting **MS_SkipVersionCheck**. Specify this either in your web.config or in the Application Settings section of the Azure Portal.
 
-> [AZURE.NOTE] There are a number of behavior changes between Mobile Services and Mobile Apps, particularly in the areas of offline sync, authentication, and push notifications. You should only opt out of version checking after complete testing to ensure that these behavioral changes do not break your app's functionality.
+> [!NOTE]
+> There are a number of behavior changes between Mobile Services and Mobile Apps, particularly in the areas of offline sync, authentication, and push notifications. You should only opt out of version checking after complete testing to ensure that these behavioral changes do not break your app's functionality.
 
 ## Summary of compatibility for all versions
 
@@ -56,7 +57,6 @@ The chart below shows the compatibility between all client and server types. A b
 | [Mobile Apps clients]     | Error\*                             | Ok                              |
 
 \*This can be controlled by specifying **MS_SkipVersionCheck**.
-
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
 
@@ -127,16 +127,12 @@ Version checking is included in following server SDK versions:
 | 2.0.0-2.x.y      | False/Not Specified          | 200 - OK |
 | 3.0.0-3.x.y      | False/Not Specified          | 400 - Bad Request |
 
-
 ## Next Steps
 
 - [Migrate a Mobile Service to Azure App Service]
 
-
 [Mobile Services clients]: #MobileServicesClients
 [Mobile Apps clients]: #MobileAppsClients
 
-
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Migrate a Mobile Service to Azure App Service]: /documentation/articles/app-service-mobile-migrating-from-mobile-services/
-
+[Migrate a Mobile Service to Azure App Service]: ./app-service-mobile-migrating-from-mobile-services.md

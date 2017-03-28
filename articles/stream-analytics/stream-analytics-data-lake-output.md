@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Stream Analytics Data Lake Store Output | Azure"
-    description="Configuration of authentication and authorization of an Azure Data Lake Store in a Stream Analytics job"
-    keywords=""
-    services="stream-analytics"
-    documentationcenter=""
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="ea5baafa-0054-4c70-973a-6a3a8c6eaffc"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Stream Analytics Data Lake Store Output | Azure
+description: Configuration of authentication and authorization of an Azure Data Lake Store in a Stream Analytics job
+keywords: ''
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Stream Analytics Data Lake Store output
 

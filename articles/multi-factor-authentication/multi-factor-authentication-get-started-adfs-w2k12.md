@@ -1,17 +1,16 @@
-<properties 
-	pageTitle="Secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS | Microsoft Azure"
-	description="This article describes how to get started with Azure Multi-Factor Authentication and AD FS in Windows Server 2012 R2."
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+---
+title: Secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with Windows Server 2012 R2 AD FS | Microsoft Azure
+description: This article describes how to get started with Azure Multi-Factor Authentication and AD FS in Windows Server 2012 R2.
+services: multi-factor-authentication
+documentationCenter: ''
+authors: billmath
+manager: stevenpo
+editor: curtland
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.date="08/04/2016"
-	wacn.date=""/>
-
+ms.service: multi-factor-authentication
+ms.date: 08/04/2016
+wacn.date: ''
+---
 
 # Secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2
 
@@ -35,7 +34,6 @@ Before you begin, be aware of the following information:
 
 - The Multi-Factor Authentication AD FS adapter installation wizard creates a security group called PhoneFactor Admins in your instance of Active Directory and then adds the AD FS service account of your federation service to this group. We recommend that you verify on your domain controller that the PhoneFactor Admins group is indeed created and that the AD FS service account is a member of this group. If necessary, manually add the AD FS service account to the PhoneFactor Admins group on your domain controller.
 - For information about installing the Web Service SDK with the user portal, read about [deploying the user portal for Azure Multi-Factor Authentication Server.](multi-factor-authentication-get-started-portal.md)
-
 
 ### Install Azure Multi-Factor Authentication Server locally on the AD FS server
 

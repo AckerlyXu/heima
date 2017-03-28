@@ -1,21 +1,22 @@
-<properties
-    pageTitle="SQL Data Warehouse data integration partners | Azure"
-    description="Lists of third-party partners with data integration solutions that support Azure SQL Data Warehouse."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="jrowlandjones"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="450730a8-87df-4b8f-917b-debe3c906283"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="01/30/2017"
-    wacn.date=""
-    ms.author="jrj;barbkess" />
+---
+title: SQL Data Warehouse data integration partners | Azure
+description: Lists of third-party partners with data integration solutions that support Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
+
+ms.assetid: 450730a8-87df-4b8f-917b-debe3c906283
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 01/30/2017
+wacn.date: ''
+ms.author: jrj;barbkess
+---
 
 # SQL Data Warehouse data integration partners
 To create your end-to-end data warehouse solution, choose from a wide variety of industry-leading tools. This article highlights Microsoft partner companies with data integration solutions supporting Azure SQL Data Warehouse.
@@ -42,11 +43,10 @@ To learn more about some of our other partners, see [Business Intelligence partn
 [5]: ./media/sql-data-warehouse-partner-data-integration/redgate_logo.png
 [6]: ./media/sql-data-warehouse-partner-data-integration/snaplogic_logo.png
 
-
 <!--Article links-->
-[bi_partners]: /documentation/articles/sql-data-warehouse-partner-business-intelligence/
-[dm_partners]: /documentation/articles/sql-data-warehouse-partner-data-management/
-[di_partners]: /documentation/articles/sql-data-warehouse-partner-data-integration/
+[bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[dm_partners]: ./sql-data-warehouse-partner-data-management.md
+[di_partners]: ./sql-data-warehouse-partner-data-integration.md
 
 <!--ebook Links-->
 

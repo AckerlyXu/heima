@@ -1,19 +1,20 @@
-<properties 
-   pageTitle="Service Bus architecture | Azure"
-    description="Describes the message and relay processing architecture of Azure Service Bus."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/30/2016"
-    ms.author="sethm" />
+---
+title: Service Bus architecture | Azure
+description: Describes the message and relay processing architecture of Azure Service Bus.
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/30/2016
+ms.author: sethm
+---
 
 # Service Bus architecture
 
@@ -31,7 +32,7 @@ A Service Bus namespace is mapped to a scale unit. The scale unit handles all t
 
 - **One gateway store.** The gateway store holds the data for every entity that is defined in this scale unit. The gateway store is implemented on top of a SQL Azure database.
 
-- **Multiple messaging stores.** Messaging stores hold the messages of all queues, topics and subscriptions that are defined in this scale unit. It also contains all subscription data. Unless [partitioned messaging entities](/documentation/articles/service-bus-partitioning/) is enabled, a queue or topic is mapped to one messaging store. Subscriptions are stored in the same messaging store as their parent topic. Except for Service Bus [Premium Messaging](/documentation/articles/service-bus-premium-messaging/), the messaging stores are implemented on top of SQL Azure databases.
+- **Multiple messaging stores.** Messaging stores hold the messages of all queues, topics and subscriptions that are defined in this scale unit. It also contains all subscription data. Unless [partitioned messaging entities](./service-bus-partitioning.md) is enabled, a queue or topic is mapped to one messaging store. Subscriptions are stored in the same messaging store as their parent topic. Except for Service Bus [Premium Messaging](./service-bus-premium-messaging.md), the messaging stores are implemented on top of SQL Azure databases.
 
 ## Containers
 
@@ -54,6 +55,6 @@ When the relay connection is established, the clients can exchange messages via 
 ## Next steps
 Now that you've read an overview of Service Bus architecture, visit the following links for more information:
 
-- [Service Bus messaging overview](/documentation/articles/service-bus-messaging-overview/)
-- [Service Bus fundamentals](/documentation/articles/service-bus-fundamentals-hybrid-solutions/)
-- [A queued messaging solution using Service Bus queues](/documentation/articles/service-bus-dotnet-multi-tier-app-using-service-bus-queues/)
+- [Service Bus messaging overview](./service-bus-messaging-overview.md)
+- [Service Bus fundamentals](./service-bus-fundamentals-hybrid-solutions.md)
+- [A queued messaging solution using Service Bus queues](./service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)

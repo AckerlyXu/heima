@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Use Azure portal to create SQL Database alerts | Azure"
-    description="Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met."
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor=""
-    services="sql-database"
-    documentationcenter="" />
-<tags
-    ms.assetid="f7457655-ced6-4102-a9dd-7ddf2265c0e2"
-    ms.service="sql-database"
-    ms.custom="monitor and tune"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/01/2017"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: Use Azure portal to create SQL Database alerts | Azure
+description: Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met.
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+services: sql-database
+documentationcenter: ''
+
+ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
+ms.service: sql-database
+ms.custom: monitor and tune
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/01/2017
+wacn.date: ''
+ms.author: carlrab
+---
 
 # Use Azure portal to create alerts for Azure SQL Database
 
@@ -37,18 +38,18 @@ You can configure an alert to do the following when it triggers:
 
 You can configure and get information about alert rules using
 
-* [Azure portal](/documentation/articles/insights-alerts-portal/)
-* [PowerShell](/documentation/articles/insights-alerts-powershell/)
-* [command-line interface (CLI)](/documentation/articles/insights-alerts-command-line-interface/)
+* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
+* [command-line interface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
 1. In the [portal](https://portal.azure.cn/), locate the resource you are interested in monitoring and select it.
 2. Select **Alerts** or **Alert rules** under the MONITORING section. The text and icon may vary slightly for different resources.  
-   
+
     ![Monitoring](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
 3. Select the **Add alert** command and fill in the fields.
-   
+
     ![Add Alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
 5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also chose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the CPU has been consistently above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the CPU stays below 80% for 5 minutes. The CPU measurement occurs every 1 minute.   
@@ -66,7 +67,6 @@ Once you have created an alert, you can select it and:
 * View a graph showing the metric threshold and the actual values from the previous day.
 * Edit or delete it.
 * **Disable** or **Enable** it if you want to temporarily stop or resume receiving notifications for that alert.
-
 
 ## SQL Database alert values and thresholds
 
@@ -111,11 +111,9 @@ Once you have created an alert, you can select it and:
 | Elastic pool | storage_used | Storage used | Average | 5 minutes |
 ||||||
 
-
 ## Next steps
-* [Get an overview of Azure monitoring](/documentation/articles/monitoring-overview/) including the types of information you can collect and monitor.
-* Learn more about [configuring webhooks in alerts](/documentation/articles/insights-webhooks-alerts/).
-* Learn more about [Azure Automation Runbooks](/documentation/articles/automation-starting-a-runbook/).
-* Get an [overview of diagnostic logs](/documentation/articles/monitoring-overview-of-diagnostic-logs/) and collect detailed high-frequency metrics on your service.
-* Get an [overview of metrics collection](/documentation/articles/insights-how-to-customize-monitoring/) to make sure your service is available and responsive.
-
+* [Get an overview of Azure monitoring](../monitoring-and-diagnostics/monitoring-overview.md) including the types of information you can collect and monitor.
+* Learn more about [configuring webhooks in alerts](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+* Learn more about [Azure Automation Runbooks](../automation/automation-starting-a-runbook.md).
+* Get an [overview of diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) and collect detailed high-frequency metrics on your service.
+* Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.

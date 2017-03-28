@@ -1,19 +1,20 @@
-<properties 
-   pageTitle="StorSimple system limits table"
-   description="Describes system limits and recommended sizes for StorSimple components and connections."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/18/2015"
-   ms.author="alkohli" />
+---
+title: StorSimple system limits table
+description: Describes system limits and recommended sizes for StorSimple components and connections.
+services: storsimple
+documentationCenter: NA
+authors: alkohli
+manager: adinah
+editor: ''
+
+ms.service: storsimple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: TBD
+ms.date: 08/18/2015
+ms.author: alkohli
+---
 
 | Limit identifier | Limit | Comments |
 |----------------- | ------|--------- |

@@ -1,22 +1,23 @@
-﻿<properties
-    pageTitle="Troubleshooting Azure File storage issues | Azure"
-    description="Troubleshooting Azure File storage issues"
-    services="storage"
-    documentationcenter=""
-    author="genlin"
-    manager="felixwu"
-    editor="na"
-    tags="storage" />
-<tags
-    ms.assetid="fbc5f600-131e-4b99-828a-42d0de85fff7"
-    ms.service="storage"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/15/2017"
-    wacn.date=""
-    ms.author="genli" />
+﻿---
+title: Troubleshooting Azure File storage issues | Azure
+description: Troubleshooting Azure File storage issues
+services: storage
+documentationcenter: ''
+author: genlin
+manager: felixwu
+editor: na
+tags: storage
+
+ms.assetid: fbc5f600-131e-4b99-828a-42d0de85fff7
+ms.service: storage
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/15/2017
+wacn.date: ''
+ms.author: genli
+---
 
 # Troubleshooting Azure File storage problems
 This article lists common problems that are related to Azure File storage when you connect from Windows and Linux clients. It also provides the possible causes of and resolutions for these problems.
@@ -68,7 +69,7 @@ On Linux, you receive error messages that resemble the following:
 The problem occurs because you have reached the upper limit of concurrent open handles that are allowed for a file.
 
 ### Solution
-Reduce the number of concurrent open handles by closing some handles,  and then retry. For more information, see [Azure Storage Performance and Scalability Checklist](/documentation/articles/storage-performance-checklist/).
+Reduce the number of concurrent open handles by closing some handles,  and then retry. For more information, see [Azure Storage Performance and Scalability Checklist](./storage-performance-checklist.md).
 
 <a id="slowboth"></a>
 
@@ -76,7 +77,7 @@ Reduce the number of concurrent open handles by closing some handles,  and then 
 * If you don’t have a specific minimum I/O size requirement, we recommend that you use 1 MB as the I/O size for optimal performance.
 * If you know the final size of a file that you are extending with writes, and your software doesn’t have compatibility issues when the not yet written tail on the file containing zeros, then set the file size in advance instead of every write being an extending write.
 * Use the right copy method:
-      * Use AZCopy for any transfer between two file shares. See [Transfer data with the AzCopy Command-Line Utility](/documentation/articles/storage-use-azcopy/#file-copy) for more details.
+      * Use AZCopy for any transfer between two file shares. See [Transfer data with the AzCopy Command-Line Utility](./storage-use-azcopy.md#file-copy) for more details.
       * Use Robocopy between a file share an on-premises computer. Please see [Multi-threaded robocopy for faster copies](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) for more details.
 <a id="windowsslow"></a>
 
@@ -92,7 +93,8 @@ If hotfix is installed, the following output is displayed:
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies`
 `{96c345ef-3cac-477b-8fcd-bea1a564241c}    REG_DWORD    0x1`
 
-> [AZURE.NOTE]Windows Server 2012 R2 images in Azure Marketplace have the hotfix KB3114025 installed by default starting in December 2015.
+> [!NOTE]
+>Windows Server 2012 R2 images in Azure Marketplace have the hotfix KB3114025 installed by default starting in December 2015.
 
 <a id="traceop"></a>
 
@@ -263,5 +265,5 @@ The Linux issue has been fixed, however not ported to Linux distributions yet. I
 ### Can I reference the azure file share for my application through a webjob?
 Mounting SMB shares in appservice sandbox isn’t possible. As a workaround, you can map the Azure file share as a mapped drive and allow the application to access it as a drive letter.
 ## Learn more
-* [Get started with Azure File storage on Windows](/documentation/articles/storage-dotnet-how-to-use-files/)
-* [Get started with Azure File storage on Linux](/documentation/articles/storage-how-to-use-files-linux/)
+* [Get started with Azure File storage on Windows](./storage-dotnet-how-to-use-files.md)
+* [Get started with Azure File storage on Linux](./storage-how-to-use-files-linux.md)

@@ -1,30 +1,31 @@
-<properties
-    pageTitle="DocumentDB global database replication | Azure"
-    description="Learn how to manage the global replication of your DocumentDB account via the Azure portal."
-    services="documentdb"
-    keywords="global database, replication"
-    documentationcenter=""
-    author="mimig1"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="8b815047-2868-4b10-af1d-40a1af419a70"
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/23/2016"
-    wacn.date=""
-    ms.author="mimig" />
+---
+title: DocumentDB global database replication | Azure
+description: Learn how to manage the global replication of your DocumentDB account via the Azure portal.
+services: documentdb
+keywords: global database, replication
+documentationcenter: ''
+author: mimig1
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/23/2016
+wacn.date: ''
+ms.author: mimig
+---
 
 # How to perform DocumentDB global database replication using the Azure portal
 
 Learn how to use the Azure portal to replicate data in multiple regions for global availability of data in Azure DocumentDB.
 
-For information about how global database replication works in DocumentDB, see [Distribute data globally with DocumentDB](/documentation/articles/documentdb-distribute-data-globally/). For information about performing global database replication programmatically, see [Developing with multi-region DocumentDB accounts](/documentation/articles/documentdb-developing-with-multiple-regions/).
+For information about how global database replication works in DocumentDB, see [Distribute data globally with DocumentDB](./documentdb-distribute-data-globally.md). For information about performing global database replication programmatically, see [Developing with multi-region DocumentDB accounts](./documentdb-developing-with-multiple-regions.md).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now.
 > 
 > 
@@ -35,10 +36,10 @@ DocumentDB is available in most [Azure regions][azureregions]. After selecting t
 1. In the [Azure portal](https://portal.azure.cn/), in the Jumpbar, click **NoSQL (DocumentDB)**.
 2. In the **NoSQL (DocumentDB)** blade, select the database account to modify.
 3. In the account blade, click **Replicate data globally** from the menu.
-4. In the **Replicate data globally** blade, select the regions to add or remove, and then click **Save**. There is a cost to adding regions, see the [pricing page](/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](/documentation/articles/documentdb-distribute-data-globally/) article for more information.
-   
+4. In the **Replicate data globally** blade, select the regions to add or remove, and then click **Save**. There is a cost to adding regions, see the [pricing page](https://www.azure.cn/pricing/details/documentdb/) or the [Distribute data globally with DocumentDB](./documentdb-distribute-data-globally.md) article for more information.
+
     ![Click the regions in the map to add or remove them][1]
-    
+
 Once you add a second region, the **Manual Failover** option is enabled on the **Replicate data locally** blade in the portal. You can use this option to test the failover process. Once you add a third region, the **Failover Priorities** option is enabled on the same blade so that you can change the failover order for reads.  
 
 ### Selecting global database regions
@@ -53,7 +54,6 @@ This guidance is important to follow when only two regions are configured for di
 
 While all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
 
-
 1. In the **NoSQL (DocumentDB)** blade, select the database account to modify.
 2. In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
 3. In the **All Settings** blade, click **Write Region Priority**.
@@ -63,9 +63,9 @@ While all regions associated with your DocumentDB database account can serve rea
 -->
 
 ## <a id="next"></a>Next steps
-Learn how to manage the consistency of your globally replicated account by reading [Consistency levels in DocumentDB](/documentation/articles/documentdb-consistency-levels/).
+Learn how to manage the consistency of your globally replicated account by reading [Consistency levels in DocumentDB](./documentdb-consistency-levels.md).
 
-For information about how global database replication works in DocumentDB, see [Distribute data globally with DocumentDB](/documentation/articles/documentdb-distribute-data-globally/). For information about programmatically replicating data in multiple regions, see [Developing with multi-region DocumentDB accounts](/documentation/articles/documentdb-developing-with-multiple-regions/).
+For information about how global database replication works in DocumentDB, see [Distribute data globally with DocumentDB](./documentdb-distribute-data-globally.md). For information about programmatically replicating data in multiple regions, see [Developing with multi-region DocumentDB accounts](./documentdb-developing-with-multiple-regions.md).
 
 <!--Image references-->
 [1]: ./media/documentdb-portal-global-replication/documentdb-add-region.png
@@ -73,6 +73,6 @@ For information about how global database replication works in DocumentDB, see [
 [3]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[consistency]: /documentation/articles/documentdb-consistency-levels/
+[consistency]: ./documentdb-consistency-levels.md
 [azureregions]: https://azure.microsoft.com/en-us/regions/
-[offers]: /pricing/details/documentdb/
+[offers]: https://www.azure.cn/pricing/details/documentdb/

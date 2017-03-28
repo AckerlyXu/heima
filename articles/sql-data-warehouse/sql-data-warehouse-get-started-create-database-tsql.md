@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Create a SQL Data Warehouse with TSQL | Azure"
-   description="Learn how to create an Azure SQL Data Warehouse with TSQL"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""
-   tags="azure-sql-data-warehouse"/>
+---
+title: Create a SQL Data Warehouse with TSQL | Azure
+description: Learn how to create an Azure SQL Data Warehouse with TSQL
+services: sql-data-warehouse
+documentationCenter: NA
+authors: lodipalm
+manager: barbkess
+editor: ''
+tags: azure-sql-data-warehouse
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   wacn.date=""
-   ms.author="lodipalm;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: lodipalm;barbkess;sonyama
+---
 
 # Create a SQL Data Warehouse database by using Transact-SQL (TSQL)
 
-> [AZURE.SELECTOR]
-- [Azure Portal](/documentation/articles/sql-data-warehouse-get-started-provision)
-- [TSQL](/documentation/articles/sql-data-warehouse-get-started-create-database-tsql)
-- [PowerShell](/documentation/articles/sql-data-warehouse-get-started-provision-powershell)
+> [!div class="op_single_selector"]
+>- [Azure Portal](./sql-data-warehouse-get-started-provision.md)
+>- [TSQL](./sql-data-warehouse-get-started-create-database-tsql.md)
+>- [PowerShell](./sql-data-warehouse-get-started-provision-powershell.md)
 
 This article shows you how to create a SQL Data Warehouse using T-SQL.
 
@@ -36,7 +36,8 @@ To get started, you need:
 - **Resource group**: Either use the same resource group as your Azure SQL server or see [how to create a resource group][].
 - **Environment to execute T-SQL**: You can use [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][], or [SSMS][] to execute T-SQL.
 
-> [AZURE.NOTE] Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
+> [!NOTE]
+> Creating a SQL Data Warehouse may result in a new billable service.  See [SQL Data Warehouse pricing][] for more details on pricing.
 
 ## Create a database with Visual Studio
 If you are new to Visual Studio, see the article [Query Azure SQL Data Warehouse (Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)].  To start, open SQL Server Object Explorer in Visual Studio and connect to the server that will host your SQL Data Warehouse database.  Once connected, you can create a SQL Data Warehouse by running the following SQL command against the **master** database.  This command creates the database MySqlDwDb with a Service Objective of DW400 and allow the database to grow to a maximum size of 10 TB.
@@ -58,18 +59,18 @@ The default collation when not specified is COLLATE SQL_Latin1_General_CP1_CI_AS
 After your SQL Data Warehouse has finished provisioning you can [load sample data][load sample data] or check out how to [develop][develop], [load][load], or [migrate][migrate].
 
 <!--Article references-->
-[DWU]: /documentation/articles/sql-data-warehouse-overview-what-is#data-warehouse-units
-[how to create a SQL Data Warehouse from the Azure portal]: /documentation/articles/sql-data-warehouse-get-started-provision/
-[Query Azure SQL Data Warehouse (Visual Studio)]: /documentation/articles/sql-data-warehouse-query-visual-studio/
-[migrate]: /documentation/articles/sql-data-warehouse-overview-migrate/
-[develop]: /documentation/articles/sql-data-warehouse-overview-develop/
-[load]: /documentation/articles/sql-data-warehouse-overview-load/
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[how to create a SQL Data Warehouse from the Azure portal]: ./sql-data-warehouse-get-started-provision.md
+[Query Azure SQL Data Warehouse (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+[migrate]: ./sql-data-warehouse-overview-migrate.md
+[develop]: ./sql-data-warehouse-overview-develop.md
+[load]: ./sql-data-warehouse-overview-load.md
 [load sample data]: /documentation/articles/sql-data-warehouse-get-started-load-sample-databases/
-[Create an Azure SQL Database logical server with the Azure Portal]: /documentation/articles/sql-database-get-started/#create-an-azure-sql-database-logical-server
-[Create an Azure SQL Database logical server with PowerShell]: /documentation/articles/sql-database-get-started-powershell/#database-setup-create-a-resource-group-server-and-firewall-rule
-[how to create a resource group]: /documentation/articles/resource-group-template-deploy-portal#create-resource-group
-[Installing Visual Studio and SSDT]: /documentation/articles/sql-data-warehouse-install-visual-studio/
-[sqlcmd]: /documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
+[Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
+[Installing Visual Studio and SSDT]: ./sql-data-warehouse-install-visual-studio.md
+[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--MSDN references-->
 [CREATE DATABASE]: https://msdn.microsoft.com/zh-cn/library/mt204021.aspx
@@ -77,6 +78,6 @@ After your SQL Data Warehouse has finished provisioning you can [load sample dat
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
 
 <!--Other Web references-->
-[SQL Data Warehouse pricing]: /home/features/sql-data-warehouse/pricing/
-[Azure Free Trial]: /pricing/1rmb-trial/
-[MSDN Azure Credits]: /pricing/member-offers/
+[SQL Data Warehouse pricing]: https://www.azure.cn/home/features/sql-data-warehouse/pricing/
+[Azure Free Trial]: https://www.azure.cn/pricing/1rmb-trial/
+[MSDN Azure Credits]: https://www.azure.cn/pricing/member-offers/

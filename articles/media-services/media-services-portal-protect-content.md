@@ -1,25 +1,27 @@
-<properties
-    pageTitle="Configuring content protection policies using the Azure portal | Azure"
-    description="This article demonstrates how to use the Azure portal to configure content protection policies. The article also shows how to enable dynamic encryption for your assets."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="270b3272-7411-40a9-ad42-5acdbba31154"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Configuring content protection policies using the Azure portal | Azure
+description: This article demonstrates how to use the Azure portal to configure content protection policies. The article also shows how to enable dynamic encryption for your assets.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
+
+ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Configuring content protection policies using the Azure portal
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure 1rmb Trial](/pricing/1rmb-trial/).
+> [!NOTE]
+> To complete this tutorial, you need an Azure account. For details, see [Azure 1rmb Trial](https://www.azure.cn/pricing/1rmb-trial/).
 
 ## Overview
 
@@ -29,7 +31,8 @@ AMS provides a service for delivering DRM licenses and AES clear keys to authori
 
 This article demonstrates how to configure content protection policies with the Azure portal. The article also shows how to apply dynamic encryption to your assets.
 
-> [AZURE.NOTE]  If you used the Azure classic portal to create protection policies, the policies may not appear in the [Azure portal](https://portal.azure.cn/). However, all the old polices still exist. You can examine them using the Azure Media Services .NET SDK or the [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) tool (to see the policies, right-click on the asset -> Display information (F4)->click on Content keys tab-> click on the key). 
+> [!NOTE]
+>  If you used the Azure classic portal to create protection policies, the policies may not appear in the [Azure portal](https://portal.azure.cn/). However, all the old polices still exist. You can examine them using the Azure Media Services .NET SDK or the [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) tool (to see the policies, right-click on the asset -> Display information (F4)->click on Content keys tab-> click on the key). 
 > 
 > If you want to encrypt your asset using new policies, configure them with the Azure portal, click save, and reapply dynamic encryption. 
 
@@ -57,7 +60,7 @@ When configuring the token restricted policy, you must specify the primary verif
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## PlayReady rights template
-For detailed information about the PlayReady rights template, see [Media Services PlayReady License Template Overview](/documentation/articles/media-services-playready-license-template-overview/).
+For detailed information about the PlayReady rights template, see [Media Services PlayReady License Template Overview](./media-services-playready-license-template-overview.md).
 
 ### Non persistent
 If you configure license as non-persistent, it is only held in memory while the player is using the license.  
@@ -70,18 +73,18 @@ If you configure the license  as persistent, it is saved in persistent storage o
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
 ## Widevine rights template
-For detailed information about the Widevine rights template, see [Widevine License Template Overview](/documentation/articles/media-services-widevine-license-template-overview/).
+For detailed information about the Widevine rights template, see [Widevine License Template Overview](./media-services-widevine-license-template-overview.md).
 
 ### Basic
 When you select **Basic**, the template will be created with all defaults values.
 
 ### Advanced
-For detailed explanation about advance option of Widevine configurations, see [this](/documentation/articles/media-services-widevine-license-template-overview/) topic.
+For detailed explanation about advance option of Widevine configurations, see [this](./media-services-widevine-license-template-overview.md) topic.
 
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## FairPlay configuration
-To enable FairPlay encryption, you need to provide the App Certificate and Application Secret Key (ASK) through the FairPlay Configuration option. For detailed information about FairPlay configuration and requirements, see [this](/documentation/articles/media-services-protect-hls-with-fairplay/) article.
+To enable FairPlay encryption, you need to provide the App Certificate and Application Secret Key (ASK) through the FairPlay Configuration option. For detailed information about FairPlay configuration and requirements, see [this](./media-services-protect-hls-with-fairplay.md) article.
 
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
@@ -115,9 +118,3 @@ To enable FairPlay encryption, you need to provide the App Certificate and Appli
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
 Once you make the encryption selection, press **Apply**.
-
-
-
-
-
-

@@ -1,18 +1,18 @@
-<properties
-  pageTitle="Azure IoT Suite and Azure Active Directory | Azure"
-  description="Describes how Azure IoT Suite uses Azure Active Directory to manage permissions."
-  services=""
-  suite="iot-suite"
-  documentationCenter=""
-  author="dominicbetts"
-  manager="timlt"
-  editor=""/>
+---
+title: Azure IoT Suite and Azure Active Directory | Azure
+description: Describes how Azure IoT Suite uses Azure Active Directory to manage permissions.
+services: ''
+suite: iot-suite
+documentationCenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
-  ms.service="iot-suite"
-  ms.date="02/08/2017"
-  wacn.date="05/17/2016"/>
-  
+ms.service: iot-suite
+ms.date: 02/08/2017
+wacn.date: 05/17/2016
+---
+
 # Permissions on the azureiotsuite.com site
 ## What happens when you sign in
 The first time you sign in at [azureiotsuite.com][lnk-azureiotsuite], the site determines the permission levels you have based on the currently selected Azure Active Directory (AAD) tenant and Azure subscription.
@@ -91,7 +91,6 @@ You can run a cloud deployment from <https://github.com/Azure/azure-iot-remote-m
 
 4. When prompted, set the **tenantid** to be your newly created tenant instead of your previous tenant.
 
-
 ### I want to change a Service Administrator or Co-Administrator when logged in with an organisational account
 
 See the support article [Changing Service Administrator and Co-Administrator when logged in with an organisational account][lnk-service-admins].
@@ -101,7 +100,8 @@ Look at the following diagram for guidance:
 
 ![][img-flowchart]
 
-> [AZURE.NOTE] If you continue to see the error after validating you are a global administrator on the AAD tenant and a co-administrator on the subscription, have your account administrator remove the user and re-assign necessary permissions in this order. First,add the user as a global administrator and then add user as a co-administrator on the Azure subscription. If issues persist, contact [Help & Support][lnk-help-support].
+> [!NOTE]
+> If you continue to see the error after validating you are a global administrator on the AAD tenant and a co-administrator on the subscription, have your account administrator remove the user and re-assign necessary permissions in this order. First,add the user as a global administrator and then add user as a co-administrator on the Azure subscription. If issues persist, contact [Help & Support][lnk-help-support].
 **Why am I seeing this error when I have an Azure subscription?** *An Azure subscription is required to create pre-configured solutions. You can create a trial account in just a couple of minutes.*
 
 If you're certain you have an Azure subscription, validate the tenant mapping for your subscription and ensure the correct tenant is selected in the dropdown. If you’ve validated the desired tenant is correct, follow the preceeding diagram and validate the mapping of your subscription and this AAD tenant.
@@ -115,12 +115,12 @@ To continue learning about IoT Suite, see how you can [customize a preconfigured
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
-[lnk-aad-admin]: /documentation/articles/active-directory-assign-admin-roles/
+[lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-classic-portal]: https://manage.windowsazure.cn/
-[lnk-create-edit-users]: /documentation/articles/active-directory-create-users/
-[lnk-assign-app-roles]: /documentation/articles/active-directory-application-manifest/
-[lnk-service-admins]: /support/changing-service-admin-and-co-admin/
+[lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
+[lnk-assign-app-roles]: ../active-directory/active-directory-application-manifest.md
+[lnk-service-admins]: https://www.azure.cn/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: /documentation/articles/billing-add-change-azure-subscription-administrator/
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[lnk-customize]: /documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
+[lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md

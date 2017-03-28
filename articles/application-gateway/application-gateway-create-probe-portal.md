@@ -1,35 +1,36 @@
-<properties
-    pageTitle="Create a custom probe - Azure Application Gateway - Azure Portal Preview | Azure"
-    description="Learn how to create a custom probe for Application Gateway by using the portal"
-    services="application-gateway"
-    documentationcenter="na"
-    author="georgewallace"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="33fd5564-43a7-4c54-a9ec-b1235f661f97"
-    ms.service="application-gateway"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="gwallace" />
+---
+title: Create a custom probe - Azure Application Gateway - Azure Portal Preview | Azure
+description: Learn how to create a custom probe for Application Gateway by using the portal
+services: application-gateway
+documentationcenter: na
+author: georgewallace
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 33fd5564-43a7-4c54-a9ec-b1235f661f97
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: gwallace
+---
 
 # Create a custom probe for Application Gateway by using the portal
-> [AZURE.SELECTOR]
-- [Azure portal preview](/documentation/articles/application-gateway-create-probe-portal/)
-- [Azure Resource Manager PowerShell](/documentation/articles/application-gateway-create-probe-ps/)
-- [Azure Classic PowerShell](/documentation/articles/application-gateway-create-probe-classic-ps/)
+> [!div class="op_single_selector"]
+>- [Azure portal preview](./application-gateway-create-probe-portal.md)
+>- [Azure Resource Manager PowerShell](./application-gateway-create-probe-ps.md)
+>- [Azure Classic PowerShell](./application-gateway-create-probe-classic-ps.md)
 
-[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 ## Scenario
 
 The following scenario goes through creating a custom health probe in an existing application gateway.
-The scenario assumes that you have already followed the steps to [Create an Application Gateway](/documentation/articles/application-gateway-create-gateway-portal/).
+The scenario assumes that you have already followed the steps to [Create an Application Gateway](./application-gateway-create-gateway-portal.md).
 
 ## <a name="createprobe"></a>Create the probe
 
@@ -58,7 +59,7 @@ Fill out the required information for the probe and when complete click **OK**.
 * **Timeout (secs)** - The amount of time the probe waits before timing out. The timeout interval needs to be high enough that an http call can be made to ensure the backend health page is available.
 * **Unhealthy threshold** - Number of failed attempts to be considered unhealthy. A threshold of 0 means that if a health check fails the back-end is determined unhealthy immediately.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The host name is not the same as server name. This value is the name of the virtual host running on the application server. The probe is sent to http://(host name):(port from httpsetting)/urlPath
 
 ![probe configuration settings][3]
@@ -85,7 +86,7 @@ specified in the probe. If the call to host:Port/path does not return an Http 20
 
 ## Next steps
 
-To learn how to configure SSL Offloading with Azure Application Gateway, see [Configure SSL Offload](/documentation/articles/application-gateway-ssl-portal/)
+To learn how to configure SSL Offloading with Azure Application Gateway, see [Configure SSL Offload](./application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png

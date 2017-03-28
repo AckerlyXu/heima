@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Power BI Embedded Preview troubleshooting"
-    description="Power BI Embedded Preview troubleshooting"
-    services="power-bi-embedded"
-    documentationcenter=""
-    author="guyinacube"
-    manager="erikre"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="c8aee652-ed8b-4c66-9c63-f798b7a655b4"
-    ms.service="power-bi-embedded"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="powerbi"
-    ms.date="01/06/2017"
-    wacn.date=""
-    ms.author="asaxton" />
+---
+title: Power BI Embedded Preview troubleshooting
+description: Power BI Embedded Preview troubleshooting
+services: power-bi-embedded
+documentationcenter: ''
+author: guyinacube
+manager: erikre
+editor: ''
+tags: ''
+
+ms.assetid: c8aee652-ed8b-4c66-9c63-f798b7a655b4
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 01/06/2017
+wacn.date: ''
+ms.author: asaxton
+---
 
 # Power BI Embedded Preview troubleshooting
 This article provides answers for how  to troubleshoot **Power BI Embedded**.
@@ -26,9 +27,9 @@ This article provides answers for how  to troubleshoot **Power BI Embedded**.
 ## Setting SQL Server connection strings
 To set a SQL Server connecting string, you need to follow a specific format. Below is an example connection string for SQL Server.
 
-
-	"Persist Security Info=False;Integrated Security=true;Initial Catalog=Northwind;server=(local)"
-
+```
+"Persist Security Info=False;Integrated Security=true;Initial Catalog=Northwind;server=(local)"
+```
 
 To learn more about SQL Server connection strings, see the following articles:
 
@@ -41,6 +42,5 @@ To learn more about SQL Server connection strings, see the following articles:
 In the case where you have credentials for a development or staging environment, such as user name and password, you might need to update credentials that match a production solution.
 
 ## See Also
-- [Get started with sample](/documentation/articles/power-bi-embedded-get-started-sample/)
-- [What is Power BI Embedded](/documentation/articles/power-bi-embedded-what-is-power-bi-embedded/)
-
+- [Get started with sample](./power-bi-embedded-get-started-sample.md)
+- [What is Power BI Embedded](./power-bi-embedded-what-is-power-bi-embedded.md)

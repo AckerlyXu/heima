@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Read messages persisted in Azure Table storage | Azure"
-    description="Save messages from Intel NUC to your IoT hub, write them to Azure Table storage and then read them from the cloud."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="retrieve data from cloud, iot cloud service" />
-<tags
-    ms.assetid="8ca78045-ad92-4a6a-90f1-05f9668e6f0e"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Read messages persisted in Azure Table storage | Azure
+description: Save messages from Intel NUC to your IoT hub, write them to Azure Table storage and then read them from the cloud.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: retrieve data from cloud, iot cloud service
+
+ms.assetid: 8ca78045-ad92-4a6a-90f1-05f9668e6f0e
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Read messages persisted in Azure Table storage
 
@@ -25,7 +26,7 @@
 - Run the gateway sample application on your gateway that sends messages to your IoT hub.
 - Then run a sample code on your host computer to read the messages in your Azure Table storage. 
 
-If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-gateway-kit-c-troubleshooting/).
+If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## What you will learn
 
@@ -35,9 +36,9 @@ How to use the gulp tool to run the sample code to read messages in your Azure T
 
 You have have successfully done the following tasks:
 
-- [Created the Azure function app and the Azure storage account](/documentation/articles/iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template/).
-- [Run the gateway sample application](/documentation/articles/iot-hub-gateway-kit-c-lesson3-configure-ble-app/).
-- [Read messages from your IoT hub](/documentation/articles/iot-hub-gateway-kit-c-lesson3-read-messages-from-hub/).
+- [Created the Azure function app and the Azure storage account](./iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md).
+- [Run the gateway sample application](./iot-hub-gateway-kit-c-lesson3-configure-ble-app.md).
+- [Read messages from your IoT hub](./iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md).
 
 ## Get your Azure storage connection strings
 
@@ -74,7 +75,7 @@ Update the `config-azure.json` file so that the sample code that runs on the hos
 
 2. Replace `[Azure storage connection string]` with the Azure storage connection string that you obtained.
 
-   `[IoT hub connection string]` should already be replaced in section [Read messages from Azure IoT Hub](/documentation/articles/iot-hub-gateway-kit-c-lesson3-read-messages-from-hub/) in Lesson3.
+   `[IoT hub connection string]` should already be replaced in section [Read messages from Azure IoT Hub](./iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) in Lesson3.
 
 ## Read messages in your Azure Table storage
 
@@ -90,7 +91,6 @@ The `gulp run` command runs gateway sample application that sends messages to yo
 The messages that are being sent and received are all displayed instantly on the same console window in the host machine. The sample application instance will terminate automatically in 40 seconds.
 
    ![gulp read](./media/iot-hub-gateway-kit-lessons/lesson4/gulp_run_read_table.png)
-
 
 ## Summary
 

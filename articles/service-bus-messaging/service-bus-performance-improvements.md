@@ -1,22 +1,23 @@
-<properties 
-   pageTitle="Best practices for improving performance using Azure Service Bus | Microsoft Azure"
-   description="Describes how to use Service Bus to optimize performance when exchanging brokered messages. "
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-    editor="" /> 
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/02/2017"
-    ms.author="sethm" />
+---
+title: Best practices for improving performance using Azure Service Bus | Microsoft Azure
+description: Describes how to use Service Bus to optimize performance when exchanging brokered messages. 
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/02/2017
+ms.author: sethm
+---
 
 # Best Practices for performance improvements using Service Bus Messaging
-This article describes how to use [Azure Service Bus Messaging](/documentation/services/service-bus/) to optimize performance when exchanging brokered messages. The first part of this topic describes the different mechanisms that are offered to help increase performance. The second part provides guidance on how to use Service Bus in a way that can offer the best performance in a given scenario.
+This article describes how to use [Azure Service Bus Messaging](../service-bus/index.md) to optimize performance when exchanging brokered messages. The first part of this topic describes the different mechanisms that are offered to help increase performance. The second part provides guidance on how to use Service Bus in a way that can offer the best performance in a given scenario.
 
 Throughout this topic, the term "client" refers to any entity that accesses Service Bus. A client can take the role of a sender or a receiver. The term "sender" is used for a Service Bus queue or topic client that sends messages to a Service Bus queue or topic. The term "receiver" refers to a Service Bus queue or subscription client that receives messages from a Service Bus queue or subscription.
 
@@ -39,39 +40,39 @@ Performing an operation (send, receive, delete, etc.) takes some time. This time
 
 -   **Asynchronous operations**: the client schedules operations by performing asynchronous operations. The next request is started before the previous request is completed. The following is an example of an asynchronous send operation:
 
-	```
-	BrokeredMessage m1 = new BrokeredMessage(body);
-	BrokeredMessage m2 = new BrokeredMessage(body);
-	
-	Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
-	  {
-	    Console.WriteLine("Sent message #1");
-	  });
-	Task send2 = queueClient.SendAsync(m2).ContinueWith((t) => 
-	  {
-	    Console.WriteLine("Sent message #2");
-	  });
-	Task.WaitAll(send1, send2);
-	Console.WriteLine("All messages sent");
-	```
+    ```
+    BrokeredMessage m1 = new BrokeredMessage(body);
+    BrokeredMessage m2 = new BrokeredMessage(body);
 
-	This is an example of an asynchronous receive operation:
-	
-	```
-	Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-	Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-	
-	Task.WaitAll(receive1, receive2);
-	Console.WriteLine("All messages received");
-	
-	async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-	{
-	  BrokeredMessage m = t.Result;
-	  Console.WriteLine("{0} received", m.Label);
-	  await m.CompleteAsync();
-	  Console.WriteLine("{0} complete", m.Label);
-	}
-	```
+    Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
+      {
+        Console.WriteLine("Sent message #1");
+      });
+    Task send2 = queueClient.SendAsync(m2).ContinueWith((t) => 
+      {
+        Console.WriteLine("Sent message #2");
+      });
+    Task.WaitAll(send1, send2);
+    Console.WriteLine("All messages sent");
+    ```
+
+    This is an example of an asynchronous receive operation:
+
+    ```
+    Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
+    Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
+
+    Task.WaitAll(receive1, receive2);
+    Console.WriteLine("All messages received");
+
+    async void ProcessReceivedMessage(Task<BrokeredMessage> t)
+    {
+      BrokeredMessage m = t.Result;
+      Console.WriteLine("{0} received", m.Label);
+      await m.CompleteAsync();
+      Console.WriteLine("{0} complete", m.Label);
+    }
+    ```
 
 -   **Multiple factories**: all clients (senders in addition to receivers) that are created by the same factory share one TCP connection. The maximum message throughput is limited by the number of operations that can go through this TCP connection. The throughput that can be obtained with a single factory varies greatly with TCP round-trip times and message size. To obtain higher throughput rates, you should use multiple messaging factories.
 
@@ -80,7 +81,7 @@ When creating a queue or subscription client, you can specify a receive mode: *P
 
 When setting the receive mode to [ReceiveAndDelete][ReceiveAndDelete], both steps are combined in a single request. This reduces the overall number of operations, and can improve the overall message throughput. This performance gain comes at the risk of losing messages.
 
-Service Bus does not support transactions for receive-and-delete operations. In addition, peek-lock semantics are required for any scenarios in which the client wants to defer or [dead-letter](/documentation/articles/service-bus-dead-letter-queues/) a message.
+Service Bus does not support transactions for receive-and-delete operations. In addition, peek-lock semantics are required for any scenarios in which the client wants to defer or [dead-letter](./service-bus-dead-letter-queues.md) a message.
 
 ## Client-side batching
 Client-side batching enables a queue or topic client to delay the sending of a message for a certain period of time. If the client sends additional messages during this time period, it transmits the messages in a single batch. Client-side batching also causes a queue or subscription client to batch multiple **Complete** requests into a single request. Batching is only available for asynchronous **Send** and **Complete** operations. Synchronous operations are immediately sent to the Service Bus service. Batching does not occur for peek or receive operations, nor does batching occur across clients.
@@ -135,7 +136,7 @@ namespaceManager.CreateTopic(td);
 
 If a message containing critical information that must not be lost is sent to an express entity, the sender can force Service Bus to immediately persist the message to stable storage by setting the [ForcePersistence][ForcePersistence] property to **true**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Please note that express entities do not support transactions.
 
 ## Use of partitioned queues or topics
@@ -289,5 +290,5 @@ To learn more about optimizing Service Bus performance, see [Partitioned messagi
 [SubscriptionClient.PrefetchCount]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PrefetchCount
 [ForcePersistence]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ForcePersistence
 [EnablePartitioning]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
-[Partitioned messaging entities]: /documentation/articles/service-bus-partitioning/
+[Partitioned messaging entities]: ./service-bus-partitioning.md
 [TopicDescription.EnableFilteringMessagesBeforePublishing]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnableFilteringMessagesBeforePublishing

@@ -1,31 +1,31 @@
-<properties
-   pageTitle="Data types for tables in SQL Data Warehouse | Microsoft Azure"
-   description="Getting started with data types for Azure SQL Data Warehouse tables."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Data types for tables in SQL Data Warehouse | Microsoft Azure
+description: Getting started with data types for Azure SQL Data Warehouse tables.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="jrj;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+---
 
 # Data types for tables in SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [Overview][]
-- [Data Types][]
-- [Distribute][]
-- [Index][]
-- [Partition][]
-- [Statistics][]
-- [Temporary][]
+> [!div class="op_single_selector"]
+>- [Overview][]
+>- [Data Types][]
+>- [Distribute][]
+>- [Index][]
+>- [Partition][]
+>- [Statistics][]
+>- [Temporary][]
 
 SQL Data Warehouse supports the most commonly used data types.  Below is a list of the data types supported by SQL Data Warehouse.  For additional details on data type support, see [create table][create table].
 

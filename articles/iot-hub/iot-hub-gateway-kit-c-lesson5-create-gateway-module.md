@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Create your first Azure IoT Gateway module | Azure"
-    description="Create a module and add it to a sample app to customize module behaviors."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="" />
-<tags
-    ms.assetid="cd7660f4-7b8b-4091-8d71-bb8723165b0b"
-    ms.service="iot-hub"
-    ms.devlang="ms.topic: article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="2/17/2017"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Create your first Azure IoT Gateway module | Azure
+description: Create a module and add it to a sample app to customize module behaviors.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: ''
+
+ms.assetid: cd7660f4-7b8b-4091-8d71-bb8723165b0b
+ms.service: iot-hub
+ms.devlang: ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 2/17/2017
+wacn.date: ''
+ms.author: xshi
+---
 
 # Lesson 5: Create your first Azure IoT Gateway module
 While the Gateway SDK allows you to build modules written in Java, .NET, or Node.js, this tutorial walks you through the steps for building a module in C.
@@ -273,5 +274,5 @@ You’ve created a new module, added it to the hello_world sample, and get the s
 
 <!-- Images and links -->
 
-[config_ble]: /documentation/articles/iot-hub-gateway-kit-c-lesson3-configure-ble-app/
-[setup_nuc]: /documentation/articles/iot-hub-gateway-kit-c-lesson1-set-up-nuc/
+[config_ble]: ./iot-hub-gateway-kit-c-lesson3-configure-ble-app.md
+[setup_nuc]: ./iot-hub-gateway-kit-c-lesson1-set-up-nuc.md

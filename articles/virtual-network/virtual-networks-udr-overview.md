@@ -1,22 +1,23 @@
-<properties
-    pageTitle="User-defined routes and IP Forwarding in Azure | Azure"
-    description="Learn how to configure user-defined routes (UDR) and IP Forwarding to forward traffic to network virtual appliances in Azure."
-    services="virtual-network"
-    documentationcenter="na"
-    author="jimdial"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="c39076c4-11b7-4b46-a904-817503c4b486"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/15/2016"
-    wacn.date=""
-    ms.author="jdial"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: User-defined routes and IP Forwarding in Azure | Azure
+description: Learn how to configure user-defined routes (UDR) and IP Forwarding to forward traffic to network virtual appliances in Azure.
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: timlt
+editor: tysonn
+
+ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/15/2016
+wacn.date: ''
+ms.author: jdial
+ms.custom: H1Hack27Feb2017
+---
 
 # User-defined routes and IP forwarding
 
@@ -41,7 +42,7 @@ The figure below shows an example of user defined routes and IP forwarding to fo
 
 ![System routes in Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > User defined routes are only applied to traffic leaving a subnet. you cannot create routes to specify how traffic comes into a subnet from the Internet, for instance. Also, the appliance you are forwarding traffic to cannot be in the same subnet where the traffic originates. Always create a separate subnet for your appliances. 
 > 
 > 
@@ -84,17 +85,17 @@ Subnets rely on system routes until a route table is associated to the subnet. O
 2. BGP route (when ExpressRoute is used)
 3. System route
 
-To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](/documentation/articles/virtual-network-create-udr-arm-template/).
+To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](./virtual-network-create-udr-arm-template.md).
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forwards all traffic going to the on-premises address space to the virtual appliance. You can also add a user defined route (UDR) to the GatewaySubnet to forward all traffic from on-premises to Azure through the virtual appliance. This is a recent addition.
 > 
 > 
 
 ### BGP routes
-If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure. These BGP routes are used in the same way as system routes and user defined routes in each Azure subnet. For more information see [ExpressRoute Introduction](/documentation/articles/expressroute-introduction/).
+If you have an ExpressRoute connection between your on-premises network and Azure, you can enable BGP to propagate routes from your on-premises network to Azure. These BGP routes are used in the same way as system routes and user defined routes in each Azure subnet. For more information see [ExpressRoute Introduction](../expressroute/expressroute-introduction.md).
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > You can configure your Azure environment to use force tunneling through your on-premises network by creating a user defined route for subnet 0.0.0.0/0 that uses the VPN gateway as the next hop. However, this only works if you are using a VPN gateway, not ExpressRoute. For ExpressRoute, forced tunneling is configured through BGP.
 > 
 > 
@@ -105,5 +106,5 @@ As describe above, one of the main reasons to create a user defined route is to 
 This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding for the VM. This is an Azure setting, not a setting in the guest operating system.
 
 ## Next steps
-* Learn how to [create routes in the Resource Manager deployment model](/documentation/articles/virtual-network-create-udr-arm-template/) and associate them to subnets. 
-* Learn how to [create routes in the classic deployment model](/documentation/articles/virtual-network-create-udr-classic-ps/) and associate them to subnets.
+* Learn how to [create routes in the Resource Manager deployment model](./virtual-network-create-udr-arm-template.md) and associate them to subnets. 
+* Learn how to [create routes in the classic deployment model](./virtual-network-create-udr-classic-ps.md) and associate them to subnets.

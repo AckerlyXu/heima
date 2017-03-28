@@ -1,30 +1,31 @@
-<properties
-    pageTitle="Visualize SQL Data Warehouse data with Power BI Azure"
-    description="Visualize SQL Data Warehouse data with Power BI"
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="barbkess"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="d7fb89d1-da1d-4788-a111-68d0e3fda799"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/31/2016"
-    wacn.date=""
-    ms.author="barbkess" />
+---
+title: Visualize SQL Data Warehouse data with Power BI Azure
+description: Visualize SQL Data Warehouse data with Power BI
+services: sql-data-warehouse
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
+editor: ''
+
+ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: barbkess
+---
 
 # Visualize data with Power BI
 
-> [AZURE.SELECTOR]
-- [Power BI](/documentation/articles/sql-data-warehouse-get-started-visualize-with-power-bi/)
-- [Azure Machine Learning](/documentation/articles/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/)
-- [Visual Studio](/documentation/articles/sql-data-warehouse-query-visual-studio/)
-- [sqlcmd](/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/)
-- [SSMS](/documentation/articles/sql-data-warehouse-query-ssms/)
+> [!div class="op_single_selector"]
+>- [Power BI](./sql-data-warehouse-get-started-visualize-with-power-bi.md)
+>- [Azure Machine Learning](./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+>- [Visual Studio](./sql-data-warehouse-query-visual-studio.md)
+>- [sqlcmd](./sql-data-warehouse-get-started-connect-sqlcmd.md)
+>- [SSMS](./sql-data-warehouse-query-ssms.md)
 
 This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
 
@@ -40,44 +41,44 @@ To open Power BI and connect to your AdventureWorksDW database:
 
 1. Sign into the [Azure portal][Azure portal].
 2. Click **SQL databases** and choose your AdventureWorks SQL Data Warehouse database.
-   
+
     ![Find your database][1]
 3. Click the 'Open in Power BI' button.
-   
+
     ![Power BI button][2]
 4. You should now see the SQL Data Warehouse connection page displaying your database web address. Click next.
-   
+
     ![Power BI connection][3]
 5. Enter your Azure SQL server username and password and you will be fully connected to your SQL Data Warehouse database.
-   
+
     ![Power BI sign in][4]
 6. Once you have signed into Power BI, click the AdventureWorksDW dataset on the left blade. This will open the database.
-   
+
     ![Power BI open AdventureWorksDW][5]
 
 ## 2. Create a report
 You are now ready to use Power BI to analyze your AdventureWorksDW sample data. To perform the analysis, AdventureWorksDW has a view called AggregateSales. This view contains a few of the key metrics for analyzing the sales of the company.
 
 1. To create a map of sales amount according to postal code, in the right-hand fields pane, click the AggregateSales view to expand it. Click the PostalCode and SalesAmount columns to select them.
-   
+
     ![Power BI select AggregateSales][6]
-   
+
     Power BI automatically recognizes this is geographic data and put it in a map for you.
-   
+
     ![Power BI map][7]
 2. This step creates a bar graph that shows amount of sales per customer income. To create this go to the expanded AggregateSales view. Click the SalesAmount field. Drag the Customer Income field to the left and drop it into Axis.
-   
+
     ![Power BI select axis][8]
-   
+
     We moved the bar chart over the left.
-   
+
     ![Power BI bar][9]
 3. This step creates a line chart that shows sales amount per order date. To create this go to the expanded AggregateSales view. Click SalesAmount and OrderDate. In the Visualizations column click the Line Chart icon; this is the first icon in the second line under visualizations.
-   
+
     ![Power BI select line chart][10]
-   
+
     You now have a report that shows three different visualizations of the data.
-   
+
     ![Power BI line][11]
 
 You can save your progress at any time by clicking **File** and selecting **Save**.

@@ -1,16 +1,15 @@
-<properties
-	pageTitle="Create Azure Service Bus topic subscription and rule using template"
-	description="Create a Service Bus namespace with topic, subscription, and rule using Azure Resource Manager template"
-	services=" service-bus-messaging"
-	documentationcenter=" .net"
-	author="sethmanheim"
-	manager="timlt"
-	editor="" />
+---
+title: Create Azure Service Bus topic subscription and rule using template
+description: Create a Service Bus namespace with topic, subscription, and rule using Azure Resource Manager template
+services:  service-bus-messaging
+documentationcenter:  .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-	ms.date="01/18/2017"
-	ms.service = "service-bus"/>
-	
+ms.date: 01/18/2017
+ms.service: service-bus
+---
 
 ---
 # Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template
@@ -146,7 +145,7 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
 ```
 
 ## Commands to run deployment
-[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
 ```
@@ -175,4 +174,3 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 [Recommended naming conventions for Azure resources]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]:/documentation/artices/service-bus-queues-topics-subscriptions/
-

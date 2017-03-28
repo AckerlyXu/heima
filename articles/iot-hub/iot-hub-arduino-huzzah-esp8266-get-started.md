@@ -1,22 +1,23 @@
-<properties
-    pageTitle="ESP8266 to cloud - Connect Feather HUZZAH ESP8266 to Azure IoT Hub | Azure"
-    description="A guide to connecting an Arduino device, Adafruit Feather HUZZAH ESP8266, to Azure IoT Hub which is a Microsoft cloud service that helps manage your IoT assets."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="" />
-<tags
-    ms.assetid="c505aacf-89a8-40ed-a853-493b75bec524"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/15/2017"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: ESP8266 to cloud - Connect Feather HUZZAH ESP8266 to Azure IoT Hub | Azure
+description: A guide to connecting an Arduino device, Adafruit Feather HUZZAH ESP8266, to Azure IoT Hub which is a Microsoft cloud service that helps manage your IoT assets.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: ''
+
+ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/15/2017
+wacn.date: ''
+ms.author: xshi
+---
 
 # Connect Adafruit Feather HUZZAH ESP8266 to Azure IoT Hub in the cloud
 
@@ -26,7 +27,7 @@
 
 Connect Adafruit Feather HUZZAH ESP8266 to an IoT hub you will create. Then run a sample application on ESP8266 to collect temperature and humidity data from a DHT22 sensor. Finally, send the sensor data to your IoT hub.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you are using other ESP8266 boards, you can still follow these steps to connect it to your IoT hub. Depending on the ESP8266 board you are using, you may need to reconfigure the `LED_PIN`. For example, if you are using ESP8266 from AI-Thinker, you may change it from `0` to `2`. Don't have a kit yet?: Click [here](http://azure.com/iotstarterkits)
 
 ## What you will learn
@@ -72,8 +73,8 @@ The following items are optional in case you don’t have a sensor. You also hav
    ![basic information for iot hub creation](./media/iot-hub-arduino-huzzah-esp8266-get-started/4_iot-hub-provide-basic-info.png)
 
    * **Name**: The name for your IoT hub. If the name you enter is valid, a green check mark appears.
-   * **Pricing and scale tier**: Select the free F1 tier, will suffice for this demo. See [pricing and scale tier](/pricing/details/iot-hub/).
-   * **Resource group**: Create a resource group to host the IoT hub or use an existing one. See [Using resource groups to manage your Azure resources](/documentation/articles/resource-group-portal/).
+   * **Pricing and scale tier**: Select the free F1 tier, will suffice for this demo. See [pricing and scale tier](https://www.azure.cn/pricing/details/iot-hub/).
+   * **Resource group**: Create a resource group to host the IoT hub or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
    * **Location**: Select the closest location to you where the IoT hub is created.
    * **Pin the dashboard**: Check this option for easy access to your IoT hub from the dashboard.
 1. Click **Create**. It could take a few minutes for your IoT hub to be created. You can see progress in the **Notifications** pane.
@@ -84,7 +85,7 @@ The following items are optional in case you don’t have a sensor. You also hav
 
    ![get hostname of your IoT hub](./media/iot-hub-arduino-huzzah-esp8266-get-started/6_iot-hub-get-hostname.png)
 
-1. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and make a note of the **Connection string** of your IoT hub that is used later. For more information, see [Control access to IoT Hub](/documentation/articles/iot-hub-devguide-security/).
+1. In the **Shared access policies** pane, click the **iothubowner** policy, and then copy and make a note of the **Connection string** of your IoT hub that is used later. For more information, see [Control access to IoT Hub](./iot-hub-devguide-security.md).
 
    ![get iot hub connection string](./media/iot-hub-arduino-huzzah-esp8266-get-started/7_iot-hub-get-connection-string.png)
 
@@ -96,7 +97,7 @@ Every IoT hub has an identity registry that stores information about the devices
 
 In this section, you will use a CLI tool iothub explorer to register a device for Feather HUZZAH ESP8266 in the identity registry of your IoT hub.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > iothub explorer requires Node.js 4.x or higher to work properly.
 
 To register a device for Feather HUZZAH ESP8266, follow these steps:
@@ -150,7 +151,6 @@ For sensor pins, we will use the following wiring:
 | VDD (Pin 31F)            | 3V (Pin 58H)           | Red cable     |
 | DATA (Pin 32F)           | GPIO 2 (Pin 46A)       | Blue cable    |
 | GND (Pin 34F)            | GND (PIn 56I)          | Black cable   |
-
 
 - For more information, see: [Adafruit DHT22 sensor setup](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) and [Adafruit Feather HUZZAH Esp8266 Pinouts](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts)
 
@@ -252,7 +252,7 @@ The sample application can simulate temperature and humidity data in case you do
    define SIMULATED_DATA true
    ```
    ![configure the sample application to use simulated data](./media/iot-hub-arduino-huzzah-esp8266-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
-   
+
 1. Save with `Control-s`.
 
 ### Deploy the sample application to Feather HUZZAH ESP8266
@@ -273,7 +273,7 @@ After the upload completes successfully, follow the steps to enter your credenti
    * Wi-Fi password
    * Device connection string
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The credential information is stored in the EEPROM of Feather HUZZAH ESP8266. If you click the reset button on the Feather HUZZAH ESP8266 board, the sample application asks you if you want to erase the information. Enter `Y` to have the information erased and you are asked to provide the information again.
 
 ### Verify the sample application is running successfully

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Create a Windows Server 2016 VM with OMS monitoring | Azure"
-    description="Azure CLI Script Sample - Create a Windows Server 2016 VM with OMS monitoring"
-    services="virtual-machines-Windows"
-    documentationcenter="virtual-machines"
-    author="rickstercdn"
-    manager="timlt"
-    editor="tysonn"
-    tags="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-Windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-Windows"
-    ms.workload="infrastructure"
-    ms.date="02/23/2017"
-    wacn.date=""
-    ms.author="rclaus" />
+---
+title: Azure CLI Script Sample - Create a Windows Server 2016 VM with OMS monitoring | Azure
+description: Azure CLI Script Sample - Create a Windows Server 2016 VM with OMS monitoring
+services: virtual-machines-Windows
+documentationcenter: virtual-machines
+author: rickstercdn
+manager: timlt
+editor: tysonn
+tags: ''
+
+ms.assetid: ''
+ms.service: virtual-machines-Windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-Windows
+ms.workload: infrastructure
+ms.date: 02/23/2017
+wacn.date: ''
+ms.author: rclaus
+---
 
 # Monitor a VM with Operations Management Suite
 
@@ -24,43 +25,47 @@ This script creates an Azure Virtual Machine, installs the Operations Management
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure. Also, you need to update the OMS workspace ID and workspace key. Finally, you should change the $AdminPassword variable at the start of the script to unique and meeting password complexity requirements.
 
-This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-    #!/bin/sh
+```
+#!/bin/sh
 
-    # Update for your admin password
-    AdminPassword=ChangeYourAdminPassword1
+# Update for your admin password
+AdminPassword=ChangeYourAdminPassword1
 
-    # OMS Id and OMS key.
-    omsid=<Replace with your OMS Id>
-    omskey=<Replace with your OMS key>
+# OMS Id and OMS key.
+omsid=<Replace with your OMS Id>
+omskey=<Replace with your OMS key>
 
-    # Create a resource group.
-    az group create --name myResourceGroup --location chinanorth
+# Create a resource group.
+az group create --name myResourceGroup --location chinanorth
 
-    # Create a virtual machine. 
-    az vm create \
-        --resource-group myResourceGroup \
-        --name myVM \
-        --image win2016datacenter \
-        --admin-username azureuser \
-        --admin-password $AdminPassword 
+# Create a virtual machine. 
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image win2016datacenter \
+    --admin-username azureuser \
+    --admin-password $AdminPassword 
 
-    # Install and configure the OMS agent.
-    az vm extension set \
-      --resource-group myResourceGroup \
-      --vm-name myVM --name MicrosoftMonitoringAgent \
-      --publisher Microsoft.EnterpriseCloud.Monitoring \
-      --version 1.0 --protected-settings '{"workspaceKey": "'"$omskey"'"}' \
-      --settings '{"workspaceId": "'"$omsid"'"}'
+# Install and configure the OMS agent.
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM --name MicrosoftMonitoringAgent \
+  --publisher Microsoft.EnterpriseCloud.Monitoring \
+  --version 1.0 --protected-settings '{"workspaceKey": "'"$omskey"'"}' \
+  --settings '{"workspaceId": "'"$omsid"'"}'
+```
 
 ## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-    az group delete --name myResourceGroup --yes
+```azurecli
+az group delete --name myResourceGroup --yes
+```
 
 ## Script explanation
 
@@ -77,4 +82,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](/documentation/articles/virtual-machines-windows-cli-samples/).
+Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../virtual-machines-windows-cli-samples.md).

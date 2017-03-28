@@ -1,26 +1,27 @@
-<properties
-	pageTitle="Authentication and Authorization in Azure Mobile Apps | Azure"
-	description="Conceptual reference and overview of the Authentication / Authorization feature for Azure Mobile Apps"
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="mattchenderson"
-	manager="erikre"
-	editor=""/>
+---
+title: Authentication and Authorization in Azure Mobile Apps | Azure
+description: Conceptual reference and overview of the Authentication / Authorization feature for Azure Mobile Apps
+services: app-service\mobile
+documentationCenter: ''
+authors: mattchenderson
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="mahender"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: mahender
+---
 
 # Authentication and Authorization in Azure Mobile Apps
 
 ## What is App Service Authentication / Authorization?
 
-> [AZURE.NOTE] This topic will be migrated to a consolidated [App Service Authentication / Authorization](/documentation/articles/app-service-authentication-overview/) topic, which covers Web, Mobile, and API Apps.
+> [!NOTE]
+> This topic will be migrated to a consolidated [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md) topic, which covers Web, Mobile, and API Apps.
 
 App Service Authentication / Authorization is a feature which allows your application to log in users with no code changes required on the app backend. It provides an easy way to protect your application and work with per-user data.
 
@@ -49,7 +50,8 @@ Once everything is configured on the backend, you can modify your client to log 
 - Using a single line of code, let the Mobile Apps client SDK sign in users.
 - Leverage an SDK published by a given identity provider to establish identity and then gain access to App Service.
 
->[AZURE.TIP] Most applications should use a provider SDK to get a more native-feeling login experience and to leverage refresh support and other provider-specific benefits.
+>[!TIP]
+> Most applications should use a provider SDK to get a more native-feeling login experience and to leverage refresh support and other provider-specific benefits.
 
 ### How authentication without a provider SDK works
 
@@ -85,12 +87,12 @@ The following tutorials show how to configure App Service to leverage different 
 - [How to configure your app to use Azure Active Directory login]
 - [How to configure your app to use Microsoft Account login]
 
-If you wish to use an identity system other than the ones provided here, you can also leverage the [preview custom authentication support in the .NET server SDK](/documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/#custom-auth).
+If you wish to use an identity system other than the ones provided here, you can also leverage the [preview custom authentication support in the .NET server SDK](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
 
-[Add authentication to your iOS app]: /documentation/articles/app-service-mobile-ios-get-started-users/
-[Add authentication to your Xamarin.iOS app]: /documentation/articles/app-service-mobile-xamarin-ios-get-started-users/
-[Add authentication to your Xamarin.Android app]: /documentation/articles/app-service-mobile-xamarin-android-get-started-users/
-[Add Authentication to your Windows app]: /documentation/articles/app-service-mobile-windows-store-dotnet-get-started-users/
+[Add authentication to your iOS app]: ./app-service-mobile-ios-get-started-users.md
+[Add authentication to your Xamarin.iOS app]: ./app-service-mobile-xamarin-ios-get-started-users.md
+[Add authentication to your Xamarin.Android app]: ./app-service-mobile-xamarin-android-get-started-users.md
+[Add Authentication to your Windows app]: ./app-service-mobile-windows-store-dotnet-get-started-users.md
 
-[How to configure your app to use Azure Active Directory login]: /documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication/
-[How to configure your app to use Microsoft Account login]: /documentation/articles/app-service-mobile-how-to-configure-microsoft-authentication/
+[How to configure your app to use Azure Active Directory login]: ./app-service-mobile-how-to-configure-active-directory-authentication.md
+[How to configure your app to use Microsoft Account login]: ./app-service-mobile-how-to-configure-microsoft-authentication.md

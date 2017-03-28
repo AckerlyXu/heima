@@ -1,34 +1,35 @@
-<properties
-    pageTitle="Multi-tenant support for VMware VM replication to Azure (CSP program) | Azure"
-    description="Describes how to deploy Azure Site Recovery in a multi-tenant environment to orchestrate replication, failover and recovery of on-premises VMware virtual machines to Azure through the CSP Program using the Azure portal"
-    services="site-recovery"
-    documentationcenter=""
-    author="mayanknayar"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="site-recovery"
-    ms.workload="backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/06/2016"
-    wacn.date=""
-    ms.author="manayar" />
+---
+title: Multi-tenant support for VMware VM replication to Azure (CSP program) | Azure
+description: Describes how to deploy Azure Site Recovery in a multi-tenant environment to orchestrate replication, failover and recovery of on-premises VMware virtual machines to Azure through the CSP Program using the Azure portal
+services: site-recovery
+documentationcenter: ''
+author: mayanknayar
+manager: jwhit
+editor: ''
+
+ms.assetid: ''
+ms.service: site-recovery
+ms.workload: backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/06/2016
+wacn.date: ''
+ms.author: manayar
+---
 
 # Multi-tenant support in Azure Site Recovery for replicating VMware virtual machines to Azure through the CSP Program
 
 Azure Site Recovery supports multi-tenant environments for tenant subscriptions. Multi-tenancy is also supported for tenant subscriptions created and managed through the CSP program. This article details the guidance for implementing and managing multi-tenant VMware-to-Azure scenarios. Creating and managing tenant subscriptions through CSP is also detailed.
 
-Note that this guidance draws heavily from the existing documentation for replicating VMware virtual machines to Azure. This guidance should be used in conjunction with that [documentation](/documentation/articles/site-recovery-vmware-to-azure/).
+Note that this guidance draws heavily from the existing documentation for replicating VMware virtual machines to Azure. This guidance should be used in conjunction with that [documentation](./site-recovery-vmware-to-azure.md).
 
 ## Multi-tenant environments
 There are three major multi-tenant models:
 
-1.	**Shared Hosting Services Provider (HSP)** – Here the partner owns the physical infrastructure and uses shared resources (vCenter, datacenters, physical storage, etc.) to host multiple tenants’ VMs on the same infrastructure. DR management can be provided by partner as a managed service or be owned by the tenant as a self-service DR solution.
-2.	**Dedicated Hosting Services Provider** – Here the partner owns the physical infrastructure but uses dedicated resources (multiple vCenters, physical datastores, etc) to host each tenant’s VMs on separate infrastructure. DR management can again be managed by partner or self-service by the tenant.
-3.	**Managed Services Provider (MSP)** – Here the customer owns the physical infrastructure that hosts the VMs and the partners provides DR enablement and management.
+1. **Shared Hosting Services Provider (HSP)** – Here the partner owns the physical infrastructure and uses shared resources (vCenter, datacenters, physical storage, etc.) to host multiple tenants’ VMs on the same infrastructure. DR management can be provided by partner as a managed service or be owned by the tenant as a self-service DR solution.
+2. **Dedicated Hosting Services Provider** – Here the partner owns the physical infrastructure but uses dedicated resources (multiple vCenters, physical datastores, etc) to host each tenant’s VMs on separate infrastructure. DR management can again be managed by partner or self-service by the tenant.
+3. **Managed Services Provider (MSP)** – Here the customer owns the physical infrastructure that hosts the VMs and the partners provides DR enablement and management.
 
 ## Shared hosting multi-tenant guidance
 This guidance covers the shared hosting scenario in detail. The other two scenarios are subsets of the shared hosting scenario and use the same principles. The differences are described at the end of the shared hosting guidance.
@@ -60,21 +61,21 @@ The alternative is to assign the user account and role at the Datacenter object 
 
 The vCenter account access procedure is as follows:
 
-1.	Create a new role by cloning the pre-defined ‘Read-only’ role and give it a convenient name (such as Azure_Site_Recovery used in this example). 
-2.	Assign the following permissions to this role:
- *	Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files
- *	Network -> Network assign
- *	Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM
- *	Tasks -> Create task, update task
- *	Virtual machine -> Configuration
- *	Virtual machine -> Interact -> Answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install
- *	Virtual machine -> Inventory -> Create, register, unregister
- *	Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload
- *	Virtual machine -> Snapshots -> Remove snapshots.
+1. Create a new role by cloning the pre-defined ‘Read-only’ role and give it a convenient name (such as Azure_Site_Recovery used in this example). 
+2. Assign the following permissions to this role:
+ * Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files
+ * Network -> Network assign
+ * Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM
+ * Tasks -> Create task, update task
+ * Virtual machine -> Configuration
+ * Virtual machine -> Interact -> Answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install
+ * Virtual machine -> Inventory -> Create, register, unregister
+ * Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload
+ * Virtual machine -> Snapshots -> Remove snapshots.
 
-	![role-permissions](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
+    ![role-permissions](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
 
-3.	Assign access level to the vCenter account (used in the tenant CS) for different objects as follows:
+3. Assign access level to the vCenter account (used in the tenant CS) for different objects as follows:
 
 | **Object** | **Role** | **Remarks** |
 | --- | --- | --- |
@@ -110,7 +111,6 @@ The architectural difference here is that each tenant’s infrastructure is prov
 
 The architectural difference here is that each tenant’s infrastructure is also physically separate from other tenants. This scenario usually exists when the tenant owns the infrastructure and just wants a solution provider to manage DR. The partner again needs to follow the CSP steps detailed for shared hosting but does not need to worry about tenant isolation since tenants are physically isolated through different infrastructures. CSP provisioning remains unchanged.
 
-
 ## CSP program overview
 Microsoft’s Cloud Solution Provider (CSP) [program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories with partners for offering all Microsoft cloud services including O365, EMS, and Microsoft Azure. It enables our partners to own the end-to-end relationship with customers and become the primary relationship contact point. Through CSP, a partner can deploy Azure subscriptions for customers, and combine these subscriptions with their own value-added customized offerings. 
 
@@ -120,58 +120,58 @@ In the case of Azure Site Recovery, partners can manage the complete Disaster Re
 
 ### Step 0: Prerequisite check
 
-The VM prerequisites are the same as described in the Azure Site Recovery [documentation](/documentation/articles/site-recovery-vmware-to-azure/). In addition to those prerequisites, the above access controls should be in place before proceeding with tenant management through CSP. Create a separate Management Server for each tenant that can communicate with the tenant VMs and partner’s vCenter. Only the partner has access rights to this server.
+The VM prerequisites are the same as described in the Azure Site Recovery [documentation](./site-recovery-vmware-to-azure.md). In addition to those prerequisites, the above access controls should be in place before proceeding with tenant management through CSP. Create a separate Management Server for each tenant that can communicate with the tenant VMs and partner’s vCenter. Only the partner has access rights to this server.
 
 ### Step 1: Create tenant account
 
-1.	Through [partner center](https://partnercenter.microsoft.com/) login to your CSP account. From the Dashboard menu on the left, select the ‘Customers’ option.
+1. Through [partner center](https://partnercenter.microsoft.com/) login to your CSP account. From the Dashboard menu on the left, select the ‘Customers’ option.
 
-	![csp-dashboard](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
+    ![csp-dashboard](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
 
-2.	On the page that opens click on the ‘Add customer’ button.
+2. On the page that opens click on the ‘Add customer’ button.
 
-	![add-customer](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
+    ![add-customer](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
 
-3.	On the New Customer page, fill in all the account information details for the tenant and click on ‘Next:Subscriptions’.
+3. On the New Customer page, fill in all the account information details for the tenant and click on ‘Next:Subscriptions’.
 
-	![fill-details](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
+    ![fill-details](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
 
-4.	On the subscriptions selection page, scroll down to add the ‘Microsoft Azure’ subscription. Other subscriptions can be added now or at any other time in the future.
+4. On the subscriptions selection page, scroll down to add the ‘Microsoft Azure’ subscription. Other subscriptions can be added now or at any other time in the future.
 
-	![add-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/azure-subscription-selection.png)
+    ![add-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/azure-subscription-selection.png)
 
-5.	Continue forward and on the next page review all the details entered for the tenant and click on the Submit button.
+5. Continue forward and on the next page review all the details entered for the tenant and click on the Submit button.
 
-	![customer-summary](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)
+    ![customer-summary](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)
 
-6.	After the customer is created you get a confirmation page with the details of the default account and password for that subscription. Save the information and change the password later as necessary through the Azure portal login. This information can be shared as-is with the tenant or a separate account can be also created and shared if required.
+6. After the customer is created you get a confirmation page with the details of the default account and password for that subscription. Save the information and change the password later as necessary through the Azure portal login. This information can be shared as-is with the tenant or a separate account can be also created and shared if required.
 
 ### Step 2: Access tenant account
 
-1.	You can access the tenant’s subscription from the ‘Customers’ page through your Dashboard as described in step 1. Navigate here and click on the name of the tenant account just created.
-2.	This opens the Subscriptions section of the tenant account and from here you can monitor the existing subscriptions for the account and add more subscriptions as required. To manage the tenant’s DR operations, select the ‘All resources (Azure portal) option on the right side of the page. 
+1. You can access the tenant’s subscription from the ‘Customers’ page through your Dashboard as described in step 1. Navigate here and click on the name of the tenant account just created.
+2. This opens the Subscriptions section of the tenant account and from here you can monitor the existing subscriptions for the account and add more subscriptions as required. To manage the tenant’s DR operations, select the ‘All resources (Azure portal) option on the right side of the page. 
 
-	![all-resources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
+    ![all-resources](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)
 
-3.	Clicking the ‘All resources’ button grants you access to the tenant’s Azure subscriptions and you can verify the same by checking the AAD displayed on the top right corner of the Azure portal. 
+3. Clicking the ‘All resources’ button grants you access to the tenant’s Azure subscriptions and you can verify the same by checking the AAD displayed on the top right corner of the Azure portal. 
 
-	![aad-admin](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
+    ![aad-admin](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
 
 You can now perform all Site Recovery operations for the tenant through the Azure portal and manage the DR operations. The process detailed above must be followed every time to access the tenant subscription through CSP for managed DR.
 
 ### Step 3: Deploy resources to tenant subscription
-1.	On the Azure portal, create a Resource Group and deploy a Recovery Services vault per the usual process. Download the vault registration key.
-2.	Register the CS for the tenant using the vault registration key.
-3.	Enter the credentials for the two access accounts – vCenter access account and VM access account.
+1. On the Azure portal, create a Resource Group and deploy a Recovery Services vault per the usual process. Download the vault registration key.
+2. Register the CS for the tenant using the vault registration key.
+3. Enter the credentials for the two access accounts – vCenter access account and VM access account.
 
-	![config-accounts](./media/site-recovery-multi-tenant-support-vmware-using-csp/config-server-account-display.png)
+    ![config-accounts](./media/site-recovery-multi-tenant-support-vmware-using-csp/config-server-account-display.png)
 
 ### Step 4: Register site recovery infrastructure to Recovery Services vault
-1.	Open the Azure portal and on the vault created earlier register the vCenter server to CS registered in the previous step. Use the vCenter access account for this purpose.
-2.	Finish the ‘Prepare infrastructure’ process for Site Recovery per the usual process.
-3.	The VMs are now ready to be replicated. Verify that only the tenant’s VMs are visible on the VM selection blade under the Replicate option.
+1. Open the Azure portal and on the vault created earlier register the vCenter server to CS registered in the previous step. Use the vCenter access account for this purpose.
+2. Finish the ‘Prepare infrastructure’ process for Site Recovery per the usual process.
+3. The VMs are now ready to be replicated. Verify that only the tenant’s VMs are visible on the VM selection blade under the Replicate option.
 
-	![tenant-vms](./media/site-recovery-multi-tenant-support-vmware-using-csp/tenant-vm-display.png)
+    ![tenant-vms](./media/site-recovery-multi-tenant-support-vmware-using-csp/tenant-vm-display.png)
 
 ### Step 5: Assign tenant access to subscription
 
@@ -179,16 +179,14 @@ For the case of self-service DR the account details as mentioned in item 6 of St
 
 A partner can also add a new user to the tenant subscription through the CSP portal as follows:
 
-1.	Go to the particular tenant’s CSP subscription page and select the ‘Users and licenses’ option.
-	
-	![user-licenses](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
+1. Go to the particular tenant’s CSP subscription page and select the ‘Users and licenses’ option.
 
-	You can now create a new user by entering the relevant details and selecting permissions, or alternatively uploading the list of users though a CSV file. 
-2.	Once the users are created, go back to the Azure portal and under the Subscription blade select the relevant subscription. 
-3.	On the new blade that opens select Access Control (IAM) and click on +Add to add a user with the relevant access level. The users created through CSP portal will automatically be displayed on the blade that opens after clicking an access level.
+    ![user-licenses](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
 
-	![user-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
+    You can now create a new user by entering the relevant details and selecting permissions, or alternatively uploading the list of users though a CSV file. 
+2. Once the users are created, go back to the Azure portal and under the Subscription blade select the relevant subscription. 
+3. On the new blade that opens select Access Control (IAM) and click on +Add to add a user with the relevant access level. The users created through CSP portal will automatically be displayed on the blade that opens after clicking an access level.
 
-	For most management operations, the Contributor role is sufficient. A user with this access level can do everything on a subscription except change access levels (for which an Owner level access is required). You can also fine-tune the access levels as required.
+    ![user-subscription](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
-
+    For most management operations, the Contributor role is sufficient. A user with this access level can do everything on a subscription except change access levels (for which an Owner level access is required). You can also fine-tune the access levels as required.

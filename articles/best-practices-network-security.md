@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Azure network security best practices | Microsoft Docs"
-	description="Learn some of the key features available in Azure to help create secure network environments"
-	services="virtual-network"
-	documentationcenter="na"
-	author="tracsman"
-	manager="rossort"
-	editor=""/>
+---
+title: Azure network security best practices | Microsoft Docs
+description: Learn some of the key features available in Azure to help create secure network environments
+services: virtual-network
+documentationcenter: na
+author: tracsman
+manager: rossort
+editor: ''
 
-<tags
-	ms.assetid="d169387a-1243-4867-a602-01d6f2d8a2a1"
-	ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="01/03/2017"
-	ms.author="jonor"
-	wacn.date=""/>
-
+ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/03/2017
+ms.author: jonor
+wacn.date: ''
+---
 
 # Microsoft cloud services and network security
 Microsoft cloud services deliver hyper-scale services and infrastructure, enterprise-grade capabilities, and many choices for hybrid connectivity. Customers can choose to access these services either via the Internet or with Azure ExpressRoute, which provides private network connectivity. The Azure platform allows customers to seamlessly extend their infrastructure into the cloud and build multi-tier architectures. Additionally, third parties can enable enhanced capabilities by offering security services and virtual appliances. This white paper provides an overview of security and architectural issues that customers should consider when using Microsoft cloud services accessed via ExpressRoute. It also covers creating more secure services in Azure virtual networks.
@@ -76,7 +75,7 @@ Before Internet traffic can get to the Azure virtual networks, there are two lay
 
 1.    **DDoS protection**: DDoS protection is a layer of the Azure physical network that protects the Azure platform itself from large-scale Internet-based attacks. These attacks use multiple “bot” nodes in an attempt to overwhelm an Internet service. Azure has a robust DDoS protection mesh on all inbound, outbound, and cross-Azure region connectivity. This DDoS protection layer has no user configurable attributes and is not accessible to the customer. The DDoS protection layer protects Azure as a platform from large-scale attacks, it also monitors out-bound traffic and cross-Azure region traffic. Using network virtual appliances on the VNet, additional layers of resilience can be configured by the customer against a smaller scale attack that doesn't trip the platform level protection. An example of DDoS in action; if an internet facing IP address was attacked by a large-scale DDoS attack, Azure would detect the sources of the attacks and scrub the offending traffic before it reached its intended destination. In almost all cases, the attacked endpoint isn't affected by the attack. In the rare cases that an endpoint is affected, no traffic is affected to other endpoints, only the attacked endpoint. Thus other customers and services would see no impact from that attack. It's critical to note that Azure DDoS is only looking for large-scale attacks. It is possible that your specific service could be overwhelmed before the platform level protection thresholds are exceeded. For example, a web site on a single A0 IIS server, could be taken offline by a DDoS attack before Azure platform level DDoS protection registered a threat.
 
-2.	**Public IP Addresses**: Public IP addresses (enabled via service endpoints, Public IP addresses, Application Gateway, and other Azure features that present a public IP address to the internet routed to your resource) allow cloud services or resource groups to have public Internet IP addresses and ports exposed. The endpoint uses Network Address Translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. The Public IP addresses are configurable to determine which traffic is passed in, and how and where it's translated on to the virtual network.
+2. **Public IP Addresses**: Public IP addresses (enabled via service endpoints, Public IP addresses, Application Gateway, and other Azure features that present a public IP address to the internet routed to your resource) allow cloud services or resource groups to have public Internet IP addresses and ports exposed. The endpoint uses Network Address Translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. The Public IP addresses are configurable to determine which traffic is passed in, and how and where it's translated on to the virtual network.
 
 Once traffic reaches the virtual network, there are many features that come into play. Azure virtual networks are the foundation for customers to attach their workloads and where basic network-level security applies. It is a private network (a virtual network overlay) in Azure for customers with the following features and characteristics:
 
@@ -237,7 +236,6 @@ This example is a relatively simple and straightforward way of isolating the bac
 - Detailed descriptions of each NSG command.
 - Detailed traffic flow scenarios, showing how traffic is allowed or denied in each layer.
 
-
 ### Example 2 Build a perimeter network to help protect applications with a firewall and NSGs
 [Back to Fast start](#fast-start) | [Detailed build instructions for this example][Example2]
 
@@ -310,15 +308,17 @@ For scripts and an Azure Resource Manager template, see the [detailed build inst
 #### UDR description
 By default, the following system routes are defined as:
 
-        Effective routes :
-         Address Prefix    Next hop type    Next hop IP address Status   Source     
-         --------------    -------------    ------------------- ------   ------     
-         {10.0.0.0/16}     VNETLocal                            Active   Default    
-         {0.0.0.0/0}       Internet                             Active   Default    
-         {10.0.0.0/8}      Null                                 Active   Default    
-         {100.64.0.0/10}   Null                                 Active   Default    
-         {172.16.0.0/12}   Null                                 Active   Default    
-         {192.168.0.0/16}  Null                                 Active   Default
+```
+    Effective routes :
+     Address Prefix    Next hop type    Next hop IP address Status   Source     
+     --------------    -------------    ------------------- ------   ------     
+     {10.0.0.0/16}     VNETLocal                            Active   Default    
+     {0.0.0.0/0}       Internet                             Active   Default    
+     {10.0.0.0/8}      Null                                 Active   Default    
+     {100.64.0.0/10}   Null                                 Active   Default    
+     {172.16.0.0/12}   Null                                 Active   Default    
+     {192.168.0.0/16}  Null                                 Active   Default
+```
 
 The VNETLocal is always one or more defined address prefixes that make up the virtual network for that specific network (that is, it changes from virtual network to virtual network, depending on how each specific virtual network is defined). The remaining system routes are static and default as indicated in the table.
 
@@ -338,12 +338,14 @@ In this example, two routing tables are created, one each for the front-end and 
 
 Once the routing tables are created, they must be bound to their subnets. The front-end subnet routing table, once created and bound to the subnet, would look like this output:
 
-        Effective routes :
-         Address Prefix    Next hop type    Next hop IP address Status   Source     
-         --------------    -------------    ------------------- ------   ------     
-         {10.0.1.0/24}     VNETLocal                            Active
-         {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
-         {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
+```
+    Effective routes :
+     Address Prefix    Next hop type    Next hop IP address Status   Source     
+     --------------    -------------    ------------------- ------   ------     
+     {10.0.1.0/24}     VNETLocal                            Active
+     {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
+     {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
+```
 
 > [!NOTE]
 > UDR can now be applied to the gateway subnet on which the ExpressRoute circuit is connected.
@@ -512,13 +514,13 @@ The addition of an ExpressRoute Private Peering network connection can extend th
 ## References
 ### Helpful websites and documentation
 - Access Azure with Azure Resource Manager:
-- Accessing Azure with PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs//](/powershell/azureps-cmdlets-docs/)
+- Accessing Azure with PowerShell: [/powershell/azureps-cmdlets-docs/](/powershell/azureps-cmdlets-docs/)
 - Virtual networking documentation: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
-- Network security group documentation: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](/documentation/articles/virtual-networks-nsg/)
-- User-defined routing documentation: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](/documentation/articles/virtual-networks-udr-overview/)
+- Network security group documentation: [./virtual-network/virtual-networks-nsg.md](./virtual-network/virtual-networks-nsg.md)
+- User-defined routing documentation: [./virtual-network/virtual-networks-udr-overview.md](./virtual-network/virtual-networks-udr-overview.md)
 - Azure virtual gateways: [https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
 - Site-to-Site VPNs:
-  [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](/documentation/articles/vpn-gateway-create-site-to-site-rm-powershell/)
+  [./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md](./vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - ExpressRoute documentation (be sure to check out the “Getting Started” and “How To” sections): [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
 
 <!--Image References-->
@@ -541,10 +543,10 @@ The addition of an ExpressRoute Private Peering network connection can extend th
 [17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ with Azure Gateway Using an ExpressRoute Connection"
 
 <!--Link References-->
-[TrustCenter]: /support/trust-center/compliance/
-[Example1]:/documentation/articles/virtual-networks-dmz-nsg/
-[Example2]:/documentation/articles/virtual-networks-dmz-nsg-fw-asm/
-[Example3]:/documentation/articles/virtual-networks-dmz-nsg-fw-udr-asm/
+[TrustCenter]: https://www.azure.cn/support/trust-center/compliance/
+[Example1]:./virtual-network/virtual-networks-dmz-nsg.md
+[Example2]:./virtual-network/virtual-networks-dmz-nsg-fw-asm.md
+[Example3]:./virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md
 [Example4]:/documentation/articles/virtual-networks-hybrid-s2s-nva-asm/
 [Example5]:/documentation/articles/virtual-networks-hybrid-s2s-agw-asm/
 [Example6]:/documentation/articles/virtual-networks-hybrid-expressroute-asm/

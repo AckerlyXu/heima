@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Media Services dynamic packaging overview | Azure"
-    description="The topic gives and overview of dynamic packaging."
-    author="Juliako"
-    manager="erikre"
-    editor=""
-    services="media-services"
-    documentationcenter="" />
-<tags
-    ms.assetid="0d9e4f54-5daa-45c1-bfaa-cf09ca89b812"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/25/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Azure Media Services dynamic packaging overview | Azure
+description: The topic gives and overview of dynamic packaging.
+author: Juliako
+manager: erikre
+editor: ''
+services: media-services
+documentationcenter: ''
+
+ms.assetid: 0d9e4f54-5daa-45c1-bfaa-cf09ca89b812
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/25/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Dynamic packaging
 ## Overview
@@ -31,10 +32,9 @@ The following diagram shows the dynamic packaging workflow.
 
 ![Dynamic Encoding](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
-
 ## Common scenario
 
-1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](/documentation/articles/media-services-media-encoder-standard-formats/).
+1. Upload an input file (called a mezzanine file). For example, H.264, MP4, or WMV (for the list of supported formats see [Formats Supported by the Media Encoder Standard](./media-services-media-encoder-standard-formats.md).
 
 1. Encode your mezzanine file to H.264 MP4 adaptive bitrate sets.
 
@@ -45,13 +45,12 @@ The following diagram shows the dynamic packaging workflow.
 ## Preparing assets for dynamic streaming
 To prepare your asset for dynamic streaming you have two options:
 
-1. [Upload a master file](/documentation/articles/media-services-dotnet-upload-files/).
-2. [Use the Media Encoder Standard encoder to produce H.264 MP4 adaptive bitrate sets](/documentation/articles/media-services-dotnet-encode-with-media-encoder-standard/).
-3. [Stream your content](/documentation/articles/media-services-deliver-content-overview/).
+1. [Upload a master file](./media-services-dotnet-upload-files.md).
+2. [Use the Media Encoder Standard encoder to produce H.264 MP4 adaptive bitrate sets](./media-services-dotnet-encode-with-media-encoder-standard.md).
+3. [Stream your content](./media-services-deliver-content-overview.md).
 
 ## <a id="unsupported_formats"></a>Formats that are not supported by dynamic packaging
 The following source file formats are not supported by dynamic packaging.
 
 * Dolby digital mp4 files.
 * Dolby digital smooth files.
-

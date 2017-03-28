@@ -1,32 +1,33 @@
-<properties
-    pageTitle="Optional: Change the on and off behavior of the LED | Azure"
-    description="Customize the messages to change the LED's on and off behavior."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="control led with raspberry pi, raspberry pi led control, raspberry pi control led" />
-<tags
-    ms.assetid="0201b8ed-d5e6-4445-9a4d-1305003d1eff"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Optional: Change the on and off behavior of the LED | Azure
+description: Customize the messages to change the LED's on and off behavior.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: control led with raspberry pi, raspberry pi led control, raspberry pi control led
+
+ms.assetid: 0201b8ed-d5e6-4445-9a4d-1305003d1eff
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Change the on and off behavior of the LED
 ## What you will do
-Customize the messages to change the LED’s on and off behavior. If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-raspberry-pi-kit-c-troubleshooting/).
+Customize the messages to change the LED’s on and off behavior. If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 ## What you will learn
 Use additional Node.js functions to change the LED’s on and off behavior.
 
 ## What you need
-You must have successfully completed [Run a sample application on Raspberry Pi to receive cloud to device messages](/documentation/articles/iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages/).
+You must have successfully completed [Run a sample application on Raspberry Pi to receive cloud to device messages](./iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md).
 
 ## Add functions to main.c and gulpfile.js
 1. Open the sample application in Visual Studio code by running the following commands:

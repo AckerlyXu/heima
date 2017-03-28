@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Create a Windows Server 2016 VM with IIS using DSC | Azure"
-    description="Azure CLI Script Sample - Create a Windows Server 2016 VM with IIS using DSC"
-    services="virtual-machines-windows"
-    documentationcenter="virtual-machines"
-    author="rickstercdn"
-    manager="timlt"
-    editor="tysonn"
-    tags="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-Windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure"
-    ms.date="02/23/2017"
-    wacn.date=""
-    ms.author="rclaus" />
+---
+title: Azure CLI Script Sample - Create a Windows Server 2016 VM with IIS using DSC | Azure
+description: Azure CLI Script Sample - Create a Windows Server 2016 VM with IIS using DSC
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: rickstercdn
+manager: timlt
+editor: tysonn
+tags: ''
+
+ms.assetid: ''
+ms.service: virtual-machines-Windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 02/23/2017
+wacn.date: ''
+ms.author: rclaus
+---
 
 # Create a VM with IIS using DSC
 
@@ -24,47 +25,50 @@ This script creates a virtual machine, and uses the Azure Virtual Machine DSC cu
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    # Update for your admin password
-    AdminPassword=ChangeYourAdminPassword1
+# Update for your admin password
+AdminPassword=ChangeYourAdminPassword1
 
-    # Create a resource group.
-    az group create --name myResourceGroup --location chinanorth
+# Create a resource group.
+az group create --name myResourceGroup --location chinanorth
 
-    # Create a VM
-    az vm create \
-        --resource-group myResourceGroup \
-        --name myVM \
-        --image win2016datacenter \
-        --admin-username azureuser \
-        --admin-password $AdminPassword
+# Create a VM
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --image win2016datacenter \
+    --admin-username azureuser \
+    --admin-password $AdminPassword
 
-    # Start a CustomScript extension to use a simple bash script to update, download and install WordPress and MySQL 
-    az vm extension set \
-       --name DSC \
-       --publisher Microsoft.Powershell \
-       --version 2.19 \
-       --vm-name myVM \
-       --resource-group myResourceGroup \
-       --settings '{"ModulesURL":"https://github.com/Azure/azure-quickstart-templates/raw/master/dsc-extension-iis-server-windows-vm/ContosoWebsite.ps1.zip", "configurationFunction": "ContosoWebsite.ps1\\ContosoWebsite", "Properties": {"MachineName": "myVM"} }'
+# Start a CustomScript extension to use a simple bash script to update, download and install WordPress and MySQL 
+az vm extension set \
+   --name DSC \
+   --publisher Microsoft.Powershell \
+   --version 2.19 \
+   --vm-name myVM \
+   --resource-group myResourceGroup \
+   --settings '{"ModulesURL":"https://github.com/Azure/azure-quickstart-templates/raw/master/dsc-extension-iis-server-windows-vm/ContosoWebsite.ps1.zip", "configurationFunction": "ContosoWebsite.ps1\\ContosoWebsite", "Properties": {"MachineName": "myVM"} }'
 
-      # open port 80 to allow web traffic to host
-      az vm open-port \
-        --port 80 \
-        --resource-group myResourceGroup \
-        --name myVM
-    
+  # open port 80 to allow web traffic to host
+  az vm open-port \
+    --port 80 \
+    --resource-group myResourceGroup \
+    --name myVM
+```
 
 ## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-    az group delete --name myResourceGroup --yes
+```azurecli
+az group delete --name myResourceGroup --yes
+```
 
 ## Script explanation
 
@@ -82,4 +86,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](/documentation/articles/virtual-machines-windows-cli-samples/).
+Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../virtual-machines-windows-cli-samples.md).

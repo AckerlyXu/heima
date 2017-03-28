@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Exporting Azure Resource Groups that contain VM extensions | Azure"
-    description="Export Resource Manager templates that include virtual machine extensions."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="neilpeterson"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="7f4e2ca6-f1c7-4f59-a2cc-8f63132de279"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure-services"
-    ms.date="12/05/2016"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Exporting Azure Resource Groups that contain VM extensions | Azure
+description: Export Resource Manager templates that include virtual machine extensions.
+services: virtual-machines-windows
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 12/05/2016
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Exporting Resource Groups that contain VM extensions
 
@@ -59,10 +60,12 @@ Many Azure virtual machine extensions include a protected settings configuration
 
 When the Resource Group is exported, a single template parameter is created to provide a value to the exported protected settings. This parameter can be removed. To remove the parameter, look through the parameter list and delete the parameter that looks similar to this JSON example.
 
-    "extensions_extensionname_protectedSettings": {
-        "defaultValue": null,
-        "type": "SecureObject"
-    }
+```json
+"extensions_extensionname_protectedSettings": {
+    "defaultValue": null,
+    "type": "SecureObject"
+}
+```
 
 ### Step 2 - Get protected settings properties
 
@@ -70,25 +73,27 @@ Because each protected setting has a set of required properties, a list of these
 
 From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. Once the extensions `protectedSettings` object has been located, take note of each parameter. In the example of the `IaasDiagnostic` extension, the require parameters are `storageAccountName`, `storageAccountKey`, and `storageAccountEndPoint`.
 
-    "protectedSettings": {
-        "type": "object",
-        "properties": {
-            "storageAccountName": {
-                "type": "string"
-            },
-            "storageAccountKey": {
-                "type": "string"
-            },
-            "storageAccountEndPoint": {
-                "type": "string"
-            }
+```json
+"protectedSettings": {
+    "type": "object",
+    "properties": {
+        "storageAccountName": {
+            "type": "string"
         },
-        "required": [
-            "storageAccountName",
-            "storageAccountKey",
-            "storageAccountEndPoint"
-        ]
-    }
+        "storageAccountKey": {
+            "type": "string"
+        },
+        "storageAccountEndPoint": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "storageAccountName",
+        "storageAccountKey",
+        "storageAccountEndPoint"
+    ]
+}
+```
 
 ### Step 3 - Re-create the protected configuration
 
@@ -96,53 +101,59 @@ On the exported template, search for `protectedSettings` and replace the exporte
 
 In the example of the `IaasDiagnostic` extension, the new protected setting configuration would look like the following example:
 
-    "protectedSettings": {
-        "storageAccountName": "[parameters('storageAccountName')]",
-        "storageAccountKey": "[parameters('storageAccountKey')]",
-        "storageAccountEndPoint": "https://core.chinacloudapi.cn"
-    }
+```json
+"protectedSettings": {
+    "storageAccountName": "[parameters('storageAccountName')]",
+    "storageAccountKey": "[parameters('storageAccountKey')]",
+    "storageAccountEndPoint": "https://core.chinacloudapi.cn"
+}
+```
 
 The final extension resource looks similar to the following JSON example:
 
-    {
-        "name": "Microsoft.Insights.VMDiagnosticsSettings",
-        "type": "extensions",
-        "location": "[resourceGroup().location]",
-        "apiVersion": "[variables('apiVersion')]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "tags": {
-            "displayName": "AzureDiagnostics"
+```json
+{
+    "name": "Microsoft.Insights.VMDiagnosticsSettings",
+    "type": "extensions",
+    "location": "[resourceGroup().location]",
+    "apiVersion": "[variables('apiVersion')]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "tags": {
+        "displayName": "AzureDiagnostics"
+    },
+    "properties": {
+        "publisher": "Microsoft.Azure.Diagnostics",
+        "type": "IaaSDiagnostics",
+        "typeHandlerVersion": "1.5",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), variables('vmName'), variables('wadcfgxend')))]",
+            "storageAccount": "[parameters('existingdiagnosticsStorageAccountName')]"
         },
-        "properties": {
-            "publisher": "Microsoft.Azure.Diagnostics",
-            "type": "IaaSDiagnostics",
-            "typeHandlerVersion": "1.5",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), variables('vmName'), variables('wadcfgxend')))]",
-                "storageAccount": "[parameters('existingdiagnosticsStorageAccountName')]"
-            },
-            "protectedSettings": {
-                "storageAccountName": "[parameters('storageAccountName')]",
-                "storageAccountKey": "[parameters('storageAccountKey')]",
-                "storageAccountEndPoint": "https://core.chinacloudapi.cn"
-            }
+        "protectedSettings": {
+            "storageAccountName": "[parameters('storageAccountName')]",
+            "storageAccountKey": "[parameters('storageAccountKey')]",
+            "storageAccountEndPoint": "https://core.chinacloudapi.cn"
         }
     }
+}
+```
 
-If using template parameters to provide property values, these need to be created. When creating template parameters for protected setting values, make sure to use the `SecureString` parameter type so that sensitive values are secured. For more information on using parameters, see [Authoring Azure Resource Manager templates](/documentation/articles/resource-group-authoring-templates/).
+If using template parameters to provide property values, these need to be created. When creating template parameters for protected setting values, make sure to use the `SecureString` parameter type so that sensitive values are secured. For more information on using parameters, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 In the example of the `IaasDiagnostic` extension, the following parameters would be created in the parameters section of the Resource Manager template.
 
-    "storageAccountName": {
-        "defaultValue": null,
-        "type": "SecureString"
-    },
-    "storageAccountKey": {
-        "defaultValue": null,
-        "type": "SecureString"
-    }
+```json
+"storageAccountName": {
+    "defaultValue": null,
+    "type": "SecureString"
+},
+"storageAccountKey": {
+    "defaultValue": null,
+    "type": "SecureString"
+}
+```
 
 At this point, the template can be deployed using any template deployment method.

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Migrate an Azure virtual network from an affinity group to a region | Classic | Azure"
-    description="Learn how to migrate a virtual network from an affinity group to a region."
-    services="virtual-network"
-    documentationcenter="na"
-    author="jimdial"
-    manager="carmonm"
-    editor="tysonn" />
-<tags
-    ms.assetid="84febcb9-bb8b-4e79-ab91-865ad9de41cb"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/15/2016"
-    wacn.date=""
-    ms.author="jdial" />
+---
+title: Migrate an Azure virtual network from an affinity group to a region | Classic | Azure
+description: Learn how to migrate a virtual network from an affinity group to a region.
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: carmonm
+editor: tysonn
+
+ms.assetid: 84febcb9-bb8b-4e79-ab91-865ad9de41cb
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/15/2016
+wacn.date: ''
+ms.author: jdial
+---
 
 # How to migrate a virtual network from an affinity group to a region
 You can use an affinity group to ensure that resources created within the same affinity group are physically hosted by servers that are close together, enabling these resources to communicate quicker. In the past, affinity groups were a requirement for creating virtual networks (VNets). At that time, the network manager service that managed VNets could only work within a set of physical servers or scale unit. Architectural improvements have increased the scope of network management to a region.
@@ -27,7 +28,7 @@ Additionally, we recommend that you don't use affinity groups in general. Aside 
 ## Creating and migrating to regional VNets
 Going forward, when creating new VNets, use *Region*. You'll see this as an option in the Classic Management Portal. Note that in the network configuration file, this shows as *Location*.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Although it is still technically possible to create a virtual network that is associated with an affinity group, there is no compelling reason to do so. Many new features, such as Network Security Groups, are only available when using a regional VNet and are not available for virtual networks that are associated with affinity groups.
 > 
 > 
@@ -35,22 +36,22 @@ Going forward, when creating new VNets, use *Region*. You'll see this as an opti
 ### About VNets currently associated with affinity groups
 VNets that are currently associated with affinity groups are enabled for migration to regional VNets. To migrate to a regional VNet, follow these steps:
 
-1. Export the network configuration file. You can use PowerShell or the Classic Management Portal. For instructions using the Classic Management Portal, see [Configure your VNet using a Network Configuration File](/documentation/articles/virtual-networks-using-network-configuration-file/).
+1. Export the network configuration file. You can use PowerShell or the Classic Management Portal. For instructions using the Classic Management Portal, see [Configure your VNet using a Network Configuration File](./virtual-networks-using-network-configuration-file.md).
 2. Edit your network configuration file, replacing the old values with the new values. 
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > The **Location** is the region that you specified for the affinity group that is associated with your VNet. For example, if your VNet is associated with an affinity group that is located in China North, when you migrate, your Location must point to China North. 
     > 
     > 
-   
-    Edit the following lines in your network configuration file, replacing the values with your own: 
-   
-    **Old value:** \<VirtualNetworkSitename="VNetChinsNorth" AffinityGroup="VNetDemoAG"\> 
-   
-    **New value:** \<VirtualNetworkSitename="VNetChinsNorth" Location="China North"\>
-3. Save your changes and [import](/documentation/articles/virtual-networks-using-network-configuration-file/) the network configuration to Azure.
 
-> [AZURE.NOTE]
+    Edit the following lines in your network configuration file, replacing the values with your own: 
+
+    **Old value:** \<VirtualNetworkSitename="VNetChinsNorth" AffinityGroup="VNetDemoAG"\> 
+
+    **New value:** \<VirtualNetworkSitename="VNetChinsNorth" Location="China North"\>
+3. Save your changes and [import](./virtual-networks-using-network-configuration-file.md) the network configuration to Azure.
+
+> [!NOTE]
 > This migration does NOT cause any downtime to your services.
 > 
 > 

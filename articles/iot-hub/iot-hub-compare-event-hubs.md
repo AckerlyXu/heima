@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Compare Azure IoT Hub to Azure Event Hubs | Azure"
-    description="A comparison of the IoT Hub and Event Hubs Azure services highlighting functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads."
-    services="iot-hub"
-    documentationcenter=""
-    author="fsautomata"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="aeddea62-8302-48e2-9aad-c5a0e5f5abe9"
-    ms.service="iot-hub"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="elioda" />
+---
+title: Compare Azure IoT Hub to Azure Event Hubs | Azure
+description: A comparison of the IoT Hub and Event Hubs Azure services highlighting functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.
+services: iot-hub
+documentationcenter: ''
+author: fsautomata
+manager: timlt
+editor: ''
+
+ms.assetid: aeddea62-8302-48e2-9aad-c5a0e5f5abe9
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: elioda
+---
 
 # Comparison of Azure IoT Hub and Azure Event Hubs
 One of the main use cases for IoT Hub is to gather telemetry from devices. For this reason, IoT Hub is often compared to [Azure Event Hubs][Azure Event Hubs]. Like IoT Hub, Event Hubs is an event processing service that enables event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.
@@ -46,18 +47,18 @@ To further explore the capabilities of IoT Hub, see:
 * [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
-[lnk-twins]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-c2d-guidance]: /documentation/articles/iot-hub-devguide-c2d-guidance/
-[lnk-d2c-guidance]: /documentation/articles/iot-hub-devguide-d2c-guidance/
-[Azure Event Hubs]: /documentation/articles/event-hubs-what-is-event-hubs/
-[Security section of the IoT Hub developer guide]: /documentation/articles/iot-hub-devguide-security/
-[Event Hub - security]: /documentation/articles/event-hubs-authentication-and-security-model-overview/
+[lnk-twins]: ./iot-hub-devguide-device-twins.md
+[lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md
+[lnk-d2c-guidance]: ./iot-hub-devguide-d2c-guidance.md
+[Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
+[Security section of the IoT Hub developer guide]: ./iot-hub-devguide-security.md
+[Event Hub - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
 [Event Hub publisher policies]: /documentation/articles/event-hubs-what-is-event-hubs.md#event-publishers
-[Azure Service Bus quotas]:/documentation/articles/service-bus-quotas/
+[Azure Service Bus quotas]:../service-bus-messaging/service-bus-quotas.md
 [Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks
-[lnk-azure-protocol-gateway]: /documentation/articles/iot-hub-protocol-gateway/
+[lnk-azure-protocol-gateway]: ./iot-hub-protocol-gateway.md
 
-[lnk-scaling]: /documentation/articles/iot-hub-scaling/
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
-[lnk-gateway]: /documentation/articles/iot-hub-linux-gateway-sdk-simulated-device/
-[lnk-devguide-messaging]: /documentation/articles/iot-hub-devguide-messaging/
+[lnk-scaling]: ./iot-hub-scaling.md
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md

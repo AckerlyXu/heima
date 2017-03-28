@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure PowerShell Script Sample - NGINX | Azure"
-    description="Azure PowerShell Script Sample - NGINX"
-    services="virtual-machines-linux"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="03/01/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Azure PowerShell Script Sample - NGINX | Azure
+description: Azure PowerShell Script Sample - NGINX
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-service-management
+
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 03/01/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Create an NGINX VM with PowerShell
 
@@ -26,72 +27,76 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-    # Variables for common values
-    $resourceGroup = "myResourceGroup"
-    $location = "chinanorth"
-    $vmName = "myVM"
+```
+# Variables for common values
+$resourceGroup = "myResourceGroup"
+$location = "chinanorth"
+$vmName = "myVM"
 
-    # Definer user name and blank password
-    $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
-    $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
+# Definer user name and blank password
+$securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
-    # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+# Create a resource group
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
-    # Create a subnet configuration
-    $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+# Create a subnet configuration
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
 
-    # Create a virtual network
-    $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
-      -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+# Create a virtual network
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
-    # Create a public IP address and specify a DNS name
-    $pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
-      -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+# Create a public IP address and specify a DNS name
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
-    # Create an inbound network security group rule for port 22
-    $nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleSSH  -Protocol Tcp `
-      -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-      -DestinationPortRange 22 -Access Allow
+# Create an inbound network security group rule for port 22
+$nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleSSH  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 22 -Access Allow
 
-    # Create an inbound network security group rule for port 80
-    $nsgRuleHTTP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleHTTP  -Protocol Tcp `
-      -Direction Inbound -Priority 2000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
-      -DestinationPortRange 80 -Access Allow
+# Create an inbound network security group rule for port 80
+$nsgRuleHTTP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleHTTP  -Protocol Tcp `
+  -Direction Inbound -Priority 2000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 80 -Access Allow
 
-    # Create a network security group
-    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
-      -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleHTTP
+# Create a network security group
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleHTTP
 
-    # Create a virtual network card and associate with public IP address and NSG
-    $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
-      -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+# Create a virtual network card and associate with public IP address and NSG
+$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-    # Create a virtual machine configuration
-    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
-    Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred -DisablePasswordAuthentication | `
-    Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 14.04.2-LTS -Version latest | `
-    Add-AzureRmVMNetworkInterface -Id $nic.Id
+# Create a virtual machine configuration
+$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
+Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred -DisablePasswordAuthentication | `
+Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 14.04.2-LTS -Version latest | `
+Add-AzureRmVMNetworkInterface -Id $nic.Id
 
-    # Configure SSH Keys
-    $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
-    Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
+# Configure SSH Keys
+$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
-    # Create a virtual machine
-    New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+# Create a virtual machine
+New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
-    # Install NGINX.
-    $PublicSettings = '{"commandToExecute":"apt-get -y update && apt-get -y install nginx"}'
+# Install NGINX.
+$PublicSettings = '{"commandToExecute":"apt-get -y update && apt-get -y install nginx"}'
 
-    Set-AzureRmVMExtension -ExtensionName "NGINX" -ResourceGroupName $resourceGroup -VMName $vmName `
-      -Publisher "Microsoft.Azure.Extensions" -ExtensionType "CustomScript" -TypeHandlerVersion 2.0 `
-      -SettingString $PublicSettings -Location $location
+Set-AzureRmVMExtension -ExtensionName "NGINX" -ResourceGroupName $resourceGroup -VMName $vmName `
+  -Publisher "Microsoft.Azure.Extensions" -ExtensionType "CustomScript" -TypeHandlerVersion 2.0 `
+  -SettingString $PublicSettings -Location $location
+```
 
 ## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-    Remove-AzureRmResourceGroup -Name myResourceGroup
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup
+```
 
 ## Script explanation
 
@@ -116,4 +121,4 @@ This script uses the following commands to create the deployment. Each item in t
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](/documentation/articles/virtual-machines-linux-powershell-samples/).
+Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-powershell-samples.md).

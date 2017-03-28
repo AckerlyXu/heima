@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Enable or Disabling Azure VM Monitoring"
-    description="Describes How to Enable or Disable Azure VM Monitoring"
-    services="virtual-machines-linux"
-    documentationcenter="virtual-machines"
-    author="kmouss"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="6ce366d2-bd4c-4fef-a8f5-a3ae2374abcc"
-    ms.service="virtual-machines-linux"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="02/08/2016"
-    wacn.date=""
-    ms.author="kmouss" />
+---
+title: Enable or Disabling Azure VM Monitoring
+description: Describes How to Enable or Disable Azure VM Monitoring
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: kmouss
+manager: timlt
+editor: ''
+
+ms.assetid: 6ce366d2-bd4c-4fef-a8f5-a3ae2374abcc
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/08/2016
+wacn.date: ''
+ms.author: kmouss
+---
 
 # Enable or Disable Azure VM Monitoring
 This section describes how to enable or disable monitoring on Virtual machines running on Azure. By default monitoring is enabled on Azure Virtual machines if deployed from the [Azure portal preview](https://portal.azure.cn) and monitoring graphs are provided by default with a 1-minute period. You can enable or disable monitoring using the portal or Azure Command-line Interface for Mac, Linux, and Windows (the Azure CLI). 
@@ -43,12 +44,14 @@ To enable monitoring for an Azure VM.
             "storageAccountKey":"the key of the account"
         }
 * Run the following Azure CLI command.
-  
-        azure vm extension set myvm LinuxDiagnostic Microsoft.OSTCExtensions 2.0 --private-config-path PrivateConfig.json
+
+    ```
+    azure vm extension set myvm LinuxDiagnostic Microsoft.OSTCExtensions 2.0 --private-config-path PrivateConfig.json
+    ```
 
 [Azure.Note] You can change from version 2.0 to a later version when available. 
 
-For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM's performance and diagnostic data](/documentation/articles/virtual-machines-linux-classic-diagnostic-extension/).
+For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM's performance and diagnostic data](./virtual-machines-linux-classic-diagnostic-extension.md).
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png

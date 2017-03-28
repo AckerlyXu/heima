@@ -1,6 +1,6 @@
-> [AZURE.SELECTOR]
-- [Linux](/documentation/articles/iot-hub-linux-gateway-sdk-get-started/)
-- [Windows](/documentation/articles/iot-hub-windows-gateway-sdk-get-started/)
+> [!div class="op_single_selector"]
+>- [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
+>- [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
 This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the Azure IoT Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
 
@@ -47,8 +47,8 @@ There are two ways of directing messages to the correct modules. A set of links 
 
 The Hello World sample illustrates the concepts described in the previous section. The Hello World sample implements a gateway that has a pipeline made up of two modules:
 
--	The *hello world* module creates a message every five seconds and passes it to the logger module.
--	The *logger* module writes the messages it receives to a file.
+- The *hello world* module creates a message every five seconds and passes it to the logger module.
+- The *logger* module writes the messages it receives to a file.
 
 ![Architecture of Hello World sample built with the Azure IoT Gateway SDK][4]
 

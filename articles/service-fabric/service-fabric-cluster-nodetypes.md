@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Service Fabric node types and VM Scale Sets | Azure"
-    description="Describes how Service Fabric node types relate to VM Scale Sets and how to remote connect to a VM Scale Set instance or a cluster node."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="ChackDan"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="5441e7e0-d842-4398-b060-8c9d34b07c48"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="chackdan" />
+---
+title: Service Fabric node types and VM Scale Sets | Azure
+description: Describes how Service Fabric node types relate to VM Scale Sets and how to remote connect to a VM Scale Set instance or a cluster node.
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: ''
+
+ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: chackdan
+---
 
 # The relationship between Service Fabric node types and Virtual Machine Scale Sets
 
@@ -31,16 +32,13 @@ As you can see above, the VM Scale Set instances start from instance 0 and then 
 
 When you scale up a VM Scale Set a new instance is created. The new VM Scale Set instance name will typically be the VM Scale Set name + the next instance number. In our example, it is BackEnd_5.
 
-
 ## Mapping VM scale set load balancers to each node type/VM Scale Set
 
 If you have deployed your cluster from the portal or have used the sample Resource Manager template that we provided, then when you get a list of all resources under a Resource Group then you will see the load balancers for each VM Scale Set or node type.
 
 The name would something like: **LB-&lt;NodeType name&gt;**. For example, LB-sfcluster4doc-0, as shown in this screenshot:
 
-
 ![Resources][Resources]
-
 
 ## Remote connect to a VM Scale Set instance or a cluster node
 Every Node type that is defined in a cluster is set up as a separate VM Scale Set.  That means the node types can be scaled up or down independently and can be made of different VM SKUs. Unlike single instance VMs, the VM Scale Set instances do not get a virtual IP address of their own. So it can be a bit challenging when you are looking for an IP address and port that you can use to remote connect to a specific instance.
@@ -54,7 +52,6 @@ In order to get that, you need to get the inbound NAT rules values that were def
 In the portal, navigate to the Load balancer blade and then **Settings**.
 
 ![LBBlade][LBBlade]
-
 
 In **Settings**, click on **Inbound NAT rules**. This now gives you the IP address and port that you can use to remote connect to the first VM Scale Set instance. In the screenshot below, it is **104.42.106.156** and **3389**
 
@@ -75,7 +72,6 @@ The ports are allocated in ascending order of the VM Scale Set instance. so in m
 | FrontEnd_4 |3393 |
 | FrontEnd_5 |3394 |
 
-
 ### Step 3: Remote connect to the specific VM Scale Set instance
 
 In the screenshot below I use Remote Desktop Connection to connect to the FrontEnd_1:
@@ -92,9 +88,8 @@ Go to the resource definition for **Microsoft.Network/loadBalancers**. Under tha
 
 ![InboundNatPools][InboundNatPools]
 
-
 ### After cluster deployment
-This is a bit more involved and may result in the VMs getting recycled. You will now have to set new values using Azure PowerShell. Make sure that Azure PowerShell 1.0 or later is installed on your machine. If you have not done this before, I strongly suggest that you follow the steps outlined in [How to install and configure Azure PowerShell.](/documentation/articles/powershell-install-configure/)
+This is a bit more involved and may result in the VMs getting recycled. You will now have to set new values using Azure PowerShell. Make sure that Azure PowerShell 1.0 or later is installed on your machine. If you have not done this before, I strongly suggest that you follow the steps outlined in [How to install and configure Azure PowerShell.](../powershell-install-configure.md)
 
 Sign in to your Azure account. If this PowerShell command fails for some reason, you should check whether you have Azure PowerShell installed correctly.
 
@@ -112,18 +107,16 @@ Now set *frontendPortRangeEnd* and *frontendPortRangeStart* to the values you wa
 
 ```
 $PropertiesObject = @{
-	#Property = value;
+    #Property = value;
 }
 Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load Balancer name> -ApiVersion <use the API version that get returned> -Force
 ```
 
-
 ## Next steps
 
-- [Overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](/documentation/articles/service-fabric-deploy-anywhere/)
-- [Cluster security](/documentation/articles/service-fabric-cluster-security/)
-- [ Service Fabric SDK and getting started](/documentation/articles/service-fabric-get-started/)
-
+- [Overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](./service-fabric-deploy-anywhere.md)
+- [Cluster security](./service-fabric-cluster-security.md)
+- [ Service Fabric SDK and getting started](./service-fabric-get-started.md)
 
 <!--Image references-->
 [NodeTypes]: ./media/service-fabric-cluster-nodetypes/NodeTypes.png

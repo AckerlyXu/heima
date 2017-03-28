@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Scale instance count manually or automatically | Azure"
-	description="Learn how to scale your services Azure."
-	authors="rboucher"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Scale instance count manually or automatically | Azure
+description: Learn how to scale your services Azure.
+authors: rboucher
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="robb"
-	wacn.date=""/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2015
+ms.author: robb
+wacn.date: ''
+---
 
 # Scale instance count manually or automatically
 
@@ -25,7 +25,8 @@ Before scaling based on instance count, you should consider that scaling is affe
 
 You can scale in the portal, and you can also use the [REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn931953.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to adjust scale manually or automatically.
 
-> [AZURE.NOTE] This article describes how to create an autoscale setting in the portal at [http://portal.azure.cn](http://portal.azure.cn). Autoscale settings created in this portal cannot be edited it the classic portal ([http://manage.windowsazure.cn](http://manage.windowsazure.cn)).
+> [!NOTE]
+> This article describes how to create an autoscale setting in the portal at [http://portal.azure.cn](http://portal.azure.cn). Autoscale settings created in this portal cannot be edited it the classic portal ([http://manage.windowsazure.cn](http://manage.windowsazure.cn)).
 
 ## Scaling manually
 
@@ -36,8 +37,9 @@ You can scale in the portal, and you can also use the [REST API](https://msdn.mi
 
 3. Clicking on the tile will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.  
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-    
->[AZURE.NOTE] Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
+
+>[!NOTE]
+> Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
 
 4. You can manually adjust the number **Instances** with slider.
 5. Click the **Save** command and you'll be scaled to that number of instances almost immediately. 
@@ -49,7 +51,7 @@ If you want the number of instances to automatically adjust based on a metric, s
 1. When you select a metric you'll get a slider, and/or, text boxes to enter the number of instances you want to scale between:
 
     ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png) 
-    
+
     Autoscale will never take your service below or above the boundaries that you set, no matter your load.
 
 2. Second, you choose the target range for the metric. For example, if you chose **CPU percentage**, you can set a target for the average CPU across all of the instances in your service. A scale out will happen when the average CPU exceeds the maximum you define, likewise, a scale in will happen whenever the average CPU drops below the minimum.
@@ -74,7 +76,7 @@ You can scale based on metrics other than the presets that appear in the **Scale
     * The *resource* the metric comes from. Typically, this will be the same as the resource you are scaling. However, if you want to scale by the depth of a Storage queue, the resource is the queue that you want to scale by.
     * The *metric name* itself. 
     * The *time aggregation* of the metric. This is how the data is combine over the *duration*.
-    
+
 5. After choosing your metric you choose the threshold for the metric, and the operator. For example, you could say **Greater than** **80%**. 
 
 6. Then choose the action that you want to take. There are a couple different type of actions:
@@ -83,7 +85,7 @@ You can scale based on metrics other than the presets that appear in the **Scale
     * Increase or decrease to - this will set the instance count to the **Value** you define.
 
 7. Finally, you can choose cool down - how long this rule should wait after the previous scale action to scale again.
-    
+
 8. After configuring your rule hit **OK**. 
 
 9. Once you have configured all of the rules you want, be sure to hit the **Save** command.
@@ -100,7 +102,6 @@ The examples above are pretty basic. However, if you want to be more agressive a
 With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one. 
 
 ## Scale based on a schedule
-
 
 By default, when you create a scale rule it will  always apply. You can see that when you click on the profile header:
 
@@ -126,7 +127,8 @@ However, you may want to have more agressive scaling during the day, or the week
 
 8. As with the Default profile, choose the **Days** you want this profile to apply to, and the **Start time** during the day.
 
->[AZURE.NOTE] Autoscale will use the Daylight savings rules for whichever **Time zone** you select. However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset. 
+>[!NOTE]
+> Autoscale will use the Daylight savings rules for whichever **Time zone** you select. However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset. 
 
 9. Click **OK**.
 
@@ -139,9 +141,9 @@ However, you may want to have more agressive scaling during the day, or the week
 
 ## Next steps
 
-* [Monitor service metrics](/documentation/articles/insights-how-to-customize-monitoring/) to make sure your service is available and responsive.
-* [Enable monitoring and diagnostics](/documentation/articles/insights-how-to-use-diagnostics/) to collect detailed high-frequency metrics on your service.
-* [Receive alert notifications](/documentation/articles/insights-receive-alert-notifications/) whenever operational events happen or metrics cross a threshold.
+* [Monitor service metrics](./insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+* [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
+* [Receive alert notifications](./insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.
 * [Monitor application performance](/documentation/articles/app-insights-azure-web-apps/) if you want to understand exactly how your code is performing in the cloud.
-* [View events and audit logs](/documentation/articles/insights-debugging-with-events/) to learn everything that has happened in your service.
+* [View events and audit logs](./insights-debugging-with-events.md) to learn everything that has happened in your service.
 * [Monitor availability and responsiveness of any web page](/documentation/articles/app-insights-monitor-web-app-availability/) with Application Insights so you can find out if your page is down.

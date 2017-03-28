@@ -1,35 +1,36 @@
-<properties
-    pageTitle="When should an elastic pool be used?"
-    description="An elastic pool is a collection of available resources that are shared by a group of elastic databases. This document provides guidance to help assess the suitability of using an elastic pool for a group of databases."
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="3d3941d5-276c-4fd2-9cc1-9fe8b1e4c96c"
-    ms.service="sql-database"
-    ms.custom="multiple databases"
-    ms.devlang="NA"
-    ms.date="12/19/2016"
-    wacn.date=""
-    ms.author="sstein;carlrab"
-    ms.workload="data-management"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA" />
+---
+title: When should an elastic pool be used?
+description: An elastic pool is a collection of available resources that are shared by a group of elastic databases. This document provides guidance to help assess the suitability of using an elastic pool for a group of databases.
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: 3d3941d5-276c-4fd2-9cc1-9fe8b1e4c96c
+ms.service: sql-database
+ms.custom: multiple databases
+ms.devlang: NA
+ms.date: 12/19/2016
+wacn.date: ''
+ms.author: sstein;carlrab
+ms.workload: data-management
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+---
 
 # When should an elastic pool be used?
 Assess whether using an elastic pool is cost efficient based on database usage patterns and pricing differences between an elastic pool and single databases. Additional guidance is also provided to help in determining the current pool size required for an existing set of SQL databases.  
 
-- For an overview of pools, see [SQL Database elastic pools](/documentation/articles/sql-database-elastic-pool/).
+- For an overview of pools, see [SQL Database elastic pools](./sql-database-elastic-pool.md).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Elastic pools are generally available (GA).
 > 
 > 
 
 ## Elastic pools
-SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each individual database user. So the developer may overprovision resources at considerable expense to ensure favorable throughput and response times for all databases. Or, the developer can spend less and risk a poor performance experience for their customers. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](/documentation/articles/sql-database-design-patterns-multi-tenancy-saas-applications/).
+SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each individual database user. So the developer may overprovision resources at considerable expense to ensure favorable throughput and response times for all databases. Or, the developer can spend less and risk a poor performance experience for their customers. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. Pools enable the developer to purchase elastic Database Transaction Units (eDTUs) for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. The eDTU requirement for a pool is determined by the aggregate utilization of its databases. The number of eDTUs available to the pool is controlled by the developer budget. Pools make it easy for the developer to reason over the impact of budget on performance and vice versa for their pool. The developer simply adds databases to the pool, sets the minimum and maximum eDTUs for the databases, and then sets the eDTU of the pool based on their budget. A developer can use pools to seamlessly grow their service from a lean startup to a mature business at ever-increasing scale.  
 
@@ -68,7 +69,7 @@ The price of a pool is a function of the pool eDTUs. While the eDTU unit price f
 The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using performance levels for single databases.
 
 ### Minimum number of databases
-If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](/documentation/articles/sql-database-elastic-pool/#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](./sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ***Example***<br>
 At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using performance levels for single databases.
@@ -93,11 +94,11 @@ The best size for a pool depends on the aggregate eDTUs and storage resources ne
 * Maximum DTUs utilized by all databases in the pool.
 * Maximum storage bytes utilized by all databases in the pool.
 
-For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](/documentation/articles/sql-database-elastic-pool/#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+For available sizes, see [eDTU and storage limits for elastic pools and elastic databases](./sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom croup of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](/documentation/articles/sql-database-elastic-pool-manage-portal/).
+SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom croup of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](./sql-database-elastic-pool-manage-portal.md).
 
-For more flexible resource usage assessments that allow ad hoc sizing estimates for servers earlier than V12, and sizing estimates for databases in different servers, see the [Powershell script for identifying databases suitable for an elastic pool](/documentation/articles/sql-database-elastic-pool-database-assessment-powershell/).
+For more flexible resource usage assessments that allow ad hoc sizing estimates for servers earlier than V12, and sizing estimates for databases in different servers, see the [Powershell script for identifying databases suitable for an elastic pool](./sql-database-elastic-pool-database-assessment-powershell.md).
 
 | Capability | Portal experience | PowerShell script |
 |:--- |:--- |:--- |
@@ -110,21 +111,21 @@ For more flexible resource usage assessments that allow ad hoc sizing estimates 
 
 In cases where you can't use tooling, the following step-by-step can help you estimate whether a pool is more cost-effective than single databases:
 
-1.	Estimate the eDTUs needed for the pool as follows:
+1. Estimate the eDTUs needed for the pool as follows:
 
     MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
     <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
 
-2.	Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool.  Then determine the eDTU pool size that provides this amount of storage.  For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic pools and elastic databases](/documentation/articles/sql-database-elastic-pool/#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
-3.	Take the larger of the eDTU estimates from Step 1 and Step 2.
-4.	See the [SQL Database pricing page](/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
-5.	Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
+2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool.  Then determine the eDTU pool size that provides this amount of storage.  For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic pools and elastic databases](./sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+3. Take the larger of the eDTU estimates from Step 1 and Step 2.
+4. See the [SQL Database pricing page](https://www.azure.cn/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
+5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
 
 ## Summary
 Not all single databases are optimum candidates for pools. Databases with usage patterns that are characterized by low average utilization and relatively infrequent utilization spikes are excellent candidates. Application usage patterns are dynamic, so use the information and tools described in this article to make an initial assessment to see if a pool is a good choice for some or all your databases. This article is just a starting point to help with your decision whether or not an elastic pool is a good fit. Remember that you should continually monitor historical resource usage and constantly reassess the performance levels of all your databases. Keep in mind that you can easily move databases in and out of elastic pools, and if you have a large number of databases you can have multiple pools of varying sizes that you can divide your databases into.
 
 ## Next steps
-- [Create an elastic pool](/documentation/articles/sql-database-elastic-pool-create-portal/)
-- [Monitor, manage, and size an elastic pool](/documentation/articles/sql-database-elastic-pool-manage-portal/)
-- [SQL Database options and performance: understand what's available in each service tier](/documentation/articles/sql-database-service-tiers/)
-- [PowerShell script for identifying databases suitable for an elastic pool](/documentation/articles/sql-database-elastic-pool-database-assessment-powershell/)
+- [Create an elastic pool](./sql-database-elastic-pool-create-portal.md)
+- [Monitor, manage, and size an elastic pool](./sql-database-elastic-pool-manage-portal.md)
+- [SQL Database options and performance: understand what's available in each service tier](./sql-database-service-tiers.md)
+- [PowerShell script for identifying databases suitable for an elastic pool](./sql-database-elastic-pool-database-assessment-powershell.md)

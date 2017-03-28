@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Predictive maintenance walkthrough | Azure"
-    description="A walkthrough of the Azure IoT predictive maintenance preconfigured solution."
-    services=""
-    suite="iot-suite"
-    documentationcenter=""
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="3c48a716-b805-4c99-8177-414cc4bec3de"
-    ms.service="iot-suite"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/16/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Predictive maintenance walkthrough | Azure
+description: A walkthrough of the Azure IoT predictive maintenance preconfigured solution.
+services: ''
+suite: iot-suite
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/16/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Predictive maintenance preconfigured solution walkthrough
 
@@ -61,7 +62,6 @@ The **event processor host** runs in an Azure Web Job. The **event processor** t
 
 ## R Server
 The R Server implementation uses a model derived from data collected from real aircraft engines. To access the R Server and the model, see the links on the solution panel for your provisioned solution at [Microsoft Azure IoT Suite][lnk-azureiotsuite].
-
 
 ## Next steps
 Now you've seen the key components of the predictive maintenance preconfigured solution, you may want to customize it. See [Guidance on customizing preconfigured solutions][lnk-customize].

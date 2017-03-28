@@ -1,15 +1,15 @@
-<properties 
-	pageTitle="Cloud App Discovery Registry Settings for Proxy Services | Azure" 
-	description="The objective of this topic is to provide you with the steps you need to perform to set the required port on the computers running the Cloud App Discovery agent." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="femila"/>
+---
+title: Cloud App Discovery Registry Settings for Proxy Services | Azure
+description: The objective of this topic is to provide you with the steps you need to perform to set the required port on the computers running the Cloud App Discovery agent.
+services: active-directory
+documentationCenter: ''
+authors: markusvi
+manager: femila
 
-<tags 
-	ms.service="active-directory"
-	ms.date="07/13/2016" 
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 07/13/2016
+wacn.date: ''
+---
 
 # Cloud App Discovery Registry Settings for Proxy Services
 
@@ -17,13 +17,9 @@ By default, the Cloud App Discovery agent is configured to use only the ports 80
 If you are planning on installing Cloud App Discovery in an environment with a proxy server that is using a custom port (neither 80 nor 443), you need to configure your agents to use this port. 
 The configuration is based on a registry key.
 
-
 The objective of this topic is to provide you with the steps you need to perform to set the required port on the computers running the Cloud App Discovery agent.
 
-
-
 **To modify the port used by the computer running the Cloud App Discovery agent, perform the following steps:**
-
 
 1. Start the registry editor. <br> ![Run](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy01.png)
 
@@ -32,7 +28,6 @@ The objective of this topic is to provide you with the steps you need to perform
 3. Create a new **multi-string** value called **Ports**. ![New](./media/active-directory-cloudappdiscovery-registry-settings-for-proxy-services/proxy02.png)
 
 4. To open the **Edit Multi-String** dialog, double-click the Ports value.
-
 
 5. In the Value data textbox, type the following values and add all custom ports that are used by your organization: <br><br>
 **80** <br>
@@ -51,11 +46,6 @@ The objective of this topic is to provide you with the steps you need to perform
 
 6. Click **OK** to close the **Edit Multi-String** dialog.
 
-
-
 **Additional Resources**
 
-
-* [How can I discover unsanctioned cloud apps that are used within my organization](/documentation/articles/active-directory-cloudappdiscovery-whatis/) 
-
-
+* [How can I discover unsanctioned cloud apps that are used within my organization](./active-directory-cloudappdiscovery-whatis.md)

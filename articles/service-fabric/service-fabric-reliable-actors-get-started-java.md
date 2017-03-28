@@ -1,46 +1,47 @@
-<properties
-    pageTitle="Get started with Service Fabric Reliable Actors | Azure"
-    description="This tutorial walks you through the steps of creating, debugging, and deploying a simple actor-based service using Service Fabric Reliable Actors."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="d31dc8ab-9760-4619-a641-facb8324c759"
-    ms.service="service-fabric"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Get started with Service Fabric Reliable Actors | Azure
+description: This tutorial walks you through the steps of creating, debugging, and deploying a simple actor-based service using Service Fabric Reliable Actors.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
+
+ms.assetid: d31dc8ab-9760-4619-a641-facb8324c759
+ms.service: service-fabric
+ms.devlang: java
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # Getting started with Reliable Actors
 
-> [AZURE.SELECTOR]
-- [C# on Windows](/documentation/articles/service-fabric-reliable-actors-get-started/)
-- [Java on Linux](/documentation/articles/service-fabric-reliable-actors-get-started-java/)
+> [!div class="op_single_selector"]
+>- [C# on Windows](./service-fabric-reliable-actors-get-started.md)
+>- [Java on Linux](./service-fabric-reliable-actors-get-started-java.md)
 
 This article explains the basics of Azure Service Fabric Reliable Actors and walks you through creating and deploying a simple Reliable Actor application in Java.
 
 ## Installation and setup
 Before you start, make sure you have the Service Fabric development environment set up on your machine.
-If you need to set it up, go to [getting started on Mac](/documentation/articles/service-fabric-get-started-mac/) or [getting started on Linux](/documentation/articles/service-fabric-get-started-linux/).
+If you need to set it up, go to [getting started on Mac](./service-fabric-get-started-mac.md) or [getting started on Linux](./service-fabric-get-started-linux.md).
 
 ## Basic concepts
 To get started with Reliable Actors, you only need to understand a few basic concepts:
 
  * **Actor service**. Reliable Actors are packaged in Reliable Services that can be deployed in the Service Fabric infrastructure. Actor instances are activated in a named service instance.
- 
+
  * **Actor registration**. As with Reliable Services, a Reliable Actor service needs to be registered with the Service Fabric runtime. In addition, the actor type needs to be registered with the Actor runtime.
- 
+
  * **Actor interface**. The actor interface is used to define a strongly typed public interface of an actor. In the Reliable Actor model terminology, the actor interface defines the types of messages that the actor can understand and process. The actor interface is used by other actors and client applications to "send" (asynchronously) messages to the actor. Reliable Actors can implement multiple interfaces.
- 
+
  * **ActorProxy class**. The ActorProxy class is used by client applications to invoke the methods exposed through the actor interface. The ActorProxy class provides two important functionalities:
-	* Name resolution: It is able to locate the actor in the cluster (find the node of the cluster where it is hosted).
-	* Failure handling: It can retry method invocations and re-resolve the actor location after, for example, a failure that requires the actor to be relocated to another node in the cluster.
+    * Name resolution: It is able to locate the actor in the cluster (find the node of the cluster where it is hosted).
+    * Failure handling: It can retry method invocations and re-resolve the actor location after, for example, a failure that requires the actor to be relocated to another node in the cluster.
 
 The following rules that pertain to actor interfaces are worth mentioning:
 
@@ -155,14 +156,14 @@ The actor service must be registered with a service type in the Service Fabric r
 
 ```java
 public class HelloWorldActorHost {
-	
+
     public static void main(String[] args) throws Exception {
-		
+
         try {
             ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
 
             Thread.sleep(Long.MAX_VALUE);
-			
+
         } catch (Exception e) {
             e.printStackTrace();
             throw e;

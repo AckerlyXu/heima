@@ -26,4 +26,3 @@ The following limits apply to ExpressRoute resources per subscription.
 | 2 Gbps | 10 | 60 |
 | 5 Gbps | 10 | 75 |
 | 10 Gbps | 10 | 100 |
-

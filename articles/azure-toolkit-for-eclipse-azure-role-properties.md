@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Role Properties"
-    description="Learn how to use the Azure Toolkit for Eclipse to configure Azure role settings."
-    services=""
-    documentationcenter="java"
-    author="rmcmurray"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="5c0ec412-5702-465a-8f47-87a8ce99a267"
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="robmcm" />
+---
+title: Azure Role Properties
+description: Learn how to use the Azure Toolkit for Eclipse to configure Azure role settings.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: erikre
+editor: ''
+
+ms.assetid: 5c0ec412-5702-465a-8f47-87a8ce99a267
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: robmcm
+---
 
 # Azure Role Properties
 Various configuration settings for your Azure role can be set within the Azure Toolkit for Eclipse.
@@ -48,7 +49,8 @@ Open the context menu for the role in Eclipse's Project Explorer pane, click **A
 
 ![][ic719499]
 
->[AZURE.NOTE] Windows only: when you set the number of instances to a value greater than 1 and you also configure an application server, the toolkit will allow only 1 role instance to run in the emulator, regardless of this setting. This is to avoid port binding conflicts between the different server instances (for example, all trying to bind to port 8080) when they run on the same computer. Your desired instance count setting is preserved, but it goes into effect only when you deploy to the cloud.
+>[!NOTE]
+> Windows only: when you set the number of instances to a value greater than 1 and you also configure an application server, the toolkit will allow only 1 role instance to run in the emulator, regardless of this setting. This is to avoid port binding conflicts between the different server instances (for example, all trying to bind to port 8080) when they run on the same computer. Your desired instance count setting is preserved, but it goes into effect only when you deploy to the cloud.
 
 <a name="caching_properties"></a> 
 
@@ -63,7 +65,8 @@ Within the **Caching** property page, you can specify global settings for the fo
 * the cache size as a percent of memory.
 * the storage account name for saving the cache state when your application runs as a cloud service, or none if you do not want to save the cache state. (The storage account name is not used when you run your application in the compute emulator.) If you set the storage account name to **(auto)** (which is the default), your caching configuration will automatically use the same storage account as the one you select in the **Publish to Azure** dialog.
 
->[AZURE.NOTE] The **(auto)** setting will have the desired effect only if you publish your deployment using the Eclipse toolkit's publish wizard. If instead you publish the .cspkg file manually using an external mechanism, such as the [Azure Management Portal][], the deployment will not function properly.
+>[!NOTE]
+> The **(auto)** setting will have the desired effect only if you publish your deployment using the Eclipse toolkit's publish wizard. If instead you publish the .cspkg file manually using an external mechanism, such as the [Azure Management Portal][], the deployment will not function properly.
 
 The following dialog shows the properties for a cache.
 
@@ -111,7 +114,8 @@ For each component, you can specify:
 * The step to be taken when importing the component into your Azure deployment project when it is built.
 * The step to be taken when deploying that component in the Azure cloud.
 
->[AZURE.NOTE] When specifying component files or command lines, keep in mind that your deployment will be published to a Windows virtual machine, so your custom steps must be valid for a Windows-based operating system. 
+>[!NOTE]
+> When specifying component files or command lines, keep in mind that your deployment will be published to a Windows virtual machine, so your custom steps must be valid for a Windows-based operating system. 
 
 Components have the following properties:
 
@@ -123,14 +127,15 @@ Components have the following properties:
   * **WAR:** The component is a Java web application archive (WAR) and is imported from a Dynamic Web Project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
   * **zip:** The component is a zip file and is imported by zipping the directory or file specified by the **From** property.
 * **From:** Source path on your local machine to the folder or file that represents the item(s) to import to your deployment. Windows environment variables can be used in this property. All importable components will be imported into the role's **approot** directory when the project is built.
-  
+
     Note that you have the ability to deploy a component from a download when deploying to the cloud (not the compute emulator). See related information below about adding a component.    
 * **As:** File name under which the component will be imported into the role's **approot** directory and ultimately deployed in the Azure cloud. Leave this property blank to keep the name the same as it is on the local machine. (For executable components, that is, those whose **Deploy** method is set to **exec**, this can be an arbitrary Windows command line statement.)
 
-	>[AZURE.IMPORTANT] If you use space characters for this value, they will be handled differently depending on the deploy method. If the deploy method is **exec**, spaces will be interpreted as command line argument separators and not as part of the file name. For all other deploy methods, spaces will be interpreted as part of the file name.
-	
+    >[!IMPORTANT]
+    > If you use space characters for this value, they will be handled differently depending on the deploy method. If the deploy method is **exec**, spaces will be interpreted as command line argument separators and not as part of the file name. For all other deploy methods, spaces will be interpreted as part of the file name.
+
 * **Deploy:** Method that indicates the action applied to the component when the deployment is started. This can be one of the following values:
-  
+
   * **copy:** The component is copied to the destination path specified by the **To** property.
   * **exec:** The component is an executable Windows command line statement executed in the context of the path specified by the **To** property, at the time the deployment starts.
   * **none:** No action is applied to the component when the deployment starts.
@@ -155,7 +160,8 @@ To delete a component, select the component and click the **Remove** button in t
 
 Components are processed in the order listed. Use the **Move Up** and **Move Down** buttons to arrange the order.
 
->[AZURE.NOTE] The server configuration feature relies on components as well. Those components cannot be removed or edited without removing the corresponding server configuration. You will be prompted about that when attempting to make changes to such components.
+>[!NOTE]
+> The server configuration feature relies on components as well. Those components cannot be removed or edited without removing the corresponding server configuration. You will be prompted about that when attempting to make changes to such components.
 
 <a name="debugging_properties"></a> 
 
@@ -206,7 +212,8 @@ Open the context menu for the role in Eclipse's Project Explorer pane, click **A
 
 Environment variables are available to your startup script when the role starts.
 
->[AZURE.NOTE] When specifying environment variables, keep in mind that your deployment will be published to a Windows virtual machine, so your environment variables must be valid for a Windows-based operating system.
+>[!NOTE]
+> When specifying environment variables, keep in mind that your deployment will be published to a Windows virtual machine, so your environment variables must be valid for a Windows-based operating system.
 
 As an example of an environment variable being available when the role starts, create a new environment variable by clicking the **Add** button. The following shows an environment variable named **MyRoleVersion** being created and assigned the value **1.0**.
 
@@ -214,10 +221,12 @@ As an example of an environment variable being available when the role starts, c
 
 Within your jsp code, you could display the value using the `System.getenv` method:
 
-    <body>
-      <b> Hello World!</b>
-      <p>Running role version: <%= System.getenv("MyRoleVersion") %></p>
-    </body>
+```
+<body>
+  <b> Hello World!</b>
+  <p>Running role version: <%= System.getenv("MyRoleVersion") %></p>
+</body>
+```
 
 Resulting in this output when your application runs:
 
@@ -399,18 +408,18 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [Azure Java Developer Center]:/develop/java/
 [Azure Management Portal]: https://manage.windowsazure.cn
-[Azure Toolkit for Eclipse]:/documentation/articles/azure-toolkit-for-eclipse/
-[Azure Project Properties]:/documentation/articles/azure-toolkit-for-eclipse-azure-project-properties/
-[Azure Storage Account List]: /documentation/articles/azure-toolkit-for-eclipse-azure-storage-account-list/
+[Azure Toolkit for Eclipse]:./azure-toolkit-for-eclipse.md
+[Azure Project Properties]:./azure-toolkit-for-eclipse-azure-project-properties.md
+[Azure Storage Account List]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
 [com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
-[Creating a Hello World Application for Azure in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-creating-a-hello-world-application/
-[Debugging a specific role instance in a multi-instance deployment]:/documentation/articles/azure-toolkit-for-eclipse-debugging-azure-applications#debugging_specific_role_instance/
-[Debugging Azure Applications in Eclipse]:/documentation/articles/azure-toolkit-for-eclipse-debugging-azure-applications/
-[Deploying Large Deployments]:/documentation/articles/azure-toolkit-for-eclipse-deploying-large-deployments/
+[Creating a Hello World Application for Azure in Eclipse]:./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
+[Debugging a specific role instance in a multi-instance deployment]:./azure-toolkit-for-eclipse-debugging-azure-applications.md#debugging_specific_role_instance/
+[Debugging Azure Applications in Eclipse]:./azure-toolkit-for-eclipse-debugging-azure-applications.md
+[Deploying Large Deployments]:./azure-toolkit-for-eclipse-deploying-large-deployments.md
 [How to Use Co-located Caching]: /develop/java/
 [How to Use SSL Offloading]: /develop/java/
-[Installing the Azure Toolkit for Eclipse]: /documentation/articles/azure-toolkit-for-eclipse-installation/
-[Session Affinity]:/documentation/articles/azure-toolkit-for-eclipse-enable-session-affinity/
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Session Affinity]:./azure-toolkit-for-eclipse-enable-session-affinity.md
 [SSL Offloading]: /develop/java/
 
 <!-- IMG List -->

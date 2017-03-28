@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Enabling SSL Policy and end to end SSL on Application Gateway | Azure"
-    description="This page provides an overview of the Application Gateway end to end SSL support."
-    documentationcenter="na"
-    services="application-gateway"
-    author="amsriva"
-    manager="rossort"
-    editor="amsriva" />
-<tags
-    ms.assetid="3976399b-25ad-45eb-8eb3-fdb736a598c5"
-    ms.service="application-gateway"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.custom="H1Hack27Feb2017"
-    ms.workload="infrastructure-services"
-    ms.date="12/12/2016"
-    wacn.date=""
-    ms.author="amsriva" />
+---
+title: Enabling SSL Policy and end to end SSL on Application Gateway | Azure
+description: This page provides an overview of the Application Gateway end to end SSL support.
+documentationcenter: na
+services: application-gateway
+author: amsriva
+manager: rossort
+editor: amsriva
+
+ms.assetid: 3976399b-25ad-45eb-8eb3-fdb736a598c5
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.custom: H1Hack27Feb2017
+ms.workload: infrastructure-services
+ms.date: 12/12/2016
+wacn.date: ''
+ms.author: amsriva
+---
 
 # Overview of end to end SSL and SSL Policy on Application Gateway
 
@@ -46,7 +47,7 @@ Application gateway supports user configurable SSL negotiation policies, which a
 
 ## Next steps
 
-After learning about end to end SSL and SSL policy, go to [enable end to end SSL on application gateway](/documentation/articles/application-gateway-end-to-end-ssl-powershell/) to create an application gateway using end to end SSL.
+After learning about end to end SSL and SSL policy, go to [enable end to end SSL on application gateway](./application-gateway-end-to-end-ssl-powershell.md) to create an application gateway using end to end SSL.
 
 <!--Image references-->
 

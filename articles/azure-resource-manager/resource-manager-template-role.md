@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Resource Manager template for role assignments | Azure"
-    description="Shows the Resource Manager schema for deploying a role assignment through a template."
-    services="azure-resource-manager"
-    documentationcenter="na"
-    author="tfitzmac"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="d9541169-00d1-4497-b57f-68896d51849b"
-    ms.service="azure-resource-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/03/2016"
-    wacn.date=""
-    ms.author="tomfitz" />
+---
+title: Resource Manager template for role assignments | Azure
+description: Shows the Resource Manager schema for deploying a role assignment through a template.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: ''
+
+ms.assetid: d9541169-00d1-4497-b57f-68896d51849b
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/03/2016
+wacn.date: ''
+ms.author: tomfitz
+---
 
 # Role assignments template schema
 Assigns a user, group, or service principal to a role at a specified scope.
@@ -23,18 +24,20 @@ Assigns a user, group, or service principal to a role at a specified scope.
 ## Resource format
 To create a role assignment, add the following schema to the resources section of your template.
 
+```
+{
+    "type": string,
+    "apiVersion": "2015-07-01",
+    "name": string,
+    "dependsOn": [ array values ],
+    "properties":
     {
-        "type": string,
-        "apiVersion": "2015-07-01",
-        "name": string,
-        "dependsOn": [ array values ],
-        "properties":
-        {
-            "roleDefinitionId": string,
-            "principalId": string,
-            "scope": string
-        }
+        "roleDefinitionId": string,
+        "principalId": string,
+        "scope": string
     }
+}
+```
 
 ## Values
 The following tables describe the values you need to set in the schema.
@@ -62,133 +65,154 @@ There are many identifier values you need to provide when working with role assi
 ### PowerShell
 The name of role assignment requires a globally unique identifier. You can generate a new identifier for **name** with:
 
-    $name = [System.Guid]::NewGuid().toString()
+```
+$name = [System.Guid]::NewGuid().toString()
+```
 
 You can retrieve the identifier for role definition with:
 
-    $roledef = (Get-AzureRmRoleDefinition -Name Reader).id
+```
+$roledef = (Get-AzureRmRoleDefinition -Name Reader).id
+```
 
 You can retrieve the identifier for the principal with one of the following commands.
 
 For a group named **Auditors**:
 
-    $principal = (Get-AzureRmADGroup -SearchString Auditors).id
+```
+$principal = (Get-AzureRmADGroup -SearchString Auditors).id
+```
 
 For a user named **exampleperson**:
 
-    $principal = (Get-AzureRmADUser -SearchString exampleperson).id
+```
+$principal = (Get-AzureRmADUser -SearchString exampleperson).id
+```
 
 For a service principal named **exampleapp**:
 
-    $principal = (Get-AzureRmADServicePrincipal -SearchString exampleapp).id 
+```
+$principal = (Get-AzureRmADServicePrincipal -SearchString exampleapp).id 
+```
 
 ### Azure CLI
 You can retrieve the identifier for role definition with:
 
-    azure role show Reader --json | jq .[].Id -r
+```
+azure role show Reader --json | jq .[].Id -r
+```
 
 You can retrieve the identifier for the principal with one of the following commands.
 
 For a group named **Auditors**:
 
-    azure ad group show --search Auditors --json | jq .[].objectId -r
+```
+azure ad group show --search Auditors --json | jq .[].objectId -r
+```
 
 For a user named **exampleperson**:
 
-    azure ad user show --search exampleperson --json | jq .[].objectId -r
+```
+azure ad user show --search exampleperson --json | jq .[].objectId -r
+```
 
 For a service principal named **exampleapp**:
 
-    azure ad sp show --search exampleapp --json | jq .[].objectId -r
+```
+azure ad sp show --search exampleapp --json | jq .[].objectId -r
+```
 
 ## Examples
 The following template receives an identifier for a role and an identifier for a user, group, or service principal. It assigns the role at the resource group level.
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "roleDefinitionId": {
-                "type": "string"
-            },
-            "roleAssignmentId": {
-                "type": "string"
-            },
-            "principalId": {
-                "type": "string"
-            }
+```
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "roleDefinitionId": {
+            "type": "string"
         },
-        "resources": [
-            {
-              "type": "Microsoft.Authorization/roleAssignments",
-              "apiVersion": "2015-07-01",
-              "name": "[parameters('roleAssignmentId')]",
-              "properties":
-              {
-                "roleDefinitionId": "[concat(subscription().id, '/providers/Microsoft.Authorization/roleDefinitions/', parameters('roleDefinitionId'))]",
-                "principalId": "[parameters('principalId')]",
-                "scope": "[concat(subscription().id, '/resourceGroups/', resourceGroup().name)]"
-              }
-            }
-        ],
-        "outputs": {}
-    }
-
+        "roleAssignmentId": {
+            "type": "string"
+        },
+        "principalId": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+          "type": "Microsoft.Authorization/roleAssignments",
+          "apiVersion": "2015-07-01",
+          "name": "[parameters('roleAssignmentId')]",
+          "properties":
+          {
+            "roleDefinitionId": "[concat(subscription().id, '/providers/Microsoft.Authorization/roleDefinitions/', parameters('roleDefinitionId'))]",
+            "principalId": "[parameters('principalId')]",
+            "scope": "[concat(subscription().id, '/resourceGroups/', resourceGroup().name)]"
+          }
+        }
+    ],
+    "outputs": {}
+}
+```
 
 The next template creates a storage account and assigns the reader role to the storage account. The identifiers for two groups and the reader role have been included in the template to simplify deployment. Those values could be retrieved at deployment time through in script and passed in as parameters.
 
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "roleName": {
-          "type": "string"
-        },
-        "groupToAssign": {
-          "type": "string",
-          "allowedValues": [
-            "Auditors",
-            "Limited"
-          ]
-        }
-      },
-      "variables": {
-        "readerRole": "[concat('/subscriptions/',subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
-        "storageName": "[concat('storage', uniqueString(resourceGroup().id))]",
-        "scope": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Storage/storageAccounts/', variables('storageName'))]",
-        "Auditors": "1c272299-9729-462a-8d52-7efe5ece0c5c",
-        "Limited": "7c7250f0-7952-441c-99ce-40de5e3e30b5",
-        "fullRoleName": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleName'))]"
-      },
-      "resources": [
-        {
-          "apiVersion": "2016-01-01",
-          "type": "Microsoft.Storage/storageAccounts",
-          "name": "[variables('storageName')]",
-          "location": "[resourceGroup().location]",
-          "sku": {
-            "name": "Standard_LRS"
-          },
-          "kind": "Storage",
-          "tags": {
-            "displayName": "MyStorageAccount"
-          },
-          "properties": {}
-        },
-        {
-          "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
-          "apiVersion": "2015-07-01",
-          "name": "[variables('fullRoleName')]",
-          "dependsOn": [
-            "[variables('storageName')]"
-          ],
-          "properties": {
-            "roleDefinitionId": "[variables('readerRole')]",
-            "principalId": "[variables(parameters('groupToAssign'))]"
-          }
-        }
+```
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "roleName": {
+      "type": "string"
+    },
+    "groupToAssign": {
+      "type": "string",
+      "allowedValues": [
+        "Auditors",
+        "Limited"
       ]
     }
+  },
+  "variables": {
+    "readerRole": "[concat('/subscriptions/',subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
+    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "scope": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Storage/storageAccounts/', variables('storageName'))]",
+    "Auditors": "1c272299-9729-462a-8d52-7efe5ece0c5c",
+    "Limited": "7c7250f0-7952-441c-99ce-40de5e3e30b5",
+    "fullRoleName": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleName'))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2016-01-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "tags": {
+        "displayName": "MyStorageAccount"
+      },
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
+      "apiVersion": "2015-07-01",
+      "name": "[variables('fullRoleName')]",
+      "dependsOn": [
+        "[variables('storageName')]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[variables('readerRole')]",
+        "principalId": "[variables(parameters('groupToAssign'))]"
+      }
+    }
+  ]
+}
+```
 
 ## Quickstart templates
 The following templates show how to use the role assignment resource:
@@ -198,5 +222,5 @@ The following templates show how to use the role assignment resource:
 * [Assign built-in role to multiple existing VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)
 
 ## Next steps
-* For information about the template structure, see [Authoring Azure Resource Manager templates](/documentation/articles/resource-group-authoring-templates/).
-* For more information about role-based access control, see [Azure Active Directory Role-based Access Control](/documentation/articles/role-based-access-control-configure/).
+* For information about the template structure, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).
+* For more information about role-based access control, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).

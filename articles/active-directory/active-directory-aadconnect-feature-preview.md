@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect: Features in preview | Azure"
-    description="This topic describes in more detail features which are in preview in Azure AD Connect."
-    services="active-directory"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="c75cd8cf-3eff-4619-bbca-66276757cc07"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/07/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect: Features in preview | Azure
+description: This topic describes in more detail features which are in preview in Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+
+ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # More details about features in preview
 This topic describes how to use features currently in preview.
@@ -34,13 +35,13 @@ An Office 365 group is represented as a distribution group in on-premises AD DS.
 - Only single-forest Exchange organization deployments are currently supported. If you have more than one Exchange organization on-premises, then you need an on-premises GALSync solution for these groups to appear in your other forests.
 - The Group writeback feature does not handle security groups or distribution groups.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > A subscription to Azure AD Premium is required for group writeback.
 > 
 >
 
 ## User writeback
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The user writeback preview feature was removed in the August 2015 update to Azure AD Connect. If you have enabled it, then you should disable this feature.
 >
 >
@@ -48,4 +49,4 @@ An Office 365 group is represented as a distribution group in on-premises AD DS.
 ## Next steps
 Continue your [Custom installation of Azure AD Connect](/documentation/articles/active-directory-aadconnect-get-started-custom/).
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).

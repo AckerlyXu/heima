@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Get the tools for your Azure IoT Starter Kit (Windows 7 +) | Azure"
-    description="Download and install the necessary tools and software for the first sample application for Adafruit Feather M0 WiFi on Windows 7 and later versions."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino development tools, iot development, iot software, internet of things software, install git on windows, install node js windows" />
-<tags
-    ms.assetid="9cfb8cd2-eafb-4ba2-b23e-d94e114ff3a6"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get the tools for your Azure IoT Starter Kit (Windows 7 +) | Azure
+description: Download and install the necessary tools and software for the first sample application for Adafruit Feather M0 WiFi on Windows 7 and later versions.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino development tools, iot development, iot software, internet of things software, install git on windows, install node js windows
+
+ms.assetid: 9cfb8cd2-eafb-4ba2-b23e-d94e114ff3a6
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get the tools (Windows 7 or later)
 
@@ -31,7 +32,7 @@ Download the development tools and the software for the first sample application
 
 If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Although the programming language of the main logic is Arduino, Node.js tools are used in the lessons to build and deploy sample applications.
 
 ## What you will learn
@@ -83,8 +84,8 @@ You've installed the required development tools and software for the first sampl
 [Create and deploy the blink sample application][create-and-deploy-the-blink-sample-application]
 <!-- Images and links -->
 
-[windows]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32/
-[ubuntu]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu/
-[macos]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac/
-[troubleshooting]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/
-[create-and-deploy-the-blink-sample-application]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app/
+[windows]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md
+[ubuntu]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md
+[macos]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md
+[troubleshooting]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md
+[create-and-deploy-the-blink-sample-application]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md

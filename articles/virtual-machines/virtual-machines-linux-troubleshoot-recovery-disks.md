@@ -1,25 +1,26 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Use a Linux troubleshooting VM with the Azure CLI 2.0 | Azure"
-    description="Learn how to troubleshoot Linux VM issues by connecting the OS disk to a recovery VM using the Azure CLI 2.0"
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="iainfoulds"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="02/16/2017"
-    wacn.date=""
-    ms.author="iainfou" />
+---
+title: Use a Linux troubleshooting VM with the Azure CLI 2.0 | Azure
+description: Learn how to troubleshoot Linux VM issues by connecting the OS disk to a recovery VM using the Azure CLI 2.0
+services: virtual-machines-linux
+documentationCenter: ''
+authors: iainfoulds
+manager: timlt
+editor: ''
+
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/16/2017
+wacn.date: ''
+ms.author: iainfou
+---
 
 # Troubleshoot a Linux VM by attaching the OS disk to a recovery VM with the Azure CLI 2.0
-If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to use the Azure CLI 2.0 to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM. You can also perform these steps with the [Azure CLI 1.0](/documentation/articles/virtual-machines-linux-troubleshoot-recovery-disks-nodejs/).
+If your Linux virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to use the Azure CLI 2.0 to connect your virtual hard disk to another Linux VM to fix any errors, then re-create your original VM. You can also perform these steps with the [Azure CLI 1.0](./virtual-machines-linux-troubleshoot-recovery-disks-nodejs.md).
 
 ## Recovery process overview
 The troubleshooting process is as follows:
@@ -39,7 +40,9 @@ Examine the serial output to determine why your VM is not able to boot correctly
 
 Get the boot logs with [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log). The following example gets the serial output from the VM named `myVM` in the resource group named `myResourceGroup`:
 
-    az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
+```azurecli
+az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
+```
 
 Review the serial output to determine why the VM is failing to boot. If the serial output isn't providing any indication, you may need to review log files in `/var/log` once you have the virtual hard disk connected to a troubleshooting VM.
 
@@ -48,8 +51,10 @@ Before you can attach your virtual hard disk (VHD) to another VM, you need to id
 
 View information about your VM with [az vm show](https://docs.microsoft.com/cli/azure/vm#show). Use the `--query` flag to extract the URI to the OS disk. The following example gets disk information for the VM named `myVM` in the resource group named `myResourceGroup`:
 
-    az vm show --resource-group myResourceGroup --name myVM \
-        --query [storageProfile.osDisk.vhd.uri] --output tsv
+```azurecli
+az vm show --resource-group myResourceGroup --name myVM \
+    --query [storageProfile.osDisk.vhd.uri] --output tsv
+```
 
 The URI is similar to **https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd**.
 
@@ -60,7 +65,9 @@ The first step to recover your VM is to delete the VM resource itself. Deleting 
 
 Delete the VM with [az vm delete](https://docs.microsoft.com/cli/azure/vm#delete). The following example deletes the VM named `myVM` from the resource group named `myResourceGroup`:
 
-    az vm delete --resource-group myResourceGroup --name myVM 
+```azurecli
+az vm delete --resource-group myResourceGroup --name myVM 
+```
 
 Wait until the VM has finished deleting before you attach the virtual hard disk to another VM. The lease on the virtual hard disk that associates it with the VM needs to be released before you can attach the virtual hard disk to another VM.
 
@@ -69,37 +76,47 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 
 Attach the existing virtual hard disk with [az vm unmanaged-disk attach](https://docs.microsoft.com/cli/azure/vm/unmanaged-disk#attach). When you attach the existing virtual hard disk, specify the URI to the disk obtained in the preceding `az vm show` command. The following example attaches an existing virtual hard disk to the troubleshooting VM named `myVMRecovery` in the resource group named `myResourceGroup`:
 
-    az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
-        --vhd-uri https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd
+```azurecli
+az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecovery \
+    --vhd-uri https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd
+```
 
 ## Mount the attached data disk
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The following examples detail the steps required on an Ubuntu VM. If you are using a different Linux distro, such as Red Hat Enterprise Linux or SUSE, the log file locations and `mount` commands may be a little different. Refer to the documentation for your specific distro for the appropriate changes in commands.
 
 1. SSH to your troubleshooting VM using the appropriate credentials. If this disk is the first data disk attached to your troubleshooting VM, the disk is likely connected to `/dev/sdc`. Use `dmseg` to view attached disks:
 
-        dmesg | grep SCSI
+    ```bash
+    dmesg | grep SCSI
+    ```
 
     The output is similar to the following example:
 
-        [    0.294784] SCSI subsystem initialized
-        [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-        [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-        [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-        [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+    ```bash
+    [    0.294784] SCSI subsystem initialized
+    [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+    [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
+    [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
+    [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+    ```
 
     In the preceding example, the OS disk is at `/dev/sda` and the temporary disk provided for each VM is at `/dev/sdb`. If you had multiple data disks, they should be at `/dev/sdd`, `/dev/sde`, and so on.
 
 2. Create a directory to mount your existing virtual hard disk. The following example creates a directory named `troubleshootingdisk`:
 
-        sudo mkdir /mnt/troubleshootingdisk
+    ```bash
+    sudo mkdir /mnt/troubleshootingdisk
+    ```
 
 3. If you have multiple partitions on your existing virtual hard disk, mount the required partition. The following example mounts the first primary partition at `/dev/sdc1`:
 
-        sudo mount /dev/sdc1 /mnt/troubleshootingdisk
+    ```bash
+    sudo mount /dev/sdc1 /mnt/troubleshootingdisk
+    ```
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > Best practice is to mount data disks on VMs in Azure using the universally unique identifier (UUID) of the virtual hard disk. For this short troubleshooting scenario, mounting the virtual hard disk using the UUID is not necessary. However, under normal use, editing `/etc/fstab` to mount virtual hard disks using device name rather than UUID may cause the VM to fail to boot.
 
 ## Fix issues on original virtual hard disk
@@ -110,23 +127,31 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 
 1. From the SSH session to your troubleshooting VM, unmount the existing virtual hard disk. Change out of the parent directory for your mount point first:
 
-        cd /
+    ```bash
+    cd /
+    ```
 
     Now unmount the existing virtual hard disk. The following example unmounts the device at `/dev/sdc1`:
 
-        sudo umount /dev/sdc1
+    ```bash
+    sudo umount /dev/sdc1
+    ```
 
 2. Now detach the virtual hard disk from the VM. Exit the SSH session to your troubleshooting VM. List the attached data disks to your troubleshooting VM with [az vm unmanaged-disk list](https://docs.microsoft.com/cli/azure/vm/unmanaged-disk#list). The following example lists the data disks attached to the VM named `myVMRecovery` in the resource group named `myResourceGroup`:
 
-        azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
-            --query '[].{Disk:vhd.uri}' --output table
+    ```azurecli
+    azure vm unmanaged-disk list --resource-group myResourceGroup --vm-name myVMRecovery \
+        --query '[].{Disk:vhd.uri}' --output table
+    ```
 
     Note the name for your existing virtual hard disk. For example, the name of a disk with the URI of **https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd** is **myVHD**. 
 
     Detach the data disk from your VM [az vm unmanaged-disk detach](https://docs.microsoft.com/cli/azure/vm/unmanaged-disk#detach). The following example detaches the disk named `myVHD` from the VM named `myVMRecovery` in the `myResourceGroup` resource group:
 
-        az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
-            --name myVHD
+    ```azurecli
+    az vm unmanaged-disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
+        --name myVHD
+    ```
 
 ## Create VM from original hard disk
 To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd). The actual JSON template is at the following link:
@@ -135,17 +160,21 @@ To create a VM from your original virtual hard disk, use [this Azure Resource Ma
 
 The template deploys a VM using the VHD URI from the earlier command. Deploy the template with [az group deployment create](https://docs.microsoft.com/cli/azure/vm/deployment#create). Provide the URI to your original VHD and then specify the OS type, VM size, and VM name as follows:
 
-    az group deployment create --resource-group myResourceGroup --name myDeployment \
-      --parameters '{"osDiskVhdUri": {"value": "https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd"},
-        "osType": {"value": "Linux"},
-        "vmSize": {"value": "Standard_DS1_v2"},
-        "vmName": {"value": "myDeployedVM"}}' \
-        --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
+```azurecli
+az group deployment create --resource-group myResourceGroup --name myDeployment \
+  --parameters '{"osDiskVhdUri": {"value": "https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myVM.vhd"},
+    "osType": {"value": "Linux"},
+    "vmSize": {"value": "Standard_DS1_v2"},
+    "vmName": {"value": "myDeployedVM"}}' \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
+```
 
 ## Re-enable boot diagnostics
 When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. Enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable). The following example enables the diagnostic extension on the VM named `myDeployedVM` in the resource group named `myResourceGroup`:
 
-    az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
+```azurecli
+az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
+```
 
 ## Next steps
-If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](/documentation/articles/virtual-machines-linux-troubleshoot-ssh-connection/). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](/documentation/articles/virtual-machines-linux-troubleshoot-app-connection/).
+If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](./virtual-machines-linux-troubleshoot-ssh-connection.md). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](./virtual-machines-linux-troubleshoot-app-connection.md).

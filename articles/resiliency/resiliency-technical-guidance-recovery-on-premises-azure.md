@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Technical guidance: Recovery from on-premises to Azure | Azure"
-    description="Article on understanding and designing recovery systems from on-premises infrastructure to Azure"
-    services=""
-    documentationcenter="na"
-    author="adamglick"
-    manager="saladki"
-    editor="" />
-<tags
-    ms.assetid="114c29c9-453f-4a54-8d0f-d77c5ad47d60"
-    ms.service="resiliency"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/18/2016"
-    wacn.date=""
-    ms.author="aglick" />
+---
+title: Technical guidance: Recovery from on-premises to Azure | Azure
+description: Article on understanding and designing recovery systems from on-premises infrastructure to Azure
+services: ''
+documentationcenter: na
+author: adamglick
+manager: saladki
+editor: ''
+
+ms.assetid: 114c29c9-453f-4a54-8d0f-d77c5ad47d60
+ms.service: resiliency
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/18/2016
+wacn.date: ''
+ms.author: aglick
+---
 
 # Azure resiliency technical guidance: Recovery from on-premises to Azure
 
@@ -28,15 +29,15 @@ Azure provides a comprehensive set of services for enabling the extension of an 
 
 ## Networking
 
-You can use Azure Virtual Network to create a logically isolated section in Azure and securely connect it to your on-premises datacenter or a single client machine by using an IPsec connection. With Virtual Network, you can take advantage of the scalable, on-demand infrastructure in Azure while providing connectivity to data and applications on-premises, including systems running on Windows Server, mainframes, and UNIX. See [Azure networking documentation](/documentation/articles/virtual-networks-overview/) for more information.
+You can use Azure Virtual Network to create a logically isolated section in Azure and securely connect it to your on-premises datacenter or a single client machine by using an IPsec connection. With Virtual Network, you can take advantage of the scalable, on-demand infrastructure in Azure while providing connectivity to data and applications on-premises, including systems running on Windows Server, mainframes, and UNIX. See [Azure networking documentation](../virtual-network/virtual-networks-overview.md) for more information.
 
 ## Compute
 
-If you're using Hyper-V on-premises, you can "lift and shift" existing virtual machines to Azure and service providers running Windows Server 2012 (or later), without making changes to the VM or converting VM formats. For more information, see [About disks and VHDs for Azure virtual machines](/documentation/articles/storage-about-disks-and-vhds-linux/).
+If you're using Hyper-V on-premises, you can "lift and shift" existing virtual machines to Azure and service providers running Windows Server 2012 (or later), without making changes to the VM or converting VM formats. For more information, see [About disks and VHDs for Azure virtual machines](../storage/storage-about-disks-and-vhds-linux.md).
 
 ## Azure Site Recovery
 
-If you want disaster recovery as a service (DRaaS), Azure provides [Azure Site Recovery](/home/features/site-recovery/). Azure Site Recovery offers comprehensive protection for VMware, Hyper-V, and physical servers. With Azure Site Recovery, you can use another on-premises server or Azure as your recovery site. For more information on Azure Site Recovery, see the [Azure Site Recovery documentation](/documentation/services/site-recovery/).
+If you want disaster recovery as a service (DRaaS), Azure provides [Azure Site Recovery](https://www.azure.cn/home/features/site-recovery/). Azure Site Recovery offers comprehensive protection for VMware, Hyper-V, and physical servers. With Azure Site Recovery, you can use another on-premises server or Azure as your recovery site. For more information on Azure Site Recovery, see the [Azure Site Recovery documentation](../site-recovery/index.md).
 
 ## Storage
 
@@ -44,7 +45,7 @@ There are several options for using Azure as a backup site for on-premises data.
 
 ### StorSimple
 
-StorSimple securely and transparently integrates cloud storage for on-premises applications. It also offers a single appliance that delivers high-performance tiered local and cloud storage, live archiving, cloud-based data protection, and disaster recovery. For more information, see the [StorSimple product page](/home/features/storsimple/).
+StorSimple securely and transparently integrates cloud storage for on-premises applications. It also offers a single appliance that delivers high-performance tiered local and cloud storage, live archiving, cloud-based data protection, and disaster recovery. For more information, see the [StorSimple product page](https://www.azure.cn/home/features/storsimple/).
 
 ### Azure Backup
 
@@ -52,7 +53,7 @@ Azure Backup enables cloud backups by using the familiar backup tools in Windows
 
 With incremental backups, only changes to files are transferred to the cloud. This helps to efficiently use storage space, reduce bandwidth consumption, and support point-in-time recovery of multiple versions of the data. You can also choose to use additional features, such as data retention policies, data compression, and data transfer throttling. Using Azure as the backup location has the obvious advantage that the backups are automatically "offsite". This eliminates the extra requirements to secure and protect on-site backup media.
 
-For more information, see [What is Azure Backup?](/documentation/articles/backup-introduction-to-azure-backup/) and [Configure Azure Backup for DPM data](https://technet.microsoft.com/zh-cn/library/jj728752.aspx).
+For more information, see [What is Azure Backup?](../backup/backup-introduction-to-azure-backup.md) and [Configure Azure Backup for DPM data](https://technet.microsoft.com/zh-cn/library/jj728752.aspx).
 
 ## Database
 
@@ -74,7 +75,7 @@ Finally, you can back up an on-premises database directly to Azure Blob storage.
 
 ![Back up SQL Server to Azure Blob storage in a hybrid cloud architecture](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-6.png)
 
-For more information, see [High availability and disaster recovery for SQL Server in Azure virtual machines](/documentation/articles/virtual-machines-windows-sql-high-availability-dr/) and [Backup and restore for SQL Server in Azure virtual machines](/documentation/articles/virtual-machines-windows-sql-backup-recovery/).
+For more information, see [High availability and disaster recovery for SQL Server in Azure virtual machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) and [Backup and restore for SQL Server in Azure virtual machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md).
 
 ## Checklists for on-premises recovery in Azure
 
@@ -105,4 +106,4 @@ For more information, see [High availability and disaster recovery for SQL Serve
 
 ## Next steps
 
-This article is part of a series focused on [Azure resiliency technical guidance](/documentation/articles/resiliency-technical-guidance/). The next article in this series is [Recovery from data corruption or accidental deletion](/documentation/articles/resiliency-technical-guidance-recovery-data-corruption/).
+This article is part of a series focused on [Azure resiliency technical guidance](./resiliency-technical-guidance.md). The next article in this series is [Recovery from data corruption or accidental deletion](./resiliency-technical-guidance-recovery-data-corruption.md).

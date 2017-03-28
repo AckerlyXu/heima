@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Load - Azure Data Lake Store to SQL Data Warehouse | Azure"
-    description="Learn how to use PolyBase external tables to load data from Azure Data Lake Store into Azure SQL Data Warehouse."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="ckarst"
-    manager="barbkess"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="01/25/2017"
-    wacn.date=""
-    ms.author="cakarst;barbkess" />
+---
+title: Load - Azure Data Lake Store to SQL Data Warehouse | Azure
+description: Learn how to use PolyBase external tables to load data from Azure Data Lake Store into Azure SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: ckarst
+manager: barbkess
+editor: ''
+
+ms.assetid: ''
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 01/25/2017
+wacn.date: ''
+ms.author: cakarst;barbkess
+---
 
 # Load data from Azure Data Lake Store into SQL Data Warehouse
 This document gives you all steps you  need to load your own data from Azure Data Lake Store (ADLS) into SQL Data Warehouse using PolyBase.
@@ -34,7 +35,7 @@ To run this tutorial, you need:
 
 * Azure Active Directory Application to use for Service-to-Service authentication. To create, follow [Active directory authentication](/documentation/articles//data-lake-store/data-lake-store-authenticate-using-active-directory/)
 
->[AZURE.NOTE] 
+>[!NOTE] 
 > You need the client ID, Key, and OAuth2.0 Token Endpoint Value of your Active Directory Application to connect to your Azure Data Lake from SQL Data Warehouse. Details for how to get these values are in the link above.
 >
 
@@ -52,86 +53,94 @@ To access your Azure Data Lake Store, you will need to create a Database Master 
 You then create a Database scoped credential, which stores the service principal credentials set up in AAD. For those of you who have used PolyBase to connect to Windows Azure Storage Blobs, note that the credential syntax is different.
 To connect to Azure Data Lake Store, you must create an Azure Active Directory Application before creating a database scoped credential.
 
-    -- A: Create a Database Master Key.
-    -- Only necessary if one does not already exist.
-    -- Required to encrypt the credential secret in the next step.
-    -- For more information on Master Key: https://msdn.microsoft.com/zh-cn/library/ms174382.aspx?f=255&MSPPError=-2147217396
+```sql
+-- A: Create a Database Master Key.
+-- Only necessary if one does not already exist.
+-- Required to encrypt the credential secret in the next step.
+-- For more information on Master Key: https://msdn.microsoft.com/zh-cn/library/ms174382.aspx?f=255&MSPPError=-2147217396
 
-    CREATE MASTER KEY;
+CREATE MASTER KEY;
 
-    -- B: Create a database scoped credential
-    -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
-    -- SECRET: Provide your AAD Application Service Principal key.
-    -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/zh-cn/library/mt270260.aspx
+-- B: Create a database scoped credential
+-- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
+-- SECRET: Provide your AAD Application Service Principal key.
+-- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/zh-cn/library/mt270260.aspx
 
-    CREATE DATABASE SCOPED CREDENTIAL ADL_User
-    WITH
-        IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
-        SECRET = '<key>'
-    ;
+CREATE DATABASE SCOPED CREDENTIAL ADL_User
+WITH
+    IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
+    SECRET = '<key>'
+;
+```
 
 ### Create the external data source
 Use this [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] command to store the location of the data, and the type of data.
 You can find the ADL URI in the Azure portal preview and www.portal.azure.com.
 
-    -- C: Create an external data source
-    -- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Store.
-    -- LOCATION: Provide Azure Data Lake accountname and URI
-    -- CREDENTIAL: Provide the credential created in the previous step.
+```sql
+-- C: Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Store.
+-- LOCATION: Provide Azure Data Lake accountname and URI
+-- CREDENTIAL: Provide the credential created in the previous step.
 
-    CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
-    WITH (
-        TYPE = HADOOP,
-        LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
-        CREDENTIAL = AzureStorageCredential
-    );
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
+WITH (
+    TYPE = HADOOP,
+    LOCATION = 'adl://<AzureDataLake account_name>.azuredatalake.net',
+    CREDENTIAL = AzureStorageCredential
+);
+```
 
 ## Configure data format
 To import the data from ADLS, you need to specify the external file format. This command has format-specific options to describe your data.
 Below is an example of a commonly used file format that is a pipe-delimited text file.
 Look at our T-SQL documentation for a complete list of [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]
 
-    -- D: Create an external file format
-    -- FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text file
-    -- STRING_DELIMITER: Specifies the field terminator for data of type string in the text-delimited file.
-    -- DATE_FORMAT: Specifies a custom format for all date and time data that might appear in a delimited text file.
-    -- Use_Type_Default: Store all Missing values as NULL
+```sql
+-- D: Create an external file format
+-- FIELD_TERMINATOR: Marks the end of each field (column) in a delimited text file
+-- STRING_DELIMITER: Specifies the field terminator for data of type string in the text-delimited file.
+-- DATE_FORMAT: Specifies a custom format for all date and time data that might appear in a delimited text file.
+-- Use_Type_Default: Store all Missing values as NULL
 
-    CREATE EXTERNAL FILE FORMAT TextFileFormat
-    WITH
-    (   FORMAT_TYPE = DELIMITEDTEXT
-    ,    FORMAT_OPTIONS    (   FIELD_TERMINATOR = '|'
-                        ,    STRING_DELIMITER = ''
-                        ,    DATE_FORMAT         = 'yyyy-MM-dd HH:mm:ss.fff'
-                        ,    USE_TYPE_DEFAULT = FALSE
-                        )
-    );
+CREATE EXTERNAL FILE FORMAT TextFileFormat
+WITH
+(   FORMAT_TYPE = DELIMITEDTEXT
+,    FORMAT_OPTIONS    (   FIELD_TERMINATOR = '|'
+                    ,    STRING_DELIMITER = ''
+                    ,    DATE_FORMAT         = 'yyyy-MM-dd HH:mm:ss.fff'
+                    ,    USE_TYPE_DEFAULT = FALSE
+                    )
+);
+```
 
 ## Create the external tables
 Now that you have specified the data source and file format, you are ready to create the external tables. External tables are how you interact with external data. PolyBase uses recursive directory traversal to read all files in all subdirectories of the directory specified in the location parameter. Also, the following example shows how to create the object. You need to customize the statement to work with the data you have in ADLS.
 
-    -- D: Create an External Table
-    -- LOCATION: Folder under the ADLS root folder.
-    -- DATA_SOURCE: Specifies which Data Source Object to use.
-    -- FILE_FORMAT: Specifies which File Format Object to use
-    -- REJECT_TYPE: Specifies how you want to deal with rejected rows. Either Value or percentage of the total
-    -- REJECT_VALUE: Sets the Reject value based on the reject type.
+```sql
+-- D: Create an External Table
+-- LOCATION: Folder under the ADLS root folder.
+-- DATA_SOURCE: Specifies which Data Source Object to use.
+-- FILE_FORMAT: Specifies which File Format Object to use
+-- REJECT_TYPE: Specifies how you want to deal with rejected rows. Either Value or percentage of the total
+-- REJECT_VALUE: Sets the Reject value based on the reject type.
 
-    -- DimProduct
-    CREATE EXTERNAL TABLE [dbo].[DimProduct_external] (
-        [ProductKey] [int] NOT NULL,
-        [ProductLabel] [nvarchar](/documentation/articles/255/) NULL,
-        [ProductName] [nvarchar](/documentation/articles/500/) NULL
-    )
-    WITH
-    (
-        LOCATION='/DimProduct/'
-    ,   DATA_SOURCE = AzureDataLakeStore
-    ,   FILE_FORMAT = TextFileFormat
-    ,   REJECT_TYPE = VALUE
-    ,   REJECT_VALUE = 0
-    )
-    ;
+-- DimProduct
+CREATE EXTERNAL TABLE [dbo].[DimProduct_external] (
+    [ProductKey] [int] NOT NULL,
+    [ProductLabel] [nvarchar](/documentation/articles/255/) NULL,
+    [ProductName] [nvarchar](/documentation/articles/500/) NULL
+)
+WITH
+(
+    LOCATION='/DimProduct/'
+,   DATA_SOURCE = AzureDataLakeStore
+,   FILE_FORMAT = TextFileFormat
+,   REJECT_TYPE = VALUE
+,   REJECT_VALUE = 0
+)
+;
+```
 
 ## External Table Considerations
 Creating an external table is easy, but there are some nuances that need to be discussed.
@@ -153,18 +162,22 @@ CTAS creates a new table and populates it with the results of a select statement
 
 In this example, we are creating a hash distributed table called DimProduct from our External Table DimProduct_external.
 
-    CREATE TABLE [dbo].[DimProduct]
-    WITH (DISTRIBUTION = HASH([ProductKey]  ) )
-    AS
-    SELECT * FROM [dbo].[DimProduct_external]
-    OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
+```sql
+CREATE TABLE [dbo].[DimProduct]
+WITH (DISTRIBUTION = HASH([ProductKey]  ) )
+AS
+SELECT * FROM [dbo].[DimProduct_external]
+OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
+```
 
 ## Optimize columnstore compression
 By default, SQL Data Warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There's a variety of reasons why this can happen. To learn more, see [manage columnstore indexes][manage columnstore indexes].
 
 To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows.
 
-    ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
+```sql
+ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
+```
 
 For more information on maintaining columnstore indexes, see the [manage columnstore indexes][manage columnstore indexes] article.
 
@@ -179,18 +192,18 @@ The following example is a good starting point for creating statistics. It creat
 You have successfully loaded data into Azure SQL Data Warehouse. Great job!
 
 ##Next Steps
-Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](/documentation/articles/sql-data-warehouse-tables-overview/) and [T-SQL](/documentation/articles/sql-data-warehouse-develop-loops/).
+Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources on [Tables](./sql-data-warehouse-tables-overview.md) and [T-SQL](./sql-data-warehouse-develop-loops.md).
 
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-get-started-provision/
-[Load data into SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-overview-load/
-[SQL Data Warehouse development overview]: /documentation/articles/sql-data-warehouse-overview-develop/
-[manage columnstore indexes]: /documentation/articles/sql-data-warehouse-tables-index/
-[Statistics]: /documentation/articles/sql-data-warehouse-tables-statistics/
-[CTAS]: /documentation/articles/sql-data-warehouse-develop-ctas/
-[label]: /documentation/articles/sql-data-warehouse-develop-label/
+[Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[manage columnstore indexes]: ./sql-data-warehouse-tables-index.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
+[label]: ./sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/zh-cn/library/dn935022.aspx

@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Media Encoder Standard formats and codecs" 
-	description="This topic gives an overview of Media Encoder Standard formats and codecs." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Media Encoder Standard formats and codecs
+description: This topic gives an overview of Media Encoder Standard formats and codecs.
+services: media-services
+documentationCenter: ''
+authors: juliako
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/10/2016"
-	ms.author="juliako;anilmur"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: juliako;anilmur
+---
 
 #Media Encoder Standard Formats and Codecs
 
-
 This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.
-
 
 ##Input Container/File Formats
 
@@ -37,7 +35,7 @@ MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Yes
 Matroska/WebM (.mkv)		|Yes 
 WAVE/WAV (.wav)	|Yes 
 QuickTime (.mov) |Yes
- 
+
 ###Audio formats in input containers 
 
 Media Encoder Standard supports carrying the following audio formats in input containers:
@@ -49,7 +47,6 @@ or
 - MXF, GXF and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
 
 Note that support for explicit/user-supplied channel mapping will be provided in the near future.
-
 
 ##Input Video Codecs
 
@@ -74,8 +71,6 @@ Apple ProRes Proxy|Yes
 Apple ProRes 4444 |Yes
 Apple ProRes 4444 XQ |Yes
 
-
-
 ##Input Audio Codecs
 
 Input Audio Codecs|Supported
@@ -94,20 +89,17 @@ Dolby® E									|No
 Dolby® Digital (AC3)						|No 
 Dolby® Digital Plus (E-AC3)					|No 
 
-
 ##Output Formats and codecs
 
 The following table lists the codecs and file formats that are supported for export.
-
 
 File Format|Video Codec|Audio Codec
 ---|---|---
 MP4 <br/><br/>(including multi-bitrate MP4 containers) |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (High, Main, and Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
-
 ##See also
 
-[Encoding On-Demand Content with Azure Media Services](/documentation/articles/media-services-encode-asset/)
+[Encoding On-Demand Content with Azure Media Services](./media-services-encode-asset.md)
 
-[How to encode with Media Encoder Standard](/documentation/articles/media-services-dotnet-encode-with-media-encoder-standard/)
+[How to encode with Media Encoder Standard](./media-services-dotnet-encode-with-media-encoder-standard.md)

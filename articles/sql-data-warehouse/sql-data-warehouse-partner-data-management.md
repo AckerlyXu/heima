@@ -1,21 +1,22 @@
-<properties
-    pageTitle="SQL Data Warehouse data management partners | Azure"
-    description="Lists of third-party data management partners with solutions that support SQL Data Warehouse."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="jrowlandjones"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="c3d96b41-f049-49e8-af32-408f4a893477"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="12/27/2016"
-    wacn.date=""
-    ms.author="jrj;barbkess" />
+---
+title: SQL Data Warehouse data management partners | Azure
+description: Lists of third-party data management partners with solutions that support SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
+
+ms.assetid: c3d96b41-f049-49e8-af32-408f4a893477
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 12/27/2016
+wacn.date: ''
+ms.author: jrj;barbkess
+---
 
 # SQL Data Warehouse data management partners
 To create your end-to-end data warehouse solution, choose from a wide variety of industry-leading tools. This article highlights Microsoft partner companies with data management tools and solutions supporting Azure SQL Data Warehouse.
@@ -41,9 +42,9 @@ To learn more about some of our other partners, see [Business Intelligence partn
 [5]: ./media/sql-data-warehouse-partner-data-management/sql_sentry_logo.png
 
 <!--Article links-->
-[bi_partners]: /documentation/articles/sql-data-warehouse-partner-business-intelligence/
-[dm_partners]: /documentation/articles/sql-data-warehouse-partner-data-management/
-[di_partners]: /documentation/articles/sql-data-warehouse-partner-data-integration/
+[bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[dm_partners]: ./sql-data-warehouse-partner-data-management.md
+[di_partners]: ./sql-data-warehouse-partner-data-integration.md
 
 <!--Website links -->
 [coffing_website]:http://www.coffingdw.com/software/nexus/

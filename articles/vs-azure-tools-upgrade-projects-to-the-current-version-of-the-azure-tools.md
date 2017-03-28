@@ -1,21 +1,22 @@
-<properties
-    pageTitle="How to upgrade projects to the current version of the Azure tools | Azure"
-    description="Learn how to upgrade an Azure project in Visual Studio to the current version of the Azure tools"
-    services="visual-studio-online"
-    documentationcenter="na"
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="1d64070a-078d-468a-87f4-e6715de6475f"
-    ms.service="multiple"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="multiple"
-    ms.date="11/18/2016"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: How to upgrade projects to the current version of the Azure tools | Azure
+description: Learn how to upgrade an Azure project in Visual Studio to the current version of the Azure tools
+services: visual-studio-online
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: 1d64070a-078d-468a-87f4-e6715de6475f
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 11/18/2016
+wacn.date: ''
+ms.author: tarcher
+---
 
 # How to upgrade projects to the current version of the Azure Tools for Visual Studio
 ## Overview
@@ -31,7 +32,7 @@ If a project is automatically upgraded or you specify that you want to upgrade i
 - The property **UseIISExpressByDefault** is added and set to false so that the web server that’s used for debugging won’t automatically change from Internet Information Services (IIS) to IIS Express. IIS Express is the default web server for projects that are created with the newer releases of the tools.
 - If Azure Caching is hosted in one or more of your project’s roles, some properties in the service configuration (.cscfg file) and service definition (.csdef file) are changed when a project is upgraded. If the project uses the Azure Caching NuGet package, the project is upgraded to the most recent version of the package. You should open the web.config file and verify that the client configuration was maintained properly during the upgrade process. If you added the references to Azure Caching client assemblies without using the NuGet package, these assemblies won't be updated; you must manually update these references to the new versions.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > For F# projects, you must manually update references to Azure assemblies so that they reference the newer versions of those assemblies.
 > 
 > 
@@ -39,8 +40,7 @@ If a project is automatically upgraded or you specify that you want to upgrade i
 ### How to upgrade an Azure project to the current release
 1. Install the current version of the Azure Tools into the installation of Visual Studio that you want to use for the upgraded project, and then open the project that you want to upgrade. If the project was created with a Azure Tools release before 1.6 (November 2011), the project is automatically upgraded to the current version. If the project was created with the November 2011 release and that release is still installed, the project opens in that release.
 2. In Solution Explorer, open the shortcut menu for the project node, choose **Properties**, and then choose the **Application** tab of the dialog box that appears.
-   
+
     The **Application** tab shows the tools version that’s associated with the project. If the current version of Azure Tools appears, the project has already been upgraded. If you've installed a newer version of the tools than what the tab shows, an **Upgrade** button appears.
 3. Choose the **Upgrade** button to upgrade a project to the current version of the tools.
 4. Build the project, and then address any errors that result from API changes. For information about how to modify your code for the new version, see the documentation for the specific API.
-

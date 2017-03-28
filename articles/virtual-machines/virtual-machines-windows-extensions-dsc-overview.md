@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Desired State Configuration for Azure Overview | Azure"
-    description="Overview for using the Azure extension handler for PowerShell Desired State Configuration. Including prerequisites, architecture, cmdlets.."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="zjalexander"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management,azure-resource-manager"
-    keywords="" />
-<tags
-    ms.assetid="bbacbc93-1e7b-4611-a3ec-e3320641f9ba"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="na"
-    ms.date="01/09/2017"
-    wacn.date=""
-    ms.author="zachal" />
+---
+title: Desired State Configuration for Azure Overview | Azure
+description: Overview for using the Azure extension handler for PowerShell Desired State Configuration. Including prerequisites, architecture, cmdlets..
+services: virtual-machines-windows
+documentationcenter: ''
+author: zjalexander
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+keywords: ''
+
+ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: na
+ms.date: 01/09/2017
+wacn.date: ''
+ms.author: zachal
+---
 
 # Introduction to the Azure Desired State Configuration extension handler
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 The Azure VM Agent and associated Extensions are part of the Azure Infrastructure Services. VM Extensions are software components that extend the VM functionality and simplify various VM management operations. For example, the VMAccess extension can be used to reset an administrator's password, or the Custom Script extension can be used to execute a script on the VM.
 
@@ -93,49 +94,55 @@ The portal needs input.
 ## Getting started
 The Azure DSC extension takes in DSC configuration documents and enacts them on Azure VMs. A simple example of a configuration follows. Save it locally as "IisInstall.ps1":
 
-    configuration IISInstall 
+```powershell
+configuration IISInstall 
+{ 
+    node "localhost"
     { 
-        node "localhost"
+        WindowsFeature IIS 
         { 
-            WindowsFeature IIS 
-            { 
-                Ensure = "Present" 
-                Name = "Web-Server"                       
-            } 
+            Ensure = "Present" 
+            Name = "Web-Server"                       
         } 
-    }
+    } 
+}
+```
 
 The following steps place the IisInstall.ps1 script on the specified VM, execute the configuration, and report back on status.
 ###Classic model
 
-    #Azure PowerShell cmdlets are required
-    Import-Module Azure
+```powershell
+#Azure PowerShell cmdlets are required
+Import-Module Azure
 
-    #Use an existing Azure Virtual Machine, 'DscDemo1'
-    $demoVM = Get-AzureVM DscDemo1
+#Use an existing Azure Virtual Machine, 'DscDemo1'
+$demoVM = Get-AzureVM DscDemo1
 
-    #Publish the configuration script into user storage.
-    Publish-AzureVMDscConfiguration -ConfigurationPath ".\IisInstall.ps1" -StorageContext $storageContext -Verbose -Force
+#Publish the configuration script into user storage.
+Publish-AzureVMDscConfiguration -ConfigurationPath ".\IisInstall.ps1" -StorageContext $storageContext -Verbose -Force
 
-    #Set the VM to run the DSC configuration
-    Set-AzureVMDscExtension -VM $demoVM -ConfigurationArchive "IisInstall.ps1.zip" -StorageContext $storageContext -ConfigurationName "IisInstall" -Verbose
+#Set the VM to run the DSC configuration
+Set-AzureVMDscExtension -VM $demoVM -ConfigurationArchive "IisInstall.ps1.zip" -StorageContext $storageContext -ConfigurationName "IisInstall" -Verbose
 
-    #Update the configuration of an Azure Virtual Machine
-    $demoVM | Update-AzureVM -Verbose
+#Update the configuration of an Azure Virtual Machine
+$demoVM | Update-AzureVM -Verbose
 
-    #check on status
-    Get-AzureVMDscExtensionStatus -VM $demovm -Verbose
+#check on status
+Get-AzureVMDscExtensionStatus -VM $demovm -Verbose
+```
 
 ###Azure Resource Manager model
 
-    $resourceGroup = "dscVmDemo"
-    $location = "chinanorth"
-    $vmName = "myVM"
-    $storageName = "demostorage"
-    #Publish the configuration script into user storage
-    Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
-    #Set the VM to run the DSC configuration
-    Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName iisInstall.ps1.zip -AutoUpdate:$true -ConfigurationName "IISInstall"
+```powershell
+$resourceGroup = "dscVmDemo"
+$location = "chinanorth"
+$vmName = "myVM"
+$storageName = "demostorage"
+#Publish the configuration script into user storage
+Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
+#Set the VM to run the DSC configuration
+Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName iisInstall.ps1.zip -AutoUpdate:$true -ConfigurationName "IISInstall"
+```
 
 ## Logging
 Logs are placed in:
@@ -145,8 +152,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
 ## Next steps
 For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-Examine the [Azure Resource Manager template for the DSC extension](/documentation/articles/virtual-machines-windows-extensions-dsc-template/). 
+Examine the [Azure Resource Manager template for the DSC extension](./virtual-machines-windows-extensions-dsc-template.md). 
 
 To find additional functionality you can manage with PowerShell DSC, [browse the PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) for more DSC resources.
 
-For details on passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](/documentation/articles/virtual-machines-windows-extensions-dsc-credentials/).
+For details on passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](./virtual-machines-windows-extensions-dsc-credentials.md).

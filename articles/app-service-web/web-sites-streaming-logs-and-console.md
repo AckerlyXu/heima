@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Streaming logs and console"
-    description="Streaming logs and console overview"
-    author="btardif"
-    manager="erikre"
-    editor=""
-    services="app-service\web"
-    documentationcenter="" />
-<tags
-    ms.assetid="3e50a287-781b-4c6a-8c53-eec261889d7a"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="10/12/2016"
-    wacn.date=""
-    ms.author="byvinyal" />
+---
+title: Streaming logs and console
+description: Streaming logs and console overview
+author: btardif
+manager: erikre
+editor: ''
+services: app-service\web
+documentationcenter: ''
+
+ms.assetid: 3e50a287-781b-4c6a-8c53-eec261889d7a
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 10/12/2016
+wacn.date: ''
+ms.author: byvinyal
+---
 
 # Streaming Logs and the Console
 ## Streaming Logs
@@ -31,21 +32,27 @@ Setting up this feature requires a few simple steps:
 ### How to write traces in your code
 Writing traces in your code is easy.  In C# it's as easy as writing the following code:
 
-    Trace.TraceInformation("My trace statement");
+```
+Trace.TraceInformation("My trace statement");
+```
 
-<br/>
 
-    Trace.TraceWarning("My warning statement");
+```
+Trace.TraceWarning("My warning statement");
+```
 
-<br/>
 
-    Trace.TraceError("My error statement");
+```
+Trace.TraceError("My error statement");
+```
 
 The Trace class lives in the System.Diagnostics namespace.
 
 In a node.js app you can write this code to achieve the same result:
 
-    console.log("My trace statement").
+```
+console.log("My trace statement").
+```
 
 ### How to enable and view the streaming logs
 ![][BrowseSitesScreenshot]
@@ -62,7 +69,7 @@ collected.
 
 Click **SAVE** at the top of the blade and you're ready to view logs.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The higher the **severity level** the more resources are consumed to log and the more traces are produced. Make sure **severity level** is configured to the correct verbosity for a production or high traffic site. 
 > 
 > 
@@ -86,11 +93,14 @@ on **(1) Console** and the **(2) console** UI opens to the right.
 
 To get familiar with the **console**, try basic commands like:
 
-    dir
+```
+dir
+```
 
-<br/>
 
-    cd
+```
+cd
+```
 
 <!-- Images. -->
 [DiagnosticsLogs]: ./media/web-sites-streaming-logs-and-console/diagnostic-logs.png

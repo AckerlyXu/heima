@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Process vehicle sensor data with Apache Storm on HDInsight | Azure"
-    description="Learn how to process vehicle sensor data from Event Hubs using Apache Storm on HDInsight. Add model data from DocumentDB, and store output to storage."
-    services="hdinsight,documentdb,notification-hubs"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="78980635-8bef-4c33-96c3-fae50e932e31"
-    ms.service="hdinsight"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="02/09/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Process vehicle sensor data with Apache Storm on HDInsight | Azure
+description: Learn how to process vehicle sensor data from Event Hubs using Apache Storm on HDInsight. Add model data from DocumentDB, and store output to storage.
+services: hdinsight,documentdb,notification-hubs
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: 78980635-8bef-4c33-96c3-fae50e932e31
+ms.service: hdinsight
+ms.devlang: java
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 02/09/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Process vehicle sensor data from Azure Event Hubs using Apache Storm on HDInsight
 
@@ -46,7 +47,7 @@ The following is a diagram of this solution:
 
 ![storm topology](./media/hdinsight-storm-iot-eventhub-documentdb/iottopology.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This is a simplified diagram, and each component in the solution may have multiple instances. For example, the multiple instances of each component in the topology are distributed across the nodes in the Storm on HDInsight cluster.
 > 
 > 
@@ -57,4 +58,4 @@ A complete, automated solution for this scenario is available as part of the [HD
 
 ## Next Steps
 
-For more example Storm topologies, see [Example topologies for Storm on HDInsight](/documentation/articles/hdinsight-storm-example-topology/).
+For more example Storm topologies, see [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md).

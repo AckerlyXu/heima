@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Unsupported in Azure SQL Database T-SQL | Azure"
-    description="Transact-SQL statements that are less than fully supported in Azure SQL Database"
-    services="sql-database"
-    documentationcenter=""
-    author="BYHAM"
-    manager="jhubbard"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="c05abd9e-28a7-4c97-9bdf-bc60d08fc92e"
-    ms.service="sql-database"
-    ms.custom="overview"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="rick.byham@microsoft.com" />
+---
+title: Unsupported in Azure SQL Database T-SQL | Azure
+description: Transact-SQL statements that are less than fully supported in Azure SQL Database
+services: sql-database
+documentationcenter: ''
+author: BYHAM
+manager: jhubbard
+editor: ''
+tags: ''
+
+ms.assetid: c05abd9e-28a7-4c97-9bdf-bc60d08fc92e
+ms.service: sql-database
+ms.custom: overview
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: rick.byham@microsoft.com
+---
 
 # Azure SQL Database Transact-SQL differences
 Most of the Transact-SQL features that applications depend on are supported in both Microsoft SQL Server and Azure SQL Database. For example, the core SQL components such as data types, operators, string, arithmetic, logical, and cursor functions, etc., work without differences from SQL Server.
@@ -27,7 +28,7 @@ Azure SQL Database is designed to isolate features from dependencies on the mast
 
 For example, Always On is replaced with Active Geo-replication. For that reason, any Transact-SQL statements related to availability groups are not supported by SQL Database, and the dynamic management views related to Always On are not supported.  
 
-For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database considerations, guidelines and features](/documentation/articles/sql-database-features/).
+For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database considerations, guidelines and features](./sql-database-features.md).
 
 Syntax that is deprecated in SQL Server is generally not supported in SQL Database.
 
@@ -44,10 +45,10 @@ SQL Database supports some but not all the arguments that exist in the correspon
 - Views: [CREATE](https://msdn.microsoft.com/zh-cn/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/zh-cn/library/ms173846.aspx)
 
 ## Transact-SQL syntax not supported in SQL Database   
-In addition to Transact-SQL statements related to the unsupported features described in [Azure SQL Database considerations, guidelines and features](/documentation/articles/sql-database-features/), the following statements and groups of statements, are not supported.
+In addition to Transact-SQL statements related to the unsupported features described in [Azure SQL Database considerations, guidelines and features](./sql-database-features.md), the following statements and groups of statements, are not supported.
 - Collation of system objects
-- Connection related: Endpoint statements, `ORIGINAL_DB_NAME`. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](/documentation/articles/sql-database-aad-authentication/).
-- Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](/documentation/articles/sql-database-elastic-query-overview/).)
+- Connection related: Endpoint statements, `ORIGINAL_DB_NAME`. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](./sql-database-aad-authentication.md).
+- Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](./sql-database-elastic-query-overview.md).)
 - Cross database ownership chaining, `TRUSTWORTHY` setting
 - `DATABASEPROPERTY` Use `DATABASEPROPERTYEX` instead.
 - `EXECUTE AS LOGIN` Use 'EXECUTE AS USER' instead.
@@ -89,4 +90,3 @@ For more information about Transact-SQL grammar, usage, and examples, see [Trans
 The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/zh-cn/library/ff878399.aspx) topic indicates that the statement applies to **SQL Server (starting with 2012). The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
 
 In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate.
-

@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Azure"
-    description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution."
-    services="storage"
-    documentationcenter="java"
-    author="dineshmurthy"
-    manager="jahogg"
-    editor="tysonn" />
-<tags
-    ms.assetid="f4e5ca75-f6cb-4f74-981b-2aa06bb8de45"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="dinesh" />
+---
+title: Using Azure Storage with a Jenkins Continuous Integration Solution | Azure
+description: This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
+services: storage
+documentationcenter: java
+author: dineshmurthy
+manager: jahogg
+editor: tysonn
+
+ms.assetid: f4e5ca75-f6cb-4f74-981b-2aa06bb8de45
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: Java
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: dinesh
+---
 
 # Using Azure Storage with a Jenkins Continuous Integration solution
 ## Overview
@@ -39,19 +40,19 @@ Benefits of using the Blob service to host your agile development build artifact
 You will need the following to use the Blob service with your Jenkins CI solution:
 
 * A Jenkins Continuous Integration solution.
-  
+
     If you currently don't have a Jenkins CI solution, you can run a Jenkins CI solution using the following technique:
-  
+
   1. On a Java-enabled machine, download jenkins.war from <http://jenkins-ci.org>.
   2. At a command prompt that is opened to the folder that contains jenkins.war, run:
-     
+
       `java -jar jenkins.war`
 
   3. In your browser, open `http://localhost:8080/`. This will open the Jenkins dashboard, which you will use to install and configure the Azure Storage plugin.
-     
+
       While a typical Jenkins CI solution would be set up to run as a service, running the Jenkins war at the command line will be sufficient for this tutorial.
 - An Azure account. You can sign up for an Azure account at <http://www.azure.cn>.
-- An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](/documentation/articles/storage-create-storage-account/#create-a-storage-account).
+- An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](./storage-create-storage-account.md#create-a-storage-account).
 - Familiarity with the Jenkins CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Jenkins CI build artifacts.
 
 ## How to use the Blob service with Jenkins CI
@@ -84,21 +85,23 @@ For instruction purposes, first we'll need to create a job that will create seve
 3. In the **Build** section of the job configuration, click **Add build step** and choose **Execute Windows batch command**.
 4. In **Command**, use the following commands:
 
-        md text
-        cd text
-        echo Hello Azure Storage from Jenkins > hello.txt
-        date /t > date.txt
-        time /t >> date.txt
- 
+    ```
+    md text
+    cd text
+    echo Hello Azure Storage from Jenkins > hello.txt
+    date /t > date.txt
+    time /t >> date.txt
+    ```
+
 5. In the **Post-build Actions** section of the job configuration, click **Add post-build action** and choose **Upload artifacts to Azure Blob storage**.
 6. For **Storage account name**, select the storage account to use.
 7. For **Container name**, specify the container name. (The container will be created if it does not already exist when the build artifacts are uploaded.) You can use environment variables, so for this example enter **${JOB_NAME}** as the container name.
-   
+
     **Tip**
-   
+
     Below the **Command** section where you entered a script for **Execute Windows batch command** is a link to the environment variables recognized by Jenkins. Click that link to learn the environment variable names and descriptions. Note that environment variables that contain special characters, such as the **BUILD_URL** environment variable, are not allowed as a container name or common virtual path.
 
-8. Click **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access. That is beyond the scope of this topic. You can learn more about shared access signatures at [Using Shared Access Signatures (SAS)](/documentation/articles/storage-dotnet-shared-access-signature-part-1/).)
+8. Click **Make new container public by default** for this example. (If you want to use a private container, you'll need to create a shared access signature to allow access. That is beyond the scope of this topic. You can learn more about shared access signatures at [Using Shared Access Signatures (SAS)](./storage-dotnet-shared-access-signature-part-1.md).)
 9. [Optional] Click **Clean container before uploading** if you want the container to be cleared of contents before build artifacts are uploaded (leave it unchecked if you do not want to clean the contents of the container).
 10. For **List of Artifacts to upload**, enter **text/*.txt**.
 11. For **Common virtual path for uploaded artifacts**, for purposes of this tutorial, enter **${BUILD\_ID}/${BUILD\_NUMBER}**.
@@ -135,7 +138,7 @@ The following provides an overview of the Blob service components.
 - **URL format**: Blobs are addressable using the following URL format:
 
     `http://storageaccount.blob.core.chinacloudapi.cn/container_name/blob_name`
-    
+
     (The format above applies to the public Azure cloud. If you are using a different Azure cloud, use the endpoint within the [Azure Portal](https://portal.azure.cn) to determine your URL endpoint.)
 
     In the format above, `storageaccount` represents the name of your storage account, `container_name` represents the name of your container, and `blob_name` represents the name of your blob, respectively. Within the container name, you can have multiple paths, separated by a forward slash, **/**. The example container name in this tutorial was **MyJob**, and **${BUILD\_ID}/${BUILD\_NUMBER}** was used for the common virtual path, resulting in the blob having a URL of the following form:

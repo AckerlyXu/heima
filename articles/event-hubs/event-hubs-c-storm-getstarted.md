@@ -1,24 +1,24 @@
-<properties
-	pageTitle="Get Started with Event Hubs with C and Apache Storm | Microsoft Azure"
-	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving them in an Apache Storm cluster."
-	services="event-hubs"
-	documentationCenter=""
-	authors="jtaubensee"
-	manager="timlt"
-	editor=""/>
+---
+title: Get Started with Event Hubs with C and Apache Storm | Microsoft Azure
+description: Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving them in an Apache Storm cluster.
+services: event-hubs
+documentationCenter: ''
+authors: jtaubensee
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="c"
-	ms.devlang="java"
-	ms.topic="article"
-	ms.date="08/16/2016"
-	ms.author="jotaub;sethm"/>
+ms.service: event-hubs
+ms.workload: na
+ms.tgt_pltfrm: c
+ms.devlang: java
+ms.topic: article
+ms.date: 08/16/2016
+ms.author: jotaub;sethm
+---
 
 # Get started with Event Hubs
 
-[AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
+[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
 ## Introduction
 
@@ -36,23 +36,24 @@ To complete this tutorial, you will need the following:
 
 + An active Azure account. If you don't have an account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
+[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
 ## Run the applications
 
 Now you are ready to run the applications.
 
-1.	Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
+1. Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
 
-2.	Run the **sender** program, and see the events appear in the receiver window.
+2. Run the **sender** program, and see the events appear in the receiver window.
 
-	![][23]
+    ![][23]
 
-> [AZURE.NOTE] In this tutorial only, use Storm in local mode for development purposes. Refer to the [HDInsight Storm overview] and the official [Apache Storm] documentation for more information of Storm deployments and patterns.
+> [!NOTE]
+> In this tutorial only, use Storm in local mode for development purposes. Refer to the [HDInsight Storm overview] and the official [Apache Storm] documentation for more information of Storm deployments and patterns.
 
 ## Next steps
 
@@ -67,10 +68,9 @@ The following resources are available for developing applications integrating Ev
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.cn/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: ./event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[HDInsight Storm overview]: /documentation/articles/hdinsight-storm-overview/
-[Analyzing sensor data with Storm and HDInsight]: /documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: /documentation/articles/hdinsight-storm-develop-csharp-visual-studio-topology/
- 
+[HDInsight Storm overview]: ../hdinsight/hdinsight-storm-overview.md
+[Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md

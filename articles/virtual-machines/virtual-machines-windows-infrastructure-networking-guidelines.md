@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Azure networking infrastructure guidelines - Windows | Azure"
-    description="Learn about the key design and implementation guidelines for deploying virtual networking in Azure infrastructure services."
-    documentationcenter=""
-    services="virtual-machines-windows"
-    author="iainfoulds"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="e2d45973-5eba-4904-8ba0-1821f64feed7"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/17/2017"
-    wacn.date=""
-    ms.author="iainfou"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Azure networking infrastructure guidelines - Windows | Azure
+description: Learn about the key design and implementation guidelines for deploying virtual networking in Azure infrastructure services.
+documentationcenter: ''
+services: virtual-machines-windows
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: e2d45973-5eba-4904-8ba0-1821f64feed7
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 03/17/2017
+wacn.date: ''
+ms.author: iainfou
+ms.custom: H1Hack27Feb2017
+---
 
 # Azure networking infrastructure guidelines for Windows VMs 
 
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding the required planning steps for virtual networking within Azure and connectivity between existing on-prem environments.
 
@@ -41,7 +42,7 @@ Tasks:
 * Create the virtual network using your naming convention.
 
 ## Virtual networks
-Virtual networks are necessary to support communications between virtual machines (VMs). You can define subnets, custom IP address, DNS settings, security filtering, and load balancing, as with physical networks. By using a [VPN gateway](/documentation/articles/vpn-gateway-about-vpngateways/) or [Express Route circuit](/documentation/articles/expressroute-introduction/), you can connect Azure virtual networks to your on-premises networks. You can read more about [virtual networks and their components](/documentation/articles/virtual-networks-overview/).
+Virtual networks are necessary to support communications between virtual machines (VMs). You can define subnets, custom IP address, DNS settings, security filtering, and load balancing, as with physical networks. By using a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route circuit](../expressroute/expressroute-introduction.md), you can connect Azure virtual networks to your on-premises networks. You can read more about [virtual networks and their components](../virtual-network/virtual-networks-overview.md).
 
 By using Resource Groups, you have flexibility in how you design your virtual networking components. VMs can connect to virtual networks outside of their own resource group. A common design approach would be to create centralized resource groups that contain your core networking infrastructure that can be managed by a common team, and then VMs and their applications deployed to separate resource groups. This approach allows application owners access to the resource group that contains their VMs without opening up access to the configuration of the wider virtual networking resources.
 
@@ -81,7 +82,7 @@ For cross-premises virtual networks, you should design subnets with the same con
 | 28-59 |6 |/26 |
 | 60-123 |7 |/25 |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > For normal on-premises subnets, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> - 2. For an Azure subnet, the maximum number of host addresses for a subnet with n host bits is 2<sup>n</sup> - 5 (2 plus 3 for the addresses that Azure uses on each subnet).
 > 
 > 
@@ -89,15 +90,15 @@ For cross-premises virtual networks, you should design subnets with the same con
 If you choose a subnet size that is too small, you have to re-IP and redeploy the VMs in the subnet.
 
 ## Network Security Groups
-You can apply filtering rules to the traffic that flows through your virtual networks by using Network Security Groups. You can build granular filtering rules to secure your virtual networking environment, controlling inbound and outbound traffic, source and destination IP ranges, allowed ports, etc. Network Security Groups can be applied to subnets within a virtual network or directly to a given virtual network interface. It is recommended to have some level of Network Security Group filtering traffic on your virtual networks. You can read more about [Network Security Groups](/documentation/articles/virtual-networks-nsg/).
+You can apply filtering rules to the traffic that flows through your virtual networks by using Network Security Groups. You can build granular filtering rules to secure your virtual networking environment, controlling inbound and outbound traffic, source and destination IP ranges, allowed ports, etc. Network Security Groups can be applied to subnets within a virtual network or directly to a given virtual network interface. It is recommended to have some level of Network Security Group filtering traffic on your virtual networks. You can read more about [Network Security Groups](../virtual-network/virtual-networks-nsg.md).
 
 ## Additional network components
 As with an on-premises physical networking infrastructure, Azure virtual networking can contain more than subnets and IP addressing. As you design your application infrastructure, you may want to incorporate some of these additional components:
 
-* [VPN gateways](/documentation/articles/vpn-gateway-about-vpngateways/) - connect Azure virtual networks to other Azure virtual networks, or connect to on-premises networks through a Site-to-Site VPN connection. Implement Express Route connections for dedicated, secure connections. You can also provide users direct access with Point-to-Site VPN connections.
-* [Load balancer](/documentation/articles/load-balancer-overview/) - provides load balancing of traffic for both external and internal traffic as desired.
-* [Application Gateway](/documentation/articles/application-gateway-introduction/) - HTTP load-balancing at the application layer, providing some additional benefits for web applications rather than deploying the Azure load balancer.
-* [Traffic Manager](/documentation/articles/traffic-manager-overview/) - DNS-based traffic distribution to direct end-users to the closest available application endpoint, allowing you to host your application out of Azure datacenters in different regions.
+* [VPN gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md) - connect Azure virtual networks to other Azure virtual networks, or connect to on-premises networks through a Site-to-Site VPN connection. Implement Express Route connections for dedicated, secure connections. You can also provide users direct access with Point-to-Site VPN connections.
+* [Load balancer](../load-balancer/load-balancer-overview.md) - provides load balancing of traffic for both external and internal traffic as desired.
+* [Application Gateway](../application-gateway/application-gateway-introduction.md) - HTTP load-balancing at the application layer, providing some additional benefits for web applications rather than deploying the Azure load balancer.
+* [Traffic Manager](../traffic-manager/traffic-manager-overview.md) - DNS-based traffic distribution to direct end-users to the closest available application endpoint, allowing you to host your application out of Azure datacenters in different regions.
 
 ## <a name="next-steps"></a> Next steps
-[AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
+[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]

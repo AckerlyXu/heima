@@ -1,24 +1,24 @@
-<properties
-	pageTitle="Get Started with Event Hubs in Java with Apache Storm | Azure"
-	description="Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in an Apache Storm cluster."
-	services="event-hubs"
-	documentationCenter=""
-	authors="fsautomata"
-	manager="timlt"
-	editor=""/>
+---
+title: Get Started with Event Hubs in Java with Apache Storm | Azure
+description: Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in an Apache Storm cluster.
+services: event-hubs
+documentationCenter: ''
+authors: fsautomata
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="sethm"/>
+ms.service: event-hubs
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: sethm
+---
 
 # Get started with Event Hubs
 
-[AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
+[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
 ## Introduction
 
@@ -32,26 +32,26 @@ To complete this tutorial, you will need the following:
 
 + A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we assume [Eclipse](https://www.eclipse.org/).
 
-+ An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](/pricing/1rmb-trial/).
++ An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://www.azure.cn/pricing/1rmb-trial/).
 
-[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
+[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-java](../../includes/service-bus-event-hubs-get-started-send-java.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-send-java](../../includes/service-bus-event-hubs-get-started-send-java.md)]
 
-
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
 ## Run the applications
 
 Now you are ready to run the applications.
 
-1.	Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
+1. Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
 
-2.	Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
+2. Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
 
-   	![][22]
+       ![][22]
 
-> [AZURE.NOTE] In this tutorial only, use Storm in local mode for development purposes. See the [HDInsight Storm Overview][] and the official [Apache Storm][] documentation for more information of Storm deployments and patterns.
+> [!NOTE]
+> In this tutorial only, use Storm in local mode for development purposes. See the [HDInsight Storm Overview][] and the official [Apache Storm][] documentation for more information of Storm deployments and patterns.
 
 ## Next Steps
 
@@ -66,10 +66,9 @@ The following resources are available for developing applications integrating Ev
 <!-- Links -->
 [Azure Management Portal]: https://manage.windowsazure.cn/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs Overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs Overview]: ./event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[HDInsight Storm Overview]: /documentation/articles/hdinsight-storm-overview/
-[Analyzing sensor data with Storm and HDInsight]: /documentation/articles/hdinsight-storm-sensor-data-analysis/
+[HDInsight Storm Overview]: ../hdinsight/hdinsight-storm-overview.md
+[Analyzing sensor data with Storm and HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight]: /documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
- 

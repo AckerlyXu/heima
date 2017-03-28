@@ -1,4 +1,3 @@
-
 # Azure and Internet of Things
 Welcome to Microsoft Azure and the Internet of Things (IoT). This article introduces an IoT solution architecture that describes the common characteristics of an IoT solution you might deploy using Azure services. IoT solutions require secure, bidirectional communication between devices, possibly numbering in the millions, and a solution back end. For example, a solution back end might use automated, predictive analytics to uncover insights from your device-to-cloud event stream.
 
@@ -12,7 +11,8 @@ The following diagram shows a typical IoT solution architecture. The diagram doe
 
 ![IoT solution architecture][img-solution-architecture]
 
-> [AZURE.NOTE] For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
+> [!NOTE]
+> For an in-depth discussion of IoT architecture, see the [Microsoft Azure IoT Reference Architecture][lnk-refarch].
 
 ### Device connectivity
 
@@ -55,5 +55,5 @@ The presentation and business connectivity layer allows end users to interact wi
 
 [lnk-machinelearning]: /services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
-[lnk-protocol-gateway]:  /documentation/articles/iot-hub-protocol-gateway/
+[lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf

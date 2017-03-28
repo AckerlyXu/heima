@@ -1,21 +1,21 @@
-<properties
-	pageTitle=".NET multi-tier application using Azure Service Bus | Azure"
-	description="A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+---
+title: .NET multi-tier application using Azure Service Bus | Azure
+description: A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers.
+services: service-bus
+documentationCenter: .net
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="01/10/2017"
-	ms.author="sethm"
-	wacn.date=""/>
+ms.service: service-bus
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: get-started-article
+ms.date: 01/10/2017
+ms.author: sethm
+wacn.date: ''
+---
 
 # .NET multi-tier application using Azure Service Bus queues
 
@@ -32,7 +32,7 @@ You will learn the following:
     and worker roles.
 -   How to communicate between tiers using Service Bus queues.
 
-[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end is an ASP.NET MVC web role and the back end is a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project, that is deployed to an Azure website instead of a cloud service. For instructions about what to do differently on an Azure website front end, see the [Next steps](#nextsteps) section. You can also try out the [.NET on-premises/cloud hybrid application](/documentation/articles/service-bus-dotnet-hybrid-app-using-service-bus-relay/) tutorial.
 
@@ -117,7 +117,7 @@ created. The combination of namespace and SAS key
 provides the credentials for Service Bus to authenticate access to an
 application.
 
-[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Create a web role
 
@@ -158,7 +158,7 @@ queue and displays status information about the queue.
 
 6. Still in the **New ASP.NET Project** dialog box, click the **Change Authentication** button. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**. For this tutorial, you're deploying an app that doesn't need a user login.
 
-	![][16]
+    ![][16]
 
 7. Back in the **New ASP.NET Project** dialog box, click **OK** to create the project.
 
@@ -169,7 +169,7 @@ queue and displays status information about the queue.
 
     ![][13]
 
-	Note that the required client assemblies are now referenced and some new code files have been added.
+    Note that the required client assemblies are now referenced and some new code files have been added.
 
 9.  In **Solution Explorer**, right-click **Models** and click **Add**,
     then click **Class**. In the **Name** box, type the name
@@ -182,82 +182,82 @@ In this section, you create the various pages that your application displays.
 1.  In the OnlineOrder.cs file in Visual Studio, replace the
     existing namespace definition with the following code:
 
-	```
-	namespace FrontendWebRole.Models
-	{
-	    public class OnlineOrder
-	    {
-	        public string Customer { get; set; }
-	        public string Product { get; set; }
-	    }
-	}
-	```
+    ```
+    namespace FrontendWebRole.Models
+    {
+        public class OnlineOrder
+        {
+            public string Customer { get; set; }
+            public string Product { get; set; }
+        }
+    }
+    ```
 
 2.  In **Solution Explorer**, double-click
     **Controllers\HomeController.cs**. Add the following **using**
     statements at the top of the file to include the namespaces for the
     model you just created, as well as Service Bus.
 
-	```
-	using FrontendWebRole.Models;
-	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.ServiceBus;
-	```
+    ```
+    using FrontendWebRole.Models;
+    using Microsoft.ServiceBus.Messaging;
+    using Microsoft.ServiceBus;
+    ```
 
 3.  Also in the HomeController.cs file in Visual Studio, replace the
     existing namespace definition with the following code. This code
     contains methods for handling the submission of items to the queue.
 
-	```
-	namespace FrontendWebRole.Controllers
-	{
-	    public class HomeController : Controller
-	    {
-	        public ActionResult Index()
-	        {
-	            // Simply redirect to Submit, since Submit will serve as the
-	            // front page of this application.
-	            return RedirectToAction("Submit");
-	        }
-	
-	        public ActionResult About()
-	        {
-	            return View();
-	        }
-	
-	        // GET: /Home/Submit.
-	        // Controller method for a view you will create for the submission
-	        // form.
-	        public ActionResult Submit()
-	        {
-	            // Will put code for displaying queue message count here.
-	
-	            return View();
-	        }
-	
-	        // POST: /Home/Submit.
-	        // Controller method for handling submissions from the submission
-	        // form.
-	        [HttpPost]
-			// Attribute to help prevent cross-site scripting attacks and
-			// cross-site request forgery.  
-			[ValidateAntiForgeryToken]
-	        public ActionResult Submit(OnlineOrder order)
-	        {
-	            if (ModelState.IsValid)
-	            {
-	                // Will put code for submitting to queue here.
-	
-	                return RedirectToAction("Submit");
-	            }
-	            else
-	            {
-	                return View(order);
-	            }
-	        }
-	    }
-	}
-	```
+    ```
+    namespace FrontendWebRole.Controllers
+    {
+        public class HomeController : Controller
+        {
+            public ActionResult Index()
+            {
+                // Simply redirect to Submit, since Submit will serve as the
+                // front page of this application.
+                return RedirectToAction("Submit");
+            }
+
+            public ActionResult About()
+            {
+                return View();
+            }
+
+            // GET: /Home/Submit.
+            // Controller method for a view you will create for the submission
+            // form.
+            public ActionResult Submit()
+            {
+                // Will put code for displaying queue message count here.
+
+                return View();
+            }
+
+            // POST: /Home/Submit.
+            // Controller method for handling submissions from the submission
+            // form.
+            [HttpPost]
+            // Attribute to help prevent cross-site scripting attacks and
+            // cross-site request forgery.  
+            [ValidateAntiForgeryToken]
+            public ActionResult Submit(OnlineOrder order)
+            {
+                if (ModelState.IsValid)
+                {
+                    // Will put code for submitting to queue here.
+
+                    return RedirectToAction("Submit");
+                }
+                else
+                {
+                    return View(order);
+                }
+            }
+        }
+    }
+    ```
 
 4.  On the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
 
@@ -282,7 +282,7 @@ In this section, you create the various pages that your application displays.
 
 10. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
 
-	![][28]
+    ![][28]
 
 11. Finally, modify the submission page to include some information about
     the queue. In **Solution Explorer**, double-click the
@@ -290,9 +290,9 @@ In this section, you create the various pages that your application displays.
     editor. Add the following line after `<h2>Submit</h2>`. For now,
     the `ViewBag.MessageCount` is empty. You will populate it later.
 
-	```
-	<p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
-	```
+    ```
+    <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
+    ```
 
 12. You now have implemented your UI. You can press **F5** to run your
     application and confirm that it looks as expected.
@@ -314,73 +314,73 @@ Service Bus queue.
 
 3.  Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. Replace the entire contents of QueueConnector.cs with the following code, and enter values for `your Service Bus namespace` (your namespace name) and `yourKey`, which is the **primary key** you previously obtained from the Azure portal.
 
-	```
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Web;
-	using Microsoft.ServiceBus.Messaging;
-	using Microsoft.ServiceBus;
-	
-	namespace FrontendWebRole
-	{
-	    public static class QueueConnector
-	    {
-	        // Thread-safe. Recommended that you cache rather than recreating it
-	        // on every request.
-	        public static QueueClient OrdersQueueClient;
-	
-	        // Obtain these values from the portal.
-	        public const string Namespace = "your Service Bus namespace";
-	
-	        // The name of your queue.
-	        public const string QueueName = "OrdersQueue";
-	
-	        public static NamespaceManager CreateNamespaceManager()
-	        {
-	            // Create the namespace manager which gives you access to
-	            // management operations.
-	            var uri = ServiceBusEnvironment.CreateServiceUri(
-	                "sb", Namespace, String.Empty);
-	            var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
-	                "RootManageSharedAccessKey", "yourKey");
-	            return new NamespaceManager(uri, tP);
-	        }
-	
-	        public static void Initialize()
-	        {
-	            // Using Http to be friendly with outbound firewalls.
-	            ServiceBusEnvironment.SystemConnectivity.Mode =
-	                ConnectivityMode.Http;
-	
-	            // Create the namespace manager which gives you access to
-	            // management operations.
-	            var namespaceManager = CreateNamespaceManager();
-	
-	            // Create the queue if it does not exist already.
-	            if (!namespaceManager.QueueExists(QueueName))
-	            {
-	                namespaceManager.CreateQueue(QueueName);
-	            }
-	
-	            // Get a client to the queue.
-	            var messagingFactory = MessagingFactory.Create(
-	                namespaceManager.Address,
-	                namespaceManager.Settings.TokenProvider);
-	            OrdersQueueClient = messagingFactory.CreateQueueClient(
-	                "OrdersQueue");
-	        }
-	    }
-	}
-	```
+    ```
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using Microsoft.ServiceBus.Messaging;
+    using Microsoft.ServiceBus;
+
+    namespace FrontendWebRole
+    {
+        public static class QueueConnector
+        {
+            // Thread-safe. Recommended that you cache rather than recreating it
+            // on every request.
+            public static QueueClient OrdersQueueClient;
+
+            // Obtain these values from the portal.
+            public const string Namespace = "your Service Bus namespace";
+
+            // The name of your queue.
+            public const string QueueName = "OrdersQueue";
+
+            public static NamespaceManager CreateNamespaceManager()
+            {
+                // Create the namespace manager which gives you access to
+                // management operations.
+                var uri = ServiceBusEnvironment.CreateServiceUri(
+                    "sb", Namespace, String.Empty);
+                var tP = TokenProvider.CreateSharedAccessSignatureTokenProvider(
+                    "RootManageSharedAccessKey", "yourKey");
+                return new NamespaceManager(uri, tP);
+            }
+
+            public static void Initialize()
+            {
+                // Using Http to be friendly with outbound firewalls.
+                ServiceBusEnvironment.SystemConnectivity.Mode =
+                    ConnectivityMode.Http;
+
+                // Create the namespace manager which gives you access to
+                // management operations.
+                var namespaceManager = CreateNamespaceManager();
+
+                // Create the queue if it does not exist already.
+                if (!namespaceManager.QueueExists(QueueName))
+                {
+                    namespaceManager.CreateQueue(QueueName);
+                }
+
+                // Get a client to the queue.
+                var messagingFactory = MessagingFactory.Create(
+                    namespaceManager.Address,
+                    namespaceManager.Settings.TokenProvider);
+                OrdersQueueClient = messagingFactory.CreateQueueClient(
+                    "OrdersQueue");
+            }
+        }
+    }
+    ```
 
 4.  Now, ensure that your **Initialize** method gets called. In **Solution Explorer**, double-click **Global.asax\Global.asax.cs**.
 
 5.  Add the following line of code at the end of the **Application_Start** method.
 
-	```
-	FrontendWebRole.QueueConnector.Initialize();
-	```
+    ```
+    FrontendWebRole.QueueConnector.Initialize();
+    ```
 
 6.  Finally, update the web code you created earlier, to
     submit items to the queue. In **Solution Explorer**,
@@ -389,42 +389,42 @@ Service Bus queue.
 7.  Update the `Submit()` method (the overload that takes no parameters) as follows to get the message count
     for the queue.
 
-	```
-	public ActionResult Submit()
-	{
-	    // Get a NamespaceManager which allows you to perform management and
-	    // diagnostic operations on your Service Bus queues.
-	    var namespaceManager = QueueConnector.CreateNamespaceManager();
-	
-	    // Get the queue, and obtain the message count.
-	    var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
-	    ViewBag.MessageCount = queue.MessageCount;
-	
-	    return View();
-	}
-	```
+    ```
+    public ActionResult Submit()
+    {
+        // Get a NamespaceManager which allows you to perform management and
+        // diagnostic operations on your Service Bus queues.
+        var namespaceManager = QueueConnector.CreateNamespaceManager();
+
+        // Get the queue, and obtain the message count.
+        var queue = namespaceManager.GetQueue(QueueConnector.QueueName);
+        ViewBag.MessageCount = queue.MessageCount;
+
+        return View();
+    }
+    ```
 
 8.  Update the `Submit(OnlineOrder order)` method (the overload that takes one parameter) as follows to submit
     order information to the queue.
 
-	```
-	public ActionResult Submit(OnlineOrder order)
-	{
-	    if (ModelState.IsValid)
-	    {
-	        // Create a message from the order.
-	        var message = new BrokeredMessage(order);
-	
-	        // Submit the order.
-	        QueueConnector.OrdersQueueClient.Send(message);
-	        return RedirectToAction("Submit");
-	    }
-	    else
-	    {
-	        return View(order);
-	    }
-	}
-	```
+    ```
+    public ActionResult Submit(OnlineOrder order)
+    {
+        if (ModelState.IsValid)
+        {
+            // Create a message from the order.
+            var message = new BrokeredMessage(order);
+
+            // Submit the order.
+            QueueConnector.OrdersQueueClient.Send(message);
+            return RedirectToAction("Submit");
+        }
+        else
+        {
+            return View(order);
+        }
+    }
+    ```
 
 9.  You can now run the application again. Each time you submit an
     order, the message count increases.
@@ -443,11 +443,11 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 3.  Click **Add**, and then click **New Worker Role Project**. The **Add New Role Project** dialog box appears.
 
-	![][26]
+    ![][26]
 
 4.  In the **Add New Role Project** dialog box, click **Worker Role with Service Bus Queue**.
 
-	![][23]
+    ![][23]
 
 5.  In the **Name** box, name the project **OrderProcessingRole**. Then click **Add**.
 
@@ -457,7 +457,7 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 8.  On the **Settings** tab of the **Properties** dialog box, click inside the **Value** box for **Microsoft.ServiceBus.ConnectionString**, and then paste the endpoint value you copied in step 6.
 
-	![][25]
+    ![][25]
 
 9.  Create an **OnlineOrder** class to represent the orders as you process them from the queue. You can reuse a class you have already created. In **Solution Explorer**, right-click the **OrderProcessingRole** class (right-click the class icon, not the role). Click **Add**, then click **Existing Item**.
 
@@ -465,26 +465,26 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 11. In **WorkerRole.cs**, change the value of the **QueueName** variable from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
 
-	```
-	// The name of your queue.
-	const string QueueName = "OrdersQueue";
-	```
+    ```
+    // The name of your queue.
+    const string QueueName = "OrdersQueue";
+    ```
 
 12. Add the following using statement at the top of the WorkerRole.cs file.
 
-	```
-	using FrontendWebRole.Models;
-	```
+    ```
+    using FrontendWebRole.Models;
+    ```
 
 13. In the `Run()` function, inside the `OnMessage()` call, replace the contents of the `try` clause with the following code.
 
-	```
-	Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
-	// View the message as an OnlineOrder.
-	OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
-	Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
-	receivedMessage.Complete();
-	```
+    ```
+    Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
+    // View the message as an OnlineOrder.
+    OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
+    Trace.WriteLine(order.Customer + ": " + order.Product, "ProcessingMessage");
+    receivedMessage.Complete();
+    ```
 
 14. You have completed the application. You can test the full
     application by right-clicking the MultiTierApp project in Solution Explorer,
@@ -533,7 +533,6 @@ To learn more about multi-tier scenarios, see:
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-  [sbacom]: /documentation/services/service-bus/  
-  [sbacomqhowto]: /documentation/articles/service-bus-dotnet-get-started-with-queues/  
+  [sbacom]: ../service-bus/index.md  
+  [sbacomqhowto]: ./service-bus-dotnet-get-started-with-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-  

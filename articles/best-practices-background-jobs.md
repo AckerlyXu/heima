@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Background jobs guidance | Azure"
-   description="Guidance on background tasks that run independently of the user interface."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="christb"
-   editor=""
-   tags=""/>
+---
+title: Background jobs guidance | Azure
+description: Guidance on background tasks that run independently of the user interface.
+services: ''
+documentationCenter: na
+authors: dragon119
+manager: christb
+editor: ''
+tags: ''
 
-<tags
-   ms.service="best-practice"
-   ms.date="07/21/2016"
-   wacn.date=""/>
+ms.service: best-practice
+ms.date: 07/21/2016
+wacn.date: ''
+---
 
 # Background jobs guidance
 
-[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
+[!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Overview
 
@@ -85,7 +85,7 @@ You can host background tasks by using a range of different Azure platform servi
 - [**Azure Web Apps and WebJobs**](#azure-web-apps-and-webjobs). You can use WebJobs to execute custom jobs based on a range of different types of scripts or executable programs within the context of a web app.
 - [**Azure Cloud Services web and worker roles**](#azure-cloud-services-web-and-worker-roles). You can write code within a role that executes as a background task.
 - [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
-- [**Azure Batch**](/documentation/articles/batch-technical-overview/). It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
+- [**Azure Batch**](./batch/batch-technical-overview.md). It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
 
@@ -122,7 +122,7 @@ Azure WebJobs have the following characteristics:
 
 ### More information
 
-- [Azure WebJobs Recommended Resources](/documentation/articles/websites-webjobs-resources/) lists the many useful resources, downloads, and samples for WebJobs.
+- [Azure WebJobs Recommended Resources](./app-service-web/websites-webjobs-resources.md) lists the many useful resources, downloads, and samples for WebJobs.
 
 ## Azure Cloud Services web and worker roles
 
@@ -163,13 +163,13 @@ Consider the following points when choosing how and where to deploy background t
 ### More information
 
 - [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/zh-cn/library/dn589778.aspx)
-- [Get Started with the Azure WebJobs SDK](/documentation/articles/websites-dotnet-webjobs-sdk-get-started/)
+- [Get Started with the Azure WebJobs SDK](./app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 
 ## Azure Virtual Machines
 
 Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps or Cloud Services, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
-To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](/documentation/articles/choose-web-site-cloud-service-vm/). For information about the options for [Virtual Machines, see Virtual Machine and Cloud Service sizes for Azure](http://msdn.microsoft.com/zh-cn/library/azure/dn197896.aspx). For more information about the operating systems and pre-built images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines/).
+To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](./app-service-web/choose-web-site-cloud-service-vm.md). For information about the options for [Virtual Machines, see Virtual Machine and Cloud Service sizes for Azure](http://msdn.microsoft.com/zh-cn/library/azure/dn197896.aspx). For more information about the operating systems and pre-built images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines/).
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
@@ -190,7 +190,7 @@ Consider the following points when you are deciding whether to deploy background
 ### More information
 
 - [Virtual Machines](/services/virtual-machines/) on Azure
-- [Azure Virtual Machines FAQ](/documentation/articles/virtual-machines-linux-classic-faq/)
+- [Azure Virtual Machines FAQ](./virtual-machines/virtual-machines-linux-classic-faq.md)
 
 ## Design considerations
 
@@ -255,18 +255,18 @@ Consider the following points when you are planning how you will run background 
 - The Azure load balancer starts directing traffic to the role instance when the **RoleEntryPoint.OnStart** method returns the value **true**. Therefore, consider putting all your initialization code in the **OnStart** method so that role instances that do not successfully initialize will not receive any traffic.
 - You can use startup tasks in addition to the methods of the **RoleEntryPoint** class. You should use startup tasks to initialize any settings that you need to change in the Azure load balancer because these tasks will execute before the role receives any requests. For more information, see [Run startup tasks in Azure](./cloud-services/cloud-services-startup-tasks.md).
 - If there is an error in a startup task, it might force the role to continually restart. This can prevent you from performing a virtual IP (VIP) address swap back to a previously staged version because the swap requires exclusive access to the role. This cannot be obtained while the role is restarting. To resolve this:
-	-  Add the following code to the beginning of the **OnStart** and **Run** methods in your role:
+    -  Add the following code to the beginning of the **OnStart** and **Run** methods in your role:
 
-	```C#
-	var freeze = CloudConfigurationManager.GetSetting("Freeze");
-	if (freeze != null)
-	{
-		if (Boolean.Parse(freeze))
-	  	{
-		    Thread.Sleep(System.Threading.Timeout.Infinite);
-		}
-	}
-	```
+    ```C#
+    var freeze = CloudConfigurationManager.GetSetting("Freeze");
+    if (freeze != null)
+    {
+        if (Boolean.Parse(freeze))
+          {
+            Thread.Sleep(System.Threading.Timeout.Infinite);
+        }
+    }
+    ```
 
    - Add the definition of the **Freeze** setting as a Boolean value to the ServiceDefinition.csdef and ServiceConfiguration.*.cscfg files for the role and set it to **false**. If the role goes into a repeated restart mode, you can change the setting to **true** to freeze role execution and allow it to be swapped with a previous version.
 
@@ -315,5 +315,5 @@ Background tasks must offer sufficient performance to ensure they do not block t
 - [Azure Role Startup Life Cycle](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (blog post)
 - [Azure Cloud Services Role Lifecycle](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (video)
 - [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started/)
-- [Azure Queues and Service Bus Queues - Compared and Contrasted](/documentation/articles/service-bus-azure-and-service-bus-queues-compared-contrasted/)
-- [How To Enable Diagnostics in a Cloud Service](/documentation/articles/cloud-services-dotnet-diagnostics/)
+- [Azure Queues and Service Bus Queues - Compared and Contrasted](./service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [How To Enable Diagnostics in a Cloud Service](./cloud-services/cloud-services-dotnet-diagnostics.md)

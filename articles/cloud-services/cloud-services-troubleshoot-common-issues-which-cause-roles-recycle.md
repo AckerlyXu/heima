@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Common causes of Cloud Service roles recycling | Azure"
-   description="A cloud service role that suddenly recycles can cause significant downtime. Here are some common issues that cause roles to be recycled, which may help you reduce downtime."
-   services="cloud-services"
-   documentationCenter=""
-   authors="simonxjx"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue"/>
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="11/30/2016"
-   ms.author="v-six"
-   wacn.date=""/>
+---
+title: Common causes of Cloud Service roles recycling | Azure
+description: A cloud service role that suddenly recycles can cause significant downtime. Here are some common issues that cause roles to be recycled, which may help you reduce downtime.
+services: cloud-services
+documentationCenter: ''
+authors: simonxjx
+manager: felixwu
+editor: ''
+tags: top-support-issue
+
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 11/30/2016
+ms.author: v-six
+wacn.date: ''
+---
 
 # Common issues that cause roles to recycle
 
 This article discusses some of the common causes of deployment problems and provides troubleshooting tips to help you resolve these problems. An indication that a problem exists with an application is when the role instance fails to start, or it cycles between the initializing, busy, and stopping states.
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Missing runtime dependencies
 
@@ -56,9 +57,11 @@ To ensure that your `DiagnosticsConnectionString` setting is correct before you 
 - The `DiagnosticsConnectionString` setting points to a valid storage account in Azure.  
   By default, this setting points to the emulated storage account, so you must explicitly change this setting before you deploy your application package. If you do not change this setting, an exception is thrown when the role instance attempts to start the diagnostic monitor. This may cause the role instance to recycle indefinitely.
 
-- The connection string is specified in the following [format](/documentation/articles/storage-configure-connection-string/). (The protocol must be specified as HTTPS.) Replace *MyAccountName* with the name of your storage account, and *MyAccountKey* with your access key:    
+- The connection string is specified in the following [format](../storage/storage-configure-connection-string.md). (The protocol must be specified as HTTPS.) Replace *MyAccountName* with the name of your storage account, and *MyAccountKey* with your access key:    
 
-        DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
+    ```
+    DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
+    ```
 
   If you are developing your application by using Azure Tools for Microsoft Visual Studio, you can use the [property pages](https://msdn.microsoft.com/zh-cn/library/ee405486) to set this value.
 

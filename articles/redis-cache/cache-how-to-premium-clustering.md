@@ -1,26 +1,27 @@
-<properties
-    pageTitle="How to configure Redis clustering for a Premium Azure Redis Cache | Azure"
-    description="Learn how to create and manage Redis clustering for your Premium tier Azure Redis Cache instances"
-    services="redis-cache"
-    documentationcenter=""
-    author="steved0x"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="62208eec-52ae-4713-b077-62659fd844ab"
-    ms.service="cache"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="cache-redis"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="sdanie" />
+---
+title: How to configure Redis clustering for a Premium Azure Redis Cache | Azure
+description: Learn how to create and manage Redis clustering for your Premium tier Azure Redis Cache instances
+services: redis-cache
+documentationcenter: ''
+author: steved0x
+manager: douge
+editor: ''
+
+ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
+ms.service: cache
+ms.workload: tbd
+ms.tgt_pltfrm: cache-redis
+ms.devlang: na
+ms.topic: article
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: sdanie
+---
 
 # How to configure Redis clustering for a Premium Azure Redis Cache
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. This article describes how to configure clustering in a premium Azure Redis Cache instance.
 
-For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](/documentation/articles/cache-premium-tier-intro/).
+For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](./cache-premium-tier-intro.md).
 
 ## What is Redis Cluster?
 Azure Redis Cache offers Redis cluster as [implemented in Redis](http://redis.io/topics/cluster-tutorial). With Redis Cluster, you get the following benefits. 
@@ -30,14 +31,14 @@ Azure Redis Cache offers Redis cluster as [implemented in Redis](http://redis.io
 * More throughput: Throughput increases linearly as you increase the number of shards. 
 * More memory size: Increases linearly as you increase the number of shards.  
 
-See the [Azure Redis Cache FAQ](/documentation/articles/cache-faq/#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches. 
+See the [Azure Redis Cache FAQ](./cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches. 
 
 In Azure, Redis cluster is offered as a primary/replica model where each shard has a primary/replica pair with replication where the replication is managed by Azure Redis Cache service. 
 
 ## Clustering
 Clustering is enabled on the **New Redis Cache** blade during cache creation. 
 
-[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 Clustering is configured on the **Redis Cluster** blade.
 
@@ -49,9 +50,9 @@ Each shard is a primary/replica cache pair managed by Azure, and the total size 
 
 ![Clustering][redis-cache-clustering-selected]
 
-Once the cache is created you connect to it and use it just like a non-clustered cache, and Redis will distribute the data throughout the Cache shards. If diagnostics is [enabled](/documentation/articles/cache-how-to-monitor/#enable-cache-diagnostics), metrics are captured separately for each shard and can be [viewed](/documentation/articles/cache-how-to-monitor/) in the Redis Cache blade. 
+Once the cache is created you connect to it and use it just like a non-clustered cache, and Redis will distribute the data throughout the Cache shards. If diagnostics is [enabled](./cache-how-to-monitor.md#enable-cache-diagnostics), metrics are captured separately for each shard and can be [viewed](./cache-how-to-monitor.md) in the Redis Cache blade. 
 
-> [AZURE.NOTE]
+> [!NOTE]
 > 
 > There are some minor differences required in your client application when clustering is configured. For more information, see [Do I need to make any changes to my client application to use clustering?](#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 > 
@@ -62,7 +63,7 @@ For sample code on working with clustering with the StackExchange.Redis client, 
 ## <a name="cluster-size" id="change-the-cluster-size-on-a-running-premium-cache"></a> Change the cluster size on a running premium cache
 To change the cluster size on a running premium cache with clustering enabled, click **(PREVIEW) Redis Cluster Size** from the **Resource menu**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Note that while the Azure Redis Cache Premium tier has been released to General Availability, the Redis Cluster Size feature is currently in preview.
 > 
 > 
@@ -87,10 +88,10 @@ The following list contains answers to commonly asked questions about Azure Redi
 
 ### <a name="do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering"></a> Do I need to make any changes to my client application to use clustering?
 * When clustering is enabled, only database 0 is available. If your client application uses multiple databases and it tries to read or write to a database other than 0, the following exception is thrown. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
-  
+
     For more information, see [Redis Cluster Specification - Implemented subset](http://redis.io/topics/cluster-spec#implemented-subset).
-* If you are using [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), you must use 1.0.481 or later. You connect to the cache using the same [endpoints, ports, and keys](/documentation/articles/cache-configure/#properties) that you use when connecting to a cache that does not have clustering enabled. The only difference is that all reads and writes must be done to database 0.
-  
+* If you are using [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), you must use 1.0.481 or later. You connect to the cache using the same [endpoints, ports, and keys](./cache-configure.md#properties) that you use when connecting to a cache that does not have clustering enabled. The only difference is that all reads and writes must be done to database 0.
+
     * Other clients may have different requirements. See [Do all Redis clients support clustering?](#do-all-redis-clients-support-clustering)
 * If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To accomplish this, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
 * If you are using Redis ASP.NET Session State provider you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
@@ -108,29 +109,31 @@ For more information, see [Keys distribution model](http://redis.io/topics/clust
 For sample code on working with clustering and locating keys in the same shard with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a> What is the largest cache size I can create?
-The largest premium cache size is 53 GB. You can create up to 10 shards giving you a maximum size of 530 GB. If you need a larger size you can [request more](/support/support-azure/). For more information, see [Azure Redis Cache Pricing](/pricing/details/redis-cache/).
+The largest premium cache size is 53 GB. You can create up to 10 shards giving you a maximum size of 530 GB. If you need a larger size you can [request more](https://www.azure.cn/support/support-azure/). For more information, see [Azure Redis Cache Pricing](https://www.azure.cn/pricing/details/redis-cache/).
 
 ### <a name="do-all-redis-clients-support-clustering"></a> Do all Redis clients support clustering?
 At the present time not all clients support Redis clustering. StackExchange.Redis is one that does support for it. For more information on other clients, see the [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) section of the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you are using StackExchange.Redis as your client, ensure you are using the latest version of [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 or later for clustering to work correctly. If you have any issues with move exceptions, see [move exceptions](#move-exceptions) for more information.
 > 
 > 
 
 ### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled"></a> How do I connect to my cache when clustering is enabled?
-You can connect to your cache using the same [endpoints](/documentation/articles/cache-configure/#properties), [ports](/documentation/articles/cache-configure/#properties), and [keys](/documentation/articles/cache-configure/#access-keys) that you use when connecting to a cache that does not have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
+You can connect to your cache using the same [endpoints](./cache-configure.md#properties), [ports](./cache-configure.md#properties), and [keys](./cache-configure.md#access-keys) that you use when connecting to a cache that does not have clustering enabled. Redis manages the clustering on the backend so you don't have to manage it from your client.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a> Can I directly connect to the individual shards of my cache?
 This is not officially supported. With that said, each shard consists of a primary/replica cache pair that are collectively known as a cache instance. You can connect to these cache instances using the redis-cli utility in the [unstable](http://redis.io/download) branch of the Redis repository at GitHub. This version implements basic support when started with the `-c` switch. For more information see [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [http://redis.io](http://redis.io) in the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
 
 For non-ssl, use the following commands.
 
-    Redis-cli.exe -h <<cachename>> -p 13000 (to connect to instance 0)
-    Redis-cli.exe -h <<cachename>> -p 13001 (to connect to instance 1)
-    Redis-cli.exe -h <<cachename>> -p 13002 (to connect to instance 2)
-    ...
-    Redis-cli.exe -h <<cachename>> -p 1300N (to connect to instance N)
+```
+Redis-cli.exe -h <<cachename>> -p 13000 (to connect to instance 0)
+Redis-cli.exe -h <<cachename>> -p 13001 (to connect to instance 1)
+Redis-cli.exe -h <<cachename>> -p 13002 (to connect to instance 2)
+...
+Redis-cli.exe -h <<cachename>> -p 1300N (to connect to instance N)
+```
 
 For ssl, replace `1300N` with `1500N`.
 
@@ -145,12 +148,12 @@ Clustering is only available for premium caches.
 * **Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. This is a breaking change; for more information see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ### <a name="move-exceptions" id="i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do"></a> I am getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
-If you are using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you are using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#configure-the-cache-clients).
+If you are using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you are using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](./cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 ## Next steps
 Learn how to use more premium cache features.
 
-* [Introduction to the Azure Redis Cache Premium tier](/documentation/articles/cache-premium-tier-intro/)
+* [Introduction to the Azure Redis Cache Premium tier](./cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 

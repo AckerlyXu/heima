@@ -3,7 +3,7 @@
 The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.
 
 1. Add the following variable declarations after the `#include` statements. Replace the placeholder values [Device Id] and [Device Key] with values you noted for your device in the remote monitoring solution dashboard. Use the IoT Hub Hostname from the solution dashboard to replace [IoTHub Name]. For example, if your IoT Hub Hostname is **contoso.azure-devices.net**, replace [IoTHub Name] with **contoso**:
-   
+
     ```
     static const char* deviceId = "[Device Id]";
     static const char* connectionString = "HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]";
@@ -16,7 +16,7 @@ The IoT Hub serializer client library uses a model to specify the format of the 
    - Can send reported properties, to the device twin in IoT Hub. These reported properties are grouped into configuration, device, and system properties.
    - Can receive and act on desired properties set in the device twin in IoT Hub.
    - Can respond to the **Reboot** and **InitiateFirmwareUpdate** direct methods invoked through the solution portal. The device sends information about the direct methods it supports using reported properties.
-   
+
     ```
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
@@ -131,7 +131,7 @@ Now add code that implements the behavior defined in the model.
     ```
 
 1. Add the following function that sends a message to the preconfigured solution:
-   
+
     ```
     /* Send data to IoT Hub */
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -240,7 +240,7 @@ Now add code that implements the behavior defined in the model.
                 else
                 {
                   printf("Send DeviceInfo object to IoT Hub at startup\n");
-      
+
                   thermostat->ObjectType = "DeviceInfo";
                   thermostat->IsSimulatedDevice = 0;
                   thermostat->Version = "1.0";
@@ -295,9 +295,9 @@ Now add code that implements the behavior defined in the model.
         platform_deinit();
       }
     ```
-   
+
     For reference, here is a sample **Telemetry** message sent to the preconfigured solution:
-   
+
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```

@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes"
-    description="Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes"
-    services="app-service\web"
-    documentationcenter=".net"
-    author="chrissfanos"
-    editor="" />
-<tags
-    ms.assetid="877d070a-9bd5-49b3-8fac-6bb5f65c3554"
-    ms.service="app-service"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="integration"
-    ms.date="02/24/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes
+description: Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes
+services: app-service\web
+documentationcenter: .net
+author: chrissfanos
+editor: ''
+
+ms.assetid: 877d070a-9bd5-49b3-8fac-6bb5f65c3554
+ms.service: app-service
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 02/24/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes
 ## Overview
@@ -39,7 +40,7 @@ Updated **Mobile Apps** templates to reflect newest [NuGet package](https://www.
 General bug fixes and improvements. For detail on updates and features, please refer to the release notes of the latest [Service Bus NuGet](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ### HDInsight Tools
-In this release the following updates were made. These updates are in preview. For more information, see [this blog](/documentation/articles/hdinsight-hadoop-visual-studio-tools-get-started/).
+In this release the following updates were made. These updates are in preview. For more information, see [this blog](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 * Hive graphs for Hive on Tez jobs
 * Full Hive DML IntelliSense support
@@ -47,8 +48,8 @@ In this release the following updates were made. These updates are in preview. F
 * Storm templates for Azure services
 
 #### Breaking changes
-* Old **Storm** project must be upgraded when using this version of the tools. For more information, see [this blog](/documentation/articles/hdinsight-hadoop-visual-studio-tools-get-started/).
-* Visual Studio Web Express is no longer supported. For more information, see [this blog](/documentation/articles/hdinsight-hadoop-visual-studio-tools-get-started/).
+* Old **Storm** project must be upgraded when using this version of the tools. For more information, see [this blog](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
+* Visual Studio Web Express is no longer supported. For more information, see [this blog](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 ### Azure App Service Tools
 In this release the following updates were made to Web Tools Extensions. For more information see [this](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)  blog. 
@@ -90,19 +91,19 @@ The following section contains updates that were introduced with the Azure SDK f
 For more detailed explanation about HDInsight tools updates, see [this blog](https://azure.microsoft.com/zh-cn/blog/announcing-the-azure-sdk-2-7-1-for-net/).
 
 * Hive Job Operator View (a new feature)
-  
+
     To help you understand your Hive query better, the Hive Operator View feature was added. To see all the operators inside a vertex, double click on the vertices of the job graph. To view more details of a particular operator, hover over that operator.
 * Hive Error Marker (a new feature)
-  
+
     To enable you to view the grammar errors instantly, the Hive Error Marker feature was added. Also, error messages were enhanced and you can now see detailed grammar errors instantly (until this release, you had to submit a Hive script to the cluster and wait for some time before getting details about your error message).  
 * Storm Topology Graph (a new feature)
-  
+
     Visualizing is very important when you want to see if your topology is working as expected. In this release we added visualization for Storm graphs. You can visualize the important metrics for your topology (for example, a color indicates weather a certain Bolt is "busy" or not). You can also double click the Bolt/Spout to view more details.
 * Support for HDInsight clusters that were created in the Azure Portal Preview (a bug fix)
-  
+
     You can now use Visual Studio to view and submit jobs to all your HDInsight clusters no matter where the cluster were created.
 * More IntelliSense Support& Faster Hive Metadata Loading (an improvement)
-  
+
     We have improved the IntelliSense by adding more user friendly suggestions. For example, table alias can now also be suggested in IntelliSense so you can write your query more easily. Also, we have improved the Hive metadata loading so it will just take several seconds to list all the databases, tables and columns of your Hive metastore.
 
 For more detailed explanation about HDInsight tools updates, see [this blog](https://azure.microsoft.com/zh-cn/blog/announcing-the-azure-sdk-2-7-1-for-net/).

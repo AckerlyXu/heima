@@ -1,21 +1,20 @@
-<properties
-	pageTitle="Limitations for Stretch Database | Azure"
-	description="Learn about limitations for Stretch Database."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+---
+title: Limitations for Stretch Database | Azure
+description: Learn about limitations for Stretch Database.
+services: sql-server-stretch-database
+documentationCenter: ''
+authors: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/26/2016"
-	wacn.date=""/>
-
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/26/2016
+wacn.date: ''
+---
 
 # Limitations for Stretch Database
 Learn about limitations for Stretch\-enabled tables, and about limitations that currently prevent you from enabling Stretch for a table.
@@ -65,9 +64,8 @@ The following items currently prevent you from enabling Stretch for a table.
 * Indexed views that reference the table
 
 ## See also
-[Identify databases and tables for Stretch Database by running Stretch Database Advisor](/documentation/articles/sql-server-stretch-database-identify-databases/)
+[Identify databases and tables for Stretch Database by running Stretch Database Advisor](./sql-server-stretch-database-identify-databases.md)
 
-[Enable Stretch Database for a database](/documentation/articles/sql-server-stretch-database-enable-database/)
+[Enable Stretch Database for a database](./sql-server-stretch-database-enable-database.md)
 
-[Enable Stretch Database for a table](/documentation/articles/sql-server-stretch-database-enable-table/)
-
+[Enable Stretch Database for a table](./sql-server-stretch-database-enable-table.md)

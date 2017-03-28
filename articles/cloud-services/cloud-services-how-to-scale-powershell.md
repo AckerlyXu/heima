@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Scale an Azure cloud service in Windows PowerShell | Azure"
-    description="(classic) Learn how to use PowerShell to scale a web role or worker role in or out in Azure."
-    services="cloud-services"
-    documentationcenter=""
-    author="seanmck"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="ee37dd8c-6714-4c61-adb8-03d6bbf76c9a"
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/01/2016"
-    wacn.date=""
-    ms.author="seanmck" />
+---
+title: Scale an Azure cloud service in Windows PowerShell | Azure
+description: (classic) Learn how to use PowerShell to scale a web role or worker role in or out in Azure.
+services: cloud-services
+documentationcenter: ''
+author: seanmck
+manager: timlt
+editor: ''
+
+ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/01/2016
+wacn.date: ''
+ms.author: seanmck
+---
 
 # How to scale a cloud service in PowerShell
 
@@ -75,4 +76,4 @@ You can scale in a role by removing instances in the same way. Set the **Count**
 
 ## Next steps
 
-It is not possible to configure auto-scale for cloud services from PowerShell. To do that, see [How to auto scale a cloud service](/documentation/articles/cloud-services-how-to-scale-portal/).
+It is not possible to configure auto-scale for cloud services from PowerShell. To do that, see [How to auto scale a cloud service](./cloud-services-how-to-scale-portal.md).

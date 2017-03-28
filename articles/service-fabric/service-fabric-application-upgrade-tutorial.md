@@ -19,8 +19,8 @@ ms.author: subramar
 ---
 # Service Fabric application upgrade tutorial using Visual Studio
 > [!div class="op_single_selector"]
-> * [PowerShell](/documentation/articles/service-fabric-application-upgrade-tutorial-powershell/)
-> * [Visual Studio](/documentation/articles/service-fabric-application-upgrade-tutorial/)
+> * [PowerShell](./service-fabric-application-upgrade-tutorial-powershell.md)
+> * [Visual Studio](./service-fabric-application-upgrade-tutorial.md)
 > 
 > 
 
@@ -37,7 +37,7 @@ Selecting **Publish** brings up a popup, and you can set the **Target profile** 
 
 ![Publishing a Service Fabric application][image2]
 
-Now you can click **Publish** in the dialog box. You can use [Service Fabric Explorer to view the cluster and the application](/documentation/articles/service-fabric-visualizing-your-cluster/). The Visual Objects application has a web service that you can go to by typing [http://localhost:8082/visualobjects/](http://localhost:8082/visualobjects/) in the address bar of your browser.  You should see 10 floating visual objects moving around on the screen.
+Now you can click **Publish** in the dialog box. You can use [Service Fabric Explorer to view the cluster and the application](./service-fabric-visualizing-your-cluster.md). The Visual Objects application has a web service that you can go to by typing [http://localhost:8082/visualobjects/](http://localhost:8082/visualobjects/) in the address bar of your browser.  You should see 10 floating visual objects moving around on the screen.
 
 ## Step 2: Update the Visual Objects sample
 You might notice that with the version that was deployed in step 1, the visual objects do not rotate. Let's upgrade this application to one where the visual objects also rotate.
@@ -57,7 +57,7 @@ The Visual Studio tools can do automatic rollups of versions upon selecting **Au
 Save the changes, and now check the **Upgrade the Application** box.
 
 ## Step 3:  Upgrade your application
-Familiarize yourself with the [application upgrade parameters](/documentation/articles/service-fabric-application-upgrade-parameters/) and the [upgrade process](/documentation/articles/service-fabric-application-upgrade/) to get a good understanding of the various upgrade parameters, time-outs, and health criterion that can be applied. For this walkthrough, the service health evaluation criterion is set to the default (unmonitored mode). You can configure these settings by selecting **Configure Upgrade Settings** and then modifying the parameters as desired.
+Familiarize yourself with the [application upgrade parameters](./service-fabric-application-upgrade-parameters.md) and the [upgrade process](./service-fabric-application-upgrade.md) to get a good understanding of the various upgrade parameters, time-outs, and health criterion that can be applied. For this walkthrough, the service health evaluation criterion is set to the default (unmonitored mode). You can configure these settings by selecting **Configure Upgrade Settings** and then modifying the parameters as desired.
 
 Now we are all set to start the application upgrade by selecting **Publish**. This option upgrades your application to version 2.0.0, in which the objects rotate. Service Fabric upgrades one update domain at a time (some objects are updated first, followed by others), and the service remains accessible during the upgrade. Access to the service can be checked through your client (browser).  
 
@@ -68,17 +68,15 @@ In a few minutes, all update domains should be upgraded (completed), and the Vis
 You may want to try changing the versions, and moving from version 2.0.0 to version 3.0.0 as an exercise, or even from version 2.0.0 back to version 1.0.0. Play with time-outs and health policies to make yourself familiar with them. When deploying to an Azure cluster as opposed to a local cluster, the parameters used may have to differ. We recommend that you set the time-outs conservatively.
 
 ## Next steps
-[Upgrading your application using PowerShell](/documentation/articles/service-fabric-application-upgrade-tutorial-powershell/) walks you through an application upgrade using PowerShell.
+[Upgrading your application using PowerShell](./service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
-Control how your application is upgraded by using [upgrade parameters](/documentation/articles/service-fabric-application-upgrade-parameters/).
+Control how your application is upgraded by using [upgrade parameters](./service-fabric-application-upgrade-parameters.md).
 
-Make your application upgrades compatible by learning how to use [data serialization](/documentation/articles/service-fabric-application-upgrade-data-serialization/).
+Make your application upgrades compatible by learning how to use [data serialization](./service-fabric-application-upgrade-data-serialization.md).
 
-Learn how to use advanced functionality while upgrading your application by referring to [Advanced topics](/documentation/articles/service-fabric-application-upgrade-advanced/).
+Learn how to use advanced functionality while upgrading your application by referring to [Advanced topics](./service-fabric-application-upgrade-advanced.md).
 
-Fix common problems in application upgrades by referring to the steps in [Troubleshooting application upgrades ](/documentation/articles/service-fabric-application-upgrade-troubleshooting/).
-
-
+Fix common problems in application upgrades by referring to the steps in [Troubleshooting application upgrades ](./service-fabric-application-upgrade-troubleshooting.md).
 
 [image1]: ./media/service-fabric-application-upgrade-tutorial/upgrade7.png
 [image2]: ./media/service-fabric-application-upgrade-tutorial/upgrade1.png

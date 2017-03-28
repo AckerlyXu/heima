@@ -1,30 +1,30 @@
-<properties
-    pageTitle="Connect Intel Edison (C) to Azure IoT - Get started | Azure"
-    description="Get started with Intel Edison, create your Azure IoT hub, and connect Edison to the IoT hub"
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="intel edison development, azure iot hub, getting started with the internet of things, internet of things tutorial, adafruit internet of things, intel edison arduino, getting started with arduino" />
-<tags
-    ms.assetid="4885fa2c-c2ee-4253-b37f-ccd55f92b006"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/7/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Connect Intel Edison (C) to Azure IoT - Get started | Azure
+description: Get started with Intel Edison, create your Azure IoT hub, and connect Edison to the IoT hub
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: intel edison development, azure iot hub, getting started with the internet of things, internet of things tutorial, adafruit internet of things, intel edison arduino, getting started with arduino
 
+ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/7/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Connect your Intel Edison device to your IoT hub using C
->[AZURE.SELECTOR]
-[Node.JS](/documentation/articles/iot-hub-intel-edison-kit-node-get-started/)
-[C](/documentation/articles/iot-hub-intel-edison-kit-c-get-started/)
+>[!div class="op_single_selector"]
+[Node.JS](./iot-hub-intel-edison-kit-node-get-started.md)
+[C](./iot-hub-intel-edison-kit-c-get-started.md)
 
-In this tutorial, you begin by learning the basics of working with Intel Edison. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](/documentation/articles/iot-hub-what-is-iot-hub/).
+In this tutorial, you begin by learning the basics of working with Intel Edison. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](./iot-hub-what-is-iot-hub.md).
 
 Don't have a kit yet? Start [here](/develop/iot/starter-kits)
 
@@ -73,7 +73,7 @@ Create your resource group, provision your first Azure IoT hub, and add your fir
 
 *Estimated time to complete: 10 minutes*
 
-Go to [Create your IoT hub and register Intel Edison](/documentation/articles/iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub/).
+Go to [Create your IoT hub and register Intel Edison](./iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md).
 
 ## Lesson 3: Send device-to-cloud messages
 ![Lesson 3 end-to-end diagram](./media/iot-hub-intel-edison-lessons/e2e-lesson3.png)
@@ -128,13 +128,13 @@ Go to [Optional section: Change the on and off behavior of the LED][change-the-o
 If you have any problems during the lessons, look for solutions in the [Troubleshooting][troubleshooting] article.
 <!-- Images and links -->
 
-[configure-your-device]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson1-configure-your-device/
-[get-the-tools]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32/
-[create-and-deploy-the-blink-application]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app/
-[get-azure-tools]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32/
-[create-an-azure-function-app-and-azure-storage-account]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template/
-[send-device-to-cloud-messages]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson3-run-azure-blink/
-[read-messages-persisted-in-azure-storage]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson3-read-table-storage/
-[receive-cloud-to-device-messages]:/documentation/articles/iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages/
-[change-the-on-and-off-behavior-of-the-led]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson4-change-led-behavior/
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-c-troubleshooting/
+[configure-your-device]: ./iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md
+[get-the-tools]: ./iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md
+[create-and-deploy-the-blink-application]: ./iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md
+[get-azure-tools]: ./iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md
+[create-an-azure-function-app-and-azure-storage-account]: ./iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md
+[send-device-to-cloud-messages]: ./iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md
+[read-messages-persisted-in-azure-storage]: ./iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md
+[receive-cloud-to-device-messages]:./iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md
+[change-the-on-and-off-behavior-of-the-led]: ./iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md
+[troubleshooting]: ./iot-hub-intel-edison-kit-c-troubleshooting.md

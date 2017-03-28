@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Manage Azure Web App using Azure Automation | Azure"
-    description="Learn about how the Azure Automation service can be used to manage Azure Web App."
-    services="app-service\web, automation"
-    documentationcenter=""
-    author="mgoedtel"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.assetid="c960a44f-f941-401d-afba-a4bc0f0394eb"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/29/2016"
-    wacn.date=""
-    ms.author="magoedte;csand" />
+---
+title: Manage Azure Web App using Azure Automation | Azure
+description: Learn about how the Azure Automation service can be used to manage Azure Web App.
+services: app-service\web, automation
+documentationcenter: ''
+author: mgoedtel
+manager: jwhit
+editor: ''
+
+ms.assetid: c960a44f-f941-401d-afba-a4bc0f0394eb
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/29/2016
+wacn.date: ''
+ms.author: magoedte;csand
+---
 
 # Managing Azure Web App using Azure Automation
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of Azure Web App.
 
 ## What is Azure Automation?
-[Azure Automation](/documentation/articles/automation-intro/) is an Azure service for simplifying cloud management through process automation. Using Azure Automation, manual, repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.
+[Azure Automation](../automation/automation-intro.md) is an Azure service for simplifying cloud management through process automation. Using Azure Automation, manual, repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.
 
 Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs. In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.
 
@@ -33,4 +34,4 @@ Web App can be managed in Azure Automation by using the PowerShell cmdlets that 
 ## Next steps
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure Web App, follow these links to learn more about Azure Automation.
 
-* See the Azure Automation [Getting Started Tutorial](/documentation/articles/automation-first-runbook-textual/)
+* See the Azure Automation [Getting Started Tutorial](../automation/automation-first-runbook-textual.md)

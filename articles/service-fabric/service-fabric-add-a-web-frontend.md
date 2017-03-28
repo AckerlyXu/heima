@@ -20,28 +20,30 @@ ms.author: seanmck
 # Build a web service front end for your application using ASP.NET Core
 By default, Azure Service Fabric services do not provide a public interface to the web. To expose your application's functionality to HTTP clients, you will need to create a web project to act as an entry point and then communicate from there to your individual services.
 
-In this tutorial, we will pick up where we left off in the [Creating your first application in Visual Studio](/documentation/articles/service-fabric-create-your-first-application-in-visual-studio/) tutorial and add a web service in front of the stateful counter service. If you have not already done so, you should go back and step through that tutorial first.
+In this tutorial, we will pick up where we left off in the [Creating your first application in Visual Studio](./service-fabric-create-your-first-application-in-visual-studio.md) tutorial and add a web service in front of the stateful counter service. If you have not already done so, you should go back and step through that tutorial first.
 
 ## Add an ASP.NET Core service to your application
 ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. Let's add an ASP.NET Web API project to our existing application.
 
->[AZURE.NOTE] To complete this tutorial, you will need to [install .NET Core 1.0][dotnetcore-install].
+>[!NOTE]
+> To complete this tutorial, you will need to [install .NET Core 1.0][dotnetcore-install].
 
 1. In Solution Explorer, right-click **Services** within the application project and choose **Add > New Service Fabric Service**.
 
-	![Adding a new service to an existing application][vs-add-new-service]
+    ![Adding a new service to an existing application][vs-add-new-service]
 
 2. On the **Create a Service** page, choose **ASP.NET Core** and give it a name.
 
-	![Choosing ASP.NET web service in the new service dialog][vs-new-service-dialog]
+    ![Choosing ASP.NET web service in the new service dialog][vs-new-service-dialog]
 
 3. The next page provides a set of ASP.NET Core project templates. Note that these are the same templates that you would see if you created an ASP.NET Core project outside of a Service Fabric application. For this tutorial, we will choose **Web API**. However, you can apply the same concepts to building a full web application.
 
-	![Choosing ASP.NET project type][vs-new-aspnet-project-dialog]
+    ![Choosing ASP.NET project type][vs-new-aspnet-project-dialog]
 
     Once your Web API project is created, you will have two services in your application. As you continue to build your application, you will add more services in exactly the same way. Each can be independently versioned and upgraded.
 
->[AZURE.TIP] To learn more about building ASP.NET Core services, see the [ASP.NET Core Documentation](https://docs.asp.net).
+>[!TIP]
+> To learn more about building ASP.NET Core services, see the [ASP.NET Core Documentation](https://docs.asp.net).
 
 ## Run the application
 
@@ -57,13 +59,11 @@ To get a sense of what we've done, let's deploy the new application and take a l
 
     By the end of the tutorial, we will have replaced these default values with the most recent counter value from our stateful service.
 
-
 ## Connect the services
 
-Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP, other services that are accessible via an HTTP REST API, and still other services that are accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](/documentation/articles/service-fabric-connect-and-communicate-with-services/). In this tutorial, we will follow one of the simpler approaches and use the `ServiceProxy`/`ServiceRemotingListener` classes that are provided in the SDK.
+Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP, other services that are accessible via an HTTP REST API, and still other services that are accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](./service-fabric-connect-and-communicate-with-services.md). In this tutorial, we will follow one of the simpler approaches and use the `ServiceProxy`/`ServiceRemotingListener` classes that are provided in the SDK.
 
 In the `ServiceProxy` approach (modeled on remote procedure calls or RPCs), you define an interface to act as the public contract for the service. Then, you use that interface to generate a proxy class for interacting with the service.
-
 
 ### Create the interface
 
@@ -94,7 +94,6 @@ We will start by creating the interface to act as the contract between the state
         }
     }
     ```
-
 
 ### Implement the interface in your stateful service
 
@@ -133,12 +132,12 @@ Now that we have defined the interface, we need to implement it in the stateful 
     }
     ```
 
-
 ### Expose the stateful service using a service remoting listener
 
 With the `ICounter` interface implemented, the final step in enabling the stateful service to be callable from other services is to open a communication channel. For stateful services, Service Fabric provides an overridable method called `CreateServiceReplicaListeners`. With this method, you can specify one or more communication listeners, based on the type of communication that you want to enable to your service.
 
->[AZURE.NOTE] The equivalent method for opening a communication channel to stateless services is called `CreateServiceInstanceListeners`.
+>[!NOTE]
+> The equivalent method for opening a communication channel to stateless services is called `CreateServiceInstanceListeners`.
 
 In this case, we will replace the existing `CreateServiceReplicaListeners` method and provide an instance of `ServiceRemotingListener`, which creates an RPC endpoint that is callable from clients through `ServiceProxy`.  
 
@@ -157,7 +156,6 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     };
 }
 ```
-
 
 ### Use the ServiceProxy class to interact with the service
 
@@ -196,7 +194,7 @@ Our stateful service is now ready to receive traffic from other services. So all
 
     The first line of code is the key one. To create the ICounter proxy to the stateful service, you need to provide two pieces of information: a partition ID and the name of the service.
 
-    You can use partitioning to scale stateful services by breaking up their state into different buckets, based on a key that you define, such as a customer ID or postal code. In our trivial application, the stateful service only has one partition, so the key doesn't matter. Any key that you provide will lead to the same partition. To learn more about partitioning services, see [How to partition Service Fabric Reliable Services](/documentation/articles/service-fabric-concepts-partitioning/).
+    You can use partitioning to scale stateful services by breaking up their state into different buckets, based on a key that you define, such as a customer ID or postal code. In our trivial application, the stateful service only has one partition, so the key doesn't matter. Any key that you provide will lead to the same partition. To learn more about partitioning services, see [How to partition Service Fabric Reliable Services](./service-fabric-concepts-partitioning.md).
 
     The service name is a URI of the form fabric:/&lt;application_name&gt;/&lt;service_name&gt;.
 
@@ -210,9 +208,8 @@ Our stateful service is now ready to receive traffic from other services. So all
 
     Refresh the browser periodically to see the counter value update.
 
-
->[AZURE.WARNING] The ASP.NET Core web server provided in the template, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). Note that Service Fabric is not supported for deployment within IIS.
-
+>[!WARNING]
+> The ASP.NET Core web server provided in the template, known as Kestrel, is [not currently supported for handling direct internet traffic](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). Note that Service Fabric is not supported for deployment within IIS.
 
 ## What about actors?
 
@@ -228,13 +225,13 @@ When it comes to web services, however, there is one key nuance. When your clust
 
 By contrast, when you run a web service locally, you need to ensure that only one instance of the service is running. Otherwise, you will run into conflicts from multiple processes that are listening on the same path and port. As a result, the web service instance count should be set to "1" for local deployments.
 
-To learn how to configure different values for different environment, see [Managing application parameters for multiple environments](/documentation/articles/service-fabric-manage-multiple-environment-app-configuration/).
+To learn how to configure different values for different environment, see [Managing application parameters for multiple environments](./service-fabric-manage-multiple-environment-app-configuration.md).
 
 ## Next steps
 
-- [Create a cluster in Azure for deploying your application to the cloud](/documentation/articles/service-fabric-cluster-creation-via-portal/)
-- [Learn more about communicating with services](/documentation/articles/service-fabric-connect-and-communicate-with-services/)
-- [Learn more about partitioning stateful services](/documentation/articles/service-fabric-concepts-partitioning/)
+- [Create a cluster in Azure for deploying your application to the cloud](./service-fabric-cluster-creation-via-portal.md)
+- [Learn more about communicating with services](./service-fabric-connect-and-communicate-with-services.md)
+- [Learn more about partitioning stateful services](./service-fabric-concepts-partitioning.md)
 
 <!-- Image References -->
 
@@ -248,7 +245,6 @@ To learn how to configure different values for different environment, see [Manag
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 [vs-configuration-manager]: ./media/service-fabric-add-a-web-frontend/vs-configuration-manager.png
 [vs-create-platform]: ./media/service-fabric-add-a-web-frontend/vs-create-platform.png
-
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows

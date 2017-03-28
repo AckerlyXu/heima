@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Change the LED blink behavior with messages from Azure IoT Hub | Azure"
-    description="Customize the messages to change the LED’s on and off behavior."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="control led with arduino" />
-<tags
-    ms.assetid="d7a25430-450e-43c4-a3ed-1eed995b8b7e"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Change the LED blink behavior with messages from Azure IoT Hub | Azure
+description: Customize the messages to change the LED’s on and off behavior.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: control led with arduino
+
+ms.assetid: d7a25430-450e-43c4-a3ed-1eed995b8b7e
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Change the on and off behavior of the LED
 ## What you will do
-Customize the messages to change the LED’s on and off behavior. If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/) for your Adafruit Feather M0 WiFi Arduino board.
+Customize the messages to change the LED’s on and off behavior. If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md) for your Adafruit Feather M0 WiFi Arduino board.
 
 ## What you will learn
 Use additional Arduino functions to change the LED’s on and off behavior.
@@ -109,7 +110,7 @@ This optional section demonstrates how to customize messages so that the sample 
 
 <!-- Images and links -->
 
-[receive-cloud-to-device-messages]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages/
+[receive-cloud-to-device-messages]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md
 [app-ino-file]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson4/updated_app_ino.png
 [gulp-file-js]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson4/updated_gulpfile_js.png
 [on-and-off]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson4/gulp_on_and_off_arduino.png

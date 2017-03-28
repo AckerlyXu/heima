@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Event Hubs messaging exceptions | Azure"
-    description="List of Azure Event Hubs messaging exceptions and suggested actions."
-    services="event-hubs"
-    documentationcenter="na"
-    author="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="2c6273de-0106-47e5-b45d-59040e51f2c5"
-    ms.service="event-hubs"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/07/2017"
-    wacn.date=""
-    ms.author="sethm" />
+---
+title: Azure Event Hubs messaging exceptions | Azure
+description: List of Azure Event Hubs messaging exceptions and suggested actions.
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
+
+ms.assetid: 2c6273de-0106-47e5-b45d-59040e51f2c5
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/07/2017
+wacn.date: ''
+ms.author: sethm
+---
 
 # Event Hubs messaging exceptions
 
@@ -85,7 +86,7 @@ There are two common causes for this error: incorrect configuration, or a transi
     The operation timeout might be too small for the operational condition. The default value for the operation timeout in the client SDK is 60 seconds. Check to see if your code has the value set to something too small. Note that the condition of the network and CPU usage can affect the time it takes for a particular operation to complete, so the operation timeout should not be set to a very small value.
 
 2. **Transient service error**
-    Sometimes the Event Hubs service can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](/support/service-dashboard/) to see if there are any known service outages.
+    Sometimes the Event Hubs service can experience delays in processing requests; for example, during periods of high traffic. In such cases, you can retry your operation after a delay, until the operation is successful. If the same operation still fails after multiple attempts, please visit the [Azure service status site](https://www.azure.cn/support/service-dashboard/) to see if there are any known service outages.
 
 ## ServerBusyException
 
@@ -96,7 +97,7 @@ A [Microsoft.ServiceBus.Messaging.ServerBusyException](https://docs.microsoft.co
 This error can occur for one of two reasons:
 
 1. The load is not evenly distributed across all partitions on the Event Hub, and one partition hits the local throughput unit limitation.
-	
+
     Resolution: Revising the partition distribution strategy or trying [EventHubClient.Send(eventDataWithOutPartitionKey)](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) might help.
 
 2. The Event Hubs namespace does not have sufficient throughput units (you can check the **Metrics** blade on Event Hubs namespace blade in the [Azure portal](https://portal.azure.cn) to confirm). Note that the portal shows aggregated (1 minute) information, but we measure the throughput in real time - so it is only an estimate.
@@ -110,6 +111,6 @@ This error should rarely occur. It happens when the container running code for y
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](/documentation/articles/event-hubs-what-is-event-hubs/)
-* [Create an Event Hub](/documentation/articles/event-hubs-create/)
-* [Event Hubs FAQ](/documentation/articles/event-hubs-faq/)
+* [Event Hubs overview](./event-hubs-what-is-event-hubs.md)
+* [Create an Event Hub](./event-hubs-create.md)
+* [Event Hubs FAQ](./event-hubs-faq.md)

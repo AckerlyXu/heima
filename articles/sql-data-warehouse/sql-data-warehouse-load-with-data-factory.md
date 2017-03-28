@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Load data into Azure SQL Data Warehouse - Data Factory | Azure"
-    description="This tutorial loads data into Azure SQL Data Warehouse by using Azure Data Factory, and uses a SQL Server database as the data source."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="linda33wj"
-    manager="jhubbard"
-    editor=""
-    tags="azure-sql-data-warehouse;azure-data-factory" />
-<tags
-    ms.service="sql-data-warehouse"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="jingwang;kevin;barbkess" />
+---
+title: Load data into Azure SQL Data Warehouse - Data Factory | Azure
+description: This tutorial loads data into Azure SQL Data Warehouse by using Azure Data Factory, and uses a SQL Server database as the data source.
+services: sql-data-warehouse
+documentationcenter: NA
+author: linda33wj
+manager: jhubbard
+editor: ''
+tags: azure-sql-data-warehouse;azure-data-factory
+
+ms.service: sql-data-warehouse
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: jingwang;kevin;barbkess
+---
 
 # Load data into SQL Data Warehouse with Data Factory
 
@@ -27,9 +28,9 @@ You can use Azure Data Factory to load data into Azure SQL Data Warehouse from a
 
 - You need a **SQL Server database** with tables that contain the data to be copied over to the SQL data warehouse.  
 
-- You need an online **SQL Data Warehouse**. If you do not already have a data warehouse, learn how to [Create an Azure SQL Data Warehouse](/documentation/articles/sql-data-warehouse-get-started-provision/).
+- You need an online **SQL Data Warehouse**. If you do not already have a data warehouse, learn how to [Create an Azure SQL Data Warehouse](./sql-data-warehouse-get-started-provision.md).
 
-- You need an **Azure Storage Account**. If you do not already have a storage account, learn how to [Create a storage account](/documentation/articles/storage-create-storage-account/). For best performance, locate the storage account and the data warehouse in the same Azure region.
+- You need an **Azure Storage Account**. If you do not already have a storage account, learn how to [Create a storage account](../storage/storage-create-storage-account.md). For best performance, locate the storage account and the data warehouse in the same Azure region.
 
 ## Configure a data factory
 
@@ -66,7 +67,7 @@ Now you tell Data Factory about the on-premises SQL Server database from which y
 
 2. A **Specify the on-premises SQL Server database** dialog appears. The first  **Connection name** field is auto filled in. The second field asks for the name of the **Gateway**. If you are using an existing data factory that already has a gateway, you can reuse the gateway by selecting it from the drop-down list. Click the **Create Gateway** link to create a Data Management Gateway.  
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > If the source data store is on-premises or in an Azure IaaS virtual machine, a Data Management Gateway is required. A gateway has a 1-1 relationship with a data factory. It cannot be used from another data factory, but it can be used by multiple data loading tasks with in the same data factory. A gateway can be used to connect to multiple data stores when running data loading tasks.
     > 
     > For detailed information about the gateway, see [Data Management Gateway](/documentation/articles/data-factory-data-management-gateway/) article. 
@@ -75,7 +76,7 @@ Now you tell Data Factory about the on-premises SQL Server database from which y
 
 4. A **Configure Gateway** dialog box appears. Click **Launch express setup on this computer** to automatically download, install, and register Data Management Gateway on your current machine. The progress is shown in a pop-up window. If the machine cannot connect to the data store, you can manually [download and install the gateway](https://www.microsoft.com/zh-cn/download/details.aspx?id=39717) on a machine that can connect to the data store, and then use the key to register.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > The express setup works natively with Microsoft Edge and Internet Explorer. If you are using Google Chrome, first install the ClickOnce extension from Chrome web store.
 
     ![Launch Express setup](./media/sql-data-warehouse-load-with-data-factory/launch-express-setup.png)
@@ -112,7 +113,7 @@ Now you tell Data Factory about the destination information.
 4. Click **Next**.
 
 ## Configure the performance settings
-In the Performance configurations, you configure an Azure storage account used for staging the data before it loads into SQL Data Warehouse performantly using [PolyBase](/documentation/articles/sql-data-warehouse-best-practices/#use-polybase-to-load-and-export-data-quickly). After the copy is done, the interim data in storage will be cleaned up automatically.
+In the Performance configurations, you configure an Azure storage account used for staging the data before it loads into SQL Data Warehouse performantly using [PolyBase](./sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). After the copy is done, the interim data in storage will be cleaned up automatically.
 
 Select an existing Azure Storage account, and click **Next**.
 
@@ -148,7 +149,7 @@ You can see the deployment progress and results in the **Deployment** page.
 
 ## Next steps
 
-To migrate your database to SQL Data Warehouse, see [Migration overview](/documentation/articles/sql-data-warehouse-overview-migrate/).
+To migrate your database to SQL Data Warehouse, see [Migration overview](./sql-data-warehouse-overview-migrate.md).
 
 To learn more about Azure Data Factory and its data movement capabilities, see the following articles:
 
@@ -158,8 +159,8 @@ To learn more about Azure Data Factory and its data movement capabilities, see t
 
 To explore your data in SQL Data Warehouse, see the following articles:
 
-- [Connect to SQL Data Warehouse with Visual Studio and SSDT](/documentation/articles/sql-data-warehouse-query-visual-studio/)
-- [Visual data with Power BI](/documentation/articles/sql-data-warehouse-get-started-visualize-with-power-bi/).
+- [Connect to SQL Data Warehouse with Visual Studio and SSDT](./sql-data-warehouse-query-visual-studio.md)
+- [Visual data with Power BI](./sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
 <!-- Azure references -->
-[Azure portal]: https://portal.azure.cn 
+[Azure portal]: https://portal.azure.cn

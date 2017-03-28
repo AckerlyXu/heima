@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Azure IoT device SDK for C - Serializer | Azure"
-    description="How to use the Serializer library in the Azure IoT device SDK for C to create device apps that communicate with an IoT hub."
-    services="iot-hub"
-    documentationcenter=""
-    author="olivierbloch"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="defbed34-de73-429c-8592-cd863a38e4dd"
-    ms.service="iot-hub"
-    ms.devlang="cpp"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/06/2016"
-    wacn.date=""
-    ms.author="obloch" />
+---
+title: Azure IoT device SDK for C - Serializer | Azure
+description: How to use the Serializer library in the Azure IoT device SDK for C to create device apps that communicate with an IoT hub.
+services: iot-hub
+documentationcenter: ''
+author: olivierbloch
+manager: timlt
+editor: ''
+
+ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
+ms.service: iot-hub
+ms.devlang: cpp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/06/2016
+wacn.date: ''
+ms.author: obloch
+---
 
 # Azure IoT device SDK for C – more about serializer
 
-The [first article](/documentation/articles/iot-hub-device-sdk-c-intro/) in this series introduced the **Azure IoT device SDK for C**. The next article provided a more detailed description of the [**IoTHubClient**](/documentation/articles/iot-hub-device-sdk-c-iothubclient/). This article completes coverage of the SDK by providing a more detailed description of the remaining component: the **serializer** library.
+The [first article](./iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C**. The next article provided a more detailed description of the [**IoTHubClient**](./iot-hub-device-sdk-c-iothubclient.md). This article completes coverage of the SDK by providing a more detailed description of the remaining component: the **serializer** library.
 
 The introductory article described how to use the **serializer** library to send events to and receive messages from IoT Hub. In this article, we extend that discussion by providing a more complete explanation of how to model your data with the **serializer** macro language. The article also includes more detail about how the library serializes messages (and in some cases how you can control the serialization behavior). We'll also describe some parameters you can modify that determine the size of the models you create.
 
@@ -31,7 +32,7 @@ You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure
 
 ## The modeling language
 
-The [introductory article](/documentation/articles/iot-hub-device-sdk-c-intro/) in this series introduced the **Azure IoT device SDK for C** modeling language through the example provided in the **simplesample\_amqp** application:
+The [introductory article](./iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C** modeling language through the example provided in the **simplesample\_amqp** application:
 
 ```
 BEGIN_NAMESPACE(WeatherStation);
@@ -55,7 +56,8 @@ Models contain a definition of the events you can ingress to IoT Hub (the *data*
 
 What’s not demonstrated in this sample are additional data types that are supported by the SDK. We'll cover that next.
 
-> [AZURE.NOTE] IoT Hub refers to the data a device sends to it as *events*, while the modeling language refers to it as *data* (defined using **WITH_DATA**). Likewise, IoT Hub refers to the data you send to devices as *messages*, while the modeling language refers to it as *actions* (defined using **WITH_ACTION**). Be aware that these terms may be used interchangeably in this article.
+> [!NOTE]
+> IoT Hub refers to the data a device sends to it as *events*, while the modeling language refers to it as *data* (defined using **WITH_DATA**). Likewise, IoT Hub refers to the data you send to devices as *messages*, while the modeling language refers to it as *actions* (defined using **WITH_ACTION**). Be aware that these terms may be used interchangeably in this article.
 
 ### Supported data types
 
@@ -141,27 +143,27 @@ Basically, we’re assigning a value to every member of the **Test** structure a
 ```
 void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent)
 {
-	unsigned char* destination;
-	size_t destinationSize;
-	if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) ==
-	{
-		// null terminate the string
-		char* destinationAsString = (char*)malloc(destinationSize + 1);
-		if (destinationAsString != NULL)
-		{
-			memcpy(destinationAsString, destination, destinationSize);
-			destinationAsString[destinationSize] = '\0';
-			IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromString(destinationAsString);
-			if (messageHandle != NULL)
-			{
-				IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);
+    unsigned char* destination;
+    size_t destinationSize;
+    if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) ==
+    {
+        // null terminate the string
+        char* destinationAsString = (char*)malloc(destinationSize + 1);
+        if (destinationAsString != NULL)
+        {
+            memcpy(destinationAsString, destination, destinationSize);
+            destinationAsString[destinationSize] = '\0';
+            IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromString(destinationAsString);
+            if (messageHandle != NULL)
+            {
+                IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);
 
-				IoTHubMessage_Destroy(messageHandle);
-			}
-			free(destinationAsString);
-		}
-		free(destination);
-	}
+                IoTHubMessage_Destroy(messageHandle);
+            }
+            free(destinationAsString);
+        }
+        free(destination);
+    }
 }
 ```
 
@@ -172,16 +174,16 @@ One other helper function used in the previous code is **GetDateTimeOffset**. Th
 ```
 EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 {
-	struct tm newTime;
-	gmtime_s(&newTime, &time);
-	EDM_DATE_TIME_OFFSET dateTimeOffset;
-	dateTimeOffset.dateTime = newTime;
-	dateTimeOffset.fractionalSecond = 0;
-	dateTimeOffset.hasFractionalSecond = 0;
-	dateTimeOffset.hasTimeZone = 0;
-	dateTimeOffset.timeZoneHour = 0;
-	dateTimeOffset.timeZoneMinute = 0;
-	return dateTimeOffset;
+    struct tm newTime;
+    gmtime_s(&newTime, &time);
+    EDM_DATE_TIME_OFFSET dateTimeOffset;
+    dateTimeOffset.dateTime = newTime;
+    dateTimeOffset.fractionalSecond = 0;
+    dateTimeOffset.hasFractionalSecond = 0;
+    dateTimeOffset.hasTimeZone = 0;
+    dateTimeOffset.timeZoneHour = 0;
+    dateTimeOffset.timeZoneMinute = 0;
+    return dateTimeOffset;
 }
 ```
 
@@ -446,7 +448,7 @@ Nether approach is right or wrong. Just be aware of how the **serializer** libra
 
 ## Message handling
 
-So far this article has only discussed sending events to IoT Hub, and hasn't addressed receiving messages. The reason for this is that what we need to know about receiving messages has largely been covered in an [earlier article](/documentation/articles/iot-hub-device-sdk-c-intro/). Recall from that article that you process messages by registering a message callback function:
+So far this article has only discussed sending events to IoT Hub, and hasn't addressed receiving messages. The reason for this is that what we need to know about receiving messages has largely been covered in an [earlier article](./iot-hub-device-sdk-c-intro.md). Recall from that article that you process messages by registering a message callback function:
 
 ```
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
@@ -671,7 +673,7 @@ Similarly, when you're done working with the library, the last call you’ll mak
 serializer_deinit();
 ```
 
-Otherwise, all of the other features listed above work the same in the **serializer** library as they do in the **IoTHubClient** library. For more information about any of these topics, see the [previous article](/documentation/articles/iot-hub-device-sdk-c-iothubclient/) in this series.
+Otherwise, all of the other features listed above work the same in the **serializer** library as they do in the **IoTHubClient** library. For more information about any of these topics, see the [previous article](./iot-hub-device-sdk-c-iothubclient.md) in this series.
 
 ## Next steps
 
@@ -685,6 +687,6 @@ To further explore the capabilities of IoT Hub, see:
 
 - [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
-[lnk-sdks]: /documentation/articles/iot-hub-devguide-sdks/
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-gateway]: /documentation/articles/iot-hub-linux-gateway-sdk-simulated-device/
+[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md

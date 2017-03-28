@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Add users from other directories or partner companies in Azure Active Directory | Azure"
-    description="Explains how to add users or change user information in Azure Active Directory, including external and guest users."
-    services="active-directory"
-    documentationcenter=""
-    author="curtand"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="564a04ec-53c1-470b-9ab9-f3db57da0a89"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="curtand" />
+---
+title: Add users from other directories or partner companies in Azure Active Directory | Azure
+description: Explains how to add users or change user information in Azure Active Directory, including external and guest users.
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
+
+ms.assetid: 564a04ec-53c1-470b-9ab9-f3db57da0a89
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: curtand
+---
 
 # Add users from other directories or partner companies in Azure Active Directory
 
-This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](/documentation/articles/active-directory-create-users/). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](./active-directory-create-users.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
 
 ## Add a user
 1. Sign in to the [Azure Classic Management Portal](https://manage.windowsazure.cn) with an account that's a global admin for the directory.
@@ -27,13 +28,13 @@ This article explains how to add users from other directories in Azure Active Di
 3. Select the **Users** tab, and then, in the command bar, select **Add User**.
 4. On the **Tell us about this user** page, under **Type of user**, select either:
 
-	- **User in another Azure AD directory** - adds a user account to your directory that's sourced from another Azure AD directory. You can select a user in another directory only if you're also a member of that directory.
+    - **User in another Azure AD directory** - adds a user account to your directory that's sourced from another Azure AD directory. You can select a user in another directory only if you're also a member of that directory.
 
-5. On the user **Profile** page, provide a first and last name, a user-friendly name, and a user role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](/documentation/articles/active-directory-assign-admin-roles/). Specify whether to **Enable Multi-Factor Authentication** for the user.
+5. On the user **Profile** page, provide a first and last name, a user-friendly name, and a user role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](./active-directory-assign-admin-roles.md). Specify whether to **Enable Multi-Factor Authentication** for the user.
 
 6. On the **Get temporary password** page, select **Create**.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > If your organization uses more than one domain, you should know about the following issues when you add a user account:
 >
 > * TO add user accounts with the same user principal name (UPN) across domains, **first** add, for example, geoffgrisso@contoso.partner.onmschina.cn, **followed by** geoffgrisso@contoso.com.
@@ -53,7 +54,7 @@ When you add a user from another directory to your directory, that user is an ex
 
 The only linkage between the two accounts is that the user always authenticates against their home directory or with their Microsoft account. That's why you don't see an option to reset the password or enable multi-factor authentication for an external user. Currently, the authentication policy of the home directory or Microsoft account is the only one that's evaluated when the user signs in.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can still disable the external user in the directory, which blocks access to your directory.
 >
 >
@@ -75,7 +76,6 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 - When configuring Dynamics CRM Outlook plugin, external users may need to manually enter the URL of the Dynamics CRM Online tenant instead of selecting 'CRM Online'
 
 ## What's next
-- [Add new users to Azure Active Directory](/documentation/articles/active-directory-create-users/)
-- [Administering Azure AD](/documentation/articles/active-directory-administer/)
-- [Manage passwords in Azure AD](/documentation/articles/active-directory-manage-passwords/)
-
+- [Add new users to Azure Active Directory](./active-directory-create-users.md)
+- [Administering Azure AD](./active-directory-administer.md)
+- [Manage passwords in Azure AD](./active-directory-manage-passwords.md)

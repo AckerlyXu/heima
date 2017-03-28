@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Replicate VMware VMs or physical servers to another site (classic Azure portal) | Azure"
-    description="Use this article to replicate VMware VMs or Windows/Linux physical servers to a secondary site with Azure Site Recovery."
-    services="site-recovery"
-    documentationcenter=""
-    author="nsoneji"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.assetid="b2cba944-d3b4-473c-8d97-9945c7eabf63"
-    ms.service="site-recovery"
-    ms.workload="backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="nisoneji" />
+---
+title: Replicate VMware VMs or physical servers to another site (classic Azure portal) | Azure
+description: Use this article to replicate VMware VMs or Windows/Linux physical servers to a secondary site with Azure Site Recovery.
+services: site-recovery
+documentationcenter: ''
+author: nsoneji
+manager: jwhit
+editor: ''
+
+ms.assetid: b2cba944-d3b4-473c-8d97-9945c7eabf63
+ms.service: site-recovery
+ms.workload: backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: nisoneji
+---
 
 # Replicate on-premises VMware virtual machines or physical servers to a secondary site in the classic Azure portal
 ## Overview
 InMage Scout in Azure Site Recovery provides real-time replication between on-premises VMware sites. InMage Scout is included in Azure Site Recovery service subscriptions.
 
 ## Prerequisites
-**Azure account**: You'll need an [Azure](https://azure.cn/) account. You can start with a [1rmb trial](/pricing/1rmb-trial/). [Learn more](/pricing/details/site-recovery/) about Site Recovery pricing.
+**Azure account**: You'll need an [Azure](https://azure.cn/) account. You can start with a [1rmb trial](https://www.azure.cn/pricing/1rmb-trial/). [Learn more](https://www.azure.cn/pricing/details/site-recovery/) about Site Recovery pricing.
 
 ## Step 1: Create a vault
 1. Sign in to the [Azure portal](https://portal.azure.cn).
@@ -30,7 +31,7 @@ InMage Scout in Azure Site Recovery provides real-time replication between on-pr
 3. In **Name** specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
 4. In **Resource group** Create a new resource group or select an existing one. Specify an Azure region to complete required fields.
 5. In **Location**, select the geographic region for the vault. To check supported regions, see [Azure Site Recovery
-   Pricing](/pricing/details/site-recovery/).
+   Pricing](https://www.azure.cn/pricing/details/site-recovery/).
 6. If you want to quickly access the vault from the Dashboard click Pin to dashboard and then click Create.
 7. The new vault will appear on the Dashboard > All resources, and on the main Recovery Services vaults blade.
 
@@ -92,8 +93,8 @@ Scout Update 4 is a cumulative update. It has all the fixes of update1 till upda
   * Red Hat Enterprise Linux (RHEL) 6.8
   * CentOS 6.8
 
-> [AZURE.NOTE]RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned in [step 1](#step-1-create-a-vault).
-
+> [!NOTE]
+>RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned in [step 1](#step-1-create-a-vault).
 
 **Bug fixes and enhancements**
 
@@ -115,7 +116,7 @@ Scout Update 4 is a cumulative update. It has all the fixes of update1 till upda
   * Provides capacity and free space details for all the protected devices.
   * Provides Scout driver state on source server.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > * **InMage_Scout_Standard_8.0.1_GA.zip** base package now has updated CX base installer **InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**  and Windows Master Target  base installer **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**. For all new installation use new CX and Windows Master Target GA bits.
 > * Update 4 can be directly applied on 8.0.1 GA.
 > * The configuration server and RX updates can’t be rolled back after they're applied on the system.
@@ -153,7 +154,7 @@ Update 3 includes the following bug fixes and enhancements:
 | Malicious file upload |Restricted files to certain extensions. Allowed extensions are: 7z, aiff, asf, avi, bmp, csv, doc, docx, fla, flv, gif, gz, gzip, jpeg, jpg, log, mid, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, rmi, rmvb, rtf, sdc, sitd, swf, sxc, sxw, tar, tgz, tif, tiff, txt, vsd, wav, wma, wmv, xls, xlsx, xml, and zip. |
 | Persistent cross-site scripting |Added input validations. |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > * All Site Recovery updates are cumulative. Update 3 has all the fixes of Update 1 and Update 2. Update 3 can be directly applied on 8.0.1 GA.
 > * The configuration server and RX updates can’t be rolled back after they're applied on the system.
 >

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Get the tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Azure"
-    description="Download and install the necessary tools and software for the first sample application for Edison on Ubuntu."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="arduino development tools, iot development, iot software, internet of things software, install git on ubuntu, install node js ubuntu" />
-<tags
-    ms.assetid="9ab5b161-7ec5-41a6-9c5f-4456e4882752"
-    ms.service="iot-hub"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get the tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Azure
+description: Download and install the necessary tools and software for the first sample application for Edison on Ubuntu.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: arduino development tools, iot development, iot software, internet of things software, install git on ubuntu, install node js ubuntu
+
+ms.assetid: 9ab5b161-7ec5-41a6-9c5f-4456e4882752
+ms.service: iot-hub
+ms.devlang: nodejs
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get the tools (Ubuntu 16.04)
 
@@ -74,8 +75,8 @@ You've installed the required development tools and software for the first sampl
 [Create and deploy the blink sample application][create-and-deploy-the-blink-application]
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-node-troubleshooting/
-[create-and-deploy-the-blink-application]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app/
-[windows]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32/
-[ubuntu]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu/
-[macos]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac/
+[troubleshooting]: ./iot-hub-intel-edison-kit-node-troubleshooting.md
+[create-and-deploy-the-blink-application]: ./iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md
+[windows]: ./iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md
+[ubuntu]: ./iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md
+[macos]: ./iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md

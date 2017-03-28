@@ -1,7 +1,7 @@
 ## Virtual Network
 Virtual Networks (VNET) and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Network administrators are familiar with CIDR notation. If you are not familiar with CIDR, [learn more about it](http://whatismyipaddress.com/cidr).
 > 
 > 
@@ -30,49 +30,51 @@ Subnets contain the following properties.
 
 Sample VNet in JSON format:
 
-    {
-        "name": "TestVNet",
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet",
-        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-        "type": "Microsoft.Network/virtualNetworks",
-        "location": "chinanorth",
-        "tags": {
-            "displayName": "VNet"
+```
+{
+    "name": "TestVNet",
+    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet",
+    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+    "type": "Microsoft.Network/virtualNetworks",
+    "location": "chinanorth",
+    "tags": {
+        "displayName": "VNet"
+    },
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "addressSpace": {
+            "addressPrefixes": [
+                "192.168.0.0/16"
+            ]
         },
-        "properties": {
-            "provisioningState": "Succeeded",
-            "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-            "addressSpace": {
-                "addressPrefixes": [
-                    "192.168.0.0/16"
-                ]
+        "subnets": [
+            {
+                "name": "FrontEnd",
+                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "addressPrefix": "192.168.1.0/24",
+                    "networkSecurityGroup": {
+                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
+                    },
+                    "routeTable": {
+                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
+                    },
+                    "ipConfigurations": [
+                        {
+                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
+                        },
+                        ...]
+                }
             },
-            "subnets": [
-                {
-                    "name": "FrontEnd",
-                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-                    "properties": {
-                        "provisioningState": "Succeeded",
-                        "addressPrefix": "192.168.1.0/24",
-                        "networkSecurityGroup": {
-                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
-                        },
-                        "routeTable": {
-                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
-                        },
-                        "ipConfigurations": [
-                            {
-                                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
-                            },
-                            ...]
-                    }
-                },
-                ...]
-        }
+            ...]
     }
+}
+```
 
 ### Additional resources
-* Get more information about [VNet](/documentation/articles/virtual-networks-overview/).
+* Get more information about [VNet](../articles/virtual-network/virtual-networks-overview.md).
 * Read the [REST API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/mt163650.aspx) for VNets.
 * Read the [REST API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/mt163618.aspx) for Subnets.

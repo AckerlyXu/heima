@@ -1,6 +1,6 @@
-The following table shows the gateway types and the estimated aggregate throughput by gateway SKU. This table applies to both the Resource Manager and classic deployment models. Pricing differs between gateway SKUs. For more information, see [VPN Gateway Pricing](/pricing/details/vpn-gateway/).
+The following table shows the gateway types and the estimated aggregate throughput by gateway SKU. This table applies to both the Resource Manager and classic deployment models. Pricing differs between gateway SKUs. For more information, see [VPN Gateway Pricing](https://www.azure.cn/pricing/details/vpn-gateway/).
 
-Note that the UltraPerformance gateway SKU is not represented in this table. For information about the UltraPerformance SKU, see the [ExpressRoute](/documentation/articles/expressroute-about-virtual-network-gateways/) documentation.
+Note that the UltraPerformance gateway SKU is not represented in this table. For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.
 
 |  | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist** |
 | --- | --- | --- | --- | --- |

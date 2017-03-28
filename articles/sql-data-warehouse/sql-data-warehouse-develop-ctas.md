@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Create table as select (CTAS) in SQL Data Warehouse | Azure"
-    description="Tips for coding with the create table as select (CTAS) statement in Azure SQL Data Warehouse for developing solutions."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="jrowlandjones"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="68ac9a94-09f9-424b-b536-06a125a653bd"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="01/30/2017"
-    wacn.date=""
-    ms.author="jrj;barbkess" />
+---
+title: Create table as select (CTAS) in SQL Data Warehouse | Azure
+description: Tips for coding with the create table as select (CTAS) statement in Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: jhubbard
+editor: ''
+
+ms.assetid: 68ac9a94-09f9-424b-b536-06a125a653bd
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 01/30/2017
+wacn.date: ''
+ms.author: jrj;barbkess
+---
 
 # Create Table As Select (CTAS) in SQL Data Warehouse
 Create table as select or `CTAS` is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a SELECT statement. `CTAS` is the simplest and fastest way to create a copy of a table. This document provides both examples and best practices for `CTAS`.
@@ -25,9 +26,11 @@ You can consider `CTAS` as a super-charged version of `SELECT..INTO`.
 
 Below is an example of a simple `SELECT..INTO` statement:
 
-    SELECT *
-    INTO    [dbo].[FactInternetSales_new]
-    FROM    [dbo].[FactInternetSales]
+```sql
+SELECT *
+INTO    [dbo].[FactInternetSales_new]
+FROM    [dbo].[FactInternetSales]
+```
 
 In the example above `[dbo].[FactInternetSales_new]` would be created as ROUND_ROBIN distributed table with a CLUSTERED COLUMNSTORE INDEX on it as these are the table defaults in Azure SQL Data Warehouse.
 
@@ -35,20 +38,22 @@ In the example above `[dbo].[FactInternetSales_new]` would be created as ROUND_R
 
 To convert the above to `CTAS` is quite straight-forward:
 
-    CREATE TABLE [dbo].[FactInternetSales_new]
-    WITH
-    (
-        DISTRIBUTION = ROUND_ROBIN
-    ,    CLUSTERED COLUMNSTORE INDEX
-    )
-    AS
-    SELECT  *
-    FROM    [dbo].[FactInternetSales]
-    ;
+```sql
+CREATE TABLE [dbo].[FactInternetSales_new]
+WITH
+(
+    DISTRIBUTION = ROUND_ROBIN
+,    CLUSTERED COLUMNSTORE INDEX
+)
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+;
+```
 
 With `CTAS` you are able to change both the distribution of the table data as well as the table type. 
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you are only trying to change the index in your `CTAS` operation and the source table is hash distributed then your `CTAS` operation will perform best if you maintain the same distribution column and data type. This will avoid cross distribution data movement during the operation which is more efficient.
 > 
 > 
@@ -58,60 +63,66 @@ Perhaps one of the most common uses of `CTAS` is creating a copy of a table so t
 
 Let's say you created this table using the default distribution type of `ROUND_ROBIN` distributed since no distribution column was specified in the `CREATE TABLE`.
 
-    CREATE TABLE FactInternetSales
-    (
-        ProductKey int NOT NULL,
-        OrderDateKey int NOT NULL,
-        DueDateKey int NOT NULL,
-        ShipDateKey int NOT NULL,
-        CustomerKey int NOT NULL,
-        PromotionKey int NOT NULL,
-        CurrencyKey int NOT NULL,
-        SalesTerritoryKey int NOT NULL,
-        SalesOrderNumber nvarchar(20) NOT NULL,
-        SalesOrderLineNumber tinyint NOT NULL,
-        RevisionNumber tinyint NOT NULL,
-        OrderQuantity smallint NOT NULL,
-        UnitPrice money NOT NULL,
-        ExtendedAmount money NOT NULL,
-        UnitPriceDiscountPct float NOT NULL,
-        DiscountAmount float NOT NULL,
-        ProductStandardCost money NOT NULL,
-        TotalProductCost money NOT NULL,
-        SalesAmount money NOT NULL,
-        TaxAmt money NOT NULL,
-        Freight money NOT NULL,
-        CarrierTrackingNumber nvarchar(25),
-        CustomerPONumber nvarchar(25)
-    );
+```sql
+CREATE TABLE FactInternetSales
+(
+    ProductKey int NOT NULL,
+    OrderDateKey int NOT NULL,
+    DueDateKey int NOT NULL,
+    ShipDateKey int NOT NULL,
+    CustomerKey int NOT NULL,
+    PromotionKey int NOT NULL,
+    CurrencyKey int NOT NULL,
+    SalesTerritoryKey int NOT NULL,
+    SalesOrderNumber nvarchar(20) NOT NULL,
+    SalesOrderLineNumber tinyint NOT NULL,
+    RevisionNumber tinyint NOT NULL,
+    OrderQuantity smallint NOT NULL,
+    UnitPrice money NOT NULL,
+    ExtendedAmount money NOT NULL,
+    UnitPriceDiscountPct float NOT NULL,
+    DiscountAmount float NOT NULL,
+    ProductStandardCost money NOT NULL,
+    TotalProductCost money NOT NULL,
+    SalesAmount money NOT NULL,
+    TaxAmt money NOT NULL,
+    Freight money NOT NULL,
+    CarrierTrackingNumber nvarchar(25),
+    CustomerPONumber nvarchar(25)
+);
+```
 
 Now you want to create a new copy of this table with a Clustered Columnstore Index so that you can take advantage of the performance of Clustered Columnstore tables. You also want to distribute this table on ProductKey since you are anticipating joins on this column and want to avoid data movement during joins on ProductKey. Lastly you also want to add partitioning on OrderDateKey so that you can quickly delete old data by dropping old partitions. Here is the CTAS statement which would copy your old table into a new table.
 
-    CREATE TABLE FactInternetSales_new
-    WITH
+```sql
+CREATE TABLE FactInternetSales_new
+WITH
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = HASH(ProductKey),
+    PARTITION
     (
-        CLUSTERED COLUMNSTORE INDEX,
-        DISTRIBUTION = HASH(ProductKey),
-        PARTITION
+        OrderDateKey RANGE RIGHT FOR VALUES
         (
-            OrderDateKey RANGE RIGHT FOR VALUES
-            (
-            20000101,20010101,20020101,20030101,20040101,20050101,20060101,20070101,20080101,20090101,
-            20100101,20110101,20120101,20130101,20140101,20150101,20160101,20170101,20180101,20190101,
-            20200101,20210101,20220101,20230101,20240101,20250101,20260101,20270101,20280101,20290101
-            )
+        20000101,20010101,20020101,20030101,20040101,20050101,20060101,20070101,20080101,20090101,
+        20100101,20110101,20120101,20130101,20140101,20150101,20160101,20170101,20180101,20190101,
+        20200101,20210101,20220101,20230101,20240101,20250101,20260101,20270101,20280101,20290101
         )
     )
-    AS SELECT * FROM FactInternetSales;
+)
+AS SELECT * FROM FactInternetSales;
+```
 
 Finally you can rename your tables to swap in your new table and then drop your old table.
 
-    RENAME OBJECT FactInternetSales TO FactInternetSales_old;
-    RENAME OBJECT FactInternetSales_new TO FactInternetSales;
+```sql
+RENAME OBJECT FactInternetSales TO FactInternetSales_old;
+RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 
-    DROP TABLE FactInternetSales_old;
+DROP TABLE FactInternetSales_old;
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][Statistics] topic in the Develop group of topics.
 > 
 > 
@@ -123,7 +134,7 @@ Finally you can rename your tables to swap in your new table and then drop your 
 * ANSI JOINs on DELETEs
 * MERGE statement
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Try to think "CTAS first". If you think you can solve a problem using `CTAS` then that is generally the best way to approach it - even if you are writing more data as a result.
 > 
 > 
@@ -134,172 +145,184 @@ You may find you have a complex update that joins more than two tables together 
 
 Imagine you had to update this table:
 
-
-    CREATE TABLE [dbo].[AnnualCategorySales]
-    (    [EnglishProductCategoryName]    NVARCHAR(50)    NOT NULL
-    ,    [CalendarYear]                    SMALLINT        NOT NULL
-    ,    [TotalSalesAmount]                MONEY            NOT NULL
-    )
-    WITH
-    (
-        DISTRIBUTION = ROUND_ROBIN
-    )
-    ;
-
+```sql
+CREATE TABLE [dbo].[AnnualCategorySales]
+(    [EnglishProductCategoryName]    NVARCHAR(50)    NOT NULL
+,    [CalendarYear]                    SMALLINT        NOT NULL
+,    [TotalSalesAmount]                MONEY            NOT NULL
+)
+WITH
+(
+    DISTRIBUTION = ROUND_ROBIN
+)
+;
+```
 
 The original query might have looked something like this:
 
-
-    UPDATE    acs
-    SET        [TotalSalesAmount] = [fis].[TotalSalesAmount]
-    FROM    [dbo].[AnnualCategorySales]     AS acs
-    JOIN    (
-            SELECT    [EnglishProductCategoryName]
-            ,        [CalendarYear]
-            ,        SUM([SalesAmount])                AS [TotalSalesAmount]
-            FROM    [dbo].[FactInternetSales]        AS s
-            JOIN    [dbo].[DimDate]                    AS d    ON s.[OrderDateKey]                = d.[DateKey]
-            JOIN    [dbo].[DimProduct]                AS p    ON s.[ProductKey]                = p.[ProductKey]
-            JOIN    [dbo].[DimProductSubCategory]    AS u    ON p.[ProductSubcategoryKey]    = u.[ProductSubcategoryKey]
-            JOIN    [dbo].[DimProductCategory]        AS c    ON u.[ProductCategoryKey]        = c.[ProductCategoryKey]
-            WHERE     [CalendarYear] = 2004
-            GROUP BY
-                    [EnglishProductCategoryName]
-            ,        [CalendarYear]
-            ) AS fis
-    ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
-    AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
-    ;
+```sql
+UPDATE    acs
+SET        [TotalSalesAmount] = [fis].[TotalSalesAmount]
+FROM    [dbo].[AnnualCategorySales]     AS acs
+JOIN    (
+        SELECT    [EnglishProductCategoryName]
+        ,        [CalendarYear]
+        ,        SUM([SalesAmount])                AS [TotalSalesAmount]
+        FROM    [dbo].[FactInternetSales]        AS s
+        JOIN    [dbo].[DimDate]                    AS d    ON s.[OrderDateKey]                = d.[DateKey]
+        JOIN    [dbo].[DimProduct]                AS p    ON s.[ProductKey]                = p.[ProductKey]
+        JOIN    [dbo].[DimProductSubCategory]    AS u    ON p.[ProductSubcategoryKey]    = u.[ProductSubcategoryKey]
+        JOIN    [dbo].[DimProductCategory]        AS c    ON u.[ProductCategoryKey]        = c.[ProductCategoryKey]
+        WHERE     [CalendarYear] = 2004
+        GROUP BY
+                [EnglishProductCategoryName]
+        ,        [CalendarYear]
+        ) AS fis
+ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
+AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
+;
+```
 
 Since SQL Data Warehouse does not support ANSI joins in the `FROM` clause of an `UPDATE` statement, you cannot copy this code over without changing it slightly.
 
 You can use a combination of a `CTAS` and an implicit join to replace this code:
 
-    -- Create an interim table
-    CREATE TABLE CTAS_acs
-    WITH (DISTRIBUTION = ROUND_ROBIN)
-    AS
-    SELECT    ISNULL(CAST([EnglishProductCategoryName] AS NVARCHAR(50)),0)    AS [EnglishProductCategoryName]
-    ,        ISNULL(CAST([CalendarYear] AS SMALLINT),0)                         AS [CalendarYear]
-    ,        ISNULL(CAST(SUM([SalesAmount]) AS MONEY),0)                        AS [TotalSalesAmount]
-    FROM    [dbo].[FactInternetSales]        AS s
-    JOIN    [dbo].[DimDate]                    AS d    ON s.[OrderDateKey]                = d.[DateKey]
-    JOIN    [dbo].[DimProduct]                AS p    ON s.[ProductKey]                = p.[ProductKey]
-    JOIN    [dbo].[DimProductSubCategory]    AS u    ON p.[ProductSubcategoryKey]    = u.[ProductSubcategoryKey]
-    JOIN    [dbo].[DimProductCategory]        AS c    ON u.[ProductCategoryKey]        = c.[ProductCategoryKey]
-    WHERE     [CalendarYear] = 2004
-    GROUP BY
-            [EnglishProductCategoryName]
-    ,        [CalendarYear]
-    ;
+```sql
+-- Create an interim table
+CREATE TABLE CTAS_acs
+WITH (DISTRIBUTION = ROUND_ROBIN)
+AS
+SELECT    ISNULL(CAST([EnglishProductCategoryName] AS NVARCHAR(50)),0)    AS [EnglishProductCategoryName]
+,        ISNULL(CAST([CalendarYear] AS SMALLINT),0)                         AS [CalendarYear]
+,        ISNULL(CAST(SUM([SalesAmount]) AS MONEY),0)                        AS [TotalSalesAmount]
+FROM    [dbo].[FactInternetSales]        AS s
+JOIN    [dbo].[DimDate]                    AS d    ON s.[OrderDateKey]                = d.[DateKey]
+JOIN    [dbo].[DimProduct]                AS p    ON s.[ProductKey]                = p.[ProductKey]
+JOIN    [dbo].[DimProductSubCategory]    AS u    ON p.[ProductSubcategoryKey]    = u.[ProductSubcategoryKey]
+JOIN    [dbo].[DimProductCategory]        AS c    ON u.[ProductCategoryKey]        = c.[ProductCategoryKey]
+WHERE     [CalendarYear] = 2004
+GROUP BY
+        [EnglishProductCategoryName]
+,        [CalendarYear]
+;
 
-    -- Use an implicit join to perform the update
-    UPDATE  AnnualCategorySales
-    SET     AnnualCategorySales.TotalSalesAmount = CTAS_ACS.TotalSalesAmount
-    FROM    CTAS_acs
-    WHERE   CTAS_acs.[EnglishProductCategoryName] = AnnualCategorySales.[EnglishProductCategoryName]
-    AND     CTAS_acs.[CalendarYear]               = AnnualCategorySales.[CalendarYear]
-    ;
+-- Use an implicit join to perform the update
+UPDATE  AnnualCategorySales
+SET     AnnualCategorySales.TotalSalesAmount = CTAS_ACS.TotalSalesAmount
+FROM    CTAS_acs
+WHERE   CTAS_acs.[EnglishProductCategoryName] = AnnualCategorySales.[EnglishProductCategoryName]
+AND     CTAS_acs.[CalendarYear]               = AnnualCategorySales.[CalendarYear]
+;
 
-    --Drop the interim table
-    DROP TABLE CTAS_acs
-    ;
-
+--Drop the interim table
+DROP TABLE CTAS_acs
+;
+```
 
 ## <a id="ansi-join-replacement-for-delete-statements"></a> ANSI join replacement for delete statements
 Sometimes the best approach for deleting data is to use `CTAS`. Rather than deleting the data simply select the data you want to keep. This especially true for `DELETE` statements that use ansi joining syntax since SQL Data Warehouse does not support ANSI joins in the `FROM` clause of a `DELETE` statement.
 
 An example of a converted DELETE statement is available below:
 
-    CREATE TABLE dbo.DimProduct_upsert
-    WITH
-    (   Distribution=HASH(ProductKey)
-    ,   CLUSTERED INDEX (ProductKey)
-    )
-    AS -- Select Data you wish to keep
-    SELECT     p.ProductKey
-    ,          p.EnglishProductName
-    ,          p.Color
-    FROM       dbo.DimProduct p
-    RIGHT JOIN dbo.stg_DimProduct s
-    ON         p.ProductKey = s.ProductKey
-    ;
+```sql
+CREATE TABLE dbo.DimProduct_upsert
+WITH
+(   Distribution=HASH(ProductKey)
+,   CLUSTERED INDEX (ProductKey)
+)
+AS -- Select Data you wish to keep
+SELECT     p.ProductKey
+,          p.EnglishProductName
+,          p.Color
+FROM       dbo.DimProduct p
+RIGHT JOIN dbo.stg_DimProduct s
+ON         p.ProductKey = s.ProductKey
+;
 
-    RENAME OBJECT dbo.DimProduct        TO DimProduct_old;
-    RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
+RENAME OBJECT dbo.DimProduct        TO DimProduct_old;
+RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
+```
 
 ## <a id="replace-merge-statements"></a> Replace merge statements
 Merge statements can be replaced, at least in part, by using `CTAS`. You can consolidate the `INSERT` and the `UPDATE` into a single statement. Any deleted records would need to be closed off in a second statement.
 
 An example of an `UPSERT` is available below:
 
-    CREATE TABLE dbo.[DimProduct_upsert]
-    WITH
-    (   DISTRIBUTION = HASH([ProductKey])
-    ,   CLUSTERED INDEX ([ProductKey])
-    )
-    AS
-    -- New rows and new versions of rows
-    SELECT      s.[ProductKey]
-    ,           s.[EnglishProductName]
-    ,           s.[Color]
-    FROM      dbo.[stg_DimProduct] AS s
-    UNION ALL  
-    -- Keep rows that are not being touched
-    SELECT      p.[ProductKey]
-    ,           p.[EnglishProductName]
-    ,           p.[Color]
-    FROM      dbo.[DimProduct] AS p
-    WHERE NOT EXISTS
-    (   SELECT  *
-        FROM    [dbo].[stg_DimProduct] s
-        WHERE   s.[ProductKey] = p.[ProductKey]
-    )
-    ;
+```sql
+CREATE TABLE dbo.[DimProduct_upsert]
+WITH
+(   DISTRIBUTION = HASH([ProductKey])
+,   CLUSTERED INDEX ([ProductKey])
+)
+AS
+-- New rows and new versions of rows
+SELECT      s.[ProductKey]
+,           s.[EnglishProductName]
+,           s.[Color]
+FROM      dbo.[stg_DimProduct] AS s
+UNION ALL  
+-- Keep rows that are not being touched
+SELECT      p.[ProductKey]
+,           p.[EnglishProductName]
+,           p.[Color]
+FROM      dbo.[DimProduct] AS p
+WHERE NOT EXISTS
+(   SELECT  *
+    FROM    [dbo].[stg_DimProduct] s
+    WHERE   s.[ProductKey] = p.[ProductKey]
+)
+;
 
-    RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
-    RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
+RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
+RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
+```
 
 ## CTAS recommendation: Explicitly state data type and nullability of output
 When migrating code you might find you run across this type of coding pattern:
 
-    DECLARE @d decimal(7,2) = 85.455
-    ,       @f float(24)    = 85.455
+```sql
+DECLARE @d decimal(7,2) = 85.455
+,       @f float(24)    = 85.455
 
-    CREATE TABLE result
-    (result DECIMAL(7,2) NOT NULL
-    )
-    WITH (DISTRIBUTION = ROUND_ROBIN)
+CREATE TABLE result
+(result DECIMAL(7,2) NOT NULL
+)
+WITH (DISTRIBUTION = ROUND_ROBIN)
 
-    INSERT INTO result
-    SELECT @d*@f
-    ;
+INSERT INTO result
+SELECT @d*@f
+;
+```
 
 Instinctively you might think you should migrate this code to a CTAS and you would be correct. However, there is a hidden issue here.
 
 The following code does NOT yield the same result:
 
-    DECLARE @d decimal(7,2) = 85.455
-    ,       @f float(24)    = 85.455
-    ;
+```sql
+DECLARE @d decimal(7,2) = 85.455
+,       @f float(24)    = 85.455
+;
 
-    CREATE TABLE ctas_r
-    WITH (DISTRIBUTION = ROUND_ROBIN)
-    AS
-    SELECT @d*@f as result
-    ;
+CREATE TABLE ctas_r
+WITH (DISTRIBUTION = ROUND_ROBIN)
+AS
+SELECT @d*@f as result
+;
+```
 
 Notice that the column "result" carries forward the data type and nullability values of the expression. This can lead to subtle variances in values if you aren't careful.
 
 Try the following as an example:
 
-    SELECT result,result*@d
-    from result
-    ;
+```sql
+SELECT result,result*@d
+from result
+;
 
-    SELECT result,result*@d
-    from ctas_r
-    ;
+SELECT result,result*@d
+from ctas_r
+;
+```
 
 The value stored for result is different. As the persisted value in the result column is used in other expressions the error becomes even more significant.
 
@@ -313,14 +336,15 @@ To resolve these issues you must explicitly set the type conversion and nullabil
 
 The example below demonstrates how to fix the code:
 
-    DECLARE @d decimal(7,2) = 85.455
-    ,       @f float(24)    = 85.455
+```sql
+DECLARE @d decimal(7,2) = 85.455
+,       @f float(24)    = 85.455
 
-    CREATE TABLE ctas_r
-    WITH (DISTRIBUTION = ROUND_ROBIN)
-    AS
-    SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
-
+CREATE TABLE ctas_r
+WITH (DISTRIBUTION = ROUND_ROBIN)
+AS
+SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
+```
 
 Note the following:
 
@@ -329,76 +353,82 @@ Note the following:
 * ISNULL is the outermost function
 * The second part of the ISNULL is a constant i.e. 0
 
-> [AZURE.NOTE]
+> [!NOTE]
 > For the nullability to be correctly set it is vital to use `ISNULL` and not `COALESCE`. `COALESCE` is not a deterministic function and so the result of the expression will always be NULLable. `ISNULL` is different. It is deterministic. Therefore when the second part of the `ISNULL` function is a constant or a literal then the resulting value will be NOT NULL.
 > 
 > 
 
 This tip is not just useful for ensuring the integrity of your calculations. It is also important for table partition switching. Imagine you have this table defined as your fact:
 
-    CREATE TABLE [dbo].[Sales]
-    (
-        [date]      INT     NOT NULL
-    ,   [product]   INT     NOT NULL
-    ,   [store]     INT     NOT NULL
-    ,   [quantity]  INT     NOT NULL
-    ,   [price]     MONEY   NOT NULL
-    ,   [amount]    MONEY   NOT NULL
-    )
-    WITH
-    (   DISTRIBUTION = HASH([product])
-    ,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
-                        (20000101,20010101,20020101
-                        ,20030101,20040101,20050101
-                        )
+```sql
+CREATE TABLE [dbo].[Sales]
+(
+    [date]      INT     NOT NULL
+,   [product]   INT     NOT NULL
+,   [store]     INT     NOT NULL
+,   [quantity]  INT     NOT NULL
+,   [price]     MONEY   NOT NULL
+,   [amount]    MONEY   NOT NULL
+)
+WITH
+(   DISTRIBUTION = HASH([product])
+,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
+                    (20000101,20010101,20020101
+                    ,20030101,20040101,20050101
                     )
-    )
-    ;
+                )
+)
+;
+```
 
 However, the value field is a calculated expression it is not part of the source data.
 
 To create your partitioned dataset you might want to do this:
 
-    CREATE TABLE [dbo].[Sales_in]
-    WITH    
-    (   DISTRIBUTION = HASH([product])
-    ,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
-                        (20000101,20010101
-                        )
+```sql
+CREATE TABLE [dbo].[Sales_in]
+WITH    
+(   DISTRIBUTION = HASH([product])
+,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
+                    (20000101,20010101
                     )
-    )
-    AS
-    SELECT
-        [date]    
-    ,   [product]
-    ,   [store]
-    ,   [quantity]
-    ,   [price]   
-    ,   [quantity]*[price]  AS [amount]
-    FROM [stg].[source]
-    OPTION (LABEL = 'CTAS : Partition IN table : Create')
-    ;
+                )
+)
+AS
+SELECT
+    [date]    
+,   [product]
+,   [store]
+,   [quantity]
+,   [price]   
+,   [quantity]*[price]  AS [amount]
+FROM [stg].[source]
+OPTION (LABEL = 'CTAS : Partition IN table : Create')
+;
+```
 
 The query would run perfectly fine. The problem comes when you try to perform the partition switch. The table definitions do not match. To make the table definitions match the CTAS needs to be modified.
 
-    CREATE TABLE [dbo].[Sales_in]
-    WITH    
-    (   DISTRIBUTION = HASH([product])
-    ,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
-                        (20000101,20010101
-                        )
+```sql
+CREATE TABLE [dbo].[Sales_in]
+WITH    
+(   DISTRIBUTION = HASH([product])
+,   PARTITION   (   [date] RANGE RIGHT FOR VALUES
+                    (20000101,20010101
                     )
-    )
-    AS
-    SELECT
-        [date]    
-    ,   [product]
-    ,   [store]
-    ,   [quantity]
-    ,   [price]   
-    ,   ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
-    FROM [stg].[source]
-    OPTION (LABEL = 'CTAS : Partition IN table : Create');
+                )
+)
+AS
+SELECT
+    [date]    
+,   [product]
+,   [store]
+,   [quantity]
+,   [price]   
+,   ISNULL(CAST([quantity]*[price] AS MONEY),0) AS [amount]
+FROM [stg].[source]
+OPTION (LABEL = 'CTAS : Partition IN table : Create');
+```
 
 You can see therefore that type consistency and maintaining nullability properties on a CTAS is a good engineering best practice. It helps to maintain integrity in your calculations and also ensures that partition switching is possible.
 
@@ -411,8 +441,8 @@ For more development tips, see [development overview][development overview].
 [1]: ./media/sql-data-warehouse-develop-ctas/ctas-results.png
 
 <!--Article references-->
-[development overview]: /documentation/articles/sql-data-warehouse-overview-develop/
-[Statistics]: /documentation/articles/sql-data-warehouse-tables-statistics/
+[development overview]: ./sql-data-warehouse-overview-develop.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [CTAS]: https://msdn.microsoft.com/zh-cn/library/mt204041.aspx

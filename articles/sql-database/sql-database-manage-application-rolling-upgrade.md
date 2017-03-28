@@ -1,24 +1,23 @@
-<properties
-   pageTitle="Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Azure"
-   description="Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application."
-   services="sql-database"
-   documentationCenter=""
-   authors="anosov1960"
-   manager="jhubbard"
-   editor="monicar"/>
+---
+title: Cloud disaster recovery solutions - SQL Database Active Geo-Replication | Azure
+description: Learn how to use Azure SQL Database geo-replication to support online upgrades of your cloud application.
+services: sql-database
+documentationCenter: ''
+authors: anosov1960
+manager: jhubbard
+editor: monicar
 
-<tags
-   ms.service="sql-database"
-   ms.date="07/16/2016"
-   wacn.date="05/23/2016"/>
+ms.service: sql-database
+ms.date: 07/16/2016
+wacn.date: 05/23/2016
+---
 
 # Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication
 
+> [!NOTE]
+> [Active Geo-Replication](./sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
 
-> [AZURE.NOTE] [Active Geo-Replication](/documentation/articles/sql-database-geo-replication-overview/) is now available for all databases in all tiers.
-
-
-Learn how to use [geo-replication](/documentation/articles/sql-database-geo-replication-overview/) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end user experience. 
+Learn how to use [geo-replication](./sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end user experience. 
 
 When evaluating the upgrade options you should consider the following factors:
 
@@ -34,7 +33,8 @@ If your application relies on automatic database backups and uses geo-restore fo
 1.  Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy a identical web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
 3.  Create a failover profile in WATM with <i>contoso-1.chinacloudsites.cn</i> as online endpoint and <i>contoso-2.chinacloudsites.cn</i> as offline. 
 
-> [AZURE.NOTE] Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
+> [!NOTE]
+> Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](./media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
@@ -60,7 +60,8 @@ If the upgrade process is unsuccessful, for example due to an error in the upgra
 
 At this point the application is fully functional and the upgrade steps can be repeated.
 
-> [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to <i>contoso-1.chinacloudsites.cn</i> as the active endpoint.
+> [!NOTE]
+> The rollback does not require changes in WATM profile as it already points to <i>contoso-1.chinacloudsites.cn</i> as the active endpoint.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](./media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
@@ -80,7 +81,8 @@ To achieve these goals you will leverage Azure Traffic Manager (WATM) using the 
 3.  Create a standby copy of the web site in the backup region and link it to the geo-redundant secondary (4).  
 4.  Add the additional endpoints <i>contoso-2.chinacloudsites.cn</i> and <i>contoso-3.chinacloudsites.cn</i> to the failover profile in WATM as offline endpoints (5). 
 
-> [AZURE.NOTE] Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
+> [!NOTE]
+> Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](./media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
@@ -106,7 +108,8 @@ If the upgrade process is unsuccessful, for example due to an error in the upgra
 
 At this point the application is fully functional and the upgrade steps can be repeated.
 
-> [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to  <i>contoso-1.chinacloudsites.cn</i> as the active endpoint.
+> [!NOTE]
+> The rollback does not require changes in WATM profile as it already points to  <i>contoso-1.chinacloudsites.cn</i> as the active endpoint.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](./media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
@@ -116,14 +119,13 @@ The key **advantage** of this option is that you can upgrade both the applicatio
 
 The two upgrade methods described in the article differ in complexity and the dollar cost but they both focus on minimizing the time when the end user is limited to read-only operations. That time is directly defined by the duration of the upgrade script. It does not depend on the database size, the service tier you chose, the web site configuration and other factors that you cannot easily control. This is because all the preparation steps are decoupled from the upgrade steps and can be done without impacting the production application. The efficiency of the upgrade script is the key factor that determines the end-user experience during upgrades. So the best way you can improve it is by focusing your efforts on making the upgrade script as efficient as possible.  
 
-
 ## Next steps
 
-- For a business continuity overview and scenarios, see [Business continuity overview](/documentation/articles/sql-database-business-continuity/)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](/documentation/articles/sql-database-automated-backups/)
-- To learn about using automated backups for recovery, see [restore a database from automated backups](/documentation/articles/sql-database-recovery-using-backups/)
-- To learn about faster recovery options, see [Active-Geo-Replication](/documentation/articles/sql-database-geo-replication-overview/)  
-- To learn about using automated backups for archiving, see [database copy](/documentation/articles/sql-database-copy/)
+- For a business continuity overview and scenarios, see [Business continuity overview](./sql-database-business-continuity.md)
+- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](./sql-database-automated-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from automated backups](./sql-database-recovery-using-backups.md)
+- To learn about faster recovery options, see [Active-Geo-Replication](./sql-database-geo-replication-overview.md)  
+- To learn about using automated backups for archiving, see [database copy](./sql-database-copy.md)
 
 ## Additionale Resources
 
@@ -136,4 +138,3 @@ The following pages will help you learn about the specific operations required t
 - [Drop database](https://msdn.microsoft.com/zh-cn/library/azure/mt619368.aspx)
 - [Copy database](https://msdn.microsoft.com/zh-cn/library/azure/mt603644.aspx)
 - [Set database to read-only or read-write mode](https://msdn.microsoft.com/zh-cn/library/bb522682.aspx)
-

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understand Azure IoT Hub MQTT support | Azure"
-    description="Developer guide - support for devices connecting to an IoT Hub device-facing endpoint using the MQTT protocol. Includes information about built-in MQTT support in the Azure IoT device SDKs."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="kdotchkoff"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="1d71c27c-b466-4a40-b95b-d6550cf85144"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/01/2017"
-    wacn.date=""
-    ms.author="kdotchko" />
+---
+title: Understand Azure IoT Hub MQTT support | Azure
+description: Developer guide - support for devices connecting to an IoT Hub device-facing endpoint using the MQTT protocol. Includes information about built-in MQTT support in the Azure IoT device SDKs.
+services: iot-hub
+documentationcenter: .net
+author: kdotchkoff
+manager: timlt
+editor: ''
+
+ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/01/2017
+wacn.date: ''
+ms.author: kdotchko
+---
 
 # Communicate with your IoT hub using the MQTT protocol
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol on port 8883 or MQTT v3.1.1 over WebSocket protocol on port 443. IoT Hub requires all device communication to be secured using TLS/SSL (hence, IoT Hub doesn’t support non-secure connections over port 1883).
@@ -79,7 +80,8 @@ After making a successful connection, a device can send messages to IoT Hub usin
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
 
-> [AZURE.NOTE] This `{property_bag}` element uses the same encoding as for query strings in the HTTP protocol.
+> [!NOTE]
+> This `{property_bag}` element uses the same encoding as for query strings in the HTTP protocol.
 
 The device app can also use `devices/{device_id}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
 
@@ -107,19 +109,21 @@ The response body will contain the properties section of the device twin:
 
 The body of the identity registry entry limited to the “properties” member, for example:
 
-        {
-            "properties": {
-                "desired": {
-                    "telemetrySendFrequency": "5m",
-                    "$version": 12
-                },
-                "reported": {
-                    "telemetrySendFrequency": "5m",
-                    "batteryLevel": 55,
-                    "$version": 123
-                }
+```
+    {
+        "properties": {
+            "desired": {
+                "telemetrySendFrequency": "5m",
+                "$version": 12
+            },
+            "reported": {
+                "telemetrySendFrequency": "5m",
+                "batteryLevel": 55,
+                "$version": 123
             }
         }
+    }
+```
 
 The possible status codes are:
 
@@ -144,10 +148,12 @@ The following sequence describes how a device updates the reported properties in
 The request message body contains a JSON document, which provides new values for reported properties (no other property or metadata can be modified).
 Each member in the JSON document updates or add the corresponding member in the device twin’s document. A member set to `null`, deletes the member from the containing object. For example:
 
-        {
-            "telemetrySendFrequency": "35m",
-            "batteryLevel": 60
-        }
+```
+    {
+        "telemetrySendFrequency": "35m",
+        "batteryLevel": 60
+    }
+```
 
 The possible status codes are:
 
@@ -164,14 +170,17 @@ For more information, see [Device twins developer's guide][lnk-devguide-twin].
 
 When a device is connected, IoT Hub sends notifications to the topic `$iothub/twin/PATCH/properties/desired/?$version={new version}`, which contain the content of the update performed by the solution back end. For example:
 
-        {
-            "telemetrySendFrequency": "5m",
-            "route": null
-        }
+```
+    {
+        "telemetrySendFrequency": "5m",
+        "route": null
+    }
+```
 
 As for property updates, `null` values means that the JSON object member is being deleted.
 
-> [AZURE.IMPORTANT] IoT Hub generates change notifications only when devices are connected, make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.
+> [!IMPORTANT]
+> IoT Hub generates change notifications only when devices are connected, make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.
 
 For more information, see [Device twins developer's guide][lnk-devguide-twin].
 
@@ -212,19 +221,19 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-sas-tokens]: /documentation/articles/iot-hub-devguide-security/#use-sas-tokens-in-a-device-client
-[lnk-mqtt-devguide]: /documentation/articles/iot-hub-devguide-messaging/#notes-on-mqtt-support
-[lnk-azure-protocol-gateway]: /documentation/articles/iot-hub-protocol-gateway/
+[lnk-sas-tokens]: ./iot-hub-devguide-security.md#use-sas-tokens-in-a-device-client
+[lnk-mqtt-devguide]: ./iot-hub-devguide-messaging.md#notes-on-mqtt-support
+[lnk-azure-protocol-gateway]: ./iot-hub-protocol-gateway.md
 
 [lnk-devices]: https://catalog.azureiotsuite.com/
-[lnk-protocols]: /documentation/articles/iot-hub-protocol-gateway/
-[lnk-compare]: /documentation/articles/iot-hub-compare-event-hubs/
-[lnk-scaling]: /documentation/articles/iot-hub-scaling/
-[lnk-devguide]: /documentation/articles/iot-hub-devguide/
-[lnk-gateway]: /documentation/articles/iot-hub-linux-gateway-sdk-simulated-device/
+[lnk-protocols]: ./iot-hub-protocol-gateway.md
+[lnk-compare]: ./iot-hub-compare-event-hubs.md
+[lnk-scaling]: ./iot-hub-scaling.md
+[lnk-devguide]: ./iot-hub-devguide.md
+[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
 
-[lnk-methods]: /documentation/articles/iot-hub-devguide-direct-methods/
-[lnk-messaging]: /documentation/articles/iot-hub-devguide-messaging/
-[lnk-quotas]: /documentation/articles/iot-hub-devguide-quotas-throttling/
-[lnk-devguide-twin-reconnection]: /documentation/articles/iot-hub-devguide-device-twins/#device-reconnection-flow
-[lnk-devguide-twin]: /documentation/articles/iot-hub-devguide-device-twins/
+[lnk-methods]: ./iot-hub-devguide-direct-methods.md
+[lnk-messaging]: ./iot-hub-devguide-messaging.md
+[lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
+[lnk-devguide-twin-reconnection]: ./iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-devguide-twin]: ./iot-hub-devguide-device-twins.md

@@ -16,7 +16,7 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
     * Click **Use the following DNS server addresses** and enter the following values:
         * **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.
     * Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
-        >[AZURE.WARNING] 
+        >[!WARNING] 
         >If you do not follow the steps above correctly, you may lose connectivity to your VM. Ensure the information entered for step 5 is accurate before proceeding.
 
     * Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
@@ -27,9 +27,11 @@ Connect and login to a VM you created with multiple private IP addresses. You mu
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, once you have added it correctly using steps above, use the following command:
 
-    ping -S 10.0.0.5 hotmail.com
+```bash
+ping -S 10.0.0.5 hotmail.com
+```
 
->[AZURE.NOTE]
+>[!NOTE]
 >You can only ping to the internet if the private IP address you are using above has a public IP associated with it.
 
 ### Linux (Ubuntu)
@@ -37,43 +39,57 @@ To ensure you are able to connect to the internet from your secondary IP configu
 1. Open a terminal window.
 2. Make sure you are the root user. If you are not, enter the following command:
 
-        sudo -i
+    ```bash
+    sudo -i
+    ```
 
 3. Update the configuration file of the network interface (assuming 'eth0').
 
     * Keep the existing line item for dhcp. The primary IP address remains configured as it was previously.
     * Add a configuration for an additional static IP address with the following commands:
 
-            cd /etc/network/interfaces.d/
-            ls
+        ```bash
+        cd /etc/network/interfaces.d/
+        ls
+        ```
 
     You should see a .cfg file.
 4. Open the file. You should see the following lines at the end of the file:
 
-        auto eth0
-        iface eth0 inet dhcp
+    ```bash
+    auto eth0
+    iface eth0 inet dhcp
+    ```
 
 5. Add the following lines after the lines that exist in this file:
 
-        iface eth0 inet static
-        address <your private IP address here>
-        netmask <your subnet mask>
+    ```bash
+    iface eth0 inet static
+    address <your private IP address here>
+    netmask <your subnet mask>
+    ```
 
 6. Save the file by using the following command:
 
-        :wq
+    ```bash
+    :wq
+    ```
 
 7. Reset the network interface with the following command:
 
-        sudo ifdown eth0 && sudo ifup eth0
+    ```bash
+    sudo ifdown eth0 && sudo ifup eth0
+    ```
 
-    > [AZURE.IMPORTANT]
+    > [!IMPORTANT]
     > Run both ifdown and ifup in the same line if using a remote connection.
     >
 
 8. Verify the IP address is added to the network interface with the following command:
 
-        ip addr list eth0
+    ```bash
+    ip addr list eth0
+    ```
 
     You should see the IP address you added as part of the list.
 
@@ -82,42 +98,58 @@ To ensure you are able to connect to the internet from your secondary IP configu
 1. Open a terminal window.
 2. Make sure you are the root user. If you are not, enter the following command:
 
-        sudo -i
+    ```bash
+    sudo -i
+    ```
 
 3. Enter your password and follow instructions as prompted. Once you are the root user, navigate to the network scripts folder with the following command:
 
-        cd /etc/sysconfig/network-scripts
+    ```bash
+    cd /etc/sysconfig/network-scripts
+    ```
 
 4. List the related ifcfg files using the following command:
 
-        ls ifcfg-*
+    ```bash
+    ls ifcfg-*
+    ```
 
     You should see *ifcfg-eth0* as one of the files.
 
 5. To add an IP address, create a configuration file for it as shown below. Note that one file must be created for each IP configuration.
 
-        touch ifcfg-eth0:0
+    ```bash
+    touch ifcfg-eth0:0
+    ```
 
 6. Open the *ifcfg-eth0:0* file with the following command:
 
-        vi ifcfg-eth0:0
+    ```bash
+    vi ifcfg-eth0:0
+    ```
 
 7. Add content to the file, *eth0:0* in this case, with the following command. Be sure to update information based on your IP address.
 
-        DEVICE=eth0:0
-        BOOTPROTO=static
-        ONBOOT=yes
-        IPADDR=192.168.101.101
-        NETMASK=255.255.255.0
+    ```bash
+    DEVICE=eth0:0
+    BOOTPROTO=static
+    ONBOOT=yes
+    IPADDR=192.168.101.101
+    NETMASK=255.255.255.0
+    ```
 
 8. Save the file with the following command:
 
-        :wq
+    ```bash
+    :wq
+    ```
 
 9. Restart the network services and make sure the changes are successful by running the following commands:
 
-        /etc/init.d/network restart
-        ifconfig
+    ```bash
+    /etc/init.d/network restart
+    ifconfig
+    ```
 
     You should see the IP address you added, *eth0:0*, in the list returned.
 
@@ -125,19 +157,23 @@ To ensure you are able to connect to the internet from your secondary IP configu
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
 
-    ping -I 10.0.0.5 hotmail.com
+```bash
+ping -I 10.0.0.5 hotmail.com
+```
 
->[AZURE.NOTE]
+>[!NOTE]
 >You can only ping to the internet if the private IP address you are using above has a public IP associated with it.
 
 For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
 
-    echo 150 custom >> /etc/iproute2/rt_tables 
+```bash
+echo 150 custom >> /etc/iproute2/rt_tables 
 
-    ip rule add from 10.0.0.5 lookup custom
-    ip route add default via 10.0.0.1 dev eth2 table custom
+ip rule add from 10.0.0.5 lookup custom
+ip route add default via 10.0.0.1 dev eth2 table custom
+```
 
 - Be sure to replace:
-	- **10.0.0.5** with the private IP address that has a public IP address associated to it
-	- **10.0.0.1** to your default gateway
-	- **eth2** to the name of your secondary NIC
+    - **10.0.0.5** with the private IP address that has a public IP address associated to it
+    - **10.0.0.1** to your default gateway
+    - **eth2** to the name of your secondary NIC

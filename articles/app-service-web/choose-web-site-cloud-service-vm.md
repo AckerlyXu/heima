@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison | Azure"
-    description="Learn how to choose between Azure App Service, Virtual Machines, Service Fabric, and Cloud Services for hosting web applications."
-    services="app-service\web, virtual-machines, cloud-services"
-    documentationcenter=""
-    author="tdykstra"
-    manager="erikre"
-    editor="jimbe" />
-<tags
-    ms.assetid="7d346a23-532a-42a9-98a8-23b7286d32a8"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/07/2016"
-    wacn.date=""
-    ms.author="tdykstra" />
+---
+title: Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison | Azure
+description: Learn how to choose between Azure App Service, Virtual Machines, Service Fabric, and Cloud Services for hosting web applications.
+services: app-service\web, virtual-machines, cloud-services
+documentationcenter: ''
+author: tdykstra
+manager: erikre
+editor: jimbe
+
+ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/07/2016
+wacn.date: ''
+ms.author: tdykstra
+---
 
 # Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
 ## Overview
@@ -28,7 +29,7 @@ Service Fabric is a good choice if you're creating a new app or re-writing an ex
 If you have an existing application that would require substantial modifications to run in App Service or Service Fabric, you could choose Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Service Fabric. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment. Azure Virtual Machines is Infrastructure-as-a-Service (IaaS), while App Service and Service Fabric are Platform-as-a-Service (Paas). 
 
 ## <a name="features"></a>Feature Comparison
-The following table compares the capabilities of App Service, Cloud Services, Virtual Machines, and Service Fabric to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](/support/legal/sla/).
+The following table compares the capabilities of App Service, Cloud Services, Virtual Machines, and Service Fabric to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](https://www.azure.cn/support/legal/sla/).
 
 | Feature | App Service (web apps) | Cloud Services (web roles) | Virtual Machines | Service Fabric | Notes |
 | --- | --- | --- | --- | --- | --- |
@@ -43,17 +44,17 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | WebMatrix support |X | |X | | |
 | Access to services like Service Bus, Storage, SQL Database |X |X |X |X | |
 | Host web or web services tier of a multi-tier architecture |X |X |X |X | |
-| Host middle tier of a multi-tier architecture |X |X |X |X |App Service web apps can easily host a REST API middle tier, and the [WebJobs](/documentation/articles/websites-webjobs-resources/) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](/documentation/articles/app-service-api-apps-why-best-platform/) feature provides even more features for hosting REST services. |
-| Support for ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric supports the creation of a web front-end using [ASP.NET 5](/documentation/articles/service-fabric-add-a-web-frontend/) or you can deploy any type of application (Node.js, Java, etc) as a [guest executable](/documentation/articles/service-fabric-deploy-existing-app/). |
+| Host middle tier of a multi-tier architecture |X |X |X |X |App Service web apps can easily host a REST API middle tier, and the [WebJobs](./websites-webjobs-resources.md) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. The preview [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) feature provides even more features for hosting REST services. |
+| Support for ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric supports the creation of a web front-end using [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) or you can deploy any type of application (Node.js, Java, etc) as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Scale out to multiple instances without redeploy |X |X |X |X |Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and create an Affinity Group to prevent simultaneous restarts of all instances due to maintenance or hardware failures. |
-| Support for SSL |X |X |X |X |For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](/documentation/articles/web-sites-configure-ssl-certificate/). |
+| Support for SSL |X |X |X |X |For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](./web-sites-configure-ssl-certificate.md). |
 | Visual Studio integration |X |X |X |X | |
 | Remote Debugging |X |X |X | | |
-| Network isolation with [Azure Virtual Network](/home/features/networking/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](/documentation/articles/app-service-vnet-integration-powershell/) |
-| Support for [Azure Traffic Manager](/home/features/traffic-manager/) |X |X |X |X | |
+| Network isolation with [Azure Virtual Network](https://www.azure.cn/home/features/networking/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](./app-service-vnet-integration-powershell.md) |
+| Support for [Azure Traffic Manager](https://www.azure.cn/home/features/traffic-manager/) |X |X |X |X | |
 | Integrated Endpoint Monitoring |X |X |X | | |
 | Remote desktop access to servers | |X |X |X | |
-| Install any custom MSI | |X |X |X |Service Fabric allows you to host any executable file as a [guest executable](/documentation/articles/service-fabric-deploy-existing-app/) or you can install any app on the VMs. |
+| Install any custom MSI | |X |X |X |Service Fabric allows you to host any executable file as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md) or you can install any app on the VMs. |
 | Ability to define/execute start-up tasks | |X |X |X | |
 | Can listen to ETW events | |X |X |X | |
 
@@ -137,42 +138,42 @@ If your open source framework is supported on App Service, the languages and fra
 If your open source framework is not supported on App Service, you can run it on one of the other Azure web hosting options. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
-If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](/home/features/networking/). On App Service you can use the [VNET integration feature](/documentation/articles/app-service-vnet-integration-powershell/), which allows your Azure applications to run as if they were on your corporate network.
+If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](https://www.azure.cn/home/features/networking/). On App Service you can use the [VNET integration feature](./app-service-vnet-integration-powershell.md), which allows your Azure applications to run as if they were on your corporate network.
 
 ### <a id="mobile"></a>I want to host a REST API or web service for mobile clients
 HTTP-based web services enable you to support a wide variety of clients, including mobile clients. Frameworks like ASP.NET Web API integrate with Visual Studio to make it easier to create and consume REST services.  These services are exposed from a web endpoint, so it is possible to use any web hosting technique on Azure to support this scenario. However, App Service is a great choice for hosting REST APIs. With App Service, you can:
 
-* Quickly create a [mobile app](/documentation/articles/app-service-mobile-value-prop/) or [API app](/documentation/articles/app-service-api-apps-why-best-platform/) to host the HTTP web service in one of Azure's nationally distributed datacenters.
+* Quickly create a [mobile app](../app-service-mobile/app-service-mobile-value-prop.md) or [API app](../app-service-api/app-service-api-apps-why-best-platform.md) to host the HTTP web service in one of Azure's nationally distributed datacenters.
 * Migrate existing services or create new ones.
 * Achieve SLA for availability with a single instance, or scale out to multiple dedicated machines.
 * Use the published site to provide REST APIs to any HTTP clients, including mobile clients.
 
 ## <a id="nextsteps"></a> Next Steps
-For more information about the three web hosting options, see [Introducing Azure](/documentation/articles/fundamentals-introduction-to-azure/).
+For more information about the three web hosting options, see [Introducing Azure](../fundamentals-introduction-to-azure.md).
 
 To get started with the option(s) you choose for your application, see the following resources:
 
-* [Azure App Service](/documentation/services/app-service/)
-* [Azure Cloud Services](/documentation/services/cloud-services/)
-* [Azure Virtual Machines](/documentation/services/virtual-machines/)
-* [Service Fabric](/documentation/services/service-fabric)
+* [Azure App Service](../app-service/index.md)
+* [Azure Cloud Services](../cloud-services/index.md)
+* [Azure Virtual Machines](../virtual-machines/index.md)
+* [Service Fabric](../service-fabric/index.md)
 
 <!-- URL List -->
 
-[Azure App Service]: /home/features/app-service/
-[Cloud Services]: /documentation/services/cloud-services/
-[Virtual Machines]: /documentation/services/virtual-machines/
-[Service Fabric]: /home/features/service-fabric
+[Azure App Service]: https://www.azure.cn/home/features/app-service/
+[Cloud Services]: ../cloud-services/index.md
+[Virtual Machines]: ../virtual-machines/index.md
+[Service Fabric]: https://www.azure.cn/home/features/service-fabric
 [ClearDB]: http://www.cleardb.com/
-[WebJobs]: /documentation/articles/websites-webjobs-resources/
-[Configuring an SSL certificate for an Azure Website]: /documentation/articles/web-sites-configure-ssl-certificate/
+[WebJobs]: ./websites-webjobs-resources.md
+[Configuring an SSL certificate for an Azure Website]: ./web-sites-configure-ssl-certificate.md
 [dotnet]: /develop/net/
 [nodejs]: /develop/nodejs/
 [PHP]: /develop/php/
 [Python]: /develop/python/
-[servicebus]: /documentation/services/service-bus/
-[sqldatabase]: /documentation/services/sql-databases/
-[Storage]: /documentation/services/storage/
+[servicebus]: ../service-bus/index.md
+[sqldatabase]: ../sql-database/index.md
+[Storage]: ../storage/index.md
 
 <!-- IMG List -->
 

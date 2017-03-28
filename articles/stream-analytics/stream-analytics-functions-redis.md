@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Stream Analytics real-time processing for Azure Functions | Azure"
-    description="Learn how to use an Azure Function connected a Service Bus Queue, to populate an Azure Redis Cache from the output of a Stream Analytics job."
-    keywords="data stream, redis cache, service bus queue"
-    services="stream-analytics"
-    author="ryancrawcour"
-    manager="jhubbard"
-    documentationcenter="" />
-<tags
-    ms.assetid="d428bb33-4244-4001-b93d-c77bed816527"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="ryancraw" />
+---
+title: Stream Analytics real-time processing for Azure Functions | Azure
+description: Learn how to use an Azure Function connected a Service Bus Queue, to populate an Azure Redis Cache from the output of a Stream Analytics job.
+keywords: data stream, redis cache, service bus queue
+services: stream-analytics
+author: ryancrawcour
+manager: jhubbard
+documentationcenter: ''
+
+ms.assetid: d428bb33-4244-4001-b93d-c77bed816527
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: ryancraw
+---
 
 # How to store data from Azure Stream Analytics in an Azure Redis Cache using Azure Functions
 
@@ -38,8 +39,6 @@ After completing the [Real-time Fraud Detection][fraud-detection] tutorial, you 
 To create a Service Bus Queue, follow steps 1 and 2 of the .NET section in [Get Started with Service Bus Queues][servicebus-getstarted].
 Now let's connect the queue to the Stream Analytics job that was created in the earlier fraud detection walk-through.
 
-
-
 1. In the Azure portal, go to the **Outputs** blade of your job and select **Add** at the top of the page.
 
     ![Adding outputs](./media/stream-analytics-functions-redis/adding-outputs.png)
@@ -54,20 +53,19 @@ Now let's connect the queue to the Stream Analytics job that was created in the 
 
 5. In the **Query** tab, replace the current query with the following. Replace *[YOUR SERVICE BUS NAME] * with the output name you created in step 3. 
 
-   
+    ```
+    SELECT 
+        System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1, 
+        CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
 
-        SELECT 
-            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1, 
-            CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
+    INTO [YOUR SERVICE BUS NAME]
 
-        INTO [YOUR SERVICE BUS NAME]
-        
-        FROM CallStream CS1 TIMESTAMP BY CallRecTime
-	    JOIN CallStream CS2 TIMESTAMP BY CallRecTime
-            ON CS1.CallingIMSI = CS2.CallingIMSI AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
-    
-        WHERE CS1.SwitchNum != CS2.SwitchNum
-    
+    FROM CallStream CS1 TIMESTAMP BY CallRecTime
+    JOIN CallStream CS2 TIMESTAMP BY CallRecTime
+        ON CS1.CallingIMSI = CS2.CallingIMSI AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+
+    WHERE CS1.SwitchNum != CS2.SwitchNum
+    ```
 
 <a id="Create-an-Azure-Redis-Cache"></a>
 ## Create an Azure Redis Cache
@@ -82,13 +80,13 @@ Once complete, you have a new Redis Cache. Under **All settings**, select **Acce
 If you already have an Azure function you would like to use, then skip ahead to [Writing to Redis Cache](#Writing-to-Redis-Cache)
 
 1. In the portal, select App Services from the left-hand navigation, then click your Azure function app name to get to the Function's app website.
-	![Screenshot of app services function list](./media/stream-analytics-functions-redis/app-services-function-list.png)
+    ![Screenshot of app services function list](./media/stream-analytics-functions-redis/app-services-function-list.png)
 
 2. Click **New Function > ServiceBusQueueTrigger – C#**. For the following fields, follow these instructions:
 
     * **Queue name**: The same name as the name you entered when you created the queue in [Get Started with Service Bus Queues][servicebus-getstarted] (not the name of the service bus). Make sure you use the queue that is connected to the Stream Analytics output.
     * **Service Bus connection**: Select **Add a connection string**. To find the connection string, go to the Classic Management Portal, select **Service Bus**, the service bus you created, and **CONNECTION INFORMATION** at the bottom of the screen. Make sure you are on the main screen on this page. Copy and paste the connection string. Feel free to enter any connection name.
-     
+
        ![Screenshot of service bus connection](./media/stream-analytics-functions-redis/servicebus-connection.png)
     * **AccessRights**: Choose **Manage**
 
@@ -112,80 +110,85 @@ We have now created an Azure Function that reads from a Service Bus Queue. All t
 
 5. In an editor of your choice, create a JSON file named **project.json** with the following and save it to your local disk.
 
-        {
-            "frameworks": {
-                "net46": {
-                    "dependencies": {
-                        "StackExchange.Redis":"1.1.603",
-                        "Newtonsoft.Json": "9.0.1"
-                    }
+    ```
+    {
+        "frameworks": {
+            "net46": {
+                "dependencies": {
+                    "StackExchange.Redis":"1.1.603",
+                    "Newtonsoft.Json": "9.0.1"
                 }
             }
         }
+    }
+    ```
 
 6. Upload this file into the root directory of your function (not WWWROOT). You should see a file named **project.lock.json** automatically appear, confirming that the Nuget packages "StackExchange.Redis" and "Newtonsoft.Json" have been imported.
 
 7. In the **run.csx** file, replace the pre-generated code with the following code. In the lazyConnection function, replace “CONN NAME” with the name you created in step 2 of **Store data into the Redis cache**.
 
+    ```
+    using System;
+    using System.Threading.Tasks;
+    using StackExchange.Redis;
+    using Newtonsoft.Json;
+    using System.Configuration;
 
-        using System;
-        using System.Threading.Tasks;
-        using StackExchange.Redis;
-        using Newtonsoft.Json;
-        using System.Configuration;
+    public static void Run(string myQueueItem, TraceWriter log)
+    {
+        log.Info($"Function processed message: {myQueueItem}");
 
-        public static void Run(string myQueueItem, TraceWriter log)
-        {
-            log.Info($"Function processed message: {myQueueItem}");
+        // Connection refers to a property that returns a ConnectionMultiplexer
+        IDatabase db = Connection.GetDatabase();
+        log.Info($"Created database {db}");
 
-            // Connection refers to a property that returns a ConnectionMultiplexer
-            IDatabase db = Connection.GetDatabase();
-            log.Info($"Created database {db}");
+        // Parse JSON and extract the time
+        var message = JsonConvert.DeserializeObject<dynamic>(myQueueItem);
+        string time = message.time;
+        string callingnum1 = message.callingnum1;
 
-            // Parse JSON and extract the time
-            var message = JsonConvert.DeserializeObject<dynamic>(myQueueItem);
-            string time = message.time;
-            string callingnum1 = message.callingnum1;
+        // Perform cache operations using the cache object...
+        // Simple put of integral data types into the cache
+        string key = time + " - " + callingnum1;
+        db.StringSet(key, myQueueItem);
+        log.Info($"Object put in database. Key is {key} and value is {myQueueItem}");
 
-            // Perform cache operations using the cache object...
-            // Simple put of integral data types into the cache
-            string key = time + " - " + callingnum1;
-            db.StringSet(key, myQueueItem);
-            log.Info($"Object put in database. Key is {key} and value is {myQueueItem}");
+        // Simple get of data types from the cache
+        string value = db.StringGet(key);
+        log.Info($"Database got: {value}"); 
+    }
 
-            // Simple get of data types from the cache
-            string value = db.StringGet(key);
-            log.Info($"Database got: {value}"); 
-        }
-
-        // Connect to the Service Bus
-        private static Lazy<ConnectionMultiplexer> lazyConnection = 
-            new Lazy<ConnectionMultiplexer>(() =>
-                {
-                    var cnn = ConfigurationManager.ConnectionStrings["CONN NAME"].ConnectionString
-                    return ConnectionMultiplexer.Connect();
-                });
-
-        public static ConnectionMultiplexer Connection
-        {
-            get
+    // Connect to the Service Bus
+    private static Lazy<ConnectionMultiplexer> lazyConnection = 
+        new Lazy<ConnectionMultiplexer>(() =>
             {
-                return lazyConnection.Value;
-            }
+                var cnn = ConfigurationManager.ConnectionStrings["CONN NAME"].ConnectionString
+                return ConnectionMultiplexer.Connect();
+            });
+
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
         }
+    }
+    ```
 
 ## Start the Stream Analytics job
 
 1. Start the telcodatagen.exe application. The usage is as follows: 
 
-        telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
+    ```
+    telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
+    ```
 
 2. From the Stream Analytics Job blade in the portal, click **Start** at the top of the page.
 
     ![Screenshot of start job](./media/stream-analytics-functions-redis/starting-job.png)
 
 3. In the **Start job** blade that appears, select **Now** and then click the **Start** button at the bottom of the screen. The job status changes to Starting and after some time changes to Running.
- 
+
     ![Screenshot of start job time selection](./media/stream-analytics-functions-redis/start-job-time.png)
 
 ## Run solution and check results
@@ -200,7 +203,7 @@ Now you can write Redis commands to confirm that data is in fact in the cache.
 ## Next steps
 We're excited about the new things Azure Functions and Stream analytics can do together, and we hope this unlocks new possibilities for you. If you have any feedback on what you want next, feel free to use the [Azure UserVoice site](https://feedback.azure.com/forums/270577-stream-analytics).
 
-If you are new Azure, we invite you to try it out by signing up for a [free Azure trial account](/pricing/1rmb-trial/). If you are new to Stream Analytics, then we invite you to [create your first Stream Analytics job](/documentation/articles/stream-analytics-create-a-job/).
+If you are new Azure, we invite you to try it out by signing up for a [free Azure trial account](https://www.azure.cn/pricing/1rmb-trial/). If you are new to Stream Analytics, then we invite you to [create your first Stream Analytics job](./stream-analytics-create-a-job.md).
 
 If you need any help or have questions, post on [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) or [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) forums. 
 
@@ -212,11 +215,11 @@ You can also see the following resources:
 <!--* [Azure Functions F# developer reference](/documentation/articles/functions-reference-fsharp/)-->
 * [Azure Functions NodeJS developer reference](/documentation/articles/functions-reference/)
 <!--* [Azure Functions triggers and bindings](/documentation/articles/functions-triggers-bindings/)-->
-* [How to monitor Azure Redis Cache](/documentation/articles/cache-how-to-monitor/)
+* [How to monitor Azure Redis Cache](../redis-cache/cache-how-to-monitor.md)
 
 To stay up-to-date on all the latest news and features, follow [@AzureStreaming](https://twitter.com/AzureStreaming) on Twitter.
 
-[fraud-detection]: /documentation/articles/stream-analytics-real-time-fraud-detection/
-[servicebus-getstarted]: /documentation/articles/service-bus-dotnet-get-started-with-queues/
-[use-rediscache]: /documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/
+[fraud-detection]: ./stream-analytics-real-time-fraud-detection.md
+[servicebus-getstarted]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: /documentation/articles/functions-create-first-azure-function/

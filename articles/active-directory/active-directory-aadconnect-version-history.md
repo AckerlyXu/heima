@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect: Version Release History | Azure"
-    description="This topic lists all releases of Azure AD Connect and Azure AD Sync"
-    services="active-directory"
-    documentationcenter=""
-    author="billmath"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="ef2797d7-d440-4a9a-a648-db32ad137494"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect: Version Release History | Azure
+description: This topic lists all releases of Azure AD Connect and Azure AD Sync
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: ''
+
+ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Azure AD Connect: Version Release History
 The Azure Active Directory team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
@@ -24,10 +25,9 @@ This article is designed to help you keep track of the versions that have been r
 
 This is list of related topics:
 
-
 Topic |  
 --------- | --------- |
-Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](/documentation/articles/active-directory-aadconnect-upgrade-previous-version/) Azure AD Connect release.
+Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](./active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](/documentation/articles/active-directory-aadconnect-accounts-permissions/#upgrade/)
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
@@ -38,7 +38,7 @@ Released: 2016 December
 
 - Fixed the issue where the issuerid claim rule for ADFS is missing in this build.
 
->[AZURE.NOTE]
+>[!NOTE]
 >This build will not be available to customers through the Azure AD Connect Auto Upgrade feature.
 
 ## 1.1.371.0
@@ -48,7 +48,7 @@ Released: 2016 December
 
 - Azure AD Connect installation or upgrade fails if Port 9090 is not opened for outbound connection.
 
->[AZURE.NOTE]
+>[!NOTE]
 >This build will not be available to customers through the Azure AD Connect Auto Upgrade feature.
 
 ## 1.1.370.0
@@ -62,7 +62,7 @@ Released: 2016 December
 
 - Pass-through Authentication (Preview).
 
->[AZURE.NOTE]
+>[!NOTE]
 >This build will not be available to customers through the Azure AD Connect Auto Upgrade feature.
 
 ## 1.1.343.0
@@ -98,7 +98,7 @@ Released: 2016 August
 - Updated Start-ADSyncSyncCycle cmdlet to indicate whether it is able to successfully start a new sync cycle or not.
 - Added Stop-ADSyncSyncCycle cmdlet to terminate sync cycle and operation which are currently in progress.
 - Updated Stop-ADSyncScheduler cmdlet to terminate sync cycle and operation which are currently in progress.
-- When configuring [Directory Extensions](/documentation/articles/active-directory-aadconnectsync-feature-directory-extensions/) in Azure AD Connect wizard, AD attribute of type "Teletex string" can now be selected.
+- When configuring [Directory Extensions](./active-directory-aadconnectsync-feature-directory-extensions.md) in Azure AD Connect wizard, AD attribute of type "Teletex string" can now be selected.
 
 ## 1.1.189.0
 Released: 2016 June
@@ -106,7 +106,7 @@ Released: 2016 June
 **Fixed issues and improvements:**
 
 - Azure AD Connect can now be installed on a FIPS compliant server.
-  - For password synchronization, see [Password Sync and FIPS](/documentation/articles/active-directory-aadconnectsync-implement-password-synchronization/#password-synchronization-and-fips/)
+  - For password synchronization, see [Password Sync and FIPS](./active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)
 - Fixed an issue where a NetBIOS name could not be resolved to the FQDN in the Active Directory Connector.
 
 ## 1.1.180.0
@@ -115,8 +115,8 @@ Released: 2016 May
 **New features:**
 
 - Warns and helps you verifying domains if you didn’t do it before running Azure AD Connect.
-- Added support for [Microsoft Cloud Germany](/documentation/articles/active-directory-aadconnect-instances/#microsoft-cloud-germany/).
-- Added support for the latest [Azure Government cloud](/documentation/articles/active-directory-aadconnect-instances/#microsoft-azure-government-cloud/) infrastructure with new URL requirements.
+- Added support for [Microsoft Cloud Germany](./active-directory-aadconnect-instances.md#microsoft-cloud-germany).
+- Added support for the latest [Azure Government cloud](./active-directory-aadconnect-instances.md#microsoft-azure-government-cloud) infrastructure with new URL requirements.
 
 **Fixed issues and improvements:**
 
@@ -130,9 +130,9 @@ Released: 2016 April
 
 **New features:**
 
-- Added support for multi-valued attributes to [Directory Extensions](/documentation/articles/active-directory-aadconnectsync-feature-directory-extensions/).
-- Added support for more configuration variations for [automatic upgrade](/documentation/articles/active-directory-aadconnect-feature-automatic-upgrade/) to be considered eligible for upgrade.
-- Added some cmdlets for [custom scheduler](/documentation/articles/active-directory-aadconnectsync-feature-scheduler/#custom-scheduler/).
+- Added support for multi-valued attributes to [Directory Extensions](./active-directory-aadconnectsync-feature-directory-extensions.md).
+- Added support for more configuration variations for [automatic upgrade](./active-directory-aadconnect-feature-automatic-upgrade.md) to be considered eligible for upgrade.
+- Added some cmdlets for [custom scheduler](./active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
 ## 1.1.119.0
 Released: 2016 March
@@ -158,21 +158,21 @@ Released: 2016 February
 
 **New features:**
 
-- [Automatic upgrade](/documentation/articles/active-directory-aadconnect-feature-automatic-upgrade/) feature for Express settings customers.
+- [Automatic upgrade](./active-directory-aadconnect-feature-automatic-upgrade.md) feature for Express settings customers.
 - Support for the global admin using MFA and PIM in the installation wizard.
   - You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use MFA.
   - You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for MFA to properly work.
 - Allow changing the user's sign-in method after initial install.
 - Allow [Domain and OU filtering](/documentation/articles/active-directory-aadconnect-get-started-custom/#domain-and-ou-filtering/) in the installation wizard. This also allows connecting to forests where not all domains are available.
-- [Scheduler](/documentation/articles/active-directory-aadconnectsync-feature-scheduler/) is built-in to the sync engine.
+- [Scheduler](./active-directory-aadconnectsync-feature-scheduler.md) is built-in to the sync engine.
 
 **Features promoted from preview to GA:**
 
-- [Directory extensions](/documentation/articles/active-directory-aadconnectsync-feature-directory-extensions/).
+- [Directory extensions](./active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **New preview features:**
 
-- The new default sync cycle interval is 30 minutes. Used to be 3 hours for all earlier releases. Adds support to change the [scheduler](/documentation/articles/active-directory-aadconnectsync-feature-scheduler/) behavior.
+- The new default sync cycle interval is 30 minutes. Used to be 3 hours for all earlier releases. Adds support to change the [scheduler](./active-directory-aadconnectsync-feature-scheduler.md) behavior.
 
 **Fixed issues:**
 
@@ -202,7 +202,7 @@ Released: 2015 November
 
 **New preview features:**
 
-- Support for [Azure AD Domain Services](/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-ad-passwords/) password synchronization.
+- Support for [Azure AD Domain Services](./active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) password synchronization.
 
 **New supported scenario:**
 
@@ -215,7 +215,7 @@ Released: 2015 November
   - Selecting a new OU to include in sync does not require a full password sync.
   - When a disabled user is enabled the password does not sync.
   - The password retry queue is infinite and the previous limit of 5,000 objects to be retired has been removed.
-  - [Improved troubleshooting](/documentation/articles/active-directory-aadconnectsync-implement-password-synchronization/#troubleshooting-password-synchronization/).
+  - [Improved troubleshooting](./active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization).
 - Not able to connect to Active Directory with Windows Server 2016 forest-functional level.
 - Not able to change the group used for group filtering after initial install.
 - Will no longer create a new user profile on the Azure AD Connect server for every user doing a password change with password writeback enabled.
@@ -245,7 +245,7 @@ Released: 2015 August
 
 **Removed preview features:**
 
-- The preview feature [User writeback](/documentation/articles/active-directory-aadconnect-feature-preview/#user-writeback/) was temporarily removed based on feedback from our preview customers. It will be re-added later when we have addressed the provided feedback.
+- The preview feature [User writeback](./active-directory-aadconnect-feature-preview.md#user-writeback) was temporarily removed based on feedback from our preview customers. It will be re-added later when we have addressed the provided feedback.
 
 ## 1.0.8641.0
 Released: 2015 June
@@ -259,14 +259,14 @@ Changed name from Azure AD Sync to Azure AD Connect.
 - [Express settings](/documentation/articles/active-directory-aadconnect-get-started-express/) installation
 - Can [configure ADFS](/documentation/articles/active-directory-aadconnect-get-started-custom/#configuring-federation-with-ad-fs/)
 - Can [upgrade from DirSync](/documentation/articles/active-directory-aadconnect-dirsync-upgrade-get-started/)
-- [Prevent accidental deletes](/documentation/articles/active-directory-aadconnectsync-feature-prevent-accidental-deletes/)
-- Introduced [staging mode](/documentation/articles/active-directory-aadconnectsync-operations/#staging-mode/)
+- [Prevent accidental deletes](./active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
+- Introduced [staging mode](./active-directory-aadconnectsync-operations.md#staging-mode)
 
 **New preview features:**
 
-- [User writeback](/documentation/articles/active-directory-aadconnect-feature-preview/#user-writeback/)
-- [Group writeback](/documentation/articles/active-directory-aadconnect-feature-preview/#group-writeback/)
-- [Directory extensions](/documentation/articles/active-directory-aadconnect-feature-preview/)
+- [User writeback](./active-directory-aadconnect-feature-preview.md#user-writeback)
+- [Group writeback](./active-directory-aadconnect-feature-preview.md#group-writeback)
+- [Directory extensions](./active-directory-aadconnect-feature-preview.md)
 
 ## 1.0.494.0501
 Released: 2015 May
@@ -315,7 +315,7 @@ Released: 2014 December
 
 **New features:**
 
-- It is now supported to do password synchronization with attribute based filtering. For more details, see [Password synchronization with filtering](/documentation/articles/active-directory-aadconnectsync-configure-filtering/).
+- It is now supported to do password synchronization with attribute based filtering. For more details, see [Password synchronization with filtering](./active-directory-aadconnectsync-configure-filtering.md).
 - The attribute msDS-ExternalDirectoryObjectID is written back to AD. This adds support for Office 365 applications using OAuth2 to access both, Online and On-Premises mailboxes in a Hybrid Exchange Deployment.
 
 **Fixed upgrade issues:**
@@ -357,5 +357,4 @@ Released: 2014 September
 **Initial release of Azure AD Sync.**
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/).
-
+Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).

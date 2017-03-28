@@ -1,22 +1,22 @@
-<properties
-    pageTitle="Attributes synchronized by Azure AD Connect | Azure"
-    description="Lists the attributes that are synchronized to Azure Active Directory."
-    services="active-directory"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor=""
-    ms.assetid="c2bb36e0-5205-454c-b9b6-f4990bcedf51"/>
+---
+title: Attributes synchronized by Azure AD Connect | Azure
+description: Lists the attributes that are synchronized to Azure Active Directory.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    ms.author="markvi;andkjell"
-    wacn.date=""/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+ms.author: markvi;andkjell
+wacn.date: ''
+---
 
 # Azure AD Connect sync: Attributes synchronized to Azure Active Directory
 This topic lists the attributes that are synchronized by Azure AD Connect sync.  
@@ -28,7 +28,7 @@ A common question is *what is the list of minimum attributes to synchronize*. Th
 
 In this case, start with the list of attributes in this topic and identify those attributes that would contain sensitive or PII data and cannot be synchronized. Then deselect those attributes during installation using [Azure AD app and attribute filtering](/documentation/articles/active-directory-aadconnect-get-started-custom/#azure-ad-app-and-attribute-filtering/).
 
-> [AZURE.WARNING]
+> [!WARNING]
 > When deselecting attributes, you should be cautious and only deselect those attributes absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
 > 
 > 
@@ -453,7 +453,6 @@ Device objects are created in Active Directory. These objects can be devices joi
 - In the lists above, the object type **User** also applies to the object type **iNetOrgPerson**.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](/documentation/articles/active-directory-aadconnectsync-whatis/) configuration.
+Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/).
-
+Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).

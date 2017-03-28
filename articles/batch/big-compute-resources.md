@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Resources for batch and HPC workloads in the cloud | Azure"
-    description="Lists technical resources to help you run your large-scale parallel, batch, and high performance computing (HPC) workloads in Azure."
-    services="batch, cloud-services, virtual-machines"
-    documentationcenter=""
-    author="dlepow"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="6f8be911-c841-41ae-88d3-3bcfc029eb7f"
-    ms.service="multiple"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="big-compute"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="danlep" />
+---
+title: Resources for batch and HPC workloads in the cloud | Azure
+description: Lists technical resources to help you run your large-scale parallel, batch, and high performance computing (HPC) workloads in Azure.
+services: batch, cloud-services, virtual-machines
+documentationcenter: ''
+author: dlepow
+manager: timlt
+editor: ''
+
+ms.assetid: 6f8be911-c841-41ae-88d3-3bcfc029eb7f
+ms.service: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: big-compute
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: danlep
+---
 
 # Big Compute in Azure: Technical resources for batch and high-performance computing
 This is a guide to technical resources to help you run your large-scale parallel, batch, and high-performance computing (HPC) workloads in Azure. Extend your existing batch or HPC workloads to the Azure cloud, or build new Big Compute solutions using a range of Azure services.
@@ -23,15 +24,15 @@ This is a guide to technical resources to help you run your large-scale parallel
 ## Solutions options
 Learn about Big Compute options in Azure, and choose the right approach for your workload and business need.
 
-- [Batch and HPC solutions](/documentation/articles/batch-hpc-solutions/)
+- [Batch and HPC solutions](./batch-hpc-solutions.md)
 
 ## Azure Batch
-[Batch](/home/features/batch/) is a platform service that makes it easy to cloud-enable your Linux and Windows applications and run jobs without setting up and managing a cluster and job scheduler. Use the SDK to integrate client applications with Azure Batch through various languages, stage data to Azure, and build job execution pipelines.
+[Batch](https://www.azure.cn/home/features/batch/) is a platform service that makes it easy to cloud-enable your Linux and Windows applications and run jobs without setting up and managing a cluster and job scheduler. Use the SDK to integrate client applications with Azure Batch through various languages, stage data to Azure, and build job execution pipelines.
 
-- [Documentation](/documentation/services/batch/)
+- [Documentation](./index.md)
 - [.NET](https://msdn.microsoft.com/zh-cn/library/azure/mt348682.aspx), Python, [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), [Java](http://azure.github.io/azure-sdk-for-java/), and [REST](https://msdn.microsoft.com/zh-cn/library/azure/dn820158.aspx) API reference
 - [Batch management .NET library](https://msdn.microsoft.com/zh-cn/library/mt463120.aspx) reference
-- Tutorials: Get started with [Azure Batch library for .NET](/documentation/articles/batch-dotnet-get-started/) and [Batch Python client](/documentation/articles/batch-python-tutorial/)
+- Tutorials: Get started with [Azure Batch library for .NET](./batch-dotnet-get-started.md) and [Batch Python client](./batch-python-tutorial.md)
 - [Batch forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurebatch)
 
 ## HPC cluster solutions
@@ -60,8 +61,7 @@ Use these Azure templates to deploy Linux HPC clusters.
 - [MPI forum](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
 ## Compute-intensive instances
-Azure offers a [range of VM sizes](/documentation/articles/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/) to a back-end RDMA network, to run your Linux and Windows HPC workloads.
-
+Azure offers a [range of VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json/) to a back-end RDMA network, to run your Linux and Windows HPC workloads.
 
 ## Samples and demos
 - [Azure Batch C# and Python code samples](https://github.com/Azure/azure-batch-samples)
@@ -70,14 +70,12 @@ Azure offers a [range of VM sizes](/documentation/articles/virtual-machines-wind
 
 ## Related Azure services
 
-
-- [HDInsight](/documentation/services/hdinsight/)
-- [Virtual Machines](/documentation/services/virtual-machines/)
-- [Virtual Machine Scale Sets](/documentation/services/virtual-machine-scale-sets/)
-- [Cloud Services](/documentation/services/cloud-services/)
-- [App Service](/documentation/services/app-service/)
-- [Media Services](/documentation/services/media-services/)
-
+- [HDInsight](../hdinsight/index.md)
+- [Virtual Machines](../virtual-machines/index.md)
+- [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.md)
+- [Cloud Services](../cloud-services/index.md)
+- [App Service](../app-service/index.md)
+- [Media Services](../media-services/index.md)
 
 ## Industry solutions
 - [Banking and capital markets](https://finance.azure.com/)
@@ -97,4 +95,3 @@ Azure offers a [range of VM sizes](/documentation/articles/virtual-machines-wind
 ## Next steps
 - For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
 - Also see [what's new in Batch](https://azure.microsoft.com/updates/?service=batch) or subscribe to the [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
-

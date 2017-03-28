@@ -2,8 +2,8 @@ To create a premium cache, sign-in to the [Azure portal preview](https://portal.
 
 ![Create cache](./media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
-> [AZURE.NOTE]
-> In addition to creating caches in the Azure portal preview, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Redis Cache, see [Create a cache](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache).
+> [!NOTE]
+> In addition to creating caches in the Azure portal preview, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Redis Cache, see [Create a cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 > 
 > 
 

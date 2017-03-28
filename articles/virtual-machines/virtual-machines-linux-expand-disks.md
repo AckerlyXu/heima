@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Expand virtual hard disks on Linux VM in Azure | Azure"
-    description="Learn how to expand virtual hard disks on a Linux VM with the Azure CLI 2.0"
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="iainfoulds"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="02/22/2017"
-    wacn.date=""
-    ms.author="iainfou" />
+---
+title: Expand virtual hard disks on Linux VM in Azure | Azure
+description: Learn how to expand virtual hard disks on a Linux VM with the Azure CLI 2.0
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
+
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/22/2017
+wacn.date: ''
+ms.author: iainfou
+---
 
 # How to expand virtual hard disks on a Linux VM with the Azure CLI 2.0
-The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](/documentation/articles/virtual-machines-linux-add-disk/) to provide for additional storage space, but you may also wish to expand the OS disk or existing data disk. This article details how to expand managed disks for a Linux VM with the Azure CLI 2.0. You can also expand the unmanaged OS disk with the [Azure CLI 1.0](/documentation/articles/virtual-machines-linux-expand-disks-nodejs/).
+The default virtual hard disk size for the operating system (OS) is typically 30 GB on a Linux virtual machine (VM) in Azure. You can [add data disks](./virtual-machines-linux-add-disk.md) to provide for additional storage space, but you may also wish to expand the OS disk or existing data disk. This article details how to expand managed disks for a Linux VM with the Azure CLI 2.0. You can also expand the unmanaged OS disk with the [Azure CLI 1.0](./virtual-machines-linux-expand-disks-nodejs.md).
 
 ## Expand managed disk
 Make sure that you have the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
@@ -27,32 +28,42 @@ In the following samples, replace example parameter names with your own values. 
 
 1. Operations on virtual hard disks cannot be performed with the VM running. Deallocate your VM with [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
 
-        az vm deallocate --resource-group myResourceGroup --name myVM
+    ```azurecli
+    az vm deallocate --resource-group myResourceGroup --name myVM
+    ```
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > `az vm stop` does not release the compute resources. To release compute resources, use `az vm deallocate`. The VM must be deallocated to expand the virtual hard disk.
 
 2. View a list of managed disks in a resource group with [az disk list](https://docs.microsoft.com/cli/azure/disk#list). The following example displays a list of managed disks in the resource group named `myResourceGroup`:
 
-        az disk list -g myResourceGroup \
-            --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
-            --output table
+    ```azurecli
+    az disk list -g myResourceGroup \
+        --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
+        --output table
+    ```
 
     Expand the required disk with [az disk update](https://docs.microsoft.com/cli/azure/disk#update). The following example expands the managed disk named `myDataDisk` to be `200`Gb in size:
 
-        az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 200
+    ```azurecli
+    az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 200
+    ```
 
-    > [AZURE.NOTE]
-    > When you expand a managed disk, the updated size is mapped to the nearest managed disk size. For a table of the available managed disk sizes and tiers, see [Azure Managed Disks Overview - Pricing and Billing](/documentation/articles/storage-managed-disks-overview/#pricing-and-billing).
+    > [!NOTE]
+    > When you expand a managed disk, the updated size is mapped to the nearest managed disk size. For a table of the available managed disk sizes and tiers, see [Azure Managed Disks Overview - Pricing and Billing](../storage/storage-managed-disks-overview.md#pricing-and-billing).
 
 3. Start your VM with [az vm start](https://docs.microsoft.com/cli/azure/vm#start). The following example starts the VM named `myVM` in the resource group named `myResourceGroup`:
 
-        az vm start --resource-group myResourceGroup --name myVM
+    ```azurecli
+    az vm start --resource-group myResourceGroup --name myVM
+    ```
 
 4. SSH to your VM with the appropriate credentials. To verify the OS disk has been resized, use `df -h`. The following example output shows the primary partition (`/dev/sda1`) is now 200 GB:
 
-        Filesystem      Size   Used  Avail Use% Mounted on
-        /dev/sdc1        194G   52M   193G   1% /datadrive
+    ```bash
+    Filesystem      Size   Used  Avail Use% Mounted on
+    /dev/sdc1        194G   52M   193G   1% /datadrive
+    ```
 
 ## Next steps
-If you need additional storage, you also [add data disks to a Linux VM](/documentation/articles/virtual-machines-linux-add-disk/). For more information about disk encryption, see [Encrypt disks on a Linux VM using the Azure CLI](/documentation/articles/virtual-machines-linux-encrypt-disks/).
+If you need additional storage, you also [add data disks to a Linux VM](./virtual-machines-linux-add-disk.md). For more information about disk encryption, see [Encrypt disks on a Linux VM using the Azure CLI](./virtual-machines-linux-encrypt-disks.md).

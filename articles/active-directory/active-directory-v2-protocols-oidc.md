@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Azure Active Directory v2.0 and the OpenID Connect protocol | Azure"
-    description="Build web applications by using the Azure AD v2.0 implementation of the OpenID Connect authentication protocol."
-    services="active-directory"
-    documentationcenter=""
-    author="dstrockis"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="a4875997-3aac-4e4c-b7fe-2b4b829151ce"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="dastrock" />
+---
+title: Azure Active Directory v2.0 and the OpenID Connect protocol | Azure
+description: Build web applications by using the Azure AD v2.0 implementation of the OpenID Connect authentication protocol.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
+
+ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: dastrock
+---
 
 # Azure Active Directory v2.0 and the OpenID Connect protocol
 OpenID Connect is an authentication protocol built on OAuth 2.0 that you can use to securely sign in a user to a web application. When you use the v2.0 endpoint's implementation of OpenID Connect, you can add sign-in and API access to your web-based apps. In this article, we show you how to do this independent of language. We describe how to send and receive HTTP messages without using any Microsoft open-source libraries.
 
-> [AZURE.NOTE]
-> The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](/documentation/articles/active-directory-v2-limitations/).
+> [!NOTE]
+> The v2.0 endpoint does not support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](./active-directory-v2-limitations.md).
 > 
 > 
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol to use as an *authentication* protocol, so that you can perform single sign-on using OAuth. OpenID Connect introduces the concept of an *ID token*, which is a security token that allows the client to verify the identity of the user. The ID token also gets basic profile information about the user. Because OpenID Connect extends OAuth 2.0, apps can securely acquire *access tokens*, which can be used to access resources that are secured by an [authorization server](/documentation/articles/active-directory-v2-protocols/#the-basics/). We recommend that you use OpenID Connect if you are building a [web application](/documentation/articles/active-directory-v2-flows/#web-apps/) that is hosted on a server and accessed via a browser.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol to use as an *authentication* protocol, so that you can perform single sign-on using OAuth. OpenID Connect introduces the concept of an *ID token*, which is a security token that allows the client to verify the identity of the user. The ID token also gets basic profile information about the user. Because OpenID Connect extends OAuth 2.0, apps can securely acquire *access tokens*, which can be used to access resources that are secured by an [authorization server](./active-directory-v2-protocols.md#the-basics). We recommend that you use OpenID Connect if you are building a [web application](./active-directory-v2-flows.md#web-apps) that is hosted on a server and accessed via a browser.
 
 ## Protocol diagram: Sign-in
 The most basic sign-in flow has the steps shown in the next diagram. We describe each step in detail in this article.
@@ -35,9 +36,9 @@ The most basic sign-in flow has the steps shown in the next diagram. We describe
 ## Fetch the OpenID Connect metadata document
 OpenID Connect describes a metadata document that contains most of the information required for an app to perform sign-in. This includes information such as the URLs to use and the location of the service's public signing keys. For the v2.0 endpoint, this is the OpenID Connect metadata document you should use:
 
-
-	https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
-
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
+```
 
 The `{tenant}` can take one of four values:
 
@@ -50,25 +51,25 @@ The `{tenant}` can take one of four values:
 
 The metadata is a simple JavaScript Object Notation (JSON) document. See the following snippet for an example. The snippet's contents are fully described in the [OpenID Connect specification](https://openid.net).
 
+```
+{
+  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/authorize",
+  "token_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/token",
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post",
+    "private_key_jwt"
+  ],
+  "jwks_uri": "https:\/\/login.microsoftonline.com\/common\/discovery\/v2.0\/keys",
 
-	{
-	  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/authorize",
-	  "token_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/token",
-	  "token_endpoint_auth_methods_supported": [
-	    "client_secret_post",
-	    "private_key_jwt"
-	  ],
-	  "jwks_uri": "https:\/\/login.microsoftonline.com\/common\/discovery\/v2.0\/keys",
-  
-	  ...
-  
-	}
+  ...
 
+}
+```
 
 Typically, you would use this metadata document to configure an OpenID Connect library or SDK; the library would use the metadata to do its work. However, if you're not using a pre-build OpenID Connect library, you can follow the steps in the remainder of this article to perform sign-in in a web app by using the v2.0 endpoint.
 
 ## Send the sign-in request
-When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 authorization code flow](/documentation/articles/active-directory-v2-protocols-oauth-code/), with these important distinctions:
+When your web app needs to authenticate the user, it can direct the user to the `/authorize` endpoint. This request is similar to the first leg of the [OAuth 2.0 authorization code flow](./active-directory-v2-protocols-oauth-code.md), with these important distinctions:
 
 - The request must include the `openid` scope in the `scope` parameter.
 - The `response_type` parameter must include `id_token`.
@@ -76,19 +77,20 @@ When your web app needs to authenticate the user, it can direct the user to the 
 
 For example:
 
-	// Line breaks are for legibility only.
-	
-	GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
-	client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-	&response_type=id_token
-	&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-	&response_mode=form_post
-	&scope=openid
-	&state=12345
-	&nonce=678910
-	
+```
+// Line breaks are for legibility only.
 
-> [AZURE.TIP]
+GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&response_type=id_token
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&response_mode=form_post
+&scope=openid
+&state=12345
+&nonce=678910
+```
+
+> [!TIP]
 > Click the following link to execute this request. After you sign in, your browser will be redirected to https://localhost/myapp/, with an ID token in the address bar. Note that this request uses `response_mode=query` (for demonstration purposes only). We recommend that you use `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
@@ -96,7 +98,7 @@ For example:
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| tenant |Required |You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](/documentation/articles/active-directory-v2-protocols/#endpoints/). |
+| tenant |Required |You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](./active-directory-v2-protocols.md#endpoints). |
 | client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=/documentation/articles&deeplink=/appList) assigned to your app. |
 | response_type |Required |Must include `id_token` for OpenID Connect sign-in. It might also include other `response_types` values, such as `code`. |
 | redirect_uri |Recommended |The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. |
@@ -108,36 +110,36 @@ For example:
 | login_hint |Optional |You can use this parameter to pre-fill the username and email address field of the sign-in page for the user, if you know the username ahead of time. Often, apps use this parameter during re-authentication, after already extracting the username from an earlier sign-in by using the `preferred_username` claim. |
 | domain_hint |Optional |This value can be `consumers` or `organizations`. If included, it skips the email-based discovery process that the user goes through on the v2.0 sign-in page, for a slightly more streamlined user experience. Often, apps use this parameter during re-authentication by extracting the `tid` claim from the ID token. If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad`, use `domain_hint=consumers`. Otherwise, use `domain_hint=organizations`. |
 
-At this point, the user is prompted to enter their credentials and complete the authentication. The v2.0 endpoint verifies that the user has consented to the permissions indicated in the `scope` query parameter. If the user has not consented to any of those permissions, the v2.0 endpoint prompts the user to consent to the required permissions. You can read more about [permissions, consent, and multitenant apps](/documentation/articles/active-directory-v2-scopes/).
+At this point, the user is prompted to enter their credentials and complete the authentication. The v2.0 endpoint verifies that the user has consented to the permissions indicated in the `scope` query parameter. If the user has not consented to any of those permissions, the v2.0 endpoint prompts the user to consent to the required permissions. You can read more about [permissions, consent, and multitenant apps](./active-directory-v2-scopes.md).
 
 After the user authenticates and grants consent, the v2.0 endpoint returns a response to your app at the indicated redirect URI by using the method specified in the `response_mode` parameter.
 
 ### Successful response
 A successful response when you use `response_mode=form_post` looks like this:
 
+```
+POST /myapp/ HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
 
-	POST /myapp/ HTTP/1.1
-	Host: localhost
-	Content-Type: application/x-www-form-urlencoded
-	
-	id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
-	
+id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
+```
 
 | Parameter | Description |
 | --- | --- |
-| id_token |The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more details about ID tokens and their contents, see the [v2.0 endpoint tokens reference](/documentation/articles/active-directory-v2-tokens/). |
+| id_token |The ID token that the app requested. You can use the `id_token` parameter to verify the user's identity and begin a session with the user. For more details about ID tokens and their contents, see the [v2.0 endpoint tokens reference](./active-directory-v2-tokens.md). |
 | state |If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 ### Error response
 Error responses might also be sent to the redirect URI so that the app can handle them. An error response looks like this:
 
+```
+POST /myapp/ HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
 
-	POST /myapp/ HTTP/1.1
-	Host: localhost
-	Content-Type: application/x-www-form-urlencoded
-	
-	error=access_denied&error_description=the+user+canceled+the+authentication
-	
+error=access_denied&error_description=the+user+canceled+the+authentication
+```
 
 | Parameter | Description |
 | --- | --- |
@@ -160,7 +162,7 @@ The following table describes error codes that can be returned in the `error` pa
 ## Validate the ID token
 Receiving an ID token is not sufficient to authenticate the user. You must also validate the ID token's signature and verify the claims in the token per your app's requirements. The v2.0 endpoint uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
-You can choose to validate the ID token in client code, but a common practice is to send the ID token to a back-end server and perform the validation there. After you've validated the signature of the ID token, you'll need to verify a few claims. For more information, including more about [validating tokens](/documentation/articles/active-directory-v2-tokens/#validating-tokens/) and [important information about signing key rollover](/documentation/articles/active-directory-v2-tokens/#validating-tokens/), see the [v2.0 tokens reference](/documentation/articles/active-directory-v2-tokens/). We recommend using a library to parse and validate tokens. There's at least one of these libraries available for most languages and platforms.
+You can choose to validate the ID token in client code, but a common practice is to send the ID token to a back-end server and perform the validation there. After you've validated the signature of the ID token, you'll need to verify a few claims. For more information, including more about [validating tokens](./active-directory-v2-tokens.md#validating-tokens) and [important information about signing key rollover](./active-directory-v2-tokens.md#validating-tokens), see the [v2.0 tokens reference](./active-directory-v2-tokens.md). We recommend using a library to parse and validate tokens. There's at least one of these libraries available for most languages and platforms.
 <!--TODO: Improve the information on this-->
 
 You also might want to validate additional claims, depending on your scenario. Some common validations include:
@@ -169,7 +171,7 @@ You also might want to validate additional claims, depending on your scenario. S
 - Ensure that the user has required authorization or privileges.
 - Ensure that a certain strength of authentication has occurred, such as multi-factor authentication.
 
-For more information about the claims in an ID token, see the [v2.0 endpoint tokens reference](/documentation/articles/active-directory-v2-tokens/).
+For more information about the claims in an ID token, see the [v2.0 endpoint tokens reference](./active-directory-v2-tokens.md).
 
 After you have completely validated the ID token, you can begin a session with the user. Use the claims in the ID token to get information about the user in your app. You can use this information for display, records, authorizations, and so on.
 
@@ -183,10 +185,10 @@ When you want to sign out the user from your app, it isn't sufficient to clear y
 
 You can redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
 
-
-	GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
-	post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
-
+```
+GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
+post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+```
 
 | Parameter | Condition | Description |
 | ----------------------- | ------------------------------- | ------------ |
@@ -204,22 +206,22 @@ The full OpenID Connect sign-in and token acquisition flow looks similar to the 
 ## Get access tokens
 To acquire access tokens, modify the sign-in request:
 
+```
+// Line breaks are for legibility only.
 
-	// Line breaks are for legibility only.
+GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
+&response_type=id_token%20code
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
+&response_mode=form_post                              // 'query', 'form_post', or 'fragment'
+&scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
+offline_access%20                                         
+https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&state=12345                                          // Any value, provided by your app
+&nonce=678910                                         // Any value, provided by your app
+```
 
-	GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
-	client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
-	&response_type=id_token%20code
-	&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered redirect URI, URL encoded
-	&response_mode=form_post                              // 'query', 'form_post', or 'fragment'
-	&scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
-	offline_access%20                                         
-	https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
-	&state=12345                                          // Any value, provided by your app
-	&nonce=678910                                         // Any value, provided by your app
-
-
-> [AZURE.TIP]
+> [!TIP]
 > Click the following link to execute this request. After you sign in, your browser is redirected to https://localhost/myapp/, with an ID token and a code in the address bar. Note that this request uses `response_mode=query` (for demonstration purposes only). We recommend that you use `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
@@ -230,30 +232,30 @@ By including permission scopes in the request and by using `response_type=id_tok
 ### Successful response
 A successful response from using `response_mode=form_post` looks like this:
 
+```
+POST /myapp/ HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
 
-	POST /myapp/ HTTP/1.1
-	Host: localhost
-	Content-Type: application/x-www-form-urlencoded
-
-	id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
-
+id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
+```
 
 | Parameter | Description |
 | --- | --- |
-| id_token |The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [v2.0 endpoint tokens reference](/documentation/articles/active-directory-v2-tokens/). |
+| id_token |The ID token that the app requested. You can use the ID token to verify the user's identity and begin a session with the user. You'll find more details about ID tokens and their contents in the [v2.0 endpoint tokens reference](./active-directory-v2-tokens.md). |
 | code |The authorization code that the app requested. The app can use the authorization code to request an access token for the target resource. An authorization code is very short-lived. Typically, an authorization code expires in about 10 minutes. |
 | state |If a state parameter is included in the request, the same value should appear in the response. The app should verify that the state values in the request and response are identical. |
 
 ### Error response
 Error responses might also be sent to the redirect URI so that the app can handle them appropriately. An error response looks like this:
 
+```
+POST /myapp/ HTTP/1.1
+Host: localhost
+Content-Type: application/x-www-form-urlencoded
 
-	POST /myapp/ HTTP/1.1
-	Host: localhost
-	Content-Type: application/x-www-form-urlencoded
-
-	error=access_denied&error_description=the+user+canceled+the+authentication
-
+error=access_denied&error_description=the+user+canceled+the+authentication
+```
 
 | Parameter | Description |
 | --- | --- |
@@ -262,4 +264,4 @@ Error responses might also be sent to the redirect URI so that the app can handl
 
 For a description of possible error codes and recommended client responses, see [Error codes for authorization endpoint errors](#error-codes-for-authorization-endpoint-errors).
 
-When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](#validate-the-id-token). To get access tokens, follow the steps described in our [OAuth protocol documentation](/documentation/articles/active-directory-v2-protocols-oauth-code/#request-an-access-token/).
+When you have an authorization code and an ID token, you can sign the user in and get access tokens on their behalf. To sign the user in, you must validate the ID token [exactly as described](#validate-the-id-token). To get access tokens, follow the steps described in our [OAuth protocol documentation](./active-directory-v2-protocols-oauth-code.md#request-an-access-token).

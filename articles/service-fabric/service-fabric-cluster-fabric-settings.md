@@ -1,22 +1,22 @@
+---
+title: Change Azure Service Fabric cluster settings | Azure
+description: This article describes the fabric settings and the fabric upgrade policies that you can customize.
+services: service-fabric
+documentationcenter: .net
+author: chackdan
+manager: timlt
+editor: ''
 
-<properties
-    pageTitle="Change Azure Service Fabric cluster settings | Azure"
-    description="This article describes the fabric settings and the fabric upgrade policies that you can customize."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="chackdan"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="7ced36bf-bd3f-474f-a03a-6ebdbc9677e2"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/15/2017"
-    wacn.date=""
-    ms.author="chackdan" />
+ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/15/2017
+wacn.date: ''
+ms.author: chackdan
+---
 
 # Customize Service Fabric cluster settings and Fabric Upgrade policy
 This document tells you how to customize the various fabric settings and the fabric upgrade policy for your Service Fabric cluster. You can customize them on the portal or using an Azure Resource Manager template.
@@ -168,7 +168,6 @@ Here are the Fabric settings that you can customize:
 | EnableServiceFabricAutomaticUpdates |Bool, default is false |This is to enable fabric automatic update via Windows Update. |
 | EnableServiceFabricBaseUpgrade |Bool, default is false |This is to enable base update for server. |
 | EnableRestartManagement |Bool, default is false |This is to enable server restart. |
-
 
 ### Section Name: FailoverManager
 | **Parameter** | **Allowed Values** | **Guidance or short Description** |
@@ -591,7 +590,4 @@ Here are the Fabric settings that you can customize:
 
 Read these articles for more information on cluster management:
 
-[Add, Roll over, remove certificates from your Azure cluster ](/documentation/articles/service-fabric-cluster-security-update-certs-azure/) 
-
-
-
+[Add, Roll over, remove certificates from your Azure cluster ](./service-fabric-cluster-security-update-certs-azure.md)

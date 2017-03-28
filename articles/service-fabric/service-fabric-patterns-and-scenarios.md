@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Azure Service Fabric patterns and scenarios | Azure"
-    description="Learn best practices and proven, re-usable patterns to design, develop, and operate your microservices on Service Fabric."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="rwike77"
-    manager="timlt" />
-<tags
-    ms.assetid="d5aa75ff-98b9-4573-a2e5-7f5ab288157a"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="11/30/2016"
-    wacn.date=""
-    ms.author="ryanwi" />
+---
+title: Azure Service Fabric patterns and scenarios | Azure
+description: Learn best practices and proven, re-usable patterns to design, develop, and operate your microservices on Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+
+ms.assetid: d5aa75ff-98b9-4573-a2e5-7f5ab288157a
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 11/30/2016
+wacn.date: ''
+ms.author: ryanwi
+---
 
 # Service Fabric patterns and scenarios
 If you’re looking at building large-scale microservices using Azure Service Fabric, learn from the experts who designed and built this platform as a service (PaaS). Get started with proper architecture, and then learn how to optimize resources for your application. The [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) course answers the questions most often asked by real-world customers about Service Fabric scenarios and application areas.
- 
+
 Find out how to design, develop, and operate your microservices on Service Fabric using best practices and proven, reusable patterns. Get an overview of Service Fabric and then dive deep into topics that cover cluster optimization and security, migrating legacy apps, IoT at scale, hosting game engines, and more. Look at continuous delivery for various workloads, and even get the details on Linux support and containers. 
 
 ## Introduction
@@ -84,6 +85,5 @@ Learn about migrating from a cloud service, in addition to migration of legacy a
 </a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=GQAq4QSGD_8305167344">Migration</a></td></tr>
 </table>
 
-
 ## Next steps
-Now that you've learned about Service Fabric patterns and scenarios, read more about how to [create and manage clusters](/documentation/articles/service-fabric-deploy-anywhere/), [migrate Cloud Services apps to Service Fabric](/documentation/articles/service-fabric-cloud-services-migration-worker-role-stateless-service/), [set up continuous delivery](/documentation/articles/service-fabric-set-up-continuous-integration/), and [deploy containers](/documentation/articles/service-fabric-containers-overview/).
+Now that you've learned about Service Fabric patterns and scenarios, read more about how to [create and manage clusters](./service-fabric-deploy-anywhere.md), [migrate Cloud Services apps to Service Fabric](./service-fabric-cloud-services-migration-worker-role-stateless-service.md), [set up continuous delivery](./service-fabric-set-up-continuous-integration.md), and [deploy containers](./service-fabric-containers-overview.md).

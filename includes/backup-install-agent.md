@@ -14,11 +14,11 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 4. Once the agent is installed, double click MARSAgentInstaller.exe to launch the installation of the Azure Backup Agent. Choose the installation folder and scratch folder required for the agent. The cache location specified must have free space which is at least 5% of the backup data.
 
-5.	If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
+5. If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
 
-6.	The Azure Backup Agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already) to complete the installation.
+6. The Azure Backup Agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already) to complete the installation.
 
-7.	Once the agent is installed, click the **Proceed to Registration** button to continue with the workflow.
+7. Once the agent is installed, click the **Proceed to Registration** button to continue with the workflow.
 
     ![Register](./media/backup-install-agent/register.png)
 
@@ -36,7 +36,8 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
     ![Encryption](./media/backup-install-agent/encryption.png)
 
-    > [AZURE.WARNING] If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
+    > [!WARNING]
+    > If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
 
 10. Once you click the **Finish** button, the machine is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure.
 

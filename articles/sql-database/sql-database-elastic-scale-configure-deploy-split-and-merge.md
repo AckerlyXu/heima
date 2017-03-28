@@ -18,7 +18,7 @@ ms.author: ddove
 
 ---
 # Deploy a split-merge service
-The split-merge tool lets you move data between sharded databases. See [Moving data between scaled-out cloud databases](/documentation/articles/sql-database-elastic-scale-overview-split-and-merge/)
+The split-merge tool lets you move data between sharded databases. See [Moving data between scaled-out cloud databases](./sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## Download the Split-Merge packages
 1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
@@ -38,7 +38,6 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
 
 4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure Portal. In the left bar, click **New**, then **Compute**, **Cloud Service**, and **Create**. 
 
-
 ## Configure your Split-Merge service
 
 ### Split-Merge service configuration
@@ -49,18 +48,20 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
 
 3. Create a new database or choose an existing database to serve as the status database for Split-Merge operations and retrieve the connection string of that database. 
 
-	**Important** At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/zh-cn/library/ms188046.aspx).
+    **Important** At this time, the status database must use the Latin  collation (SQL\_Latin1\_General\_CP1\_CI\_AS). For more information, see [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/zh-cn/library/ms188046.aspx).
 
-	With Azure SQL DB, the connection string typically is of the form:
+    With Azure SQL DB, the connection string typically is of the form:
 
-        "Server=myservername.database.chinacloudapi.cn; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
+    ```
+    "Server=myservername.database.chinacloudapi.cn; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
+    ```
 4.    Enter this connection string in the cscfg file in both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the ElasticScaleMetadata setting.
 
 5.    For the **SplitMergeWorker** role, enter a valid connection string to Azure storage for the **WorkerRoleSynchronizationStorageAccountConnectionString** setting.
-        
+
 ### Configure security
 
-For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](/documentation/articles/sql-database-elastic-scale-split-merge-security-configuration/).
+For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](./sql-database-elastic-scale-split-merge-security-configuration.md).
 
 For the purposes of a simple test deployment for this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
@@ -68,19 +69,23 @@ For the purposes of a simple test deployment for this tutorial, a minimal set of
 
 Create a new directory and from this directory execute the following command using a [Developer Command Prompt for Visual Studio](http://msdn.microsoft.com/zh-cn/library/ms229859.aspx) window:
 
-    makecert ^
-    -n "CN=*.chinacloudapp.cn" ^
-    -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2" ^
-    -a sha1 -len 2048 ^
-    -sr currentuser -ss root ^
-    -sv MyCert.pvk MyCert.cer
+```
+makecert ^
+-n "CN=*.chinacloudapp.cn" ^
+-r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2" ^
+-a sha1 -len 2048 ^
+-sr currentuser -ss root ^
+-sv MyCert.pvk MyCert.cer
+```
 
 You are asked for a password to protect the private key. Enter a strong password and confirm it. You are then prompted for the password to be used once more after that. Click **Yes** at the end to import it to the Trusted Certification Authorities Root store.
 
 ### Create a PFX file
 Execute the following command from the same window where makecert was executed; use the same password that you used to create the certificate:
 
-    pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
+```
+pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
+```
 
 ### Import the client certificate into the personal store
 1. In Windows Explorer, double-click **MyCert.pfx**.
@@ -105,20 +110,23 @@ Go to the [Azure Portal](https://portal.azure.cn).
 Paste the certificate thumbprint copied above into the thumbprint/value attribute of these settings.
 For the worker role:
 
-    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
+<Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 For the web role:
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
-    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
-    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+<Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
+<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
-
-Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](/documentation/articles/sql-database-elastic-scale-split-merge-security-configuration/).
+Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](./sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ## Deploy your service
 
@@ -126,7 +134,7 @@ Please note that for production deployments separate certificates should be used
 2. Click the **Cloud Services** tab on the left, and select the cloud service that you created earlier.
 3. Click **Dashboard**.
 4. Choose the staging environment, then click **Upload a new staging deployment**.
-   
+
     ![Staging][3]
 5. In the dialog box, enter a deployment label. For both 'Package' and 'Configuration', click 'From Local' and choose the **SplitMergeService.cspkg** file and your .cscfg file that you configured earlier.
 6. Ensure that the checkbox labeled **Deploy even if one or more roles contain a single instance** is checked.
@@ -143,7 +151,9 @@ If your worker role fails to come online, but your web role succeeds, it is most
 * Check that the server and database exist, and that the user id and password are correct.
 * For Azure SQL DB, the connection string should be of the form:
 
-        "Server=myservername.database.chinacloudapi.cn; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
+    ```
+    "Server=myservername.database.chinacloudapi.cn; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
+    ```
 
 * Ensure that the server name does not begin with **https://**.
 * Ensure that your Azure SQL DB server allows Azure Services to connect to it. To do this, open https://manage.windowsazure.cn, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
@@ -224,66 +234,76 @@ The script files included are:
 
     Sample command line:
 
-        .\SetupSampleSplitMergeEnvironment.ps1 `
-            -UserName 'mysqluser' `
-            -Password 'MySqlPassw0rd' `
-            -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn'
+    ```
+    .\SetupSampleSplitMergeEnvironment.ps1 `
+        -UserName 'mysqluser' `
+        -Password 'MySqlPassw0rd' `
+        -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn'
+    ```
 
 4.    Execute the Getmappings.ps1 script to view the mappings that currently exist in the sample environment.
 
-        .\GetMappings.ps1 `
-            -UserName 'mysqluser' `
-            -Password 'MySqlPassw0rd' `
-            -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn'
+    ```
+    .\GetMappings.ps1 `
+        -UserName 'mysqluser' `
+        -Password 'MySqlPassw0rd' `
+        -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn'
+    ```
 
 5.    Execute the ExecuteSampleSplitMerge.ps1 script to execute a split operation (moving half the data on the first shard to the second shard) and then a merge operation (moving the data back onto the first shard). If you configured SSL and left the http endpoint disabled, ensure that you use the https:// endpoint instead.
 
     Sample command line:
 
-        .\ExecuteSampleSplitMerge.ps1 `
-            -UserName 'mysqluser' `
-            -Password 'MySqlPassw0rd' `
-            -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn' `
-            -SplitMergeServiceEndpoint 'https://mysplitmergeservice.chinacloudapp.cn' `
-            -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
+    ```
+    .\ExecuteSampleSplitMerge.ps1 `
+        -UserName 'mysqluser' `
+        -Password 'MySqlPassw0rd' `
+        -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn' `
+        -SplitMergeServiceEndpoint 'https://mysplitmergeservice.chinacloudapp.cn' `
+        -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
+    ```
 
     If you receive the below error, it is most likely a problem with your Web endpoint’s certificate. Try connecting to the Web endpoint with your favorite Web browser and check if there is a certificate error.
 
-        Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
+    ```
+    Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
+    ```
 
     If it succeeded, the output should look like the below:
 
-        > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.chinacloudapp.cn' –CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
-        Sending split request
-        Began split operation with id dc68dfa0-e22b-4823-886a-9bdc903c80f3
-        Polling split-merge request status. Press Ctrl-C to end
-        Progress: 0% | Status: Queued | Details: [Informational] Queued request
-        Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
-        Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
-        Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-        Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Waiting for reference tables copy     completion.
-        Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-        Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
-        Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
-        ...
-        ...
-        Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
-        Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
-        Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
-        Sending merge request
-        Began merge operation with id 6ffc308f-d006-466b-b24e-857242ec5f66
-        Polling request status. Press Ctrl-C to end
-        Progress: 0% | Status: Queued | Details: [Informational] Queued request
-        Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
-        Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
-        Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
-        Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
-        Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
-        ...
-        ...
-        Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
-        Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
-        Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
+    ```
+    > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.chinacloudapp.cn' –CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
+    Sending split request
+    Began split operation with id dc68dfa0-e22b-4823-886a-9bdc903c80f3
+    Polling split-merge request status. Press Ctrl-C to end
+    Progress: 0% | Status: Queued | Details: [Informational] Queued request
+    Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
+    Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
+    Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
+    Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Waiting for reference tables copy     completion.
+    Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
+    Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
+    Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
+    ...
+    ...
+    Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
+    Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
+    Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
+    Sending merge request
+    Began merge operation with id 6ffc308f-d006-466b-b24e-857242ec5f66
+    Polling request status. Press Ctrl-C to end
+    Progress: 0% | Status: Queued | Details: [Informational] Queued request
+    Progress: 5% | Status: Starting | Details: [Informational] Starting split-merge state machine for request.
+    Progress: 5% | Status: Starting | Details: [Informational] Performing data consistency checks on target     shards.
+    Progress: 20% | Status: CopyingReferenceTables | Details: [Informational] Moving reference tables from     source to target shard.
+    Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Moving key range [100:110) of     Sharded tables
+    Progress: 44% | Status: CopyingShardedTables | Details: [Informational] Successfully copied key range     [100:110) for table [dbo].[MyShardedTable]
+    ...
+    ...
+    Progress: 90% | Status: Completing | Details: [Informational] Successfully deleted shardlets in table     [dbo].[MyShardedTable].
+    Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
+    Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
+    ```
 
 6.    Experiment with other data types! All of these scripts take an optional -ShardKeyType parameter that allows you to specify the key type. The default is Int32, but you can also specify Int64, Guid, or Binary.
 
@@ -307,7 +327,9 @@ Note that the Split-Merge service does not create the target database (or schema
 ## Troubleshooting
 You may see the below message when running the sample powershell scripts:
 
-    Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+```
+Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+```
 
 This error means that your SSL certificate is not configured correctly. Please follow the instructions in section 'Connecting with a web browser'.
 
@@ -317,7 +339,7 @@ If you cannot submit requests you may see this:
 
 In this case, check your configuration file, in particular the setting for **WorkerRoleSynchronizationStorageAccountConnectionString**. This error typically indicates that the worker role could not successfully initialize the metadata database on first use. 
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/allowed-services.png
@@ -325,4 +347,3 @@ In this case, check your configuration file, in particular the setting for **Wor
 [3]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/staging.png
 [4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
- 

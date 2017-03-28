@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Azure Insights: Use autoscale actions to send email and webhook alert notifications. | Azure"
-	description="See how to use autoscale actions to call web URLs or send email notifications in Azure Insights. "
-	authors="kamathashwin"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Azure Insights: Use autoscale actions to send email and webhook alert notifications. | Azure
+description: See how to use autoscale actions to call web URLs or send email notifications in Azure Insights. 
+authors: kamathashwin
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="azure-portal"
-	ms.date="07/19/2016"
-	wacn.date=""/>
+ms.service: azure-portal
+ms.date: 07/19/2016
+wacn.date: ''
+---
 
 # Use autoscale actions to send email and webhook alert notifications in Azure Insights
 
@@ -21,7 +21,6 @@ Webhooks allow you to route the Azure alert notifications to other systems for p
 
 ## Email
 Email can be sent to any valid email address. Administrators and co-administrators of the subscription where the rule is running will also be notified.
-
 
 ## Cloud Services and Web Apps
 You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Apps).
@@ -68,7 +67,6 @@ When using the REST API or Resource Manager template, include the notifications 
 |serviceUri	|yes	|a valid https Uri|
 |properties	|yes	|value must be empty {} or can contain key-value pairs|
 
-
 ## Authentication in webhooks
 There are two authentication URI forms:
 
@@ -103,7 +101,6 @@ When the autoscale notification is generated, the following metadata is included
         }
 }
 ```
-
 
 |Field	|Mandatory?|	Description|
 |---|---|---|

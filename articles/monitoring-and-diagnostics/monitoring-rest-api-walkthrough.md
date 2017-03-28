@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Azure Monitoring REST API Walkthrough | Azure"
-	description="How to authenticate requests to and use the Azure Monitoring REST API."
-	authors="mcollier"
-	manager="carolz"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Azure Monitoring REST API Walkthrough | Azure
+description: How to authenticate requests to and use the Azure Monitoring REST API.
+authors: mcollier
+manager: carolz
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="mcollier"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: mcollier
+---
 
 # Azure Monitoring REST API Walkthrough
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn931943.aspx).         
@@ -27,7 +27,7 @@ Besides working with various metric data points, as this article demonstrates, t
 
 The first step is to authenticate the request.
 
-All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](/documentation/articles/resource-group-authenticate-service-principal/#create-service-principal-with-password). It is also possible to [create a service principle via the Azure portal](/documentation/articles/resource-group-create-service-principal-portal/).
+All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). It is also possible to [create a service principle via the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -86,9 +86,9 @@ Once the authentication setup step is complete, queries can then be executed aga
 
 2. Retrieve the metric values
 
-
 ## Retrieve Metric Definitions
->[AZURE.NOTE] To retrieve metric definitions using the Azure Monitor REST API, use "2016-03-01" as the API version.
+>[!NOTE]
+> To retrieve metric definitions using the Azure Monitor REST API, use "2016-03-01" as the API version.
 
 ```PowerShell
 $apiVersion = "2016-03-01"
@@ -108,7 +108,8 @@ For more information, see the [List the metric definitions for a resource in Azu
 ## Retrieve Metric Values
 Once the available metric definitions are known, it is then possible to retrieve the related metric values. Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests (for example, retrieve the ‘CpuTime’ and ‘Requests’ metric data points). If no filters are specified, the default metric is returned.
 
->[AZURE.NOTE] To retrieve metric values using the Azure Monitor REST API, use "2016-06-01" as the API version.
+>[!NOTE]
+> To retrieve metric values using the Azure Monitor REST API, use "2016-06-01" as the API version.
 
 **Method**: GET
 
@@ -150,9 +151,7 @@ An alternative to using PowerShell (as shown above), is to use [ARMClient](https
 3. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*
 4. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-06-01*
 
-
 ![Alt "Using ARMClient to work with the Azure Monitoring REST API"](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
-
 
 ## Retrieve the Resource ID
 Using the REST API can really help to understand the available metric definitions, granularity, and related values. That information is helpful when using the [Azure Management Library](https://msdn.microsoft.com/zh-cn/library/azure/mt417623.aspx).
@@ -170,7 +169,6 @@ The following list contains a few examples of resource ID formats for various Az
 * **VM Scale Sets** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{vm-name}*
 * **VMs** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*
 * **Event Hubs** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{eventhub-namespace}*
-
 
 There are alternative approaches to retrieving the resource ID, including using Azure Resource Explorer, viewing the desired resource in the Azure portal, and via PowerShell or the Azure CLI.
 
@@ -208,7 +206,7 @@ $request = "https://management.azure.cn/subscriptions/${subscriptionId}/provider
 ```
 
 ## Next steps
-* Review the [Overview of Monitoring](/documentation/articles/monitoring-overview/).
-* View the [Supported metrics with Azure Monitor](/documentation/articles/monitoring-supported-metrics/).
+* Review the [Overview of Monitoring](./monitoring-overview.md).
+* View the [Supported metrics with Azure Monitor](./monitoring-supported-metrics.md).
 * Review the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/dn931943.aspx).
 * Review the [Azure Management Library](https://msdn.microsoft.com/zh-cn/library/azure/mt417623.aspx).

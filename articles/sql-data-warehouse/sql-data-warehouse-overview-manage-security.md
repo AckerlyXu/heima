@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Secure a database in SQL Data Warehouse | Azure"
-   description="Tips for securing a database in Azure SQL Data Warehouse for developing solutions."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="ronortloff"
-   manager="barbkess"
-   editor=""/>
+---
+title: Secure a database in SQL Data Warehouse | Azure
+description: Tips for securing a database in Azure SQL Data Warehouse for developing solutions.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: ronortloff
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="rortloff;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: rortloff;barbkess;sonyama
+---
 
 # Secure a database in SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [Security Overview](/documentation/articles/sql-data-warehouse-overview-manage-security/)
-- [Authentication](/documentation/articles/sql-data-warehouse-authentication/)
-- [Encryption (Portal)](/documentation/articles/sql-data-warehouse-encryption-tde/)
-- [Encryption (T-SQL)](/documentation/articles/sql-data-warehouse-encryption-tde-tsql/)
+> [!div class="op_single_selector"]
+>- [Security Overview](./sql-data-warehouse-overview-manage-security.md)
+>- [Authentication](./sql-data-warehouse-authentication.md)
+>- [Encryption (Portal)](./sql-data-warehouse-encryption-tde.md)
+>- [Encryption (T-SQL)](./sql-data-warehouse-encryption-tde-tsql.md)
 
 This article walks through the basics of securing your Azure SQL Data Warehouse database. In particular, this article will get you started with resources for limiting access, protecting data, and monitoring activities on a database.
 
@@ -86,10 +86,10 @@ For details and examples on connecting to your SQL Data Warehouse with different
 <!--Image references-->
 
 <!--Article references-->
-[Connect to SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-connect-overview
-[Encryption with Portal]: /documentation/articles/sql-data-warehouse-encryption-tde
-[Encryption with TSQL]: /documentation/articles/sql-data-warehouse-encryption-tde-tsql
-[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: /documentation/articles/sql-data-warehouse-authentication
+[Connect to SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
+[Encryption with Portal]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
+[Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [Azure SQL Database firewall]: https://msdn.microsoft.com/zh-cn/library/ee621782.aspx

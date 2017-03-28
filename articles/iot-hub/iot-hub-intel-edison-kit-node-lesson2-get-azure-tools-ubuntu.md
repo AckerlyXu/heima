@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Get Azure tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Azure"
-    description="Install Python and Azure command-line interface (Azure CLI) on Ubuntu."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="azure cli, iot cloud service, arduino cloud" />
-<tags
-    ms.assetid="6dcb34bf-54a3-4af0-ba89-95d5cfafceff"
-    ms.service="iot-hub"
-    ms.devlang="nodejs"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get Azure tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Azure
+description: Install Python and Azure command-line interface (Azure CLI) on Ubuntu.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: azure cli, iot cloud service, arduino cloud
+
+ms.assetid: 6dcb34bf-54a3-4af0-ba89-95d5cfafceff
+ms.service: iot-hub
+ms.devlang: nodejs
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get Azure tools (Ubuntu 16.04)
 > [!div class="op_single_selector"]
@@ -34,7 +35,7 @@ In this article, you will learn:
 
 ## What you need
 * An Ubuntu computer with an Internet connection.
-* An active Azure subscription. If you don't have an account, you can create a [free trial account](/pricing/1rmb-trial/) in just a few minutes.
+* An active Azure subscription. If you don't have an account, you can create a [free trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 
 ## Install the Azure CLI
 The Azure CLI provides a multiplatform command-line experience for Azure, enabling you to work directly from your command line to provision and manage resources.
@@ -68,11 +69,10 @@ You've installed the Azure CLI. Your next task is to create your Azure IoT hub a
 ## Next steps
 [Create your IoT hub and register Intel Edison][create-your-iot-hub-and-register-intel-edison]
 
-
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-node-troubleshooting/
-[create-your-iot-hub-and-register-intel-edison]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub/
-[windows]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32/
-[ubuntu]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu/
-[macos]: /documentation/articles/iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac/
+[troubleshooting]: ./iot-hub-intel-edison-kit-node-troubleshooting.md
+[create-your-iot-hub-and-register-intel-edison]: ./iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md
+[windows]: ./iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md
+[ubuntu]: ./iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md
+[macos]: ./iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md

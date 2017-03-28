@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Set up your development environment on Mac OS X | Azure"
-    description="Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Mac OS X."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="seanmck"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="bf84458f-4b87-4de1-9844-19909e368deb"
-    ms.service="service-fabric"
-    ms.devlang="dotNet"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="12/27/2016"
-    wacn.date=""
-    ms.author="seanmck" />
+---
+title: Set up your development environment on Mac OS X | Azure
+description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Mac OS X.
+services: service-fabric
+documentationcenter: .net
+author: seanmck
+manager: timlt
+editor: ''
+
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 12/27/2016
+wacn.date: ''
+ms.author: seanmck
+---
 
 # Set up your development environment on Mac OS X
 
-> [AZURE.SELECTOR]
--[ Windows](/documentation/articles/service-fabric-get-started/)
-- [Linux](/documentation/articles/service-fabric-get-started-linux/)
-- [OSX](/documentation/articles/service-fabric-get-started-mac/)
+> [!div class="op_single_selector"]
+-[ Windows](./service-fabric-get-started.md)
+- [Linux](./service-fabric-get-started-linux.md)
+- [OSX](./service-fabric-get-started-mac.md)
 
 You can build Service Fabric applications to run on Linux clusters using Mac OS X. This article covers how to set up your Mac for development.
 
@@ -37,7 +38,7 @@ Service Fabric does not run natively on OS X. To run a local Service Fabric clus
 To create the local VM containing a 5-node Service Fabric cluster, perform the following steps:
 
 1. Clone the **Vagrantfile** repo
-   
+
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
@@ -59,16 +60,14 @@ To create the local VM containing a 5-node Service Fabric cluster, perform the f
     ```bash
     vagrant up
     ```
-  
+
    This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you see a message in the output indicating that the cluster is starting up.
-   
 
     ![Cluster setup starting following VM provisioning][cluster-setup-script]
 
 5. Test that the cluster has been set up correctly by navigating to Service Fabric Explorer at http://192.168.50.50:19080/Explorer (assuming you kept the default private network IP).
 
     ![Service Fabric Explorer viewed from the host Mac][sfx-mac]
-
 
 ## Install the Service Fabric plugin for Eclipse Neon (optional)
 
@@ -91,10 +90,10 @@ Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the 
 ## Next steps
 <!-- Links -->
 
-- [Create your first Service Fabric application for Linux](/documentation/articles/service-fabric-create-your-first-linux-application-with-java/)
-- [Create a Service Fabric cluster in the Azure portal](/documentation/articles/service-fabric-cluster-creation-via-portal/)
-- [Create a Service Fabric cluster using the Azure Resource Manager](/documentation/articles/service-fabric-cluster-creation-via-arm/)
-- [Understand the Service Fabric application model](/documentation/articles/service-fabric-application-model/)
+- [Create your first Service Fabric application for Linux](./service-fabric-create-your-first-linux-application-with-java.md)
+- [Create a Service Fabric cluster in the Azure portal](./service-fabric-cluster-creation-via-portal.md)
+- [Create a Service Fabric cluster using the Azure Resource Manager](./service-fabric-cluster-creation-via-arm.md)
+- [Understand the Service Fabric application model](./service-fabric-application-model.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png

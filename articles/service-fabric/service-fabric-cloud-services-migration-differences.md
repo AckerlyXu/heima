@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Differences between Cloud Services and Service Fabric | Azure"
-    description="A conceptual overview for migrating applications from Cloud Services to Service Fabric."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="0b87b1d3-88ad-4658-a465-9f05a3376dee"
-    ms.service="service-fabric"
-    ms.devlang="dotNet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Differences between Cloud Services and Service Fabric | Azure
+description: A conceptual overview for migrating applications from Cloud Services to Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
+
+ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # Learn about the differences between Cloud Services and Service Fabric before migrating applications.
 Azure Service Fabric is the next-generation cloud application platform for highly scalable, highly reliable distributed applications. It introduces many new features for packaging, deploying, upgrading, and managing distributed cloud applications. 
@@ -24,15 +25,15 @@ This is an introductory guide to migrating applications from Cloud Services to S
 
 ## Applications and infrastructure
 A fundamental difference between Cloud Services and Service Fabric is the relationship between VMs, workloads, and applications. A workload here is defined as the code you write to perform a specific task or provide a service.
- 
+
  - **Cloud Services is about deploying applications as VMs.** The code you write is tightly coupled to a VM instance, such as a Web or Worker Role. To deploy a workload in Cloud Services is to deploy one or more VM instances that run the workload. There is no separation of applications and VMs, and so there is no formal definition of an application. An application can be thought of as a set of Web or Worker Role instances within a Cloud Services deployment or as an entire Cloud Services deployment. In this example, an application is shown as a set of role instances.
- 
+
 ![Cloud Services applications and topology][1]
 
  - **Service Fabric is about deploying applications to existing VMs or machines running Service Fabric on Windows or Linux.** The services you write are completely decoupled from the underlying infrastructure, which is abstracted away by the Service Fabric application platform, so an application can be deployed to multiple environments. A workload in Service Fabric is called a "service," and one or more services are grouped in a formally-defined application that runs on the Service Fabric application platform. Multiple applications can be deployed to a single Service Fabric cluster.
- 
+
 ![Service Fabric applications and topology][2]
- 
+
 Service Fabric itself is an application platform layer that runs on Windows or Linux, whereas Cloud Services is a system for deploying Azure-managed VMs with workloads attached.
 The Service Fabric application model has a number of advantages:
 
@@ -54,7 +55,7 @@ At this stage, the system should continue to work the same as before. Taking adv
 
  - Removing external dependencies 
  - Unifying the deployment, management, and upgrade models. 
- 
+
 An example resulting architecture of internalizing these services could look like this:
 
 ![Service Fabric architecture after full migration][11]
@@ -88,7 +89,7 @@ The same communication model can be used in Service Fabric. This can be useful w
 ## Next Steps
 The simplest migration path from Cloud Services to Service Fabric is to replace only the Cloud Services deployment with a Service Fabric application, keeping the overall architecture of your application roughly the same. The following article provides a guide to help convert a Web or Worker Role to a Service Fabric stateless service.
 
- - [Simple migration: convert a Web or Worker Role to a Service Fabric stateless service](/documentation/articles/service-fabric-cloud-services-migration-worker-role-stateless-service/)
+ - [Simple migration: convert a Web or Worker Role to a Service Fabric stateless service](./service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-cloud-services-migration-differences/topology-cloud-services.png

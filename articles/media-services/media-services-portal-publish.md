@@ -1,32 +1,34 @@
-<properties
-    pageTitle="  Publish content with the Azure portal | Azure"
-    description="This tutorial walks you through the steps of publishing your content with the Azure portal."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="92c364eb-5a5f-4f4e-8816-b162c031bb40"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/24/2016"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title:   Publish content with the Azure portal | Azure
+description: This tutorial walks you through the steps of publishing your content with the Azure portal.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
+
+ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/24/2016
+wacn.date: ''
+ms.author: juliako
+---
 
 # Publish content with the Azure portal
 
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/media-services-portal-publish/)
-- [.NET](/documentation/articles/media-services-deliver-streaming-content/)
-- [REST](/documentation/articles/media-services-rest-deliver-streaming-content/)
+> [!div class="op_single_selector"]
+>- [Portal](./media-services-portal-publish.md)
+>- [.NET](./media-services-deliver-streaming-content.md)
+>- [REST](./media-services-rest-deliver-streaming-content.md)
 
 ## Overview
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Trial](/pricing/1rmb-trial/). 
+> [!NOTE]
+> To complete this tutorial, you need an Azure account. For details, see [Azure Trial](https://www.azure.cn/pricing/1rmb-trial/). 
 
 To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: 
 
@@ -35,23 +37,32 @@ To provide your user with a  URL that can be used to stream or download your con
 
 A streaming URL has the following format and you can use it to play Smooth Streaming assets.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
+```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
+```
 
 To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+```
 
 To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+```
 
 A SAS URL has the following format.
 
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+```
+{blob container name}/{asset name}/{file name}/{SAS signature}
+```
 
-For more information, see [Delivering content overview](/documentation/articles/media-services-deliver-content-overview/).
+For more information, see [Delivering content overview](./media-services-deliver-content-overview.md).
 
->[AZURE.NOTE] If you used the portal to create locators before March 2015, locators with a two year expiration date were created.  
+>[!NOTE]
+> If you used the portal to create locators before March 2015, locators with a two year expiration date were created.  
 
 To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/zh-cn/library/azure/hh974308.aspx#update_a_locator ) or [.NET](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mediaservices.client.ilocator.update(v=azure.10).aspx) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
@@ -64,7 +75,7 @@ To use the portal to publish an asset, do the following:
 4. Click the **Publish** button.
 5. Select the locator type.
 6. Press **Add**.
-   
+
     ![Publish](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
 The URL will be added to the list of **Published URLs**.
@@ -81,8 +92,4 @@ Some considerations apply:
 - Make sure the video has been published.
 - This **Media player** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, click to copy the URL and use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 - The streaming endpoint from which you are streaming must be running.  
-- To stream from a streaming endpoint, you should add at least one streaming unit. For more information, see [this](/documentation/articles/media-services-portal-scale-streaming-endpoints/) topic.   
-
-
-
-
+- To stream from a streaming endpoint, you should add at least one streaming unit. For more information, see [this](./media-services-portal-scale-streaming-endpoints.md) topic.

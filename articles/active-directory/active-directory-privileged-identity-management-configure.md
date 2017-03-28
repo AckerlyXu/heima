@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Azure AD Privileged Identity Management | Azure"
-	description="A topic that explains what Azure AD Privileged Identity Management is and how to use PIM to improve your cloud security."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Azure AD Privileged Identity Management | Azure
+description: A topic that explains what Azure AD Privileged Identity Management is and how to use PIM to improve your cloud security.
+services: active-directory
+documentationCenter: ''
+authors: kgremban
+manager: femila
+editor: ''
 
-<tags 
-	ms.service="active-directory" 
-	ms.date="08/11/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 08/11/2016
+wacn.date: ''
+---
 
 # Azure AD Privileged Identity Management
 
@@ -41,13 +41,14 @@ Historically, you could assign a user to an admin role through the Azure classic
 
 You can start using Azure AD Privileged Identity Management in the [Azure portal](https://portal.azure.cn/).
 
->[AZURE.NOTE] You must be a global administrator with an organizational account (for example, @yourdomain.com), not a Microsoft account (for example, @outlook.com), to enable Azure AD Privileged Identity Management for a directory.
+>[!NOTE]
+> You must be a global administrator with an organizational account (for example, @yourdomain.com), not a Microsoft account (for example, @outlook.com), to enable Azure AD Privileged Identity Management for a directory.
 
 1. Sign in to the [Azure portal](https://portal.azure.cn/) as a global administrator of your directory.
 2. If your organization has more than one directory, select your username in the upper right-hand corner of the Azure portal. Select the directory where you will use Azure AD Privileged Identity Management.
 3. Select **New** > **Security + Identity** > **Azure AD Privileged Identity Management**.
 
-	![Enable PIM in the portal][1]
+    ![Enable PIM in the portal][1]
 
 4. Check the **Pin to dashboard** option and then click the **Create** button. The Privileged Identity Management dashboard opens.
 
@@ -103,7 +104,7 @@ Using Azure AD Privileged Identity Management, you can also track changes in pri
 ![PIM activation history - screenshot][6]
 
 ## Next steps
-[AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
+[!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->
 
@@ -113,4 +114,3 @@ Using Azure AD Privileged Identity Management, you can also track changes in pri
 [4]: ./media/active-directory-privileged-identity-management-configure/PIM_RoleActivationSettings.png
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
-

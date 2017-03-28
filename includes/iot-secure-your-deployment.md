@@ -100,15 +100,15 @@ This article provides overview of implementation level details for designing and
 
 [img-overview]: ./media/iot-secure-your-deployment/overview.png
 
-[lnk-security-tokens]: /documentation/articles/iot-hub-devguide-security/#security-token-structure
-[lnk-sas-tokens]: /documentation/articles/iot-hub-devguide-security/#use-sas-tokens-in-a-device-app
-[lnk-identity-registry]: /documentation/articles/iot-hub-devguide-identity-registry/
-[lnk-protocols]: /documentation/articles/iot-hub-devguide#security
-[lnk-custom-auth]: /documentation/articles/iot-hub-devguide-security/#custom-device-authentication
+[lnk-security-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#security-token-structure
+[lnk-sas-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app
+[lnk-identity-registry]: ../articles/iot-hub/iot-hub-devguide-identity-registry.md
+[lnk-protocols]: ../articles/iot-hub/iot-hub-devguide.md#security
+[lnk-custom-auth]: ../articles/iot-hub/iot-hub-devguide-security.md#custom-device-authentication
 [lnk-x509]: http://www.itu.int/rec/T-REC-X.509-201210-I/en
-[lnk-use-x509]: /documentation/articles/iot-hub-devguide-security/
+[lnk-use-x509]: ../articles/iot-hub/iot-hub-devguide-security.md
 [lnk-tls12]: https://tools.ietf.org/html/rfc5246
-[lnk-service-tokens]: /documentation/articles/iot-hub-devguide-security/#use-security-tokens-from-service-components
+[lnk-service-tokens]: ../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components
 [lnk-docdb]: /services/documentdb/
 [lnk-asa]: /services/stream-analytics/
 [lnk-appservices]: /services/app-service/

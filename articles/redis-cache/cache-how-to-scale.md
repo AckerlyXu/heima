@@ -1,24 +1,25 @@
-<properties
-    pageTitle="How to Scale Azure Redis Cache | Azure"
-    description="Learn how to scale your Azure Redis Cache instances"
-    services="redis-cache"
-    documentationcenter=""
-    author="steved0x"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="350db214-3b7c-4877-bd43-fef6df2db96c"
-    ms.service="cache"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="cache-redis"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/06/2017"
-    wacn.date=""
-    ms.author="sdanie" />
+---
+title: How to Scale Azure Redis Cache | Azure
+description: Learn how to scale your Azure Redis Cache instances
+services: redis-cache
+documentationcenter: ''
+author: steved0x
+manager: douge
+editor: ''
+
+ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
+ms.service: cache
+ms.workload: tbd
+ms.tgt_pltfrm: cache-redis
+ms.devlang: na
+ms.topic: article
+ms.date: 01/06/2017
+wacn.date: ''
+ms.author: sdanie
+---
 
 # How to Scale Azure Redis Cache
-> [AZURE.NOTE]
+> [!NOTE]
 > The Azure Redis Cache scaling feature is currently in preview. 
 > 
 > 
@@ -26,7 +27,7 @@
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features. If the requirements of your application change after a cache is created, you can scale the size of the cache using the **Change pricing tier** blade in the [Azure portal preview](https://portal.azure.cn).
 
 ## When to scale
-You can use the [monitoring](/documentation/articles/cache-how-to-monitor/) features of Azure Redis Cache to monitor the health and performance of your cache applications and to help determine if there is a need to scale the cache. 
+You can use the [monitoring](./cache-how-to-monitor.md) features of Azure Redis Cache to monitor the health and performance of your cache applications and to help determine if there is a need to scale the cache. 
 
 You can monitor the following metrics to help determine if you need to scale.
 
@@ -35,10 +36,10 @@ You can monitor the following metrics to help determine if you need to scale.
 * Network Bandwidth
 * CPU Usage
 
-If you determine that your cache is no longer meeting the requirements of your application, you can change to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Redis Cache offering and size should I use](/documentation/articles/cache-faq/#what-redis-cache-offering-and-size-should-i-use).
+If you determine that your cache is no longer meeting the requirements of your application, you can change to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [What Redis Cache offering and size should I use](./cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Scale a cache
-To scale your cache, [browse to the cache](/documentation/articles/cache-configure/#configure-redis-cache-settings) in the [Azure portal preview](https://portal.azure.cn) and click **Settings**, **Pricing tier**.
+To scale your cache, [browse to the cache](./cache-configure.md#configure-redis-cache-settings) in the [Azure portal preview](https://portal.azure.cn) and click **Settings**, **Pricing tier**.
 
 You can also click the **Pricing tier** part in the **Redis Cache** blade.
 
@@ -48,7 +49,7 @@ Select the desired pricing tier from the **Pricing tier** blade and click **Sele
 
 ![Pricing tier][redis-cache-pricing-tier-blade]
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can scale to a different pricing tier with the following restrictions.
 ><p> 
 ><p> * You can't scale from a higher pricing tier to a lower pricing tier.
@@ -76,35 +77,39 @@ In addition to scaling your Azure Redis Cache instances in the Azure portal prev
 ### <a name="scale-using-powershell"></a> Scale using PowerShell
 You can scale your Azure Redis Cache instances with PowerShell by using the [Set-AzureRmRedisCache](https://msdn.microsoft.com/zh-cn/library/azure/mt634518.aspx) cmdlet when the `Size`, `Sku`, or `ShardCount` properties are modified. The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. 
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+```
+Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+```
 
-For more information on scaling with PowerShell, see [To scale a Redis cache using Powershell](/documentation/articles/cache-howto-manage-redis-cache-powershell/#scale).
+For more information on scaling with PowerShell, see [To scale a Redis cache using Powershell](./cache-howto-manage-redis-cache-powershell.md#scale).
 
 ### <a name="scale-using-azure-cli"></a> Scale using Azure CLI
 To scale your Azure Redis Cache instances using Azure CLI, call the `azure rediscache set` command and pass in the desired configuration changes that include a new size, sku, or cluster size, depending on the desired scaling operation.
 
-For more information on scaling with Azure CLI, see [Change settings of an existing Redis Cache](/documentation/articles/cache-manage-cli/#scale).
+For more information on scaling with Azure CLI, see [Change settings of an existing Redis Cache](./cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a> Scale using MAML
 To scale your Azure Redis Cache instances using the [Azure Management Libraries (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), call the `IRedisOperations.CreateOrUpdate` method and pass in the new size for the `RedisProperties.SKU.Capacity`.
 
-    static void Main(string[] args)
-    {
-        // For instructions on getting the access token, see
-        // /documentation/articles/cache-configure/#access-keys
-        string token = GetAuthorizationHeader();
+```
+static void Main(string[] args)
+{
+    // For instructions on getting the access token, see
+    // /documentation/articles/cache-configure/#access-keys
+    string token = GetAuthorizationHeader();
 
-        TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);
+    TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);
 
-        RedisManagementClient client = new RedisManagementClient(creds);
-        var redisProperties = new RedisProperties();
+    RedisManagementClient client = new RedisManagementClient(creds);
+    var redisProperties = new RedisProperties();
 
-        // To scale, set a new size for the redisSKUCapacity parameter.
-        redisProperties.Sku = new Sku(redisSKUName,redisSKUFamily,redisSKUCapacity);
-        redisProperties.RedisVersion = redisVersion;
-        var redisParams = new RedisCreateOrUpdateParameters(redisProperties, redisCacheRegion);
-        client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
-    }
+    // To scale, set a new size for the redisSKUCapacity parameter.
+    redisProperties.Sku = new Sku(redisSKUName,redisSKUFamily,redisSKUCapacity);
+    redisProperties.RedisVersion = redisVersion;
+    var redisParams = new RedisCreateOrUpdateParameters(redisProperties, redisCacheRegion);
+    client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
+}
+```
 
 For more information, see the [Manage Redis Cache using MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) sample.
 
@@ -126,9 +131,9 @@ The following list contains answers to commonly asked questions about Azure Redi
 * You can't scale from a **Premium** cache down to a **Basic** or **Standard** pricing tier.
 * You can scale from one **Premium** cache pricing tier to another.
 * You can't scale from a **Basic** cache directly to a **Premium** cache. You must first scale from **Basic** to **Standard** in one scaling operation, and then from **Standard** to **Premium** in a subsequent scaling operation.
-* If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](/documentation/articles/cache-how-to-premium-clustering/#cluster-size). At this time you can't enable clustering on a previously existing cache that was created without clustering.
-  
-    For more information, see [How to configure clustering for a Premium Azure Redis Cache](/documentation/articles/cache-how-to-premium-clustering/).
+* If you enabled clustering when you created your **Premium** cache, you can [change the cluster size](./cache-how-to-premium-clustering.md#cluster-size). At this time you can't enable clustering on a previously existing cache that was created without clustering.
+
+    For more information, see [How to configure clustering for a Premium Azure Redis Cache](./cache-how-to-premium-clustering.md).
 
 ### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a> After scaling, do I have to change my cache name or access keys?
 No, your cache name and keys are unchanged during a scaling operation.
@@ -144,7 +149,7 @@ No, your cache name and keys are unchanged during a scaling operation.
 * When a **Standard** cache is scaled to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** or **Premium** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a> Is my custom databases setting affected during scaling?
-Some pricing tiers have different [databases limits](/documentation/articles/cache-configure/#databases), so there are some considerations when scaling down if you configured a custom value for the `databases` setting during cache creation.
+Some pricing tiers have different [databases limits](./cache-configure.md#databases), so there are some considerations when scaling down if you configured a custom value for the `databases` setting during cache creation.
 
 * When scaling to a pricing tier with a lower `databases` limit than the current tier:
     * If you are using the default number of `databases` which is 16 for all pricing tiers, no data is lost.

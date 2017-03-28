@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Improve columnstore index performance in Azure SQL | Azure"
-    description="Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="shivaniguptamsft"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="ef170f39-ae24-4b04-af76-53bb4c4d16d3"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="11/18/2016"
-    wacn.date=""
-    ms.author="shigu;barbkess" />
+---
+title: Improve columnstore index performance in Azure SQL | Azure
+description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
+services: sql-data-warehouse
+documentationcenter: NA
+author: shivaniguptamsft
+manager: jhubbard
+editor: ''
+
+ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 11/18/2016
+wacn.date: ''
+ms.author: shigu;barbkess
+---
 
 # Memory optimizations for columnstore compression
 
@@ -90,34 +91,34 @@ Each distribution compresses rowgroups into the columnstore in parallel when the
 
 To reduce memory pressure, you can use the MAXDOP query hint to force the load operation to run in serial mode within each distribution.
 
-    CREATE TABLE MyFactSalesQuota 
-    WITH (DISTRIBUTION = ROUND_ROBIN)
-    AS SELECT * FROM FactSalesQUota 
-    OPTION (MAXDOP 1);
+```
+CREATE TABLE MyFactSalesQuota 
+WITH (DISTRIBUTION = ROUND_ROBIN)
+AS SELECT * FROM FactSalesQUota 
+OPTION (MAXDOP 1);
+```
 
 ## Ways to allocate more memory
 
 DWU size and the user resource class together determine how much memory is available for a user query. To increase the memory grant for a load query, you can either increase the number of DWUs or increase the resource class.
 
-- To increase the DWUs, see [How do I scale performance?](/documentation/articles/sql-data-warehouse-manage-compute-overview/#scale-performance)
-- To change the resource class for a query, see [Change a user resource class example](/documentation/articles/sql-data-warehouse-develop-concurrency/#change-a-user-resource-class-example).
+- To increase the DWUs, see [How do I scale performance?](./sql-data-warehouse-manage-compute-overview.md#scale-performance)
+- To change the resource class for a query, see [Change a user resource class example](./sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
 
-For example, on DWU 100 a user in the smallrc resource class can use 100 MB of memory for each distribution. For the details, see [Concurrency in SQL Data Warehouse](/documentation/articles/sql-data-warehouse-develop-concurrency/).
+For example, on DWU 100 a user in the smallrc resource class can use 100 MB of memory for each distribution. For the details, see [Concurrency in SQL Data Warehouse](./sql-data-warehouse-develop-concurrency.md).
 
 Suppose you determine that you need 700 MB of memory to get high-quality rowgroup sizes. These examples show how you can run the load query with enough memory.
 
 - Using DWU 1000 and mediumrc, your memory grant is 800 MB
 - Using DWU 600 and largerc, your memory grant is 800 MB.
 
-
 ## Next steps
 
-To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](/documentation/articles/sql-data-warehouse-overview-manage-user-queries/).
+To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](./sql-data-warehouse-overview-manage-user-queries.md).
 
 <!--Image references-->
 
 <!--Article references-->
-
 
 <!--MSDN references-->
 

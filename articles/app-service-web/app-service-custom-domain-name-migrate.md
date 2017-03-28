@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Migrate an active custom domain to Azure App Service | Azure"
-    description="Learn how to migrate a custom domain that is already assigned to a live site to your app in Azure App Service without any downtime."
-    services="app-service"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor="jimbe"
-    tags="top-support-issue" />
-<tags
-    ms.assetid="10da5b8a-1823-41a3-a2ff-a0717c2b5c2d"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/30/2017"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Migrate an active custom domain to Azure App Service | Azure
+description: Learn how to migrate a custom domain that is already assigned to a live site to your app in Azure App Service without any downtime.
+services: app-service
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: jimbe
+tags: top-support-issue
+
+ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/30/2017
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Migrate an active custom domain to Azure App Service
 
-This article shows you how to migrate an active custom domain to [Azure App Service](/documentation/articles/app-service-value-prop-what-is/) without any downtime.
+This article shows you how to migrate an active custom domain to [Azure App Service](../app-service/app-service-value-prop-what-is.md) without any downtime.
 
 When you migrate a live site and its domain name to App Service, that domain name is already serving live traffic, and you don't want any downtime in DNS resolution during
 the migration process. In this case, you need to preemptively bind the domain name to your Azure app for domain verification. 
 
 ## Prerequisites
 
-This article assumes that you arleady know how to [manually map a custom domain to App Service](/documentation/articles/web-sites-custom-domain-name/).
+This article assumes that you arleady know how to [manually map a custom domain to App Service](./web-sites-custom-domain-name.md).
 
 ## Bind the domain name preemptively
 
@@ -42,10 +43,10 @@ to your App Service app without any downtime in DNS resolution.
 
 Follow the steps below:
 
-1. First, create a verification TXT record with your DNS registry by following the steps at [Create the DNS record(s)](/documentation/articles/web-sites-custom-domain-name/#createdns).
+1. First, create a verification TXT record with your DNS registry by following the steps at [Create the DNS record(s)](./web-sites-custom-domain-name.md#createdns).
 Your additional TXT record takes on the convention that maps from &lt;*subdomain*>.&lt;*rootdomain*> to &lt;*appname*>.chinacloudsites.cn.
 See the following table for examples:  
- 
+
     <table cellspacing="0" border="1">
     <tr>
     <th>FQDN example</th>
@@ -69,13 +70,13 @@ See the following table for examples:
     </tr>
     </table>
 
-2. Then, add your custom domain name to your Azure app by following the steps at [Enable the custom domain name for your app](/documentation/articles/web-sites-custom-domain-name/#enable).
+2. Then, add your custom domain name to your Azure app by following the steps at [Enable the custom domain name for your app](./web-sites-custom-domain-name.md#enable).
 
     Your custom domain is now enabled in your Azure app. The only thing left to do is to update the DNS record with your domain registrar.
 
-3. Finally, update your domain's DNS record to point to your Azure app as is shown in [Create the DNS record(s)](/documentation/articles/web-sites-custom-domain-name/#createdns). 
+3. Finally, update your domain's DNS record to point to your Azure app as is shown in [Create the DNS record(s)](./web-sites-custom-domain-name.md#createdns). 
 
     User traffic should be redirected to your Azure app immediately after DNS propagation happens.
 
 ## Next steps
-Learn how to secure your custom domain name with HTTPS by [using an SSL certificate from elsewhere](/documentation/articles/web-sites-configure-ssl-certificate/).
+Learn how to secure your custom domain name with HTTPS by [using an SSL certificate from elsewhere](./web-sites-configure-ssl-certificate.md).

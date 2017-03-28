@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Cloud-to-device messages with Azure IoT Hub (Java) | Azure"
-    description="How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Java. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages."
-    services="iot-hub"
-    documentationcenter="java"
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="7f785ea8-e7c2-40c5-87ef-96525e9b9e1e"
-    ms.service="iot-hub"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/07/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Cloud-to-device messages with Azure IoT Hub (Java) | Azure
+description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Java. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
+services: iot-hub
+documentationcenter: java
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 7f785ea8-e7c2-40c5-87ef-96525e9b9e1e
+ms.service: iot-hub
+ms.devlang: java
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/07/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Send cloud-to-device messages with IoT Hub (Java)
 
-[AZURE.INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
+[!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
@@ -37,7 +38,7 @@ At the end of this tutorial, you run two Java console apps:
 * **simulated-device**, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
 * **send-c2d-messages**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center].
 > 
 > 
@@ -55,28 +56,28 @@ In this section, you modify the simulated device app you created in [Get started
 
 1. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java file.
 2. Add the following **MessageCallback** class as a nested class inside the **App** class. The **execute** method is invoked when the device receives a message from IoT Hub. In this example, the device always notifies the IoT hub that it has completed the message:
-   
+
     ```
     private static class AppMessageCallback implements MessageCallback {
       public IotHubMessageResult execute(Message msg, Object context) {
         System.out.println("Received message from hub: "
           + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
-    
+
         return IotHubMessageResult.COMPLETE;
       }
     }
     ```
 3. Modify the **main** method to create an **AppMessageCallback** instance and call the **setMessageCallback** method before it opens the client as follows:
-   
+
     ```
     client = new DeviceClient(connString, protocol);
-   
+
     MessageCallback callback = new AppMessageCallback();
     client.setMessageCallback(callback, null);
     client.open();
     ```
-   
-   > [AZURE.NOTE]
+
+   > [!NOTE]
    > If you use HTTP instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTP support, and IoT Hub throttling, see the [IoT Hub developer guide][IoT Hub developer guide - C2D].
    > 
    > 
@@ -85,13 +86,13 @@ In this section, you modify the simulated device app you created in [Get started
 In this section, you create a Java console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Get started with IoT Hub] tutorial. You also need the IoT Hub connection string for your hub that you can find in the [Azure portal].
 
 1. Create a Maven project called **send-c2d-messages** using the following command at your command prompt. Note this command is a single, long command:
-   
+
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=send-c2d-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 2. At your command prompt, navigate to the new send-c2d-messages folder.
 3. Using a text editor, open the pom.xml file in the send-c2d-messages folder and add the following dependency to the **dependencies** node. Adding the dependency enables you to use the **iothub-java-service-client** package in your application to communicate with your IoT hub service:
-   
+
     ```
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
@@ -100,58 +101,58 @@ In this section, you create a Java console app that sends cloud-to-device messag
     </dependency>
     ```
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > You can check for the latest version of **iot-service-client** using [Maven search][lnk-maven-service-search].
 
 4. Save and close the pom.xml file.
 5. Using a text editor, open the send-c2d-messages\src\main\java\com\mycompany\app\App.java file.
 6. Add the following **import** statements to the file:
-   
+
     ```
     import com.microsoft.azure.sdk.iot.service.sdk.*;
     import java.io.IOException;
     import java.net.URISyntaxException;
     ```
 7. Add the following class-level variables to the **App** class, replacing **{yourhubconnectionstring}** and **{yourdeviceid}** with the values your noted earlier:
-   
+
     ```
     private static final String connectionString = "{yourhubconnectionstring}";
     private static final String deviceId = "{yourdeviceid}";
     private static final IotHubServiceClientProtocol protocol = IotHubServiceClientProtocol.AMQPS;
     ```
 8. Replace the **main** method with the following code. This code connects to your IoT hub, sends a message to your device, and then waits for an acknowledgment that the device received and processed the message:
-   
+
     ```
     public static void main(String[] args) throws IOException,
         URISyntaxException, Exception {
       ServiceClient serviceClient = ServiceClient.createFromConnectionString(
         connectionString, protocol);
-   
+
       if (serviceClient != null) {
         serviceClient.open();
         FeedbackReceiver feedbackReceiver = serviceClient
           .getFeedbackReceiver(deviceId);
         if (feedbackReceiver != null) feedbackReceiver.open();
-   
+
         Message messageToSend = new Message("Cloud to device message.");
         messageToSend.setDeliveryAcknowledgement(DeliveryAcknowledgement.Full);
-   
+
         serviceClient.send(deviceId, messageToSend);
         System.out.println("Message sent to device");
-   
+
         FeedbackBatch feedbackBatch = feedbackReceiver.receive(10000);
         if (feedbackBatch != null) {
           System.out.println("Message feedback received, feedback time: "
             + feedbackBatch.getEnqueuedTimeUtc().toString());
         }
-   
+
         if (feedbackReceiver != null) feedbackReceiver.close();
         serviceClient.close();
       }
     }
     ```
-   
-   > [AZURE.NOTE]
+
+   > [!NOTE]
    > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
    > 
    > 
@@ -160,18 +161,18 @@ In this section, you create a Java console app that sends cloud-to-device messag
 You are now ready to run the applications.
 
 1. At a command prompt in the simulated-device folder, run the following command to begin sending telemetry to your IoT hub and to listen for cloud-to-device messages sent from your hub:
-   
+
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
-   
+
     ![Run the simulated device app][img-simulated-device]
 2. At a command prompt in the send-c2d-messages folder, run the following command to send a cloud-to-device message and wait for a feedback acknowledgment:
-   
+
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
-   
+
     ![Run the command to send the cloud-to-device message][img-send-command]
 
 ## Next steps
@@ -186,13 +187,13 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [img-send-command]:  ./media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
-[Get started with IoT Hub]: /documentation/articles/iot-hub-java-java-getstarted/
-[IoT Hub Developer Guide - C2D]: /documentation/articles/iot-hub-devguide-messaging/
-[IoT Hub Developer Guide]: /documentation/articles/iot-hub-devguide/
+[Get started with IoT Hub]: ./iot-hub-java-java-getstarted.md
+[IoT Hub Developer Guide - C2D]: ./iot-hub-devguide-messaging.md
+[IoT Hub Developer Guide]: ./iot-hub-devguide.md
 [Azure IoT Developer Center]: /develop/iot
-[lnk-free-trial]: /pricing/1rmb-trial/
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.cn
-[Azure IoT Suite]: /documentation/services/iot-suite/
+[Azure IoT Suite]: ../iot-suite/index.md
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

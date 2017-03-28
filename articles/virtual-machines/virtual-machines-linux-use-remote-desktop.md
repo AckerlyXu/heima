@@ -1,32 +1,33 @@
-<properties
-    pageTitle="Use Remote Desktop to a Linux VM in Azure | Azure"
-    description="Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools"
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="iainfoulds"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/07/2017"
-    wacn.date=""
-    ms.author="iainfou" />
+---
+title: Use Remote Desktop to a Linux VM in Azure | Azure
+description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
+
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 03/07/2017
+wacn.date: ''
+ms.author: iainfou
+---
 
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
-Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp.org)) for your Linux VM using the Resource Manager deployment model. You can also [perform these steps for VMs using the Classic deployment model](/documentation/articles/virtual-machines-linux-classic-remote-desktop/).
+Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp.org)) for your Linux VM using the Resource Manager deployment model. You can also [perform these steps for VMs using the Classic deployment model](./virtual-machines-linux-classic-remote-desktop.md).
 
 ## Prerequisites
 This article requires an existing Linux VM in Azure. If you need to create a VM, use one of the following methods:
 
-- The [Azure CLI 2.0](/documentation/articles/virtual-machines-linux-quick-create-cli/) or [Azure CLI 1.0](/documentation/articles/virtual-machines-linux-quick-create-cli-nodejs/)
-- The [Azure portal preview](/documentation/articles/virtual-machines-linux-quick-create-portal/)
+- The [Azure CLI 2.0](./virtual-machines-linux-quick-create-cli.md) or [Azure CLI 1.0](./virtual-machines-linux-quick-create-cli-nodejs.md)
+- The [Azure portal preview](./virtual-machines-linux-quick-create-portal.md)
 
-You also need to be logged in to an [active Azure account](/pricing/1rmb-trial/).
+You also need to be logged in to an [active Azure account](https://www.azure.cn/pricing/1rmb-trial/).
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to install and configure remote desktop on your VM. More detailed information and context for each step can be found in the rest of the document, [starting here](#install-graphical-environment-on-linux-vm).
@@ -35,40 +36,54 @@ The following example installs the lightweight [xfce4](https://www.xfce.org/) de
 
 SSH to your VM. Install the xfce desktop environment as follows:
 
-    sudo apt-get update
-    sudo apt-get install xfce4
+```bash
+sudo apt-get update
+sudo apt-get install xfce4
+```
 
 Install xrdp as follows:
 
-    sudo apt-get install xrdp
+```bash
+sudo apt-get install xrdp
+```
 
 Configure xrdp to use xfce as your desktop environment as follows:
 
-    echo xfce4-session >~/.xsession
+```bash
+echo xfce4-session >~/.xsession
+```
 
 Restart the xrdp service:
 
-    sudo service xrdp restart
+```bash
+sudo service xrdp restart
+```
 
 Set a password for your user account if currently only using SSH key for authentication:
 
-    sudo passwd ops
+```bash
+sudo passwd ops
+```
 
 Exit the SSH session to your Linux VM. Use the Azure CLI on your local computer to create a network security group rule to allow the remote desktop traffic. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) with the Azure CLI 2.0. The following example creates a rule named `myNetworkSecurityGroupRule` within `myNetworkSecurityGroup` to allow traffic on tcp port 3389:
 
-    az network nsg rule create --resource-group myResourceGroup \
-        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-        --protocol tcp --direction inbound --priority 1010 \
-        --source-address-prefix '*' --source-port-range '*' \
-        --destination-address-prefix '*' --destination-port-range 3389 \
-        --access allow
+```azurecli
+az network nsg rule create --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+    --protocol tcp --direction inbound --priority 1010 \
+    --source-address-prefix '*' --source-port-range '*' \
+    --destination-address-prefix '*' --destination-port-range 3389 \
+    --access allow
+```
 
 Or, with the Azure CLI 1.0:
 
-    azure network nsg rule create --resource-group myResourceGroup \
-        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-        --protocol tcp --direction inbound --priority 1010 \
-        --destination-port-range 3389 --access allow
+```azurecli
+azure network nsg rule create --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+    --protocol tcp --direction inbound --priority 1010 \
+    --destination-port-range 3389 --access allow
+```
 
 Connect to your Linux VM using your remote desktop client of choice.
 
@@ -81,56 +96,72 @@ The following example installs the lightweight [xfce4](https://www.xfce.org/) de
 
 First, SSH to your VM. The following example connects to the VM named `myvm.chinanorth.chinacloudapp.cn` with the username of `ops`:
 
-    ssh ops@myvm.chinanorth.chinacloudapp.cn ~/.ssh/id_rsa.pub
+```bash
+ssh ops@myvm.chinanorth.chinacloudapp.cn ~/.ssh/id_rsa.pub
+```
 
-If you are using Windows and need more information on using SSH, see [How to use SSH keys with Windows](/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+If you are using Windows and need more information on using SSH, see [How to use SSH keys with Windows](./virtual-machines-linux-ssh-from-windows.md).
 
 Next, install xfce using `apt` as follows:
 
-    sudo apt-get update
-    sudo apt-get install xfce4
+```bash
+sudo apt-get update
+sudo apt-get install xfce4
+```
 
 ## Install and configure a remote desktop server
 Now that you have a desktop environment installed, configure a remote desktop service to listen for incoming connections. [xrdp](http://www.xrdp.org) is an open source Remote Desktop Protocol (RDP) server that is available on most Linux distributions, and works well with xfce. Install xrdp on your Ubuntu VM as follows:
 
-    sudo apt-get install xrdp
+```bash
+sudo apt-get install xrdp
+```
 
 Tell xrdp what desktop environment to use when you start your session. Configure xrdp to use xfce as your desktop environment as follows:
 
-    echo xfce4-session >~/.xsession
+```bash
+echo xfce4-session >~/.xsession
+```
 
 Restart the xrdp service for the changes to take effect as follows:
 
-    sudo service xrdp restart
+```bash
+sudo service xrdp restart
+```
 
 ## Set a local user account password
 If you created a password for your user account when you created your VM, skip this step. If you only use SSH key authentication and do not have a local account password set, specify a password before you use xrdp to log in to your VM. xrdp cannot accept SSH keys for authentication. The following example specifies a password for the user account `ops`:
 
-    sudo passwd ops
+```bash
+sudo passwd ops
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Specifying a password does not update your sshd configuration to permit password logins if it currently does not. From a security perspective, you may wish to connect to your VM with an SSH tunnel using key-based authentication and then connect to xrdp. If so, skip the following step on creating a network security group rule to allow remote desktop traffic.
 
 ## Create a Network Security Group rule for Remote Desktop traffic
-To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](/documentation/articles/virtual-networks-nsg/) You can also [use the Azure portal preview to create a network security group rule](/documentation/articles/virtual-machines-windows-nsg-quickstart-portal/).
+To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md) You can also [use the Azure portal preview to create a network security group rule](./virtual-machines-windows-nsg-quickstart-portal.md).
 
 The following examples create a network security group rule named `myNetworkSecurityGroupRule` to `allow` traffic on `tcp` port `3389`.
 
 - Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) with the Azure CLI 2.0:
 
-        az network nsg rule create --resource-group myResourceGroup \
-            --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-            --protocol tcp --direction inbound --priority 1010 \
-            --source-address-prefix '*' --source-port-range '*' \
-            --destination-address-prefix '*' --destination-port-range 3389 \
-            --access allow
+    ```azurecli
+    az network nsg rule create --resource-group myResourceGroup \
+        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+        --protocol tcp --direction inbound --priority 1010 \
+        --source-address-prefix '*' --source-port-range '*' \
+        --destination-address-prefix '*' --destination-port-range 3389 \
+        --access allow
+    ```
 
 - Or, use the Azure CLI 1.0:
 
-        azure network nsg rule create --resource-group myResourceGroup \
-            --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
-            --protocol tcp --direction inbound --priority 1010 \
-            --destination-port-range 3389 --access allow
+    ```azurecli
+    azure network nsg rule create --resource-group myResourceGroup \
+        --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+        --protocol tcp --direction inbound --priority 1010 \
+        --destination-port-range 3389 --access allow
+    ```
 
 ## Connect your Linux VM with a Remote Desktop client
 Open your local remote desktop client and connect to the IP address or DNS name of your Linux VM. Enter the username and password for the user account on your VM as follows:
@@ -144,26 +175,34 @@ After authenticating, the xfce desktop environment will load and look similar to
 ## Troubleshoot
 If you cannot connect to your Linux VM using a Remote Desktop client, use `netstat` on your Linux VM to verify that your VM is listening for RDP connections  as follows:
 
-    sudo netstat -plnt | grep rdp
+```bash
+sudo netstat -plnt | grep rdp
+```
 
 The following example shows the VM listening on TCP port 3389 as expected:
 
-    tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesman
-    tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
+```bash
+tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesman
+tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
+```
 
 If the xrdp service is not listening, on an Ubuntu VM restart the service as follows:
 
-    sudo service xrdp restart
+```bash
+sudo service xrdp restart
+```
 
 Review logs in `/var/log` on your Ubuntu VM for indications as to why the service may not be responding. You can also monitor the syslog during a remote desktop connection attempt to view any errors:
 
-    tail -f /var/log/syslog
+```bash
+tail -f /var/log/syslog
+```
 
 Other Linux distributions such as Red Hat Enterprise Linux and SUSE may have different ways to restart services and alternate log file locations to review.
 
-If you do not receive any response in your remote desktop client and do not see any events in the system log, this behavior indicates that remote desktop traffic cannot reach the VM. Review your network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](/documentation/articles/virtual-machines-linux-troubleshoot-app-connection/).
+If you do not receive any response in your remote desktop client and do not see any events in the system log, this behavior indicates that remote desktop traffic cannot reach the VM. Review your network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](./virtual-machines-linux-troubleshoot-app-connection.md).
 
 ## Next steps
-For more information about creating and using SSH keys with Linux VMs, see [Create SSH keys for Linux VMs in Azure](/documentation/articles/virtual-machines-linux-mac-create-ssh-keys/).
+For more information about creating and using SSH keys with Linux VMs, see [Create SSH keys for Linux VMs in Azure](./virtual-machines-linux-mac-create-ssh-keys.md).
 
-For information on using SSH from Windows, see [How to use SSH keys with Windows](/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+For information on using SSH from Windows, see [How to use SSH keys with Windows](./virtual-machines-linux-ssh-from-windows.md).

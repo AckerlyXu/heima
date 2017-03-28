@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Query Azure SQL Data Warehouse (Visual Studio) | Microsoft Azure"
-   description="Query SQL Data Warehouse with Visual Studio."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Query Azure SQL Data Warehouse (Visual Studio) | Microsoft Azure
+description: Query SQL Data Warehouse with Visual Studio.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="sonyama;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: sonyama;barbkess
+---
 
 # Query Azure SQL Data Warehouse (Visual Studio)
 
-> [AZURE.SELECTOR]
-- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> [!div class="op_single_selector"]
+>- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+>- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+>- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+>- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
 Use Visual Studio to query Azure SQL Data Warehouse in just a few minutes. This method uses the SQL Server Data Tools (SSDT) extension in Visual Studio. 
 
@@ -36,21 +36,21 @@ To use this tutorial, you need:
 ## 1. Connect to your SQL Data Warehouse
 1. Open Visual Studio 2013 or 2015.
 2. Open SQL Server Object Explorer. To do this, select **View** > **SQL Server Object Explorer**.
-   
+
     ![SQL Server Object Explorer][1]
 3. Click the **Add SQL Server** icon.
-   
+
     ![Add SQL Server][2]
 4. Fill in the fields in the Connect to Server window.
-   
+
     ![Connect to Server][3]
-   
+
    * **Server name**. Enter the **server name** previously identified.
    * **Authentication**. Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
    * **User Name** and **Password**. Enter user name and password if SQL Server Authentication was selected above.
    * Click **Connect**.
 5. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
-   
+
     ![Explore AdventureWorksDW][4]
 
 ## 2. Run a sample query
@@ -58,18 +58,18 @@ Now that a connection has been established to your database, let's write a query
 
 1. Right-click your database in SQL Server Object Explorer.
 2. Select **New Query**. A new query window opens.
-   
+
     ![New query][5]
 3. Copy this TSQL query into the query window:
-   
+
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
 4. Run the query. To do this, click the green arrow or use the following shortcut: `CTRL`+`SHIFT`+`E`.
-   
+
     ![Run query][6]
 5. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
-   
+
     ![Query results][7]
 
 ## Next steps

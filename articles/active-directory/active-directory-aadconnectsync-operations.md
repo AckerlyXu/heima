@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect sync: Operational tasks and considerations | Azure"
-    description="This topic describes operational tasks for Azure AD Connect sync and how to prepare for operating this component."
-    services="active-directory"
-    documentationcenter=""
-    author="AndKjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="b29c1790-37a3-470f-ab69-3cee824d220d"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect sync: Operational tasks and considerations | Azure
+description: This topic describes operational tasks for Azure AD Connect sync and how to prepare for operating this component.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
+
+ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Azure AD Connect sync: Operational tasks and consideration
 The objective of this topic is to describe operational tasks for Azure AD Connect sync.
@@ -114,6 +115,5 @@ If you are not using the SQL Server Express that comes with Azure AD Connect, th
 ## Next steps
 **Overview topics**  
 
-- [Azure AD Connect sync: Understand and customize synchronization](/documentation/articles/active-directory-aadconnectsync-whatis/)  
-- [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)  
-
+- [Azure AD Connect sync: Understand and customize synchronization](./active-directory-aadconnectsync-whatis.md)  
+- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)

@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Configuring asset delivery policies using Media Services REST API | Azure"
-    description="This topic shows how to configure different asset delivery policies using Media Services REST API."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    manager="dwrede"
-    editor="" />
-<tags
-    ms.assetid="5cb9d32a-e68b-4585-aa82-58dded0691d0"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Configuring asset delivery policies using Media Services REST API | Azure
+description: This topic shows how to configure different asset delivery policies using Media Services REST API.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: dwrede
+editor: ''
+
+ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Configuring asset delivery policies
 
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
+[!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 If you plan to deliver dynamically encrypted assets, one of the steps in the Media Services content delivery workflow is configuring delivery policies for assets. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).
 
 This topic discusses why and how to create and configure asset delivery policies.
 
->[AZURE.NOTE]
+>[!NOTE]
 >When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
 >
 >Also, to be able to use dynamic packaging and dynamic encryption your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files.
@@ -40,19 +41,23 @@ The following list shows the formats that you use to stream Smooth, HLS, DASH.
 
 Smooth Streaming:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
+```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
+```
 
 HLS:
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+```
 
 MPEG DASH
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
+```
+{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
+```
 
-
-For instructions on how to publish an asset and build a streaming URL, see [Build a streaming URL](/documentation/articles/media-services-deliver-streaming-content/).
-
+For instructions on how to publish an asset and build a streaming URL, see [Build a streaming URL](./media-services-deliver-streaming-content.md).
 
 ##Considerations
 
@@ -61,12 +66,12 @@ For instructions on how to publish an asset and build a streaming URL, see [Buil
 - You can have multiple asset delivery policies associated with a single asset but you can only specify one way to handle a given AssetDeliveryProtocol.  Meaning if you try to link two delivery policies that specify the AssetDeliveryProtocol.SmoothStreaming protocol that will result in an error because the system does not know which one you want it to apply when a client makes a Smooth Streaming request.
 - If you have an asset with an existing streaming locator, you cannot link a new policy to the asset, unlink an existing policy from the asset, or update a delivery policy associated with the asset.  You first have to remove the streaming locator, adjust the policies, and then re-create the streaming locator.  You can use the same locatorId when you recreate the streaming locator but you should ensure that won’t cause issues for clients since content can be cached by the origin or a downstream CDN.
 
->[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
+>[!NOTE]
+> When working with the Media Services REST API, the following considerations apply:
 >
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](/documentation/articles/media-services-rest-how-to-use/).
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](./media-services-rest-how-to-use.md).
 
->After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](/documentation/articles/media-services-rest-connect-programmatically/). 
-
+>After successfully connecting to https://media.chinacloudapi.cn, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](./media-services-rest-connect-programmatically.md). 
 
 ## Clear asset delivery policy
 ### <a id="create_asset_delivery_policy"></a>Create asset delivery policy
@@ -74,81 +79,86 @@ The following HTTP request creates an asset delivery policy that specifies to no
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
-
 Request:
-	  
-	POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
-	Content-Type: application/json
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
-	x-ms-version: 2.11
-	x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
-	Host: https://wamsshaclus001rest-hs.chinacloudapp.cn 
-	
-	{"Name":"Clear Policy",
-	"AssetDeliveryProtocol":7,
-	"AssetDeliveryPolicyType":2,
-	"AssetDeliveryConfiguration":null}
+
+```
+POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
+Content-Type: application/json
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
+x-ms-version: 2.11
+x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
+Host: https://wamsshaclus001rest-hs.chinacloudapp.cn 
+
+{"Name":"Clear Policy",
+"AssetDeliveryProtocol":7,
+"AssetDeliveryPolicyType":2,
+"AssetDeliveryConfiguration":null}
+```
 
 Response:
-	
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Content-Length: 363
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Location: https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
-	request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
-	x-ms-request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Sun, 08 Feb 2015 06:21:27 GMT
-	
-	{"odata.metadata":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element",
-	"Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
-	"Name":"Clear Policy",
-	"AssetDeliveryProtocol":7,
-	"AssetDeliveryPolicyType":2,
-	"AssetDeliveryConfiguration":null,
-	"Created":"2015-02-08T06:21:27.6908329Z",
-	"LastModified":"2015-02-08T06:21:27.6908329Z"}
-	
+
+```
+HTTP/1.1 201 Created
+Cache-Control: no-cache
+Content-Length: 363
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Location: https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')
+Server: Microsoft-IIS/8.5
+x-ms-client-request-id: 4651882c-d7ad-4d5e-86ab-f07f47dcb41e
+request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
+x-ms-request-id: 6aedbf93-4bc2-4586-8845-fd45590136af
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+X-Powered-By: ASP.NET
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Sun, 08 Feb 2015 06:21:27 GMT
+
+{"odata.metadata":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element",
+"Id":"nb:adpid:UUID:92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd",
+"Name":"Clear Policy",
+"AssetDeliveryProtocol":7,
+"AssetDeliveryPolicyType":2,
+"AssetDeliveryConfiguration":null,
+"Created":"2015-02-08T06:21:27.6908329Z",
+"LastModified":"2015-02-08T06:21:27.6908329Z"}
+```
+
 ###<a id="link_asset_with_asset_delivery_policy"></a>Link asset with asset delivery policy
 
 The following HTTP request links the specified asset to the asset delivery policy to.
 
 Request:
 
-	POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Content-Type: application/json
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-3344-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
-	x-ms-version: 2.11
-	x-ms-client-request-id: 56d2763f-6e72-419d-ba3c-685f6db97e81
-	Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
-	
-	{"uri":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
+```
+POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A86933344-9539-4d0c-be7d-f842458693e0')/$links/DeliveryPolicies HTTP/1.1
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+Content-Type: application/json
+Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-e769-3344-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423397827&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=Szo6lbJAvL3dyecAeVmyAnzv3mGzfUNClR5shk9Ivbk%3d
+x-ms-version: 2.11
+x-ms-client-request-id: 56d2763f-6e72-419d-ba3c-685f6db97e81
+Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+
+{"uri":"https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3A92b0f6ba-3c9f-49b6-a5fa-2a8703b04ecd')"}
+```
 
 Response:
 
-	HTTP/1.1 204 No Content
-
+```
+HTTP/1.1 204 No Content
+```
 
 ##DynamicEnvelopeEncryption asset delivery policy 
 
 ###Create content key of the EnvelopeEncryption type and link it to the asset
 
-When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type. For more information, see: [Creating a content key](/documentation/articles/media-services-rest-create-contentkey/)).
-
+When specifying DynamicEnvelopeEncryption delivery policy, you need to make sure to link your asset to a content key of the EnvelopeEncryption type. For more information, see: [Creating a content key](./media-services-rest-create-contentkey.md)).
 
 ###<a id="get_delivery_url"></a>Get delivery URL
 
@@ -157,80 +167,84 @@ Get the delivery URL for the specified delivery method of the content key create
 Specify the type of the URL to get in the body of the HTTP request. If you are protecting your content with PlayReady, request a Media Services PlayReady license acquisition URL, using 1 for the keyDeliveryType: {"keyDeliveryType":1}. If you are protecting your content with the envelope encryption, request a key acquisition URL by specifying 2 for keyDeliveryType: {"keyDeliveryType":2}.
 
 Request:
-	
-	POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
-	Content-Type: application/json
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423452029&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=IEXV06e3drSIN5naFRBdhJZCbfEqQbFZsGSIGmawhEo%3d
-	x-ms-version: 2.11
-	x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
-	Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
-	Content-Length: 21
-	
-	{"keyDeliveryType":2}
+
+```
+POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/ContentKeys('nb:kid:UUID:dc88f996-2859-4cf7-a279-c52a9d6b2f04')/GetKeyDeliveryUrl HTTP/1.1
+Content-Type: application/json
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423452029&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=IEXV06e3drSIN5naFRBdhJZCbfEqQbFZsGSIGmawhEo%3d
+x-ms-version: 2.11
+x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
+Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
+Content-Length: 21
+
+{"keyDeliveryType":2}
+```
 
 Response:
-	
-	HTTP/1.1 200 OK
-	Cache-Control: no-cache
-	Content-Length: 198
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
-	request-id: d26f65d2-fe65-4136-8fcf-31545be68377
-	x-ms-request-id: d26f65d2-fe65-4136-8fcf-31545be68377
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Sun, 08 Feb 2015 21:42:30 GMT
-	
-	{"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.chinacloudapi.cn/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
 
+```
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 198
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Server: Microsoft-IIS/8.5
+x-ms-client-request-id: 569d4b7c-a446-4edc-b77c-9fb686083dd8
+request-id: d26f65d2-fe65-4136-8fcf-31545be68377
+x-ms-request-id: d26f65d2-fe65-4136-8fcf-31545be68377
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Sun, 08 Feb 2015 21:42:30 GMT
+
+{"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.chinacloudapi.cn/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
+```
 
 ###Create asset delivery policy
 
 The following HTTP request creates the **AssetDeliveryPolicy** that is configured to apply dynamic envelope encryption (**DynamicEnvelopeEncryption**) to the **HLS** protocol (in this example, other protocols will be blocked from streaming). 
 
-
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
 Request:
 
-	POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
-	Content-Type: application/json
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
-	x-ms-version: 2.11
-	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-	Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
-	
-	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\\/\"}]"}
+```
+POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
+Content-Type: application/json
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+User-Agent: Microsoft ADO.NET Data Services
+Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
+x-ms-version: 2.11
+x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
+Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 
-	
+{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\\/\"}]"}
+```
+
 Response:
-	
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Content-Length: 460
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aec9b994e-672c-4a5b-8490-a464eeb7964b')
-	Server: Microsoft-IIS/8.5
-	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-	request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
-	x-ms-request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Mon, 09 Feb 2015 05:24:38 GMT
-	
-	{"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
+```
+HTTP/1.1 201 Created
+Cache-Control: no-cache
+Content-Length: 460
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aec9b994e-672c-4a5b-8490-a464eeb7964b')
+Server: Microsoft-IIS/8.5
+x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
+request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
+x-ms-request-id: c2a1ac0e-9644-474f-b38f-b9541c3a7c5f
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Mon, 09 Feb 2015 05:24:38 GMT
+
+{"odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
+```
 
 ###Link asset with asset delivery policy
 
@@ -240,8 +254,7 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
 
 ###Create content key of the CommonEncryption type and link it to the asset
 
-When specifying DynamicCommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](/documentation/articles/media-services-rest-create-contentkey/)).
-
+When specifying DynamicCommonEncryption delivery policy, you need to make sure to link your asset to a content key of the CommonEncryption type. For more information, see: [Creating a content key](./media-services-rest-create-contentkey.md)).
 
 ###Get Delivery URL
 
@@ -253,191 +266,196 @@ The following HTTP request creates the **AssetDeliveryPolicy** that is configure
 
 For information on what values you can specify when creating an AssetDeliveryPolicy, see the [Types used when defining AssetDeliveryPolicy](#types) section.   
 
-
 Request:
 
-	POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
-	Content-Type: application/json
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	User-Agent: Microsoft ADO.NET Data Services
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
-	x-ms-version: 2.11
-	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-	Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
-	
-	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\/PlayReady\/"}]"}
+```
+POST https://https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AssetDeliveryPolicies HTTP/1.1
+Content-Type: application/json
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+User-Agent: Microsoft ADO.NET Data Services
+Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
+x-ms-version: 2.11
+x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
+Host: https://wamsshaclus001rest-hs.chinacloudapp.cn
 
+{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.chinacloudapi.cn\/PlayReady\/"}]"}
+```
 
 If you want to protect your content using Widevine DRM, update the AssetDeliveryConfiguration values to use WidevineLicenseAcquisitionUrl (which has the value of 7) and specify the URL of a license delivery service. You can use the following AMS partners to help you deliver Widevine licenses: [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 For example: 
- 
-	
-	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
->[AZURE.NOTE]When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH (2) in the asset delivery protocol.
-  
+```
+{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
+```
+
+>[!NOTE]
+>When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH (2) in the asset delivery protocol.
+
 ###Link asset with asset delivery policy
 
 See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
-
 
 ##<a id="types"></a>Types used when defining AssetDeliveryPolicy
 
 ###AssetDeliveryProtocol 
 
+```
+/// <summary>
+/// Delivery protocol for an asset delivery policy.
+/// </summary>
+[Flags]
+public enum AssetDeliveryProtocol
+{
     /// <summary>
-    /// Delivery protocol for an asset delivery policy.
+    /// No protocols.
     /// </summary>
-    [Flags]
-    public enum AssetDeliveryProtocol
-    {
-        /// <summary>
-        /// No protocols.
-        /// </summary>
-        None = 0x0,
+    None = 0x0,
 
-        /// <summary>
-        /// Smooth streaming protocol.
-        /// </summary>
-        SmoothStreaming = 0x1,
+    /// <summary>
+    /// Smooth streaming protocol.
+    /// </summary>
+    SmoothStreaming = 0x1,
 
-        /// <summary>
-        /// MPEG Dynamic Adaptive Streaming over HTTP (DASH)
-        /// </summary>
-        Dash = 0x2,
+    /// <summary>
+    /// MPEG Dynamic Adaptive Streaming over HTTP (DASH)
+    /// </summary>
+    Dash = 0x2,
 
-        /// <summary>
-        /// Apple HTTP Live Streaming protocol.
-        /// </summary>
-        HLS = 0x4,
+    /// <summary>
+    /// Apple HTTP Live Streaming protocol.
+    /// </summary>
+    HLS = 0x4,
 
-        /// <summary>
-        /// Include all protocols.
-        /// </summary>
-        All = 0xFFFF
-    }
+    /// <summary>
+    /// Include all protocols.
+    /// </summary>
+    All = 0xFFFF
+}
+```
 
 ###AssetDeliveryPolicyType
 
+```
+/// <summary>
+/// Policy type for dynamic encryption of assets.
+/// </summary>
+public enum AssetDeliveryPolicyType
+{
     /// <summary>
-    /// Policy type for dynamic encryption of assets.
+    /// Delivery Policy Type not set.  An invalid value.
     /// </summary>
-    public enum AssetDeliveryPolicyType
-    {
-        /// <summary>
-        /// Delivery Policy Type not set.  An invalid value.
-        /// </summary>
-        None,
+    None,
 
-        /// <summary>
-        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
-        /// </summary>
-        Blocked, 
+    /// <summary>
+    /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+    /// </summary>
+    Blocked, 
 
-        /// <summary>
-        /// Do not apply dynamic encryption to the asset.
-        /// </summary>
-        /// 
-        NoDynamicEncryption,  
+    /// <summary>
+    /// Do not apply dynamic encryption to the asset.
+    /// </summary>
+    /// 
+    NoDynamicEncryption,  
 
-        /// <summary>
-        /// Apply Dynamic Envelope encryption.
-        /// </summary>
-        DynamicEnvelopeEncryption,
+    /// <summary>
+    /// Apply Dynamic Envelope encryption.
+    /// </summary>
+    DynamicEnvelopeEncryption,
 
-        /// <summary>
-        /// Apply Dynamic Common encryption.
-        /// </summary>
-        DynamicCommonEncryption
-        }
+    /// <summary>
+    /// Apply Dynamic Common encryption.
+    /// </summary>
+    DynamicCommonEncryption
+    }
+```
 
 ###ContentKeyDeliveryType
 
-
+```
+/// <summary>
+/// Delivery method of the content key to the client.
+///
+</summary>
+public enum ContentKeyDeliveryType
+{
     /// <summary>
-    /// Delivery method of the content key to the client.
+    /// None.
     ///
     </summary>
-    public enum ContentKeyDeliveryType
-    {
-        /// <summary>
-        /// None.
-        ///
-        </summary>
-        None = 0,
+    None = 0,
 
-        /// <summary>
-        /// Use PlayReady License acquistion protocol
-        ///
-        </summary>
-        PlayReadyLicense = 1,
+    /// <summary>
+    /// Use PlayReady License acquistion protocol
+    ///
+    </summary>
+    PlayReadyLicense = 1,
 
-        /// <summary>
-        /// Use MPEG Baseline HTTP key protocol.
-        ///
-        </summary>
-        BaselineHttp = 2,
+    /// <summary>
+    /// Use MPEG Baseline HTTP key protocol.
+    ///
+    </summary>
+    BaselineHttp = 2,
 
-        /// <summary>
-        /// Use Widevine License acquistion protocol
-        ///
-        </summary>
-        Widevine = 3
+    /// <summary>
+    /// Use Widevine License acquistion protocol
+    ///
+    </summary>
+    Widevine = 3
 
-    }
-
+}
+```
 
 ###AssetDeliveryPolicyConfigurationKey
 
+```
+/// <summary>
+/// Keys used to get specific configuration for an asset delivery policy.
+/// </summary>
+
+public enum AssetDeliveryPolicyConfigurationKey
+{
     /// <summary>
-    /// Keys used to get specific configuration for an asset delivery policy.
+    /// No policies.
     /// </summary>
+    None,
 
-    public enum AssetDeliveryPolicyConfigurationKey
-    {
-        /// <summary>
-        /// No policies.
-        /// </summary>
-        None,
+    /// <summary>
+    /// Exact Envelope key URL.
+    /// </summary>
+    EnvelopeKeyAcquisitionUrl,
 
-        /// <summary>
-        /// Exact Envelope key URL.
-        /// </summary>
-        EnvelopeKeyAcquisitionUrl,
+    /// <summary>
+    /// Base key url that will have KID=<Guid> appended for Envelope.
+    /// </summary>
+    EnvelopeBaseKeyAcquisitionUrl,
 
-        /// <summary>
-        /// Base key url that will have KID=<Guid> appended for Envelope.
-        /// </summary>
-        EnvelopeBaseKeyAcquisitionUrl,
-        
-        /// <summary>
-        /// The initialization vector to use for envelope encryption in Base64 format.
-        /// </summary>
-        EnvelopeEncryptionIVAsBase64,
+    /// <summary>
+    /// The initialization vector to use for envelope encryption in Base64 format.
+    /// </summary>
+    EnvelopeEncryptionIVAsBase64,
 
-        /// <summary>
-        /// The PlayReady License Acquisition Url to use for common encryption.
-        /// </summary>
-        PlayReadyLicenseAcquisitionUrl,
+    /// <summary>
+    /// The PlayReady License Acquisition Url to use for common encryption.
+    /// </summary>
+    PlayReadyLicenseAcquisitionUrl,
 
-        /// <summary>
-        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
-        /// </summary>
-        PlayReadyCustomAttributes,
+    /// <summary>
+    /// The PlayReady Custom Attributes to add to the PlayReady Content Header
+    /// </summary>
+    PlayReadyCustomAttributes,
 
-        /// <summary>
-        /// The initialization vector to use for envelope encryption.
-        /// </summary>
-        EnvelopeEncryptionIV,
+    /// <summary>
+    /// The initialization vector to use for envelope encryption.
+    /// </summary>
+    EnvelopeEncryptionIV,
 
-        /// <summary>
-        /// Widevine DRM acquisition url
-        /// </summary>
-        WidevineLicenseAcquisitionUrl
-    }
-
-
+    /// <summary>
+    /// Widevine DRM acquisition url
+    /// </summary>
+    WidevineLicenseAcquisitionUrl
+}
+```

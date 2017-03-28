@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Script action development with Linux-based HDInsight | Azure"
-    description="How to customize Linux-based HDInsight clusters with Script Action. Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. "
-    services="hdinsight"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="cf4c89cd-f7da-4a10-857f-838004965d3e"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Script action development with Linux-based HDInsight | Azure
+description: How to customize Linux-based HDInsight clusters with Script Action. Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. 
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: cf4c89cd-f7da-4a10-857f-838004965d3e
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Script action development with HDInsight
 
 Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. You can use script actions during cluster creation or on a running cluster.
 
-> [AZURE.IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](/documentation/articles/hdinsight-component-versioning/#hdi-version-32-and-33-nearing-deprecation-date).
+> [!IMPORTANT]
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## What are script actions?
 
@@ -38,7 +39,7 @@ Script actions can be applied through the following methods:
 | HDInsight .NET SDK |✓ |✓ |
 | Azure Resource Manager Template |✓ |&nbsp; |
 
-For more information on using these methods to apply script actions, see [Customize HDInsight clusters using script actions](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/).
+For more information on using these methods to apply script actions, see [Customize HDInsight clusters using script actions](./hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="bestPracticeScripting"></a>Best practices for script development
 
@@ -55,16 +56,16 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 * [Save files as ASCII with LF line endings](#bps8)
 * [Use retry logic to recover from transient errors](#bps9)
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Script actions must complete within 60 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 
 ### <a name="bPS1"></a>Target the Hadoop version
 
-Different versions of HDInsight have different versions of Hadoop services and components installed. If your script expects a specific version of a service or component, you should only use the script with the version of HDInsight that includes the required components. You can find information on component versions included with HDInsight using the [HDInsight component versioning](/documentation/articles/hdinsight-component-versioning/) document.
+Different versions of HDInsight have different versions of Hadoop services and components installed. If your script expects a specific version of a service or component, you should only use the script with the version of HDInsight that includes the required components. You can find information on component versions included with HDInsight using the [HDInsight component versioning](./hdinsight-component-versioning.md) document.
 
 ### <a name="bps10"></a> Target the OS version
 
-[AZURE.INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may effect how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Version 3.5 is based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
 
@@ -72,36 +73,38 @@ Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` n
 
 You can check the OS version by using `lsb_release`. The following code snippets from the Hue install script demonstrates how to determine if the script is running on Ubuntu 14 or 16:
 
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
-    ...
-    if [[ $OS_VERSION == 16* ]]; then
-        echo "Using systemd configuration"
-        systemctl daemon-reload
-        systemctl stop webwasb.service    
-        systemctl start webwasb.service
-    else
-        echo "Using upstart configuration"
-        initctl reload-configuration
-        stop webwasb
-        start webwasb
-    fi
-    ...
-    if [[ $OS_VERSION == 14* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-    elif [[ $OS_VERSION == 16* ]]; then
-        export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-    fi
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+...
+if [[ $OS_VERSION == 16* ]]; then
+    echo "Using systemd configuration"
+    systemctl daemon-reload
+    systemctl stop webwasb.service    
+    systemctl start webwasb.service
+else
+    echo "Using upstart configuration"
+    initctl reload-configuration
+    stop webwasb
+    start webwasb
+fi
+...
+if [[ $OS_VERSION == 14* ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+elif [[ $OS_VERSION == 16* ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+fi
+```
 
 You can find the full script that contains these snippets at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
-For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](/documentation/articles/hdinsight-component-versioning/) document.
+For the version of Ubuntu that is used by HDInsight, see the [HDInsight component version](./hdinsight-component-versioning.md) document.
 
 To understand the differences between Systemd and Upstart, see [Systemd for Upstart users](https://wiki.ubuntu.com/SystemdForUpstartUsers).
 
@@ -111,7 +114,7 @@ You should make sure that the scripts and resources used by the script remain av
 
 The best practice is to download and archive everything in an Azure Storage account on your subscription.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The storage account used must be the default storage account for the cluster or a public, read-only container on any other storage account.
 
 For example, the samples provided by Microsoft are stored in the [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) storage account, which is a public, read-only container maintained by the HDInsight team.
@@ -130,7 +133,7 @@ For example, if a custom script installs an application at /usr/local/bin on its
 
 Linux-based HDInsight clusters provides two head nodes that are active within the cluster, and script actions are ran for both nodes. If the components you install expect only one head node, you must design a script that will only install the component on one of the two head nodes in the cluster.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Default services installed as part of HDInsight are designed to fail over between the two head nodes as needed, however this functionality is not extended to custom components installed through script ctions. If you need the components installed through a script action to be highly available, you must implement your own failover mechanism that uses the two available head nodes.
 
 ### <a name="bPS6"></a>Configure the custom components to use Azure Blob storage
@@ -139,33 +142,41 @@ Components that you install on the cluster might have a default configuration th
 
 For example, the following copies the giraph-examples.jar file from the local file system to WASB:
 
-    hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+```bash
+hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+```
 
 ### <a name="bPS7"></a>Write information to STDOUT and STDERR
 
 Information written to STDOUT and STDERR during script execution is logged, and can be viewed using the Ambari web UI.
 
-> [AZURE.NOTE]
-> Ambari will only be available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see the troubleshooting section [Customize HDInsight clusters using script action](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/#troubleshooting) for other ways of accessing logged information.
+> [!NOTE]
+> Ambari will only be available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see the troubleshooting section [Customize HDInsight clusters using script action](./hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) for other ways of accessing logged information.
 
 Most utilities and installation packages will already write information to STDOUT and STDERR, however you may want to add additional logging. To send text to STDOUT use `echo`. For example:
 
-    echo "Getting ready to install Foo"
+```bash
+echo "Getting ready to install Foo"
+```
 
 By default, `echo` will send the string to STDOUT. To direct it to STDERR, add `>&2` before `echo`. For example:
 
-    >&2 echo "An error occurred installing Foo"
+```bash
+>&2 echo "An error occurred installing Foo"
+```
 
 This redirects information sent to STDOUT (1, which is default so not listed here,) to STDERR (2). For more information on IO redirection, see [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-For more information on viewing information logged by script actions, see [Customize HDInsight clusters using script action](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/#troubleshooting)
+For more information on viewing information logged by script actions, see [Customize HDInsight clusters using script action](./hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
 ### <a name="bps8"></a> Save files as ASCII with LF line endings
 
 Bash scripts should be stored as ASCII format, with lines terminated by LF. If files are stored as UTF-8, which may include a Byte Order Mark at the beginning of the file, or with line endings of CRLF, which is common for Windows editors, then the script will fail with errors similar to the following:
 
-    $'\r': command not found
-    line 1: #!/usr/bin/env: No such file or directory
+```
+$'\r': command not found
+line 1: #!/usr/bin/env: No such file or directory
+```
 
 ### <a name="bps9"></a> Use retry logic to recover from transient errors
 
@@ -173,40 +184,46 @@ When downloading files, installing packages using apt-get, or other actions that
 
 To make your script resilient to transient errors, you can implement retry logic. The following is an example of a function that will run any command passed to it and (if the command fails,) retry up to three times. It will wait two seconds between each retry.
 
-    #retry
-    MAXATTEMPTS=3
+```bash
+#retry
+MAXATTEMPTS=3
 
-    retry() {
-        local -r CMD="$@"
-        local -i ATTMEPTNUM=1
-        local -i RETRYINTERVAL=2
+retry() {
+    local -r CMD="$@"
+    local -i ATTMEPTNUM=1
+    local -i RETRYINTERVAL=2
 
-        until $CMD
-        do
-            if (( ATTMEPTNUM == MAXATTEMPTS ))
-            then
-                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
-                    return 1
-            else
-                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
-                    sleep $(( RETRYINTERVAL ))
-                    ATTMEPTNUM=$ATTMEPTNUM+1
-            fi
-        done
-    }
+    until $CMD
+    do
+        if (( ATTMEPTNUM == MAXATTEMPTS ))
+        then
+                echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                return 1
+        else
+                echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                sleep $(( RETRYINTERVAL ))
+                ATTMEPTNUM=$ATTMEPTNUM+1
+        fi
+    done
+}
+```
 
 The following are examples of using this function.
 
-    retry ls -ltr foo
+```bash
+retry ls -ltr foo
 
-    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+```
 
 ## <a name="helpermethods"></a>Helper methods for custom scripts
 
 script action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh), and can be included in your scripts using the following:
 
-    # Import the helper method module.
-    wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
+```bash
+# Import the helper method module.
+wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
+```
 
 This makes the following helpers available for use in your script:
 
@@ -239,17 +256,23 @@ Values passed to the script as parameters should be enclosed by single quotes ('
 
 Setting an environment variable is performed by the following:
 
-    VARIABLENAME=value
+```
+VARIABLENAME=value
+```
 
 Where VARIABLENAME is the name of the variable. To access the variable after this, use `$VARIABLENAME`. For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following:
 
-    PASSWORD=$1
+```
+PASSWORD=$1
+```
 
 Subsequent access to the information could then use `$PASSWORD`.
 
 Environment variables set within the script only exist within the scope of the script. In some cases, you may need to add system wide environment variables that will persist after the script has finished. Usually this is so that users connecting to the cluster via SSH can use the components installed by your script. You can accomplish this by adding the environment variable to `/etc/environment`. For example, the following adds **HADOOP\_CONF\_DIR**:
 
-    echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
+```bash
+echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
+```
 
 ### Access to locations where the custom scripts are stored
 
@@ -265,7 +288,7 @@ If your script accesses resources located elsewhere these also need to be in a p
 
 Storing the file in an Azure storage account accessible by the cluster (such as the default storage account,) will provide fast access, as this storage is within the Azure network.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The URI format used to reference the script differs depending on the service being used. For storage accounts associated with the HDInsight cluster, use `wasb://` or `wasbs://`. For publicly readable URIs, use `http://` or `https://`.
 
 ### Checking the operating system version
@@ -274,14 +297,16 @@ Different versions of HDInsight rely on specific versions of Ubuntu. There may b
 
 To check the OS version, use `lsb_release`. For example, the following demonstrates how to reference a different tar file depending on the OS version:
 
-    OS_VERSION=$(lsb_release -sr)
-    if [[ $OS_VERSION == 14* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
-        HUE_TARFILE=hue-binaries-14-04.tgz
-    elif [[ $OS_VERSION == 16* ]]; then
-        echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
-        HUE_TARFILE=hue-binaries-16-04.tgz
-    fi
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
 
 ## <a name="deployScript"></a>Checklist for deploying a script action
 
@@ -294,19 +319,19 @@ Here are the steps we took when preparing to deploy these scripts:
 
 ## <a name="runScriptAction"></a>How to run a script action
 
-You can use script actions to customize HDInsight clusters by using the Azure portal preview, Azure PowerShell, Azure Resource Manager templates or the HDInsight .NET SDK. For instructions, see [How to use script action](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/).
+You can use script actions to customize HDInsight clusters by using the Azure portal preview, Azure PowerShell, Azure Resource Manager templates or the HDInsight .NET SDK. For instructions, see [How to use script action](./hdinsight-hadoop-customize-cluster-linux.md).
 
 ## <a name="sampleScripts"></a>Custom script samples
 
 Microsoft provides sample scripts to install components on an HDInsight cluster. The sample scripts and instructions on how to use them are available at the links below:
 
-* [Install and use Hue on HDInsight clusters](/documentation/articles/hdinsight-hadoop-hue-linux/)
+* [Install and use Hue on HDInsight clusters](./hdinsight-hadoop-hue-linux.md)
 * [Install and use R on HDInsight Hadoop clusters](/documentation/articles/hdinsight-hadoop-r-scripts-linux/)
-* [Install and use Solr on HDInsight clusters](/documentation/articles/hdinsight-hadoop-solr-install-linux/)
-* [Install and use Giraph on HDInsight clusters](/documentation/articles/hdinsight-hadoop-giraph-install-linux/)  
+* [Install and use Solr on HDInsight clusters](./hdinsight-hadoop-solr-install-linux.md)
+* [Install and use Giraph on HDInsight clusters](./hdinsight-hadoop-giraph-install-linux.md)  
 
-> [AZURE.NOTE]
-> The documents linked above are specific to Linux-based HDInsight clusters. For a scripts that work with Windows-based HDInsight, see [Script action development with HDInsight (Windows)](/documentation/articles/hdinsight-hadoop-script-actions/) or use the links available at the top of each article.
+> [!NOTE]
+> The documents linked above are specific to Linux-based HDInsight clusters. For a scripts that work with Windows-based HDInsight, see [Script action development with HDInsight (Windows)](./hdinsight-hadoop-script-actions.md) or use the links available at the top of each article.
 
 ## Troubleshooting
 
@@ -320,7 +345,7 @@ This problem most often occurs when the script is authored on a Windows environm
 
 *Resolution*: If it is an option in your text editor, select Unix format or LF for the line ending. You may also use the following commands on a Unix system to change the CRLF to an LF:
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The following commands are roughly equivalent in that they should change the CRLF line endings to LF. Select one based on the utilities available on your system.
 
 | Command | Notes |
@@ -336,12 +361,14 @@ This problem most often occurs when the script is authored on a Windows environm
 
 *Resolution*: Save the file either as ASCII, or as UTF-8 without a BOM. You may also use the following command on a Linux or Unix system to create a new file without the BOM:
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
 For the above command, replace **INFILE** with the file containing the BOM. **OUTFILE** should be a new file name, which will contain the script without the BOM.
 
 ## <a name="seeAlso"></a>Next steps
 
-* Learn how to [Customize HDInsight clusters using script action](/documentation/articles/hdinsight-hadoop-customize-cluster-linux/)
+* Learn how to [Customize HDInsight clusters using script action](./hdinsight-hadoop-customize-cluster-linux.md)
 * Use the [HDInsight .NET SDK reference](https://msdn.microsoft.com/zh-cn/library/mt271028.aspx) to learn more about creating .NET applications that manage HDInsight
 * Use the [HDInsight REST API](https://msdn.microsoft.com/zh-cn/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.

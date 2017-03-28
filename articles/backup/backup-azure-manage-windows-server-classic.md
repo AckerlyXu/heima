@@ -1,29 +1,27 @@
-<properties
-	pageTitle="Manage Azure Backup vaults and servers Azure using the classic deployment model | Azure"
-	description="Use this tutorial to learn how to manage Azure Backup vaults and servers."
-	services="backup"
-	documentationCenter=""
-	authors="markgalioto"
-	manager="jwhit"
-	editor="tysonn"/>
+---
+title: Manage Azure Backup vaults and servers Azure using the classic deployment model | Azure
+description: Use this tutorial to learn how to manage Azure Backup vaults and servers.
+services: backup
+documentationCenter: ''
+authors: markgalioto
+manager: jwhit
+editor: tysonn
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="jimpark;markgal"
-	wacn.date=""/>
-
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: jimpark;markgal
+wacn.date: ''
+---
 
 # Manage Azure Backup vaults and servers using the classic deployment model
 
-
 In this article you'll find an overview of the backup management tasks available through the Azure Classic Management Portal and the Azure Backup agent.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
 
 ## Management portal tasks
 1. Sign in to the [Management Portal](https://manage.windowsazure.cn).
@@ -74,11 +72,12 @@ Select **Protected Items** to view the items that have been backed up from the s
 
 From the **Configure** tab you can select the appropriate storage redundancy option. The best time to select the storage redundancy option is right after creating a vault and before any machines are registered to it.
 
->[AZURE.WARNING] Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
+>[!WARNING]
+> Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 
 ![Configure](./media/backup-azure-manage-windows-server-classic/configure.png)
 
-See this article for more information about [storage redundancy](/documentation/articles/storage-redundancy/).
+See this article for more information about [storage redundancy](../storage/storage-redundancy.md).
 
 ## Azure Backup agent tasks
 
@@ -97,7 +96,8 @@ From the **Actions** available at the right of the backup agent console you can 
 
 ![Agent console actions](./media/backup-azure-manage-windows-server-classic/console-actions.png)
 
->[AZURE.NOTE] To **Recover Data**, see [Restore files to a Windows server or Windows client machine](/documentation/articles/backup-azure-restore-windows-server/).
+>[!NOTE]
+> To **Recover Data**, see [Restore files to a Windows server or Windows client machine](./backup-azure-restore-windows-server.md).
 
 ### Modify an existing backup
 
@@ -123,7 +123,8 @@ From the **Actions** available at the right of the backup agent console you can 
 
     ![Specify your Backup schedule](./media/backup-azure-manage-windows-server-classic/specify-backup-schedule-modify-close.png)
 
-    >[AZURE.NOTE] Specifying the backup schedule is explained in detail in this [article](/documentation/articles/backup-azure-backup-cloud-as-tape/).
+    >[!NOTE]
+    > Specifying the backup schedule is explained in detail in this [article](./backup-azure-backup-cloud-as-tape.md).
 
 6. Select the **Retention Policy** for the backup copy and click **Next**.
 
@@ -197,6 +198,6 @@ To enable throttling:
     ![Exclusion confirmation](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
 ## Next steps
-- [Restore Windows Server or Windows Client from Azure](/documentation/articles/backup-azure-restore-windows-server/)
-- To learn more about Azure Backup, see [Azure Backup Overview](/documentation/articles/backup-introduction-to-azure-backup/)
+- [Restore Windows Server or Windows Client from Azure](./backup-azure-restore-windows-server.md)
+- To learn more about Azure Backup, see [Azure Backup Overview](./backup-introduction-to-azure-backup.md)
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)

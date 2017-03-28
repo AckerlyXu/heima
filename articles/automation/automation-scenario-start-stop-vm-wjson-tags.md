@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Use JSON-formatted tags to schedule Azure VM state | Azure"
-    description="This article demonstrates how to use JSON strings on tags to automate the scheduling of VM startup and shutdown."
-    services="automation"
-    documentationcenter=""
-    author="MGoedtel"
-    manager="jwhit"
-    editor="tysonn" />
-<tags
-    ms.assetid="6afed5d2-e939-4749-8b2c-9312b4c16fb2"
-    ms.service="automation"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="magoedte;paulomarquesc" />
+---
+title: Use JSON-formatted tags to schedule Azure VM state | Azure
+description: This article demonstrates how to use JSON strings on tags to automate the scheduling of VM startup and shutdown.
+services: automation
+documentationcenter: ''
+author: MGoedtel
+manager: jwhit
+editor: tysonn
+
+ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
+ms.service: automation
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: magoedte;paulomarquesc
+---
 
 # Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown
 Customers often want to schedule the startup and shutdown of virtual machines to help reduce subscription costs or support business and technical requirements.
@@ -26,7 +27,7 @@ The following scenario enables you to set up automated startup and shutdown of y
 
 We do have some out-of-the-box options. These include:
 
-* [Virtual machine scale sets](/documentation/articles/virtual-machine-scale-sets-overview/) with autoscale settings that enable you to scale in or out.
+* [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) with autoscale settings that enable you to scale in or out.
 * [DevTest Labs](/documentation/articles/devtest-lab-overview/) service, which has the built-in capability of scheduling startup and shutdown operations.
 
 However, these options only support specific scenarios and cannot be applied to infrastructure-as-a-service (IaaS) VMs.
@@ -39,7 +40,7 @@ When the Schedule tag is applied to a resource group, it's also applied to all v
 
 This scenario essentially takes a JSON string with a specified format and adds it as the value for a tag called Schedule. Then a runbook lists all resource groups and virtual machines and identifies the schedules for each VM based on the scenarios listed earlier. Next it loops through the VMs that have schedules attached and evaluates what action should be taken. For example, it determines which VMs need to be stopped, shut down, or ignored.
 
-These runbooks authenticate by using the [Azure Run As account](/documentation/articles/automation-sec-configure-azure-runas-account/).
+These runbooks authenticate by using the [Azure Run As account](./automation-sec-configure-azure-runas-account.md).
 
 ## Download the runbooks for the scenario
 This scenario consists of four PowerShell Workflow runbooks that you can download from the [TechNet Gallery](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) or the [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) repository for this project.
@@ -53,7 +54,7 @@ This scenario consists of four PowerShell Workflow runbooks that you can downloa
 
 ## Install and configure this scenario
 ### Install and publish the runbooks
-After downloading the runbooks, you can import them by using the procedure in [Creating or importing a runbook in Azure Automation](/documentation/articles/automation-creating-importing-runbook/#importing-a-runbook-from-a-file-into-azure-automation).  Publish each runbook after it has been successfully imported into your Automation account.
+After downloading the runbooks, you can import them by using the procedure in [Creating or importing a runbook in Azure Automation](./automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).  Publish each runbook after it has been successfully imported into your Automation account.
 
 ### Add a schedule to the Test-ResourceSchedule runbook
 Follow these steps to enable the schedule for the Test-ResourceSchedule runbook. This is the runbook that verifies which virtual machines should be started, shut down, or left as is.
@@ -77,21 +78,23 @@ This solution basically takes a JSON string with a specified format and adds it 
 
 The runbook loops over the virtual machines that have schedules attached and checks what actions should be taken. The following is an example of how the solutions should be formatted:
 
-    {
-        "TzId": "Eastern Standard Time",
-        "0": {
-            "S": "11",
-            "E": "17"
-        },
-        "1": {
-            "S": "9",
-            "E": "19"
-        },
-        "2": {
-            "S": "9",
-            "E": "19"
-        },
-    }
+```json
+{
+    "TzId": "Eastern Standard Time",
+    "0": {
+        "S": "11",
+        "E": "17"
+    },
+    "1": {
+        "S": "9",
+        "E": "19"
+    },
+    "2": {
+        "S": "9",
+        "E": "19"
+    },
+}
+```
 
 Here is some detailed information about this structure:
 
@@ -107,13 +110,15 @@ Here is some detailed information about this structure:
         If the **S** and **E** attributes each have a value of zero (0), the virtual machine will be left in its present state at the time of evaluation.
 3. If you want to skip evaluation for a specific day of the week, don't add a section for that day of the week. In the following example, only Monday is evaluated, and the other days of the week are ignored:
 
-        {
-            "TzId": "Eastern Standard Time",
-            "1": {
-                "S": "11",
-                "E": "17"
-            }
+    ```json
+    {
+        "TzId": "Eastern Standard Time",
+        "1": {
+            "S": "11",
+            "E": "17"
         }
+    }
+    ```
 
 ## Tag resource groups or VMs
 To shut down VMs, you need to tag either the VMs or the resource groups in which they're located. Virtual machines that don't have a Schedule tag are not evaluated. Therefore, they aren't started or shut down.
@@ -125,7 +130,9 @@ Follow these steps to tag a virtual machine or resource group in the portal:
 
 1. Flatten the JSON string and verify that there aren't any spaces.  Your JSON string should look like this:
 
-        {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
+    ```json
+    {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
+    ```
 
 2. Select the **Tag** icon for a VM or resource group to apply this schedule.
 
@@ -143,60 +150,82 @@ To create, add, and delete tags through PowerShell, you first need to [set up yo
 ### Create a schedule tag with PowerShell
 1. Open a PowerShell session. Then use the following example to authenticate with your Run As account and to specify a subscription:
 
-        $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```powershell
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```
 
 2. Define a schedule hash table. Here is an example of how it should be constructed:
 
-        $schedule= @{ "TzId"="Eastern Standard Time"; "0"= @{"S"="11";"E"="17"};"1"= @{"S"="9";"E"="19"};"2"= @{"S"="9";"E"="19"};"3"= @{"S"="9";"E"="19"};"4"= @{"S"="9";"E"="19"};"5"= @{"S"="9";"E"="19"};"6"= @{"S"="11";"E"="17"}}
+    ```powershell
+    $schedule= @{ "TzId"="Eastern Standard Time"; "0"= @{"S"="11";"E"="17"};"1"= @{"S"="9";"E"="19"};"2"= @{"S"="9";"E"="19"};"3"= @{"S"="9";"E"="19"};"4"= @{"S"="9";"E"="19"};"5"= @{"S"="9";"E"="19"};"6"= @{"S"="11";"E"="17"}}
+    ```
 
 3. Define the parameters that are required by the runbook. In the following example, we are targeting a VM:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; "VmName"="VM01";"Schedule"=$schedule}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; "VmName"="VM01";"Schedule"=$schedule}
+    ```
 
     If you're tagging a resource group, remove the *VMName* parameter from the $params hash table as follows:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; "Schedule"=$schedule}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; "Schedule"=$schedule}
+    ```
 
 4. Run the Add-ResourceSchedule runbook with the following parameters to create the Schedule tag:
 
-        Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
 
 5. To update a resource group or virtual machine tag, execute the **Update-ResourceSchedule** runbook with the following parameters:
 
-        Start-AzureRmAutomationRunbook -Name "Update-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Update-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
 
 ### Remove a schedule tag with PowerShell
 1. Open a PowerShell session and run the following to authenticate with your Run As account and to select and specify a subscription:
 
-        Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```powershell
+    Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    ```
 
 2. Define the parameters that are required by the runbook. In the following example, we are targeting a VM:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01";"VmName"="VM01"}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01";"VmName"="VM01"}
+    ```
 
     If you're removing a tag from a resource group, remove the *VMName* parameter from the $params hash table as follows:
 
-        $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
+    ```powershell
+    $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
+    ```
 
 3. Execute the Remove-ResourceSchedule runbook to remove the Schedule tag:
 
-        Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
 
 4. To update a resource group or virtual machine tag, execute the Remove-ResourceSchedule runbook with the following parameters:
 
-        Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
-        -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```powershell
+    Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
+    -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
+    ```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > We recommend that you proactively monitor these runbooks (and the virtual machine states) to verify that your virtual machines are being shut down and started accordingly.
 >
 
@@ -207,8 +236,8 @@ The **Job Summary** includes messages from the output, warning, and error stream
 ![Test-ResourceSchedule Output](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)
 
 ## Next steps
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](/documentation/articles/automation-first-runbook-textual/).
-* To learn more about runbook types, and their advantages and limitations, see [Azure Automation runbook types](/documentation/articles/automation-runbook-types/).
+* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](./automation-first-runbook-textual.md).
+* To learn more about runbook types, and their advantages and limitations, see [Azure Automation runbook types](./automation-runbook-types.md).
 * For more information about PowerShell script support features, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
-* To learn more about runbook logging and output, see [Runbook output and messages in Azure Automation](/documentation/articles/automation-runbook-output-and-messages/).
-* To learn more about an Azure Run As account and how to authenticate your runbooks by using it, see [Authenticate runbooks with Azure Run As account](/documentation/articles/automation-sec-configure-azure-runas-account/).
+* To learn more about runbook logging and output, see [Runbook output and messages in Azure Automation](./automation-runbook-output-and-messages.md).
+* To learn more about an Azure Run As account and how to authenticate your runbooks by using it, see [Authenticate runbooks with Azure Run As account](./automation-sec-configure-azure-runas-account.md).

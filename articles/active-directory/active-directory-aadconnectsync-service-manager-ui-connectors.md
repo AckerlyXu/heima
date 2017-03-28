@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Connectors in the Azure AD Synchronization Service Manager UI | Azure'"
-    description="Understand the Connectors tab in the Synchronization Service Manager for Azure AD Connect."
-    services="active-directory"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="60f1d979-8e6d-4460-aaab-747fffedfc1e"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/02/2017"
-    wacn.date=""
-    ms.author="billmath"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Connectors in the Azure AD Synchronization Service Manager UI | Azure'
+description: Understand the Connectors tab in the Synchronization Service Manager for Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+
+ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/02/2017
+wacn.date: ''
+ms.author: billmath
+ms.custom: H1Hack27Feb2017
+---
 
 # Using connectors with the Azure AD Connect Sync Service Manager
 
@@ -66,6 +67,6 @@ If you for example do a Sub-Tree search, you get all objects in one OU.
 From this grid you can select an object, select **properties**, and [follow it](/documentation/articles/active-directory-aadconnectsync-troubleshoot-object-not-syncing/) from the source connector space, through the metaverse, and to the target connector space.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](/documentation/articles/active-directory-aadconnectsync-whatis/) configuration.
+Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).

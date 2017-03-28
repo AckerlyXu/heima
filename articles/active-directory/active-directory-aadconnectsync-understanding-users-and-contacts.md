@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Azure AD Connect sync: Understanding Users and Contacts | Azure"
-    description="Explains users and contacts in Azure AD Connect sync."
-    services="active-directory"
-    documentationcenter=""
-    author="MarkusVi"
-    manager="femila" />
-<tags
-    ms.assetid="8d204647-213a-4519-bd62-49563c421602"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="markvi;andkjell" />
+---
+title: Azure AD Connect sync: Understanding Users and Contacts | Azure
+description: Explains users and contacts in Azure AD Connect sync.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+
+ms.assetid: 8d204647-213a-4519-bd62-49563c421602
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: markvi;andkjell
+---
 
 # Azure AD Connect sync: Understanding Users and Contacts
 There are several different reasons why you would have multiple Active Directory forests and there are several different deployment topologies. Common models include an account-resource deployment and GAL sync’ed forests after a merger & acquisition. But even if there are pure models, hybrid models are common as well. The default configuration in Azure AD Connect sync does not assume any particular model but depending on how user matching was selected in the installation guide, different behaviors can be observed.
@@ -48,6 +49,5 @@ The assumption is that if a disabled user account is found, then we will not fin
 When an object has been exported to Azure AD then it is not allowed to change the sourceAnchor anymore. When the object has been exported the metaverse attribute **cloudSourceAnchor** is set with the **sourceAnchor** value accepted by Azure AD. If **sourceAnchor** is changed and not match **cloudSourceAnchor**, the rule **Out to AAD - User Join** will throw the error **sourceAnchor attribute has changed**. In this case, the configuration or data must be corrected so the same sourceAnchor is present in the metaverse again before the object can be synchronized again.
 
 ## Additional Resources
-- [Azure AD Connect Sync: Customizing Synchronization options](/documentation/articles/active-directory-aadconnectsync-whatis/)
-- [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
-
+- [Azure AD Connect Sync: Customizing Synchronization options](./active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)

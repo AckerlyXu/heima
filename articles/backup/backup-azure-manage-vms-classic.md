@@ -1,32 +1,32 @@
+---
+title: Manage and monitor Azure virtual machine backups | Azure
+description: Learn how to manage and monitor an Azure virtual machine backups
+services: backup
+documentationCenter: ''
+authors: trinadhk
+manager: shreeshd
+editor: ''
 
-<properties
-	pageTitle="Manage and monitor Azure virtual machine backups | Azure"
-	description="Learn how to manage and monitor an Azure virtual machine backups"
-	services="backup"
-	documentationCenter=""
-	authors="trinadhk"
-	manager="shreeshd"
-	editor=""/>
-
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="trinadhk; jimpark; markgal;"
-   	wacn.date=""/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: trinadhk; jimpark; markgal;
+wacn.date: ''
+---
 
 # Manage and monitor Azure virtual machine backups
 
-> [AZURE.SELECTOR]
-- [Manage Azure VM backups](/documentation/articles/backup-azure-manage-vms/)
-- [Manage Classic VM backups](/documentation/articles/backup-azure-manage-vms-classic/)
+> [!div class="op_single_selector"]
+>- [Manage Azure VM backups](./backup-azure-manage-vms.md)
+>- [Manage Classic VM backups](./backup-azure-manage-vms-classic.md)
 
 This article provides information about common management and monitoring tasks for Classic-model virtual machines protected in Azure.  
 
->[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](/documentation/articles/resource-manager-deployment-model/). See [Prepare your environment to back up Azure virtual machines](/documentation/articles/backup-azure-vms-prepare/) for details on working with Classic deployment model VMs.
+>[!NOTE]
+> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](./backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
 
 ## Manage protected virtual machines
 
@@ -53,7 +53,8 @@ To manage protected virtual machines:
 ## On-demand backup of a virtual machine
 You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending for the virtual machine, on-demand backup will create a full copy of the virtual machine in Azure backup vault. If first backup is completed, on-demand backup will only send changes from previous backup to Azure backup vault i.e. it is always incremental.
 
->[AZURE.NOTE] Retention range of an on-demand backup is set to retention value specified for Daily retention in backup policy corresponding to the VM.  
+>[!NOTE]
+> Retention range of an on-demand backup is set to retention value specified for Daily retention in backup policy corresponding to the VM.  
 
 To take an on-demand backup of a virtual machine:
 
@@ -69,7 +70,8 @@ To take an on-demand backup of a virtual machine:
 
     ![Creating backup job](./media/backup-azure-manage-vms/creating-job.png)
 
-    >[AZURE.NOTE] To view the policy associated with a virtual machine, drill down into virtual machine in the **Protected Items** page and go to backup policy tab.
+    >[!NOTE]
+    > To view the policy associated with a virtual machine, drill down into virtual machine in the **Protected Items** page and go to backup policy tab.
 
 3. Once the job is created, you can click on **View job** button in the toast bar to see the corresponding job in the jobs page.
 
@@ -83,7 +85,7 @@ You can choose to stop the future backups of a virtual machine with the followin
 - Retain backup data associated with virtual machine in Azure Backup vault
 - Delete backup data associated with virtual machine
 
-If you have selected to retain backup data associated with virtual machine, you can use the backup data to restore the virtual machine. For pricing details for such virtual machines, click [here](/pricing/details/backup/).
+If you have selected to retain backup data associated with virtual machine, you can use the backup data to restore the virtual machine. For pricing details for such virtual machines, click [here](https://www.azure.cn/pricing/details/backup/).
 
 To Stop protection for a virtual machine:
 
@@ -122,7 +124,8 @@ After re-protect, the virtual machine's protection status will be changed to **P
 
   ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
 
->[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
+>[!NOTE]
+> When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
 
 ## Unregister virtual machines
 
@@ -171,7 +174,8 @@ On the **Dashboard** page you can review information about Azure virtual machine
 
 ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
->[AZURE.NOTE] Values in the dashboard are refreshed once every 24 hours.
+>[!NOTE]
+> Values in the dashboard are refreshed once every 24 hours.
 
 ## Auditing Operations
 Azure backup provides review of the "operation logs" of backup operations triggered by the customer making it easy to see exactly what management operations were performed on the backup vault. Operations logs enable great post-mortem and audit support for the backup operations.
@@ -213,8 +217,10 @@ You can get custom alert notifications for the jobs in portal. This is achieved 
 
 To define a custom notification to alert for backup failures, a sample command will look like:
 
-	PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
-	PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "China East" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
+```
+PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
+PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "China East" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.Backup/backupVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault -Actions $actionEmail
+```
 
 **ResourceId**: You can get this from Operations Logs popup as described in above section. ResourceUri in details popup window of an operation is the ResourceId to be supplied for this cmdlet.
 
@@ -234,9 +240,9 @@ To define a custom notification to alert for backup failures, a sample command w
 Event-based alerts are subjected to the following limitations:
 
 1. Alerts are triggered on all virtual machines in the backup vault. You cannot customize it to get alerts for specific set of virtual machines in a backup vault.
-2. This feature is in Preview. [Learn more](/documentation/articles/insights-powershell-samples/#create-alert-rules/)
+2. This feature is in Preview. [Learn more](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
 3. You will receive alerts from "alerts-noreply@mail.windowsazure.cn". Currently you can't modify the email sender.
 
 ## Next steps
 
-- [Restore Azure VMs](/documentation/articles/backup-azure-restore-vms/)
+- [Restore Azure VMs](./backup-azure-restore-vms.md)

@@ -1,15 +1,16 @@
-<properties 
-pageTitle="Cloud Services Role config XPath cheat sheet | Azure" 
-description="The various XPath settings you can use in the cloud service role config to expose settings as an environment variable." 
-services="cloud-services" 
-documentationCenter="" 
-authors="Thraka" 
-manager="timlt" 
-editor=""/>
-<tags 
-ms.service="cloud-services" 
-ms.date="08/10/2016" 
-wacn.date=""/>
+---
+title: Cloud Services Role config XPath cheat sheet | Azure
+description: The various XPath settings you can use in the cloud service role config to expose settings as an environment variable.
+services: cloud-services
+documentationCenter: ''
+authors: Thraka
+manager: timlt
+editor: ''
+
+ms.service: cloud-services
+ms.date: 08/10/2016
+wacn.date: ''
+---
 
 # Expose role configuration settings as an environment variable with XPath
 
@@ -26,7 +27,6 @@ Indicates that the app is running in the emulator.
 | XPath | xpath="/RoleEnvironment/Deployment/@emulated" |
 | Code  | var x = RoleEnvironment.IsEmulated; |
 
-
 ## Deployment ID
 
 Retrieves the deployment ID for the instance.
@@ -35,7 +35,6 @@ Retrieves the deployment ID for the instance.
 | ----- | ------- |
 | XPath | xpath="/RoleEnvironment/Deployment/@id" |
 | Code  | var deploymentId = RoleEnvironment.DeploymentId; |
-
 
 ## Role ID 
 
@@ -46,7 +45,6 @@ Retrieves the current role ID for the instance.
 | XPath | xpath="/RoleEnvironment/CurrentInstance/@id" |
 | Code  | var id = RoleEnvironment.CurrentRoleInstance.Id; |
 
-
 ## Update domain
 
 Retrieves the update domain of the instance.
@@ -55,7 +53,6 @@ Retrieves the update domain of the instance.
 | ----- | ------- |
 | XPath | xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | Code  | var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
-
 
 ## Fault domain
 
@@ -66,7 +63,6 @@ Retrieves the fault domain of the instance.
 | XPath | xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | Code  | var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
 
-
 ## Role name
 
 Retrieves the role name of the instances.
@@ -76,7 +72,6 @@ Retrieves the role name of the instances.
 | XPath | xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | Code  | var rname = RoleEnvironment.CurrentRoleInstance.Role.Name;  |
 
-
 ## Config setting
 
 Retrieves the value of the specified configuration setting.
@@ -85,7 +80,7 @@ Retrieves the value of the specified configuration setting.
 | ----- | ------- |
 | XPath | xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | Code  | var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
- 
+
 ## Local storage path
 
 Retrieves the local storage path for the instance.
@@ -94,7 +89,6 @@ Retrieves the local storage path for the instance.
 | ----- | ------- |
 | XPath | xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | Code  | var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
-
 
 ## Local storage size
 
@@ -131,10 +125,6 @@ Retrieves the endpoint port for the instance.
 | ----- | ------- |
 | XPath | xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
 | Code  | var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
-
-
-
-
 
 ## Example
 

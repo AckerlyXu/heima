@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Microsoft Trust Center | Microsoft Azure"
-   description="The Microsoft Trust center provides you the information you need to be confident that the Azure platform on which you run your services is secure."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Microsoft Trust Center | Microsoft Azure
+description: The Microsoft Trust center provides you the information you need to be confident that the Azure platform on which you run your services is secure.
+services: security
+documentationCenter: na
+authors: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
+---
 
 # Trust Center
 
@@ -24,7 +24,6 @@ We know that when you entrust your applications and data to Azure, you’re goin
 And we have answers. Because it’s your data, you decide who has access, and you work with us to decide where it is located. To safeguard your data, we use state-of-the-art security technology and world-class cryptography. Our compliance is independently audited, and we’re transparent on many levels—from how we handle legal demands for your customer data to the security of our code.
 
 Here's what you find at Trust Center:
-
 
 - [Security](https://www.trustcenter.cn/zh-cn/security/default.html) – Learn how Microsoft Azure operated by 21Vianet is secured.
 - [Privacy](https://www.trustcenter.cn/zh-cn/privacy/default.html) – Understand how 21Vianet ensures privacy of your Customer Data in the Azure.

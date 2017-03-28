@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Run Background tasks with WebJobs"
-    description="Learn how to run background tasks in Azure web apps."
-    services="app-service"
-    documentationcenter=""
-    author="tdykstra"
-    manager="erikre"
-    editor="jimbe" />
-<tags
-    ms.assetid="af01771e-54eb-4aea-af5f-f883ff39572b"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/27/2016"
-    wacn.date=""
-    ms.author="glenga" />
+---
+title: Run Background tasks with WebJobs
+description: Learn how to run background tasks in Azure web apps.
+services: app-service
+documentationcenter: ''
+author: tdykstra
+manager: erikre
+editor: jimbe
+
+ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/27/2016
+wacn.date: ''
+ms.author: glenga
+---
 
 # Run Background tasks with WebJobs
 ## Overview
-You can run programs or scripts in WebJobs in your [Azure App Service](/documentation/articles/app-service-changes-existing-services/) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
+You can run programs or scripts in WebJobs in your [Azure App Service](./app-service-changes-existing-services.md) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
 
-This article shows how to deploy WebJobs by using the [Azure Portal Preview](https://portal.azure.cn). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](/documentation/articles/websites-dotnet-deploy-webjobs/).
+This article shows how to deploy WebJobs by using the [Azure Portal Preview](https://portal.azure.cn). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](./websites-dotnet-deploy-webjobs.md).
 
-The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](/documentation/articles/websites-dotnet-webjobs-sdk/).
+The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](./websites-dotnet-webjobs-sdk.md).
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="acceptablefiles"></a>Acceptable file types for scripts or programs
 The following file types are accepted:
@@ -40,26 +41,26 @@ The following file types are accepted:
 
 ## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
 1. In the **Web App** blade of the [Azure Portal Preview](https://portal.azure.cn), click **All settings > WebJobs** to show the **WebJobs** blade.
-   
+
     ![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
 2. Click **Add**. The **Add WebJob** dialog appears.
-   
+
     ![Add WebJob blade](./media/web-sites-create-web-jobs/addwjblade.png)
 3. Under **Name**, provide a name for the WebJob. The name must start with a letter or a number and cannot contain any special characters other than "-" and "_".
 4. In the **How to Run** box, choose **Run on Demand**.
 5. In the **File Upload** box, click the folder icon and browse to the zip file that contains your script. The zip file should contain your executable (.exe .cmd .bat .sh .php .py .js) as well as any supporting files needed to run the program or script.
 6. Check **Create** to upload the script to your web app. 
-   
+
     The name you specified for the WebJob appears in the list on the **WebJobs** blade.
 7. To run the WebJob, right-click its name in the list and click **Run**.
-   
+
     ![Run WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
 ## <a name="CreateContinuous"></a>Create a continuously running WebJob
 1. To create a continuously executing WebJob, follow the same steps for creating a WebJob that runs once, but in the **How to Run** box, choose **Continuous**.
 2. To start or stop a continuous WebJob, right-click the WebJob in the list and click **Start** or **Stop**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances. On-demand and scheduled WebJobs run on a single instance selected for load balancing by Azure.
 ><p> 
 > For Continuous WebJobs to run reliably and on all instances, enable the Always On* configuration setting for the web app otherwise they can stop running when the SCM host site has been idle for too long.
@@ -75,9 +76,11 @@ The CRON expression is composed of 6 fields: `{second} {minute} {hour} {day} {mo
 
 For example, to trigger your WebJob every 15 minutes, your `settings.job` would have:
 
-    {
-        "schedule": "0 */15 * * * *"
-    }
+```json
+{
+    "schedule": "0 */15 * * * *"
+}
+```
 
 Other CRON schedule examples:
 
@@ -95,69 +98,69 @@ The Azure Portal Preview doesn't yet have the ability to create a scheduled WebJ
 
 1. In the [Classic Management Portal](http://manage.windowsazure.cn) go to the WebJob page and click **Add**.
 2. In the **How to Run** box, choose **Run on a schedule**.
-   
+
     ![New Scheduled Job][NewScheduledJob]
 3. Choose the **Scheduler Region** for your job, and then click the arrow on the bottom right of the dialog to proceed to the next screen.
 4. In the **Create Job** dialog, choose the type of **Recurrence** you want: **One-time job** or **Recurring job**.
-   
+
     ![Schedule Recurrence][SchdRecurrence]
 5. Also choose a **Starting** time: **Now** or **At a specific time**.
-   
+
     ![Schedule Start Time][SchdStart]
 6. If you want to start at a specific time, choose your starting time values under **Starting On**.
-   
+
     ![Schedule Start at a Specific Time][SchdStartOn]
 7. If you chose a recurring job, you have the **Recur Every** option to specify the frequency of occurrence and the **Ending On** option to specify an ending time.
-   
+
     ![Schedule Recurrence][SchdRecurEvery]
 8. If you choose **Weeks**, you can select the **On a Particular Schedule** box and specify the days of the week that you want the job to run.
-   
+
     ![Schedule Days of the Week][SchdWeeksOnParticular]
 9. If you choose **Months** and select the **On a Particular Schedule** box, you can set the job to run on particular numbered **Days** in the month. 
-   
+
     ![Schedule Particular Dates in the Month][SchdMonthsOnPartDays]
 10. If you choose **Week Days**, you can select which day or days of the week in the month you want the job to run on.
-    
+
      ![Schedule Particular Week Days in a Month][SchdMonthsOnPartWeekDays]
 11. Finally, you can also use the **Occurrences** option to choose which week in the month (first, second, third etc.) you want the job to run on the week days you specified.
-    
+
     ![Schedule Particular Week Days on Particular Weeks in a Month][SchdMonthsOnPartWeekDaysOccurences]
 12. After you have created one or more jobs, their names will appear on the WebJobs tab with their status, schedule type, and other information. Historical information for the last 30  WebJobs is maintained.
-    
+
     ![Jobs list][WebJobsListWithSeveralJobs]
 
 ### <a name="Scheduler"></a>Scheduled jobs and Azure Scheduler
 Scheduled jobs can be further configured in the Azure Scheduler pages of the [Classic Management Portal](http://manage.windowsazure.cn).
 
 1. On the WebJobs page, click the job's **schedule** link to navigate to the Azure Scheduler portal page. 
-   
+
     ![Link to Azure Scheduler][LinkToScheduler]
 2. On the Scheduler page, click the job.
-   
+
     ![Job on the Scheduler portal page][SchedulerPortal]
 3. The **Job Action** page opens, where you can further configure the job. 
-   
+
     ![Job Action PageInScheduler][JobActionPageInScheduler]
 
 ## <a name="ViewJobHistory"></a>View the job history
 1. To view the execution history of a job, including jobs created with the WebJobs SDK, click  its corresponding link under the **Logs** column of the WebJobs blade. (You can use the clipboard icon to copy the URL of the log file page to the clipboard if you wish.)
-   
+
     ![Logs link](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 2. Clicking the link opens the details page for the WebJob. This page shows you the name of the command run, the last times it ran, and its success or failure. Under **Recent job runs**, click a time to see further details.
-   
+
     ![WebJobDetails][WebJobDetails]
 3. The **WebJob Run Details** page appears. Click **Toggle Output** to see the text of the log contents. The output log is in text format. 
-   
+
     ![Web job run details][WebJobRunDetails]
 4. To see the output text in a separate browser window, click the **download** link. To download the text itself, right-click the link and use your browser options to save the file contents.
-   
+
     ![Download log output][DownloadLogOutput]
 5. The **WebJobs** link at the top of the page provides a convenient way to get to a list of WebJobs on the history dashboard.
-   
+
     ![Link to WebJobs list][WebJobsLinkToDashboardList]
-   
+
     ![List of WebJobs in history dashboard][WebJobsListInJobsDashboard]
-   
+
     Clicking one of these links takes you to the WebJob Details page for the job you selected.
 
 ## <a name="WHPNotes"></a>Notes
@@ -171,7 +174,7 @@ Scheduled jobs can be further configured in the Azure Scheduler pages of the [Cl
 For more information, see [Azure WebJobs Recommended Resources][WebJobsRecommendedResources].
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
-[WebJobsRecommendedResources]:/documentation/articles/websites-webjobs-resources/
+[WebJobsRecommendedResources]:./websites-webjobs-resources.md
 
 [OnDemandWebJob]: ./media/web-sites-create-web-jobs/01aOnDemandWebJob.png
 [WebJobsList]: ./media/web-sites-create-web-jobs/02aWebJobsList.png

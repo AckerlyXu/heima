@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure SQL Database - Auditing | Azure"
-    description="Azure SQL Database auditing tracks database events and writes them to an audit log in your Azure storage account."
-    services="sql-database"
-    documentationcenter=""
-    author="ronitr"
-    manager="jhubbard"
-    editor="giladm" />
-<tags
-    ms.assetid="89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc"
-    ms.service="sql-database"
-    ms.custom="secure and protect"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/05/2016"
-    wacn.date=""
-    ms.author="ronitr; giladm" />
+---
+title: Azure SQL Database - Auditing | Azure
+description: Azure SQL Database auditing tracks database events and writes them to an audit log in your Azure storage account.
+services: sql-database
+documentationcenter: ''
+author: ronitr
+manager: jhubbard
+editor: giladm
+
+ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+ms.service: sql-database
+ms.custom: secure and protect
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/05/2016
+wacn.date: ''
+ms.author: ronitr; giladm
+---
 
 # SQL database auditing concepts
 Azure SQL Database auditing tracks database events and writes them to an audit log in your Azure storage account.
@@ -41,14 +42,14 @@ There are two **auditing methods**:
 * **Blob auditing** - logs are written to Azure blob storage. This is a newer auditing method, which provides higher performance, supports higher granularity object-level auditing, and is more cost effective.
 * **Table auditing** - logs are written to Azure table storage.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > The introduction of the new blob auditing brings a major change to the way server auditing policy is being inherited by the database. 
 
 You can configure auditing for different types of event categories.
 
-* To configure and manage auditing using the Azure portal, see [Auditing using the Azure portal](/documentation/articles/sql-database-auditing-portal/).
-* To configure and manage auditing using PowerShell, see [Auditing using PowerShell](/documentation/articles/sql-database-auditing-powershell/).
-* To configure and manage auditing using the REST API, see [Auditing using the REST API](/documentation/articles/sql-database-auditing-rest/).
+* To configure and manage auditing using the Azure portal, see [Auditing using the Azure portal](./sql-database-auditing-portal.md).
+* To configure and manage auditing using PowerShell, see [Auditing using PowerShell](./sql-database-auditing-powershell.md).
+* To configure and manage auditing using the REST API, see [Auditing using the REST API](./sql-database-auditing-rest.md).
 
 <!--For each Event Category, auditing of **Success** and **Failure** operations are configured separately.-->
 
@@ -60,7 +61,7 @@ If server blob auditing is enabled, it always applies to the database (all datab
     - The database auditing settings.
     - Whether or not the "Inherit settings from server" checkbox is checked in the database blade.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Enabling blob auditing on the database, in addition to enabling it on the server, will **not** override or change any of the settings of the server blob auditing - both audits will exist side by side. In other words, the database will be audited twice in parallel (once by the server policy and once by the database policy).
 
 You should avoid enabling both server blob auditing and database blob auditing together, unless:
@@ -84,10 +85,9 @@ You can explore audit logs using a tool such as [Azure Storage Explorer](http://
 
 ## Next steps
 
-* To configure and manage auditing using the Azure portal, see [Configure auditing in the Azure portal](/documentation/articles/sql-database-auditing-portal/).
-* To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](/documentation/articles/sql-database-auditing-powershell/).
-* To configure and manage auditing using the REST API, see [Configure auditing with the REST API](/documentation/articles/sql-database-auditing-rest/).
-
+* To configure and manage auditing using the Azure portal, see [Configure auditing in the Azure portal](./sql-database-auditing-portal.md).
+* To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](./sql-database-auditing-powershell.md).
+* To configure and manage auditing using the REST API, see [Configure auditing with the REST API](./sql-database-auditing-rest.md).
 
 <!--Anchors-->
 [Azure SQL Database auditing overview]: #subheading-1

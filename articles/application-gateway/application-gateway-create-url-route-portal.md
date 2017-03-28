@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Create a path-based rule - Azure Application Gateway - Azure Portal Preview | Azure"
-    description="Learn how to create a Path-based rule for an application gateway by using the portal"
-    services="application-gateway"
-    documentationcenter="na"
-    author="georgewallace"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="87bd93bc-e1a6-45db-a226-555948f1feb7"
-    ms.service="application-gateway"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="gwallace" />
+---
+title: Create a path-based rule - Azure Application Gateway - Azure Portal Preview | Azure
+description: Learn how to create a Path-based rule for an application gateway by using the portal
+services: application-gateway
+documentationcenter: na
+author: georgewallace
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: gwallace
+---
 
 # Create a Path-based rule for an application gateway by using the portal
-> [AZURE.SELECTOR]
-- [Azure portal preview](/documentation/articles/application-gateway-create-url-route-portal/)
-- [Azure Resource Manager PowerShell](/documentation/articles/application-gateway-create-url-route-arm-ps/)
+> [!div class="op_single_selector"]
+>- [Azure portal preview](./application-gateway-create-url-route-portal.md)
+>- [Azure Resource Manager PowerShell](./application-gateway-create-url-route-arm-ps.md)
 
 URL Path-based routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL lists in Application Gateway and send the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
 
@@ -30,7 +31,7 @@ URL-based routing introduces a new rule type to application gateway. Application
 ## Scenario
 
 The following scenario goes through creating a Path-based rule in an existing application gateway.
-The scenario assumes that you have already followed the steps to [Create an Application Gateway](/documentation/articles/application-gateway-create-gateway-portal/).
+The scenario assumes that you have already followed the steps to [Create an Application Gateway](./application-gateway-create-gateway-portal.md).
 
 ![url route][scenario]
 
@@ -67,7 +68,7 @@ The second section of the **Add path-based rule** blade is where you define the 
 * **Backend Pool** - This setting is the setting that defines the back-end to be used for the rule
 * **HTTP setting** - This setting is the setting that defines the HTTP settings to be used for the rule.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Paths: The list of path patterns to match. Each must start with / and the only place a "\*" is allowed is at the end. Valid examples are /xyz, /xyz* or /xyz/*.  
 
 ![Add path-based rule blade with information filled out][2]
@@ -78,7 +79,7 @@ Adding a path-based rule to an existing application gateway is an easy process t
 
 ## Next steps
 
-To learn how to configure SSL Offloading with Azure Application Gateway see [Configure SSL Offload](/documentation/articles/application-gateway-ssl-portal/)
+To learn how to configure SSL Offloading with Azure Application Gateway see [Configure SSL Offload](./application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-url-route-portal/figure1.png
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png

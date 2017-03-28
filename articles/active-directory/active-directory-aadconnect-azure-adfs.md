@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Active Directory Federation Services in Azure | Azure"
-    description="In this document you will learn how to deploy AD FS in Azure for high availablity."
-    keywords="deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure"
-    services="active-directory"
-    documentationcenter=""
-    author="anandyadavmsft"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="692a188c-badc-44aa-ba86-71c0e8074510"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="02/27/2017"
-    wacn.date=""
-    ms.author="anandy;billmath"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Active Directory Federation Services in Azure | Azure
+description: In this document you will learn how to deploy AD FS in Azure for high availablity.
+keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
+services: active-directory
+documentationcenter: ''
+author: anandyadavmsft
+manager: femila
+editor: ''
+
+ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 02/27/2017
+wacn.date: ''
+ms.author: anandy;billmath
+ms.custom: H1Hack27Feb2017
+---
 
 # Deploying Active Directory Federation Services in Azure
 AD FS provides simplified, secured identity federation and Web single sign-on (SSO) capabilities. Federation with Azure AD or O365 enables users to authenticate using on-premises credentials and access all resources in cloud. As a result, it becomes important to have a highly available AD FS infrastructure to ensure access to resources both on-premises and in the cloud. Deploying AD FS in Azure can help achieve the high availability required with minimal efforts.
@@ -149,7 +150,7 @@ Your virtual machine pane should look like below after the deployment is complet
 
 To deploy an ILB, select Load Balancers in the Azure portal and click on add (+).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > if you do not see **Load Balancers** in your menu, click **Browse** in the lower left of the portal and scroll until you see **Load Balancers**.  Then click the yellow star to add it to your menu. Now select the new load balancer icon to open the panel to begin configuration of the load balancer.
 > 
 > 
@@ -284,7 +285,6 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
-
 **9.2.    Securing the DMZ subnet**
 
 | Rule | Description | Flow |
@@ -294,8 +294,7 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 ![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
-
-> [AZURE.NOTE]
+> [!NOTE]
 > If client user certificate authentication (clientTLS authentication using X509 user certificates) is required, then AD FS requires TCP port 49443 be enabled for inbound access.
 > 
 > 
@@ -359,7 +358,6 @@ You can use an existing virtual network or create a new VNET while deploying thi
 - [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks) 
 
 ## Next steps
-- [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
-- [Configuring and managing your AD FS using Azure AD Connect](/documentation/articles/active-directory-aadconnectfed-whatis/)
-- [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](/documentation/articles/active-directory-adfs-in-azure-with-azure-traffic-manager/)
-
+- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
+- [Configuring and managing your AD FS using Azure AD Connect](./active-directory-aadconnectfed-whatis.md)
+- [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](./active-directory-adfs-in-azure-with-azure-traffic-manager.md)

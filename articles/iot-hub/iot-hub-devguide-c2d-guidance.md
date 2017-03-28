@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure IoT Hub cloud-to-device options | Azure"
-    description="Developer guide - guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages for cloud-to-device communications."
-    services="iot-hub"
-    documentationcenter=""
-    author="fsautomata"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="1ac90923-1edf-4134-bbd4-77fee9b68d24"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/09/2017"
-    wacn.date=""
-    ms.author="elioda" />
+---
+title: Azure IoT Hub cloud-to-device options | Azure
+description: Developer guide - guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages for cloud-to-device communications.
+services: iot-hub
+documentationcenter: ''
+author: fsautomata
+manager: timlt
+editor: ''
+
+ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/09/2017
+wacn.date: ''
+ms.author: elioda
+---
 
 # Cloud-to-device communications guidance
 IoT Hub provides three options for device apps to expose functionality to a back-end app:
@@ -42,12 +43,12 @@ Learn how to use direct methods, desired properties, and cloud-to-device message
 * [Use desired properties to configure devices][lnk-twin-properties], for device twin's desired properties; 
 * [Send cloud-to-device messages][lnk-c2d-tutorial], for cloud-to-device messages.
 
-[lnk-twins]: /documentation/articles/iot-hub-devguide-device-twins/
-[lnk-quotas]: /documentation/articles/iot-hub-devguide-quotas-throttling/
-[lnk-query]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-jobs]: /documentation/articles/iot-hub-devguide-jobs/
-[lnk-c2d]: /documentation/articles/iot-hub-devguide-messaging/#cloud-to-device-messages
-[lnk-methods]: /documentation/articles/iot-hub-devguide-direct-methods/
-[lnk-methods-tutorial]: /documentation/articles/iot-hub-node-node-direct-methods/
-[lnk-twin-properties]: /documentation/articles/iot-hub-node-node-twin-how-to-configure/
-[lnk-c2d-tutorial]: /documentation/articles/iot-hub-node-node-c2d/
+[lnk-twins]: ./iot-hub-devguide-device-twins.md
+[lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
+[lnk-query]: ./iot-hub-devguide-query-language.md
+[lnk-jobs]: ./iot-hub-devguide-jobs.md
+[lnk-c2d]: ./iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-methods]: ./iot-hub-devguide-direct-methods.md
+[lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
+[lnk-twin-properties]: ./iot-hub-node-node-twin-how-to-configure.md
+[lnk-c2d-tutorial]: ./iot-hub-node-node-c2d.md

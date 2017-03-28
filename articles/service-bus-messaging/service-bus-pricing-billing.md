@@ -1,25 +1,27 @@
-<properties 
-    pageTitle="Service Bus pricing and billing | Azure"
-    description="Overview of Service Bus pricing structure."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/06/2016"
-    ms.author="sethm" />
+---
+title: Service Bus pricing and billing | Azure
+description: Overview of Service Bus pricing structure.
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/06/2016
+ms.author: sethm
+---
 
 # Service Bus pricing and billing
 
-Service Bus is offered in Basic, Standard, and [Premium](/documentation/articles/service-bus-premium-messaging/) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
+Service Bus is offered in Basic, Standard, and [Premium](./service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all entities created within that namespace.
 
->[AZURE.NOTE] For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](/pricing/details/service-bus/), and the [Service Bus FAQ](/documentation/articles/service-bus-faq/#service-bus-pricing).
+>[!NOTE]
+> For detailed information about current Service Bus pricing, see the [Azure Service Bus pricing page](https://www.azure.cn/pricing/details/service-bus/), and the [Service Bus FAQ](./service-bus-faq.md#service-bus-pricing).
 
 Service Bus uses the following two meters for queues and topics/subscriptions:
 
@@ -95,11 +97,13 @@ The Basic tier includes, and is strictly limited to, 100 brokered connections pe
 |100,000-500,000/month|$0.025 per connection/month|
 |Over 500,000/month|$0.015 per connection/month|
 
->[AZURE.NOTE] 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
+>[!NOTE]
+> 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
 
 <br />
 
->[AZURE.NOTE] Billing is based on the peak number of concurrent connections and is prorated hourly based on 744 hours per month.
+>[!NOTE]
+> Billing is based on the peak number of concurrent connections and is prorated hourly based on 744 hours per month.
 
 |Premium Tier
 |---|
@@ -120,7 +124,7 @@ Relays are available only in Standard tier namespaces. Otherwise, pricing and co
 
 ### How is the Relay Hours meter calculated?
 
-See [this topic](/documentation/articles/service-bus-faq/).
+See [this topic](./service-bus-faq.md).
 
 ### What are brokered connections and how do I get charged for them?
 
@@ -144,8 +148,8 @@ Yes. There are no connection charges for sending events using HTTP, regardless o
 
 ## Next steps
 
-- For more details about Service Bus pricing, see the [Azure Service Bus pricing page](/pricing/details/service-bus/).
+- For more details about Service Bus pricing, see the [Azure Service Bus pricing page](https://www.azure.cn/pricing/details/service-bus/).
 
-- See the [Service Bus FAQ](/documentation/articles/service-bus-faq/#service-bus-pricing) for some common FAQs around Service bus pricing and billing.
+- See the [Service Bus FAQ](./service-bus-faq.md#service-bus-pricing) for some common FAQs around Service bus pricing and billing.
 
 [Azure classic portal]: http://manage.windowsazure.com

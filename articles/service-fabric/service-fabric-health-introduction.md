@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Health monitoring in Service Fabric | Azure"
-    description="An introduction to the Azure Service Fabric health monitoring model, which provides monitoring of the cluster and its applications and services."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="oanapl"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="1d979210-b1eb-4022-be24-799fd9d8e003"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/12/2017"
-    wacn.date=""
-    ms.author="oanapl" />
+---
+title: Health monitoring in Service Fabric | Azure
+description: An introduction to the Azure Service Fabric health monitoring model, which provides monitoring of the cluster and its applications and services.
+services: service-fabric
+documentationcenter: .net
+author: oanapl
+manager: timlt
+editor: ''
+
+ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/12/2017
+wacn.date: ''
+ms.author: oanapl
+---
 
 # Introduction to Service Fabric health monitoring
 Azure Service Fabric introduces a health model that provides rich, flexible, and extensible health evaluation and reporting. The model allows near-real-time monitoring of the state of the cluster and the services running in it. You can easily obtain health information and correct potential issues before they cascade and cause massive outages. In the typical model, services send reports based on their local views, and that information is aggregated to provide an overall cluster-level view.
@@ -26,7 +27,8 @@ The following Microsoft Virtual Academy video also describes the Service Fabric 
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
-> [AZURE.NOTE] We started the health subsystem to address a need for monitored upgrades. Service Fabric provides monitored application and cluster upgrades that ensure full availability, no downtime and minimal to no user intervention. To achieve these goals, the upgrade checks health based on configured upgrade policies and allows an upgrade to proceed only when health respects desired thresholds. Otherwise, the upgrade is either automatically rolled back or paused to give administrators a chance to fix the issues. To learn more about application upgrades, see [this article](/documentation/articles/service-fabric-application-upgrade/).
+> [!NOTE]
+> We started the health subsystem to address a need for monitored upgrades. Service Fabric provides monitored application and cluster upgrades that ensure full availability, no downtime and minimal to no user intervention. To achieve these goals, the upgrade checks health based on configured upgrade policies and allows an upgrade to proceed only when health respects desired thresholds. Otherwise, the upgrade is either automatically rolled back or paused to give administrators a chance to fix the issues. To learn more about application upgrades, see [this article](./service-fabric-application-upgrade.md).
 
 ## Health store
 The health store keeps health-related information about entities in the cluster for easy retrieval and evaluation. It is implemented as a Service Fabric persisted stateful service to ensure high availability and scalability. The health store is part of the **fabric:/System** application, and it is available when the cluster is up and running.
@@ -34,7 +36,7 @@ The health store keeps health-related information about entities in the cluster 
 ## Health entities and hierarchy
 The health entities are organized in a logical hierarchy that captures interactions and dependencies among different entities. The entities and hierarchy are automatically built by the health store based on reports received from Service Fabric components.
 
-The health entities mirror the Service Fabric entities. (For example, **health application entity** matches an application instance deployed in the cluster, while **health node entity** matches a Service Fabric cluster node.) The health hierarchy captures the interactions of the system entities, and it is the basis for advanced health evaluation. You can learn about key Service Fabric concepts in [Service Fabric technical overview](/documentation/articles/service-fabric-technical-overview/). For more on application, see [Service Fabric application model](/documentation/articles/service-fabric-application-model/).
+The health entities mirror the Service Fabric entities. (For example, **health application entity** matches an application instance deployed in the cluster, while **health node entity** matches a Service Fabric cluster node.) The health hierarchy captures the interactions of the system entities, and it is the basis for advanced health evaluation. You can learn about key Service Fabric concepts in [Service Fabric technical overview](./service-fabric-technical-overview.md). For more on application, see [Service Fabric application model](./service-fabric-application-model.md).
 
 The health entities and hierarchy allow the cluster and applications to be effectively reported, debugged, and monitored. The health model provides an accurate, *granular* representation of the health of the many moving pieces in the cluster.
 
@@ -86,7 +88,8 @@ The possible [health states](https://msdn.microsoft.com/zh-cn/library/azure/syst
 ## Health policies
 The health store applies health policies to determine whether an entity is healthy based on its reports and its children.
 
-> [AZURE.NOTE] Health policies can be specified in the cluster manifest (for cluster and node health evaluation) or in the application manifest (for application evaluation and any of its children). Health evaluation requests can also pass in custom health evaluation policies, which is used only for that evaluation.
+> [!NOTE]
+> Health policies can be specified in the cluster manifest (for cluster and node health evaluation) or in the application manifest (for application evaluation and any of its children). Health evaluation requests can also pass in custom health evaluation policies, which is used only for that evaluation.
 
 By default, Service Fabric applies strict rules (everything must be healthy) for the parent-child hierarchical relationship. If even one of the children has one unhealthy event, the parent is considered unhealthy.
 
@@ -105,16 +108,16 @@ For the application types defined in the map, all application instances are take
 
 The following example is an excerpt from a cluster manifest. To define entries in the application type map, prefix the parameter name with "ApplicationTypeMaxPercentUnhealthyApplications-", followed by the application type name.
 
-
-	<FabricSettings>
-	  <Section Name="HealthManager/ClusterHealthPolicy">
-	    <Parameter Name="ConsiderWarningAsError" Value="False" />
-	    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
-	    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
-	    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
-	  </Section>
-	</FabricSettings>
-
+```xml
+<FabricSettings>
+  <Section Name="HealthManager/ClusterHealthPolicy">
+    <Parameter Name="ConsiderWarningAsError" Value="False" />
+    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
+  </Section>
+</FabricSettings>
+```
 
 ### Application health policy
 The [application health policy](https://msdn.microsoft.com/zh-cn/library/azure/system.fabric.health.applicationhealthpolicy.aspx) describes how the evaluation of events and child-states aggregation is done for applications and their children. It can be defined in the application manifest, **ApplicationManifest.xml**, in the application package. If no policies are specified, Service Fabric assumes that the entity is unhealthy if it has a health report or a child at the warning or error health state.
@@ -139,25 +142,25 @@ The [service type health policy](https://msdn.microsoft.com/zh-cn/library/azure/
 
 The following example is an excerpt from an application manifest:
 
-
-	    <Policies>
-	        <HealthPolicy ConsiderWarningAsError="true" MaxPercentUnhealthyDeployedApplications="20">
-	            <DefaultServiceTypeHealthPolicy
-	                   MaxPercentUnhealthyServices="0"
-	                   MaxPercentUnhealthyPartitionsPerService="10"
-	                   MaxPercentUnhealthyReplicasPerPartition="0"/>
-	            <ServiceTypeHealthPolicy ServiceTypeName="FrontEndServiceType"
-	                   MaxPercentUnhealthyServices="0"
-	                   MaxPercentUnhealthyPartitionsPerService="20"
-	                   MaxPercentUnhealthyReplicasPerPartition="0"/>
-	            <ServiceTypeHealthPolicy ServiceTypeName="BackEndServiceType"
-	                   MaxPercentUnhealthyServices="20"
-	                   MaxPercentUnhealthyPartitionsPerService="0"
-	                   MaxPercentUnhealthyReplicasPerPartition="0">
-	            </ServiceTypeHealthPolicy>
-	        </HealthPolicy>
-	    </Policies>
-
+```xml
+    <Policies>
+        <HealthPolicy ConsiderWarningAsError="true" MaxPercentUnhealthyDeployedApplications="20">
+            <DefaultServiceTypeHealthPolicy
+                   MaxPercentUnhealthyServices="0"
+                   MaxPercentUnhealthyPartitionsPerService="10"
+                   MaxPercentUnhealthyReplicasPerPartition="0"/>
+            <ServiceTypeHealthPolicy ServiceTypeName="FrontEndServiceType"
+                   MaxPercentUnhealthyServices="0"
+                   MaxPercentUnhealthyPartitionsPerService="20"
+                   MaxPercentUnhealthyReplicasPerPartition="0"/>
+            <ServiceTypeHealthPolicy ServiceTypeName="BackEndServiceType"
+                   MaxPercentUnhealthyServices="20"
+                   MaxPercentUnhealthyPartitionsPerService="0"
+                   MaxPercentUnhealthyReplicasPerPartition="0">
+            </ServiceTypeHealthPolicy>
+        </HealthPolicy>
+    </Policies>
+```
 
 ## Health evaluation
 Users and automated services can evaluate health for any entity at any time. To evaluate an entity's health, the health store aggregates all health reports on the entity and evaluates all its children (when applicable). The health aggregation algorithm uses health policies that specify how to evaluate health reports and how to aggregate child health states (when applicable).
@@ -210,7 +213,7 @@ The [health reports](https://msdn.microsoft.com/zh-cn/library/azure/system.fabri
 
 - **SourceId**. A string that uniquely identifies the reporter of the health event.
 
-- **Entity identifier**. Identifies the entity where the report is applied. It differs based on the [entity type](/documentation/articles/service-fabric-health-introduction/#health-entities-and-hierarchy):
+- **Entity identifier**. Identifies the entity where the report is applied. It differs based on the [entity type](./service-fabric-health-introduction.md#health-entities-and-hierarchy):
 
   - Cluster. None.
 
@@ -232,7 +235,7 @@ The [health reports](https://msdn.microsoft.com/zh-cn/library/azure/system.fabri
 
 - **Description**. A string that allows a reporter to provide detailed information about the health event. **SourceId**, **Property**, and **HealthState** should fully describe the report. The description adds human-readable information about the report. The text makes it easier for administrators and users to understand the health report.
 
-- **HealthState**. An [enumeration](/documentation/articles/service-fabric-health-introduction/#health-states) that describes the health state of the report. The accepted values are OK, Warning, and Error.
+- **HealthState**. An [enumeration](./service-fabric-health-introduction.md#health-states) that describes the health state of the report. The accepted values are OK, Warning, and Error.
 
 - **TimeToLive**. A timespan that indicates how long the health report is valid. Coupled with **RemoveWhenExpired**, it lets the health store know how to evaluate expired events. By default, the value is infinite, and the report is valid forever.
 
@@ -243,7 +246,7 @@ The [health reports](https://msdn.microsoft.com/zh-cn/library/azure/system.fabri
 These four pieces of information--SourceId, entity identifier, Property, and HealthState--are required for every health report. The SourceId string is not allowed to start with the prefix "**System.**", which is reserved for system reports. For the same entity, there is only one report for the same source and property. Multiple reports for the same source and property override each other, either on the health client side (if they are batched) or on the health store side. The replacement is based on sequence numbers; newer reports (with higher sequence numbers) replace older reports.
 
 ### Health events
-Internally, the health store keeps [health events](https://msdn.microsoft.com/zh-cn/library/azure/system.fabric.health.healthevent.aspx), which contain all the information from the reports, and additional metadata. The metadata includes the time the report was given to the health client and the time it was modified on the server side. The health events are returned by [health queries](/documentation/articles/service-fabric-view-entities-aggregated-health/#health-queries).
+Internally, the health store keeps [health events](https://msdn.microsoft.com/zh-cn/library/azure/system.fabric.health.healthevent.aspx), which contain all the information from the reports, and additional metadata. The metadata includes the time the report was given to the health client and the time it was modified on the server side. The health events are returned by [health queries](./service-fabric-view-entities-aggregated-health.md#health-queries).
 
 The added metadata contains:
 
@@ -266,70 +269,69 @@ The state transition fields can be used for smarter alerts or "historical" healt
 ## Example: Report and evaluate application health
 The following example sends a health report through PowerShell on the application **fabric:/WordCount** from the source **MyWatchdog**. The health report contains information about the health property "availability" in an error health state, with infinite TimeToLive. Then it queries the application health, which returns aggregated health state errors and the reported health events in the list of health events.
 
+```powershell
+PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-	PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
-	PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
+ApplicationName                 : fabric:/WordCount
+AggregatedHealthState           : Error
+UnhealthyEvaluations            :
+                                  Error event: SourceId='MyWatchdog', Property='Availability'.
 
+ServiceHealthStates             :
+                                  ServiceName           : fabric:/WordCount/WordCountService
+                                  AggregatedHealthState : Error
 
-	ApplicationName                 : fabric:/WordCount
-	AggregatedHealthState           : Error
-	UnhealthyEvaluations            :
-	                                  Error event: SourceId='MyWatchdog', Property='Availability'.
+                                  ServiceName           : fabric:/WordCount/WordCountWebService
+                                  AggregatedHealthState : Ok
 
-	ServiceHealthStates             :
-	                                  ServiceName           : fabric:/WordCount/WordCountService
-	                                  AggregatedHealthState : Error
+DeployedApplicationHealthStates :
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : _Node_0
+                                  AggregatedHealthState : Ok
 
-	                                  ServiceName           : fabric:/WordCount/WordCountWebService
-	                                  AggregatedHealthState : Ok
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : _Node_2
+                                  AggregatedHealthState : Ok
 
-	DeployedApplicationHealthStates :
-	                                  ApplicationName       : fabric:/WordCount
-	                                  NodeName              : _Node_0
-	                                  AggregatedHealthState : Ok
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : _Node_3
+                                  AggregatedHealthState : Ok
 
-	                                  ApplicationName       : fabric:/WordCount
-	                                  NodeName              : _Node_2
-	                                  AggregatedHealthState : Ok
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : _Node_4
+                                  AggregatedHealthState : Ok
 
-	                                  ApplicationName       : fabric:/WordCount
-	                                  NodeName              : _Node_3
-	                                  AggregatedHealthState : Ok
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : _Node_1
+                                  AggregatedHealthState : Ok
 
-	                                  ApplicationName       : fabric:/WordCount
-	                                  NodeName              : _Node_4
-	                                  AggregatedHealthState : Ok
+HealthEvents                    :
+                                  SourceId              : System.CM
+                                  Property              : State
+                                  HealthState           : Ok
+                                  SequenceNumber        : 360
+                                  SentAt                : 3/22/2016 7:56:53 PM
+                                  ReceivedAt            : 3/22/2016 7:56:53 PM
+                                  TTL                   : Infinite
+                                  Description           : Application has been created.
+                                  RemoveWhenExpired     : False
+                                  IsExpired             : False
+                                  Transitions           : Error->Ok = 3/22/2016 7:56:53 PM, LastWarning = 1/1/0001 12:00:00 AM
 
-	                                  ApplicationName       : fabric:/WordCount
-	                                  NodeName              : _Node_1
-	                                  AggregatedHealthState : Ok
-
-	HealthEvents                    :
-	                                  SourceId              : System.CM
-	                                  Property              : State
-	                                  HealthState           : Ok
-	                                  SequenceNumber        : 360
-	                                  SentAt                : 3/22/2016 7:56:53 PM
-	                                  ReceivedAt            : 3/22/2016 7:56:53 PM
-	                                  TTL                   : Infinite
-	                                  Description           : Application has been created.
-	                                  RemoveWhenExpired     : False
-	                                  IsExpired             : False
-	                                  Transitions           : Error->Ok = 3/22/2016 7:56:53 PM, LastWarning = 1/1/0001 12:00:00 AM
-
-	                                  SourceId              : MyWatchdog
-	                                  Property              : Availability
-	                                  HealthState           : Error
-	                                  SequenceNumber        : 131032204762818013
-	                                  SentAt                : 3/23/2016 3:27:56 PM
-	                                  ReceivedAt            : 3/23/2016 3:27:56 PM
-	                                  TTL                   : Infinite
-	                                  Description           :
-	                                  RemoveWhenExpired     : False
-	                                  IsExpired             : False
-	                                  Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
-
+                                  SourceId              : MyWatchdog
+                                  Property              : Availability
+                                  HealthState           : Error
+                                  SequenceNumber        : 131032204762818013
+                                  SentAt                : 3/23/2016 3:27:56 PM
+                                  ReceivedAt            : 3/23/2016 3:27:56 PM
+                                  TTL                   : Infinite
+                                  Description           :
+                                  RemoveWhenExpired     : False
+                                  IsExpired             : False
+                                  Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
+```
 
 ## Health model usage
 The health model allows cloud services and the underlying Service Fabric platform to scale, because monitoring and health determinations are distributed among the different monitors within the cluster.
@@ -338,15 +340,14 @@ Other systems have a single, centralized service at the cluster level that parse
 The health model is used heavily for monitoring and diagnosis, for evaluating cluster and application health, and for monitored upgrades. Other services use health data to perform automatic repairs, build cluster health history, and issue alerts on certain conditions.
 
 ## Next steps
-[View Service Fabric health reports](/documentation/articles/service-fabric-view-entities-aggregated-health/)
+[View Service Fabric health reports](./service-fabric-view-entities-aggregated-health.md)
 
-[Use system health reports for troubleshooting](/documentation/articles/service-fabric-understand-and-troubleshoot-with-system-health-reports/)
+[Use system health reports for troubleshooting](./service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[How to report and check service health](/documentation/articles/service-fabric-diagnostics-how-to-report-and-check-service-health/)
+[How to report and check service health](./service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Add custom Service Fabric health reports](/documentation/articles/service-fabric-report-health/)
+[Add custom Service Fabric health reports](./service-fabric-report-health.md)
 
-[Monitor and diagnose services locally](/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)
+[Monitor and diagnose services locally](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Service Fabric application upgrade](/documentation/articles/service-fabric-application-upgrade/)
- 
+[Service Fabric application upgrade](./service-fabric-application-upgrade.md)

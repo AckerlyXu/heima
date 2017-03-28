@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Migrate VMs from AWS to Azure| Azure"
-    description="This article describes how to migrate virtual machines running in Amazon Web Services (AWS) to Azure using Azure Site Recovery."
-    services="site-recovery"
-    documentationcenter=""
-    author="bsiva"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.assetid="ddb412fd-32a8-4afa-9e39-738b11b91118"
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="backup-recovery"
-    ms.date="02/12/2017"
-    wacn.date=""
-    ms.author="bsiva" />
+---
+title: Migrate VMs from AWS to Azure| Azure
+description: This article describes how to migrate virtual machines running in Amazon Web Services (AWS) to Azure using Azure Site Recovery.
+services: site-recovery
+documentationcenter: ''
+author: bsiva
+manager: jwhit
+editor: ''
+
+ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: backup-recovery
+ms.date: 02/12/2017
+wacn.date: ''
+ms.author: bsiva
+---
 
 # Migrate virtual machines in Amazon Web Services (AWS) to Azure with Azure Site Recovery
 
-This article describes how to migrate AWS Windows instances to Azure virtual machines with the [Azure Site Recovery](/documentation/articles/site-recovery-overview/) service.
+This article describes how to migrate AWS Windows instances to Azure virtual machines with the [Azure Site Recovery](./site-recovery-overview.md) service.
 
-Migration is effectively a failover from AWS to Azure. You can't fail machines back, and there's no ongoing replication. This article describes the steps for migration in the Azure portal, and are based on the instructions for [replicating a physical machine to Azure](/documentation/articles/site-recovery-vmware-to-azure/).
+Migration is effectively a failover from AWS to Azure. You can't fail machines back, and there's no ongoing replication. This article describes the steps for migration in the Azure portal, and are based on the instructions for [replicating a physical machine to Azure](./site-recovery-vmware-to-azure.md).
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=hypervrecovmgr)
 
@@ -40,7 +41,7 @@ Site Recovery can be used to migrate EC2 instances running any of the following 
 
 Here's what you need for this deployment
 
-* **Configuration server**: An on-premises VM running Windows Server 2012 R2 is deployed as the configuration server. By default, the other You Site Recovery components (process server and master target server) are installed when you deploy the configuration server. [Learn more](/documentation/articles/site-recovery-components/#replicate-vmware-vmsphysical-servers-to-azure)
+* **Configuration server**: An on-premises VM running Windows Server 2012 R2 is deployed as the configuration server. By default, the other You Site Recovery components (process server and master target server) are installed when you deploy the configuration server. [Learn more](./site-recovery-components.md#replicate-vmware-vmsphysical-servers-to-azure)
 * **EC2 instances**: The EC2 virtual machines instances that you want to migrate.
 
 ## Deployment steps
@@ -53,6 +54,6 @@ Here's what you need for this deployment
 
     ![firewall rules](./media/site-recovery-migrate-aws-to-azure/migrate-firewall.png)
 6. Enable replication. Enable replication for the VMs you want to migrate. You can discover the EC2 instances using the private IP addresses, which you can get from the EC2 console.
-7. Run an unplanned failover). After initial replication is complete, you can run an unplanned failover from AWS to Azure for each VM. Optionally, you can create a recovery plan and run an unplanned failover, to migrate multiple virtual machines from AWS to Azure. [Learn more](/documentation/articles/site-recovery-create-recovery-plans/) about recovery plans.
+7. Run an unplanned failover). After initial replication is complete, you can run an unplanned failover from AWS to Azure for each VM. Optionally, you can create a recovery plan and run an unplanned failover, to migrate multiple virtual machines from AWS to Azure. [Learn more](./site-recovery-create-recovery-plans.md) about recovery plans.
 
-Get detailed instructions for the [deployment steps](/documentation/articles/site-recovery-vmware-to-azure/), and for running an [unplanned failover](/documentation/articles/site-recovery-failover/#run-an-unplanned-failover).
+Get detailed instructions for the [deployment steps](./site-recovery-vmware-to-azure.md), and for running an [unplanned failover](./site-recovery-failover.md#run-an-unplanned-failover).

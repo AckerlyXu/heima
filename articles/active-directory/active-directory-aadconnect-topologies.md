@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect: Supported topologies | Azure"
-    description="This topic details supported and unsupported topologies for Azure AD Connect"
-    services="active-directory"
-    documentationcenter=""
-    author="AndKjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="1034c000-59f2-4fc8-8137-2416fa5e4bfe"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect: Supported topologies | Azure
+description: This topic details supported and unsupported topologies for Azure AD Connect
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
+
+ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
+ms.service: active-directory
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Topologies for Azure AD Connect
 This article describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution. This article includes both supported and unsupported configurations.
@@ -66,7 +67,7 @@ If your environment does not match these assumptions, the following things happe
 - If you have more than one active account or more than one mailbox, the sync engine picks one and ignores the other.
 - A linked mailbox with no other active account is not exported to Azure AD. The user account is not represented as a member in any group. A linked mailbox in DirSync is always represented as a normal mailbox. This change is intentionally a different behavior to better support multiple-forest scenarios.
 
-You can find more details in [Understanding the default configuration](/documentation/articles/active-directory-aadconnectsync-understanding-default-configuration/).
+You can find more details in [Understanding the default configuration](./active-directory-aadconnectsync-understanding-default-configuration.md).
 
 ### Multiple forests, multiple sync servers to one Azure AD tenant
 ![Unsupported topology for multiple forests and multiple sync servers](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
@@ -111,7 +112,6 @@ Some Office 365 workloads have certain restrictions on supported topologies:
 | Exchange Online | If there's more than one on-premises Exchange organization (that is, Exchange has been deployed to more than one forest), you must use Exchange 2013 SP1 or later. For more information, see [Hybrid deployments with multiple Active Directory forests](https://technet.microsoft.com/zh-cn/library/jj873754.aspx). |
 | Skype for Business | When you're using multiple on-premises forests, only the account-resource forest topology is supported. For more information, see [Environmental requirements for Skype for Business Server 2015](https://technet.microsoft.com/zh-cn/library/dn933910.aspx). |
 
-
 ## Staging server
 ![Staging server in a topology](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
 
@@ -127,7 +127,7 @@ It's possible to have more than one staging server when you want to have multipl
 
 ## Multiple Azure AD tenants
 We recommend having a single tenant in Azure AD for an organization.
-Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](/documentation/articles/active-directory-administrative-units-management/). It covers common scenarios where you can use a single tenant.
+Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](./active-directory-administrative-units-management.md). It covers common scenarios where you can use a single tenant.
 
 ![Topology for multiple forests and multiple tenants](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -178,6 +178,6 @@ You can use FIM 2010 or MIM 2016 on-premises to sync users (via GALSync) between
 ## Next steps
 To learn how to install Azure AD Connect for these scenarios, see [Custom installation of Azure AD Connect](/documentation/articles/active-directory-aadconnect-get-started-custom/).
 
-Learn more about the [Azure AD Connect sync](/documentation/articles/active-directory-aadconnectsync-whatis/) configuration.
+Learn more about the [Azure AD Connect sync](./active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/).
+Learn more about [integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).

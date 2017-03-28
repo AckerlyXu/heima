@@ -1,21 +1,21 @@
-<properties
-	pageTitle="FAQ for ClearDB MySql databases with Azure App Service | Azure"
-	description="Answers to common questions about using ClearDB MySQL databases with Azure App Service."
-	documentationCenter="php"
-	services=""
-	authors="sunbuild"
-	manager="yochayk"
-	editor=""
-	tags="mysql"/>
+---
+title: FAQ for ClearDB MySql databases with Azure App Service | Azure
+description: Answers to common questions about using ClearDB MySQL databases with Azure App Service.
+documentationCenter: php
+services: ''
+authors: sunbuild
+manager: yochayk
+editor: ''
+tags: mysql
 
-<tags
-	ms.service="multiple"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/27/2016"
-	ms.author="sumuth"/>
+ms.service: multiple
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/27/2016
+ms.author: sumuth
+---
 
 # FAQ for ClearDB MySql databases with Azure App Service
 This FAQ answers common questions about using and purchasing ClearDB MySQL databases for Azure Web Apps.
@@ -26,7 +26,7 @@ You have several options:
 * [ClearDB Shared MySQL database](/marketplace/partners/cleardb/databases/)
 * [ClearDB MySQL Premium clusters](/marketplace/partners/cleardb-clusters/cluster/)
 * [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Single instance of MySQL running on an Azure VM](/documentation/articles/virtual-machines-windows-classic-mysql-2008r2)
+* [Single instance of MySQL running on an Azure VM](./virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md)
 
 ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you. When you run your own MySQL cluster or database on an Azure Virtual Machine you have to set up the MySQL server and keep it updated with patches.
 
@@ -34,9 +34,9 @@ ClearDB is a MySQL hosting service and manages the MySQL infrastructure for you.
 This depends on the type of subscription you are using. Here are some commonly used subscription types:
 
 * [Pay as you Go](/offers/ms-azr-0003p/): Requires a credit card, and when you purchase a paid MySQL database your credit card is charged.
-* [Free trial](/pricing/1rmb-trial/): Includes credits for use with Microsoft Azure services but doesn't allow purchase of third-party resources. To purchase third-party services or a paid MySQL database you need to use a credit card enabled subscription. For Web Apps, you can create a FREE ClearDB MySQL database.
-* [MSDN subscription](/pricing/member-offers/msdn-benefits/) and **MSDN Dev Test Pay as you go**: Similar to Free trial, an MSDN subscription requires you to have a credit card to purchase a paid MySQL solution from ClearDB.
-* [Enterprise Agreement (EA)](/pricing/enterprise-agreement/): EA customers are billed against their EA each quarter for all of their Azure Marketplace (third-party) purchases on a separate, consolidated invoice. You are billed outside the monetary commitment for any marketplace purchases. Please note that, at this time, Azure Store is not available to customers enrolled in Azerbaijan, Croatia, Norway and Puerto Rico. 
+* [Free trial](https://www.azure.cn/pricing/1rmb-trial/): Includes credits for use with Microsoft Azure services but doesn't allow purchase of third-party resources. To purchase third-party services or a paid MySQL database you need to use a credit card enabled subscription. For Web Apps, you can create a FREE ClearDB MySQL database.
+* [MSDN subscription](https://www.azure.cn/pricing/member-offers/msdn-benefits/) and **MSDN Dev Test Pay as you go**: Similar to Free trial, an MSDN subscription requires you to have a credit card to purchase a paid MySQL solution from ClearDB.
+* [Enterprise Agreement (EA)](https://www.azure.cn/pricing/enterprise-agreement/): EA customers are billed against their EA each quarter for all of their Azure Marketplace (third-party) purchases on a separate, consolidated invoice. You are billed outside the monetary commitment for any marketplace purchases. Please note that, at this time, Azure Store is not available to customers enrolled in Azerbaijan, Croatia, Norway and Puerto Rico. 
 * [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): You can create only FREE ClearDB databases for Web Apps. There is no limit on the number of Free ClearDB MySQL databases you can create. Note that Free databases are not to be used for production web apps, as this service is intended only for trial.
 
 ## Why was I charged $3.50 for a Web app + MySQL from the Azure Marketplace?
@@ -58,7 +58,7 @@ No, Azure will not warn you if you delete a marketplace purchase that your appli
 Azure Marketplace is not available to customers enrolled in Azerbaijan, Croatia, Norway or Puerto Rico. ClearDB is not available in these regions.
 
 ## What pricing tier should I choose for a production web app and database?
-Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend either a Saturn or Jupiter plan. Review the features & limitations of each pricing tier for both [Web Apps](/pricing/details/app-service/) and [ClearDB MySQL databases](/marketplace/partners/cleardb/databases/) to choose the one that fits your needs.
+Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend either a Saturn or Jupiter plan. Review the features & limitations of each pricing tier for both [Web Apps](https://www.azure.cn/pricing/details/app-service/) and [ClearDB MySQL databases](/marketplace/partners/cleardb/databases/) to choose the one that fits your needs.
 
 ## How do I upgrade my ClearDB database from one plan to another?
 In the [Azure portal](https://portal.azure.cn), you can scale up a ClearDB shared hosting database. Read this [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.
@@ -100,4 +100,3 @@ Contact [Enterprise Customer Support](http://aka.ms/AzureEntSupport) with regard
 
 ## More information
 [Azure Marketplace FAQ](/marketplace/faq/)
-

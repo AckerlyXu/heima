@@ -1,21 +1,22 @@
-<properties
-    pageTitle="What is Azure Active Directory?"
-    description="Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications."
-    services="active-directory"
-    documentationcenter=""
-    author="curtand"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="498820c4-9ebe-42be-bda2-ecf38cc514ca"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/23/2017"
-    wacn.date=""
-    ms.author="curtand" />
+---
+title: What is Azure Active Directory?
+description: Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications.
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
+
+ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/23/2017
+wacn.date: ''
+ms.author: curtand
+---
 
 # What is Azure Active Directory?
 Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.
@@ -35,7 +36,7 @@ If you are an Office365, Azure or Dynamics CRM Online customer, you might not re
 ## How reliable is Azure AD?
 The multi-tenant, geo-distributed, high availability design of Azure AD means that you can rely on it for your most critical business needs. Running out of 28 data centers around the world with automated failover, you’ll have the comfort of knowing that Azure AD is highly reliable and that even if a data center goes down, copies of your directory data are live in at least two more regionally dispersed data centers and available for instant access.
 
-For more details, see [Service Level Agreements](/support/legal/sla/).
+For more details, see [Service Level Agreements](https://www.azure.cn/support/legal/sla/).
 
 ## What are the benefits of Azure AD?
 Your organization can use Azure AD to improve employee productivity, streamline IT processes, improve security and cut costs in many ways:
@@ -56,31 +57,26 @@ AD DS is a server role on Windows Server, which means that it can be deployed on
 
 Azure AD is a multi-customer public directory service, which means that within Azure AD you can create a tenant for your cloud servers and applications such as Office 365. Users and groups are created in a flat structure without OUs or GPOs. Authentication is performed through protocols such as SAML, WS-Federation, and OAuth. It's possible to query Azure AD, but instead of using LDAP you must use a REST API called AD Graph API. These all work over HTTP and HTTPS.
 
-
-
-
 ## How can I get started?
 
 **If you are an IT admin:**
 
-- [Try it out!](/documentation/services/identity/) - you can sign up for a trial today and deploy your first cloud solution using this link
+- [Try it out!](./index.md) - you can sign up for a trial today and deploy your first cloud solution using this link
 
 - Read “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
 
 **If you are a developer:**
- 
-- Check out our [Developers Guide](/documentation/articles/active-directory-developers-guide/) to Azure Active Directory
 
-- [Start a trial](/pricing/1rmb-trial/) - sign up for a trial today and  start integrating your apps with Azure AD
+- Check out our [Developers Guide](./active-directory-developers-guide.md) to Azure Active Directory
+
+- [Start a trial](https://www.azure.cn/pricing/1rmb-trial/) - sign up for a trial today and  start integrating your apps with Azure AD
 
 ## Where can I learn more?
 We have a ton of great resources online to help you learn all about Azure AD. Here’s a list of great articles to get you started:
 
-- [Enabling your directory for hybrid management with Azure AD Connect](/documentation/articles/active-directory-aadconnect/)
-- [Additional security for an ever connected world](/documentation/articles/multi-factor-authentication/)
+- [Enabling your directory for hybrid management with Azure AD Connect](./active-directory-aadconnect.md)
+- [Additional security for an ever connected world](../multi-factor-authentication/multi-factor-authentication.md)
 
-
-- [Manage your passwords from anywhere](/documentation/articles/active-directory-passwords/)
-- [What is application access and single sign-on with Azure Active Directory?](/documentation/articles/active-directory-appssoaccess-whatis/)
-- [What is Azure Active Directory licensing?](/documentation/articles/active-directory-licensing-what-is/)
-
+- [Manage your passwords from anywhere](./active-directory-passwords.md)
+- [What is application access and single sign-on with Azure Active Directory?](./active-directory-appssoaccess-whatis.md)
+- [What is Azure Active Directory licensing?](./active-directory-licensing-what-is.md)

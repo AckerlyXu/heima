@@ -54,35 +54,36 @@ To register for transaction notifications and/or state manager notifications, yo
 A common place to register with these event handlers is the constructor of your stateful service. 
 When you register on the constructor, you won't miss any notification that's caused by a change during the lifetime of **IReliableStateManager**.
 
-
-	public MyService(StatefulServiceContext context)
-    		: base(MyService.EndpointName, context, CreateReliableStateManager(context))
-	{
-    		this.StateManager.TransactionChanged += this.OnTransactionChangedHandler;
-    		this.StateManager.StateManagerChanged += this.OnStateManagerChangedHandler;
-	}
-
+```C#
+public MyService(StatefulServiceContext context)
+        : base(MyService.EndpointName, context, CreateReliableStateManager(context))
+{
+        this.StateManager.TransactionChanged += this.OnTransactionChangedHandler;
+        this.StateManager.StateManagerChanged += this.OnStateManagerChangedHandler;
+}
+```
 
 The **TransactionChanged** event handler uses **NotifyTransactionChangedEventArgs** to provide details about the event. 
 It contains the action property (for example, **NotifyTransactionChangedAction.Commit**) that specifies the type of change. 
 It also contains the transaction property that provides a reference to the transaction that changed.
 
->[AZURE.NOTE] Today, **TransactionChanged** events are raised only if the transaction is committed. The action is then equal to **NotifyTransactionChangedAction.Commit**. But in the future, events might be raised for other types of transaction state changes. We recommend checking the action and processing the event only if it's one that you expect.
+>[!NOTE]
+> Today, **TransactionChanged** events are raised only if the transaction is committed. The action is then equal to **NotifyTransactionChangedAction.Commit**. But in the future, events might be raised for other types of transaction state changes. We recommend checking the action and processing the event only if it's one that you expect.
 
 Following is an example **TransactionChanged** event handler.
 
+```C#
+private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
+{
+        if (e.Action == NotifyTransactionChangedAction.Commit)
+        {
+            this.lastCommitLsn = e.Transaction.CommitSequenceNumber;
+            this.lastTransactionId = e.Transaction.TransactionId;
 
-	private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
-	{
-    		if (e.Action == NotifyTransactionChangedAction.Commit)
-    		{
-        		this.lastCommitLsn = e.Transaction.CommitSequenceNumber;
-        		this.lastTransactionId = e.Transaction.TransactionId;
-
-        		this.lastCommittedTransactionList.Add(e.Transaction.TransactionId);
-    		}
-	}
-
+            this.lastCommittedTransactionList.Add(e.Transaction.TransactionId);
+        }
+}
+```
 
 The **StateManagerChanged** event handler uses **NotifyStateManagerChangedEventArgs** to provide details about the event.
 **NotifyStateManagerChangedEventArgs** has two subclasses: **NotifyStateManagerRebuildEventArgs** and **NotifyStateManagerSingleEntityChangedEventArgs**.
@@ -93,19 +94,19 @@ You use the action property in **NotifyStateManagerChangedEventArgs** to cast **
 
 Following is an example **StateManagerChanged** notification handler.
 
+```C#
+public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
+{
+        if (e.Action == NotifyStateManagerChangedAction.Rebuild)
+        {
+            this.ProcessStataManagerRebuildNotification(e);
 
-	public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
-	{
-    		if (e.Action == NotifyStateManagerChangedAction.Rebuild)
-    		{
-        		this.ProcessStataManagerRebuildNotification(e);
+            return;
+        }
 
-        		return;
-    		}
-
-    		this.ProcessStateManagerSingleEntityNotification(e);
-	}
-
+        this.ProcessStateManagerSingleEntityNotification(e);
+}
+```
 
 ## Reliable Dictionary notifications
 Reliable Dictionary provides notifications for the following events:
@@ -120,45 +121,47 @@ To get Reliable Dictionary notifications, you need to register with the **Dictio
 A common place to register with these event handlers is in the **ReliableStateManager.StateManagerChanged** add notification.
 Registering when **IReliableDictionary** is added to **IReliableStateManager** ensures that you won't miss any notifications.
 
+```C#
+private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
+{
+        var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
 
-	private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
-	{
-    		var operation = e as NotifyStateManagerSingleEntityChangedEventArgs;
+        if (operation.Action == NotifyStateManagerChangedAction.Add)
+        {
+            if (operation.ReliableState is IReliableDictionary<TKey, TValue>)
+            {
+                    var dictionary = (IReliableDictionary<TKey, TValue>)operation.ReliableState;
+                    dictionary.RebuildNotificationAsyncCallback = this.OnDictionaryRebuildNotificationHandlerAsync;
+                    dictionary.DictionaryChanged += this.OnDictionaryChangedHandler;
+                    }
+            }
+        }
+}
+```
 
-    		if (operation.Action == NotifyStateManagerChangedAction.Add)
-    		{
-        		if (operation.ReliableState is IReliableDictionary<TKey, TValue>)
-        		{
-            			var dictionary = (IReliableDictionary<TKey, TValue>)operation.ReliableState;
-            			dictionary.RebuildNotificationAsyncCallback = this.OnDictionaryRebuildNotificationHandlerAsync;
-            			dictionary.DictionaryChanged += this.OnDictionaryChangedHandler;
-            			}
-        		}
-    		}
-	}
-
-
->[AZURE.NOTE] **ProcessStateManagerSingleEntityNotification** is the sample method that the preceding **OnStateManagerChangedHandler** example calls.
+>[!NOTE]
+> **ProcessStateManagerSingleEntityNotification** is the sample method that the preceding **OnStateManagerChangedHandler** example calls.
 
 The preceding code sets the **IReliableNotificationAsyncCallback** interface, along with **DictionaryChanged**. 
 Because **NotifyDictionaryRebuildEventArgs** contains an **IAsyncEnumerable** interface--which needs to be enumerated asynchronously--rebuild notifications are fired through **RebuildNotificationAsyncCallback** instead of **OnDictionaryChangedHandler**.
 
+```C#
+public async Task OnDictionaryRebuildNotificationHandlerAsync(
+        IReliableDictionary<TKey, TValue> origin,
+        NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
+{
+        this.secondaryIndex.Clear();
 
-	public async Task OnDictionaryRebuildNotificationHandlerAsync(
-    		IReliableDictionary<TKey, TValue> origin,
-    		NotifyDictionaryRebuildEventArgs<TKey, TValue> rebuildNotification)
-	{
-    		this.secondaryIndex.Clear();
+        var enumerator = e.State.GetAsyncEnumerator();
+        while (await enumerator.MoveNextAsync(CancellationToken.None))
+        {
+            this.secondaryIndex.Add(enumerator.Current.Key, enumerator.Current.Value);
+        }
+}
+```
 
-    		var enumerator = e.State.GetAsyncEnumerator();
-    		while (await enumerator.MoveNextAsync(CancellationToken.None))
-    		{
-        		this.secondaryIndex.Add(enumerator.Current.Key, enumerator.Current.Value);
-    		}
-	}
-
-
->[AZURE.NOTE] In the preceding code, as part of processing the rebuild notification, first the maintained aggregated state is cleared. Because the reliable collection is being rebuilt with a new state, all previous notifications are irrelevant.
+>[!NOTE]
+> In the preceding code, as part of processing the rebuild notification, first the maintained aggregated state is cleared. Because the reliable collection is being rebuilt with a new state, all previous notifications are irrelevant.
 
 The **DictionaryChanged** event handler uses **NotifyDictionaryChangedEventArgs** to provide details about the event.
 **NotifyDictionaryChangedEventArgs** has five subclasses. 
@@ -170,36 +173,36 @@ Use the action property in **NotifyDictionaryChangedEventArgs** to cast **Notify
 - **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 - **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
+    public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
+    {
+            switch (e.Action)
+            {
+                case NotifyDictionaryChangedAction.Clear:
+                        var clearEvent = e as NotifyDictionaryClearEventArgs<TKey, TValue>;
+                        this.ProcessClearNotification(clearEvent);
+                        return;
 
-	public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
-	{
-    		switch (e.Action)
-    		{
-        		case NotifyDictionaryChangedAction.Clear:
-            			var clearEvent = e as NotifyDictionaryClearEventArgs<TKey, TValue>;
-            			this.ProcessClearNotification(clearEvent);
-            			return;
+    ```C#
+            case NotifyDictionaryChangedAction.Add:
+                    var addEvent = e as NotifyDictionaryItemAddedEventArgs<TKey, TValue>;
+                    this.ProcessAddNotification(addEvent);
+                    return;
 
-        		case NotifyDictionaryChangedAction.Add:
-            			var addEvent = e as NotifyDictionaryItemAddedEventArgs<TKey, TValue>;
-            			this.ProcessAddNotification(addEvent);
-            			return;
+            case NotifyDictionaryChangedAction.Update:
+                    var updateEvent = e as NotifyDictionaryItemUpdatedEventArgs<TKey, TValue>;
+                    this.ProcessUpdateNotification(updateEvent);
+                    return;
 
-        		case NotifyDictionaryChangedAction.Update:
-            			var updateEvent = e as NotifyDictionaryItemUpdatedEventArgs<TKey, TValue>;
-            			this.ProcessUpdateNotification(updateEvent);
-            			return;
+            case NotifyDictionaryChangedAction.Remove:
+                    var deleteEvent = e as NotifyDictionaryItemRemovedEventArgs<TKey, TValue>;
+                    this.ProcessRemoveNotification(deleteEvent);
+                    return;
 
-        		case NotifyDictionaryChangedAction.Remove:
-            			var deleteEvent = e as NotifyDictionaryItemRemovedEventArgs<TKey, TValue>;
-            			this.ProcessRemoveNotification(deleteEvent);
-            			return;
-
-        		default:
-            			break;
-    		}
-	}
-
+            default:
+                    break;
+        }
+    ```
+    }
 
 ## Recommendations
 
@@ -216,7 +219,7 @@ Here are some things to keep in mind:
 - As part of processing false progress, some operations might be undone. Notifications are raised for such undo operations, rolling the state of the replica back to a stable point. One important difference of undo notifications is that events that have duplicate keys are aggregated. For example, if transaction T1 is being undone, you'll see a single notification to Delete(X).
 
 ## Next steps
-- [Reliable Collections](/documentation/articles/service-fabric-work-with-reliable-collections/)
-- [Reliable Services quick start](/documentation/articles/service-fabric-reliable-services-quick-start/)
-- [Reliable Services backup and restore (disaster recovery)](/documentation/articles/service-fabric-reliable-services-backup-restore/)
+- [Reliable Collections](./service-fabric-work-with-reliable-collections.md)
+- [Reliable Services quick start](./service-fabric-reliable-services-quick-start.md)
+- [Reliable Services backup and restore (disaster recovery)](./service-fabric-reliable-services-backup-restore.md)
 - [Developer reference for Reliable Collections](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicefabric.data.collections.aspx)

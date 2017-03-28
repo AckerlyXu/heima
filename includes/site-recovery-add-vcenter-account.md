@@ -6,5 +6,5 @@
 
     ![Details](./media/site-recovery-add-vcenter-account/credentials2.png)
 
-	> [AZURE.Note]
+    > [AZURE.Note]
   > It can take 15 minutes or more for the account name to appear in the portal. To update immediately, click **Configuration Servers** > ***server name*** > **Refresh Server**.

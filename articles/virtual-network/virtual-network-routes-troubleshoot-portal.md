@@ -1,35 +1,36 @@
-<properties
-    pageTitle="Troubleshoot routes - Portal | Azure"
-    description="Learn how to troubleshoot routes in the Azure Resource Manager deployment model using the Azure Portal Preview."
-    services="virtual-network"
-    documentationcenter="na"
-    author="AnithaAdusumilli"
-    manager="narayan"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="bdd8b6dc-02fb-4057-bb23-8289caa9de89"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="09/23/2016"
-    wacn.date=""
-    ms.author="anithaa" />
+---
+title: Troubleshoot routes - Portal | Azure
+description: Learn how to troubleshoot routes in the Azure Resource Manager deployment model using the Azure Portal Preview.
+services: virtual-network
+documentationcenter: na
+author: AnithaAdusumilli
+manager: narayan
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: bdd8b6dc-02fb-4057-bb23-8289caa9de89
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/23/2016
+wacn.date: ''
+ms.author: anithaa
+---
 
 # Troubleshoot routes using the Azure Portal Preview
-> [AZURE.SELECTOR]
-- [Azure Portal Preview](/documentation/articles/virtual-network-routes-troubleshoot-portal/)
-- [PowerShell](/documentation/articles/virtual-network-routes-troubleshoot-powershell/)
+> [!div class="op_single_selector"]
+>- [Azure Portal Preview](./virtual-network-routes-troubleshoot-portal.md)
+>- [PowerShell](./virtual-network-routes-troubleshoot-powershell.md)
 
 If you are experiencing network connectivity issues to or from your Azure Virtual Machine (VM), routes may be impacting your VM traffic flows. This article provides an overview of diagnostics capabilities for routes to help troubleshoot further.
 
 Route tables are associated with subnets and are effective on all network interfaces (NIC) in that subnet. The following types of routes can be applied to each network interface:
 
 * **System routes:** By default, every subnet created in an Azure Virtual Network (VNet) has system route tables that allow local VNet traffic, on-premises traffic via VPN gateways, and Internet traffic. System routes also exist for peered VNets.
-* **BGP routes:** Propagated to network interfaces through ExpressRoute or site-to-site VPN connections. Learn more about BGP routing by reading the [BGP with VPN gateways](/documentation/articles/vpn-gateway-bgp-overview/) and [ExpressRoute overview](/documentation/articles/expressroute-introduction/) articles.
-* **User-defined routes (UDR):** If you are using network virtual appliances or are forced-tunneling traffic to an on-premises network via a site-to-site VPN, you may have user-defined routes (UDRs) associated with your subnet route table. If you're not familiar with UDRs, read the [user-defined routes](/documentation/articles/virtual-networks-udr-overview/#user-defined-routes) article.
+* **BGP routes:** Propagated to network interfaces through ExpressRoute or site-to-site VPN connections. Learn more about BGP routing by reading the [BGP with VPN gateways](../vpn-gateway/vpn-gateway-bgp-overview.md) and [ExpressRoute overview](../expressroute/expressroute-introduction.md) articles.
+* **User-defined routes (UDR):** If you are using network virtual appliances or are forced-tunneling traffic to an on-premises network via a site-to-site VPN, you may have user-defined routes (UDRs) associated with your subnet route table. If you're not familiar with UDRs, read the [user-defined routes](./virtual-networks-udr-overview.md#user-defined-routes) article.
 
 With the various routes that can be applied to a network interface, it can be difficult to determine which aggregate routes are effective. To help troubleshoot VM network connectivity, you can view all the effective routes for a network interface in the Azure Resource Manager deployment model.
 
@@ -41,7 +42,7 @@ A VM (*VM1*) connected to the VNet (*VNet1*, prefix: 10.9.0.0/16) fails to conne
 This article explains how to determine the cause of the connection failure, using effective routes capability in Azure Resource Management deployment model.
 While the example uses only system routes, the same steps can be used to determine inbound and outbound connection failures over any route type.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If your VM has more than one NIC attached, check effective routes for each of the NICs to diagnose network connectivity issues to and from a VM.
 >
 >
@@ -66,7 +67,7 @@ To see the aggregate routes that are applied to a VM, complete the following ste
 
     If your VM has only one NIC, it is selected by default. If you have more than one NIC, select the NIC for which you want to view the effective routes.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > If the VM associated with the NIC is not in a running state, effective routes will not be shown. Only the first 200 effective routes are shown in the portal. For the full list, click **Download**. You can further filter on the results from the downloaded .csv file.
     >
     >
@@ -86,7 +87,7 @@ To see the aggregate routes that are applied to a VM, complete the following ste
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image5.png)
 
-For more troubleshooting scenarios for forced-tunneling and route evaluation, read the [Considerations](/documentation/articles/virtual-network-routes-troubleshoot-portal/#considerations) section of this article.
+For more troubleshooting scenarios for forced-tunneling and route evaluation, read the [Considerations](./virtual-network-routes-troubleshoot-portal.md#considerations) section of this article.
 
 ### View effective routes for a network interface
 If network traffic flow is impacted for a particular network interface (NIC), you can view a full list of effective routes on a NIC directly. To see the aggregate routes that are applied to a NIC, complete the following steps:
@@ -122,7 +123,7 @@ To see the aggregate routes for a route table, complete the following steps:
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image10.png)
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > If the NIC is not associated with a running VM, no effective routes are shown.
     >
     >
@@ -144,4 +145,4 @@ A few things to keep in mind when reviewing the list of routes returned:
     * If a default route is advertised over BGP
 * For VNet peering traffic to work correctly, a system route with **nextHopType** *VNetPeering* must exist for the peered VNet's prefix range. If such a route doesn't exist and the VNet peering link looks OK:
     * Wait a few seconds and retry if it's a newly established peering link. It occasionally takes longer to propagate routes to all the network interfaces in a subnet.
-    * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](/documentation/articles/virtual-network-nsg-troubleshoot-portal/) article.
+    * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](./virtual-network-nsg-troubleshoot-portal.md) article.

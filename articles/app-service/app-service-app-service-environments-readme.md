@@ -1,24 +1,25 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="App Service Environment | Azure"
-    description="What is an Azure App Service Environment? An introduction to App Service Environment."
-    keywords="azure app service environment, virtual network, secure networking"
-    services="app-service"
-    documentationcenter=""
-    author="stefsch"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="1db5c057-3c56-4537-b580-cdd21fe3f3a7"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/01/2016"
-    wacn.date=""
-    ms.author="stefsch" />
+---
+title: App Service Environment | Azure
+description: What is an Azure App Service Environment? An introduction to App Service Environment.
+keywords: azure app service environment, virtual network, secure networking
+services: app-service
+documentationcenter: ''
+author: stefsch
+manager: erikre
+editor: ''
+
+ms.assetid: 1db5c057-3c56-4537-b580-cdd21fe3f3a7
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/01/2016
+wacn.date: ''
+ms.author: stefsch
+---
 
 # App Service Environment Documentation
 An App Service Environment is a [Premium][PremiumTier] service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps at high scale, including [Web Apps][WebApps], [Mobile Apps][MobileApps], and [API Apps][APIApps].  
@@ -34,16 +35,16 @@ App Service Environments are isolated to running only a single customer's applic
 
 Apps frequently need to access corporate resources such as internal databases and web services.  Apps running on App Service Environments can access resources reachable via [Site-to-Site][SiteToSite] VPN and [Azure ExpressRoute][ExpressRoute] connections.
 
-* [What is an App Service Environment?](/documentation/articles/app-service-app-service-environment-intro/)
-* [Creating an App Service Environment](/documentation/articles/app-service-web-how-to-create-an-app-service-environment/)
-* [Creating Apps in an App Service Environment](/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
-* [Creating and Using an Internal Load Balancer with App Service Environments](/documentation/articles/app-service-environment-with-internal-load-balancer/)
-* [Configuring an App Service Environment](/documentation/articles/app-service-web-configure-an-app-service-environment/) 
-* [Scaling Apps in an App Service Environment](/documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment/)
-* [Network Security and Architecture](/documentation/articles/app-service-app-service-environment-network-architecture-overview/)
+* [What is an App Service Environment?](../app-service-web/app-service-app-service-environment-intro.md)
+* [Creating an App Service Environment](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Creating Apps in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Creating and Using an Internal Load Balancer with App Service Environments](../app-service-web/app-service-environment-with-internal-load-balancer.md)
+* [Configuring an App Service Environment](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [Scaling Apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+* [Network Security and Architecture](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
 ## How To's
-[AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
+[!INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
 ## Videos
 >[!VIDEO https://channel9.msdn.com/Events/Ignite/2016/BRK3205/player]
@@ -53,10 +54,10 @@ Apps frequently need to access corporate resources such as internal databases an
 >[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
 
 <!-- LINKS -->
-[PremiumTier]: /pricing/overview/app-service/
-[WebApps]: /documentation/articles/app-service-web-overview/
+[PremiumTier]: https://www.azure.cn/pricing/overview/app-service/
+[WebApps]: ../app-service-web/app-service-web-overview.md
 [MobileApps]: /documentation/articles/app-service-mobile-value-prop-preview/
-[APIApps]: /documentation/articles/app-service-api-apps-why-best-platform/
-[NetworkSecurityGroups]: /documentation/articles/virtual-networks-nsg/
-[SiteToSite]: /documentation/articles/vpn-gateway-site-to-site-create/
+[APIApps]: ../app-service-api/app-service-api-apps-why-best-platform.md
+[NetworkSecurityGroups]: ../virtual-network/virtual-networks-nsg.md
+[SiteToSite]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/

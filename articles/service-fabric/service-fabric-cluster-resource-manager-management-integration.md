@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Service Fabric Cluster Resource Manager - Management Integration | Azure"
-    description="An overview of the integration points between the Cluster Resource Manager and Service Fabric Management."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="masnider"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="956cd0b8-b6e3-4436-a224-8766320e8cd7"
-    ms.service="Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="masnider" />
+---
+title: Service Fabric Cluster Resource Manager - Management Integration | Azure
+description: An overview of the integration points between the Cluster Resource Manager and Service Fabric Management.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
+
+ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: masnider
+---
 
 # Cluster resource manager integration with Service Fabric cluster management
 The Service Fabric Cluster Resource Manager isn’t the main component of Service Fabric that handles management operations (like application upgrades) but it is involved. The first way that the Cluster Resource Manager helps with management is by tracking the desired state of the cluster and the services inside it. The Cluster Resource Manager sends out health reports when it cannot put the cluster into the desired configuration. An example would be if there is insufficient capacity, or conflicting rules about where a service should be placed. Another piece of integration has to do with how upgrades work. During upgrades the Cluster Resource Manager alters its behavior slightly. We’ll talk about both of these integration points below.
@@ -29,7 +30,6 @@ Here’s an example of one such health report. In this case, the health report i
 
 ```posh
 PS C:\Users\User > Get-WindowsFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
-
 
 PartitionId           : 00000000-0000-0000-0000-000000000001
 AggregatedHealthState : Warning
@@ -89,8 +89,8 @@ Let’s talk about each of the different constraints you can see in these health
 * **ReplicaExclusionStatic** and **ReplicaExclusionDynamic**: This constraint indicates that two stateful replicas or stateless instances from the same partition would have to be placed on the same node (which isn’t allowed). ReplicaExclusionStatic and ReplicaExclusionDynamic are almost the same rule. The ReplicaExclusionDynamic constraint says “we couldn’t place this replica here because the only proposed solution had already placed a replica here”. This is different from the ReplicaExclusionStatic constraint that indicates not a proposed conflict but an actual one. In this case, there is a replica already on the node. Is this confusing? Yes. Does it matter a lot? No. If you are seeing a constraint elimination sequence containing either the ReplicaExclusionStatic or ReplicaExclusionDynamic constraint the Cluster Resource Manager thinks that there aren’t enough nodes. The further constraints can usually tell us how we’re ending up with too few nodes.
 * **PlacementConstraint**: If you see this message, it means that we eliminated some nodes because they didn’t match the service’s placement constraints. We trace out the currently configured placement constraints as a part of this message. This is normal if you have a placement constraints defined. However, if there is a bug in the placement constraint causing too many nodes to be eliminated this is where you would notice.
 * **NodeCapacity**: This constraint means that the Cluster Resource Manager couldn’t place the replicas on the indicated nodes because doing so would cause the node to go over capacity.
-* **Affinity**: This constraint indicates that we couldn’t place the replica on the affected nodes since it would cause a violation of the affinity constraint. More information on affinity is in [this article](/documentation/articles/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/)
-* **FaultDomain** and **UpgradeDomain**: This constraint eliminates nodes if placing the replica on the indicated nodes would cause packing in a particular fault or upgrade domain. Several examples discussing this constraint are presented in the topic on [fault and upgrade domain constraints and resulting behavior](/documentation/articles/service-fabric-cluster-resource-manager-cluster-description/)
+* **Affinity**: This constraint indicates that we couldn’t place the replica on the affected nodes since it would cause a violation of the affinity constraint. More information on affinity is in [this article](./service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* **FaultDomain** and **UpgradeDomain**: This constraint eliminates nodes if placing the replica on the indicated nodes would cause packing in a particular fault or upgrade domain. Several examples discussing this constraint are presented in the topic on [fault and upgrade domain constraints and resulting behavior](./service-fabric-cluster-resource-manager-cluster-description.md)
 * **PreferredLocation**: You shouldn’t normally see this constraint causing nodes to get removed from the solution since it is set at the optimization level by default. Further, the preferred location constraint is usually present during upgrades. During upgrade it is used to move replicas back to where they were when the upgrade started.
 
 ### Constraint priorities
@@ -119,39 +119,39 @@ ClusterManifest.xml
 
 via ClusterConfig.json for Standalone deployments or Template.json for Azure hosted clusters:
 
-
-	"fabricSettings": [
-	  {
-	    "name": "PlacementAndLoadBalancing",
-	    "parameters": [
-	      {
-	          "name": "PlacementConstraintPriority",
-	          "value": "0"
-	      },
-	      {
-	          "name": "CapacityConstraintPriority",
-	          "value": "0"
-	      },
-	      {
-	          "name": "AffinityConstraintPriority",
-	          "value": "0"
-	      },
-	      {
-	          "name": "FaultDomainConstraintPriority",
-	          "value": "0"
-	      },
-	      {
-	          "name": "UpgradeDomainConstraintPriority",
-	          "value": "1"
-	      },
-	      {
-	          "name": "PreferredLocationConstraintPriority",
-	          "value": "2"
-	      }
-	    ]
-	  }
-	]
-
+```json
+"fabricSettings": [
+  {
+    "name": "PlacementAndLoadBalancing",
+    "parameters": [
+      {
+          "name": "PlacementConstraintPriority",
+          "value": "0"
+      },
+      {
+          "name": "CapacityConstraintPriority",
+          "value": "0"
+      },
+      {
+          "name": "AffinityConstraintPriority",
+          "value": "0"
+      },
+      {
+          "name": "FaultDomainConstraintPriority",
+          "value": "0"
+      },
+      {
+          "name": "UpgradeDomainConstraintPriority",
+          "value": "1"
+      },
+      {
+          "name": "PreferredLocationConstraintPriority",
+          "value": "2"
+      }
+    ]
+  }
+]
+```
 
 ## Fault domain and upgrade domain constraints
 The Cluster Resource Manager models the desire to keep services spread out among fault and upgrade domains as a constraint inside the Resource Manager’s engine. For more information on how they are used, check out the article on [cluster configuration](service-fabric-cluster-resource-manager-cluster-description.md).
@@ -177,7 +177,7 @@ When an upgrade starts, the Resource Manager takes a snapshot of the current arr
 Another thing that happens during upgrades is that the Cluster Resource Manager turns off balancing for the entity being upgraded. This means that if you have two different application instances and upgrade on one of them, then balancing is paused for that application instance, but not the other one. Preventing balancing prevents unnecessary reactions to the upgrade itself, like moving services into nodes that were emptied for the upgrade. If the upgrade in question is a Cluster upgrade, then the entire cluster is not balanced during the upgrade. Constraint checks – ensuring the rules are enforced – stay active, only rebalancing is disabled.
 
 ### Relaxed rules
-Generally that you want the upgrade to complete even if the cluster is constrained or full overall. During upgrades being able to manage the capacity of the cluster is even more important than usual. This is because there is typically between 5 and 20 percent of the capacity down at a time as the upgrade rolls through the cluster. That work usually has to go somewhere. This is where the notion of [buffered capacities](/documentation/articles/service-fabric-cluster-resource-manager-cluster-description/#buffered-capacity) really comes into play. While the buffered capacity is respected during normal operation (leaving some overhead), the Cluster Resource Manager fills up to the total capacity (taking up the buffer) during upgrades.
+Generally that you want the upgrade to complete even if the cluster is constrained or full overall. During upgrades being able to manage the capacity of the cluster is even more important than usual. This is because there is typically between 5 and 20 percent of the capacity down at a time as the upgrade rolls through the cluster. That work usually has to go somewhere. This is where the notion of [buffered capacities](./service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) really comes into play. While the buffered capacity is respected during normal operation (leaving some overhead), the Cluster Resource Manager fills up to the total capacity (taking up the buffer) during upgrades.
 
 ## Next steps
-- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](/documentation/articles/service-fabric-cluster-resource-manager-introduction/)
+- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](./service-fabric-cluster-resource-manager-introduction.md)

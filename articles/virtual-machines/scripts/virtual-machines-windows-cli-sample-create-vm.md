@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Create a Windows Server VM | Azure"
-    description="Azure CLI Script Sample - Create a Windows Server VM"
-    services="virtual-machines-Windows"
-    documentationcenter="virtual-machines"
-    author="rickstercdn"
-    manager="timlt"
-    editor="tysonn"
-    tags="" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-Windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-Windows"
-    ms.workload="infrastructure"
-    ms.date="02/23/2017"
-    wacn.date=""
-    ms.author="rclaus" />
+---
+title: Azure CLI Script Sample - Create a Windows Server VM | Azure
+description: Azure CLI Script Sample - Create a Windows Server VM
+services: virtual-machines-Windows
+documentationcenter: virtual-machines
+author: rickstercdn
+manager: timlt
+editor: tysonn
+tags: ''
+
+ms.assetid: ''
+ms.service: virtual-machines-Windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-Windows
+ms.workload: infrastructure
+ms.date: 02/23/2017
+wacn.date: ''
+ms.author: rclaus
+---
 
 # Create a virtual machine with the Azure CLI
 
@@ -24,55 +25,58 @@ This script creates an Azure Virtual Machine running Windows Server 2016. After 
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
-This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash Shell. For options on running Azure CLI scripts on Windows, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    # Update for your admin password
-    AdminPassword=ChangeYourAdminPassword1
+# Update for your admin password
+AdminPassword=ChangeYourAdminPassword1
 
-    # Create a resource group.
-    az group create --name myResourceGroup --location chinanorth
+# Create a resource group.
+az group create --name myResourceGroup --location chinanorth
 
-    # Create a virtual network.
-    az network vnet create --resource-group myResourceGroup --name myVnet --subnet-name mySubnet
+# Create a virtual network.
+az network vnet create --resource-group myResourceGroup --name myVnet --subnet-name mySubnet
 
-    # Create a public IP address.
-    az network public-ip create --resource-group myResourceGroup --name myPublicIP
+# Create a public IP address.
+az network public-ip create --resource-group myResourceGroup --name myPublicIP
 
-    # Create a network security group.
-    az network nsg create --resource-group myResourceGroup --name myNetworkSecurityGroup
+# Create a network security group.
+az network nsg create --resource-group myResourceGroup --name myNetworkSecurityGroup
 
-    # Create a virtual network card and associate with public IP address and NSG.
-    az network nic create \
-      --resource-group myResourceGroup \
-      --name myNic \
-      --vnet-name myVnet \
-      --subnet mySubnet \
-      --network-security-group myNetworkSecurityGroup \
-      --public-ip-address myPublicIP
+# Create a virtual network card and associate with public IP address and NSG.
+az network nic create \
+  --resource-group myResourceGroup \
+  --name myNic \
+  --vnet-name myVnet \
+  --subnet mySubnet \
+  --network-security-group myNetworkSecurityGroup \
+  --public-ip-address myPublicIP
 
-    # Create a virtual machine. 
-    az vm create \
-        --resource-group myResourceGroup \
-        --name myVM \
-        --location chinanorth \
-        --nics myNic \
-        --image win2016datacenter \
-        --admin-username azureuser \
-        --admin-password $AdminPassword
+# Create a virtual machine. 
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM \
+    --location chinanorth \
+    --nics myNic \
+    --image win2016datacenter \
+    --admin-username azureuser \
+    --admin-password $AdminPassword
 
-    # Open port 3389 to allow RDP traffic to host.
-    az vm open-port --port 3389 --resource-group myResourceGroup --name myVM
-
+# Open port 3389 to allow RDP traffic to host.
+az vm open-port --port 3389 --resource-group myResourceGroup --name myVM
+```
 
 ## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-    az group delete --name myResourceGroup --yes
+```azurecli
+az group delete --name myResourceGroup --yes
+```
 
 ## Script explanation
 
@@ -92,4 +96,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](/documentation/articles/virtual-machines-windows-cli-samples/).
+Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../virtual-machines-windows-cli-samples.md).

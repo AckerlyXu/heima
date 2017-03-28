@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Sharing accounts using Azure AD | Azure"
-	description="Describes how Azure Active Directory enables organizations to securely share accounts for on-premises apps and consumer cloud services."
-	services="active-directory"
-	documentationCenter=""
-	authors="msStevenPo"
- 	manager="stevenpo"
-	editor=""/>
+---
+title: Sharing accounts using Azure AD | Azure
+description: Describes how Azure Active Directory enables organizations to securely share accounts for on-premises apps and consumer cloud services.
+services: active-directory
+documentationCenter: ''
+authors: msStevenPo
+manager: stevenpo
+editor: ''
 
- <tags
-	ms.service="active-directory"
- 	ms.date="02/09/2016"
- 	wacn.date=""/>
+ms.service: active-directory
+ms.date: 02/09/2016
+wacn.date: ''
+---
 
 # Sharing accounts with Azure AD
 
@@ -46,24 +46,24 @@ Azure AD features that enable account sharing include:
 
 - [Password single sign-on](/documentation/articles/active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
 - Password single sign-on agent
-- [Group assignment](/documentation/articles/active-directory-accessmanagement-self-service-group-management/)
+- [Group assignment](./active-directory-accessmanagement-self-service-group-management.md)
 - Custom Password apps
-- [App usage dashboard/reports](/documentation/articles/active-directory-passwords-get-insights/)
+- [App usage dashboard/reports](./active-directory-passwords-get-insights.md)
 - End user access portals
-- [App proxy](/documentation/articles/active-directory-application-proxy-get-started/)
+- [App proxy](./active-directory-application-proxy-get-started.md)
 - [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Sharing an account
 To use Azure AD to share an account you will need to:
 
 - Configure the application for password Single Sign-On (SSO)
-- Use [group based assignment](/documentation/articles/active-directory-accessmanagement-group-saasapps/) and select the option to enter a shared credential
+- Use [group based assignment](./active-directory-accessmanagement-group-saasapps.md) and select the option to enter a shared credential
 - Optional: in some applications, such as Facebook, Twitter, or LinkedIn, you can enable the option for [Azure AD automated password roll-over](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
-You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](/documentation/articles/multi-factor-authentication-get-started/)) and you can delegate the ability to manage who has access to the application using [Azure AD Self-service](/documentation/articles/active-directory-accessmanagement-self-service-group-management/) Group Management.
+You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)) and you can delegate the ability to manage who has access to the application using [Azure AD Self-service](./active-directory-accessmanagement-self-service-group-management.md) Group Management.
 
 ## Related articles
 
-- [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
-- [Protecting apps with conditional access](/documentation/articles/active-directory-conditional-access/)
-- [Self-service group management/SSAA](/documentation/articles/active-directory-accessmanagement-self-service-group-management/)
+- [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
+- [Protecting apps with conditional access](./active-directory-conditional-access.md)
+- [Self-service group management/SSAA](./active-directory-accessmanagement-self-service-group-management.md)

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Get started with Adafruit Feather M0 WiFi Azure IoT Starter Kit | Azure"
-    description="Get started with Adafruit Feather M0 WiFi, create your Azure IoT hub, and connect Adafruit Feather M0 WiFi to the IoT hub"
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="azure iot hub, getting started with the internet of things, internet of things tutorial, adafruit internet of things, getting started with arduino" />
-<tags
-    ms.assetid="51befcdb-332b-416f-a6a1-8aabdb67f283"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get started with Adafruit Feather M0 WiFi Azure IoT Starter Kit | Azure
+description: Get started with Adafruit Feather M0 WiFi, create your Azure IoT hub, and connect Adafruit Feather M0 WiFi to the IoT hub
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: azure iot hub, getting started with the internet of things, internet of things tutorial, adafruit internet of things, getting started with arduino
+
+ms.assetid: 51befcdb-332b-416f-a6a1-8aabdb67f283
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get started with your Arduino board: Adafruit Feather M0 WiFi
 
@@ -124,17 +125,17 @@ If you have any problems during the lessons, look for solutions in the [Troubles
 <!-- Images and links -->
 
 [Lesson-1-end-to-end-diagram]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson1.png
-[configure-your-device]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device/
+[configure-your-device]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md
 [get-the-tools]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md
-[create-and-deploy-the-blink-application]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app/
+[create-and-deploy-the-blink-application]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
 [lesson-2-end-to-end-diagram]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson2.png
-[get-azure-tools]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32/
-[create-your-iot-hub-and-register-your-arduino-board]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub/
+[get-azure-tools]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md
+[create-your-iot-hub-and-register-your-arduino-board]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md
 [lesson-3-end-to-end-diagram]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson3.png
-[create-an-azure-function-app-and-azure-storage-account]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template/
-[send-device-to-cloud-messages]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink/
-[read-messages-persisted-in-azure-storage]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage/
+[create-an-azure-function-app-and-azure-storage-account]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md
+[send-device-to-cloud-messages]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md
+[read-messages-persisted-in-azure-storage]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md
 [lesson-4-end-to-end-diagram]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson4.png
-[receive-cloud-to-device-messages]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages/
-[change-the-on-and-off-behavior-of-the-led]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior/
-[troubleshooting]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/
+[receive-cloud-to-device-messages]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md
+[change-the-on-and-off-behavior-of-the-led]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md
+[troubleshooting]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md

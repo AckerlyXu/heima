@@ -1,31 +1,31 @@
-<properties
-    pageTitle="Sending push notifications with Azure Notification Hubs and Node.js"
-    description="Learn how to use Notification Hubs to send push notifications from a Node.js application."
-    keywords="push notification,push notifications,node.js push,ios push"
-    services="notification-hubs"
-    documentationcenter="nodejs"
-    author="ysxu"
-    manager="dwrede"
-    editor="" />
-    
-<tags
-    ms.assetid="ded4749c-6c39-4ff8-b2cf-1927b3e92f93"
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="javascript"
-    ms.topic="article"
-    ms.date="10/25/2016"
-    wacn.date=""
-    ms.author="yuaxu" />
+---
+title: Sending push notifications with Azure Notification Hubs and Node.js
+description: Learn how to use Notification Hubs to send push notifications from a Node.js application.
+keywords: push notification,push notifications,node.js push,ios push
+services: notification-hubs
+documentationcenter: nodejs
+author: ysxu
+manager: dwrede
+editor: ''
+
+ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
+ms.service: notification-hubs
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: javascript
+ms.topic: article
+ms.date: 10/25/2016
+wacn.date: ''
+ms.author: yuaxu
+---
 
 # Sending push notifications with Azure Notification Hubs and Node.js
-[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
+[!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 ## Overview
 
-> [AZURE.IMPORTANT] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. For details, see [Azure 1rmb-trial](/pricing/1rmb-trial/).
-
+> [!IMPORTANT]
+> To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a trial account in just a couple of minutes. For details, see [Azure 1rmb-trial](https://www.azure.cn/pricing/1rmb-trial/).
 
 This guide will show you how to send push notifications with the help of Azure Notification Hubs directly from a Node.js application. 
 
@@ -52,29 +52,35 @@ To use Azure Notification Hubs, you need to download and use the Node.js [azure 
 2. Type **npm install azure-sb** in the command window.
 3. You can manually run the **ls** or **dir** command to verify that a **node\_modules** folder was created. Inside that folder, find the **azure** package, which contains the libraries you need to access the Notification Hub.
 
->[AZURE.NOTE] You can learn more about installing NPM on the official [NPM blog](http://blog.npmjs.org/post/85484771375/how-to-install-npm). 
+>[!NOTE]
+> You can learn more about installing NPM on the official [NPM blog](http://blog.npmjs.org/post/85484771375/how-to-install-npm). 
 
 ### Import the module
 Using a text editor, add the following to the top of the **server.js** file of the application:
 
-    var azure = require('azure');
+```
+var azure = require('azure');
+```
 
 ### Setup an Azure Notification Hub connection
 The **NotificationHubService** object lets you work with notification hubs. The following code creates a **NotificationHubService** object for the nofication hub named **hubname**. Add it near the top of the **server.js** file, after the statement to import the azure
 module:
 
-    var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+```
+var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
+```
 
 The connection **connectionstring** value can be obtained from the [Azure Portal] by performing the following steps:
 
 1. In the left navigation pane, click **Browse**.
-2. Select **Notification Hubs**, and then find the hub you wish to use for the sample. You can refer to the [Windows Store Getting Started tutorial](/documentation/articles/notification-hubs-windows-store-dotnet-get-started-wns-push-notification/) if you need help creating a new Notification Hub.
+2. Select **Notification Hubs**, and then find the hub you wish to use for the sample. You can refer to the [Windows Store Getting Started tutorial](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) if you need help creating a new Notification Hub.
 3. Select **Settings**.
 4. Click on **Access Policies**. You will see both shared and full access connection strings.
 
 ![Azure Portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
-> [AZURE.NOTE] You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](/documentation/articles/powershell-install-configure/) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](/documentation/articles/xplat-cli-install/).
+> [!NOTE]
+> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](../powershell-install-configure.md) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](/documentation/articles/xplat-cli-install/).
 
 ## General architecture
 The **NotificationHubService** object exposes the following object instances for sending push notifications to specific devices and applications:
@@ -95,16 +101,18 @@ For more information on the payload format, see the **Payload** section of the [
 
 The following code uses the **GcmService** instance exposed by the **NotificationHubService** to send a push notification to all registered clients.
 
-    var payload = {
-      data: {
-        message: 'Hello!'
-      }
-    };
-    notificationHubService.gcm.send(null, payload, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
+```
+var payload = {
+  data: {
+    message: 'Hello!'
+  }
+};
+notificationHubService.gcm.send(null, payload, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### How to: Send push notifications to iOS applications
 Same as with Android applications described above, the **ApnsService** object provides a **send** method that can be used to send push notifications to iOS applications. The **send** method accepts the following parameters:
@@ -117,14 +125,16 @@ For more information the payload format, see The **Notification Payload** sectio
 
 The following code uses the **ApnsService** instance exposed by the **NotificationHubService** to send an alert message to all clients:
 
-    var payload={
-        alert: 'Hello!'
-      };
-    notificationHubService.apns.send(null, payload, function(error){
-      if(!error){
-         // notification sent
-      }
-    });
+```
+var payload={
+    alert: 'Hello!'
+  };
+notificationHubService.apns.send(null, payload, function(error){
+  if(!error){
+     // notification sent
+  }
+});
+```
 
 ### How to: Send push notifications to Windows Phone applications
 The **MpnsService** object provides a **send** method that can be used to send push notifications to Windows Phone applications. The **send** method accepts the following parameters:
@@ -140,12 +150,14 @@ For a list of valid **TargetName**, **NotificationClass** and header options, ch
 
 The following sample code uses the **MpnsService** instance exposed by the **NotificationHubService** to send a toast push notification:
 
-    var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
-    notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
+```
+var payload = '<?xml version="1.0" encoding="utf-8"?><wp:Notification xmlns:wp="WPNotification"><wp:Toast><wp:Text1>string</wp:Text1><wp:Text2>string</wp:Text2></wp:Toast></wp:Notification>';
+notificationHubService.mpns.send(null, payload, 'toast', 22, function(error){
+  if(!error){
+    //notification sent
+  }
+});
+```
 
 ### How to: Send push notifications to Universal Windows Platform (UWP) applications
 The **WnsService** object provides a **send** method that can be used to send push notifications to Universal Windows Platform applications.  The **send** method accepts the following parameters:
@@ -160,12 +172,14 @@ For a list of valid types and request headers, see [Push notification service re
 
 The following code uses the **WnsService** instance exposed by the **NotificationHubService** to send a toast push notification to a UWP app:
 
-    var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
-    notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
-      if(!error){
-         // notification sent
-      }
-    });
+```
+var payload = '<toast><visual><binding template="ToastText01"><text id="1">Hello!</text></binding></visual></toast>';
+notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
+  if(!error){
+     // notification sent
+  }
+});
+```
 
 ## Next Steps
 The sample snippets above allow you to easily build service infrastructure to deliver push notifications to a wide variety of devices. Now that you've learned the basics of using Notification Hubs with node.js, follow these links to learn more about how you can extend these capabilities further.
@@ -197,7 +211,7 @@ The sample snippets above allow you to easily build service infrastructure to de
 [SqlFilter.SqlExpression]: http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/zh-cn/library/windowsazure/jj927170.aspx
 [SqlFilter]: http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-[Node.js Cloud Service]:/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+[Node.js Cloud Service]:../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
 
 [Azure Portal]: https://portal.azure.cn

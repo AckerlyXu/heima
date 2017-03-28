@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="How to Scale an App in an App Service Environment"
-    description="Scaling an app in an App Service Environment"
-    services="app-service"
-    documentationcenter=""
-    author="ccompy"
-    manager="stefsch"
-    editor="jimbe" />
-<tags
-    ms.assetid="78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/17/2016"
-    wacn.date=""
-    ms.author="ccompy" />
+---
+title: How to Scale an App in an App Service Environment
+description: Scaling an app in an App Service Environment
+services: app-service
+documentationcenter: ''
+author: ccompy
+manager: stefsch
+editor: jimbe
+
+ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/17/2016
+wacn.date: ''
+ms.author: ccompy
+---
 
 # Scaling apps in an App Service Environment
 In the Azure App Service there are normally three things you can scale:
@@ -57,7 +58,7 @@ As noted earlier, the worker pool selection is accessed from the ASP UI.  Open t
 
 Before moving your ASP from one worker pool to another it is important to make sure you will have adequate capacity for your ASP.  In the list of worker pools, not only is the worker pool name listed but you can also see how many workers are available in that worker pool.  Make sure that there are enough instances available to contain your App Service Plan.  If you need more compute resources in the worker pool you wish to move to, then get your ASE administrator to add them.  
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Moving an ASP from one worker pool will cause cold starts of the apps in that ASP.  This can cause requests to run slowly as your app is cold started on the new compute resources.  The cold start can be avoided by using the [application warm up capability][AppWarmup] in Azure App Service.  The Application Initialization module described in the article also works for cold starts because the initialization process is also invoked when apps are cold started on new compute resources. 
 > 
 > 
@@ -73,14 +74,14 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [3]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-sizescale.png
 
 <!--Links-->
-[WhatisASE]: /documentation/articles/app-service-app-service-environment-intro/
-[ScaleWebapp]: /documentation/articles/web-sites-scale/
-[HowtoCreateASE]: /documentation/articles/app-service-web-how-to-create-an-app-service-environment/
-[HowtoConfigureASE]: /documentation/articles/app-service-web-configure-an-app-service-environment/
-[CreateWebappinASE]: /documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/
-[Appserviceplans]: /documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[AppServicePricing]: /pricing/overview/app-service/ 
-[AzureAppService]: /documentation/articles/app-service-value-prop-what-is/
-[ASEAutoscale]: /documentation/articles/app-service-environment-auto-scale/
-[AppScale]: /documentation/articles/web-sites-scale/
+[WhatisASE]: ./app-service-app-service-environment-intro.md
+[ScaleWebapp]: ./web-sites-scale.md
+[HowtoCreateASE]: ./app-service-web-how-to-create-an-app-service-environment.md
+[HowtoConfigureASE]: ./app-service-web-configure-an-app-service-environment.md
+[CreateWebappinASE]: ./app-service-web-how-to-create-a-web-app-in-an-ase.md
+[Appserviceplans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
+[AppServicePricing]: https://www.azure.cn/pricing/overview/app-service/ 
+[AzureAppService]: ../app-service/app-service-value-prop-what-is.md
+[ASEAutoscale]: ../app-service/app-service-environment-auto-scale.md
+[AppScale]: ./web-sites-scale.md
 [AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/

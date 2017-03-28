@@ -1,24 +1,24 @@
-<properties
-	pageTitle="How to use Service Bus queues with Ruby | Azure"
-	description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby."
-	services="service-bus"
-	documentationCenter="ruby"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+---
+title: How to use Service Bus queues with Ruby | Azure
+description: Learn how to use Service Bus queues in Azure. Code samples written in Ruby.
+services: service-bus
+documentationCenter: ruby
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="service-bus"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
-	ms.topic="article"
-	ms.date="01/11/2017"
-	ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: ruby
+ms.topic: article
+ms.date: 01/11/2017
+ms.author: sethm
+---
 
 # How to use Service Bus queues
 
-[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 This guide describes how to use Service Bus queues. The samples are
 written in Ruby and use the Azure gem. The scenarios
@@ -26,7 +26,6 @@ covered include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information about Service Bus queues, see the [Next Steps](#next-steps) section.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
-
 
 ## Create a namespace
 
@@ -40,10 +39,10 @@ To create a namespace:
 2. Type the following command to create a Service Bus namespace. Provide your own namespace value and specify the same region as your application.
 
     ```
-	New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
+    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
 
     ![Create Namespace](./media/service-bus-ruby-how-to-use-queues/showcmdcreate.png)
-	```
+    ```
 
 ## Obtain management credentials for the namespace
 
@@ -56,7 +55,8 @@ will use this value in your code later in this tutorial.
 
 ![Copy key](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE] You can also find this key if you log on to the [Azure portal](https://portal.azure.cn/) and navigate to the connection information for your Service Bus namespace.
+> [!NOTE]
+> You can also find this key if you log on to the [Azure portal](https://portal.azure.cn/) and navigate to the connection information for your Service Bus namespace.
 
 ## Create a Ruby application
 
@@ -127,7 +127,7 @@ message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
 ```
 
-Service Bus queues support a maximum message size of 256 KB in the [Standard tier](/documentation/articles/service-bus-premium-messaging/) and 1 MB in the [Premium tier](/documentation/articles/service-bus-premium-messaging/). The header, which includes the standard and custom application properties, can have
+Service Bus queues support a maximum message size of 256 KB in the [Standard tier](./service-bus-premium-messaging.md) and 1 MB in the [Premium tier](./service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB.
 
 ## How to receive messages from a queue
@@ -159,7 +159,7 @@ In the event that the application crashes after processing the message but befor
 
 Now that you've learned the basics of Service Bus queues, follow these links to learn more.
 
--   Overview of [queues, topics, and subscriptions](/documentation/articles/service-bus-queues-topics-subscriptions/)
+-   Overview of [queues, topics, and subscriptions](./service-bus-queues-topics-subscriptions.md)
 -   Visit the [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) repository on GitHub.
 
-For a comparison between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the [How to use Queue storage from Ruby](/documentation/articles/storage-ruby-how-to-use-queue-storage/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](/documentation/articles/service-bus-azure-and-service-bus-queues-compared-contrasted/)
+For a comparison between the Azure Service Bus Queues discussed in this article and Azure Queues discussed in the [How to use Queue storage from Ruby](../storage/storage-ruby-how-to-use-queue-storage.md) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](./service-bus-azure-and-service-bus-queues-compared-contrasted.md)

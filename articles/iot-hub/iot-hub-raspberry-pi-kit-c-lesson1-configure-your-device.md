@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Connect Raspberry Pi (C) to Azure IoT - Lesson 1: Configure device | Azure"
-    description="Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="install raspbian, raspbian download, how to install raspbian, raspbian setup, raspberry pi install raspbian, raspberry pi install os, raspberry pi sd card install, raspberry pi connect, connect to raspberry pi, raspberry pi connectivity" />
-<tags
-    ms.assetid="8ee9b23c-93f7-43ff-8ea1-e7761eb87a6f"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Connect Raspberry Pi (C) to Azure IoT - Lesson 1: Configure device | Azure
+description: Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: install raspbian, raspbian download, how to install raspbian, raspbian setup, raspberry pi install raspbian, raspberry pi install os, raspberry pi sd card install, raspberry pi connect, connect to raspberry pi, raspberry pi connectivity
+
+ms.assetid: 8ee9b23c-93f7-43ff-8ea1-e7761eb87a6f
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Configure your device
 ## What you will do
-Configure Pi for first-time use and install the Raspbian operating system. Raspbian is a free operating system that is optimized for the Raspberry Pi hardware. If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-raspberry-pi-kit-c-troubleshooting/).
+Configure Pi for first-time use and install the Raspbian operating system. Raspbian is a free operating system that is optimized for the Raspberry Pi hardware. If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 ## What you will learn
 In this article, you will learn:
@@ -74,7 +75,7 @@ Turn on Pi by using the micro USB cable and the power supply.
 
 ![Turn on](./media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > It is important to use the power supply in the kit that is at least 2A to make sure that your Raspberry has enough power to work correctly.
 
 ## Enable SSH
@@ -112,5 +113,4 @@ In this article, you’ve learned how to configure Pi by installing Raspbian, co
 ![Hardware is ready](./media/iot-hub-raspberry-pi-lessons/lesson1/hardware_ready.jpg)
 
 ## Next steps
-[Get the tools](/documentation/articles/iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32/)
-
+[Get the tools](./iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)

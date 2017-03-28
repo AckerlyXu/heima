@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Virtual Network FAQ | Azure"
-    description="Answers to the most frequently asked questions about Azure virtual networks."
-    services="virtual-network"
-    documentationcenter="na"
-    author="jimdial"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="54bee086-a8a5-4312-9866-19a1fba913d0"
-    ms.service="virtual-network"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/18/2017"
-    wacn.date=""
-    ms.author="jdial" />
+---
+title: Azure Virtual Network FAQ | Azure
+description: Answers to the most frequently asked questions about Azure virtual networks.
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: timlt
+editor: tysonn
+
+ms.assetid: 54bee086-a8a5-4312-9866-19a1fba913d0
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/18/2017
+wacn.date: ''
+ms.author: jdial
+---
 
 # Azure Virtual Network frequently asked questions (FAQ)
 
@@ -34,10 +35,10 @@ With VNets, you can build traditional site-to-site (S2S) VPNs to securely scale 
 VNets give you the flexibility to support a range of hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system such as mainframes and Unix systems.
 
 ### How do I know if I need a VNet?
-The [Virtual network overview](/documentation/articles/virtual-networks-overview/) article provides a decision table that will help you decide the best network design option for you.
+The [Virtual network overview](./virtual-networks-overview.md) article provides a decision table that will help you decide the best network design option for you.
 
 ### How do I get started?
-Visit the [Virtual network documentation](/documentation/services/networking/) to get started. This content provides overview and deployment information for all the VNet features.
+Visit the [Virtual network documentation](./index.md) to get started. This content provides overview and deployment information for all the VNet features.
 
 ### Can I use VNets without cross-premises connectivity?
 Yes. You can use a VNet without using hybrid connectivity. This is particularly useful if you want to run Microsoft Windows Server Active Directory domain controllers and SharePoint farms in Azure.
@@ -52,7 +53,7 @@ Yes. You can deploy a [WAN optimization network virtual appliance](https://azure
 You can use the following tools to create or configure a VNet:
 
 * Azure Portal Preview (for classic and Resource Manager VNets).
-* A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](/documentation/articles/virtual-networks-using-network-configuration-file/) article.
+* A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](./virtual-networks-using-network-configuration-file.md) article.
 * PowerShell (for classic and Resource Manager VNets).
 * Azure CLI (for classic and Resource Manager VNets).
 
@@ -60,10 +61,10 @@ You can use the following tools to create or configure a VNet:
 You can use public IP address ranges and any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918).
 
 ### Can I have public IP addresses in my VNets?
-Yes. For more information about public IP address ranges, see the [Public IP address space in a virtual network](/documentation/articles/virtual-networks-public-ip-within-vnet/) article. Your public IP addresses will not be directly accessible from the Internet.
+Yes. For more information about public IP address ranges, see the [Public IP address space in a virtual network](./virtual-networks-public-ip-within-vnet.md) article. Your public IP addresses will not be directly accessible from the Internet.
 
 ### Is there a limit to the number of subnets in my VNet?
-Yes. Read the [Azure limits](/documentation/articles/azure-subscription-service-limits/#networking-limits) article for details. Subnet address spaces cannot overlap one another.
+Yes. Read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
 Yes. Azure reserves some IP addresses within each subnet. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services.
@@ -75,7 +76,7 @@ The smallest subnet we support is a /29 and the largest is a /8 (using CIDR subn
 No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
 
 ### Can I specify custom routing policies on my VNets and subnets?
-Yes. You can use User Defined Routing (UDR). For more information about UDR, visit [User Defined Routes and IP Forwarding](/documentation/articles/virtual-networks-udr-overview/).
+Yes. You can use User Defined Routing (UDR). For more information about UDR, visit [User Defined Routes and IP Forwarding](./virtual-networks-udr-overview.md).
 
 ### Do VNets support multicast or broadcast?
 No. We do not support multicast or broadcast.
@@ -109,27 +110,27 @@ No. A VNet is limited to a single region.
 
 ### Can I connect a VNet to another VNet in Azure?
 Yes. You can connect one VNet to another VNet using:
-- An Azure VPN Gateway. Read the [Configure a VNet-to-VNet connection](/documentation/articles/vpn-gateway-howto-vnet-vnet-resource-manager-portal/) article for details. 
-- VNet peering. Read the [VNet peering overview](/documentation/articles/virtual-network-peering-overview/) article for details.
+- An Azure VPN Gateway. Read the [Configure a VNet-to-VNet connection](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article for details. 
+- VNet peering. Read the [VNet peering overview](./virtual-network-peering-overview.md) article for details.
 
 ## Name Resolution (DNS)
 
 ### What are my DNS options for VNets?
-Use the decision table on the [Name Resolution for VMs and Role Instances](/documentation/articles/virtual-networks-name-resolution-for-vms-and-role-instances/) page to guide you through all the DNS options available.
+Use the decision table on the [Name Resolution for VMs and Role Instances](./virtual-networks-name-resolution-for-vms-and-role-instances.md) page to guide you through all the DNS options available.
 
 ### Can I specify DNS servers for a VNet?
 Yes. You can specify DNS server IP addresses in the VNet settings. This will be applied as the default DNS server(s) for all VMs in the VNet.
 
 ### How many DNS servers can I specify?
-Reference the [Azure limits](/documentation/articles/azure-subscription-service-limits/#networking-limits) article for details.
+Reference the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article for details.
 
 ### Can I modify my DNS servers after I have created the network?
 Yes. You can change the DNS server list for your VNet at any time. If you change your DNS server list, you will need to restart each of the VMs in your VNet in order for them to pick up the new DNS server.
 
 ### What is Azure-provided DNS and does it work with VNets?
-Azure-provided DNS is a multi-tenant DNS service offered by Microsoft. Azure registers all of your VMs and cloud service role instances in this service. This service provides name resolution by hostname for VMs and role instances contained within the same cloud service, and by FQDN for VMs and role instances in the same VNet. Read the [Name Resolution for VMs and Role Instances](/documentation/articles/virtual-networks-name-resolution-for-vms-and-role-instances/) article to learn more about DNS.
+Azure-provided DNS is a multi-tenant DNS service offered by Microsoft. Azure registers all of your VMs and cloud service role instances in this service. This service provides name resolution by hostname for VMs and role instances contained within the same cloud service, and by FQDN for VMs and role instances in the same VNet. Read the [Name Resolution for VMs and Role Instances](./virtual-networks-name-resolution-for-vms-and-role-instances.md) article to learn more about DNS.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > There is a limitation at this time to the first 100 cloud services in a VNet for cross-tenant name resolution using Azure-provided DNS. If you are using your own DNS server, this limitation does not apply.
 > 
 > 
@@ -147,7 +148,7 @@ Yes. All network interfaces (NIC) attached to a VM deployed through the Resource
 
 ### What are the different types of IP addresses I can assign to VMs?
 * **Private:** Assigned to each NIC within each VM. The address is assigned using either the static or dynamic allocation method. Private IP addresses are assigned from the range that you specified in the subnet settings of your VNet. Resources deployed through the classic deployment model receive private IP addresses, even if they're not connected to a VNet. A dynamic private IP address remains assigned to a resource until the resource is deallocated (VMs) or deleted (VMs or Cloud Service deployment slots). A static private IP address remains assigned to a resource until the resource is deleted.
-* **Public:** Optionally assigned to NICs attached to VMs deployed through the Azure Resource Manager deployment model. The address can be assigned with the static or dynamic allocation method. All VMs and Cloud Services role instances deployed through the classic deployment model exist within a cloud service, which is assigned a *dynamic*, public virtual IP (VIP) address. A public *static* IP address, called a [Reserved IP address](/documentation/articles/virtual-networks-reserved-public-ip/), can optionally be assigned as a VIP. You can assign public IP addresses to individual VMs or Cloud Services role instances deployed through the classic deployment model. These addresses are called [Instance level public IP (ILPIP](/documentation/articles/virtual-networks-instance-level-public-ip/) addresses and can be assigned dynamically.
+* **Public:** Optionally assigned to NICs attached to VMs deployed through the Azure Resource Manager deployment model. The address can be assigned with the static or dynamic allocation method. All VMs and Cloud Services role instances deployed through the classic deployment model exist within a cloud service, which is assigned a *dynamic*, public virtual IP (VIP) address. A public *static* IP address, called a [Reserved IP address](./virtual-networks-reserved-public-ip.md), can optionally be assigned as a VIP. You can assign public IP addresses to individual VMs or Cloud Services role instances deployed through the classic deployment model. These addresses are called [Instance level public IP (ILPIP](./virtual-networks-instance-level-public-ip.md) addresses and can be assigned dynamically.
 
 ### Can I reserve a private IP address for a VM that I will create at a later time?
 No. You cannot reserve a private IP address. If a private IP address is available it will be assigned to a VM or role instance by the DHCP server. That VM may or may not be the one that you want the private IP address to be assigned to. You can, however, change the private IP address of an already created VM to any available private IP address.
@@ -162,7 +163,7 @@ Yes, but it's not recommended. Manually changing the IP address for a NIC within
 Nothing. The IP addresses (public VIP, public, and private) remain assigned to the cloud service deployment slot or VM. Dynamic addresses are only released if a VM is stopped (deallocated) or deleted, or a cloud service deployment slot is deleted. Clicking the **Stop** button for a VM within the Azure portal preview sets its state to Stopped (deallocated). In this case, the VM will lose its IP addresses.
 
 ### Can I move VMs from one subnet to another subnet in a VNet without re-deploying?
-Yes. You can find more information in the [How to move a VM or role instance to a different subnet](/documentation/articles/virtual-networks-move-vm-role-to-subnet/) article.
+Yes. You can find more information in the [How to move a VM or role instance to a different subnet](./virtual-networks-move-vm-role-to-subnet.md) article.
 
 ### Can I configure a static MAC address for my VM?
 No. A MAC address cannot be statically configured.
@@ -178,7 +179,7 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 ### Can I use Azure App Service Web Apps with a VNet?
 Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment). All Web Apps can securely connect and access resources in your Azure VNet if you have a point-to-site connection configured for your VNet. For more information, see the following article:
 
-* [Integrate your app with an Azure Virtual Network](/documentation/articles/app-service-vnet-integration-powershell/)
+* [Integrate your app with an Azure Virtual Network](../app-service-web/app-service-vnet-integration-powershell.md)
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a VNet?
 Yes. You can (optionally) deploy Cloud Services role instances within VNets. To do so, you specify the VNet name and the role/subnet mappings in the network configuration section of your service configuration. You do not need to update any of your binaries.
@@ -195,13 +196,13 @@ No. You cannot move services in and out of VNets. You will have to delete and re
 VNets are completely isolated from one another, and other services hosted in the Azure infrastructure. A VNet is a trust boundary.
 
 ### Can I restrict inbound or outbound traffic flow to VNet-connected resources?
-Yes. You can apply [Network Security Groups](/documentation/articles/virtual-networks-nsg/) to individual subnets within a VNet, NICs attached to a VNet, or both.
+Yes. You can apply [Network Security Groups](./virtual-networks-nsg.md) to individual subnets within a VNet, NICs attached to a VNet, or both.
 
 ### Can I implement a firewall between VNet-connected resources?
 Yes. You can deploy a [firewall network virtual appliance](https://azure.microsoft.com/marketplace/?term=firewall) from several vendors through the Azure Marketplace.
 
 ### Is there information available about securing VNets?
-Yes. See the [Azure Network Security Overview](/documentation/articles/security-network-overview/) article for details.
+Yes. See the [Azure Network Security Overview](../security/security-network-overview.md) article for details.
 
 ## APIs, schemas, and tools
 
@@ -210,6 +211,6 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](https://msd
 
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
-- The Azure portal preview to deploy VNets through the [Azure Resource Manager](/documentation/articles/virtual-networks-create-vnet-arm-pportal/) and [classic](/documentation/articles/virtual-networks-create-vnet-classic-pportal/) deployment models.
+- The Azure portal preview to deploy VNets through the [Azure Resource Manager](./virtual-networks-create-vnet-arm-pportal.md) and [classic](./virtual-networks-create-vnet-classic-pportal.md) deployment models.
 - PowerShell to manage VNets deployed through the [Resource Manager](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network) and [classic](https://docs.microsoft.com/powershell/servicemanagement/azure.networking/v3.1.0/azure.networking) deployment models.
-- The [Azure command-line interface (CLI)](/documentation/articles/azure-cli-arm-commands/#azure-network-commands-to-manage-network-resources) to manage VNets deployed through both deployment models.
+- The [Azure command-line interface (CLI)](../virtual-machines/azure-cli-arm-commands.md#azure-network-commands-to-manage-network-resources) to manage VNets deployed through both deployment models.

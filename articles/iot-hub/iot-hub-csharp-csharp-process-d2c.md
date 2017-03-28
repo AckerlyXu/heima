@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Process Azure IoT Hub device-to-cloud messages using routes (.Net) | Azure"
-    description="How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="5177bac9-722f-47ef-8a14-b201142ba4bc"
-    ms.service="iot-hub"
-    ms.devlang="csharp"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Process Azure IoT Hub device-to-cloud messages using routes (.Net) | Azure
+description: How to process IoT Hub device-to-cloud messages by using routing rules and custom endpoints to dispatch messages to other back-end services.
+services: iot-hub
+documentationcenter: .net
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 5177bac9-722f-47ef-8a14-b201142ba4bc
+ms.service: iot-hub
+ms.devlang: csharp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Process IoT Hub device-to-cloud messages using routes (.NET)
 
-[AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
+[!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
@@ -32,7 +33,7 @@ At the end of this tutorial, you run three .NET console apps:
 * **ReadDeviceToCloudMessages** that displays the non-critical telemetry sent by your simulated device app.
 * **ReadCriticalQueue** de-queues the critical messages sent by your simulated device app from the Service Bus queue attached to the IoT hub.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. To learn how to replace the simulated device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
 > 
 > 
@@ -76,10 +77,10 @@ private static async void SendDeviceToCloudMessagesAsync()
             {
                 levelValue = "normal";
             }
-            
+
             var message = new Message(Encoding.ASCII.GetBytes(messageString));
             message.Properties.Add("level", levelValue);
-            
+
             await deviceClient.SendEventAsync(message);
             Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
 
@@ -90,12 +91,12 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 This method randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the solution back-end. The device app passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
 
-   > [AZURE.NOTE]
+   > [!NOTE]
    > You can use message properties to route messages for various scenarios including cold-path processing, in addition to the hot-path example shown here.
    > 
    > 
-   
-   > [AZURE.NOTE]
+
+   > [!NOTE]
    > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
    > 
    > 
@@ -112,19 +113,19 @@ For more information about how to process messages from Service Bus queues, see 
 1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. The queue must be in the same subscription and region as your IoT hub. Make a note of the namespace and queue name.
 
 2. In the Azure portal, open your IoT hub and click **Endpoints**.
-    
+
     ![Endpoints in IoT hub][30]
 
 3. In the **Endpoints** blade, click **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **Save** at the bottom.
-    
+
     ![Adding an endpoint][31]
-    
+
 4. Now click **Routes** in your IoT Hub. Click **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose the queue you just added as a custom endpoint as the routing rule endpoint. When you are done, click **Save** at the bottom.
-    
+
     ![Adding a route][32]
-    
+
     Make sure the fallback route is set to **ON**. This value is the default configuration for an IoT hub.
-    
+
     ![Fallback route][33]
 
 ## Read from the queue endpoint
@@ -137,19 +138,19 @@ In this section, you read the messages from the queue endpoint.
 3. Search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use. This operation downloads, installs, and adds a reference to the Azure Service Bus, with all its dependencies.
 
 4. Add the following **using** statements at the top of the **Program.cs** file:
-   
+
     ```
     using System.IO;
     using Microsoft.ServiceBus.Messaging;
     ```
 
 5. Finally, add the following lines to the **Main** method. Substitute the connection string with **Listen** permissions for the queue:
-   
+
     ```
     Console.WriteLine("Receive critical messages. Ctrl-C to exit.\n");
     var connectionString = "{service bus listen string}";
     var queueName = "{queue name}";
-    
+
     var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
 
     client.OnMessage(message =>
@@ -159,7 +160,7 @@ In this section, you read the messages from the queue endpoint.
             string s = reader.ReadToEnd();
             Console.WriteLine(String.Format("Message body: {0}", s));
         });
-        
+
     Console.ReadLine();
     ```
 
@@ -168,7 +169,7 @@ Now you are ready to run the applications.
 
 1. In Visual Studio, in Solution Explorer, right-click your solution and select **Set StartUp Projects**. Select **Multiple startup projects**, then select **Start** as the action for the **ReadDeviceToCloudMessages**, **SimulatedDevice**, and **ReadCriticalQueue** projects.
 2. Press **F5** to start the three console apps. The **ReadDeviceToCloudMessages** app has only non-critical messages sent from the **SimulatedDevice** application, and the **ReadCriticalQueue** app has only critical messages.
-   
+
    ![Three console apps][50]
 
 ## Next steps
@@ -193,36 +194,36 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 <!-- Links -->
 
-[Azure Blob storage]: /documentation/articles/storage-dotnet-how-to-use-blobs/
-[Azure Data Factory]: /documentation/services/data-factory/
-[HDInsight (Hadoop)]: /documentation/services/hdinsight/
-[Service Bus Queue]: /documentation/articles/service-bus-dotnet-get-started-with-queues/
+[Azure Blob storage]: ../storage/storage-dotnet-how-to-use-blobs.md
+[Azure Data Factory]: ../data-factory/index.md
+[HDInsight (Hadoop)]: ../hdinsight/index.md
+[Service Bus Queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
-[Azure IoT Hub developer guide - Device to cloud]: /documentation/articles/iot-hub-devguide-messaging/
+[Azure IoT Hub developer guide - Device to cloud]: ./iot-hub-devguide-messaging.md
 
-[Azure Storage]: /documentation/services/storage/
-[Azure Service Bus]: /documentation/services/service-bus/
+[Azure Storage]: ../storage/index.md
+[Azure Service Bus]: ../service-bus/index.md
 
-[IoT Hub Developer Guide]: /documentation/articles/iot-hub-devguide/
-[Get started with IoT Hub]: /documentation/articles/iot-hub-csharp-csharp-getstarted/
-[lnk-devguide-messaging]: /documentation/articles/iot-hub-devguide-messaging/
+[IoT Hub Developer Guide]: ./iot-hub-devguide.md
+[Get started with IoT Hub]: ./iot-hub-csharp-csharp-getstarted.md
+[lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
 [Azure IoT Developer Center]: /develop/iot
-[lnk-service-fabric]: /documentation/services/service-fabric/
-[lnk-stream-analytics]: /documentation/services/stream-analytics/
-[lnk-event-hubs]: /documentation/services/event-hubs/
+[lnk-service-fabric]: ../service-fabric/index.md
+[lnk-stream-analytics]: ../stream-analytics/index.md
+[lnk-event-hubs]: ../event-hubs/index.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
-[About Azure Storage]: /documentation/articles/storage-create-storage-account/#create-a-storage-account
-[Get Started with Event Hubs]: /documentation/articles/event-hubs-csharp-ephcs-getstarted/
-[Azure Storage scalability Guidelines]: /documentation/articles/storage-scalability-targets/
+[About Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[Get Started with Event Hubs]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+[Azure Storage scalability Guidelines]: ../storage/storage-scalability-targets.md
 [Azure Block Blobs]: https://msdn.microsoft.com/zh-cn/library/azure/ee691964.aspx
-[Event Hubs]: /documentation/articles/event-hubs-overview/
+[Event Hubs]: ../event-hubs/event-hubs-overview.md
 [EventProcessorHost]: http://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Event Hubs Programming Guide]: /documentation/articles/event-hubs-programming-guide/
+[Event Hubs Programming Guide]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
-[Build multi-tier applications with Service Bus]: /documentation/articles/service-bus-dotnet-multi-tier-app-using-service-bus-queues/
+[Build multi-tier applications with Service Bus]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 [lnk-classic-portal]: https://manage.windowsazure.cn
-[lnk-c2d]: /documentation/articles/iot-hub-csharp-csharp-process-d2c/
-[lnk-suite]: /documentation/services/iot-suite/
+[lnk-c2d]: ./iot-hub-csharp-csharp-process-d2c.md
+[lnk-suite]: ../iot-suite/index.md

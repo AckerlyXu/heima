@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Sign ins after multiple failures"
-	description="A report that indicates users who have successfully signed in after multiple consecutive failed sign in attempts."
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
-	editor=""/>
+---
+title: Sign ins after multiple failures
+description: A report that indicates users who have successfully signed in after multiple consecutive failed sign in attempts.
+services: active-directory
+documentationCenter: ''
+authors: kenhoff
+manager: ilanas
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="07/01/2015"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 07/01/2015
+wacn.date: ''
+---
 
 # Sign ins after multiple failures
 

@@ -1,35 +1,36 @@
-<properties
-    pageTitle="Storage configuration for SQL Server VMs | Azure"
-    description="This topic describes how Azure configures storage for SQL Server VMs during provisioning (Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs."
-    services="virtual-machines-windows"
-    documentationcenter="na"
-    author="ninarn"
-    manager="jhubbard"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="169fc765-3269-48fa-83f1-9fe3e4e40947"
-    ms.service="virtual-machines-sql"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows-sql-server"
-    ms.workload="iaas-sql-server"
-    ms.date="01/31/2017"
-    wacn.date=""
-    ms.author="ninarn" />
+---
+title: Storage configuration for SQL Server VMs | Azure
+description: This topic describes how Azure configures storage for SQL Server VMs during provisioning (Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs.
+services: virtual-machines-windows
+documentationcenter: na
+author: ninarn
+manager: jhubbard
+tags: azure-resource-manager
+
+ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
+ms.service: virtual-machines-sql
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows-sql-server
+ms.workload: iaas-sql-server
+ms.date: 01/31/2017
+wacn.date: ''
+ms.author: ninarn
+---
 
 # Storage configuration for SQL Server VMs
 When you configure a SQL Server virtual machine image in Azure, the Portal helps to automate your storage configuration. This includes attaching storage to the VM, making that storage accessible to SQL Server, and configuring it to optimize for your specific performance requirements.
 
-This topic explains how Azure configures storage for your SQL Server VMs both during provisioning and for existing VMs. This configuration is based on the [performance best practices](/documentation/articles/virtual-machines-windows-sql-performance/) for Azure VMs running SQL Server.
+This topic explains how Azure configures storage for your SQL Server VMs both during provisioning and for existing VMs. This configuration is based on the [performance best practices](./virtual-machines-windows-sql-performance.md) for Azure VMs running SQL Server.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## Prerequisites
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 
-* Provisioned with a [SQL Server gallery image](/documentation/articles/virtual-machines-windows-sql-server-iaas-overview/#option-1-create-a-sql-vm-with-per-minute-licensing).
-* Uses the [Resource Manager deployment model](/documentation/articles/resource-manager-deployment-model/).
-* Uses [Premium Storage](/documentation/articles/storage-premium-storage/).
+* Provisioned with a [SQL Server gallery image](./virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* Uses the [Resource Manager deployment model](../../../azure-resource-manager/resource-manager-deployment-model.md).
+* Uses [Premium Storage](../../../storage/storage-premium-storage.md).
 
 ## New VMs
 The following sections describe how to configure storage for new SQL Server virtual machines.
@@ -47,7 +48,7 @@ Based on your choices, Azure performs the following storage configuration tasks 
 * Associates the storage pool with a new drive on the virtual machine.
 * Optimizes this new drive based on your specified workload type (Data warehousing, Transactional processing, or General).
 
-For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration). For a full walkthrough of how to create a SQL Server VM in the Azure Portal Preview, see [the provisioning tutorial](/documentation/articles/virtual-machines-windows-portal-sql-server-provision/).
+For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration). For a full walkthrough of how to create a SQL Server VM in the Azure Portal Preview, see [the provisioning tutorial](./virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Resource Manage templates
 If you use the following Resource Manager templates, two premium data disks are attached by default, with no storage pool configuration. However, you can customize these templates to change the number of premium data disks that are attached to the virtual machine.
@@ -101,9 +102,9 @@ This section provides a reference for the storage configuration changes that Azu
 
 * If you have selected fewer than two TBs of storage for your VM, Azure does not create a storage pool.
 * If you have selected at least two TBs of storage for your VM, Azure configures a storage pool. The next section of this topic provides the details of the storage pool configuration.
-* Automatic storage configuration always uses [premium storage](/documentation/articles/storage-premium-storage/) P30 data disks. Consequently, there is a 1:1 mapping between your selected number of Terabytes and the number of data disks attached to your VM.
+* Automatic storage configuration always uses [premium storage](../../../storage/storage-premium-storage.md) P30 data disks. Consequently, there is a 1:1 mapping between your selected number of Terabytes and the number of data disks attached to your VM.
 
-For pricing information, see the [Storage pricing](/pricing/details/storage/) page on the **Disk Storage** tab.
+For pricing information, see the [Storage pricing](https://www.azure.cn/pricing/details/storage/) page on the **Disk Storage** tab.
 
 ### Creation of the storage pool
 Azure uses the following settings to create the storage pool on SQL Server VMs.
@@ -133,10 +134,10 @@ The following table describes the three workload type options available and thei
 | **Transactional processing** |Optimizes the storage for traditional database OLTP workloads |Trace Flag 1117<br/>Trace Flag 1118 |
 | **Data warehousing** |Optimizes the storage for analytic and reporting workloads |Trace Flag 610<br/>Trace Flag 1117 |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can only specify the workload type when you provision a SQL virtual machine by selecting it in the storage configuration step.
 >
 >
 
 ## Next steps
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](/documentation/articles/virtual-machines-windows-sql-server-iaas-overview/).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](./virtual-machines-windows-sql-server-iaas-overview.md).

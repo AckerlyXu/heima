@@ -1,24 +1,24 @@
-<properties
-	pageTitle="How to configure Microsoft Account authentication for your App Services application"
-	description="Learn how to configure Microsoft Account authentication for your App Services application."
-	authors="mattchenderson"
-	services="app-service"
-	documentationCenter=""
-	manager="erikre"
-	editor=""/>
+---
+title: How to configure Microsoft Account authentication for your App Services application
+description: Learn how to configure Microsoft Account authentication for your App Services application.
+authors: mattchenderson
+services: app-service
+documentationCenter: ''
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="10/01/2016"
-	ms.author="mahender"/>
+ms.service: app-service
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: mahender
+---
 
 # How to configure your App Service application to use Microsoft Account login
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
+[!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 This topic shows you how to configure Azure App Service to use Microsoft Account as an authentication provider. 
 
@@ -35,14 +35,15 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 5. Under "Platforms," click **Add Platform** and select "Web".
 
 6. Under "Redirect URIs" supply the endpoint for your application, then click **Save**. 
- 
-	>[AZURE.NOTE]Your redirect URI is the URL of your application appended with the path, _/.auth/login/microsoftaccount/callback_. For example, `https://contoso.chinacloudsites.cn/.auth/login/microsoftaccount/callback`.   
-	>Make sure that you are using the HTTPS scheme.
+
+    >[!NOTE]
+    >Your redirect URI is the URL of your application appended with the path, _/.auth/login/microsoftaccount/callback_. For example, `https://contoso.chinacloudsites.cn/.auth/login/microsoftaccount/callback`.   
+    >Make sure that you are using the HTTPS scheme.
 
 7. Under "Application Secrets," click **Generate New Password**. Make note of the value that appears. Once you leave the page, it will not be displayed again.
 
-
-    > [AZURE.IMPORTANT] The password is an important security credential. Do not share the password with anyone or distribute it within a client application.
+    > [!IMPORTANT]
+    > The password is an important security credential. Do not share the password with anyone or distribute it within a client application.
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your App Service application
 
@@ -54,7 +55,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 
     ![][1]
 
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
+    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
 4. (Optional) To restrict access to your site to only users authenticated by Microsoft account, set **Action to take when request is not authenticated** to **Microsoft Account**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Microsoft account for authentication.
 
@@ -64,8 +65,7 @@ You are now ready to use Microsoft Account for authentication in your app.
 
 ## <a name="related-content"> </a>Related content
 
-[AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
+[!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->
 

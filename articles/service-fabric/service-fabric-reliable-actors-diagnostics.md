@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Actors diagnostics and monitoring | Azure"
-    description="This article describes the diagnostics and performance monitoring features in the Service Fabric Reliable Actors runtime, including the events and performance counters emitted by it."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="abhishekram"
-    manager="timlt"
-    editor="vturecek" />
-<tags
-    ms.assetid="1c229923-670a-4634-ad59-468ff781ad18"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/04/2017"
-    wacn.date=""
-    ms.author="abhisram" />
+---
+title: Actors diagnostics and monitoring | Azure
+description: This article describes the diagnostics and performance monitoring features in the Service Fabric Reliable Actors runtime, including the events and performance counters emitted by it.
+services: service-fabric
+documentationcenter: .net
+author: abhishekram
+manager: timlt
+editor: vturecek
+
+ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/04/2017
+wacn.date: ''
+ms.author: abhisram
+---
 
 # Diagnostics and performance monitoring for Reliable Actors
 The Reliable Actors runtime emits [EventSource](https://msdn.microsoft.com/zh-cn/library/system.diagnostics.tracing.eventsource.aspx) events and [performance counters](https://msdn.microsoft.com/zh-cn/library/system.diagnostics.performancecounter.aspx) These provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
 
 ## EventSource events
-The EventSource provider name for the Reliable Actors runtime is "Microsoft-ServiceFabric-Actors". Events from this event source appear in the [Diagnostics Events](/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/#view-service-fabric-system-events-in-visual-studio) window when the actor application is being [debugged in Visual Studio](/documentation/articles/service-fabric-debugging-your-application/).
+The EventSource provider name for the Reliable Actors runtime is "Microsoft-ServiceFabric-Actors". Events from this event source appear in the [Diagnostics Events](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the actor application is being [debugged in Visual Studio](./service-fabric-debugging-your-application.md).
 
-Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](/documentation/articles/cloud-services-dotnet-diagnostics/), [Semantic Logging](https://msdn.microsoft.com/zh-cn/library/dn774980.aspx), and the [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/zh-cn/library/dn774980.aspx), and the [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Keywords
 All events that belong to the Reliable Actors EventSource are associated with one or more keywords. This enables filtering of events that are collected. The following keyword bits are defined.
@@ -31,9 +32,9 @@ All events that belong to the Reliable Actors EventSource are associated with on
 |Bit|Description|
 |---|---|
 |0x1|Set of important events that summarize the operation of the Fabric Actors runtime.|
-|0x2|Set of events that describe actor method calls. For more information, see the [introductory topic on actors](/documentation/articles/service-fabric-reliable-actors-introduction/#actors).|
-|0x4|Set of events related to actor state. For more information, see the topic on [actor state management](/documentation/articles/service-fabric-reliable-actors-state-management/).|
-|0x8|Set of events related to turn-based concurrency in the actor. For more information, see the topic on [concurrency](/documentation/articles/service-fabric-reliable-actors-introduction/#concurrency).|
+|0x2|Set of events that describe actor method calls. For more information, see the [introductory topic on actors](./service-fabric-reliable-actors-introduction.md#actors).|
+|0x4|Set of events related to actor state. For more information, see the topic on [actor state management](./service-fabric-reliable-actors-state-management.md).|
+|0x8|Set of events related to turn-based concurrency in the actor. For more information, see the topic on [concurrency](./service-fabric-reliable-actors-introduction.md#concurrency).|
 
 ## Performance counters
 The Reliable Actors runtime defines the following performance counter categories.
@@ -45,10 +46,10 @@ The Reliable Actors runtime defines the following performance counter categories
 
 Each of the above categories has one or more counters.
 
-The [Windows Performance Monitor](https://technet.microsoft.com/zh-cn/library/cc749249.aspx) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](/documentation/articles/cloud-services-dotnet-diagnostics/) is another option for collecting performance counter data and uploading it to Azure tables.
+The [Windows Performance Monitor](https://technet.microsoft.com/zh-cn/library/cc749249.aspx) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is another option for collecting performance counter data and uploading it to Azure tables.
 
 ### Performance counter instance names
-A cluster that has a large number of actor services or actor service partitions will have a large number of actor performance counter instances. The performance counter instance names can help in identifying the specific [partition](/documentation/articles/service-fabric-reliable-actors-platform/#service-fabric-partition-concepts-for-actors) and actor method (if applicable) that the performance counter instance is associated with.
+A cluster that has a large number of actor services or actor service partitions will have a large number of actor performance counter instances. The performance counter instance names can help in identifying the specific [partition](./service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) and actor method (if applicable) that the performance counter instance is associated with.
 
 #### Service Fabric Actor category
 For the category `Service Fabric Actor`, the counter instance names are in the following format:
@@ -87,7 +88,7 @@ In the example above, `ivoicemailboxactor.leavemessageasync` is the method name,
 ## List of events and performance counters
 
 ### Actor method events and performance counters
-The Reliable Actors runtime emits the following events related to [actor methods](/documentation/articles/service-fabric-reliable-actors-introduction/).
+The Reliable Actors runtime emits the following events related to [actor methods](./service-fabric-reliable-actors-introduction.md).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
@@ -104,7 +105,7 @@ The Reliable Actors runtime publishes the following performance counters related
 |Service Fabric Actor Method|Exceptions thrown/Sec|Number of times that the actor service method threw an exception per second|
 
 ### Concurrency events and performance counters
-The Reliable Actors runtime emits the following events related to [concurrency](/documentation/articles/service-fabric-reliable-actors-introduction/#concurrency).
+The Reliable Actors runtime emits the following events related to [concurrency](./service-fabric-reliable-actors-introduction.md#concurrency).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
@@ -119,7 +120,7 @@ The Reliable Actors runtime publishes the following performance counters related
 |Service Fabric Actor|Average milliseconds actor lock held|Time (in milliseconds) for which the per-actor lock is held|
 
 ### Actor state management events and performance counters
-The Reliable Actors runtime emits the following events related to [actor state management](/documentation/articles/service-fabric-reliable-actors-state-management/).
+The Reliable Actors runtime emits the following events related to [actor state management](./service-fabric-reliable-actors-state-management.md).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
@@ -134,7 +135,7 @@ The Reliable Actors runtime publishes the following performance counters related
 |Service Fabric Actor|Average milliseconds per load state operation|Time taken to load actor state in milliseconds|
 
 ### Events related to actor replicas
-The Reliable Actors runtime emits the following events related to [actor replicas](/documentation/articles/service-fabric-reliable-actors-platform/#service-fabric-partition-concepts-for-stateful-actors).
+The Reliable Actors runtime emits the following events related to [actor replicas](./service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
@@ -142,7 +143,7 @@ The Reliable Actors runtime emits the following events related to [actor replica
 |ReplicaChangeRoleFromPrimary|2|Informational|0x1|Actor replica changed role to non-Primary. This implies that the actors for this partition will no longer be created inside this replica. No new requests will be delivered to actors already created within this replica. The actors will be destroyed after any in-progress requests are completed.|
 
 ### Actor activation and deactivation events and performance counters
-The Reliable Actors runtime emits the following events related to [actor activation and deactivation](/documentation/articles/service-fabric-reliable-actors-lifecycle/).
+The Reliable Actors runtime emits the following events related to [actor activation and deactivation](./service-fabric-reliable-actors-lifecycle.md).
 
 |Event name|Event ID|Level|Keyword|Description|
 |---|---|---|---|---|
@@ -166,7 +167,7 @@ When a client invokes a method via an actor proxy object, it results in a reques
 |Service Fabric Actor|Average milliseconds for response serialization|Time taken (in milliseconds) to serialize the actor response message at the service before the response is sent to the client|
 
 ## Next steps
- - [How Reliable Actors use the Service Fabric platform](/documentation/articles/service-fabric-reliable-actors-platform/)
+ - [How Reliable Actors use the Service Fabric platform](./service-fabric-reliable-actors-platform.md)
  - [Actor API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/dn971626.aspx)
  - [Sample code](https://github.com/Azure/servicefabric-samples)
  - [EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

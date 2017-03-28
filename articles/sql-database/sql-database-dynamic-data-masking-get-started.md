@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Get started with SQL Database Dynamic Data Masking (Azure Portal)"
-    description="How to get started with SQL Database Dynamic Data Masking in the Azure Portal"
-    services="sql-database"
-    documentationcenter=""
-    author="ronitr"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="4b36d78e-7749-4f26-9774-eed1120a9182"
-    ms.service="sql-database"
-    ms.custom="secure and protect"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="11/22/2016"
-    wacn.date=""
-    ms.author="ronitr; ronmat; carlrab" />
+---
+title: Get started with SQL Database Dynamic Data Masking (Azure Portal)
+description: How to get started with SQL Database Dynamic Data Masking in the Azure Portal
+services: sql-database
+documentationcenter: ''
+author: ronitr
+manager: jhubbard
+editor: ''
+
+ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
+ms.service: sql-database
+ms.custom: secure and protect
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 11/22/2016
+wacn.date: ''
+ms.author: ronitr; ronmat; carlrab
+---
 
 # Get started with SQL Database Dynamic Data Masking (Azure Portal)
 
@@ -60,15 +61,13 @@ The DDM recommendations engine flags certain fields from your database as potent
 
 3. Click the **Dynamic Data Masking** tile which launches the **Dynamic Data Masking** configuration blade.
 
-	* Alternatively, you can scroll down to the **Operations** section and click **Dynamic Data Masking**.
+    * Alternatively, you can scroll down to the **Operations** section and click **Dynamic Data Masking**.
 
     ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/4_ddm_settings_tile.png)<br/><br/>
-
 
 4. In the **Dynamic Data Masking** configuration blade you may see some database columns that the recommendations engine has flagged for masking. In order to accept the recommendations, just click **Add Mask** for one or more columns and a mask will be created based on the default type for this column. You can change the masking function by clicking on the masking rule and editing the masking field format to a different format of your choice. Be sure to click **Save** to save your settings.
 
     ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/5_ddm_recommendations.png)<br/><br/>
-
 
 5. To add a mask for any column in your database, at the top of the **Dynamic Data Masking** configuration blade click **Add Mask** to open the **Add Masking Rule** configuration blade
 
@@ -86,14 +85,14 @@ The DDM recommendations engine flags certain fields from your database as potent
 
     ![Navigation pane](./media/sql-database-dynamic-data-masking-get-started/8_ddm_excluded_users.png)
 
-	>[AZURE.TIP] To make it so the application layer can display sensitive data for application privileged users, add the SQL user or AAD identity the application uses to query the database. It is highly recommended that this list contain a minimal number of privileged users to minimize exposure of the sensitive data.
+    >[!TIP]
+    > To make it so the application layer can display sensitive data for application privileged users, add the SQL user or AAD identity the application uses to query the database. It is highly recommended that this list contain a minimal number of privileged users to minimize exposure of the sensitive data.
 
 10. Click **Save** in the data masking configuration blade to save the new or updated masking policy.
 
 ## Set up dynamic data masking for your database using Powershell cmdlets
 
 See [Azure SQL Database Cmdlets](https://msdn.microsoft.com/zh-cn/library/azure/mt574084.aspx).
-
 
 ## Set up dynamic data masking for your database using REST API
 

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure Media Services Streaming Endpoint overview | Azure"
-    description="This topic gives an overview of Azure Media Services streaming endpoints."
-    services="media-services"
-    documentationcenter=""
-    author="Juliako"
-    writer="juliako"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="097ab5e5-24e1-4e8e-b112-be74172c2701"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/13/2017"
-    wacn.date=""
-    ms.author="juliako" />
+---
+title: Azure Media Services Streaming Endpoint overview | Azure
+description: This topic gives an overview of Azure Media Services streaming endpoints.
+services: media-services
+documentationcenter: ''
+author: Juliako
+writer: juliako
+manager: erikre
+editor: ''
+
+ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/13/2017
+wacn.date: ''
+ms.author: juliako
+---
 
 # Streaming endpoints overview 
 
@@ -28,7 +29,7 @@ In addition, starting with the 2.15 version (released in January 2017), Azure Me
 
 When you create an Azure Media Services account a default standard streaming endpoint is created for you in the **Stopped** state. You cannot delete the default streaming endpoint. Depending on the Azure CDN availability in the targeted region, by default newly created default streaming endpoint also includes "StandardVerizon" CDN provider integration. 
 
->[AZURE.NOTE]
+>[!NOTE]
 >Azure CDN integration can be disabled before starting the streaming endpoint.
 
 This topic gives an overview of the main functionalities that are provided by streaming endpoints.
@@ -52,12 +53,12 @@ For users who created AMS accounts prior to the January 10 2017 release, you hav
 
 If your **version "1.0"** streaming endpoint has >=1 premium streaming units (SU), it will be premium streaming endpoint and will provide all AMS features (just like the **Standard/Premium** type) without any additional configuration steps.
 
->[AZURE.NOTE]
+>[!NOTE]
 >**Classic** streaming endpoints (version "1.0" and 0 SU), provides limited features and doesn't include a SLA. It is recommended to migrate to **Standard** type to get a better experince and to use features like dynamic packaging or encryption and other features that come with the **Standard** type. To migrate to the **Standard** type, go to the [Azure portal](https://portal.azure.cn/) and select **Opt-in to Standard**. For more information about migration, see the [migration](#migration-between-types) section.
 >
 >Beware that this operation cannot be rolled back and has a pricing impact.
 >
- 
+
 ## Comparing streaming types
 
 ### Versions
@@ -83,8 +84,7 @@ Dynamic packaging|Yes|Yes
 Scale|Auto scales up to the targeted throughput.|Additional streaming units
 IP filtering/G20/Custom host|Yes|Yes
 Progressive download|Yes|Yes
-Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard. [Contact us](/support/support-ticket-form/?l=zh-cn) if you expect a concurrent audience size larger than 50,000 viewers.
-
+Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.<br/>If you think you may have needs beyond Standard. [Contact us](https://www.azure.cn/support/support-ticket-form/?l=zh-cn) if you expect a concurrent audience size larger than 50,000 viewers.
 
 ## Migration between types
 
@@ -100,6 +100,3 @@ Premium (with/without CDN)|Standard with different config|Allowed in the **stopp
 Version 1.0 with SU >= 1 with CDN|Standard/Premium with no CDN|Allowed in the **stopped** state. Not allowed in the **started** state.
 Version 1.0 with SU >= 1 with CDN|Standard with/without CDN|Allowed in the **stopped** state. Not allowed in the **started** state. Version 1.0 CDN will be deleted and new one created and started.
 Version 1.0 with SU >= 1 with CDN|Premium with/without CDN|Allowed in the **stopped** state. Not allowed in the **started** state. Classic CDN will be deleted and new one created and started.
-
-
-

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="View the backups in the Azure Recovery Services vault | Azure"
-    description="Quick reference on how to view the backups in the Azure Recovery Services vault and the space used by those backups"
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="ms.service: sql-database"
-    ms.custom="business continuity"
-    ms.devlang="NA"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.date="12/22/2016"
-    wacn.date=""
-    ms.author="carlrab; sstein" />
+---
+title: View the backups in the Azure Recovery Services vault | Azure
+description: Quick reference on how to view the backups in the Azure Recovery Services vault and the space used by those backups
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: ms.service: sql-database
+ms.custom: business continuity
+ms.devlang: NA
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.date: 12/22/2016
+wacn.date: ''
+ms.author: carlrab; sstein
+---
 
 # View information about your database backups in long-term backup retention
 
@@ -41,14 +42,14 @@ In this How To topic, you learn how to view information about your database back
 
     ![backups in vault](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
-> [AZURE.TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](/documentation/articles/sql-database-get-started-backup-recovery/)
+> [!TIP]
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](./sql-database-get-started-backup-recovery.md)
 >
 
 ## Next steps
 
-- To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term backup retention](/documentation/articles/sql-database-configure-long-term-retention/)
-- To restore a database from a backup in long-term backup retention, see [restore from long-term retention](/documentation/articles/sql-database-restore-from-long-term-retention/)
-- To learn about service-generated automatic backups, see [automatic backups](/documentation/articles/sql-database-automated-backups/)
-- To learn about long-term backup retention, see [long-term backup retention](/documentation/articles/sql-database-long-term-retention/)
-- To learn about restoring from backups, see [restore from backup](/documentation/articles/sql-database-recovery-using-backups/)
+- To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term backup retention](./sql-database-configure-long-term-retention.md)
+- To restore a database from a backup in long-term backup retention, see [restore from long-term retention](./sql-database-restore-from-long-term-retention.md)
+- To learn about service-generated automatic backups, see [automatic backups](./sql-database-automated-backups.md)
+- To learn about long-term backup retention, see [long-term backup retention](./sql-database-long-term-retention.md)
+- To learn about restoring from backups, see [restore from backup](./sql-database-recovery-using-backups.md)

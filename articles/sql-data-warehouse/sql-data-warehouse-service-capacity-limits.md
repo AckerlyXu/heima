@@ -1,20 +1,20 @@
-<properties
-   pageTitle="SQL Data Warehouse capacity limits | Azure"
-   description="Maximum values for connections, databases, tables and queries for SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL Data Warehouse capacity limits | Azure
+description: Maximum values for connections, databases, tables and queries for SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="sonyama;barbkess;jrj"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: sonyama;barbkess;jrj
+---
 
 # SQL Data Warehouse capacity limits
 The following tables contain the maximum values allowed for various components of Azure SQL Data Warehouse.
@@ -90,9 +90,9 @@ For more reference information, see [SQL Data Warehouse reference overview][SQL 
 
 <!--Article references-->
 [Data Warehouse Units (DWU)]: /documentation/articles/sql-data-warehouse-overview-what-is.md#data-warehouse-units/
-[SQL Data Warehouse reference overview]: /documentation/articles/sql-data-warehouse-overview-reference/
-[Workload management]: /documentation/articles/sql-data-warehouse-develop-concurrency/
-[Tempdb]: /documentation/articles/sql-data-warehouse-tables-temporary
+[SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
+[Workload management]: ./sql-data-warehouse-develop-concurrency.md
+[Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [data type]: ./sql-data-warehouse-tables-data-types.md
 [creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md
 

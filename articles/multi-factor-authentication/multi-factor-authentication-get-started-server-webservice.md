@@ -1,16 +1,16 @@
-<properties 
-	pageTitle="Getting started the MFA Server Mobile App Web Service" 
-	description="The Azure Multi-Factor Authentication App offers an additional out-of-band authentication option.  It allows the MFA server to use push notifications to users." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
+---
+title: Getting started the MFA Server Mobile App Web Service
+description: The Azure Multi-Factor Authentication App offers an additional out-of-band authentication option.  It allows the MFA server to use push notifications to users.
+services: multi-factor-authentication
+documentationCenter: ''
+authors: billmath
+manager: stevenpo
+editor: curtland
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.date="08/04/2016" 
-	wacn.date=""/>
+ms.service: multi-factor-authentication
+ms.date: 08/04/2016
+wacn.date: ''
+---
 
 # Getting started the MFA Server Mobile App Web Service
 
@@ -29,7 +29,6 @@ In order to use the Azure Multi-Factor Authentication App, the following are req
 - The Azure Multi-Factor Authentication Web Service SDK must be secured with an SSL certificate.
 - Mobile App Web Service must be able to connect to the Azure Multi-Factor Authentication Web Service SDK over SSL
 - Mobile App Web Service must be able to authenticate to the Azure Multi-Factor Authentication Web Service SDK using the credentials of a service account that is a member of a security group called “PhoneFactor Admins”. This service account and group exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure Multi-Factor Authentication Server if it is not joined to a domain.
-
 
 Installing the user portal on a server other than the Azure Multi-Factor Authentication Server requires the following three steps:
 
@@ -81,7 +80,4 @@ Now that the mobile app web service is installed, you need to configure the Azur
 4. Click the Mobile App icon.
 5. Enter the URL being used with the virtual directory which was created when installing the Azure Multi-Factor AuthenticationMobileAppWebServiceSetup. An Account Name may be entered in the space provided. This company name will display in the mobile application. If left blank, the name of your Multi-Factor Auth Provider created in the Azure Management Portal will be displayed. 
 
-
-
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
- 

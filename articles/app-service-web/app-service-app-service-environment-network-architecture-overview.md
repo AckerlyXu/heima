@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Network Architecture Overview of App Service Environments"
-    description="Architectural overview of network topology ofApp Service Environments."
-    services="app-service"
-    documentationcenter=""
-    author="stefsch"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="13d03a37-1fe2-4e3e-9d57-46dfb330ba52"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    wacn.date=""
-    ms.author="stefsch" />
+---
+title: Network Architecture Overview of App Service Environments
+description: Architectural overview of network topology ofApp Service Environments.
+services: app-service
+documentationcenter: ''
+author: stefsch
+manager: erikre
+editor: ''
+
+ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+wacn.date: ''
+ms.author: stefsch
+---
 
 # Network Architecture Overview of App Service Environments
 ## Introduction
@@ -34,7 +35,7 @@ The diagram below shows an overview of the various inbound and outbound network 
 
 An App Service Environment can communicate with a variety of private customer endpoints.  For example, apps running in the App Service Environment can connect to database server(s) running on IaaS virtual machines in the same virtual network topology.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Looking at the network diagram, the "Other Compute Resources" are deployed in a different Subnet from the App Service Environment. Deploying resources in the same Subnet with the ASE will block connectivity from ASE to those resources (except for specific intra-ASE routing). Deploy to a different Subnet instead (in the same VNET). The App Service Environment will then be able to connect. No additional configuration is necessary.
 > 
 > 
@@ -79,7 +80,7 @@ In the example above the App Service Environment "ASE One" has an outbound IP ad
 Even though calls between different App Service Environments are treated as "Internet" calls, when both App Service Environments are located in the same Azure region the network traffic will remain on the regional Azure network and will not physically flow over the public Internet.  As a result you can use a network security group on the subnet of the second App Service Environment to only allow inbound calls from the first App Service Environment (whose outbound IP address is 192.23.1.2), thus ensuring secure communication between the App Service Environments.
 
 ## Additional Links and Information
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](/documentation/articles/app-service-app-service-environments-readme/).
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
 Details on inbound ports used by App Service Environments and using network security groups to control inbound traffic is available [here][controllinginboundtraffic].
 
@@ -87,8 +88,8 @@ Details on using user defined routes to grant outbound Internet access to App Se
 
 <!-- LINKS -->
 [virtualnetwork]: http://azure.microsoft.com/services/networking/
-[controllinginboundtraffic]:  /documentation/articles/app-service-app-service-environment-control-inbound-traffic/
-[ExpressRoute]:  /documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
+[controllinginboundtraffic]:  ./app-service-app-service-environment-control-inbound-traffic.md
+[ExpressRoute]:  ./app-service-app-service-environment-network-configuration-expressroute.md
 
 <!-- IMAGES -->
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png

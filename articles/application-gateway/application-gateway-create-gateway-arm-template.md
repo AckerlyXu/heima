@@ -1,33 +1,34 @@
-<properties
-    pageTitle="Create an Azure Application Gateway - templates | Azure"
-    description="This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template"
-    documentationcenter="na"
-    services="application-gateway"
-    author="georgewallace"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="8192ee25-d9f0-4b32-a45e-1d74629c54e5"
-    ms.service="application-gateway"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="gwallace" />
+---
+title: Create an Azure Application Gateway - templates | Azure
+description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
+documentationcenter: na
+services: application-gateway
+author: georgewallace
+manager: timlt
+editor: tysonn
+
+ms.assetid: 8192ee25-d9f0-4b32-a45e-1d74629c54e5
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: gwallace
+---
 
 # Create an application gateway by using the Azure Resource Manager template
-> [AZURE.SELECTOR]
-- [Azure portal preview](/documentation/articles/application-gateway-create-gateway-portal/)
-- [Azure Resource Manager PowerShell](/documentation/articles/application-gateway-create-gateway-arm/)
-- [Azure Classic PowerShell](/documentation/articles/application-gateway-create-gateway/)
-- [Azure Resource Manager template](/documentation/articles/application-gateway-create-gateway-arm-template/)
-- [Azure CLI](/documentation/articles/application-gateway-create-gateway-cli/)
+> [!div class="op_single_selector"]
+>- [Azure portal preview](./application-gateway-create-gateway-portal.md)
+>- [Azure Resource Manager PowerShell](./application-gateway-create-gateway-arm.md)
+>- [Azure Classic PowerShell](./application-gateway-create-gateway.md)
+>- [Azure Resource Manager template](./application-gateway-create-gateway-arm-template.md)
+>- [Azure CLI](./application-gateway-create-gateway-cli.md)
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
-To find a complete list of supported features, visit [Application Gateway Overview](/documentation/articles/application-gateway-introduction/)
+To find a complete list of supported features, visit [Application Gateway Overview](./application-gateway-introduction.md)
 
 You learn how to download and modify an existing Azure Resource Manager template from GitHub and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
@@ -42,7 +43,7 @@ In this scenario you will:
 * Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
 * Set up two previously configured back-end IPs for the web servers you want to load balance the traffic. In this template example, the back-end IPs are 10.0.1.10 and 10.0.1.11.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Those settings are the parameters for this template. To customize the template, you can change rules, the listener, and the SSL that opens the azuredeploy.json.
 
 ![Scenario](./media/application-gateway-create-gateway-arm-template/scenario.png)
@@ -56,7 +57,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 3. Save the file to a local folder on your computer.
 4. If you are familiar with Azure Resource Manager templates, skip to step 7.
 5. Open the file that you saved and look at the contents under **parameters** in line 5. Azure Resource Manager template parameters provide a placeholder for values that can be filled out during deployment.
-   
+
     | Parameter | Description |
     | --- | --- |
     | **location** |Azure region where the application gateway is created |
@@ -69,7 +70,7 @@ You can download the existing Azure Resource Manager template to create a virtua
     | **backendaddress1** |IP address of the first web server |
     | **backendaddress2** |IP address of the second web server |
 
-    > [AZURE.IMPORTANT]
+    > [!IMPORTANT]
     >Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
 
 6. Check the content under **resources** and notice the following properties:
@@ -78,36 +79,38 @@ You can download the existing Azure Resource Manager template to create a virtua
     * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
     * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
 
-7. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
+7. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
 8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
 9. Save the file to a local folder on your computer.
 10. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
 
-            {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-            {
-            "location" : {
-            "value" : "China North"
-            },
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/24"
-            },
-            "skuName": {
-            "value": "Standard_Small"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            }
-            }
+    ```json
+        {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        {
+        "location" : {
+        "value" : "China North"
+        },
+        "addressPrefix": {
+        "value": "10.0.0.0/16"
+        },
+        "subnetPrefix": {
+        "value": "10.0.0.0/24"
+        },
+        "skuName": {
+        "value": "Standard_Small"
+        },
+        "capacity": {
+        "value": 2
+        },
+        "backendIpAddress1": {
+        "value": "10.0.1.10"
+        },
+        "backendIpAddress2": {
+        "value": "10.0.1.11"
+        }
+        }
+    ```
 
 11. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
 
@@ -117,13 +120,17 @@ If you have never used Azure PowerShell, see [How to install and configure Azure
 
 ### Step 1
 
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+```powershell
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+```
 
 ### Step 2
 
 Check the subscriptions for the account.
 
-    Get-AzureRmSubscription
+```powershell
+Get-AzureRmSubscription
+```
 
 You are prompted to authenticate with your credentials.
 
@@ -131,18 +138,24 @@ You are prompted to authenticate with your credentials.
 
 Choose which of your Azure subscriptions to use.
 
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+```powershell
+Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+```
 
 ### Step 4
 
 If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in China East location.
 
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "China East"
+```powershell
+New-AzureRmResourceGroup -Name AppgatewayRG -Location "China East"
+```
 
 Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the preceding template and parameter files you downloaded and modified.
 
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
-    -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+```powershell
+New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+```
 
 ## Deploy the Azure Resource Manager template by using the Azure CLI
 
@@ -156,17 +169,23 @@ If you have never used Azure CLI, see [Install and configure the Azure CLI](/doc
 
 Run the **azure config mode** command to switch to Resource Manager mode, as shown in the following code snippet.
 
-    azure config mode arm
+```azurecli
+azure config mode arm
+```
 
 Here is the expected output for the preceding command:
 
-    info:    New mode is arm
+```azurecli
+info:    New mode is arm
+```
 
 ### Step 3
 
-If necessary, run the **azure group create** command to create a new resource group, as shown in the following code snippet. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](/documentation/articles/resource-group-overview/).
+If necessary, run the **azure group create** command to create a new resource group, as shown in the following code snippet. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
-    azure group create -n appgatewayRG -l chinaeast
+```azurecli
+azure group create -n appgatewayRG -l chinaeast
+```
 
 **-n (or --name)**. Name for the new resource group. For our scenario, it's *appgatewayRG*.
 
@@ -176,7 +195,9 @@ If necessary, run the **azure group create** command to create a new resource gr
 
 Run the **azure group deployment create** cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified in the preceding step. The list shown after the output explains the parameters used.
 
-    azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+```azurecli
+azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+```
 
 ## Deploy the Azure Resource Manager template by using click-to-deploy
 
@@ -210,15 +231,17 @@ On the Custom deployment blade, click **Create**.
 
 When using SSL with a template, the certificate needs to be provided in a base64 string instead of being uploaded. To convert a .pfx or .cer to a base64 string run the following PowerShell command. This snippet converts the certificate to a base64 string, which can be provided to the template. The expected output is a string that can be stored in a variable and pasted in the template.
 
-    [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
+```powershell
+[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
+```
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure an application gateway for SSL offload](/documentation/articles/application-gateway-ssl/).
+If you want to configure SSL offload, see [Configure an application gateway for SSL offload](./application-gateway-ssl.md).
 
-If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](/documentation/articles/application-gateway-ilb/).
+If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb.md).
 
 If you want more information about load balancing options in general, visit:
 
-* [Azure Load Balancer](/documentation/services/load-balancer/)
-* [Azure Traffic Manager](/documentation/services/traffic-manager/)
+* [Azure Load Balancer](../load-balancer/index.md)
+* [Azure Traffic Manager](../traffic-manager/index.md)

@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Virtual machine extensions and features for Windows in Azure | Azure"
-    description="Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="neilpeterson"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management,azure-resource-manager" />
-<tags
-    ms.assetid="999d63ee-890e-432e-9391-25b3fc6cde28"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure-services"
-    ms.date="03/06/2017"
-    wacn.date=""
-    ms.author="nepeters"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Virtual machine extensions and features for Windows in Azure | Azure
+description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
+services: virtual-machines-windows
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+
+ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/06/2017
+wacn.date: ''
+ms.author: nepeters
+ms.custom: H1Hack27Feb2017
+---
 
 # Virtual machine extensions and features for Windows
 
@@ -29,13 +30,13 @@ This document provides an overview of virtual machine extensions, prerequisites 
 
 There are many different Azure VM extensions available, each with a specific use case. Some example use cases are:
 
-- Apply PowerShell Desired State configurations to a virtual machine by using the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](/documentation/articles/virtual-machines-windows-extensions-dsc-overview/).
+- Apply PowerShell Desired State configurations to a virtual machine by using the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](./virtual-machines-windows-extensions-dsc-overview.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
-- Configure an Azure virtual machine by using Chef. For more information, see [Automating Azure virtual machine deployment with Chef](/documentation/articles/virtual-machines-windows-chef-automation/).
+- Configure an Azure virtual machine by using Chef. For more information, see [Automating Azure virtual machine deployment with Chef](./virtual-machines-windows-chef-automation.md).
 
-In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on a virtual machine. This is useful when you're designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Windows VM Custom Script extension](/documentation/articles/virtual-machines-windows-extensions-customscript/).
+In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on a virtual machine. This is useful when you're designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Windows VM Custom Script extension](./virtual-machines-windows-extensions-customscript.md).
 
-To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](/documentation/articles/virtual-machines-windows-dotnet-core-1-landing/).
+To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](./virtual-machines-windows-dotnet-core-1-landing.md).
 
 ## Prerequisites
 
@@ -44,14 +45,16 @@ Each virtual machine extension may have its own set of prerequisites. For instan
 ### Azure VM agent
 The Azure VM agent manages interaction between an Azure virtual machine and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure virtual machines, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images and can be installed on supported operating systems.
 
-For information on supported operating systems and installation instructions, see [Azure virtual machine agent](/documentation/articles/virtual-machines-windows-agent-user-guide/).
+For information on supported operating systems and installation instructions, see [Azure virtual machine agent](./virtual-machines-windows-agent-user-guide.md).
 
 ## Discover VM extensions
 Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure Resource Manager PowerShell module. Make sure to specify the desired location when you're running this command.
 
-    Get-AzureRmVmImagePublisher -Location ChinaNorth | `
-    Get-AzureRmVMExtensionImageType | `
-    Get-AzureRmVMExtensionImage | Select Type, Version
+```powershell
+Get-AzureRmVmImagePublisher -Location ChinaNorth | `
+Get-AzureRmVMExtensionImageType | `
+Get-AzureRmVMExtensionImage | Select Type, Version
+```
 
 ## Run VM extensions
 
@@ -63,39 +66,47 @@ The following methods can be used to run an extension against an existing virtua
 
 Several PowerShell commands exist for running individual extensions. To see a list, run the following PowerShell commands.
 
-    get-command Set-AzureRM*Extension* -Module AzureRM.Compute
+```powershell
+get-command Set-AzureRM*Extension* -Module AzureRM.Compute
+```
 
 This provides output similar to the following:
 
-    CommandType     Name                                               Version    Source
-    -----------     ----                                               -------    ------
-    Cmdlet          Set-AzureRmVMAccessExtension                       2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMADDomainExtension                     2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMAEMExtension                          2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMBackupExtension                       2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMBginfoExtension                       2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMChefExtension                         2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMCustomScriptExtension                 2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMDiagnosticsExtension                  2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMDiskEncryptionExtension               2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMDscExtension                          2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMExtension                             2.2.0      AzureRM.Compute
-    Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
+```powershell
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Set-AzureRmVMAccessExtension                       2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMADDomainExtension                     2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMAEMExtension                          2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMBackupExtension                       2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMBginfoExtension                       2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMChefExtension                         2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMCustomScriptExtension                 2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMDiagnosticsExtension                  2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMDiskEncryptionExtension               2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMDscExtension                          2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMExtension                             2.2.0      AzureRM.Compute
+Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
+```
 
-The following example uses the Custom Script extension to download a script from a GitHub repository onto the target virtual machine and then run the script. For more information on the Custom Script extension, see [Custom Script extension overview](/documentation/articles/virtual-machines-windows-extensions-customscript/).
+The following example uses the Custom Script extension to download a script from a GitHub repository onto the target virtual machine and then run the script. For more information on the Custom Script extension, see [Custom Script extension overview](./virtual-machines-windows-extensions-customscript.md).
 
-    Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
-        -VMName "myVM" -Name "myCustomScript" `
-        -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
-        -Run "Create-File.ps1" -Location "China North"
+```powershell
+Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
+    -VMName "myVM" -Name "myCustomScript" `
+    -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
+    -Run "Create-File.ps1" -Location "China North"
+```
 
-In this example, the VM Access extension is used to reset the administrative password of a Windows virtual machine. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](/documentation/articles/virtual-machines-windows-reset-rdp/).
+In this example, the VM Access extension is used to reset the administrative password of a Windows virtual machine. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](./virtual-machines-windows-reset-rdp.md).
 
-    $cred=Get-Credential
+```powershell
+$cred=Get-Credential
 
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
-        -Location ChinaNorth -UserName $cred.GetNetworkCredential().Username `
-        -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
+Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
+    -Location ChinaNorth -UserName $cred.GetNetworkCredential().Username `
+    -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
+```
 
 The `Set-AzureRmVMExtension` command can be used to start any VM extension. For more information, see the [Set-AzureRmVMExtension reference](https://msdn.microsoft.com/zh-cn/library/mt603745.aspx).
 
@@ -113,37 +124,40 @@ VM extensions can be added to an Azure Resource Manager template and executed wi
 
 For more information, see the [full Resource Manager template](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
->[AZURE.NOTE] Templates you downloaded must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn", and "database.windows.net" by "database.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+>[!NOTE]
+> Templates you downloaded must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn", and "database.windows.net" by "database.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
 
-    {
-        "apiVersion": "2015-06-15",
-        "type": "extensions",
-        "name": "config-app",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
-        "[variables('musicstoresqlName')]"
-        ],
-        "tags": {
-        "displayName": "config-app"
-        },
-        "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.4",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "fileUris": [
-            "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1"
-            ]
-        },
-        "protectedSettings": {
-            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.chinacloudapi.cn')]"
-        }
-        }
+```json
+{
+    "apiVersion": "2015-06-15",
+    "type": "extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+    ],
+    "tags": {
+    "displayName": "config-app"
+    },
+    "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.4",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+        "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1"
+        ]
+    },
+    "protectedSettings": {
+        "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.chinacloudapi.cn')]"
     }
+    }
+}
+```
 
-For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](/documentation/articles/virtual-machines-windows-extensions-authoring-templates/).
+For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](./virtual-machines-windows-extensions-authoring-templates.md).
 
 ## Secure VM extension data
 
@@ -151,61 +165,65 @@ When you're running a VM extension, it may be necessary to include sensitive inf
 
 The following example shows an instance of the Custom Script extension for Windows. Notice that the command to execute includes a set of credentials. In this example, the command to execute will not be encrypted.
 
-    {
-        "apiVersion": "2015-06-15",
-        "type": "extensions",
-        "name": "config-app",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
-        "[variables('musicstoresqlName')]"
+```json
+{
+    "apiVersion": "2015-06-15",
+    "type": "extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+    ],
+    "tags": {
+    "displayName": "config-app"
+    },
+    "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.4",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+        "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1"
         ],
-        "tags": {
-        "displayName": "config-app"
-        },
-        "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.4",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "fileUris": [
-            "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1"
-            ],
-            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.chinacloudapi.cn')]"
-        }
-        }
+        "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.chinacloudapi.cn')]"
     }
+    }
+}
+```
 
 Secure the execution string by moving the **command to execute** property to the **protected** configuration.
 
-    {
-        "apiVersion": "2015-06-15",
-        "type": "extensions",
-        "name": "config-app",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
-        "[variables('musicstoresqlName')]"
-        ],
-        "tags": {
-        "displayName": "config-app"
-        },
-        "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.4",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-            "fileUris": [
-            "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1"
-            ]
-        },
-        "protectedSettings": {
-            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.chinacloudapi.cn')]"
-        }
-        }
+```json
+{
+    "apiVersion": "2015-06-15",
+    "type": "extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+    ],
+    "tags": {
+    "displayName": "config-app"
+    },
+    "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.4",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+        "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1"
+        ]
+    },
+    "protectedSettings": {
+        "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.chinacloudapi.cn')]"
     }
+    }
+}
+```
 
 ## Troubleshoot VM extensions
 
@@ -217,26 +235,30 @@ The following troubleshooting steps apply to all virtual machine extensions.
 
 After a virtual machine extension has been run against a virtual machine, use the following PowerShell command to return extension status. Replace example parameter names with your own values. The `Name` parameter takes the name given to the extension at execution time.
 
-    Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+```PowerShell
+Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+```
 
 The output looks like the following:
 
-    ResourceGroupName       : myResourceGroup
-    VMName                  : myVM
-    Name                    : myExtensionName
-    Location                : chinanorth
-    Etag                    : null
-    Publisher               : Microsoft.Azure.Extensions
-    ExtensionType           : DockerExtension
-    TypeHandlerVersion      : 1.0
-    Id                      : /subscriptions/mySubscriptionIS/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/myExtensionName
-    PublicSettings          :
-    ProtectedSettings       :
-    ProvisioningState       : Succeeded
-    Statuses                :
-    SubStatuses             :
-    AutoUpgradeMinorVersion : False
-    ForceUpdateTag          :
+```json
+ResourceGroupName       : myResourceGroup
+VMName                  : myVM
+Name                    : myExtensionName
+Location                : chinanorth
+Etag                    : null
+Publisher               : Microsoft.Azure.Extensions
+ExtensionType           : DockerExtension
+TypeHandlerVersion      : 1.0
+Id                      : /subscriptions/mySubscriptionIS/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/myExtensionName
+PublicSettings          :
+ProtectedSettings       :
+ProvisioningState       : Succeeded
+Statuses                :
+SubStatuses             :
+AutoUpgradeMinorVersion : False
+ForceUpdateTag          :
+```
 
 Extension execution status can also be found in the Azure portal preview. To view the status of an extension, select the virtual machine, choose **Extensions**, and select the desired extension.
 
@@ -244,7 +266,9 @@ Extension execution status can also be found in the Azure portal preview. To vie
 
 There may be cases in which a virtual machine extension needs to be rerun. You can do this by removing the extension and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure PowerShell module. Replace example parameter names with your own values.
 
-    Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+```PowerShell
+Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+```
 
 An extension can also be removed using the Azure portal preview. To do so:
 
@@ -256,7 +280,7 @@ An extension can also be removed using the Azure portal preview. To do so:
 ## Common VM extensions reference
 | Extension name | Description | More information |
 | --- | --- | --- |
-| Custom Script Extension for Windows |Run scripts against an Azure virtual machine |[Custom Script Extension for Windows](/documentation/articles/virtual-machines-windows-extensions-customscript/) |
-| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension |[DSC Extension for Windows](/documentation/articles/virtual-machines-windows-extensions-dsc-overview/) |
+| Custom Script Extension for Windows |Run scripts against an Azure virtual machine |[Custom Script Extension for Windows](./virtual-machines-windows-extensions-customscript.md) |
+| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension |[DSC Extension for Windows](./virtual-machines-windows-extensions-dsc-overview.md) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Azure VM Access Extension |Manage users and credentials |[VM Access Extension for Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

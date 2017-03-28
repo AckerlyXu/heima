@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Using PowerShell to manage Traffic Manager in Azure | Azure"
-    description="Using PowerShell for Traffic Manager with Azure Resource Manager"
-    services="traffic-manager"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt" />
-<tags
-    ms.assetid="bc247448-1d2e-4104-ac03-42b59ebde065"
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="03/16/2017"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Using PowerShell to manage Traffic Manager in Azure | Azure
+description: Using PowerShell for Traffic Manager with Azure Resource Manager
+services: traffic-manager
+documentationcenter: na
+author: kumudd
+manager: timlt
+
+ms.assetid: bc247448-1d2e-4104-ac03-42b59ebde065
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/16/2017
+wacn.date: ''
+ms.author: kumud
+---
 
 # Using PowerShell to manage Traffic Manager
 
@@ -26,7 +27,9 @@ Azure Traffic Manager is configured using a collection of settings called a Traf
 
 Each Traffic Manager profile is represented by a resource of type 'TrafficManagerProfiles'. At the REST API level, the URI for each profile is as follows:
 
-    https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
+```
+https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
+```
 
 ## Setting up Azure PowerShell
 
@@ -36,16 +39,20 @@ These instructions use Azure PowerShell. The following article explains how to i
 
 The examples in this article assume that you have an existing resource group. You can create a resource group using the following command:
 
-    New-AzureRmResourceGroup -Name MyRG -Location "China North"
+```powershell
+New-AzureRmResourceGroup -Name MyRG -Location "China North"
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Azure Resource Manager requires that all resource groups have a location. This location is used as the default for resources created in that resource group. However, since Traffic Manager profile resources are global, not regional, the choice of resource group location has no impact on Azure Traffic Manager.
 
 ## Create a Traffic Manager Profile
 
 To create a Traffic Manager profile, use the `New-AzureRmTrafficManagerProfile` cmdlet:
 
-    $profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+```powershell
+$profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+```
 
 The following table describes the parameters:
 
@@ -66,7 +73,9 @@ The cmdlet creates a Traffic Manager profile in Azure and returns a correspondin
 
 To retrieve an existing Traffic Manager profile object, use the `Get-AzureRmTrafficManagerProfle` cmdlet:
 
-    $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+```powershell
+$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+```
 
 This cmdlet returns a Traffic Manager profile object.
 
@@ -82,9 +91,11 @@ All profile properties can be changed except the profile's RelativeDnsName. To c
 
 The following example demonstrates how to change the profile's TTL:
 
-    $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
-    $profile.Ttl = 300
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```powershell
+$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+$profile.Ttl = 300
+Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```
 
 There are three types of Traffic Manager endpoints:
 
@@ -115,19 +126,23 @@ In each case:
 
 In this example, we create a Traffic Manager profile and add two Web App endpoints using the `Add-AzureRmTrafficManagerEndpointConfig` cmdlet.
 
-    $profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-    $webapp1 = Get-AzureRMWebApp -Name webapp1
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
-    $webapp2 = Get-AzureRMWebApp -Name webapp2
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```powershell
+$profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$webapp1 = Get-AzureRMWebApp -Name webapp1
+Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
+$webapp2 = Get-AzureRMWebApp -Name webapp2
+Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
+Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```
 
 ### Example 2: Adding a publicIpAddress endpoint using `New-AzureRmTrafficManagerEndpoint`
 
 In this example, a public IP address resource is added to the Traffic Manager profile. The public IP address must have a DNS name configured, and can be bound either to the NIC of a VM or to a load balancer.
 
-    $ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
-    New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
+```powershell
+$ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
+New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
+```
 
 ## Adding External Endpoints
 
@@ -143,20 +158,24 @@ When specifying external endpoints:
 
 In this example, we create a Traffic Manager profile, add two external endpoints, and commit the changes.
 
-    $profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointStatus Enabled
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```powershell
+$profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+Add-AzureRmTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
+Add-AzureRmTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointStatus Enabled
+Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```
 
 ### Example 2: Adding external endpoints using `New-AzureRmTrafficManagerEndpoint`
 
 In this example, we add an external endpoint to an existing profile. The profile is specified using the profile and resource group names.
 
-    New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
+```powershell
+New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
+```
 
 ## Adding 'Nested' endpoints
 
-Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments. For more detailed examples, see [Nested Traffic Manager profiles](/documentation/articles/traffic-manager-nested-profiles/).
+Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments. For more detailed examples, see [Nested Traffic Manager profiles](./traffic-manager-nested-profiles.md).
 
 Nested endpoints are configured at the parent profile, using a specific endpoint type, 'NestedEndpoints'. When specifying nested endpoints:
 
@@ -169,10 +188,12 @@ Nested endpoints are configured at the parent profile, using a specific endpoint
 
 In this example, we create new Traffic Manager child and parent profiles, add the child as a nested endpoint to the parent, and commit the changes.
 
-    $child = New-AzureRmTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-    $parent = New-AzureRmTrafficManagerProfile -Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-    Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficManagerProfile $parent -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "China North" -MinChildEndpoints 2
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```powershell
+$child = New-AzureRmTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$parent = New-AzureRmTrafficManagerProfile -Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficManagerProfile $parent -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "China North" -MinChildEndpoints 2
+Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```
 
 For brevity in this example, we did not add any other endpoints to the child or parent profiles.
 
@@ -180,8 +201,10 @@ For brevity in this example, we did not add any other endpoints to the child or 
 
 In this example, we add an existing child profile as a nested endpoint to an existing parent profile. The profile is specified using the profile and resource group names.
 
-    $child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
-    New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "China North" -MinChildEndpoints 2
+```powershell
+$child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
+New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "China North" -MinChildEndpoints 2
+```
 
 ## Update a Traffic Manager Endpoint
 
@@ -194,18 +217,22 @@ There are two ways to update an existing Traffic Manager endpoint:
 
 In this example, we modify the priority on two endpoints within an existing profile.
 
-    $profile = Get-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
-    $profile.Endpoints[0].Priority = 2
-    $profile.Endpoints[1].Priority = 1
-    Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```powershell
+$profile = Get-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
+$profile.Endpoints[0].Priority = 2
+$profile.Endpoints[1].Priority = 1
+Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+```
 
 ### Example 2: Updating an endpoint using `Get-AzureRmTrafficManagerEndpoint` and `Set-AzureRmTrafficManagerEndpoint`
 
 In this example, we modify the weight of a single endpoint in an existing profile.
 
-    $endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
-    $endpoint.Weight = 20
-    Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
+```powershell
+$endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
+$endpoint.Weight = 20
+Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
+```
 
 ## Enabling and Disabling Endpoints and Profiles
 
@@ -216,11 +243,15 @@ These changes can be made by getting/updating/setting the endpoint or profile re
 
 To enable a Traffic Manager profile, use `Enable-AzureRmTrafficManagerProfile`. The profile can be specified using a profile object. The profile object can be passed via the pipeline or by using the '-TrafficManagerProfile' parameter. In this example, we specify the profile by the profile and resource group name.
 
-    Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+```powershell
+Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+```
 
 To disable a Traffic Manager profile:
 
-    Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+```powershell
+Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+```
 
 The Disable-AzureRmTrafficManagerProfile cmdlet prompts for confirmation. This prompt can be suppressed using the '-Force' parameter.
 
@@ -235,7 +266,9 @@ To enable a Traffic Manager endpoint, use `Enable-AzureRmTrafficManagerEndpoint`
 
 Similarly, to disable a Traffic Manager endpoint:
 
-    Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
+```powershell
+Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
+```
 
 As with `Disable-AzureRmTrafficManagerProfile`, the `Disable-AzureRmTrafficManagerEndpoint` cmdlet prompts for confirmation. This prompt can be suppressed using the '-Force' parameter.
 
@@ -243,7 +276,9 @@ As with `Disable-AzureRmTrafficManagerProfile`, the `Disable-AzureRmTrafficManag
 
 To remove individual endpoints, use the `Remove-AzureRmTrafficManagerEndpoint` cmdlet:
 
-    Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+```powershell
+Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+```
 
 This cmdlet prompts for confirmation. This prompt can be suppressed using the '-Force' parameter.
 
@@ -251,21 +286,27 @@ This cmdlet prompts for confirmation. This prompt can be suppressed using the '-
 
 To delete a Traffic Manager profile, use the `Remove-AzureRmTrafficManagerProfile` cmdlet, specifying the profile and resource group names:
 
-    Remove-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
+```powershell
+Remove-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
+```
 
 This cmdlet prompts for confirmation. This prompt can be suppressed using the '-Force' parameter.
 
 The profile to be deleted can also be specified using a profile object:
 
-    $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
-    Remove-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
+```powershell
+$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+Remove-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
+```
 
 This sequence can also be piped:
 
-    Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
+```powershell
+Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
+```
 
 ## Next steps
 
-[Traffic Manager monitoring](/documentation/articles/traffic-manager-monitoring/)
+[Traffic Manager monitoring](./traffic-manager-monitoring.md)
 
-[Traffic Manager performance considerations](/documentation/articles/traffic-manager-performance-considerations/)
+[Traffic Manager performance considerations](./traffic-manager-performance-considerations.md)

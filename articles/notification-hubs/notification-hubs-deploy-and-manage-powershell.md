@@ -1,16 +1,16 @@
-<properties 
-	pageTitle="Deploy and Manage Notification Hubs using PowerShell" 
-	description="How to Create and Manage Notification Hubs Using PowerShell for Automation" 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="erikre" 
-	editor="" />
+---
+title: Deploy and Manage Notification Hubs using PowerShell
+description: How to Create and Manage Notification Hubs Using PowerShell for Automation
+services: notification-hubs
+documentationCenter: ''
+authors: wesmc7777
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.date="06/29/2016" 
-	wacn.date=""/>
+ms.service: notification-hubs
+ms.date: 06/29/2016
+wacn.date: ''
+---
 
 # Deploy and Manage Notification Hubs using PowerShell
 
@@ -21,10 +21,9 @@ This article shows you how to use Create and Manage Azure Notification Hubs usin
 + Create a Notification Hub
 + Set Credentials
 
-If you also need to create a new service bus namespace for your notification hubs, see [Manage Service Bus with PowerShell](/documentation/articles/service-bus-powershell-how-to-provision/).
+If you also need to create a new service bus namespace for your notification hubs, see [Manage Service Bus with PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
 
 Managing Notifications Hubs is not supported directly by the cmdlets included with Azure PowerShell. The best approach from PowerShell is to reference the Microsoft.Azure.NotificationHubs.dll assembly. The assembly is distributed with the [Microsoft Azure Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-
 
 ## Prerequisites
 
@@ -37,7 +36,6 @@ information about obtaining a subscription, see [Purchase Options],
 - A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell].
 
 - A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.
-
 
 ## Including a reference to the .NET assembly for Service Bus
 
@@ -53,24 +51,25 @@ First, make sure your script can locate the **Microsoft.Azure.NotificationHubs.d
 Here's how these steps are implemented in a PowerShell script:
 
 powershell
-	
-	try
-	{
-	    # WARNING: Make sure to reference the latest version of Microsoft.Azure.NotificationHubs.dll
-	    Write-Output "Adding the [Microsoft.Azure.NotificationHubs.dll] assembly to the script..."
-	    $scriptPath = Split-Path (Get-Variable MyInvocation -Scope 0).Value.MyCommand.Path
-	    $packagesFolder = (Split-Path $scriptPath -Parent) + "\packages"
-	    $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.Azure.NotificationHubs.dll" -Recurse
-	    Add-Type -Path $assembly.FullName
-	
-	    Write-Output "The [Microsoft.Azure.NotificationHubs.dll] assembly has been successfully added to the script."
-	}
-	
-	catch [System.Exception]
-	{
-	    Write-Error("Could not add the Microsoft.Azure.NotificationHubs.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
-	}
-	
+
+```powershell
+try
+{
+    # WARNING: Make sure to reference the latest version of Microsoft.Azure.NotificationHubs.dll
+    Write-Output "Adding the [Microsoft.Azure.NotificationHubs.dll] assembly to the script..."
+    $scriptPath = Split-Path (Get-Variable MyInvocation -Scope 0).Value.MyCommand.Path
+    $packagesFolder = (Split-Path $scriptPath -Parent) + "\packages"
+    $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.Azure.NotificationHubs.dll" -Recurse
+    Add-Type -Path $assembly.FullName
+
+    Write-Output "The [Microsoft.Azure.NotificationHubs.dll] assembly has been successfully added to the script."
+}
+
+catch [System.Exception]
+{
+    Write-Error("Could not add the Microsoft.Azure.NotificationHubs.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
+}
+```
 
 ## Create the NamespaceManager class
 
@@ -79,14 +78,14 @@ To provision Notification Hubs, create an instance of the [NamespaceManager](htt
 You can use the [Get-AzureSBAuthorizationRule] cmdlet included with Azure PowerShell to retrieve an authorization rule that's used to provide a connection string. We'll store a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. We will use `$NamespaceManager` to provision a notification hub.
 
 powershell
-	
-	$sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
-	# Create the NamespaceManager object to create the hub
-	Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-	$NamespaceManager=[Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
-	Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 
-
+```powershell
+$sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
+# Create the NamespaceManager object to create the hub
+Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
+$NamespaceManager=[Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
+```
 
 ## Provisioning a new Notification Hub 
 
@@ -106,67 +105,63 @@ These variables are used to connect to your namespace and create a new Notificat
 + If it does not exist, the script will create an `NotificationHubDescription` with WNS credentials and pass that to the `NamespaceManager` class `CreateNotificationHub` method.
 
 powershell
-	
-	$Namespace = "<Enter your namespace>"
-	$Path  = "<Enter a name for your notification hub>"
-	$WnsPackageSid = "<your package sid>"
-	$WnsSecretkey = "<enter your secret key>"
-	
-	$WnsCredential = New-Object -TypeName Microsoft.Azure.NotificationHubs.WnsCredential -ArgumentList $WnsPackageSid,$WnsSecretkey
-	
-	# Query the namespace
-	$CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
-	
-	# Check if the namespace already exists
-	if ($CurrentNamespace)
-	{
-	    Write-Output "The namespace [$Namespace] in the [$($CurrentNamespace.Region)] region was found."
-	
-	    # Create the NamespaceManager object used to create a new notification hub
-	    $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
-	    Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-	    $NamespaceManager = [Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
-	    Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
-	
-	    # Check to see if the Notification Hub already exists
-	    if ($NamespaceManager.NotificationHubExists($Path))
-	    {
-	        Write-Output "The [$Path] notification hub already exists in the [$Namespace] namespace."  
-	    }
-	    else
-	    {
-	        Write-Output "Creating the [$Path] notification hub in the [$Namespace] namespace."
-	        $NHDescription = New-Object -TypeName Microsoft.Azure.NotificationHubs.NotificationHubDescription -ArgumentList $Path;
-	        $NHDescription.WnsCredential = $WnsCredential;
-	        $NamespaceManager.CreateNotificationHub($NHDescription);
-	        Write-Output "The [$Path] notification hub was created in the [$Namespace] namespace."
-	    }
-	}
-	else
-	{
-	    Write-Host "The [$Namespace] namespace does not exist."
-	}
 
+```powershell
+$Namespace = "<Enter your namespace>"
+$Path  = "<Enter a name for your notification hub>"
+$WnsPackageSid = "<your package sid>"
+$WnsSecretkey = "<enter your secret key>"
 
+$WnsCredential = New-Object -TypeName Microsoft.Azure.NotificationHubs.WnsCredential -ArgumentList $WnsPackageSid,$WnsSecretkey
 
+# Query the namespace
+$CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
 
+# Check if the namespace already exists
+if ($CurrentNamespace)
+{
+    Write-Output "The namespace [$Namespace] in the [$($CurrentNamespace.Region)] region was found."
+
+    # Create the NamespaceManager object used to create a new notification hub
+    $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
+    Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
+    $NamespaceManager = [Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+    Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
+
+    # Check to see if the Notification Hub already exists
+    if ($NamespaceManager.NotificationHubExists($Path))
+    {
+        Write-Output "The [$Path] notification hub already exists in the [$Namespace] namespace."  
+    }
+    else
+    {
+        Write-Output "Creating the [$Path] notification hub in the [$Namespace] namespace."
+        $NHDescription = New-Object -TypeName Microsoft.Azure.NotificationHubs.NotificationHubDescription -ArgumentList $Path;
+        $NHDescription.WnsCredential = $WnsCredential;
+        $NamespaceManager.CreateNotificationHub($NHDescription);
+        Write-Output "The [$Path] notification hub was created in the [$Namespace] namespace."
+    }
+}
+else
+{
+    Write-Host "The [$Namespace] namespace does not exist."
+}
+```
 
 ## Additional Resources
 
-- [Manage Service Bus with PowerShell](/documentation/articles/service-bus-powershell-how-to-provision/)
+- [Manage Service Bus with PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
 - [How to create Service Bus queues, topics and subscriptions using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
 Some ready-made scripts are also available for download:
 - [Service Bus PowerShell Scripts](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
- 
 
-[Purchase Options]: /pricing/purchase-options/
-[Member Offers]: /pricing/member-offers/
-[Free Trial]: /pricing/free-trial/
-[Install and configure Azure PowerShell]: /documentation/articles/powershell-install-configure/
+[Purchase Options]: https://www.azure.cn/pricing/purchase-options/
+[Member Offers]: https://www.azure.cn/pricing/member-offers/
+[Free Trial]: https://www.azure.cn/pricing/free-trial/
+[Install and configure Azure PowerShell]: ../powershell-install-configure.md
 [.NET API for Notification Hubs]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
- 

@@ -1,32 +1,32 @@
-<properties
-	pageTitle="Auto scale a cloud service in the portal | Azure"
-	description="(classic) Learn how to use the classic portal to configure auto scale rules for a cloud service web role or worker role in Azure."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+---
+title: Auto scale a cloud service in the portal | Azure
+description: (classic) Learn how to use the classic portal to configure auto scale rules for a cloud service web role or worker role in Azure.
+services: cloud-services
+documentationCenter: ''
+authors: Thraka
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/27/2017"
-	ms.author="adegeo"
-	wacn.date=""/>
-
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/27/2017
+ms.author: adegeo
+wacn.date: ''
+---
 
 # How to configure auto scaling for a Cloud Service in the classic portal
 
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/cloud-services-how-to-scale-portal/)
-- [Azure classic portal](/documentation/articles/cloud-services-how-to-scale/)
+> [!div class="op_single_selector"]
+>- [Azure portal](./cloud-services-how-to-scale-portal.md)
+>- [Azure classic portal](./cloud-services-how-to-scale.md)
 
 On the Scale page of the Azure classic portal, you can configure automatic scale settings for your web role or worker role. Alternatively, you can configure manual scaling instead of rules-based automatic scaling.
 
->[AZURE.NOTE] This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. Some of this information applies to these types of virtual machines. Scaling an availability set of virtual machines is really just shutting them on and off based on the scale rules you configure. For more information about Virtual Machines and availability sets, see [Manage the Availability of Virtual Machines](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)
+>[!NOTE]
+> This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. Some of this information applies to these types of virtual machines. Scaling an availability set of virtual machines is really just shutting them on and off based on the scale rules you configure. For more information about Virtual Machines and availability sets, see [Manage the Availability of Virtual Machines](../virtual-machines/virtual-machines-windows-classic-configure-availability.md)
 
 You should consider the following information before you configure scaling for your application:
 
@@ -34,13 +34,13 @@ You should consider the following information before you configure scaling for y
 
     Larger role instances use more cores. You can scale an application only within the limit of cores for your subscription. For example, say your subscription has a limit of 20 cores. If you run an application with two medium-sized cloud services (a total of 4 cores), you can only scale up other cloud service deployments in your subscription by the remaining 16 cores. For more information about sizes, see [Cloud Service Sizes](cloud-services-sizes-specs.md).
 
-- You must create a queue and associate it with a role before you can scale an application based on a message threshold. For more information, see [How to use the Queue Storage Service](/documentation/articles/storage-dotnet-how-to-use-queues/).
+- You must create a queue and associate it with a role before you can scale an application based on a message threshold. For more information, see [How to use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md).
 
-- You can scale resources that are linked to your cloud service. For more information about linking resources, see [How to: Link a resource to a cloud service](/documentation/articles/cloud-services-how-to-manage/#how-to-link-a-resource-to-a-cloud-service).
+- You can scale resources that are linked to your cloud service. For more information about linking resources, see [How to: Link a resource to a cloud service](./cloud-services-how-to-manage.md#how-to-link-a-resource-to-a-cloud-service).
 
-- To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](/support/legal/sla).
+- To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](https://www.azure.cn/support/legal/sla).
 
-> [AZURE.WARNING]
+> [!WARNING]
 > Automatic scaling only works with Classic Azure Storage Accounts. It does not work with Azure Resource Manager Storage Accounts.
 
 ## Schedule scaling
@@ -65,7 +65,8 @@ On the **Scale** page, you can manually increase or decrease the number of runni
 
 1. In the [Azure classic management portal](https://manage.windowsazure.cn), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 
-    > [AZURE.TIP] If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
+    > [!TIP]
+    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
 
 2. Click **Scale**.
 3. Select the schedule you want to change scaling options for. *No scheduled times* is the default if you have no schedules defined.
@@ -74,19 +75,21 @@ On the **Scale** page, you can manually increase or decrease the number of runni
 
     ![Manually scale a cloud service role][manual_scale]
 
-    If you need more instances, you may need to change the [cloud service virtual machine size](/documentation/articles/cloud-services-sizes-specs/).
+    If you need more instances, you may need to change the [cloud service virtual machine size](./cloud-services-sizes-specs.md).
 
 6. Click **Save**.  
    Role instances are added or removed based on your selections.
 
->[AZURE.TIP] Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
+>[!TIP]
+> Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
 
 ## Automatic scale - CPU
 This mode scales if the average percentage of CPU usage goes above or below specified thresholds. Role instances are created or deleted when this happens.
 
 1. In the [Azure classic management portal](https://manage.windowsazure.cn), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 
-    > [AZURE.TIP] If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
+    > [!TIP]
+    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
 
 2. Click **Scale**.
 3. Select the schedule you want to change scaling options for. *No scheduled times* is the default if you have no schedules defined.
@@ -96,14 +99,16 @@ This mode scales if the average percentage of CPU usage goes above or below spec
 
 ![Scale a cloud service role by cpu load][cpu_scale]
 
->[AZURE.TIP] Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
+>[!TIP]
+> Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
 
 ## Automatic scale - Queue
 This mode automatically scales if the number of messages in a queue goes above or below a specified threshold. Role instances are created or deleted when this happens.
 
 1. In the [Azure classic management portal](https://manage.windowsazure.cn), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 
-    > [AZURE.TIP] If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
+    > [!TIP]
+    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
 
 2. Click **Scale**.
 3. Find the **Scale by metric** section and select **QUEUE**.
@@ -111,22 +116,24 @@ This mode automatically scales if the number of messages in a queue goes above o
 
 ![Scale a cloud service role by a message queue][queue_scale]
 
->[AZURE.TIP] Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
+>[!TIP]
+> Whenever you see ![][tip_icon] move your mouse to it and you can get help about what a specific setting does.
 
 ## Scale linked resources
 Often when you scale a role, it's beneficial to scale the database that the application is using also. If you link the database to the cloud service, you can access the scaling settings for that resource by clicking the appropriate link.
 
 1. In the [Azure classic management portal](https://manage.windowsazure.cn), click **Cloud Services**, and then click the name of the cloud service to open the dashboard.
 
-    > [AZURE.TIP] If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
+    > [!TIP]
+    > If you don't see your cloud service, you may need to change from **Production** to **Staging** or vice versa.
 
 2. Click **Scale**.
 3. Find the **linked resources** section and click **Manage scale for this database**.
 
-    > [AZURE.NOTE] If you don't see a **linked resources** section, you probably do not have any linked resources.
+    > [!NOTE]
+    > If you don't see a **linked resources** section, you probably do not have any linked resources.
 
 ![][linked_resource]
-
 
 [manual_scale]: ./media/cloud-services-how-to-scale/manual-scale.png
 [queue_scale]: ./media/cloud-services-how-to-scale/queue-scale.png

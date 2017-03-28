@@ -1,29 +1,28 @@
-<properties
-	pageTitle="How to use Service Bus topics (Ruby) | Azure"
-	description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications."
-	services="service-bus"
-	documentationCenter="ruby"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+---
+title: How to use Service Bus topics (Ruby) | Azure
+description: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications.
+services: service-bus
+documentationCenter: ruby
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="service-bus"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
-	ms.topic="article"
-	ms.date="01/11/2017"
-	ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: ruby
+ms.topic: article
+ms.date: 01/11/2017
+ms.author: sethm
+---
 
 # How to Use Service Bus Topics/Subscriptions
 
-[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 This article describes how to use Service Bus topics and subscriptions from Ruby applications. The scenarios covered include **creating topics and subscriptions, creating subscription filters, sending messages** to a topic, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information on topics and subscriptions, see the [Next Steps](#next-steps) section.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
-
 
 ## Create a namespace
 
@@ -36,11 +35,11 @@ To create a namespace:
 
 2. Type the following command to create a namespace. Provide your own namespace value and specify the same region as your application.
 
-	```
-	New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
-	```
+    ```
+    New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
+    ```
 
-	![Create Namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
+    ![Create Namespace](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
 
 ## Obtain default management credentials for the namespace
 
@@ -53,14 +52,14 @@ will use this value in your code later in this tutorial.
 
 ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You can also find this key if you log on to the
 > [Azure portal][] and navigate to the
 > connection information for your namespace.
 
 ## Create a Ruby application
 
-For instructions, see [Create a Ruby Application on Azure](/documentation/articles/virtual-machines-linux-classic-ruby-rails-web-app/).
+For instructions, see [Create a Ruby Application on Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## Configure Your Application to Use Service Bus
 
@@ -182,7 +181,7 @@ The following example demonstrates how to send five test messages to "test-topic
 end
 ```
 
-Service Bus topics support a maximum message size of 256 KB in the [Standard tier](/documentation/articles/service-bus-premium-messaging/) and 1 MB in the [Premium tier](/documentation/articles/service-bus-premium-messaging/). The header, which includes the standard and custom application properties, can have
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](./service-bus-premium-messaging.md) and 1 MB in the [Premium tier](./service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB.
 
 ## Receive messages from a subscription
@@ -229,7 +228,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
--   See [Queues, Topics, and Subscriptions](/documentation/articles/service-bus-queues-topics-subscriptions/).
+-   See [Queues, Topics, and Subscriptions](./service-bus-queues-topics-subscriptions.md).
 -   API reference for [SqlFilter](http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
--	Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+- Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 [Azure portal]: https://portal.azure.cn

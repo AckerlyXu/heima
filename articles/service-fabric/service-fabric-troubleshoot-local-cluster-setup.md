@@ -29,12 +29,13 @@ If you run into an issue while interacting with your local Azure Service Fabric 
 
 While running the DevClusterSetup script, you see an error like this:
 
-    Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
-    At line:1 char:1 + .\DevClusterSetup.ps1
-    + ~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo : NotSpecified: (:) [Write-Error], WriteErrorException
-    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
-
+```
+Cannot clean up C:\SfDevCluster\Log fully as references are likely being held to items in it. Please remove those and run this script again.
+At line:1 char:1 + .\DevClusterSetup.ps1
++ ~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo : NotSpecified: (:) [Write-Error], WriteErrorException
++ FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,DevClusterSetup.ps1
+```
 
 #### Solution
 
@@ -52,7 +53,8 @@ If you try to run any of the Service Fabric PowerShell cmdlets, such as `Connect
 
 Always run Service Fabric cmdlets directly from Windows PowerShell.
 
->[AZURE.NOTE] The latest version of Azure PowerShell does not create a special shortcut, so this should no longer occur.
+>[!NOTE]
+> The latest version of Azure PowerShell does not create a special shortcut, so this should no longer occur.
 
 ### Type Initialization exception
 
@@ -70,12 +72,14 @@ Your path variable was not correctly set during installation. Please sign out of
 
 A call to Connect-ServiceFabricCluster fails with an error like this:
 
-    Connect-ServiceFabricCluster : The object is closed.
-    At line:1 char:1
-    + Connect-ServiceFabricCluster
-    + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo : InvalidOperation: (:) [Connect-ServiceFabricCluster], FabricObjectClosedException
-    + FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
+```
+Connect-ServiceFabricCluster : The object is closed.
+At line:1 char:1
++ Connect-ServiceFabricCluster
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ CategoryInfo : InvalidOperation: (:) [Connect-ServiceFabricCluster], FabricObjectClosedException
++ FullyQualifiedErrorId : CreateClusterConnectionErrorId,Microsoft.ServiceFabric.Powershell.ConnectCluster
+```
 
 #### Solution
 
@@ -93,9 +97,10 @@ This error usually occurs when you try to try to start a service host process ma
 
 Ensure that you do not have any service projects set as startup projects in your solution. Only Service Fabric application projects should be set as startup projects.
 
->[AZURE.TIP] If, following setup, your local cluster begins to behave abnormally, you can reset it using the local cluster manager system tray application. This will remove the existing cluster and set up a new one. Please note that all deployed applications and associated data will be removed.
+>[!TIP]
+> If, following setup, your local cluster begins to behave abnormally, you can reset it using the local cluster manager system tray application. This will remove the existing cluster and set up a new one. Please note that all deployed applications and associated data will be removed.
 
 ## Next steps
 
-- [Understand and troubleshoot your cluster with system health reports](/documentation/articles/service-fabric-understand-and-troubleshoot-with-system-health-reports/)
-- [Visualize your cluster with Service Fabric Explorer](/documentation/articles/service-fabric-visualizing-your-cluster/)
+- [Understand and troubleshoot your cluster with system health reports](./service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [Visualize your cluster with Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md)

@@ -1,20 +1,20 @@
-<properties
-   pageTitle="Getting started with Microsoft Azure security | Microsoft Azure"
-   description="This article provides an overview of Microsoft Azure Security capabilities and general considerations for organizations that are migrating their assets to a cloud provider."
-   services="security"
-   documentationCenter="na"
-   authors="YuriDio"
-   manager="swadhwa"
-   editor="TomSh"/>
+---
+title: Getting started with Microsoft Azure security | Microsoft Azure
+description: This article provides an overview of Microsoft Azure Security capabilities and general considerations for organizations that are migrating their assets to a cloud provider.
+services: security
+documentationCenter: na
+authors: YuriDio
+manager: swadhwa
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/19/2016"
-   ms.author="yuridio"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/19/2016
+ms.author: yuridio
+---
 
 #Getting started with Microsoft Azure security
 

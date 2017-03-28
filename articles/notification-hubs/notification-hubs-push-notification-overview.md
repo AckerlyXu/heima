@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Notification Hubs"
-    description="Learn how to add push notification capabilities with Azure Notification Hubs."
-    author="ysxu"
-    manager="erikre"
-    editor=""
-    services="notification-hubs"
-    documentationcenter="" />
-<tags
-    ms.assetid="fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178"
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="1/17/2017"
-    wacn.date=""
-    ms.author="yuaxu" />
+---
+title: Azure Notification Hubs
+description: Learn how to add push notification capabilities with Azure Notification Hubs.
+author: ysxu
+manager: erikre
+editor: ''
+services: notification-hubs
+documentationcenter: ''
+
+ms.assetid: fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178
+ms.service: notification-hubs
+ms.workload: mobile
+ms.tgt_pltfrm: multiple
+ms.devlang: multiple
+ms.topic: article
+ms.date: 1/17/2017
+wacn.date: ''
+ms.author: yuaxu
+---
 
 # Azure Notification Hubs
 ## Overview
@@ -65,7 +66,7 @@ Push is one of the most requested features in mobile cloud services, because its
   - Per PNS guidelines, device tokens must be refreshed upon every app launch. This means the backend is dealing with a large amount of traffic and database access just to keep the tokens up-to-date. When the number of devices grows to hundreds and thousands of millions, the cost of creating and maintaining this infrastructure is massive.
   - Most PNSes do not support broadcast to multiple devices. This means a simple broadcast to a million devices results in a million calls to the PNSes. Scaling this amount of traffic with minimal latency is nontrivial.
 - **Routing**:
-  
+
   - Though PNSes provide a way to send messages to devices, most apps notifications are targeted at users or interest groups. This means the backend must maintain a registry to associate devices with interest groups, users, properties, etc. This overhead adds to the time to market and maintenance costs of an app.
 
 ## Why Use Notification Hubs?
@@ -81,7 +82,7 @@ Notification hubs is your ready-to-use push engine with the following advantages
   - A common interface to push to all platforms in platform-specific or platform-independent formats with no platform-specific work.
   - Device handle management in one place.
 - **Cross backends**
-  
+
   - Cloud or on-premises
   - .NET, Node.js, Java, etc.
 - **Rich set of delivery patterns**:
@@ -96,12 +97,12 @@ Notification hubs is your ready-to-use push engine with the following advantages
   - *Direct push*: You can skip registering devices with our service and directly batch push to a list of device handles.
   - *Personalized push*: Device push variables helps you send device-specific personalized push notifications with customized key-value pairs.
 - **Rich telemetry**
-  
+
   - General push, device, error, and operation telemetry is available in the Azure portal and programmatically.
   - Per Message Telemetry tracks each push from your initial request call to our service successfully batching the pushes out.
   - Platform Notification System Feedback communicates all feedback from Platfom Notification Systems to assist in debugging.
 - **Scalability** 
-  
+
   - Send fast messages to millions of devices without re-architecting or device sharding.
 - **Security**
 
@@ -136,15 +137,15 @@ You can find out more about Notification Hubs in these topics:
 
 [0]: ./media/notification-hubs-overview/registration-diagram.png
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
-[How customers are using Notification Hubs]:/home/features/notification-hubs/
-[Notification Hubs tutorials and guides]:/documentation/services/notification-hubs/
-[iOS]:/documentation/articles/notification-hubs-ios-apple-push-notification-apns-get-started/
-[Windows Universal]:/documentation/articles/notification-hubs-windows-store-dotnet-get-started-wns-push-notification/
-[Windows Phone]:/documentation/articles/notification-hubs-windows-mobile-push-notifications-mpns/
-[Kindle]:/documentation/articles/notification-hubs-kindle-amazon-adm-push-notification/
-[Xamarin.iOS]:/documentation/articles/xamarin-notification-hubs-ios-push-notification-apns-get-started/
+[How customers are using Notification Hubs]:https://www.azure.cn/home/features/notification-hubs/
+[Notification Hubs tutorials and guides]:./index.md
+[iOS]:./notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Windows Universal]:./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Windows Phone]:./notification-hubs-windows-mobile-push-notifications-mpns.md
+[Kindle]:./notification-hubs-kindle-amazon-adm-push-notification.md
+[Xamarin.iOS]:./xamarin-notification-hubs-ios-push-notification-apns-get-started.md
 [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.messaging.notificationhub.aspx
 [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/zh-cn/library/microsoft.servicebus.notifications.aspx
-[App Service Mobile Apps]: /documentation/articles/app-service-mobile-value-prop/
-[templates]:/documentation/articles/notification-hubs-templates-cross-platform-push-messages/
+[App Service Mobile Apps]: ../app-service-mobile/app-service-mobile-value-prop.md
+[templates]:./notification-hubs-templates-cross-platform-push-messages.md
 [Azure portal]: https://portal.azure.cn

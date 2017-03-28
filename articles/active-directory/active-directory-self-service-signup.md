@@ -1,21 +1,22 @@
-<properties
-    pageTitle="What is Self-Service Signup for Azure? | Azure"
-    description="An overview self-service signup for Azure, how to manage the signup process, and how to take over a DNS domain name."
-    services="active-directory"
-    documentationcenter=""
-    author="curtand"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="b9f01876-29d1-4ab8-8b74-04d43d532f4b"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/13/2017"
-    wacn.date=""
-    ms.author="curtand" />
+---
+title: What is Self-Service Signup for Azure? | Azure
+description: An overview self-service signup for Azure, how to manage the signup process, and how to take over a DNS domain name.
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
+
+ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/13/2017
+wacn.date: ''
+ms.author: curtand
+---
 
 # What is Self-Service Signup for Azure?
 This topic explains the self-service signup process and how to take over a DNS domain name.  
@@ -138,9 +139,11 @@ For example:
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
 
-        import-module MSOnline
-        $msolcred = get-credential
-        connect-msolservice -credential $msolcred
+    ```
+    import-module MSOnline
+    $msolcred = get-credential
+    connect-msolservice -credential $msolcred
+    ```
 2. Get a list of domains:
 
     Get-MsolDomain
@@ -184,7 +187,9 @@ An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCo
 ### How do the controls work together?
 These two parameters can be used in conjunction to define more precise control over self-service sign up. For example, the following command will allow users to perform self-service sign up, but only if those users already have an account in Azure AD (in other words, users who would need an email-verified account to be created cannot perform self-service sign up):
 
-    Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
+```
+Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
+```
 
 The following flowchart explains all the different combinations for these parameters and the resulting conditions for the directory and self-service sign up.
 
@@ -193,7 +198,7 @@ The following flowchart explains all the different combinations for these parame
 For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](https://msdn.microsoft.com/zh-cn/library/azure/dn194127.aspx).
 
 ## See Also
-- [How to install and configure Azure PowerShell](/documentation/articles/powershell-install-configure/)
+- [How to install and configure Azure PowerShell](../powershell-install-configure.md)
 - [Azure PowerShell](https://msdn.microsoft.com/zh-cn/library/azure/jj156055.aspx)
 - [Azure Cmdlet Reference](https://msdn.microsoft.com/zh-cn/library/azure/jj554330.aspx)
 - [Set-MsolCompanySettings](https://msdn.microsoft.com/zh-cn/library/azure/dn194127.aspx)

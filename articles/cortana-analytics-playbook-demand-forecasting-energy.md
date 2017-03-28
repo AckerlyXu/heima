@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Cortana Intelligence Solution Template Playbook for demand forecasting of energy | Azure"
-    description="A Solution Template with Microsoft Cortana Intelligence that helps forecast demand for an energy utility company."
-    services="cortana-analytics"
-    documentationcenter=""
-    author="ilanr9"
-    manager="ilanr9"
-    editor="yijichen" />
-<tags
-    ms.assetid="8855dbb9-8543-45b9-b4c6-aa743a04d547"
-    ms.service="cortana-analytics"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/24/2016"
-    wacn.date=""
-    ms.author="ilanr9;yijichen;garye" />
+---
+title: Cortana Intelligence Solution Template Playbook for demand forecasting of energy | Azure
+description: A Solution Template with Microsoft Cortana Intelligence that helps forecast demand for an energy utility company.
+services: cortana-analytics
+documentationcenter: ''
+author: ilanr9
+manager: ilanr9
+editor: yijichen
+
+ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
+ms.service: cortana-analytics
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/24/2016
+wacn.date: ''
+ms.author: ilanr9;yijichen;garye
+---
 
 # Cortana Intelligence Solution Template Playbook for Demand Forecasting of Energy
 ## Executive Summary
@@ -25,8 +26,8 @@ working on a number of engagements within the energy domain. During these engage
 
 In this playbook, we put together the business and analytical guidelines needed for a successful development and deployment of energy demand forecast solution. These proposed guidelines can help utilities, data scientists, and data engineers in establishing fully operationalized, cloud-based, demand-forecasting solutions. For companies who are just starting their big data and advanced analytics journey, such a solution can represent the initial seed in their long-term smart grid strategy.
 
-> [AZURE.TIP]
-> To download a diagram that provides an architectural overview of this template, see [Cortana Intelligence Solution Template architecture for demand forecasting of energy](/documentation/articles/cortana-analytics-architecture-demand-forecasting-energy/).  
+> [!TIP]
+> To download a diagram that provides an architectural overview of this template, see [Cortana Intelligence Solution Template architecture for demand forecasting of energy](./cortana-analytics-architecture-demand-forecasting-energy.md).  
 > 
 > 
 
@@ -46,7 +47,7 @@ The third part of the document covers the **Technical Implementation** aspect of
 In addition, the document includes reference material that you can use to gain further understanding of the domain and technology.
 
 It is important to note that we do not intend to cover in this document the deeper data science process, its mathematical and technical aspects. These details can be found in [Azure ML
-documentation](/home/features/machine-learning/) and [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+documentation](https://www.azure.cn/home/features/machine-learning/) and [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### Target Audience
 The target audience for this document is both business and technical personnel who would like to gain knowledge and understanding of Machine Learning based solutions and how these are being used specifically within the energy-forecasting domain.
@@ -193,7 +194,7 @@ A basic formula for calculating the financial benefit of demand forecast solutio
 
 Since Cortana Intelligence Suite provides a pay-as-you-go pricing model, there is no need for incurring a fixed cost component to this formula. This formula can be calculated on a daily, monthly, or annual basis.
 
-Current Cortana Intelligence Suite and Azure ML pricing plans can be found [here](/pricing/details/machine-learning/).
+Current Cortana Intelligence Suite and Azure ML pricing plans can be found [here](https://www.azure.cn/pricing/details/machine-learning/).
 
 ### Solution Development Process
 The development cycle of an energy demand forecasting solution typically involves 4 phases, in all of which we make use of cloud-based technologies and services within the Cortana Intelligence Suite.
@@ -204,11 +205,11 @@ This is illustrated in the following diagram:
 
 The following paragraph describes this 4 step process:
 
-1. **Data Collection** - Any advanced analytics based solution relies on data (see **Data Understanding**). Specifically, when it comes to predictive analytics and forecasting, we rely on ongoing, dynamic flow of data. In the case of energy demand forecasting, this data can be sourced directly from smart meters, or be already aggregated on an on-prem database. We also rely on other external sources of data such as weather and temperature. This ongoing flow of data must be orchestrated, scheduled, and stored. [Azure Data Factory](/home/features/data-factory/) (ADF) is our main workhorse for accomplishing this task.
+1. **Data Collection** - Any advanced analytics based solution relies on data (see **Data Understanding**). Specifically, when it comes to predictive analytics and forecasting, we rely on ongoing, dynamic flow of data. In the case of energy demand forecasting, this data can be sourced directly from smart meters, or be already aggregated on an on-prem database. We also rely on other external sources of data such as weather and temperature. This ongoing flow of data must be orchestrated, scheduled, and stored. [Azure Data Factory](https://www.azure.cn/home/features/data-factory/) (ADF) is our main workhorse for accomplishing this task.
 2. **Modeling** - For accurate and reliable energy forecasts, one must develop (train) and maintain a great model that makes use of the historical data and extracts the meaningful and predictive patterns in the data. The area of Machine Learning (ML) has been growing rapidly with more advanced algorithms being routinely developed. Azure ML Studio provides a great user experience that helps utilize the most advanced ML algorithms within a complete work flow. That workflow is illustrated in an intuitive flow diagram and includes the data preparation, feature extraction, modeling, and model evaluation. The user can pull in hundreds of various models that are included in this environment. By the end of this phase a data scientist will have a working model that is fully evaluated and ready for deployment.
-   
+
    The following diagram is an illustration of a typical workflow:
-   
+
    ![Modeling Workflow](./media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 3. **Deployment** - With a working model in hand, the next step is deployment. Here the model is converted into a web service that exposes a RESTful API that can be concurrently invoked over the     Internet from various consumption clients. Azure ML provides a simple way of deploying a model directly from the Azure ML Studio with a single click of a button. The entire deployment process happens under the hood. This solution can automatically scale to meet the required consumption.
 4. **Consumption** - In this phase, we actually make use of the forecasting model to produce predictions. The consumption can be driven from a user application (*e.g.*, dashboard) or directly from an operational system such as demand/supply balancing system or a grid optimization solution. Multiple use cases can be driven from a single model.
@@ -347,7 +348,7 @@ In the case of demand forecasting we make use of historical data which is ordere
 
 In recent years advanced algorithms have been developed to accommodate time series forecasting and to improve forecasting accuracy. We briefly discuss a few of them here.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This section is not intended to be used as a machine learning and forecasting overview but rather as a short survey of modeling techniques that are commonly used for demand forecasting. For more information and educational material about time series forecasting, we highly
 > recommend the online book [Forecasting: principles and practice](https://www.otexts.org/book/fpp).
 > 
@@ -426,7 +427,7 @@ These are the steps that take place as part of the energy demand forecast cycle:
 7. The forecasted data is stored in a database that can be accessed by the end consumption client.
 8. The consumption client retrieves the forecasts, applies it back into the grid, and consumes it in accordance with the required use case.
 
-It is important to note that this entire cycle is fully automated and runs on a schedule. The entire orchestration of this data cycle can be done by using tools such as [Azure Data Factory](/home/features/data-factory/).
+It is important to note that this entire cycle is fully automated and runs on a schedule. The entire orchestration of this data cycle can be done by using tools such as [Azure Data Factory](https://www.azure.cn/home/features/data-factory/).
 
 ### End to End Deployment Architecture
 In order to practically deploy an energy demand forecast solution on Cortana Intelligence, we need to ensure that the required components are established and configured correctly.
@@ -436,4 +437,3 @@ The following diagram illustrates a typical Cortana Intelligence based architect
 ![End to End Deployment Architecture](./media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 For more information about each of the components and the entire architecture please refer to the Energy Solution Template.
-

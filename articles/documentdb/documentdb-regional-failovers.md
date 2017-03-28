@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Regional Failovers in Azure DocumentDB | Azure"
-    description="Learn about how manual and automatic failovers work with Azure DocumentDB."
-    services="documentdb"
-    documentationcenter=""
-    author="arramac"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="446e2580-ff49-4485-8e53-ae34e08d997f"
-    ms.service="documentdb"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/09/2017"
-    wacn.date=""
-    ms.author="arramac" />
+---
+title: Regional Failovers in Azure DocumentDB | Azure
+description: Learn about how manual and automatic failovers work with Azure DocumentDB.
+services: documentdb
+documentationcenter: ''
+author: arramac
+manager: jhubbard
+editor: ''
+
+ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
+ms.service: documentdb
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/09/2017
+wacn.date: ''
+ms.author: arramac
+---
 
 # Regional Failovers in Azure DocumentDB
-Azure DocumentDB simplifies the global distribution of data by offering fully managed, [multi-region database accounts](/documentation/articles/documentdb-distribute-data-globally/) that provide clear tradeoffs between consistency, availability, and performance, all with corresponding guarantees. DocumentDB accounts offer high availability, single digit ms latencies, [well-defined consistency levels](/documentation/articles/documentdb-consistency-levels/), transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
+Azure DocumentDB simplifies the global distribution of data by offering fully managed, [multi-region database accounts](./documentdb-distribute-data-globally.md) that provide clear tradeoffs between consistency, availability, and performance, all with corresponding guarantees. DocumentDB accounts offer high availability, single digit ms latencies, [well-defined consistency levels](./documentdb-consistency-levels.md), transparent regional failover with multi-homing APIs, and the ability to elastically scale throughput and storage across the globe. 
 
 Azure DocumentDB supports both explicit and policy driven failovers that allow you to control the end-to-end system behavior in the event of failures. In this article, we look at:
 
@@ -40,19 +41,21 @@ The following snippet shows how to initialize a multi-region application. Here, 
 
 In .NET, this configuration looks like the following snippet:
 
-    ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
-    { 
-        ConnectionMode = ConnectionMode.Direct,
-        ConnectionProtocol = Protocol.Tcp
-    };
+```
+ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
+{ 
+    ConnectionMode = ConnectionMode.Direct,
+    ConnectionProtocol = Protocol.Tcp
+};
 
-    usConnectionPolicy.PreferredLocations.Add(LocationNames.WestUS);
-    usConnectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+usConnectionPolicy.PreferredLocations.Add(LocationNames.WestUS);
+usConnectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
 
-    DocumentClient usClient = new DocumentClient(
-        new Uri("https://contosodb.documents.azure.com"),
-        "memf7qfF89n6KL9vcb7rIQl6tfgZsRt5gY5dh3BIjesarJanYIcg2Edn9uPOUIVwgkAugOb2zUdCR2h0PTtMrA==",
-        usConnectionPolicy);
+DocumentClient usClient = new DocumentClient(
+    new Uri("https://contosodb.documents.azure.com"),
+    "memf7qfF89n6KL9vcb7rIQl6tfgZsRt5gY5dh3BIjesarJanYIcg2Edn9uPOUIVwgkAugOb2zUdCR2h0PTtMrA==",
+    usConnectionPolicy);
+```
 
 The application is also deployed in the North Europe region with the order of preferred regions reversed. That is, the North Europe region is specified first for low latency reads. Then, the West US region is specified as the second preferred region for high availability during regional failures.
 
@@ -108,8 +111,7 @@ Some of the common scenarios where manual failover can be useful are:
 In this article, we reviewed how manual and automatic failovers work in Azure DocumentDB, and how you can configure your DocumentDB accounts and applications to be globally available. By using Azure DocumentDB's global replication support, you can improve end-to-end latency and ensure that they are highly available even in the event of region failures. 
 
 ## <a id="NextSteps"></a>Next Steps
-- Learn about how DocumentDB supports [global distribution](/documentation/articles/documentdb-distribute-data-globally/)
-- Learn about [global consistency with DocumentDB](/documentation/articles/documentdb-consistency-levels/)
-- Develop with multiple regions using the [Azure DocumentDB SDK](/documentation/articles/documentdb-developing-with-multiple-regions/)
-- Learn how to build [Multi-region writer architectures](/documentation/articles/documentdb-multi-region-writers/) with Azure DocumentDB
-
+- Learn about how DocumentDB supports [global distribution](./documentdb-distribute-data-globally.md)
+- Learn about [global consistency with DocumentDB](./documentdb-consistency-levels.md)
+- Develop with multiple regions using the [Azure DocumentDB SDK](./documentdb-developing-with-multiple-regions.md)
+- Learn how to build [Multi-region writer architectures](./documentdb-multi-region-writers.md) with Azure DocumentDB

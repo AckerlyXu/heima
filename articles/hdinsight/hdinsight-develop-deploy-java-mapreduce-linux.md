@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Develop Java MapReduce programs for Linux-based HDInsight | Azure"
-    description="Learn how to develop Java MapReduce programs and deploy them to Linux-based HDInsight."
-    services="hdinsight"
-    editor="cgronlun"
-    manager="jhubbard"
-    author="Blackmist"
-    documentationcenter=""
-    tags="azure-portal" />
-<tags
-    ms.assetid="9ee6384c-cb61-4087-8273-fb53fa27c1c3"
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="02/17/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Develop Java MapReduce programs for Linux-based HDInsight | Azure
+description: Learn how to develop Java MapReduce programs and deploy them to Linux-based HDInsight.
+services: hdinsight
+editor: cgronlun
+manager: jhubbard
+author: Blackmist
+documentationcenter: ''
+tags: azure-portal
+
+ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: Java
+ms.topic: article
+ms.date: 02/17/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Develop Java MapReduce programs for Hadoop on HDInsight Linux
 
@@ -25,8 +26,8 @@ Learn how to use Apache Maven to create a Java-based MapReduce application, then
 ## <a name="prerequisites"></a>Prerequisites
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 or later (or an equivalent, such as OpenJDK)...
-    
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > HDInsight versions 3.4 and earlier use Java 7. HDInsight 3.5 uses Java 8.
 
 * [Apache Maven](http://maven.apache.org/)
@@ -35,7 +36,7 @@ Learn how to use Apache Maven to create a Java-based MapReduce application, then
 
 * **Azure CLI**
 
-[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## Configure environment variables
 The following environment variables may be set when you install Java and the JDK. However, you should check that they exist and that they contain the correct values for your system.
@@ -43,7 +44,7 @@ The following environment variables may be set when you install Java and the JDK
 * `JAVA_HOME` - should point to the directory where the Java runtime environment (JRE) is installed. For example, on an OS X, Unix or Linux system, it should have a value similar to `/usr/lib/jvm/java-7-oracle`. In Windows, it would have a value similar to `c:\Program Files (x86)\Java\jre1.7`
 
 * `PATH` - should contain the following paths:
-  
+
     * `JAVA_HOME` (or the equivalent path)
 
     * `JAVA_HOME\bin` (or the equivalent path)
@@ -56,7 +57,9 @@ The following environment variables may be set when you install Java and the JDK
 
 2. Use the `mvn` command, which is installed with Maven, to generate the scaffolding for the project.
 
-        mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
+    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
     This command creates a directory with the name specified by the **artifactID** parameter (**wordcountjava** in this example.) This directory contains the following items:
 
@@ -70,68 +73,72 @@ The following environment variables may be set when you install Java and the JDK
 
 1. Edit the `pom.xml` file and add the following text inside the `<dependencies>` section:
 
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-mapreduce-examples</artifactId>
-            <version>2.5.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-mapreduce-client-common</artifactId>
-            <version>2.5.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-common</artifactId>
-            <version>2.5.1</version>
-            <scope>provided</scope>
-        </dependency>
+    ```xml
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-mapreduce-examples</artifactId>
+        <version>2.5.1</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-mapreduce-client-common</artifactId>
+        <version>2.5.1</version>
+        <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-common</artifactId>
+        <version>2.5.1</version>
+        <scope>provided</scope>
+    </dependency>
+    ```
 
     This defines required libraries (listed within &lt;artifactId\>) with a specific version (listed within &lt;version\>). At compile time, these dependencies are downloaded from the default Maven repository. You can use the [Maven repository search](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar) to view more.
-   
+
     The `<scope>provided</scope>` tells Maven that these dependencies should not be packaged with the application, as they are provided by the HDInsight cluster at run-time.
 
 2. Add the following to the `pom.xml` file. This text must be inside the `<project>...</project>` tags in the file; for example, between `</dependencies>` and `</project>`.
 
-        <build>
-            <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                <transformers>
-                    <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
-                    </transformer>
-                </transformers>
-                </configuration>
-                <executions>
-                <execution>
-                    <phase>package</phase>
-                        <goals>
-                        <goal>shade</goal>
-                        </goals>
-                </execution>
-                </executions>
-                </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                <source>1.7</source>
-                <target>1.7</target>
-                </configuration>
+    ```xml
+    <build>
+        <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>2.3</version>
+            <configuration>
+            <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                </transformer>
+            </transformers>
+            </configuration>
+            <executions>
+            <execution>
+                <phase>package</phase>
+                    <goals>
+                    <goal>shade</goal>
+                    </goals>
+            </execution>
+            </executions>
             </plugin>
-            </plugins>
-        </build>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+            </configuration>
+        </plugin>
+        </plugins>
+    </build>
+    ```
 
     The first plugin configures the [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/), which is used to build an uberjar (sometimes called a fatjar), which contains dependencies required by the application. It also prevents duplication of licenses within the jar package, which can cause problems on some systems.
 
     The second plugin configures the target Java version.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > HDInsight 3.4 and earlier use Java 7. HDInsight 3.5 uses Java 8.
 
 3. Save the `pom.xml` file.
@@ -142,74 +149,76 @@ The following environment variables may be set when you install Java and the JDK
 
 2. Open the `WordCount.java` file in a text editor and replace the contents with the following text:
 
-        package org.apache.hadoop.examples;
+    ```java
+    package org.apache.hadoop.examples;
 
-        import java.io.IOException;
-        import java.util.StringTokenizer;
-        import org.apache.hadoop.conf.Configuration;
-        import org.apache.hadoop.fs.Path;
-        import org.apache.hadoop.io.IntWritable;
-        import org.apache.hadoop.io.Text;
-        import org.apache.hadoop.mapreduce.Job;
-        import org.apache.hadoop.mapreduce.Mapper;
-        import org.apache.hadoop.mapreduce.Reducer;
-        import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-        import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-        import org.apache.hadoop.util.GenericOptionsParser;
+    import java.io.IOException;
+    import java.util.StringTokenizer;
+    import org.apache.hadoop.conf.Configuration;
+    import org.apache.hadoop.fs.Path;
+    import org.apache.hadoop.io.IntWritable;
+    import org.apache.hadoop.io.Text;
+    import org.apache.hadoop.mapreduce.Job;
+    import org.apache.hadoop.mapreduce.Mapper;
+    import org.apache.hadoop.mapreduce.Reducer;
+    import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+    import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+    import org.apache.hadoop.util.GenericOptionsParser;
 
-        public class WordCount {
+    public class WordCount {
 
-            public static class TokenizerMapper
-                extends Mapper<Object, Text, Text, IntWritable>{
+        public static class TokenizerMapper
+            extends Mapper<Object, Text, Text, IntWritable>{
 
-            private final static IntWritable one = new IntWritable(1);
-            private Text word = new Text();
+        private final static IntWritable one = new IntWritable(1);
+        private Text word = new Text();
 
-            public void map(Object key, Text value, Context context
+        public void map(Object key, Text value, Context context
+                        ) throws IOException, InterruptedException {
+          StringTokenizer itr = new StringTokenizer(value.toString());
+          while (itr.hasMoreTokens()) {
+            word.set(itr.nextToken());
+            context.write(word, one);
+          }
+        }
+    }
+
+    public static class IntSumReducer
+            extends Reducer<Text,IntWritable,Text,IntWritable> {
+        private IntWritable result = new IntWritable();
+
+        public void reduce(Text key, Iterable<IntWritable> values,
+                            Context context
                             ) throws IOException, InterruptedException {
-              StringTokenizer itr = new StringTokenizer(value.toString());
-              while (itr.hasMoreTokens()) {
-                word.set(itr.nextToken());
-                context.write(word, one);
-              }
+            int sum = 0;
+            for (IntWritable val : values) {
+            sum += val.get();
             }
+           result.set(sum);
+           context.write(key, result);
         }
+    }
 
-        public static class IntSumReducer
-                extends Reducer<Text,IntWritable,Text,IntWritable> {
-            private IntWritable result = new IntWritable();
-
-            public void reduce(Text key, Iterable<IntWritable> values,
-                                Context context
-                                ) throws IOException, InterruptedException {
-                int sum = 0;
-                for (IntWritable val : values) {
-                sum += val.get();
-                }
-               result.set(sum);
-               context.write(key, result);
-            }
+    public static void main(String[] args) throws Exception {
+        Configuration conf = new Configuration();
+        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+        if (otherArgs.length != 2) {
+            System.err.println("Usage: wordcount <in> <out>");
+            System.exit(2);
         }
-
-        public static void main(String[] args) throws Exception {
-            Configuration conf = new Configuration();
-            String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-            if (otherArgs.length != 2) {
-                System.err.println("Usage: wordcount <in> <out>");
-                System.exit(2);
-            }
-            Job job = new Job(conf, "word count");
-            job.setJarByClass(WordCount.class);
-            job.setMapperClass(TokenizerMapper.class);
-            job.setCombinerClass(IntSumReducer.class);
-            job.setReducerClass(IntSumReducer.class);
-            job.setOutputKeyClass(Text.class);
-            job.setOutputValueClass(IntWritable.class);
-            FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-            FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-            System.exit(job.waitForCompletion(true) ? 0 : 1);
-            }
+        Job job = new Job(conf, "word count");
+        job.setJarByClass(WordCount.class);
+        job.setMapperClass(TokenizerMapper.class);
+        job.setCombinerClass(IntSumReducer.class);
+        job.setReducerClass(IntSumReducer.class);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
         }
+    }
+    ```
 
     Notice the package name is `org.apache.hadoop.examples` and the class name is `WordCount`. You use these names when you submit the MapReduce job.
 
@@ -221,34 +230,38 @@ The following environment variables may be set when you install Java and the JDK
 
 2. Use the following command to build a JAR file containing the application:
 
-        mvn clean package
+    ```
+    mvn clean package
+    ```
 
     This command cleans any previous build artifacts, downloads any dependencies that have not already been installed, and then builds and package the application.
 
 3. Once the command finishes, the `wordcountjava/target` directory contains a file named `wordcountjava-1.0-SNAPSHOT.jar`.
-   
-    > [AZURE.NOTE]
+
+    > [!NOTE]
     > The `wordcountjava-1.0-SNAPSHOT.jar` file is an uberjar, which contains not only the WordCount job, but also dependencies that the job requires at runtime.
 
 ## <a id="upload"></a>Upload the jar
 
 Use the following command to upload the jar file to the HDInsight headnode:
 
-    scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
+```bash
+scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:
+```
 
 Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
 
 This command copies the files from the local system to the head node.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you used a password to secure your SSH account, you are prompted for the password. If you used an SSH key, you may have to use the `-i` parameter and the path to the private key. For example, `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:`.
 
 ## <a name="run"></a>Run the MapReduce job
 
 1. Connect to HDInsight using SSH as described in the following articles:
-   
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/)
+
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. From the SSH session, use the following command to run the MapReduce application:
 
@@ -261,10 +274,12 @@ This command copies the files from the local system to the head node.
        hdfs dfs -cat /example/data/wordcountout/*
 
     You should receive a list of words and counts, with values similar to the following text:
-   
-        zeal    1
-        zelus   1
-        zenith  2
+
+    ```
+    zeal    1
+    zelus   1
+    zenith  2
+    ```
 
 ## <a id="nextsteps"></a>Next steps
 
@@ -272,22 +287,22 @@ In this document, you have learned how to develop a Java MapReduce job. See the 
 
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
-* [Use MapReduce with HDInsight](/documentation/articles/hdinsight-use-mapreduce/)
+* [Use MapReduce with HDInsight](./hdinsight-use-mapreduce.md)
 
 For more information, see also the [Java Developer Center](/develop/java/).
 
-[azure-purchase-options]: /pricing/overview/
-[azure-member-offers]: /pricing/member-offers/
-[azure-trial]: /pricing/1rmb-trial/
+[azure-purchase-options]: https://www.azure.cn/pricing/overview/
+[azure-member-offers]: https://www.azure.cn/pricing/member-offers/
+[azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
-[hdinsight-use-sqoop]: /documentation/articles/hdinsight-use-sqoop/
-[hdinsight-ODBC]: /documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/
-[hdinsight-power-query]: /documentation/articles/hdinsight-connect-excel-power-query/
+[hdinsight-use-sqoop]: ./hdinsight-use-sqoop.md
+[hdinsight-ODBC]: ./hdinsight-connect-excel-hive-ODBC-driver.md
+[hdinsight-power-query]: ./hdinsight-connect-excel-power-query.md
 
-[hdinsight-upload-data]: /documentation/articles/hdinsight-upload-data/
-[hdinsight-admin-powershell]: /documentation/articles/hdinsight-administer-use-powershell/
-[hdinsight-use-hive]: /documentation/articles/hdinsight-use-hive/
-[hdinsight-use-pig]: /documentation/articles/hdinsight-use-pig/
-[hdinsight-power-query]: /documentation/articles/hdinsight-connect-excel-power-query/
+[hdinsight-upload-data]: ./hdinsight-upload-data.md
+[hdinsight-admin-powershell]: ./hdinsight-administer-use-powershell.md
+[hdinsight-use-hive]: ./hdinsight-use-hive.md
+[hdinsight-use-pig]: ./hdinsight-use-pig.md
+[hdinsight-power-query]: ./hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx

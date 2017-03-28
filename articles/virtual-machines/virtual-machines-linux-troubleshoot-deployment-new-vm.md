@@ -1,38 +1,39 @@
-<properties
-    pageTitle="Troubleshoot Linux VM deployment-RM | Azure"
-    description="Troubleshoot Resource Manager deployment issues when you create a new Linux virtual machine in Azure"
-    services="virtual-machines-linux, azure-resource-manager"
-    documentationcenter=""
-    author="JiangChen79"
-    manager="felixwu"
-    editor=""
-    tags="top-support-issue, azure-resource-manager" />
-<tags
-    ms.assetid="906a9c89-6866-496b-b4a4-f07fb39f990c"
-    ms.service="virtual-machines-linux"
-    ms.workload="na"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/09/2016"
-    wacn.date=""
-    ms.author="cjiang" />
+---
+title: Troubleshoot Linux VM deployment-RM | Azure
+description: Troubleshoot Resource Manager deployment issues when you create a new Linux virtual machine in Azure
+services: virtual-machines-linux, azure-resource-manager
+documentationcenter: ''
+author: JiangChen79
+manager: felixwu
+editor: ''
+tags: top-support-issue, azure-resource-manager
+
+ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
+ms.service: virtual-machines-linux
+ms.workload: na
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 09/09/2016
+wacn.date: ''
+ms.author: cjiang
+---
 
 # Troubleshoot Resource Manager deployment issues with creating a new Linux virtual machine in Azure
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
-[View deployment operations](/documentation/articles/resource-manager-deployment-operations/)
+[View deployment operations](../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[View activity logs to manage Azure resources](/documentation/articles/resource-group-audit/)
+[View activity logs to manage Azure resources](../azure-resource-manager/resource-group-audit.md)
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
+[!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
 **Y:** If the OS is Linux generalized, and it is uploaded and/or captured with the generalized setting, then there won't be any errors. Similarly, if the OS is Linux specialized, and it is uploaded and/or captured with the specialized setting, then there won't be any errors.
 
@@ -54,7 +55,7 @@ To resolve both these errors, upload the original VHD, available on-prem, with t
 
 **Resolution:**
 
-To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](/documentation/articles/virtual-machines-linux-capture-image/) with the same setting as that for the OS (generalized/specialized).
+To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](./virtual-machines-linux-capture-image.md) with the same setting as that for the OS (generalized/specialized).
 
 ## Issue: Custom/ gallery/ marketplace image; allocation failure
 This error arises in situations when the new VM request is pinned to a cluster that either cannot support the VM size being requested, or does not have available free space to accommodate the request.
@@ -80,4 +81,4 @@ This error arises in situations when the new VM request is pinned to a cluster t
     * Add the new VM to the same virtual network.
 
 ## Next steps
-If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](/documentation/articles/virtual-machines-linux-restart-resize-error-troubleshooting/).
+If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](./virtual-machines-linux-restart-resize-error-troubleshooting.md).

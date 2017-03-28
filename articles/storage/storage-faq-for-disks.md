@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Frequently Asked Questions (FAQ) about Azure IaaS VM Disks | Azure"
-    description="Frequently asked questions about Azure IaaS VM disks and premium disks (managed and unmanaged)"
-    services="storage"
-    documentationcenter=""
-    author="ramankumarlive"
-    manager="aungoo-msft"
-    editor="tysonn" />
-<tags
-    ms.assetid="e2a20625-6224-4187-8401-abadc8f1de91"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="ramankum" />
+---
+title: Frequently Asked Questions (FAQ) about Azure IaaS VM Disks | Azure
+description: Frequently asked questions about Azure IaaS VM disks and premium disks (managed and unmanaged)
+services: storage
+documentationcenter: ''
+author: ramankumarlive
+manager: aungoo-msft
+editor: tysonn
+
+ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: ramankum
+---
 
 # Frequently Asked Questions about Azure IaaS VM Disks and managed and unmanaged premium disks
 
@@ -25,11 +26,11 @@ In this article, we'll visit some of the frequently asked questions about Manage
 
 **What is Azure Managed Disks?**
 
-Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by handling storage account management for you. For more information, please see the [Managed Disks Overview](/documentation/articles/storage-managed-disks-overview/).
+Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by handling storage account management for you. For more information, please see the [Managed Disks Overview](./storage-managed-disks-overview.md).
 
 **If I create a standard managed disk from an existing VHD that was 80 GB in size, how much will that cost me?**
 
-A standard managed disk created from an 80 GB VHD will be treated as the next available premium disk size, which is an S10 disk. You will be charged as per the S10 disk pricing. Please check the [pricing page](/pricing/details/storage/) for details.
+A standard managed disk created from an 80 GB VHD will be treated as the next available premium disk size, which is an S10 disk. You will be charged as per the S10 disk pricing. Please check the [pricing page](https://www.azure.cn/pricing/details/storage/) for details.
 
 **Are there any transaction costs for standard managed disks?**
 
@@ -37,7 +38,7 @@ Yes, you are charged for each transaction. Please check the [pricing page] (/pri
 
 **For a standard managed disk, will I be charged for the actual size of the data on the disk or for the provisioned capacity of the disk?**
 
-You are charged based on the provisioned capacity of the disk. Please check the [pricing page](/pricing/details/storage/) for details.
+You are charged based on the provisioned capacity of the disk. Please check the [pricing page](https://www.azure.cn/pricing/details/storage/) for details.
 
 **How is pricing of premium managed disks different than unmanaged disks?**
 
@@ -133,7 +134,7 @@ A premium data disk created from 80 GB VHD will be treated as the next available
 
 **Are there transaction costs when using Premium Storage?**
 
-There is a fixed cost for each disk size which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. Please check the [pricing page](/pricing/details/storage/) for details.
+There is a fixed cost for each disk size which comes provisioned with specific limits on IOPS and throughput. The other costs are outbound bandwidth and snapshot capacity, if applicable. Please check the [pricing page](https://www.azure.cn/pricing/details/storage/) for details.
 
 **What are the limits for IOPS and throughput that can I get from the disk cache?**
 

@@ -1,16 +1,16 @@
-<properties 
-	pageTitle="Windows Authentication and Azure Multi-Factor Authentication Server" 
-	description="This is the Azure Multi-factor authentication page that will assist in deploying Windows Authentication and Azure Multi-Factor Authentication Server." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtand"/>
+---
+title: Windows Authentication and Azure Multi-Factor Authentication Server
+description: This is the Azure Multi-factor authentication page that will assist in deploying Windows Authentication and Azure Multi-Factor Authentication Server.
+services: multi-factor-authentication
+documentationCenter: ''
+authors: billmath
+manager: stevenpo
+editor: curtand
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.date="08/04/2016" 
-	wacn.date=""/>
+ms.service: multi-factor-authentication
+ms.date: 08/04/2016
+wacn.date: ''
+---
 
 # Windows Authentication and Azure Multi-Factor Authentication Server
 
@@ -20,16 +20,8 @@ The Windows Authentication section allows the administrator to enable and config
 -  If ‘Require Azure Multi-Factor Authentication user match’ is checked and you are not in the user list, you will not be able to log into the machine after reboot.
 -  Trusted IPs is dependent on whether the application can provide the client IP with the authentication. Currently only Terminal Services is supported.  
 
-
-
-
-
-
-
->[AZURE.NOTE]This feature is not supported to secure Terminal Services on Windows Server 2012 R2.
- 
-
-
+>[!NOTE]
+>This feature is not supported to secure Terminal Services on Windows Server 2012 R2.
 
 ## To secure an application with Windows Authentication, use the following procedure.
 

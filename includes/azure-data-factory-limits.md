@@ -17,16 +17,12 @@ Retry count for pipeline activity runs | 1000 | MaxInt (32 bit)
 
 <sup>2</sup>On-demand HDInsight cores are allocated out of the subscription that contains the data factory. As a result, the above limit is the Data Factory enforced core limit for on-demand HDInsight cores and is different from the core limit associated with your Azure subscription.
 
-
 **Resource** | **Default lower limit** | **Minimum limit**
 -------- | ------------------- | -------------
 Scheduling interval | 15 minutes | 5 minutes
 Interval between retry attempts | 1 second | 1 second
 Retry timeout value | 1 second | 1 second
 
-
 ### Web service call limits
 
-Azure resource manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](/documentation/articles/azure-subscription-service-limits/#resource-group-limits). 
-
-
+Azure resource manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-subscription-service-limits.md#resource-group-limits).

@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Azure AD Connect sync: Technical concepts | Azure"
-    description="Explains the technical concepts of Azure AD Connect sync."
-    services="active-directory"
-    documentationcenter=""
-    author="MarkusVi"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="731cfeb3-beaf-4d02-aef4-b02a8f99fd11"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="markvi;andkjell" />
+---
+title: Azure AD Connect sync: Technical concepts | Azure
+description: Explains the technical concepts of Azure AD Connect sync.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+editor: ''
+
+ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: markvi;andkjell
+---
 
 # Azure AD Connect sync: Technical Concepts
-This article is a summary of the topic [Understanding architecture](/documentation/articles/active-directory-aadconnectsync-technical-concepts/).
+This article is a summary of the topic [Understanding architecture](./active-directory-aadconnectsync-technical-concepts.md).
 
 Azure AD Connect sync builds upon a solid metadirectory synchronization platform.
 The following sections introduce the concepts for metadirectory synchronization.
@@ -82,8 +83,8 @@ This inherently establishes a link, and attribute flow can proceed bi-directiona
 Whenever a rule determines that a new connector space object needs to be created, it is called provisioning. However, because this operation only takes place within the connector space, it does not carry over into the connected data source until an export is performed.
 
 ## Additional Resources
-- [Azure AD Connect Sync: Customizing Synchronization options](/documentation/articles/active-directory-aadconnectsync-whatis/)
-- [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/)
+- [Azure AD Connect Sync: Customizing Synchronization options](./active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png

@@ -1,38 +1,39 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="My first PowerShell runbook in Azure Automation | Azure"
-    description="Tutorial that walks you through the creation, testing, and publishing of a simple PowerShell runbook."
-    services="automation"
-    documentationcenter=""
-    author="mgoedtel"
-    manager="jwhit"
-    editor=""
-    keywords="azure powershell, powershell script tutorial, powershell automation" />
-<tags
-    ms.assetid="a43b395a-e740-41a3-ae62-40eac9d0ec00"
-    ms.service="automation"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="07/19/2016"
-    wacn.date=""
-    ms.author="magoedte;sngun" />
+---
+title: My first PowerShell runbook in Azure Automation | Azure
+description: Tutorial that walks you through the creation, testing, and publishing of a simple PowerShell runbook.
+services: automation
+documentationcenter: ''
+author: mgoedtel
+manager: jwhit
+editor: ''
+keywords: azure powershell, powershell script tutorial, powershell automation
+
+ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
+ms.service: automation
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 07/19/2016
+wacn.date: ''
+ms.author: magoedte;sngun
+---
 
 # My first PowerShell runbook
-> [AZURE.SELECTOR]
-- [Graphical](/documentation/articles/automation-first-runbook-graphical/)
-- [PowerShell](/documentation/articles/automation-first-runbook-textual-powershell/)
-- [PowerShell Workflow](/documentation/articles/automation-first-runbook-textual/)
+> [!div class="op_single_selector"]
+>- [Graphical](./automation-first-runbook-graphical.md)
+>- [PowerShell](./automation-first-runbook-textual-powershell.md)
+>- [PowerShell Workflow](./automation-first-runbook-textual.md)
 
-This tutorial walks you through the creation of a [PowerShell runbook](/documentation/articles/automation-runbook-types/#powershell-runbooks) in Azure Automation. We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job. Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. We'll then make the runbook more robust by adding runbook parameters.
+This tutorial walks you through the creation of a [PowerShell runbook](./automation-runbook-types.md#powershell-runbooks) in Azure Automation. We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job. Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. We'll then make the runbook more robust by adding runbook parameters.
 
 ## Prerequisites
 To complete this tutorial, you will need the following.
 
-* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](/pricing/1rmb-trial/).
-* [Automation account](/documentation/articles/automation-security-overview/) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="https://www.azure.cn/pricing/free-account/" target="_blank">[sign up for a free account](https://www.azure.cn/pricing/1rmb-trial/).
+* [Automation account](./automation-security-overview.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. We will stop and start this machine so it should not be production.
 
 ## Step 1 - Create new runbook
@@ -44,7 +45,7 @@ We'll start by creating a simple runbook that outputs the text *Hello World*.
    ![RunbooksControl](./media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
 3. Create a new runbook by clicking on the **Add a runbook** button and then **Create a new runbook**.
 4. Give the runbook the name *MyFirstRunbook-PowerShell*.
-5. In this case, we're going to create a [PowerShell runbook](/documentation/articles/automation-runbook-types/#powershell-runbooks) so select **Powershell** for **Runbook type**.  
+5. In this case, we're going to create a [PowerShell runbook](./automation-runbook-types.md#powershell-runbooks) so select **Powershell** for **Runbook type**.  
    ![Runbook Type](./media/automation-first-runbook-textual-powershell/automation-runbook-type.png)  
 6. Click **Create** to create the runbook and open the textual editor.
 
@@ -62,7 +63,7 @@ Before we publish the runbook to make it available in production, we want to tes
 1. Click **Test pane** to open the Test pane.  
    ![Test Pane](./media/automation-first-runbook-textual-powershell/automation-testpane.png)  
 2. Click **Start** to start the test. This should be the only enabled option.
-3. A [runbook job](/documentation/articles/automation-runbook-execution/) is created and its status displayed.  
+3. A [runbook job](./automation-runbook-execution.md) is created and its status displayed.  
    The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to come available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
 4. When the runbook job completes, its output is displayed. In our case, we should see *Hello World*  
    ![Test Pane Output](./media/automation-first-runbook-textual-powershell/automation-testpane-output.png)  
@@ -75,7 +76,7 @@ The runbook that we just created is still in Draft mode. We need to publish it b
    ![Publish button](./media/automation-first-runbook-textual-powershell/automation-publish-button.png)  
 2. If you scroll left to view the runbook in the **Runbooks** pane now, it will show an **Authoring Status** of **Published**.
 3. Scroll back to the right to view the pane for **MyFirstRunbook-PowerShell**.  
-   The options across the top allow us to start the runbook, view the runbook, schedule it to start at some time in the future, or create a [webhook](/documentation/articles/automation-webhooks/) so it can be started through a HTTP call.
+   The options across the top allow us to start the runbook, view the runbook, schedule it to start at some time in the future, or create a [webhook](./automation-webhooks.md) so it can be started through a HTTP call.
 4. We just want to start the runbook so click **Start** and then click **Ok** when the Start Runbook blade opens.  
    ![Start button](./media/automation-first-runbook-textual-powershell/automation-start-button.png)  
 5. A job pane is opened for the runbook job that we just created. We can close this pane, but in this case we'll leave it open so we can watch the job's progress.
@@ -99,9 +100,11 @@ We've tested and published our runbook, but so far it doesn't do anything useful
 2. We don't need the **Write-Output** line anymore, so go ahead and delete it.
 3. Type or copy and paste the following code that will handle the authentication with your Automation Run As account:
 
-        $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    ```
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    ```
 
     <br>
 4. Click **Test pane** so that we can test the runbook.
@@ -112,10 +115,12 @@ Now that our runbook is authenticating to our Azure subscription, we can manage 
 
 1. After *Add-AzureRmAccount -EnvironmentName AzureChinaCloud*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
 
-        $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+    ```
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+    ```
 
     <br>
 2. Save the runbook and then click **Test pane** so that we can test it.
@@ -126,14 +131,16 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
 
 1. Add parameters for *VMName* and *ResourceGroupName* to the runbook and use these variables with the **Start-AzureRmVM** cmdlet as in the example below.  
 
-        Param(
-         [string]$VMName,
-         [string]$ResourceGroupName
-        )
-        $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-        Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-        -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-        Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+    ```
+    Param(
+     [string]$VMName,
+     [string]$ResourceGroupName
+    )
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+    ```
 
     <br>
 2. Save the runbook and open the Test pane. Note that you can now provide values for the two input variables that will be used in the test.
@@ -153,7 +160,7 @@ PowerShell runbooks have the same lifecycle, capabilities and management as Powe
 4. In a PowerShell Workflow runbook, an activity, a command or a script block can have its own runspace whereas in a PowerShell runbook, everything in a script runs in a single runspace. There are also some [syntactic differences](https://technet.microsoft.com/magazine/dn151046.aspx) between a native PowerShell runbook and a PowerShell Workflow runbook.
 
 ## Next steps
-* To get started with Graphical runbooks, see [My first graphical runbook](/documentation/articles/automation-first-runbook-graphical/)
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](/documentation/articles/automation-first-runbook-textual/)
-* To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](/documentation/articles/automation-runbook-types/)
+* To get started with Graphical runbooks, see [My first graphical runbook](./automation-first-runbook-graphical.md)
+* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](./automation-first-runbook-textual.md)
+* To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](./automation-runbook-types.md)
 * For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

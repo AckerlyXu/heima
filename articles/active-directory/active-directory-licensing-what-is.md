@@ -1,22 +1,23 @@
-<properties
-    pageTitle="License Azure Active Directory users in the Azure Classic Management Portal | Azure"
-    description="Description of Azure Active Directory licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions"
-    services="active-directory"
-    keywords="Azure AD licensing"
-    documentationcenter=""
-    author="curtand"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="d769e8c6-7581-43f5-a3b4-de4b1dca2344"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/27/2017"
-    wacn.date=""
-    ms.author="curtand" />
+---
+title: License Azure Active Directory users in the Azure Classic Management Portal | Azure
+description: Description of Azure Active Directory licensing, how it works, how to get started, and best practices, including Office 365, Microsoft Intune, and Azure Active Directory Premium and Basic editions
+services: active-directory
+keywords: Azure AD licensing
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
+
+ms.assetid: d769e8c6-7581-43f5-a3b4-de4b1dca2344
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/27/2017
+wacn.date: ''
+ms.author: curtand
+---
 
 # What is Azure Active Directory licensing in the Azure Classic Management Portal?
 
@@ -24,15 +25,15 @@ Azure Active Directory (Azure AD) is Microsoft's Identity as a Service (IDaaS) s
 
 [Try Azure AD premium now.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
-> [AZURE.NOTE]
-> Azure AD administration portal is a part of the Azure Classic Management Portal. While using Azure AD does not require any Azure purchases, accessing this portal requires an active Azure subscription or an [Azure trial subscription](/pricing/1rmb-trial/).
+> [!NOTE]
+> Azure AD administration portal is a part of the Azure Classic Management Portal. While using Azure AD does not require any Azure purchases, accessing this portal requires an active Azure subscription or an [Azure trial subscription](https://www.azure.cn/pricing/1rmb-trial/).
 >
 >
 
-For a broad overview of Azure AD service capabilities, see [What is Azure AD](/documentation/articles/active-directory-whatis/).
-[Learn more about Azure AD service levels](/support/legal/sla/)
+For a broad overview of Azure AD service capabilities, see [What is Azure AD](./active-directory-whatis.md).
+[Learn more about Azure AD service levels](https://www.azure.cn/support/legal/sla/)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Azure pay as you go subscriptions are different: while also represented in your directory, these subscriptions enable creation of Azure resources and map them to your payment method. In this case there are NO license counts associated with the subscription. Users' association with the subscription, the users' access to managing subscription resources, is achieved by granting them permissions to operate on Azure resources mapped to the subscription.
 >
 >
@@ -46,7 +47,7 @@ Each subscription consists of one or more service plans, each mapping the includ
 
 In general, Azure AD subscription information is managed through the Azure Classic Management Portal, under the Licenses tab for the specific directory. Azure AD subscriptions, with the exception of Azure AD Premium, do NOT show up in the Office portal.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure AD Premium and Basic, as well as Enterprise Mobility Suite subscriptions, are confined to their provisioned directory/tenant. Subscriptions cannot be split between directories or used to entitle users in other directories. Moving a subscription between directories is possible but requires submitting a support ticket or cancellation and re-purchase in the case of direct purchases.
 >
 > When purchasing Azure AD or Enterprise Mobility Suite through Volume Licensing subscription activation will happen automatically when the agreement includes other Microsoft Online services, e.g. Office 365.
@@ -68,14 +69,14 @@ Managing which users in your directory should have a license is simple. It can b
 With group-based license assignment, any user missing a usage location will inherit the directory location during assignment. This location can be changed by the administrator at any time. In cases where the automated assignment failed due to error, the user information under that license type will reflect that state.
 
 ## Getting started with Azure AD licensing
-Getting started with Azure AD is easy; you can always create your directory as a part of signing up to a free Azure trial. [Learn more about signing up as an organization](/documentation/articles/sign-up-organization/). The following can help you make sure that your directory is best aligned with other Microsoft services you may be consuming or are planning to consume, and your goals in obtaining the service.
+Getting started with Azure AD is easy; you can always create your directory as a part of signing up to a free Azure trial. [Learn more about signing up as an organization](./sign-up-organization.md). The following can help you make sure that your directory is best aligned with other Microsoft services you may be consuming or are planning to consume, and your goals in obtaining the service.
 
 Here are a couple of best practices:
 
 - If you are already using any of Microsoft's organizational services, you already have an Azure AD directory. In this case, you should continue to use the same directory for other services, so that core identity management, including provisioning and hybrid SSO, can be utilized across the services. Your users will have a single logon experience and will benefit from richer capabilities across the services. As a result, if you decide to buy an Azure AD paid service for your workforce, we recommend that you use the same directory to do this.
-- If you are planning to use Azure AD for a different set of users (partners, customers, and so on), or if you would like to evaluate Azure AD services and would like to do that in isolation of your production service, or if you are looking to setup a sandbox environment for your services, we recommend that you first create a new directory through the Azure Azure Classic Management Portal. [Learn more about creating a new Azure AD directory in the Azure Classic Management Portal](/documentation/articles/active-directory-licensing-directory-independence/). The new directory will be created with your account as an external user with global administrator permissions. When you sign in to the Azure Classic Management Portal with this account, you will be able to see this directory and access all directory administration tasks. We recommend that you create a local account with appropriate privileges to manage other Microsoft services (those not accessible through the Azure Classic Management Portal). [Learn more about creating user accounts in Azure AD](/documentation/articles/active-directory-create-users/).
+- If you are planning to use Azure AD for a different set of users (partners, customers, and so on), or if you would like to evaluate Azure AD services and would like to do that in isolation of your production service, or if you are looking to setup a sandbox environment for your services, we recommend that you first create a new directory through the Azure Azure Classic Management Portal. [Learn more about creating a new Azure AD directory in the Azure Classic Management Portal](./active-directory-licensing-directory-independence.md). The new directory will be created with your account as an external user with global administrator permissions. When you sign in to the Azure Classic Management Portal with this account, you will be able to see this directory and access all directory administration tasks. We recommend that you create a local account with appropriate privileges to manage other Microsoft services (those not accessible through the Azure Classic Management Portal). [Learn more about creating user accounts in Azure AD](./active-directory-create-users.md).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Azure AD supports “external users,” which are user accounts in an instance of Azure AD that were created using either a Microsoft Account (MSA) or an Azure AD identity from another directory. While we are busy extending this capability into all of Microsoft's organizational services, right now these accounts are not supported in some of the services' experiences; for example, the Office 365 administration portal does not currently support these users. As a result, external users with Microsoft accounts will not be able to access the Office 365 administration portal at all, while external users from other Azure AD directories will be ignored. In the latter case, only the user’s local account, the Azure AD or Office 365 directory where the user was originally created, would be accessible through these experiences.
 >
 >
@@ -142,6 +143,6 @@ Customers can also request a trial extension by submitting a support request. A 
 ## Next steps
 Now you might be ready to configure and use some Azure AD Premium features.
 
-- [Self-service password reset](/documentation/articles/active-directory-manage-passwords/)
-- [Azure Multi-Factor Authentication](/documentation/articles/multi-factor-authentication/)
+- [Self-service password reset](./active-directory-manage-passwords.md)
+- [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Direct purchase of Azure AD Premium licenses](http://aka.ms/buyaadp)

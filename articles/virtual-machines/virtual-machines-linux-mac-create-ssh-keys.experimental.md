@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Create an SSH key pair for Linux VMs on Azure | Azure"
-    description="Securely create an SSH public and private key pair for Azure Linux VMs."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="vlivech"
-    manager="timlt"
-    editor=""
-    tags=""
-    experiment_id="rasquill-ssh-20170308" />
-<tags
-    ms.assetid="34ae9482-da3e-4b2d-9d0d-9d672aa42498"
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="03/08/2017"
-    wacn.date=""
-    ms.author="rasquill" />
+---
+title: Create an SSH key pair for Linux VMs on Azure | Azure
+description: Securely create an SSH public and private key pair for Azure Linux VMs.
+services: virtual-machines-linux
+documentationcenter: ''
+author: vlivech
+manager: timlt
+editor: ''
+tags: ''
+experiment_id: rasquill-ssh-20170308
+
+ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 03/08/2017
+wacn.date: ''
+ms.author: rasquill
+---
 
 # Create an SSH public and private key pair for Linux VMs
 
@@ -29,20 +30,24 @@ Run the following commands from a Bash shell, replacing the examples with your o
 
 Your SSH public key file is by default created at `~/.ssh/id_rsa.pub`. When prompted using the following command, you should create a "passphrase" to secure your private key. (The passphrase is a password used to encrypt your private key.)
 
-    ssh-keygen -t rsa -b 2048 
+```bash
+ssh-keygen -t rsa -b 2048 
+```
 
 Add the newly created key to `ssh-agent`:
 
-    ssh-add ~/.ssh/id_rsa
+```bash
+ssh-add ~/.ssh/id_rsa
+```
 
-> [AZURE.IMPORTANT] 
+> [!IMPORTANT] 
 > The above commands work on Linux operating systems of almost all distributions, but do not necessarily work in containers, as the environment can be radically constrained. 
 
 ## Detailed Walkthrough
 
 Using SSH public and private keys is the easiest way to log in to your Linux servers. [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to log in to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key should have a [very secure password](https://www.xkcd.com/936/) (source:[xkcd.com](https://xkcd.com)) to safeguard it.  This password is just to access the private SSH key and **is not** the user account password.  When you add a password to your SSH key, it encrypts the private key using 128-bit AES, so that the private key is useless without the password to decrypt it.  If an attacker stole your private key and that key did not have a password, they would be able to use that private key to log in to any servers that have the corresponding public key.  If a private key is password protected it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
 
 This article creates SSH protocol version 2 RSA public and private key files, which are recommended for deployments on the Resource Manager.  *ssh-rsa* keys are required on the [portal](https://portal.azure.cn) for both classic and Resource Manager deployments.
@@ -57,9 +62,11 @@ This command creates a password secured (encrypted) SSH key pair using 2048-bit 
 
 SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions.
 
-    ssh-keygen \
-    -t rsa \
-    -b 2048 
+```bash
+ssh-keygen \
+-t rsa \
+-b 2048 
+```
 
 *Command explained*
 
@@ -75,12 +82,14 @@ If you are using the Azure [Classic Management Portal](https://manage.windowsazu
 
 To create an X.509 cert from your existing SSH-RSA private key:
 
-    openssl req -x509 \
-    -key ~/.ssh/id_rsa \
-    -nodes \
-    -days 365 \
-    -newkey rsa:2048 \
-    -out ~/.ssh/id_rsa.pem
+```bash
+openssl req -x509 \
+-key ~/.ssh/id_rsa \
+-nodes \
+-days 365 \
+-newkey rsa:2048 \
+-out ~/.ssh/id_rsa.pem
+```
 
 ## Classic deploy using `asm`
 
@@ -88,34 +97,38 @@ If you are using the classic deploy model (Azure service management CLI `asm`), 
 
 To create a RFC4716 formatted key from an existing SSH public key:
 
-    ssh-keygen \
-    -f ~/.ssh/id_rsa.pub \
-    -e \
-    -m RFC4716 > ~/.ssh/id_ssh2.pem
+```bash
+ssh-keygen \
+-f ~/.ssh/id_rsa.pub \
+-e \
+-m RFC4716 > ~/.ssh/id_ssh2.pem
+```
 
 ## Example of ssh-keygen
 
-    ssh-keygen -t rsa -b 2048 -C "ahmet@myserver"
-    Generating public/private rsa key pair.
-    Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): 
-    Enter passphrase (empty for no passphrase):
-    Enter same passphrase again:
-    Your identification has been saved in /home/ahmet/.ssh/id_rsa.
-    Your public key has been saved in /home/ahmet/.ssh/id_rsa.pub.
-    The key fingerprint is:
-    14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 ahmet@myserver
-    The keys randomart image is:
-    +--[ RSA 2048]----+
-    |        o o. .   |
-    |      E. = .o    |
-    |      ..o...     |
-    |     . o....     |
-    |      o S =      |
-    |     . + O       |
-    |      + = =      |
-    |       o +       |
-    |        .        |
-    +-----------------+
+```bash
+ssh-keygen -t rsa -b 2048 -C "ahmet@myserver"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/ahmet/.ssh/id_rsa.
+Your public key has been saved in /home/ahmet/.ssh/id_rsa.pub.
+The key fingerprint is:
+14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 ahmet@myserver
+The keys randomart image is:
++--[ RSA 2048]----+
+|        o o. .   |
+|      E. = .o    |
+|      ..o...     |
+|     . o....     |
+|      o S =      |
+|     . + O       |
+|      + = =      |
+|       o +       |
+|        .        |
++-----------------+
+```
 
 Saved key files:
 
@@ -125,9 +138,11 @@ The key pair name for this article.  Having a key pair named **id_rsa** is the d
 
 A listing of the `~/.ssh` directory.
 
-    ls -al ~/.ssh
-    -rw------- 1 ahmet staff  1675 Aug 25 18:04 id_rsa
-    -rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 rsa.pub
+```bash
+ls -al ~/.ssh
+-rw------- 1 ahmet staff  1675 Aug 25 18:04 id_rsa
+-rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 rsa.pub
+```
 
 Key Password:
 
@@ -141,18 +156,24 @@ To avoid typing your private key file passphrase with every SSH login, you can u
 
 Verify and use `ssh-agent` and `ssh-add` to inform the SSH system about the key files so that the passphrase will not need to be used interactively.
 
-    eval "$(ssh-agent -s)"
+```bash
+eval "$(ssh-agent -s)"
+```
 
 Now add the private key to `ssh-agent` using the command `ssh-add`.
 
-    ssh-add ~/.ssh/id_rsa
+```bash
+ssh-add ~/.ssh/id_rsa
+```
 
 The private key password is now stored in `ssh-agent`.
 
 ## Using `ssh-copy-id` to install the new key
 If you have already created a VM you can install the new SSH public key to your Linux VM with the following command, replacing the VM username and the server address with your own values:
 
-    ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
+```
 
 ## Create and configure an SSH config file
 
@@ -162,29 +183,35 @@ The following example shows a standard configuration.
 
 ### Create the file
 
-    touch ~/.ssh/config
+```bash
+touch ~/.ssh/config
+```
 
 ### Edit the file to add the new SSH configuration:
 
-    vim ~/.ssh/config
+```bash
+vim ~/.ssh/config
+```
 
 ### Example `~/.ssh/config` file:
 
-    # Azure Keys
-    Host fedora22
-      Hostname 102.160.203.241
-      User ahmet
-    # ./Azure Keys
-    # Default Settings
-    Host *
-      PubkeyAuthentication=yes
-      IdentitiesOnly=yes
-      ServerAliveInterval=60
-      ServerAliveCountMax=30
-      ControlMaster auto
-      ControlPath ~/.ssh/SSHConnections/ssh-%r@%h:%p
-      ControlPersist 4h
-      IdentityFile ~/.ssh/id_rsa
+```bash
+# Azure Keys
+Host fedora22
+  Hostname 102.160.203.241
+  User ahmet
+# ./Azure Keys
+# Default Settings
+Host *
+  PubkeyAuthentication=yes
+  IdentitiesOnly=yes
+  ServerAliveInterval=60
+  ServerAliveCountMax=30
+  ControlMaster auto
+  ControlPath ~/.ssh/SSHConnections/ssh-%r@%h:%p
+  ControlPersist 4h
+  IdentityFile ~/.ssh/id_rsa
+```
 
 This SSH config gives you sections for each server to enable each to have its own dedicated key pair. The default settings (`Host *`) are for any hosts that do not match any of the specific hosts higher up in the config file.
 
@@ -204,7 +231,9 @@ This SSH config gives you sections for each server to enable each to have its ow
 
 Now that you have an SSH key pair and a configured SSH config file, you are able to log in to your Linux VM quickly and securely. The first time you log in to a server using an SSH key the command prompts you for the passphrase for that key file.
 
-    ssh fedora22
+```bash
+ssh fedora22
+```
 
 ### Command explained
 
@@ -212,8 +241,8 @@ When `ssh fedora22` is executed SSH first locates and loads any settings from th
 
 ## Next Steps
 
-Next up is to create Azure Linux VMs using the new SSH public key.  Azure VMs that are created with an SSH public key as the login are better secured than VMs created with the default login method, passwords.  Azure VMs created using SSH keys are by default configured with passwords disabled, avoiding brute-forced guessing attempts. If you need more assistance in creating your SSH key pair or require additional certificates, such as for use with the Classic Management Portal, see [Detailed steps to create SSH key pairs and certificates](/documentation/articles/virtual-machines-linux-create-ssh-keys-detailed/).
+Next up is to create Azure Linux VMs using the new SSH public key.  Azure VMs that are created with an SSH public key as the login are better secured than VMs created with the default login method, passwords.  Azure VMs created using SSH keys are by default configured with passwords disabled, avoiding brute-forced guessing attempts. If you need more assistance in creating your SSH key pair or require additional certificates, such as for use with the Classic Management Portal, see [Detailed steps to create SSH key pairs and certificates](./virtual-machines-linux-create-ssh-keys-detailed.md).
 
-* [Create a secure Linux VM using an Azure template](/documentation/articles/virtual-machines-linux-create-ssh-secured-vm-from-template/)
-* [Create a secure Linux VM using the Azure portal preview](/documentation/articles/virtual-machines-linux-quick-create-portal/)
-* [Create a secure Linux VM using the Azure CLI](/documentation/articles/virtual-machines-linux-quick-create-cli/)
+* [Create a secure Linux VM using an Azure template](./virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Create a secure Linux VM using the Azure portal preview](./virtual-machines-linux-quick-create-portal.md)
+* [Create a secure Linux VM using the Azure CLI](./virtual-machines-linux-quick-create-cli.md)

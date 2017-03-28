@@ -1,24 +1,24 @@
-<properties
-	pageTitle="Get Started with Event Hubs in C# with Apache Storm | Azure"
-	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C# and receiving them in an Apache Storm cluster."
-	services="event-hubs"
-	documentationCenter=""
-	authors="jtaubensee"
-	manager="timlt"
-	editor=""/>
+---
+title: Get Started with Event Hubs in C# with Apache Storm | Azure
+description: Follow this tutorial to get started using Azure Event Hubs; sending events in C# and receiving them in an Apache Storm cluster.
+services: event-hubs
+documentationCenter: ''
+authors: jtaubensee
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="event-hubs"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="09/06/2016"
-	ms.author="jotaub;sethm"/>
+ms.service: event-hubs
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: jotaub;sethm
+---
 
 # Get started with Event Hubs
 
-[AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
+[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
 ## Introduction
 
@@ -36,22 +36,21 @@ In order to complete this tutorial you will need the following:
 
 + An active Azure account. <br/>If you don't have an account, you can create a free account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
-[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
+[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
-
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
 ## Run the applications
 
 Now you are ready to run the applications.
 
-1.	Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
+1. Run the **LogTopology** class from Eclipse, then wait for it to start the receivers for all the partitions.
 
-2.	Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
+2. Run the **Sender** project, press **Enter** in the console window, and see the events appear in the receiver window.
 
-	![][22]
+    ![][22]
 
 ## Next steps
 
@@ -65,7 +64,6 @@ Now that you've built a working application that creates an Event Hub and sends 
 
 <!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.cn/
-[Event Hubs overview]: /documentation/articles/event-hubs-overview/
+[Event Hubs overview]: ./event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
- 

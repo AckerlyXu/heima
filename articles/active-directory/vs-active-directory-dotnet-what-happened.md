@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Changes made to a MVC project when you connect to Azure AD | Azure"
-    description="Describes what happens to your MVC project when you connect to Azure AD by using Visual Studio connected services"
-    services="active-directory"
-    documentationcenter="na"
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="8b24adde-547e-4ffe-824a-2029ba210216"
-    ms.service="active-directory"
-    ms.workload="web"
-    ms.tgt_pltfrm="vs-what-happened"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/01/2017"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: Changes made to a MVC project when you connect to Azure AD | Azure
+description: Describes what happens to your MVC project when you connect to Azure AD by using Visual Studio connected services
+services: active-directory
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
+ms.service: active-directory
+ms.workload: web
+ms.tgt_pltfrm: vs-what-happened
+ms.devlang: na
+ms.topic: article
+ms.date: 03/01/2017
+wacn.date: ''
+ms.author: tarcher
+---
 
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?
-> [AZURE.SELECTOR]
-- [Getting Started](/documentation/articles/vs-active-directory-dotnet-getting-started/)
-- [What Happened](/documentation/articles/vs-active-directory-dotnet-what-happened/)
+> [!div class="op_single_selector"]
+>- [Getting Started](./vs-active-directory-dotnet-getting-started.md)
+>- [What Happened](./vs-active-directory-dotnet-what-happened.md)
 
 ## References have been added
 ### NuGet package references
@@ -55,13 +56,15 @@ If you already had a Startup class in your project, the **Configuration** method
 ### Your app.config or web.config has new configuration values
 The following configuration entries have been added.
 
-    <appSettings>
-        <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
-        <add key="ida:AADInstance" value="https://login.partner.microsoftonline.cn/" />
-        <add key="ida:Domain" value="The selected Azure AD Domain" />
-        <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
-        <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
-    </appSettings>
+```
+<appSettings>
+    <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
+    <add key="ida:AADInstance" value="https://login.partner.microsoftonline.cn/" />
+    <add key="ida:Domain" value="The selected Azure AD Domain" />
+    <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
+    <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
+</appSettings>
+```
 
 ### An Azure Active Directory (AD) App was created
 An Azure AD Application was created in the directory that you selected in the wizard.
@@ -122,34 +125,36 @@ In the **startup.auth.cs** file, a new **OpenIdConnectAuthenticationNotification
 ### Additional changes were made to your app.config or web.config
 The following additional configuration entries have been added.
 
-    <appSettings>
-        <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
-    </appSettings>
+```
+<appSettings>
+    <add key="ida:ClientSecret" value="Your Azure AD App's new client secret" />
+</appSettings>
+```
 
 The following configuration sections and connection string have been added.
 
-    <configSections>
-        <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
-        <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
-    </configSections>
-    <connectionStrings>
-        <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" />
-    </connectionStrings>
-    <entityFramework>
-        <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
-          <parameters>
-            <parameter value="mssqllocaldb" />
-          </parameters>
-        </defaultConnectionFactory>
-        <providers>
-          <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
-        </providers>
-    </entityFramework>
-
+```
+<configSections>
+    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->
+    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+</configSections>
+<connectionStrings>
+    <add name="DefaultConnection" connectionString="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-[AppName + Generated Id].mdf;Initial Catalog=aspnet-[AppName + Generated Id];Integrated Security=True" providerName="System.Data.SqlClient" />
+</connectionStrings>
+<entityFramework>
+    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">
+      <parameters>
+        <parameter value="mssqllocaldb" />
+      </parameters>
+    </defaultConnectionFactory>
+    <providers>
+      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />
+    </providers>
+</entityFramework>
+```
 
 ### Your Azure Active Directory App was updated
 Your Azure Active Directory App was updated to include the *Read directory data* permission and an additional key was created which was then used as the *ida:ClientSecret* in the **web.config** file.
 
 ## Next steps
-- [Learn more about Azure Active Directory](/home/features/identity/)
-
+- [Learn more about Azure Active Directory](https://www.azure.cn/home/features/identity/)

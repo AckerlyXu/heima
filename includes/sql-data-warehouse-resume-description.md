@@ -1,4 +1,3 @@
-
 <!--
 includes/sql-data-warehouse-include-pause-description.md
 
@@ -16,4 +15,3 @@ When you resume a database:
 - Compute charges for your DWUs resume.
 - Your data will be available.
 - You will need to restart your workload queries.
-

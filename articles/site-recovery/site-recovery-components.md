@@ -19,17 +19,15 @@ ms.author: raynew
 ---
 # How does Azure Site Recovery work?
 
-This article describes underlying architecture of the [Azure Site Recovery](/documentation/articles/site-recovery-overview/) service, and the components that make it work.
-
-
+This article describes underlying architecture of the [Azure Site Recovery](./site-recovery-overview.md) service, and the components that make it work.
 
 ## Replicate to Azure
 
 You can replicate the following to Azure:
 
-- **VMware**: On-premises VMware VMs running on a [supported host](/documentation/articles/site-recovery-support-matrix-to-azure/#support-for-datacenter-management-servers). You can replicate VMware VMs running [supported operating systems](/documentation/articles/site-recovery-support-matrix-to-azure/#support-for-replicated-machine-os-versions)
-- **Hyper-V**: On-premises Hyper-V VMs running on [supported hosts](/documentation/articles/site-recovery-support-matrix-to-azure/#support-for-datacenter-management-servers).
-- **Physical machines**: On-premises physical servers running Windows or Linux on [supported operating systems](/documentation/articles/site-recovery-support-matrix-to-azure/#support-for-replicated-machine-os-versions). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/zh-cn/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- **VMware**: On-premises VMware VMs running on a [supported host](./site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). You can replicate VMware VMs running [supported operating systems](./site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
+- **Hyper-V**: On-premises Hyper-V VMs running on [supported hosts](./site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
+- **Physical machines**: On-premises physical servers running Windows or Linux on [supported operating systems](./site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/zh-cn/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 ## VMware to Azure
 
@@ -58,7 +56,7 @@ Area | Component | Details
     - The configuration server orchestrates replication management with Azure over port HTTPS 443 outbound.
     - The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
     - If you enable multi-VM consistency, then machines in the replication group communicate with each other over port 20004. Multi-VM is used if you group multiple machines into replication groups that share crash-consistent and app-consistent recovery points when they fail over. This is useful if machines are running the same workload and need to be consistent.
-5. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](/documentation/articles/expressroute-circuit-peerings/#public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
+5. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering). Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
 
 **Figure 2: VMware to Azure replication**
 
@@ -67,12 +65,11 @@ Area | Component | Details
 ### Failover and failback
 
 1. After you verify that test failover is working as expected, you can run unplanned failovers to Azure as required. Planned failover isn't supported.
-2. You can fail over a single machine, or create [recovery plans](/documentation/articles/site-recovery-create-recovery-plans/), to fail over multiple VMs.
+2. You can fail over a single machine, or create [recovery plans](./site-recovery-create-recovery-plans.md), to fail over multiple VMs.
 3. When you run a failover, replica VMs are created in Azure. You commit a failover to start accessing the workload from the replica Azure VM.
-4. When your primary on-premises site is available again, you can fail back. You set up a failback infrastructure, start replicating the machine from the secondary site to the primary, and run an unplanned failover from the secondary site. After you commit this failover, data will be back on-premises, and you need to enable replication to Azure again. [Learn more](/documentation/articles/site-recovery-failback-azure-to-vmware/)
+4. When your primary on-premises site is available again, you can fail back. You set up a failback infrastructure, start replicating the machine from the secondary site to the primary, and run an unplanned failover from the secondary site. After you commit this failover, data will be back on-premises, and you need to enable replication to Azure again. [Learn more](./site-recovery-failback-azure-to-vmware.md)
 
 There are a few failback requirements:
-
 
 - **Temporary process server in Azure**: If you want to fail back from Azure after failover you'll need to set up an Azure VM configured as a process server, to handle replication from Azure. You can delete this VM after failback finishes.
 - **VPN connection**: For failback you'll need a VPN connection (or Azure ExpressRoute) set up from the Azure network to the on-premises site.
@@ -101,7 +98,6 @@ Here's what you need for replicating Hyper-V VMs to Azure.
 **Hyper-V host** | Hyper-V servers can be deployed with or without VMM server. | If there's no VMM server, the Site Recovery Provider is installed on the host to orchestrate replication with Site Recovery over the internet. If there's a VMM server, the Provider is installed on it, and not on the host.<br/><br/> The Recovery Services agent is installed on the host to handle data replication.<br/><br/> Communications from both the Provider and the agent are secure and encrypted. Replicated data in Azure storage is also encrypted.
 **Hyper-V VMs** | You need one or more VMs on the Hyper-V host server. | Nothing needs to explicitly installed on VMs
 
-
 ### Replication process
 
 1. You set up the Azure components. We recommend you set up storage and network accounts before you begin Site Recovery deployment.
@@ -115,11 +111,11 @@ Here's what you need for replicating Hyper-V VMs to Azure.
 
 ### Failover and failback process
 
-1. You can run a planned or unplanned [failover](/documentation/articles/site-recovery-failover/) from on-premises Hyper-V VMs to Azure. If you run a planned failover, then source VMs are shut down to ensure no data loss.
-2. You can fail over a single machine, or create [recovery plans](/documentation/articles/site-recovery-create-recovery-plans/) to orchestrate failover of multiple machines.
+1. You can run a planned or unplanned [failover](./site-recovery-failover.md) from on-premises Hyper-V VMs to Azure. If you run a planned failover, then source VMs are shut down to ensure no data loss.
+2. You can fail over a single machine, or create [recovery plans](./site-recovery-create-recovery-plans.md) to orchestrate failover of multiple machines.
 4. After you run the failover, you should be able to see the created replica VMs in Azure. You can assign a public IP address to the VM if required.
 5. You then commit the failover to start accessing the workload from the replica Azure VM.
-6. When your primary on-premises site is available again, you can [fail back](/documentation/articles/site-recovery-failback-from-azure-to-hyper-v/). You kick off a planned failover from Azure to the primary site. For a planned failover you can select to failback to the same VM or to an alternate location, and synchronize changes between Azure and on-premises, to ensure no data loss. When VMs are created on-premises, you commit the failover.
+6. When your primary on-premises site is available again, you can [fail back](./site-recovery-failback-from-azure-to-hyper-v.md). You kick off a planned failover from Azure to the primary site. For a planned failover you can select to failback to the same VM or to an alternate location, and synchronize changes between Azure and on-premises, to ensure no data loss. When VMs are created on-premises, you commit the failover.
 
 **Figure 4: Hyper-V site to Azure replication**
 
@@ -129,15 +125,13 @@ Here's what you need for replicating Hyper-V VMs to Azure.
 
 ![Components](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
-
 ## Replicate to a secondary site
 
 You can replicate the following to your secondary site:
 
-- **VMware**: On-premises VMware VMs running on a [supported host](/documentation/articles/site-recovery-support-matrix-to-sec-site/#on-premises-servers). You can replicate VMware VMs running [supported operating systems](/documentation/articles/site-recovery-support-matrix-to-sec-site/#support-for-replicated-machine-os-versions)
-- **Physical machines**: On-premises physical servers running Windows or Linux on [supported operating systems](/documentation/articles/site-recovery-support-matrix-to-sec-site/#support-for-replicated-machine-os-versions).
-- **Hyper-V**: On-premises Hyper-V VMs running on [supported Hyper-V hosts](/documentation/articles/site-recovery-support-matrix-to-sec-site/#on-premises-servers) managed in VMM clouds. [supported hosts](/documentation/articles/site-recovery-support-matrix-to-azure/#support-for-datacenter-management-servers). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/zh-cn/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
-
+- **VMware**: On-premises VMware VMs running on a [supported host](./site-recovery-support-matrix-to-sec-site.md#on-premises-servers). You can replicate VMware VMs running [supported operating systems](./site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)
+- **Physical machines**: On-premises physical servers running Windows or Linux on [supported operating systems](./site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
+- **Hyper-V**: On-premises Hyper-V VMs running on [supported Hyper-V hosts](./site-recovery-support-matrix-to-sec-site.md#on-premises-servers) managed in VMM clouds. [supported hosts](./site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). You can replicate Hyper-V VMs running any guest operating system [supported by Hyper-V and Azure](https://technet.microsoft.com/zh-cn/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 ## VMware/physical to a secondary site
 
@@ -155,7 +149,6 @@ You replicate VMware VMs or physical servers to a secondary site using InMage Sc
 **VMware ESX/ESXi and vCenter server** |  VMs are hosted on ESX/ESXi hosts. Hosts are managed with a vCenter server | You need a VMware infrastructure to replicate VMware VMs.
 **VMs/physical servers** |  Unified Agent installed on VMware VMs and physical servers you want to replicate. | The agent acts as a communication provider between all of the components.
 
-
 ### Replication process
 
 1. You set up the component servers in each site (configuration, process, master target), and install the Unified Agent on machines that you want to replicate.
@@ -166,12 +159,9 @@ You replicate VMware VMs or physical servers to a secondary site using InMage Sc
 
 ![VMware to VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
-
-
 ## Hyper-V to a secondary site
 
 Here's what you need for replicating Hyper-V VMs to a secondary site.
-
 
 **Area** | **Component** | **Details**
 --- | --- | ---
@@ -198,15 +188,14 @@ Here's what you need for replicating Hyper-V VMs to a secondary site.
 
 ### Failover and failback
 
-1. You can run a planned or unplanned [failover](/documentation/articles/site-recovery-failover/) between on-premises sites. If you run a planned failover, then source VMs are shut down to ensure no data loss.
-2. You can fail over a single machine, or create [recovery plans](/documentation/articles/site-recovery-create-recovery-plans/) to orchestrate failover of multiple machines.
+1. You can run a planned or unplanned [failover](./site-recovery-failover.md) between on-premises sites. If you run a planned failover, then source VMs are shut down to ensure no data loss.
+2. You can fail over a single machine, or create [recovery plans](./site-recovery-create-recovery-plans.md) to orchestrate failover of multiple machines.
 4. If you perform an unplanned failover to a secondary site, after the failover machines in the secondary location aren't enabled for protection or replication. If you ran a planned failover, after the failover, machines in the secondary location are protected.
 5. Then, you commit the failover to start accessing the workload from the replica VM.
 6. When your primary site is available again, you initiate reverse replication to replicate from the secondary site to the primary. Reverse replication brings the virtual machines into a protected state, but the secondary datacenter is still the active location.
 7. To make the primary site into the active location again, you initiate a planned failover from secondary to primary, followed by another reverse replication.
 
-
 ## Next steps
 
-- [Learn more](/documentation/articles/site-recovery-hyper-v-azure-architecture/) about the Hyper-V replication workflow.
-- [Check prerequisites](/documentation/articles/site-recovery-prereq/)
+- [Learn more](./site-recovery-hyper-v-azure-architecture.md) about the Hyper-V replication workflow.
+- [Check prerequisites](./site-recovery-prereq.md)

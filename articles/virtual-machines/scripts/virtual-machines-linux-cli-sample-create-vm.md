@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure CLI Script Sample - Create a Linux VM | Azure"
-    description="Azure CLI Script Sample - Create a Linux VM"
-    services="virtual-machines-linux"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management" />
-<tags
-    ms.assetid=""
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="02/27/2017"
-    wacn.date=""
-    ms.author="nepeters" />
+---
+title: Azure CLI Script Sample - Create a Linux VM | Azure
+description: Azure CLI Script Sample - Create a Linux VM
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-service-management
+
+ms.assetid: ''
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/27/2017
+wacn.date: ''
+ms.author: nepeters
+---
 
 # Create a fully configured virtual machine
 
@@ -24,44 +25,48 @@ This script creates an Azure Virtual Machine with an Ubuntu operating system. Af
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli), and then run `az login` to create a connection with Azure.
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](/documentation/articles/virtual-machines-windows-cli-options/).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../virtual-machines-windows-cli-options.md).
 
 ## Sample script
 
-    #!/bin/bash
+```
+#!/bin/bash
 
-    # Create a resource group.
-    az group create --name myResourceGroup --location chinanorth
+# Create a resource group.
+az group create --name myResourceGroup --location chinanorth
 
-    # Create a virtual network.
-    az network vnet create --resource-group myResourceGroup --name myVnet --subnet-name mySubnet
+# Create a virtual network.
+az network vnet create --resource-group myResourceGroup --name myVnet --subnet-name mySubnet
 
-    # Create a public IP address.
-    az network public-ip create --resource-group myResourceGroup --name myPublicIP
+# Create a public IP address.
+az network public-ip create --resource-group myResourceGroup --name myPublicIP
 
-    # Create a network security group.
-    az network nsg create --resource-group myResourceGroup --name myNetworkSecurityGroup
+# Create a network security group.
+az network nsg create --resource-group myResourceGroup --name myNetworkSecurityGroup
 
-    # Create a virtual network card and associate with public IP address and NSG.
-    az network nic create \
-      --resource-group myResourceGroup \
-      --name myNic \
-      --vnet-name myVnet \
-      --subnet mySubnet \
-      --network-security-group myNetworkSecurityGroup \
-      --public-ip-address myPublicIP
+# Create a virtual network card and associate with public IP address and NSG.
+az network nic create \
+  --resource-group myResourceGroup \
+  --name myNic \
+  --vnet-name myVnet \
+  --subnet mySubnet \
+  --network-security-group myNetworkSecurityGroup \
+  --public-ip-address myPublicIP
 
-    # Create a new virtual machine, this creates SSH keys if not present.
-    az vm create --resource-group myResourceGroup --name myVM --nics myNic --image UbuntuLTS --generate-ssh-keys
+# Create a new virtual machine, this creates SSH keys if not present.
+az vm create --resource-group myResourceGroup --name myVM --nics myNic --image UbuntuLTS --generate-ssh-keys
 
-    # Open port 22 to allow SSh traffic to host.
-    az vm open-port --port 22 --resource-group myResourceGroup --name myVM
+# Open port 22 to allow SSh traffic to host.
+az vm open-port --port 22 --resource-group myResourceGroup --name myVM
+```
 
 ## Clean up deployment 
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-    az group delete --name myResourceGroup
+```azurecli
+az group delete --name myResourceGroup
+```
 
 ## Script explanation
 
@@ -82,4 +87,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](/documentation/articles/virtual-machines-linux-cli-samples/).
+Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-cli-samples.md).

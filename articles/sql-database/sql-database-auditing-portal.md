@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Azure portal: Manage SQL Database Auditing | Azure"
-    description="Configure Azure SQL Database auditing in the Azure portal to track database events and write them to an audit log in your Azure Storage account."
-    services="sql-database"
-    documentationcenter=""
-    author="ronitr"
-    manager="jhubbard"
-    editor="giladm" />
-<tags
-    ms.assetid="89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc"
-    ms.service="sql-database"
-    ms.custom="secure and protect"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/05/2016"
-    wacn.date=""
-    ms.author="ronitr; giladm" />
+---
+title: Azure portal: Manage SQL Database Auditing | Azure
+description: Configure Azure SQL Database auditing in the Azure portal to track database events and write them to an audit log in your Azure Storage account.
+services: sql-database
+documentationcenter: ''
+author: ronitr
+manager: jhubbard
+editor: giladm
+
+ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
+ms.service: sql-database
+ms.custom: secure and protect
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/05/2016
+wacn.date: ''
+ms.author: ronitr; giladm
+---
 
 # Configure and manage SQL database auditing in the Azure portal
 
-The following section describes how to configure and manage auditing using the Azure Portal. To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](/documentation/articles/sql-database-auditing-powershell/). To configure and manage auditing using the REST API, see [Configure auditing with the REST API](/documentation/articles/sql-database-auditing-rest/).
+The following section describes how to configure and manage auditing using the Azure Portal. To configure and manage auditing using PowerShell, see [Configure auditing with PowerShell](./sql-database-auditing-powershell.md). To configure and manage auditing using the REST API, see [Configure auditing with the REST API](./sql-database-auditing-rest.md).
 
-For an overview of auditing, see [SQL Database auditing](/documentation/articles/sql-database-auditing/).
+For an overview of auditing, see [SQL Database auditing](./sql-database-auditing.md).
 
 ## Configure blob auditing
 
@@ -40,13 +41,13 @@ For an overview of auditing, see [SQL Database auditing](/documentation/articles
 
     <a id="storage-screenshot"></a>
     ![Navigation pane][4]
-6. If you want to customize the audited events, you can do this via [PowerShell](/documentation/articles/sql-database-auditing-powershell/) or the [REST API](/documentation/articles/sql-database-auditing-rest/).
+6. If you want to customize the audited events, you can do this via [PowerShell](./sql-database-auditing-powershell.md) or the [REST API](./sql-database-auditing-rest.md).
 7. Click **Save**.
 
 ## Table auditing
 
-> [AZURE.IMPORTANT]
-> Before setting up **Table auditing**, check if you are using a ["Downlevel Client"](/documentation/articles/sql-database-auditing-and-dynamic-data-masking-downlevel-clients/). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](/documentation/articles/sql-database-auditing-and-dynamic-data-masking-downlevel-clients/) when enabling Table Auditing.
+> [!IMPORTANT]
+> Before setting up **Table auditing**, check if you are using a ["Downlevel Client"](./sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](./sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Table Auditing.
 >
 
 1. Launch the [Azure Portal](https://portal.azure.cn) at https://portal.azure.cn.
@@ -61,7 +62,7 @@ For an overview of auditing, see [SQL Database auditing](/documentation/articles
 6. Click on **Audited Events** to customize which events to audit. In the Logging by Event blade, click **Success** and **Failure** to log all events, or choose individual event categories.
 
     ![Navigation pane][5]
-7. Once you've configured your auditing settings, you can turn on the new Threat Detection (preview) feature, and configure the emails to receive security alerts. Threat Detection allows you to receive proactive alerts on anomalous database activities that may indicate potential security threats. See [Threat detection](/documentation/articles/sql-database-threat-detection/) for more details.
+7. Once you've configured your auditing settings, you can turn on the new Threat Detection (preview) feature, and configure the emails to receive security alerts. Threat Detection allows you to receive proactive alerts on anomalous database activities that may indicate potential security threats. See [Threat detection](./sql-database-threat-detection.md) for more details.
 8. Click **Save**.
 
 ## Auditing geo-replicated databases
@@ -78,7 +79,7 @@ When using geo-replicated databases, it is possible to set up Auditing on either
    * Turn on blob auditing on the primary database. Blob auditing must be enabled on the *primary database itself*, not the server.
    * Once blob auditing is enabled on the primary database, it will also become enabled on the secondary database.
 
-    > [AZURE.IMPORTANT]
+    > [!IMPORTANT]
     > By default, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. You can avoid this by enabling blob auditing on the secondary server and configuring a local storage in the Secondary server storage settings (this will override the storage location for the Secondary database and result in each database saving the Audit logs to a local storage).  
 
 ## Viewing blob auditing logs
@@ -154,7 +155,6 @@ In production, you are likely to refresh your storage keys periodically. When re
 3. Go back to the Auditing configuration blade, switch the **Storage Access Key** from *Secondary* to *Primary*, and then click **OK** at the bottom. Then click **SAVE** at the top of the Auditing configuration blade.
 4. Go back to the Storage configuration blade and **regenerate** the *Secondary Access Key* (in preparation for the next keys refresh cycle).
 
-
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -181,7 +181,6 @@ In production, you are likely to refresh your storage keys periodically. When re
 
 ## Next steps
 
-* To configure and manage auditing using PowerShell, see [Configure database auditing using PowerShell](/documentation/articles/sql-database-auditing-powershell/).
-* To configure and manage auditing using the REST API, see [Configure database auditing using the REST API](/documentation/articles/sql-database-auditing-rest/).
-* For an overview of auditing, see [Database auditing](/documentation/articles/sql-database-auditing/).
-
+* To configure and manage auditing using PowerShell, see [Configure database auditing using PowerShell](./sql-database-auditing-powershell.md).
+* To configure and manage auditing using the REST API, see [Configure database auditing using the REST API](./sql-database-auditing-rest.md).
+* For an overview of auditing, see [Database auditing](./sql-database-auditing.md).

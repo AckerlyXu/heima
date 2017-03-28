@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Create your first reliable Azure microservice in C# | Azure"
-    description="Introduction to creating a Azure Service Fabric application with stateless and stateful services."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="vturecek"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="d9b44d75-e905-468e-b867-2190ce97379a"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="vturecek" />
+---
+title: Create your first reliable Azure microservice in C# | Azure
+description: Introduction to creating a Azure Service Fabric application with stateless and stateful services.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
+
+ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: vturecek
+---
 
 # Get started with Reliable Services
 
-> [AZURE.SELECTOR]
-- [C# on Windows](/documentation/articles/service-fabric-reliable-services-quick-start/)
-- [Java on Linux](/documentation/articles/service-fabric-reliable-services-quick-start-java/)
+> [!div class="op_single_selector"]
+>- [C# on Windows](./service-fabric-reliable-services-quick-start.md)
+>- [Java on Linux](./service-fabric-reliable-services-quick-start-java.md)
 
-An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications with [Reliable Services](/documentation/articles/service-fabric-reliable-services-introduction/).  This Microsoft Virtual Academy video also shows you how to create a stateless Reliable service:
+An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications with [Reliable Services](./service-fabric-reliable-services-introduction.md).  This Microsoft Virtual Academy video also shows you how to create a stateless Reliable service:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
 <img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
@@ -60,48 +61,44 @@ Open the **HelloWorldStateless.cs** file in the service project. In Service Fabr
 
  - An open-ended entry point method, called *RunAsync*, where you can begin executing any workloads, including long-running compute workloads.
 
-
-	protected override async Task RunAsync(CancellationToken cancellationToken)
-	{
-	    ...
-	}
-
+    protected override async Task RunAsync(CancellationToken cancellationToken)
+    {
+        ...
+    }
 
  - A communication entry point where you can plug in your communication stack of choice, such as ASP.NET Web API. This is where you can start receiving requests from users and other services.
 
-
-	protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
-	{
-	    ...
-	}
-
+    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+    {
+        ...
+    }
 
 In this tutorial, we will focus on the `RunAsync()` entry point method. This is where you can immediately start running your code.
 The project template includes a sample implementation of `RunAsync()` that increments a rolling count.
 
-> [AZURE.NOTE] For details about how to work with a communication stack, see [Service Fabric Web API services with OWIN self-hosting](/documentation/articles/service-fabric-reliable-services-communication-webapi/)
-
+> [!NOTE]
+> For details about how to work with a communication stack, see [Service Fabric Web API services with OWIN self-hosting](./service-fabric-reliable-services-communication-webapi.md)
 
 ### RunAsync
 
+```csharp
+protected override async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following sample code with your own logic
+    //       or remove this RunAsync override if it's not needed in your service.
 
-	protected override async Task RunAsync(CancellationToken cancellationToken)
-	{
-	    // TODO: Replace the following sample code with your own logic
-	    //       or remove this RunAsync override if it's not needed in your service.
+    long iterations = 0;
 
-	    long iterations = 0;
+    while (true)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
 
-	    while (true)
-	    {
-	        cancellationToken.ThrowIfCancellationRequested();
+        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", ++iterations);
 
-	        ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", ++iterations);
-
-	        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
-	    }
-	}
-
+        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+    }
+}
+```
 
 The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
 
@@ -133,48 +130,48 @@ Select **Stateful Service** and name it *HelloWorldStateful*. Click **OK**.
 
 Your application should now have two services: the stateless service *HelloWorldStateless* and the stateful service *HelloWorldStateful*.
 
-A stateful service has the same entry points as a stateless service. The main difference is the availability of a *state provider* that can store state reliably. Service Fabric comes with a state provider implementation called [Reliable Collections](/documentation/articles/service-fabric-reliable-services-reliable-collections/), which lets you create replicated data structures through the Reliable State Manager. A stateful Reliable Service uses this state provider by default.
+A stateful service has the same entry points as a stateless service. The main difference is the availability of a *state provider* that can store state reliably. Service Fabric comes with a state provider implementation called [Reliable Collections](./service-fabric-reliable-services-reliable-collections.md), which lets you create replicated data structures through the Reliable State Manager. A stateful Reliable Service uses this state provider by default.
 
 Open **HelloWorldStateful.cs** in *HelloWorldStateful*, which contains the following RunAsync method:
 
+```csharp
+protected override async Task RunAsync(CancellationToken cancellationToken)
+{
+    // TODO: Replace the following sample code with your own logic
+    //       or remove this RunAsync override if it's not needed in your service.
 
-	protected override async Task RunAsync(CancellationToken cancellationToken)
-	{
-	    // TODO: Replace the following sample code with your own logic
-	    //       or remove this RunAsync override if it's not needed in your service.
+    var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-	    var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
+    while (true)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
 
-	    while (true)
-	    {
-	        cancellationToken.ThrowIfCancellationRequested();
+        using (var tx = this.StateManager.CreateTransaction())
+        {
+            var result = await myDictionary.TryGetValueAsync(tx, "Counter");
 
-	        using (var tx = this.StateManager.CreateTransaction())
-	        {
-	            var result = await myDictionary.TryGetValueAsync(tx, "Counter");
+            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
+                result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
-	            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
-	                result.HasValue ? result.Value.ToString() : "Value does not exist.");
+            await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
 
-	            await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // discarded, and nothing is saved to the secondary replicas.
+            await tx.CommitAsync();
+        }
 
-	            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
-	            // discarded, and nothing is saved to the secondary replicas.
-	            await tx.CommitAsync();
-	        }
-
-	        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
-	    }
-
+        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+    }
+```
 
 ### RunAsync
 `RunAsync()` operates similarly in stateful and stateless services. However, in a stateful service, the platform performs additional work on your behalf before it executes `RunAsync()`. This work can include ensuring that the Reliable State Manager and Reliable Collections are ready to use.
 
 ### Reliable Collections and the Reliable State Manager
 
-
-	var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
-
+```csharp
+var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
+```
 
 [IReliableDictionary](https://msdn.microsoft.com/zh-cn/library/dn971511.aspx) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. Reliable Collections make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
@@ -190,16 +187,16 @@ The Reliable State Manager manages Reliable Collections for you. You can simply 
 
 ### Transactional and asynchronous operations
 
+```C#
+using (ITransaction tx = this.StateManager.CreateTransaction())
+{
+    var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
 
-	using (ITransaction tx = this.StateManager.CreateTransaction())
-	{
-	    var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
+    await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
 
-	    await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
-
-	    await tx.CommitAsync();
-	}
-
+    await tx.CommitAsync();
+}
+```
 
 Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, except LINQ. Operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections perform I/O operations to replicate and persist data to disk.
 
@@ -210,19 +207,20 @@ We now return to the *HelloWorld* application. You can now build and deploy your
 
 After the services start running, you can view the generated Event Tracing for Windows (ETW) events in a **Diagnostic Events** window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
 
->[AZURE.NOTE] Before you run the application, make sure that you have a local development cluster running. Check out the [getting started guide](/documentation/articles/service-fabric-get-started/) for information on setting up your local environment.
+>[!NOTE]
+> Before you run the application, make sure that you have a local development cluster running. Check out the [getting started guide](./service-fabric-get-started.md) for information on setting up your local environment.
 
 ![View Diagnostic Events in Visual Studio](./media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
 ## Next steps
-[Debug your Service Fabric application in Visual Studio](/documentation/articles/service-fabric-debugging-your-application/)
+[Debug your Service Fabric application in Visual Studio](./service-fabric-debugging-your-application.md)
 
-[Get started: Service Fabric Web API services with OWIN self-hosting](/documentation/articles/service-fabric-reliable-services-communication-webapi/)
+[Get started: Service Fabric Web API services with OWIN self-hosting](./service-fabric-reliable-services-communication-webapi.md)
 
-[Learn more about Reliable Collections](/documentation/articles/service-fabric-reliable-services-reliable-collections/)
+[Learn more about Reliable Collections](./service-fabric-reliable-services-reliable-collections.md)
 
-[Deploy an application](/documentation/articles/service-fabric-deploy-remove-applications/)
+[Deploy an application](./service-fabric-deploy-remove-applications.md)
 
-[Application upgrade](/documentation/articles/service-fabric-application-upgrade/)
+[Application upgrade](./service-fabric-application-upgrade.md)
 
 [Developer reference for Reliable Services](https://msdn.microsoft.com/zh-cn/library/azure/dn706529.aspx)

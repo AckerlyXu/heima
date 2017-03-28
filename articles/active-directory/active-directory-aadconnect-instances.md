@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect: Sync service instances | Azure"
-    description="This page documents special considerations for Azure AD instances."
-    services="active-directory"
-    documentationcenter=""
-    author="andkjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="f340ea11-8ff5-4ae6-b09d-e939c76355a3"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/07/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Azure AD Connect: Sync service instances | Azure
+description: This page documents special considerations for Azure AD instances.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
+
+ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Azure AD Connect: Special considerations for instances
 Azure AD Connect is most commonly used with the world-wide instance of Azure AD and Office 365. But there are also other instances and these have different requirements for URLs and other special considerations.
@@ -64,4 +65,4 @@ Features currently not present in the Azure Government cloud:
 - Other Azure AD Premium services are not available.
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](/documentation/articles/active-directory-aadconnect/).
+Learn more about [Integrating your on-premises identities with Azure Active Directory](./active-directory-aadconnect.md).

@@ -1,34 +1,35 @@
-<properties
-    pageTitle="Learn about the different token and claim types supported by Azure AD | Azure"
-    description="A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)"
-    documentationcenter="na"
-    author="bryanla"
-    services="active-directory"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="166aa18e-1746-4c5e-b382-68338af921e2"
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="mbaldwin" />
+---
+title: Learn about the different token and claim types supported by Azure AD | Azure
+description: A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)
+documentationcenter: na
+author: bryanla
+services: active-directory
+manager: mbaldwin
+editor: ''
+
+ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: mbaldwin
+---
 
 # Azure AD token reference
 Azure Active Directory (Azure AD) emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of each type of token.
 
 ## Types of tokens
-Azure AD supports the [OAuth 2.0 authorization protocol](/documentation/articles/active-directory-protocols-oauth-code/), which makes use of both access_tokens and refresh_tokens.  It also supports authentication and sign-in via [OpenID Connect](/documentation/articles/active-directory-protocols-openid-connect-code/), which introduces a third type of token, the id_token.  Each of these tokens is represented as a "bearer token".
+Azure AD supports the [OAuth 2.0 authorization protocol](./active-directory-protocols-oauth-code.md), which makes use of both access_tokens and refresh_tokens.  It also supports authentication and sign-in via [OpenID Connect](./active-directory-protocols-openid-connect-code.md), which introduces a third type of token, the id_token.  Each of these tokens is represented as a "bearer token".
 
 A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though authentication with Azure AD is required in order to receive a bearer token, steps must be taken to secure the token, to prevent interception by an unintended party. Because bearer tokens do not have a built-in mechanism to prevent unauthorized parties from using them, they must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used to acquire the token and gain unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
 Many of the tokens issued by Azure AD are implemented as JSON Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by Azure AD are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [jwt.calebb.net](http://jwt.calebb.net). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## Id_tokens
-Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](/documentation/articles/active-directory-protocols-openid-connect-code/).  They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app.  You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.
+Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](./active-directory-protocols-openid-connect-code.md).  They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app.  You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.
 
 Id_tokens are signed, but not encrypted at this time.  When your app receives an id_token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity.  The claims validated by an app vary depending on scenario requirements, but there are some [common claim validations](#validating-tokens) that your app must perform in every scenario.
 
@@ -36,11 +37,11 @@ See the following section for information on id_tokens claims, as well as a samp
 
 #### Sample id_token
 
+```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83ZmU4MTQ0Ny1kYTU3LTQzODUtYmVjYi02ZGU1N2YyMTQ3N2UvIiwiaWF0IjoxMzg4NDQwODYzLCJuYmYiOjEzODg0NDA4NjMsImV4cCI6MTM4ODQ0NDc2MywidmVyIjoiMS4wIiwidGlkIjoiN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlIiwib2lkIjoiNjgzODlhZTItNjJmYS00YjE4LTkxZmUtNTNkZDEwOWQ3NGY1IiwidXBuIjoiZnJhbmttQGNvbnRvc28uY29tIiwidW5pcXVlX25hbWUiOiJmcmFua21AY29udG9zby5jb20iLCJzdWIiOiJKV3ZZZENXUGhobHBTMVpzZjd5WVV4U2hVd3RVbTV5elBtd18talgzZkhZIiwiZmFtaWx5X25hbWUiOiJNaWxsZXIiLCJnaXZlbl9uYW1lIjoiRnJhbmsifQ.
+```
 
-	eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83ZmU4MTQ0Ny1kYTU3LTQzODUtYmVjYi02ZGU1N2YyMTQ3N2UvIiwiaWF0IjoxMzg4NDQwODYzLCJuYmYiOjEzODg0NDA4NjMsImV4cCI6MTM4ODQ0NDc2MywidmVyIjoiMS4wIiwidGlkIjoiN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlIiwib2lkIjoiNjgzODlhZTItNjJmYS00YjE4LTkxZmUtNTNkZDEwOWQ3NGY1IiwidXBuIjoiZnJhbmttQGNvbnRvc28uY29tIiwidW5pcXVlX25hbWUiOiJmcmFua21AY29udG9zby5jb20iLCJzdWIiOiJKV3ZZZENXUGhobHBTMVpzZjd5WVV4U2hVd3RVbTV5elBtd18talgzZkhZIiwiZmFtaWx5X25hbWUiOiJNaWxsZXIiLCJnaXZlbl9uYW1lIjoiRnJhbmsifQ.
-
-
-> [AZURE.TIP]
+> [!TIP]
 > For practice, try inspecting the claims in the sample id_token by pasting it into [calebb.net](http://jwt.calebb.net).
 > 
 > 
@@ -79,7 +80,7 @@ If your app only *uses* access tokens to get access to APIs, you can (and should
 When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption.  This information includes the expiry time of the access token and the scopes for which it is valid.  This allows your app to perform intelligent caching of access tokens without having to parse open the access token itself.
 
 If your app is an API protected with Azure AD that expects access tokens in HTTP requests, then you should perform validation and inspection of the tokens you receive. Your app should perform validation of the access token before using it to access resources. For more information on validation, please see [Validating Tokens](#validating-tokens).  
-For details on how to do this with .NET, see [Protect a Web API using Bearer tokens from Azure AD](/documentation/articles/active-directory-devquickstarts-webapi-dotnet/).
+For details on how to do this with .NET, see [Protect a Web API using Bearer tokens from Azure AD](./active-directory-devquickstarts-webapi-dotnet.md).
 
 ## Refresh tokens
 
@@ -93,9 +94,9 @@ When you redeem a refresh token for a new access token, you will receive a new r
 
 ## Validating tokens <a name="validating-tokens"></a>
 
-In order to validate an id_token or an access_token, your app should validate both the token's signature and the claims. In order to validate access tokens, your app should also validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant independent version of the document is located at [https://login.chinacloudapi.cn/common/.well-known/openid-configuration](https://login.chinacloudapi.cn/common/.well-known/openid-configuration). Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](/documentation/articles/active-directory-code-samples/) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, please see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+In order to validate an id_token or an access_token, your app should validate both the token's signature and the claims. In order to validate access tokens, your app should also validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant independent version of the document is located at [https://login.chinacloudapi.cn/common/.well-known/openid-configuration](https://login.chinacloudapi.cn/common/.well-known/openid-configuration). Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](./active-directory-code-samples.md) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, please see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
-We provide libraries and code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several third party open source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](/documentation/articles/active-directory-authentication-libraries/).
+We provide libraries and code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several third party open source libraries available for JWT validation - there is at least one option for almost every platform and language out there. For more information about Azure AD authentication libraries and code samples, please see [Azure AD authentication libraries](./active-directory-authentication-libraries.md).
 
 #### Validating the signature
 
@@ -103,13 +104,13 @@ A JWT contains three segments, which are separated by the `.` character.  The fi
 
 Tokens issued by Azure AD are signed using industry standard asymmetric encryption algorithms, such as RSA 256. The header of the JWT contains information about the key and encryption method used to sign the token:
 
-
-	{
-	  "typ": "JWT",
-	  "alg": "RS256",
-	  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
-	}
-
+```
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+}
+```
 
 The `alg` claim indicates the algorithm that was used to sign the token, while the `x5t` claim indicates the particular public key that was used to sign the token.
 
@@ -117,11 +118,11 @@ At any given point in time, Azure AD may sign an id_token using any one of a cer
 
 You can acquire the signing key data necessary to validate the signature by using the OpenID Connect metadata document located at:
 
+```
+https://login.microsoftonline.com/common/.well-known/openid-configuration
+```
 
-	https://login.microsoftonline.com/common/.well-known/openid-configuration
-
-
-> [AZURE.TIP]
+> [!TIP]
 > Try this URL in a browser!
 > 
 > 
@@ -152,151 +153,155 @@ This section displays samples of SAML and JWT tokens that Azure AD returns. Thes
 
 This is a sample of a typical SAML token.
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <t:RequestSecurityTokenResponse xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
-      <t:Lifetime>
-        <wsu:Created xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-12-24T05:15:47.060Z</wsu:Created>
-        <wsu:Expires xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-12-24T06:15:47.060Z</wsu:Expires>
-      </t:Lifetime>
-      <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
-        <EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
-          <Address>https://contoso.partner.onmschina.cn/MyWebApp</Address>
-        </EndpointReference>
-      </wsp:AppliesTo>
-      <t:RequestedSecurityToken>
-        <Assertion xmlns="urn:oasis:names:tc:SAML:2.0:assertion" ID="_3ef08993-846b-41de-99df-b7f3ff77671b" IssueInstant="2014-12-24T05:20:47.060Z" Version="2.0">
-          <Issuer>https://sts.chinacloudapi.cn/b9411234-09af-49c2-b0c3-653adc1f376e/</Issuer>
-          <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-            <ds:SignedInfo>
-              <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
-              <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
-              <ds:Reference URI="#_3ef08993-846b-41de-99df-b7f3ff77671b">
-                <ds:Transforms>
-                  <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
-                  <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
-                </ds:Transforms>
-                <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
-                <ds:DigestValue>cV1J580U1pD24hEyGuAxrbtgROVyghCqI32UkER/nDY=</ds:DigestValue>
-              </ds:Reference>
-            </ds:SignedInfo>
-            <ds:SignatureValue>j+zPf6mti8Rq4Kyw2NU2nnu0pbJU1z5bR/zDaKaO7FCTdmjUzAvIVfF8pspVR6CbzcYM3HOAmLhuWmBkAAk6qQUBmKsw+XlmF/pB/ivJFdgZSLrtlBs1P/WBV3t04x6fRW4FcIDzh8KhctzJZfS5wGCfYw95er7WJxJi0nU41d7j5HRDidBoXgP755jQu2ZER7wOYZr6ff+ha+/Aj3UMw+8ZtC+WCJC3yyENHDAnp2RfgdElJal68enn668fk8pBDjKDGzbNBO6qBgFPaBT65YvE/tkEmrUxdWkmUKv3y7JWzUYNMD9oUlut93UTyTAIGOs5fvP9ZfK2vNeMVJW7Xg==</ds:SignatureValue>
-            <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
-              <X509Data>
-                <X509Certificate>MIIDPjCCAabcAwIBAgIQsRiM0jheFZhKk49YD0SK1TAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291bnRzLmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwHhcNMTQwMTAxMDcwMDAwWhcNMTYwMTAxMDcwMDAwWjAtMSswKQYDVQQDEyJhY2NvdW50cy5hY2Nlc3Njb250cm9sLndpbmRvd3MubmV0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkSCWg6q9iYxvJE2NIhSyOiKvqoWCO2GFipgH0sTSAs5FalHQosk9ZNTztX0ywS/AHsBeQPqYygfYVJL6/EgzVuwRk5txr9e3n1uml94fLyq/AXbwo9yAduf4dCHTP8CWR1dnDR+Qnz/4PYlWVEuuHHONOw/blbfdMjhY+C/BYM2E3pRxbohBb3x//CfueV7ddz2LYiH3wjz0QS/7kjPiNCsXcNyKQEOTkbHFi3mu0u13SQwNddhcynd/GTgWN8A+6SN1r4hzpjFKFLbZnBt77ACSiYx+IHK4Mp+NaVEi5wQtSsjQtI++XsokxRDqYLwus1I1SihgbV/STTg5enufuwIDAQABo2IwYDBeBgNVHQEEVzBVgBDLebM6bK3BjWGqIBrBNFeNoS8wLTErMCkGA1UEAxMiYWNjb3VudHMuYWNjZXNzY29udHJvbC53aW5kb3dzLm5ldIIQsRiM0jheFZhKk49YD0SK1TAJBgUrDgMCHQUAA4IBAQCJ4JApryF77EKC4zF5bUaBLQHQ1PNtA1uMDbdNVGKCmSp8M65b8h0NwlIjGGGy/unK8P6jWFdm5IlZ0YPTOgzcRZguXDPj7ajyvlVEQ2K2ICvTYiRQqrOhEhZMSSZsTKXFVwNfW6ADDkN3bvVOVbtpty+nBY5UqnI7xbcoHLZ4wYD251uj5+lo13YLnsVrmQ16NCBYq2nQFNPuNJw6t3XUbwBHXpF46aLT1/eGf/7Xx6iy8yPJX4DyrpFTutDz882RWofGEO5t4Cw+zZg70dJ/hH/ODYRMorfXEW+8uKmXMKmX2wyxMKvfiPbTy5LmAU8Jvjs2tLg4rOBcXWLAIarZ</X509Certificate>
-              </X509Data>
-            </KeyInfo>
-          </ds:Signature>
-          <Subject>
-            <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">m_H3naDei2LNxUmEcWd0BZlNi_jVET1pMLR6iQSuYmo</NameID>
-            <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
-          </Subject>
-          <Conditions NotBefore="2014-12-24T05:15:47.060Z" NotOnOrAfter="2014-12-24T06:15:47.060Z">
-            <AudienceRestriction>
-              <Audience>https://contoso.partner.onmschina.cn/MyWebApp</Audience>
-            </AudienceRestriction>
-          </Conditions>
-          <AttributeStatement>
-            <Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">
-              <AttributeValue>a1addde8-e4f9-4571-ad93-3059e3750d23</AttributeValue>
-            </Attribute>
-            <Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">
-              <AttributeValue>b9411234-09af-49c2-b0c3-653adc1f376e</AttributeValue>
-            </Attribute>
-            <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
-              <AttributeValue>sample.admin@contoso.partner.onmschina.cn</AttributeValue>
-            </Attribute>
-            <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">
-              <AttributeValue>Admin</AttributeValue>
-            </Attribute>
-            <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">
-              <AttributeValue>Sample</AttributeValue>
-            </Attribute>
-            <Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">
-              <AttributeValue>5581e43f-6096-41d4-8ffa-04e560bab39d</AttributeValue>
-              <AttributeValue>07dd8a89-bf6d-4e81-8844-230b77145381</AttributeValue>
-              <AttributeValue>0e129f4g-6b0a-4944-982d-f776000632af</AttributeValue>
-              <AttributeValue>3ee07328-52ef-4739-a89b-109708c22fb5</AttributeValue>
-              <AttributeValue>329k14b3-1851-4b94-947f-9a4dacb595f4</AttributeValue>
-              <AttributeValue>6e32c650-9b0a-4491-b429-6c60d2ca9a42</AttributeValue>
-              <AttributeValue>f3a169a7-9a58-4e8f-9d47-b70029v07424</AttributeValue>
-              <AttributeValue>8e2c86b2-b1ad-476d-9574-544d155aa6ff</AttributeValue>
-              <AttributeValue>1bf80264-ff24-4866-b22c-6212e5b9a847</AttributeValue>
-              <AttributeValue>4075f9c3-072d-4c32-b542-03e6bc678f3e</AttributeValue>
-              <AttributeValue>76f80527-f2cd-46f4-8c52-8jvd8bc749b1</AttributeValue>
-              <AttributeValue>0ba31460-44d0-42b5-b90c-47b3fcc48e35</AttributeValue>
-              <AttributeValue>edd41703-8652-4948-94a7-2d917bba7667</AttributeValue>
-            </Attribute>
-            <Attribute Name="http://schemas.microsoft.com/identity/claims/identityprovider">
-              <AttributeValue>https://sts.chinacloudapi.cn/b9411234-09af-49c2-b0c3-653adc1f376e/</AttributeValue>
-            </Attribute>
-          </AttributeStatement>
-          <AuthnStatement AuthnInstant="2014-12-23T18:51:11.000Z">
-            <AuthnContext>
-              <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
-            </AuthnContext>
-          </AuthnStatement>
-        </Assertion>
-      </t:RequestedSecurityToken>
-      <t:RequestedAttachedReference>
-        <SecurityTokenReference xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:d3p1="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" d3p1:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0">
-          <KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_3ef08993-846b-41de-99df-b7f3ff77671b</KeyIdentifier>
-        </SecurityTokenReference>
-      </t:RequestedAttachedReference>
-      <t:RequestedUnattachedReference>
-        <SecurityTokenReference xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:d3p1="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" d3p1:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0">
-          <KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_3ef08993-846b-41de-99df-b7f3ff77671b</KeyIdentifier>
-        </SecurityTokenReference>
-      </t:RequestedUnattachedReference>
-      <t:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</t:TokenType>
-      <t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
-      <t:KeyType>http://schemas.xmlsoap.org/ws/2005/05/identity/NoProofKey</t:KeyType>
-    </t:RequestSecurityTokenResponse>
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<t:RequestSecurityTokenResponse xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+  <t:Lifetime>
+    <wsu:Created xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-12-24T05:15:47.060Z</wsu:Created>
+    <wsu:Expires xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-12-24T06:15:47.060Z</wsu:Expires>
+  </t:Lifetime>
+  <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+    <EndpointReference xmlns="http://www.w3.org/2005/08/addressing">
+      <Address>https://contoso.partner.onmschina.cn/MyWebApp</Address>
+    </EndpointReference>
+  </wsp:AppliesTo>
+  <t:RequestedSecurityToken>
+    <Assertion xmlns="urn:oasis:names:tc:SAML:2.0:assertion" ID="_3ef08993-846b-41de-99df-b7f3ff77671b" IssueInstant="2014-12-24T05:20:47.060Z" Version="2.0">
+      <Issuer>https://sts.chinacloudapi.cn/b9411234-09af-49c2-b0c3-653adc1f376e/</Issuer>
+      <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+          <ds:Reference URI="#_3ef08993-846b-41de-99df-b7f3ff77671b">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+            <ds:DigestValue>cV1J580U1pD24hEyGuAxrbtgROVyghCqI32UkER/nDY=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>j+zPf6mti8Rq4Kyw2NU2nnu0pbJU1z5bR/zDaKaO7FCTdmjUzAvIVfF8pspVR6CbzcYM3HOAmLhuWmBkAAk6qQUBmKsw+XlmF/pB/ivJFdgZSLrtlBs1P/WBV3t04x6fRW4FcIDzh8KhctzJZfS5wGCfYw95er7WJxJi0nU41d7j5HRDidBoXgP755jQu2ZER7wOYZr6ff+ha+/Aj3UMw+8ZtC+WCJC3yyENHDAnp2RfgdElJal68enn668fk8pBDjKDGzbNBO6qBgFPaBT65YvE/tkEmrUxdWkmUKv3y7JWzUYNMD9oUlut93UTyTAIGOs5fvP9ZfK2vNeMVJW7Xg==</ds:SignatureValue>
+        <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+          <X509Data>
+            <X509Certificate>MIIDPjCCAabcAwIBAgIQsRiM0jheFZhKk49YD0SK1TAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291bnRzLmFjY2Vzc2NvbnRyb2wud2luZG93cy5uZXQwHhcNMTQwMTAxMDcwMDAwWhcNMTYwMTAxMDcwMDAwWjAtMSswKQYDVQQDEyJhY2NvdW50cy5hY2Nlc3Njb250cm9sLndpbmRvd3MubmV0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkSCWg6q9iYxvJE2NIhSyOiKvqoWCO2GFipgH0sTSAs5FalHQosk9ZNTztX0ywS/AHsBeQPqYygfYVJL6/EgzVuwRk5txr9e3n1uml94fLyq/AXbwo9yAduf4dCHTP8CWR1dnDR+Qnz/4PYlWVEuuHHONOw/blbfdMjhY+C/BYM2E3pRxbohBb3x//CfueV7ddz2LYiH3wjz0QS/7kjPiNCsXcNyKQEOTkbHFi3mu0u13SQwNddhcynd/GTgWN8A+6SN1r4hzpjFKFLbZnBt77ACSiYx+IHK4Mp+NaVEi5wQtSsjQtI++XsokxRDqYLwus1I1SihgbV/STTg5enufuwIDAQABo2IwYDBeBgNVHQEEVzBVgBDLebM6bK3BjWGqIBrBNFeNoS8wLTErMCkGA1UEAxMiYWNjb3VudHMuYWNjZXNzY29udHJvbC53aW5kb3dzLm5ldIIQsRiM0jheFZhKk49YD0SK1TAJBgUrDgMCHQUAA4IBAQCJ4JApryF77EKC4zF5bUaBLQHQ1PNtA1uMDbdNVGKCmSp8M65b8h0NwlIjGGGy/unK8P6jWFdm5IlZ0YPTOgzcRZguXDPj7ajyvlVEQ2K2ICvTYiRQqrOhEhZMSSZsTKXFVwNfW6ADDkN3bvVOVbtpty+nBY5UqnI7xbcoHLZ4wYD251uj5+lo13YLnsVrmQ16NCBYq2nQFNPuNJw6t3XUbwBHXpF46aLT1/eGf/7Xx6iy8yPJX4DyrpFTutDz882RWofGEO5t4Cw+zZg70dJ/hH/ODYRMorfXEW+8uKmXMKmX2wyxMKvfiPbTy5LmAU8Jvjs2tLg4rOBcXWLAIarZ</X509Certificate>
+          </X509Data>
+        </KeyInfo>
+      </ds:Signature>
+      <Subject>
+        <NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">m_H3naDei2LNxUmEcWd0BZlNi_jVET1pMLR6iQSuYmo</NameID>
+        <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />
+      </Subject>
+      <Conditions NotBefore="2014-12-24T05:15:47.060Z" NotOnOrAfter="2014-12-24T06:15:47.060Z">
+        <AudienceRestriction>
+          <Audience>https://contoso.partner.onmschina.cn/MyWebApp</Audience>
+        </AudienceRestriction>
+      </Conditions>
+      <AttributeStatement>
+        <Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">
+          <AttributeValue>a1addde8-e4f9-4571-ad93-3059e3750d23</AttributeValue>
+        </Attribute>
+        <Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">
+          <AttributeValue>b9411234-09af-49c2-b0c3-653adc1f376e</AttributeValue>
+        </Attribute>
+        <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">
+          <AttributeValue>sample.admin@contoso.partner.onmschina.cn</AttributeValue>
+        </Attribute>
+        <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname">
+          <AttributeValue>Admin</AttributeValue>
+        </Attribute>
+        <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">
+          <AttributeValue>Sample</AttributeValue>
+        </Attribute>
+        <Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">
+          <AttributeValue>5581e43f-6096-41d4-8ffa-04e560bab39d</AttributeValue>
+          <AttributeValue>07dd8a89-bf6d-4e81-8844-230b77145381</AttributeValue>
+          <AttributeValue>0e129f4g-6b0a-4944-982d-f776000632af</AttributeValue>
+          <AttributeValue>3ee07328-52ef-4739-a89b-109708c22fb5</AttributeValue>
+          <AttributeValue>329k14b3-1851-4b94-947f-9a4dacb595f4</AttributeValue>
+          <AttributeValue>6e32c650-9b0a-4491-b429-6c60d2ca9a42</AttributeValue>
+          <AttributeValue>f3a169a7-9a58-4e8f-9d47-b70029v07424</AttributeValue>
+          <AttributeValue>8e2c86b2-b1ad-476d-9574-544d155aa6ff</AttributeValue>
+          <AttributeValue>1bf80264-ff24-4866-b22c-6212e5b9a847</AttributeValue>
+          <AttributeValue>4075f9c3-072d-4c32-b542-03e6bc678f3e</AttributeValue>
+          <AttributeValue>76f80527-f2cd-46f4-8c52-8jvd8bc749b1</AttributeValue>
+          <AttributeValue>0ba31460-44d0-42b5-b90c-47b3fcc48e35</AttributeValue>
+          <AttributeValue>edd41703-8652-4948-94a7-2d917bba7667</AttributeValue>
+        </Attribute>
+        <Attribute Name="http://schemas.microsoft.com/identity/claims/identityprovider">
+          <AttributeValue>https://sts.chinacloudapi.cn/b9411234-09af-49c2-b0c3-653adc1f376e/</AttributeValue>
+        </Attribute>
+      </AttributeStatement>
+      <AuthnStatement AuthnInstant="2014-12-23T18:51:11.000Z">
+        <AuthnContext>
+          <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
+        </AuthnContext>
+      </AuthnStatement>
+    </Assertion>
+  </t:RequestedSecurityToken>
+  <t:RequestedAttachedReference>
+    <SecurityTokenReference xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:d3p1="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" d3p1:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0">
+      <KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_3ef08993-846b-41de-99df-b7f3ff77671b</KeyIdentifier>
+    </SecurityTokenReference>
+  </t:RequestedAttachedReference>
+  <t:RequestedUnattachedReference>
+    <SecurityTokenReference xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:d3p1="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" d3p1:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0">
+      <KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_3ef08993-846b-41de-99df-b7f3ff77671b</KeyIdentifier>
+    </SecurityTokenReference>
+  </t:RequestedUnattachedReference>
+  <t:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</t:TokenType>
+  <t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
+  <t:KeyType>http://schemas.xmlsoap.org/ws/2005/05/identity/NoProofKey</t:KeyType>
+</t:RequestSecurityTokenResponse>
+```
 
 ### JWT Token - User Impersonation
 This is a sample of a typical JSON web token (JWT) used in an authorization code grant flow.
 In addition to claims, the token includes a version number in **ver** and **appidacr**, the authentication context class reference, which indicates how the client was authenticated. For a public client, the value is 0. If a client ID or client secret was used, the value is 1.
 
-    {
-     typ: "JWT",
-     alg: "RS256",
-     x5t: "kriMPdmBvx68skT8-mPAB3BseeA"
-    }.
-    {
-     aud: "https://contoso.partner.onmschina.cn/scratchservice",
-     iss: "https://sts.chinacloudapi.cn/b9411234-09af-49c2-b0c3-653adc1f376e/",
-     iat: 1416968588,
-     nbf: 1416968588,
-     exp: 1416972488,
-     ver: "1.0",
-     tid: "b9411234-09af-49c2-b0c3-653adc1f376e",
-     amr: [
-      "pwd"
-     ],
-     roles: [
-      "Admin"
-     ],
-     oid: "6526e123-0ff9-4fec-ae64-a8d5a77cf287",
-     upn: "sample.user@contoso.partner.onmschina.cn",
-     unique_name: "sample.user@contoso.partner.onmschina.cn",
-     sub: "yf8C5e_VRkR1egGxJSDt5_olDFay6L5ilBA81hZhQEI",
-     family_name: "User",
-     given_name: "Sample",
-     groups: [
-      "0e129f6b-6b0a-4944-982d-f776000632af",
-      "323b13b3-1851-4b94-947f-9a4dacb595f4",
-      "6e32c250-9b0a-4491-b429-6c60d2ca9a42",
-      "f3a161a7-9a58-4e8f-9d47-b70022a07424",
-      "8d4c81b2-b1ad-476d-9574-544d155aa6ff",
-      "1bf80164-ff24-4866-b19c-6212e5b9a847",
-      "76f80127-f2cd-46f4-8c52-8edd8bc749b1",
-      "0ba27160-44d0-42b5-b90c-47b3fcc48e35"
-     ],
-     appid: "b075ddef-0efa-123b-997b-de1337c29185",
-     appidacr: "1",
-     scp: "user_impersonation",
-     acr: "1"
-    }.
+```
+{
+ typ: "JWT",
+ alg: "RS256",
+ x5t: "kriMPdmBvx68skT8-mPAB3BseeA"
+}.
+{
+ aud: "https://contoso.partner.onmschina.cn/scratchservice",
+ iss: "https://sts.chinacloudapi.cn/b9411234-09af-49c2-b0c3-653adc1f376e/",
+ iat: 1416968588,
+ nbf: 1416968588,
+ exp: 1416972488,
+ ver: "1.0",
+ tid: "b9411234-09af-49c2-b0c3-653adc1f376e",
+ amr: [
+  "pwd"
+ ],
+ roles: [
+  "Admin"
+ ],
+ oid: "6526e123-0ff9-4fec-ae64-a8d5a77cf287",
+ upn: "sample.user@contoso.partner.onmschina.cn",
+ unique_name: "sample.user@contoso.partner.onmschina.cn",
+ sub: "yf8C5e_VRkR1egGxJSDt5_olDFay6L5ilBA81hZhQEI",
+ family_name: "User",
+ given_name: "Sample",
+ groups: [
+  "0e129f6b-6b0a-4944-982d-f776000632af",
+  "323b13b3-1851-4b94-947f-9a4dacb595f4",
+  "6e32c250-9b0a-4491-b429-6c60d2ca9a42",
+  "f3a161a7-9a58-4e8f-9d47-b70022a07424",
+  "8d4c81b2-b1ad-476d-9574-544d155aa6ff",
+  "1bf80164-ff24-4866-b19c-6212e5b9a847",
+  "76f80127-f2cd-46f4-8c52-8edd8bc749b1",
+  "0ba27160-44d0-42b5-b90c-47b3fcc48e35"
+ ],
+ appid: "b075ddef-0efa-123b-997b-de1337c29185",
+ appidacr: "1",
+ scp: "user_impersonation",
+ acr: "1"
+}.
+```
 
 ## Related content
 - See the Azure AD Graph [Policy operations](https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/api/policy-operations) and the [Policy entity](https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), to learn more about managing token lifetime policy via the Azure AD Graph API.
-- For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](/documentation/articles/active-directory-configurable-token-lifetimes/). 
+- For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](./active-directory-configurable-token-lifetimes.md).

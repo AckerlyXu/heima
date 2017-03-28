@@ -1,24 +1,25 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="How to use a custom Docker image for Azure App Service on Linux | Azure"
-    description="How to use a custom Docker image for App Service on Linux."
-    keywords="azure app service, web app, linux, docker, container"
-    services="app-service"
-    documentationcenter=""
-    author="naziml"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="b97bd4e6-dff0-4976-ac20-d5c109a559a8"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/16/2017"
-    wacn.date=""
-    ms.author="naziml;wesmc" />
+---
+title: How to use a custom Docker image for Azure App Service on Linux | Azure
+description: How to use a custom Docker image for App Service on Linux.
+keywords: azure app service, web app, linux, docker, container
+services: app-service
+documentationcenter: ''
+author: naziml
+manager: erikre
+editor: ''
+
+ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/16/2017
+wacn.date: ''
+ms.author: naziml;wesmc
+---
 
 # Using a custom Docker image for App Service on Linux #
 
@@ -57,12 +58,14 @@ To use a custom Docker image from a private image registry:
 
 When you use a custom Docker image for your web app, you can use the `PORT` environment variable in your Dockerfile, which gets added to the generated container. Consider the following example of a docker file for a Ruby application:
 
-	FROM ruby:2.2.0
-	RUN mkdir /app
-	WORKDIR /app
-	ADD . /app
-	RUN bundle install
-	CMD bundle exec puma config.ru -p $PORT -e production
+```
+FROM ruby:2.2.0
+RUN mkdir /app
+WORKDIR /app
+ADD . /app
+RUN bundle install
+CMD bundle exec puma config.ru -p $PORT -e production
+```
 
 On last line of the command, you can see that the PORT environment variable is passed at runtime. Remember that casing matters in commands.
 
@@ -92,10 +95,10 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 
 Follow the following links to get started with App Service on Linux.   
 
-* [Introduction to App Service on Linux](/documentation/articles/app-service-linux-intro/)
-* [Creating Web Apps in App Service on Linux](/documentation/articles/app-service-linux-how-to-create-a-web-app/)
-* [Using PM2 Configuration for Node.js in Web Apps on Linux](/documentation/articles/app-service-linux-using-nodejs-pm2/)
-* [Azure App Service Web Apps on Linux FAQ](/documentation/articles/app-service-linux-faq/)
+* [Introduction to App Service on Linux](./app-service-linux-intro.md)
+* [Creating Web Apps in App Service on Linux](./app-service-linux-how-to-create-a-web-app.md)
+* [Using PM2 Configuration for Node.js in Web Apps on Linux](./app-service-linux-using-nodejs-pm2.md)
+* [Azure App Service Web Apps on Linux FAQ](./app-service-linux-faq.md)
 
 Post questions and concerns on [our forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 

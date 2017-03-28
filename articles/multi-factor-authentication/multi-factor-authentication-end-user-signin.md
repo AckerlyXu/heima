@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Azure MFA Sign-in experience with two-step verification | Azure"
-    description="This page will provide you guidance on where to go to see the various sign-in methods available with Azure MFA."
-    keywords="user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone"
-    services="multi-factor-authentication"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="pblachar" />
-<tags
-    ms.assetid="b310b762-471b-4b26-887a-a321c9e81d46"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/02/2016"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Azure MFA Sign-in experience with two-step verification | Azure
+description: This page will provide you guidance on where to go to see the various sign-in methods available with Azure MFA.
+keywords: user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: pblachar
+
+ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/02/2016
+wacn.date: ''
+ms.author: kgremban
+---
 
 # The sign-in experience with Azure Multi-Factor Authentication
-> [AZURE.NOTE]
-> The purpose of this article is to walk through a typical sign-in experience. For help with signing in, or to troubleshoot problems, see [Having trouble with Azure Multi-Factor Authentication](/documentation/articles/multi-factor-authentication-end-user-troubleshoot/).
+> [!NOTE]
+> The purpose of this article is to walk through a typical sign-in experience. For help with signing in, or to troubleshoot problems, see [Having trouble with Azure Multi-Factor Authentication](./multi-factor-authentication-end-user-troubleshoot.md).
 
 ## What will your sign-in experience be?
 Depending on how you sign in and use multi-factor authentication, your experience will differ. Choose the option that best describes what you are doing:
@@ -76,8 +77,8 @@ Sometimes you don't have the phone or device that you set up as your preferred v
 
 ## Next steps
 
-If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](/documentation/articles/multi-factor-authentication-end-user-troubleshoot/).
+If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](./multi-factor-authentication-end-user-troubleshoot.md).
 
-Learn how to [Manage your two-step verification settings](/documentation/articles/multi-factor-authentication-end-user-manage-settings/).
+Learn how to [Manage your two-step verification settings](./multi-factor-authentication-end-user-manage-settings.md).
 
-Find out how to [Get started with the Microsoft Authenticator app](/documentation/articles/microsoft-authenticator-app-how-to/) so that you can use notifications to sign in, instead of texts and phone calls. 
+Find out how to [Get started with the Microsoft Authenticator app](/documentation/articles/microsoft-authenticator-app-how-to/) so that you can use notifications to sign in, instead of texts and phone calls.

@@ -26,52 +26,54 @@ A security rule is a child resource of an NSG containing the properties below.
 
 Sample NSG in JSON format:
 
-    {
-        "name": "NSG-BackEnd",
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd",
-        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-        "type": "Microsoft.Network/networkSecurityGroups",
-        "location": "chinanorth",
-        "tags": {
-            "displayName": "NSG - Front End"
-        },
-        "properties": {
-            "provisioningState": "Succeeded",
-            "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-            "securityRules": [
-                {
-                    "name": "rdp-rule",
-                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/rdp-rule",
-                    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-                    "properties": {
-                        "provisioningState": "Succeeded",
-                        "description": "Allow RDP",
-                        "protocol": "Tcp",
-                        "sourcePortRange": "*",
-                        "destinationPortRange": "3389",
-                        "sourceAddressPrefix": "Internet",
-                        "destinationAddressPrefix": "*",
-                        "access": "Allow",
-                        "priority": 100,
-                        "direction": "Inbound"
-                    }
+```
+{
+    "name": "NSG-BackEnd",
+    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd",
+    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+    "type": "Microsoft.Network/networkSecurityGroups",
+    "location": "chinanorth",
+    "tags": {
+        "displayName": "NSG - Front End"
+    },
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "securityRules": [
+            {
+                "name": "rdp-rule",
+                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/rdp-rule",
+                "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "description": "Allow RDP",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "3389",
+                    "sourceAddressPrefix": "Internet",
+                    "destinationAddressPrefix": "*",
+                    "access": "Allow",
+                    "priority": 100,
+                    "direction": "Inbound"
                 }
-            ],
-            "defaultSecurityRules": [
-                { [...],
-            "subnets": [
-                {
-                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
-                }
-            ]
-        }
+            }
+        ],
+        "defaultSecurityRules": [
+            { [...],
+        "subnets": [
+            {
+                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
+            }
+        ]
     }
+}
+```
 
 ### <a name="Default-security-rules"></a> Default security rules
 
-Default security rules have the same properties available in security rules. They exist to provide basic connectivity between resources that have NSGs applied to them. Make sure you know which [default security rules](/documentation/articles/virtual-networks-nsg/#default-rules) exist.
+Default security rules have the same properties available in security rules. They exist to provide basic connectivity between resources that have NSGs applied to them. Make sure you know which [default security rules](../articles/virtual-network/virtual-networks-nsg.md#default-rules) exist.
 
 ### Additional resources
-* Get more information about [NSGs](/documentation/articles/virtual-networks-nsg/).
+* Get more information about [NSGs](../articles/virtual-network/virtual-networks-nsg.md).
 * Read the [REST API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/mt163615.aspx) for NSGs.
 * Read the [REST API reference documentation](https://msdn.microsoft.com/zh-cn/library/azure/mt163580.aspx) for security rules.

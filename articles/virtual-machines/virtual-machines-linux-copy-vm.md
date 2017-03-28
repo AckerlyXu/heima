@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Copy a Linux VM by using Azure CLI 2.0 | Azure"
-    description="Learn how to create a copy of your Azure Linux VM by using Azure CLI 2.0 and Managed Disks."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="cynthn"
-    manager="timlt"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="770569d2-23c1-4a5b-801e-cddcd1375164"
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/10/2017"
-    wacn.date=""
-    ms.author="cynthn" />
+---
+title: Copy a Linux VM by using Azure CLI 2.0 | Azure
+description: Learn how to create a copy of your Azure Linux VM by using Azure CLI 2.0 and Managed Disks.
+services: virtual-machines-linux
+documentationcenter: ''
+author: cynthn
+manager: timlt
+tags: azure-resource-manager
+
+ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 03/10/2017
+wacn.date: ''
+ms.author: cynthn
+---
 
 # Create a copy of a Linux VM by using Azure CLI 2.0 and Managed Disks
 
@@ -26,7 +27,7 @@ running Linux using the Azure CLI 2.0 and the Azure Resource Manager deployment
 model. You can also perform these steps with the [Azure CLI
 1.0](virtual-machines-linux-copy-vm-nodejs.md).
 
-You can also [upload and create a VM from a VHD](/documentation/articles/virtual-machines-linux-upload-vhd/).
+You can also [upload and create a VM from a VHD](./virtual-machines-linux-upload-vhd.md).
 
 ## Prerequisites
 
@@ -42,7 +43,9 @@ Deallocate the source VM by using [az vm deallocate](https://docs.microsoft.com/
 The following example deallocates the VM named **myVM** in the resource group
 **myResourceGroup**:
 
-    az vm deallocate --resource-group myResourceGroup --name myVM
+```azurecli
+az vm deallocate --resource-group myResourceGroup --name myVM
+```
 
 ## Step 2: Copy the source VM
 
@@ -57,25 +60,33 @@ overview](../storage/storage-managed-disks-overview.md).
     list](https://docs.microsoft.com/cli/azure/vm#list). The following example lists all VMs in the
     resource group named **myResourceGroup**:
 
-        az vm list -g myTestRG --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
+    ```azurecli
+    az vm list -g myTestRG --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
+    ```
 
     The output is similar to the following example:
 
-        Name    DiskName
-        ------  --------
-        myVM    myDisk
+    ```azurecli
+    Name    DiskName
+    ------  --------
+    myVM    myDisk
+    ```
 
 1.  Copy the disk by creating a new managed disk using [az disk
     create](https://docs.microsoft.com/cli/azure/disk#create). The following example creates a disk named
     **myCopiedDisk** from the managed disk named **myDisk**:
 
-        az disk create --resource-group myResourceGroup --name myCopiedDisk --source myDisk
+    ```azurecli
+    az disk create --resource-group myResourceGroup --name myCopiedDisk --source myDisk
+    ```
 
 1.  Verify the managed disks now in your resource group by using [az disk
     list](https://docs.microsoft.com/cli/azure/disk#list). The following example lists the managed disks
     in the resource group named **myResourceGroup**:
 
-        az disk list --resource-group myResourceGroup --output table
+    ```azurecli
+    az disk list --resource-group myResourceGroup --output table
+    ```
 
 1.  Skip to ["Step 3: Set up a virtual
     network"](#step-3-set-up-a-virtual-network).
@@ -96,23 +107,29 @@ to [Step 4: Create a VM](#step-4-create-a-vm).
     create](https://docs.microsoft.com/cli/azure/network/vnet#create). The following example creates a
     virtual network named **myVnet** and a subnet named **mySubnet**:
 
-        az network vnet create --resource-group myResourceGroup --location chinanorth --name myVnet \
-            --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
+    ```azurecli
+    az network vnet create --resource-group myResourceGroup --location chinanorth --name myVnet \
+        --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
+    ```
 
 1.  Create a public IP by using [az network public-ip
     create](https://docs.microsoft.com/cli/azure/network/public-ip#create). The following example creates
     a public IP named **myPublicIP** with the DNS name of **mypublicdns**. (The DNS
     name must be unique, so provide a unique name.)
 
-        az network public-ip create --resource-group myResourceGroup --location chinanorth \
-            --name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
+    ```azurecli
+    az network public-ip create --resource-group myResourceGroup --location chinanorth \
+        --name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
+    ```
 
 1.  Create the NIC using [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create).
     The following example creates a NIC named **myNic** that's attached to the
     **mySubnet** subnet:
 
-        az network nic create --resource-group myResourceGroup --location chinanorth --name myNic \
-            --vnet-name myVnet --subnet mySubnet --public-ip-address myPublicIP
+    ```azurecli
+    az network nic create --resource-group myResourceGroup --location chinanorth --name myNic \
+        --vnet-name myVnet --subnet mySubnet --public-ip-address myPublicIP
+    ```
 
 ## Step 4: Create a VM
 
@@ -121,10 +138,12 @@ You can now create a VM by using [az vm create](https://docs.microsoft.com/cli/a
 Specify the copied managed disk to use as the OS disk (--attach-os-disk), as
 follows:
 
-    az vm create --resource-group myResourceGroup --name myCopiedVM \
-        --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-        --nics myNic --size Standard_DS1_v2 --os-type Linux \
-        --attach-os-disk myCopiedDisk
+```azurecli
+az vm create --resource-group myResourceGroup --name myCopiedVM \
+    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
+    --nics myNic --size Standard_DS1_v2 --os-type Linux \
+    --attach-os-disk myCopiedDisk
+```
 
 ## Next steps
 

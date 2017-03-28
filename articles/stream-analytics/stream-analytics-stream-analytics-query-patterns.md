@@ -1,23 +1,23 @@
-<properties
-    pageTitle="Query examples for common usage patterns in Stream Analytics | Azure"
-    description="Common Azure Stream Analytics Query Patterns "
-    keywords="query examples"
-    services="stream-analytics"
-    documentationcenter=""
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Query examples for common usage patterns in Stream Analytics | Azure
+description: Common Azure Stream Analytics Query Patterns 
+keywords: query examples
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
+ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Query examples for common Stream Analytics usage patterns
 
@@ -44,18 +44,19 @@ For example, car weight is coming on the input stream as strings and needs to be
 
 **Solution**:
 
-    SELECT
-        Make,
-        SUM(CAST(Weight AS BIGINT)) AS Weight
-    FROM
-        Input TIMESTAMP BY Time
-    GROUP BY
-        Make,
-        TumblingWindow(second, 10)
+```
+SELECT
+    Make,
+    SUM(CAST(Weight AS BIGINT)) AS Weight
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
+```
 
 **Explanation**:
 Use a CAST statement on the Weight field to specify its type (see the list of supported Data Types [here](https://msdn.microsoft.com/zh-cn/library/azure/dn835065.aspx)).
-
 
 ## Query example: Using Like/Not like to do pattern matching
 **Description**: Check that a field value on the event matches a certain pattern
@@ -78,12 +79,14 @@ For example, return license plates that start with A and end with 9
 
 **Solution**:
 
-    SELECT
-        *
-    FROM
-        Input TIMESTAMP BY Time
-    WHERE
-        LicensePlate LIKE 'A%9'
+```
+SELECT
+    *
+FROM
+    Input TIMESTAMP BY Time
+WHERE
+    LicensePlate LIKE 'A%9'
+```
 
 **Explanation**:
 Use the LIKE statement to check that the LicensePlate field value starts with A then has any string of zero or more characters and it ends with 9. 
@@ -109,17 +112,19 @@ For example, provide a string description for how many cars passed of the same m
 
 **Solution**:
 
-    SELECT
-        CASE
-            WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
-            ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
-        END AS CarsPassed,
-        System.TimeStamp AS Time
-    FROM
-        Input TIMESTAMP BY Time
-    GROUP BY
-        Make,
-        TumblingWindow(second, 10)
+```
+SELECT
+    CASE
+        WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
+        ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
+    END AS CarsPassed,
+    System.TimeStamp AS Time
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
+```
 
 **Explanation**:
 The CASE clause allows us to provide a different computation based on some criteria (in our case the count of cars in the aggregate window).
@@ -156,26 +161,28 @@ For example, analyze data for a threshold-based alert and archive all events to 
 
 **Solution**:
 
-    SELECT
-        *
-    INTO
-        ArchiveOutput
-    FROM
-        Input TIMESTAMP BY Time
+```
+SELECT
+    *
+INTO
+    ArchiveOutput
+FROM
+    Input TIMESTAMP BY Time
 
-    SELECT
-        Make,
-        System.TimeStamp AS Time,
-        COUNT(*) AS [Count]
-    INTO
-        AlertOutput
-    FROM
-        Input TIMESTAMP BY Time
-    GROUP BY
-        Make,
-        TumblingWindow(second, 10)
-    HAVING
-        [Count] >= 3
+SELECT
+    Make,
+    System.TimeStamp AS Time,
+    COUNT(*) AS [Count]
+INTO
+    AlertOutput
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
+HAVING
+    [Count] >= 3
+```
 
 **Explanation**:
 The INTO clause tells Stream Analytics which of the outputs to write the data from this statement.
@@ -184,16 +191,18 @@ The second query does some simple aggregation and filtering and sends the result
 *Note*: You can also reuse results of CTEs (i.e. WITH statements) in multiple output statements - this has the added benefit of opening fewer readers to the input source.
 For example, 
 
-    WITH AllRedCars AS (
-        SELECT
-            *
-        FROM
-            Input TIMESTAMP BY Time
-        WHERE
-            Color = 'red'
-    )
-    SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
-    SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
+```
+WITH AllRedCars AS (
+    SELECT
+        *
+    FROM
+        Input TIMESTAMP BY Time
+    WHERE
+        Color = 'red'
+)
+SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
+SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
+```
 
 ## Query example: Counting unique values
 **Description**: count the number of unique field values that appear in the stream within a time window.
@@ -218,13 +227,14 @@ For example, how many unique make of cars passed through the toll booth in a 2 s
 
 **Solution:**
 
-    SELECT
-         COUNT(DISTINCT Make) AS CountMake,
-         System.TIMESTAMP AS TIME
-    FROM Input TIMESTAMP BY TIME
-    GROUP BY 
-         TumblingWindow(second, 2)
-
+```
+SELECT
+     COUNT(DISTINCT Make) AS CountMake,
+     System.TIMESTAMP AS TIME
+FROM Input TIMESTAMP BY TIME
+GROUP BY 
+     TumblingWindow(second, 2)
+```
 
 **Explanation:**
 COUNT(DISTINCT Make) returns the number of distinct values of the "Make" column within a time window.
@@ -248,13 +258,15 @@ For example, is the previous car on the Toll Road the same make as the current c
 
 **Solution**:
 
-    SELECT
-        Make,
-        Time
-    FROM
-        Input TIMESTAMP BY Time
-    WHERE
-        LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
+```
+SELECT
+    Make,
+    Time
+FROM
+    Input TIMESTAMP BY Time
+WHERE
+    LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
+```
 
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are different.
@@ -283,14 +295,16 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 
 **Solution**:
 
-    SELECT 
-        LicensePlate,
-        Make,
-        Time
-    FROM 
-        Input TIMESTAMP BY Time
-    WHERE 
-        IsFirst(minute, 10) = 1
+```
+SELECT 
+    LicensePlate,
+    Make,
+    Time
+FROM 
+    Input TIMESTAMP BY Time
+WHERE 
+    IsFirst(minute, 10) = 1
+```
 
 Now let's change the problem and find first car of particular Make in every 10 minute interval.
 
@@ -304,14 +318,16 @@ Now let's change the problem and find first car of particular Make in every 10 m
 
 **Solution**:
 
-    SELECT 
-        LicensePlate,
-        Make,
-        Time
-    FROM 
-        Input TIMESTAMP BY Time
-    WHERE 
-        IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+```
+SELECT 
+    LicensePlate,
+    Make,
+    Time
+FROM 
+    Input TIMESTAMP BY Time
+WHERE 
+    IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+```
 
 ## Query example: Find last event in a window
 **Description**: Find last car in every 10 minute interval.
@@ -337,24 +353,26 @@ Now let's change the problem and find first car of particular Make in every 10 m
 
 **Solution**:
 
-    WITH LastInWindow AS
-    (
-        SELECT 
-            MAX(Time) AS LastEventTime
-        FROM 
-            Input TIMESTAMP BY Time
-        GROUP BY 
-            TumblingWindow(minute, 10)
-    )
+```
+WITH LastInWindow AS
+(
     SELECT 
-        Input.LicensePlate,
-        Input.Make,
-        Input.Time
-    FROM
-        Input TIMESTAMP BY Time 
-        INNER JOIN LastInWindow
-        ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
-        AND Input.Time = LastInWindow.LastEventTime
+        MAX(Time) AS LastEventTime
+    FROM 
+        Input TIMESTAMP BY Time
+    GROUP BY 
+        TumblingWindow(minute, 10)
+)
+SELECT 
+    Input.LicensePlate,
+    Input.Make,
+    Input.Time
+FROM
+    Input TIMESTAMP BY Time 
+    INNER JOIN LastInWindow
+    ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
+    AND Input.Time = LastInWindow.LastEventTime
+```
 
 **Explanation**:
 There are two steps in the query - the first one finds latest timestamp in 10 minute windows. The second step joins results of the first query with original stream to find events matching last timestamps in each window. 
@@ -380,16 +398,18 @@ For example, have 2 consecutive cars from the same make entered the toll road wi
 
 **Solution**:
 
-    SELECT
-        Make,
-        Time,
-        LicensePlate AS CurrentCarLicensePlate,
-        LAG(LicensePlate, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarLicensePlate,
-        LAG(Time, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarTime
-    FROM
-        Input TIMESTAMP BY Time
-    WHERE
-        LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
+```
+SELECT
+    Make,
+    Time,
+    LicensePlate AS CurrentCarLicensePlate,
+    LAG(LicensePlate, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarLicensePlate,
+    LAG(Time, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarTime
+FROM
+    Input TIMESTAMP BY Time
+WHERE
+    LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
+```
 
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are the same and use LAG to get data about the previous car.
@@ -398,26 +418,27 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 **Description**: Find the duration of a given event. For example, given a web clickstream determine time spent on a feature.
 
 **Input**:  
-  
+
 | User | Feature | Event | Time |
 | --- | --- | --- | --- |
 | user@location.com | RightMenu | Start | 2015-01-01T00:00:01.0000000Z |
 | user@location.com | RightMenu | End | 2015-01-01T00:00:08.0000000Z |
-  
+
 **Output**:  
-  
+
 | User | Feature | Duration |
 | --- | --- | --- |
 | user@location.com | RightMenu | 7 |
-  
 
 **Solution**
 
-        SELECT
-            [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
-        FROM input TIMESTAMP BY Time
-        WHERE
-            Event = 'end'
+```
+    SELECT
+        [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+    FROM input TIMESTAMP BY Time
+    WHERE
+        Event = 'end'
+```
 
 **Explanation**:
 Use LAST function to retrieve last Time value when event type was 'Start'. Note that LAST function uses PARTITION BY [user] to indicate that result shall be computed per unique user.  The query has a 1 hour maximum threshold for time difference between 'Start' and 'Stop' events but is configurable as needed (LIMIT DURATION(hour, 1).
@@ -447,24 +468,24 @@ For example, suppose that a bug that resulted in all cars having an incorrect we
 
 **Solution**:
 
+```
+WITH SelectPreviousEvent AS
+(
+SELECT
+*,
+    LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previousTime,
+    LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previousWeight
+FROM input TIMESTAMP BY [time]
+)
 
-	WITH SelectPreviousEvent AS
-	(
-	SELECT
-	*,
-		LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previousTime,
-		LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previousWeight
-	FROM input TIMESTAMP BY [time]
-	)
-
-	SELECT 
-    	LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previousWeight < 20000 ) [StartFault],
-    	previousTime [EndFault]
-	FROM SelectPreviousEvent
-	WHERE
-    	[weight] < 20000
-	    AND previousWeight > 20000
-
+SELECT 
+    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previousWeight < 20000 ) [StartFault],
+    previousTime [EndFault]
+FROM SelectPreviousEvent
+WHERE
+    [weight] < 20000
+    AND previousWeight > 20000
+```
 
 **Explanation**:
 Use LAG to view the input stream for 24 hours and look for instances where StartFault and StopFault are spanned by weight < 20000.
@@ -499,29 +520,27 @@ For example, generate event every 5 seconds that will report the most recently s
 | 2014-01-01T14:01:40.000Z | 2014-01-01T14:01:35.000Z | 6 |
 | 2014-01-01T14:01:45.000Z | 2014-01-01T14:01:35.000Z | 6 |
 
-    
 **Solution**:
 
-    SELECT
-    	System.Timestamp AS windowEnd,
-    	TopOne() OVER (ORDER BY t DESC) AS lastEvent
-    FROM
-    	input TIMESTAMP BY t
-    GROUP BY HOPPINGWINDOW(second, 300, 5)
-
+```
+SELECT
+    System.Timestamp AS windowEnd,
+    TopOne() OVER (ORDER BY t DESC) AS lastEvent
+FROM
+    input TIMESTAMP BY t
+GROUP BY HOPPINGWINDOW(second, 300, 5)
+```
 
 **Explanation**:
 This query will generate events every 5 second and will output the last event that was received before. [Hopping Window](https://msdn.microsoft.com/zh-cn/library/dn835041.aspx "Hopping Window - Azure Stream Analytics") duration determines how far back the query will look to find the latest event (300 seconds in this example).
-
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 
-* [Introduction to Azure Stream Analytics](/documentation/articles/stream-analytics-introduction/)
-* [Get started using Azure Stream Analytics](/documentation/articles/stream-analytics-get-started/)
-* [Scale Azure Stream Analytics jobs](/documentation/articles/stream-analytics-scale-jobs/)
+* [Introduction to Azure Stream Analytics](./stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](./stream-analytics-get-started.md)
+* [Scale Azure Stream Analytics jobs](./stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/en-US/library/azure/dn834998.aspx)
 * [Azure Stream Analytics Management REST API Reference](https://docs.microsoft.com/en-us/rest/api/streamanalytics/)
- 

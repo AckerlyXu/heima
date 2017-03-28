@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Multi-Factor Authentication User States"
-    description="Learn about user states in Azure MFA."
-    services="multi-factor-authentication"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="curtand" />
-<tags
-    ms.assetid="0b9fde23-2d36-45b3-950d-f88624a68fbd"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/16/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Azure Multi-Factor Authentication User States
+description: Learn about user states in Azure MFA.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtand
+
+ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/16/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # User States in Azure Multi-Factor Authentication
 User accounts in Azure Multi-Factor Authentication have the following three distinct states:
@@ -69,4 +70,3 @@ After you enable users, you should notify them via email. Include the fact that 
    ![Disable user - screenshot](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
 9. You are prompted to confirm the action. Click **Yes**.
 10. If the user was successfully disabled, you receive a success message. Click **Close**.
-

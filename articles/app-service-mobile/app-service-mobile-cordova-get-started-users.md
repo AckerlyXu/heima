@@ -1,24 +1,24 @@
-<properties
-	pageTitle="Add authentication on Apache Cordova with Mobile Apps | Azure App Service"
-	description="Learn how to use Mobile Apps in Azure App Service to authenticate users of your Apache Cordova app through a variety of identity providers."
-	services="app-service\mobile"
-	documentationCenter="javascript"
-	authors="adrianhall"
-	manager="erikre"
-	editor=""/>
+---
+title: Add authentication on Apache Cordova with Mobile Apps | Azure App Service
+description: Learn how to use Mobile Apps in Azure App Service to authenticate users of your Apache Cordova app through a variety of identity providers.
+services: app-service\mobile
+documentationCenter: javascript
+authors: adrianhall
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="na"
-	ms.tgt_pltfrm="mobile-html"
-	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="10/30/2016"
-	ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: na
+ms.tgt_pltfrm: mobile-html
+ms.devlang: javascript
+ms.topic: article
+ms.date: 10/30/2016
+ms.author: adrianha
+---
 
 # Add authentication to your Apache Cordova app
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+[!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## Summary
 In this tutorial, you add authentication to the todolist quickstart project on Apache Cordova using a
@@ -26,13 +26,13 @@ supported identity provider. This tutorial is based on the [Get started with Mob
 you must complete first.
 
 ##<a name="register"></a>Register your app for authentication and configure the App Service
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
+[!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
 ##<a name="permissions"></a>Restrict permissions to authenticated users
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
+[!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Now, you can verify that anonymous access to your backend has been disabled. In Visual Studio:
 
@@ -58,8 +58,10 @@ Next, update the app to authenticate users before requesting resources from the 
 
     An example Content-Security-Policy (implemented for Azure Active Directory) is as follows:
 
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'
-            data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+    ```
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'
+        data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
+    ```
 
     Replace `https://login.windows.net` with the OAuth host from the preceding table.  For more information
     about the content-security-policy meta tag, see the [Content-Security-Policy documentation].
@@ -71,25 +73,27 @@ Next, update the app to authenticate users before requesting resources from the 
 3. Open the `www/js/index.js` file for editing, locate the `onDeviceReady()` method, and under the client
     creation code add the following code:
 
-        // Login to the service
-        client.login('SDK_Provider_Name')
-            .then(function () {
+    ```
+    // Login to the service
+    client.login('SDK_Provider_Name')
+        .then(function () {
 
-                // BEGINNING OF ORIGINAL CODE
+            // BEGINNING OF ORIGINAL CODE
 
-                // Create a table reference
-                todoItemTable = client.getTable('todoitem');
+            // Create a table reference
+            todoItemTable = client.getTable('todoitem');
 
-                // Refresh the todoItems
-                refreshDisplay();
+            // Refresh the todoItems
+            refreshDisplay();
 
-                // Wire up the UI Event Handler for the Add Item
-                $('#add-item').submit(addItemHandler);
-                $('#refresh').on('click', refreshDisplay);
+            // Wire up the UI Event Handler for the Add Item
+            $('#add-item').submit(addItemHandler);
+            $('#refresh').on('click', refreshDisplay);
 
-                // END OF ORIGINAL CODE
+            // END OF ORIGINAL CODE
 
-            }, handleError);
+        }, handleError);
+    ```
 
     This code replaces the existing code that creates the table reference and refreshes the UI.
 
@@ -113,10 +117,10 @@ Learn how to use the SDKs.
 * [Node.js Server SDK]
 
 <!-- URLs. -->
-[Get started with Mobile Apps]: /documentation/articles/app-service-mobile-cordova-get-started/
+[Get started with Mobile Apps]: ./app-service-mobile-cordova-get-started.md
 [Content-Security-Policy documentation]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
-[Push Notifications]: /documentation/articles/app-service-mobile-cordova-get-started-push/
-[About Authentication]: /documentation/articles/app-service-mobile-auth/
+[Push Notifications]: ./app-service-mobile-cordova-get-started-push.md
+[About Authentication]: ./app-service-mobile-auth.md
 [Apache Cordova SDK]: /documentation/articles/app-service-mobile-codova-how-to-use-client-library/
-[ASP.NET Server SDK]: /documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/
-[Node.js Server SDK]: /documentation/articles/app-service-mobile-node-backend-how-to-use-server-sdk/
+[ASP.NET Server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Node.js Server SDK]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md

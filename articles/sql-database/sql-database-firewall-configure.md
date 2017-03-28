@@ -1,24 +1,25 @@
-<properties
-    pageTitle="Overview of SQL Database firewall rules | Azure"
-    description="Learn how to configure a SQL database firewall with server-level and database-level firewall rules to manage access."
-    keywords="database firewall"
-    services="sql-database"
-    documentationcenter=""
-    author="BYHAM"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="" />
-<tags
-    ms.assetid="ac57f84c-35c3-4975-9903-241c8059011e"
-    ms.service="sql-database"
-    ms.custom="authentication and authorization"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="02/09/2017"
-    wacn.date=""
-    ms.author="rickbyh" />
+---
+title: Overview of SQL Database firewall rules | Azure
+description: Learn how to configure a SQL database firewall with server-level and database-level firewall rules to manage access.
+keywords: database firewall
+services: sql-database
+documentationcenter: ''
+author: BYHAM
+manager: jhubbard
+editor: cgronlun
+tags: ''
+
+ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
+ms.service: sql-database
+ms.custom: authentication and authorization
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 02/09/2017
+wacn.date: ''
+ms.author: rickbyh
+---
 
 # Overview of Azure SQL Database firewall rules 
 
@@ -29,14 +30,14 @@ To configure your firewall, you create firewall rules that specify ranges of acc
 * **Server-level firewall rules:** These rules enable clients to access your entire Azure SQL server, that is, all the databases within the same logical server. These rules are stored in the **master** database. Server-level firewall rules can be configured by using the portal or by using Transact-SQL statements. To create server-level firewall rules using the Azure portal or PowerShell, you must be the subscription owner or a subscription contributor. To create a server-level firewall rule using Transact-SQL, you must connect to the SQL Database instance as the server-level principal login or the Azure Active Directory administrator (which means that a server-level firewall rule must first be created by a user with Azure-level permissions).
 * **Database-level firewall rules:** These rules enable clients to access individual databases within your Azure SQL Database server. You can create these rules for each database and they are stored in the individual databases. (You can create database-level firewall rules for the **master** database.) These rules can be helpful in restricting access to certain (secure) databases within the same logical server. Database-level firewall rules can only be configured by using Transact-SQL statements.
 
-   > [AZURE.NOTE]
-   > For a tutorial that demonstrates the use of database-level firewalls, see [SQL authentication and authorization](/documentation/articles/sql-database-control-access-sql-authentication-get-started/).
+   > [!NOTE]
+   > For a tutorial that demonstrates the use of database-level firewalls, see [SQL authentication and authorization](./sql-database-control-access-sql-authentication-get-started.md).
    >
 
 **Recommendation:** Azure recommends using database-level firewall rules whenever possible to enhance security and to make your database more portable. Use server-level firewall rules for administrators and when you have many databases that have the same access requirements, and you don't want to spend time configuring each database individually.
 
-> [AZURE.NOTE]
-> For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](/documentation/articles/sql-database-geo-replication-security-config/).
+> [!NOTE]
+> For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](./sql-database-geo-replication-security-config.md).
 >
 
 ## Firewall overview
@@ -56,23 +57,23 @@ When a computer attempts to connect to your database server from the Internet, t
 * If the IP address of the request is not within one of the ranges specified in the database-level firewall rule, the server-level firewall rules are checked. If the IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted. Server-level firewall rules apply to all SQL databases on the Azure SQL server.  
 * If the IP address of the request is not within the ranges specified in any of the database-level  or server-level firewall rules, the connection request fails.
 
-> [AZURE.NOTE] To access Azure SQL Database from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.
-
+> [!NOTE]
+> To access Azure SQL Database from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.
 
 ## Connecting from Azure
 To allow applications from Azure to connect to your Azure SQL server, Azure connections must be enabled. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. If the connection attempt is not allowed, the request does not reach the Azure SQL Database server.
 
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
-> [AZURE.NOTE]
->  For more information, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](/documentation/articles/sql-database-develop-direct-route-ports-adonet-v12/)
+> [!NOTE]
+>  For more information, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](./sql-database-develop-direct-route-ports-adonet-v12.md)
 >  
 
 ## Creating the first server-level firewall rule
 
-The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.cn/) or programmatically using the REST API or Azure PowerShell. Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. To improve performance, server-level firewall rules are temporarily cached at the database level. To refresh the cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/zh-cn/library/mt627793.aspx). For more information on server-level firewall rules, see [How to: Configure an Azure SQL server firewall using the Azure portal](/documentation/articles/sql-database-configure-firewall-settings/).
+The first server-level firewall setting can be created using the [Azure portal](https://portal.azure.cn/) or programmatically using the REST API or Azure PowerShell. Subsequent server-level firewall rules can be created and managed using these methods, and through Transact-SQL. To improve performance, server-level firewall rules are temporarily cached at the database level. To refresh the cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/zh-cn/library/mt627793.aspx). For more information on server-level firewall rules, see [How to: Configure an Azure SQL server firewall using the Azure portal](./sql-database-configure-firewall-settings.md).
 
 ## Creating database-level firewall rules
 
@@ -107,13 +108,14 @@ In addition to the Azure portal, firewall rules can be managed programmatically 
 | [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/zh-cn/library/azure/dn546739.aspx)    | Server | Updates the properties of an existing server-level firewall rule |
 | [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/zh-cn/library/azure/dn546727.aspx) | Server | Removes server-level firewall rules                              |
 
-> [AZURE.NOTE] There can be up as much as a five-minute delay for changes to the firewall settings to take effect.
+> [!NOTE]
+> There can be up as much as a five-minute delay for changes to the firewall settings to take effect.
 
 ## Troubleshooting the database firewall
 
 Consider the following points when access to the Azure SQL Database service does not behave as you expect:
 
-- **Local firewall configuration:** Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. If you are making connections inside the Azure cloud boundary, you may have to open additional ports. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](/documentation/articles/sql-database-develop-direct-route-ports-adonet-v12/).
+- **Local firewall configuration:** Before your computer can access Azure SQL Database, you may need to create a firewall exception on your computer for TCP port 1433. If you are making connections inside the Azure cloud boundary, you may have to open additional ports. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](./sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **Network address translation (NAT):** Due to NAT, the IP address used by your computer to connect to Azure SQL Database may be different than the IP address shown in your computer IP configuration settings. To view the IP address your computer is using to connect to Azure, log in to the portal and navigate to the **Configure** tab on the server that hosts your database. Under the **Allowed IP Addresses** section, the **Current Client IP Address** is displayed. Click **Add** to the **Allowed IP Addresses** to allow this computer to access the server.
 
@@ -130,17 +132,17 @@ Consider the following points when access to the Azure SQL Database service does
 ## Next steps
 For artciles on creating server-level and database-level firewall rules, see:
 
-- [Configure Azure SQL Database server-level firewall rules using the Azure Portal](/documentation/articles/sql-database-configure-firewall-settings/)
-- [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](/documentation/articles/sql-database-configure-firewall-settings-tsql/)
-- [Configure Azure SQL Database server-level firewall rules using PowerShell](/documentation/articles/sql-database-configure-firewall-settings-powershell/)
-- [Configure Azure SQL Database server-level firewall rules using the REST API](/documentation/articles/sql-database-configure-firewall-settings-rest/)
+- [Configure Azure SQL Database server-level firewall rules using the Azure Portal](./sql-database-configure-firewall-settings.md)
+- [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](./sql-database-configure-firewall-settings-tsql.md)
+- [Configure Azure SQL Database server-level firewall rules using PowerShell](./sql-database-configure-firewall-settings-powershell.md)
+- [Configure Azure SQL Database server-level firewall rules using the REST API](./sql-database-configure-firewall-settings-rest.md)
 
-For a tutorial on creating a database, see [Your first Azure SQL database](/documentation/articles/sql-database-get-started/).
+For a tutorial on creating a database, see [Your first Azure SQL database](./sql-database-get-started.md).
 For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/zh-cn/library/azure/ee336282.aspx).
 To understand how to navigate to databases see [Manage database access and login security](https://msdn.microsoft.com/zh-cn/library/azure/ee336235.aspx).
 
 ## Additional resources
-- [Securing your database](/documentation/articles/sql-database-security/)
+- [Securing your database](./sql-database-security.md)
 - [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/zh-cn/library/bb510589)
 
 <!--Image references-->

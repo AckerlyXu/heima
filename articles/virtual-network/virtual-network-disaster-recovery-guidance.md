@@ -1,21 +1,22 @@
-<properties
-    pageTitle="What to do in the event of an Azure service disruption impacting Azure Virtual Networks | Azure"
-    description="Learn what to do in the event of an Azure service disruption impacting Azure Virtual Networks."
-    services="virtual-network"
-    documentationcenter=""
-    author="NarayanAnnamalai"
-    manager="jefco"
-    editor="" />
-<tags
-    ms.assetid="ad260ab9-d873-43b3-8896-f9a1db9858a5"
-    ms.service="virtual-network"
-    ms.workload="virtual-network"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/16/2016"
-    wacn.date=""
-    ms.author="narayan;aglick" />
+---
+title: What to do in the event of an Azure service disruption impacting Azure Virtual Networks | Azure
+description: Learn what to do in the event of an Azure service disruption impacting Azure Virtual Networks.
+services: virtual-network
+documentationcenter: ''
+author: NarayanAnnamalai
+manager: jefco
+editor: ''
+
+ms.assetid: ad260ab9-d873-43b3-8896-f9a1db9858a5
+ms.service: virtual-network
+ms.workload: virtual-network
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/16/2016
+wacn.date: ''
+ms.author: narayan;aglick
+---
 
 # Virtual Network - Business Continuity
 ## Overview
@@ -36,10 +37,10 @@ A: The Virtual Network and the resources in the affected region remains inaccess
 
 A: Virtual Network (VNet) is fairly lightweight resource. You can invoke Azure APIs to create a VNet with the same address space in a different region. To re-create the same environment that was present in the affected region, you have to make API calls to re-deploy your Cloud Services (web/worker roles) and Virtual Machines that you had. You will also have to spin up a VPN Gateway and connect to your on-premises network if you had on-premises connectivity (such as in a hybrid deployment).
 
-The instructions for creating a VNet are found [here](/documentation/articles/virtual-networks-create-vnet-arm-pportal/). 
+The instructions for creating a VNet are found [here](./virtual-networks-create-vnet-arm-pportal.md). 
 
 **Q: Can a replica of a VNet in a given region be re-created in another region ahead of time?**
 
 A: Yes, you can create two VNets using the same private IP address space and resources in two different regions ahead of time. If a customer was hosting internet facing services in the VNet, they could have set up Traffic Manager to geo-route traffic to the region that is active. However, a customer cannot connect two VNets with the same address space to their on-premises network as it would cause routing issues. At the time of a disaster and loss of a VNet in one region, a customer can connect the other VNet in the available region with matching address space to their on-premises network.
 
-The instructions for creating a VNet are found [here](/documentation/articles/virtual-networks-create-vnet-arm-pportal/).
+The instructions for creating a VNet are found [here](./virtual-networks-create-vnet-arm-pportal.md).

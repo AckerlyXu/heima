@@ -1,25 +1,25 @@
-<properties
-	pageTitle="Assign a user or group to an enterprise app in Azure Active Directory preview | Azure"
-	description="How to select an enterprise app to assign a user or group to it in Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+---
+title: Assign a user or group to an enterprise app in Azure Active Directory preview | Azure
+description: How to select an enterprise app to assign a user or group to it in Azure Active Directory
+services: active-directory
+documentationCenter: ''
+authors: curtand
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="curtand"
-	wacn.date=""/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: curtand
+wacn.date: ''
+---
 
 # Assign a user or group to an enterprise app in Azure Active Directory preview
 
-It's easy to assign a user or a group to your enterprise applications in Azure Active Directory (Azure AD) preview. [What's in the preview?](/documentation/articles/active-directory-preview-explainer/) You must have the appropriate permissions to manage the enterprise app. In the current preview, you must be global admin for the directory.
+It's easy to assign a user or a group to your enterprise applications in Azure Active Directory (Azure AD) preview. [What's in the preview?](./active-directory-preview-explainer.md) You must have the appropriate permissions to manage the enterprise app. In the current preview, you must be global admin for the directory.
 
 ## How do I assign user access to an enterprise app?
 
@@ -54,5 +54,5 @@ It's easy to assign a user or a group to your enterprise applications in Azure A
 ## Next steps
 
 - [Remove a user or group assignment from an enterprise app](/documentation/articles/active-directory-coreapps-remove-assignment-user-azure-portal/)
-- [Disable user sign-ins for an enterprise app](/documentation/articles/active-directory-coreapps-disable-app-azure-portal/)
+- [Disable user sign-ins for an enterprise app](./active-directory-coreapps-disable-app-azure-portal.md)
 - [Change the name or logo of an enterprise app](/documentation/articles/active-directory-coreapps-change-app-logo-azure-portal/)

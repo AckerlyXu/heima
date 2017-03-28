@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Get Azure tools for your Azure IoT Starter Kit (Windows 7 and later) | Azure"
-    description="Install Python and the Azure command-line interface (Azure CLI) on Windows 7 and later versions."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="azure cli, iot cloud service, arduino cloud" />
-<tags
-    ms.assetid="1035760e-cdd1-4d99-8003-067e98b29762"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/8/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get Azure tools for your Azure IoT Starter Kit (Windows 7 and later) | Azure
+description: Install Python and the Azure command-line interface (Azure CLI) on Windows 7 and later versions.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: azure cli, iot cloud service, arduino cloud
+
+ms.assetid: 1035760e-cdd1-4d99-8003-067e98b29762
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/8/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get Azure tools (Windows 7 and later)
 > [!div class="op_single_selector"]
@@ -34,7 +35,7 @@ In this article, you will learn:
 
 ## What you need
 * A Windows computer with an Internet connection.
-* An active Azure subscription. If you don't have an Azure account, create a [Azure trial account](/pricing/1rmb-trial/) in just a few minutes.
+* An active Azure subscription. If you don't have an Azure account, create a [Azure trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 
 ## Install Python
 [Install Python](https://www.python.org/downloads/) on your Windows computer. You can install Python 2.7, 3.4 or 3.5. This tutorial is based on Python 2.7. If you've already installed Python, go to the next section and install the Azure CLI.
@@ -70,8 +71,8 @@ You've installed the Azure CLI. Your next task to create your Azure IoT hub and 
 [Create your IoT hub and register Intel Edison][create-your-iot-hub-and-register-intel-edison]
 <!-- Images and links -->
 
-[troubleshooting]: /documentation/articles/iot-hub-intel-edison-kit-c-troubleshooting/
-[create-your-iot-hub-and-register-intel-edison]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub/
-[windows]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32/
-[ubuntu]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu/
-[macos]: /documentation/articles/iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac/
+[troubleshooting]: ./iot-hub-intel-edison-kit-c-troubleshooting.md
+[create-your-iot-hub-and-register-intel-edison]: ./iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md
+[windows]: ./iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md
+[ubuntu]: ./iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md
+[macos]: ./iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md

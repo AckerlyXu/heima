@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Azure portal dashboards | Azure"
-   description="This article explains how to create and edit dashboards in the Azure portal."
-   services="azure-portal"
-   documentationCenter=""
-   authors="sewatson"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Azure portal dashboards | Azure
+description: This article explains how to create and edit dashboards in the Azure portal.
+services: azure-portal
+documentationCenter: ''
+authors: sewatson
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="multiple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="na"
-   ms.date="09/06/2016"
-   ms.author="sewatson"
-   wacn.date=""/>
+ms.service: multiple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 09/06/2016
+ms.author: sewatson
+wacn.date: ''
+---
 
 # Creating and sharing dashboards in the Azure portal
 
@@ -33,7 +33,7 @@ To create a dashboard, select the **New dashboard** button next to the current d
 
 ![create dashboard](./media/azure-portal-dashboards/new-dashboard.png)
 
-This action creates a new, empty, private dashboard and puts you into customization mode where you can name your dashboard and add or rearrange tiles.  When in this mode, the collapsible tile gallery takes over the left navigation menu.  The tile gallery lets you find tiles for your Azure resources in various ways: you can browse by [resource group](/documentation/articles/resource-group-overview/#resource-groups), by resource type, by [tag](/documentation/articles/resource-group-using-tags/), or by searching for your resource by name.  
+This action creates a new, empty, private dashboard and puts you into customization mode where you can name your dashboard and add or rearrange tiles.  When in this mode, the collapsible tile gallery takes over the left navigation menu.  The tile gallery lets you find tiles for your Azure resources in various ways: you can browse by [resource group](../azure-resource-manager/resource-group-overview.md#resource-groups), by resource type, by [tag](../azure-resource-manager/resource-group-using-tags.md), or by searching for your resource by name.  
 
 ![customize dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
 
@@ -58,7 +58,7 @@ Now that we have a Markdown tile and a resource group pinned to the dashboard, w
 By hovering and selecting "…" or right-clicking on a tile you can see all the contextual commands for that tile. By default, there are two items:
 
 1. **Unpin from dashboard** – removes the tile from the dashboard
-2.	**Customize** – enters customize mode
+2. **Customize** – enters customize mode
 
 ![customize tile](./media/azure-portal-dashboards/customize-tile.png)
 
@@ -82,7 +82,7 @@ When you create a dashboard, it is private by default, which means you are the o
 
 ![share dashboard](./media/azure-portal-dashboards/share-dashboard.png)
 
-You are asked to choose a subscription and resource group for your dashboard to be published to. To seamlessly integrate dashboards into the ecosystem, we've implemented shared dashboards as Azure resources (so you can't share by typing an email address).  Access to the information displayed by most of the tiles in the portal are governed by [Azure Role Based Access Control](/documentation/articles/role-based-access-control-configure/ ). From an access control perspective, shared dashboards are no different from a virtual machine or a storage account.  
+You are asked to choose a subscription and resource group for your dashboard to be published to. To seamlessly integrate dashboards into the ecosystem, we've implemented shared dashboards as Azure resources (so you can't share by typing an email address).  Access to the information displayed by most of the tiles in the portal are governed by [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md ). From an access control perspective, shared dashboards are no different from a virtual machine or a storage account.  
 
 Let's say you have an Azure subscription and members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription.  Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within that subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a shared dashboard, but are not able to publish those changes back to the server.  However, they can make a private copy of the dashboard for their own use.  As always, individual tiles on the dashboard enforce their own access control rules based on the resources they correspond to.  
 
@@ -100,5 +100,5 @@ After your dashboard is published, the **Sharing + access** control pane will re
 
 ## Next steps
 
-- To manage resources, see [Manage Azure resources through portal](/documentation/articles/resource-group-portal/).
-- To deploy resources, see [Deploy resources with Resource Manager templates and Azure portal](/documentation/articles/resource-group-template-deploy-portal/).
+- To manage resources, see [Manage Azure resources through portal](../azure-resource-manager/resource-group-portal.md).
+- To deploy resources, see [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).

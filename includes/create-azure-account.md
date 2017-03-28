@@ -4,6 +4,4 @@
 
  ![Azure Web Site][0]
 
-
 [0]: ./media/create-azure-account/freetrialonwindowsazurehomepage.png
- 

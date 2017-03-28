@@ -1,20 +1,21 @@
-<properties
-	pageTitle="How to provide secure remote access to on-premises apps"
-	description="Covers how to use Azure AD Application Proxy to provide secure remote access to your on-premises apps."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="stevenpo"
-	editor=""/>
+---
+title: How to provide secure remote access to on-premises apps
+description: Covers how to use Azure AD Application Proxy to provide secure remote access to your on-premises apps.
+services: active-directory
+documentationCenter: ''
+authors: kgremban
+manager: stevenpo
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="05/25/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 05/25/2016
+wacn.date: ''
+---
 
 # How to provide secure remote access to on-premises applications
 
-> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](/documentation/articles/active-directory-editions/).
+> [!NOTE]
+> Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](./active-directory-editions.md).
 
 Employees today want to be productive at any place, at any time, and from any device. They want to work on their own devices, whether they be tablets, phones, or laptops. And they expect to be able to access all their applications: those in the cloud as well as other corporate apps on-premises. Providing access to on-premises applications has traditionally involved virtual private networks (VPNs), demilitarized zones (DMZs), or on-premises reverse proxies. Not only are these solutions complex and hard to make secure, but they are costly to setup and manage.
 
@@ -65,19 +66,19 @@ When users access applications remotely, they connect to the published endpoint.
 Azure AD Application Proxy provides single sign-on (SSO) to applications that use Integrated Windows Authentication (IWA), or claims-aware applications. If your application uses IWA, Application Proxy impersonates the user using Kerberos Constrained Delegation to provide SSO. If you have a claims-aware application that trusts Azure Active Directory, SSO is achieved because the user was already authenticated by Azure AD.
 
 ## How to get started
-Make sure you have an Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator. You also need Azure AD basic or premium licenses for the directory administrator and users accessing the apps. Take a look at [Azure Active Directory editions](/documentation/articles/active-directory-editions/) for more information.
+Make sure you have an Azure AD basic or premium subscription and an Azure AD directory for which you are a global administrator. You also need Azure AD basic or premium licenses for the directory administrator and users accessing the apps. Take a look at [Azure Active Directory editions](./active-directory-editions.md) for more information.
 
 Setting up Application Proxy is accomplished in two steps:
 
-1. [Enable Application Proxy and configure the connector](/documentation/articles/active-directory-application-proxy-enable/)  
-2. [Publish applications](/documentation/articles/active-directory-application-proxy-publish/) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
+1. [Enable Application Proxy and configure the connector](./active-directory-application-proxy-enable.md)  
+2. [Publish applications](./active-directory-application-proxy-publish.md) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
 
 ## What's next?
 There's a lot more you can do with Application Proxy:
 
-- [Publish applications using your own domain name](/documentation/articles/active-directory-application-proxy-custom-domains/)
+- [Publish applications using your own domain name](./active-directory-application-proxy-custom-domains.md)
 - [Enable single-sign on](/documentation/articles/active-directory-application-proxy-sso-using-kcd.md)
 - [Working with claims aware applications](/documentation/articles/active-directory-application-proxy-claims-aware-apps/)
-- [Enable conditional access](/documentation/articles/active-directory-application-proxy-conditional-access/)
+- [Enable conditional access](./active-directory-application-proxy-conditional-access.md)
 
 For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)

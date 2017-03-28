@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Service Bus Premium and Standard Messaging pricing tiers overview | Azure"
-	description="Service Bus Premium and Standard Messaging"
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="djrosanova"
-	manager="timlt"
-	editor=""/>
+---
+title: Service Bus Premium and Standard Messaging pricing tiers overview | Azure
+description: Service Bus Premium and Standard Messaging
+services: service-bus-messaging
+documentationCenter: .net
+authors: djrosanova
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="service-bus-messaging"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="01/06/2017"
-	ms.author="darosa;sethm,jotaub"
-	wacn.date=""/>
+ms.service: service-bus-messaging
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 01/06/2017
+ms.author: darosa;sethm,jotaub
+wacn.date: ''
+---
 
 # Service Bus Premium and Standard messaging tiers 
 
@@ -43,11 +43,10 @@ The following are a few differences between Premium and Standard messaging tiers
 
 ### Partitioned queues and topics
 
-Partitioned queues and topics are supported in Premium messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary.for performance. Additionally, the partition count has been changed from 16 partitions in Standard messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information about partitioning, see [Partitioned queues and topics](/documentation/articles/service-bus-partitioning/).
+Partitioned queues and topics are supported in Premium messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary.for performance. Additionally, the partition count has been changed from 16 partitions in Standard messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information about partitioning, see [Partitioned queues and topics](./service-bus-partitioning.md).
 
 ### Express entities
 Because Premium Messaging runs in a completely isolated runtime environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) property.
-
 
 ## Next steps
 
@@ -55,7 +54,7 @@ To learn more about Service Bus messaging, see the following topics.
 
 - [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-- [Service Bus messaging overview](/documentation/articles/service-bus-messaging-overview/)
-- [How to use Service Bus queues](/documentation/articles/service-bus-dotnet-get-started-with-queues/)
+- [Service Bus messaging overview](./service-bus-messaging-overview.md)
+- [How to use Service Bus queues](./service-bus-dotnet-get-started-with-queues.md)
 <!--Image references-->
 [create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png

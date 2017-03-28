@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Retrieving state information for an Azure Import/Export service job | MicrosoftDocs"
-    description="Learn how to obtain state information for Azure Import/Export service jobs"
-    author="renashahmsft"
-    manager="aungoo"
-    editor="tysonn"
-    services="storage"
-    documentationcenter="" />
-<tags
-    ms.assetid="22d7e5f0-94da-49b4-a1ac-dd4c14a423c2"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/16/2016"
-    wacn.date=""
-    ms.author="renash" />
+---
+title: Retrieving state information for an Azure Import/Export service job | MicrosoftDocs
+description: Learn how to obtain state information for Azure Import/Export service jobs
+author: renashahmsft
+manager: aungoo
+editor: tysonn
+services: storage
+documentationcenter: ''
+
+ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/16/2016
+wacn.date: ''
+ms.author: renash
+---
 
 # Retrieving State Information for a Job
 You can call the [Get Job](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs#Jobs_Get) operation to retrieve information about both import and export jobs. The information returned includes:
@@ -87,4 +88,4 @@ The following table describes the drive failure states and the actions taken for
 When a job or drive fails to progress normally through its expected life cycle, the job or drive will be moved into a `Faulted` state. At that point, the operations team will contact the customer by email or phone. Once the issue is resolved, the faulted job or drive will be taken out of the `Faulted` state and moved into the appropriate state.
 
 ## See Also
-[Using the Import/Export service REST API](/documentation/articles/storage-import-export-using-the-rest-api/)
+[Using the Import/Export service REST API](./storage-import-export-using-the-rest-api.md)

@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Pause and resume data migration (Stretch Database) | Azure"
-	description="Learn how to pause or resume data migration to Azure."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+---
+title: Pause and resume data migration (Stretch Database) | Azure
+description: Learn how to pause or resume data migration to Azure.
+services: sql-server-stretch-database
+documentationCenter: ''
+authors: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-	ms.service="sql-server-stretch-database"
-	ms.date="06/14/2016"
-	wacn.date=""/>
+ms.service: sql-server-stretch-database
+ms.date: 06/14/2016
+wacn.date: ''
+---
 
 # Pause and resume data migration (Stretch Database)
 
@@ -29,9 +29,11 @@ Pause data migration on individual tables when you want to troubleshoot problems
 ### Use Transact\-SQL to pause data migration
 Run the following command.
 
-	ALTER TABLE <table name>
-	    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = PAUSED ) ) ;
-	GO;
+```tsql
+ALTER TABLE <table name>
+    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = PAUSED ) ) ;
+GO;
+```
 
 ## Resume data migration
 
@@ -44,9 +46,10 @@ Run the following command.
 ### Use Transact\-SQL to resume data migration
 Run the following command.
 
-
-	ALTER TABLE <table name>
-	    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;
+```
+ALTER TABLE <table name>
+    SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;
+```
 
 ## See also
 

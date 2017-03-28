@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Troubleshooting your Azure IoT gateway | Azure"
-    description="Troubleshooting page for Intel NUC gateway"
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="iot issues, internet of things problems" />
-<tags
-    ms.assetid="3ee8f4b0-5799-40a3-8cf0-8d5aa44dbc2b"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/21/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Troubleshooting your Azure IoT gateway | Azure
+description: Troubleshooting page for Intel NUC gateway
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: iot issues, internet of things problems
+
+ms.assetid: 3ee8f4b0-5799-40a3-8cf0-8d5aa44dbc2b
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/21/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Troubleshooting
 
@@ -137,7 +138,7 @@ If you've successfully provisioned your Azure IoT hub with the Azure CLI, and yo
 
 ### Device Explorer
 
-[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](/documentation/articles/iot-hub-devguide/):
+[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) runs on your Windows local machine and connects to your IoT hub in Azure. It communicates with the following [IoT Hub endpoints](./iot-hub-devguide.md):
 
 - Device identity management to provision and manage devices registered with your IoT hub.
 - Receive device-to-cloud so you can monitor messages sent from your device to your IoT hub.
@@ -163,7 +164,7 @@ iothub-explorer help
 
 ### The Azure portal
 
-A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](/documentation/articles/azure-portal-overview/) to help provision, manage, and debug your Azure resources.
+A full CLI experience helps you create and manage all your Azure resources. You might also want to use the [Azure portal](../azure-portal-overview.md) to help provision, manage, and debug your Azure resources.
 
 ## Azure Storage issues
 

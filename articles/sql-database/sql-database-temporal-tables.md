@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Getting Started with Temporal Tables in Azure SQL Database | Azure"
-    description="Learn how to get started with using Temporal Tables in Azure SQL Database."
-    services="sql-database"
-    documentationcenter=""
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="c8c0f232-0751-4a7f-a36e-67a0b29fa1b8"
-    ms.service="sql-database"
-    ms.custom="development"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="sql-database"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: Getting Started with Temporal Tables in Azure SQL Database | Azure
+description: Learn how to get started with using Temporal Tables in Azure SQL Database.
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: c8c0f232-0751-4a7f-a36e-67a0b29fa1b8
+ms.service: sql-database
+ms.custom: development
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: sql-database
+ms.date: 01/10/2017
+wacn.date: ''
+ms.author: carlrab
+---
 
 # Getting Started with Temporal Tables in Azure SQL Database
 Temporal Tables are a new programmability feature of Azure SQL Database that allows you to track and analyze the full history of changes in your data, without the need for custom coding. Temporal Tables keep data closely related to time context so that stored facts can be interpreted as valid only within the specific period. This property of Temporal Tables allows for efficient time-based analysis and getting insights from data evolution.
@@ -34,9 +35,8 @@ Fortunately, you do not need to put any effort in your app to maintain this acti
 
 Depending on whether you are starting new development or upgrading existing application, you will either create temporal tables or modify existing ones by adding temporal attributes. In general case, your scenario can be a mix of these two options. Perform these action using [SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx) (SSMS), [SQL Server Data Tools](https://msdn.microsoft.com/zh-cn/library/mt204009.aspx) (SSDT) or any other Transact-SQL development tool.
 
-
-> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
-
+> [!IMPORTANT]
+> It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
 
 ### Create new table
 Use context menu item “New System-Versioned Table” in SSMS Object Explorer to open the query editor with a temporal table template script and then use “Specify Values for Template Parameters” (Ctrl+Shift+M) to populate the template:
@@ -182,7 +182,7 @@ Finally, you can remove a column that you do not need anymore.
 ALTER TABLE dbo.WebsiteUserInfo 
     DROP COLUMN TemporaryColumn; 
 ````
-    
+
 Alternatively, use latest [SSDT](https://msdn.microsoft.com/zh-cn/library/mt204009.aspx) to change temporal table schema while you are connected to the database (online mode) or as part of the database project (offline mode).
 
 ## Controlling retention of historical data

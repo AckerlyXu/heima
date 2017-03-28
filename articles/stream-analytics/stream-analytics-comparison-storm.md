@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Analytics platforms: Apache Storm comparison to Stream Analytics | Azure"
-    description="Get guidance choosing a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences."
-    keywords="analytics platform, analytics platforms, cloud analytics platform, storm comparison"
-    services="stream-analytics"
-    documentationcenter=""
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="b9aac017-9866-4d0a-b98f-6f03881e9339"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="01/24/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Analytics platforms: Apache Storm comparison to Stream Analytics | Azure
+description: Get guidance choosing a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences.
+keywords: analytics platform, analytics platforms, cloud analytics platform, storm comparison
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 01/24/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Help choosing a streaming analytics platform: Apache Storm comparison to Azure Stream Analytics
 

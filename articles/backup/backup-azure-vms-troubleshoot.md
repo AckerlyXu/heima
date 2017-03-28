@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Troubleshoot backup errors with Azure virtual machine | Azure"
-    description="Troubleshoot backup and restore of Azure virtual machines"
-    services="backup"
-    documentationcenter=""
-    author="trinadhk"
-    manager="shreeshd"
-    editor="" />
-<tags
-    ms.assetid="73214212-57a4-4b57-a2e2-eaf9d7fde67f"
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/18/2017"
-    wacn.date=""
-    ms.author="trinadhk;markgal;jpallavi;" />
+---
+title: Troubleshoot backup errors with Azure virtual machine | Azure
+description: Troubleshoot backup and restore of Azure virtual machines
+services: backup
+documentationcenter: ''
+author: trinadhk
+manager: shreeshd
+editor: ''
+
+ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/18/2017
+wacn.date: ''
+ms.author: trinadhk;markgal;jpallavi;
+---
 
 # Troubleshoot Azure virtual machine backup
-> [AZURE.SELECTOR]
-- [Recovery services vault](/documentation/articles/backup-azure-vms-troubleshoot/)
-- [Backup vault](/documentation/articles/backup-azure-vms-troubleshoot-classic/)
+> [!div class="op_single_selector"]
+>- [Recovery services vault](./backup-azure-vms-troubleshoot.md)
+>- [Backup vault](./backup-azure-vms-troubleshoot-classic.md)
 
 You can troubleshoot errors encountered while using Azure Backup with information listed in the table below.
 
@@ -28,11 +29,11 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Error details | Workaround |
 | --- | --- |
 | Could not perform the operation as VM no longer exists. - Stop protecting virtual machine without deleting backup data. More details at http://go.microsoft.com/fwlink/?LinkId=808124 |This happens when the primary VM is deleted, but the backup policy continues looking for a VM to back up. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)</li><li> Stop protecting virtual machine with or without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
-| Could not communicate with the VM agent for snapshot status. - Ensure that VM has internet access. Also, update the VM agent as mentioned in the troubleshooting guide at http://go.microsoft.com/fwlink/?LinkId=800034 |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. [Learn more](/documentation/articles/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout/) about debugging up VM snapshot issues.<br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues, and restarting the VM resets this "bad state" |
+| Could not communicate with the VM agent for snapshot status. - Ensure that VM has internet access. Also, update the VM agent as mentioned in the troubleshooting guide at http://go.microsoft.com/fwlink/?LinkId=800034 |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. [Learn more](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) about debugging up VM snapshot issues.<br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues, and restarting the VM resets this "bad state" |
 | Recovery services extension operation failed. - Please make sure that latest virtual machine agent is present on the virtual machine and agent service is running. Please retry backup operation and if it fails, contact Microsoft support. |This error is thrown when VM agent is out of date. Refer “Updating the VM Agent” section below to update the VM agent. |
 | Virtual machine doesn't exist. - Please make sure that virtual machine exists or select a different virtual machine. |This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)<br></li><li>Stop protecting the virtual machine without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Command execution failed. - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry |An existing backup on the VM is running, and a new job cannot be started while the existing job is running. |
-| Copying VHDs from the backup vault timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support. | This happens if there is a transient error on storage side or if backup service is not getting sufficient IOPS from storage account hosting the VM in order to transfer data within timeout period to vault. Make sure that you followed [Best practices](/documentation/articles/backup-azure-vms-introduction/#best-practices/) while setting up backup. Try moving VM to a different storage account which is not loaded and retry backup.|
+| Copying VHDs from the backup vault timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support. | This happens if there is a transient error on storage side or if backup service is not getting sufficient IOPS from storage account hosting the VM in order to transfer data within timeout period to vault. Make sure that you followed [Best practices](./backup-azure-vms-introduction.md#best-practices) while setting up backup. Try moving VM to a different storage account which is not loaded and retry backup.|
 | Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support |You can get this error for 2 reasons: <ol><li> There is a transient issue in accessing the VM storage. Please check [Azure Status](https://azure.microsoft.com/en-us/status/) to see if there is any on-going issue related to compute, storage, or networking in the region. Then retry the backup job once the issue is resolved. <li>The original VM has been deleted and therefore, the recovery point cannot be taken. To keep the backup data for a deleted VM, but remove the backup errors: Unprotect the VM and choose the option to keep the data. This action stops the scheduled backup job and the recurring error messages. |
 | Failed to install the Azure Recovery Services extension on the selected item - The VM agent is a prerequisite for the Azure Recovery Services Extension. Install the Azure VM agent and restart the registration operation |<ol> <li>Check if the VM agent has been installed correctly. <li>Ensure the flag on the VM config is set correctly.</ol> [Read more](#validating-vm-agent-installation) about installing the VM agent, and how to validate the VM agent installation. |
 | Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator |This usually means that the COM+ service is not running. Contact Microsoft support for help on fixing this issue. |
@@ -92,7 +93,7 @@ For Windows VMs:
 
 For Linux VMs:
 
-- Follow the instructions on [Updating Linux VM Agent](/documentation/articles/virtual-machines-linux-update-agent?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/).
+- Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json/).
 We **strongly recommend** updating agent only through distribution repository. We do not recommend downloading the agent code from directly github and updating it. If latest agent is not available for your distribution, please reach out to distribution support for instructions on how to install latest agent. You can check latest [Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) information in github repository.
 
 ### Validating VM Agent installation
@@ -105,7 +106,7 @@ How to check for the VM Agent version on Windows VMs:
 VM backup relies on issuing snapshot commands to underlying storage. Not having access to storage, or delays in a snapshot task execution can cause the backup job to fail. The following can cause snapshot task failure.
 
 1. Network access to Storage is blocked using NSG<br>
-    Learn more on how to [enable network access](/documentation/articles/backup-azure-vms-prepare/#network-connectivity/) to Storage using either WhiteListing of IPs or through proxy server.
+    Learn more on how to [enable network access](./backup-azure-vms-prepare.md#network-connectivity) to Storage using either WhiteListing of IPs or through proxy server.
 2. VMs with Sql Server backup configured can cause snapshot task delay <br>
    By default VM backup issues VSS Full backup on Windows VMs. On VMs that are running Sql Servers and if Sql Server backup is configured, this might cause delay in snapshot execution. Please set following registry key if you are experiencing backup failures because of snapshot issues.
 
@@ -137,11 +138,11 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
    - Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/zh-cn/library/hh826148.aspx) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
    - Add rules to the NSG (if you have one in place) to allow access to the IPs.
 2. Create a path for HTTP traffic to flow
-   - If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](/documentation/articles/backup-azure-vms-prepare/#network-connectivity/).
+   - If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](./backup-azure-vms-prepare.md#network-connectivity).
    - Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > DHCP must be enabled inside the guest for IaaS VM Backup to work.  If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled.
-> View more information about [Setting a Static Internal Private IP](/documentation/articles/virtual-networks-reserved-private-ip/).
+> View more information about [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md).
 >
 >

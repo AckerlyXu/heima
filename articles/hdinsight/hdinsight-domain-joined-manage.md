@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Manage Domain-joined HDInsight clusters| Azure"
-    description="Learn how to manage Domain-joined HDInsight clusters"
-    services="hdinsight"
-    documentationcenter=""
-    author="saurinsh"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="" />
-<tags
-    ms.assetid="6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="10/25/2016"
-    wacn.date=""
-    ms.author="saurinsh" />
+---
+title: Manage Domain-joined HDInsight clusters| Azure
+description: Learn how to manage Domain-joined HDInsight clusters
+services: hdinsight
+documentationcenter: ''
+author: saurinsh
+manager: jhubbard
+editor: cgronlun
+tags: ''
+
+ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 10/25/2016
+wacn.date: ''
+ms.author: saurinsh
+---
 
 # Manage Domain-joined HDInsight clusters (Preview)
 Learn the users and the roles in Domain-joined HDInsight, and how to manage domain-joined HDInsight clusters.
@@ -60,7 +61,7 @@ Domain-joined HDInsight have the following roles:
 
 ## Open the Ambari Management UI
 1. Sign on to the [Azure portal preview](https://portal.azure.cn).
-2. Open your HDInsight cluster in a blade. See [List and show clusters](/documentation/articles/hdinsight-administer-use-management-portal/#list-and-show-clusters).
+2. Open your HDInsight cluster in a blade. See [List and show clusters](./hdinsight-administer-use-management-portal.md#list-and-show-clusters).
 3. Click **Dashboard** from the top menu to open Ambari.
 4. Log on to Ambari using the cluster administrator domain user name and password.
 5. Click the **Admin** dropdown menu from the upper right corner, and then click **Manage Ambari**.
@@ -103,6 +104,6 @@ Domain-joined HDInsight have the following roles:
 3. Click **Add User** or **Add Group** to assign users and groups to different roles.
 
 ## Next steps
-* For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](/documentation/articles/hdinsight-domain-joined-configure/).
-* For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](/documentation/articles/hdinsight-domain-joined-run-hive/).
-* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/#domainjoined).
+* For configuring a Domain-joined HDInsight cluster, see [Configure Domain-joined HDInsight clusters](./hdinsight-domain-joined-configure.md).
+* For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](./hdinsight-domain-joined-run-hive.md).
+* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

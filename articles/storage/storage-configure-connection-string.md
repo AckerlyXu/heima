@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Configure a Connection String to Azure Storage | Azure"
-    description="Configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate access to a storage account from your application at runtime."
-    services="storage"
-    documentationcenter=""
-    author="mmacy"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="ecb0acb5-90a9-4eb2-93e6-e9860eda5e53"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/12/2016"
-    wacn.date=""
-    ms.author="marsma" />
+---
+title: Configure a Connection String to Azure Storage | Azure
+description: Configure a connection string to an Azure storage account. A connection string includes the information needed to authenticate access to a storage account from your application at runtime.
+services: storage
+documentationcenter: ''
+author: mmacy
+manager: timlt
+editor: tysonn
+
+ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/12/2016
+wacn.date: ''
+ms.author: marsma
+---
 
 # Configure Azure Storage Connection Strings
 ## Overview
@@ -25,7 +26,7 @@ A connection string includes the authentication information needed to access dat
 * Access a storage account in Azure.
 * Access specified resources in Azure via a shared access signature (SAS).
 
-[AZURE.INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
+[!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
 ## Storing your connection string
 Your application will need to access the connection string at runtime in order to authenticate requests made to Azure Storage. You have a few different options for storing your connection string:
@@ -39,56 +40,65 @@ Storing your connection string within a configuration file makes it easy to upda
 You can use the [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) class to access your connection string at runtime regardless of where your application is running.
 
 ## Create a connection string to the storage emulator
-[AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
+[!INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
-See [Use the Azure Storage Emulator for Development and Testing](/documentation/articles/storage-use-emulator/) for more information about the storage emulator.
+See [Use the Azure Storage Emulator for Development and Testing](./storage-use-emulator.md) for more information about the storage emulator.
 
 ## Create a connection string to an Azure storage account
 To create a connection string to your Azure storage account, use the connection string format below. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace *myAccountName* with the name of your storage account, and replace *myAccountKey* with your account access key:
 
-    DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.chinacloudapi.cn
+```
+DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.chinacloudapi.cn
+```
 
 For example, your connection string will look similar to the following sample connection string:
- 
-	DefaultEndpointsProtocol=https;
-	AccountName=storagesample;
-	AccountKey=<account-key>;
-	EndpointSuffix=core.chinacloudapi.cn
 
-> [AZURE.NOTE] Azure Storage supports both HTTP and HTTPS in a connection string; however, using HTTPS is highly recommended.
+```
+DefaultEndpointsProtocol=https;
+AccountName=storagesample;
+AccountKey=<account-key>;
+EndpointSuffix=core.chinacloudapi.cn
+```
+
+> [!NOTE]
+> Azure Storage supports both HTTP and HTTPS in a connection string; however, using HTTPS is highly recommended.
 
 ## Create a connection string using a shared access signature
-[AZURE.INCLUDE [storage-use-sas-in-connection-string-include](../../includes/storage-use-sas-in-connection-string-include.md)]
+[!INCLUDE [storage-use-sas-in-connection-string-include](../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ## Creating a connection string to an explicit storage endpoint
 You can explicitly specify the service endpoints in your connection string instead of using the default endpoints. To create a connection string that specifies an explicit endpoint, specify the complete service endpoint for each service, including the protocol specification (HTTPS (recommended) or HTTP), in the following format:
 
-	DefaultEndpointsProtocol=[http|https];
-	BlobEndpoint=myBlobEndpoint;
-	QueueEndpoint=myQueueEndpoint;
-	TableEndpoint=myTableEndpoint;
-	FileEndpoint=myFileEndpoint;
-	AccountName=myAccountName;
-	AccountKey=myAccountKey
+```
+DefaultEndpointsProtocol=[http|https];
+BlobEndpoint=myBlobEndpoint;
+QueueEndpoint=myQueueEndpoint;
+TableEndpoint=myTableEndpoint;
+FileEndpoint=myFileEndpoint;
+AccountName=myAccountName;
+AccountKey=myAccountKey
+```
 
 One scenario where you may wish to do specify an explicit endpoint is if you have mapped your Blob storage endpoint to a custom domain. In that case, you can specify your custom endpoint for Blob storage in your connection string, and optionally specify the default endpoints for the other service if your application uses them.
 
 Here are examples of valid connection strings that specify an explicit endpoint for the Blob service:
 
-	# Blob endpoint only
-	DefaultEndpointsProtocol=https;
-	BlobEndpoint=www.mydomain.com;
-	AccountName=storagesample;
-	AccountKey=account-key
+```
+# Blob endpoint only
+DefaultEndpointsProtocol=https;
+BlobEndpoint=www.mydomain.com;
+AccountName=storagesample;
+AccountKey=account-key
 
-	# All service endpoints
-	DefaultEndpointsProtocol=https;
-	BlobEndpoint=www.mydomain.com;
-	FileEndpoint=myaccount.file.core.chinacloudapi.cn;
-	QueueEndpoint=myaccount.queue.core.chinacloudapi.cn;
-	TableEndpoint=myaccount;
-	AccountName=storagesample;
-	AccountKey=account-key
+# All service endpoints
+DefaultEndpointsProtocol=https;
+BlobEndpoint=www.mydomain.com;
+FileEndpoint=myaccount.file.core.chinacloudapi.cn;
+QueueEndpoint=myaccount.queue.core.chinacloudapi.cn;
+TableEndpoint=myaccount;
+AccountName=storagesample;
+AccountKey=account-key
+```
 
 The endpoint value that is listed in the connection string is used to construct the request URIs to the Blob service, and it dictates the form of any URIs that are returned to your code.
 
@@ -97,21 +107,23 @@ Note that if you choose to omit a service endpoint from the connection string, t
 ### Creating a connection string with an endpoint suffix
 To create a connection string for storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Governance, use the following connection string format. Indicate whether you want to connect to the storage account through HTTP or HTTPS, replace *myAccountName* with the name of your storage account, replace *myAccountKey* with your account access key, and replace *mySuffix* with the URI suffix:
 
-
-	DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=mySuffix;
-
+```
+DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=mySuffix;
+```
 
 For example, your connection string should look similar to the following connection string:
 
-	DefaultEndpointsProtocol=https;
-	AccountName=storagesample;
-	AccountKey=<account-key>;
-	EndpointSuffix=core.chinacloudapi.cn;
+```
+DefaultEndpointsProtocol=https;
+AccountName=storagesample;
+AccountKey=<account-key>;
+EndpointSuffix=core.chinacloudapi.cn;
+```
 
 ## Parsing a connection string
-[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
+[!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## Next steps
-* [Use the Azure Storage Emulator for Development and Testing](/documentation/articles/storage-use-emulator/)
-* [Azure Storage Explorers](/documentation/articles/storage-explorers/)
-* [Using Shared Access Signatures (SAS)](/documentation/articles/storage-dotnet-shared-access-signature-part-1/)
+* [Use the Azure Storage Emulator for Development and Testing](./storage-use-emulator.md)
+* [Azure Storage Explorers](./storage-explorers.md)
+* [Using Shared Access Signatures (SAS)](./storage-dotnet-shared-access-signature-part-1.md)

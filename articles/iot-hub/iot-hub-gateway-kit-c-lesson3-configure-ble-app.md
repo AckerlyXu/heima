@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Run a sample app to receive SensorTag data and send it to Azure IoT Hub | Azure"
-    description="Run a BLE sample application to receive data from BLE SensorTag and from your IoT hub."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="ble app, sensor monitor app, sensor data collection, data from sensors, sensor data to cloud" />
-<tags
-    ms.assetid="b33e53a1-1df7-4412-ade1-45185aec5bef"
-    ms.service="iot-hub"
-    ms.devlang="c"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/28/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Run a sample app to receive SensorTag data and send it to Azure IoT Hub | Azure
+description: Run a BLE sample application to receive data from BLE SensorTag and from your IoT hub.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: ble app, sensor monitor app, sensor data collection, data from sensors, sensor data to cloud
+
+ms.assetid: b33e53a1-1df7-4412-ade1-45185aec5bef
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/28/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Configure and run a BLE sample application
 
@@ -26,7 +27,7 @@
 - Set up the connectivity between SensorTag and Intel NUC. 
 - Use the Azure CLI to get your IoT hub and SensorTag information for a BLE(Bluetooth Low Energy) sample application. And configure and run the BLE sample application. 
 
-If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-gateway-kit-c-troubleshooting/).
+If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## What you will learn
 
@@ -38,7 +39,7 @@ In this article, you will learn:
 
 You must have successfully completed
 
-- [Create an IoT hub and register SensorTag](/documentation/articles/iot-hub-gateway-kit-c-lesson2-register-device/)
+- [Create an IoT hub and register SensorTag](./iot-hub-gateway-kit-c-lesson2-register-device.md)
 
 ## Clone the sample repository to the host computer
 
@@ -137,7 +138,7 @@ To configure and run the BLE sample application, follow these steps on the host 
    1. Turn on SensorTag.
 
    2. Deploy and run the BLE sample application on Intel NUC by running the following command:
-   
+
       ```bash
       gulp run
       ```
@@ -155,4 +156,4 @@ The sample application keeps collecting temperature data and sent it to your IoT
 You've successfully set up the connectivity between SensorTag and Intel NUC, and run a BLE sample application which collects and sends data from SensorTag to your IoT hub. You're ready to learn how to verify that your IoT hub has received the data.
 
 ## Next steps
-[Read messages from your IoT hub](/documentation/articles/iot-hub-gateway-kit-c-lesson3-read-messages-from-hub/)
+[Read messages from your IoT hub](./iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)

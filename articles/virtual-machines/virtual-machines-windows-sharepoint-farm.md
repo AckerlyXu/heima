@@ -1,32 +1,33 @@
-<properties
-    pageTitle="Create SharePoint server farms in Azure | Azure"
-    description="Quickly create a new SharePoint 2013 or SharePoint 2016 farm in Azure using the Azure portal preview marketplace."
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="JoeDavies-MSFT"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="89b124da-019d-4179-86dd-ad418d05a4f2"
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    wacn.date=""
-    ms.author="josephd"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Create SharePoint server farms in Azure | Azure
+description: Quickly create a new SharePoint 2013 or SharePoint 2016 farm in Azure using the Azure portal preview marketplace.
+services: virtual-machines-windows
+documentationcenter: ''
+author: JoeDavies-MSFT
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 89b124da-019d-4179-86dd-ad418d05a4f2
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/30/2016
+wacn.date: ''
+ms.author: josephd
+ms.custom: H1Hack27Feb2017
+---
 
 # Create SharePoint server farms using the Azure portal preview marketplace
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## SharePoint 2013 farms
 With the Azure portal preview marketplace, you can quickly create pre-configured SharePoint Server 2013 farms. This can save you a lot of time when you need a basic or high-availability SharePoint farm for a dev/test environment or if you are evaluating SharePoint Server 2013 as a collaboration solution for your organization.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The **SharePoint Server Farm** item in the Azure Marketplace of the Azure portal preview has been removed. It has been replaced with the **SharePoint 2013 non-HA Farm** and **SharePoint 2013 HA Farm** items.
 >
 >
@@ -57,14 +58,14 @@ To create the high-availability (nine-server) SharePoint farm:
 3. On the **SharePoint 2013 HA Farm** pane, click **Create**.
 4. Specify settings on the seven steps of the **Create SharePoint 2013 HA Farm** pane, and then click **Create**.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > You cannot create the **SharePoint 2013 non-HA Farm** or **SharePoint 2013 HA Farm** with an Azure Trial.
 >
 >
 
 The Azure portal preview creates both of these farms in a cloud-only virtual network with an Internet-facing web presence. There is no site-to-site VPN or ExpressRoute connection back to your organization network.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When you create the basic or high-availability SharePoint farms using the Azure portal preview, you cannot specify an existing resource group. To work around this limitation, create these farms with Azure PowerShell. For more information, see [Create SharePoint 2013 dev/test farms with Azure PowerShell](https://technet.microsoft.com/zh-cn/library/mt743093.aspx#powershell).
 >
 >
@@ -75,7 +76,7 @@ See [this article](https://technet.microsoft.com/zh-cn/library/mt723354.aspx) fo
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
 ## Managing the SharePoint farms
-You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](/documentation/articles/virtual-machines-windows-quick-create-portal/#connect-to-virtual-machine).
+You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](./virtual-machines-windows-quick-create-portal.md#connect-to-virtual-machine).
 
 From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint](http://technet.microsoft.com/zh-cn/library/ee836142.aspx).
 

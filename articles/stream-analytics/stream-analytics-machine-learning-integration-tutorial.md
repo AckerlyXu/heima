@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure Stream Analytics and Machine Learning integration | Azure"
-    description="How to use a user-defined function and Machine Learning in a Stream Analytics job"
-    keywords=""
-    documentationcenter=""
-    services="stream-analytics"
-    author="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="cfced01f-ccaa-4bc6-81e2-c03d1470a7a2"
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="jeffstok" />
+---
+title: Azure Stream Analytics and Machine Learning integration | Azure
+description: How to use a user-defined function and Machine Learning in a Stream Analytics job
+keywords: ''
+documentationcenter: ''
+services: stream-analytics
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: jeffstok
+---
 
 # Sentiment analysis by using Azure Stream Analytics and Azure Machine Learning
 
@@ -117,13 +118,15 @@ Note the web service URL and access key from the downloaded Excel file, as shown
 
 11. On the **Query** tab, modify the query as follows:    
 
-        WITH sentiment AS (  
-          SELECT text, sentiment(text) as result from datainput  
-        )  
-    
-        Select text, result.[Scored Labels]  
-        Into testoutput  
-        From sentiment  
+    ```
+    WITH sentiment AS (  
+      SELECT text, sentiment(text) as result from datainput  
+    )  
+
+    Select text, result.[Scored Labels]  
+    Into testoutput  
+    From sentiment  
+    ```
 
 12. Click **Save** to save the query.
 
@@ -134,7 +137,7 @@ Note the web service URL and access key from the downloaded Excel file, as shown
 3. Go to the Blob storage by using the tool you used to upload the CSV file, for example, Visual Studio.
 4. A few minutes after the job is started, the output container is created and a CSV file is uploaded to it.  
 5. Open the file in the default CSV editor. Something similar to the following should be displayed:  
-   
+
     ![Stream Analytics Machine Learning, CSV view](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 ## Conclusion
@@ -145,5 +148,5 @@ You also can view Azure Machine Learning function-related metrics. To do this, s
 
 * **Function Requests** indicates the number of requests sent to a Machine Learning web service.  
 * **Function Events** indicates the number of events in the request. By default, each request to a Machine Learning web service contains up to 1,000 events.  
-  
+
     ![Stream Analytics Machine Learning, Machine Learning monitor view](./media/stream-analytics-machine-learning-integration-tutorial/job-monitor.png)

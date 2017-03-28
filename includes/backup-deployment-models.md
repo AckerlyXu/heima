@@ -4,5 +4,5 @@ The Azure Backup service has two types of vaults - the Backup vault and the Reco
 |-----------|------|-----|
 |Classic|[Classic](https://manage.windowsazure.cn)|Backup|
 
-
-> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically-deployed servers and VMs.  
+> [!NOTE]
+> Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically-deployed servers and VMs.

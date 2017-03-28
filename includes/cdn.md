@@ -64,7 +64,7 @@ Azure Service Management API, see the <a href="http://msdn.microsoft.com/en-us/l
     account URI and must be unique among all hosted services in 
     Azure.
 
-	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
+    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
 5.  From the **Region/Affinity Group** drop-down list, select a region or affinity group for the storage account. Select an affinity group instead of a region if you want your storage services to be in the same data center with other Microsoft Azure services that you are using. This can improve performance, and no charges are incurred for egress.  
 
@@ -95,9 +95,8 @@ when the cached content time-to-live period expires.
 
 5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
 
-	The origin domain is the location from which the CDN caches
+    The origin domain is the location from which the CDN caches
     content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. See [How to Manage Expiration of Blob Content](http://msdn.microsoft.com/en-us/library/gg680306.aspx) for more information. 
-
 
     <div class="dev-callout">
     <strong>Note</strong>
@@ -155,7 +154,6 @@ CDN.
   [How to: Manage Storage Accounts for an Azure Subscription]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
   [About the Service Management API]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
   [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
-
 
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png

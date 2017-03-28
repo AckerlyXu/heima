@@ -29,7 +29,9 @@ pageTitle
 description
     115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
 
-    Example: "SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
+```
+Example: "SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
+```
 
 TEMPLATE GUIDELINES for feature topics
 
@@ -50,19 +52,23 @@ DON'T explain this:
 
 GUIDELINES for the H1 
 
-    The H1 should answer the question "What is in this topic?" Write the H1 heading in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
+```
+The H1 should answer the question "What is in this topic?" Write the H1 heading in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
 
-    To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
+To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
 
-    Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:    "Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:    "Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+```
 
 GUIDELINES for introduction
 
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
+```
+The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
 
-    If the introduction is short enough, your article can pop to the top in Google Instant Answers.
+If the introduction is short enough, your article can pop to the top in Google Instant Answers.
 
-    In this example:
+In this example:
+```
 
 Sentence #1 Explains what the article will cover, which is what the feature is or does. This is also the metadata description. 
     SQL Database automatically creates a database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
@@ -85,16 +91,17 @@ This diagram shows SQL Database running in the US East region. It creates a data
 <!---------------
 GUIDELINES for the first ## H2.
 
-    The first ## describes what the feature encompasses and how it is used. It points to related task articles.
+```
+The first ## describes what the feature encompasses and how it is used. It points to related task articles.
 
-    For consistency, being the heading with "What is ... "
+For consistency, being the heading with "What is ... "
+```
 ----------------->
 
 ## What is a SQL Database backup?
 <!-- 
     Explains what a SQL Database backup is and answers an important question that people want to know.
 -->
-
 
 <!----------------- 
     Explains first component of the backup feature
@@ -111,8 +118,8 @@ You can use these backups to:
 * Restore a database to a point-in-time within the retention period. This operation will create a new database in the same server as the original database.
 * Restore a deleted database to the time it was deleted or any time within the retention period. The deleted database can only be restored in the same server where the original database was created.
 * Restore a database to another geographical region. This allows you to recover from a geographic disaster when you cannot access your server and database. It creates a new database in any existing server anywhere in the world. 
-* Restore a database from a specific backup stored in your Azure Recovery Services vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](/documentation/articles/sql-database-long-term-retention/).
-* To perform a restore, see [restore database from backups](/documentation/articles/sql-database-recovery-using-backups/).
+* Restore a database from a specific backup stored in your Azure Recovery Services vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](./sql-database-long-term-retention.md).
+* To perform a restore, see [restore database from backups](./sql-database-recovery-using-backups.md).
 
 <!----------------- 
     Explains first component of the backup feature
@@ -122,8 +129,8 @@ You can use these backups to:
     Explicit list of what to do with a geo-redundant backup. "Use a ..." helps people to scan the topic and find the uses quickly.
 ---------------->
 
->[AZURE.NOTE] In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
-
+>[!NOTE]
+> In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 
 <!----------------
     The next ## H2's discuss key characteristics of how the feature works. The title is in conversational language and asks the question that will be answered.
@@ -138,11 +145,13 @@ The backup storage geo-replication occurs based on the Azure Storage replication
 
 ## How long do you keep my backups?
 
-Each SQL Database backup has a retention period that is based on the [service-tier](/documentation/articles/sql-database-service-tiers/) of the database. The retention period for a database in the:
+Each SQL Database backup has a retention period that is based on the [service-tier](./sql-database-service-tiers.md) of the database. The retention period for a database in the:
 
 <!------------------
 
-    Using a list so the information is easy to find when scanning.
+```
+Using a list so the information is easy to find when scanning.
+```
 ------------------->
 
 * Basic service tier is 7 days.
@@ -155,10 +164,11 @@ If you upgrade your database from the Basic service tier to Standard or Premium,
 
 If you delete a database, SQL Database keeps the backups in the same way it would for an online database. For example, suppose you delete a Basic database that has a retention period of seven days. A backup that is four days old is saved for three more days.
 
-> [AZURE.IMPORTANT] If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
+> [!IMPORTANT]
+> If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
 ## How to extend the backup retention period?
-If your application requires that the backups are available for longer period of time you can extend the built-in retention period by configuring the Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from 35 days to up to 10 years. For more information, see [Long-term retention](/documentation/articles/sql-database-long-term-retention/).
+If your application requires that the backups are available for longer period of time you can extend the built-in retention period by configuring the Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from 35 days to up to 10 years. For more information, see [Long-term retention](./sql-database-long-term-retention.md).
 
 Once you add the LTR policy to a database using Azure Portal or API, the weekly full database backups will be automatically copied to your own Azure Backup Service Vault. If your database is encrypted with TDE the backups are automatically encrypted at rest.  The Services Vault will automatically delete your expired backups based on their timestamp and the LTR policy.  So you don’t need to manage the backup schedule or worry about the cleanup of the old files. 
 The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use Portal or PowerShell to access these backups.
@@ -201,13 +211,13 @@ OPTIONAL section
 <!-------------------
 GUIDELINES for Next Steps
 
-    The last section is Next Steps. Give a next step that would be relevant to the customer after they have learned about the feature and the tasks associated with it.  Perhaps point them to one or two key scenarios that use this feature.
+```
+The last section is Next Steps. Give a next step that would be relevant to the customer after they have learned about the feature and the tasks associated with it.  Perhaps point them to one or two key scenarios that use this feature.
 
-    You don't need to repeat links you have already given them.
+You don't need to repeat links you have already given them.
+```
 --------------------->
 
 ## Next steps
 
-Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](/documentation/articles/sql-database-business-continuity/).
-
-
+Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](./sql-database-business-continuity.md).

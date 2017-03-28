@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Microsoft Azure IoT Suite overview | Azure"
-    description="Overview of how Azure IoT Suite delivers internet of things preconfigured solutions to collect, analyze, and store data, provide visualizations, and integrate with other systems."
-    services=""
-    suite="iot-suite"
-    documentationcenter=""
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="2d38d08a-4133-4e5c-8b28-f93cadb5df05"
-    ms.service="iot-suite"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/15/2017"
-    wacn.date=""
-    ms.author="dobett"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Microsoft Azure IoT Suite overview | Azure
+description: Overview of how Azure IoT Suite delivers internet of things preconfigured solutions to collect, analyze, and store data, provide visualizations, and integrate with other systems.
+services: ''
+suite: iot-suite
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/15/2017
+wacn.date: ''
+ms.author: dobett
+ms.custom: H1Hack27Feb2017
+---
 
 # Overview of Azure IoT Suite
 The Azure internet of things (IoT) services offer a broad range of capabilities. These enterprise grade services enable you to:
@@ -48,12 +49,12 @@ IoT Suite includes preconfigured solutions that enable you to quickly get starte
 Now that you have an overview of what IoT Suite can do and what are its main components, you can learn more about the preconfigured solutions in IoT Suite. For more information, see [What are the Azure IoT preconfigured solutions?][lnk-what-are-preconfig]
 
 [lnk-sdks]: /documentation/articles/iot-hub-sdks-summary/
-[lnk-iot-hub]: /documentation/services/iot-hub/
-[lnk-asa]: /documentation/services/stream-analytics/
-[lnk-azure-storage]: /documentation/services/storage/
-[lnk-document-db]: /documentation/services/documentdb/
+[lnk-iot-hub]: ../iot-hub/index.md
+[lnk-asa]: ../stream-analytics/index.md
+[lnk-azure-storage]: ../storage/index.md
+[lnk-document-db]: ../documentdb/index.md
 [lnk-power-bi]: https://powerbi.microsoft.com/
-[lnk-web-apps]: /documentation/services/app-service/web/
+[lnk-web-apps]: ../app-service-web/index.md
 [iot-suite-what-is-azure-iot]:/documentation/articles/iot-suite/iot-suite-what-is-azure-iot/
 [lnk-what-are-preconfig]:/documentation/articles/iot-suite/iot-suite-what-are-preconfigured-solutions/
-[lnk-device-management]: /documentation/articles/iot-hub-device-management-overview/
+[lnk-device-management]: ../iot-hub/iot-hub-device-management-overview.md

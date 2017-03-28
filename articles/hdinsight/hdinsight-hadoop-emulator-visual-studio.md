@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Data Lake Tools for Visual Studio with Hortonworks Sandbox | Azure"
-    description="Learn how to use the Azure Data Lake Tools for VIsual Studio with the Hortonworks sandbox (running in a local VM.) With these tools, you can create and run Hive and Pig jobs on the sandbox and view job output and history."
-    services="hdinsight"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun" />
-<tags
-    ms.assetid="e3434c45-95d1-4b96-ad4c-fb59870e2ff0"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="02/28/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Azure Data Lake Tools for Visual Studio with Hortonworks Sandbox | Azure
+description: Learn how to use the Azure Data Lake Tools for VIsual Studio with the Hortonworks sandbox (running in a local VM.) With these tools, you can create and run Hive and Pig jobs on the sandbox and view job output and history.
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+
+ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 02/28/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Use the Azure Data Lake Tools for Visual Studio with the Hortonworks Sandbox
 
@@ -25,7 +26,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 ## Prerequisites
 
-* The Hortonworks Sandbox running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox, which was configured using the information in the [Get started in the Hadoop ecosystem](/documentation/articles/hdinsight-hadoop-emulator-get-started/) document.
+* The Hortonworks Sandbox running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox, which was configured using the information in the [Get started in the Hadoop ecosystem](./hdinsight-hadoop-emulator-get-started.md) document.
 
 * Visual Studio 2013, 2015, or 2017 any edition.
 
@@ -35,7 +36,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 ## Configure passwords for the sandbox
 
-Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get started in the Hadoop ecosystem](/documentation/articles/hdinsight-hadoop-emulator-get-started/#set-sandbox-passwords). These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when connecting to the sandbox from Visual Studio.
+Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get started in the Hadoop ecosystem](./hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when connecting to the sandbox from Visual Studio.
 
 ## Connect the tools to the sandbox
 
@@ -61,14 +62,14 @@ Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get
 
     ![Errors and update button](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > The update process uses Ambari to modify the Hortonworks Sandbox configuration to what is expected by the Azure Data Lake tools for Visual Studio.
 
     Once validation has completed, select **Finish** to complete configuration.
 
     ![Finish connecting](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > Depending on the speed of your development environment, and the amount of memory allocated to the virtual machine, it can take several minutes to configure and validate the services.
 
 After following these steps, you now have an "HDInsight local cluster" entry in Server Explorer under the HDInsight section.
@@ -85,7 +86,9 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
 2. In the new query window, enter the following command:
 
-        select count(*) from sample_08;
+    ```
+    select count(*) from sample_08;
+    ```
 
     From the top of the query window, make sure that configuration for the local cluster is selected, and then select **Submit**. Leave the other values (**Batch** and server name) at the default values.
 
@@ -101,7 +104,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
     Once the **Job Status** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by Tez (the default execution engine for Hive on the local cluster.)
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > Tez is also the default when using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight; to use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
 
     Use the **Job Output** link to view the output. In this case, it is **823**; the number of rows in the sample_08 table. You can view diagnostics information about the job by using the **Job Log** and **Download YARN Log** links.
@@ -112,7 +115,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
     An interactive query streams the output log generated during processing to the **HiveServer2 Output** window.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > The information is the same that is available from the **Job Log** link after a job has completed.
 
     ![HiveServer2 output](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)
@@ -139,16 +142,18 @@ While Hive provides a SQL-like language for working with structured data, Pig wo
 
 2. Enter the following text as the contents of the **script.pig** file that was created with this project.
 
-        a = LOAD '/demo/data/Website/Website-Logs' AS (
-            log_id:int,
-            ip_address:chararray,
-            date:chararray,
-            time:chararray,
-            landing_page:chararray,
-            source:chararray);
-        b = FILTER a BY (log_id > 100);
-        c = GROUP b BY ip_address;
-        DUMP c;
+    ```
+    a = LOAD '/demo/data/Website/Website-Logs' AS (
+        log_id:int,
+        ip_address:chararray,
+        date:chararray,
+        time:chararray,
+        landing_page:chararray,
+        source:chararray);
+    b = FILTER a BY (log_id > 100);
+    c = GROUP b BY ip_address;
+    DUMP c;
+    ```
 
     While Pig uses a different language than Hive, how you run the jobs is consistent between both languages through the **Submit** button. Selecting the drop-down beside **Submit** displays an advanced submit dialog for Pig.
 

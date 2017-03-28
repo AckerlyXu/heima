@@ -1,5 +1,4 @@
-> [AZURE.SELECTOR]
-- [Overview](/documentation/articles/sql-database-xevent-db-diff-from-svr/)
-- [Ring Buffer](/documentation/articles/sql-database-xevent-code-ring-buffer/)
-- [Event File](/documentation/articles/sql-database-xevent-code-event-file/)
-
+> [!div class="op_single_selector"]
+>- [Overview](../articles/sql-database/sql-database-xevent-db-diff-from-svr.md)
+>- [Ring Buffer](../articles/sql-database/sql-database-xevent-code-ring-buffer.md)
+>- [Event File](../articles/sql-database/sql-database-xevent-code-event-file.md)

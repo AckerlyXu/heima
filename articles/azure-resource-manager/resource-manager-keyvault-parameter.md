@@ -1,31 +1,32 @@
-<properties
-    pageTitle="Key Vault secret with Resource Manager template | Azure"
-    description="Shows how to pass a secret from a key vault as a parameter during deployment."
-    services="azure-resource-manager,key-vault"
-    documentationcenter="na"
-    author="tfitzmac"
-    manager="timlt"
-    editor="tysonn" />
-<tags
-    ms.assetid="c582c144-4760-49d3-b793-a3e1e89128e2"
-    ms.service="azure-resource-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="12/09/2016"
-    wacn.date=""
-    ms.author="tomfitz" />
+---
+title: Key Vault secret with Resource Manager template | Azure
+description: Shows how to pass a secret from a key vault as a parameter during deployment.
+services: azure-resource-manager,key-vault
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
+
+ms.assetid: c582c144-4760-49d3-b793-a3e1e89128e2
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/09/2016
+wacn.date: ''
+ms.author: tomfitz
+---
 
 # Use Key Vault to pass secure parameter value during deployment
 
-When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](/documentation/articles/key-vault-whatis/). You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. You do not need to manually enter the value for the secret each time you deploy the resources. The key vault can exist in a different subscription than the resource group you are deploying to. When referencing the key vault, you include the subscription ID.
+When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-whatis.md). You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. You do not need to manually enter the value for the secret each time you deploy the resources. The key vault can exist in a different subscription than the resource group you are deploying to. When referencing the key vault, you include the subscription ID.
 
 This topic shows you how to create a key vault and secret, configure access to the secret for a Resource Manager template, and pass the secret as a parameter. If you already have a key vault and secret, but need to check template and user access, go to the [Enable access to the secret](#enable-access-to-the-secret) section. If you already have the key vault and secret, and are sure it is configured for template and user access, go to the [Reference a secret with static id](#reference-a-secret-with-static-id) section. 
 
 ## Deploy a key vault and secret
 
-You can deploy a key vault and secret through a Resource Manager template. For an example, see [Key vault template](/documentation/articles/resource-manager-template-keyvault/) and [Key vault secret template](/documentation/articles/resource-manager-template-keyvault-secret/). When creating the key vault, set the **enabledForTemplateDeployment** property to **true** so it can be referenced from other Resource Manager templates. 
+You can deploy a key vault and secret through a Resource Manager template. For an example, see [Key vault template](./resource-manager-template-keyvault.md) and [Key vault secret template](./resource-manager-template-keyvault-secret.md). When creating the key vault, set the **enabledForTemplateDeployment** property to **true** so it can be referenced from other Resource Manager templates. 
 
 Or, you can create the key vault and secret through the Azure portal preview. 
 
@@ -55,7 +56,7 @@ You have created your key vault and secret.
 
 ## <a name="enable-access-to-the-secret"></a> Enable access to the secret
 
-Whether you are using a new key vault or an existing one, ensure that the user deploying the template can access the secret. The user deploying a template that references a secret must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the key vault. The [Owner](/documentation/articles/role-based-access-built-in-roles/#owner) and [Contributor](/documentation/articles/role-based-access-built-in-roles/#contributor) roles both grant this access. You can also create a [custom role](/documentation/articles/role-based-access-control-custom-roles/) that grants this permission and add the user to that role. Also, you must grant Resource Manager the ability to access the key vault during deployment.
+Whether you are using a new key vault or an existing one, ensure that the user deploying the template can access the secret. The user deploying a template that references a secret must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the key vault. The [Owner](../active-directory/role-based-access-built-in-roles.md#owner) and [Contributor](../active-directory/role-based-access-built-in-roles.md#contributor) roles both grant this access. You can also create a [custom role](../active-directory/role-based-access-control-custom-roles.md) that grants this permission and add the user to that role. Also, you must grant Resource Manager the ability to access the key vault during deployment.
 
 You can check or perform these steps through the portal.
 
@@ -79,57 +80,61 @@ You can check or perform these steps through the portal.
 
 You reference the secret from within a **parameters file (not the template)** that passes values to your template. You reference the secret by passing the resource identifier of the key vault and the name of the secret. In the following example, the key vault secret must already exist, and you provide a static value for its resource ID.
 
-    {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "sqlsvrAdminLoginPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-              },
-              "secretName": "adminPassword"
-            }
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "sqlsvrAdminLoginPassword": {
+        "reference": {
+          "keyVault": {
+            "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
           },
-          "sqlsvrAdminLogin": {
-            "value": "exampleadmin"
-          }
+          "secretName": "adminPassword"
         }
+      },
+      "sqlsvrAdminLogin": {
+        "value": "exampleadmin"
+      }
     }
+}
+```
 
 In the template, the parameter that accepts the secret should be a **securestring**. The following example shows the relevant sections of a template that deploys a SQL server that requires an administrator password.
 
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "sqlsvrAdminLogin": {
-                "type": "string",
-                "minLength": 4
-            },
-            "sqlsvrAdminLoginPassword": {
-                "type": "securestring"
-            },
-            ...
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlsvrAdminLogin": {
+            "type": "string",
+            "minLength": 4
         },
-        "resources": [
-            {
-              "name": "[variables('sqlsvrName')]",
-              "type": "Microsoft.Sql/servers",
-              "location": "[resourceGroup().location]",
-              "apiVersion": "2014-04-01-preview",
-              "properties": {
-                  "administratorLogin": "[parameters('sqlsvrAdminLogin')]",
-                  "administratorLoginPassword": "[parameters('sqlsvrAdminLoginPassword')]"
-              },
-              ...
-            }
-        ],
-        "variables": {
-            "sqlsvrName": "[concat('sqlsvr', uniqueString(resourceGroup().id))]"
+        "sqlsvrAdminLoginPassword": {
+            "type": "securestring"
         },
-        "outputs": { }
-    }
+        ...
+    },
+    "resources": [
+        {
+          "name": "[variables('sqlsvrName')]",
+          "type": "Microsoft.Sql/servers",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "properties": {
+              "administratorLogin": "[parameters('sqlsvrAdminLogin')]",
+              "administratorLoginPassword": "[parameters('sqlsvrAdminLoginPassword')]"
+          },
+          ...
+        }
+    ],
+    "variables": {
+        "sqlsvrName": "[concat('sqlsvr', uniqueString(resourceGroup().id))]"
+    },
+    "outputs": { }
+}
+```
 
 ## Reference a secret with dynamic id
 
@@ -137,44 +142,46 @@ The previous section showed how to pass a static resource ID for the key vault s
 
 To dynamically generate the resource ID for a key vault secret, you must move the resource that needs the secret into a nested template. In your master template, you add the nested template and pass in a parameter that contains the dynamically generated resource ID.
 
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "vaultName": {
+        "type": "string"
+      },
+      "secretName": {
+        "type": "string"
+      }
+    },
+    "resources": [
     {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "vaultName": {
-            "type": "string"
-          },
-          "secretName": {
-            "type": "string"
-          }
+      "apiVersion": "2015-01-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "https://www.contoso.com/AzureTemplates/newVM.json",
+          "contentVersion": "1.0.0.0"
         },
-        "resources": [
-        {
-          "apiVersion": "2015-01-01",
-          "name": "nestedTemplate",
-          "type": "Microsoft.Resources/deployments",
-          "properties": {
-            "mode": "incremental",
-            "templateLink": {
-              "uri": "https://www.contoso.com/AzureTemplates/newVM.json",
-              "contentVersion": "1.0.0.0"
-            },
-            "parameters": {
-              "adminPassword": {
-                "reference": {
-                  "keyVault": {
-                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.KeyVault/vaults/', parameters('vaultName'))]"
-                  },
-                  "secretName": "[parameters('secretName')]"
-                }
-              }
+        "parameters": {
+          "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "[concat(resourceGroup().id, '/providers/Microsoft.KeyVault/vaults/', parameters('vaultName'))]"
+              },
+              "secretName": "[parameters('secretName')]"
             }
           }
-        }],
-        "outputs": {}
-    }
+        }
+      }
+    }],
+    "outputs": {}
+}
+```
 
 ## Next steps
-* For general information about key vaults, see [Get started with Azure Key Vault](/documentation/articles/key-vault-get-started/).
-* For information about using a key vault with a Virtual Machine, see [Security considerations for Azure Resource Manager](/documentation/articles/best-practices-resource-manager-security/).
+* For general information about key vaults, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
+* For information about using a key vault with a Virtual Machine, see [Security considerations for Azure Resource Manager](./best-practices-resource-manager-security.md).
 * For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

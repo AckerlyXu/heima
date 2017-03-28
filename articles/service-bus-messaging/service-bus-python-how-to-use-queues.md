@@ -1,31 +1,31 @@
-<properties 
-	pageTitle="How to use Service Bus queues with Python | Azure" 
-	description="Learn how to use Azure Service Bus queues from Python." 
-	services="service-bus" 
-	documentationCenter="python" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+---
+title: How to use Service Bus queues with Python | Azure
+description: Learn how to use Azure Service Bus queues from Python.
+services: service-bus
+documentationCenter: python
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="01/11/2017" 
-	ms.author="sethm;lmazuel"/>
-
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: article
+ms.date: 01/11/2017
+ms.author: sethm;lmazuel
+---
 
 # How to use Service Bus queues
 
-[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 This article describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure Service Bus package][]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.
 
-[AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-> [AZURE.NOTE] To install Python or the [Python Azure Service Bus package][], see the [Python Installation Guide](/documentation/articles/python-how-to-install/).
+> [!NOTE]
+> To install Python or the [Python Azure Service Bus package][], see the [Python Installation Guide](../python-how-to-install.md).
 
 ## Create a queue
 
@@ -39,9 +39,9 @@ The following code creates a **ServiceBusService** object. Replace `mynamespace`
 
 ```
 bus_service = ServiceBusService(
-	service_namespace='mynamespace',
-	shared_access_key_name='sharedaccesskeyname',
-	shared_access_key_value='sharedaccesskey')
+    service_namespace='mynamespace',
+    shared_access_key_name='sharedaccesskeyname',
+    shared_access_key_value='sharedaccesskey')
 ```
 
 The values for the SAS key name and value can be found in the [Azure classic portal][] connection information, or in the Visual Studio **Properties** pane when selecting the Service Bus namespace in Server Explorer (as shown in the previous section).
@@ -71,7 +71,7 @@ msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-Service Bus queues support a maximum message size of 256 KB in the [Standard tier](/documentation/articles/service-bus-premium-messaging/) and 1 MB in the [Premium tier](/documentation/articles/service-bus-premium-messaging/). The header, which includes the standard and custom application properties, can have
+Service Bus queues support a maximum message size of 256 KB in the [Standard tier](./service-bus-premium-messaging.md) and 1 MB in the [Premium tier](./service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Service Bus quotas][].
 
 ## Receive messages from a queue
@@ -111,6 +111,5 @@ Now that you have learned the basics of Service Bus queues, see these articles t
 
 [Azure classic portal]: http://manage.windowsazure.cn
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
-[Queues, Topics, and Subscriptions]: /documentation/articles/service-bus-queues-topics-subscriptions/
-[Service Bus quotas]: /documentation/articles/service-bus-quotas/
- 
+[Queues, Topics, and Subscriptions]: ./service-bus-queues-topics-subscriptions.md
+[Service Bus quotas]: ./service-bus-quotas.md

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Use Azure Backup to replace your tape infrastructure | Azure"
-    description="Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure"
-    services="backup"
-    documentationcenter=""
-    author="trinadhk"
-    manager="vijayts"
-    editor="" />
-<tags
-    ms.assetid="2e1bb67d-986c-4437-8056-3a63169b4214"
-    ms.service="backup"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="1/10/2017"
-    wacn.date=""
-    ms.author="saurse;trinadhk;markgal" />
+---
+title: Use Azure Backup to replace your tape infrastructure | Azure
+description: Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure
+services: backup
+documentationcenter: ''
+author: trinadhk
+manager: vijayts
+editor: ''
+
+ms.assetid: 2e1bb67d-986c-4437-8056-3a63169b4214
+ms.service: backup
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 1/10/2017
+wacn.date: ''
+ms.author: saurse;trinadhk;markgal
+---
 
 # Use Azure Backup to replace your tape infrastructure
 Azure Backup and System Center Data Protection Manager customers can:
@@ -59,7 +60,7 @@ The total number of “retention points” (points from which a customer can res
 
 The total number of recovery points is 56.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Azure backup doesn't have a restriction on number of recovery points.
 >
 >
@@ -72,5 +73,5 @@ By clicking **Modify** in the preceding screen, customers have further flexibili
 ## Next Steps
 For more information about Azure Backup, see:
 
-- [Introduction to Azure Backup](/documentation/articles/backup-introduction-to-azure-backup/)
-- [Try Azure Backup](/documentation/articles/backup-try-azure-backup-in-10-mins/)
+- [Introduction to Azure Backup](./backup-introduction-to-azure-backup.md)
+- [Try Azure Backup](./backup-try-azure-backup-in-10-mins.md)

@@ -1,36 +1,37 @@
-<properties
-    pageTitle="Create an Internet-facing load balancer - Azure portal preview classic | Azure"
-    description="Learn how to create an Internet facing load balancer in classic deployment model using the Azure Classic Management Portal"
-    services="load-balancer"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="fa3e93c0-968a-472d-a17c-65665c050db2"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Create an Internet-facing load balancer - Azure portal preview classic | Azure
+description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure Classic Management Portal
+services: load-balancer
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: ''
+tags: azure-service-management
+
+ms.assetid: fa3e93c0-968a-472d-a17c-65665c050db2
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: kumud
+---
 
 # Get started creating an Internet facing load balancer (classic) in the Azure Classic Management Portal
-> [AZURE.SELECTOR]
-- [Azure Classic Management Portal](/documentation/articles/load-balancer-get-started-internet-classic-portal/)
-- [PowerShell](/documentation/articles/load-balancer-get-started-internet-classic-ps/)
-- [Azure CLI](/documentation/articles/load-balancer-get-started-internet-classic-cli/)
-- [Azure Cloud Services](/documentation/articles/load-balancer-get-started-internet-classic-cloud/)
+> [!div class="op_single_selector"]
+>- [Azure Classic Management Portal](./load-balancer-get-started-internet-classic-portal.md)
+>- [PowerShell](./load-balancer-get-started-internet-classic-ps.md)
+>- [Azure CLI](./load-balancer-get-started-internet-classic-cli.md)
+>- [Azure Cloud Services](./load-balancer-get-started-internet-classic-cloud.md)
 
-[AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
+[!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-> [AZURE.IMPORTANT]
-> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](/documentation/articles/azure-classic-rm/) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](/documentation/articles/load-balancer-get-started-internet-arm-ps/).
+> [!IMPORTANT]
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-classic-rm.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](./load-balancer-get-started-internet-arm-ps.md).
 
-[AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
+[!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## Set up an Internet-facing load balancer for virtual machines
 
@@ -58,8 +59,8 @@ For the additional virtual machines in the load-balanced set, repeat steps 8-10.
 
 ## Next steps
 
-[Get started configuring an internal load balancer](/documentation/articles/load-balancer-get-started-ilb-arm-ps/)
+[Get started configuring an internal load balancer](./load-balancer-get-started-ilb-arm-ps.md)
 
-[Configure a load balancer distribution mode](/documentation/articles/load-balancer-distribution-mode/)
+[Configure a load balancer distribution mode](./load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](/documentation/articles/load-balancer-tcp-idle-timeout/)
+[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="The Azure IoT device SDK for C | Azure"
-    description="Get started with the Azure IoT device SDK for C and learn how to create device apps that communicate with an IoT hub."
-    services="iot-hub"
-    documentationcenter=""
-    author="olivierbloch"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="e448b061-6bdd-470a-a527-15ec03cca7b9"
-    ms.service="iot-hub"
-    ms.devlang="cpp"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/06/2016"
-    wacn.date=""
-    ms.author="obloch" />
+---
+title: The Azure IoT device SDK for C | Azure
+description: Get started with the Azure IoT device SDK for C and learn how to create device apps that communicate with an IoT hub.
+services: iot-hub
+documentationcenter: ''
+author: olivierbloch
+manager: timlt
+editor: ''
+
+ms.assetid: e448b061-6bdd-470a-a527-15ec03cca7b9
+ms.service: iot-hub
+ms.devlang: cpp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/06/2016
+wacn.date: ''
+ms.author: obloch
+---
 
 # Azure IoT device SDK for C
 The **Azure IoT device SDK** is a set of libraries designed to simplify the process of sending events and receiving messages from the **Azure IoT Hub** service. There are different variations of the SDK, each targeting a specific platform, but this article describes the **Azure IoT device SDK for C**.
@@ -71,20 +72,19 @@ The following are a few tips to help you complete the procedure described in the
 
   ![](./media/iot-hub-device-sdk-c-intro/08-CMake.PNG)
 
-
 -   Before you open the **Developer Command Prompt for VS2015**, install the Git command-line tools. To install these tools, complete the following steps:
 
- 	1. Launch the **Microsoft Visual Studio 2015** setup program (or chose **Microsoft Visual Studio 2015** from the **Programs and Features** control panel and select **Change**).
-	
-	2. Make sure the **Git for Windows** feature is selected in the installer but you may also want to check the **GitHub Extension for Visual Studio** option to provide IDE integration:
+     1. Launch the **Microsoft Visual Studio 2015** setup program (or chose **Microsoft Visual Studio 2015** from the **Programs and Features** control panel and select **Change**).
 
-  		![](./media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
+    2. Make sure the **Git for Windows** feature is selected in the installer but you may also want to check the **GitHub Extension for Visual Studio** option to provide IDE integration:
 
-	3. Complete the setup wizard to install the tools.
+          ![](./media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
 
-	4. Add the Git tools **bin** directory to the system **PATH** environment variable. On Windows, this looks like the following:
+    3. Complete the setup wizard to install the tools.
 
-  		![](./media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
+    4. Add the Git tools **bin** directory to the system **PATH** environment variable. On Windows, this looks like the following:
+
+          ![](./media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
 
 When you have completed all the steps described in the ["Prepare your development environment"](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) page, you're ready to compile the sample applications.
 
@@ -152,7 +152,7 @@ You can find the implementation for the sample application in the **iothub\_clie
 We'll use this sample application to walk you through what’s required to use the **IoTHubClient** library.
 
 ### Initializing the library
-> [AZURE.NOTE]
+> [!NOTE]
 > Before you start working with the libraries, you may need to perform some platform specific initialization. For example, if you plan to use AMQP on Linux you must initialize the OpenSSL library. The samples in the [GitHub repository](https://github.com/Azure/azure-iot-sdk-c) call the utility function **platform_init** when the client starts and call the **platform_deinit** function before exiting. These functions are declared in the "platform.h" header file. You should examine the definitions of these functions for your target platform in the [repository](https://github.com/Azure/azure-iot-sdk-c) to determine whether you need to include any platform initialization code in your client.
 > 
 > 
@@ -456,7 +456,7 @@ Each of these three functions aligns with the three initialization functions des
 
 ## Next Steps
 
-This article covered the basics of using the libraries in the **Azure IoT device SDK for C**. It provided you with enough information to understand what’s included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](/documentation/articles/iot-hub-device-sdk-c-iothubclient/).
+This article covered the basics of using the libraries in the **Azure IoT device SDK for C**. It provided you with enough information to understand what’s included in the SDK, its architecture, and how to get started working with the Windows samples. The next article continues the description of the SDK by explaining [more about the IoTHubClient library](./iot-hub-device-sdk-c-iothubclient.md).
 
 To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
@@ -464,10 +464,9 @@ To further explore the capabilities of IoT Hub, see:
 
 - [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
+[lnk-file upload]: ./iot-hub-csharp-csharp-file-upload.md
+[lnk-create-hub]: ./iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-file upload]: /documentation/articles/iot-hub-csharp-csharp-file-upload/
-[lnk-create-hub]: /documentation/articles/iot-hub-rm-template-powershell/
-[lnk-c-sdk]: /documentation/articles/iot-hub-device-sdk-c-intro/
-[lnk-sdks]: /documentation/articles/iot-hub-devguide-sdks/
-
-[lnk-gateway]: /documentation/articles/iot-hub-linux-gateway-sdk-simulated-device/
+[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md

@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Change the key vault tenant ID after a subscription move | Azure"
-    description="Learn how to switch the tenant ID for a key vault after a subscription is moved to a different tenant"
-    services="key-vault"
-    documentationcenter=""
-    author="amitbapat"
-    manager="mbaldwin"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="46d7bc21-fa79-49e4-8c84-032eef1d813e"
-    ms.service="key-vault"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="ambapat" />
+---
+title: Change the key vault tenant ID after a subscription move | Azure
+description: Learn how to switch the tenant ID for a key vault after a subscription is moved to a different tenant
+services: key-vault
+documentationcenter: ''
+author: amitbapat
+manager: mbaldwin
+tags: azure-resource-manager
+
+ms.assetid: 46d7bc21-fa79-49e4-8c84-032eef1d813e
+ms.service: key-vault
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: ambapat
+---
 
 # Change a key vault tenant ID after a subscription move
 ### Q: My subscription was moved from tenant A to tenant B. How do I change the tenant ID for my existing key vault and set correct ACLs for principals in tenant B?
@@ -41,4 +42,3 @@ Now that your vault is associated with the correct tenant ID and old access poli
 
 ## Next steps
 If you have questions about Azure Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=AzureKeyVault).
-

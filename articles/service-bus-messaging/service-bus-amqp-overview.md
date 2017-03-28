@@ -1,22 +1,20 @@
-<properties 
-	pageTitle="Service Bus AMQP overview | Azure" 
-	description="Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Service Bus AMQP overview | Azure
+description: Learn about using the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure.
+services: service-bus
+documentationCenter: .net
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/29/2016" 
-	ms.author="sethm"/>
-
-
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 09/29/2016
+ms.author: sethm
+---
 
 # AMQP 1.0 support in Service Bus
 
@@ -100,9 +98,9 @@ Ready to learn more? Visit the following links:
 - [AMQP in Service Bus for Windows Server]
 
 [0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
-[Using Service Bus from .NET with AMQP]: /documentation/articles/service-bus-amqp-dotnet/
-[Using Service Bus from Java with AMQP]: /documentation/articles/service-bus-amqp-java/
-[Using Service Bus from Python with AMQP]: /documentation/articles/service-bus-amqp-python/
-[Using Service Bus from PHP with AMQP]: /documentation/articles/service-bus-amqp-php/
-[Installing Apache Qpid Proton-C on an Azure Linux VM]: /documentation/articles/service-bus-amqp-apache/
+[Using Service Bus from .NET with AMQP]: ./service-bus-amqp-dotnet.md
+[Using Service Bus from Java with AMQP]: ./service-bus-amqp-java.md
+[Using Service Bus from Python with AMQP]: ./service-bus-amqp-python.md
+[Using Service Bus from PHP with AMQP]: ./service-bus-amqp-php.md
+[Installing Apache Qpid Proton-C on an Azure Linux VM]: ./service-bus-amqp-apache.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/zh-cn/library/dn574799.aspx

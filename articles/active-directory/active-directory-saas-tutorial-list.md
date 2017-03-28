@@ -1,16 +1,16 @@
-<properties
-   pageTitle="List of Tutorials for SaaS App Integrations with Azure AD | Windows Azure"
-   description="Tutorials on how to configure Azure Active Directory single sign-on for a variety of third-party SaaS applications."
-   services="active-directory"
-   documentationCenter=""
-    authors="markusvi"
-    manager="stevenpo"
-   editor=""/>
+---
+title: List of Tutorials for SaaS App Integrations with Azure AD | Windows Azure
+description: Tutorials on how to configure Azure Active Directory single sign-on for a variety of third-party SaaS applications.
+services: active-directory
+documentationCenter: ''
+authors: markusvi
+manager: stevenpo
+editor: ''
 
-<tags
-   ms.service="active-directory"
-    ms.date="12/21/2015"
-   wacn.date=""/>
+ms.service: active-directory
+ms.date: 12/21/2015
+wacn.date: ''
+---
 
 #List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
 
@@ -165,9 +165,4 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler](https://go.microsoft.com/fwLink/?LinkID=510254&clcid=0x409)|
 ##See Also
 
-
-
-
-
-
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+[!INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]

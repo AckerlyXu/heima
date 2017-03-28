@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Manage your two-step verification settings | Azure"
-    description="Manage how you use Azure Multi-Factor Authentication including changing your contact information or configuring your devices."
-    services="multi-factor-authentication"
-    keywords="multifactor authentication client, authentication problem, correlation ID"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="yossib" />
-<tags
-    ms.assetid="d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/15/2016"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Manage your two-step verification settings | Azure
+description: Manage how you use Azure Multi-Factor Authentication including changing your contact information or configuring your devices.
+services: multi-factor-authentication
+keywords: multifactor authentication client, authentication problem, correlation ID
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: yossib
+
+ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2016
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Manage your settings for two-step verification
-This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](/documentation/articles/multi-factor-authentication-end-user-troubleshoot/) for troubleshooting help.
+This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](./multi-factor-authentication-end-user-troubleshoot.md) for troubleshooting help.
 
 ## Where to find the settings page
 Depending on how your company set up Azure Multi-Factor Authentication, there are a few places where you can change your settings like your phone number.
@@ -38,8 +39,8 @@ If your IT admin sent out a specific URL or steps to manage two-step verificatio
 ## I want to change my phone number, or add a secondary number
 It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
 
-> [AZURE.NOTE]
-> If you don't have access to your primary phone number, and need help getting in to your account, see our help topics in [Having trouble with two-step verification](/documentation/articles/multi-factor-authentication-end-user-troubleshoot/).  
+> [!NOTE]
+> If you don't have access to your primary phone number, and need help getting in to your account, see our help topics in [Having trouble with two-step verification](./multi-factor-authentication-end-user-troubleshoot.md).  
 
 **To change your primary phone number:**  
 
@@ -57,5 +58,5 @@ It is important to configure a secondary authentication phone number.  Because y
 When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](/documentation/articles/microsoft-authenticator-app-how-to/).
 
 ## Next steps
-- Get troubleshooting tips and help on [Having trouble with two-step verification](/documentation/articles/multi-factor-authentication-end-user-troubleshoot/)
-- Set up [app passwords](/documentation/articles/multi-factor-authentication-end-user-app-passwords/) for any apps that don't support two-step verification.
+- Get troubleshooting tips and help on [Having trouble with two-step verification](./multi-factor-authentication-end-user-troubleshoot.md)
+- Set up [app passwords](./multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-step verification.

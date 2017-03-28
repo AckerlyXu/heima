@@ -1,20 +1,21 @@
-<properties
-pageTitle="How to update a cloud service | Azure"
-description="Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability."
-services="cloud-services"
-documentationCenter=""
-authors="Thraka"
-manager="timlt"
-editor=""/>
-<tags
-ms.service="cloud-services"
-ms.workload="tbd"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="11/14/2016"
-ms.author="adegeo"
-wacn.date=""/>
+---
+title: How to update a cloud service | Azure
+description: Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability.
+services: cloud-services
+documentationCenter: ''
+authors: Thraka
+manager: timlt
+editor: ''
+
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/14/2016
+ms.author: adegeo
+wacn.date: ''
+---
 
 # How to update a cloud service
 
@@ -29,7 +30,8 @@ The default number of upgrade domains is 5. You can specify a different number o
 
 When you perform an in-place update of one or more roles in your service, Azure updates sets of role instances according to the upgrade domain to which they belong. Azure updates all of the instances in a given upgrade domain – stopping them, updating them, bringing them back on-line – then moves onto the next domain. By stopping only the instances running in the current upgrade domain, Azure makes sure that an update occurs with the least possible impact to the running service. For more information, see [How the update proceeds](#howanupgradeproceeds) later in this article.
 
-> [AZURE.NOTE] While the terms **update** and **upgrade** have slightly different meaning in the context Azure, they can be used interchangeably for the processes and descriptions of the features in this document.
+> [!NOTE]
+> While the terms **update** and **upgrade** have slightly different meaning in the context Azure, they can be used interchangeably for the processes and descriptions of the features in this document.
 
 Your service must define at least two instances of a role for that role to be updated in-place without downtime. If the service consists of only one instance of one role, your service will be unavailable until the in-place update has finished.
 
@@ -63,8 +65,8 @@ The following table shows the allowed changes to a service during an update:
 
 <sup>2</sup>Requires Azure SDK 1.5 or later versions.
 
-> [AZURE.WARNING] Changing the virtual machine size will destroy local data.
-
+> [!WARNING]
+> Changing the virtual machine size will destroy local data.
 
 The following items are not supported during an update:
 
@@ -111,7 +113,8 @@ To minimize the downtime when upgrading a single-instance service, deploy a new 
 ## Rollback of an update
 Azure provides flexibility in managing services during an update by letting you initiate additional operations on a service, after the initial update request is accepted by the Azure Fabric Controller. A rollback can only be performed when an update (configuration change) or upgrade is in the **in progress** state on the deployment. An update or upgrade is considered to be in-progress as long as there is at least one instance of the service which has not yet been updated to the new version. To test whether a rollback is allowed, check the value of the RollbackAllowed flag, returned by [Get Deployment](https://msdn.microsoft.com/zh-cn/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/zh-cn/library/azure/ee460806.aspx) operations, is set to true.
 
-> [AZURE.NOTE] It only makes sense to call Rollback on an **in-place** update or upgrade because VIP swap upgrades involve replacing one entire running instance of your service with another.
+> [!NOTE]
+> It only makes sense to call Rollback on an **in-place** update or upgrade because VIP swap upgrades involve replacing one entire running instance of your service with another.
 
 Rollback of an in-progress update has the following effects on the deployment:
 
@@ -153,7 +156,7 @@ In order to call the version of these methods which returns the Locked flag, you
 
 <a name="distributiondfroles"></a>
 ## Distribution of roles across upgrade domains
-Azure distributes instances of a role evenly across a set number of upgrade domains, which can be configured as part of the service definition (.csdef) file. The max number of upgrade domains is 20 and the default is 5. For more information about how to modify the service definition file, see [Azure Service Definition Schema (.csdef File)](/documentation/articles/cloud-services-model-and-package/#csdef).
+Azure distributes instances of a role evenly across a set number of upgrade domains, which can be configured as part of the service definition (.csdef) file. The max number of upgrade domains is 20 and the default is 5. For more information about how to modify the service definition file, see [Azure Service Definition Schema (.csdef File)](./cloud-services-model-and-package.md#csdef).
 
 For example, if your role has ten instances, by default each upgrade domain contains two instances. If your role has 14 instances, then four of the upgrade domains contain three instances, and a fifth domain contains two.
 
@@ -163,9 +166,10 @@ The following diagram illustrates how a service than contains two roles are dist
 
 ![Distribution of Upgrade Domains](media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
 
-> [AZURE.NOTE] Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
+> [!NOTE]
+> Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
 
 ## Next steps
-[How to Manage Cloud Services](/documentation/articles/cloud-services-how-to-manage/)
-[How to Monitor Cloud Services](/documentation/articles/cloud-services-how-to-monitor/)
-[How to Configure Cloud Services](/documentation/articles/cloud-services-how-to-configure/)
+[How to Manage Cloud Services](./cloud-services-how-to-manage.md)
+[How to Monitor Cloud Services](./cloud-services-how-to-monitor.md)
+[How to Configure Cloud Services](./cloud-services-how-to-configure.md)

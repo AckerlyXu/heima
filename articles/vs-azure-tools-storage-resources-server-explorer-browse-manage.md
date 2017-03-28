@@ -1,27 +1,27 @@
-<properties
-   pageTitle="Browsing and managing storage resources with Server Explorer | Azure"
-   description="Browsing and managing storage resources with Server Explorer"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
-   editor="" />
-<tags
-   ms.service="storage"
-   ms.date="07/18/2016"
-   wacn.date="" />
+---
+title: Browsing and managing storage resources with Server Explorer | Azure
+description: Browsing and managing storage resources with Server Explorer
+services: visual-studio-online
+documentationCenter: na
+authors: TomArcher
+manager: douge
+editor: ''
+
+ms.service: storage
+ms.date: 07/18/2016
+wacn.date: ''
+---
 
 # Browsing and Managing Storage Resources with Server Explorer
 
-[AZURE.INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
+[!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
 ## Overview
 If you've installed the Azure Tools for Microsoft Visual Studio, you can view blob, queue, and table data from your storage accounts for Azure. The Azure Storage node in Server Explorer shows data that’s in your local storage emulator account and your other Azure storage accounts.
 
 To view Server Explorer in Visual Studio, on the menu bar, choose **View**, **Server Explorer**. The storage node shows all of the storage accounts that exist under each Azure subscription/certificate you're connected to. If your storage account doesn't appear, you can add it by following the instructions [later in this topic](#add-storage-accounts-by-using-server-explorer).
 
-Starting in Azure SDK 2.7, you can also use the new Cloud Explorer to view and manage your Azure resources. See [Managing Azure Resources with Cloud Explorer](/documentation/articles/vs-azure-tools-resources-managing-with-cloud-explorer/) for more information.
-
+Starting in Azure SDK 2.7, you can also use the new Cloud Explorer to view and manage your Azure resources. See [Managing Azure Resources with Cloud Explorer](./vs-azure-tools-resources-managing-with-cloud-explorer.md) for more information.
 
 ## View and manage storage resources in Visual Studio
 
@@ -39,7 +39,7 @@ To view resources in a storage account, expand the storage account’s node in S
 
 ## Work with Blob Resources
 
-The Blobs node displays a list of containers for the selected storage account. Blob containers contain blob files, and you can organize these blobs into folders and subfolders. See [How to use Blob Storage from .NET](/documentation/articles/storage-dotnet-how-to-use-blobs/) for more information.
+The Blobs node displays a list of containers for the selected storage account. Blob containers contain blob files, and you can organize these blobs into folders and subfolders. See [How to use Blob Storage from .NET](./storage/storage-dotnet-how-to-use-blobs.md) for more information.
 
 ### To create a blob container
 
@@ -49,7 +49,8 @@ The Blobs node displays a list of containers for the selected storage account. B
 
     ![Adding a new blob container](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
-    >[AZURE.NOTE] The blob container name must begin with a number (0-9) or lowercase letter (a-z).
+    >[!NOTE]
+    > The blob container name must begin with a number (0-9) or lowercase letter (a-z).
 
 ### To delete a blob container
 
@@ -73,7 +74,8 @@ The Blobs node displays a list of containers for the selected storage account. B
 
     - Delete a blob
 
-      >[AZURE.NOTE] Deleting a file from a blob container doesn’t delete the underlying file; it only removes it from the blob container.
+      >[!NOTE]
+      > Deleting a file from a blob container doesn’t delete the underlying file; it only removes it from the blob container.
 
     - Open a blob
 
@@ -97,7 +99,8 @@ The Blobs node displays a list of containers for the selected storage account. B
 
  - Delete all of the files in the folder
 
-    >[AZURE.NOTE] Because folders in blob containers are virtual folders, you can’t create an empty folder, nor can you delete a folder to delete its file contents. You have to delete the entire contents of a folder to delete the folder.
+    >[!NOTE]
+    > Because folders in blob containers are virtual folders, you can’t create an empty folder, nor can you delete a folder to delete its file contents. You have to delete the entire contents of a folder to delete the folder.
 
 ### To filter blobs in a container
 
@@ -107,8 +110,8 @@ For example, if you enter the prefix `hello` in the filter text box and then cho
 
 ![VST_SE_FilterBlobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
-
->[AZURE.NOTE] The filter field is case-sensitive and doesn’t support filtering with wildcard characters. Blobs can only be filtered by prefix. The prefix may include a delimiter if you are using a delimiter to organize blobs in a virtual hierarchy. For example, filtering on the prefix HelloFabric/ returns all blobs beginning with that string.
+>[!NOTE]
+> The filter field is case-sensitive and doesn’t support filtering with wildcard characters. Blobs can only be filtered by prefix. The prefix may include a delimiter if you are using a delimiter to organize blobs in a virtual hierarchy. For example, filtering on the prefix HelloFabric/ returns all blobs beginning with that string.
 
 ### To download blob data
 
@@ -162,7 +165,8 @@ The following image shows a queue that contains two messages.
 
 For more information about storage services queues, see [How to: Use the Queue Storage Service](http://go.microsoft.com/fwlink/?LinkID=264702). For information about the web service for storage services queues, see [Queue Service Concepts](http://go.microsoft.com/fwlink/?LinkId=264788). For information about how to send messages to a storage services queue by using Visual Studio, see [Sending Messages to a Storage Services Queue](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
->[AZURE.NOTE] Storage services queues are distinct from service bus queues. For more information about service bus queues, see Service Bus Queues, Topics, and Subscriptions.
+>[!NOTE]
+> Storage services queues are distinct from service bus queues. For more information about service bus queues, see Service Bus Queues, Topics, and Subscriptions.
 
 ## Work with Table Resources
 
@@ -307,7 +311,8 @@ There are two ways to add storage accounts by using Server Explorer. You can cre
 
 - In Server Explorer, open the shortcut menu for the account name, and then choose **Delete**. If you delete a storage account, any saved key information for that account is also removed.
 
-    >[AZURE.NOTE] If you delete a storage account from Server Explorer, it doesn’t affect your storage account or any data that it contains; it simply removes the reference from Server Explorer. To permanently delete a storage account, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+    >[!NOTE]
+    > If you delete a storage account from Server Explorer, it doesn’t affect your storage account or any data that it contains; it simply removes the reference from Server Explorer. To permanently delete a storage account, use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
 ## Next steps
 

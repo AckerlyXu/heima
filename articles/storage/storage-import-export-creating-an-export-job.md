@@ -1,22 +1,22 @@
-<properties
-    pageTitle="Create an Export Job for Azure Import/Export | Azure"
-    description="Learn how to create an export job for the Microsoft Azure Import/Export service"
-    author="muralikk"
-    manager="syadav"
-    editor="tysonn"
-    services="storage"
-    documentationcenter="" />
-<tags
-    ms.assetid="613d480b-a8ef-4b28-8f54-54174d59b3f4"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="muralikk" />
+---
+title: Create an Export Job for Azure Import/Export | Azure
+description: Learn how to create an export job for the Microsoft Azure Import/Export service
+author: muralikk
+manager: syadav
+editor: tysonn
+services: storage
+documentationcenter: ''
 
+ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: muralikk
+---
 
 # Creating an export job for the Azure Import/Export service
 Creating an export job for the Azure Import/Export service using the REST API involves the following steps:
@@ -33,7 +33,7 @@ Creating an export job for the Azure Import/Export service using the REST API in
 
 -   Receiving the drives back from Microsoft.
 
- See [Using the Azure Import/Export service to Transfer Data to Blob Storage](/documentation/articles/storage-import-export-service/) for an overview of the Import/Export service and a tutorial that demonstrates how to use the [Azure portal](https://portal.azure.cn/) to create and manage import and export jobs.
+ See [Using the Azure Import/Export service to Transfer Data to Blob Storage](./storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the [Azure portal](https://portal.azure.cn/) to create and manage import and export jobs.
 
 ## Selecting Blobs to Export
  To create an export job, you will need to provide a list of blobs that you want to export from your storage account. There are a few ways to select blobs to be exported:
@@ -77,11 +77,12 @@ Follow the steps below to obtain the shipping location:
 -   The list of blobs (or blob prefixes) to be exported.
 
 ## Shipping Your Drives
- Next, use the Azure Import/Export tool to determine the number of drives you need to send, based on the blobs you have selected to be exported and the drive size. See the [Azure Import-Export Tool Reference](/documentation/articles/storage-import-export-tool-how-to-v1/) for details.
+ Next, use the Azure Import/Export tool to determine the number of drives you need to send, based on the blobs you have selected to be exported and the drive size. See the [Azure Import-Export Tool Reference](./storage-import-export-tool-how-to-v1.md) for details.
 
  Package the drives in a single package and ship them to the address obtained in the earlier step. Note the tracking number of your package for the next step.
 
-> [AZURE.NOTE]You must ship your drives via a supported carrier service, which will provide a tracking number for your package.
+> [!NOTE]
+>You must ship your drives via a supported carrier service, which will provide a tracking number for your package.
 
 ## Updating the Export Job with Your Package Information
  After you have your tracking number, call the [Update Job Properties](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs#Jobs_Update) operation to updated the carrier name and tracking number for the job. You can optionally specify the number of drives, the return address, and the shipping date as well.
@@ -90,4 +91,4 @@ Follow the steps below to obtain the shipping location:
  After your export job has been processed, your drives will be returned to you with your encrypted data. You can retrieve the BitLocker key for each of the drives by calling the [Get Job](https://docs.microsoft.com/en-us/rest/api/storageimportexport/jobs#Jobs_Get) operation. You can then unlock the drive using the key. The drive manifest file on each drive contains the list of files on the drive, as well as the original blob address for each file.
 
 ## See Also
- [Using the Import/Export service REST API](/documentation/articles/storage-import-export-using-the-rest-api/)
+ [Using the Import/Export service REST API](./storage-import-export-using-the-rest-api.md)

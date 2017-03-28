@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Azure AD AngularJS Getting Started | Azure"
-    description="How to build a Angular JS Single Page application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
-    services="active-directory"
-    documentationcenter=""
-    author="dstrockis"
-    manager="mbaldwin"
-    editor="" />
-<tags
-    ms.assetid="f2991054-8146-4718-a5f7-59b892230ad7"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="javascript"
-    ms.topic="article"
-    ms.date="01/07/2017"
-    wacn.date=""
-    ms.author="dastrock" />
+---
+title: Azure AD AngularJS Getting Started | Azure
+description: How to build a Angular JS Single Page application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
+
+ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: javascript
+ms.topic: article
+ms.date: 01/07/2017
+wacn.date: ''
+ms.author: dastrock
+---
 
 # Securing AngularJS Single Page Apps with Azure AD
-[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
+[!INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
-[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
 Azure AD makes it simple and straightforward for you to add sign in, sign out, and secure OAuth API calls to your single page apps.  It enables your app to authenticate users with their Active Directory accounts and consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
@@ -37,19 +38,19 @@ To build the complete working application, you'll need to:
 2. Install ADAL & Configure the SPA.
 3. Use ADAL to secure pages in the SPA.
 
-To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](/documentation/articles/active-directory-howto-tenant/).
+To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](./active-directory-howto-tenant.md).
 
 ## 1. Register the DirectorySearcher Application
 To enable your app to authenticate users and get tokens, you'll first need to register it in your Azure AD tenant:
 
--	Sign into the [Azure Management Portal](https://manage.windowsazure.cn)
--	In the left hand nav, click on **Active Directory**
--	Select a tenant in which to register the application.
--	Click the **Applications** tab, and click **Add** in the bottom drawer.
--	Follow the prompts and create a new **Web Application and/or WebAPI**.
-    -	The **Name** of the application will describe your application to end-users.
-    -	The **Redirect Uri** is location to which AAD will return tokens.  The default location for this sample is `https://localhost:44326/`
--	Once you've completed registration, AAD will assign your app a unique **Client ID**.  You'll need this value in the next sections, so copy it from the **Configure** tab.
+- Sign into the [Azure Management Portal](https://manage.windowsazure.cn)
+- In the left hand nav, click on **Active Directory**
+- Select a tenant in which to register the application.
+- Click the **Applications** tab, and click **Add** in the bottom drawer.
+- Follow the prompts and create a new **Web Application and/or WebAPI**.
+    - The **Name** of the application will describe your application to end-users.
+    - The **Redirect Uri** is location to which AAD will return tokens.  The default location for this sample is `https://localhost:44326/`
+- Once you've completed registration, AAD will assign your app a unique **Client ID**.  You'll need this value in the next sections, so copy it from the **Configure** tab.
 - Adal.js uses the OAuth implicit flow to communicate with Azure AD.  You must enable the implicit flow for your application by:
     - Download the application manifest by clicking **Manage Manifest**.
     - Open the manifest and locate the `oauth2AllowImplicitFlow` property. Set its value to `true`.
@@ -63,13 +64,14 @@ Now that you have an application in Azure AD, you can install adal.js and write 
   - Download [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) and add it to the `App/Scripts/` project directory.
   - Load each script before the end of the `</body>` in `index.html`:
 
-	js
+    js
 
-		...
-		<script src="App/Scripts/adal.js"></script>
-		<script src="App/Scripts/adal-angular.js"></script>
-		...
-
+    ```js
+    ...
+    <script src="App/Scripts/adal.js"></script>
+    <script src="App/Scripts/adal-angular.js"></script>
+    ...
+    ```
 
 - For the SPA's backend To Do List API to accept tokens from the browser, the backend needs configuration information about the app registration. In the TodoSPA project, open `web.config`.  Replace the values of the elements in the `<appSettings>` section to reflect the values you input into the Azure Portal.  Your code will reference these values whenever it uses ADAL.
   - The `ida:Tenant` is the domain of your Azure AD tenant, e.g. contoso.partner.onmschina.cn
@@ -80,72 +82,81 @@ Adal.js has been built to integrate with AngularJS route and http providers, whi
 
 - In `App/Scripts/app.js`, bring in the adal.js module:
 
-	js
-		
-		angular.module('todoApp', ['ngRoute','AdalAngular'])
-		.config(['$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider',
-		 function ($routeProvider, $httpProvider, adalProvider) {
-		...
+    js
+
+    ```js
+    angular.module('todoApp', ['ngRoute','AdalAngular'])
+    .config(['$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider',
+     function ($routeProvider, $httpProvider, adalProvider) {
+    ...
+    ```
 
 - You can now initialize the `adalProvider` with the configuration values of your application registration, also in `App/Scripts/app.js`:
 
-	js
-		
-		adalProvider.init(
-		  {
-		      instance: 'https://login.microsoftonline.com/',
-		      tenant: 'Enter your tenant name here e.g. contoso.partner.onmschina.cn',
-		      clientId: 'Enter your client ID here e.g. e9a5a8b6-8af7-4719-9821-0deef255f68e',
-		      extraQueryParameter: 'nux=1',
-		      //cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
-		  },
-		  $httpProvider
-		);
+    js
+
+    ```js
+    adalProvider.init(
+      {
+          instance: 'https://login.microsoftonline.com/',
+          tenant: 'Enter your tenant name here e.g. contoso.partner.onmschina.cn',
+          clientId: 'Enter your client ID here e.g. e9a5a8b6-8af7-4719-9821-0deef255f68e',
+          extraQueryParameter: 'nux=1',
+          //cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+      },
+      $httpProvider
+    );
+    ```
 
 - Now to secure the `TodoList` view in the app, only one line of code is necessary - `requireADLogin`.
 
-	js
+    js
 
-		...
-		}).when("/TodoList", {
-		        controller: "todoListCtrl",
-		        templateUrl: "/App/Views/TodoList.html",
-		        requireADLogin: true,
-		...
-
+    ```js
+    ...
+    }).when("/TodoList", {
+            controller: "todoListCtrl",
+            templateUrl: "/App/Views/TodoList.html",
+            requireADLogin: true,
+    ...
+    ```
 
 You now have a secure single page application with the ability to sign users in and issue Bearer token protected requests to its backend API.  When a user clicks the `TodoList` link, adal.js will automatically redirect to Azure AD for sign in if necessary.  In addition, adal.js will automatically attach an access_token to any ajax requests that are sent to the application's backend.  The above is the bare minimum necessary to build a SPA with adal.js - but there are a number of other features that are useful in SPAs:
 
 - To explicitly issue sign in and sign out requests you can define functions in your controllers that invoke adal.js.  In `App/Scripts/homeCtrl.js`:
 
-	js
+    js
 
-		...
-		$scope.login = function () {
-		    adalService.login();
-		};
-		$scope.logout = function () {
-		    adalService.logOut();
-		};
-		...
+    ```js
+    ...
+    $scope.login = function () {
+        adalService.login();
+    };
+    $scope.logout = function () {
+        adalService.logOut();
+    };
+    ...
+    ```
 
 - You might also want to present user information in the app's UI.  The adal service has already been added to the `userDataCtrl` controller, so you can access the `userInfo` object in the associated view, `App/Views/UserData.html`:
 
-	js
+    js
 
-		<p>{{userInfo.userName}}</p>
-		<p>aud:{{userInfo.profile.aud}}</p>
-		<p>iss:{{userInfo.profile.iss}}</p>
-		...
-
+    ```js
+    <p>{{userInfo.userName}}</p>
+    <p>aud:{{userInfo.profile.aud}}</p>
+    <p>iss:{{userInfo.profile.iss}}</p>
+    ...
+    ```
 
 - There are also many scenarios in which you will want to know if the user is signed in or not.  You can also use the `userInfo` object to gather this information.  For instance, in `index.html` you can show either the "Login" or "Logout" button based on authentication status:
 
-	js
-		
-		<li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
-		<li><a class="btn btn-link" ng-hide=" userInfo.isAuthenticated" ng-click="login()">Login</a></li>
+    js
 
+    ```js
+    <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
+    <li><a class="btn btn-link" ng-hide=" userInfo.isAuthenticated" ng-click="login()">Login</a></li>
+    ```
 
 Congratulations! Your Azure AD integrated Single Page App is now complete.  It can authenticate users, securely call its backend using OAuth 2.0, and get basic information about the user.  If you haven't already, now is the time to populate your tenant with some users.  Run your To Do List SPA, and sign in with one of those users.  Add tasks to the users to do list, sign out, and sign back in.
 
@@ -155,5 +166,4 @@ For reference, the completed sample (without your configuration values) is provi
 
 [Call a CORS Web API from a SPA >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
-[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
-
+[!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]

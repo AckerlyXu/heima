@@ -1,25 +1,24 @@
-<properties 
-	pageTitle="How to use Service Bus topics with Node.js | Azure" 
-	description="Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app." 
-	services="service-bus" 
-	documentationCenter="nodejs" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+---
+title: How to use Service Bus topics with Node.js | Azure
+description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
+services: service-bus
+documentationCenter: nodejs
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="10/04/2016" 
-	ms.author="sethm"/>
-
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: nodejs
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: sethm
+---
 
 # How to Use Service Bus topics and subscriptions
 
-[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 This guide describes how to use Service Bus topics and subscriptions
 from Node.js applications. The scenarios covered include **creating
@@ -28,7 +27,7 @@ messages** to a topic, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**. For more information about topics
 and subscriptions, see the [Next steps](#next-steps) section.
 
-[AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## Create a Node.js application
 
@@ -46,19 +45,19 @@ communicate with the Service Bus REST services.
 2.  Type **npm install azure** in the command window, which should
     result in the following output:
 
-	```
-    	azure@0.7.5 node_modules\azure
-	├── dateformat@1.0.2-1.2.3
-	├── xmlbuilder@0.4.2
-	├── node-uuid@1.2.0
-	├── mime@1.2.9
-	├── underscore@1.4.4
-	├── validator@1.1.1
-	├── tunnel@0.0.2
-	├── wns@0.5.3
-	├── xml2js@0.2.7 (sax@0.5.2)
-	└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
-	```
+    ```
+        azure@0.7.5 node_modules\azure
+    ├── dateformat@1.0.2-1.2.3
+    ├── xmlbuilder@0.4.2
+    ├── node-uuid@1.2.0
+    ├── mime@1.2.9
+    ├── underscore@1.4.4
+    ├── validator@1.1.1
+    ├── tunnel@0.0.2
+    ├── wns@0.5.3
+    ├── xml2js@0.2.7 (sax@0.5.2)
+    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+    ```
 
 3.  You can manually run the **ls** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
@@ -142,8 +141,10 @@ In this callback, and after processing the **returnObject** (the response from t
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
-	var retryOperations = new azure.ExponentialRetryPolicyFilter();
-	var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```javascript
+var retryOperations = new azure.ExponentialRetryPolicyFilter();
+var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```
 
 ## Create subscriptions
 
@@ -152,7 +153,8 @@ object. Subscriptions are named and can have an optional filter that
 restricts the set of messages delivered to the subscription's virtual
 queue.
 
-> [AZURE.NOTE] Subscriptions are persistent and will continue to exist until
+> [!NOTE]
+> Subscriptions are persistent and will continue to exist until
 either they, or the topic they are associated with, are deleted. If your
 application contains logic to create a subscription, it should first
 check if the subscription already exists by using the
@@ -190,7 +192,8 @@ Filters can be added to a subscription by using the **createRule**
 method of the **ServiceBusService** object. This method allows you to
 add new filters to an existing subscription.
 
-> [AZURE.NOTE] Because the default filter is applied automatically to all new
+> [!NOTE]
+> Because the default filter is applied automatically to all new
 subscriptions, you must first remove the default filter or the
 **MatchAll** will override any other filters you may specify. You can
 remove the default rule by using the **deleteRule** method of the
@@ -310,7 +313,7 @@ for (i = 0;i < 5;i++) {
 }
 ```
 
-Service Bus topics support a maximum message size of 256 KB in the [Standard tier](/documentation/articles/service-bus-premium-messaging/) and 1 MB in the [Premium tier](/documentation/articles/service-bus-premium-messaging/). The header, which includes the standard and custom application properties, can have
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](./service-bus-premium-messaging.md) and 1 MB in the [Premium tier](./service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages
 held in a topic but there is a cap on the total size of the messages
 held by a topic. This topic size is defined at creation time, with an
@@ -352,24 +355,26 @@ then receives a message from the 'HighMessages' subscription using
 **isPeekLock** set to true. It then deletes the message using
 **deleteMessage**:
 
-    serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
-        if(!error){
-            // Message received and deleted
-            console.log(receivedMessage);
-        }
-    });
-    serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeekLock: true }, function(error, lockedMessage){
-        if(!error){
-            // Message received and locked
-            console.log(lockedMessage);
-            serviceBusService.deleteMessage(lockedMessage, function (deleteError){
-                if(!deleteError){
-                    // Message deleted
-                    console.log('message has been deleted.');
-                }
+```javascript
+serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
+    if(!error){
+        // Message received and deleted
+        console.log(receivedMessage);
+    }
+});
+serviceBusService.receiveSubscriptionMessage('MyTopic', 'HighMessages', { isPeekLock: true }, function(error, lockedMessage){
+    if(!error){
+        // Message received and locked
+        console.log(lockedMessage);
+        serviceBusService.deleteMessage(lockedMessage, function (deleteError){
+            if(!deleteError){
+                // Message deleted
+                console.log('message has been deleted.');
             }
         }
-    });
+    }
+});
+```
 
 ## How to handle application crashes and unreadable messages
 
@@ -405,22 +410,26 @@ Topics and subscriptions are persistent, and must be explicitly deleted
 either through the [Azure classic portal][] or programmatically.
 The following example demonstrates how to delete the topic named `MyTopic`:
 
-    serviceBusService.deleteTopic('MyTopic', function (error) {
-        if (error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteTopic('MyTopic', function (error) {
+    if (error) {
+        console.log(error);
+    }
+});
+```
 
 Deleting a topic will also delete any subscriptions that are registered
 with the topic. Subscriptions can also be deleted independently. The
 following example shows how to delete a subscription named
 `HighMessages` from the `MyTopic` topic:
 
-    serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
-        if(error) {
-            console.log(error);
-        }
-    });
+```javascript
+serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error) {
+    if(error) {
+        console.log(error);
+    }
+});
+```
 
 ## Next Steps
 
@@ -434,10 +443,9 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 
   [Azure classic portal]: http://manage.windowsazure.cn
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Queues, topics, and subscriptions]: /documentation/articles/service-bus-queues-topics-subscriptions/
+  [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Node.js Cloud Service]: /zh-cn/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Create and deploy a Node.js application to an Azure Web Site]: /documentation/articles/app-service-web/web-sites-nodejs-develop-deploy-mac
   [Node.js Cloud Service with Storage]: /documentation/articles/cloud-services/cloud-services-nodejs-develop-deploy-app
   [Node.js Web Application with Storage]: /documentation/articles/cloud-services/storage-nodejs-use-table-storage-cloud-service-app
- 

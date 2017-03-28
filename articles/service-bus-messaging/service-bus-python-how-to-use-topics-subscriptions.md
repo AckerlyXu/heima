@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="How to use Service Bus topics with Python | Azure" 
-	description="Learn how to use Azure Service Bus topics and subscriptions from Python." 
-	services="service-bus" 
-	documentationCenter="python" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+---
+title: How to use Service Bus topics with Python | Azure
+description: Learn how to use Azure Service Bus topics and subscriptions from Python.
+services: service-bus
+documentationCenter: python
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="10/04/2016" 
-	ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: sethm
+---
 
 # How to use Service Bus topics and subscriptions
 
-[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 This article describes how to use Service Bus topics and subscriptions. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**. For more information about topics and subscriptions, see the [Next Steps](#next-steps) section.
 
-[AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](/documentation/articles/python-how-to-install/).
+**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install.md).
 
 ## Create a topic
 
@@ -38,9 +38,9 @@ The following code creates a **ServiceBusService** object. Replace `mynamespace`
 
 ```
 bus_service = ServiceBusService(
-	service_namespace='mynamespace',
-	shared_access_key_name='sharedaccesskeyname',
-	shared_access_key_value='sharedaccesskey')
+    service_namespace='mynamespace',
+    shared_access_key_name='sharedaccesskeyname',
+    shared_access_key_value='sharedaccesskey')
 ```
 
 You can obtain the values for the SAS key name and value from the [Azure portal][].
@@ -63,7 +63,8 @@ bus_service.create_topic('mytopic', topic_options)
 
 Subscriptions to topics are also created with the **ServiceBusService** object. Subscriptions are named and can have an optional filter that restricts the set of messages delivered to the subscription's virtual queue.
 
-> [AZURE.NOTE] Subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
+> [!NOTE]
+> Subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
 
 ### Create a subscription with the default (MatchAll) filter
 
@@ -82,7 +83,8 @@ The most flexible type of filter supported by subscriptions is a **SqlFilter**, 
 
 You can add filters to a subscription by using the **create\_rule** method of the **ServiceBusService** object. This method allows you to add new filters to an existing subscription.
 
-> [AZURE.NOTE] Because the default filter is applied automatically to all new subscriptions, you must first remove the default filter or the **MatchAll** will override any other filters you may specify. You can remove the default rule by using the **delete\_rule** method of the **ServiceBusService** object.
+> [!NOTE]
+> Because the default filter is applied automatically to all new subscriptions, you must first remove the default filter or the **MatchAll** will override any other filters you may specify. You can remove the default rule by using the **delete\_rule** method of the **ServiceBusService** object.
 
 The following example creates a subscription named `HighMessages` with a **SqlFilter** that only selects messages that have a custom **messagenumber** property greater than 3:
 
@@ -120,11 +122,11 @@ The following example demonstrates how to send five test messages to `mytopic`. 
 
 ```
 for i in range(5):
-	msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
-	bus_service.send_topic_message('mytopic', msg)
+    msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
+    bus_service.send_topic_message('mytopic', msg)
 ```
 
-Service Bus topics support a maximum message size of 256 KB in the [Standard tier](/documentation/articles/service-bus-premium-messaging/) and 1 MB in the [Premium tier](/documentation/articles/service-bus-premium-messaging/). The header, which includes the standard and custom application properties, can have
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](./service-bus-premium-messaging.md) and 1 MB in the [Premium tier](./service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Service Bus quotas][].
 
 ## Receive messages from a subscription
@@ -180,6 +182,6 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 
 [Azure portal]: https://portal.azure.cn
 [Python Azure package]: https://pypi.python.org/pypi/azure  
-[Queues, topics, and subscriptions]: /documentation/articles/service-bus-queues-topics-subscriptions/
+[Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Service Bus quotas]: /documentation/articles/service-bus-quotas/
+[Service Bus quotas]: ./service-bus-quotas.md

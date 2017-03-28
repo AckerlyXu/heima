@@ -1,30 +1,31 @@
-<properties
-    pageTitle="Monitor Apps in Azure App Service | Azure"
-    description="Learn how to monitor Apps in Azure App Service by using the Azure Portal Preview."
-    services="app-service"
-    documentationcenter=""
-    author="btardif"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="d273da4e-07de-48e0-b99d-4020d84a425e"
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/07/2016"
-    wacn.date=""
-    ms.author="byvinyal" />
+---
+title: Monitor Apps in Azure App Service | Azure
+description: Learn how to monitor Apps in Azure App Service by using the Azure Portal Preview.
+services: app-service
+documentationcenter: ''
+author: btardif
+manager: erikre
+editor: ''
+
+ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/07/2016
+wacn.date: ''
+ms.author: byvinyal
+---
 
 # How to: Monitor Apps in Azure App Service
-[App Service](/documentation/articles/app-service-changes-existing-services/) provides
+[App Service](./app-service-changes-existing-services.md) provides
 built in monitoring functionality in the [Azure Portal Preview](https://portal.azure.cn).
 This includes the ability to review **quotas** and **metrics** for an app as
 well as the App Service plan, setting up **alerts** and even **scaling**
 automatically based on these metrics.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Understanding Quotas and Metrics
 ### Quotas
@@ -60,7 +61,7 @@ The only quota applicable to apps hosted on **Basic**, **Standard** and
 
 More information about the specific quotas, limits and features available to
 the different App Service SKUs can be found here:
-[Azure Subscription Service Limits](/documentation/articles/azure-subscription-service-limits/#app-service-limits)
+[Azure Subscription Service Limits](../azure-subscription-service-limits.md#app-service-limits)
 
 #### Quota Enforcement
 If an application in its usage exceeds the **CPU (short)**, **CPU (Day)**, or
@@ -115,7 +116,7 @@ For an **Application**, the available metrics are:
 
 For an **App Service plan**, the available metrics are:
 
-> [AZURE.NOTE]
+> [!NOTE]
 > App Service plan metrics are only available for plans in **Basic**, **Standard** and **Premium** SKU.
 > 
 > 
@@ -173,23 +174,23 @@ customize the chart by: (1) **click** on it, and select (2) **edit chart**.
 From here you can change the (3) **time range**, (4) **chart type**, and
 (5) **metrics** to display.  
 
-You can learn more about metrics here: [Monitor service metrics](/documentation/articles/insights-how-to-customize-monitoring/).
+You can learn more about metrics here: [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## Alerts and Autoscale
 Metrics for an App or App Service plan can be hooked up to alerts, to learn
-more about this, see [Receive alert notifications](/documentation/articles/insights-receive-alert-notifications/)
+more about this, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 App Service apps hosted in basic, standard or premium App Service Plans
 support **autoscale**. This allows you to configure rules that monitor the
 App Service plan metrics and can increase or decrease the instance count
 providing additional resources as needed, or saving money when the application
-is over-provision. You can learn more about auto scale here: [How to Scale](/documentation/articles/insights-how-to-scale/) and here [Best practices for Azure Monitor autoscaling](/documentation/articles/insights-autoscale-best-practices/)
+is over-provision. You can learn more about auto scale here: [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and here [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/documentation/articles/app-service-changes-existing-services/)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](./app-service-changes-existing-services.md)
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]:/documentation/articles/cloud-services-sizes-specs/
+[vmsizes]:../cloud-services/cloud-services-sizes-specs.md
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

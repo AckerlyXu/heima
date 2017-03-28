@@ -1,20 +1,20 @@
-<properties
-   pageTitle="SQL Data Warehouse Transact-SQL reference | Azure"
-   description="Links to reference content for the Transact-SQL topics used by SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL Data Warehouse Transact-SQL reference | Azure
+description: Links to reference content for the Transact-SQL topics used by SQL Data Warehouse.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: barbkess
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: barbkess
+---
 
 # Transact-SQL topics
 ## Data Definition Language (DDL) statements
@@ -113,9 +113,8 @@ For more TSQL examples, see [SQL Data Warehouse reference overview][SQL Data War
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: /documentation/articles/sql-data-warehouse-overview-reference/
+[SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-
 
 <!--Other Web references-->

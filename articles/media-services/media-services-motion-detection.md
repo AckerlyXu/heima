@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Detect Motions with Azure Media Analytics | Azure"
-	description="The Azure Media Motion Detector media processor (MP) enables you to efficiently identify sections of interest within an otherwise long and uneventful video."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="erikre"
-	editor=""/>
+---
+title: Detect Motions with Azure Media Analytics | Azure
+description: The Azure Media Motion Detector media processor (MP) enables you to efficiently identify sections of interest within an otherwise long and uneventful video.
+services: media-services
+documentationCenter: ''
+authors: juliako
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="10/10/2016"  
-	ms.author="milanga;juliako;"/>
- 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: milanga;juliako;
+---
+
 # Detect Motions with Azure Media Analytics
 
 ##Overview
@@ -27,7 +27,6 @@ Targeted towards security video feeds, this technology is able to categorize mot
 The **Azure Media Motion Detector** MP is currently in Preview.
 
 This topic gives details about  **Azure Media Motion Detector** and shows how to use it with Media Services SDK for .NET
-
 
 ##Motion Detector input files
 
@@ -51,35 +50,35 @@ detectionZones|An array of detection zones:<br/>- Detection Zone is an array of 
 
 ###JSON example
 
-	
-	{
-	  'version': '1.0',
-	  'options': {
-	    'sensitivityLevel': 'medium',
-	    'frameSamplingValue': 1,
-	    'detectLightChange': 'False',
-	    "mergeTimeThreshold":
-	    '00:00:02',
-	    'detectionZones': [
-	      [
-	        {'x': 0, 'y': 0},
-	        {'x': 0.5, 'y': 0},
-	        {'x': 0, 'y': 1}
-	       ],
-	      [
-	        {'x': 0.3, 'y': 0.3},
-	        {'x': 0.55, 'y': 0.3},
-	        {'x': 0.8, 'y': 0.3},
-	        {'x': 0.8, 'y': 0.55},
-	        {'x': 0.8, 'y': 0.8},
-	        {'x': 0.55, 'y': 0.8},
-	        {'x': 0.3, 'y': 0.8},
-	        {'x': 0.3, 'y': 0.55}
-	      ]
-	    ]
-	  }
-	}
-
+```
+{
+  'version': '1.0',
+  'options': {
+    'sensitivityLevel': 'medium',
+    'frameSamplingValue': 1,
+    'detectLightChange': 'False',
+    "mergeTimeThreshold":
+    '00:00:02',
+    'detectionZones': [
+      [
+        {'x': 0, 'y': 0},
+        {'x': 0.5, 'y': 0},
+        {'x': 0, 'y': 1}
+       ],
+      [
+        {'x': 0.3, 'y': 0.3},
+        {'x': 0.55, 'y': 0.3},
+        {'x': 0.8, 'y': 0.3},
+        {'x': 0.8, 'y': 0.55},
+        {'x': 0.8, 'y': 0.8},
+        {'x': 0.55, 'y': 0.8},
+        {'x': 0.3, 'y': 0.8},
+        {'x': 0.3, 'y': 0.55}
+      ]
+    ]
+  }
+}
+```
 
 ##Motion Detector output files
 
@@ -89,7 +88,8 @@ The Motion Detector API provides indicators once there are objects in motion in 
 
 ###<a id="output_elements"></a>Elements of the output JSON file
 
->[AZURE.NOTE]In the latest release, the Output JSON format has changed and may represent a breaking change for some customers.
+>[!NOTE]
+>In the latest release, the Output JSON format has changed and may represent a breaking change for some customers.
 
 The following table describes elements of the output JSON file.
 
@@ -113,55 +113,56 @@ locations|This new entry under events lists the location where the motion occurr
 
 The following is a JSON output example
 
-	{
-	  "version": 2,
-	  "timescale": 23976,
-	  "offset": 0,
-	  "framerate": 24,
-	  "width": 1280,
-	  "height": 720,
-	  "regions": [
-	    {
-	      "id": 0,
-	      "type": "polygon",
-	      "points": [{'x': 0, 'y': 0},
-	        {'x': 0.5, 'y': 0},
-	        {'x': 0, 'y': 1}]
-	    }
-	  ],
-	  "fragments": [
-	    {
-	      "start": 0,
-	      "duration": 226765
-	    },
-	    {
-	      "start": 226765,
-	      "duration": 47952,
-	      "interval": 999,
-	      "events": [
-	        [
-	          {
-	            "type": 2,
-	            "typeName": "motion",
-	            "locations": [
-	              {
-	                "x": 0.004184,
-	                "y": 0.007463,
-	                "width": 0.991667,
-	                "height": 0.985185
-	              }
-	            ],
-	            "regionId": 0
-	          }
-	        ],
-	
-	…
+```
+{
+  "version": 2,
+  "timescale": 23976,
+  "offset": 0,
+  "framerate": 24,
+  "width": 1280,
+  "height": 720,
+  "regions": [
+    {
+      "id": 0,
+      "type": "polygon",
+      "points": [{'x': 0, 'y': 0},
+        {'x': 0.5, 'y': 0},
+        {'x': 0, 'y': 1}]
+    }
+  ],
+  "fragments": [
+    {
+      "start": 0,
+      "duration": 226765
+    },
+    {
+      "start": 226765,
+      "duration": 47952,
+      "interval": 999,
+      "events": [
+        [
+          {
+            "type": 2,
+            "typeName": "motion",
+            "locations": [
+              {
+                "x": 0.004184,
+                "y": 0.007463,
+                "width": 0.991667,
+                "height": 0.985185
+              }
+            ],
+            "regionId": 0
+          }
+        ],
+
+…
+```
 ##Limitations
 
 - The supported input video formats include MP4, MOV, and WMV.
 - Motion Detection is optimized for stationary background videos. The algorithm focuses on reducing false alarms, such as lighting changes, and shadows.
 - Some motion may not be detected due to technical challenges; e.g. night vision videos, semi-transparent objects, and small objects.
-
 
 ## Sample code
 
@@ -169,205 +170,207 @@ The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
 1. Creates a job with a video motion detection task based on a configuration file that contains the following json preset. 
-					
-		{
-		  'Version': '1.0',
-		  'Options': {
-		    'SensitivityLevel': 'medium',
-		    'FrameSamplingValue': 1,
-		    'DetectLightChange': 'False',
-		    "MergeTimeThreshold":
-		    '00:00:02',
-		    'DetectionZones': [
-		      [
-		        {'x': 0, 'y': 0},
-		        {'x': 0.5, 'y': 0},
-		        {'x': 0, 'y': 1}
-		       ],
-		      [
-		        {'x': 0.3, 'y': 0.3},
-		        {'x': 0.55, 'y': 0.3},
-		        {'x': 0.8, 'y': 0.3},
-		        {'x': 0.8, 'y': 0.55},
-		        {'x': 0.8, 'y': 0.8},
-		        {'x': 0.55, 'y': 0.8},
-		        {'x': 0.3, 'y': 0.8},
-		        {'x': 0.3, 'y': 0.55}
-		      ]
-		    ]
-		  }
-		}
+
+    ```
+    {
+      'Version': '1.0',
+      'Options': {
+        'SensitivityLevel': 'medium',
+        'FrameSamplingValue': 1,
+        'DetectLightChange': 'False',
+        "MergeTimeThreshold":
+        '00:00:02',
+        'DetectionZones': [
+          [
+            {'x': 0, 'y': 0},
+            {'x': 0.5, 'y': 0},
+            {'x': 0, 'y': 1}
+           ],
+          [
+            {'x': 0.3, 'y': 0.3},
+            {'x': 0.55, 'y': 0.3},
+            {'x': 0.8, 'y': 0.3},
+            {'x': 0.8, 'y': 0.55},
+            {'x': 0.8, 'y': 0.8},
+            {'x': 0.55, 'y': 0.8},
+            {'x': 0.3, 'y': 0.8},
+            {'x': 0.3, 'y': 0.55}
+          ]
+        ]
+      }
+    }
+    ```
 
 1. Downloads the output JSON files. 
-		 
-        using System;
-		using System.Configuration;
-		using System.IO;
-		using System.Linq;
-		using Microsoft.WindowsAzure.MediaServices.Client;
-		using System.Threading;
-		using System.Threading.Tasks;
-		
-		namespace VideoMotionDetection
-		{
-		    class Program
-		    {
-		        // Read values from the App.config file.
-		        private static readonly string _mediaServicesAccountName =
-		            ConfigurationManager.AppSettings["MediaServicesAccountName"];
-		        private static readonly string _mediaServicesAccountKey =
-		            ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-		
-		        // Field for service context.
-		        private static CloudMediaContext _context = null;
-		        private static MediaServicesCredentials _cachedCredentials = null;
-		
-		        static void Main(string[] args)
-		        {
-		
-		            // Create and cache the Media Services credentials in a static class variable.
-		            _cachedCredentials = new MediaServicesCredentials(
-		                            _mediaServicesAccountName,
-		                            _mediaServicesAccountKey);
-		            // Used the cached credentials to create CloudMediaContext.
-		            _context = new CloudMediaContext(_cachedCredentials);
-		
-		            // Run the VideoMotionDetection job.
-		            var asset = RunVideoMotionDetectionJob(@"C:\supportFiles\VideoMotionDetection\BigBuckBunny.mp4",
-		                                        @"C:\supportFiles\VideoMotionDetection\config.json");
-		
-		            // Download the job output asset.
-		            DownloadAsset(asset, @"C:\supportFiles\VideoMotionDetection\Output");
-		        }
-		
-		        static IAsset RunVideoMotionDetectionJob(string inputMediaFilePath, string configurationFile)
-		        {
-		            // Create an asset and upload the input media file to storage.
-		            IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
-		                "My Video Motion Detection Input Asset",
-		                AssetCreationOptions.None);
-		
-		            // Declare a new job.
-		            IJob job = _context.Jobs.Create("My Video Motion Detection Job");
-		
-		            // Get a reference to Azure Media Motion Detector.
-		            string MediaProcessorName = "Azure Media Motion Detector";
-		
-		            var processor = GetLatestMediaProcessorByName(MediaProcessorName);
-		
-		            // Read configuration from the specified file.
-		            string configuration = File.ReadAllText(configurationFile);
-		
-		            // Create a task with the encoding details, using a string preset.
-		            ITask task = job.Tasks.AddNew("My Video Motion Detection Task",
-		                processor,
-		                configuration,
-		                TaskOptions.None);
-		
-		            // Specify the input asset.
-		            task.InputAssets.Add(asset);
-		
-		            // Add an output asset to contain the results of the job.
-		            task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
-		
-		            // Use the following event handler to check job progress.  
-		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-		
-		            // Launch the job.
-		            job.Submit();
-		
-		            // Check job execution and wait for job to finish.
-		            Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-		
-		            progressJobTask.Wait();
-		
-		            // If job state is Error, the event handling
-		            // method for job progress should log errors.  Here we check
-		            // for error state and exit if needed.
-		            if (job.State == JobState.Error)
-		            {
-		                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-		                Console.WriteLine(string.Format("Error: {0}. {1}",
-		                                                error.Code,
-		                                                error.Message));
-		                return null;
-		            }
-		
-		            return job.OutputMediaAssets[0];
-		        }
-		
-		        static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
-		        {
-		            IAsset asset = _context.Assets.Create(assetName, options);
-		
-		            var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
-		            assetFile.Upload(filePath);
-		
-		            return asset;
-		        }
-		
-		        static void DownloadAsset(IAsset asset, string outputDirectory)
-		        {
-		            foreach (IAssetFile file in asset.AssetFiles)
-		            {
-		                file.Download(Path.Combine(outputDirectory, file.Name));
-		            }
-		        }
-		
-		        static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-		        {
-		            var processor = _context.MediaProcessors
-		                .Where(p => p.Name == mediaProcessorName)
-		                .ToList()
-		                .OrderBy(p => new Version(p.Version))
-		                .LastOrDefault();
-		
-		            if (processor == null)
-		                throw new ArgumentException(string.Format("Unknown media processor",
-		                                                           mediaProcessorName));
-		
-		            return processor;
-		        }
-		
-		        static private void StateChanged(object sender, JobStateChangedEventArgs e)
-		        {
-		            Console.WriteLine("Job state changed event:");
-		            Console.WriteLine("  Previous state: " + e.PreviousState);
-		            Console.WriteLine("  Current state: " + e.CurrentState);
-		
-		            switch (e.CurrentState)
-		            {
-		                case JobState.Finished:
-		                    Console.WriteLine();
-		                    Console.WriteLine("Job is finished.");
-		                    Console.WriteLine();
-		                    break;
-		                case JobState.Canceling:
-		                case JobState.Queued:
-		                case JobState.Scheduled:
-		                case JobState.Processing:
-		                    Console.WriteLine("Please wait...\n");
-		                    break;
-		                case JobState.Canceled:
-		                case JobState.Error:
-		                    // Cast sender as a job.
-		                    IJob job = (IJob)sender;
-		                    // Display or log error details as needed.
-		                    // LogJobStop(job.Id);
-		                    break;
-		                default:
-		                    break;
-		            }
-		        }
-		
-		    }
+
+    ```
+    using System;
+    using System.Configuration;
+    using System.IO;
+    using System.Linq;
+    using Microsoft.WindowsAzure.MediaServices.Client;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    namespace VideoMotionDetection
+    {
+        class Program
+        {
+            // Read values from the App.config file.
+            private static readonly string _mediaServicesAccountName =
+                ConfigurationManager.AppSettings["MediaServicesAccountName"];
+            private static readonly string _mediaServicesAccountKey =
+                ConfigurationManager.AppSettings["MediaServicesAccountKey"];
+
+            // Field for service context.
+            private static CloudMediaContext _context = null;
+            private static MediaServicesCredentials _cachedCredentials = null;
+
+            static void Main(string[] args)
+            {
+
+                // Create and cache the Media Services credentials in a static class variable.
+                _cachedCredentials = new MediaServicesCredentials(
+                                _mediaServicesAccountName,
+                                _mediaServicesAccountKey);
+                // Used the cached credentials to create CloudMediaContext.
+                _context = new CloudMediaContext(_cachedCredentials);
+
+                // Run the VideoMotionDetection job.
+                var asset = RunVideoMotionDetectionJob(@"C:\supportFiles\VideoMotionDetection\BigBuckBunny.mp4",
+                                            @"C:\supportFiles\VideoMotionDetection\config.json");
+
+                // Download the job output asset.
+                DownloadAsset(asset, @"C:\supportFiles\VideoMotionDetection\Output");
+            }
+
+            static IAsset RunVideoMotionDetectionJob(string inputMediaFilePath, string configurationFile)
+            {
+                // Create an asset and upload the input media file to storage.
+                IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
+                    "My Video Motion Detection Input Asset",
+                    AssetCreationOptions.None);
+
+                // Declare a new job.
+                IJob job = _context.Jobs.Create("My Video Motion Detection Job");
+
+                // Get a reference to Azure Media Motion Detector.
+                string MediaProcessorName = "Azure Media Motion Detector";
+
+                var processor = GetLatestMediaProcessorByName(MediaProcessorName);
+
+                // Read configuration from the specified file.
+                string configuration = File.ReadAllText(configurationFile);
+
+                // Create a task with the encoding details, using a string preset.
+                ITask task = job.Tasks.AddNew("My Video Motion Detection Task",
+                    processor,
+                    configuration,
+                    TaskOptions.None);
+
+                // Specify the input asset.
+                task.InputAssets.Add(asset);
+
+                // Add an output asset to contain the results of the job.
+                task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
+
+                // Use the following event handler to check job progress.  
+                job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
+
+                // Launch the job.
+                job.Submit();
+
+                // Check job execution and wait for job to finish.
+                Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+
+                progressJobTask.Wait();
+
+                // If job state is Error, the event handling
+                // method for job progress should log errors.  Here we check
+                // for error state and exit if needed.
+                if (job.State == JobState.Error)
+                {
+                    ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                    Console.WriteLine(string.Format("Error: {0}. {1}",
+                                                    error.Code,
+                                                    error.Message));
+                    return null;
+                }
+
+                return job.OutputMediaAssets[0];
+            }
+
+            static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
+            {
+                IAsset asset = _context.Assets.Create(assetName, options);
+
+                var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
+                assetFile.Upload(filePath);
+
+                return asset;
+            }
+
+            static void DownloadAsset(IAsset asset, string outputDirectory)
+            {
+                foreach (IAssetFile file in asset.AssetFiles)
+                {
+                    file.Download(Path.Combine(outputDirectory, file.Name));
+                }
+            }
+
+            static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+            {
+                var processor = _context.MediaProcessors
+                    .Where(p => p.Name == mediaProcessorName)
+                    .ToList()
+                    .OrderBy(p => new Version(p.Version))
+                    .LastOrDefault();
+
+                if (processor == null)
+                    throw new ArgumentException(string.Format("Unknown media processor",
+                                                               mediaProcessorName));
+
+                return processor;
+            }
+
+            static private void StateChanged(object sender, JobStateChangedEventArgs e)
+            {
+                Console.WriteLine("Job state changed event:");
+                Console.WriteLine("  Previous state: " + e.PreviousState);
+                Console.WriteLine("  Current state: " + e.CurrentState);
+
+                switch (e.CurrentState)
+                {
+                    case JobState.Finished:
+                        Console.WriteLine();
+                        Console.WriteLine("Job is finished.");
+                        Console.WriteLine();
+                        break;
+                    case JobState.Canceling:
+                    case JobState.Queued:
+                    case JobState.Scheduled:
+                    case JobState.Processing:
+                        Console.WriteLine("Please wait...\n");
+                        break;
+                    case JobState.Canceled:
+                    case JobState.Error:
+                        // Cast sender as a job.
+                        IJob job = (IJob)sender;
+                        // Display or log error details as needed.
+                        // LogJobStop(job.Id);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
         }
-
-
+    }
+    ```
 
 ##Related links
 [Azure Media Services Motion Detector blog](https://azure.microsoft.com/blog/motion-detector-update/)
 
-[Azure Media Services Analytics Overview](/documentation/articles/media-services-analytics-overview/)
+[Azure Media Services Analytics Overview](./media-services-analytics-overview.md)
 
 [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)

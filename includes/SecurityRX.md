@@ -276,7 +276,6 @@ the WCF (SOAP) service.
 
 ![WCF (SOAP) Service][04]
 
-
 Refer to the following resources to implement this scenario:
 
 -   [How To: Add Service Identities with an X.509 Certificate, Password,
@@ -384,7 +383,6 @@ Refer to the following resources to implement this scenario:
 -  [ Code Sample: Windows Phone 7 Application](http://msdn.microsoft.com/en-us/library/gg983271.aspx)
 -   [REST WCF With SWT Token Issued By Azure Access Control
     Service (ACS)](http://code.msdn.microsoft.com/REST-WCF-With-SWT-Token-123d93c0)
-
 
 ###ASP.NET Web Site to REST WCF Service Using Shared SWT Token
 
@@ -506,7 +504,6 @@ Refer to the following resources to implement this scenario:
 -   Code Sample: Claims based Authorization in [Windows Identity
     Foundation SDK](http://www.microsoft.com/downloads/details.aspx?FamilyID=c148b2df-c7af-46bb-9162-2c9422208504)
 
-
 ##Azure Storage Service Identity and Access Scenarios
 
 In this scenario you need to securely share access to Azure
@@ -530,7 +527,6 @@ Refer to the following resources to solve this scenario
 -   [Managing Access to Blobs and Containers](http://msdn.microsoft.com/en-us/library/ee393343.aspx)
 -   [New Storage Feature: Shared Access Signatures](http://blog.smarx.com/posts/new-storage-feature-signed-access-signatures)
 -   [Shared Access Signatures Are Easy These Days](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
-
 
 ##Azure SQL Database Identity and Access Scenarios
 
@@ -581,7 +577,6 @@ configuration files when accessing the cache. Be sure to store the keys
 securely so as to avoid information disclosure.
 
 ![][17]
-
 
 Refer to the following resources to solve this scenario:
 
@@ -781,7 +776,6 @@ application is hosted on Azure Virtual Machines.
 -   [Security Intelligence Report](http://www.microsoft.com/security/sir/)
 -   [Security Development Lifecycle](http://www.microsoft.com/security/sdl/default.aspx)
 -   [Security Developer Center (MSDN)](http://msdn.microsoft.com/security/)
-
 
 [01]:./media/SecurityRX/01_SecuringTheApplication.gif
 [02]:./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif

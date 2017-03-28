@@ -1,22 +1,22 @@
-<properties
-   pageTitle="Azure SQL Database Secures and Protects"
-   description="Learn how SQL Database helps secure and protect"
-   keywords=""
-   services="sql-database"
-   documentationCenter=""
-   authors="CarlRabeler"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Azure SQL Database Secures and Protects
+description: Learn how SQL Database helps secure and protect
+keywords: ''
+services: sql-database
+documentationCenter: ''
+authors: CarlRabeler
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="09/13/2016"
-   ms.author="carlrab"/>
-   
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-management
+ms.date: 09/13/2016
+ms.author: carlrab
+---
+
 # Azure SQL Database Secures and Protects
 
 ## Keep your app’s data safe and secure
@@ -29,7 +29,7 @@ Azure SQL Database supports millions of mission-critical databases in the cloud&
 
 You can only hope you don't need to access yesterday's backups or recover from a disaster. But if you find yourself in this situation, SQL Database is there to help. With 99.99% availability, automatic backups, Point-in-Time Restore, built-in Geo-Replication, and failover options, you'll rest easy knowing your app is safe and sound.
 
-[Read the documentation](/documentation/articles/sql-database-business-continuity/)
+[Read the documentation](./sql-database-business-continuity.md)
 
 ## The largest compliance portfolio
 
@@ -44,16 +44,14 @@ SQL Database provides multiple layers of data protection. Your data is protected
 [Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787593)
 
 Go to the homepage to see what else SQL Database has to offer.
-[Check it out](/home/features/sql-database) 
+[Check it out](https://www.azure.cn/home/features/sql-database) 
 
 ## Next steps
 
-Get a [Azure subscription](/pricing/1rmb-trial) and [create your first Azure SQL Database](/documentation/articles/sql-database-get-started/).
+Get a [Azure subscription](https://www.azure.cn/pricing/1rmb-trial) and [create your first Azure SQL Database](./sql-database-get-started.md).
 
 ## Additional resources
 
-Explore all the [capabilities of SQL Database](/home/features/sql-database).
- 
-Review the [technical overview of SQL Database](/documentation/articles/sql-database-technical-overview/).  
+Explore all the [capabilities of SQL Database](https://www.azure.cn/home/features/sql-database).
 
-
+Review the [technical overview of SQL Database](./sql-database-technical-overview.md).

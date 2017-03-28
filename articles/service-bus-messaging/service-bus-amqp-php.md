@@ -1,23 +1,24 @@
-<properties 
-   pageTitle="Service Bus and PHP with AMQP 1.0 | Azure"
-   description="Using Service Bus from PHP with AMQP."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-    editor="" /> 
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/29/2016"
-    ms.author="sethm" />
+---
+title: Service Bus and PHP with AMQP 1.0 | Azure
+description: Using Service Bus from PHP with AMQP.
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/29/2016
+ms.author: sethm
+---
 
 # Using Service Bus from PHP with AMQP 1.0
 
-[AZURE.INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
+[!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 Proton-PHP is a PHP language binding to Proton-C; that is, Proton-PHP is implemented as a wrapper around an engine implemented in C.
 
@@ -25,7 +26,8 @@ Proton-PHP is a PHP language binding to Proton-C; that is, Proton-PHP is impleme
 
 You can download Proton-C and its associated bindings (including PHP) from [http://qpid.apache.org/download.html](http://qpid.apache.org/download.html). The download is in source code form. To build the code, follow the instructions contained in the downloaded package.
 
-> [AZURE.IMPORTANT] At the time of this writing, the SSL support in Proton-C is only available for Linux operating systems. Because Azure Service Bus requires the use of SSL, Proton-C (and the language bindings) can only be used to access Service Bus from Linux at this time. Work to enable Proton-C with SSL on Windows is underway, so check back frequently for updates.
+> [!IMPORTANT]
+> At the time of this writing, the SSL support in Proton-C is only available for Linux operating systems. Because Azure Service Bus requires the use of SSL, Proton-C (and the language bindings) can only be used to access Service Bus from Linux at this time. Work to enable Proton-C with SSL on Windows is underway, so check back frequently for updates.
 
 ## Working with Service Bus queues, topics, and subscriptions from PHP
 
@@ -225,9 +227,8 @@ Ready to learn more? Visit the following links:
 - [Service Bus AMQP overview]
 - [AMQP in Service Bus for Windows Server]
 
-
 [BrokeredMessage]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/zh-cn/library/dn574799.aspx
 
-[Service Bus AMQP overview]: /documentation/articles/service-bus-amqp-overview/
+[Service Bus AMQP overview]: ./service-bus-amqp-overview.md

@@ -22,7 +22,7 @@ ms.author: ddove
 The schema info object is only used to split merge scenarios. If an application is inherently single-tenant, then it does not require the Split Merge tool and thus there is no need to populate the schema info object.
 
 #### I’ve provisioned a database and I already have a Shard Map Manager, how do I register this new database as a shard?
-Please see **[Adding a shard to an application using the elastic database client library](/documentation/articles/sql-database-elastic-scale-add-a-shard/)**. 
+Please see **[Adding a shard to an application using the elastic database client library](./sql-database-elastic-scale-add-a-shard.md)**. 
 
 #### How much do elastic database tools cost?
 Using the elastic database client library does not incur any costs. Costs accrue only for the Azure SQL databases that you use for shards and the Shard Map Manager, as well as the web/worker roles you provision for the Split Merge tool.
@@ -47,5 +47,4 @@ Yes, a shard is an individual database, and thus one shard could be a Premium ed
 #### Does the Split Merge tool provision (or delete) a database during a split or merge operation?
 No. For **split** operations, the target database must exist with the appropriate schema and be registered with the Shard Map Manager.  For **merge** operations, you must delete the shard from the shard map manager and then delete the database.
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
- 
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

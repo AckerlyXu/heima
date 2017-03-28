@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Generic SQL Connector step-by step | Azure"
-    description="This article is walking you through a simple HR system step-by-step using the Generic SQL Connector."
-    services="active-directory"
-    documentationcenter=""
-    author="AndKjell"
-    manager="femila"
-    editor="" />
-<tags
-    ms.assetid="28c1cc60-24fd-4d0d-a36d-b4aba6de86e7"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/08/2017"
-    wacn.date=""
-    ms.author="billmath" />
+---
+title: Generic SQL Connector step-by step | Azure
+description: This article is walking you through a simple HR system step-by-step using the Generic SQL Connector.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
+
+ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/08/2017
+wacn.date: ''
+ms.author: billmath
+---
 
 # Generic SQL Connector step-by-step
 This topic is a step-by-step guide. It creates a simple sample HR database and use it for importing some users and their group membership.
@@ -104,99 +105,100 @@ Here is a user with two phone numbers and a group with some members.
 **SQL script to create the sample database**
 
 SQL
-	
-	---Creating the Database---------
-	Create Database GSQLDEMO
-	Go
-	-------Using the Database-----------
-	Use [GSQLDEMO]
-	Go
-	-------------------------------------
-	USE [GSQLDEMO]
-	GO
-	/****** Object:  Table [dbo].[GroupMembers]   ******/
-	SET ANSI_NULLS ON
-	GO
-	SET QUOTED_IDENTIFIER ON
-	GO
-	CREATE TABLE [dbo].[GroupMembers](
-		[MemberID] [int] NOT NULL,
-		[Group_ID] [int] NOT NULL
-	) ON [PRIMARY]
-	
-	GO
-	/****** Object:  Table [dbo].[GROUPS]   ******/
-	SET ANSI_NULLS ON
-	GO
-	SET QUOTED_IDENTIFIER ON
-	GO
-	CREATE TABLE [dbo].[GROUPS](
-		[GroupID] [int] NOT NULL,
-		[GROUPNAME] [nvarchar](200) NOT NULL,
-		[DESCRIPTION] [nvarchar](200) NULL,
-		[WATERMARK] [datetime] NULL,
-		[OwnerID] [int] NULL,
-	PRIMARY KEY CLUSTERED
-	(
-		[GroupID] ASC
-	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-	) ON [PRIMARY]
-	
-	GO
-	/****** Object:  Table [dbo].[USERPHONE]   ******/
-	SET ANSI_NULLS ON
-	GO
-	SET QUOTED_IDENTIFIER ON
-	GO
-	SET ANSI_PADDING ON
-	GO
-	CREATE TABLE [dbo].[USERPHONE](
-		[USER_ID] [int] NULL,
-		[Phone] [varchar](20) NULL
-	) ON [PRIMARY]
-	
-	GO
-	SET ANSI_PADDING OFF
-	GO
-	/****** Object:  Table [dbo].[USERS]   ******/
-	SET ANSI_NULLS ON
-	GO
-	SET QUOTED_IDENTIFIER ON
-	GO
-	CREATE TABLE [dbo].[USERS](
-		[USERID] [int] NOT NULL,
-		[USERNAME] [nvarchar](200) NOT NULL,
-		[FirstName] [nvarchar](100) NULL,
-		[LastName] [nvarchar](100) NULL,
-		[DisplayName] [nvarchar](100) NULL,
-		[ACCOUNTDISABLED] [bit] NULL,
-		[EMPLOYEEID] [int] NOT NULL,
-		[WATERMARK] [datetime] NULL,
-	PRIMARY KEY CLUSTERED
-	(
-		[USERID] ASC
-	)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-	) ON [PRIMARY]
-	
-	GO
-	ALTER TABLE [dbo].[GroupMembers]  WITH CHECK ADD  CONSTRAINT [FK_GroupMembers_GROUPS] FOREIGN KEY([Group_ID])
-	REFERENCES [dbo].[GROUPS] ([GroupID])
-	GO
-	ALTER TABLE [dbo].[GroupMembers] CHECK CONSTRAINT [FK_GroupMembers_GROUPS]
-	GO
-	ALTER TABLE [dbo].[GroupMembers]  WITH CHECK ADD  CONSTRAINT [FK_GroupMembers_USERS] FOREIGN KEY([MemberID])
-	REFERENCES [dbo].[USERS] ([USERID])
-	GO
-	ALTER TABLE [dbo].[GroupMembers] CHECK CONSTRAINT [FK_GroupMembers_USERS]
-	GO
-	ALTER TABLE [dbo].[GROUPS]  WITH CHECK ADD  CONSTRAINT [FK_GROUPS_USERS] FOREIGN KEY([OwnerID])
-	REFERENCES [dbo].[USERS] ([USERID])
-	GO
-	ALTER TABLE [dbo].[GROUPS] CHECK CONSTRAINT [FK_GROUPS_USERS]
-	GO
-	ALTER TABLE [dbo].[USERPHONE]  WITH CHECK ADD  CONSTRAINT [FK_USERPHONE_USER] FOREIGN KEY([USER_ID])
-	REFERENCES [dbo].[USERS] ([USERID])
-	GO
-	ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
-	GO
 
+```SQL
+---Creating the Database---------
+Create Database GSQLDEMO
+Go
+-------Using the Database-----------
+Use [GSQLDEMO]
+Go
+-------------------------------------
+USE [GSQLDEMO]
+GO
+/****** Object:  Table [dbo].[GroupMembers]   ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GroupMembers](
+    [MemberID] [int] NOT NULL,
+    [Group_ID] [int] NOT NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[GROUPS]   ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GROUPS](
+    [GroupID] [int] NOT NULL,
+    [GROUPNAME] [nvarchar](200) NOT NULL,
+    [DESCRIPTION] [nvarchar](200) NULL,
+    [WATERMARK] [datetime] NULL,
+    [OwnerID] [int] NULL,
+PRIMARY KEY CLUSTERED
+(
+    [GroupID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[USERPHONE]   ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[USERPHONE](
+    [USER_ID] [int] NULL,
+    [Phone] [varchar](20) NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[USERS]   ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[USERS](
+    [USERID] [int] NOT NULL,
+    [USERNAME] [nvarchar](200) NOT NULL,
+    [FirstName] [nvarchar](100) NULL,
+    [LastName] [nvarchar](100) NULL,
+    [DisplayName] [nvarchar](100) NULL,
+    [ACCOUNTDISABLED] [bit] NULL,
+    [EMPLOYEEID] [int] NOT NULL,
+    [WATERMARK] [datetime] NULL,
+PRIMARY KEY CLUSTERED
+(
+    [USERID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[GroupMembers]  WITH CHECK ADD  CONSTRAINT [FK_GroupMembers_GROUPS] FOREIGN KEY([Group_ID])
+REFERENCES [dbo].[GROUPS] ([GroupID])
+GO
+ALTER TABLE [dbo].[GroupMembers] CHECK CONSTRAINT [FK_GroupMembers_GROUPS]
+GO
+ALTER TABLE [dbo].[GroupMembers]  WITH CHECK ADD  CONSTRAINT [FK_GroupMembers_USERS] FOREIGN KEY([MemberID])
+REFERENCES [dbo].[USERS] ([USERID])
+GO
+ALTER TABLE [dbo].[GroupMembers] CHECK CONSTRAINT [FK_GroupMembers_USERS]
+GO
+ALTER TABLE [dbo].[GROUPS]  WITH CHECK ADD  CONSTRAINT [FK_GROUPS_USERS] FOREIGN KEY([OwnerID])
+REFERENCES [dbo].[USERS] ([USERID])
+GO
+ALTER TABLE [dbo].[GROUPS] CHECK CONSTRAINT [FK_GROUPS_USERS]
+GO
+ALTER TABLE [dbo].[USERPHONE]  WITH CHECK ADD  CONSTRAINT [FK_USERPHONE_USER] FOREIGN KEY([USER_ID])
+REFERENCES [dbo].[USERS] ([USERID])
+GO
+ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
+GO
+```

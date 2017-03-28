@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Widevine license template overview | Azure" 
-	description="This topic gives an overview of a Widevine license template that used to configure Widevine licenses." 
-	authors="juliako" 
-	manager="erikre" 
-	editor="" 
-	services="media-services" 
-	documentationCenter=""/>
+---
+title: Widevine license template overview | Azure
+description: This topic gives an overview of a Widevine license template that used to configure Widevine licenses.
+authors: juliako
+manager: erikre
+editor: ''
+services: media-services
+documentationCenter: ''
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016"  
-	ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
+---
 
 #Widevine license template overview
 
@@ -26,34 +26,36 @@ Widevine license request is formatted as a JSON message.
 
 Note that you can choose to create an empty message with no values just "{}" and a license template will be created with all defaults.  
 
-	{  
-	   “payload”:“<license challenge>”,
-	   “content_id”: “<content id>” 
-	   “provider”: ”<provider>”
-	   “allowed_track_types”:“<types>”,
-	   “content_key_specs”:[  
-	      {  
-	         “track_type”:“<track type 1>”
-	      },
-	      {  
-	         “track_type”:“<track type 2>”
-	      },
-	      …
-	   ],
-	   “policy_overrides”:{  
-	      “can_play”:<can play>,
-	      “can persist”:<can persist>,
-	      “can_renew”:<can renew>,
-	      “rental_duration_seconds”:<rental duration>,
-	      “playback_duration_seconds”:<playback duration>,
-	      “license_duration_seconds”:<license duration>,
-	      “renewal_recovery_duration_seconds”:<renewal recovery duration>,
-	      “renewal_server_url”:”<renewal server url>”,
-	      “renewal_delay_seconds”:<renewal delay>,
-	      “renewal_retry_interval_seconds”:<renewal retry interval>,
-	      “renew_with_usage”:<renew with usage>
-	   }
-	}
+```
+{  
+   “payload”:“<license challenge>”,
+   “content_id”: “<content id>” 
+   “provider”: ”<provider>”
+   “allowed_track_types”:“<types>”,
+   “content_key_specs”:[  
+      {  
+         “track_type”:“<track type 1>”
+      },
+      {  
+         “track_type”:“<track type 2>”
+      },
+      …
+   ],
+   “policy_overrides”:{  
+      “can_play”:<can play>,
+      “can persist”:<can persist>,
+      “can_renew”:<can renew>,
+      “rental_duration_seconds”:<rental duration>,
+      “playback_duration_seconds”:<playback duration>,
+      “license_duration_seconds”:<license duration>,
+      “renewal_recovery_duration_seconds”:<renewal recovery duration>,
+      “renewal_server_url”:”<renewal server url>”,
+      “renewal_delay_seconds”:<renewal delay>,
+      “renewal_retry_interval_seconds”:<renewal retry interval>,
+      “renew_with_usage”:<renew with usage>
+   }
+}
+```
 
 ##JSON message
 
@@ -74,9 +76,7 @@ parse_only | boolean. true or false | The license request is parsed but no licen
 
 If a pre-existing policy exist, there is no need to specify any of the values in the Content Key Spec.  The pre-existing policy associated with this content will be used to determine the output protection such as HDCP and CGMS.  If a pre-existing policy is not registered with the Widevine License Server, the content provider can inject the values into the license request.   
 
-
 Each content_key_specs must be specified for all tracks, regardless of the option use_policy_overrides_exclusively. 
-
 
 Name | Value | Description
 ---|---|---
@@ -85,7 +85,6 @@ content_key_specs  <br/> security_level | uint32 | Defines client robustness req
 content_key_specs <br/> required_output_protection.hdc | string - one of: HDCP_NONE, HDCP_V1, HDCP_V2 | Indicates whether HDCP is require
 content_key_specs <br/>key | Base64 <br/>encoded string|Content key to use for this track. If specified, the track_type or key_id is required.  This option allows the content provider to inject the content key for this track instead of letting Widevine license server generate or lookup a key.
 content_key_specs.key_id| Base64 encoded string  binary, 16 bytes | Unique identifier for the key. 
-
 
 ##Policy Overrides 
 
@@ -119,85 +118,87 @@ Media Services provides .NET APIs that let you configure your Widevine licenses.
 
 The following are the definitions of these types.
 
-	public class WidevineMessage
-	{
-	    public WidevineMessage();
-	
-	    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-	    public AllowedTrackTypes? allowed_track_types { get; set; }
-	    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-	    public ContentKeySpecs[] content_key_specs { get; set; }
-	    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-	    public object policy_overrides { get; set; }
-	}
+```
+public class WidevineMessage
+{
+    public WidevineMessage();
 
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum AllowedTrackTypes
-    {
-        SD_ONLY = 0,
-        SD_HD = 1
-    }
-    public class ContentKeySpecs
-    {
-        public ContentKeySpecs();
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public AllowedTrackTypes? allowed_track_types { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public ContentKeySpecs[] content_key_specs { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public object policy_overrides { get; set; }
+}
 
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string key_id { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public RequiredOutputProtection required_output_protection { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public int? security_level { get; set; }
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string track_type { get; set; }
-    }
+[JsonConverter(typeof(StringEnumConverter))]
+public enum AllowedTrackTypes
+{
+    SD_ONLY = 0,
+    SD_HD = 1
+}
+public class ContentKeySpecs
+{
+    public ContentKeySpecs();
 
-    public class RequiredOutputProtection
-    {
-        public RequiredOutputProtection();
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string key_id { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public RequiredOutputProtection required_output_protection { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public int? security_level { get; set; }
+    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+    public string track_type { get; set; }
+}
 
-        public Hdcp hdcp { get; set; }
-    }
+public class RequiredOutputProtection
+{
+    public RequiredOutputProtection();
 
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum Hdcp
-    {
-        HDCP_NONE = 0,
-        HDCP_V1 = 1,
-        HDCP_V2 = 2
-    }
+    public Hdcp hdcp { get; set; }
+}
+
+[JsonConverter(typeof(StringEnumConverter))]
+public enum Hdcp
+{
+    HDCP_NONE = 0,
+    HDCP_V1 = 1,
+    HDCP_V2 = 2
+}
+```
 
 ###Example
 
 The following example shows how to use .NET APIs to configure  a simple Widevine license.
 
-    private static string ConfigureWidevineLicenseTemplate()
+```
+private static string ConfigureWidevineLicenseTemplate()
+{
+    var template = new WidevineMessage
     {
-        var template = new WidevineMessage
+        allowed_track_types = AllowedTrackTypes.SD_HD,
+        content_key_specs = new[]
         {
-            allowed_track_types = AllowedTrackTypes.SD_HD,
-            content_key_specs = new[]
+            new ContentKeySpecs
             {
-                new ContentKeySpecs
-                {
-                    required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
-                    security_level = 1,
-                    track_type = "SD"
-                }
-            },
-            policy_overrides = new
-            {
-                can_play = true,
-                can_persist = true,
-                can_renew = false
+                required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+                security_level = 1,
+                track_type = "SD"
             }
-        };
+        },
+        policy_overrides = new
+        {
+            can_play = true,
+            can_persist = true,
+            can_renew = false
+        }
+    };
 
-        string configuration = JsonConvert.SerializeObject(template);
-        return configuration;
-    }
-
-
+    string configuration = JsonConvert.SerializeObject(template);
+    return configuration;
+}
+```
 
 ##See also
 
-[Using PlayReady and/or Widevine Dynamic Common Encryption](/documentation/articles/media-services-protect-with-drm/)
+[Using PlayReady and/or Widevine Dynamic Common Encryption](./media-services-protect-with-drm.md)

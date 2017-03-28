@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure IoT Hub HA and DR | Azure"
-    description="Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities."
-    services="iot-hub"
-    documentationcenter=""
-    author="fsautomata"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="ae320e58-aa20-45b9-abdc-fa4faae8e6dd"
-    ms.service="iot-hub"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/16/2016"
-    wacn.date=""
-    ms.author="elioda" />
+---
+title: Azure IoT Hub HA and DR | Azure
+description: Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
+services: iot-hub
+documentationcenter: ''
+author: fsautomata
+manager: timlt
+editor: ''
+
+ms.assetid: ae320e58-aa20-45b9-abdc-fa4faae8e6dd
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/16/2016
+wacn.date: ''
+ms.author: elioda
+---
 
 # IoT Hub high availability and disaster recovery
 As an Azure service, IoT Hub provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, design and prepare your solutions to take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications][Disaster recovery and high availability for Azure applications] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
@@ -49,10 +50,10 @@ Follow these links to learn more about Azure IoT Hub:
 - [Get started with IoT Hubs (Tutorial)][lnk-get-started]
 - [What is Azure IoT Hub?][]
 
-[Disaster recovery and high availability for Azure applications]: /documentation/articles/resiliency-disaster-recovery-high-availability-azure-applications/
-[Azure Business Continuity Technical Guidance]: /documentation/articles/resiliency-technical-guidance/
-[Azure Traffic Manager]: /documentation/services/traffic-manager/
-[IoT Hub Developer Guide - identity registry]: /documentation/articles/iot-hub-devguide-identity-registry/
+[Disaster recovery and high availability for Azure applications]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
+[Azure Business Continuity Technical Guidance]: ../resiliency/resiliency-technical-guidance.md
+[Azure Traffic Manager]: ../traffic-manager/index.md
+[IoT Hub Developer Guide - identity registry]: ./iot-hub-devguide-identity-registry.md
 
-[lnk-get-started]: /documentation/articles/iot-hub-csharp-csharp-getstarted/
-[What is Azure IoT Hub?]: /documentation/articles/iot-hub-what-is-iot-hub/
+[lnk-get-started]: ./iot-hub-csharp-csharp-getstarted.md
+[What is Azure IoT Hub?]: ./iot-hub-what-is-iot-hub.md

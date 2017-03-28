@@ -1,34 +1,35 @@
-<properties
-    pageTitle=" Manage a Process Server running in Azure(Classic) | Azure"
-    description="This article describes how to set up a failback Process Server(Classic) In Azure."
-    services="site-recovery"
-    documentationcenter=""
-    author="AnoopVasudavan"
-    manager="gauravd"
-    editor="" />
-<tags
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="backup-recovery"
-    ms.date="2/2/2017"
-    wacn.date=""
-    ms.author="anoopkv" />
+---
+title:  Manage a Process Server running in Azure(Classic) | Azure
+description: This article describes how to set up a failback Process Server(Classic) In Azure.
+services: site-recovery
+documentationcenter: ''
+author: AnoopVasudavan
+manager: gauravd
+editor: ''
+
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: backup-recovery
+ms.date: 2/2/2017
+wacn.date: ''
+ms.author: anoopkv
+---
 
 # Manage a Process Server running in Azure (Classic)
->[AZURE.SELECTOR]
-- [Azure Classic ](/documentation/articles/site-recovery-vmware-setup-azure-ps-classic/)
-- [Resource Manager](/documentation/articles/site-recovery-vmware-setup-azure-ps-resource-manager/)
+>[!div class="op_single_selector"]
+>- [Azure Classic ](./site-recovery-vmware-setup-azure-ps-classic.md)
+>- [Resource Manager](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
 
 During failback, it is recommended to deploy Process Server in Azure if there is high latency between the Azure Virtual Network and your on-premises network. This article describes how you can set up, configure, and manage the process servers running in Azure.
 
-> [AZURE.NOTE]
-> This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model follow the steps in [How to set up & configure a Failback Process Server (Resource Manager)](/documentation/articles/site-recovery-vmware-setup-azure-ps-resource-manager/)
+> [!NOTE]
+> This article is to be used if you used **Resource Manager** as the deployment model for the virtual machines during failover. If you used **Classic** as the deployment model follow the steps in [How to set up & configure a Failback Process Server (Resource Manager)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
 
 ## Prerequisites
 
-[AZURE.INCLUDE [site-recovery-vmware-process-server-prereq](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+[!INCLUDE [site-recovery-vmware-process-server-prereq](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
 
 ## Deploy a Process Server on Azure
 
@@ -42,17 +43,17 @@ During failback, it is recommended to deploy Process Server in Azure if there is
   ![create_image_2](./media/site-recovery-vmware-setup-azure-ps-classic/azureps-classic-settings.png)
 5. Once the Process Server virtual machine is provisioned, you need to log in and register it with the Configuration Server.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > To be able to use this Process Server for failback, you need to register it with the on-premises configuration server.
 
 ## Registering the Process Server (running in Azure) to a Configuration Server (running on-premises)
 
-[AZURE.INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
+[!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 
 ## Upgrading the Process Server to latest version.
 
-[AZURE.INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-upgrade-process-server.md)]
+[!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-upgrade-process-server.md)]
 
 ## Unregistering the Process Server (running in Azure) from a Configuration Server (running on-premises)
 
-[AZURE.INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
+[!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]

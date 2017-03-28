@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Sample workflow to prep hard drives for an Azure Import job | Azure"
-    description="See a walkthrough for the complete process of preparing drives for an import job in the Azure Import/Export service"
-    author="muralikk"
-    manager="syadav"
-    editor="tysonn"
-    services="storage"
-    documentationcenter="" />
-<tags
-    ms.assetid="ms.service: storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="muralikk" />
+---
+title: Sample workflow to prep hard drives for an Azure Import job | Azure
+description: See a walkthrough for the complete process of preparing drives for an import job in the Azure Import/Export service
+author: muralikk
+manager: syadav
+editor: tysonn
+services: storage
+documentationcenter: ''
+
+ms.assetid: ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: muralikk
+---
 
 # Sample workflow to prepare hard drives for an import job
 
@@ -52,23 +53,23 @@ Next, to determine how many hard drives are needed, compute the size of the data
 
 For this example, two 8TB hard drives should be sufficient. However, since the source directory `H:\Video` has 12TB of data and your single hard drive's capacity is only 8TB, you will be able to specify this in the following way in the **dataset.csv** file:
 
-
-	BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
-	H:\Video\,https://mystorageaccount.blob.core.chinacloudapi.cn/video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-	H:\Photo\,https://mystorageaccount.blob.core.chinacloudapi.cn/photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-	K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.chinacloudapi.cn/favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
-	\\myshare\john\music\,https://mystorageaccount.blob.core.chinacloudapi.cn/music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
-
+```
+BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+H:\Video\,https://mystorageaccount.blob.core.chinacloudapi.cn/video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+H:\Photo\,https://mystorageaccount.blob.core.chinacloudapi.cn/photo/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.chinacloudapi.cn/favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\mydirectory\properties.xml
+\\myshare\john\music\,https://mystorageaccount.blob.core.chinacloudapi.cn/music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
+```
 
 ## Attach drives and configure the job
 
 You will attach both disks to the machine and create volumes. Then author **driveset.csv** file:
 
-
-	DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-	X,Format,SilentMode,Encrypt,
-	Y,Format,SilentMode,Encrypt,
-
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+X,Format,SilentMode,Encrypt,
+Y,Format,SilentMode,Encrypt,
+```
 
 The tool will distribute data across two hard drives in an optimized way.
 
@@ -80,14 +81,14 @@ In addition, you can set the following metadata for all files:
 
 To set metadata for the imported files, create a text file, `c:\WAImportExport\SampleMetadata.txt`, with the following content:
 
-
-	<?xml version="1.0" encoding="UTF-8"?>
-	<Metadata>
-	    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>
-	    <DataSetName>SampleData</DataSetName>
-	    <CreationDate>10/1/2013</CreationDate>
-	</Metadata>
-
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Metadata>
+    <UploadMethod>Windows Azure Import/Export Service</UploadMethod>
+    <DataSetName>SampleData</DataSetName>
+    <CreationDate>10/1/2013</CreationDate>
+</Metadata>
+```
 
 You can also set some properties for the `FavoriteMovie.ISO` blob:
 
@@ -97,14 +98,14 @@ You can also set some properties for the `FavoriteMovie.ISO` blob:
 
 To set these properties, create a text file, `c:\WAImportExport\SampleProperties.txt`:
 
-
-	<?xml version="1.0" encoding="UTF-8"?>
-	<Properties>
-	    <Content-Type>application/octet-stream</Content-Type>
-	    <Content-MD5>Q2hlY2sgSW50ZWdyaXR5IQ==</Content-MD5>
-	    <Cache-Control>no-cache</Cache-Control>
-	</Properties>
-
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Properties>
+    <Content-Type>application/octet-stream</Content-Type>
+    <Content-MD5>Q2hlY2sgSW50ZWdyaXR5IQ==</Content-MD5>
+    <Cache-Control>no-cache</Cache-Control>
+</Properties>
+```
 
 ## Run the Azure Import/Export tool (WAImportExport.exe)
 
@@ -112,21 +113,21 @@ Now you are ready to run the Azure Import/Export tool to prepare the two hard dr
 
 **For the first session:**
 
-
-	WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
-
+```
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
+```
 
 If any more data needs to be added, create another dataset file (same format as Initialdataset).
 
 **For the second session:**
 
-
-	WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
-
+```
+WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
+```
 
 Once the copy sessions have completed, you can disconnect the two drives from the copy computer and ship them to the appropriate Azure data center. You'll upload the two journal files, `<FirstDriveSerialNumber>.xml` and `<SecondDriveSerialNumber>.xml`, when you create the import job in the Azure portal.
 
 ## Next steps
 
-* [Preparing hard drives for an import job](/documentation/articles/storage-import-export-tool-preparing-hard-drives-import/)
-* [Quick reference for frequently used commands](/documentation/articles/storage-import-export-tool-quick-reference/)
+* [Preparing hard drives for an import job](./storage-import-export-tool-preparing-hard-drives-import.md)
+* [Quick reference for frequently used commands](./storage-import-export-tool-quick-reference.md)

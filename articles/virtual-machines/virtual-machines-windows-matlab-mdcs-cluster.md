@@ -1,21 +1,22 @@
-<properties
-    pageTitle="MATLAB clusters on virtual machines | Azure"
-    description="Use Azure virtual machines to create MATLAB Distributed Computing Server clusters to run your compute-intensive parallel MATLAB workloads"
-    services="virtual-machines-windows"
-    documentationcenter=""
-    author="mscurrell"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="e9980ce9-124a-41f1-b9ec-f444c8ea5c72"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="Windows"
-    ms.workload="infrastructure-services"
-    ms.date="05/09/2016"
-    wacn.date=""
-    ms.author="markscu" />
+---
+title: MATLAB clusters on virtual machines | Azure
+description: Use Azure virtual machines to create MATLAB Distributed Computing Server clusters to run your compute-intensive parallel MATLAB workloads
+services: virtual-machines-windows
+documentationcenter: ''
+author: mscurrell
+manager: timlt
+editor: ''
+
+ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: Windows
+ms.workload: infrastructure-services
+ms.date: 05/09/2016
+wacn.date: ''
+ms.author: markscu
+---
 
 # Create MATLAB Distributed Computing Server clusters on Azure VMs
 Use Azure virtual machines to create one or more MATLAB Distributed Computing Server clusters to run your compute-intensive parallel MATLAB workloads. Install your MATLAB Distributed Computing Server software on a VM to use as a base image and use an Azure quickstart template or Azure PowerShell script (available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) to deploy and manage the cluster. After deployment, connect to the cluster to run your workloads. 
@@ -28,7 +29,7 @@ By using Azure virtual machines, you can create MATLAB Distributed Computing Ser
 ## Prerequisites
 * **Client computer** - You'll need a Windows-based client computer to communicate with Azure and the MATLAB Distributed Computing Server cluster after deployment. 
 * **Azure PowerShell** - See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install it on your client computer. 
-* **Azure subscription** - If you don't have a subscription, you can create a [trial account](/pricing/1rmb-trial/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options. 
+* **Azure subscription** - If you don't have a subscription, you can create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options. 
 * **Cores quota** - You might need to increase the core quota to deploy a large cluster or more than one MATLAB Distributed Computing Server cluster. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge. 
 * **MATLAB, Parallel Computing Toolbox, and MATLAB Distributed Computing Server licenses** - The scripts assume that the [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) is used for all licenses.  
 * **MATLAB Distributed Computing Server software** - Will be installed on a VM that will be used as the base VM image for the cluster VMs. 
@@ -37,15 +38,15 @@ By using Azure virtual machines, you can create MATLAB Distributed Computing Ser
 To use Azure virtual machines for your MATLAB Distributed Computing Server clusters, the following high-level steps are required. Detailed instructions are in the documentation accompanying the quickstart template and scripts on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster).
 
 1. **Create a base VM image**  
-   
+
     * Download and install MATLAB Distributed Computing Server software onto this VM. 
-     
-        > [AZURE.NOTE]
+
+        > [!NOTE]
         > This process can take a couple of hours, but you only have to do it once for each version of MATLAB you use.   
         > 
         > 
 2. **Create one or more clusters**  
-   
+
     * Use the supplied PowerShell script or use the quickstart template to create a cluster from the base VM image.   
     * Manage the clusters using the supplied PowerShell script which allows you to list, pause, resume, and delete clusters. 
 

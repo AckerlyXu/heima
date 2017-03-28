@@ -1,36 +1,37 @@
-<properties
-    pageTitle="Create an Internal load balancer - Azure portal preview | Azure"
-    description="Learn how to create an Internal load balancer in Resource Manager using the Azure portal preview"
-    services="load-balancer"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Create an Internal load balancer - Azure portal preview | Azure
+description: Learn how to create an Internal load balancer in Resource Manager using the Azure portal preview
+services: load-balancer
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: ''
+tags: azure-service-management
+
+ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: kumud
+---
 
 # Create an Internal load balancer in the Azure portal preview
-> [AZURE.SELECTOR]
-- [Azure Portal Preview](/documentation/articles/load-balancer-get-started-ilb-arm-portal/)
-- [PowerShell](/documentation/articles/load-balancer-get-started-ilb-arm-ps/)
-- [Azure CLI](/documentation/articles/load-balancer-get-started-ilb-arm-cli/)
-- [Template](/documentation/articles/load-balancer-get-started-ilb-arm-template/)
+> [!div class="op_single_selector"]
+>- [Azure Portal Preview](./load-balancer-get-started-ilb-arm-portal.md)
+>- [PowerShell](./load-balancer-get-started-ilb-arm-ps.md)
+>- [Azure CLI](./load-balancer-get-started-ilb-arm-cli.md)
+>- [Template](./load-balancer-get-started-ilb-arm-template.md)
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-> [AZURE.NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](/documentation/articles/resource-manager-deployment-model/).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](/documentation/articles/load-balancer-get-started-ilb-classic-ps/).
+> [!NOTE]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](./load-balancer-get-started-ilb-classic-ps.md).
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
+[!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## Get started creating an Internal load balancer using Azure portal preview
 
@@ -42,13 +43,13 @@ Use the following steps to create an internal load balancer from the Azure Porta
 4. Under **Scheme**, click **Internal**.
 5. Click **Virtual network**, and then select the virtual network where you want to create the load balancer.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > If you do not see the virtual network you want to use, check the **Location** you are using for the load balancer, and change it accordingly.
 
 6. Click **Subnet**, and then select the subnet where you want to create the load balancer.
 7. Under **IP address assignment**, click either **Dynamic** or **Static**, depending on whether you want the IP address for the load balancer to be fixed (static) or not.
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > If you select to use a static IP address, you will have to provide an address for the load balancer.
 
 8. Under **Resource group** either specify the name of a new resource group for the load balancer, or click **select existing** and select an existing resource group.
@@ -96,6 +97,6 @@ You need to configure first a back-end address pool and a probe before configuri
 
 ## Next steps
 
-[Configure a load balancer distribution mode](/documentation/articles/load-balancer-distribution-mode/)
+[Configure a load balancer distribution mode](./load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](/documentation/articles/load-balancer-tcp-idle-timeout/)
+[Configure idle TCP timeout settings for your load balancer](./load-balancer-tcp-idle-timeout.md)

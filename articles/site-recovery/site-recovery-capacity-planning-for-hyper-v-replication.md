@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Run the Hyper-V capacity planner tool for Site Recovery | Azure"
-    description="This article describes how to run the Hyper-V capacity planner tool for Azure Site Recovery"
-    services="site-recovery"
-    documentationcenter="na"
-    author="rayne-wiselman"
-    manager="jwhit"
-    editor="" />
-<tags
-    ms.assetid="2bc3832f-4d6e-458d-bf0c-f00567200ca0"
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="nisoneji" />
+---
+title: Run the Hyper-V capacity planner tool for Site Recovery | Azure
+description: This article describes how to run the Hyper-V capacity planner tool for Azure Site Recovery
+services: site-recovery
+documentationcenter: na
+author: rayne-wiselman
+manager: jwhit
+editor: ''
+
+ms.assetid: 2bc3832f-4d6e-458d-bf0c-f00567200ca0
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: nisoneji
+---
 
 # Run the Hyper-V capacity planner tool for Site Recovery
 
 As part of your Azure Site Recovery deployment, you need to figure out your replication and bandwidth requirements. The Hyper-V capacity planner tool for Site Recovery helps you to do this, for Hyper-V virtual machine replication.
 
-This article describes how to run the Hyper-V capacity planner tool. This tool should be used together with the information in [capacity planning for Site Recovery](/documentation/articles/site-recovery-capacity-planner/).
+This article describes how to run the Hyper-V capacity planner tool. This tool should be used together with the information in [capacity planning for Site Recovery](./site-recovery-capacity-planner.md).
 
 ## Before you start
 You run the tool on a Hyper-V server or cluster node in your primary site. To run the tool the Hyper-V host servers needs:
@@ -43,7 +44,9 @@ Before you run the tool, you need to prepare the primary site. If you're replica
    * Windows Server 2012 R2 clusters
 2. Enable remote access to WMI on all the Hyper-V hosts and clusters. Run this command on each server/cluster, to make sure firewall rules and user permissions are set:
 
-        netsh firewall set service RemoteAdmin enable
+    ```
+    netsh firewall set service RemoteAdmin enable
+    ```
 3. Enable performance monitoring on servers and clusters, as follows:
 
    * Open the Windows Firewall with the **Advanced Security** snapin, and then enable the following inbound rules: **COM+ Network Access (DCOM-IN)** and all rules in the **Remote Event Log Management group**.
@@ -121,12 +124,12 @@ Here are the important metrics. You can ignore metrics which aren't listed here.
 ## More resources
 - For detailed information about the tool read the document that accompanies the tool download.
 - Watch a walkthrough of the tool on Keith Mayer’s [TechNet blog](http://blogs.technet.com/b/keithmayer/archive/2014/02/27/guided-hands-on-lab-capacity-planner-for-windows-server-2012-hyper-v-replica.aspx).
-- [Get the results](/documentation/articles/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/) of our performance testing for on-premises to on-premises Hyper-V replication
+- [Get the results](./site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md) of our performance testing for on-premises to on-premises Hyper-V replication
 
 ## Next steps
 
 After you've finished capacity planning you can start deploying Site Recovery:
 
-- [Replicate Hyper-V VMs in VMM clouds to Azure](/documentation/articles/site-recovery-vmm-to-azure/)
-- [Replicate Hyper-V VMs (without VMM) to Azure](/documentation/articles/site-recovery-hyper-v-site-to-azure/)
-- [Replicate Hyper-V VMs between VMM sites](/documentation/articles/site-recovery-vmm-to-vmm/)
+- [Replicate Hyper-V VMs in VMM clouds to Azure](./site-recovery-vmm-to-azure.md)
+- [Replicate Hyper-V VMs (without VMM) to Azure](./site-recovery-hyper-v-site-to-azure.md)
+- [Replicate Hyper-V VMs between VMM sites](./site-recovery-vmm-to-vmm.md)

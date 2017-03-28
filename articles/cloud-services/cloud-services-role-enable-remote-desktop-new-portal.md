@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Enable Remote Desktop Connection for a Role in Azure Cloud Services | Azure"
-    description="How to configure your azure cloud service application to allow remote desktop connections"
-    services="cloud-services"
-    documentationcenter=""
-    author="seanmck"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="73ea1d64-1529-4d72-b58e-f6c10499e6bb"
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/28/2016"
-    wacn.date=""
-    ms.author="seanmck" />
+---
+title: Enable Remote Desktop Connection for a Role in Azure Cloud Services | Azure
+description: How to configure your azure cloud service application to allow remote desktop connections
+services: cloud-services
+documentationcenter: ''
+author: seanmck
+manager: timlt
+editor: ''
+
+ms.assetid: 73ea1d64-1529-4d72-b58e-f6c10499e6bb
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/28/2016
+wacn.date: ''
+ms.author: seanmck
+---
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services
->[AZURE.SELECTOR]
-[Azure portal](/documentation/articles/cloud-services-role-enable-remote-desktop-new-portal/)
-[Azure classic portal](/documentation/articles/cloud-services-role-enable-remote-desktop/)
-[PowerShell](/documentation/articles/cloud-services-role-enable-remote-desktop-powershell/)
-[Visual Studio](/documentation/articles/vs-azure-tools-remote-desktop-roles/)
+>[!div class="op_single_selector"]
+[Azure portal](./cloud-services-role-enable-remote-desktop-new-portal.md)
+[Azure classic portal](./cloud-services-role-enable-remote-desktop.md)
+[PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md)
+[Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.
 
@@ -41,8 +42,8 @@ The Azure portal uses the Remote Desktop Extension approach so you can enable Re
 
     ![Cloud services remote desktop](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
-   > [AZURE.WARNING]
-   > All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](/documentation/articles/cloud-services-configure-ssl-certificate/#step-3-upload-a-certificate) and then return to this dialog.
+   > [!WARNING]
+   > All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](./cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) and then return to this dialog.
    >
    >
 3. In **Roles**, select the role you want to update or select **All** for all roles.
@@ -62,4 +63,4 @@ Once Remote Desktop is enabled on the roles, you can initiate a connection direc
 
 ## Next steps
 
-[How to Configure Cloud Services](/documentation/articles/cloud-services-how-to-configure/)
+[How to Configure Cloud Services](./cloud-services-how-to-configure.md)

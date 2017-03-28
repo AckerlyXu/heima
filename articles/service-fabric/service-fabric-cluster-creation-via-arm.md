@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Create a secure Service Fabric cluster using Azure Resource Manager | Azure"
-    description="This article describes how to set up a secure Service Fabric cluster in Azure using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (AAD) for client authentication."
-    services="service-fabric"
-    documentationcenter=".net"
-    author="chackdan"
-    manager="timlt"
-    editor="chackdan"
-    ms.assetid="15d0ab67-fc66-4108-8038-3584eeebabaa"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="12/08/2016"
-    ms.author="chackdan" />
+---
+title: Create a secure Service Fabric cluster using Azure Resource Manager | Azure
+description: This article describes how to set up a secure Service Fabric cluster in Azure using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (AAD) for client authentication.
+services: service-fabric
+documentationcenter: .net
+author: chackdan
+manager: timlt
+editor: chackdan
+ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 12/08/2016
+ms.author: chackdan
+---
 
 # Create a Service Fabric cluster in Azure using Azure Resource Manager
 
-> [AZURE.SELECTOR]
-- [Azure Resource Manager](/documentation/articles/service-fabric-cluster-creation-via-arm/)
-- [Azure portal](/documentation/articles/service-fabric-cluster-creation-via-portal/)
+> [!div class="op_single_selector"]
+>- [Azure Resource Manager](./service-fabric-cluster-creation-via-arm.md)
+>- [Azure portal](./service-fabric-cluster-creation-via-portal.md)
 
 This is a step-by-step guide that walks you through the steps of setting up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager. We realize that the document is long, however please do follow all the steps, unless you are already familiar with the steps and content.
 
@@ -38,16 +39,16 @@ This guide uses [Azure PowerShell][azure-powershell]. When starting a new PowerS
 
 Log in to your azure account:
 
-
-	Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-
+```powershell
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+```
 
 Select your subscription:
 
-
-	Get-AzureRmSubscription
-	Set-AzureRmContext -SubscriptionId <guid>
-
+```powershell
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
+```
 
 ## Set up Key Vault
 This section walks through creating a Key Vault for a Service Fabric cluster in Azure and for Service Fabric applications. For a complete guide on Key Vault, refer to the [Key Vault getting started guide][key-vault-get-started].
@@ -63,49 +64,50 @@ The first step is to create a resource group specifically for Key Vault. Putting
 
 If you plan to deploy clusters in multiple regions, it is suggested that you name the resource group and the keyvault is a way that the name tells you which region it belongs to.  
 
-
-		New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'China East'
+```powershell
+    New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'China East'
+```
 You should see an output like this.
-		WARNING: The output object type of this cmdlet is going to be modified in a future release.
-	
-		ResourceGroupName : mycluster-keyvault
-		Location          : chinaeast
-		ProvisioningState : Succeeded
-		Tags              :
-		ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
+        WARNING: The output object type of this cmdlet is going to be modified in a future release.
 
+        ResourceGroupName : mycluster-keyvault
+        Location          : chinaeast
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
 
 <a id="new-key-vault"></a>
 
 ### Create a new Key Vault
 Create a Key Vault in the new resource group. The Key Vault **must be enabled for deployment** to allow the compute resource provider to get certificates from it and install on Virtual Machine Instances:
 
+```
+    New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'China East' -EnabledForDeployment
+```
 
-
-		New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'China East' -EnabledForDeployment
-	
 You should see an output like this.
-	
-		Vault Name                       : myvault
-		Resource Group Name              : mycluster-keyvault
-		Location                         : China East
-		Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
-		Vault URI                        : https://myvault.vault.chinacloudapi.cn
-		Tenant ID                        : <guid>
-		SKU                              : Standard
-		Enabled For Deployment?          : False
-		Enabled For Template Deployment? : False
-		Enabled For Disk Encryption?     : False
-		Access Policies                  :
-		                                   Tenant ID                :    <guid>
-		                                   Object ID                :    <guid>
-		                                   Application ID           :
-		                                   Display Name             :    
-		                                   Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
-		                                   Permissions to Secrets   :    all
-	
-	
-		Tags                             :
+
+```powershell
+    Vault Name                       : myvault
+    Resource Group Name              : mycluster-keyvault
+    Location                         : China East
+    Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
+    Vault URI                        : https://myvault.vault.chinacloudapi.cn
+    Tenant ID                        : <guid>
+    SKU                              : Standard
+    Enabled For Deployment?          : False
+    Enabled For Template Deployment? : False
+    Enabled For Disk Encryption?     : False
+    Access Policies                  :
+                                       Tenant ID                :    <guid>
+                                       Object ID                :    <guid>
+                                       Application ID           :
+                                       Display Name             :    
+                                       Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
+                                       Permissions to Secrets   :    all
+
+    Tags                             :
+```
 
 <a id="existing-key-vault"></a>
 
@@ -113,10 +115,9 @@ You should see an output like this.
 
 If you have an existing Key Vault, and you want to use it, you must enable it for deployment. The Key Vault **must be enabled for deployment** to allow the compute resource provider to get certificates from it and install on cluster nodes:
 
-
-
-	Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
-
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+```
 
 <a id="add-certificate-to-key-vault"></a>
 
@@ -151,52 +152,48 @@ To make this process easier, a PowerShell module is [available on GitHub][servic
 2. Navigate to the local directory 
 2. Import the ServiceFabricRPHelpers module in your PowerShell window:
 
+     Import-Module "C:\..\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
- 	Import-Module "C:\..\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-
-     
 The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically formats a certificate private key into a JSON string and uploads it to Key Vault. Use it to add the cluster certificate and any additional application certificates to Key Vault. Repeat this step for any additional certificates you want to install in your cluster.
 
 #### uploading an existing certificate 
 
-	 Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "China East" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
-	
+```
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "China East" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+```
 
 if you get errors like the following, it usually means that you have a resource URL conflict, so change the keyvault name.
 
-
-	Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinaeastkv.vault.chinacloudapi.cn'
-	At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
-	+ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
-	+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	    + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
-	    + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
-    
-
+```
+Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinaeastkv.vault.chinacloudapi.cn'
+At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
++ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
++           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
+```
 
 On successful completion, you should see an output like this.
 
+```
+    Switching context to SubscriptionId <guid>
+    Ensuring ResourceGroup chinaeast-mykeyvault in China East
+    WARNING: The output object type of this cmdlet is going to be modified in a future release.
+    Using existing valut mychinaeastvault in China East
+    Reading pfx file from C:\path\to\key.pfx
+    Writing secret to mychinaeastvault in vault mychinaeastvault
 
-	    Switching context to SubscriptionId <guid>
-	    Ensuring ResourceGroup chinaeast-mykeyvault in China East
-	    WARNING: The output object type of this cmdlet is going to be modified in a future release.
-	    Using existing valut mychinaeastvault in China East
-	    Reading pfx file from C:\path\to\key.pfx
-	    Writing secret to mychinaeastvault in vault mychinaeastvault
+Name  : CertificateThumbprint
+Value : E21DBC64B183B5BF355C34C46E03409FEEAEF58D
 
+Name  : SourceVault
+Value : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinaeastvault
 
-	Name  : CertificateThumbprint
-	Value : E21DBC64B183B5BF355C34C46E03409FEEAEF58D
-
-	Name  : SourceVault
-	Value : /subscriptions/<guid>/resourceGroups/chinaeast-mykeyvault/providers/Microsoft.KeyVault/vaults/mychinaeastvault
-
-	Name  : CertificateURL
-	Value : https://mychinaeastvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
-
+Name  : CertificateURL
+Value : https://mychinaeastvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
+```
 
 **Take note of the three strings above - CertificateThumbprint, SourceVault and CertificateURL.** You need these to set up a secure service fabric cluster and for any application certificates that you may be using for application security. If you do not save the three strings somewhere, it is very difficult to get them by querying the keyvault later.
-
 
 <a id="add-self-signed-certificate-to-key-vault"></a>
 
@@ -204,18 +201,17 @@ On successful completion, you should see an output like this.
 
 Skip this step, if you already have uploaded your certs to the keyvault, this step is to generate a new self-signed cert and upload it your keyvault. Change the parameters below and run the script. it should prompt you for a certificate password.  
 
+```powershell
+$ResouceGroup = "chackochinaeastkv"
+$VName = "chackokv2"
+$SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
+$locationRegion = "chinaeast" 
+$newCertName = "chackotestcertificate1"
+$dnsName = "www.mycluster.chinaeast.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
+$localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
 
-
-	$ResouceGroup = "chackochinaeastkv"
-	$VName = "chackokv2"
-	$SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
-	$locationRegion = "chinaeast" 
-	$newCertName = "chackotestcertificate1"
-	$dnsName = "www.mycluster.chinaeast.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
-	$localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
-
-	 Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
-
+ Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
+```
 
 if you get errors like the following, it usually means that you have a resource URL conflict, so change the keyvault name, RG name etc.
 
@@ -226,36 +222,32 @@ At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelp
 +           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
-    
+
 </font></p>
 
 On successful completion, you should see an output like this.
 
+```
+PS C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers> Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -Password $certPassword -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
+Switching context to SubscriptionId 6c343126-e4ba-52cd-a1dd-f8bf96ae7a47
+Ensuring ResourceGroup chackochinaeastkv in chinaeast
+WARNING: The output object type of this cmdlet will be modified in a future release.
+Creating new vault chinaeastkv1 in chinaeast
+Creating new self signed certificate at C:\MyCertificates\chackonewcertificate1.pfx
+Reading pfx file from C:\MyCertificates\chackonewcertificate1.pfx
+Writing secret to chackonewcertificate1 in vault chinaeastkv1
 
-	PS C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers> Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -Password $certPassword -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
-	Switching context to SubscriptionId 6c343126-e4ba-52cd-a1dd-f8bf96ae7a47
-	Ensuring ResourceGroup chackochinaeastkv in chinaeast
-	WARNING: The output object type of this cmdlet will be modified in a future release.
-	Creating new vault chinaeastkv1 in chinaeast
-	Creating new self signed certificate at C:\MyCertificates\chackonewcertificate1.pfx
-	Reading pfx file from C:\MyCertificates\chackonewcertificate1.pfx
-	Writing secret to chackonewcertificate1 in vault chinaeastkv1
+Name  : CertificateThumbprint
+Value : 96BB3CC234F9D43C25D4B547sd8DE7B569F413EE
 
+Name  : SourceVault
+Value : /subscriptions/6c653126-e4ba-52cd-a1dd-f8bf96ae7a47/resourceGroups/chackochinaeastkv/providers/Microsoft.KeyVault/vaults/chinaeastkv1
 
-	Name  : CertificateThumbprint
-	Value : 96BB3CC234F9D43C25D4B547sd8DE7B569F413EE
-
-	Name  : SourceVault
-	Value : /subscriptions/6c653126-e4ba-52cd-a1dd-f8bf96ae7a47/resourceGroups/chackochinaeastkv/providers/Microsoft.KeyVault/vaults/chinaeastkv1
-
-	Name  : CertificateURL
-	Value : https://chinaeastkv1.vault.chinacloudapi.cn:443/secrets/chackonewcertificate1/ee247291e45d405b8c8bbf81782d12bd
-
-
+Name  : CertificateURL
+Value : https://chinaeastkv1.vault.chinacloudapi.cn:443/secrets/chackonewcertificate1/ee247291e45d405b8c8bbf81782d12bd
+```
 
 **Take note of the three strings above - CertificateThumbprint, SourceVault and CertificateURL.** You need these to set up a secure service fabric cluster and for any application certificates that you may be using for application security. If you do not save the three strings somewhere, it is very difficult to get them by querying the keyvault later.
-
-
 
  At this point, you should now have the following setup and ready to go in Azure:
 
@@ -263,7 +255,6 @@ On successful completion, you should see an output like this.
 * Key Vault and its URL (called Source vault in the above powershell output).
 * Cluster server authentication certificate and its URL in keyvault
 * Application certificates and their URL in keyvault
-
 
 <a id="add-AAD-for-client"></a>
 
@@ -275,16 +266,17 @@ A Service Fabric cluster offers several entry points to its management functiona
 
 To simplify some of the steps involved in configuring AAD with a Service Fabric cluster, we have created a set of Windows PowerShell scripts.
 
->[AZURE.NOTE] You must perform these steps *before* creating the cluster so in cases where the scripts expect cluster names and endpoints, these should be the planned values, not ones that you have already created.
+>[!NOTE]
+> You must perform these steps *before* creating the cluster so in cases where the scripts expect cluster names and endpoints, these should be the planned values, not ones that you have already created.
 
 1. [Download the scripts][sf-aad-ps-script-download] to your computer.
 2. Right-click the zip file, choose **Properties**, then check the **Unblock** checkbox and apply.
 3. Extract the zip file.
 4. Run `SetupApplications.ps1`, providing the TenantId, ClusterName, and WebApplicationReplyUrl as parameters. For example:
 
-
-    	.\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.chinaeast.chinacloudapp.cn:19080/Explorer/index.html'
-
+    ```powershell
+    .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.chinaeast.chinacloudapp.cn:19080/Explorer/index.html'
+    ```
 
     You can find your **TenantId** by executing the PowerShell command `Get-AzureSubscription`. This will display the **TenantId** for every subscription.
 
@@ -301,13 +293,11 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
 
     The script prints the Json required by the Azure Resource Manager template when you create the cluster in the next section so keep the PowerShell window open.
 
-
-	"azureActiveDirectory": {
-	  "tenantId":"<guid>",
-	  "clusterApplication":"<guid>",
-	  "clientApplication":"<guid>"
-	},
-
+    "azureActiveDirectory": {
+      "tenantId":"<guid>",
+      "clusterApplication":"<guid>",
+      "clientApplication":"<guid>"
+    },
 
 ## Create a Service Fabric cluster Resource Manager template
 In this section, the outputs of the preceding PowerShell commands are used in a Service Fabric cluster Resource Manager template.
@@ -323,159 +313,160 @@ Certificates are added to a cluster Resource Manager template by referencing the
 #### Add all certificates to the VMSS osProfile
 Every certificate that needs to be installed in the cluster must be configured in the osProfile section of the VMSS resource (Microsoft.Compute/virtualMachineScaleSets). This instructs the resource provider to install the certificate on the VMs. This includes the cluster certificate as well as any application security certificates you plan to use for your applications:
 
-
-	{
-	  "apiVersion": "2016-03-30",
-	  "type": "Microsoft.Compute/virtualMachineScaleSets",
-	  ...
-	  "properties": {
-	    ...
-	    "osProfile": {
-	      ...
-	      "secrets": [
-	        {
-	          "sourceVault": {
-	            "id": "[parameters('sourceVaultValue')]"
-	          },
-	          "vaultCertificates": [
-	            {
-	              "certificateStore": "[parameters('clusterCertificateStorevalue')]",
-	              "certificateUrl": "[parameters('clusterCertificateUrlValue')]"
-	            },
-	            {
-	              "certificateStore": "[parameters('applicationCertificateStorevalue')",
-	              "certificateUrl": "[parameters('applicationCertificateUrlValue')]"
-	            },
-	            ...
-	          ]
-	        }
-	      ]
-	    }
-	  }
-	}
-
+```json
+{
+  "apiVersion": "2016-03-30",
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  ...
+  "properties": {
+    ...
+    "osProfile": {
+      ...
+      "secrets": [
+        {
+          "sourceVault": {
+            "id": "[parameters('sourceVaultValue')]"
+          },
+          "vaultCertificates": [
+            {
+              "certificateStore": "[parameters('clusterCertificateStorevalue')]",
+              "certificateUrl": "[parameters('clusterCertificateUrlValue')]"
+            },
+            {
+              "certificateStore": "[parameters('applicationCertificateStorevalue')",
+              "certificateUrl": "[parameters('applicationCertificateUrlValue')]"
+            },
+            ...
+          ]
+        }
+      ]
+    }
+  }
+}
+```
 
 #### Configure Service Fabric cluster certificate
 The cluster authentication certificate must also be configured in the Service Fabric cluster resource (Microsoft.ServiceFabric/clusters) and in the Service Fabric extension for VMSS in the VMSS resource. This allows the Service Fabric resource provider to configure it for use for cluster authentication and server authentication for management endpoints.
 
 ##### VMSS resource:
 
-
-	{
-	  "apiVersion": "2016-03-30",
-	  "type": "Microsoft.Compute/virtualMachineScaleSets",
-	  ...
-	  "properties": {
-	    ...
-	    "virtualMachineProfile": {
-	      "extensionProfile": {
-	        "extensions": [
-	          {
-	            "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
-	            "properties": {
-	              ...
-	              "settings": {
-	                ...
-	                "certificate": {
-	                  "thumbprint": "[parameters('clusterCertificateThumbprint')]",
-	                  "x509StoreName": "[parameters('clusterCertificateStoreValue')]"
-	                },
-	                ...
-	              }
-	            }
-	          }
-	        ]
-	      }
-	    }
-	  }
-	}
-
+```json
+{
+  "apiVersion": "2016-03-30",
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  ...
+  "properties": {
+    ...
+    "virtualMachineProfile": {
+      "extensionProfile": {
+        "extensions": [
+          {
+            "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+            "properties": {
+              ...
+              "settings": {
+                ...
+                "certificate": {
+                  "thumbprint": "[parameters('clusterCertificateThumbprint')]",
+                  "x509StoreName": "[parameters('clusterCertificateStoreValue')]"
+                },
+                ...
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
 
 ##### Service Fabric resource:
 
-
-	{
-	  "apiVersion": "2016-03-01",
-	  "type": "Microsoft.ServiceFabric/clusters",
-	  "name": "[parameters('clusterName')]",
-	  "location": "[parameters('clusterLocation')]",
-	  "dependsOn": [
-	    "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
-	  ],
-	  "properties": {
-	    "certificate": {
-	      "thumbprint": "[parameters('clusterCertificateThumbprint')]",
-	      "x509StoreName": "[parameters('clusterCertificateStoreValue')]"
-	    },
-	    ...
-	  }
-	}
-
+```json
+{
+  "apiVersion": "2016-03-01",
+  "type": "Microsoft.ServiceFabric/clusters",
+  "name": "[parameters('clusterName')]",
+  "location": "[parameters('clusterLocation')]",
+  "dependsOn": [
+    "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+  ],
+  "properties": {
+    "certificate": {
+      "thumbprint": "[parameters('clusterCertificateThumbprint')]",
+      "x509StoreName": "[parameters('clusterCertificateStoreValue')]"
+    },
+    ...
+  }
+}
+```
 
 ### Insert AAD config
 The AAD configuration created earlier can be inserted directly into your Resource Manager template, however it is recommended to extract the values into parameters first into a parameters file to keep the Resource Manager template reusable and free of values specific to a deployment.
 
-
-	{
-	  "apiVersion": "2016-03-01",
-	  "type": "Microsoft.ServiceFabric/clusters",
-	  "name": "[parameters('clusterName')]",
-	  ...
-	  "properties": {
-	    "certificate": {
-	      "thumbprint": "[parameters('clusterCertificateThumbprint')]",
-	      "x509StoreName": "[parameters('clusterCertificateStorevalue')]"
-	    },
-	    ...
-	    "azureActiveDirectory": {
-	      "tenantId": "[parameters('aadTenantId')]",
-	      "clusterApplication": "[parameters('aadClusterApplicationId')]",
-	      "clientApplication": "[parameters('aadClientApplicationId')]"
-	    },
-	    ...
-	  }
-	}
-
+```json
+{
+  "apiVersion": "2016-03-01",
+  "type": "Microsoft.ServiceFabric/clusters",
+  "name": "[parameters('clusterName')]",
+  ...
+  "properties": {
+    "certificate": {
+      "thumbprint": "[parameters('clusterCertificateThumbprint')]",
+      "x509StoreName": "[parameters('clusterCertificateStorevalue')]"
+    },
+    ...
+    "azureActiveDirectory": {
+      "tenantId": "[parameters('aadTenantId')]",
+      "clusterApplication": "[parameters('aadClusterApplicationId')]",
+      "clientApplication": "[parameters('aadClientApplicationId')]"
+    },
+    ...
+  }
+}
+```
 
 ### <a "configure-arm" ></a>Configure Resource Manager template parameters
 Finally, use the output values from the Key Vault and AAD PowerShell commands to populate the parameters file:
 
-
-	{
-	    "$schema": "http://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentParameters.json#",
-	    "contentVersion": "1.0.0.0",
-	    "parameters": { 
-	        ...
-	        "clusterCertificateStoreValue": {
-	            "value": "My"
-	        },
-	        "clusterCertificateThumbprint": {
-	            "value": "<thumbprint>"
-	        },
-	        "clusterCertificateUrlValue": {
-	            "value": "https://myvault.vault.chinalcoudapi.cn:443/secrets/myclustercert/4d087088df974e869f1c0978cb100e47"
-	        },
-	        "applicationCertificateStorevalue": {
-	            "value": "My"
-	        },
-	        "applicationCertificateUrlValue": {
-	            "value": "https://myvault.vault.chinacloudapi.cn:443/secrets/myapplicationcert/2e035058ae274f869c4d0348ca100f08"
-	        },
-	        "sourceVaultvalue": {
-	            "value": "/subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault"
-	        },
-	        "aadTenantId": {
-	            "value": "<guid>"
-	        },
-	        "aadClusterApplicationId": {
-	            "value": "<guid>"
-	        },
-	        "aadClientApplicationId": {
-	            "value": "<guid>"
-	        },
-	        ...
-	    }
-	}
+```json
+{
+    "$schema": "http://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": { 
+        ...
+        "clusterCertificateStoreValue": {
+            "value": "My"
+        },
+        "clusterCertificateThumbprint": {
+            "value": "<thumbprint>"
+        },
+        "clusterCertificateUrlValue": {
+            "value": "https://myvault.vault.chinalcoudapi.cn:443/secrets/myclustercert/4d087088df974e869f1c0978cb100e47"
+        },
+        "applicationCertificateStorevalue": {
+            "value": "My"
+        },
+        "applicationCertificateUrlValue": {
+            "value": "https://myvault.vault.chinacloudapi.cn:443/secrets/myapplicationcert/2e035058ae274f869c4d0348ca100f08"
+        },
+        "sourceVaultvalue": {
+            "value": "/subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault"
+        },
+        "aadTenantId": {
+            "value": "<guid>"
+        },
+        "aadClusterApplicationId": {
+            "value": "<guid>"
+        },
+        "aadClientApplicationId": {
+            "value": "<guid>"
+        },
+        ...
+    }
+}
+```
 
 At this point, you should now have the following:
 
@@ -501,15 +492,16 @@ You are now ready to create the cluster using [Azure resource template deploymen
 #### Test it
 Use the following PowerShell command to test your Resource Manager template with a parameters file:
 
-
-	Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
-
+```powershell
+Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+```
 
 #### Deploy it
 If the Resource Manager template test passes, use the following PowerShell command to deploy your Resource Manager template with a parameters file:
 
-
-	New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+```
 
 <a name="assign-roles"></a>
 
@@ -526,7 +518,8 @@ Once you have created the applications to represent your cluster, you need to as
 
     ![Assign users to roles][assign-users-to-roles-dialog]
 
->[AZURE.NOTE] For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](/documentation/articles/service-fabric-cluster-security-roles/).
+>[!NOTE]
+> For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](./service-fabric-cluster-security-roles.md).
 
  <a name="secure-linux-cluster"></a>
 
@@ -548,20 +541,21 @@ This command returns the following three strings as the output:
 
 The following example shows how to use the command:
 
-
-	./cert_helper.py pfx -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -sname "mycert" -l "China East" -p "pfxtest"
+```sh
+./cert_helper.py pfx -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -sname "mycert" -l "China East" -p "pfxtest"
+```
 
 Executing the preceding command provides you with the three strings as follows:
 
-
-	SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
-	CertificateUrl: https://myvault.vault.chinacloudapi.cn/secrets/mycert/00000000000000000000000000000000
-	CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
-
+```sh
+SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
+CertificateUrl: https://myvault.vault.chinacloudapi.cn/secrets/mycert/00000000000000000000000000000000
+CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
+```
 
  The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.chinacloudapp.cn` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
-These are the entries needed for creating a secure service fabric cluster (without AAD) as described at [Configure Resource Manager template parameters](#configure-arm). You can connect to the secure cluster via instructions at [authenticating client access to a cluster](/documentation/articles/service-fabric-connect-to-secure-cluster/). Linux preview clusters do not support AAD authentication. You can assign admin and client roles as described in the section [Assign roles to users](#assign-roles). When specifying admin and client roles for a Linux preview cluster, you have to provide certificate thumbprints for authentication (as opposed to subject name, since no chain validation or revocation is being performed in this preview release).
+These are the entries needed for creating a secure service fabric cluster (without AAD) as described at [Configure Resource Manager template parameters](#configure-arm). You can connect to the secure cluster via instructions at [authenticating client access to a cluster](./service-fabric-connect-to-secure-cluster.md). Linux preview clusters do not support AAD authentication. You can assign admin and client roles as described in the section [Assign roles to users](#assign-roles). When specifying admin and client roles for a Linux preview cluster, you have to provide certificate thumbprints for authentication (as opposed to subject name, since no chain validation or revocation is being performed in this preview release).
 
 If you wish to use a self-signed certificate for testing, you could use the same script to generate a self-signed certificate and upload it to KeyVault, by providing the flag `ss` instead of providing the certificate path and certificate name. For example, see the following command for creating and uploading a self-signed certificate:
 
@@ -569,13 +563,13 @@ If you wish to use a self-signed certificate for testing, you could use the same
 ./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "China East" -p "selftest" -subj "mytest.chinaeast.chinacloudapp.cn" 
 ```
 
-This command returns the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster, along with the location where the self-signed certificate was placed. You will need the self-signed certificate to connect to the cluster.  You can connect to the secure cluster via instructions at [authenticating client access to a cluster](/documentation/articles/service-fabric-connect-to-secure-cluster/). 
+This command returns the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster, along with the location where the self-signed certificate was placed. You will need the self-signed certificate to connect to the cluster.  You can connect to the secure cluster via instructions at [authenticating client access to a cluster](./service-fabric-connect-to-secure-cluster.md). 
 The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.chinacloudapp.cn` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
-The parameters provided by the helper script can be filled in the portal as described in the section [Create a cluster in the Azure portal](/documentation/articles/service-fabric-cluster-creation-via-portal/#create-cluster-portal).
+The parameters provided by the helper script can be filled in the portal as described in the section [Create a cluster in the Azure portal](./service-fabric-cluster-creation-via-portal.md#create-cluster-portal).
 
 ## Next steps
-At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](/documentation/articles/service-fabric-connect-to-secure-cluster/) and learn how to [manage application secrets](/documentation/articles/service-fabric-application-secret-management/).
+At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](./service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](./service-fabric-application-secret-management.md).
 
 ## Troubleshoot setting up Azure Active Directory for client authentication
 
@@ -617,9 +611,9 @@ Add url of Service Fabric Explorer to ‘REPLY URL’ in the configure tab of cl
 ### How to connect cluster with AAD authentication via PowerShell
 Use the following PowerShell command example to connect Service Fabric cluster:
 
-
-	Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
-
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
+```
 
 To learn about Connect-ServiceFabricCluster cmdlet, see [Connect-ServiceFabricCluster](https://msdn.microsoft.com/zh-cn/library/mt125938.aspx).
 
@@ -630,20 +624,20 @@ Yes. But remember to add the URL of Service Fabric Explorer to your cluster(web)
 FabricClient and FabricGateway perform mutual authentication. In case of AAD authentication, AAD integration provides client identity to server and server certificate is used to verify server identity. For more information about how certificate works on Service Fabric, check [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric]
 
 <!-- Links -->
-[azure-powershell]:/documentation/articles/powershell-install-configure/
-[key-vault-get-started]:/documentation/articles/key-vault-get-started/
+[azure-powershell]:../powershell-install-configure.md
+[key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/zh-cn/library/azure/ad/graph/api/api-catalog
 [azure-classic-portal]: https://manage.windowsazure.cn
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
-[service-fabric-cluster-security]: /documentation/articles/service-fabric-cluster-security/
-[active-directory-howto-tenant]: /documentation/articles/active-directory-howto-tenant/
-[service-fabric-visualizing-your-cluster]: /documentation/articles/service-fabric-visualizing-your-cluster/
-[service-fabric-manage-application-in-visual-studio]: /documentation/articles/service-fabric-manage-application-in-visual-studio/
+[service-fabric-cluster-security]: ./service-fabric-cluster-security.md
+[active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
+[service-fabric-visualizing-your-cluster]: ./service-fabric-visualizing-your-cluster.md
+[service-fabric-manage-application-in-visual-studio]: ./service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
 [azure-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates
 [service-fabric-secure-cluster-5-node-1-nodetype-wad]: https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype-wad/
-[resource-group-template-deploy]: /documentation/articles/resource-group-template-deploy/
-[x509-certificates-and-service-fabric]: /documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric
+[resource-group-template-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
+[x509-certificates-and-service-fabric]: ./service-fabric-cluster-security.md#x509-certificates-and-service-fabric
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png

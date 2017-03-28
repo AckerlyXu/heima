@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Troubleshoot slow backup of files and folders in Azure Backup| Azure"
-    description="Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues"
-    services="backup"
-    documentationcenter=""
-    author="genlin"
-    manager="cshepard"
-    editor="" />
-<tags
-    ms.assetid="e379180a-db13-4e0c-90e4-28e5dd6f5b14"
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/07/2017"
-    wacn.date=""
-    ms.author="genli" />
+---
+title: Troubleshoot slow backup of files and folders in Azure Backup| Azure
+description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
+services: backup
+documentationcenter: ''
+author: genlin
+manager: cshepard
+editor: ''
+
+ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/07/2017
+wacn.date: ''
+ms.author: genli
+---
 
 # Troubleshoot slow backup of files and folders in Azure Backup
 This article provides troubleshooting guidance to help you diagnose the cause of slow backup performance for files and folders when you're using Azure Backup. When you use the Azure Backup agent to back up files, the backup process might take longer than expected. This delay might be caused by one or more of the following:
@@ -28,9 +29,9 @@ This article provides troubleshooting guidance to help you diagnose the cause of
 Before you start troubleshooting issues, we recommend that you download and install the [latest Azure Backup agent](http://aka.ms/azurebackup_agent). We make frequent
 updates to the Backup agent to fix various issues, add features, and improve performance.
 
-We also strongly recommend that you review the [Azure Backup service FAQ](/documentation/articles/backup-azure-backup-faq/) to make sure you're not experiencing any of the common configuration issues.
+We also strongly recommend that you review the [Azure Backup service FAQ](./backup-azure-backup-faq.md) to make sure you're not experiencing any of the common configuration issues.
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 <a id="cause1"></a>
 
@@ -51,7 +52,7 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 | Memory--Available Megabytes |• 50% of free memory available or more = Healthy</br>• 25% of free memory available = Monitor</br>• 10% of free memory available = Warning</br>• Less than 100 MB or 5% of free memory available = Critical or Out of Spec |
 | Processor--\%Processor Time (all instances) |• Less than 60% consumed = Healthy</br>• 61% to 90% consumed = Monitor or Caution</br>• 91% to 100% consumed = Critical |
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you determine that the infrastructure is the culprit, we recommend that you defragment the disks regularly for better performance.
 >
 >
@@ -84,4 +85,4 @@ This behavior occurs because while you're backing up the data and moving it to A
 The following indicators can help you understand the bottleneck and accordingly work on the next steps:
 
 - **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
-- **UI is not showing progress for the data transfer**. Open the logs located at C:\Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](/support/support-ticket-form/?l=zh-cn/).
+- **UI is not showing progress for the data transfer**. Open the logs located at C:\Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://www.azure.cn/support/support-ticket-form/?l=zh-cn/).

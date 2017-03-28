@@ -1,27 +1,26 @@
-<properties
-   pageTitle="Connect a device using C on Windows | Azure"
-   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Windows."
-   services=""
-   suite="iot-suite"
-   documentationCenter="na"
-   authors="dominicbetts"
-   manager="timlt"
-   editor=""/>
+---
+title: Connect a device using C on Windows | Azure
+description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Windows.
+services: ''
+suite: iot-suite
+documentationCenter: na
+authors: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="iot-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/08/2017"
-   ms.author="dobett"
-   wacn.date=""/>
-
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/08/2017
+ms.author: dobett
+wacn.date: ''
+---
 
 # Connect your device to the remote monitoring preconfigured solution (Windows)
 
-[AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
+[!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Create a C sample solution on Windows
 The following steps show you how to create a client application that communicates with the remote monitoring preconfigured solution. This application is written in C and built and run on Windows.
@@ -33,7 +32,7 @@ Create a starter project in Visual Studio 2015 or Visual Studio 2017 and add the
 3. In **Solution Explorer**, delete the files stdafx.h, targetver.h, and stdafx.cpp.
 4. In **Solution Explorer**, rename the file RMDevice.cpp to RMDevice.c.
 5. In **Solution Explorer**, right-click on the **RMDevice** project and then click **Manage NuGet packages**. Click **Browse**, then search for and install the following NuGet packages:
-   
+
    * Microsoft.Azure.IoTHub.Serializer
    * Microsoft.Azure.IoTHub.IoTHubClient
    * Microsoft.Azure.IoTHub.MqttTransport
@@ -56,7 +55,7 @@ Add the Parson JSON library to the **RMDevice** project and add the required `#i
 1. In the **Add Existing Item** dialog, select the parson.h and parson.c files in the **RMDevice** project folder. Then click **Add** to add these two files to your project.
 
 1. In Visual Studio, open the RMDevice.c file. Replace the existing `#include` statements with the following code:
-   
+
     ```
     #include "iothubtransportmqtt.h"
     #include "schemalib.h"
@@ -68,17 +67,17 @@ Add the Parson JSON library to the **RMDevice** project and add the required `#i
     #include "parson.h"
     ```
 
-    > [AZURE.NOTE]
+    > [!NOTE]
     > Now you can verify that your project has the correct dependencies set up by building it.
 
-[AZURE.INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
+[!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
 ## Build and run the sample
 
 Add code to invoke the **remote\_monitoring\_run** function and then build and run the device application.
 
 1. Replace the **main** function with following code to invoke the **remote\_monitoring\_run** function:
-   
+
     ```
     int main()
     {
@@ -91,7 +90,6 @@ Add code to invoke the **remote\_monitoring\_run** function and then build and r
 
 1. In **Solution Explorer**, right-click the **RMDevice** project, click **Debug**, and then click **Start new instance** to run the sample. The console displays messages as the application sends sample telemetry to the preconfigured solution, receives desired property values set in the solution dashboard, and responds to methods invoked from the solution dashboard.
 
-[AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-
+[!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 [lnk-c-project-properties]: https://msdn.microsoft.com/zh-cn/library/669zx6zc.aspx

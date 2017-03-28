@@ -1,23 +1,24 @@
-<properties
-    pageTitle="Access and security in Azure templates for Windows VMs | Azure"
-    description="Azure Virtual Machine DotNet Core Tutorial"
-    services="virtual-machines-windows"
-    documentationcenter="virtual-machines"
-    author="neilpeterson"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="e671fc45-5e4d-40fd-aac5-290892713cc0"
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="infrastructure-services"
-    ms.date="11/21/2016"
-    wacn.date=""
-    ms.author="nepeters"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Access and security in Azure templates for Windows VMs | Azure
+description: Azure Virtual Machine DotNet Core Tutorial
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: neilpeterson
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: e671fc45-5e4d-40fd-aac5-290892713cc0
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 11/21/2016
+wacn.date: ''
+ms.author: nepeters
+ms.custom: H1Hack27Feb2017
+---
 
 # Access and security in Azure Resource Manager templates for Windows VMs
 
@@ -32,103 +33,112 @@ A Public IP Address can be added to an Azure Resource Manager template using the
 
 Follow this link to see the JSON sample within the Resource Manager template - [Public IP Address](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L110).
 
->[AZURE.NOTE] Templates you downloaded must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn", and "database.windows.net" by "database.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
+>[!NOTE]
+> Templates you downloaded must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn", and "database.windows.net" by "database.chinacloudapi.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
 
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[variables('publicIpAddressName')]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [],
-      "tags": {
-        "displayName": "public-ip"
-      },
-      "properties": {
-        "publicIPAllocationMethod": "Dynamic",
-        "dnsSettings": {
-          "domainNameLabel": "[parameters('publicipaddressDnsName')]"
-        }
-      }
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "[variables('publicIpAddressName')]",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [],
+  "tags": {
+    "displayName": "public-ip"
+  },
+  "properties": {
+    "publicIPAllocationMethod": "Dynamic",
+    "dnsSettings": {
+      "domainNameLabel": "[parameters('publicipaddressDnsName')]"
     }
+  }
+}
+```
 
 A Public IP Address can be associated with a Virtual Network Adapter, or a Load Balancer. In this example, because the Music Store website is load balanced across several virtual machines, the Public IP Address is attached to the Load Balancer.
 
 Follow this link to see the JSON sample within the Resource Manager template - [Public IP Address association with Load Balancer](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L211).
 
-    "frontendIPConfigurations": [
-      {
-        "properties": {
-          "publicIPAddress": {
-            "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))]"
-          }
-        },
-        "name": "LoadBalancerFrontend"
+```json
+"frontendIPConfigurations": [
+  {
+    "properties": {
+      "publicIPAddress": {
+        "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))]"
       }
-    ]
+    },
+    "name": "LoadBalancerFrontend"
+  }
+]
+```
 
 The public IP Address as seen from the Azure portal preview. Notice that the public IP address is associated to a load balancer and not a virtual machine. Network load balancers are detailed in the next document of this series.
 
 ![Public IP Address](./media/virtual-machines-windows-dotnet-core/pubip-win.png)
 
-For more information on Azure Public IP Addresses, see [IP addresses in Azure](/documentation/articles/virtual-network-ip-addresses-overview-arm/).
+For more information on Azure Public IP Addresses, see [IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
 ## Network Security Group
 Once access has been established to Azure resources, this access should be limited. For Azure virtual machines, secure access is accomplished using a network security group. With the Music Store application sample, all access to the virtual machine is restricted except for over port 80 for http access, and port 3389 for RDP access. A Network Security Group can be added to an Azure Resource Manager template using the Visual Studio Add New Resource Wizard, or by inserting valid JSON into a template.
 
 Follow this link to see the JSON sample within the Resource Manager template - [Network Security Group](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L57).
 
-    {
-      "apiVersion": "2016-03-30",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[variables('networkSecurityGroup')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "network-security-group"
+```json
+{
+  "apiVersion": "2016-03-30",
+  "type": "Microsoft.Network/networkSecurityGroups",
+  "name": "[variables('networkSecurityGroup')]",
+  "location": "[resourceGroup().location]",
+  "tags": {
+    "displayName": "network-security-group"
+  },
+  "properties": {
+    "securityRules": [
+      {
+        "name": "http",
+        "properties": {
+          "description": "http endpoint",
+          "protocol": "Tcp",
+          "sourcePortRange": "*",
+          "destinationPortRange": "80",
+          "sourceAddressPrefix": "*",
+          "destinationAddressPrefix": "*",
+          "access": "Allow",
+          "priority": 100,
+          "direction": "Inbound"
+        }
       },
-      "properties": {
-        "securityRules": [
-          {
-            "name": "http",
-            "properties": {
-              "description": "http endpoint",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "80",
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound"
-            }
-          },
-          ........<truncated> 
-        ]
-      }
-    },
+      ........<truncated> 
+    ]
+  }
+},
+```
 
 In this example, the network security group is associate with the subnet object declared in the Virtual Network resource. 
 
 Follow this link to see the JSON sample within the Resource Manager template - [Network Security Group association with Virtual Network](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L143).
 
-    "subnets": [
-      {
-        "name": "[variables('subnetName')]",
-        "properties": {
-          "addressPrefix": "10.0.0.0/24",
-          "networkSecurityGroup": {
-            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroup'))]"
-          }
-        }
+```json
+"subnets": [
+  {
+    "name": "[variables('subnetName')]",
+    "properties": {
+      "addressPrefix": "10.0.0.0/24",
+      "networkSecurityGroup": {
+        "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroup'))]"
       }
-    ]
+    }
+  }
+]
+```
 
 Here is what the network security group looks like from the Azure portal preview. Notice that an NSG can be associate with a subnet and / or network interface. In this case, the NSG is associated to a subnet. In this configuration, the inbound rules apply to all virtual machines connected to the subnet.
 
 ![Network Security Group](./media/virtual-machines-windows-dotnet-core/nsg-win.png)
 
-For in-depth information on Network Security Groups, see [What is a Network Security Group](/documentation/articles/virtual-networks-nsg/).
+For in-depth information on Network Security Groups, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md).
 
 ## Next step
 <hr>
 
-[Step 3 - Availability and Scale in Azure Resource Manager Templates](/documentation/articles/virtual-machines-windows-dotnet-core-4-availability-scale/)
+[Step 3 - Availability and Scale in Azure Resource Manager Templates](./virtual-machines-windows-dotnet-core-4-availability-scale.md)

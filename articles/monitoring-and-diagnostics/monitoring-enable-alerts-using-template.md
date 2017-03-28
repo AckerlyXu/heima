@@ -1,29 +1,29 @@
-<properties
-	pageTitle="Create a metric alert with a Resource Manager template | Azure"
-	description="Learn how to use a Resource Manager template to create a metric alert to receive notifications by email or webhook."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Create a metric alert with a Resource Manager template | Azure
+description: Learn how to use a Resource Manager template to create a metric alert to receive notifications by email or webhook.
+authors: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/20/2017"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/20/2017
+ms.author: johnkem
+---
 
 # Create a metric alert with a Resource Manager template
 
-This article shows how you can use an [Azure Resource Manager template](/documentation/articles/resource-group-authoring-templates/) to configure Azure metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
+This article shows how you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to configure Azure metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
 
 The basic steps are as follows:
 
 1. Create a template as a JSON file that describes how to create the alert.
-2. [Deploy the template using any deployment method](/documentation/articles/resource-group-template-deploy/).
+2. [Deploy the template using any deployment method](../azure-resource-manager/resource-group-template-deploy.md).
 
 Below we describe how to create a Resource Manager template first for an alert alone, then for an alert during the creation of another resource.
 
@@ -398,5 +398,5 @@ An alert on a Resource Manager template is most often useful when creating an al
 ```
 
 ## Next Steps
-- [Read more about Alerts](/documentation/articles/insights-receive-alert-notifications/)
-- [Add Diagnostic Settings](/documentation/articles/monitoring-enable-diagnostic-logs-using-template/) to your Resource Manager template
+- [Read more about Alerts](./insights-receive-alert-notifications.md)
+- [Add Diagnostic Settings](./monitoring-enable-diagnostic-logs-using-template.md) to your Resource Manager template

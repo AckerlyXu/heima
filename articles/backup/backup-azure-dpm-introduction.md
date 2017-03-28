@@ -1,27 +1,27 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-	pageTitle="Introduction to Azure DPM backup | Azure"
-	description="An introduction to backing up DPM servers using the Azure Backup service"
-	services="backup"
-	documentationCenter=""
-	authors="Nkolli1"
-	manager="shreeshd"
-	editor=""
-	keywords="System Center Data Protection Manager, data protection manager, dpm backup"/>
+---
+title: Introduction to Azure DPM backup | Azure
+description: An introduction to backing up DPM servers using the Azure Backup service
+services: backup
+documentationCenter: ''
+authors: Nkolli1
+manager: shreeshd
+editor: ''
+keywords: System Center Data Protection Manager, data protection manager, dpm backup
 
-<tags
-	ms.service="backup"
-	ms.date="08/08/2016"
-	wacn.date=""/>
+ms.service: backup
+ms.date: 08/08/2016
+wacn.date: ''
+---
 
 # Preparing to back up workloads to Azure with DPM
 
-> [AZURE.SELECTOR]
-- [Azure Backup Server](/documentation/articles/backup-azure-microsoft-azure-backup/)
-- [SCDPM](/documentation/articles/backup-azure-dpm-introduction/)
-- [Azure Backup Server (Classic)](/documentation/articles/backup-azure-microsoft-azure-backup-classic/)
-- [SCDPM (Classic)](/documentation/articles/backup-azure-dpm-introduction-classic/)
+> [!div class="op_single_selector"]
+>- [Azure Backup Server](./backup-azure-microsoft-azure-backup.md)
+>- [SCDPM](./backup-azure-dpm-introduction.md)
+>- [Azure Backup Server (Classic)](./backup-azure-microsoft-azure-backup-classic.md)
+>- [SCDPM (Classic)](./backup-azure-dpm-introduction-classic.md)
 
 This article provides an introduction to using Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it, you'll understand:
 
@@ -30,7 +30,8 @@ This article provides an introduction to using Azure Backup to protect your Syst
 - The typical errors encountered and how to deal with them
 - Supported scenarios
 
-> [AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](/documentation/articles/resource-manager-deployment-model/). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+> [!NOTE]
+> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 
 System Center DPM backs up file and application data. Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Azure Backup. DPM interacts with Azure Backup as follows:
 
@@ -75,7 +76,7 @@ To create a recovery services vault:
 
 5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](/documentation/articles/resource-group-overview/)
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md)
 
 7. Click **Location** to select the geographic region for the vault.
 
@@ -84,7 +85,7 @@ Once your vault is created, it opens in the portal.
 
 ### Set Storage Replication
 
-The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](/documentation/articles/storage-redundancy/#geo-redundant-storage) and [locally redundant](/documentation/articles/storage-redundancy/#locally-redundant-storage) storage options in the [Azure Storage replication overview](/documentation/articles/storage-redundancy/).
+The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
 
 To edit the storage replication setting:
 
@@ -95,7 +96,6 @@ To edit the storage replication setting:
     ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
     After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
-
 
 ### 2. Download vault credentials
 
@@ -111,7 +111,7 @@ The vault credential file is downloaded through a secure channel from the Azure 
 
 3. Settings blade opens up by default. If it is closed, click on **Settings** on vault dashboard to open the settings blade. In Settings blade, click on **Properties**.
 
-	![Open vault blade](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Open vault blade](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
 4. On the Properties page, click **Download** under **Backup Credentials**. The  portal generates the vault credential file, which is made available for download.
 
@@ -124,8 +124,6 @@ The portal will generate a vault credential using a combination of the vault nam
 - The vault credentials file is used only during the registration workflow.
 - The vault credentials file expires after 48hrs and can be downloaded from the portal.
 
-
-
 ### 3. Install Backup Agent
 
 After creating the Azure Backup vault, an agent should be installed on each of your Windows machines (Windows Server, Windows client, System Center Data Protection Manager server, or Azure Backup Server machine) that enables back up of data and applications to Azure.
@@ -134,7 +132,7 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 2. Settings blade opens up by default. If it is closed, click on **Settings** to open the settings blade. In Settings blade, click on **Properties**.
 
-	![Open vault blade](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+    ![Open vault blade](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
 3. On the Settings page, click **Download** under **Azure Backup Agent**.
 
@@ -142,11 +140,11 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
    Once the agent is downloaded, double click MARSAgentInstaller.exe to launch the installation of the Azure Backup agent. Choose the installation folder and scratch folder required for the agent. The cache location specified must have free space which is at least 5% of the backup data.
 
-4.	If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
+4. If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
 
-5.	The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it's not available already) to complete the installation.
+5. The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it's not available already) to complete the installation.
 
-6.	Once the agent is installed, **Close** the window.
+6. Once the agent is installed, **Close** the window.
 
     ![Close](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
@@ -154,7 +152,7 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 8. If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details in this screen.
 
-	![Proxy configuration](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
+    ![Proxy configuration](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
 
 9. In the vault credentials screen, browse to and select the vault credentials file which was previously downloaded.
 
@@ -178,7 +176,8 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
     ![Encryption](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
-    > [AZURE.WARNING] If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
+    > [!WARNING]
+    > If the passphrase is lost or forgotten; Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
 
 13. Once you click the **Register** button, the machine is registered successfully to the vault and you are now ready to start backing up to Azure.
 
@@ -191,7 +190,7 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 - The DPM server should have Windows PowerShell and .Net Framework 4.5 installed.
 - DPM can back up most workloads to Azure Backup. For a full list of what's supported see the Azure Backup support items below.
 - Data stored in Azure Backup can't be recovered with the "copy to tape" option.
-- You'll need an Azure account with the Azure Backup feature enabled. If you don't have an account, you can create a trial account in just a couple of minutes. Read about [Azure Backup pricing](/pricing/details/backup/).
+- You'll need an Azure account with the Azure Backup feature enabled. If you don't have an account, you can create a trial account in just a couple of minutes. Read about [Azure Backup pricing](https://www.azure.cn/pricing/details/backup/).
 - Using Azure Backup requires the Azure Backup Agent to be installed on the servers you want to back up. Each server must have at least 5 % of the size of the data that is being backed up, available as local free storage. For example, backing up 100 GB of data requires a minimum of 5 GB of free space in the scratch location.
 - Data will be stored in the Azure vault storage. There's no limit to the amount of data you can back up to an Azure Backup vault but the size of a data source (for example a virtual machine or database) shouldn't exceed 54400 GB.
 
@@ -212,4 +211,5 @@ And these are unsupported:
 - Compressed stream
 - Sparse stream
 
->[AZURE.NOTE] From in System Center 2012 DPM with SP1 onwards you can backup up workloads protected by DPM to Azure using Azure Backup.
+>[!NOTE]
+> From in System Center 2012 DPM with SP1 onwards you can backup up workloads protected by DPM to Azure using Azure Backup.

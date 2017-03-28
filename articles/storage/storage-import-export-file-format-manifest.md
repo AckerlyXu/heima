@@ -1,94 +1,95 @@
-<properties
-    pageTitle="Azure Import/Export manifest file format | Azure"
-    description="Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and file on the drive in an import or export job in the Import-Export Service"
-    author="muralikk"
-    manager="syadav"
-    editor="tysonn"
-    services="storage"
-    documentationcenter="" />
-<tags
-    ms.assetid="f3119e1c-2c25-48ad-8752-a6ed4adadbb0"
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="muralikk" />
+---
+title: Azure Import/Export manifest file format | Azure
+description: Learn about the format of the drive manifest file that describes the mapping between blobs in Azure Blob storage and file on the drive in an import or export job in the Import-Export Service
+author: muralikk
+manager: syadav
+editor: tysonn
+services: storage
+documentationcenter: ''
+
+ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: muralikk
+---
 
 # Azure Import/Export service manifest file format
 The drive manifest file describes the mapping between blobs in Azure Blob storage and files on drive comprising an import or export job. For an import operation, the manifest file is created as a part of the drive preparation process, and is stored on the drive before the drive is sent to the Azure data center. During an export operation, the manifest is created and stored on the drive by the Azure Import/Export service.  
-  
+
 For both import and export jobs, the drive manifest file is stored on the import or export drive; it is not transmitted to the service via any API operation.  
-  
+
 The following describes the general format of a drive manifest file:  
-  
 
-	<?xml version="1.0" encoding="UTF-8"?>  
-	<DriveManifest Version="2014-11-01">  
-	  <Drive>  
-	    <DriveId>drive-id</DriveId>  
-	    import-export-credential  
-  
-	    <!-- First Blob List -->  
-	    <BlobList>  
-	      <!-- Global properties and metadata that applies to all blobs -->  
-	      [<MetadataPath Hash="md5-hash">global-metadata-file-path</MetadataPath>]  
-	      [<PropertiesPath   
-	        Hash="md5-hash">global-properties-file-path</PropertiesPath>]  
-  
-	      <!-- First Blob -->  
-	      <Blob>  
-	        <BlobPath>blob-path-relative-to-account</BlobPath>  
-	        <FilePath>file-path-relative-to-transfer-disk</FilePath>  
-	        [<ClientData>client-data</ClientData>]  
-	        [<Snapshot>snapshot</Snapshot>]  
-	        <Length>content-length</Length>  
-	        [<ImportDisposition>import-disposition</ImportDisposition>]  
-	        page-range-list-or-block-list          
-	        [<MetadataPath Hash="md5-hash">metadata-file-path</MetadataPath>]  
-	        [<PropertiesPath Hash="md5-hash">properties-file-path</PropertiesPath>]  
-	      </Blob>  
-  
-	      <!-- Second Blob -->  
-	      <Blob>  
-	      . . .  
-	      </Blob>  
-	    </BlobList>  
-  
-	    <!-- Second Blob List -->  
-	    <BlobList>  
-	    . . .  
-	    </BlobList>  
-	  </Drive>  
-	</DriveManifest>  
-  
-	import-export-credential ::=   
-	  <StorageAccountKey>storage-account-key</StorageAccountKey> | <ContainerSas>container-sas</ContainerSas>  
-  
-	page-range-list-or-block-list ::=   
-	  page-range-list | block-list  
-  
-	page-range-list ::=   
-	    <PageRangeList>  
-	      [<PageRange Offset="page-range-offset" Length="page-range-length"   
-	       Hash="md5-hash"/>]  
-	      [<PageRange Offset="page-range-offset" Length="page-range-length"   
-	       Hash="md5-hash"/>]  
-	    </PageRangeList>  
-  
-	block-list ::=  
-	    <BlockList>  
-	      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
-	       Hash="md5-hash"/>]  
-	      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
-	       Hash="md5-hash"/>]  
-	    </BlockList>  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>  
+<DriveManifest Version="2014-11-01">  
+  <Drive>  
+    <DriveId>drive-id</DriveId>  
+    import-export-credential  
 
+    <!-- First Blob List -->  
+    <BlobList>  
+      <!-- Global properties and metadata that applies to all blobs -->  
+      [<MetadataPath Hash="md5-hash">global-metadata-file-path</MetadataPath>]  
+      [<PropertiesPath   
+        Hash="md5-hash">global-properties-file-path</PropertiesPath>]  
+
+      <!-- First Blob -->  
+      <Blob>  
+        <BlobPath>blob-path-relative-to-account</BlobPath>  
+        <FilePath>file-path-relative-to-transfer-disk</FilePath>  
+        [<ClientData>client-data</ClientData>]  
+        [<Snapshot>snapshot</Snapshot>]  
+        <Length>content-length</Length>  
+        [<ImportDisposition>import-disposition</ImportDisposition>]  
+        page-range-list-or-block-list          
+        [<MetadataPath Hash="md5-hash">metadata-file-path</MetadataPath>]  
+        [<PropertiesPath Hash="md5-hash">properties-file-path</PropertiesPath>]  
+      </Blob>  
+
+      <!-- Second Blob -->  
+      <Blob>  
+      . . .  
+      </Blob>  
+    </BlobList>  
+
+    <!-- Second Blob List -->  
+    <BlobList>  
+    . . .  
+    </BlobList>  
+  </Drive>  
+</DriveManifest>  
+
+import-export-credential ::=   
+  <StorageAccountKey>storage-account-key</StorageAccountKey> | <ContainerSas>container-sas</ContainerSas>  
+
+page-range-list-or-block-list ::=   
+  page-range-list | block-list  
+
+page-range-list ::=   
+    <PageRangeList>  
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+       Hash="md5-hash"/>]  
+      [<PageRange Offset="page-range-offset" Length="page-range-length"   
+       Hash="md5-hash"/>]  
+    </PageRangeList>  
+
+block-list ::=  
+    <BlockList>  
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]  
+       Hash="md5-hash"/>]  
+      [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
+       Hash="md5-hash"/>]  
+    </BlockList>  
+```
 
 The data elements and attributes of the drive manifest XML format are specified in the following table.  
-  
+
 |XML Element|Type|Description|  
 |-----------------|----------|-----------------|  
 |`DriveManifest`|Root element|The root element of the manifest file. All other elements in the file are beneath this element.|  
@@ -125,6 +126,6 @@ The data elements and attributes of the drive manifest XML format are specified 
 |`Blob/MetadataPath/@Hash`|Attribute, String|Specifies the Base16-encoded MD5 hash of the blob's metadata file.|  
 |`Blob/PropertiesPath`|String|Optional. Specifies the relative path of a properties file. During an import, the properties are set on the destination blob. During an export operation, the blob properties are stored in the properties file on the drive.|  
 |`Blob/PropertiesPath/@Hash`|Attribute, String|Specifies the Base16-encoded MD5 hash of the blob's properties file.|  
-  
+
 ## See Also  
 [Storage Import/Export REST](https://docs.microsoft.com/zh-cn/rest/api/storageimportexport/)

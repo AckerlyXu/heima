@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Enable Azure AD Application Proxy | Azure"
-	description="Turn on Application Proxy in the Azure classic portal, and install the Connectors for the reverse proxy."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="StevenPo"
-	editor=""/>
+---
+title: Enable Azure AD Application Proxy | Azure
+description: Turn on Application Proxy in the Azure classic portal, and install the Connectors for the reverse proxy.
+services: active-directory
+documentationCenter: ''
+authors: kgremban
+manager: StevenPo
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="06/17/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 06/17/2016
+wacn.date: ''
+---
 
 # Enable Application Proxy in the Azure portal
 
@@ -24,34 +24,33 @@ If you're unfamiliar with what Application Proxy can help you do, learn more abo
 ## Application Proxy prerequisites
 Before you can enable and use Application Proxy services, you need to have:
 
-- A Microsoft Azure AD [basic or premium subscription](/documentation/articles/active-directory-editions) and an Azure AD directory for which you are a global administrator.
+- A Microsoft Azure AD [basic or premium subscription](./active-directory-editions.md) and an Azure AD directory for which you are a global administrator.
 - A server running Windows Server 2012 R2, or Windows 8.1 or higher, on which you can install the Application Proxy Connector. The server sends HTTPS requests to the Application Proxy services in the cloud, and it needs an HTTPS connection to the applications that you are publishing.
 - If there is a firewall in the path, make sure that it's open so that the Connector can make HTTPS (TCP) requests to the Application Proxy. The Connector uses these ports together with subdomains that are part of the high-level domains msappproxy.net and servicebus.chinacloudapi.cn. Make sure to open **all** the following ports to **outbound** traffic:
 
-	| Port Number | Description |
-	| --- | --- |
-	| 80 | Enable outbound HTTP traffic for security validation. |
-	| 443 | Enable user authentication against Azure AD (required only for the Connector registration process) |
-	| 10100–10120 | Enable LOB HTTP responses sent back to the proxy |
-	| 9352, 5671 | Enable communication between the Connector toward the Azure service for incoming requests. |
-	| 9350 | Optional, to enable better performance for incoming requests |
-	| 8080 | Enable the Connector bootstrap sequence and Connector automatic update |
-	| 9090 | Enable Connector registration (required only for the Connector registration process) |
-	| 9091 | Enable Connector trust certificate automatic renewal |
+    | Port Number | Description |
+    | --- | --- |
+    | 80 | Enable outbound HTTP traffic for security validation. |
+    | 443 | Enable user authentication against Azure AD (required only for the Connector registration process) |
+    | 10100–10120 | Enable LOB HTTP responses sent back to the proxy |
+    | 9352, 5671 | Enable communication between the Connector toward the Azure service for incoming requests. |
+    | 9350 | Optional, to enable better performance for incoming requests |
+    | 8080 | Enable the Connector bootstrap sequence and Connector automatic update |
+    | 9090 | Enable Connector registration (required only for the Connector registration process) |
+    | 9091 | Enable Connector trust certificate automatic renewal |
 
 If your firewall enforces traffic according to originating users, open these ports for traffic coming from Windows services running as a Network Service. Also, make sure to enable port 8080 for NT Authority\System.
-
 
 ## Step 1: Enable Application Proxy in Azure AD
 1. Sign in as an administrator in the [Azure classic portal](https://manage.windowsazure.com/).
 2. Go to Active Directory and select the directory in which you want to enable Application Proxy.
 
-	![Active Directory - icon](./media/active-directory-application-proxy-enable/ad_icon.png)
+    ![Active Directory - icon](./media/active-directory-application-proxy-enable/ad_icon.png)
 
 3. Select **Configure** from the directory page, and scroll down to **Application Proxy**.
 4. Toggle **Enable Application Proxy Services for this Directory** to **Enabled**.
 
-	![Enable Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
+    ![Enable Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
 
 5. Select **Download now**. This takes you to the **Azure AD Application Proxy Connector Download**. Read and accept the license terms and click **Download** to save the Windows Installer file (.exe) for the Application Proxy Connector.
 
@@ -67,10 +66,10 @@ If your firewall enforces traffic according to originating users, open these por
 
 4. When the installation completes, two new services are added to your server:
 
- 	- **Microsoft AAD Application Proxy Connector** enables connectivity
-	- **Microsoft AAD Application Proxy Connector Updater** is an automated update service, which periodically checks for new versions of the Connector and updates the Connector as needed.
+     - **Microsoft AAD Application Proxy Connector** enables connectivity
+    - **Microsoft AAD Application Proxy Connector Updater** is an automated update service, which periodically checks for new versions of the Connector and updates the Connector as needed.
 
-	![App Proxy Connector services - screenshot](./media/active-directory-application-proxy-enable/app_proxy_services.png)
+    ![App Proxy Connector services - screenshot](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 
 5. Click **Finish** in the installation window.
 
@@ -80,11 +79,10 @@ For high availability purposes, you should deploy at least two Connectors. To de
 
 If you want to uninstall the Connector, uninstall both the Connector service and the Updater service. Restart your computer to fully remove the service.
 
-
 ## Next steps
 
-- [Publish applications with Application Proxy](/documentation/articles/active-directory-application-proxy-publish/)
-- [Publish applications using your own domain name](/documentation/articles/active-directory-application-proxy-custom-domains/)
+- [Publish applications with Application Proxy](./active-directory-application-proxy-publish.md)
+- [Publish applications using your own domain name](./active-directory-application-proxy-custom-domains.md)
 - [Enable single-sign on](/documentation/articles/active-directory-application-proxy-sso-using-kcd/)
 - [Troubleshoot issues you're having with Application Proxy](/documentation/articles/active-directory-application-proxy-troubleshoot/)
 

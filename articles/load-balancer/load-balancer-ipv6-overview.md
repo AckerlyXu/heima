@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Overview of IPv6 for Azure Load Balancer | Azure"
-    description="Understanding IPv6 support for Azure Load Balancer and load-balanced VMs."
-    services="load-balancer"
-    documentationcenter="na"
-    author="kumudd"
-    manager="timlt"
-    editor=""
-    keywords="ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot" />
-<tags
-    ms.assetid="6a1d583f-a305-40fd-a94b-fa42e1943bbb"
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="09/14/2016"
-    wacn.date=""
-    ms.author="kumud" />
+---
+title: Overview of IPv6 for Azure Load Balancer | Azure
+description: Understanding IPv6 support for Azure Load Balancer and load-balanced VMs.
+services: load-balancer
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: ''
+keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
+
+ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/14/2016
+wacn.date: ''
+ms.author: kumud
+---
 
 # Overview of IPv6 for Azure Load Balancer
 
@@ -53,7 +54,7 @@ Details
 
 * The Azure DNS service contains both IPv4 A and IPv6 AAAA name records and responds with both records for the load balancer. The client chooses which address (IPv4 or IPv6) to communicate with.
 * When a VM initiates a connection to a public Internet IPv6-connected device, the VM's source IPv6 address is network address translated (NAT) to the public IPv6 address of the load balancer.
-* VMs running the Linux operating system must be configured to receive an IPv6 IP address via DHCP. Many of the Linux images in the Azure Gallery are already configured to support IPv6 without modification. For more information, see [Configuring DHCPv6 for Linux VMs](/documentation/articles/load-balancer-ipv6-for-linux/)
+* VMs running the Linux operating system must be configured to receive an IPv6 IP address via DHCP. Many of the Linux images in the Azure Gallery are already configured to support IPv6 without modification. For more information, see [Configuring DHCPv6 for Linux VMs](./load-balancer-ipv6-for-linux.md)
 * If you choose to use a health probe with your load balancer, create an IPv4 probe and use it with both the IPv4 and IPv6 endpoints. If the service on your VM goes down, both the IPv4 and IPv6 endpoints are taken out of rotation.
 
 Limitations
@@ -75,6 +76,6 @@ Limitations
 Learn how to deploy a load balancer with IPv6.
 
 * [Availability of IPv6 by region](https://go.microsoft.com/fwlink/?linkid=828357)
-* [Deploy a load balancer with IPv6 using a template](/documentation/articles/load-balancer-ipv6-internet-template/)
-* [Deploy a load balancer with IPv6 using Azure PowerShell](/documentation/articles/load-balancer-ipv6-internet-ps/)
-* [Deploy a load balancer with IPv6 using Azure CLI](/documentation/articles/load-balancer-ipv6-internet-cli/)
+* [Deploy a load balancer with IPv6 using a template](./load-balancer-ipv6-internet-template.md)
+* [Deploy a load balancer with IPv6 using Azure PowerShell](./load-balancer-ipv6-internet-ps.md)
+* [Deploy a load balancer with IPv6 using Azure CLI](./load-balancer-ipv6-internet-cli.md)

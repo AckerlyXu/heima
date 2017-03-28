@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Predictive maintenance preconfigured solution | Azure"
-    description="A description of the Azure IoT Suite predictive maintenance preconfigured solution."
-    services=""
-    suite="iot-suite"
-    documentationcenter=""
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="b370b3d7-2ce5-4906-9818-3aeedd471ee3"
-    ms.service="iot-suite"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/16/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Predictive maintenance preconfigured solution | Azure
+description: A description of the Azure IoT Suite predictive maintenance preconfigured solution.
+services: ''
+suite: iot-suite
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: b370b3d7-2ce5-4906-9818-3aeedd471ee3
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/16/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Predictive maintenance preconfigured solution overview
 
@@ -29,7 +30,7 @@ Fabrikam is a regional airline that focuses on great customer experience at comp
 
 The engines of Fabrikam’s aircraft are instrumented with sensors that monitor engine conditions during flight. Fabrikam uses the predictive maintenance preconfigured solution to collect the sensor data collected during the flight. After accumulating years of engine operational and failure data, Fabrikam’s data scientists have modeled a way to predict the Remaining Useful Life (RUL) of an aircraft engine. What they have identified is a correlation between the data from four of the engine sensors with the engine wear that leads to eventual failure. While Fabrikam continues to perform regular inspections to ensure safety, it can now use the models to compute the RUL for each engine after every flight. The model uses the telemetry collected from the engines during the flight. Fabrikam can now predict future points of failure and plan for maintenance and repair in advance.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The solution model uses actual engine wear data.
 
 By predicting the point when maintenance is required, Fabrikam can optimize its operations to reduce costs. Maintenance coordinators work with schedulers:
@@ -56,7 +57,7 @@ This tutorial shows you how to provision the predictive maintenance solution. It
 
 To complete this tutorial, you need an active Azure subscription.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you don’t have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk_free_trial].
 
 1. Log on to [azureiotsuite.com][lnk-azureiotsuite] using your Azure account credentials, and click **+** to create a solution.
@@ -72,7 +73,7 @@ To complete this tutorial, you need an active Azure subscription.
 1. Once provisioning completes, the status changes to **Ready**.
 1. Click the tile to see the details of your solution in the right-hand pane.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you encounter issues deploying the preconfigured solution, review [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, create a service ticket on the [portal][lnk-portal].
 
 The following screenshot shows the solution panel when the provisioning is complete:
@@ -84,7 +85,6 @@ From this panel, you can:
 - Launch the solution dashboard.
 - Download a remote login file that enables you to connect to the R Server in your solution.
 - View more information about R Server.
-
 
 Are there details you'd expect to see that aren't listed for your solution? Give us feature suggestions on [User Voice](https://feedback.azure.com/forums/321918-azure-iot).
 

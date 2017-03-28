@@ -23,7 +23,6 @@
 |-c |Mandatory|Communication mode between Agent and Process Server<br>(Will be deprecated in the next release) |*https*|
 |-P |Mandatory|Configuration Server passphrase|Any valid UNC or local file path|
 
-
 #### Sample Usage
 ```
 sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i 192.168.2.53 -p 443 -s y -c https -P /tmp/MobSvc.passphrase

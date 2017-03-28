@@ -1,21 +1,21 @@
-<properties 
-   pageTitle="List of updates applied to the Azure Guest OS | Azure" 
-   description="The list of updates applied to Guest OS releases" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="raiye" 
-   manager="timlt" 
-   editor=""/>
+---
+title: List of updates applied to the Azure Guest OS | Azure
+description: The list of updates applied to Guest OS releases
+services: cloud-services
+documentationCenter: na
+authors: raiye
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="01/10/2017"
-   ms.author="raiye"
-   wacn.date=""/>
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 01/10/2017
+ms.author: raiye
+wacn.date: ''
+---
 
 # Azure Guest OS 
 
@@ -356,7 +356,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS15-029 |[3035126] |Vulnerability in Windows Photo Decoder Component Could Allow Information Disclosure |4.18, 3.25, 2.37 |N/A |
 | MS15-030 |[3039976] |Vulnerability in Remote Desktop Protocol Could Allow Denial of Service |4.18, 3.25, 2.37 |N/A |
 
-> [AZURE.NOTE] Bulletin MS15-031 may appear as uninstalled. However, it does not apply to this Guest OS release.
+> [!NOTE]
+> Bulletin MS15-031 may appear as uninstalled. However, it does not apply to this Guest OS release.
 
 ## February Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -509,7 +510,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3156418]: http://support.microsoft.com/zh-cn/kb/3156418
 [3153731]: http://support.microsoft.com/zh-cn/kb/3153731
 
-
 [3155533]: http://support.microsoft.com/zh-cn/kb/3155533
 [3156764]: http://support.microsoft.com/zh-cn/kb/3156764
 [3156754]: http://support.microsoft.com/zh-cn/kb/3156754
@@ -526,7 +526,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3123245]: http://support.microsoft.com/zh-cn/kb/3123245
 [Disable RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
 
-
 [3148531]: http://support.microsoft.com/zh-cn/kb/3148531
 [3148522]: http://support.microsoft.com/zh-cn/kb/3148522
 [3148541]: http://support.microsoft.com/zh-cn/kb/3148541
@@ -534,7 +533,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3143118]: http://support.microsoft.com/zh-cn/kb/3143118
 [3148527]: http://support.microsoft.com/zh-cn/kb/3148527
 [3148528]: http://support.microsoft.com/zh-cn/kb/3148528
-
 
 [3142015]: http://support.microsoft.com/zh-cn/kb/3142015  
 [3143148]: http://support.microsoft.com/zh-cn/kb/3143148  
@@ -613,7 +611,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3060716]: http://support.microsoft.com/zh-cn/kb/3060716
 [3076949]: http://support.microsoft.com/zh-cn/kb/3076949
 [3086251]: http://support.microsoft.com/zh-cn/kb/3086251
-
 
 [3076321]: http://support.microsoft.com/zh-cn/kb/3076321
 [3072604]: http://support.microsoft.com/zh-cn/kb/3072604
@@ -705,8 +702,5 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3062577]:http://support.microsoft.com/zh-cn/kb/3062577
 [3063858]:http://support.microsoft.com/zh-cn/kb/3063858
 
-
-
 [archive]: https://msdn.microsoft.com/zh-cn/library/azure/dn391773.aspx
-[family-explain]:/documentation/articles/cloud-services-guestos-update-matrix/#guest-os-family-version-explanation
- 
+[family-explain]:./cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation

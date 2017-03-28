@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Backup Stretch-enabled databases | Azure"
-    description="Learn how to back up Stretch\-enabled databases."
-    services="sql-server-stretch-database"
-    documentationcenter=""
-    author="Antvgski"
-    manager="johnmac"
-    editor="douglasl" />
-<tags
-    ms.assetid="a196f858-ef8f-47b5-b9db-bb7db98d48bd"
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="douglasl" />
+---
+title: Backup Stretch-enabled databases | Azure
+description: Learn how to back up Stretch\-enabled databases.
+services: sql-server-stretch-database
+documentationcenter: ''
+author: Antvgski
+manager: johnmac
+editor: douglasl
+
+ms.assetid: a196f858-ef8f-47b5-b9db-bb7db98d48bd
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: douglasl
+---
 
 # Backup Stretch-enabled databases
 Database backups help you to recover from many types of failures, errors, and disasters.  
@@ -23,7 +24,7 @@ Database backups help you to recover from many types of failures, errors, and di
 * You have to back up your Stretch\-enabled SQL Server databases.  
 * Azure automatically backs up the remote data that Stretch Database has migrated from SQL Server to Azure.  
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Backup is only one part of a complete high availability and business continuity solution. For more info about high availability, see [High Availability Solutions](https://msdn.microsoft.com/zh-cn/library/ms190202.aspx).
 > 
 > 
@@ -53,7 +54,7 @@ To increase the number of hours of migrated data that Stretch Database retains t
 * The time required after a problem to recognize the problem and to decide to restore a backup.
 * The duration of the Azure restore operation.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Increasing the amount of data that Stretch Database retains temporarily in the staging table increases the amount of space required on the SQL Server.
 > 
 > 
@@ -61,9 +62,8 @@ To increase the number of hours of migrated data that Stretch Database retains t
 To check the number of hours of data that Stretch Database currently retains temporarily in the staging table, run the stored procedure [sys.sp_rda_get_rpo_duration](https://msdn.microsoft.com/zh-cn/library/mt707767.aspx).
 
 ## See also
-[Manage and troubleshoot Stretch Database](/documentation/articles/sql-server-stretch-database-manage/)
+[Manage and troubleshoot Stretch Database](./sql-server-stretch-database-manage.md)
 
 [sys.sp_rda_reauthorize_db (Transact-SQL)](https://msdn.microsoft.com/zh-cn/library/mt131016.aspx)
 
 [Back Up and Restore of SQL Server Databases](https://msdn.microsoft.com/zh-cn/library/ms187048.aspx)
-

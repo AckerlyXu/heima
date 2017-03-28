@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Overview of the lifecycle of Azure Service Fabric Reliable Services | Azure"
-    description="Learn about the different lifecycle events in Service Fabric reliable services"
-    services="Service-Fabric"
-    documentationcenter=".net"
-    author="masnider"
-    manager="timlt"
-    editor="vturecek;" />
-<tags
-    ms.assetid="ms.service: Service-Fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="01/05/2017"
-    wacn.date=""
-    ms.author="masnider;" />
+---
+title: Overview of the lifecycle of Azure Service Fabric Reliable Services | Azure
+description: Learn about the different lifecycle events in Service Fabric reliable services
+services: Service-Fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: vturecek;
+
+ms.assetid: ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 01/05/2017
+wacn.date: ''
+ms.author: masnider;
+---
 
 # Reliable services lifecycle overview
 When thinking about the lifecycles of Reliable Services, the basics of the lifecycle are the most important. In general:
@@ -63,7 +64,7 @@ Stateful services have a similar pattern to stateless services, with a few chang
     - The service's RunAsync method (`StatefulServiceBase.RunAsync()`) is called
 4. Once all the replica listener's `OpenAsync()` calls complete and `RunAsync()` has been started (or these steps were skipped because this replica is currently a secondary), `StatefulServiceBase.OnChangeRoleAsync()` is called. (This is uncommonly overridden in the service.)
 
-Similarly to stateless services, there's no coordination between the order in which the listeners are created and opened and RunAsync being called. The solutions are much the same, with one additional case: say that the calls arriving at the communication listeners require information kept inside some [Reliable Collections](/documentation/articles/service-fabric-reliable-services-reliable-collections/) to work. Because the communication listeners could open before the reliable collections are readable or writeable, and before RunAsync could start, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return some error code that the client uses to know to retry the request.
+Similarly to stateless services, there's no coordination between the order in which the listeners are created and opened and RunAsync being called. The solutions are much the same, with one additional case: say that the calls arriving at the communication listeners require information kept inside some [Reliable Collections](./service-fabric-reliable-services-reliable-collections.md) to work. Because the communication listeners could open before the reliable collections are readable or writeable, and before RunAsync could start, some additional coordination is necessary. The simplest and most common solution is for the communication listeners to return some error code that the client uses to know to retry the request.
 
 ## Stateful service Shutdown
 Similarly to Stateless services, the lifecycle events during shutdown are the same as during startup, but reversed. When a stateful service is being shut down, the following events occur:
@@ -103,6 +104,6 @@ Similarly, Service Fabric needs this replica to start listening for messages on 
 * Failures in the `OnCloseAsync()` path result in `OnAbort()` being called which is a last-chance best-effort opportunity for the service to clean up and release any resources that they have claimed.
 
 ## Next steps
-* [Introduction to Reliable Services](/documentation/articles/service-fabric-reliable-services-introduction/)
-* [Reliable Services quick start](/documentation/articles/service-fabric-reliable-services-quick-start/)
-* [Reliable Services advanced usage](/documentation/articles/service-fabric-reliable-services-advanced-usage/)
+* [Introduction to Reliable Services](./service-fabric-reliable-services-introduction.md)
+* [Reliable Services quick start](./service-fabric-reliable-services-quick-start.md)
+* [Reliable Services advanced usage](./service-fabric-reliable-services-advanced-usage.md)

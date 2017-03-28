@@ -1,28 +1,29 @@
-<properties
-    pageTitle="Deploy a Node.js application that uses MongoDB | Azure"
-    description="Walkthrough on how to package multiple guest executables to deploy to an Azure Service Fabric cluster"
-    services="service-fabric"
-    documentationcenter=".net"
-    author="msfussell"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="b76bb756-c1ba-49f9-9666-e9807cf8f92f"
-    ms.service="service-fabric"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="NA"
-    ms.date="02/17/2017"
-    wacn.date=""
-    ms.author="msfussell;mikhegn" />
+---
+title: Deploy a Node.js application that uses MongoDB | Azure
+description: Walkthrough on how to package multiple guest executables to deploy to an Azure Service Fabric cluster
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
+
+ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 02/17/2017
+wacn.date: ''
+ms.author: msfussell;mikhegn
+---
 
 # Deploy multiple guest executables
-This article shows how to package and deploy multiple guest executables to Azure Service Fabric. For building and deploying a single Service Fabric package read how to [deploy a guest executable to Service Fabric](/documentation/articles/service-fabric-deploy-existing-app/).
+This article shows how to package and deploy multiple guest executables to Azure Service Fabric. For building and deploying a single Service Fabric package read how to [deploy a guest executable to Service Fabric](./service-fabric-deploy-existing-app.md).
 
 While this walkthrough shows how to deploy an application with a Node.js front end that uses MongoDB as the data store, you can apply the steps to any application that has dependencies on another application.   
 
-You can use Visual Studio to produce the application package that contains multiple guest executables. See [Using Visual Studio to package an existing application](/documentation/articles/service-fabric-deploy-existing-app/#use-visual-studio-to-package-an-existing-executable). After you have added the first guest executable, right click on the application project and select the **Add->New Service Fabric service** to add the second guest executable project to the solution. Note: If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. 
+You can use Visual Studio to produce the application package that contains multiple guest executables. See [Using Visual Studio to package an existing application](./service-fabric-deploy-existing-app.md#use-visual-studio-to-package-an-existing-executable). After you have added the first guest executable, right click on the application project and select the **Add->New Service Fabric service** to add the second guest executable project to the solution. Note: If you choose to link the source in the Visual Studio project, building the Visual Studio solution, will make sure that your application package is up to date with changes in the source. 
 ## Samples
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
 * [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
@@ -35,17 +36,17 @@ This article assumes that Node.js is not installed on the nodes in the Service F
 
 ```
 |-- NodeApplication
-	|-- bin
+    |-- bin
         |-- www
-	|-- node_modules
+    |-- node_modules
         |-- .bin
         |-- express
         |-- jade
         |-- etc.
-	|-- public
+    |-- public
         |-- images
         |-- etc.
-	|-- routes
+    |-- routes
         |-- index.js
         |-- users.js
     |-- views
@@ -71,14 +72,13 @@ Below is a description of the parameters that are being used:
 - **/ma** defines the argument that is being used to launch the executable. As Node.js is not installed, Service Fabric needs to launch the Node.js web server by executing `node.exe bin/www`.  `/ma:'bin/www'` tells the packaging tool to use `bin/ma` as the argument for node.exe.
 - **/AppType** defines the Service Fabric application type name.
 
-
 If you browse to the directory that was specified in the /target parameter, you can see that the tool has created a fully functioning Service Fabric package as shown below:
 
 ```
 |--[yourtargetdirectory]
     |-- NodeApplication
         |-- C
-		      |-- bin
+              |-- bin
               |-- data
               |-- node_modules
               |-- public
@@ -88,8 +88,8 @@ If you browse to the directory that was specified in the /target parameter, you 
               |-- package.json
               |-- node.exe
         |-- config
-		      |--Settings.xml
-	    |-- ServiceManifest.xml
+              |--Settings.xml
+        |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
 The generated ServiceManifest.xml now has a section that describes how the Node.js web server should be launched, as shown in the code snippet below:
@@ -110,7 +110,7 @@ In this sample, the Node.js web server listens to port 3000, so you need to upda
 ```xml
 <Resources>
       <Endpoints>
-     	<Endpoint Name="NodeServiceEndpoint" Protocol="http" Port="3000" Type="Input" />
+         <Endpoint Name="NodeServiceEndpoint" Protocol="http" Port="3000" Type="Input" />
       </Endpoints>
 </Resources>
 ```
@@ -121,7 +121,7 @@ To package MongoDB, you want to make sure you package Mongod.exe and Mongo.exe. 
 
 ```
 |-- MongoDB
-	|-- bin
+    |-- bin
         |-- mongod.exe
         |-- mongo.exe
         |-- anybinary.exe
@@ -131,7 +131,8 @@ Service Fabric needs to start MongoDB with a command similar to the one below, s
 ```
 mongod.exe --dbpath [path to data]
 ```
-> [AZURE.NOTE] The data is not being preserved in the case of a node failure if you put the MongoDB data directory on the local directory of the node. You should either use durable storage or implement a MongoDB replica set in order to prevent data loss.  
+> [!NOTE]
+> The data is not being preserved in the case of a node failure if you put the MongoDB data directory on the local directory of the node. You should either use durable storage or implement a MongoDB replica set in order to prevent data loss.  
 
 In PowerShell or the command shell, we run the packaging tool with the following parameters:
 
@@ -201,7 +202,6 @@ Once the application is successfully published to the local cluster, you can acc
 
 In this tutorial, you have seen how to easily package two existing applications as one Service Fabric application. You have also learned how to deploy it to Service Fabric so that it can benefit from some of the Service Fabric features, such as high availability and health system integration.
 
-
 ## Adding more guest executables to an existing application using Yeoman on Linux
 
 To add another service to an application already created using `yo`, perform the following steps: 
@@ -209,6 +209,6 @@ To add another service to an application already created using `yo`, perform the
 2. Run `yo azuresfguest:AddService` and provide the necessary details.
 
 ## Next steps
-* Learn about deploying containers with [Service Fabric and containers overview](/documentation/articles/service-fabric-containers-overview/)
+* Learn about deploying containers with [Service Fabric and containers overview](./service-fabric-containers-overview.md)
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/GuestExe/SimpleApplication)
 * [Sample of two guest exectuables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)

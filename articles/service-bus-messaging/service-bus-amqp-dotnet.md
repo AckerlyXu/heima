@@ -1,19 +1,20 @@
-<properties 
-   pageTitle="Service Bus with .NET and AMQP 1.0 | Azure"
-    description="Using Azure Service Bus from .NET with AMQP"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-    editor="" /> 
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/13/2017"
-    ms.author="sethm" />
+---
+title: Service Bus with .NET and AMQP 1.0 | Azure
+description: Using Azure Service Bus from .NET with AMQP
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: timlt
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/13/2017
+ms.author: sethm
+---
 
 # Using Service Bus from .NET with AMQP 1.0
 
@@ -28,17 +29,21 @@ In the current release, there are a few API features that are not supported when
 ### Configuration using App.config
 It is good practice for applications to use the App.config configuration file to store settings. For Service Bus applications, you can use App.config to store the settings for the Service Bus **ConnectionString** value. An example App.config file is as follows:
 
-	<?xml version="1.0" encoding="utf-8" ?>
-	<configuration>
-	    <appSettings>
-	        <add key="Microsoft.ServiceBus.ConnectionString"
-	             value="Endpoint=sb://[namespace].servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
-	    </appSettings>
-	</configuration>
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <appSettings>
+        <add key="Microsoft.ServiceBus.ConnectionString"
+             value="Endpoint=sb://[namespace].servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp" />
+    </appSettings>
+</configuration>
+```
 
 The value of the `Microsoft.ServiceBus.ConnectionString` setting is the Service Bus connection string that is used to configure the connection to Service Bus. The format is as follows:
 
-	Endpoint=sb://[namespace].servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
+```
+Endpoint=sb://[namespace].servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
+```
 
 Where `[namespace]` and `SharedAccessKey` are obtained from the [Azure portal][Azure portal]. For more information, see [Get started with Service Bus queues][Get started with Service Bus queues].
 
@@ -85,7 +90,6 @@ To facilitate interoperability with non-.NET clients, use only .NET types that c
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-
 ## <a name="unsupported-features-restrictions-and-behavioral-differences"></a> Unsupported features, restrictions, and behavioral differences
 The following features of the Service Bus .NET API are not currently supported when using AMQP:
 
@@ -123,6 +127,6 @@ Ready to learn more? Visit the following links:
 [OperationTimeout]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.cn
-[Service Bus AMQP overview]: /documentation/articles/service-bus-amqp-overview/
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: /documentation/articles/service-bus-partitioned-queues-and-topics-amqp-overview/
+[Service Bus AMQP overview]: ./service-bus-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/zh-cn/library/dn574799.aspx

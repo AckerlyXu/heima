@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Azure Active Directory auth - Azure SQL (Overview) | Azure"
-    description="Learn about how to use Azure Active Directory for authentication with SQL Database and SQL Data Warehouse"
-    services="sql-database"
-    documentationcenter=""
-    author="BYHAM"
-    manager="jhubbard"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="7e2508a1-347e-4f15-b060-d46602c5ce7e"
-    ms.service="sql-database"
-    ms.custom="authentication and authorization"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="rickbyh" />
+---
+title: Azure Active Directory auth - Azure SQL (Overview) | Azure
+description: Learn about how to use Azure Active Directory for authentication with SQL Database and SQL Data Warehouse
+services: sql-database
+documentationcenter: ''
+author: BYHAM
+manager: jhubbard
+editor: ''
+tags: ''
+
+ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
+ms.service: sql-database
+ms.custom: authentication and authorization
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: rickbyh
+---
 
 # Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse
-Azure Active Directory authentication is a mechanism of connecting to Azure SQL Database and [SQL Data Warehouse](/documentation/articles/sql-data-warehouse-overview-what-is/) by using identities in Azure Active Directory (Azure AD). With Azure AD authentication you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
+Azure Active Directory authentication is a mechanism of connecting to Azure SQL Database and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). With Azure AD authentication you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage database users and simplifies permission management. Benefits include the following:
 
 - It provides an alternative to SQL Server authentication.
 - Helps stop the proliferation of user identities across database servers.
@@ -30,20 +31,20 @@ Azure Active Directory authentication is a mechanism of connecting to Azure SQL 
 - Azure AD authentication uses contained database users to authenticate identities at the database level.
 - Azure AD supports token-based authentication for applications connecting to SQL Database.
 - Azure AD authentication supports ADFS (domain federation) or native user/password authentication for a local Azure Active Directory without domain synchronization.  
-- Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](/documentation/articles/sql-database-ssms-mfa-authentication/).
+- Azure AD supports connections from SQL Server Management Studio that use Active Directory Universal Authentication, which includes Multi-Factor Authentication (MFA).  MFA includes strong authentication with a range of easy verification options — phone call, text message, smart cards with pin, or mobile app notification. For more information, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](./sql-database-ssms-mfa-authentication.md).
 
 The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
 
 1. Create and populate Azure AD.
 2. Ensure your database is in Azure SQL Database V12. (Not necessary for SQL Data Warehouse.)
 3. Optional: Associate or change the active directory that is currently associated with your Azure Subscription.
-4. Create an Azure Active Directory administrator for Azure SQL Server or [Azure SQL Data Warehouse](/home/features/sql-data-warehouse/).
+4. Create an Azure Active Directory administrator for Azure SQL Server or [Azure SQL Data Warehouse](https://www.azure.cn/home/features/sql-data-warehouse/).
 5. Configure your client computers.
 6. Create contained database users in your database mapped to Azure AD identities.
 7. Connect to your database by using Azure AD identities.
 
-> [AZURE.NOTE]
-> To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database and SQL Data Warehouse, see [Configure Azure AD with Azure SQL Database](/documentation/articles/sql-database-aad-authentication-configure/).
+> [!NOTE]
+> To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database and SQL Data Warehouse, see [Configure Azure AD with Azure SQL Database](./sql-database-aad-authentication-configure.md).
 >
 
 ## Trust architecture
@@ -68,7 +69,7 @@ To create a contained database user in Azure SQL Database or SQL Data Warehouse,
 ## Azure AD features and limitations
 The following members of Azure AD can be provisioned in Azure SQL Server or SQL Data Warehouse:
 
-- Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](/documentation/articles/active-directory-add-domain/).
+- Native members: A member created in Azure AD in the managed domain or in a customer domain. For more information, see [Add your own domain name to Azure AD](../active-directory/active-directory-add-domain.md).
 - Federated domain members: A member created in Azure AD with a federated domain. For more information, see [Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory).
 - Imported members from other Azure AD's who are native or federated domain members.
 - Active Directory groups created as security groups.
@@ -99,14 +100,14 @@ Azure Active Directory authentication supports the following methods of connecti
 - Azure AD authentication is supported for SQL Database by the Azure portal **Import Database** and **Export Database** blades. Import and export using Azure AD authentication is also supported from the PowerShell command.
 
 ## Next steps
-- To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database, see [Configure Azure AD with Azure SQL Database](/documentation/articles/sql-database-aad-authentication-configure/).
-- For an overview of access and control in SQL Database, see [SQL Database access and control](/documentation/articles/sql-database-control-access/).
-- For an overview of logins, users, and database roles in SQL Database, see [Logins, users, and database roles](/documentation/articles/sql-database-manage-logins/).
+- To learn how to create and populate Azure AD, and then configure Azure AD with Azure SQL Database, see [Configure Azure AD with Azure SQL Database](./sql-database-aad-authentication-configure.md).
+- For an overview of access and control in SQL Database, see [SQL Database access and control](./sql-database-control-access.md).
+- For an overview of logins, users, and database roles in SQL Database, see [Logins, users, and database roles](./sql-database-manage-logins.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/zh-cn/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/zh-cn/library/ms189121.aspx).
-- For more information about firewall rules in SQL Database, see [SQL Database firewall rules](/documentation/articles/sql-database-firewall-configure/).
-- For a tutorial using SQL Server authentication, see [SQL authentication and authorization](/documentation/articles/sql-database-control-access-sql-authentication-get-started/).
-- For a tutorial using Azure Active Directory authentication, see [Azure AD authentication and authorization](/documentation/articles/sql-database-control-access-aad-authentication-get-started/).
+- For more information about firewall rules in SQL Database, see [SQL Database firewall rules](./sql-database-firewall-configure.md).
+- For a tutorial using SQL Server authentication, see [SQL authentication and authorization](./sql-database-control-access-sql-authentication-get-started.md).
+- For a tutorial using Azure Active Directory authentication, see [Azure AD authentication and authorization](./sql-database-control-access-aad-authentication-get-started.md).
 
 <!--Image references-->
 
@@ -123,4 +124,3 @@ Azure Active Directory authentication supports the following methods of connecti
 [11]: ./media/sql-database-aad-authentication/11connect-using-int-auth.png
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
-

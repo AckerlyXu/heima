@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Infrastructure and Connectivity to SAP HANA on Azure (Large Instances) | Azure"
-    description="Configure required connectivity infrastructure to use SAP HANA on Azure (Large Instances)."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="RicksterCDN"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.service="virtual-machines-linux"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="12/01/2016"
-    wacn.date=""
-    ms.author="rclaus"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Infrastructure and Connectivity to SAP HANA on Azure (Large Instances) | Azure
+description: Configure required connectivity infrastructure to use SAP HANA on Azure (Large Instances).
+services: virtual-machines-linux
+documentationcenter: ''
+author: RicksterCDN
+manager: timlt
+editor: ''
+
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 12/01/2016
+wacn.date: ''
+ms.author: rclaus
+ms.custom: H1Hack27Feb2017
+---
 
 # SAP HANA (large instances) infrastructure and connectivity on Azure 
 
@@ -57,23 +58,23 @@ This Azure VNet should be created using the Azure Resource Manager deployment mo
 
 The Azure VNet that&#39;s created should have at least one tenant subnet and a gateway subnet. These should be assigned the IP address ranges as specified, and submitted to Microsoft.
 
-> [AZURE.IMPORTANT] 
+> [!IMPORTANT] 
 > Only tenant and gateway address blocks should be assigned to the VNet in the Azure subscription. P2P and NAT pool address blocks must be separate from the VNet and Subnet address spaces as they exist outside of the Azure subscription.
 
 Multiple tenant subnets may be used (even utilizing non-contiguous address ranges), but as mentioned previously, these address ranges must be submitted to Microsoft beforehand.
 
 You can use any naming standard you like for these tenant subnets. However, **there must always be one, and only one, gateway subnet for each VNet** that connects to the SAP HANA on Azure (Large Instances) ExpressRoute circuit, and **this gateway subnet must always be named &quot;GatewaySubnet&quot;** to ensure proper placement of the ExpressRoute gateway.
 
-> [AZURE.WARNING] 
+> [!WARNING] 
 > It is critical that the gateway subnet always be named &quot;GatewaySubnet&quot;.
 
-The VNet can be created using the Azure Portal Preview, PowerShell, Azure template, or Azure CLI (see [Create a virtual network using the Azure portal preview](/documentation/articles/virtual-networks-create-vnet-arm-pportal/)).
+The VNet can be created using the Azure Portal Preview, PowerShell, Azure template, or Azure CLI (see [Create a virtual network using the Azure portal preview](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)).
 
 ## Creating a gateway subnet
 
 Once the Azure VNet is created, an ExpressRoute gateway must be created on the VNet to link the VNet to the ExpressRoute circuit that connects to the customer tenant on the Large Instance stamp.
 
-> [AZURE.NOTE] 
+> [!NOTE] 
 > This step can take up to 30 minutes to complete, as the new gateway is created in the designated Azure subscription and then connected to the specified Azure VNet.
 
 If a gateway already exists, check whether it is an ExpressRoute gateway or not. If not, the gateway must be deleted and recreated as an ExpressRoute gateway. If an ExpressRoute gateway is already established, since the Azure VNet is already connected to the ExpressRoute circuit for on-premises connectivity, proceed to the Linking VNets section below.
@@ -128,7 +129,7 @@ Now that the Azure VNet has an ExpressRoute gateway, you use the authorization i
 
     # Create a new connection between the ER Circuit and your Gateway using the Authorization
     $gw = Get-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
-    
+
     New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
     -ResourceGroupName $myGroupName -Location $myGWLocation -VirtualNetworkGateway1 $gw `
     -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID
@@ -141,7 +142,7 @@ Use either the Azure Portal Preview, PowerShell or CLI when adding more IP addre
 
 If you have not yet declared the additional IP address space range with SAP HANA on Azure Service Management, open an Azure support request to get it added. After you receive confirmation, perform the next steps.
 
-To create an additional subnet from the Azure portal preview, see the article [Create a virtual network using the Azure portal preview](/documentation/articles/virtual-networks-create-vnet-arm-pportal/), and to create from PowerShell, see [Create a virtual network using PowerShell](/documentation/articles/virtual-networks-create-vnet-arm-ps/).
+To create an additional subnet from the Azure portal preview, see the article [Create a virtual network using the Azure portal preview](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md), and to create from PowerShell, see [Create a virtual network using PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md).
 
 ## Adding VNets
 
@@ -168,7 +169,7 @@ Once the new circuit is created and the SAP HANA on Azure Service Management con
 
 To remove a VNet subnet, either the Azure Portal Preview, PowerShell or CLI can be used. If an address space is removed, SAP HANA on Azure Service Management should be notified about the address space change in order to remove it from the ranges that SAP HANA on Azure (Large Instances) is allowed to communicate with.
 
-While there isn&#39;t yet specific, dedicated Azure.com guidance on removing subnets, the process for removing subnets is the reverse of the process for adding them. See the article Azure portal preview [Create a virtual network using the Azure portal preview](/documentation/articles/virtual-networks-create-vnet-arm-pportal/) for more information on creating subnets.
+While there isn&#39;t yet specific, dedicated Azure.com guidance on removing subnets, the process for removing subnets is the reverse of the process for adding them. See the article Azure portal preview [Create a virtual network using the Azure portal preview](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md) for more information on creating subnets.
 
 ## Deleting a VNet
 
@@ -176,7 +177,7 @@ Use either the Azure Portal Preview, PowerShell or CLI when deleting a VNet. SAP
 
 Once the VNet has been removed, open an Azure support request to provide the IP address space ranges to be removed.
 
-While there isn&#39;t yet specific, dedicated Azure.com guidance on removing VNets, the process for removing VNets is the reverse of the process for adding them, which is described above. See the articles [Create a virtual network using the Azure portal preview](/documentation/articles/virtual-networks-create-vnet-arm-pportal/) and [Create a virtual network using PowerShell](/documentation/articles/virtual-networks-create-vnet-arm-ps/) for more information on creating VNets.
+While there isn&#39;t yet specific, dedicated Azure.com guidance on removing VNets, the process for removing VNets is the reverse of the process for adding them, which is described above. See the articles [Create a virtual network using the Azure portal preview](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md) and [Create a virtual network using PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md) for more information on creating VNets.
 
 To ensure everything is removed, delete the following items:
 

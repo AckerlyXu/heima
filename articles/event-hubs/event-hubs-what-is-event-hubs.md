@@ -1,16 +1,17 @@
-<properties
-    pageTitle="What is Azure Event Hubs and why use it | Azure"
-    description="Overview and introduction to Azure Event Hubs - Cloud-scale telemetry ingestion from websites, apps, and devices"
-    services="event-hubs"
-    documentationcenter=".net"
-    author="banisadr" />
-<tags
-    ms.assetid=""
-    ms.service="event-hubs"
-    ms.topic="get-started-article"
-    ms.date="11/29/2016"
-    wacn.date=""
-    ms.author="sethm; babanisa" />
+---
+title: What is Azure Event Hubs and why use it | Azure
+description: Overview and introduction to Azure Event Hubs - Cloud-scale telemetry ingestion from websites, apps, and devices
+services: event-hubs
+documentationcenter: .net
+author: banisadr
+
+ms.assetid: ''
+ms.service: event-hubs
+ms.topic: get-started-article
+ms.date: 11/29/2016
+wacn.date: ''
+ms.author: sethm; babanisa
+---
 
 # What is Azure Event Hubs?
 Event Hubs is a highly scalable data streaming platform capable of ingesting millions of events per second. Data sent to an Event Hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. With the ability to provide publish-subscribe capabilities with low latency and at massive scale, Event Hubs serves as the "on ramp" for Big Data.
@@ -48,7 +49,9 @@ Event Hubs ensures that all events sharing the same partition key value are deli
 ### Publisher policy
 Event Hubs enables granular control over event publishers through *publisher policies*. Publisher policies are run-time features designed to facilitate large numbers of independent event publishers. With publisher policies, each publisher uses its own unique identifier when publishing events to an Event Hub, using the following mechanism:
 
-    //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/publishers/[my publisher name]
+```
+//[my namespace].servicebus.chinacloudapi.cn/[event hub name]/publishers/[my publisher name]
+```
 
 You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. When using publisher policies, the **PartitionKey** value is set to the publisher name. To work properly, these values must match.
 
@@ -75,7 +78,7 @@ You can use a partition key to map incoming event data into specific partitions 
 The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. A per-device or user unique identity makes a good partition key, but other attributes such as geography can also be used to group related events into a single partition.
 
 ## SAS tokens
-Event Hubs uses *Shared Access Signatures* which are avalible at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Event Hubs can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](/documentation/articles/service-bus-shared-access-signature-authentication/).
+Event Hubs uses *Shared Access Signatures* which are avalible at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Event Hubs can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 ## Event consumers
 Any entity that reads event data from an Event Hub is an *event consumer*. All Event Hubs consumers connect via the AMQP 1.0 session and events are delivered through the session as they become available. The client does not need to poll for data availability.
@@ -87,8 +90,10 @@ In a stream processing architecture, each downstream application equates to a co
 
 The following are examples of the consumer group URI convention:
 
-    //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #1]
-    //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #2]
+```http
+//[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #1]
+//[my namespace].servicebus.chinacloudapi.cn/[event hub name]/[Consumer Group #2]
+```
 
 ![Event Hubs](./media/event-hubs-what-is-event-hubs/event_hubs_architecture.png)
 
@@ -137,15 +142,15 @@ More throughput units can be purchased in blocks of 20, up to 100 throughput uni
 
 It is recommended that you balance throughput units and partitions to achieve optimal scale. A single partition has a maximum scale of one throughput unit. The number of throughput units should be less than or equal to the number of partitions in an Event Hub.
 
-For detailed pricing information, see [Event Hubs Pricing](/pricing/details/event-hubs/).
+For detailed pricing information, see [Event Hubs Pricing](https://www.azure.cn/pricing/details/event-hubs/).
 
 ## Next steps
 
 * Get started with an [Event Hubs tutorial][Event Hubs tutorial]
 * A complete [sample application that uses Event Hubs]
-* [Event Hubs programming guide](/documentation/articles/event-hubs-programming-guide/)
-* [Event Hubs FAQ](/documentation/articles/event-hubs-faq/)
+* [Event Hubs programming guide](./event-hubs-programming-guide.md)
+* [Event Hubs FAQ](./event-hubs-faq.md)
 
-[Event Hubs tutorial]: /documentation/articles/event-hubs-csharp-ephcs-getstarted/
+[Event Hubs tutorial]: ./event-hubs-csharp-ephcs-getstarted.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Azure portal]: https://portal.azure.cn

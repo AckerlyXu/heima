@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Understand Azure IoT Hub direct methods | Azure"
-    description="Developer guide - use direct methods to invoke code on your devices from a service app."
-    services="iot-hub"
-    documentationcenter=".net"
-    author="nberdy"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="9f0535f1-02e6-467a-9fc4-c0950702102d"
-    ms.service="iot-hub"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="01/11/2017"
-    wacn.date=""
-    ms.author="nberdy" />
+---
+title: Understand Azure IoT Hub direct methods | Azure
+description: Developer guide - use direct methods to invoke code on your devices from a service app.
+services: iot-hub
+documentationcenter: .net
+author: nberdy
+manager: timlt
+editor: ''
+
+ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 01/11/2017
+wacn.date: ''
+ms.author: nberdy
+---
 
 # Understand and invoke direct methods from IoT Hub
 ## Overview
@@ -33,7 +34,7 @@ Refer to [Cloud-to-device communication guidance][lnk-c2d-guidance] if in doubt 
 ## Method lifecycle
 Direct methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`). We may support direct methods on additional device-side networking protocols in the future.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
 > 
@@ -128,13 +129,13 @@ If you would like to try out some of the concepts described in this article, you
 
 <!-- links and images -->
 
-[lnk-endpoints]: /documentation/articles/iot-hub-devguide-endpoints/
-[lnk-quotas]: /documentation/articles/iot-hub-devguide-quotas-throttling/
-[lnk-sdks]: /documentation/articles/iot-hub-devguide-sdks/
-[lnk-query]: /documentation/articles/iot-hub-devguide-query-language/
-[lnk-devguide-mqtt]: /documentation/articles/iot-hub-mqtt-support/
+[lnk-endpoints]: ./iot-hub-devguide-endpoints.md
+[lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
+[lnk-sdks]: ./iot-hub-devguide-sdks.md
+[lnk-query]: ./iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
 
-[lnk-devguide-jobs]: /documentation/articles/iot-hub-devguide-jobs/
-[lnk-methods-tutorial]: /documentation/articles/iot-hub-node-node-direct-methods/
-[lnk-devguide-messages]: /documentation/articles/iot-hub-devguide-messaging/
-[lnk-c2d-guidance]: /documentation/articles/iot-hub-devguide-c2d-guidance/
+[lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
+[lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
+[lnk-devguide-messages]: ./iot-hub-devguide-messaging.md
+[lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md

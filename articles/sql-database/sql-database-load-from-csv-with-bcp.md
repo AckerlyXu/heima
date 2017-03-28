@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Load data from CSV file into Azure SQL Databaase (bcp) | Azure"
-    description="For a small data size, uses bcp to import data into Azure SQL Database."
-    services="sql-database"
-    documentationcenter="NA"
-    author="CarlRabeler"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="875f9b8d-f1a1-4895-b717-f45570fb7f80"
-    ms.service="sql-database"
-    ms.custom="migrate and move"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="01/10/2017"
-    wacn.date=""
-    ms.author="carlrab" />
+---
+title: Load data from CSV file into Azure SQL Databaase (bcp) | Azure
+description: For a small data size, uses bcp to import data into Azure SQL Database.
+services: sql-database
+documentationcenter: NA
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+
+ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
+ms.service: sql-database
+ms.custom: migrate and move
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 01/10/2017
+wacn.date: ''
+ms.author: carlrab
+---
 
 # Load data from CSV into Azure SQL Data Warehouse (flat files)
 You can use the bcp command-line utility to import data from a CSV file into Azure SQL Database.
@@ -39,56 +40,54 @@ Define a table in SQL Database as the destination table. The columns in the tabl
 
 To create a table, open a command prompt and use sqlcmd.exe to run the following command:
 
-
-
-	sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
-	    CREATE TABLE DimDate2
-	    (
-	        DateId INT NOT NULL,
-	        CalendarQuarter TINYINT NOT NULL,
-	        FiscalQuarter TINYINT NOT NULL
-	    )
-	    ;
-	"
-
-
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
+    CREATE TABLE DimDate2
+    (
+        DateId INT NOT NULL,
+        CalendarQuarter TINYINT NOT NULL,
+        FiscalQuarter TINYINT NOT NULL
+    )
+    ;
+"
+```
 
 ## 2. Create a source data file
 Open Notepad and copy the following lines of data into a new text file and then save this file to your local temp directory, C:\Temp\DimDate2.txt. This data is in ASCII format.
 
-
-	20150301,1,3
-	20150501,2,4
-	20151001,4,2
-	20150201,1,3
-	20151201,4,2
-	20150801,3,1
-	20150601,2,4
-	20151101,4,2
-	20150401,2,4
-	20150701,3,1
-	20150901,3,1
-	20150101,1,3
-
+```
+20150301,1,3
+20150501,2,4
+20151001,4,2
+20150201,1,3
+20151201,4,2
+20150801,3,1
+20150601,2,4
+20151101,4,2
+20150401,2,4
+20150701,3,1
+20150901,3,1
+20150101,1,3
+```
 
 (Optional) To export your own data from a SQL Server database, open a command prompt and run the following command. Replace TableName, ServerName, DatabaseName, Username, and Password with your own information.
 
-
-	bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
-
+```sql
+bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
+```
 
 ## 3. Load the data
 To load the data, open a command prompt and run the following command, replacing the values for Server Name, Database name, Username, and Password with your own information.
 
-
-	bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
-
+```sql
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <password> -q -c -t  ','
+```
 
 Use this command to verify the data was loaded properly
 
-
-	sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
-
+```sql
+sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "SELECT * FROM DimDate2 ORDER BY 1;"
+```
 
 The results should look like this:
 
@@ -109,7 +108,7 @@ The results should look like this:
 
 ## Next steps
 
-To migrate a SQL Server database, see [SQL Server database migration](/documentation/articles/sql-database-cloud-migrate/).
+To migrate a SQL Server database, see [SQL Server database migration](./sql-database-cloud-migrate.md).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/zh-cn/library/ms162802.aspx

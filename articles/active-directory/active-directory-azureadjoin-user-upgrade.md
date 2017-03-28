@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Set up a Windows 10 device with Azure AD from Settings| Microsoft Azure"
-	description="Explains how users can join to Azure AD through the Settings menu."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor=""
-	tags="azure-classic-portal"/>
+---
+title: Set up a Windows 10 device with Azure AD from Settings| Microsoft Azure
+description: Explains how users can join to Azure AD through the Settings menu.
+services: active-directory
+documentationCenter: ''
+authors: femila
+manager: stevenpo
+editor: ''
+tags: azure-classic-portal
 
-<tags 
-	ms.service="active-directory" 
-	ms.date="02/26/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 02/26/2016
+wacn.date: ''
+---
 
 # Set up a Windows 10 device with Azure AD from Settings
 If you are already using Windows 7 or Windows 8, and your computer or device has been upgraded to Windows 10, you can join to Azure Active Directory (Azure AD) through the Settings menu.
 
 ## To join to Azure AD from the Settings menu
-
 
 1. From the **Start** menu, click the **Settings** charm.
 2. From **Settings**, select 	**System**->**About**->**Join Azure AD**.
@@ -34,9 +33,8 @@ If you are already using Windows 7 or Windows 8, and your computer or device has
 6. Click **Accept** on the **Allow this device to be managed** screen.
 7. You should see the message "Your device is now joined to your organization in Azure AD".
 
-
 ## Additional information
-* [Learn about usage scenarios for Azure AD Join](/documentation/articles/active-directory-azureadjoin-deployment-aadjoindirect/)
+* [Learn about usage scenarios for Azure AD Join](./active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
-* [Set up Azure AD Join](/documentation/articles/active-directory-azureadjoin-setup/)
-* [Authenticating identities without passwords through Microsoft Passport](/documentation/articles/active-directory-azureadjoin-passport/)
+* [Set up Azure AD Join](./active-directory-azureadjoin-setup.md)
+* [Authenticating identities without passwords through Microsoft Passport](./active-directory-azureadjoin-passport.md)

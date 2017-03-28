@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure Multi-Factor Authentication FAQ | Azure"
-    description="Provides a list of frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions."
-    services="multi-factor-authentication"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="yossib" />
-<tags
-    ms.assetid="50bb8ac3-5559-4d8b-a96a-799a74978b14"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/06/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Azure Multi-Factor Authentication FAQ | Azure
+description: Provides a list of frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: yossib
+
+ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/06/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Azure Multi-Factor Authentication FAQ
 This FAQ answers common questions about Azure Multi-Factor Authentication and using the Multi-Factor Authentication service, including questions about the billing model and usability.
@@ -43,7 +44,7 @@ The optional fields can be configured in Multi-Factor Authentication Server.
 The verification result (success or denial), and the reason if it was denied, is stored with the authentication data and is available in authentication and usage reports.
 
 ## Billing
-Most billing questions can be answered by referring to the [Multi-Factor Authentication Pricing page](/pricing/details/multi-factor-authentication/).
+Most billing questions can be answered by referring to the [Multi-Factor Authentication Pricing page](https://www.azure.cn/pricing/details/multi-factor-authentication/).
 
 **Q: Is my organization charged for phone calls or text messages used to authenticate my users?**
 
@@ -59,7 +60,7 @@ When you use the "per user" or "per authentication" model, Azure MFA is a consum
 
 When you use the license model, Azure Multi-Factor Authentication licenses are purchased and then assigned to users, just like for Office 365 and other subscription products.
 
-Learn more about your options in [How Azure Multi-Factor Authentication works](/documentation/articles/multi-factor-authentication-how-it-works/#how-to-get-azure-multi-factor-authentication/)
+Learn more about your options in [How Azure Multi-Factor Authentication works](./multi-factor-authentication-how-it-works.md#how-to-get-azure-multi-factor-authentication)
 
 **Q: Is there a free version of Azure Multi-Factor Authentication for administrators?**
 
@@ -92,19 +93,19 @@ If the user has configured a backup phone, they should try again and select that
 
 **Q: What does the administrator do if a user contacts the administrator about an account that the user can no longer access?**
 
-The administrator can reset the user's account by asking them to go through the registration process again. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](/documentation/articles/multi-factor-authentication-manage-users-and-devices/).
+The administrator can reset the user's account by asking them to go through the registration process again. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](./multi-factor-authentication-manage-users-and-devices.md).
 
 **Q: What does an administrator do if a user's phone that is using app passwords is lost or stolen?**
 
-The administrator can delete all the user's app passwords to prevent unauthorized access. After the user has a replacement device, the user can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](/documentation/articles/multi-factor-authentication-manage-users-and-devices/).
+The administrator can delete all the user's app passwords to prevent unauthorized access. After the user has a replacement device, the user can recreate the passwords. Learn more about [managing user and device settings with Azure Multi-Factor Authentication in the cloud](./multi-factor-authentication-manage-users-and-devices.md).
 
 **Q: What if the user can't sign in to non-browser apps?**
 
 A user who is configured to use Multi-Factor Authentication requires an app password to sign in to some non-browser apps. A user needs to clear (delete) sign-in information, restart the app, and sign in by using their user name and app password.
 
-Get more information about creating app passwords and other [help with app passwords](/documentation/articles/multi-factor-authentication-end-user-app-passwords/).
+Get more information about creating app passwords and other [help with app passwords](./multi-factor-authentication-end-user-app-passwords.md).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Modern authentication for Office 2013 clients
 > 
 > Office 2013 clients (including Outlook) support new authentication protocols. You can configure Office 2013 to support Multi-Factor Authentication. After you configure Office 2013, app passwords are not required for Office 2013 clients. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
@@ -163,4 +164,3 @@ If your question isn't answered here, please leave it in the comments at the bot
 - Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 - If you're a legacy PhoneFactor customer and you have questions or need help resetting a password, use the [password reset](mailto:phonefactorsupport@microsoft.com) link to open a support case.
 - Contact a support professional through [Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/zh-cn/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.
-

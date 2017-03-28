@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Accessing Azure Virtual Machines from Server Explorer | Azure"
-    description="Get an overview of how to view create and manage Azure virtual machines (VMs) in Server Explorer in Visual Studio."
-    services="visual-studio-online"
-    documentationcenter="na"
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="eb3afde6-ba90-4308-9ac1-3cc29da4ede0"
-    ms.service="multiple"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="multiple"
-    ms.date="11/18/2016"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: Accessing Azure Virtual Machines from Server Explorer | Azure
+description: Get an overview of how to view create and manage Azure virtual machines (VMs) in Server Explorer in Visual Studio.
+services: visual-studio-online
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 11/18/2016
+wacn.date: ''
+ms.author: tarcher
+---
 
 # Accessing Azure Virtual Machines from Server Explorer
 By using Server Explorer in Visual Studio, you can display information about your virtual machines hosted by Azure.
@@ -25,9 +26,9 @@ If you have virtual machines hosted by Azure, you can access them in Server Expl
 
 ### To get information about your virtual machines
 1. In Server Explorer, choose a virtual machine, and then choose the F4 key to show its properties window.
-   
+
     The following table shows what properties are available, but they are all read-only. To change them, use the [Azure Classic Management Portal](https://manage.windowsazure.cn).
-   
+
    | Property | Description |
    | --- | --- |
    | DNS Name |The URL with the Internet address of the virtual machine. |
@@ -38,7 +39,7 @@ If you have virtual machines hosted by Azure, you can access them in Server Expl
    | SubscriptionID |The subscription ID for your Azure account. You can show this information on the [Azure Classic Management Portal](https://manage.windowsazure.cn) by viewing the properties for a subscription. |
 2. Choose an endpoint node, and then view the **Properties** window.
 3. The following table describes the available properties of endpoints, but they are read-only. To add or edit the endpoints for a virtual machine, use the [Azure Classic Management Portal](https://manage.windowsazure.cn). 
-   
+
    | Property | Description |
    | --- | --- |
    | Name |An identifier for the endpoint. |
@@ -47,5 +48,4 @@ If you have virtual machines hosted by Azure, you can access them in Server Expl
    | Public Port |The port that’s used for public access to your application. |
 
 ## Next steps
-To learn more about using Azure roles in Visual Studio, see [Using Remote Desktop with Azure Roles](/documentation/articles/vs-azure-tools-remote-desktop-roles/).
-
+To learn more about using Azure roles in Visual Studio, see [Using Remote Desktop with Azure Roles](./vs-azure-tools-remote-desktop-roles.md).

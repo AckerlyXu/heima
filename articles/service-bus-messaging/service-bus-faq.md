@@ -1,19 +1,20 @@
-<properties 
-    pageTitle="Azure Service Bus frequently asked questions (FAQ) | Azure"
-    description="Answers some frequently-asked questions about Azure Service Bus."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager=""
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="02/09/2017"
-    ms.author="sethm;jotaub" />
+---
+title: Azure Service Bus frequently asked questions (FAQ) | Azure
+description: Answers some frequently-asked questions about Azure Service Bus.
+services: service-bus
+documentationCenter: na
+authors: sethmanheim
+manager: ''
+editor: ''
+
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/09/2017
+ms.author: sethm;jotaub
+---
 
 # Service Bus FAQ
 This article answers some frequently-asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information.
@@ -24,7 +25,7 @@ This article answers some frequently-asked questions about Microsoft Azure Servi
 
 ### What is a Service Bus namespace?
 
-A [namespace](/documentation/articles/service-bus-create-namespace-portal/) provides a scoping container for addressing Service Bus resources within your application. Creating one is necessary to use Service Bus and will be one of the first steps in getting started.
+A [namespace](./service-bus-create-namespace-portal.md) provides a scoping container for addressing Service Bus resources within your application. Creating one is necessary to use Service Bus and will be one of the first steps in getting started.
 
 ### What is an Azure Service Bus queue?
 
@@ -56,9 +57,8 @@ The following properties of a queue and topic are immutable. Please take this in
 
 -   Express entity
 
-
 ## Pricing
-This section answers some frequently-asked questions about the Service Bus pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Service Bus pricing, see [Service Bus pricing details](/pricing/details/service-bus/).
+This section answers some frequently-asked questions about the Service Bus pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Service Bus pricing, see [Service Bus pricing details](https://www.azure.cn/pricing/details/service-bus/).
 
 ### How do you charge for Service Bus?
 For complete information about Service Bus pricing, please see [Service Bus pricing details][Pricing overview]. In addition to the prices noted, you are charged for associated data transfers for egress outside of the data center in which your application is provisioned.
@@ -141,13 +141,13 @@ To learn more about Service Bus, see the following topics.
 
 - [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-- [Service Bus overview](/documentation/articles/service-bus-messaging-overview/)
-- [Azure Service Bus architecture overview](/documentation/articles/service-bus-fundamentals-hybrid-solutions/)
-- [Get started with Service Bus queues](/documentation/articles/service-bus-dotnet-get-started-with-queues/)
+- [Service Bus overview](./service-bus-messaging-overview.md)
+- [Azure Service Bus architecture overview](./service-bus-fundamentals-hybrid-solutions.md)
+- [Get started with Service Bus queues](./service-bus-dotnet-get-started-with-queues.md)
 
-[Best practices for performance improvements using Service Bus]: /documentation/articles/service-bus-performance-improvements/
-[Best practices for insulating applications against Service Bus outages and disasters]: /documentation/articles/service-bus-outages-disasters/
+[Best practices for performance improvements using Service Bus]: ./service-bus-performance-improvements.md
+[Best practices for insulating applications against Service Bus outages and disasters]: ./service-bus-outages-disasters.md
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
-[Quotas overview]: /documentation/articles/service-bus-quotas/
-[Exceptions overview]: /documentation/articles/service-bus-messaging-exceptions/
-[Shared Access Signatures]: /documentation/articles/service-bus-sas-overview/
+[Quotas overview]: ./service-bus-quotas.md
+[Exceptions overview]: ./service-bus-messaging-exceptions.md
+[Shared Access Signatures]: ./service-bus-sas-overview.md

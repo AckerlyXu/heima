@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Connect to SQL Database using SQL Server Management Studio in Azure RemoteApp | Azure"
-    description="Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for security and performance when connecting to SQL Database"
-    services="sql-database"
-    documentationcenter=""
-    author="adhurwit"
-    manager="jhubbard" />
-<tags
-    ms.assetid="1052c83c-e7f5-4736-922f-216194d8874b"
-    ms.service="sql-database"
-    ms.custom="overview"
-    ms.workload="data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/01/2016"
-    wacn.date=""
-    ms.author="adhurwit" />
+---
+title: Connect to SQL Database using SQL Server Management Studio in Azure RemoteApp | Azure
+description: Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for security and performance when connecting to SQL Database
+services: sql-database
+documentationcenter: ''
+author: adhurwit
+manager: jhubbard
+
+ms.assetid: 1052c83c-e7f5-4736-922f-216194d8874b
+ms.service: sql-database
+ms.custom: overview
+ms.workload: data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/01/2016
+wacn.date: ''
+ms.author: adhurwit
+---
 
 # Use SQL Server Management Studio in Azure RemoteApp to connect to SQL Database
 
@@ -70,21 +71,17 @@ To learn more about creating a Azure RemoteApp image, see: [How to create a Remo
 ### 4. Capture image
 When the VM has stopped running, find it in the current portal and capture it.
 
-To learn more about capturing an image, see [Capture an image of an Azure Windows virtual machine created with the classic deployment model](/documentation/articles/virtual-machines-windows-classic-capture-image/)
-
+To learn more about capturing an image, see [Capture an image of an Azure Windows virtual machine created with the classic deployment model](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
 
 ### 5. Add to Azure RemoteApp Template images
 
 In the Azure RemoteApp section of the current portal, go to the Template Images tab and click Add. In the pop-up box, select "Import an image from your Virtual Machines library" and then choose the Image that you just created.
-
-
 
 ### 6. Create cloud collection
 
 In the current portal, create a new Azure RemoteApp Cloud Collection. Choose the Template Image that you just imported with SSMS installed on it.
 
 ![Create new cloud collection][2]
-
 
 ### 7. Publish SSMS
 
@@ -98,21 +95,15 @@ On the User Access tab you can select the users that will have access to this Az
 
 ![Add User][6]
 
-
 ### 9. Install the Azure RemoteApp client application
 
 You can download and install a Azure RemoteApp client here: [Download | Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/clients.aspx)
-
-
 
 ## Configure Azure SQL Server
 
 The only configuration needed is to ensure that Azure Services is enabled for the firewall. If you use this solution, then you do not need to add any IP addresses to open the firewall. The network traffic that is allowed to the SQL Server is from other Azure services.
 
-
 ![Azure Allow][4]
-
-
 
 ## Multi-Factor Authentication (MFA)
 
@@ -120,21 +111,17 @@ MFA can be enabled for this application specifically. Go to the Applications tab
 
 ![Enable MFA][3]
 
-
-
 ## Audit user activity with Azure Active Directory Premium
 
 If you do not have Azure AD Premium, then you have to turn it on in the Licenses section of your directory. With Premium enabled, you can assign users to the Premium level.
 
 When you go to a user in your Azure Active Directory, you can then go to the Activity tab to see login information to Azure RemoteApp.
 
-
-
 ## Next steps
 
 After completing all the above steps, you will be able to run the Azure RemoteApp client and log-in with an assigned user. You will be presented with SSMS as one of your applications, and you can run it as you would if it were installed on your computer with access to Azure SQL Server.
 
-For more information on how to make the connection to SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](/documentation/articles/sql-database-connect-query-ssms/).
+For more information on how to make the connection to SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](./sql-database-connect-query-ssms.md).
 
 That's everything for now. Enjoy!
 

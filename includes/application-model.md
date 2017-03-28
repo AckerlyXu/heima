@@ -583,7 +583,7 @@ article.<a id="Ref" name="Ref"></a>
   [Data Storage Offerings in Azure]: /develop/net/fundamentals/cloud-storage/
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
-  
+
   [Azure Pricing]: http://www.windowsazure.com/en-us/pricing/calculator/
   [Managing Certificates in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
   [http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx

@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Graphical Authoring in Azure Automation | Azure"
-    description="Graphical authoring allows you to create runbooks for Azure Automation without working with code. This article provides an introduction to graphical authoring and all the details needed to start creating a graphical runbook."
-    services="automation"
-    documentationcenter=""
-    author="mgoedtel"
-    manager="jwhit"
-    editor="tysonn" />
-<tags
-    ms.assetid="4b6f840c-e941-4293-a728-b33407317943"
-    ms.service="automation"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="06/03/2016"
-    wacn.date=""
-    ms.author="magoedte;bwren" />
+---
+title: Graphical Authoring in Azure Automation | Azure
+description: Graphical authoring allows you to create runbooks for Azure Automation without working with code. This article provides an introduction to graphical authoring and all the details needed to start creating a graphical runbook.
+services: automation
+documentationcenter: ''
+author: mgoedtel
+manager: jwhit
+editor: tysonn
+
+ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
+ms.service: automation
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 06/03/2016
+wacn.date: ''
+ms.author: magoedte;bwren
+---
 
 # Graphical authoring in Azure Automation
 ## Introduction
@@ -148,14 +149,16 @@ The retry condition can use a variable called $RetryData that provides access to
 
 Following are examples of activity retry conditions.
 
-    # Run the activity exactly 10 times.
-    $RetryData.NumberOfAttempts -ge 10 
+```
+# Run the activity exactly 10 times.
+$RetryData.NumberOfAttempts -ge 10 
 
-    # Run the activity repeatedly until it produces any output.
-    $RetryData.Output.Count -ge 1 
+# Run the activity repeatedly until it produces any output.
+$RetryData.Output.Count -ge 1 
 
-    # Run the activity repeatedly until 2 minutes has elapsed. 
-    $RetryData.TotalDuration.TotalMinutes -ge 2
+# Run the activity repeatedly until 2 minutes has elapsed. 
+$RetryData.TotalDuration.TotalMinutes -ge 2
+```
 
 After you configure a retry condition for an activity, the activity includes two visual cues to remind you.  One is presented in the activity and the other is when you review the configuration of the activity.
 
@@ -166,9 +169,11 @@ A Code control is a special activity that accepts PowerShell or PowerShell Workf
 
 For example the following code performs date calculations using a runbook input variable called $NumberOfDays.  It then sends a calculated date time as output to be used by subsequent activities in the runbook.
 
-    $DateTimeNow = (Get-Date).ToUniversalTime()
-    $DateTimeStart = ($DateTimeNow).AddDays(-$NumberOfDays)}
-    $DateTimeStart
+```
+$DateTimeNow = (Get-Date).ToUniversalTime()
+$DateTimeStart = ($DateTimeNow).AddDays(-$NumberOfDays)}
+$DateTimeStart
+```
 
 ## Links and workflow
 A **link** in a graphical runbook connects two activities.  It is displayed on the canvas as an arrow pointing from the source activity to the destination activity.  The activities run in the direction of the arrow with the destination activity starting after the source activity completes.  
@@ -193,19 +198,23 @@ When you specify a condition on a link, the destination activity is only run if 
 
 For a pipeline link, you specify a condition for a single object, and the condition is evaluated for each object output by the source activity.  The destination activity is then run for each object that satisfies the condition.  For example, with a source activity of Get-AzureRmVm, the following syntax could be used for a conditional pipeline link to retrieve only virtual machines in the resource group named *Group1*.  
 
-    $ActivityOutput['Get Azure VMs'].Name -match "Group1"
+```
+$ActivityOutput['Get Azure VMs'].Name -match "Group1"
+```
 
 For a sequence link, the condition is only evaluated once since a single array is returned containing all objects output from the source activity.  Because of this, a sequence link cannot be used for filtering like a pipeline link but will simply determine whether or not the next activity is run. Take for example the following set of activities in our Start VM runbook.<br> ![Conditional Link with Sequences](./media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
 There are three different sequence links that are verifying values were provided to two runbook input parameters representing VM name and Resource Group name in order to determine which is the appropriate action to take - start a single VM, start all VMs in the resouce group, or all VMs in a subscription.  For the sequence link between Connect to Azure and Get single VM, here is the condition logic:
 
-    <# 
-    Both VMName and ResourceGroupName runbook input parameters have values 
-    #>
-    (
-    (($VMName -ne $null) -and ($VMName.Length -gt 0))
-    ) -and (
-    (($ResourceGroupName -ne $null) -and ($ResourceGroupName.Length -gt 0))
-    )
+```
+<# 
+Both VMName and ResourceGroupName runbook input parameters have values 
+#>
+(
+(($VMName -ne $null) -and ($VMName.Length -gt 0))
+) -and (
+(($ResourceGroupName -ne $null) -and ($ResourceGroupName.Length -gt 0))
+)
+```
 
 When you use a conditional link, the data available from the source activity to other activities in that branch will be filtered by the condition.  If an activity is the source to multiple links, then the data available to activities in each branch will depend on the condition in the link connecting to that branch.
 
@@ -240,24 +249,26 @@ You can access data on the databus using one of two methods.  First is using an 
 
 You can also retrieve the output of an activity in a **PowerShell Expression** data source or from a **Workflow Script** activity with an ActivityOutput variable.  If the output is an object, you can specify a single property.  ActivityOutput variables use the following syntax.
 
-    $ActivityOutput['Activity Label']
-    $ActivityOutput['Activity Label'].PropertyName 
+```
+$ActivityOutput['Activity Label']
+$ActivityOutput['Activity Label'].PropertyName 
+```
 
 ### Checkpoints
-You can set [checkpoints](/documentation/articles/automation-powershell-workflow/#checkpoints) in a Graphical PowerShell Workflow runbook by selecting *Checkpoint runbook* on any activity.  This causes a checkpoint to be set after the activity runs.
+You can set [checkpoints](./automation-powershell-workflow.md#checkpoints) in a Graphical PowerShell Workflow runbook by selecting *Checkpoint runbook* on any activity.  This causes a checkpoint to be set after the activity runs.
 
 ![Checkpoint](./media/automation-graphical-authoring-intro/set-checkpoint.png)
 
 Checkpoints are only enabled in Graphical PowerShell Workflow runbooks, it is not available in Graphical runbooks.  If the runbook uses Azure cmdlets, you should follow any checkpointed activity with an Add-AzureRMAccount in case the runbook is suspended and restarts from this checkpoint on a different worker. 
 
 ## Authenticating to Azure resources
-Runbooks in Azure Automation that manage Azure resources will require authentication to Azure.  The new [Run As account](/documentation/articles/automation-sec-configure-azure-runas-account/) feature (also referred to as a service principal) is the default method to access Azure Resource Manager resources in your subscription with Automation runbooks.  You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** Connection asset, which is using the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/zh-cn/library/dn919922%28v=sc.16%29.aspx) cmdlet, and [Add-AzureRmAccount -EnvironmentName AzureChinaCloud](https://msdn.microsoft.com/zh-cn/library/mt619267.aspx) cmdlet to the canvas. This is illustrated in the following example.<br>![Run As Authentication Activities](./media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Runbooks in Azure Automation that manage Azure resources will require authentication to Azure.  The new [Run As account](./automation-sec-configure-azure-runas-account.md) feature (also referred to as a service principal) is the default method to access Azure Resource Manager resources in your subscription with Automation runbooks.  You can add this functionality to a graphical runbook by adding the **AzureRunAsConnection** Connection asset, which is using the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/zh-cn/library/dn919922%28v=sc.16%29.aspx) cmdlet, and [Add-AzureRmAccount -EnvironmentName AzureChinaCloud](https://msdn.microsoft.com/zh-cn/library/mt619267.aspx) cmdlet to the canvas. This is illustrated in the following example.<br>![Run As Authentication Activities](./media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 The Get Run As Connection activity (i.e. Get-AutomationConnection), is configured with a constant value data source named AzureRunAsConnection.<br>![Run As Connection Configuration](./media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 The next activity, Add-AzureRmAccount -EnvironmentName AzureChinaCloud, adds the authenticated Run As account for use in the runbook.<br>
 ![Add-AzureRmAccount -EnvironmentName AzureChinaCloud Parameter Set](./media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
 For the parameters **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID** you will need to specify the name of the property for the Field path because the activity outputs an object with multiple properties.  Otherwise when you execute the runbook, it will fail attempting to authenticate.  This is what you need at a minimum to authenticate your runbook with the Run As account.
 
-To maintain backwards compatibility for subscribers who have created an Automation account using an [Azure AD User account](/documentation/articles/automation-sec-configure-aduser-account/) to manage Azure Service Management (ASM) or Azure Resource Manager resources, the method to authenticate is the Add-AzureAccount -Environment AzureChinaCloud cmdlet with a [credential asset](http://msdn.microsoft.com/zh-cn/library/dn940015.aspx) that represents an Active Directory user with access to the Azure account.
+To maintain backwards compatibility for subscribers who have created an Automation account using an [Azure AD User account](./automation-sec-configure-aduser-account.md) to manage Azure Service Management (ASM) or Azure Resource Manager resources, the method to authenticate is the Add-AzureAccount -Environment AzureChinaCloud cmdlet with a [credential asset](http://msdn.microsoft.com/zh-cn/library/dn940015.aspx) that represents an Active Directory user with access to the Azure account.
 
 You can add this functionality to a graphical runbook by adding a credential asset to the canvas followed by an Add-AzureAccount -Environment AzureChinaCloud activity.  Add-AzureAccount -Environment AzureChinaCloud uses the credential activity for its input.  This is illustrated in the following example.
 
@@ -303,74 +314,100 @@ You can use a PowerShell expression as a data source to populate the value of an
 
 For example, the following command would output the current date. 
 
-    Get-Date
+```
+Get-Date
+```
 
 The following commands build a string from the current date and assign it to a variable.  The contents of the variable are then sent to the output 
 
-    $string = "The current date is " + (Get-Date)
-    $string
+```
+$string = "The current date is " + (Get-Date)
+$string
+```
 
 The following commands evaluate the current date and return a string indicating whether the current day is a weekend or weekday. 
 
-    $date = Get-Date
-    if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
-    else { "Weekday" }
+```
+$date = Get-Date
+if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
+else { "Weekday" }
+```
 
 ### Activity output
 To use the output from a previous activity in the runbook, use the $ActivityOutput variable with the following syntax.
 
-    $ActivityOutput['Activity Label'].PropertyName
+```
+$ActivityOutput['Activity Label'].PropertyName
+```
 
 For example, you may have an activity with a property that requires the name of a virtual machine in which case you could use the following expression.
 
-    $ActivityOutput['Get-AzureVm'].Name
+```
+$ActivityOutput['Get-AzureVm'].Name
+```
 
 If the property that required the virtual machine object instead of just a property, then you would return the entire object using the following syntax.
 
-    $ActivityOutput['Get-AzureVm']
+```
+$ActivityOutput['Get-AzureVm']
+```
 
 You can also use the output of an activity in a more complex expression such as the following that concatenates text to the virtual machine name.
 
-    "The computer name is " + $ActivityOutput['Get-AzureVm'].Name
+```
+"The computer name is " + $ActivityOutput['Get-AzureVm'].Name
+```
 
 ### Conditions
 Use [comparison operators](https://technet.microsoft.com/zh-cn/library/hh847759.aspx) to compare values or determine if a value matches a specified pattern.  A comparison returns a value of either $true or $false.
 
 For example, the following condition determines whether the virtual machine from an activity named *Get-AzureVM* is currently *stopped*. 
 
-    $ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped"
+```
+$ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped"
+```
 
 The following condition checks whether the same virtual machine is in any state other than *stopped*.
 
-    $ActivityOutput["Get-AzureVM"].PowerState -ne "Stopped"
+```
+$ActivityOutput["Get-AzureVM"].PowerState -ne "Stopped"
+```
 
 You can join multiple conditions using a [logical operator](https://technet.microsoft.com/zh-cn/library/hh847789.aspx) such as **-and** or **-or**.  For example, the following condition checks whether the same virtual machine in the previous example is in a state of *stopped* or *stopping*.
 
-    ($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopping") 
+```
+($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState -eq "Stopping") 
+```
 
 ### Hashtables
 [Hashtables](http://technet.microsoft.com/zh-cn/library/hh847780.aspx) are name/value pairs that are useful for returning a set of values.  Properties for certain activities may expect a hashtable instead of a simple value.  You may also see as hashtable referred to as a dictionary. 
 
 You create a hashtable with the following syntax.  A hashtable can contain any number of entries but each is defined by a name and value.
 
-    @{ <name> = <value>; [<name> = <value> ] ...}
+```
+@{ <name> = <value>; [<name> = <value> ] ...}
+```
 
 For example, the following expression creates a hashtable to be used in the data source for an activity parameter that expected a hashtable with values for an internet search.
 
-    $query = "Azure Automation"
-    $count = 10
-    $h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
-    $h
+```
+$query = "Azure Automation"
+$count = 10
+$h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
+$h
+```
 
 The following example uses output from an activity called *Get Twitter Connection* to populate a hashtable.
 
-    @{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
-      'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
-      'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
-      'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+```
+@{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
+  'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
+  'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
+  'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+```
 
 ## Next Steps
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](/documentation/articles/automation-first-runbook-textual/) 
-* To get started with Graphical runbooks, see [My first graphical runbook](/documentation/articles/automation-first-runbook-graphical/)
-* To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](/documentation/articles/automation-runbook-types/)
-* To understand how to authenticate using the Automation Run As account, see [Configure Azure Run As Account](/documentation/articles/automation-sec-configure-azure-runas-account/)
+* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](./automation-first-runbook-textual.md) 
+* To get started with Graphical runbooks, see [My first graphical runbook](./automation-first-runbook-graphical.md)
+* To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](./automation-runbook-types.md)
+* To understand how to authenticate using the Automation Run As account, see [Configure Azure Run As Account](./automation-sec-configure-azure-runas-account.md)

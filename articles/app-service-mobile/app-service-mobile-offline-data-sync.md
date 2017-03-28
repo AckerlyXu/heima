@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Offline Data Sync in Azure Mobile Apps | Azure"
-	description="Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps"
-	documentationCenter="windows"
-	authors="adrianhall"
-	manager="dwrede"
-	editor=""
-	services="app-service\mobile"/>
+---
+title: Offline Data Sync in Azure Mobile Apps | Azure
+description: Conceptual reference and overview of the offline data sync feature for Azure Mobile Apps
+documentationCenter: windows
+authors: adrianhall
+manager: dwrede
+editor: ''
+services: app-service\mobile
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="10/30/2016"
-	ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 10/30/2016
+ms.author: adrianha
+---
 
 # Offline Data Sync in Azure Mobile Apps
 ## What is offline data sync?
@@ -39,11 +39,11 @@ Offline sync has several benefits:
 The following tutorials show how to add offline sync to your mobile clients using Azure Mobile Apps:
 
 * [Android: Enable offline sync]
-* [Apache Cordova: Enable offline sync](/documentation/articles/app-service-mobile-cordova-get-started-offline-data/)
+* [Apache Cordova: Enable offline sync](./app-service-mobile-cordova-get-started-offline-data.md)
 * [iOS: Enable offline sync]
 * [Xamarin iOS: Enable offline sync]
 * [Xamarin Android: Enable offline sync]
-* [Xamarin.Forms: Enable offline sync](/documentation/articles/app-service-mobile-xamarin-forms-get-started-offline-data/)
+* [Xamarin.Forms: Enable offline sync](./app-service-mobile-xamarin-forms-get-started-offline-data.md)
 * [Universal Windows Platform: Enable offline sync]
 
 ## What is a sync table?
@@ -108,8 +108,10 @@ the local store is populated with new data only when there is a call to *pull* d
   If the query has a parameter, one way to create a unique query name is to incorporate the parameter value.
   For instance, if you are filtering on userid, your query name could be as follows (in C#):
 
-        await todoTable.PullAsync("todoItems" + userid,
-            syncTable.Where(u => u.UserId == userid));
+  ```
+    await todoTable.PullAsync("todoItems" + userid,
+        syncTable.Where(u => u.UserId == userid));
+  ```
 
   If you want to opt out of incremental sync, pass `null` as the query ID. In this case, all records are
   retrieved on every call to `PullAsync`, which is potentially inefficient.
@@ -132,9 +134,9 @@ the local store is populated with new data only when there is a call to *pull* d
 * [Universal Windows Platform: Enable offline sync]
 
 <!-- Links -->
-[.NET client SDK]: /documentation/articles/app-service-mobile-dotnet-how-to-use-client-library/
-[Android: Enable offline sync]: /documentation/articles/app-service-mobile-android-get-started-offline-data/
-[iOS: Enable offline sync]: /documentation/articles/app-service-mobile-ios-get-started-offline-data/
-[Xamarin iOS: Enable offline sync]: /documentation/articles/app-service-mobile-xamarin-ios-get-started-offline-data/
-[Xamarin Android: Enable offline sync]: /documentation/articles/app-service-mobile-xamarin-ios-get-started-offline-data/
-[Universal Windows Platform: Enable offline sync]: /documentation/articles/app-service-mobile-windows-store-dotnet-get-started-offline-data/
+[.NET client SDK]: ./app-service-mobile-dotnet-how-to-use-client-library.md
+[Android: Enable offline sync]: ./app-service-mobile-android-get-started-offline-data.md
+[iOS: Enable offline sync]: ./app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS: Enable offline sync]: ./app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: Enable offline sync]: ./app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Universal Windows Platform: Enable offline sync]: ./app-service-mobile-windows-store-dotnet-get-started-offline-data.md

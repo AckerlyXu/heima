@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Conceptual overview of custom domain names in Azure Active Directory | Azure"
-	description="Explains the conceptual framework for using custom domain names in Azure Active directory, including federation for single sign-on"
-	services="active-directory"
-	documentationCenter=""
-	authors="jeffsta"
-	manager="femila"
-	editor=""/>
+---
+title: Conceptual overview of custom domain names in Azure Active Directory | Azure
+description: Explains the conceptual framework for using custom domain names in Azure Active directory, including federation for single sign-on
+services: active-directory
+documentationCenter: ''
+authors: jeffsta
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/04/2016"
-	ms.author="curtand;jeffsta"
-	wacn.date=""/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: curtand;jeffsta
+wacn.date: ''
+---
 
 # Conceptual overview of custom domain names in Azure Active Directory
 
@@ -37,7 +37,7 @@ Before it can be used by Azure AD, the custom domain name must be added to your 
 
 The initial domain name for a directory is implicitly evaluated as verified by Azure AD. When an administrator adds a custom domain name to an Azure AD, it is initially in an unverified state. Azure AD will not allow any directory resources to use an unverified domain name. This ensures that only one directory can use a particular domain name, and that the organization uses the domain name actually owns that domain name.
 
-Azure AD verifies ownership of a domain name by looking for a particular entry in the domain name service (DNS) zone file for the domain name. To verify ownership of a domain name, an admin gets the DNS entry from Azure AD that Azure AD will look for, and adds that entry to the DNS zone file for the domain name. The DNS zone file is maintained by the domain name registrar for that domain. The steps to verify a domain are shown in the article for [adding a custom domain to your Azure AD directory](/documentation/articles/active-directory-add-domain/).
+Azure AD verifies ownership of a domain name by looking for a particular entry in the domain name service (DNS) zone file for the domain name. To verify ownership of a domain name, an admin gets the DNS entry from Azure AD that Azure AD will look for, and adds that entry to the DNS zone file for the domain name. The DNS zone file is maintained by the domain name registrar for that domain. The steps to verify a domain are shown in the article for [adding a custom domain to your Azure AD directory](./active-directory-add-domain.md).
 
 Adding a DNS entry to the zone file for the domain name does not affect other domain services such as email or web hosting.
 
@@ -61,9 +61,9 @@ An Azure web app uses its own mechanism to verify ownership of a domain. A domai
 
 Domain management tasks can be completed from the Azure Classic Management Portal and from PowerShell. Many tasks can be completed using the Azure AD Graph API (in public preview).
 
--   [Adding and verifying a custom domain name](/documentation/articles/active-directory-add-domain/)
+-   [Adding and verifying a custom domain name](./active-directory-add-domain.md)
 
--   [Managing domains in the Azure Classic Management Portal](/documentation/articles/active-directory-add-manage-domain-names/)
+-   [Managing domains in the Azure Classic Management Portal](./active-directory-add-manage-domain-names.md)
 
 -   [Using PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/zh-cn/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 

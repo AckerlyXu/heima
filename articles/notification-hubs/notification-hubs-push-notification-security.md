@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Security for Notification Hubs"
-	description="This topic explains security for Azure notification hubs."
-	services="notification-hubs"
-	documentationCenter=".net"
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""/>
+---
+title: Security for Notification Hubs
+description: This topic explains security for Azure notification hubs.
+services: notification-hubs
+documentationCenter: .net
+authors: wesmc7777
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="notification-hubs"
-	ms.date="06/29/2016"
-	wacn.date=""/>
+ms.service: notification-hubs
+ms.date: 06/29/2016
+wacn.date: ''
+---
 
 #Security
 
@@ -39,6 +39,5 @@ Similar to other entities, Notification Hub operations are allowed for three sec
 | Listen | Create/Update, Read, and Delete single registrations | Create/Update registration<br><br>Read registration<br><br>Read all registrations for a handle<br><br>Delete registration |
 | Send | Send messages to the notification hub | Send message |
 | Manage | CRUDs on Notification Hubs (including updating PNS credentials, and security keys), and read registrations based on tags | Create/Update/Read/Delete notification hubs<br><br>Read registrations by tag |
-
 
 Notification Hubs accept claims granted by Microsoft Azure Access Control tokens, and by signature tokens generated with shared keys configured directly on the Notification Hub.

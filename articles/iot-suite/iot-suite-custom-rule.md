@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Create a custom rule in Azure IoT Suite | Azure"
-    description="How to create a custom rule in an IoT Suite preconfigured solution."
-    services=""
-    suite="iot-suite"
-    documentationcenter=""
-    author="dominicbetts"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="562799dc-06ea-4cdd-b822-80d1f70d2f09"
-    ms.service="iot-suite"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="03/09/2017"
-    wacn.date=""
-    ms.author="dobett" />
+---
+title: Create a custom rule in Azure IoT Suite | Azure
+description: How to create a custom rule in an IoT Suite preconfigured solution.
+services: ''
+suite: iot-suite
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
+
+ms.assetid: 562799dc-06ea-4cdd-b822-80d1f70d2f09
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/09/2017
+wacn.date: ''
+ms.author: dobett
+---
 
 # Create a custom rule in the remote monitoring preconfigured solution
 
@@ -32,11 +33,11 @@ To complete this tutorial, you need:
 * [Node.js][lnk-node] version 0.12.x or later to create a simulated device.
 * Visual Studio 2015 or Visual Studio 2017 to modify the preconfigured solution back end with your new rules.
 
-[AZURE.INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
+[!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 Make a note of the solution name you chose for your deployment. You need this solution name later in this tutorial.
 
-[AZURE.INCLUDE [iot-suite-send-external-temperature](../../includes/iot-suite-send-external-temperature.md)]
+[!INCLUDE [iot-suite-send-external-temperature](../../includes/iot-suite-send-external-temperature.md)]
 
 You can stop the Node.js console app when you have verified that it is sending **ExternalTemperature** telemetry to the preconfigured solution. Keep the console window open because you run this Node.js console app again after you add the custom rule to the solution.
 
@@ -55,48 +56,60 @@ The following steps show you how to modify the RemoteMonitoring Visual Studio so
 
 1. If you have not already done so, clone the **azure-iot-remote-monitoring** repository to a suitable location on your local machine using the following Git command:
 
-		git clone https://github.com/Azure/azure-iot-remote-monitoring.git
+    ```
+    git clone https://github.com/Azure/azure-iot-remote-monitoring.git
+    ```
 
 2. In Visual Studio, open the RemoteMonitoring.sln file from your local copy of the **azure-iot-remote-monitoring** repository.
 
 3. Open the file Infrastructure\Models\DeviceRuleBlobEntity.cs and add an **ExternalTemperature** property as follows:
 
-		public double? Temperature { get; set; }
-		public double? Humidity { get; set; }
-		public double? ExternalTemperature { get; set; }
+    ```csharp
+    public double? Temperature { get; set; }
+    public double? Humidity { get; set; }
+    public double? ExternalTemperature { get; set; }
+    ```
 
 4. In the same file, add an **ExternalTemperatureRuleOutput** property as follows:
 
-	    public string TemperatureRuleOutput { get; set; }
-	    public string HumidityRuleOutput { get; set; }
-	    public string ExternalTemperatureRuleOutput { get; set; }
+    ```csharp
+    public string TemperatureRuleOutput { get; set; }
+    public string HumidityRuleOutput { get; set; }
+    public string ExternalTemperatureRuleOutput { get; set; }
+    ```
 
 5. Open the file Infrastructure\Models\DeviceRuleDataFields.cs and add the following **ExternalTemperature** property after the existing **Humidity** property:
 
-	    public static string ExternalTemperature
-	    {
-	        get { return "ExternalTemperature"; }
-	    }
+    ```csharp
+    public static string ExternalTemperature
+    {
+        get { return "ExternalTemperature"; }
+    }
+    ```
 
 6. In the same file, update the **_availableDataFields** method to include **ExternalTemperature** as follows:
 
-	    private static List<string> _availableDataFields = new List<string>
-	    {                    
-	        Temperature, Humidity, ExternalTemperature
-	    };
+    ```csharp
+    private static List<string> _availableDataFields = new List<string>
+    {                    
+        Temperature, Humidity, ExternalTemperature
+    };
+    ```
 
 7. Open the file Infrastructure\Repository\DeviceRulesRepository.cs and modify the **BuildBlobEntityListFromTableRows** method as follows:
 
-	    else if (rule.DataField == DeviceRuleDataFields.Humidity)
-	    {
-	        entity.Humidity = rule.Threshold;
-	        entity.HumidityRuleOutput = rule.RuleOutput;
-	    }
-	    else if (rule.DataField == DeviceRuleDataFields.ExternalTemperature)
-	    {
-	      entity.ExternalTemperature = rule.Threshold;
-	      entity.ExternalTemperatureRuleOutput = rule.RuleOutput;
-	    }
+    ```csharp
+    else if (rule.DataField == DeviceRuleDataFields.Humidity)
+    {
+        entity.Humidity = rule.Threshold;
+        entity.HumidityRuleOutput = rule.RuleOutput;
+    }
+    else if (rule.DataField == DeviceRuleDataFields.ExternalTemperature)
+    {
+      entity.ExternalTemperature = rule.Threshold;
+      entity.ExternalTemperatureRuleOutput = rule.RuleOutput;
+    }
+    ```
 
 ## Rebuild and redeploy the solution.
 
@@ -106,7 +119,9 @@ You can now deploy the updated solution to your Azure subscription.
 
 2. To deploy your updated solution, run the following command substituting **{deployment name}** with the name of your preconfigured solution deployment that you noted previously:
 
-	    build.cmd cloud release {deployment name}
+    ```
+    build.cmd cloud release {deployment name}
+    ```
 
 ## Update the Stream Analytics job
 
@@ -120,56 +135,58 @@ When the deployment is complete, you can update the Stream Analytics job to use 
 
 4. Click **Query**. Edit the query to include the **SELECT** statement for **ExternalTemperature**. The following sample shows the complete query with the new **SELECT** statement:
 
-	    WITH AlarmsData AS 
-	    (
-	    SELECT
-	         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-	         'Temperature' as ReadingType,
-	         Stream.Temperature as Reading,
-	         Ref.Temperature as Threshold,
-	         Ref.TemperatureRuleOutput as RuleOutput,
-	         Stream.EventEnqueuedUtcTime AS [Time]
-	    FROM IoTTelemetryStream Stream
-	    JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-	    WHERE
-	         Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
-	     
-	    UNION ALL
-	     
-	    SELECT
-	         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-	         'Humidity' as ReadingType,
-	         Stream.Humidity as Reading,
-	         Ref.Humidity as Threshold,
-	         Ref.HumidityRuleOutput as RuleOutput,
-	         Stream.EventEnqueuedUtcTime AS [Time]
-	    FROM IoTTelemetryStream Stream
-	    JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-	    WHERE
-	         Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
-	     
-	    UNION ALL
-	     
-	    SELECT
-	         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
-	         'ExternalTemperature' as ReadingType,
-	         Stream.ExternalTemperature as Reading,
-	         Ref.ExternalTemperature as Threshold,
-	         Ref.ExternalTemperatureRuleOutput as RuleOutput,
-	         Stream.EventEnqueuedUtcTime AS [Time]
-	    FROM IoTTelemetryStream Stream
-	    JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
-	    WHERE
-	         Ref.ExternalTemperature IS NOT null AND Stream.ExternalTemperature > Ref.ExternalTemperature
-	    )
-	     
-	    SELECT *
-	    INTO DeviceRulesMonitoring
-	    FROM AlarmsData
-	     
-	    SELECT *
-	    INTO DeviceRulesHub
-	    FROM AlarmsData
+    ```
+    WITH AlarmsData AS 
+    (
+    SELECT
+         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
+         'Temperature' as ReadingType,
+         Stream.Temperature as Reading,
+         Ref.Temperature as Threshold,
+         Ref.TemperatureRuleOutput as RuleOutput,
+         Stream.EventEnqueuedUtcTime AS [Time]
+    FROM IoTTelemetryStream Stream
+    JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
+    WHERE
+         Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
+     
+    UNION ALL
+     
+    SELECT
+         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
+         'Humidity' as ReadingType,
+         Stream.Humidity as Reading,
+         Ref.Humidity as Threshold,
+         Ref.HumidityRuleOutput as RuleOutput,
+         Stream.EventEnqueuedUtcTime AS [Time]
+    FROM IoTTelemetryStream Stream
+    JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
+    WHERE
+         Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
+     
+    UNION ALL
+     
+    SELECT
+         Stream.IoTHub.ConnectionDeviceId AS DeviceId,
+         'ExternalTemperature' as ReadingType,
+         Stream.ExternalTemperature as Reading,
+         Ref.ExternalTemperature as Threshold,
+         Ref.ExternalTemperatureRuleOutput as RuleOutput,
+         Stream.EventEnqueuedUtcTime AS [Time]
+    FROM IoTTelemetryStream Stream
+    JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
+    WHERE
+         Ref.ExternalTemperature IS NOT null AND Stream.ExternalTemperature > Ref.ExternalTemperature
+    )
+     
+    SELECT *
+    INTO DeviceRulesMonitoring
+    FROM AlarmsData
+     
+    SELECT *
+    INTO DeviceRulesHub
+    FROM AlarmsData
+    ```
 
 5. Click **Save** to change the updated rule query.
 
@@ -205,10 +222,10 @@ Now that you've seen how to create custom rules, you can learn more about the pr
 - [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logic-app]
 - [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo].
 
-[lnk-devinfo]: /documentation/articles/iot-suite-remote-monitoring-device-info/
+[lnk-devinfo]: ./iot-suite-remote-monitoring-device-info.md
 
-[lnk_free_trial]: /pricing/1rmb-trial/
+[lnk_free_trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-node]: http://nodejs.org
-[lnk-builtin-rule]: /documentation/articles/iot-suite-getstarted-preconfigured-solutions/#add-a-rule-for-the-new-device
-[lnk-dynamic-telemetry]: /documentation/articles/iot-suite-dynamic-telemetry/
-[lnk-logic-app]: /documentation/articles/iot-suite-logic-apps-tutorial/
+[lnk-builtin-rule]: ./iot-suite-getstarted-preconfigured-solutions.md#add-a-rule-for-the-new-device
+[lnk-dynamic-telemetry]: ./iot-suite-dynamic-telemetry.md
+[lnk-logic-app]: ./iot-suite-logic-apps-tutorial.md

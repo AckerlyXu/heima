@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Azure SQL Database Works in Your Environment"
-   description="Learn how SQL Database helps, secures and protects"
-   keywords=""
-   services="sql-database"
-   documentationCenter=""
-   authors="CarlRabeler"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Azure SQL Database Works in Your Environment
+description: Learn how SQL Database helps, secures and protects
+keywords: ''
+services: sql-database
+documentationCenter: ''
+authors: CarlRabeler
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management"
-   ms.date="10/13/2016"
-   ms.author="carlrab"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-management
+ms.date: 10/13/2016
+ms.author: carlrab
+---
 
 # Azure SQL Database Works in your Environment
 
@@ -27,7 +27,7 @@ The last thing you want to do is learn something new just to connect with a data
 
 When choosing a database, you shouldn't have to move to a new platform, or learn a new language. SQL Database has code samples to help you get started, wherever you are.  
 
-[Learn more about SQL Database Development](/documentation/articles/sql-database-develop-overview/) 
+[Learn more about SQL Database Development](./sql-database-develop-overview.md) 
 
 ## The right tools for the job
 
@@ -37,14 +37,14 @@ You don't have to learn a whole new set of tools to get started with SQL Databas
 
 The right anwers to your SQL Database questions are never too far away, with tutorials on creating your first SQL Database, troubleshooting queries, and quick-start code samples.
 
-[Learn more about SQL Database](/documentation/articles/sql-database-technical-overview/)
+[Learn more about SQL Database](./sql-database-technical-overview.md)
 
 ## Next steps
 
-Get a [Azure subscription](/pricing/1rmb-trial) and [create your first Azure SQL Database](/documentation/articles/sql-database-get-started/).
+Get a [Azure subscription](https://www.azure.cn/pricing/1rmb-trial) and [create your first Azure SQL Database](./sql-database-get-started.md).
 
 ## Additional resources
 
-Explore all the [capabilities of SQL Database](/home/features/sql-database).
-Review the [technical overview of SQL Database](/documentation/articles/sql-database-technical-overview/).
-* [SQL Database Development Overview](/documentation/articles/sql-database-develop-overview/)
+Explore all the [capabilities of SQL Database](https://www.azure.cn/home/features/sql-database).
+Review the [technical overview of SQL Database](./sql-database-technical-overview.md).
+* [SQL Database Development Overview](./sql-database-develop-overview.md)

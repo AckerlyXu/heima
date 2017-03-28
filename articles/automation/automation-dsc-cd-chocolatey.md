@@ -1,23 +1,24 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Azure Automation DSC Continuous Deployment with Chocolatey | Azure"
-    description="DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source."
-    services="automation"
-    documentationcenter=""
-    author="eslesar"
-    manager="carmonm"
-    editor="tysonn" />
-<tags
-    ms.assetid="c0baa411-eb76-4f91-8d14-68f68b4805b6"
-    ms.service="automation"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="na"
-    ms.date="10/29/2016"
-    wacn.date=""
-    ms.author="golive" />
+---
+title: Azure Automation DSC Continuous Deployment with Chocolatey | Azure
+description: DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source.
+services: automation
+documentationcenter: ''
+author: eslesar
+manager: carmonm
+editor: tysonn
+
+ms.assetid: c0baa411-eb76-4f91-8d14-68f68b4805b6
+ms.service: automation
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: na
+ms.date: 10/29/2016
+wacn.date: ''
+ms.author: golive
+---
 
 # Usage Example: Continuous deployment to Virtual Machines using Automation DSC and Chocolatey
 In a DevOps world there are many tools to assist with various points in the Continuous Integration pipeline.  Azure Automation Desired State Configuration (DSC) is a welcome new addition to the options that DevOps teams can employ.  This article demonstrates setting up Continuous Deployment (CD) for a Windows computer.  You can easily extend the technique to include as many Windows computers as necessary in the role (a web site, for example), and from there to additional roles as well.
@@ -37,11 +38,11 @@ Package managers such as [apt-get](https://en.wikipedia.org/wiki/Advanced_Packag
 
 Desired State Configuration (DSC) ([overview](https://technet.microsoft.com/zh-cn/library/dn249912.aspx)) is a PowerShell tool that allows you to declare the configuration that you want for a machine.  For example, you can say, "I want Chocolatey installed, I want IIS installed, I want port 80 opened, I want version 1.0.0 of my website installed."  The DSC Local Configuration Manager (LCM) implements that configuration. A DSC Pull Server holds a repository of configurations for your machines. The LCM on each machine checks in periodically to see if its configuration matches the stored configuration. It can either report status or attempt to bring the machine back into alignment with the stored configuration. You can edit the stored configuration on the pull server to cause a machine or set of machines to come into alignment with the changed configuration.
 
-Azure Automation is a managed service in Azure that allows you to automate various tasks using runbooks, nodes, credentials, resources and assets such as schedules and global variables. Azure Automation DSC extends this automation capability to include PowerShell DSC tools.  Here's a great [overview](/documentation/articles/automation-dsc-overview/).
+Azure Automation is a managed service in Azure that allows you to automate various tasks using runbooks, nodes, credentials, resources and assets such as schedules and global variables. Azure Automation DSC extends this automation capability to include PowerShell DSC tools.  Here's a great [overview](./automation-dsc-overview.md).
 
 A DSC Resource is a module of code that has specific capabilities, such as managing networking, Active Directory, or SQL Server.  The Chocolatey DSC Resource knows how to access a NuGet Server (among others), download packages, install packages, and so on.  There are many other DSC Resources in the [PowerShell Gallery](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).  These modules are installed into your Azure Automation DSC Pull Server (by you) so they can be used by your configurations.
 
-Resource Manager templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here's an [article](/documentation/articles/resource-manager-deployment-model/) that compares the Resource Manager deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative), and discusses the core resource providers, compute, storage and network.
+Resource Manager templates provide a declarative way of generating your infrastructure - things like networks, subnets, network security and routing, load balancers, NICs, VMs, and so on.  Here's an [article](../azure-resource-manager/resource-manager-deployment-model.md) that compares the Resource Manager deployment model (declarative) with the Azure Service Management (ASM, or classic) deployment model (imperative), and discusses the core resource providers, compute, storage and network.
 
 One key feature of an Resource Manager template is its ability to install a VM extension into the VM as it's provisioned.  A VM extension has specific capabilities such as running a custom script, installing anti-virus software, or running a DSC configuration script.  There are many other types of VM extensions.
 
@@ -52,13 +53,15 @@ In the bottom left portion of the picture, there is an Azure Resource Manager (A
 
 Presumably you're already doing the bit at the top, or most of it.  Creating the nuspec, compiling and storing it in a NuGet server is a small thing.  And you're already managing VMs.  Taking the next step to continuous deployment requires setting up the pull server (once), registering your nodes with it (once), and creating and storing the configuration there (initially).  Then as packages are upgraded and deployed to the repository, refresh the Configuration and Node Configuration in the pull server (repeat as needed).
 
-If you're not starting with an ARM template, that's also OK.  There are PowerShell cmdlets designed to help you register your VMs with the pull server and all of the rest. For more details, see this article: [Onboarding machines for management by Azure Automation DSC](/documentation/articles/automation-dsc-onboarding/)
+If you're not starting with an ARM template, that's also OK.  There are PowerShell cmdlets designed to help you register your VMs with the pull server and all of the rest. For more details, see this article: [Onboarding machines for management by Azure Automation DSC](./automation-dsc-onboarding.md)
 
 ## Step 1: Setting up the pull server and automation account
 At an authenticated (Add-AzureRmAccount -EnvironmentName AzureChinaCloud) PowerShell command line:  (can take a few minutes while the pull server is set up)
 
-    New-AzureRmResourceGroup -Name MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureRmAutomationAccount -ResourceGroupName MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES -Name MY-AUTOMATION-ACCOUNT 
+```
+New-AzureRmResourceGroup -Name MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES
+New-AzureRmAutomationAccount -ResourceGroupName MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES -Name MY-AUTOMATION-ACCOUNT 
+```
 
 You can put your automation account into any of the following regions (aka location):  China East 2, China East, US Gov Virginia, China North, China North, China East, Central India and Australia Southeast, Canada Central, China North.
 
@@ -82,7 +85,7 @@ Or, there's the manual approach.  The folder structure of a PowerShell Integrati
 * Zip the main folder, naming the ZIP file exactly the same as the folder 
 * Put the ZIP file into a reachable HTTP location, such as blob storage in an Azure Storage Account.
 * Run this PowerShell:
-  
+
       New-AzureRmAutomationModule `
           -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
           -Name MODULE-NAME -ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
@@ -94,65 +97,69 @@ There's nothing special about the first time you import your configuration into 
 
 ISVBoxConfig.ps1:
 
-    Configuration ISVBoxConfig 
-    { 
-        Import-DscResource -ModuleName cChoco 
-        Import-DscResource -ModuleName xNetworking
+```
+Configuration ISVBoxConfig 
+{ 
+    Import-DscResource -ModuleName cChoco 
+    Import-DscResource -ModuleName xNetworking
 
-        Node "isvbox" {   
+    Node "isvbox" {   
 
-            cChocoInstaller installChoco 
-            { 
-                InstallDir = "C:\choco" 
-            }
+        cChocoInstaller installChoco 
+        { 
+            InstallDir = "C:\choco" 
+        }
 
-            WindowsFeature installIIS 
-            { 
-                Ensure="Present" 
-                Name="Web-Server" 
-            }
+        WindowsFeature installIIS 
+        { 
+            Ensure="Present" 
+            Name="Web-Server" 
+        }
 
-            xFirewall WebFirewallRule 
-            { 
-                Direction = "Inbound" 
-                Name = "Web-Server-TCP-In" 
-                DisplayName = "Web Server (TCP-In)" 
-                Description = "IIS allow incoming web site traffic." 
-                DisplayGroup = "IIS Incoming Traffic" 
-                State = "Enabled" 
-                Access = "Allow" 
-                Protocol = "TCP" 
-                LocalPort = "80" 
-                Ensure = "Present" 
-            }
+        xFirewall WebFirewallRule 
+        { 
+            Direction = "Inbound" 
+            Name = "Web-Server-TCP-In" 
+            DisplayName = "Web Server (TCP-In)" 
+            Description = "IIS allow incoming web site traffic." 
+            DisplayGroup = "IIS Incoming Traffic" 
+            State = "Enabled" 
+            Access = "Allow" 
+            Protocol = "TCP" 
+            LocalPort = "80" 
+            Ensure = "Present" 
+        }
 
-            cChocoPackageInstaller trivialWeb 
-            {            
-                Name = "trivialweb" 
-                Version = "1.0.0" 
-                Source = "MY-NUGET-V2-SERVER-ADDRESS" 
-                DependsOn = "[cChocoInstaller]installChoco", 
-                "[WindowsFeature]installIIS" 
-            } 
-        }    
-    }
+        cChocoPackageInstaller trivialWeb 
+        {            
+            Name = "trivialweb" 
+            Version = "1.0.0" 
+            Source = "MY-NUGET-V2-SERVER-ADDRESS" 
+            DependsOn = "[cChocoInstaller]installChoco", 
+            "[WindowsFeature]installIIS" 
+        } 
+    }    
+}
+```
 
 New-ConfigurationScript.ps1:
 
-    Import-AzureRmAutomationDscConfiguration ` 
-        -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
-        -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 ` 
-        -Published -Force
+```
+Import-AzureRmAutomationDscConfiguration ` 
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
+    -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 ` 
+    -Published -Force
 
-    $jobData = Start-AzureRmAutomationDscCompilationJob ` 
-        -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
-        -ConfigurationName ISVBoxConfig 
+$jobData = Start-AzureRmAutomationDscCompilationJob ` 
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
+    -ConfigurationName ISVBoxConfig 
 
-    $compilationJobId = $jobData.Id
+$compilationJobId = $jobData.Id
 
-    Get-AzureRmAutomationDscCompilationJob ` 
-        -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
-        -Id $compilationJobId
+Get-AzureRmAutomationDscCompilationJob ` 
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
+    -Id $compilationJobId
+```
 
 These steps result in a new node configuration named "ISVBoxConfig.isvbox" being placed on the pull server.  The node configuration name is built as "configurationName.nodeName".
 
@@ -172,6 +179,6 @@ Of course, when you update a package on a VM that's in production, you need to t
 Full source for this usage example is in [this Visual Studio project](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) on GitHub.
 
 ## Related Articles
-* [Azure Automation DSC Overview](/documentation/articles/automation-dsc-overview/)
+* [Azure Automation DSC Overview](./automation-dsc-overview.md)
 * [Azure Automation DSC cmdlets](https://msdn.microsoft.com/zh-cn/library/mt244122.aspx)
-* [Onboarding machines for management by Azure Automation DSC](/documentation/articles/automation-dsc-onboarding/)
+* [Onboarding machines for management by Azure Automation DSC](./automation-dsc-onboarding.md)

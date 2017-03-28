@@ -1,4 +1,4 @@
-> [AZURE.SELECTOR]
-- [Portal](/documentation/articles/media-services-manage-content/)
-- [.NET](/documentation/articles/media-services-dotnet-upload-files/)
-- [REST API](/documentation/articles/media-services-rest-upload-files/)
+> [!div class="op_single_selector"]
+>- [Portal](/documentation/articles/media-services-manage-content/)
+>- [.NET](../articles/media-services/media-services-dotnet-upload-files.md)
+>- [REST API](../articles/media-services/media-services-rest-upload-files.md)

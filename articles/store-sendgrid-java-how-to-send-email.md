@@ -1,16 +1,16 @@
-<properties 
-	pageTitle="How to use the SendGrid email service (Java) | Microsoft Azure" 
-	description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." 
-	services="" 
-	documentationCenter="java" 
-	authors="thinkingserious" 
-	manager="sendgrid" 
-	editor="mollybos"/>
+---
+title: How to use the SendGrid email service (Java) | Microsoft Azure
+description: Learn how send email with the SendGrid email service on Azure. Code samples written in Java.
+services: ''
+documentationCenter: java
+authors: thinkingserious
+manager: sendgrid
+editor: mollybos
 
-<tags 
-	ms.service="multiple" 
-	ms.date="10/30/2014" 
-	wacn.date=""/>
+ms.service: multiple
+ms.date: 10/30/2014
+wacn.date: ''
+---
 
 # How to Send Email Using SendGrid from Java
 
@@ -54,7 +54,7 @@ For more information, see <http://sendgrid.com>.
 
 ## <a name="bkmk_CreateSendGridAcct"> </a>Create a SendGrid account
 
-[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_HowToUseJavax"> </a>How to: Use the javax.mail libraries
 
@@ -65,7 +65,7 @@ to send email using SMTP is to do the following:
 
 1.  Specify the SMTP values, including the SMTP server, which for
     SendGrid is smtp.sendgrid.net.
-    
+
 ```
         import java.util.Properties;
         import javax.activation.*;
@@ -73,22 +73,22 @@ to send email using SMTP is to do the following:
         import javax.mail.internet.*;
 
         public class MyEmailer {
-	       private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
-	       private static final String SMTP_AUTH_USER = "your_sendgrid_username";
+           private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
+           private static final String SMTP_AUTH_USER = "your_sendgrid_username";
            private static final String SMTP_AUTH_PWD = "your_sendgrid_password";
-        
-		   public static void main(String[] args) throws Exception{
-         	  new MyEmailer().SendMail();
+
+           public static void main(String[] args) throws Exception{
+               new MyEmailer().SendMail();
            }
-        
-		   public void SendMail() throws Exception
+
+           public void SendMail() throws Exception
            {
               Properties properties = new Properties();
-           	  properties.put("mail.transport.protocol", "smtp");
-           	  properties.put("mail.smtp.host", SMTP_HOST_NAME);
-           	  properties.put("mail.smtp.port", 587);
-           	  properties.put("mail.smtp.auth", "true");
-           	  // …
+                 properties.put("mail.transport.protocol", "smtp");
+                 properties.put("mail.smtp.host", SMTP_HOST_NAME);
+                 properties.put("mail.smtp.port", 587);
+                 properties.put("mail.smtp.auth", "true");
+                 // …
 ```
 
 2.  Extend the *javax.mail.Authenticator*
@@ -96,18 +96,22 @@ to send email using SMTP is to do the following:
     *getPasswordAuthentication* method,
     return your SendGrid user name and password.  
 
-        private class SMTPAuthenticator extends javax.mail.Authenticator {
-        public PasswordAuthentication getPasswordAuthentication() {
-           String username = SMTP_AUTH_USER;
-           String password = SMTP_AUTH_PWD;
-           return new PasswordAuthentication(username, password);
-        }
+    ```
+    private class SMTPAuthenticator extends javax.mail.Authenticator {
+    public PasswordAuthentication getPasswordAuthentication() {
+       String username = SMTP_AUTH_USER;
+       String password = SMTP_AUTH_PWD;
+       return new PasswordAuthentication(username, password);
+    }
+    ```
 
 3.  Create an authenticated email session through a
     *javax.mail.Session* object.  
 
-        Authenticator auth = new SMTPAuthenticator();
-        Session mailSession = Session.getDefaultInstance(properties, auth);
+    ```
+    Authenticator auth = new SMTPAuthenticator();
+    Session mailSession = Session.getDefaultInstance(properties, auth);
+    ```
 
 4.  Create your message and assign **To**, **From**, **Subject** and
     content values. This is shown in the [How To: Create an Email](#bkmk_HowToCreateEmail) section.
@@ -120,51 +124,57 @@ to send email using SMTP is to do the following:
 
 The following shows how to specify values for an email.
 
-    MimeMessage message = new MimeMessage(mailSession);
-    Multipart multipart = new MimeMultipart("alternative");
-    BodyPart part1 = new MimeBodyPart();
-    part1.setText("Hello, Your Contoso order has shipped. Thank you, John");
-    BodyPart part2 = new MimeBodyPart();
-    part2.setContent(
-		"<p>Hello,</p>
-		<p>Your Contoso order has <b>shipped</b>.</p>
-		<p>Thank you,<br>John</br></p>",
-		"text/html");
-    multipart.addBodyPart(part1);
-    multipart.addBodyPart(part2);
-    message.setFrom(new InternetAddress("john@contoso.com"));
-    message.addRecipient(Message.RecipientType.TO,
-       new InternetAddress("someone@example.com"));
-    message.setSubject("Your recent order");
-    message.setContent(multipart);
+```
+MimeMessage message = new MimeMessage(mailSession);
+Multipart multipart = new MimeMultipart("alternative");
+BodyPart part1 = new MimeBodyPart();
+part1.setText("Hello, Your Contoso order has shipped. Thank you, John");
+BodyPart part2 = new MimeBodyPart();
+part2.setContent(
+    "<p>Hello,</p>
+    <p>Your Contoso order has <b>shipped</b>.</p>
+    <p>Thank you,<br>John</br></p>",
+    "text/html");
+multipart.addBodyPart(part1);
+multipart.addBodyPart(part2);
+message.setFrom(new InternetAddress("john@contoso.com"));
+message.addRecipient(Message.RecipientType.TO,
+   new InternetAddress("someone@example.com"));
+message.setSubject("Your recent order");
+message.setContent(multipart);
+```
 
 ## <a name="bkmk_HowToSendEmail"> </a>How to: Send an email
 
 The following shows how to send an email.
 
-    Transport transport = mailSession.getTransport();
-    // Connect the transport object.
-    transport.connect();
-    // Send the message.
-    transport.sendMessage(message, message.getAllRecipients());
-    // Close the connection.
-    transport.close();
+```
+Transport transport = mailSession.getTransport();
+// Connect the transport object.
+transport.connect();
+// Send the message.
+transport.sendMessage(message, message.getAllRecipients());
+// Close the connection.
+transport.close();
+```
 
 ## <a name="bkmk_HowToAddAttachment"> </a>How to: Add an attachment
 
 The following code shows you how to add an attachment.
 
-    // Local file name and path.
-    String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\\"; 
-    MimeBodyPart attachmentPart = new MimeBodyPart();
-    // Specify the local file to attach.
-    DataSource source = new FileDataSource(attachmentPath + attachmentName);
-    attachmentPart.setDataHandler(new DataHandler(source));
-    // This example uses the local file name as the attachment name.
-    // They could be different if you prefer.
-    attachmentPart.setFileName(attachmentName);
-    multipart.addBodyPart(attachmentPart);
+```
+// Local file name and path.
+String attachmentName = "myfile.zip";
+String attachmentPath = "c:\\myfiles\\"; 
+MimeBodyPart attachmentPart = new MimeBodyPart();
+// Specify the local file to attach.
+DataSource source = new FileDataSource(attachmentPath + attachmentName);
+attachmentPart.setDataHandler(new DataHandler(source));
+// This example uses the local file name as the attachment name.
+// They could be different if you prefer.
+attachmentPart.setFileName(attachmentName);
+multipart.addBodyPart(attachmentPart);
+```
 
 ## <a name="bkmk_HowToUseFilters"> </a>How to: Use filters to enable footers, tracking, and analytics
 
@@ -177,31 +187,37 @@ see [Filter Settings][].
 -   The following shows how to insert a footer filter that results in
     HTML text appearing at the bottom of the email being sent.
 
-        message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"footer\": 
-			{\"settings\": 
-        	{\"enable\":1,\"text/html\": 
-			\"<html><b>Thank you</b> for your business.</html>\"}}}}");
+    ```
+    message.addHeader("X-SMTPAPI", 
+        "{\"filters\": 
+        {\"footer\": 
+        {\"settings\": 
+        {\"enable\":1,\"text/html\": 
+        \"<html><b>Thank you</b> for your business.</html>\"}}}}");
+    ```
 
 -   Another example of a filter is click tracking. Let’s say that your
     email text contains a hyperlink, such as the following, and you want
     to track the click rate:
 
-        messagePart.setContent(
-			"Hello,
-			<p>This is the body of the message. Visit 
-			<a href='http://www.contoso.com'>http://www.contoso.com</a>.</p>
-			Thank you.", 
-        	"text/html");
+    ```
+    messagePart.setContent(
+        "Hello,
+        <p>This is the body of the message. Visit 
+        <a href='http://www.contoso.com'>http://www.contoso.com</a>.</p>
+        Thank you.", 
+        "text/html");
+    ```
 
 -   To enable the click tracking, use the following code:
 
-        message.addHeader("X-SMTPAPI", 
-			"{\"filters\": 
-			{\"clicktrack\": 
-			{\"settings\": 
-        	{\"enable\":1}}}}");
+    ```
+    message.addHeader("X-SMTPAPI", 
+        "{\"filters\": 
+        {\"clicktrack\": 
+        {\"settings\": 
+        {\"enable\":1}}}}");
+    ```
 
 ## <a name="bkmk_HowToUpdateEmail"> </a>How to: Update email properties
 
@@ -210,16 +226,20 @@ appended using **add*Property***.
 
 For example, to specify **ReplyTo** addresses, use the following:
 
-    InternetAddress addresses[] = 
-		{ new InternetAddress("john@contoso.com"),
-          new InternetAddress("wendy@contoso.com") };
-    
-	message.setReplyTo(addresses);
+```
+InternetAddress addresses[] = 
+    { new InternetAddress("john@contoso.com"),
+      new InternetAddress("wendy@contoso.com") };
+
+message.setReplyTo(addresses);
+```
 
 To add a **Cc** recipient, use the following:
 
-    message.addRecipient(Message.RecipientType.CC, new 
-    InternetAddress("john@contoso.com"));
+```
+message.addRecipient(Message.RecipientType.CC, new 
+InternetAddress("john@contoso.com"));
+```
 
 ## <a name="bkmk_HowToUseAdditionalSvcs"> </a>How to: Use additional SendGrid services
 

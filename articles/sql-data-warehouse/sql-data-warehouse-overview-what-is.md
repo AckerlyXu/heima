@@ -1,21 +1,22 @@
-<properties
-    pageTitle="What is Azure SQL Data Warehouse? | Azure"
-    description="Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds."
-    services="sql-data-warehouse"
-    documentationcenter="NA"
-    author="jrowlandjones"
-    manager="bjhubbard"
-    editor="" />
-<tags
-    ms.assetid="4006c201-ec71-4982-b8ba-24bba879d7bb"
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/31/2016"
-    wacn.date=""
-    ms.author="jrj;mausher;kevin;barbkess" />
+---
+title: What is Azure SQL Data Warehouse? | Azure
+description: Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: bjhubbard
+editor: ''
+
+ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+ms.author: jrj;mausher;kevin;barbkess
+---
 
 # What is Azure SQL Data Warehouse?
 Azure SQL Data Warehouse is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational. Built on our massively parallel processing (MPP) architecture, SQL Data Warehouse can handle your enterprise workload.
@@ -134,19 +135,18 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 * [Stack Overflow forum]
 * [Twitter]
 
-
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Create support ticket]: /documentation/articles/sql-data-warehouse-get-started-create-support-ticket/
-[load sample data]: /documentation/articles/sql-data-warehouse-load-sample-databases/
-[create a SQL Data Warehouse]: /documentation/articles/sql-data-warehouse-get-started-provision/
-[Migration documentation]: /documentation/articles/sql-data-warehouse-overview-migrate/
-[SQL Data Warehouse solution partners]: /documentation/articles/sql-data-warehouse-partner-business-intelligence/
-[Integrated tools overview]: /documentation/articles/sql-data-warehouse-overview-integrate/
-[Backup and restore overview]: /documentation/articles/sql-data-warehouse-restore-database-overview/
-[Azure glossary]: /documentation/articles/azure-glossary-cloud-terminology/
+[Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -161,4 +161,4 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/zh-cn/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Service Level Agreements]: /support/legal/sla/
+[Service Level Agreements]: https://www.azure.cn/support/legal/sla/

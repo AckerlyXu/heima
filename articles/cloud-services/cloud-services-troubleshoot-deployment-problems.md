@@ -1,21 +1,22 @@
-<properties
- pageTitle="Troubleshoot cloud service deployment problems | Azure"
- description="There are a few common problems you may run into when deploying a cloud service to Azure. This article provides solutions to some of them."
-   services="cloud-services"
-   documentationCenter=""
-   authors="simonxjx"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue"/>
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="11/30/2016"
-   ms.author="v-six"
-   wacn.date=""/>
+---
+title: Troubleshoot cloud service deployment problems | Azure
+description: There are a few common problems you may run into when deploying a cloud service to Azure. This article provides solutions to some of them.
+services: cloud-services
+documentationCenter: ''
+authors: simonxjx
+manager: felixwu
+editor: ''
+tags: top-support-issue
+
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 11/30/2016
+ms.author: v-six
+wacn.date: ''
+---
 
 # Troubleshoot cloud service deployment problems
 
@@ -26,9 +27,10 @@ You can find the **Properties** pane as follows:
 * In the Azure portal, click the deployment of your cloud service, click **All settings**, and then click **Properties**.
 * In the Azure classic portal, click the deployment of your cloud service, click **DASHBOARD**, located at the lower-right corner of the page (under **quick glance**). Be aware that there's no "Properties" label on this pane.
 
-> [AZURE.NOTE] You can copy the contents of the **Properties** pane to the clipboard by clicking the icon in the upper-right corner of the pane.
+> [!NOTE]
+> You can copy the contents of the **Properties** pane to the clipboard by clicking the icon in the upper-right corner of the pane.
 
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Problem: I cannot access my website, but my deployment is started and all role instances are ready
 
@@ -66,7 +68,7 @@ To find out if an automatic update is preventing you from doing a VIP swap:
 
 This condition could indicate a problem with your application code, package, or configuration file. In that case, you should be able to see the status changing every few minutes and the Azure portal may say something like **Recycling**, **Busy**, or **Initializing**. This indicates that there is something wrong with the application that is keeping the role instance from running.
 
-For more information on how to troubleshoot for this problem, see the blog post [Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) and [Common issues that cause roles to recycle](/documentation/articles/cloud-services-troubleshoot-common-issues-which-cause-roles-recycle/).
+For more information on how to troubleshoot for this problem, see the blog post [Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) and [Common issues that cause roles to recycle](./cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 ## Problem: My application stopped working
 
@@ -76,10 +78,10 @@ For more information on how to troubleshoot for this problem, see the blog post 
    * If the role instance is **Busy**, check your application code to see if the [StatusCheck](https://msdn.microsoft.com/zh-cn/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) event is handled. You might need to add or fix some code that handles this event.
    * Go through the diagnostic data and troubleshooting scenarios in the blog post [Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
->[AZURE.WARNING] If you recycle your cloud service, you reset the properties for the deployment, effectively erasing the information for the original problem.
+>[!WARNING]
+> If you recycle your cloud service, you reset the properties for the deployment, effectively erasing the information for the original problem.
 
 ## Next steps
 View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
-
 
 To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

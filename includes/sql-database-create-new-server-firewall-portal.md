@@ -1,4 +1,3 @@
-
 <!--
 includes/sql-database-create-new-server-firewall-portal.md
 
@@ -15,7 +14,7 @@ As of circa 2016-04-11, the following topics might include this include:
 1. On the SQL server blade, under Settings, click **Firewall** to open the Firewall blade for the SQL server.
 
     ![sql server firewall](./media/sql-database-get-started/sql-server-firewall.png)
-    
+
 2. Review the client IP address displayed and validate that this is your IP address on the Internet using a browser of your choice (ask "what is my IP address). Occasionally they do not match for a various reasons.
 
     ![your IP address](./media/sql-database-get-started/your-ip-address.png)
@@ -24,12 +23,11 @@ As of circa 2016-04-11, the following topics might include this include:
 
     ![add client IP](./media/sql-database-get-started/add-client-ip.png)
 
-    > [AZURE.NOTE]You can open the SQL Database firewall on the server to a single IP address or an entire range of addresses. Opening the firewall enables SQL administrators and users to login to any database on the server to which they have valid credentials.
-
+    > [!NOTE]
+    >You can open the SQL Database firewall on the server to a single IP address or an entire range of addresses. Opening the firewall enables SQL administrators and users to login to any database on the server to which they have valid credentials.
 
 4. Click **Save** on the toolbar to save this server-level firewall rule and then click **OK**.
 
     ![add client IP](./media/sql-database-get-started/save-firewall-rule.png)
 
-> [AZURE.Tip] For a tutorial, see [SQL Database tutorial: Create a server, a server-level firewall rule, a sample database, a database-level firewall rule and connect with SQL Server](/documentation/articles/sql-database-get-started/).    
-
+> [AZURE.Tip] For a tutorial, see [SQL Database tutorial: Create a server, a server-level firewall rule, a sample database, a database-level firewall rule and connect with SQL Server](../articles/sql-database/sql-database-get-started.md).

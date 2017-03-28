@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Self-service application access and delegated management with Azure Active Directory | Azure"
-	description="This article describes how to enable self-service application access and delegated management with Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asmalser-msft"
-	manager="stevenpo"
-	editor=""/>
+---
+title: Self-service application access and delegated management with Azure Active Directory | Azure
+description: This article describes how to enable self-service application access and delegated management with Azure Active Directory.
+services: active-directory
+documentationCenter: ''
+authors: asmalser-msft
+manager: stevenpo
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.date="02/09/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 02/09/2016
+wacn.date: ''
+---
 
 #Self-service application access and delegated management with Azure Active Directory
 
@@ -18,7 +18,7 @@ Enabling self-service capabilities for end users is a common scenario for enterp
 
 Self-service application access is a feature of [Azure Active Directory Premium](/trial/get-started-active-directory/) that allow directory administrators to:
 
-* Enable users to request access to applications using a “Get more applications” tile in the [Azure AD access panel](/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users)
+* Enable users to request access to applications using a “Get more applications” tile in the [Azure AD access panel](./active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Set which applications users can request access to
 * Set whether or not an approval is required for users to be able to self-assign access to an application
 * Set who should approve the requests and manage access for each application
@@ -28,7 +28,6 @@ This article describes how to:
 
 * Configure self-service application access for end users, including configuring an optional approval workflow 
 * Delegate access management for specific applications to the most appropriate people in your organization, and enable them to use the Azure AD access panel to approve access requests, directly assign access to selected users, or (optionally) set credentials for application access when password-based single sign-on is configured
-
 
 ##Configuring self-service application access
 
@@ -50,7 +49,7 @@ To enable self-service application access and configured which applications can 
 
 An approver can be any user in the organization with an Azure AD account, and could be responsible for account provisioning, licensing, or any other business process your organization requires before granting access to an app. The approver could even be the group owner of one or more shared account groups, and can assign the users to one of these groups to give them access via a shared account. 
 
-If no approval is required, then users will instantly get the application added to their Azure AD access panel. This appropriate if the application has been set up for [automatic user provisioning](/documentation/articles/active-directory-saas-app-provisioning/), or has been set up [“user-managed” password SSO mode](/documentation/articles/active-directory-appssoaccess-whatis/#password-based-single-sign-on) where the user already has a user account and knows the password.
+If no approval is required, then users will instantly get the application added to their Azure AD access panel. This appropriate if the application has been set up for [automatic user provisioning](./active-directory-saas-app-provisioning.md), or has been set up [“user-managed” password SSO mode](./active-directory-appssoaccess-whatis.md#password-based-single-sign-on) where the user already has a user account and knows the password.
 
 **7:** If the application has been configured to use password-based single sign-on, then an option for allowing the approver to set the SSO credentials on behalf of each user is also available. See the following section on delegate access management for more information.
 
@@ -69,7 +68,7 @@ If no approval is required, then users will instantly get the application added 
 ##Delegated application access management
 
 An application access approver can be any user in your organization who is the most appropriate person to approve or deny access to the application in question. This user could be responsible for account provisioning, licensing, or any other business process your organization requires before granting access to an app.
- 
+
 When configuring self-service application access described above, any assigned application Approvers will see an additional **Manage Applications** tile in the Azure AD access panel, which shows them which applications that they are the access administrator for. Clicking an app shows a screen with several options.
 
 ![][2]
@@ -92,14 +91,14 @@ The **Configure** tile is only shown if the application was configured by the IT
 
 ![][3]
 
-* **Users sign in with their own passwords** – In this mode, the assigned users know what their usernames and passwords are for the application, and will be prompted to enter them upon their first sign-in to the application. This corresponds to the password SSO case where the [users manage credentials](/documentation/articles/active-directory-appssoaccess-whatis/#password-based-single-sign-on).
+* **Users sign in with their own passwords** – In this mode, the assigned users know what their usernames and passwords are for the application, and will be prompted to enter them upon their first sign-in to the application. This corresponds to the password SSO case where the [users manage credentials](./active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-* **Users are automatically signed in using separate accounts that I manage** – In this mode, the assigned users not be required to enter or know their app-specific credentials when signing into the application. Instead, the approver sets the credentials for each user after assigning access using the **Add User** tile. When the user clicks on the application in their access panel or Office 365, they will be automatically signed in using the credentials set by the approver. This corresponds to the password SSO case where the [administrators manage credentials](/documentation/articles/active-directory-appssoaccess-whatis/#password-based-single-sign-on).
+* **Users are automatically signed in using separate accounts that I manage** – In this mode, the assigned users not be required to enter or know their app-specific credentials when signing into the application. Instead, the approver sets the credentials for each user after assigning access using the **Add User** tile. When the user clicks on the application in their access panel or Office 365, they will be automatically signed in using the credentials set by the approver. This corresponds to the password SSO case where the [administrators manage credentials](./active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-* **Users are automatically signed in using a single account that I manage** -  This is a special case, and is appropriate to use when all assigned users need to be granted access using a single shared account. The most common use case for this is social media applications, where an organization has a single “company” account and multiple users need to make updates to that account. This also corresponds to the password SSO case where the [administrators manage credentials](/documentation/articles/active-directory-appssoaccess-whatis/#password-based-single-sign-on). However, after selecting this option, the approver will be prompted to enter the username and password for the single shared account. Once completed, all assigned users will be signed in using this account when clicking on the application in their Azure AD access panels or Office 365.
+* **Users are automatically signed in using a single account that I manage** -  This is a special case, and is appropriate to use when all assigned users need to be granted access using a single shared account. The most common use case for this is social media applications, where an organization has a single “company” account and multiple users need to make updates to that account. This also corresponds to the password SSO case where the [administrators manage credentials](./active-directory-appssoaccess-whatis.md#password-based-single-sign-on). However, after selecting this option, the approver will be prompted to enter the username and password for the single shared account. Once completed, all assigned users will be signed in using this account when clicking on the application in their Azure AD access panels or Office 365.
 
 ##Additional Resources
-- [Article Index for Application Management in Azure Active Directory](/documentation/articles/active-directory-apps-index/)
+- [Article Index for Application Management in Azure Active Directory](./active-directory-apps-index.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG

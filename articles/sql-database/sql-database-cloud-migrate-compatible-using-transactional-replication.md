@@ -1,30 +1,31 @@
-<properties
-    pageTitle="Migrate to SQL Database using transactional replication | Azure"
-    description="Azure SQL Database, database migration, import database, transactional replication"
-    services="sql-database"
-    documentationcenter=""
-    author="jognanay"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="eebdd725-833d-4151-9b2b-a0303f39e30f"
-    ms.service="sql-database"
-    ms.custom="migrate and move"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="sqldb-migrate"
-    ms.date="12/09/2016"
-    wacn.date=""
-    ms.author="carlrab; jognanay;" />
+---
+title: Migrate to SQL Database using transactional replication | Azure
+description: Azure SQL Database, database migration, import database, transactional replication
+services: sql-database
+documentationcenter: ''
+author: jognanay
+manager: jhubbard
+editor: ''
+
+ms.assetid: eebdd725-833d-4151-9b2b-a0303f39e30f
+ms.service: sql-database
+ms.custom: migrate and move
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: sqldb-migrate
+ms.date: 12/09/2016
+wacn.date: ''
+ms.author: carlrab; jognanay;
+---
 
 # Migrate SQL Server database to Azure SQL Database using transactional replication
 
-> [AZURE.SELECTOR]
-- [SSMS Migration Wizard](/documentation/articles/sql-database-cloud-migrate-compatible-using-ssms-migration-wizard/)
-- [Export to BACPAC File](/documentation/articles/sql-database-cloud-migrate-compatible-export-bacpac-ssms/)
-- [Import from BACPAC File](/documentation/articles/sql-database-cloud-migrate-compatible-import-bacpac-ssms/)
-- [Transactional Replication](/documentation/articles/sql-database-cloud-migrate-compatible-using-transactional-replication/)
+> [!div class="op_single_selector"]
+>- [SSMS Migration Wizard](./sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+>- [Export to BACPAC File](./sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+>- [Import from BACPAC File](./sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+>- [Transactional Replication](./sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 
 In this article, you learn to migrate a compatible SQL Server database to Azure SQL Database with minimal downtime using SQL Server transactional replication.
 
@@ -48,7 +49,7 @@ In replication the subscriber is the server which receives all the data and tran
 
 ## Transactional Replication requirements
 [Go to this link for an updated list of requirements.](https://msdn.microsoft.com/zh-cn/library/mt589530.aspx)
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Use the latest version of SQL Server Management Studio to remain synchronized with updates to Azure and SQL Database. Older versions of SQL Server Management Studio cannot set up SQL Database as a subscriber. [Update SQL Server Management Studio](https://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
 > 
 
@@ -82,4 +83,4 @@ In replication the subscriber is the server which receives all the data and tran
 
 ## Additional resources
 * To learn more about Transactional Replication, see [Transactional Replication](https://msdn.microsoft.com/zh-cn/library/mt589530.aspx).
-* To learn about the overall migration process and options, see [SQL Server database migration to SQL Database in the cloud](/documentation/articles/sql-database-cloud-migrate/).
+* To learn about the overall migration process and options, see [SQL Server database migration to SQL Database in the cloud](./sql-database-cloud-migrate.md).

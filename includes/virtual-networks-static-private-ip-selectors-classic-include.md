@@ -1,7 +1,7 @@
-> [AZURE.SELECTOR]
-- [Azure portal preview](/documentation/articles/virtual-networks-static-private-ip-arm-pportal/)
-- [PowerShell](/documentation/articles/virtual-networks-static-private-ip-arm-ps/)
-- [Azure CLI](/documentation/articles/virtual-networks-static-private-ip-arm-cli/)
-- [Azure portal preview (Classic)](/documentation/articles/virtual-networks-static-private-ip-classic-pportal/)
-- [PowerShell (Classic)](/documentation/articles/virtual-networks-static-private-ip-classic-ps/)
-- [Azure CLI (Classic)](/documentation/articles/virtual-networks-static-private-ip-classic-cli/)
+> [!div class="op_single_selector"]
+>- [Azure portal preview](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
+>- [PowerShell](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)
+>- [Azure CLI](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
+>- [Azure portal preview (Classic)](../articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md)
+>- [PowerShell (Classic)](../articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md)
+>- [Azure CLI (Classic)](../articles/virtual-network/virtual-networks-static-private-ip-classic-cli.md)

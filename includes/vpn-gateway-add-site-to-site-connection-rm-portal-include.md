@@ -1,6 +1,6 @@
 1. Locate your virtual network gateway and click **All settings** to open the **Settings** blade.
 2. On the **Settings** blade, click **Connections**, and then click **Add** at the top of the blade to open the **Add connection** blade.
-   
+
     ![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
 3. On the **Add connection** blade, **Name** your connection. 
 4. For **Connection type**, select **Site-to-site(IPSec)**.
@@ -10,5 +10,5 @@
 8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
 9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
 10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
-    
+
     ![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)

@@ -1,37 +1,38 @@
-<properties
-    pageTitle="Azure Linux VM Agent Overview | Azure"
-    description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="szarkos"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management,azure-resource-manager" />
-<tags
-    ms.assetid="e41de979-6d56-40b0-8916-895bf215ded6"
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/17/2016"
-    wacn.date=""
-    ms.author="szark"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: Azure Linux VM Agent Overview | Azure
+description: Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller.
+services: virtual-machines-linux
+documentationcenter: ''
+author: szarkos
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+
+ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 10/17/2016
+wacn.date: ''
+ms.author: szark
+ms.custom: H1Hack27Feb2017
+---
 
 # Understanding and using the Azure Linux Agent
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Introduction
 The Azure Linux Agent (waagent) manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller. It provides the following functionality for Linux and FreeBSD IaaS deployments:
 
-> [AZURE.NOTE]
+> [!NOTE]
 > See the Azure Linux agent [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) for additional details.
 > 
 > 
 
 * **Image Provisioning**
-  
+
     * Creation of a user account
     * Configuring SSH authentication types
     * Deployment of SSH public keys and key pairs
@@ -42,22 +43,22 @@ The Azure Linux Agent (waagent) manages Linux & FreeBSD provisioning, and VM int
     * Formatting and mounting the resource disk
     * Configuring swap space
 * **Networking**
-  
+
     * Manages routes to improve compatibility with platform DHCP servers
     * Ensures the stability of the network interface name
 * **Kernel**
-  
+
     * Configures virtual NUMA (disable for kernel <2.6.37)
     * Consumes Hyper-V entropy for /dev/random
     * Configures SCSI timeouts for the root device (which could be remote)
 * **Diagnostics**
-  
+
     * Console redirection to the serial port
 * **SCVMM Deployments**
-  
+
     * Detects and bootstraps the VMM agent for Linux when running in a System Center Virtual Machine Manager 2012 R2 environment
 * **VM Extension**
-  
+
     * Inject component authored by Microsoft and Partners into Linux VM (IaaS) to enable software and configuration automation
     * VM Extension reference implementation on [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
@@ -70,7 +71,7 @@ The information flow from the platform to the agent occurs via two channels:
 ## Requirements
 The following systems have been tested and are known to work with the Azure Linux Agent:
 
-> [AZURE.NOTE]
+> [!NOTE]
 > This list may differ from the official list of supported systems on the Azure Platform, as described here:
 > [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
 > 
@@ -101,7 +102,7 @@ The Linux agent depends on some system packages in order to function properly:
 * Kernel support for mounting UDF filesystems.
 
 ## Installation
-Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](/documentation/articles/virtual-machines-linux-endorsed-distros/) integrate the Azure Linux agent package into their images and repositories.
+Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](./virtual-machines-linux-endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories.
 
 Refer to the documentation in the [Azure Linux Agent repo on Github](https://github.com/Azure/WALinuxAgent) for advanced installation options, such as installing from source or to custom locations or prefixes.
 
@@ -113,14 +114,14 @@ Refer to the documentation in the [Azure Linux Agent repo on Github](https://git
 ### Commands
 * help: Lists the supported commands and flags.
 * deprovision: Attempt to clean the system and make it suitable for re-provisioning. This operation deleted the following:
-  
+
     * All SSH host keys (if Provisioning.RegenerateSshHostKeyPair is 'y' in the configuration file)
     * Nameserver configuration in /etc/resolv.conf
     * Root password from /etc/shadow (if Provisioning.DeleteRootPassword is 'y' in the configuration file)
     * Cached DHCP client leases
     * Resets host name to localhost.localdomain
 
-> [AZURE.WARNING]
+> [!WARNING]
 > Deprovisioning does not guarantee that the image is cleared of all sensitive information and suitable for redistribution.
 > 
 > 
@@ -137,27 +138,29 @@ Refer to the documentation in the [Azure Linux Agent repo on Github](https://git
 A configuration file (/etc/waagent.conf) controls the actions of waagent. 
 A sample configuration file is shown below:
 
-    Provisioning.Enabled=y
-    Provisioning.DeleteRootPassword=n
-    Provisioning.RegenerateSshHostKeyPair=y
-    Provisioning.SshHostKeyPairType=rsa
-    Provisioning.MonitorHostName=y
-    Provisioning.DecodeCustomData=n
-    Provisioning.ExecuteCustomData=n
-    Provisioning.PasswordCryptId=6
-    Provisioning.PasswordCryptSaltLength=10
-    ResourceDisk.Format=y
-    ResourceDisk.Filesystem=ext4
-    ResourceDisk.MountPoint=/mnt/resource
-    ResourceDisk.MountOptions=None
-    ResourceDisk.EnableSwap=n
-    ResourceDisk.SwapSizeMB=0
-    LBProbeResponder=y
-    Logs.Verbose=n
-    OS.RootDeviceScsiTimeout=300
-    OS.OpensslPath=None
-    HttpProxy.Host=None
-    HttpProxy.Port=None
+```
+Provisioning.Enabled=y
+Provisioning.DeleteRootPassword=n
+Provisioning.RegenerateSshHostKeyPair=y
+Provisioning.SshHostKeyPairType=rsa
+Provisioning.MonitorHostName=y
+Provisioning.DecodeCustomData=n
+Provisioning.ExecuteCustomData=n
+Provisioning.PasswordCryptId=6
+Provisioning.PasswordCryptSaltLength=10
+ResourceDisk.Format=y
+ResourceDisk.Filesystem=ext4
+ResourceDisk.MountPoint=/mnt/resource
+ResourceDisk.MountOptions=None
+ResourceDisk.EnableSwap=n
+ResourceDisk.SwapSizeMB=0
+LBProbeResponder=y
+Logs.Verbose=n
+OS.RootDeviceScsiTimeout=300
+OS.OpensslPath=None
+HttpProxy.Host=None
+HttpProxy.Port=None
+```
 
 The various configuration options are described in detail below. Configuration options are of three types; Boolean, String or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as detailed below.
 
@@ -167,7 +170,7 @@ Default: y
 
 This allows the user to enable or disable the provisioning functionality in the agent. Valid values are "y" or "n". If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Azure provisioning API is ignored.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The `Provisioning.Enabled` parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
 > 
 > 
@@ -297,13 +300,13 @@ Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/
 
 * **Provisioning.Enabled** defaults to "n" on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.
 * The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:
-  
+
     * **ResourceDisk.Format**
     * **ResourceDisk.Filesystem**
     * **ResourceDisk.MountPoint**
     * **ResourceDisk.EnableSwap**
     * **ResourceDisk.SwapSizeMB**
 * Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
-  
+
     * [Ubuntu Wiki: Configure Swap Partitions](https://wiki.ubuntu.com/AzureSwapPartitions)
-    * [Injecting Custom Data into an Azure Virtual Machine](/documentation/articles/virtual-machines-linux-classic-inject-custom-data/)
+    * [Injecting Custom Data into an Azure Virtual Machine](./virtual-machines-linux-classic-inject-custom-data.md)

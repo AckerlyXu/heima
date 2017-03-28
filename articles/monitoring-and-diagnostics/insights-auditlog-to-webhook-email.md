@@ -1,28 +1,29 @@
-<properties
-	pageTitle="Call a webhook on Azure Activity Log alerts | Azure"
-	description="Route Activity log events to other services for custom actions. For example send SMS, log bugs, or notify a team via chat/messaging service."
-	authors="kamathashwin"
-	manager="carmonm"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Call a webhook on Azure Activity Log alerts | Azure
+description: Route Activity log events to other services for custom actions. For example send SMS, log bugs, or notify a team via chat/messaging service.
+authors: kamathashwin
+manager: carmonm
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/23/2017"
-	ms.author="ashwink"
-	wacn.date=""/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/23/2017
+ms.author: ashwink
+wacn.date: ''
+---
 
 # Call a webhook on Azure Activity Log alerts
 Webhooks allow you to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article describes how to set a webhook to be called when an Azure Activity Log alert fires. It also shows what the payload for the HTTP POST to a webhook looks like. For information on the setup and schema for an Azure metric alert, [see this page instead](insights-webhooks-alerts.md). You can also set up an Activity Log alert to send email when activated.
 
->[AZURE.NOTE] This feature is currently in preview and will be removed at some point in the future.
+>[!NOTE]
+> This feature is currently in preview and will be removed at some point in the future.
 
-You can set up an Activity Log alert using the [Azure PowerShell Cmdlets](/documentation/articles/insights-powershell-samples/#create-alert-rules), [Cross-Platform CLI](/documentation/articles/insights-cli-samples/#work-with-alerts), or [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx). Currently, you cannot set one up using the Azure portal.
+You can set up an Activity Log alert using the [Azure PowerShell Cmdlets](./insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](./insights-cli-samples.md#work-with-alerts), or [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx). Currently, you cannot set one up using the Azure portal.
 
 ## Authenticating the webhook
 The webhook can authenticate using either of these methods:
@@ -112,7 +113,7 @@ The POST operation contains the following JSON payload and schema for all Activi
 |subStatus|	Usually includes the HTTP status code of the corresponding REST call. It might also include other strings describing a substatus. Common substatus values include: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504)|
 
 ## Next steps
-- [Learn more about the Activity Log](/documentation/articles/monitoring-overview-activity-logs/)
+- [Learn more about the Activity Log](./monitoring-overview-activity-logs.md)
 - [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)
 - [Use Logic App to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.
 - [Use Logic App to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.

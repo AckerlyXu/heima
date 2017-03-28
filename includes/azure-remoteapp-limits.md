@@ -1,4 +1,3 @@
-
 |Resource | Default limit|
 |--------------|--------|
 |Collections per user| 1|

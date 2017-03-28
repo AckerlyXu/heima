@@ -1,41 +1,41 @@
-<properties 
-	pageTitle="How to use Service Bus topics with PHP | Azure" 
-	description="Learn how to use Service Bus topics with PHP in Azure." 
-	services="service-bus" 
-	documentationCenter="php" 
-	authors="sethmanheim" 
-	manager="timlt" 
-	editor=""/>
+---
+title: How to use Service Bus topics with PHP | Azure
+description: Learn how to use Service Bus topics with PHP in Azure.
+services: service-bus
+documentationCenter: php
+authors: sethmanheim
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="01/18/2017" 
-	ms.author="sethm"/>
-
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: PHP
+ms.topic: article
+ms.date: 01/18/2017
+ms.author: sethm
+---
 
 # How to use Service Bus topics and subscriptions
 
-[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 This article shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](../php-download-sdk.md). The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and **deleting topics and subscriptions**.
 
-[AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## Create a PHP application
 
-The only requirement for creating a PHP application that accesses the Azure Blob service is to reference classes in the [Azure SDK for PHP](/documentation/articles/php-download-sdk/) from within your code. You can use any development tools to create your application, or Notepad.
+The only requirement for creating a PHP application that accesses the Azure Blob service is to reference classes in the [Azure SDK for PHP](../php-download-sdk.md) from within your code. You can use any development tools to create your application, or Notepad.
 
-> [AZURE.NOTE] Your PHP installation must also have the [OpenSSL extension](http://php.net/openssl) installed and enabled.
+> [!NOTE]
+> Your PHP installation must also have the [OpenSSL extension](http://php.net/openssl) installed and enabled.
 
 This article describes how to use service features that can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ## Get the Azure client libraries
 
-[AZURE.INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
 ## Configure your application to use Service Bus
 
@@ -46,7 +46,8 @@ To use the Service Bus APIs:
 
 The following example shows how to include the autoloader file and reference the **ServiceBusService** class.
 
-> [AZURE.NOTE] This example (and other examples in this article) assumes you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you must reference the **WindowsAzure.php** autoloader file.
+> [!NOTE]
+> This example (and other examples in this article) assumes you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you must reference the **WindowsAzure.php** autoloader file.
 
 ```
 require_once 'vendor\autoload.php';
@@ -77,9 +78,9 @@ For the examples outlined here, the connection string is passed directly.
 ```
 require_once 'vendor/autoload.php';
 
-	use WindowsAzure\Common\ServicesBuilder;
-	
-	$connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
+    use WindowsAzure\Common\ServicesBuilder;
+
+    $connectionString = "Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]";
 
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
@@ -95,26 +96,27 @@ require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
 use WindowsAzure\ServiceBus\Models\TopicInfo;
-	
+
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-	
+
 try	{		
-	// Create topic.
-	$topicInfo = new TopicInfo("mytopic");
-	$serviceBusRestProxy->createTopic($topicInfo);
+    // Create topic.
+    $topicInfo = new TopicInfo("mytopic");
+    $serviceBusRestProxy->createTopic($topicInfo);
 }
 catch(ServiceException $e){
-	// Handle exception based on error codes and messages.
-	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179357
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	echo $code.": ".$error_message."<br />";
+    // Handle exception based on error codes and messages.
+    // Error codes and messages are here: 
+    // http://msdn.microsoft.com/zh-cn/library/windowsazure/dd179357
+    $code = $e->getCode();
+    $error_message = $e->getMessage();
+    echo $code.": ".$error_message."<br />";
 }
 ```
 
-> [AZURE.NOTE] You can use the `listTopics` method on `ServiceBusRestProxy` objects to check if a topic with a specified name already exists within a service namespace.
+> [!NOTE]
+> You can use the `listTopics` method on `ServiceBusRestProxy` objects to check if a topic with a specified name already exists within a service namespace.
 
 ## Create a subscription
 Topic subscriptions are also created with the `ServiceBusRestProxy->createSubscription` method. Subscriptions are named and can have an optional filter that restricts the set of messages passed to the subscription's virtual queue.
@@ -151,7 +153,8 @@ catch(ServiceException $e){
 ### Create subscriptions with filters
 You can also set up filters that enable you to specify which messages sent to a topic should appear within a specific topic subscription. The most flexible type of filter supported by subscriptions is the [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter), which implements a subset of SQL92. SQL filters operate on the properties of the messages that are published to the topic. For more information about SqlFilters, see [SqlFilter.SqlExpression Property][sqlfilter].
 
-> [AZURE.NOTE] Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default **Rule** object with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the `ServiceBusRestProxy->deleteRule` method.
+> [!NOTE]
+> Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default **Rule** object with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the `ServiceBusRestProxy->deleteRule` method.
 
 The following example creates a subscription named `HighMessages` with a **SqlFilter** that only selects messages that have a custom `MessageNumber` property greater than 3. See [Send messages to a topic](#send-messages-to-a-topic) for information about adding custom properties to messages.
 
@@ -219,19 +222,19 @@ Messages sent to Service Bus topics are instances of the [BrokeredMessage][Broke
 
 ```
 for($i = 0; $i < 5; $i++){
-	// Create message.
-	$message = new BrokeredMessage();
-	$message->setBody("my message ".$i);
-			
-	// Set custom property.
-	$message->setProperty("MessageNumber", $i);
-			
-	// Send message.
-	$serviceBusRestProxy->sendTopicMessage("mytopic", $message);
+    // Create message.
+    $message = new BrokeredMessage();
+    $message->setBody("my message ".$i);
+
+    // Set custom property.
+    $message->setProperty("MessageNumber", $i);
+
+    // Send message.
+    $serviceBusRestProxy->sendTopicMessage("mytopic", $message);
 }
 ```
 
-Service Bus topics support a maximum message size of 256 KB in the [Standard tier](/documentation/articles/service-bus-premium-messaging/) and 1 MB in the [Premium tier](/documentation/articles/service-bus-premium-messaging/). The header, which includes the standard and custom application properties, can have
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](./service-bus-premium-messaging.md) and 1 MB in the [Premium tier](./service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This upper limit on topic size is 5 GB. For more information about quotas, see [Service Bus quotas][].
 
 ## Receive messages from a subscription
@@ -252,25 +255,25 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
-		
-try	{
-	// Set receive mode to PeekLock (default is ReceiveAndDelete)
-	$options = new ReceiveMessageOptions();
-	$options->setPeekLock();
-	
-	// Get message.
-	$message = $serviceBusRestProxy->receiveSubscriptionMessage("mytopic", "mysubscription", $options);
 
-	echo "Body: ".$message->getBody()."<br />";
-	echo "MessageID: ".$message->getMessageId()."<br />";
-		
-	/*---------------------------
-		Process message here.
-	----------------------------*/
-		
-	// Delete message. Not necessary if peek lock is not set.
-	echo "Deleting message...<br />";
-	$serviceBusRestProxy->deleteMessage($message);
+try	{
+    // Set receive mode to PeekLock (default is ReceiveAndDelete)
+    $options = new ReceiveMessageOptions();
+    $options->setPeekLock();
+
+    // Get message.
+    $message = $serviceBusRestProxy->receiveSubscriptionMessage("mytopic", "mysubscription", $options);
+
+    echo "Body: ".$message->getBody()."<br />";
+    echo "MessageID: ".$message->getMessageId()."<br />";
+
+    /*---------------------------
+        Process message here.
+    ----------------------------*/
+
+    // Delete message. Not necessary if peek lock is not set.
+    echo "Deleting message...<br />";
+    $serviceBusRestProxy->deleteMessage($message);
 }
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
@@ -328,7 +331,7 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][Queues, topics, and subscriptions] for more information.
 
 [BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-[Queues, topics, and subscriptions]: /documentation/articles/service-bus-queues-topics-subscriptions/
+[Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [sqlfilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
 [require-once]: http://php.net/require_once
-[Service Bus quotas]: /documentation/articles/service-bus-quotas/
+[Service Bus quotas]: ./service-bus-quotas.md

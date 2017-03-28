@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Azure PowerShell Script Sample - Upload files to a web app using FTP | Azure"
-    description="Azure PowerShell Script Sample - Upload files to a web app using FTP"
-    services="app-service\web"
-    documentationcenter=""
-    author="cephalin"
-    manager="erikre"
-    editor=""
-    tags="azure-service-management" />
-<tags
-    ms.assetid="b7d46d6f-44fd-454c-8008-87dab6eefbc1"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/20/2017"
-    wacn.date=""
-    ms.author="cephalin" />
+---
+title: Azure PowerShell Script Sample - Upload files to a web app using FTP | Azure
+description: Azure PowerShell Script Sample - Upload files to a web app using FTP
+services: app-service\web
+documentationcenter: ''
+author: cephalin
+manager: erikre
+editor: ''
+tags: azure-service-management
+
+ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
+ms.service: app-service-web
+ms.workload: web
+ms.devlang: na
+ms.topic: article
+ms.date: 03/20/2017
+wacn.date: ''
+ms.author: cephalin
+---
 
 # Upload files to a web app using FTP
 
@@ -25,51 +26,54 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-    $appdirectory="<Replace with your app directory>"
-    $webappname="mywebapp$(Get-Random)"
-    $location="China North"
+```
+$appdirectory="<Replace with your app directory>"
+$webappname="mywebapp$(Get-Random)"
+$location="China North"
 
-    # Create a resource group.
-    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+# Create a resource group.
+New-AzureRmResourceGroup -Name myResourceGroup -Location $location
 
-    # Create an App Service plan in `Free` tier.
-    New-AzureRmAppServicePlan -Name $webappname -Location $location `
-    -ResourceGroupName myResourceGroup -Tier Free
+# Create an App Service plan in `Free` tier.
+New-AzureRmAppServicePlan -Name $webappname -Location $location `
+-ResourceGroupName myResourceGroup -Tier Free
 
-    # Create a web app.
-    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
-    -ResourceGroupName myResourceGroup
+# Create a web app.
+New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname `
+-ResourceGroupName myResourceGroup
 
-    # Get publishing profile for the web app
-    $xml = (Get-AzureRmWebAppPublishingProfile -Name $webappname `
-    -ResourceGroupName myResourceGroup `
-    -OutputFile null)
+# Get publishing profile for the web app
+$xml = (Get-AzureRmWebAppPublishingProfile -Name $webappname `
+-ResourceGroupName myResourceGroup `
+-OutputFile null)
 
-    # Extract connection information from publishing profile
-    $username = $xml.SelectNodes("//publishProfile[@publishMethod=`"FTP`"]/@userName").value
-    $password = $xml.SelectNodes("//publishProfile[@publishMethod=`"FTP`"]/@userPWD").value
-    $url = $xml.SelectNodes("//publishProfile[@publishMethod=`"FTP`"]/@publishUrl").value
+# Extract connection information from publishing profile
+$username = $xml.SelectNodes("//publishProfile[@publishMethod=`"FTP`"]/@userName").value
+$password = $xml.SelectNodes("//publishProfile[@publishMethod=`"FTP`"]/@userPWD").value
+$url = $xml.SelectNodes("//publishProfile[@publishMethod=`"FTP`"]/@publishUrl").value
 
-    # Upload files recursively 
-    Set-Location $appdirectory
-    $webclient = New-Object -TypeName System.Net.WebClient
-    $webclient.Credentials = New-Object System.Net.NetworkCredential($username,$password)
-    $files = Get-ChildItem -Path $appdirectory -Recurse | Where-Object{!($_.PSIsContainer)}
-    foreach ($file in $files)
-    {
-        $relativepath = (Resolve-Path -Path $file.FullName -Relative).Replace(".\", "").Replace('\', '/')
-        $uri = New-Object System.Uri("$url/$relativepath")
-        "Uploading to " + $uri.AbsoluteUri
-        $webclient.UploadFile($uri, $file.FullName)
-    } 
-    $webclient.Dispose()
-
+# Upload files recursively 
+Set-Location $appdirectory
+$webclient = New-Object -TypeName System.Net.WebClient
+$webclient.Credentials = New-Object System.Net.NetworkCredential($username,$password)
+$files = Get-ChildItem -Path $appdirectory -Recurse | Where-Object{!($_.PSIsContainer)}
+foreach ($file in $files)
+{
+    $relativepath = (Resolve-Path -Path $file.FullName -Relative).Replace(".\", "").Replace('\', '/')
+    $uri = New-Object System.Uri("$url/$relativepath")
+    "Uploading to " + $uri.AbsoluteUri
+    $webclient.UploadFile($uri, $file.FullName)
+} 
+$webclient.Dispose()
+```
 
 ## Clean up deployment 
 
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
-    Remove-AzureRmResourceGroup -Name $webappname -Force
+```powershell
+Remove-AzureRmResourceGroup -Name $webappname -Force
+```
 
 ## Script explanation
 
@@ -86,4 +90,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](/documentation/articles/app-service-powershell-samples/).
+Additional Azure Powershell samples for Azure App Service Web Apps can be found in the [Azure PowerShell samples](../app-service-powershell-samples.md).

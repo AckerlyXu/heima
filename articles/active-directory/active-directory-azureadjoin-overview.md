@@ -1,17 +1,17 @@
-<properties
-	pageTitle="Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join| Azure"
-	description="Provides a detailed overview of how Windows 10 devices can utilize Azure AD Join to get registered on Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
-	editor=""
-	tags="azure-classic-portal"/>
+---
+title: Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join| Azure
+description: Provides a detailed overview of how Windows 10 devices can utilize Azure AD Join to get registered on Azure Active Directory.
+services: active-directory
+documentationCenter: ''
+authors: femila
+manager: swadhwa
+editor: ''
+tags: azure-classic-portal
 
-<tags 
-	ms.service="active-directory" 
-	ms.date="06/23/2016"
-	wacn.date=""/>
+ms.service: active-directory
+ms.date: 06/23/2016
+wacn.date: ''
+---
 
 # Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join
 
@@ -23,7 +23,6 @@ Azure AD Join is intended for enterprises that are cloud-first/cloud-only--typic
 Although the traditional domain join still offers the best on-premises experience on devices that are capable of domain joining, Azure AD Join is suitable for devices that cannot domain join. Azure AD Join is also suitable for managing users in the cloud. It does so by using mobile device management capabilities instead of by using traditional domain management tools like Group Policy and System Center Configuration Manager (SCCM).
 
 ![Overview of corporate devices and personal devices with on-premises Active Directory and Azure AD](./media/active-directory-azureadjoin/active-directory-azureadjoin-overview.png)
-
 
 ## Why should enterprises adopt Azure AD Join?
 
@@ -39,21 +38,15 @@ With Azure AD Join, you get the following:
 
 * **Self-provisioning of corporate-owned devices**: With Windows 10, users can configure a brand new, shrink-wrapped device in the out-of-box experience, without IT involvement.
 
-
 * **Support for modern form factors**: Azure AD Join works on devices that don’t have the traditional domain join capabilities.  
-
 
 * **Support for existing organizational accounts**: Users no longer need to create and maintain a a personal Microsoft account to get the best experience on company-issued devices, as they did with Windows 8. They can use their existing work accounts in Azure AD instead. For many organizations, this basically means that users can set up and sign in to Windows with the same credentials that they use to access Office 365.
 
-
 * **Automatic mobile device management  enrollment**: Devices can be automatically enrolled in mobile device management when connected to Azure AD. This process works with Microsoft Intune and partner mobile device management solutions. When device management is done with Intune, IT administrators can monitor/manage Azure AD-joined devices alongside domain-joined devices in the SCCM management console.
 
-
-* **Single sign-on to company resources**: Users enjoy single sign-on from the Windows desktop to apps and resources in the cloud, such as Office 365 and thousands of business applications that rely on Azure AD for authentication through [Azure AD Connect](/documentation/articles/active-directory-azureadjoin-deployment-aadjoindirect/). Corporate-owned devices that are joined to Azure AD also enjoy SSO to on-premises resources when the device is on a corporate network, and from anywhere when these resources are exposed via the [Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/Dn768219.aspx).
-
+* **Single sign-on to company resources**: Users enjoy single sign-on from the Windows desktop to apps and resources in the cloud, such as Office 365 and thousands of business applications that rely on Azure AD for authentication through [Azure AD Connect](./active-directory-azureadjoin-deployment-aadjoindirect.md). Corporate-owned devices that are joined to Azure AD also enjoy SSO to on-premises resources when the device is on a corporate network, and from anywhere when these resources are exposed via the [Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/Dn768219.aspx).
 
 * **OS State Roaming**: Accessibility settings, websites, Wi-Fi passwords, and other settings are synchronized across corporate-owned devices without requiring a personal Microsoft account.
-
 
 * **Enterprise-ready Windows Store**: The Windows Store supports app acquisition and licensing with Azure AD accounts. Organizations can volume-license apps and make them available to the users in their organization.
 
@@ -66,11 +59,10 @@ With Azure AD Join, you get the following:
 | Users have SSO ability from the desktop to work apps, websites, and resources--including both on-premises resources and cloud apps that use Azure AD for authentication.                                                                                                            | Devices are automatically registered in the enterprise directory (Azure AD) and automatically enrolled in mobile device management. (Azure AD Premium feature).                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Users have SSO ability across apps and to websites/resources with this work account.                                              |
 | Users can add their personal Microsoft accounts to access their personal pictures and files without impacting enterprise data. (Roaming settings continue to work with their work accounts.) The Microsoft account enables SSO and no longer drives the roaming of settings.  | Users can do a self-service password reset (SSPR) on winlogon, meaning they can reset a forgotten password. (Azure AD Premium feature).                                                                                                                                                                                                                                                                                                                                                                                                                                   | Users have access to the enterprise Windows Store so that they can acquire and use line-of-business apps on their personal devices. |                                                               |
 
-
 ## Additional information
 * [Windows 10 for the enterprise: Ways to use devices for work](/documentation/articles/active-directory-azureadjoin-windows10-devices-overview/)
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](/documentation/articles/active-directory-azureadjoin-user-upgrade/)
-* [Authenticating identities without passwords through Microsoft Passport](/documentation/articles/active-directory-azureadjoin-passport/)
-* [Learn about usage scenarios for Azure AD Join](/documentation/articles/active-directory-azureadjoin-deployment-aadjoindirect/)
+* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](./active-directory-azureadjoin-user-upgrade.md)
+* [Authenticating identities without passwords through Microsoft Passport](./active-directory-azureadjoin-passport.md)
+* [Learn about usage scenarios for Azure AD Join](./active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](/documentation/articles/active-directory-azureadjoin-devices-group-policy/)
-* [Set up Azure AD Join](/documentation/articles/active-directory-azureadjoin-setup/)
+* [Set up Azure AD Join](./active-directory-azureadjoin-setup.md)

@@ -1,20 +1,20 @@
-<properties
-	pageTitle="Monitor and troubleshoot data migration (Stretch Database) | Azure"
-	description="Learn how to monitor the status of data migration."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+---
+title: Monitor and troubleshoot data migration (Stretch Database) | Azure
+description: Learn how to monitor the status of data migration.
+services: sql-server-stretch-database
+documentationCenter: ''
+authors: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="douglasl"/>
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/14/2016
+ms.author: douglasl
+---
 
 # Monitor and troubleshoot data migration (Stretch Database)
 
@@ -54,7 +54,7 @@ You may have to add a rule in the Azure firewall settings of the Azure server to
 
 ## See Also
 
-[Manage and troubleshoot Stretch Database](/documentation/articles/sql-server-stretch-database-manage/)
+[Manage and troubleshoot Stretch Database](./sql-server-stretch-database-manage.md)
 
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png

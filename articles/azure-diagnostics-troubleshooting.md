@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Troubleshooting Azure Diagnostics"
-	description="Troubleshoot problems when using Azure diagnostics in Azure Cloud Services, Virtual Machines and "
-	services="multiple"
-	documentationCenter=".net"
-	authors="rboucher"
-	manager="jwhit"
-	editor=""/>
+---
+title: Troubleshooting Azure Diagnostics
+description: Troubleshoot problems when using Azure diagnostics in Azure Cloud Services, Virtual Machines and 
+services: multiple
+documentationCenter: .net
+authors: rboucher
+manager: jwhit
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="10/04/2016"
-	ms.author="robb"/>
-
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: robb
+---
 
 # Azure Diagnostics Troubleshooting
-Troubleshooting information relevant to using Azure Diagnostics. For more information on Azure diagnostics, see [Azure Diagnostics Overview](/documentation/articles/azure-diagnostics#cloud-services).
+Troubleshooting information relevant to using Azure Diagnostics. For more information on Azure diagnostics, see [Azure Diagnostics Overview](./azure-diagnostics.md#cloud-services).
 
 ## Azure Diagnostics is not Starting
 Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent. You can check the log files **DiagnosticsPluginLauncher.log** and **DiagnosticsPlugin.log** for information on why diagnostics fails to start.  
@@ -75,11 +74,15 @@ If the issue persists after re-installing the diagnostics extension then you may
 
 For Cloud Service Role the LocalResourceDirectory is:
 
-    C:\Resources\Directory\<CloudServiceDeploymentID>.<RoleName>.DiagnosticStore\WAD<DiagnosticsMajorandMinorVersion>\Tables
+```
+C:\Resources\Directory\<CloudServiceDeploymentID>.<RoleName>.DiagnosticStore\WAD<DiagnosticsMajorandMinorVersion>\Tables
+```
 
 For Virtual Machines the LocalResourceDirectory is:
 
-    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD<DiagnosticsMajorandMinorVersion>\Tables
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD<DiagnosticsMajorandMinorVersion>\Tables
+```
 
 If there are no files in the LocalResourceDirectory folder, the monitoring agent is unable to launch. This is typically caused by an invalid configuration file, an event that should be reported in the CommandExecution.log.
 
@@ -87,38 +90,46 @@ If the Monitoring Agent is successfully collecting event data you will see .tsf 
 
 On a Cloud Service Role:
 
-    %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
+```
+%SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
+```
 
 *%SystemDrive%* on a Cloud Service Role is typically D:
 
 On a Virtual Machine:
 
-    C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
+```
+C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
+```
 
 The above commands generates the log file *maeventtable.csv*, which you can open and inspect for failure messages.    
 
 ## Diagnostics data Tables not found
 The tables in Azure storage holding Azure diagnostics data are named using the code below:
 
-        if (String.IsNullOrEmpty(eventDestination)) {
-            if (e == "DefaultEvents")
-                tableName = "WADDefault" + MD5(provider);
-            else
-                tableName = "WADEvent" + MD5(provider) + eventId;
-        }
+```csharp
+    if (String.IsNullOrEmpty(eventDestination)) {
+        if (e == "DefaultEvents")
+            tableName = "WADDefault" + MD5(provider);
         else
-            tableName = "WAD" + eventDestination;
+            tableName = "WADEvent" + MD5(provider) + eventId;
+    }
+    else
+        tableName = "WAD" + eventDestination;
+```
 
 Here is an example:
 
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
-          <DefaultEvents />
-        </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
-        </EtwEventSourceProviderConfiguration>
+```XML
+    <EtwEventSourceProviderConfiguration provider=”prov1”>
+      <Event id=”1” />
+      <Event id=”2” eventDestination=”dest1” />
+      <DefaultEvents />
+    </EtwEventSourceProviderConfiguration>
+    <EtwEventSourceProviderConfiguration provider=”prov2”>
+      <DefaultEvents eventDestination=”dest2” />
+    </EtwEventSourceProviderConfiguration>
+```
 
 That will generate 4 tables:
 

@@ -1,27 +1,28 @@
-<properties
-    pageTitle="Manage Batch account resources with the client library for .NET - Azure | Azure"
-    description="Create, delete, and modify Azure Batch account resources with the Batch Management .NET library."
-    services="batch"
-    documentationcenter=".net"
-    author="tamram"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="16279b23-60ff-4b16-b308-5de000e4c028"
-    ms.service="batch"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows"
-    ms.workload="big-compute"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="tamram" />
+---
+title: Manage Batch account resources with the client library for .NET - Azure | Azure
+description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
+services: batch
+documentationcenter: .net
+author: tamram
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 16279b23-60ff-4b16-b308-5de000e4c028
+ms.service: batch
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: tamram
+---
 
 # Manage Azure Batch accounts and quotas with Batch Management .NET
-> [AZURE.SELECTOR]
-- [Azure portal](/documentation/articles/batch-account-create-portal/)
-- [Batch Management .NET](/documentation/articles/batch-management-dotnet/)
+> [!div class="op_single_selector"]
+>- [Azure portal](./batch-account-create-portal.md)
+>- [Batch Management .NET](./batch-management-dotnet.md)
 
 You can lower maintenance overhead in your Azure Batch applications by using the [Batch Management .NET][api_mgmt_net] library to automate Batch account creation, deletion, key management, and quota discovery.
 
@@ -30,8 +31,8 @@ You can lower maintenance overhead in your Azure Batch applications by using the
 - **Check account quotas** and take the trial-and-error guesswork out of determining which Batch accounts have what limits. By checking your account quotas before starting jobs, creating pools, or adding compute nodes, you can proactively adjust where or when these compute resources are created. You can determine which accounts require quota increases before allocating additional resources in those accounts.
 - **Combine features of other Azure services** for a full-featured management experience--by using Batch Management .NET, [Azure Active Directory][aad_about], and the [Azure Resource Manager][resman_overview] together in the same application. By using these features and their APIs, you can provide a frictionless authentication experience, the ability to create and delete resource groups, and the capabilities that are described above for an end-to-end management solution.
 
-> [AZURE.NOTE]
-> While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. For more information, see [Create an Azure Batch account using the Azure portal Preview](/documentation/articles/batch-account-create-portal/) and [Quotas and limits for the Azure Batch service](/documentation/articles/batch-quota-limit/).
+> [!NOTE]
+> While this article focuses on the programmatic management of your Batch accounts, keys, and quotas, you can perform many of these activities by using the [Azure portal][azure_portal]. For more information, see [Create an Azure Batch account using the Azure portal Preview](./batch-account-create-portal.md) and [Quotas and limits for the Azure Batch service](./batch-quota-limit.md).
 > 
 > 
 
@@ -42,20 +43,22 @@ The following code snippet creates an account, obtains the newly created account
 
 csharp
 
-	// Create a new Batch account
-	await batchManagementClient.Account.CreateAsync("MyResourceGroup",
-		"mynewaccount",
-		new BatchAccountCreateParameters() { Location = "China North" });
+```csharp
+// Create a new Batch account
+await batchManagementClient.Account.CreateAsync("MyResourceGroup",
+    "mynewaccount",
+    new BatchAccountCreateParameters() { Location = "China North" });
 
-	// Get the new account from the Batch service
-	AccountResource account = await batchManagementClient.Account.GetAsync(
-		"MyResourceGroup",
-		"mynewaccount");
+// Get the new account from the Batch service
+AccountResource account = await batchManagementClient.Account.GetAsync(
+    "MyResourceGroup",
+    "mynewaccount");
 
-	// Delete the account
-	await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name);
+// Delete the account
+await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name);
+```
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Applications that use the Batch Management .NET library and its BatchManagementClient class require **service administrator** or **coadministrator** access to the subscription that owns the Batch account to be managed. For more information, see the [Azure Active Directory](#azure-active-directory) section and the [AccountManagement][acct_mgmt_sample] code sample.
 > 
 > 
@@ -65,30 +68,32 @@ Obtain primary and secondary account keys from any Batch account within your sub
 
 csharp
 
-	// Get and print the primary and secondary keys
-	BatchAccountListKeyResult accountKeys =
-		await batchManagementClient.Account.ListKeysAsync(
-			"MyResourceGroup",
-			"mybatchaccount");
-	Console.WriteLine("Primary key:   {0}", accountKeys.Primary);
-	Console.WriteLine("Secondary key: {0}", accountKeys.Secondary);
+```csharp
+// Get and print the primary and secondary keys
+BatchAccountListKeyResult accountKeys =
+    await batchManagementClient.Account.ListKeysAsync(
+        "MyResourceGroup",
+        "mybatchaccount");
+Console.WriteLine("Primary key:   {0}", accountKeys.Primary);
+Console.WriteLine("Secondary key: {0}", accountKeys.Secondary);
 
-	// Regenerate the primary key
-	BatchAccountRegenerateKeyResponse newKeys =
-		await batchManagementClient.Account.RegenerateKeyAsync(
-			"MyResourceGroup",
-			"mybatchaccount",
-			new BatchAccountRegenerateKeyParameters() {
-				KeyName = AccountKeyType.Primary
-				});
+// Regenerate the primary key
+BatchAccountRegenerateKeyResponse newKeys =
+    await batchManagementClient.Account.RegenerateKeyAsync(
+        "MyResourceGroup",
+        "mybatchaccount",
+        new BatchAccountRegenerateKeyParameters() {
+            KeyName = AccountKeyType.Primary
+            });
+```
 
-> [AZURE.TIP]
+> [!TIP]
 > You can create a streamlined connection workflow for your management applications. First, obtain an account key for the Batch account you wish to manage with [ListKeysAsync][net_list_keys]. Then, use this key when initializing the Batch .NET library's [BatchSharedKeyCredentials][net_sharedkeycred] class, which is used when initializing [BatchClient][net_batch_client].
 > 
 > 
 
 ## Check Azure subscription and Batch account quotas
-Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas for Azure subscriptions, see [Azure subscription and service limits, quotas, and constraints](/documentation/articles/azure-subscription-service-limits/). For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](/documentation/articles/batch-quota-limit/). By using the Batch Management .NET library, you can check these quotas in your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
+Azure subscriptions and the individual Azure services like Batch all have default quotas that limit the number of certain entities within them. For the default quotas for Azure subscriptions, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). For the default quotas of the Batch service, see [Quotas and limits for the Azure Batch service](./batch-quota-limit.md). By using the Batch Management .NET library, you can check these quotas in your applications. This enables you to make allocation decisions before you add accounts or compute resources like pools and compute nodes.
 
 ### Check an Azure subscription for Batch account quotas
 Before creating a Batch account in a region, you can check your Azure subscription to see whether you are able to add an account in that region.
@@ -97,25 +102,27 @@ In the code snippet below, we first use [BatchManagementClient.Account.ListAsync
 
 csharp
 
-	// Get a collection of all Batch accounts within the subscription
-	BatchAccountListResponse listResponse =
-			await batchManagementClient.Account.ListAsync(new AccountListParameters());
-	IList<AccountResource> accounts = listResponse.Accounts;
-	Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}",
-		creds.SubscriptionId,
-		accounts.Count);
-	
-	// Get a count of all accounts within the target region
-	string region = "chinanorth";
-	int accountsInRegion = accounts.Count(o => o.Location == region);
-	
-	// Get the account quota for the specified region
-	SubscriptionQuotasGetResponse quotaResponse = await batchManagementClient.Subscriptions.GetSubscriptionQuotasAsync(region);
-	Console.WriteLine("Account quota for {0} region: {1}", region, quotaResponse.AccountQuota);
-	
-	// Determine how many accounts can be created in the target region
-	Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
-	Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
+```csharp
+// Get a collection of all Batch accounts within the subscription
+BatchAccountListResponse listResponse =
+        await batchManagementClient.Account.ListAsync(new AccountListParameters());
+IList<AccountResource> accounts = listResponse.Accounts;
+Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}",
+    creds.SubscriptionId,
+    accounts.Count);
+
+// Get a count of all accounts within the target region
+string region = "chinanorth";
+int accountsInRegion = accounts.Count(o => o.Location == region);
+
+// Get the account quota for the specified region
+SubscriptionQuotasGetResponse quotaResponse = await batchManagementClient.Subscriptions.GetSubscriptionQuotasAsync(region);
+Console.WriteLine("Account quota for {0} region: {1}", region, quotaResponse.AccountQuota);
+
+// Determine how many accounts can be created in the target region
+Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
+Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
+```
 
 In the snippet above, `creds` is an instance of [TokenCloudCredentials][azure_tokencreds]. To see an example of creating this object, see the [AccountManagement][acct_mgmt_sample] code sample on GitHub.
 
@@ -124,18 +131,20 @@ Before increasing compute resources in your Batch solution, you can check to ens
 
 csharp
 
-	// First obtain the Batch account
-	BatchAccountGetResponse getResponse =
-		await batchManagementClient.Account.GetAsync("MyResourceGroup", "mybatchaccount");
-	AccountResource account = getResponse.Resource;
-	
-	// Now print the compute resource quotas for the account
-	Console.WriteLine("Core quota: {0}", account.Properties.CoreQuota);
-	Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
-	Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
+```csharp
+// First obtain the Batch account
+BatchAccountGetResponse getResponse =
+    await batchManagementClient.Account.GetAsync("MyResourceGroup", "mybatchaccount");
+AccountResource account = getResponse.Resource;
 
-> [AZURE.IMPORTANT]
-> While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure portal Preview][azure_portal]. For example, see [Quotas and limits for the Azure Batch service](/documentation/articles/batch-quota-limit/) for instructions on increasing your Batch account quotas.
+// Now print the compute resource quotas for the account
+Console.WriteLine("Core quota: {0}", account.Properties.CoreQuota);
+Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
+Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
+```
+
+> [!IMPORTANT]
+> While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure portal Preview][azure_portal]. For example, see [Quotas and limits for the Azure Batch service](./batch-quota-limit.md) for instructions on increasing your Batch account quotas.
 > 
 > 
 
@@ -153,13 +162,13 @@ When you create Batch accounts with the Batch Management .NET library, you will 
 ## <a name="sample"></a>Sample project on GitHub
 To see Batch Management .NET in action, check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub. This console application shows the creation and usage of [BatchManagementClient][net_mgmt_client] and [ResourceManagementClient][resman_client]. It also demonstrates the usage of the Azure [Active Directory Authentication Library][aad_adal] (ADAL), which is required by both clients.
 
-To run the sample application successfully, you must first register it with Azure AD by using the Azure portal Preview. Follow the steps in the [Adding an Application](/documentation/articles/active-directory-integrating-applications/#adding-an-application/) section in [Integrating applications with Azure Active Directory][aad_integrate] to register the sample application within your own account's Default Directory. Be sure to select **Native Client Application** for the type of application, and you can specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**--it does not need to be a real endpoint.
+To run the sample application successfully, you must first register it with Azure AD by using the Azure portal Preview. Follow the steps in the [Adding an Application](../active-directory/active-directory-integrating-applications.md#adding-an-application) section in [Integrating applications with Azure Active Directory][aad_integrate] to register the sample application within your own account's Default Directory. Be sure to select **Native Client Application** for the type of application, and you can specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**--it does not need to be a real endpoint.
 
 After adding your application, delegate the **Access Azure Service Management as organization** permission to the *Azure Service Management API* application in the application's settings in the portal:
 
 ![Application permissions in Azure portal][2]
 
-> [AZURE.TIP]
+> [!TIP]
 > If **Azure Service Management API** does not appear under *permissions to other applications*, click **Add application**, select **Azure Service Management API**, then click the check mark button. Then, delegate permissions as specified above.
 > 
 > 
@@ -192,15 +201,15 @@ Before deleting the newly created Batch account and resource group, you can insp
 <br />
 *Azure portal Preview displaying new resource group and Batch account*
 
-[aad_about]:/documentation/articles/active-directory-whatis/
-[aad_adal]:/documentation/articles/active-directory-authentication-libraries/
-[aad_auth_scenarios]:/documentation/articles/active-directory-authentication-scenarios/
-[aad_integrate]:/documentation/articles/active-directory-integrating-applications/
+[aad_about]:../active-directory/active-directory-whatis.md
+[aad_adal]:../active-directory/active-directory-authentication-libraries.md
+[aad_auth_scenarios]:../active-directory/active-directory-authentication-scenarios.md
+[aad_integrate]:../active-directory/active-directory-integrating-applications.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: http://msdn.microsoft.com/zh-cn/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/zh-cn/library/azure/mt463120.aspx
 [azure_portal]: http://portal.azure.cn
-[azure_storage]: /home/features/storage/
+[azure_storage]: https://www.azure.cn/home/features/storage/
 [azure_tokencreds]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [net_batch_client]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.batchclient.aspx
@@ -215,7 +224,7 @@ Before deleting the newly created Batch account and resource group, you can insp
 [resman_api]: https://msdn.microsoft.com/zh-cn/library/azure/mt418626.aspx
 [resman_client]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
 [resman_subclient]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
-[resman_overview]:/documentation/articles/resource-group-overview/
+[resman_overview]:../azure-resource-manager/resource-group-overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
 [2]: ./media/batch-management-dotnet/portal-02.png

@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Customizing preconfigured solutions | Azure"
-	description="Provides guidance on how to customize the Azure IoT Suite preconfigured solutions."
-	services=""
-    suite="iot-suite"
-	documentationCenter=".net"
-	author="dominicbetts"
-	manager="timlt"
-	editor=""/>
+---
+title: Customizing preconfigured solutions | Azure
+description: Provides guidance on how to customize the Azure IoT Suite preconfigured solutions.
+services: ''
+suite: iot-suite
+documentationCenter: .net
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
-     ms.service="iot-suite"
-     ms.devlang="dotnet"
-     ms.topic="article"
-     ms.tgt_pltfrm="na"
-     ms.workload="na"
-     ms.date="02/15/2017"
-     ms.author="corywink"
-     wacn.date=""/>
-
+ms.service: iot-suite
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 02/15/2017
+ms.author: corywink
+wacn.date: ''
+---
 
 # Customize a preconfigured solution
 The preconfigured solutions provided with the Azure IoT Suite demonstrate the services within the suite working together to deliver an end-to-end solution. From this starting point, there are various places in which you can extend and customize the solution for specific scenarios. The following sections describe these common customization points.
@@ -25,19 +24,19 @@ The preconfigured solutions provided with the Azure IoT Suite demonstrate the se
 ## Find the source code
 The source code for the preconfigured solutions is available on GitHub in the following repositories:
 
-- Remote Monitoring: [https://www.github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
+- Remote Monitoring: [https://github.com/Azure/azure-iot-remote-monitoring](https://github.com/Azure/azure-iot-remote-monitoring)
 - Predictive Maintenance: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 
 The source code for the preconfigured solutions is provided to demonstrate the patterns and practices used to implement the end-to-end functionality of an IoT solution using Azure IoT Suite. You can find more information about how to build and deploy the solutions in the GitHub repositories.
 
 ## Change the preconfigured rules
 
-The remote monitoring solution includes three [Azure Stream Analytics](/home/features/stream-analytics) jobs to handle device information, telemetry, and rules logic in the solution.
+The remote monitoring solution includes three [Azure Stream Analytics](https://www.azure.cn/home/features/stream-analytics) jobs to handle device information, telemetry, and rules logic in the solution.
 
-The three stream analytics jobs and their syntax are described in depth in the [Remote monitoring preconfigured solution walkthrough](/documentation/articles/iot-suite-remote-monitoring-sample-walkthrough/). 
+The three stream analytics jobs and their syntax are described in depth in the [Remote monitoring preconfigured solution walkthrough](./iot-suite-remote-monitoring-sample-walkthrough.md). 
 
 You can edit these jobs directly to alter the logic, or add logic specific to your scenario. You can find the Stream Analytics jobs as follows:
- 
+
 1. Go to [Azure portal](https://portal.azure.cn).
 2. Navigate to the resource group with the same name as your IoT solution. 
 3. Select the Azure Stream Analytics job you'd like to modify. 
@@ -48,7 +47,8 @@ You can edit these jobs directly to alter the logic, or add logic specific to yo
 
 6. Start the job
 
-> [AZURE.NOTE] The remote monitoring dashboard depends on specific data, so altering the jobs can cause the dashboard to fail.
+> [!NOTE]
+> The remote monitoring dashboard depends on specific data, so altering the jobs can cause the dashboard to fail.
 
 ## Add your own rules
 
@@ -57,7 +57,7 @@ In addition to changing the preconfigured Azure Stream Analytics jobs, you can u
 ## Customize devices
 One of the most common extension activities is working with devices specific to your scenario. There are several methods for working with devices. These methods include altering a simulated device to match your scenario, or using the [IoT Device SDK][IoT Device SDK] to connect your physical device to the solution.
 
-For a step-by-step guide to adding devices, see the [Iot Suite Connecting Devices](/documentation/articles/iot-suite-connecting-devices/) article and the [remote monitoring C SDK Sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). This sample is designed to work with the remote monitoring preconfigured solution.
+For a step-by-step guide to adding devices, see the [Iot Suite Connecting Devices](./iot-suite-connecting-devices.md) article and the [remote monitoring C SDK Sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer/samples/remote_monitoring). This sample is designed to work with the remote monitoring preconfigured solution.
 
 ### Create your own simulated device
 Included in the [remote monitoring solution source code](https://github.com/Azure/azure-iot-remote-monitoring), is a .NET simulator. This simulator is the one provisioned as part of the solution and you can alter it to send different metadata, telemetry, and respond to different commands and methods.
@@ -123,7 +123,7 @@ For a list of supported parameter types, see the **CommandTypes** class in the I
 
 To delete a method, set the method signature to `null` in the reported properties.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The solution back end only updates information about supported methods when it receives a *device information* message from the device.
 > 
 > 
@@ -234,12 +234,12 @@ Members of the **ReadOnly** role can see the dashboard and the device list, but 
 
 7. This procedure downloads a .json file to your local machine. Open this file for editing in a text editor of your choice.
 8. On the third line of the .json file, you can see:
-   
+
    ```
    "appRoles" : [],
    ```
    Replace this line with the following code:
-   
+
    ```
    "appRoles": [
    {
@@ -280,15 +280,15 @@ To learn more about the options for customizing the preconfigured solutions, see
 - [Use dynamic telemetry with the remote monitoring preconfigured solution][lnk-dynamic]
 - [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo]
 
-[lnk-logicapp]: /documentation/articles/iot-suite-logic-apps-tutorial/
-[lnk-dynamic]: /documentation/articles/iot-suite-dynamic-telemetry/
-[lnk-devinfo]: /documentation/articles/iot-suite-remote-monitoring-device-info/
+[lnk-logicapp]: ./iot-suite-logic-apps-tutorial.md
+[lnk-dynamic]: ./iot-suite-dynamic-telemetry.md
+[lnk-devinfo]: ./iot-suite-remote-monitoring-device-info.md
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
-[lnk-permissions]: /documentation/articles/iot-suite-permissions/
+[lnk-permissions]: ./iot-suite-permissions.md
 [lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.cn
-[lnk-direct-methods]: /documentation/articles/iot-hub-devguide-direct-methods/
+[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

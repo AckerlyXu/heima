@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Azure Network Watcher Agent virtual machine extension for Linux | Azure"
-    description="Deploy the Network Watcher Agent on Linux virtual machine using a virtual machine extension."
-    services="virtual-machines-linux"
-    documentationcenter=""
-    author="dennisg"
-    manager="amku"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="5c81e94c-e127-4dd2-ae83-a236c4512345"
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="02/14/2017"
-    wacn.date=""
-    ms.author="dennisg" />
+---
+title: Azure Network Watcher Agent virtual machine extension for Linux | Azure
+description: Deploy the Network Watcher Agent on Linux virtual machine using a virtual machine extension.
+services: virtual-machines-linux
+documentationcenter: ''
+author: dennisg
+manager: amku
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 5c81e94c-e127-4dd2-ae83-a236c4512345
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 02/14/2017
+wacn.date: ''
+ms.author: dennisg
+---
 
 # Network Watcher Agent virtual machine extension for Linux
 
@@ -52,21 +53,23 @@ Some of the Network Watcher Agent functionality requires that the target virtual
 
 The following JSON shows the schema for the Network Watcher Agent extension. The extension neither requires nor supports any user-supplied settings at this time and relies on its default configuration.
 
-    {
-        "type": "extensions",
-        "name": "Microsoft.Azure.NetworkWatcher",
-        "apiVersion": "[variables('apiVersion')]",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.Azure.NetworkWatcher",
-            "type": "NetworkWatcherAgentLinux",
-            "typeHandlerVersion": "1.4",
-            "autoUpgradeMinorVersion": true
-        }
+```json
+{
+    "type": "extensions",
+    "name": "Microsoft.Azure.NetworkWatcher",
+    "apiVersion": "[variables('apiVersion')]",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Azure.NetworkWatcher",
+        "type": "NetworkWatcherAgentLinux",
+        "typeHandlerVersion": "1.4",
+        "autoUpgradeMinorVersion": true
     }
+}
+```
 
 ### Property values
 
@@ -85,7 +88,9 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 
 The Azure CLI can be used to deploy the Network Watcher Agent VM extension to an existing virtual machine.
 
-    azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
+```azurecli
+azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
+```
 
 ## Troubleshooting and support
 
@@ -93,7 +98,9 @@ The Azure CLI can be used to deploy the Network Watcher Agent VM extension to an
 
 Data about the state of extension deployments can be retrieved from the Azure portal preview, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure CLI.
 
-    azure vm extension get myResourceGroup1 myVM1
+```azurecli
+azure vm extension get myResourceGroup1 myVM1
+```
 
 Extension execution output is logged to files found in the following directory:
 
@@ -103,4 +110,4 @@ Extension execution output is logged to files found in the following directory:
 
 ### Support
 
-If you need more help at any point in this article, you can refer to the Network Watcher documentation or contact the Azure experts on the [MSDN Azure and CSDN Azure](/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](/support/faq/).
+If you need more help at any point in this article, you can refer to the Network Watcher documentation or contact the Azure experts on the [MSDN Azure and CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://www.azure.cn/support/contact/) and select Get support. For information about using Azure Support, read the [Azure support FAQ](https://www.azure.cn/support/faq/).

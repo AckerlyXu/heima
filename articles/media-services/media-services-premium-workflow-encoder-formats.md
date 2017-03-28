@@ -1,26 +1,27 @@
-<properties
-    pageTitle="Media Encoder Premium Workflow formats and codecs | Azure"
-    description="This topic gives an overview of Media Encoder Premium Workflow Formats formats and codecs"
-    services="media-services"
-    documentationcenter=""
-    author="juliako"
-    manager="erik43"
-    editor="" />
-<tags
-    ms.assetid="b197fce8-3b9b-4189-8d08-486810c0426f"
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/27/2017"
-    wacn.date=""
-    ms.author="juliako;anilmur" />
+---
+title: Media Encoder Premium Workflow formats and codecs | Azure
+description: This topic gives an overview of Media Encoder Premium Workflow Formats formats and codecs
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erik43
+editor: ''
+
+ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/27/2017
+wacn.date: ''
+ms.author: juliako;anilmur
+---
 
 #Media Encoder Premium Workflow Formats and Codecs
 
-
->[AZURE.NOTE]Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
+>[!NOTE]
+>Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
 
 This document contains a list of input and output file formats and codecs that are supported by the public preview version of the **Media Encoder Premium Workflow** encoder.
 
@@ -29,7 +30,6 @@ This document contains a list of input and output file formats and codecs that a
 [Media Encoder Premium Worflow Output Formats and Codecs](#output_formats)
 
 **Media Encoder Premium Workflow** supports closed captioning described in [this](#closed_captioning) section. 
-
 
 ##<a id="input_formats"></a>Media Encoder Premium Workflow Input Formats and Codecs
 
@@ -66,7 +66,7 @@ The following section lists the codecs and file formats that this media processo
 - MP3 (MPEG-1 Audio Layer 3)
 - Windows Media Audio
 - WAV/PCM
- 
+
 ##<a id="output_format"></a>Media Encoder Premium Workflow Output Formats and Codecs
 
 The following section lists the codecs and file formats that are supported as output from this media processor.
@@ -82,7 +82,6 @@ The following section lists the codecs and file formats that are supported as ou
 - AVI (Uncompressed 8bit/10bit)
 - Smooth Streaming File Format (PIFF 1.3)
 - MPEG-TS 
-
 
 ###Output Video Codecs
 
@@ -126,7 +125,4 @@ Note: not all of the above output formats are supported for delivery via streami
 
 ##Known issues
 
-If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file. 
-
-
-
+If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file.

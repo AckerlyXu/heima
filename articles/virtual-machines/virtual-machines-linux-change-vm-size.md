@@ -1,53 +1,60 @@
-<properties
-    pageTitle="How to resize a Linux VM with the Azure CLI 2.0 | Azure"
-    description="How to scale up or scale down a Linux virtual machine, by changing the VM size."
-    services="virtual-machines-linux"
-    documentationcenter="na"
-    author="mikewasson"
-    manager="timlt"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="e163f878-b919-45c5-9f5a-75a64f3b14a0"
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="mwasson"
-    ms.custom="H1Hack27Feb2017" />
+---
+title: How to resize a Linux VM with the Azure CLI 2.0 | Azure
+description: How to scale up or scale down a Linux virtual machine, by changing the VM size.
+services: virtual-machines-linux
+documentationcenter: na
+author: mikewasson
+manager: timlt
+editor: ''
+tags: ''
+
+ms.assetid: e163f878-b919-45c5-9f5a-75a64f3b14a0
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: mwasson
+ms.custom: H1Hack27Feb2017
+---
 
 # Resize a Linux virtual machine using CLI 2.0
 
-After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. You need to deallocate the VM if the desired size is not available on the hardware cluster that is hosting the VM. This article details how to resize a Linux VM with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](/documentation/articles/virtual-machines-linux-change-vm-size-nodejs/).
+After you provision a virtual machine (VM), you can scale the VM up or down by changing the [VM size][vm-sizes]. In some cases, you must deallocate the VM first. You need to deallocate the VM if the desired size is not available on the hardware cluster that is hosting the VM. This article details how to resize a Linux VM with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](./virtual-machines-linux-change-vm-size-nodejs.md).
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](/documentation/articles/virtual-machines-linux-change-vm-size-nodejs/) - our CLI for the classic and resource management deployment models
+- [Azure CLI 1.0](./virtual-machines-linux-change-vm-size-nodejs.md) - our CLI for the classic and resource management deployment models
 - Azure CLI 2.0 - our next generation CLI for the resource management deployment model (this article)
 
 To resize a VM, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
 
 1. View the list of available VM sizes on the hardware cluster where the VM is hosted with [az vm list-vm-resize-options](https://docs.microsoft.com/cli/azure/vm#list-vm-resize-options). The following example lists VM sizes for the VM named `myVM` in the resource group `myResourceGroup` region:
 
-        az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
+    ```azurecli
+    az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
+    ```
 
 2. If the desired VM size is listed, resize the VM with [az vm resize](https://docs.microsoft.com/cli/azure/vm#resize). The following example resizes the VM named `myVM` to the `Standard_DS3_v2` size:
 
-        az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
+    ```azurecli
+    az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
+    ```
 
     The VM restarts during this process. After the restart, your existing OS and data disks are remapped. Anything on the temporary disk is lost.
 
 3. If the desired VM size is not listed, you need to first deallocate the VM with [az vm deallocate](https://docs.microsoft.com/cli/azure/vm#deallocate). This process allows the VM to then be resized to any size available that the region supports and then started. The following steps deallocate, resize, and then start the VM named `myVM` in the resource group named `myResourceGroup`:
 
-        az vm deallocate --resource-group myResourceGroup --name myVM
-        az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
-        az vm start --resource-group myResourceGroup --name myVM
+    ```azurecli
+    az vm deallocate --resource-group myResourceGroup --name myVM
+    az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
+    az vm start --resource-group myResourceGroup --name myVM
+    ```
 
-    > [AZURE.WARNING]
+    > [!WARNING]
     > Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected.
 
 ## Next steps
@@ -55,5 +62,5 @@ For additional scalability, run multiple VM instances and scale out. For more in
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[scale-set]: /documentation/articles/virtual-machine-scale-sets-linux-autoscale/
-[vm-sizes]: /documentation/articles/virtual-machines-linux-sizes/
+[scale-set]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md
+[vm-sizes]: ./virtual-machines-linux-sizes.md

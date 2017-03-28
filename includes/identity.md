@@ -8,7 +8,6 @@ Managing identity is just as important in the public cloud is it is on premises.
 
 - Applications running in the cloud or on-premises can use Azure Active Directory Access Control to let users log in using identities from Facebook, Google, Microsoft, and other identity providers.
 
-
 This article describes all three of these options.
 
 ## Table of Contents
@@ -19,13 +18,11 @@ This article describes all three of these options.
 
 - [Using Azure Active Directory Access Control](#ac)
 
-
 ## <a name="adinvm"></a>Running Windows Server Active Directory in VMs
 
 Running Windows Server AD in Azure VMs is much like running it on premises. [Figure 1](#fig1) shows a typical example of how this looks.
 
 ![Azure Active Directory in Virtual Machine](./media/identity/identity_01_ADinVM.png)
-
 
 <a name="Fig1"></a>Figure 1: Windows Server Active Directory can run in Azure VMs connected to an organization's on-premises datacenter using Azure Virtual Network.
 
@@ -60,7 +57,6 @@ There are two main options for using this directory service in the cloud:
 - Individuals and organizations that use only SaaS applications can rely on Azure Active Directory as their sole directory service.
 
 - Organizations that run Windows Server Active Directory can connect their on-premises directory to Azure Active Directory, then use it to give their users single sign-on to SaaS applications.
-
 
 [Figure 2](#fig2) illustrates the first of these two options, where Azure Active Directory is all that's required.
 

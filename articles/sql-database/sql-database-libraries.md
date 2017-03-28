@@ -1,27 +1,27 @@
-<properties
-    pageTitle="Connection libraries for SQL Database | Azure"
-    description="Provides links for downloads of modules which enable connection to SQL Server and SQL Database from a broad variety of client programming languages. The modules are released by the community or by Microsoft."
-    services="sql-database"
-    documentationcenter=""
-    author="MightyPen"
-    manager="jhubbard"
-    editor="genemi" />
-<tags
-    ms.assetid="13d899d3-cf46-4e4d-8919-cf4b41ca836d"
-    ms.service="sql-database"
-    ms.custom="development"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/06/2017"
-    wacn.date=""
-    ms.author="genemi" />
+---
+title: Connection libraries for SQL Database | Azure
+description: Provides links for downloads of modules which enable connection to SQL Server and SQL Database from a broad variety of client programming languages. The modules are released by the community or by Microsoft.
+services: sql-database
+documentationcenter: ''
+author: MightyPen
+manager: jhubbard
+editor: genemi
+
+ms.assetid: 13d899d3-cf46-4e4d-8919-cf4b41ca836d
+ms.service: sql-database
+ms.custom: development
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/06/2017
+wacn.date: ''
+ms.author: genemi
+---
 
 # Connection libraries for SQL Database and SQL Server
 
 This topic lists each library or *driver* that client programs can use when connecting to Azure SQL Database or to Microsoft SQL Server.
-
 
 | Language | Platform | Additional resources | Download |
 |:--- |:--- |:--- |:--- |
@@ -37,10 +37,10 @@ This topic lists each library or *driver* that client programs can use when conn
 
 - [SQL Server Drivers](https://docs.microsoft.com/sql/connect/sql-server-drivers/), for connecting from a client
 
-- [Connect to SQL Database by using .NET (C#)](/documentation/articles/sql-database-develop-dotnet-simple/), ADO.NET
+- [Connect to SQL Database by using .NET (C#)](./sql-database-develop-dotnet-simple.md), ADO.NET
 
-- [Connect to SQL Database by using Node.js](/documentation/articles/sql-database-develop-nodejs-simple/)
+- [Connect to SQL Database by using Node.js](./sql-database-develop-nodejs-simple.md)
 
-- [Connect to SQL Database by using Python](/documentation/articles/sql-database-develop-python-simple/), pymssql
+- [Connect to SQL Database by using Python](./sql-database-develop-python-simple.md), pymssql
 
-- [Connect to SQL Database by using Ruby](/documentation/articles/sql-database-develop-ruby-simple/)
+- [Connect to SQL Database by using Ruby](./sql-database-develop-ruby-simple.md)

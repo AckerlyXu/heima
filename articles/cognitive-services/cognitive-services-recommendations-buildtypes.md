@@ -1,16 +1,16 @@
-<properties
-	pageTitle="Quick start guide: Machine Learning Recommendations API | Azure"
-	description="Azure Machine Learning Recommendations - Quick Start Guide"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="luiscabrer"
-	manager="paulettm"
-	editor="cgronlun"/>
+---
+title: Quick start guide: Machine Learning Recommendations API | Azure
+description: Azure Machine Learning Recommendations - Quick Start Guide
+services: cognitive-services
+documentationCenter: ''
+authors: luiscabrer
+manager: paulettm
+editor: cgronlun
 
-<tags
-	ms.service="cognitive-services"
-	ms.date="05/24/2016"
-	wacn.date=""/>
+ms.service: cognitive-services
+ms.date: 05/24/2016
+wacn.date: ''
+---
 
 #  Build Types and Model Quality #
 
@@ -19,8 +19,7 @@
 
 Currently we support two build types: *Recommendation* and *FBT* builds. Each of them are built using different algorithms and have different strengths. This document describes each of these builds, as well as techniques for comparing the quality of the models generated.
 
-
-> If you have not done so already, we encourage you to complete the [quick start guide](/documentation/articles/cognitive-services-recommendations-quick-start/).
+> If you have not done so already, we encourage you to complete the [quick start guide](./cognitive-services-recommendations-quick-start.md).
 
 <a name="RecommendationBuild"></a>
 ### Recommendation build type ###
@@ -31,7 +30,7 @@ Assuming you train the model based on purchases made in your electronics store, 
 
 The recommendation build has two capabilities that make it attractive:
 
--	It supports cold item placement.
+- It supports cold item placement.
 
  *Cold items* is the terminology used for items that do not have significant usage. For instance, imagine you just received a shipment of the new Super-Duper Lumia phone. Since you have never sold it in the past, the system cannot infer recommendations for this product on transactions alone.
  That means that the system should learn from information about the product itself.
@@ -55,16 +54,16 @@ The recommendation build has two capabilities that make it attractive:
 |allowColdItemPlacement	| Set to true. Indicates if the recommendation should also push cold items via feature similarity.
 | modelingFeatureList   | Comma-separated list of feature names to be used in the recommendation build, in order to enhance the recommendation. For instance “Language,Storage” for the example above.
 
--	It supports user recommendations.
+- It supports user recommendations.
 
  A Recommendation build supports [user recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd). This means that it can use the history of transactions for a user in order to provide personalized recommendations for that user. For user recommendations you may provide the user id and/or the recent history of transactions for that user.
 
  One classic example where you may want to apply user recommendations is when the user first logs into your store/site, on the welcome page. There you can promote content that applies to the specific user. 
- 
+
  You may also want to apply a Recommendations build type when the user is about to check-out. At that point you have the list of items the customer is about to purchase, and this is your chance to provide recommendations based on the current market basket.
- 
+
 #### Recommendations build parameters 
- 
+
 | Name  | 	Description |	 Type, <br>  Valid Values <br> (Default Value)
 |-------|-------------------|------------------
 | NumberOfModelIterations |	The number of iterations the model performs is reflected by the overall compute time and the model accuracy. The higher the number, the better accuracy you will get, but the compute time will take longer.  |	 Integer, <br> 	10 to 50 <br>Default: 40 
@@ -82,7 +81,6 @@ The recommendation build has two capabilities that make it attractive:
 |EnableModelingInsights |	Defines whether offline evaluation should be performed in order to gather modeling insights (i.e. precision and diversity metrics). If set to true, a subset of the data will not be used for training as it will need to be reserved for testing of the model. Read more about [offline evaluations](#OfflineEvaluation) | Boolean <br> Default: False
 | SplitterStrategy | If enable modeling insights is set to true, the way in which data should be split for evaluation purposes  | String, *RandomSplitter* or *LastEventSplitter* <br>Default:  RandomSplitter 
 
-
 <a name="FBTBuild"></a>
 ### FBT build type ###
 
@@ -96,9 +94,8 @@ Currently, two items are assumed to be purchased in the same session if they occ
 
 FBT builds do not support cold items today, as they by definition expect two items to be actually purchased in the same transaction.   While FBT builds can return sets of items (triplets), they do not support personalized recommendations since they accept a single seed item as the input.
 
-
 #### FBT build parameters 
- 
+
 | Name  | 	Description |		Type,  <br> Valid Values <br> (Default Value)
 |-------|---------------|-----------------------
 | FbtSupportThreshold | How conservative the model is. Number of co-occurrences of items to be considered for modeling. |  Integer, <br> 3-50 <br> Default: 6 
@@ -167,7 +164,6 @@ Diversity metrics measure the type of items recommended. The table below represe
 |------------------|--------|-------|---------
 |Percentage        | 34.258 | 55.127| 10.615
 
-
 Total items recommended: 100,000
 
 Unique items recommended: 954
@@ -179,15 +175,14 @@ Number of distinct items that were returned for evaluation.
 #### Total items Recommended
 The total number of items recommended. (some may be duplicates)
 
-
 <a name="ImplementingEvaluation"></a>
 ### How to get offline evaluations? ###
 The precision and diversity offline metrics may be useful to you in selecting which build to use.  In order to get offline metrics you need to do the following:
 
 At build time, as part of the respective FBT or Recommendation build parameters:
-1.	Set the enableModelingInsights build parameter to true.
+1. Set the enableModelingInsights build parameter to true.
 
-2.	Optionally you may select the *splitterStrategy* (Either *RandomSplitter* or *LastEventSplitter*).
+2. Optionally you may select the *splitterStrategy* (Either *RandomSplitter* or *LastEventSplitter*).
 *RandomSplitter* splits the usage data in train and test sets based on the given *randomSplitterParameters* test percent and random seed values.
 *LastEventSplitter* splits the usage data in train and test sets based on the last transaction for each user.
 
@@ -197,7 +192,6 @@ This will trigger a build that uses only a subset of the data for training, and 
  passing the respective *modelId* and *buildId*.
 
  Below is the JSON output for the sample evaluation we performed:
-
 
     {
      "Result": {

@@ -1,31 +1,32 @@
 <!-- not suitable for Mooncake -->
 
-<properties
-    pageTitle="Set up high availability for Azure Resource Manager VMs | Azure"
-    description="This tutorial shows you how to create an Always On availability group with Azure virtual machines in Azure Resource Manager mode."
-    services="virtual-machines-windows"
-    documentationcenter="na"
-    author="MikeRayMSFT"
-    manager="jhubbard"
-    editor=""
-    tags="azure-resource-manager" />
-<tags
-    ms.assetid="64e85527-d5c8-40d9-bbe2-13045d25fc68"
-    ms.service="virtual-machines-sql"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows-sql-server"
-    ms.workload="iaas-sql-server"
-    ms.date="03/17/2017"
-    wacn.date=""
-    ms.author="mikeray" />
+---
+title: Set up high availability for Azure Resource Manager VMs | Azure
+description: This tutorial shows you how to create an Always On availability group with Azure virtual machines in Azure Resource Manager mode.
+services: virtual-machines-windows
+documentationcenter: na
+author: MikeRayMSFT
+manager: jhubbard
+editor: ''
+tags: azure-resource-manager
+
+ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
+ms.service: virtual-machines-sql
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows-sql-server
+ms.workload: iaas-sql-server
+ms.date: 03/17/2017
+wacn.date: ''
+ms.author: mikeray
+---
 
 # Configure Always On availability group in Azure VM automatically - Resource Manager
-> [AZURE.SELECTOR]
-- [Resource Manager: Template](/documentation/articles/virtual-machines-windows-portal-sql-alwayson-availability-groups/)
-- [Resource Manager: Manual](/documentation/articles/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/)
-- [Classic: UI](/documentation/articles/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/)
-- [Classic: PowerShell](/documentation/articles/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups/)
+> [!div class="op_single_selector"]
+>- [Resource Manager: Template](./virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+>- [Resource Manager: Manual](/documentation/articles/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/)
+>- [Classic: UI](../sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+>- [Classic: PowerShell](../sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 
 <br/>
 
@@ -47,11 +48,11 @@ All the resources in this solution belong to a single resource group.
 
 Before you start this tutorial, make sure:
 
-* You already have an Azure account. If you don't have one, [sign up for a trial account](/pricing/1rmb-trial/).
-* You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server virtual machine on Azure](/documentation/articles/virtual-machines-windows-portal-sql-server-provision/)
+* You already have an Azure account. If you don't have one, [sign up for a trial account](https://www.azure.cn/pricing/1rmb-trial/).
+* You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server virtual machine on Azure](./virtual-machines-windows-portal-sql-server-provision.md)
 * You already have a solid understanding of availability groups. For more information, see [Always On availability groups (SQL Server)](http://msdn.microsoft.com/zh-cn/library/hh510230.aspx).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > If you are interested in using availability groups with SharePoint, also see [Configure SQL Server 2012 Always On availability groups for SharePoint 2013](http://technet.microsoft.com/zh-cn/library/jj715261.aspx).
 > 
 > 
@@ -63,7 +64,7 @@ In this tutorial, use the Azure portal preview to:
 * Monitor Azure as it creates the entire environment
 * Connect to one of the domain controllers and then to one of the SQL Servers
 
-[AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
+[!INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
 
 ## Provision the cluster from the gallery
 Azure provides a gallery image for the entire solution. In order to locate the template:
@@ -101,7 +102,7 @@ On **Domain and network settings** blade, review the preset values for the domai
 * **Domain Controller subnet name** is the name of a portion of the virtual network that hosts the domain controller. Use **subnet-1**. This subnet uses address prefix **10.0.0.0/24**.
 * **SQL Server subnet name** is the name of a portion of the virtual network that hosts the SQL Servers and the file share witness. Use **subnet-2**. This subnet uses address prefix **10.0.1.0/26**.
 
-Learn more about virtual networks in [Azure see Virtual Network Overview](/documentation/articles/virtual-networks-overview/).  
+Learn more about virtual networks in [Azure see Virtual Network Overview](../../../virtual-network/virtual-networks-overview.md).  
 
 The **Domain and network settings** should look like the following image:
 
@@ -127,10 +128,10 @@ If necessary, you may change these values. For this tutorial use the preset valu
 ### VM size, storage settings
 On **VM size, storage settings** choose a SQL Server virtual machine size and review the other settings.
 
-* **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads, choose a virtual machine size that can support the workload. Many production workloads require **DS4** or larger. The template builds two virtual machines of this size and installs SQL Server on each one. For more information, see [Sizes for virtual machines](/documentation/articles/virtual-machines-windows-sizes/).
+* **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads, choose a virtual machine size that can support the workload. Many production workloads require **DS4** or larger. The template builds two virtual machines of this size and installs SQL Server on each one. For more information, see [Sizes for virtual machines](../../virtual-machines-windows-sizes.md).
 
-> [AZURE.NOTE]
-> Azure installs Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines Pricing](/pricing/details/virtual-machines/#Sql).
+> [!NOTE]
+> Azure installs Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Sql).
 > 
 > 
 
@@ -140,7 +141,7 @@ On **VM size, storage settings** choose a SQL Server virtual machine size and re
 * **DC Storage account** is the name of the storage account for the domain controllers. For this tutorial use **alwaysondc01**.
 * **SQL Server data disk size** in TB is the size of the SQL Server data disk in TB. Specify a number from 1 through 4. For this tutorial use **1**.
 * **Storage optimization** sets specific storage configuration settings for the SQL Server virtual machines based on the workload type. All SQL Servers in this scenario use premium storage with Azure disk host cache set to read only. In addition, you can optimize SQL Server settings for the workload by choosing one of these three settings:
-  
+
     * **General workload** sets no specific configuration settings
     * **Transactional processing** sets trace flag 1117 and 1118
     * **Data warehousing** sets trace flag 1117 and 610
@@ -157,7 +158,7 @@ Additional optimizations depend on the size of the SQL Server data disks. For ea
 * Stripe size is the interleave setting for the virtual disk. Transactional workloads use 64 KB. Data warehousing workloads use 256 KB.
 * Resiliency is simple (no resiliency).
 
-> [AZURE.NOTE]
+> [!NOTE]
 > Azure premium storage is locally redundant and keeps three copies of the data within a single region, so additional resiliency at the storage pool is not required.
 > 
 > 
@@ -170,7 +171,7 @@ For additional information, about storage space and storage pools see:
 * [Windows Server Backup and Storage Pools](http://technet.microsoft.com/zh-cn/library/dn390929.aspx)
 
 For more information about SQL Server configuration best practices, see
-[Performance best practices for SQL Server in Azure virtual machines](/documentation/articles/virtual-machines-windows-sql-performance/)
+[Performance best practices for SQL Server in Azure virtual machines](./virtual-machines-windows-sql-performance.md)
 
 ### SQL Server settings
 On **SQL Server settings** review and modify the SQL Server VM name prefix, SQL Server version, SQL Server service account and password, and the SQL auto patching maintenance schedule.
@@ -182,7 +183,7 @@ On **SQL Server settings** review and modify the SQL Server VM name prefix, SQL 
 * **SQL Auto Patching maintenance schedule** identifies the weekday that Azure automatically patches the SQL Servers. For this tutorial type **Sunday**.
 * **SQL Auto Patching maintenance start hour** is the time of day for the Azure region when automatic patching begins.
 
-> [AZURE.NOTE]
+> [!NOTE]
 > The patching window for each VM is staggered by one hour. Only one virtual machine is patched at a time in order to prevent disruption of services.
 > 
 > 

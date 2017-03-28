@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Understand and resolve WebHCat errors on HDInsight"
-    description="Learn how to about common errors returned by WebHCat on HDInsight and how to resolve them."
-    services="hdinsight"
-    documentationcenter=""
-    author="Blackmist"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal" />
-<tags
-    ms.assetid="1b3d94b1-207d-4550-aece-21dc45485549"
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="01/12/2017"
-    wacn.date=""
-    ms.author="larryfr" />
+---
+title: Understand and resolve WebHCat errors on HDInsight
+description: Learn how to about common errors returned by WebHCat on HDInsight and how to resolve them.
+services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+
+ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 01/12/2017
+wacn.date: ''
+ms.author: larryfr
+---
 
 # Understand and resolve errors received from WebHCat (Templeton,) on HDInsight
 When using WebHCat (formerly known as Templeton,) to work with HDInsight, you may receive errors. This document provides guidance on common errors - why they occur and what you can do to resolve them.
@@ -25,16 +26,16 @@ When using WebHCat (formerly known as Templeton,) to work with HDInsight, you ma
 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) is a REST API for [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), a table and storage management layer for Hadoop. WebHCat is enabled by default on HDInsight clusters, and is used by various tools to submit jobs, get job status, etc. without logging in to the cluster.
 
 ## <a name="modifying-configuration"></a> Modifying configuration
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Several of the errors listed in this document occur because a configured maximum has been exceeded. When the resolution step mentions that you can change a value, you must use one of the following to perform the change:
 
-* For **Windows** clusters: Use a script action to configure the value during cluster creation. For more information, see [Develop script actions](/documentation/articles/hdinsight-hadoop-script-actions/).
-* For **Linux** clusters: Use Ambari (web or REST API) to modify the value. For more information, see [Manage HDInsight using Ambari](/documentation/articles/hdinsight-hadoop-manage-ambari/)
+* For **Windows** clusters: Use a script action to configure the value during cluster creation. For more information, see [Develop script actions](./hdinsight-hadoop-script-actions.md).
+* For **Linux** clusters: Use Ambari (web or REST API) to modify the value. For more information, see [Manage HDInsight using Ambari](./hdinsight-hadoop-manage-ambari.md)
 
-[AZURE.INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-> [AZURE.IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](/documentation/articles/hdinsight-component-versioning/#hdi-version-32-and-33-nearing-deprecation-date).
+> [!IMPORTANT]
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### Default configuration
 The following are default configuration values that can impact WebHCat performance, or cause errors if these values are exceeded:

@@ -1,32 +1,31 @@
-<properties
-   pageTitle="Overview of tables in SQL Data Warehouse | Microsoft Azure"
-   description="Getting started with Azure SQL Data Warehouse Tables."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
-   editor=""/>
+---
+title: Overview of tables in SQL Data Warehouse | Microsoft Azure
+description: Getting started with Azure SQL Data Warehouse Tables.
+services: sql-data-warehouse
+documentationCenter: NA
+authors: sonyam
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-      wacn.date=""/>
-
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+wacn.date: ''
+---
 
 # Overview of tables in SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [Overview][]
-- [Data Types][]
-- [Distribute][]
-- [Index][]
-- [Partition][]
-- [Statistics][]
-- [Temporary][]
+> [!div class="op_single_selector"]
+>- [Overview][]
+>- [Data Types][]
+>- [Distribute][]
+>- [Index][]
+>- [Partition][]
+>- [Statistics][]
+>- [Temporary][]
 
 Getting started with creating tables in SQL Data Warehouse is simple.  The basic [CREATE TABLE][CREATE TABLE] syntax follows the common syntax you are most likely already familiar with from working with other databases.  To create a table, you simply need to name your table, name your columns and define data types for each column.  If you've create tables in other databases, this should look very familiar to you.
 
@@ -197,33 +196,33 @@ FROM size
 ### Table space summary
 This query returns the rows and space by table.  It is a great query to see which tables are your largest tables and whether they are round robin or hash distributed.  For hash distributed tables it also shows the distribution column.  In most cases your largest tables should be hash distributed with a clustered columnstore index.
 
-
-	SELECT 
-	     database_name
-	,    schema_name
-	,    table_name
-	,    distribution_policy_name
-	,	  distribution_column
-	,    index_type_desc
-	,    COUNT(distinct partition_nmbr) as nbr_partitions
-	,    SUM(row_count)                 as table_row_count
-	,    SUM(reserved_space_GB)         as table_reserved_space_GB
-	,    SUM(data_space_GB)             as table_data_space_GB
-	,    SUM(index_space_GB)            as table_index_space_GB
-	,    SUM(unused_space_GB)           as table_unused_space_GB
-	FROM 
-	    dbo.vTableSizes
-	GROUP BY 
-	     database_name
-	,    schema_name
-	,    table_name
-	,    distribution_policy_name
-	,	  distribution_column
-	,    index_type_desc
-	ORDER BY
-	    table_reserved_space_GB desc
-	;
-
+```sql
+SELECT 
+     database_name
+,    schema_name
+,    table_name
+,    distribution_policy_name
+,	  distribution_column
+,    index_type_desc
+,    COUNT(distinct partition_nmbr) as nbr_partitions
+,    SUM(row_count)                 as table_row_count
+,    SUM(reserved_space_GB)         as table_reserved_space_GB
+,    SUM(data_space_GB)             as table_data_space_GB
+,    SUM(index_space_GB)            as table_index_space_GB
+,    SUM(unused_space_GB)           as table_unused_space_GB
+FROM 
+    dbo.vTableSizes
+GROUP BY 
+     database_name
+,    schema_name
+,    table_name
+,    distribution_policy_name
+,	  distribution_column
+,    index_type_desc
+ORDER BY
+    table_reserved_space_GB desc
+;
+```
 
 ### Table space by distribution type
 ```sql

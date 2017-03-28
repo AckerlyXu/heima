@@ -1,22 +1,23 @@
-<properties
-    pageTitle="SQL In-Memory Technologies | Azure"
-    description="SQL In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies."
-    services="sql-database"
-    documentationCenter=""
-    authors="jodebrui"
-    manager="jhubbard"
-    editor="" />
-<tags
-    ms.assetid="250ef341-90e5-492f-b075-b4750d237c05"
-    ms.service="sql-database"
-    ms.custom="development"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/07/2016"
-    wacn.date=""
-    ms.author="jodebrui" />
+---
+title: SQL In-Memory Technologies | Azure
+description: SQL In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies.
+services: sql-database
+documentationCenter: ''
+authors: jodebrui
+manager: jhubbard
+editor: ''
+
+ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
+ms.service: sql-database
+ms.custom: development
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/07/2016
+wacn.date: ''
+ms.author: jodebrui
+---
 
 # Optimize performance using In-Memory technologies in SQL Database
 
@@ -26,8 +27,6 @@ In-Memory technologies in Azure SQL Database can help you achieve performance im
 - The following video demonstrates significant improvement in resource consumption with a sample workload: [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)
 
 In-Memory technologies are available in all database in the Premium tier, including databases in Premium elastic pools. 
-
-
 
 Azure SQL Database has the following In-Memory technologies:
 
@@ -64,7 +63,7 @@ In-Memory OLTP includes memory-optimized tables, which are used for storing user
 
 Each supported standalone  database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP Storage. At the time of writing you get a gigabyte of storage for every 125 DTUs or eDTUs.
 
-[SQL Database Service Tiers](/documentation/articles/sql-database-service-tiers/) has the official list of In-Memory OLTP storage available for each supported standalone database and elastic pool pricing tier.
+[SQL Database Service Tiers](./sql-database-service-tiers.md) has the official list of In-Memory OLTP storage available for each supported standalone database and elastic pool pricing tier.
 
 The following counts towards your In-Memory OLTP storage cap:
 
@@ -74,10 +73,9 @@ The following counts towards your In-Memory OLTP storage cap:
 
 If you hit the cap you will receive an out-of-quota error and will no longer be able to insert or update data. Mitigation is to delete data or increase the pricing tier of the database or pool.
 
-
 For details about monitoring In-Memory OLTP storage utilization and configuring alerts when almost hitting the cap see:
 
-- [Monitor In-Memory Storage](/documentation/articles/sql-database-in-memory-oltp-monitoring/)
+- [Monitor In-Memory Storage](./sql-database-in-memory-oltp-monitoring.md)
 
 #### Note about elastic pools
 
@@ -88,7 +86,7 @@ With elastic pools the In-Memory OLTP Storage is shared across all databases in 
 
 ### Data size and storage for Columnstore indexes
 
-Columnstore indexes are not required to fit in memory. Therefore the only cap on the size of the indexes is the maximum overall database size, which is documented in the [SQL Database Service Tiers](/documentation/articles/sql-database-service-tiers/) article.
+Columnstore indexes are not required to fit in memory. Therefore the only cap on the size of the indexes is the maximum overall database size, which is documented in the [SQL Database Service Tiers](./sql-database-service-tiers.md) article.
 
 When using Clustered Columnstore Indexes, columnar compression is used for the base table storage. This can significantly reduce the storage footprint of your user data, meaning that you can fit more data in the database. And this can be further increased with [columnar archival compression](https://msdn.microsoft.com/zh-cn/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). The amount of compression you can achieve depends on the nature of the data, but 10X compression is not uncommon.
 
@@ -108,12 +106,11 @@ Increasing the pricing tier for a database that uses In-Memory technologies does
 
 There is a programmatic way to understand whether a given database supports In-Memory OLTP. You can execute the following Transact-SQL query:
 
-
-	SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
-
+```
+SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
+```
 
 If the query returns **1**, In-Memory OLTP is supported in this database.
-
 
 *Downgrade to lower Premium tier.* Data in memory-optimized tables must fit within the In-Memory OLTP storage associated with the pricing tier of the database or available in the elastic pool. If you try to lower the pricing tier or move the database into a pool that does not have enough available In-Memory OLTP storage, the operation will fail.
 
@@ -124,7 +121,6 @@ If the query returns **1**, In-Memory OLTP is supported in this database.
 - Before downgrading the database to Standard/Basic, drop all clustered columnstore indexes.
 
 *Downgrade to lower Premium tier.* This will succeed as long as the database as a whole fits within the max database size for the target pricing tier or available storage in the elastic pool. There is no specific impact from the Columnstore indexes.
-
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
@@ -142,7 +138,7 @@ A more simplistic, but more visually appealing performance demo for In-Memory OL
 #### Installation steps
 
 1. In the [Azure Portal](https://portal.azure.cn/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
- - For detailed instructions, you can see [Create your first Azure SQL database](/documentation/articles/sql-database-get-started/).
+ - For detailed instructions, you can see [Create your first Azure SQL database](./sql-database-get-started.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
 
@@ -152,30 +148,22 @@ A more simplistic, but more visually appealing performance demo for In-Memory OL
 4. Paste the T-SQL script into SSMS, and then execute the script.
  - Crucial is the `MEMORY_OPTIMIZED = ON` clause CREATE TABLE statements, as in:
 
-
-
-		CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
-			[SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
-			...
-		) WITH (MEMORY_OPTIMIZED = ON);
-
-
+        CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
+            [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
+            ...
+        ) WITH (MEMORY_OPTIMIZED = ON);
 
 #### Error 40536
 
-
 If you get error 40536 when you run the T-SQL script, run the following T-SQL script to verify whether the database supports In-Memory:
 
-
-
-	SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
-
-
+```
+SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
+```
 
 A result of **0** means In-Memory is not supported, and 1 means it is supported. To diagnose the problem:
 
 - Ensure the database is at the Premium service tier.
-
 
 #### About the created memory-optimized items
 
@@ -187,31 +175,25 @@ A result of **0** means In-Memory is not supported, and 1 means it is supported.
 - Demo.DemoSalesOrderHeaderSeed
 - Demo.DemoSalesOrderDetailSeed
 
-
 You can inspect memory-optimized tables through the **Object Explorer** in SSMS by:
 
 - Right-click **Tables** > **Filter** > **Filter Settings** > **Is Memory Optimized** equals 1.
 
-
 Or you can query the catalog views such as:
 
-
-
-	SELECT is_memory_optimized, name, type_desc, durability_desc
-		FROM sys.tables
-		WHERE is_memory_optimized = 1;
-
-
+```
+SELECT is_memory_optimized, name, type_desc, durability_desc
+    FROM sys.tables
+    WHERE is_memory_optimized = 1;
+```
 
 **Natively compiled stored procedure**: SalesLT.usp_InsertSalesOrder_inmem can be inspected through a catalog view query:
 
-
-
-	SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
-		FROM sys.sql_modules
-		WHERE uses_native_compilation = 1;
-
-
+```
+SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
+    FROM sys.sql_modules
+    WHERE uses_native_compilation = 1;
+```
 
 &nbsp;
 
@@ -222,71 +204,56 @@ The only difference between the following two *stored procedures* is that the fi
 - SalesLT**.**usp_InsertSalesOrder**_inmem**
 - SalesLT**.**usp_InsertSalesOrder**_ondisk**
 
-
 In this section, you see how to use the handy **ostress.exe** utility to execute the two stored procedures at stressful levels. You can compare how long it takes the two stress runs to complete.
-
 
 When you run ostress.exe, we recommend that you pass parameter values designed to both:
 
 - Run a large number of concurrent connections, by using -n100.
 - Have each connection loop hundreds of times, by using -r500.
 
-
 However, you might want to start with much smaller values like -n10 and -r50 to ensure the everything is working.
-
 
 ### Script for ostress.exe
 
-
 This section displays the T-SQL script that is embedded in our ostress.exe command line. The script uses items that were created by the T-SQL script you installed earlier.
-
 
 The following script inserts a sample sales order with five line items into the following memory-optimized *tables*:
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem
 
+    DECLARE
+        @i int = 0,
+        @od SalesLT.SalesOrderDetailType_inmem,
+        @SalesOrderID int,
+        @DueDate datetime2 = sysdatetime(),
+        @CustomerID int = rand() * 8000,
+        @BillToAddressID int = rand() * 10000,
+        @ShipToAddressID int = rand() * 10000;
 
+    INSERT INTO @od
+        SELECT OrderQty, ProductID
+        FROM Demo.DemoSalesOrderDetailSeed
+        WHERE OrderID= cast((rand()*60) as int);
 
-	DECLARE
-		@i int = 0,
-		@od SalesLT.SalesOrderDetailType_inmem,
-		@SalesOrderID int,
-		@DueDate datetime2 = sysdatetime(),
-		@CustomerID int = rand() * 8000,
-		@BillToAddressID int = rand() * 10000,
-		@ShipToAddressID int = rand() * 10000;
-	
-	INSERT INTO @od
-		SELECT OrderQty, ProductID
-		FROM Demo.DemoSalesOrderDetailSeed
-		WHERE OrderID= cast((rand()*60) as int);
-	
-	WHILE (@i < 20)
-	begin;
-		EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
-			@DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
-		SET @i = @i + 1;
-	end
-
-
+    WHILE (@i < 20)
+    begin;
+        EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT,
+            @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od;
+        SET @i = @i + 1;
+    end
 
 To make the *_ondisk* version of the preceding T-SQL for ostress.exe, you would simply replace both occurrences of the *_inmem* substring with *_ondisk*. These replaces affect the names of tables and stored procedures.
 
-
 ### Install RML utilities and ostress
 
-
-Ideally you would plan to run ostress.exe on an Azure VM. You would create an [Azure Virtual Machine](/documentation/services/virtual-machines/) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
-
+Ideally you would plan to run ostress.exe on an Azure VM. You would create an [Azure Virtual Machine](../virtual-machines/index.md) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
 
 On the VM, or on whatever host you choose, install the Replay Markup Language (RML) utilities, which include ostress.exe.
 
 - See the ostress.exe discussion in [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/zh-cn/library/mt465764.aspx).
  - Or see [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/zh-cn/library/mt465764.aspx).
  - Or see [Blog for installing ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
-
-
 
 <!--
 dn511655.aspx is for SQL 2014,
@@ -298,24 +265,18 @@ whereas for SQL 2016+
 (http://msdn.microsoft.com/zh-cn/library/mt465764.aspx)
 -->
 
-
-
 ### Run the *_inmem* stress workload first
-
 
 You can use an *RML Cmd Prompt* window to run our ostress.exe command line. The command line parameters direct ostress to:
 
 - Run 100 connections concurrently (-n100).
 - Have each connection run the T-SQL script 50 times (-r50).
 
-
 ```
 ostress.exe -n100 -r50 -S<servername>.database.chinacloudapi.cn -U<login> -P<password> -d<database> -q -Q"DECLARE @i int = 0, @od SalesLT.SalesOrderDetailType_inmem, @SalesOrderID int, @DueDate datetime2 = sysdatetime(), @CustomerID int = rand() * 8000, @BillToAddressID int = rand() * 10000, @ShipToAddressID int = rand()* 10000; INSERT INTO @od SELECT OrderQty, ProductID FROM Demo.DemoSalesOrderDetailSeed WHERE OrderID= cast((rand()*60) as int); WHILE (@i < 20) begin; EXECUTE SalesLT.usp_InsertSalesOrder_inmem @SalesOrderID OUTPUT, @DueDate, @CustomerID, @BillToAddressID, @ShipToAddressID, @od; set @i += 1; end"
 ```
 
-
 To run the preceding ostress.exe command line:
-
 
 1. Reset the database data content by running the following command in SSMS, to delete all the data that was inserted by any previous runs:
 ```
@@ -328,20 +289,15 @@ EXECUTE Demo.usp_DemoReset;
 
 4. Run your edited command line in an RML Cmd window.
 
-
 #### Result is a duration
-
 
 When ostress.exe completes, it writes the run duration as its final line of output in the RML Cmd window. For example, a shorter test run lasted about 1.5 minutes:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
-
 #### Reset, edit for *_ondisk*, then rerun
 
-
 After you have the result from the *_inmem* run, perform the following steps for the *_ondisk* run:
-
 
 1. Reset the database by running the following command in SSMS, to delete all the data that was inserted by the previous run:
 ```
@@ -354,30 +310,21 @@ EXECUTE Demo.usp_DemoReset;
 
 4. Again reset the database, for responsible deletion of what can be a large amount of test data.
 
-
 #### Expected comparison results
 
 Our In-Memory tests have shown a **9 times** performance improvement for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
-
-
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
 &nbsp;
 
-
 ## B. Install the In-Memory Analytics sample
-
 
 In this section, you compare the IO and Statistics results when using a columnstore index versus a traditional b-tree index.
 
-
 For real-time analytics on an OLTP workload, it is often best to use a NONclustered columnstore index. For details see [Columnstore Indexes Described](http://msdn.microsoft.com/zh-cn/library/gg492088.aspx).
 
-
-
 ### Prepare the columnstore analytics test
-
 
 1. Use the Azure portal to create a fresh AdventureWorksLT database from the sample.
  - Use that exact name.
@@ -394,29 +341,22 @@ For real-time analytics on an OLTP workload, it is often best to use a NONcluste
 4. Set AdventureWorksLT to compatibility level 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
  - Level 130 is not directly related to In-Memory features. But level 130 generally provides faster query performance than does 120.
 
-
 #### Crucial tables and columnstore indexes
-
 
 - dbo.FactResellerSalesXL_CCI is a table that has a clustered **columnstore** index, which has advanced compression at the *data* level.
 
 - dbo.FactResellerSalesXL_PageCompressed is a table that has an equivalent regular clustered index, which is compressed only at the *page* level.
 
-
 #### Crucial queries to compare the columnstore index
 
-
 [Here](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) are several T-SQL query types you can run to see performance improvements. From Step 2 in the T-SQL script, there is a pair of queries that are of direct interest. The two queries differ only on one line:
-
 
 - `FROM FactResellerSalesXL_PageCompressed a`
 - `FROM FactResellerSalesXL_CCI a`
 
-
 A clustered columnstore index is on the FactResellerSalesXL\_CCI table.
 
 The following T-SQL script excerpt prints statistics for IO and TIME for the query of each table.
-
 
 ```
 /*********************************************************************
@@ -435,13 +375,13 @@ SET STATISTICS TIME ON
 GO
 
 SELECT c.Year
-	,e.ProductCategoryKey
-	,FirstName + ' ' + LastName AS FullName
-	,count(SalesOrderNumber) AS NumSales
-	,sum(SalesAmount) AS TotalSalesAmt
-	,Avg(SalesAmount) AS AvgSalesAmt
-	,count(DISTINCT SalesOrderNumber) AS NumOrders
-	,count(DISTINCT a.CustomerKey) AS CountCustomers
+    ,e.ProductCategoryKey
+    ,FirstName + ' ' + LastName AS FullName
+    ,count(SalesOrderNumber) AS NumSales
+    ,sum(SalesAmount) AS TotalSalesAmt
+    ,Avg(SalesAmount) AS AvgSalesAmt
+    ,count(DISTINCT SalesOrderNumber) AS NumOrders
+    ,count(DISTINCT a.CustomerKey) AS CountCustomers
 FROM FactResellerSalesXL_PageCompressed a
 INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
 INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
@@ -453,20 +393,19 @@ SET STATISTICS IO OFF
 SET STATISTICS TIME OFF
 GO
 
-
 -- This is the same Prior query on a table with a Clustered Columnstore index CCI
 -- The comparison numbers are even more dramatic the larger the table is, this is a 11 million row table only.
 SET STATISTICS IO ON
 SET STATISTICS TIME ON
 GO
 SELECT c.Year
-	,e.ProductCategoryKey
-	,FirstName + ' ' + LastName AS FullName
-	,count(SalesOrderNumber) AS NumSales
-	,sum(SalesAmount) AS TotalSalesAmt
-	,Avg(SalesAmount) AS AvgSalesAmt
-	,count(DISTINCT SalesOrderNumber) AS NumOrders
-	,count(DISTINCT a.CustomerKey) AS CountCustomers
+    ,e.ProductCategoryKey
+    ,FirstName + ' ' + LastName AS FullName
+    ,count(SalesOrderNumber) AS NumSales
+    ,sum(SalesAmount) AS TotalSalesAmt
+    ,Avg(SalesAmount) AS AvgSalesAmt
+    ,count(DISTINCT SalesOrderNumber) AS NumOrders
+    ,count(DISTINCT a.CustomerKey) AS CountCustomers
 FROM FactResellerSalesXL_CCI a
 INNER JOIN DimProduct b ON b.ProductKey = a.ProductKey
 INNER JOIN DimCustomer d ON d.CustomerKey = a.CustomerKey
@@ -482,16 +421,13 @@ GO
 
 In a database with the P2 pricing tier you can expect about 9X perf gain for this query from using the clustered columnstore index compared with the traditional index. With P15 you can expect about 57X perf gain from columnstore.
 
-
-
 ## Next steps
 
 - [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/zh-cn/library/mt694156.aspx)
 
-- [Use In-Memory OLTP in an existing Azure SQL Application.](/documentation/articles/sql-database-in-memory-oltp-migration/)
+- [Use In-Memory OLTP in an existing Azure SQL Application.](./sql-database-in-memory-oltp-migration.md)
 
-- [Monitor In-Memory Storage](/documentation/articles/sql-database-in-memory-oltp-monitoring/) for In-Memory OLTP.
-
+- [Monitor In-Memory Storage](./sql-database-in-memory-oltp-monitoring.md) for In-Memory OLTP.
 
 ## Additional resources
 
@@ -511,7 +447,7 @@ In a database with the P2 pricing tier you can expect about 9X perf gain for thi
 
 - [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/zh-cn/library/dn133186.aspx)
 
-- [Use In-Memory OLTP in an existing Azure SQL Application.](/documentation/articles/sql-database-in-memory-oltp-migration/)
+- [Use In-Memory OLTP in an existing Azure SQL Application.](./sql-database-in-memory-oltp-migration.md)
 
 #### Tools
 

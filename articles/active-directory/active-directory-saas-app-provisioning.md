@@ -1,16 +1,16 @@
-<properties
-   pageTitle="Automated SaaS App User Provisioning in Azure AD | Windows Azure"
-   description="An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+---
+title: Automated SaaS App User Provisioning in Azure AD | Windows Azure
+description: An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
+services: active-directory
+documentationCenter: ''
+authors: liviodlc
+manager: TerryLanfear
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.date="09/08/2015"
-   wacn.date=""/>
+ms.service: active-directory
+ms.date: 09/08/2015
+wacn.date: ''
+---
 
 #Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory
 
@@ -91,9 +91,9 @@ Click on an app to see a tutorial on how to configure automated provisioning for
 - [Concur](https://msdn.microsoft.com/zh-cn/library/azure/dn308592.aspx)
 - [Docusign](https://msdn.microsoft.com/zh-cn/library/azure/dn510973.aspx)
 - [Dropbox for Business](https://msdn.microsoft.com/zh-cn/library/azure/dn510978.aspx)
-- [Google Apps](/documentation/articles/active-directory-saas-google-apps-tutorial/)
+- [Google Apps](./active-directory-saas-google-apps-tutorial.md)
 - [Jive](https://msdn.microsoft.com/zh-cn/library/azure/dn510977.aspx)
-- [Salesforce](/documentation/articles/active-directory-saas-salesforce-tutorial/)
+- [Salesforce](./active-directory-saas-salesforce-tutorial.md)
 - [Salesforce Sandbox](https://msdn.microsoft.com/zh-cn/library/azure/dn798671.aspx)
 - [ServiceNow](https://msdn.microsoft.com/zh-cn/library/azure/dn510971.aspx)
 - [Workday](https://msdn.microsoft.com/zh-cn/library/azure/dn762434.aspx) (inbound provisioning)
@@ -102,4 +102,4 @@ In order for an application to support automated user provisioning, it must firs
 
 To contact the Azure AD engineering team to request provisioning support for additional applications, please submit a message through the [Azure Active Directory feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+[!INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]

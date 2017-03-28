@@ -1,21 +1,22 @@
-<properties
-    pageTitle="What happened to my cloud service project? | Azure"
-    description="Describes what happens in a cloud services project after connecting to an Azure storage account using Visual Studio connected services"
-    services="storage"
-    documentationcenter=""
-    author="TomArcher"
-    manager="douge"
-    editor="" />
-<tags
-    ms.assetid="ca0ea68d-f417-4ce8-9413-40d76f69cdea"
-    ms.service="storage"
-    ms.workload="web"
-    ms.tgt_pltfrm="vs-what-happened"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/02/2016"
-    wacn.date=""
-    ms.author="tarcher" />
+---
+title: What happened to my cloud service project? | Azure
+description: Describes what happens in a cloud services project after connecting to an Azure storage account using Visual Studio connected services
+services: storage
+documentationcenter: ''
+author: TomArcher
+manager: douge
+editor: ''
+
+ms.assetid: ca0ea68d-f417-4ce8-9413-40d76f69cdea
+ms.service: storage
+ms.workload: web
+ms.tgt_pltfrm: vs-what-happened
+ms.devlang: na
+ms.topic: article
+ms.date: 12/02/2016
+wacn.date: ''
+ms.author: tarcher
+---
 
 # What happened to my cloud services project (Visual Studio Azure Storage connected service)?
 ## References added

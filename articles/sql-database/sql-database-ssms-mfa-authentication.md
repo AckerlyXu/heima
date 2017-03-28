@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Multi-Factor authentication - Azure SQL | Azure"
-    description="Use Multi-Factored Authentication with SSMS for SQL Database and SQL Data Warehouse."
-    services="sql-database"
-    documentationcenter=""
-    author="BYHAM"
-    manager="jhubbard"
-    editor=""
-    tags="" />
-<tags
-    ms.assetid="fbd6e644-0520-439c-8304-2e4fb6d6eb91"
-    ms.service="sql-database"
-    ms.custom="authentication and authorization"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="01/23/2017"
-    wacn.date=""
-    ms.author="rickbyh" />
+---
+title: Multi-Factor authentication - Azure SQL | Azure
+description: Use Multi-Factored Authentication with SSMS for SQL Database and SQL Data Warehouse.
+services: sql-database
+documentationcenter: ''
+author: BYHAM
+manager: jhubbard
+editor: ''
+tags: ''
+
+ms.assetid: fbd6e644-0520-439c-8304-2e4fb6d6eb91
+ms.service: sql-database
+ms.custom: authentication and authorization
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 01/23/2017
+wacn.date: ''
+ms.author: rickbyh
+---
 
 # SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse
 Azure SQL Database and Azure SQL Data Warehouse now support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. Active Directory Universal Authentication is an interactive work flow that supports *Azure Multi-Factor Authentication* (MFA). Azure MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options—phone call, text message, smart cards with pin, or mobile app notification—allowing users to choose the method they prefer. 
 
-* For a description of Multi-Factor Authentication, see [Multi-Factor Authentication](/documentation/articles/multi-factor-authentication/).
-* For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](/documentation/articles/sql-database-ssms-mfa-authentication-configure/).
+* For a description of Multi-Factor Authentication, see [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md).
+* For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](./sql-database-ssms-mfa-authentication-configure.md).
 
 ## Multi-factor options
 
@@ -43,12 +44,8 @@ When the user account is configured for MFA the interactive authentication work 
 * Active Directory Universal Authentication is not supported in SSMS for users that are imported into the current Active Directory from other Azure Active Directories. These users are not supported, because it would require a tenant ID to validate the accounts, and there is no mechanism to provide that.
 * There are no additional software requirements for Active Directory Universal Authentication except that you must use a supported version of SSMS.
 
-
-
 ## Next steps
 
-* For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](/documentation/articles/sql-database-ssms-mfa-authentication-configure/).
-* Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](/documentation/articles/sql-database-manage-logins/)  
-Make sure others can connect through the firewall: [Configure an Azure SQL Database server-level firewall rule using the Azure portal](/documentation/articles/sql-database-configure-firewall-settings/)
-
-
+* For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](./sql-database-ssms-mfa-authentication-configure.md).
+* Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](./sql-database-manage-logins.md)  
+Make sure others can connect through the firewall: [Configure an Azure SQL Database server-level firewall rule using the Azure portal](./sql-database-configure-firewall-settings.md)

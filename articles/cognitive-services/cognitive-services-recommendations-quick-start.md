@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Quick start guide: Machine Learning Recommendations API | Azure"
-	description="Azure Machine Learning Recommendations - Quick Start Guide"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="luiscabrer"
-	manager="paulettm"
-	editor="cgronlun"/>
+---
+title: Quick start guide: Machine Learning Recommendations API | Azure
+description: Azure Machine Learning Recommendations - Quick Start Guide
+services: cognitive-services
+documentationCenter: ''
+authors: luiscabrer
+manager: paulettm
+editor: cgronlun
 
-<tags
-	ms.service="cognitive-services"
-	ms.date="05/26/2016"
-	wacn.date=""/>
+ms.service: cognitive-services
+ms.date: 05/26/2016
+wacn.date: ''
+---
 
 # Quick start guide for the Cognitive Services Recommendations API
 
 This document describes how to onboard your service or application to use the [Recommendations API](https://www.microsoft.com/cognitive-services/zh-cn/recommendations-api).
 You can find more details on the Recommendations API and other Cognitive Services [here](https://www.microsoft.com/cognitive-services/). Throughout this guide, you may also find the [Recommendations API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db) handy.
-
 
 <a name="Overview"></a>
 ## General overview
@@ -87,7 +86,7 @@ Just in case you don't have them handy, we have provided some sample data for yo
  > download more realistic data sets and allow you to understand the inputs into the
  > Recommendations API better.
 
-1.	Now let’s take a look at the catalog file. Navigate to the location where you copied the data.
+1. Now let’s take a look at the catalog file. Navigate to the location where you copied the data.
  Open the catalog file in **notepad**.
 
  You will notice that the catalog file is pretty simple. It has the following format
@@ -147,7 +146,7 @@ In this task, you will use the sample application to build your first model.
 1. When the model is created, take note of the **model ID** as you will need it when
 requesting recommendations in your production environment.
 
->  Learn more about build types and how to evaluate the quality of builds [here](/documentation/articles/cognitive-services-recommendations-buildtypes/).
+>  Learn more about build types and how to evaluate the quality of builds [here](./cognitive-services-recommendations-buildtypes.md).
 
 <a name="Ex1Task4"></a>
 ### Putting your model in production! ###
@@ -187,4 +186,3 @@ Check out the [Get Item Recommendations Documentation](https://westus.dev.cognit
 <a name="Ex1Task6"></a>
 ### What's next?
 Congratulations if you have made it this far! To learn more you can visit the complete [Recommendations API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db)
-

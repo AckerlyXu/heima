@@ -1,5 +1,3 @@
-> [AZURE.SELECTOR]
-- [Classic](/documentation/articles/storage-cannot-delete-storage-account-container-vhd/)
-- [Resource Manager](/documentation/articles/storage-resource-manager-cannot-delete-storage-account-container-vhd/)
-
-
+> [!div class="op_single_selector"]
+>- [Classic](../articles/storage/storage-cannot-delete-storage-account-container-vhd.md)
+>- [Resource Manager](../articles/storage/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)

@@ -1,22 +1,23 @@
-<properties
-    pageTitle="Get Azure tools for your Azure IoT Starter Kit (Windows 7 and later) | Azure"
-    description="Install Python and the Azure command-line interface (Azure CLI) on Windows 7 and later versions."
-    services="iot-hub"
-    documentationcenter=""
-    author="shizn"
-    manager="timtl"
-    tags=""
-    keywords="azure cli, iot cloud service, arduino cloud" />
-<tags
-    ms.assetid="70dfff14-4be1-468d-9919-e40f4bead308"
-    ms.service="iot-hub"
-    ms.devlang="arduino"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="11/13/2016"
-    wacn.date=""
-    ms.author="xshi" />
+---
+title: Get Azure tools for your Azure IoT Starter Kit (Windows 7 and later) | Azure
+description: Install Python and the Azure command-line interface (Azure CLI) on Windows 7 and later versions.
+services: iot-hub
+documentationcenter: ''
+author: shizn
+manager: timtl
+tags: ''
+keywords: azure cli, iot cloud service, arduino cloud
+
+ms.assetid: 70dfff14-4be1-468d-9919-e40f4bead308
+ms.service: iot-hub
+ms.devlang: arduino
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/13/2016
+wacn.date: ''
+ms.author: xshi
+---
 
 # Get Azure tools (Windows 7 and later)
 
@@ -27,7 +28,7 @@
 
 ## What you will do
 
-Install Python and the Azure command-line interface (Azure CLI). If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting/) for your Adafruit Feather M0 WiFi Arduino board.
+Install Python and the Azure command-line interface (Azure CLI). If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md) for your Adafruit Feather M0 WiFi Arduino board.
 
 ## What you will learn
 In this article, you will learn:
@@ -36,7 +37,7 @@ In this article, you will learn:
 
 ## What you need
 * A Windows computer with an Internet connection.
-* An active Azure subscription. If you don't have an Azure account, create a [Azure trial account](/pricing/1rmb-trial/) in just a few minutes.
+* An active Azure subscription. If you don't have an Azure account, create a [Azure trial account](https://www.azure.cn/pricing/1rmb-trial/) in just a few minutes.
 
 ## Install Python
 [Install Python](https://www.python.org/downloads/) on your Windows computer. You can install Python 2.7, 3.4 or 3.5. This tutorial is based on Python 2.7. If you've already installed Python, go to the next section and install the Azure CLI.
@@ -71,11 +72,10 @@ You've installed the Azure CLI. Your next task to create your Azure IoT hub and 
 ## Next steps
 [Create your IoT hub and register your Arduino board][create-your-iot-hub-and-register-your-arduino-board]
 
-
 <!-- Images and links -->
 
-[windows]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32/
-[ubuntu]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu/
-[macos]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac/
+[windows]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md
+[ubuntu]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md
+[macos]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md
 [output]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson2/az_iot_help_win.png
-[create-your-iot-hub-and-register-your-arduino-board]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub/
+[create-your-iot-hub-and-register-your-arduino-board]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md

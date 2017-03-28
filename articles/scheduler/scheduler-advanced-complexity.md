@@ -1,20 +1,21 @@
-<properties
- pageTitle="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
- description="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
- services="scheduler"
- documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="article"
- ms.date="08/18/2016"
- wacn.date=""
- ms.author="krisragh"/>
+---
+title: How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler
+description: How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler
+services: scheduler
+documentationCenter: .NET
+authors: krisragh
+manager: dwrede
+editor: ''
+
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/18/2016
+wacn.date: ''
+ms.author: krisragh
+---
 
 # How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
 
@@ -26,11 +27,10 @@ Azure Scheduler allows you to specify different one-time and recurring schedules
 
 With this flexibility, Azure Scheduler lets you support a wide variety of business scenarios:
 
--	Periodic data cleanup –  e.g., every day, delete all tweets older than 3 months
--	Archival – e.g., every month, push invoice history to backup service
--	Requests for external data – e.g., every 15 minutes, pull new ski weather report from NOAA
--	Image processing – e.g. every weekday, during off-peak hours, use cloud computing to compress images uploaded that day
-
+- Periodic data cleanup –  e.g., every day, delete all tweets older than 3 months
+- Archival – e.g., every month, push invoice history to backup service
+- Requests for external data – e.g., every 15 minutes, pull new ski weather report from NOAA
+- Image processing – e.g. every weekday, during off-peak hours, use cloud computing to compress images uploaded that day
 
 In this article, we walk through example jobs that you can create with Azure Scheduler. We provide the JSON data that describes each schedule. If you use the [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx), you can use this same JSON for [creating an Azure Scheduler job](https://msdn.microsoft.com/library/mt629145.aspx).
 
@@ -38,12 +38,12 @@ In this article, we walk through example jobs that you can create with Azure Sch
 
 The many examples in this topic illustrate the breadth of scenarios that Azure Scheduler supports. Broadly, these examples illustrate how to create schedules for many behavior patterns, including the ones below:
 
--	Run once at a particular date and time
--	Run and recur a number of explicit times
--	Run immediately and recur
--	Run and recur every *n* minutes, hours, days, weeks, or months, starting at a particular time
--	Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month
--	Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day
+- Run once at a particular date and time
+- Run and recur a number of explicit times
+- Run immediately and recur
+- Run and recur every *n* minutes, hours, days, weeks, or months, starting at a particular time
+- Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month
+- Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day
 
 ## Dates and DateTimes
 
@@ -55,23 +55,25 @@ Date-Time references in Azure Scheduler jobs follow the [ISO-8601 specification]
 
 To create a simple schedule using the [Azure Scheduler REST API](https://msdn.microsoft.com/zh-cn/library/mt629143), first [register your subscription with a resource provider](https://msdn.microsoft.com/zh-cn/library/azure/dn790548.aspx) (the provider name for Scheduler is _Microsoft.Scheduler_), then [create a job collection](https://msdn.microsoft.com/zh-cn/library/mt629159.aspx), and finally [create a job](https://msdn.microsoft.com/zh-cn/library/mt629145.aspx). When you create a job, you can specify scheduling and recurrence using JSON like the one excerpted below:
 
-	{
-	    "startTime": "2012-08-04T00:00Z", // optional
-	     …
-	    "recurrence":                     // optional
-	    {
-	        "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-	        "interval": 1,                // optional, how often to fire (default to 1)
-	        "schedule":                   // optional (advanced scheduling specifics)
-	        {
-	            "weekDays": ["monday", "wednesday", "friday"],
-	            "hours": [10, 22]                      
-	        },
-	        "count": 10,                  // optional (default to recur infinitely)
-	        "endTime": "2012-11-04",      // optional (default to recur infinitely)
-	    },
-	    …
-	}
+```
+{
+    "startTime": "2012-08-04T00:00Z", // optional
+     …
+    "recurrence":                     // optional
+    {
+        "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
+        "interval": 1,                // optional, how often to fire (default to 1)
+        "schedule":                   // optional (advanced scheduling specifics)
+        {
+            "weekDays": ["monday", "wednesday", "friday"],
+            "hours": [10, 22]                      
+        },
+        "count": 10,                  // optional (default to recur infinitely)
+        "endTime": "2012-11-04",      // optional (default to recur infinitely)
+    },
+    …
+}
+```
 
 ## Overview: Job Schema Basics
 
@@ -179,23 +181,20 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
 
 ## See Also
 
+ [What is Scheduler?](./scheduler-intro.md)
 
- [What is Scheduler?](/documentation/articles/scheduler-intro/)
- 
- [Azure Scheduler concepts, terminology, and entity hierarchy](/documentation/articles/scheduler-concepts-terms/)
- 
- [Get started using Scheduler in the Management portal](/documentation/articles/scheduler-get-started-portal/)
- 
- [Plans and billing in Azure Scheduler](/documentation/articles/scheduler-plans-billing/)
- 
+ [Azure Scheduler concepts, terminology, and entity hierarchy](./scheduler-concepts-terms.md)
+
+ [Get started using Scheduler in the Management portal](./scheduler-get-started-portal.md)
+
+ [Plans and billing in Azure Scheduler](./scheduler-plans-billing.md)
+
  [Azure Scheduler REST API reference](https://msdn.microsoft.com/zh-cn/library/mt629143)
- 
- [Azure Scheduler PowerShell cmdlets reference](/documentation/articles/scheduler-powershell-reference/)
- 
- [Azure Scheduler high-availability and reliability](/documentation/articles/scheduler-high-availability-reliability/)
- 
- [Azure Scheduler limits, defaults, and error codes](/documentation/articles/scheduler-limits-defaults-errors/)
- 
- [Azure Scheduler outbound authentication](/documentation/articles/scheduler-outbound-authentication/)
- 
-  
+
+ [Azure Scheduler PowerShell cmdlets reference](./scheduler-powershell-reference.md)
+
+ [Azure Scheduler high-availability and reliability](./scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler limits, defaults, and error codes](./scheduler-limits-defaults-errors.md)
+
+ [Azure Scheduler outbound authentication](./scheduler-outbound-authentication.md)

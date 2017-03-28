@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Known Networks | Azure"
-    description="By configuring known networks, you can avoid having IP addresses that are owned by your organization included in the Sign ins from multiple geographies and Sign ins from IP addresses with suspicious activity reports."
-    services="active-directory"
-    documentationcenter=""
-    author="MarkusVi"
-    manager="femila" />
-<tags
-    ms.assetid="f56e042a-78d5-4ea3-be33-94004f2a0fc3"
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/11/2017"
-    wacn.date=""
-    ms.author="markvi" />
+---
+title: Known Networks | Azure
+description: By configuring known networks, you can avoid having IP addresses that are owned by your organization included in the Sign ins from multiple geographies and Sign ins from IP addresses with suspicious activity reports.
+services: active-directory
+documentationcenter: ''
+author: MarkusVi
+manager: femila
+
+ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/11/2017
+wacn.date: ''
+ms.author: markvi
+---
 
 # Known Networks
 You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
@@ -38,6 +39,3 @@ To prevent these cases from generating misleading security reports, you should a
 7. Add your address ranges in the dialog box that appears, and then click the check button  when you are done. <br><br>![How Cloud App Discovery Works](./media/active-directory-known-networks/known-netwoks-04.png)
 
 **Additional Resources**
-
-
-

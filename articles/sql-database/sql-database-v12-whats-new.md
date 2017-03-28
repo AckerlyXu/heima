@@ -25,7 +25,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 - Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
 - Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
-The latest information about resource limits for SQL Database is documented at:<br/>[Azure SQL Database Resource Limits](/documentation/articles/sql-database-resource-limits/).
+The latest information about resource limits for SQL Database is documented at:<br/>[Azure SQL Database Resource Limits](./sql-database-resource-limits.md).
 
 ## Increased application compatibility with SQL Server
 A key goal for SQL Database V12 was to improve the compatibility with Microsoft SQL Server 2014, and to maintain the compatibility as new versions of SQL Server are released. Among other areas, V12 achieves parity with SQL Server in the important area of programmability. For example:
@@ -44,22 +44,20 @@ A key goal for SQL Database V12 was to improve the compatibility with Microsoft 
 
 - [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/zh-cn/library/mt629158.aspx)
 
-See [here](/documentation/articles/sql-database-transact-sql-information/) for the small set of features not yet supported in SQL Database.
+See [here](./sql-database-transact-sql-information.md) for the small set of features not yet supported in SQL Database.
 
 ### Compatibility level 130
 
-
-> [AZURE.IMPORTANT] Starting in **June 2016**, *newly* created databases on Azure SQL Database V12 have their compatibility level start at 130, which matches Microsoft SQL Server 2016 GA.
+> [!IMPORTANT]
+> Starting in **June 2016**, *newly* created databases on Azure SQL Database V12 have their compatibility level start at 130, which matches Microsoft SQL Server 2016 GA.
 > 
 > You can use `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` if you prefer.
 > 
 > Databases created before June 2016 do not have their compatibility level changed by this change of default. Nor is the level of a database changed by upgrading it from V11 to V12.
 
-
-
 For an explanation of how you can compare your most important queries between the latest versus previous compatibility level, see:
 
-- [Improved Query Performance with Compatibility Level 130 in Azure SQL Database](/documentation/articles/sql-database-compatibility-level-query-performance-130/)
+- [Improved Query Performance with Compatibility Level 130 in Azure SQL Database](./sql-database-compatibility-level-query-performance-130.md)
 
 ## More premium performance, new performance levels
 In V12, we increased the Database Transaction Units (DTUs) allocated to all Premium performance levels by 25% at no additional cost. Even greater performance gains can be achieved with new features like:
@@ -74,24 +72,23 @@ If your client program connects to SQL Database V12 while your client runs on an
 * 11000-11999
 * 14000-14999
 
-Click [here](/documentation/articles/sql-database-develop-direct-route-ports-adonet-v12/) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
+Click [here](./sql-database-develop-direct-route-ports-adonet-v12.md) for details about the ports for SQL Database V12. The ports are needed by performance enhancements in SQL Database V12.
 
 ## Better support for cloud SaaS vendors
-Only in V12, we released the new Standard performance level S3 and the public preview of [elastic database pools](/documentation/articles/sql-database-elastic-pool/). Elastic database pools is a solution designed for cloud SaaS vendors.  With elastic database pools, you can:
+Only in V12, we released the new Standard performance level S3 and the public preview of [elastic database pools](./sql-database-elastic-pool.md). Elastic database pools is a solution designed for cloud SaaS vendors.  With elastic database pools, you can:
 
 - Share DTUs among databases to reduce costs for large numbers of databases.
-- Execute [elastic database jobs](/documentation/articles/sql-database-elastic-jobs-overview/) to manage databases at scale.
+- Execute [elastic database jobs](./sql-database-elastic-jobs-overview.md) to manage databases at scale.
 
 ## Security enhancements
 Security is a primary concern for anyone who runs their business in the cloud. The latest security features released in V12 include:
 
-
 - [Row-level security](http://msdn.microsoft.com/zh-cn/library/dn765131.aspx) (RLS)
-- [Dynamic Data Masking](/documentation/articles/sql-database-dynamic-data-masking-get-started/)
+- [Dynamic Data Masking](./sql-database-dynamic-data-masking-get-started.md)
 - [Contained databases](http://msdn.microsoft.com/zh-cn/library/ff929188.aspx)
 - [Application roles](http://msdn.microsoft.com/zh-cn/library/ms190998.aspx) managed with GRANT, DENY, REVOKE
 - [Transparent Data Encryption](http://msdn.microsoft.com/zh-cn/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
-- [Connecting to SQL Database By Using Azure Active Directory Authentication](/documentation/articles/sql-database-aad-authentication/)
+- [Connecting to SQL Database By Using Azure Active Directory Authentication](./sql-database-aad-authentication.md)
  - SQL Database now supports Azure Active Directory authentication, a mechanism of connecting to SQL Database by using identities in Azure Active Directory (Azure AD). With Azure Active Directory authentication you can centrally manage the identities of database users and other Microsoft services in one central location.
 - [Always Encrypted](https://msdn.microsoft.com/zh-cn/library/mt163865.aspx) (in preview) makes encryption transparent to applications and allows clients to encrypt sensitive data inside client applications without sharing the encryption keys with SQL Database.
 
@@ -103,7 +100,7 @@ V12 offers improved recovery point objectives (RPOs) and estimated recovery time
 | Geo-restore |• RPO < 24 hours.<br/>• ERT <  12 hours. |• RPO < 1 hour.<br/>• ERT < 12 hours. |
 | Active Geo-Replication |• RPO < 5 minutes.<br/>• ERT < 1 hour. |• RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 
-See [SQL Database business continuity](/documentation/articles/sql-database-business-continuity/) for more information.
+See [SQL Database business continuity](./sql-database-business-continuity.md) for more information.
 
 ## More reasons to upgrade now
 There are many good reasons why customers should upgrade now to Azure SQL Database V12 from V11:
@@ -129,10 +126,10 @@ Another technique to ascertain the version is to run the `SELECT @@version;` sta
 
 A V12 database can be hosted only on a V12 logical server. And a V12 server can host only V12 databases.
 
-If you are not yet running on V12, you can upgrade your logical server by following the steps in [Upgrade to SQL Database V12 in place](/documentation/articles/sql-database-v12-plan-prepare-upgrade/).
+If you are not yet running on V12, you can upgrade your logical server by following the steps in [Upgrade to SQL Database V12 in place](./sql-database-v12-plan-prepare-upgrade.md).
 
 ## <a name="V12AzureSqlDbPreviewGaTable"></a> General Availability regions
 * By July 31, 2015, all regions had been promoted to General Availability (GA).
 * V12 was released in December 2014, but only at the status of Preview.
 
-[Supplemental Terms of Use for Azure Previews](/support/legal).
+[Supplemental Terms of Use for Azure Previews](https://www.azure.cn/support/legal).

@@ -1,30 +1,31 @@
-<properties
-    pageTitle="Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio"
-    description="Learn how to use the Python Tools for Visual Studio to create a Django web app that stores data in a SQL database instance and deploy it to Azure App Service Web Apps."
-    services="app-service\web"
-    tags="python"
-    documentationcenter="python"
-    author="huguesv"
-    manager="erikre"
-    editor="" />
-<tags
-    ms.assetid="3a677e64-b5a9-4d43-b9c0-66246368b483"
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="python"
-    ms.topic="article"
-    ms.date="07/07/2016"
-    wacn.date=""
-    ms.author="huvalo" />
+---
+title: Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio
+description: Learn how to use the Python Tools for Visual Studio to create a Django web app that stores data in a SQL database instance and deploy it to Azure App Service Web Apps.
+services: app-service\web
+tags: python
+documentationcenter: python
+author: huguesv
+manager: erikre
+editor: ''
+
+ms.assetid: 3a677e64-b5a9-4d43-b9c0-66246368b483
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: article
+ms.date: 07/07/2016
+wacn.date: ''
+ms.author: huvalo
+---
 
 # Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio
 
-[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates.
 
-We'll learn how to use a SQL database hosted on Azure, how to configure the web app to use a SQL database, and how to publish the web app to [Azure App Service Web Apps](/documentation/articles/app-service-changes-existing-services/).
+We'll learn how to use a SQL database hosted on Azure, how to configure the web app to use a SQL database, and how to publish the web app to [Azure App Service Web Apps](./app-service-changes-existing-services.md).
 
 See the [Python Developer Center] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with Azure Table Storage, MySQL and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services].
 
@@ -36,7 +37,7 @@ See the [Python Developer Center] for more articles that cover development of Az
 * [Azure SDK Tools for VS 2015]
 * Django 1.9 or later
 
-[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+[!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## Create the Project
 In this section, we'll create a Visual Studio project using a sample template. We'll create a virtual environment and install required packages. We'll create a local database using sqlite. Then we'll run the web app locally.
@@ -90,24 +91,28 @@ databases with Django. Then we'll run the web app locally.
 
 1. In Visual Studio, open **settings.py**, from the *ProjectName* folder. Temporarily paste the connection string in the editor. The connection string is in this format:
 
-        Server=<ServerName>,<ServerPort>;Database=<DatabaseName>;User ID=<UserName>;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
+    Server=<ServerName>,<ServerPort>;Database=<DatabaseName>;User ID=<UserName>;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
 
     Edit the definition of `DATABASES` to use the values above.
 
-        DATABASES = {
-            'default': {
-                'ENGINE': 'sql_server.pyodbc',
-                'NAME': '<DatabaseName>',
-                'USER': '<UserName>',
-                'PASSWORD': '{your_password_here}',
-                'HOST': '<ServerName>',
-                'PORT': '<ServerPort>',
-                'OPTIONS': {
-                    'driver': 'SQL Server Native Client 11.0',
-                    'MARS_Connection': 'True',
-                }
+    ```
+    DATABASES = {
+        'default': {
+            'ENGINE': 'sql_server.pyodbc',
+            'NAME': '<DatabaseName>',
+            'USER': '<UserName>',
+            'PASSWORD': '{your_password_here}',
+            'HOST': '<ServerName>',
+            'PORT': '<ServerPort>',
+            'OPTIONS': {
+                'driver': 'SQL Server Native Client 11.0',
+                'MARS_Connection': 'True',
             }
         }
+    }
+    ```
 
 1. In Solution Explorer, under **Python Environments**, right-click on the virtual environment and select **Install Python Package**.
 2. Install the package `pyodbc` using **pip**.
@@ -154,11 +159,11 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 * [SQL Database]
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/documentation/articles/app-service-changes-existing-services/)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](./app-service-changes-existing-services.md)
 
 <!--Link references-->
 [Python Developer Center]: /develop/python/
-[Azure Cloud Services]: /documentation/articles/cloud-services-python-ptvs/
+[Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
 [Azure Portal Preview]: https://portal.azure.cn
@@ -172,4 +177,4 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 [Web Projects]: http://go.microsoft.com/fwlink/?LinkId=624027
 [Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Django Documentation]: https://www.djangoproject.com/
-[SQL Database]: /documentation/services/sql-databases/
+[SQL Database]: ../sql-database/index.md

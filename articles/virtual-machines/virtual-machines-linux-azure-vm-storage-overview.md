@@ -1,36 +1,37 @@
-<properties
-    pageTitle="Azure Linux VMs and Azure Storage | Azure"
-    description="Describes Azure Standard and Premium Storage and both Managed and Unmanaged Disks with Linux virtual machines."
-    services="virtual-machines-linux"
-    documentationcenter="virtual-machines-linux"
-    author="vlivech"
-    manager="timlt"
-    editor="" />
-<tags
-    ms.assetid="d364c69e-0bd1-4f80-9838-bbc0a95af48c"
-    ms.service="virtual-machines-linux"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure"
-    ms.date="2/7/2017"
-    wacn.date=""
-    ms.author="rasquill" />
+---
+title: Azure Linux VMs and Azure Storage | Azure
+description: Describes Azure Standard and Premium Storage and both Managed and Unmanaged Disks with Linux virtual machines.
+services: virtual-machines-linux
+documentationcenter: virtual-machines-linux
+author: vlivech
+manager: timlt
+editor: ''
+
+ms.assetid: d364c69e-0bd1-4f80-9838-bbc0a95af48c
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 2/7/2017
+wacn.date: ''
+ms.author: rasquill
+---
 
 # Azure and Linux VM storage
 Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines.
 
 ## Managed Disks
 
-Azure VMs are now available using [Azure Managed Disks](/documentation/articles/storage-managed-disks-overview/), which enables you to create your VMs without creating or managing any [Azure Storage accounts](/documentation/articles/storage-introduction/) yourself. You specify whether you want Premium or Standard storage and how big the disk should be, and Azure creates the VM disks for you. VMs with Managed Disks have many important features, including:
+Azure VMs are now available using [Azure Managed Disks](../storage/storage-managed-disks-overview.md), which enables you to create your VMs without creating or managing any [Azure Storage accounts](../storage/storage-introduction.md) yourself. You specify whether you want Premium or Standard storage and how big the disk should be, and Azure creates the VM disks for you. VMs with Managed Disks have many important features, including:
 
 - Automatic scalability support. Azure creates the disks and manages the underlying storage to support up to 10,000 disks per subscription.
 - Increased reliability with Availability Sets. Azure ensures that VM disks are isolated from each other within Availability Sets automatically.
-- Increased access control. Managed Disks expose a variety of operations controlled by [Azure Role-Based Access Control (RBAC)](/documentation/articles/role-based-access-control-what-is/).
+- Increased access control. Managed Disks expose a variety of operations controlled by [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-what-is.md).
 
-Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](/documentation/articles/storage-managed-disks-overview/#pricing-and-billing).
+Pricing for Managed Disks is different than for that of unmanaged disks. For that information, see [Pricing and Billing for Managed Disks](../storage/storage-managed-disks-overview.md#pricing-and-billing).
 
-You can convert existing VMs that use unmanaged disks to use managed disks with [az vm convert](https://docs.microsoft.com/cli/azure/vm#convert). For more information, see [How to convert a Linux VM from unmanaged disks to Azure Managed Disks](/documentation/articles/virtual-machines-linux-convert-unmanaged-to-managed-disks/). You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](/documentation/articles/storage-service-encryption/). The following steps detail how to to convert unmanaged disks that are, or have been, in an encrypted storage account:
+You can convert existing VMs that use unmanaged disks to use managed disks with [az vm convert](https://docs.microsoft.com/cli/azure/vm#convert). For more information, see [How to convert a Linux VM from unmanaged disks to Azure Managed Disks](./virtual-machines-linux-convert-unmanaged-to-managed-disks.md). You cannot convert an unmanaged disk into a managed disk if the unmanaged disk is in a storage account that is, or at any time has been, encrypted using [Azure Storage Service Encryption (SSE)](../storage/storage-service-encryption.md). The following steps detail how to to convert unmanaged disks that are, or have been, in an encrypted storage account:
 
 - Copy the virtual hard disk (VHD) with [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy#start) to a storage account that has never been enabled for Azure Storage Service Encryption.
 - Create a VM that uses managed disks and specify that VHD file during creation with [az vm create](https://docs.microsoft.com/cli/azure/vm#create), or
@@ -47,30 +48,36 @@ The following example requires the Azure CLI 2.0, which you can [install here].
 
 First, create a resource group to manage the resources:
 
-    az group create --location chinanorth --name myResourceGroup
+```azurecli
+az group create --location chinanorth --name myResourceGroup
+```
 
 Then create the VM with the `az vm create` command, as in the following example; remember to specify a unique `--public-ip-address-dns-name` argument, as `manageddisks` is likely taken.
 
-    az vm create \
-    --image credativ:Debian:8:latest \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub
-    --public-ip-address-dns-name manageddisks \
-    --resource-group myResourceGroup \
-    --location chinanorth \
-    --name myVM
+```azurecli
+az vm create \
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location chinanorth \
+--name myVM
+```
 
 The previous example creates a VM with a managed disk in a Standard storage account. To use a Premium storage account, add the `--storage-sku Premium_LRS` argument, like the following example:
 
-    az vm create \
-    --storage-sku Premium_LRS
-    --image credativ:Debian:8:latest \
-    --admin-username azureuser \
-    --ssh-key-value ~/.ssh/id_rsa.pub
-    --public-ip-address-dns-name manageddisks \
-    --resource-group myResourceGroup \
-    --location chinanorth \
-    --name myVM
+```azurecli
+az vm create \
+--storage-sku Premium_LRS
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub
+--public-ip-address-dns-name manageddisks \
+--resource-group myResourceGroup \
+--location chinanorth \
+--name myVM
+```
 
 ### Create a VM with an unmanaged, standard disk using the Azure CLI 1.0
 
@@ -78,26 +85,30 @@ You can of course also use the Azure CLI 1.0 to create standard and premium disk
 
 The `-z` option chooses Standard_A1, which is a standard-storage based Linux VM.
 
-    azure vm quick-create -g rbg \
-    exampleVMname \
-    -l chinanorth \
-    -y Linux \
-    -Q Debian \
-    -u exampleAdminUser \
-    -M ~/.ssh/id_rsa.pub
-    -z Standard_A1
+```azurecli
+azure vm quick-create -g rbg \
+exampleVMname \
+-l chinanorth \
+-y Linux \
+-Q Debian \
+-u exampleAdminUser \
+-M ~/.ssh/id_rsa.pub
+-z Standard_A1
+```
 
 ### Create a VM with premium storage using the Azure CLI 1.0
 TThe `-z` option chooses Standard_DS1, which is a Premium-storage based Linux VM.
 
-    azure vm quick-create -g rbg \
-    exampleVMname \
-    -l chinanorth \
-    -y Linux \
-    -Q Debian \
-    -u exampleAdminUser \
-    -M ~/.ssh/id_rsa.pub
-    -z Standard_DS1
+```azurecli
+azure vm quick-create -g rbg \
+exampleVMname \
+-l chinanorth \
+-y Linux \
+-Q Debian \
+-u exampleAdminUser \
+-M ~/.ssh/id_rsa.pub
+-z Standard_DS1
+```
 
 ## Standard storage
 Azure Standard Storage is the default type of storage.  Standard storage is cost effective while still being performant.  
@@ -110,7 +121,7 @@ Premium storage features:
 * Premium Storage Disks: Azure Premium Storage supports VM disks that can be attached to DS or DSv2 series Azure VMs.
 * Premium Page Blob: Premium Storage supports Azure Page Blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs).
 * Premium Locally Redundant Storage: A Premium Storage account only supports Locally Redundant Storage (LRS) as the replication option and keeps three copies of the data within a single region.
-* [Premium Storage](/documentation/articles/storage-premium-storage/)
+* [Premium Storage](../storage/storage-premium-storage.md)
 
 ## Premium Storage supported VMs
 Premium Storage supports DS-series, DSv2-series, and Fs-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with Premium Storage supported of VMs. But you cannot use Premium Storage disks with VM series, which are not Premium Storage compatible.
@@ -133,7 +144,7 @@ Azure File storage offers file shares in the cloud using the standard SMB protoc
 
 File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see Azure Storage Scalability and Performance Targets.
 
-* [How to use Azure File Storage with Linux](/documentation/articles/storage-how-to-use-files-linux/)
+* [How to use Azure File Storage with Linux](../storage/storage-how-to-use-files-linux.md)
 
 ## Hot Storage
 The Azure hot storage tier is optimized for storing data that is accessed frequently.  Hot storage is the default storage type for blob stores.
@@ -173,7 +184,7 @@ Read-access geo-redundant storage (RA-GRS) maximizes availability for your stora
 
 For a deep dive into Azure storage redundancy see:
 
-* [Azure Storage replication](/documentation/articles/storage-redundancy/)
+* [Azure Storage replication](../storage/storage-redundancy.md)
 
 ## Scalability
 Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you're storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.
@@ -189,7 +200,7 @@ We guarantee that at least 99.9% (99% for Cool Access Tier) of the time, we will
 
 We guarantee that at least 99.9% (99% for Cool Access Tier) of the time, we will successfully process requests to write data to Locally Redundant Storage (LRS), Zone Redundant Storage (ZRS), and Geo Redundant Storage (GRS) Accounts and Read Access-Geo Redundant Storage (RA-GRS) Accounts.
 
-* [Azure SLA for Storage](/support/sla/storage/)
+* [Azure SLA for Storage](https://www.azure.cn/support/sla/storage/)
 
 ## Security
 Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using Client-Side Encryption, HTTPS, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using Storage Service Encryption (SSE). OS and Data disks used by virtual machines can be set to be encrypted using Azure Disk Encryption. Delegated access to the data objects in Azure Storage can be granted using Shared Access Signatures.
@@ -206,18 +217,18 @@ This section discusses how to secure data when you transfer it into or out of Az
 ## Encryption at Rest
 We will talk about Storage Service Encryption (SSE), and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
 
-* [Azure Storage security guide](/documentation/articles/storage-security-guide/)
+* [Azure Storage security guide](../storage/storage-security-guide.md)
 
 ## Temporary disk
-Each VM contains a temporary disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](/documentation/articles/virtual-machines-linux-manage-availability/#understand-planned-vs-unplanned-maintenance) or when you [redeploy a VM](/documentation/articles/virtual-machines-linux-redeploy-to-new-node/). During a standard reboot of the VM, the data on the temporary drive should persist.
+Each VM contains a temporary disk. The temporary disk provides short-term storage for applications and processes and is intended to only store data such as page or swap files. Data on the temporary disk may be lost during a [maintenance event](./virtual-machines-linux-manage-availability.md#understand-planned-vs-unplanned-maintenance) or when you [redeploy a VM](./virtual-machines-linux-redeploy-to-new-node.md). During a standard reboot of the VM, the data on the temporary drive should persist.
 
-On Linux virtual machines, the disk is typically **/dev/sdb** and is formatted and mounted to **/mnt** by the Azure Linux Agent. The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Linux virtual machines](/documentation/articles/virtual-machines-linux-sizes/).
+On Linux virtual machines, the disk is typically **/dev/sdb** and is formatted and mounted to **/mnt** by the Azure Linux Agent. The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Linux virtual machines](./virtual-machines-linux-sizes.md).
 
 For more information on how Azure uses the temporary disk, see [Understanding the temporary drive on Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 ## Cost savings
-* [Storage cost](/pricing/details/storage/)
-* [Storage cost calculator](/pricing/calculator/)
+* [Storage cost](https://www.azure.cn/pricing/details/storage/)
+* [Storage cost calculator](https://www.azure.cn/pricing/calculator/)
 
 ## Storage limits
-* [Storage Service limits](/documentation/articles/azure-subscription-service-limits/#storage-limits)
+* [Storage Service limits](../azure-subscription-service-limits.md#storage-limits)

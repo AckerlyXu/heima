@@ -44,7 +44,7 @@ When you add a new reliable actor, Visual Studio adds two projects to your solut
 The actor project provides methods for setting and getting the value of a counter that is reliably persisted within the actor's state. The interface project provides an interface that other services can use to invoke the actor.
 
 ### Stateless Web API
-The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](/documentation/articles/service-fabric-reliable-services-communication-webapi/).
+The stateless Web API project provides a basic web service that you can use to open your application to external clients. For more information about how the project structured, see [Service Fabric Web API services with OWIN self-hosting](./service-fabric-reliable-services-communication-webapi.md).
 
 ### ASP.NET core
 The Service Fabric SDK provides the same set of ASP.NET Core templates that are available for standalone ASP.NET Core projects: empty, [Web API][aspnet-webapi], and [Web Application][aspnet-webapp].
@@ -69,12 +69,12 @@ Service Fabric enables independent versioning and upgrading of independent servi
 To learn how you can set up a continuous integration process for your Service Fabric application, see [Configure continuous integration with Visual Studio Team Services][ci-with-vso].
 
 <!-- Links -->
-[add-web-frontend]: /documentation/articles/service-fabric-add-a-web-frontend/
-[create-cluster-in-portal]: /documentation/articles/service-fabric-cluster-creation-via-portal/
-[publish-app-to-azure]: /documentation/articles/service-fabric-publish-app-remote-cluster/
-[visualize-with-sfx]: /documentation/articles/service-fabric-visualizing-your-cluster/
-[ci-with-vso]: /documentation/articles/service-fabric-set-up-continuous-integration/
-[reliable-services-webapi]: /documentation/articles/service-fabric-reliable-services-communication-webapi/
-[app-upgrade-tutorial]: /documentation/articles/service-fabric-application-upgrade-tutorial/
+[add-web-frontend]: ./service-fabric-add-a-web-frontend.md
+[create-cluster-in-portal]: ./service-fabric-cluster-creation-via-portal.md
+[publish-app-to-azure]: ./service-fabric-publish-app-remote-cluster.md
+[visualize-with-sfx]: ./service-fabric-visualizing-your-cluster.md
+[ci-with-vso]: ./service-fabric-set-up-continuous-integration.md
+[reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
+[app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 [aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
 [aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html

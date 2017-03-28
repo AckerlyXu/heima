@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Azure Service Bus Management Libraries| Azure"
-      description="Manage Service Bus namespaces and entities from .NET"
-      services="service-bus-messaging"
-      cloud="na"
-      documentationcenter="na"
-      author="jtaubensee"
-      manager="timlt" />
-<tags
-    ms.assetid="ms.service: service-bus-messaging"
-      ms.workload="na"
-      ms.tgt_pltfrm="na"
-      ms.devlang="dotnet"
-      ms.topic="article"
-      ms.date="1/6/2017"
-      wacn.date=""
-      ms.author="jotaub" />
+---
+title: Azure Service Bus Management Libraries| Azure
+description: Manage Service Bus namespaces and entities from .NET
+services: service-bus-messaging
+cloud: na
+documentationcenter: na
+author: jtaubensee
+manager: timlt
+
+ms.assetid: ms.service: service-bus-messaging
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 1/6/2017
+wacn.date: ''
+ms.author: jotaub
+---
 
 # Service Bus management libraries
 
@@ -31,9 +32,9 @@ The Service Bus management libraries can dynamically provision Service Bus names
 
 To get started using the Service Bus management libraries, you must authenticate with Azure Active Directory (AAD). AAD requires that you authenticate as a service principal which provides access to your Azure resources. For information about creating a service principal, see one of these articles:  
 
-* [Use the Azure Portal to create Active Directory application and service principal that can access resources](/documentation/articles/resource-group-create-service-principal-portal/)
-* [Use Azure PowerShell to create a service principal to access resources](/documentation/articles/resource-group-authenticate-service-principal/)
-* [Use Azure CLI to create a service principal to access resources](/documentation/articles/resource-group-authenticate-service-principal-cli/)
+* [Use the Azure Portal to create Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
 These tutorials will provide you with an `AppId` (Client ID), `TenantId`, and `ClientSecret` (Authentication Key), all of which are used for authentication by the management libraries. You must have 'Owner' permissions for the resource group on which you wish to run.
 

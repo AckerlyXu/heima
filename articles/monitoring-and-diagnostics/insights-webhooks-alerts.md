@@ -1,25 +1,25 @@
-<properties
-	pageTitle="Configure webhooks on Azure metric alerts | Azure"
-	description="Reroute Azure alerts to other non-Azure systems."
-	authors="kamathashwin"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Configure webhooks on Azure metric alerts | Azure
+description: Reroute Azure alerts to other non-Azure systems.
+authors: kamathashwin
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationCenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/07/2017"
-	ms.author="ashwink"
-	wacn.date=""/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/07/2017
+ms.author: ashwink
+wacn.date: ''
+---
 
 # Configure a webhook on an Azure metric alert
 
-Webhooks allow you to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article describes how to set a webhook on an Azure metric alert and what the payload for the HTTP POST to a webhook looks like. For information on the setup and schema for an Azure Activity Log alert (alert on events), [see this page instead](/documentation/articles/insights-auditlog-to-webhook-email/).
+Webhooks allow you to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article describes how to set a webhook on an Azure metric alert and what the payload for the HTTP POST to a webhook looks like. For information on the setup and schema for an Azure Activity Log alert (alert on events), [see this page instead](./insights-auditlog-to-webhook-email.md).
 
 Azure alerts HTTP POST the alert contents in JSON format, schema defined below, to a webhook URI that you provide when creating the alert. This URI must be a valid HTTP or HTTPS endpoint. Azure posts one entry per request when an alert is activated.
 
@@ -29,7 +29,7 @@ You can add or update the webhook URI in the Create/Update Alerts screen in the 
 
 ![Add an alert Rule](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-You can also configure an alert to post to a webhook URI using the [Azure PowerShell Cmdlets](/documentation/articles/insights-powershell-samples/#create-alert-rules), [Cross-Platform CLI](/documentation/articles/insights-cli-samples/#work-with-alerts), or [Insights REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx).
+You can also configure an alert to post to a webhook URI using the [Azure PowerShell Cmdlets](./insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](./insights-cli-samples.md#work-with-alerts), or [Insights REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx).
 
 ## Authenticating the webhook
 
@@ -75,7 +75,6 @@ The POST operation contains the following JSON payload and schema for all metric
 }
 ```
 
-
 | Field | Mandatory | Fixed Set of Values | Notes |
 |:--- |:--- |:--- |:--- |
 | status |Y |“Activated”, “Resolved” |Status for the alert based off of the conditions you have set. |
@@ -102,8 +101,8 @@ The POST operation contains the following JSON payload and schema for all metric
 | portalLink |Y | |Direct link to the portal resource summary page. |
 | properties |N |Optional |Set of `<Key, Value>` pairs (i.e. `Dictionary<String, String>`) that includes details about the event. The properties field is optional. In a custom UI or Logic app-based workflow, users can enter key/values that can be passed via the payload. The alternate way to pass custom properties back to the webhook is via the webhook uri itself (as query parameters) |
 
-
->[AZURE.NOTE] The properties field can only be set using the [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx).
+>[!NOTE]
+> The properties field can only be set using the [Azure Monitor REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn933805.aspx).
 
 ## Next steps
 

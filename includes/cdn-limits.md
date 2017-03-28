@@ -1,4 +1,3 @@
-
 Resource | Soft limit
 ---------|-----------
 CDN profiles | 8

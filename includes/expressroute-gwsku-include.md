@@ -5,4 +5,3 @@ ExpressRoute virtual network gateways can use the following SKUs:
 * Standard
 * HighPerformance
 * UltraPerformance
-

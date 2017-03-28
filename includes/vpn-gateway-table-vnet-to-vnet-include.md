@@ -1,8 +1,8 @@
 | **Deployment Model/Method** | **Azure Portal Preview** | **Classic Management Portal** | **PowerShell** |
 | --- | --- | --- | --- |
-| **Classic** |Not Supported |[Article*](/documentation/articles/virtual-networks-configure-vnet-to-vnet-connection/) |Supported |
-| **Resource Manager** |[Article+](/documentation/articles/vpn-gateway-howto-vnet-vnet-resource-manager-portal/) |Not Supported |[Article](/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/) |
-| **Connections between different deployment models** |[Article*](/documentation/articles/vpn-gateway-connect-different-deployment-models-portal/) |Supported* |[Article](/documentation/articles/vpn-gateway-connect-different-deployment-models-powershell/) |
+| **Classic** |Not Supported |[Article*](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) |Supported |
+| **Resource Manager** |[Article+](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) |Not Supported |[Article](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) |
+| **Connections between different deployment models** |[Article*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |Supported* |[Article](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md) |
 
 (+) denotes this deployment method is available only for VNets in the same subscription.<br>
 (*) denotes that this deployment method also requires PowerShell.
