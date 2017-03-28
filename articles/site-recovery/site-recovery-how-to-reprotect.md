@@ -30,7 +30,7 @@ Following are the few pre-requisite steps you need to take or consider when prep
 
 * If the VMs you want to fail back to are managed by a vCenter server, you need to make sure you have the required permissions for discovery of VMs on vCenter servers. [Read more](/documentation/articles/site-recovery-vmware-to-azure-classic/#vmware-permissions-for-vcenter-access).
 * If snapshots are present on the on-premises VM, then reprotection will fail. You can delete the snapshots before proceeding to reprotect.
-* Before you fail back you’ll need to create two additional components:
+* Before you fail back youæŠ£l need to create two additional components:
   * **Create a process server**. Process server is used to receive the data from the protected VM in Azure and send the data on-premises. This requires it to be on a low latency network between the process server and the protected VM. Hence the process server can be on-premises (if you are using an express route connection) or on Azure if you are using a VPN.
   * **Create a master target server**: The master target server receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback.
 		* [A linux VM needs a Linux master target server](/documentation/articles/site-recovery-how-to-install-linux-master-target/).
