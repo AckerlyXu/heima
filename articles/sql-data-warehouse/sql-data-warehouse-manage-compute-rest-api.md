@@ -1,0 +1,81 @@
+<properties
+    pageTitle="Pause, resume, scale with REST in Azure SQL Data Warehouse | Azure"
+    description="PowerShell tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
+    services="sql-data-warehouse"
+    documentationcenter="NA"
+    author="barbkess"
+    manager="barbkess"
+    editor="" />
+<tags
+    ms.assetid="21de7337-9356-49bb-a6eb-06c1beeba2c4"
+    ms.service="sql-data-warehouse"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="data-services"
+    ms.date="10/31/2016"
+    wacn.date=""
+    ms.author="barbkess" />
+
+# Manage compute power in Azure SQL Data Warehouse (REST)
+
+> [AZURE.SELECTOR]
+- [Overview](/documentation/articles/sql-data-warehouse-manage-compute-overview/)
+- [Portal](/documentation/articles/sql-data-warehouse-manage-compute-portal/)
+- [PowerShell](/documentation/articles/sql-data-warehouse-manage-compute-powershell/)
+- [REST](/documentation/articles/sql-data-warehouse-manage-compute-rest-api/)
+- [TSQL](/documentation/articles/sql-data-warehouse-manage-compute-tsql/)
+
+<a name="scale-performance-bk"></a>
+## <a name="scale-compute-bk"></a> Scale compute power
+
+[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+
+To change the DWUs, use the [Create or Update Database][Create or Update Database] REST API. The following example sets the service level objective to DW1000 for the database MySQLDW which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.
+
+
+    PUT https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/MyServer/databases/MySQLDW?api-version=2014-04-01-preview HTTP/1.1
+    Content-Type: application/json; charset=UTF-8
+
+    {
+        "properties": {
+            "requestedServiceObjectiveName": DW1000
+        }
+    }
+
+## <a name="pause-compute-bk"></a> Pause compute
+
+[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
+
+To pause a database, use the [Pause Database][Pause Database] REST API. The following example pauses a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1.
+
+
+    POST https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/pause?api-version=2014-04-01-preview HTTP/1.1
+
+## <a name="resume-compute-bk"></a> Resume compute
+
+[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
+
+To start a database, use the [Resume Database][Resume Database] REST API. The following example starts a database named Database02 hosted on a server named Server01. The server is in an Azure resource group named ResourceGroup1. 
+
+
+    POST https://management.chinacloudapi.cn/subscriptions{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
+
+## <a name="next-steps-bk"></a> Next steps
+
+For other management tasks, see [Management overview][Management overview].
+
+<!--Image references-->
+
+<!--Article references-->
+[Management overview]: /documentation/articles/sql-data-warehouse-overview-manage/
+[Manage compute overview]: /documentation/articles/sql-data-warehouse-manage-compute-overview/
+
+<!--MSDN references-->
+[Pause Database]: https://msdn.microsoft.com/zh-cn/library/azure/mt718817.aspx
+[Resume Database]: https://msdn.microsoft.com/zh-cn/library/azure/mt718820.aspx
+[Create or Update Database]: https://msdn.microsoft.com/zh-cn/library/azure/mt163685.aspx
+
+<!--Other Web references-->
+
+[Azure portal]: http://portal.azure.cn/

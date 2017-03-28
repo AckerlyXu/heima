@@ -1,0 +1,78 @@
+<properties
+    pageTitle="Create an new elastic database pool with PowerShell | Azure"
+    description="Learn how to use PowerShell to scale-out Azure SQL Database resources by creating a scalable elastic database pool to manage multiple databases."
+	services="sql-database"
+    documentationCenter=""
+    authors="sidneyh"
+    manager="jhubbard"
+    editor=""/>
+
+<tags
+    ms.service="sql-database"
+    ms.date="05/27/2016"
+    wacn.date="05/23/2016"/>
+
+# Create a new elastic database pool with PowerShell
+
+> [AZURE.SELECTOR]
+- [Azure portal](/documentation/articles/sql-database-elastic-pool-create-portal/)
+- [PowerShell](/documentation/articles/sql-database-elastic-pool-create-powershell/)
+- [C#](/documentation/articles/sql-database-elastic-pool-create-csharp/)
+
+
+Learn how to create an [elastic database pool](/documentation/articles/sql-database-elastic-pool/) using PowerShell cmdlets. 
+
+For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](/documentation/articles/sql-database-develop-error-messages/).
+
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](/documentation/articles/sql-database-upgrade-server-portal/) in one step.
+
+
+You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](/documentation/articles/powershell-install-configure/).
+
+## Create a new pool
+
+The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/zh-cn/library/azure/mt619378.aspx) cmdlet creates a new pool. The values for eDTU per pool, min, and max Dtus are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](/documentation/articles/sql-database-elastic-pool/#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+
+	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+
+
+## Create a new elastic database in a pool
+
+Use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/zh-cn/library/azure/mt619339.aspx) cmdlet and set the **ElasticPoolName** parameter to the target pool. To move an existing database into a pool, see [Move a database into an elastic pool](/documentation/articles/sql-database-elastic-pool-manage-powershell/#Move-a-database-into-an-elastic-pool).
+
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+
+## Create a pool and populate it with multiple new databases 
+
+Creation of a large number of databases in a pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into a new pool, see [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).   
+
+## Example: create a pool using PowerShell 
+
+This script creates a new Azure resource group and a new server. When prompted, supply an administrator username and password for the new server (not your Azure credentials).
+
+    $subscriptionId = '<your Azure subscription id>'
+    $resourceGroupName = '<resource group name>'
+    $location = '<datacenter location>'
+    $serverName = '<server name>'
+    $poolName = '<pool name>'
+    $databaseName = '<database name>'
+
+    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Set-AzureRmContext -SubscriptionId $subscriptionId
+
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $location -ServerVersion "12.0"
+    New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+
+    New-AzureRmSqlElasticPool -ResourceGroupName $resourceGroupName -ServerName $serverName -ElasticPoolName $poolName -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+
+    New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -ElasticPoolName $poolName -MaxSizeBytes 10GB
+
+
+
+## Next steps
+
+- [Manage your pool](/documentation/articles/sql-database-elastic-pool-manage-powershell/)
+- [Create elastic jobs](/documentation/articles/sql-database-elastic-jobs-overview/) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
+- [Scale out with Azure SQL Database](/documentation/articles/sql-database-elastic-scale-introduction/): Use elastic database tools to scale-out.
+
