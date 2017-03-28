@@ -61,8 +61,8 @@ The use of a [device-based X.509 certificate][lnk-protocols] and its associated 
 
 High-level device provisioning flow:
 
-* Associate an identifier to a physical device ¨C device identity and/or X.509 certificate associated to the device during device manufacturing or commissioning.
-* Create a corresponding identity entry in IoT Hub ¨C device identity and associated device information in the IoT Hub identity registry.
+* Associate an identifier to a physical device â€“ device identity and/or X.509 certificate associated to the device during device manufacturing or commissioning.
+* Create a corresponding identity entry in IoT Hub â€“ device identity and associated device information in the IoT Hub identity registry.
 * Securely store X.509 certificate thumbprint in IoT Hub identity registry.
 
 ### Root certificate on device
