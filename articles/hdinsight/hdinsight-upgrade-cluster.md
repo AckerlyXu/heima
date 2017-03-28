@@ -1,0 +1,53 @@
+<properties
+    pageTitle="Migrate from Windows-based HDInsight to Linux-based HDInsight -Azure | Azure"
+    description="Learn how to migrate from a Windows-based HDInsight cluster to a Linux-based HDInsight cluster."
+    services="hdinsight"
+    documentationcenter=""
+    author="bhanupr"
+    manager="asadk"
+    editor="bhanupr" />
+<tags
+    ms.assetid="60eb573c-e639-4815-9fc6-ea8b106d8dbc"
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="01/11/2017"
+    wacn.date=""
+    ms.author="bhanupr" />
+
+# Upgrade HDInsight cluster to a newer version
+To take advantage of the latest HDInsight features, we recommend that HDInsight clusters be upgraded to latest version. 
+Follow the below guidelines to upgrade your HDInsight cluster versions.
+
+> [AZURE.NOTE]
+> HDInsight clusters version 3.2 and 3.3 are nearing deprecation date. For information on supported version of HDInsight, see [HDInsight component versions](/documentation/articles/hdinsight-component-versioning/#supported-hdinsight-versions).
+>
+>
+
+## Upgrade tasks
+The workflow to upgrade HDInsight Cluster is as follows.
+
+![Upgrade workflow diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow.png)
+
+1. Read each section of this document to understand changes that may be required when upgrading your HDInsight cluster.
+2. Create a cluster as a test/quality assurance environment. For more information on creating a cluster, see [Learn how to create Linux-based HDInsight clusters](/documentation/articles/hdinsight-hadoop-provision-linux-clusters/)
+3. Copy existing jobs, data sources, and sinks to the new environment. See [Copy Data To Test Environment](/documentation/articles/hdinsight-migrate-from-windows-to-linux/#copy-data-to-the-test-environment) for more details.
+4. Perform validation testing to make sure that your jobs work as expected on the new cluster.
+
+Once you have verified that everything works as expected, schedule
+downtime for the migration. During this downtime, do the following
+actions:
+
+1.	Back up any transient data stored locally on the cluster nodes. For example, if you have data stored directly on a head node.
+2.	Delete the existing cluster.
+3.	Create a cluster in the same VNET subnet with latest (or supported) HDI version using the same default data store that the previous cluster used. This allows the new cluster to continue working against your existing production data.
+4.	Import any transient data you backed up.
+5.	Start jobs/continue processing using the new cluster.
+
+## Next Steps
+* [Learn how to create Linux-based HDInsight clusters](/documentation/articles/hdinsight-hadoop-provision-linux-clusters/)
+* [Connect to a Linux-based cluster using SSH from a Windows client](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/)
+* [Connect to a Linux-based cluster using SSH from a Linux, Unix, or Mac client](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/)
+* [Manage a Linux-based cluster using Ambari](/documentation/articles/hdinsight-hadoop-manage-ambari/)
