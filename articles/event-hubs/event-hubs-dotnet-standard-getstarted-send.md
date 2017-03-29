@@ -57,7 +57,7 @@ To send messages to an Event Hub, we will write a C# console application using V
 
 1. Add the following `using` statement to the top of the Program.cs file.
 
-    ```
+    ```csharp
     using Microsoft.Azure.EventHubs;
     ```
 
