@@ -36,13 +36,13 @@ Many SQL Data Warehouse administration tasks can be managed using either Azure P
 ## Pause SQL Data Warehouse Example
 Pause a database named "Database02" hosted on a server named "Server01."  The server is in an Azure resource group named "ResourceGroup1."
 
-```
+```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
 
 A variation, this example pipes the retrieved object to [Suspend-AzureRmSqlDatabase][].  As a result, the database is paused. The final command shows the results.
 
-```
+```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase

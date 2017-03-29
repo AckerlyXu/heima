@@ -34,15 +34,16 @@ To view the current DWU settings for your databases:
 2. Connect to the master database associated with the logical SQL Database server.
 3. Select from the sys.database_service_objectives dynamic management view. Here is an example: 
 
-    ```
-    SELECT
-    ```
-     db.name [Database],
-     ds.edition [Edition],
-     ds.service_objective [Service Objective]
-        FROM
-     sys.database_service_objectives ds
-     JOIN sys.databases db ON ds.database_id = db.database_id
+```sql
+SELECT
+	db.name [Database]
+,	ds.edition [Edition]
+,	ds.service_objective [Service Objective]
+FROM
+ 	sys.database_service_objectives ds
+JOIN
+	sys.databases db ON ds.database_id = db.database_id
+```
 
 <a name="scale-dwu-bk"></a>
 ## <a name="scale-compute-bk"></a> Scale compute

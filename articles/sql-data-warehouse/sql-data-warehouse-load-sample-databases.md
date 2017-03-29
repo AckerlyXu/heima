@@ -60,7 +60,7 @@ ORDER BY OrderDateKey;
 
 Example of a SELECT with a WHERE clause to filter out orders from before a certain date:
 
-```sql
+```
 SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 FROM FactInternetSales
 WHERE OrderDateKey > '20020801'
