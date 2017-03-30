@@ -32,24 +32,24 @@ ms.author: danlep
 * (Quickstart) [Create an HPC cluster with custom compute node image](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image)
 
 ### PowerShell deployment script
-* [Create an HPC cluster with the HPC Pack IaaS deployment script](./virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)
+* [Create an HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ### Tutorials
-* [Tutorial: Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](./virtual-machines-windows-excel-cluster-hpcpack.md)
+* [Tutorial: Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-windows-excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### Manual deployment with the Azure portal preview
-* [Set up the head node of an HPC Pack cluster in an Azure VM](./virtual-machines-windows-hpcpack-cluster-headnode.md)
+* [Set up the head node of an HPC Pack cluster in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### Cluster management
-* [Manage compute nodes in an HPC Pack cluster in Azure](./virtual-machines-windows-classic-hpcpack-cluster-node-manage.md)
-* [Grow and shrink Azure compute resources in an HPC Pack cluster](./virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
-* [Submit jobs to an HPC Pack cluster in Azure](./virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
+* [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Submit jobs to an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Job management in HPC Pack](https://technet.microsoft.com/zh-cn/library/jj899585.aspx)
 
 ## Add worker role nodes to an HPC Pack cluster
 * [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/zh-cn/library/gg481749.aspx)
 * [Tutorial: Set up a hybrid cluster with HPC Pack in Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
-* [Add Azure "burst" nodes to an HPC Pack head node in Azure](./virtual-machines-windows-classic-hpcpack-cluster-node-burst.md)
+* [Add Azure "burst" nodes to an HPC Pack head node in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## Integrate with Azure Batch
 * [Burst to Azure Batch with HPC Pack](https://technet.microsoft.com/zh-cn/library/mt612877.aspx)

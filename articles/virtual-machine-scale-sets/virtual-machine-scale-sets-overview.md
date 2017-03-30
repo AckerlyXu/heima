@@ -70,6 +70,7 @@ If you are redeploying an Azure Resource Manager template to change the capacity
 A scale set can be optionally configured with autoscale settings when it is created in the Azure portal preview, allowing the number of VMs to be increased or decreased based on average CPU usage. Many of the scale set templates in [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates) define autoscale settings. You can also add autoscale settings to an existing scale set. For example, here is an Azure PowerShell script to add CPU based autoscale to a scale set:
 
 ```PowerShell
+
 $subid = "yoursubscriptionid"
 $rgname = "yourresourcegroup"
 $vmssname = "yourscalesetname"
@@ -120,8 +121,8 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
    For an example of this approach, the [Azure Container Service](https://www.azure.cn/home/features/container-service/) deploys a cluster based on scale sets with a container orchestrator: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos).
 
 ## Scale set performance and scale guidance
-* Scale sets support up to 1,000 VMs in a scale set. If you create and upload your own custom VM images, the limit is 100. For considerations when using large scale sets, see [Working with large virtual machine scale sets](./virtual-machine-scale-sets-placement-groups.md).
-* You do not have to pre-create Azure storage accounts to use scale sets. Scale sets support Azure Managed Disks, which negates performance concerns about the number of disks per storage account. For more information, see [Azure virtual machine scale sets and managed disks](./virtual-machine-scale-sets-managed-disks.md).
+* Scale sets support up to 1,000 VMs in a scale set. If you create and upload your own custom VM images, the limit is 100. For considerations when using large scale sets, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md).
+* You do not have to pre-create Azure storage accounts to use scale sets. Scale sets support Azure Managed Disks, which negates performance concerns about the number of disks per storage account. For more information, see [Azure virtual machine scale sets and managed disks](virtual-machine-scale-sets-managed-disks.md).
 * Consider using Azure Premium storage instead of Standard storage for faster, more predictable VM provisioning times, and improved IO performance.
 * The number of VMs you can create is limited by the core quota in the region in which you are deploying. You may need to contact Customer Support to increase your Compute quota limit increased, even if you have a high limit of cores for use with Azure cloud services today. To query your quota, run this Azure CLI command: `azure vm list-usage`, or the following PowerShell command: `Get-AzureRmVMUsage` (if using a version of PowerShell below 1.0 use `Get-AzureVMUsage`).
 
@@ -162,6 +163,6 @@ This section lists some typical scale set scenarios. Some higher-level Azure ser
 
 **Q.** Do scale sets work with Azure availability sets?
 
-**A.** Yes. A scale set is an implicit availability set with 5 FDs and 5 UDs. Scale sets of more than 100 VMs span multiple 'placement groups', which are equivalent to multiple availability sets. For more information about placement groups, see [Working with large virtual machine scale sets](./virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same VNET as a scale set of VMs. A common configuration is to put control node VMs, which often require unique configuration, in an availability set, and data nodes in the scale set.
+**A.** Yes. A scale set is an implicit availability set with 5 FDs and 5 UDs. Scale sets of more than 100 VMs span multiple 'placement groups', which are equivalent to multiple availability sets. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same VNET as a scale set of VMs. A common configuration is to put control node VMs, which often require unique configuration, in an availability set, and data nodes in the scale set.
 
-More frequently asked questions about scale sets can be found in the [Azure Virtual Machine Scale Sets FAQ](./virtual-machine-scale-sets-faq.md).
+More frequently asked questions about scale sets can be found in the [Azure Virtual Machine Scale Sets FAQ](virtual-machine-scale-sets-faq.md).

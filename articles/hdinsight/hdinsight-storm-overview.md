@@ -32,17 +32,17 @@ Apache Storm on HDInsight is a managed cluster integrated into the Azure environ
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 Apache Storm on HDInsight provides the following key benefits:
 
 * Performs as a managed service with an SLA of 99.9% up time.
 
-* Easy customization by running scripts against the cluster during or after creation. For more information, see [Customize HDInsight clusters using script action](./hdinsight-hadoop-customize-cluster-linux.md).
+* Easy customization by running scripts against the cluster during or after creation. For more information, see [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md).
 
 * Use the language of your choice: Storm components can be written in a variety of languages, such as **Java**, **C#**, and **Python**.
 
-    * Visual Studio integration with HDInsight for the development, management, and monitoring of C# topologies. For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](./hdinsight-storm-develop-csharp-visual-studio-topology.md).
+    * Visual Studio integration with HDInsight for the development, management, and monitoring of C# topologies. For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
     * Supports the **Trident** Java interface. This interface allows you to create Storm topologies that support "exactly once" processing of messages, "transactional" datastore persistence, and a set of common stream analytics operations.
 
@@ -67,7 +67,7 @@ To get started using Storm, see [Get started with Storm on HDInsight][gettingsta
 You can provision a new Storm on HDInsight cluster in minutes. Specify the cluster name, size, administrator account, and the storage account. Azure creates the cluster, including sample topologies and a web-management dashboard.
 
 > [!NOTE]
-> You can also provision Storm clusters by using the [Azure CLI](/documentation/articles/cli-install-nodejs/) or [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
+> You can also provision Storm clusters by using the [Azure CLI](../cli-install-nodejs.md) or [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
 
 Within 15 minutes of submitting the request, you have a new Storm cluster running and ready for your first real-time analytics pipeline.
 
@@ -75,17 +75,17 @@ Within 15 minutes of submitting the request, you have a new Storm cluster runnin
 
 * __Secure Shell connectivity__: You can access the head nodes of your HDInsight cluster over the internet using SSH. SSH allows you to run commands directly on the cluster.
 
-    For more information, see [Use SSH with HDInsight](./hdinsight-hadoop-linux-use-ssh-unix.md).
+    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * __Web connectivity__: HDInsight clusters provide the Ambari web UI. The Ambari web UI allows you to easily monitor, configure, and manage services on your cluster. Storm on HDInsight also provides the Storm UI, which allows you to monitor and manage running Storm topologies from your browser.
 
-    For more information, see [Manage HDInsight using the Ambari Web UI](./hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Storm UI](./hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-using-the-storm-ui).
+    For more information, see [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Storm UI](hdinsight-storm-deploy-monitor-topology-linux.md#monitor-and-manage-using-the-storm-ui).
 
 * __Azure PowerShell and CLI__: Both Azure PowerShell and Azure CLI provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
 
 * __Visual Studio integration__: The Data Lake Tools for Visual Studio include project templates for creating C# Storm topologies, and tools to monitor Storm on HDInsight. You can create, deploy, monitor, and manage your C# topologies from within Visual Studio.
 
-    For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](./hdinsight-storm-develop-csharp-visual-studio-topology.md).
+    For more information, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 * __Integration with other Azure services__
 
@@ -95,15 +95,15 @@ Within 15 minutes of submitting the request, you have a new Storm cluster runnin
 
         * __Azure Event Hubs__: Can be accessed using EventHubSpout and EventHubBolt components provided by Microsoft. These components are written in Java, and provided as a standalone .jar file.
 
-        For more information on developing Java solutions, see [Develop a Java-based topology for Storm on HDInsight](./hdinsight-storm-develop-java-topology.md).
+        For more information on developing Java solutions, see [Develop a Java-based topology for Storm on HDInsight](hdinsight-storm-develop-java-topology.md).
 
     * For __C#__ development, you can usually use the .NET SDK for the Azure service. In some cases, the SDK may rely on frameworks that aren't available on Linux (the host OS for HDInsight 3.4 and higher.) In this case, you can use Java components from within your C# solution.
 
-        * Examples for working with __SQL DB__, __DocumentDB__, __EventHub__, and __HBase__ are included as templates in the Azure Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](./hdinsight-storm-develop-csharp-visual-studio-topology.md).
+        * Examples for working with __SQL DB__, __DocumentDB__, __EventHub__, and __HBase__ are included as templates in the Azure Data Lake Tools for Visual Studio. For more information, see [Develop a C# topology for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-        * __Azure Event Hubs__: For an example of using Java components from a C# solution, see [Process events from Azure Event Hubs with Storm on HDInsight (C#)](./hdinsight-storm-develop-csharp-event-hub-topology.md).
+        * __Azure Event Hubs__: For an example of using Java components from a C# solution, see [Process events from Azure Event Hubs with Storm on HDInsight (C#)](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
-        For more information on developing C# solutions, see [Develop a C# topology for Storm on HDInsight](./hdinsight-storm-develop-csharp-visual-studio-topology.md).
+        For more information on developing C# solutions, see [Develop a C# topology for Storm on HDInsight](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 ### Reliability
 
@@ -164,7 +164,7 @@ For more information about Storm components, see the [Storm tutorial][apachetuto
 
 The Data Lake Tools for Visual Studio allow .NET developers to design and implement a topology in C#. You can also create hybrid topologies that use Java and C# components.
 
-For more information, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](./hdinsight-storm-develop-csharp-visual-studio-topology.md).
+For more information, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 ### Java
 
@@ -172,13 +172,13 @@ Most Java examples you encounter are plain Java or Trident. Trident is a high-le
 
 For more information about Trident, see the [Trident tutorial](https://storm.apache.org/documentation/Trident-tutorial.html) at apache.org.
 
-For examples of Java and Trident topologies, see the [list of example Storm topologies](./hdinsight-storm-example-topology.md) or the storm-starter examples on your HDInsight cluster.
+For examples of Java and Trident topologies, see the [list of example Storm topologies](hdinsight-storm-example-topology.md) or the storm-starter examples on your HDInsight cluster.
 
 The storm-starter examples are located in the **/usr/hdp/current/storm-client/contrib/storm-starter** directory on your HDInsight cluster.
 
 ### Python
 
-For an example of using Python components, see [Develop Storm topologies using Python on HDInsight](./hdinsight-storm-develop-python-topology.md).
+For an example of using Python components, see [Develop Storm topologies using Python on HDInsight](hdinsight-storm-develop-python-topology.md).
 
 ## What are some common development patterns
 
@@ -198,9 +198,7 @@ How data streams are joined varies between applications. For example, you could 
 
 In the following Java example, fieldsGrouping is used to route tuples that originate from components "1", "2", and "3" to the **MyJoiner** bolt.
 
-```
-builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
-```
+    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
 
 ### Batching
 
@@ -224,16 +222,16 @@ For an example of calculating a "top N" value, see the [RollingTopWords](https:/
 
 Storm uses Apache Log4j to log information. By default, a large amount of data is logged, and it can be difficult to sort through the information. You can include a logging configuration file as part of your Storm topology to control logging behavior.
 
-For an example topology that demonstrates how to configure logging, see [Java-based WordCount](./hdinsight-storm-develop-java-topology.md) example for Storm on HDInsight.
+For an example topology that demonstrates how to configure logging, see [Java-based WordCount](hdinsight-storm-develop-java-topology.md) example for Storm on HDInsight.
 
 ## Next steps
 
 Learn more about real-time analytics solutions with Apache Storm in HDInsight:
 
 * [Getting Started with Storm on HDInsight][gettingstarted]
-* [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md)
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: ./hdinsight-apache-storm-tutorial-get-started-linux.md
+[gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md

@@ -76,9 +76,9 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
 ## Next Steps
 
-[About Traffic Manager traffic routing methods](./traffic-manager-routing-methods.md)
+[About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
 
-[Test your Traffic Manager settings](./traffic-manager-testing-settings.md)
+[Test your Traffic Manager settings](traffic-manager-testing-settings.md)
 
 [Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/zh-cn/library/hh758255.aspx)
 

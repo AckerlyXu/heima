@@ -32,13 +32,13 @@ You can connect to multiple sites by using Windows PowerShell and the Azure REST
 ### What are my cross-premises connection options?
 The following cross-premises connections are supported:
 
-* [Site-to-Site](./vpn-gateway-howto-site-to-site-resource-manager-portal.md) - VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS.
-* [Point-to-Site](./vpn-gateway-howto-point-to-site-resource-manager-portal.md) - VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device.
-* [VNet-to-VNet](./vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) - This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device.
-* [Multi-Site](./vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) - This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network.
+* [Site-to-Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md) - VPN connection over IPsec (IKE v1 and IKE v2). This type of connection requires a VPN device or RRAS.
+* [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) - VPN connection over SSTP (Secure Socket Tunneling Protocol). This connection does not require a VPN device.
+* [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) - This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device.
+* [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) - This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network.
 * [ExpressRoute](../expressroute/expressroute-introduction.md) - ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. For more information, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
-For more information about VPN gateway connections, see [About VPN Gateway](./vpn-gateway-about-vpngateways.md).
+For more information about VPN gateway connections, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 ### What is the difference between a Site-to-Site connection and Point-to-Site?
 **Site-to-Site** configurations are between your on-premises location and Azure. This means that you can connect from any of your computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network. To create this type of connection, you must have the required VPN hardware and an externally facing IPv4 address.
@@ -50,7 +50,7 @@ You can configure your virtual network to use both Site-to-Site and Point-to-Sit
 ## Virtual network gateways
 
 ### Is a VPN gateway a virtual network gateway?
-A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks. When you create a VPN gateway, you use the -GatewayType value 'Vpn'. For more information, see [About VPN Gateway configuration settings](./vpn-gateway-about-vpn-gateway-settings.md).
+A VPN gateway is a type of virtual network gateway. A VPN gateway sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks. When you create a VPN gateway, you use the -GatewayType value 'Vpn'. For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 ### What is a policy-based (static-routing) gateway?
 Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
@@ -89,7 +89,7 @@ We are limited to using pre-shared keys (PSK) for authentication.
 * Classic Management Portal: add each range that you want sent through the gateway for your virtual network on the Networks page under Local Networks. 
 
 ### Can I configure Forced Tunneling?
-Yes. See [Configure forced tunneling](./vpn-gateway-about-forced-tunneling.md).
+Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure user-defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
@@ -100,14 +100,14 @@ They are required for Azure infrastructure communication. They are protected (lo
 A VPN gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
 
 ### <a name="multi-site-and-vnet-to-vnet-connectivity"></a> More information about gateway types, requirements, and throughput
-For more information, see [About VPN Gateway configuration settings](./vpn-gateway-about-vpn-gateway-settings.md).
+For more information, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
 
 ## Site-to-Site connections and VPN devices
 ### What should I consider when selecting a VPN device?
-We have validated a set of standard Site-to-Site VPN devices in partnership with device vendors. A list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specs can be found [here](./vpn-gateway-about-vpn-devices.md). All devices in the device families listed as known compatible should work with Virtual Network. To help configure your VPN device, refer to the device configuration sample or link that corresponds to appropriate device family.
+We have validated a set of standard Site-to-Site VPN devices in partnership with device vendors. A list of known compatible VPN devices, their corresponding configuration instructions or samples, and device specs can be found [here](vpn-gateway-about-vpn-devices.md). All devices in the device families listed as known compatible should work with Virtual Network. To help configure your VPN device, refer to the device configuration sample or link that corresponds to appropriate device family.
 
 ### What do I do if I have a VPN device that isn't in the known compatible device list?
-If you do not see your device listed as a known compatible VPN device and you want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed [here](./vpn-gateway-about-vpn-devices.md). Devices meeting the minimum requirements should work well with VPN gateways. Contact your device manufacturer for additional support and configuration instructions.
+If you do not see your device listed as a known compatible VPN device and you want to use it for your VPN connection, you'll need to verify that it meets the supported IPsec/IKE configuration options and parameters listed [here](vpn-gateway-about-vpn-devices.md). Devices meeting the minimum requirements should work well with VPN gateways. Contact your device manufacturer for additional support and configuration instructions.
 
 ### Why does my policy-based VPN tunnel go down when traffic is idle?
 This is expected behavior for policy-based (also known as static routing) VPN gateways. When the traffic over the tunnel is idle for more than 5 minutes, the tunnel will be torn down. When traffic starts flowing in either direction, the tunnel will be reestablished immediately.
@@ -165,5 +165,5 @@ You view additional virtual network information in the [Virtual Network FAQ](../
 
 ## Next steps
 
-* For more information about VPN Gateway, see [About VPN Gateway](./vpn-gateway-about-vpngateways.md).
-* For more information about VPN Gateway configuration settings, see [About VPN Gateway configuration settings](./vpn-gateway-about-vpn-gateway-settings.md).
+* For more information about VPN Gateway, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
+* For more information about VPN Gateway configuration settings, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).

@@ -29,14 +29,14 @@ ms.custom: H1Hack27Feb2017
 This document provides an example of using Azure PowerShell to submit Pig jobs to a Hadoop on HDInsight cluster. Pig allows you to write MapReduce jobs by using a language (Pig Latin) that models data transformations, rather than map and reduce functions.
 
 > [!NOTE]
-> This document does not provide a detailed description of what the Pig Latin statements used in the examples do. For information about the Pig Latin used in this example, see [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md).
+> This document does not provide a detailed description of what the Pig Latin statements used in the examples do. For information about the Pig Latin used in this example, see [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md).
 
 ## <a id="prereq"></a>Prerequisites
 
 * **An Azure HDInsight cluster**
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * **A workstation with Azure PowerShell**.
 
@@ -58,90 +58,82 @@ The following steps demonstrate how to use these cmdlets to run a job on your HD
 
 1. Using an editor, save the following code as **pigjob.ps1**.
 
-    ```
-    # Login to your Azure subscription
-    # Is there an active Azure subscription?
-    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
-        Add-AzureRmAccount -EnvironmentName AzureChinaCloud
-    }
+        # Login to your Azure subscription
+        # Is there an active Azure subscription?
+        $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+        if(-not($sub))
+        {
+            Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+        }
 
-    # Get cluster info
-    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-    $creds=Get-Credential -Message "Enter the login for the cluster"
+        # Get cluster info
+        $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
+        $creds=Get-Credential -Message "Enter the login for the cluster"
 
-    #Store the Pig Latin into $QueryString
-    $QueryString =  "LOGS = LOAD 'wasb:///example/data/sample.log';" +
-    "LEVELS = foreach LOGS generate REGEX_EXTRACT(`$0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
-    "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
-    "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
-    "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
-    "RESULT = order FREQUENCIES by COUNT desc;" +
-    "DUMP RESULT;"
+        #Store the Pig Latin into $QueryString
+        $QueryString =  "LOGS = LOAD 'wasb:///example/data/sample.log';" +
+        "LEVELS = foreach LOGS generate REGEX_EXTRACT(`$0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
+        "FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;" +
+        "GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;" +
+        "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
+        "RESULT = order FREQUENCIES by COUNT desc;" +
+        "DUMP RESULT;"
 
-    #Create a new HDInsight Pig Job definition
-    $pigJobDefinition = New-AzureRmHDInsightPigJobDefinition `
-        -Query $QueryString `
-        -Arguments "-w"
+        #Create a new HDInsight Pig Job definition
+        $pigJobDefinition = New-AzureRmHDInsightPigJobDefinition `
+            -Query $QueryString `
+            -Arguments "-w"
 
-    # Start the Pig job on the HDInsight cluster
-    Write-Host "Start the Pig job ..." -ForegroundColor Green
-    $pigJob = Start-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobDefinition $pigJobDefinition `
-        -HttpCredential $creds
+        # Start the Pig job on the HDInsight cluster
+        Write-Host "Start the Pig job ..." -ForegroundColor Green
+        $pigJob = Start-AzureRmHDInsightJob `
+            -ClusterName $clusterName `
+            -JobDefinition $pigJobDefinition `
+            -HttpCredential $creds
 
-    # Wait for the Pig job to complete
-    Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
-    Wait-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobId $pigJob.JobId `
-        -HttpCredential $creds
+        # Wait for the Pig job to complete
+        Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
+        Wait-AzureRmHDInsightJob `
+            -ClusterName $clusterName `
+            -JobId $pigJob.JobId `
+            -HttpCredential $creds
 
-    # Display the output of the Pig job.
-    Write-Host "Display the standard output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -ClusterName $clusterName `
-        -JobId $pigJob.JobId `
-        -HttpCredential $creds
-    ```
+        # Display the output of the Pig job.
+        Write-Host "Display the standard output ..." -ForegroundColor Green
+        Get-AzureRmHDInsightJobOutput `
+            -ClusterName $clusterName `
+            -JobId $pigJob.JobId `
+            -HttpCredential $creds
 
 1. Open a new Windows PowerShell command prompt. Change directories to the location of the **pigjob.ps1** file, then use the following command to run the script:
 
-    ```
-    .\pigjob.ps1
-    ```
+        .\pigjob.ps1
 
     You will first be prompted to log in to your Azure subscription. Then, you will be asked for the HTTPs/Admin account name and password for the HDInsight cluster.
 
 2. When the job completes, it should return information similar to the following text:
 
-    ```
-    Start the Pig job ...
-    Wait for the Pig job to complete ...
-    Display the standard output ...
-    (TRACE,816)
-    (DEBUG,434)
-    (INFO,96)
-    (WARN,11)
-    (ERROR,6)
-    (FATAL,2)
-    ```
+        Start the Pig job ...
+        Wait for the Pig job to complete ...
+        Display the standard output ...
+        (TRACE,816)
+        (DEBUG,434)
+        (INFO,96)
+        (WARN,11)
+        (ERROR,6)
+        (FATAL,2)
 
 ## <a id="troubleshooting"></a>Troubleshooting
 
 If no information is returned when the job completes, an error may have occurred during processing. To view error information for this job, add the following command to the end of the **pigjob.ps1** file, save it, and then run it again.
 
-```
-# Print the output of the Pig job.
-Write-Host "Display the standard error output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $pigJob.JobId `
-        -HttpCredential $creds `
-        -DisplayOutputType StandardError
-```
+    # Print the output of the Pig job.
+    Write-Host "Display the standard error output ..." -ForegroundColor Green
+    Get-AzureRmHDInsightJobOutput `
+            -Clustername $clusterName `
+            -JobId $pigJob.JobId `
+            -HttpCredential $creds `
+            -DisplayOutputType StandardError
 
 This returns the information that was written to STDERR on the server when you ran the job, and it may help determine why the job is failing.
 
@@ -151,9 +143,9 @@ As you can see, Azure PowerShell provides an easy way to run Pig jobs on an HDIn
 ## <a id="nextsteps"></a>Next steps
 For general information about Pig in HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md)
-* [Use MapReduce with Hadoop on HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

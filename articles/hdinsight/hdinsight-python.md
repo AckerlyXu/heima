@@ -31,7 +31,7 @@ Hive and Pig are great for working with data in HDInsight, but sometimes you nee
     [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * A text editor
 
@@ -142,8 +142,10 @@ Here's what this example does:
 
 The Python script file is similar between C Python and Jython, the only difference being that you must import from **pig\_util** when using C Python. Here is the **pig\_python.py** script:
 
-# <a name="streamingpy"></a> Uncomment the following if using C Python
+<a name="streamingpy"></a>
+
 ```python
+# Uncomment the following if using C Python
 #from pig_util import outputSchema
 
 @outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
@@ -181,27 +183,21 @@ When the data is returned to Pig, it has a consistent schema as defined in the *
 If you are using a Linux-based HDInsight cluster, use the **SSH** steps. If you are using a Windows-based HDInsight cluster and a Windows client, use the **PowerShell** steps.
 
 ### SSH
-For more information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 1. Using the Python examples [streaming.py](#streamingpy) and [pig_python.py](#jythonpy), create local copies of the files on your development machine.
 
 2. Use `scp` to copy the files to your HDInsight cluster. For example, the following command copies the files to a cluster named **mycluster**.
 
-    ```
-    scp streaming.py pig_python.py myuser@mycluster-ssh.azurehdinsight.cn:
-    ```
+        scp streaming.py pig_python.py myuser@mycluster-ssh.azurehdinsight.cn:
 
 3. Use SSH to connect to the cluster. For example, the following would connect to a cluster named **mycluster** as user **myuser**.
 
-    ```
-    ssh myuser@mycluster-ssh.azurehdinsight.cn
-    ```
+        ssh myuser@mycluster-ssh.azurehdinsight.cn
 4. From the SSH session, add the python files uploaded previously to the WASB storage for the cluster.
 
-    ```
-    hdfs dfs -put streaming.py /streaming.py
-    hdfs dfs -put pig_python.py /pig_python.py
-    ```
+        hdfs dfs -put streaming.py /streaming.py
+        hdfs dfs -put pig_python.py /pig_python.py
 
 After uploading the files, use the following steps to run the Hive and Pig jobs.
 
@@ -210,7 +206,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 1. Use the `hive` command to start the hive shell. You should see a `hive>` prompt once the shell has loaded.
 2. Enter the following at the `hive>` prompt.
 
-    ```hiveql
+    ```hive
     add file wasbs:///streaming.py;
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
         USING 'python streaming.py' AS
@@ -218,16 +214,13 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
     FROM hivesampletable
     ORDER BY clientid LIMIT 50;
     ```
-
 3. After entering the last line, the job should start. Once the job completes, it returns output similar to the following example:
 
-    ```
-    100041    RIM 9650    d476f3687700442549a83fac4560c51c
-    100041    RIM 9650    d476f3687700442549a83fac4560c51c
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-    ```
+        100041    RIM 9650    d476f3687700442549a83fac4560c51c
+        100041    RIM 9650    d476f3687700442549a83fac4560c51c
+        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+        100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
 #### Pig
 
@@ -245,13 +238,11 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 3. After entering the following line, the job should start. Once the job completes, it returns output similar to the following.
 
-    ```
-    ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
-    ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
-    ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
-    ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
-    ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
-    ```
+        ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+        ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+        ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+        ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+        ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
 4. Use `quit` to exit the Grunt shell, and then use the following to edit the pig_python.py file on the local file system:
 
@@ -259,9 +250,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
 
 5. Once in the editor, uncomment the following line by removing the `#` character from the beginning of the line:
 
-    ```
-    #from pig_util import outputSchema
-    ```
+        #from pig_util import outputSchema
 
     Once the change has been made, use Ctrl+X to exit the editor. Select Y, and then enter to save the changes.
 
@@ -328,7 +317,7 @@ Azure PowerShell, see [How to install and configure Azure PowerShell](https://do
     This script retrieves information for your HDInsight cluster, then extracts the account and key for the default storage account, and uploads the files to the root of the container.
 
     > [!NOTE]
-    > Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](./hdinsight-upload-data.md) document.
+    > Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.
 
 After uploading the files, use the following PowerShell scripts to start the jobs. When the job completes, the output should be written to the PowerShell console.
 
@@ -385,13 +374,11 @@ Get-AzureRmHDInsightJobOutput `
 
 The output for the **Hive** job should appear similar to the following example:
 
-```
-100041    RIM 9650    d476f3687700442549a83fac4560c51c
-100041    RIM 9650    d476f3687700442549a83fac4560c51c
-100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
-```
+    100041    RIM 9650    d476f3687700442549a83fac4560c51c
+    100041    RIM 9650    d476f3687700442549a83fac4560c51c
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
+    100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
 #### <a name="jythonpy"></a> Pig (Jython)
 
@@ -446,13 +433,11 @@ Get-AzureRmHDInsightJobOutput `
 
 The output for the **Pig** job should appear similar to the following:
 
-```
-((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
-((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
-((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
-((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
-((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
-```
+    ((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+    ((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+    ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+    ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+    ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
@@ -460,9 +445,7 @@ The output for the **Pig** job should appear similar to the following:
 
 When running the hive job, you may encounter an error similar to the following:
 
-```
-Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
-```
+    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 
 This problem may be caused by the line endings in the streaming.py file. Many Windows editors default to using CRLF as the line ending, but Linux applications usually expect LF.
 
@@ -499,6 +482,6 @@ If you need to load Python modules that aren't provided by default, see [How to 
 
 For other ways to use Pig, Hive, and to learn about using MapReduce, see the following documents:
 
-* [Use Hive with HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)

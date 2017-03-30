@@ -83,15 +83,15 @@ To disable continuous deployment,
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Use Azure to automatically generate a CI/CD pipeline to deploy an ASP.NET 4 app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
-[Azure App Service]: ./app-service-changes-existing-services.md
+[Azure App Service]: /azure/app-service-changes-existing-services/
 [Azure portal preview]: https://portal.azure.cn
 [VSTS Portal]: https://www.visualstudio.com/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
 [How to use PowerShell for Azure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[How to use the Azure Command-Line Tools for Mac and Linux]: /documentation/articles/cli-install-nodejs/
+[How to use the Azure Command-Line Tools for Mac and Linux]:../cli-install-nodejs.md
 [Git Documentation]: http://git-scm.com/documentation
 
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo
 [Create a repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Get started with VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
-[Continuous delivery to Azure using Visual Studio Team Services]: /documentation/articles/cloud-services-continuous-delivery-use-vso/
+[Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md

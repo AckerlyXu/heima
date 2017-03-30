@@ -30,7 +30,6 @@ To find VMSS related commandlets, use the search string \*VMSS\*. For example, _
 
 ## Creating a VMSS
 #### Create Resource Group
-
 ```
 $loc = 'chinanorth';
 $rgname = 'mynewrgwu';
@@ -39,14 +38,12 @@ $rgname = 'mynewrgwu';
 
 ### Create Networking (VNET / Subnet)
 #### Subnet Specification
-
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
 #### VNET Specification
-
 ```
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
@@ -64,7 +61,6 @@ $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName
 ```
 
 #### Create Load Balancer
-
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname

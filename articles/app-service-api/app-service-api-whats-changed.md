@@ -37,32 +37,28 @@ For API scenarios, there are a number of relevant new capabilities:
 * **Service-to-service or "Internal" access**: If you have a daemon process or some other client needing access to APIs without an interface, you can request a token using an AAD service principal and pass it to App Service for authentication with your application.
 * **Deferred authorization**: Many applications have varying access restrictions for different parts of the application. Perhaps you want some APIs to be publicly available, while others require sign-in. The original Authentication/Authorization feature was all-or-nothing, with the whole site requiring login. This option still exists, but you can alternatively allow your application code to render access decisions after App Service has authenticated the user.
 
-For more information about the new authentication features, see [Authentication and authorization for API Apps in Azure App Service](./app-service-api-authentication.md). For information about how to migrate existing API apps from the previous API apps model to the new one, see [Migrating existing API apps](#migrating-existing-api-apps) later in this article.
+For more information about the new authentication features, see [Authentication and authorization for API Apps in Azure App Service](app-service-api-authentication.md). For information about how to migrate existing API apps from the previous API apps model to the new one, see [Migrating existing API apps](#migrating-existing-api-apps) later in this article.
 
 ### CORS
 Instead of a comma-delimited **MS_CrossDomainOrigins** app setting, there is now a blade in the Azure management portal for configuring CORS. Alternatively, it can be configured using Resource Manager tooling such as Azure PowerShell or CLI. Set the **cors** property on the **Microsoft.Web/sites/config** resource type for your **&lt;site name&gt;/web** resource. For example:
 
-```
-{
-    "cors": {
-        "allowedOrigins": [
-            "https://localhost:44300"
-        ]
-    }
-} 
-```
+    {
+        "cors": {
+            "allowedOrigins": [
+                "https://localhost:44300"
+            ]
+        }
+    } 
 
 ### API metadata
 The API definition blade is now available across Web, Mobile and API Apps. In the management portal, you can specify either a relative url or an absolute url pointing to an endpoint that hosts a Swagger 2.0 representation of your API. Alternatively, it can be configured using Resource Manager tooling. Set the **apiDefinition** property on the **Microsoft.Web/sites/config** resource type for your **&lt;site name&gt;/web** resource. For example:
 
-```
-{
-    "apiDefinition":
     {
-        "url": "https://myStorageAccount.blob.core.chinacloudapi.cn/swagger/apiDefinition.json"
+        "apiDefinition":
+        {
+            "url": "https://myStorageAccount.blob.core.chinacloudapi.cn/swagger/apiDefinition.json"
+        }
     }
-}
-```
 
 At this time, the metadata endpoint needs to be publicly accessible without authentication for many downstream clients (e.g. Visual Studio REST API client generation and PowerApps "Add API" flow) to consume it. This does mean if you are using App Service authentication and want to expose the API definition from within your app itself, you will need to use the Deferred Authentication option described earlier so that the route to your Swagger metadata is public.
 
@@ -108,7 +104,7 @@ If you were instead using the App Service alpha SDKs, these are now deprecated:
 In particular with Azure Active Directory, however, no App Service-specific is required if you are using the AAD token directly.
 
 ### Internal access
-The previous API Apps model included a built-in internal access level. This required use of the SDK for signing requests. As described earlier, with the new API Apps model, AAD service principals can be used as an alternate for service-to-service authentication without requiring an App Service-specific SDK. Learn more in [Service principal authentication for API Apps in Azure App Service](./app-service-api-dotnet-service-principal-auth.md).
+The previous API Apps model included a built-in internal access level. This required use of the SDK for signing requests. As described earlier, with the new API Apps model, AAD service principals can be used as an alternate for service-to-service authentication without requiring an App Service-specific SDK. Learn more in [Service principal authentication for API Apps in Azure App Service](app-service-api-dotnet-service-principal-auth.md).
 
 ### Discovery
 The previous API Apps model had APIs for discovering other API apps at runtime in the same resource group behind the same gateway. This is especially useful in architectures that implement microservice patterns. While this is not directly supported, a number of options are available:
@@ -119,7 +115,7 @@ The previous API Apps model had APIs for discovering other API apps at runtime i
 4. At deployment time, populate the app settings of all the API apps (and clients) with the endpoints of the other API apps. This is viable in template deployments and since API Apps now give you control of the url.
 
 ## Next Steps
-To learn more, read the articles in the [API Apps Documentation section](./index.md). They have been updated to reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:
+To learn more, read the articles in the [API Apps Documentation section](/azure/app-service-api/). They have been updated to reflect the new model for API Apps. In addition, do reach out on the forums for additional details or guidance on migration:
 
 * [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureAPIApps)
 * [CSDN forum](http://azure.csdn.net/)

@@ -29,7 +29,7 @@ App Service plans define:
 - Instance size (Small, Medium, Large)
 - SKU (Free, Shared, Basic, Standard, Premium)
 
-Web Apps, Mobile Apps, Function Apps, or API Apps, in [Azure App Service](../app-service-web/app-service-changes-existing-services.md) all run in an App Service plan.  Apps in the same subscription and region and resource group can share an App Service plan. 
+Web Apps, Mobile Apps, Function Apps, or API Apps, in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/) all run in an App Service plan.  Apps in the same subscription and region and resource group can share an App Service plan. 
 
 All applications assigned to an **App Service plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
 
@@ -117,7 +117,7 @@ To avoid unexpected charges, when the last app hosted in an App Service plan is 
 App Service plans represent a set of features and capacity that you can share across your apps. App Service plans give you the flexibility to allocate specific apps to a set of resources and further optimize your Azure resource utilization. This way, if you want to save money on your testing environment, you can share a plan across multiple apps. You can also maximize throughput for your production environment by scaling it across multiple regions and plans.
 
 ## What's changed
-* For a guide to the change from Websites to App Service, see: [Azure App Service and Its Impact on Existing Azure Services](../app-service-web/app-service-changes-existing-services.md)
+* For a guide to the change from Websites to App Service, see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
 
 [pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
 [assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png

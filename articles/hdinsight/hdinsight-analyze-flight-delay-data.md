@@ -6,7 +6,6 @@ documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
-ROBOTS: NOINDEX
 
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
@@ -17,6 +16,8 @@ ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: jgao
+ROBOTS: NOINDEX
+
 ---
 
 # Analyze flight delay data by using Hive in HDInsight
@@ -26,7 +27,7 @@ ms.author: jgao
 Hive provides a means of running Hadoop MapReduce jobs through an SQL-like scripting language called *[HiveQL][hadoop-hiveql]*, which can be applied towards summarizing, querying, and analyzing large volumes of data.
 
 > [!IMPORTANT]
-> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). For steps that work with a Linux-based cluster, see [Analyze flight delay data by using Hive in HDInsight (Linux)](./hdinsight-analyze-flight-delay-data-linux.md).
+> The steps in this document require a Windows-based HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). For steps that work with a Linux-based cluster, see [Analyze flight delay data by using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 One of the major benefits of Azure HDInsight is the separation of data storage and compute. HDInsight uses Azure Blob storage for data storage. A typical job involves three parts:
 
@@ -50,7 +51,7 @@ The main portion of the tutorial shows you how to use one Windows PowerShell scr
 In the appendixes, you can find the instructions for uploading flight delay data, creating/uploading a Hive query string, and preparing the Azure SQL database for the Sqoop job.
 
 > [!NOTE]
-> The steps in this document are specific to Windows-based HDInsight clusters. For steps that work with a Linux-based cluster, see [Analyze flight delay data using Hive in HDInsight (Linux)](./hdinsight-analyze-flight-delay-data-linux.md)
+> The steps in this document are specific to Windows-based HDInsight clusters. For steps that work with a Linux-based cluster, see [Analyze flight delay data using Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a id="prerequisite"></a> Prerequisites
 Before you begin this tutorial, you must have the following items:
@@ -61,7 +62,7 @@ Before you begin this tutorial, you must have the following items:
     > [!IMPORTANT]
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
     ><p>
-    > Please follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](./hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
+    > Please follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
 
 **Files used in this tutorial**
 
@@ -239,7 +240,6 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
     ###########################################
     Remove-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
     ```
-
 3. Connect to your SQL database and see average flight delays by city in the AvgDelays table:
 
     ![HDI.FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
@@ -351,14 +351,11 @@ Uploading the data file and the HiveQL script files (see [Appendix B](#appendix-
     Get-AzureStorageBlob -Container $blobContainerName  -Context $storageContext -Prefix $destFolder
     #EndRegion
     ```
-
 4. Press **F5** to run the script.
 
 If you choose to use a different method for uploading the files, please make sure the file path is tutorials/flightdelay/data. The syntax for accessing the files is:
 
-```
-wasbs://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/tutorials/flightdelay/data
-```
+    wasbs://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/tutorials/flightdelay/data
 
 The path tutorials/flightdelay/data is the virtual folder you created when you uploaded the files. Verify that there are 12 files, one for each month.
 
@@ -736,15 +733,15 @@ Now you understand how to upload a file to Azure Blob storage, how to populate a
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
-[hdinsight-use-oozie]: ./hdinsight-use-oozie.md
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
-[hdinsight-get-started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]: ./hdinsight-use-sqoop.md
-[hdinsight-use-pig]: ./hdinsight-use-pig.md
-[hdinsight-develop-mapreduce]: ./hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 [hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html

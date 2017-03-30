@@ -27,7 +27,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-```
+```powershell
 # Generates a Random Value
 $Random=(New-Guid).ToString().Substring(0,8)
 

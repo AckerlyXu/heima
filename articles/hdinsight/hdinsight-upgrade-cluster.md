@@ -23,7 +23,7 @@ To take advantage of the latest HDInsight features, we recommend that HDInsight 
 Follow the below guidelines to upgrade your HDInsight cluster versions.
 
 > [!NOTE]
-> HDInsight clusters version 3.2 and 3.3 are nearing deprecation date. For information on supported version of HDInsight, see [HDInsight component versions](./hdinsight-component-versioning.md#supported-hdinsight-versions).
+> HDInsight clusters version 3.2 and 3.3 are nearing deprecation date. For information on supported version of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 >
 >
 
@@ -33,8 +33,8 @@ The workflow to upgrade HDInsight Cluster is as follows.
 ![Upgrade workflow diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow.png)
 
 1. Read each section of this document to understand changes that may be required when upgrading your HDInsight cluster.
-2. Create a cluster as a test/quality assurance environment. For more information on creating a cluster, see [Learn how to create Linux-based HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md)
-3. Copy existing jobs, data sources, and sinks to the new environment. See [Copy Data To Test Environment](./hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment) for more details.
+2. Create a cluster as a test/quality assurance environment. For more information on creating a cluster, see [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
+3. Copy existing jobs, data sources, and sinks to the new environment. See [Copy Data To Test Environment](hdinsight-migrate-from-windows-to-linux.md#copy-data-to-the-test-environment) for more details.
 4. Perform validation testing to make sure that your jobs work as expected on the new cluster.
 
 Once you have verified that everything works as expected, schedule
@@ -48,7 +48,7 @@ actions:
 5. Start jobs/continue processing using the new cluster.
 
 ## Next Steps
-* [Learn how to create Linux-based HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md)
-* [Connect to a Linux-based cluster using SSH from a Windows client](./hdinsight-hadoop-linux-use-ssh-windows.md)
-* [Connect to a Linux-based cluster using SSH from a Linux, Unix, or Mac client](./hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Manage a Linux-based cluster using Ambari](./hdinsight-hadoop-manage-ambari.md)
+* [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
+* [Connect to a Linux-based cluster using SSH from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
+* [Connect to a Linux-based cluster using SSH from a Linux, Unix, or Mac client](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Manage a Linux-based cluster using Ambari](hdinsight-hadoop-manage-ambari.md)

@@ -1,5 +1,3 @@
-<!-- not suitable for Mooncake -->
-
 ---
 title: Upload a custom Linux disk with Azure CLI 2.0 | Azure
 description: Create and upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and the Azure CLI 2.0
@@ -22,7 +20,7 @@ ms.author: iainfou
 ---
 
 # Upload and create a Linux VM from custom disk with the Azure CLI 2.0
-This article shows you how to upload a virtual hard disk (VHD) to Azure with the Azure CLI 2.0 and create Linux VMs from this custom disk. You can also perform these steps with the [Azure CLI 1.0](./virtual-machines-linux-upload-vhd-nodejs.md). This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
+This article shows you how to upload a virtual hard disk (VHD) to Azure with the Azure CLI 2.0 and create Linux VMs from this custom disk. You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to upload a VHD to Azure. More detailed information and context for each step can be found the rest of the document, [starting here](#requirements).
@@ -108,12 +106,12 @@ az vm create --resource-group myResourceGroup --location chinanorth \
     --use-unmanaged-disk
 ```
 
-The destination storage account has to be the same as where you uploaded your virtual disk to. You also need to specify, or answer prompts for, all the additional parameters required by the **az vm create** command such as virtual network, public IP address, username, and SSH keys. You can read more about the [available CLI Resource Manager parameters](./azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+The destination storage account has to be the same as where you uploaded your virtual disk to. You also need to specify, or answer prompts for, all the additional parameters required by the **az vm create** command such as virtual network, public IP address, username, and SSH keys. You can read more about the [available CLI Resource Manager parameters](azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
 
 ## Requirements
 To complete the following steps, you need:
 
-* **Linux operating system installed in a .vhd file** - Install an [Azure-endorsed Linux distribution](./virtual-machines-linux-endorsed-distros.md) (or see [information for non-endorsed distributions](./virtual-machines-linux-create-upload-generic.md)) to a virtual disk in the VHD format. Multiple tools exist to create a VM and VHD:
+* **Linux operating system installed in a .vhd file** - Install an [Azure-endorsed Linux distribution](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (or see [information for non-endorsed distributions](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) to a virtual disk in the VHD format. Multiple tools exist to create a VM and VHD:
     * Install and configure [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) or [KVM](http://www.linux-kvm.org/page/RunningKVM), taking care to use VHD as your image format. If needed, you can [convert an image](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) using `qemu-img convert`.
     * You can also use Hyper-V [on Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) or [on Windows Server 2012/2012 R2](https://technet.microsoft.com/zh-cn/library/hh846766.aspx).
 
@@ -131,20 +129,20 @@ Make sure that you have the latest [Azure CLI 2.0](https://docs.microsoft.com/cl
 In the following examples, replace example parameter names with your own values. Example parameter names included `myResourceGroup`, `mystorageaccount`, and `mydisks`.
 
 ## <a id="prepimage"></a> Prepare the disk to be uploaded
-Azure supports various Linux distributions (see [Endorsed Distributions](./virtual-machines-linux-endorsed-distros.md)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure:
+Azure supports various Linux distributions (see [Endorsed Distributions](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). The following articles guide you through how to prepare the various Linux distributions that are supported on Azure:
 
-* **[CentOS-based Distributions](./virtual-machines-linux-create-upload-centos.md)**
-* **[Debian Linux](./virtual-machines-linux-debian-create-upload-vhd.md)**
-* **[Oracle Linux](./virtual-machines-linux-oracle-create-upload-vhd.md)**
-* **[Red Hat Enterprise Linux](./virtual-machines-linux-redhat-create-upload-vhd.md)**
-* **[SLES & openSUSE](./virtual-machines-linux-suse-create-upload-vhd.md)**
-* **[Ubuntu](./virtual-machines-linux-create-upload-ubuntu.md)**
-* **[Other - Non-Endorsed Distributions](./virtual-machines-linux-create-upload-generic.md)**
+* **[CentOS-based Distributions](virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES & openSUSE](virtual-machines-linux-suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-Also see the **[Linux Installation Notes](./virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)** for more general tips on preparing Linux images for Azure.
+Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)** for more general tips on preparing Linux images for Azure.
 
 > [!NOTE]
-> The [Azure platform SLA](https://www.azure.cn/support/sla/virtual-machines/) applies to VMs running Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](./virtual-machines-linux-endorsed-distros.md).
+> The [Azure platform SLA](https://www.azure.cn/support/sla/virtual-machines/) applies to VMs running Linux only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
@@ -304,4 +302,4 @@ az group deployment create --resource-group myNewResourceGroup \
 ```
 
 ## Next steps
-After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](./virtual-machines-linux-add-disk.md) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](./virtual-machines-linux-nsg-quickstart.md).
+After you have prepared and uploaded your custom virtual disk, you can read more about [using Resource Manager and templates](../azure-resource-manager/resource-group-overview.md). You may also want to [add a data disk](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to your new VMs. If you have applications running on your VMs that you need to access, be sure to [open ports and endpoints](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

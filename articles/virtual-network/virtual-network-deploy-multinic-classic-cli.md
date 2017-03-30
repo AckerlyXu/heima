@@ -27,14 +27,14 @@ ms.custom: H1Hack27Feb2017
 You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multiple NICs enable separation of traffic types across NICs. For example, one NIC might communicate with the Internet, while another communicates only with internal resources not connected to the Internet. The ability to separate network traffic across multiple NICs is required for many network virtual appliances, such as application delivery and WAN optimization solutions.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to perform these steps using the [Resource Manager deployment model](./virtual-network-deploy-multinic-arm-cli.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to perform these steps using the [Resource Manager deployment model](virtual-network-deploy-multinic-arm-cli.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
 The following steps use a resource group named *IaaSStory* for the WEB servers and a resource group named *IaaSStory-BackEnd* for the DB servers.
 
 ## <a name="Prerequisites"></a> Prerequisites
-Before you can create the DB servers, you need to create the *IaaSStory* resource group with all the necessary resources for this scenario. To create these resources, complete the steps that follow. Create a virtual network by following the steps in the [Create a virtual network](./virtual-networks-create-vnet-classic-cli.md) article.
+Before you can create the DB servers, you need to create the *IaaSStory* resource group with all the necessary resources for this scenario. To create these resources, complete the steps that follow. Create a virtual network by following the steps in the [Create a virtual network](virtual-networks-create-vnet-classic-cli.md) article.
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
@@ -55,7 +55,6 @@ You can download the full bash script used [here](https://raw.githubusercontent.
     vnetName="WTestVNet"
     backendSubnetName="BackEnd"
     ```
-
 2. Change the values of the variables below based on the values you want to use for your backend deployment.
 
     ```azurecli
@@ -143,51 +142,47 @@ Now that you downloaded and changed the script based on your needs, run the scri
 
 1. Save your script and run it from your **Bash** terminal. You will see the initial output, as shown below.
 
-    ```
-    info:    Executing command service create
-    info:    Creating cloud service
-    data:    Cloud service name IaaSStory-Backend
-    info:    service create command OK
-    info:    Executing command storage account create
-    info:    Creating storage account
-    info:    storage account create command OK
-    info:    Executing command vm create
-    info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
-    info:    Looking up virtual network
-    info:    Looking up cloud service
-    info:    Getting cloud service properties
-    info:    Looking up deployment
-    info:    Creating VM
-    ```
+        info:    Executing command service create
+        info:    Creating cloud service
+        data:    Cloud service name IaaSStory-Backend
+        info:    service create command OK
+        info:    Executing command storage account create
+        info:    Creating storage account
+        info:    storage account create command OK
+        info:    Executing command vm create
+        info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
+        info:    Looking up virtual network
+        info:    Looking up cloud service
+        info:    Getting cloud service properties
+        info:    Looking up deployment
+        info:    Creating VM
 
 2. After a few minutes, the execution will end and you will see the rest of the output as shown below.
 
-    ```
-    info:    OK
-    info:    vm create command OK
-    info:    Executing command vm disk attach-new
-    info:    Getting virtual machines
-    info:    Adding Data-Disk
-    info:    vm disk attach-new command OK
-    info:    Executing command vm disk attach-new
-    info:    Getting virtual machines
-    info:    Adding Data-Disk
-    info:    vm disk attach-new command OK
-    info:    Executing command vm create
-    info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
-    info:    Looking up virtual network
-    info:    Looking up cloud service
-    info:    Getting cloud service properties
-    info:    Looking up deployment
-    info:    Creating VM
-    info:    OK
-    info:    vm create command OK
-    info:    Executing command vm disk attach-new
-    info:    Getting virtual machines
-    info:    Adding Data-Disk
-    info:    vm disk attach-new command OK
-    info:    Executing command vm disk attach-new
-    info:    Getting virtual machines
-    info:    Adding Data-Disk
-    info:    vm disk attach-new command OK
-    ```
+        info:    OK
+        info:    vm create command OK
+        info:    Executing command vm disk attach-new
+        info:    Getting virtual machines
+        info:    Adding Data-Disk
+        info:    vm disk attach-new command OK
+        info:    Executing command vm disk attach-new
+        info:    Getting virtual machines
+        info:    Adding Data-Disk
+        info:    vm disk attach-new command OK
+        info:    Executing command vm create
+        info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
+        info:    Looking up virtual network
+        info:    Looking up cloud service
+        info:    Getting cloud service properties
+        info:    Looking up deployment
+        info:    Creating VM
+        info:    OK
+        info:    vm create command OK
+        info:    Executing command vm disk attach-new
+        info:    Getting virtual machines
+        info:    Adding Data-Disk
+        info:    vm disk attach-new command OK
+        info:    Executing command vm disk attach-new
+        info:    Getting virtual machines
+        info:    Adding Data-Disk
+        info:    vm disk attach-new command OK

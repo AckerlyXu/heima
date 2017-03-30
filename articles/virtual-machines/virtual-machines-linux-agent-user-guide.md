@@ -102,7 +102,7 @@ The Linux agent depends on some system packages in order to function properly:
 * Kernel support for mounting UDF filesystems.
 
 ## Installation
-Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](./virtual-machines-linux-endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories.
+Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) integrate the Azure Linux agent package into their images and repositories.
 
 Refer to the documentation in the [Azure Linux Agent repo on Github](https://github.com/Azure/WALinuxAgent) for advanced installation options, such as installing from source or to custom locations or prefixes.
 
@@ -138,29 +138,27 @@ Refer to the documentation in the [Azure Linux Agent repo on Github](https://git
 A configuration file (/etc/waagent.conf) controls the actions of waagent. 
 A sample configuration file is shown below:
 
-```
-Provisioning.Enabled=y
-Provisioning.DeleteRootPassword=n
-Provisioning.RegenerateSshHostKeyPair=y
-Provisioning.SshHostKeyPairType=rsa
-Provisioning.MonitorHostName=y
-Provisioning.DecodeCustomData=n
-Provisioning.ExecuteCustomData=n
-Provisioning.PasswordCryptId=6
-Provisioning.PasswordCryptSaltLength=10
-ResourceDisk.Format=y
-ResourceDisk.Filesystem=ext4
-ResourceDisk.MountPoint=/mnt/resource
-ResourceDisk.MountOptions=None
-ResourceDisk.EnableSwap=n
-ResourceDisk.SwapSizeMB=0
-LBProbeResponder=y
-Logs.Verbose=n
-OS.RootDeviceScsiTimeout=300
-OS.OpensslPath=None
-HttpProxy.Host=None
-HttpProxy.Port=None
-```
+    Provisioning.Enabled=y
+    Provisioning.DeleteRootPassword=n
+    Provisioning.RegenerateSshHostKeyPair=y
+    Provisioning.SshHostKeyPairType=rsa
+    Provisioning.MonitorHostName=y
+    Provisioning.DecodeCustomData=n
+    Provisioning.ExecuteCustomData=n
+    Provisioning.PasswordCryptId=6
+    Provisioning.PasswordCryptSaltLength=10
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.MountOptions=None
+    ResourceDisk.EnableSwap=n
+    ResourceDisk.SwapSizeMB=0
+    LBProbeResponder=y
+    Logs.Verbose=n
+    OS.RootDeviceScsiTimeout=300
+    OS.OpensslPath=None
+    HttpProxy.Host=None
+    HttpProxy.Port=None
 
 The various configuration options are described in detail below. Configuration options are of three types; Boolean, String or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as detailed below.
 
@@ -309,4 +307,4 @@ Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/
 * Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
 
     * [Ubuntu Wiki: Configure Swap Partitions](https://wiki.ubuntu.com/AzureSwapPartitions)
-    * [Injecting Custom Data into an Azure Virtual Machine](./virtual-machines-linux-classic-inject-custom-data.md)
+  * [Injecting Custom Data into an Azure Virtual Machine](virtual-machines-linux-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)

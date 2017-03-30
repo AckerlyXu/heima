@@ -29,14 +29,14 @@ Learn how to create an HBase cluster in HDInsight, create HBase tables, and quer
 Before you begin this HBase tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
-* [Secure Shell(SSH)](./hdinsight-hadoop-linux-use-ssh-unix.md). 
+* [Secure Shell(SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-hbase-cluster"></a> Create HBase cluster
-The following procedure uses an Azure Resource Manager template to create a version 3.5 Linux-based HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
+The following procedure uses an Azure Resource Manager template to create a version 3.5 Linux-based HBase cluster and the dependent default Azure Storage account. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Click the following image to open the template in the Azure portal preview. The template is located in a public blob container. 
 
@@ -65,7 +65,7 @@ The following procedure uses an Azure Resource Manager template to create a vers
 > 
 
 ## Create tables and insert data
-You can use SSH to connect to HBase clusters and then use HBase Shell to create HBase tables, insert data and query data. For information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md) and [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md).
+You can use SSH to connect to HBase clusters and then use HBase Shell to create HBase tables, insert data and query data. For information on using SSH, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) and [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 For most people, data appears in the tabular format:
 
@@ -81,40 +81,30 @@ It will make more sense after you finish the next procedure.
 
 1. From SSH, run the following command:
 
-    ```
-    hbase shell
-    ```
+        hbase shell
 2. Create an HBase with two-column families:
 
-    ```
-    create 'Contacts', 'Personal', 'Office'
-    list
-    ```
+        create 'Contacts', 'Personal', 'Office'
+        list
 3. Insert some data:
 
-    ```
-    put 'Contacts', '1000', 'Personal:Name', 'John Dole'
-    put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
-    put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
-    put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
-    scan 'Contacts'
-    ```
+        put 'Contacts', '1000', 'Personal:Name', 'John Dole'
+        put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
+        put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
+        put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
+        scan 'Contacts'
 
     ![HDInsight Hadoop HBase shell][img-hbase-shell]
 4. Get a single row
 
-    ```
-    get 'Contacts', '1000'
-    ```
+        get 'Contacts', '1000'
 
     You will see the same results as using the scan command because there is only one row.
 
     For more information about the HBase table schema, see [Introduction to HBase Schema Design][hbase-schema]. For more HBase commands, see [Apache HBase reference guide][hbase-quick-start].
 5. Exit the shell
 
-    ```
-    exit
-    ```
+        exit
 
 **To bulk load data into the contacts HBase table**
 
@@ -122,18 +112,16 @@ HBase includes several methods of loading data into tables.  For more informatio
 
 A sample data file has been uploaded to a public blob container, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  The content of the data file is:
 
-```
-8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
-16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
-4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
-16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
-3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
-10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
-4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
-16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
-```
+    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
+    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
+    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
+    3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
+    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
+    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
 You can create a text file and upload the file to your own storage account if you want. For the instructions, see [Upload data for Hadoop jobs in HDInsight][hdinsight-upload-data].
 
@@ -144,14 +132,10 @@ You can create a text file and upload the file to your own storage account if yo
 
 1. From SSH, run the following command to transform the data file to StoreFiles and store at a relative path specified by Dimporttsv.bulk.output:.  If you are in HBase Shell, use the exit command to exit.
 
-    ```
-    hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
-    ```
+        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 2. Run the following command to upload the data from  /example/data/storeDataFileOutput to the HBase table:
 
-    ```
-    hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
-    ```
+        hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 3. You can open the HBase shell, and use the scan command to list the table content.
 
 ## Use Hive to query HBase
@@ -167,23 +151,18 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 1. Open **PuTTY**, and connect to the cluster.  See the instructions in the previous procedure.
 2. Open the Hive shell.
 
-    ```
-    hive
-    ```
+        hive
 
 3. Run the following HiveQL script  to create a Hive table that maps to the HBase table. Make sure that you have created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.
 
-    ```
-    CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
-    STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
-    WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
-    TBLPROPERTIES ('hbase.table.name' = 'Contacts');
-    ```
+        CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
+        STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+        WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
+        TBLPROPERTIES ('hbase.table.name' = 'Contacts');
+
 4. Run the following HiveQL script to query the data in the HBase table:
 
-    ```
-     SELECT count(*) FROM hbasecontacts;
-    ```
+         SELECT count(*) FROM hbasecontacts;
 
 ## Use HBase REST APIs using Curl
 > [!NOTE]
@@ -197,16 +176,12 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
-    ```
-    curl -u <UserName>:<Password> \
-    -G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
-    ```
+        curl -u <UserName>:<Password> \
+        -G https://<ClusterName>.azurehdinsight.cn/templeton/v1/status
 
     You should receive a response similar to the following:
 
-    ```
-    {"status":"ok","version":"v1"}
-    ```
+        {"status":"ok","version":"v1"}
 
     The parameters used in this command are as follows:
 
@@ -214,32 +189,27 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
     * **-G** - Indicates that this is a GET request.
 2. Use the following command to list the existing HBase tables:
 
-    ```
-    curl -u <UserName>:<Password> \
-    -G https://<ClusterName>.azurehdinsight.cn/hbaserest/
-    ```
+        curl -u <UserName>:<Password> \
+        -G https://<ClusterName>.azurehdinsight.cn/hbaserest/
+
 3. Use the following command to create a new HBase table with two-column families:
 
-    ```
-    curl -u <UserName>:<Password> \
-    -X PUT "https://<ClusterName>.azurehdinsight.cn/hbaserest/Contacts1/schema" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
-    -v
-    ```
+        curl -u <UserName>:<Password> \
+        -X PUT "https://<ClusterName>.azurehdinsight.cn/hbaserest/Contacts1/schema" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
+        -v
 
     The schema is provided in the JSon format.
 4. Use the following command to insert some data:
 
-    ```
-    curl -u <UserName>:<Password> \
-    -X PUT "https://<ClusterName>.azurehdinsight.cn/hbaserest/Contacts1/false-row-key" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
-    -v
-    ```
+        curl -u <UserName>:<Password> \
+        -X PUT "https://<ClusterName>.azurehdinsight.cn/hbaserest/Contacts1/false-row-key" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
+        -v
 
     You must base64 encode the values specified in the -d switch.  In the exmaple:
 
@@ -250,12 +220,10 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
         [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) allows you to insert multiple (batched) value.
 5. Use the following command to get a row:
 
-    ```
-    curl -u <UserName>:<Password> \
-    -X GET "https://<ClusterName>.azurehdinsight.cn/hbaserest/Contacts1/1000" \
-    -H "Accept: application/json" \
-    -v
-    ```
+        curl -u <UserName>:<Password> \
+        -X GET "https://<ClusterName>.azurehdinsight.cn/hbaserest/Contacts1/1000" \
+        -H "Accept: application/json" \
+        -v
 
 For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
 
@@ -291,20 +259,20 @@ To learn more, see:
 * [HDInsight HBase overview][hdinsight-hbase-overview]:
   HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.
 
-[hdinsight-manage-portal]: ./hdinsight-administer-use-management-portal.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
+[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
 [hbase-reference]: http://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf
 [hbase-quick-start]: http://hbase.apache.org/book.html#quickstart
 
-[hdinsight-hbase-overview]: ./hdinsight-hbase-overview.md
-[hdinsight-hbase-provision-vnet]: ./hdinsight-hbase-provision-vnet.md
-[hdinsight-versions]: ./hdinsight-component-versioning.md
+[hdinsight-hbase-overview]: hdinsight-hbase-overview.md
+[hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
+[hdinsight-versions]: hdinsight-component-versioning.md
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [azure-portal]: https://portal.azure.cn/
-[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
+[azure-create-storageaccount]: /azure/storage-create-storage-account/
 
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-quick-create.png
 [img-hdinsight-hbase-hive-editor]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hive-editor.png

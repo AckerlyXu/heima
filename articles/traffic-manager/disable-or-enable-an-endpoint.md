@@ -41,8 +41,8 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 4. Traffic will start flowing to the service again as dictated by the profile.
 
 ## Next Steps
-[Traffic Manager - Disable, enable or delete a profile](./disable-enable-or-delete-a-profile.md)
+[Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
 
-[Troubleshooting Traffic Manager degraded state](./traffic-manager-troubleshooting-degraded.md)
+[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
 
-[Traffic Manager performance considerations](./traffic-manager-performance-considerations.md)
+[Traffic Manager performance considerations](traffic-manager-performance-considerations.md)

@@ -23,7 +23,7 @@ ms.author: carolz
         <div class="callout">
             <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/">
                 <img src="media/index/pluralsight.svg" />
-                Free PluralSight video training - Developing with .NET on Microsoft Azure
+                Free PluralSight video training - Developing with .NET on Azure
             </a>
         </div>
     </div>
@@ -206,7 +206,7 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+                        <p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -231,12 +231,10 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/appservice">REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/appservice">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-

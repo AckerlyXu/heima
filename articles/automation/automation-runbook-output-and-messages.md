@@ -21,7 +21,7 @@ ms.author: magoedte;bwren
 # Runbook output and messages in Azure Automation
 Most Azure Automation runbooks will have some form of output such as an error message to the user or a complex object intended to be consumed by another workflow. Windows PowerShell provides [multiple streams](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) to send output from a script or workflow. Azure Automation works with each of these streams differently, and you should follow best practices for how to use each when you are creating a runbook.
 
-The following table provides a brief description of each of the streams and their behavior in the Azure Classic Management Portal both when running a published runbook and when [testing a runbook](./automation-testing-runbook.md). Further details on each stream are provided in subsequent sections.
+The following table provides a brief description of each of the streams and their behavior in the Azure Classic Management Portal both when running a published runbook and when [testing a runbook](automation-testing-runbook.md). Further details on each stream are provided in subsequent sections.
 
 | Stream | Description | Published | Test |
 |:--- |:--- |:--- |:--- |
@@ -33,7 +33,7 @@ The following table provides a brief description of each of the streams and thei
 | Debug |Messages intended for an interactive user. Should not be used in runbooks. |Not written to job history. |Not written to Test Output Pane. |
 
 ## <a id="output-stream" name="Output"></a> Output stream
-The Output stream is intended for output of objects created by a script or workflow when it runs correctly. In Azure Automation, this stream is primarily used for objects intended to be consumed by [parent runbooks that call the current runbook](./automation-child-runbooks.md). When you [call a runbook inline](./automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) from a parent runbook, it returns data from the output stream to the parent. You should only use the output stream to communicate general information back to the user if you know the runbook will never be called by another runbook. As a best practice, however, you should typically use the [Verbose Stream](#Verbose) to communicate general information to the user.
+The Output stream is intended for output of objects created by a script or workflow when it runs correctly. In Azure Automation, this stream is primarily used for objects intended to be consumed by [parent runbooks that call the current runbook](automation-child-runbooks.md). When you [call a runbook inline](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) from a parent runbook, it returns data from the output stream to the parent. You should only use the output stream to communicate general information back to the user if you know the runbook will never be called by another runbook. As a best practice, however, you should typically use the [Verbose Stream](#Verbose) to communicate general information to the user.
 
 You can write data to the output stream using [Write-Output](http://technet.microsoft.com/zh-cn/library/hh849921.aspx) or by putting the object on its own line in the runbook.
 
@@ -121,7 +121,7 @@ Write-Error -Message "This is an error message that will stop the runbook becaus
 ### <a id="verbose-streams" name="Verbose"></a> Verbose stream
 The Verbose message stream is for general information about the runbook operation. Since the [Debug Stream](#Debug) is not available in a runbook, verbose messages should be used for debug information. By default, verbose messages from published runbooks will not be stored in the job history. To store verbose messages, configure published runbooks to Log Verbose Records on the Configure tab of the runbook in the Azure Classic Management Portal. In most cases, you should keep the default setting of not logging verbose records for a runbook for performance reasons. Turn on this option only to troubleshoot or debug a runbook.
 
-When [testing a runbook](./automation-testing-runbook.md), verbose messages are not displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](./automation-testing-runbook.md), you must set the $VerbosePreference variable to Continue. With that variable set, verbose messages will be displayed in the Test Output Pane of the Azure Classic Management Portal.
+When [testing a runbook](automation-testing-runbook.md), verbose messages are not displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](automation-testing-runbook.md), you must set the $VerbosePreference variable to Continue. With that variable set, verbose messages will be displayed in the Test Output Pane of the Azure Classic Management Portal.
 
 Create a verbose message using the [Write-Verbose](http://technet.microsoft.com/zh-cn/library/hh849951.aspx) cmdlet.
 
@@ -181,5 +181,5 @@ Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id 
 ```
 
 ## Next steps
-* To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](./automation-runbook-execution.md)
-* To understand how to design and use child runbooks, see [Child runbooks in Azure Automation](./automation-child-runbooks.md)
+* To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
+* To understand how to design and use child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md)

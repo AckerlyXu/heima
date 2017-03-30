@@ -29,7 +29,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-```
+```azurecli
 #/bin/bash
 
 # Variables
@@ -58,7 +58,7 @@ az network traffic-manager endpoint create -n $app1Name-$location1 --profile-nam
 az network traffic-manager endpoint create -n $app2Name-$location2 --profile-name $trafficManagerDnsName-tmp -g myResourceGroup --type azureEndpoints --target-resource-id $site2
 ```
 
-[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

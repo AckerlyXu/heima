@@ -21,8 +21,10 @@ ms.author: nitinme
 
 # Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight
 > [!div class="op_single_selector"]
->- [Using cell magic](./hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
->- [Using Script Action](./hdinsight-apache-spark-python-package-installation.md)
+> * [Using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+> * [Using Script Action](hdinsight-apache-spark-python-package-installation.md)
+>
+>
 
 Learn how to configure a Jupyter notebook in Apache Spark cluster on HDInsight to use external, community-contributed **maven** packages that are not included out-of-the-box in the cluster. 
 
@@ -34,7 +36,7 @@ In this article, you will learn how to use the [spark-csv](http://search.maven.o
 You must have the following:
 
 * An Azure subscription. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
-* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Use external packages with Jupyter notebooks
 1. From the [Azure Portal Preview](https://portal.azure.cn/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
@@ -76,48 +78,42 @@ You must have the following:
 
     c. Concatenate the three values, separated by a colon (**:**).
 
-    ```
-    com.databricks:spark-csv_2.10:1.4.0
-    ```
+        com.databricks:spark-csv_2.10:1.4.0
 
 7. Run the code cell with the `%%configure` magic. This will configure the underlying Livy session to use the package you provided. In the subsequent cells in the notebook, you can now use the package, as shown below.
 
-    ```
-    val df = sqlContext.read.format("com.databricks.spark.csv").
-    option("header", "true").
-    option("inferSchema", "true").
-    load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-    ```
+        val df = sqlContext.read.format("com.databricks.spark.csv").
+        option("header", "true").
+        option("inferSchema", "true").
+        load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 8. You can then run the snippets, like shown below, to view the data from the dataframe you created in the previous step.
 
-    ```
-    df.show()
-
-    df.select("Time").count()
-    ```
+        df.show()
+   
+        df.select("Time").count()
 
 ## <a name="seealso"></a>See also
-* [Overview: Apache Spark on Azure HDInsight](./hdinsight-apache-spark-overview.md)
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](./hdinsight-apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](./hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](./hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](./hdinsight-apache-spark-eventhub-streaming.md)
-* [Website log analysis using Spark in HDInsight](./hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
-* [Create a standalone application using Scala](./hdinsight-apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](./hdinsight-apache-spark-livy-rest-interface.md)
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
 
-* [Use external python packages with Jupyter notebooks in Apache Spark clusters on HDInsight Linux](./hdinsight-apache-spark-python-package-installation.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](./hdinsight-apache-spark-use-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](./hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](./hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Use external python packages with Jupyter notebooks in Apache Spark clusters on HDInsight Linux](hdinsight-apache-spark-python-package-installation.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](./hdinsight-apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](./hdinsight-apache-spark-job-debugging.md)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)

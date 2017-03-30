@@ -30,7 +30,7 @@ Availability sets provide redundancy to your application. We recommend that you 
 
 If you want your VM to be part of an availability set, you need to create the availability set first or while you are creating your first VM in the set. If your VM will be using Managed Disks, the availability set must be created as a managed availability set.
 
-For more information about creating and using availability sets, see [Manage the availability of virtual machines](./virtual-machines-windows-manage-availability.md).
+For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Use the portal to create an availability set before creating your VMs
 1. In the hub menu, click **Browse** and select **Availability sets**.
@@ -69,7 +69,6 @@ Before you begin, make sure that you have the latest version of the AzureRM.Comp
 ```powershell
 Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 ```
-
 For more information, see [Azure PowerShell Versioning](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/#azure-powershell-versioning).
 
 If you are using managed disks for your VMs, type:
@@ -92,4 +91,4 @@ For more information, see [New-AzureRmAvailabilitySet](https://docs.microsoft.co
 * When you create a VM, if the availability set you want isn't in the drop-down list in the portal you may have created it in a different resource group. If you don't know the resource group for your availability set, go to the hub menu and click Browse > Availability sets to see a list of your availability sets and which resource groups they belong to.
 
 ## Next steps
-Add additional storage to your VM by adding an additional [data disk](./virtual-machines-windows-attach-disk-portal.md).
+Add additional storage to your VM by adding an additional [data disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

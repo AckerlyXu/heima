@@ -127,5 +127,3 @@ Learn how to use API Apps in Azure App Service to develop, host, and consume API
         </a>
     </li>     
 </ul>
-
-

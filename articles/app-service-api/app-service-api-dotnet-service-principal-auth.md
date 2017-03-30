@@ -87,7 +87,7 @@ If you don't validate claims in code in the protected API app, and if you use a 
 ## <a id="tutorialstart"></a> Continuing the .NET API Apps tutorial series
 If you are following the Node.js or Java tutorial series for API apps, skip to the [Next steps](#next-steps) section. 
 
-The remainder of this article continues the .NET API Apps tutorial series and assumes that you have completed the [user authentication tutorial](./app-service-api-dotnet-user-principal-auth.md) and have the sample application running in Azure with user authentication enabled.
+The remainder of this article continues the .NET API Apps tutorial series and assumes that you have completed the [user authentication tutorial](app-service-api-dotnet-user-principal-auth.md) and have the sample application running in Azure with user authentication enabled.
 
 ## Set up authentication in Azure
 In this section you configure App Service so that the only HTTP requests it allows to reach the data tier API app are the ones that have valid Azure AD bearer tokens. 
@@ -155,38 +155,34 @@ Make the following changes in the ToDoListAPI project in Visual Studio.
 
     This is the code that uses ADAL for .NET to acquire the Azure AD bearer token.  It uses several configuration values that you'll set in the Azure runtime environment later. Here's the code: 
 
-    ```
-    public static class ServicePrincipal
-    {
-        static string authority = ConfigurationManager.AppSettings["ida:Authority"];
-        static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
-        static string clientSecret = ConfigurationManager.AppSettings["ida:ClientSecret"];
-        static string resource = ConfigurationManager.AppSettings["ida:Resource"];
-
-        public static AuthenticationResult GetS2SAccessTokenForProdMSA()
+        public static class ServicePrincipal
         {
-            return GetS2SAccessToken(authority, resource, clientId, clientSecret);
+            static string authority = ConfigurationManager.AppSettings["ida:Authority"];
+            static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+            static string clientSecret = ConfigurationManager.AppSettings["ida:ClientSecret"];
+            static string resource = ConfigurationManager.AppSettings["ida:Resource"];
+   
+            public static AuthenticationResult GetS2SAccessTokenForProdMSA()
+            {
+                return GetS2SAccessToken(authority, resource, clientId, clientSecret);
+            }
+   
+            static AuthenticationResult GetS2SAccessToken(string authority, string resource, string clientId, string clientSecret)
+            {
+                var clientCredential = new ClientCredential(clientId, clientSecret);
+                AuthenticationContext context = new AuthenticationContext(authority, false);
+                AuthenticationResult authenticationResult = context.AcquireToken(
+                    resource,
+                    clientCredential);
+                return authenticationResult;
+            }
         }
-
-        static AuthenticationResult GetS2SAccessToken(string authority, string resource, string clientId, string clientSecret)
-        {
-            var clientCredential = new ClientCredential(clientId, clientSecret);
-            AuthenticationContext context = new AuthenticationContext(authority, false);
-            AuthenticationResult authenticationResult = context.AcquireToken(
-                resource,
-                clientCredential);
-            return authenticationResult;
-        }
-    }
-    ```
 
     **Note:** This code requires the ADAL for .NET NuGet package (Microsoft.IdentityModel.Clients.ActiveDirectory), which is already installed in the project. If you were creating this project from scratch, you would have to install this package. This package is not automatically installed by the API app new-project template.
 2. In *Controllers/ToDoListController*, uncomment the code in the `NewDataAPIClient` method that adds the token to HTTP requests in the authorization header.
 
-    ```
-    client.HttpClient.DefaultRequestHeaders.Authorization =
-        new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
-    ```
+        client.HttpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
 3. Deploy the ToDoListAPI project. (Right-click the project, then click **Publish > Publish**.)
 
     Visual Studio deploys the project and opens a browser to the web app's base URL. This will show a 403 error page, which is normal for an attempt to go to a Web API base URL from a browser.
@@ -283,23 +279,19 @@ Make the following changes to the TodoListDataAPI project.
 1. Open the *Controllers/TodoListController.cs* file.
 2. Uncomment the lines that set `trustedCallerClientId` and `trustedCallerServicePrincipalId`.
 
-    ```
-    private static string trustedCallerClientId = ConfigurationManager.AppSettings["todo:TrustedCallerClientId"];
-    private static string trustedCallerServicePrincipalId = ConfigurationManager.AppSettings["todo:TrustedCallerServicePrincipalId"];
-    ```
+        private static string trustedCallerClientId = ConfigurationManager.AppSettings["todo:TrustedCallerClientId"];
+        private static string trustedCallerServicePrincipalId = ConfigurationManager.AppSettings["todo:TrustedCallerServicePrincipalId"];
 3. Uncomment the code in the CheckCallerId method. This method is called at the start of every action method in the controller. 
 
-    ```
-    private static void CheckCallerId()
-    {
-        string currentCallerClientId = ClaimsPrincipal.Current.FindFirst("appid").Value;
-        string currentCallerServicePrincipalId = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-        if (currentCallerClientId != trustedCallerClientId || currentCallerServicePrincipalId != trustedCallerServicePrincipalId)
+        private static void CheckCallerId()
         {
-            throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.Unauthorized, ReasonPhrase = "The appID or service principal ID is not the expected value." });
+            string currentCallerClientId = ClaimsPrincipal.Current.FindFirst("appid").Value;
+            string currentCallerServicePrincipalId = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+            if (currentCallerClientId != trustedCallerClientId || currentCallerServicePrincipalId != trustedCallerServicePrincipalId)
+            {
+                throw new HttpResponseException(new HttpResponseMessage { StatusCode = HttpStatusCode.Unauthorized, ReasonPhrase = "The appID or service principal ID is not the expected value." });
+            }
         }
-    }
-    ```
 4. Redeploy the ToDoListDataAPI project to Azure App Service.
 5. In your browser, go to the AngularJS front end web app's HTTPS URL, and in the home page click the **To Do List** tab.
 
@@ -352,8 +344,8 @@ This is the last tutorial in the API Apps series.
 
 For more information about Azure Active Directory, see the following resources.
 
-* [Azure AD developers' guide](../active-directory/active-directory-developers-guide.md)
-* [Azure AD scenarios](../active-directory/active-directory-authentication-scenarios.md)
+* [Azure AD developers' guide](/azure/active-directory/active-directory-developers-guide/)
+* [Azure AD scenarios](/azure/active-directory/active-directory-authentication-scenarios/)
 * [Azure AD samples](https://github.com/azure-samples?query=active-directory)
 
     The [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) sample is similar to what is shown in this tutorial, but without using App Service authentication.

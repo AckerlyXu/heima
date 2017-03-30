@@ -94,54 +94,48 @@ The Microsoft.Compute resource provider needs a URL to the secret inside the Key
 #### Templates
 You can get the link to the URL in the template using the below code
 
-```
-"certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
-```
+    "certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
 
 #### PowerShell
 You can get this URL using the below PowerShell command
 
-```
-$secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-```
+    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
 ## Step 5: Reference your self-signed certificates URL while creating a VM
 #### Azure Resource Manager Templates
 While creating a VM through templates, the certificate gets referenced in the secrets section and the winRM section as below:
 
-```
-"osProfile": {
-      ...
-      "secrets": [
-        {
-          "sourceVault": {
-            "id": "<resource id of the Key Vault containing the secret>"
-          },
-          "vaultCertificates": [
+    "osProfile": {
+          ...
+          "secrets": [
             {
-              "certificateUrl": "<URL for the certificate you got in Step 4>",
-              "certificateStore": "<Name of the certificate store on the VM>"
+              "sourceVault": {
+                "id": "<resource id of the Key Vault containing the secret>"
+              },
+              "vaultCertificates": [
+                {
+                  "certificateUrl": "<URL for the certificate you got in Step 4>",
+                  "certificateStore": "<Name of the certificate store on the VM>"
+                }
+              ]
             }
-          ]
-        }
-      ],
-      "windowsConfiguration": {
-        ...
-        "winRM": {
-          "listeners": [
-            {
-              "protocol": "http"
+          ],
+          "windowsConfiguration": {
+            ...
+            "winRM": {
+              "listeners": [
+                {
+                  "protocol": "http"
+                },
+                {
+                  "protocol": "https",
+                  "certificateUrl": "<URL for the certificate you got in Step 4>"
+                }
+              ]
             },
-            {
-              "protocol": "https",
-              "certificateUrl": "<URL for the certificate you got in Step 4>"
-            }
-          ]
+            ...
+          }
         },
-        ...
-      }
-    },
-```
 
 A sample template for the above can be found here at [201-vm-winrm-keyvault-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
@@ -151,22 +145,18 @@ Source code for this template can be found on [GitHub](https://github.com/Azure/
 > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.chinacloudapi.cn" by "blob.core.chinacloudapi.cn", "chinacloudapp.cn" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
 
 #### PowerShell
-```
-$vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
-$credential = Get-Credential
-$secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
-$sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
-$CertificateStore = "My"
-$vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
-```
+    $vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
+    $credential = Get-Credential
+    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
+    $sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
+    $CertificateStore = "My"
+    $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
 ## Step 6: Connecting to the VM
 Before you can connect to the VM you'll need to make sure your machine is configured for WinRM remote management. Start PowerShell as an administrator and execute the below command to make sure you're set up.
 
-```
-Enable-PSRemoting -Force
-```
+    Enable-PSRemoting -Force
 
 > [!NOTE]
 > You might need to make sure the WinRM service is running if the above does not work. You can do that using `Get-Service WinRM`
@@ -175,6 +165,4 @@ Enable-PSRemoting -Force
 
 Once the setup is done, you can connect to the VM using the below command
 
-```
-Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
-```
+    Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate

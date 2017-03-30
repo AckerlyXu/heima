@@ -32,7 +32,7 @@ To complete the steps in this article, you will need the following:
 * A Linux-based Hadoop on HDInsight cluster
 
     > [!IMPORTANT]
-    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * A text editor
 
@@ -41,9 +41,9 @@ To complete the steps in this article, you will need the following:
 
 * **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following:
 
-    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## Word count
 
@@ -267,11 +267,9 @@ Use the following steps to connect to the cluster and run the streaming MapReduc
 
 You should see a bunch of **INFO** statements as the job starts, and finally see the **map** and **reduce** operation displayed as percentages.
 
-```
-15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
-15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%
-15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%
-```
+    15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%
+    15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%
+    15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%
 
 You will receive status information about the job when it completes.
 
@@ -438,6 +436,6 @@ To view the output from your development environment using PowerShell, use the f
 
 Now that you have learned how to use streaming MapRedcue jobs with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Use Hive with HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce jobs with HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)

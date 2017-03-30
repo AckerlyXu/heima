@@ -27,14 +27,7 @@ in minutes.
 
 ## Prerequisites
 You need a Azure account. If you don't have an account, you can 
-[sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) or 
-[activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-
-> [!NOTE]
-> You can [Try App Service](https://azure.microsoft.com/try/app-service/) without an Azure account. Create a starter app and play with
-> it for up to an hour--no credit card required, no commitments.
-> 
-> 
+[sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
 
 ## Deploy the WordPress app
 1. Sign in to the [Azure portal preview](https://portal.azure.cn).
@@ -90,7 +83,7 @@ When Azure completes app deployment you see another notification.
     ![WordPress configuration - first WordPress in Azure App Service](./media/app-service-web-get-started-php-portal/wordpress-config.png)
 
 ## Next steps
-* [Create, configure, and deploy a Laravel web app to Azure](./app-service-web-php-get-started.md) - Learn the basic skills you need to run any PHP web app 
+* [Create, configure, and deploy a Laravel web app to Azure](app-service-web-php-get-started.md) - Learn the basic skills you need to run any PHP web app 
 in Azure, such as:
 
     * Create and configure apps in Azure from PowerShell/Bash.
@@ -100,6 +93,6 @@ in Azure, such as:
     * Access environment-specific variables.
     * Troubleshoot common errors.
 
-* [Deploy your code to Azure App Service](./web-sites-deploy.md)- Learn how to deploy from FTP or from source control repositories.
-* [Add functionality to your first web app](./app-service-web-get-started-2.md) - Take your Azure app to the next level. Authenticate your users. 
+* [Deploy your code to Azure App Service](web-sites-deploy.md)- Learn how to deploy from FTP or from source control repositories.
+* [Add functionality to your first web app](app-service-web-get-started-2.md) - Take your Azure app to the next level. Authenticate your users. 
 Scale it based on demand. Set up some performance alerts. All with a few clicks.

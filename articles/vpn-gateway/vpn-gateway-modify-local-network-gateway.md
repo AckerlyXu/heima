@@ -32,4 +32,4 @@ You'll need to install the latest version of the Azure Resource Manager PowerShe
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Next steps
-You can verify your gateway connection. See [Verify a gateway connection](./vpn-gateway-verify-connection-resource-manager.md).
+You can verify your gateway connection. See [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md).

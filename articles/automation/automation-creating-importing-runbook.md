@@ -19,10 +19,10 @@ ms.author: magoedte;bwren
 ---
 
 # Creating or importing a runbook in Azure Automation
-You can add a runbook to Azure Automation by either [creating a new one](#creating-a-new-runbook) or by importing an existing runbook from a file or from the [Runbook Gallery](./automation-runbook-gallery.md). This article provides information on creating and importing runbooks from a file.  You can get all of the details on accessing community runbooks and modules in [Runbook and module galleries for Azure Automation](./automation-runbook-gallery.md).
+You can add a runbook to Azure Automation by either [creating a new one](#creating-a-new-runbook) or by importing an existing runbook from a file or from the [Runbook Gallery](automation-runbook-gallery.md). This article provides information on creating and importing runbooks from a file.  You can get all of the details on accessing community runbooks and modules in [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
 
 ## <a name="creating-a-new-runbook"></a> Creating a new runbook
-You can create a new runbook in Azure Automation using one of the Azure Classic Management Portal or Windows PowerShell. Once the runbook has been created, you can edit it using information in [Learning PowerShell Workflow](./automation-powershell-workflow.md).
+You can create a new runbook in Azure Automation using one of the Azure Classic Management Portal or Windows PowerShell. Once the runbook has been created, you can edit it using information in [Learning PowerShell Workflow](automation-powershell-workflow.md).
 
 ### To create a new Azure Automation runbook with the Azure Classic Management Portal
 You can only work with PowerShell Workflow runbooks in the Azure Classic Management Portal.
@@ -91,5 +91,5 @@ Publish-AzureAutomationRunbook -AutomationAccountName $automationAccountName -Na
 ```
 
 ## Next Steps
-* To learn about how you can benefit from the Runbook and PowerShell Module Gallery, see  [Runbook and module galleries for Azure Automation](./automation-runbook-gallery.md)
-* To learn more about editing PowerShell and PowerShell Workflow runbooks with a textual editor, see [Editing textual runbooks in Azure Automation](./automation-edit-textual-runbook.md)
+* To learn about how you can benefit from the Runbook and PowerShell Module Gallery, see  [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md)
+* To learn more about editing PowerShell and PowerShell Workflow runbooks with a textual editor, see [Editing textual runbooks in Azure Automation](automation-edit-textual-runbook.md)

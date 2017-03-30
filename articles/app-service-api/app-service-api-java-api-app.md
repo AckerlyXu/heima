@@ -39,100 +39,98 @@ This demonstration will begin with a Swagger JSON body that you will paste into 
 
 1. Copy the following Swagger JSON code to your clipboard:
 
-    ```
-    {
-        "swagger": "2.0",
-        "info": {
-            "version": "v1",
-            "title": "Contact List",
-            "description": "A Contact list API based on Swagger and built using Java"
-        },
-        "host": "localhost",
-        "schemes": [
-            "http",
-            "https"
-        ],
-        "basePath": "/api",
-        "paths": {
-            "/contacts": {
-                "get": {
-                    "tags": [
-                        "Contact"
-                    ],
-                    "operationId": "contacts_get",
-                    "consumes": [],
-                    "produces": [
-                        "application/json",
-                        "text/json"
-                    ],
-                    "responses": {
-                        "200": {
-                            "description": "OK",
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/definitions/Contact"
+        {
+            "swagger": "2.0",
+            "info": {
+                "version": "v1",
+                "title": "Contact List",
+                "description": "A Contact list API based on Swagger and built using Java"
+            },
+            "host": "localhost",
+            "schemes": [
+                "http",
+                "https"
+            ],
+            "basePath": "/api",
+            "paths": {
+                "/contacts": {
+                    "get": {
+                        "tags": [
+                            "Contact"
+                        ],
+                        "operationId": "contacts_get",
+                        "consumes": [],
+                        "produces": [
+                            "application/json",
+                            "text/json"
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "OK",
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Contact"
+                                    }
                                 }
                             }
-                        }
-                    },
-                    "deprecated": false
+                        },
+                        "deprecated": false
+                    }
+                },
+                "/contacts/{id}": {
+                    "get": {
+                        "tags": [
+                            "Contact"
+                        ],
+                        "operationId": "contacts_getById",
+                        "consumes": [],
+                        "produces": [
+                            "application/json",
+                            "text/json"
+                        ],
+                        "parameters": [
+                            {
+                                "name": "id",
+                                "in": "path",
+                                "required": true,
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        ],
+                        "responses": {
+                            "200": {
+                                "description": "OK",
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Contact"
+                                    }
+                                }
+                            }
+                        },
+                        "deprecated": false
+                    }
                 }
             },
-            "/contacts/{id}": {
-                "get": {
-                    "tags": [
-                        "Contact"
-                    ],
-                    "operationId": "contacts_getById",
-                    "consumes": [],
-                    "produces": [
-                        "application/json",
-                        "text/json"
-                    ],
-                    "parameters": [
-                        {
-                            "name": "id",
-                            "in": "path",
-                            "required": true,
-                            "type": "integer",
-                            "format": "int32"
+            "definitions": {
+                "Contact": {
+                    "type": "object",
+                    "properties": {
+                        "Id": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "Name": {
+                            "type": "string"
+                        },
+                        "EmailAddress": {
+                            "type": "string"
                         }
-                    ],
-                    "responses": {
-                        "200": {
-                            "description": "OK",
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/definitions/Contact"
-                                }
-                            }
-                        }
-                    },
-                    "deprecated": false
-                }
-            }
-        },
-        "definitions": {
-            "Contact": {
-                "type": "object",
-                "properties": {
-                    "Id": {
-                        "format": "int32",
-                        "type": "integer"
-                    },
-                    "Name": {
-                        "type": "string"
-                    },
-                    "EmailAddress": {
-                        "type": "string"
                     }
                 }
             }
         }
-    }
-    ```
 2. Navigate to the [Online Swagger Editor]. Once there, click the **File -> Paste JSON** menu item.
 
     ![Paste JSON menu item][paste-json]
@@ -156,73 +154,67 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
     ![Open Contact Model File][open-contact-model-file]
 2. Add the following constructor to the **Contact** class. 
 
-    ```
-    public Contact(Integer id, String name, String email) 
-    {
-        this.id = id;
-        this.name = name;
-        this.emailAddress = email;
-    }
-    ```
+        public Contact(Integer id, String name, String email) 
+        {
+            this.id = id;
+            this.name = name;
+            this.emailAddress = email;
+        }
 3. Open the *ContactsApiServiceImpl.java* service implementation file, which is located in the *src/main/java/io/swagger/api/impl* folder, using [Visual Studio Code] or your favorite text editor.
 
     ![Open Contact Service Code File][open-contact-service-code-file]
 4. Overwrite the code in the file with this new code to add a mock implementation to the service code. 
 
-    ```
-    package io.swagger.api.impl;
-
-    import io.swagger.api.*;
-
-    import io.swagger.model.Contact;
-    import java.util.*;
-    import io.swagger.api.NotFoundException;
-
-    import javax.ws.rs.core.Response;
-    import javax.ws.rs.core.SecurityContext;
-
-    @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JaxRSServerCodegen", date = "2015-11-24T21:54:11.648Z")
-    public class ContactsApiServiceImpl extends ContactsApiService {
-
-        private ArrayList<Contact> loadContacts()
-        {
-            ArrayList<Contact> list = new ArrayList<Contact>();
-            list.add(new Contact(1, "Barney Poland", "barney@contoso.com"));
-            list.add(new Contact(2, "Lacy Barrera", "lacy@contoso.com"));
-            list.add(new Contact(3, "Lora Riggs", "lora@contoso.com"));
-            return list;
-        }
-
-        @Override
-        public Response contactsGet(SecurityContext securityContext)
-        throws NotFoundException {
-            ArrayList<Contact> list = loadContacts();
-            return Response.ok().entity(list).build();
-            }
-
-        @Override
-        public Response contactsGetById(Integer id, SecurityContext securityContext)
-        throws NotFoundException {
-            ArrayList<Contact> list = loadContacts();
-            Contact ret = null;
-
-            for(int i=0; i<list.size(); i++)
+        package io.swagger.api.impl;
+   
+        import io.swagger.api.*;
+        
+        import io.swagger.model.Contact;
+        import java.util.*;
+        import io.swagger.api.NotFoundException;
+               
+        import javax.ws.rs.core.Response;
+        import javax.ws.rs.core.SecurityContext;
+   
+        @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JaxRSServerCodegen", date = "2015-11-24T21:54:11.648Z")
+        public class ContactsApiServiceImpl extends ContactsApiService {
+   
+            private ArrayList<Contact> loadContacts()
             {
-                if(list.get(i).getId() == id)
-                    {
-                        ret = list.get(i);
-                    }
+                ArrayList<Contact> list = new ArrayList<Contact>();
+                list.add(new Contact(1, "Barney Poland", "barney@contoso.com"));
+                list.add(new Contact(2, "Lacy Barrera", "lacy@contoso.com"));
+                list.add(new Contact(3, "Lora Riggs", "lora@contoso.com"));
+                return list;
             }
-            return Response.ok().entity(ret).build();
+   
+            @Override
+            public Response contactsGet(SecurityContext securityContext)
+            throws NotFoundException {
+                ArrayList<Contact> list = loadContacts();
+                return Response.ok().entity(list).build();
+                }
+   
+            @Override
+            public Response contactsGetById(Integer id, SecurityContext securityContext)
+            throws NotFoundException {
+                ArrayList<Contact> list = loadContacts();
+                Contact ret = null;
+   
+                for(int i=0; i<list.size(); i++)
+                {
+                    if(list.get(i).getId() == id)
+                        {
+                            ret = list.get(i);
+                        }
+                }
+                return Response.ok().entity(ret).build();
+            }
         }
-    }
-    ```
 5. Open a command prompt and change directory to the root folder of your application.
 6. Execute the following Maven command to build the code and run it using the Jetty app server locally. 
 
-    ```
-    mvn package jetty:run
-    ```
+        mvn package jetty:run
 7. You should see the command window reflect that Jetty has started your code on port 8080. 
 
     ![Open Contact Service Code File][run-jetty-war]
@@ -234,22 +226,16 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
     ![Call the Contacts API][calling-specific-contact-api]
 10. Finally, build the Java WAR (Web ARchive) file by executing the following Maven command in your console. 
 
-    ```
-     mvn package war:war
-    ```
+         mvn package war:war
 11. Once the WAR file is built, it will be placed into the **target** folder. Navigate into the **target** folder and rename the WAR file to **ROOT.war**. (Make sure the capitalization matches this format).
 
-    ```
-      rename swagger-jaxrs-server-1.0.0.war ROOT.war
-    ```
+          rename swagger-jaxrs-server-1.0.0.war ROOT.war
 12. Finally, execute the following commands from the root folder of your application to create a **deploy** folder to use to deploy the WAR file to Azure. 
 
-    ```
-      mkdir deploy
-      mkdir deploy\webapps
-      copy target\ROOT.war deploy\webapps
-      cd deploy
-    ```
+          mkdir deploy
+          mkdir deploy\webapps
+          copy target\ROOT.war deploy\webapps
+          cd deploy
 
 ## Publish the output to Azure App Service
 In this section you'll learn how to create a new API App using the Azure Portal Preview, prepare that API App for hosting Java applications, and deploy the newly-created WAR file to Azure App Service to run your new API App. 
@@ -270,13 +256,11 @@ In this section you'll learn how to create a new API App using the Azure Portal 
     ![Set up a new Git repository for your app][copy-git-repo-url]
 6. Git push the WAR file to the online repository. To do this, navigate into the **deploy** folder you created earlier so that you can easily commit the code up to the repository running in your App Service. Once you're in the console window and navigated into the folder where the webapps folder is located, issue the following Git commands to launch the process and fire off a deployment. 
 
-    ```
-     git init
-     git add .
-     git commit -m "initial commit"
-     git remote add azure [YOUR GIT URL]
-     git push azure master
-    ```
+         git init
+         git add .
+         git commit -m "initial commit"
+         git remote add azure [YOUR GIT URL]
+         git push azure master
 
     Once you issue the **push** request, you'll be asked for the password you created for the deployment credential earlier. After you enter your credentials, you should see your portal display that the update was deployed.
 7. If you once again use Postman to hit the newly-deployed API App running in Azure App Service, you'll see that the behavior is consistent and that now it is returning contact data as expected, and using simple code changes to the Swagger.io scaffolded Java code. 
@@ -293,7 +277,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 <!-- URL List -->
 
-[App Service API CORS]: ./app-service-api-cors-consume-javascript.md
+[App Service API CORS]: app-service-api-cors-consume-javascript.md
 [Azure portal preview]: https://portal.azure.cn/
 [Document DB Java SDK]: ../documentdb/documentdb-java-application.md
 [trial]: https://www.azure.cn/pricing/1rmb-trial/

@@ -28,9 +28,7 @@ In addition to these templates, you can search through the [gallery templates](h
 ## Azure portal preview
 Deploying a template by using the Azure portal preview is easy to do by just sending a URL to it. You need the name of the template file to deploy it. You can find the name by looking at the pages in the template gallery or by looking in the Github repository. Change {template name} in this URL to the name of the template that you want to deploy and then enter it into your browser:
 
-```
-https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
-```
+    https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
 
 You should see the custom deployment blade:
 
@@ -49,22 +47,18 @@ Depending on the template, it can take some time for Azure to deploy the resourc
 ## Azure PowerShell
 Run these commands to create the resource group and the deployment after you replace the text in brackets with the resource group name, location, deployment name, and template name:
 
-```
-New-AzureRmResourceGroup -Name {resource-group-name} -Location {location}
-New-AzureRmResourceGroupDeployment -Name {deployment-name} -ResourceGroupName {resource-group-name} -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json"
-```
+    New-AzureRmResourceGroup -Name {resource-group-name} -Location {location}
+    New-AzureRmResourceGroupDeployment -Name {deployment-name} -ResourceGroupName {resource-group-name} -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json"
 
 When you run the **New-AzureRmResourceGroupDeployment** command, you are prompted to enter values for the parameters in the template. Depending on the template, it can take some time for Azure to deploy the resources.
 
 ## Azure CLI
-[Install Azure CLI](/documentation/articles/cli-install-nodejs/), log in, and make sure you enable Resource Manager commands. For information about how to do this, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
+[Install Azure CLI](../articles/cli-install-nodejs.md), log in, and make sure you enable Resource Manager commands. For information about how to do this, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
 
 Run these commands to create the resource group and the deployment after you replace the text in brackets with the resource group name, location, deployment name, and template name:
 
-```
-azure group create {resource-group-name} {location}
-azure group deployment create --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json {resource-group-name} {deployment-name}
-```
+    azure group create {resource-group-name} {location}
+    azure group deployment create --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json {resource-group-name} {deployment-name}
 
 When you run the **azure group deployment create** command, you are prompted to enter values for the parameters in the template. Depending on the template, it can take some time for Azure to deploy the resources.
 

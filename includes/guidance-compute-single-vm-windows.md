@@ -1,5 +1,3 @@
-<!-- need to be verified -->
-
 This article outlines a set of proven practices for running a Windows virtual machine (VM) on Azure, paying attention to scalability, availability, manageability, and security. 
 
 > [!NOTE]

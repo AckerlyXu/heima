@@ -26,7 +26,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 ## Prerequisites
 
-* The Hortonworks Sandbox running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox, which was configured using the information in the [Get started in the Hadoop ecosystem](./hdinsight-hadoop-emulator-get-started.md) document.
+* The Hortonworks Sandbox running in a virtual machine on your development environment. This document was written and tested with the sandbox running in Oracle VirtualBox, which was configured using the information in the [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md) document.
 
 * Visual Studio 2013, 2015, or 2017 any edition.
 
@@ -36,7 +36,7 @@ Using the Hortonworks Sandbox allows you to work with Hadoop locally on your dev
 
 ## Configure passwords for the sandbox
 
-Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get started in the Hadoop ecosystem](./hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when connecting to the sandbox from Visual Studio.
+Make sure that the Hortonworks Sandbox is running, then follow the steps in [Get started in the Hadoop ecosystem](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). These steps configure the password for the SSH `root` account, and the Ambari `admin` account. These passwords are used when connecting to the sandbox from Visual Studio.
 
 ## Connect the tools to the sandbox
 
@@ -86,9 +86,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
 2. In the new query window, enter the following command:
 
-    ```
-    select count(*) from sample_08;
-    ```
+        select count(*) from sample_08;
 
     From the top of the query window, make sure that configuration for the local cluster is selected, and then select **Submit**. Leave the other values (**Batch** and server name) at the default values.
 
@@ -142,18 +140,16 @@ While Hive provides a SQL-like language for working with structured data, Pig wo
 
 2. Enter the following text as the contents of the **script.pig** file that was created with this project.
 
-    ```
-    a = LOAD '/demo/data/Website/Website-Logs' AS (
-        log_id:int,
-        ip_address:chararray,
-        date:chararray,
-        time:chararray,
-        landing_page:chararray,
-        source:chararray);
-    b = FILTER a BY (log_id > 100);
-    c = GROUP b BY ip_address;
-    DUMP c;
-    ```
+        a = LOAD '/demo/data/Website/Website-Logs' AS (
+            log_id:int,
+            ip_address:chararray,
+            date:chararray,
+            time:chararray,
+            landing_page:chararray,
+            source:chararray);
+        b = FILTER a BY (log_id > 100);
+        c = GROUP b BY ip_address;
+        DUMP c;
 
     While Pig uses a different language than Hive, how you run the jobs is consistent between both languages through the **Submit** button. Selecting the drop-down beside **Submit** displays an advanced submit dialog for Pig.
 

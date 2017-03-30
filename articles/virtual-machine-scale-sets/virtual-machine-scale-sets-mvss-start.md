@@ -179,6 +179,7 @@ Finally, we need specify the network configuration for the VMs in the scale set.
 +    }
 +  ]
 +}
+
 ```
 
 ## Next Steps

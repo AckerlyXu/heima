@@ -25,7 +25,7 @@ ms.custom: H1Hack27Feb2017
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -35,9 +35,9 @@ Apache Storm is a scalable, fault-tolerant, distributed, real-time computation s
 
 * **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following documents:
 
-    * [Use SSH with Linux-based Hadoop on HDInsight from Bash on Windows 10, Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Bash on Windows 10, Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ### Access control requirements
 
@@ -93,23 +93,19 @@ Use the following steps to create a Storm on HDInsight cluster:
 
 1. Connect to the HDInsight cluster using SSH:
 
-    ```
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
-    ```
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
     If you used a password to secure your SSH user account, you are prompted to enter it. If you used a public key, you may need use the `-i` parameter to specify the matching private key. For example, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`.
 
     For more information on using SSH with Linux-based HDInsight, see the following articles:
 
-    * [Use SSH with Linux-based Hadoop on HDInsight from Bash on Windows 10, Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Bash on Windows 10, Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Use the following command to start an example topology:
 
-    ```
-    storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
-    ```
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
 
     > [!NOTE]
     > On previous versions of HDInsight, the class name of the topology is `storm.starter.WordCountTopology` instead of `org.apache.storm.starter.WordCountTopology`.
@@ -182,16 +178,14 @@ Use the following steps to monitor the topology using the Storm UI:
 
 4. When viewing the details of a spout or bolt, select an entry from the **Port** column in the **Executors** section to view details for a specific instance of the component.
 
-    ```
-    2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
-    2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
-    2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
-    2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
-    2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
-    2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
-    2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
-    2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
-    ```
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
+        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [snow]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [snow, 747293]
+        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [white]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [white, 747293]
+        2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
+        2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
     In this example, the word **seven** has occurred 1493957 times. This count is how many times the word has been encountered since this topology was started.
 
@@ -205,20 +199,20 @@ Return to the **Topology summary** page for the word-count topology, and then se
 
 ## <a id="next"></a>Next steps
 
-In this Apache Storm tutorial, you learned the basics of working with Storm on HDInsight. Next, learn how to [Develop Java-based topologies using Maven](./hdinsight-storm-develop-java-topology.md).
+In this Apache Storm tutorial, you learned the basics of working with Storm on HDInsight. Next, learn how to [Develop Java-based topologies using Maven](hdinsight-storm-develop-java-topology.md).
 
-If you're already familiar with developing Java-based topologies and want to deploy an existing topology to HDInsight, see [Deploy and manage Apache Storm topologies on HDInsight](./hdinsight-storm-deploy-monitor-topology-linux.md).
+If you're already familiar with developing Java-based topologies and want to deploy an existing topology to HDInsight, see [Deploy and manage Apache Storm topologies on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md).
 
-If you are a .NET developer, you can create C# or hybrid C#/Java topologies using Visual Studio. For more information, see [Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio](./hdinsight-storm-develop-csharp-visual-studio-topology.md).
+If you are a .NET developer, you can create C# or hybrid C#/Java topologies using Visual Studio. For more information, see [Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 For example topologies that can be used with Storm on HDInsight, see the following examples:
 
-* [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md)
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.cn/
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
+[hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.cn/

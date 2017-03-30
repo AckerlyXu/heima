@@ -27,7 +27,7 @@ In this document, you will learn how to use Curl to run MapReduce jobs on a Hado
 Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs. This works by using the WebHCat REST API (formerly known as Templeton) provided by your HDInsight cluster.
 
 > [!NOTE]
-> If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see [What you need to know about Linux-based Hadoop on HDInsight](./hdinsight-hadoop-linux-information.md).
+> If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see [What you need to know about Linux-based Hadoop on HDInsight](hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following:
@@ -48,15 +48,11 @@ To complete the steps in this article, you will need the following:
 
 1. From a command-line, use the following command to verify that you can connect to your HDInsight cluster:
 
-    ```
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
-    ```
+        curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
 
     You should receive a response similar to the following:
 
-    ```
-    {"status":"ok","version":"v1"}
-    ```
+        {"status":"ok","version":"v1"}
 
     The parameters used in this command are as follows:
 
@@ -66,9 +62,7 @@ To complete the steps in this article, you will need the following:
         The beginning of the URI, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, is the same for all requests.
 2. To submit a MapReduce job, use the following command:
 
-    ```
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=wasbs:///example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=wasbs:///example/data/gutenberg/davinci.txt -d arg=wasbs:///example/data/CurlOut https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/mapreduce/jar
-    ```
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=wasbs:///example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=wasbs:///example/data/gutenberg/davinci.txt -d arg=wasbs:///example/data/CurlOut https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/mapreduce/jar
 
     The end of the URI (/mapreduce/jar) tells WebHCat that this request will start a MapReduce job from a class in a jar file. The parameters used in this command are as follows:
 
@@ -81,14 +75,11 @@ To complete the steps in this article, you will need the following:
 
         This command should return a job ID that can be used to check the status of the job:
 
-        ```
-        {"id":"job_1415651640909_0026"}
-        ```
+            {"id":"job_1415651640909_0026"}
+
 3. To check the status of the job, use the following command. Replace the **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then the JOBID would be `job_1415651640909_0026`.
 
-    ```
-    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
-    ```
+        curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
 
     If the job is complete, the state will be "SUCCEEDED".
 
@@ -98,20 +89,16 @@ To complete the steps in this article, you will need the following:
     > 
 4. When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file; in this case, **wasbs:///example/curl**. This address stores the output of the job in the **example/curl** directory in the default storage container used by your HDInsight cluster.
 
-You can list and download these files by using the [Azure CLI](/documentation/articles/cli-install-nodejs/). For example, to list files in the **example/curl**, use the following command:
+You can list and download these files by using the [Azure CLI](../cli-install-nodejs.md). For example, to list files in the **example/curl**, use the following command:
 
-```
-azure storage blob list <container-name> example/curl
-```
+    azure storage blob list <container-name> example/curl
 
 To download a file, use the following:
 
-```
-azure storage blob download <container-name> <blob-name> <destination-file>
-```
+    azure storage blob download <container-name> <blob-name> <destination-file>
 
 > [!NOTE]
-> You must specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See [how to upload data to HDInsight](./hdinsight-upload-data.md) for more information.
+> You must specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See [how to upload data to HDInsight](hdinsight-upload-data.md) for more information.
 > 
 > 
 
@@ -123,9 +110,9 @@ For more information about the REST interface that is used in this article, see 
 ## <a id="nextsteps"></a>Next steps
 For general information about MapReduce jobs in HDInsight:
 
-* [Use MapReduce with Hadoop on HDInsight](./hdinsight-use-mapreduce.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)

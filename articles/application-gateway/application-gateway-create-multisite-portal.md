@@ -19,9 +19,12 @@ ms.author: gwallace
 ---
 
 # Configure an existing application gateway for hosting multiple web applications
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-create-multisite-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-create-multisite-azureresourcemanager-powershell.md)
+> * [Azure portal preview](application-gateway-create-multisite-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+> 
+> 
 
 Multiple site hosting allows you to deploy more than one web application on the same application gateway. It relies on presence of host header in the incoming HTTP request, to determine which listener would receive traffic. The listener then directs traffic to appropriate backend pool as configured in the rules definition of the gateway. In SSL enabled web applications, application gateway relies on the Server Name Indication (SNI) extension to choose the correct listener for the web traffic. A common use for multiple site hosting is to load balance requests for different web domains to different back-end server pools. Similarly multiple subdomains of the same root domain could also be hosted on the same application gateway.
 
@@ -33,7 +36,7 @@ In the following example, application gateway is serving traffic for contoso.com
 
 ## Before you begin
 
-This scenario adds multi-site support to an existing application gateway. To complete this scenario, an existing application gateway needs to be available to configure. Visit [Create an application gateway by using the portal](./application-gateway-create-gateway-portal.md) to learn how to create a basic application gateway in the portal.
+This scenario adds multi-site support to an existing application gateway. To complete this scenario, an existing application gateway needs to be available to configure. Visit [Create an application gateway by using the portal](application-gateway-create-gateway-portal.md) to learn how to create a basic application gateway in the portal.
 
 The following are the steps needed to update the application gateway:
 
@@ -121,7 +124,7 @@ This scenario completes configuring an existing application gateway with multi-s
 
 ## Next steps
 
-Learn how to protect your websites with [Application Gateway - Web Application Firewall](./application-gateway-webapplicationfirewall-overview.md)
+Learn how to protect your websites with [Application Gateway - Web Application Firewall](application-gateway-webapplicationfirewall-overview.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-multisite-portal/figure1.png

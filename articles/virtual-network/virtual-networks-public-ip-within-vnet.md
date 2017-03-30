@@ -40,4 +40,4 @@ There are a few IP address ranges that are not allowed:
 * 168.63.129.16/32 (Internal DNS)
 
 ## Next Steps
-[How to manage DNS servers used by a VNet](./virtual-networks-manage-dns-in-vnet.md)
+[How to manage DNS servers used by a VNet](virtual-networks-manage-dns-in-vnet.md)

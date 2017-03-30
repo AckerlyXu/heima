@@ -27,7 +27,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-```
+```powershell
 # Variables for common values
 $resourceGroup = "myResourceGroup3"
 $location = "chinanorth"
@@ -122,4 +122,4 @@ This script uses the following commands to create the deployment. Each item in t
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 
-Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-powershell-samples.md).
+Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

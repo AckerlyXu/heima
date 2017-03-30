@@ -30,7 +30,7 @@ App Service but your organization requires directory data to be stored on-site.
 
 > [!NOTE]
 > For an overview of the different enterprise authentication and authorization options for Azure App 
-> Service, see [Authenticate with on-premises Active Directory in your Azure app](./web-sites-authentication-authorization.md).
+> Service, see [Authenticate with on-premises Active Directory in your Azure app](web-sites-authentication-authorization.md).
 > 
 > 
 
@@ -71,14 +71,12 @@ The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://g
     You will see that the code simply issues an authentication challenge to authenticate the user using WS-Federation. All authentication is configured in App_Start\Startup.Auth.cs.
 3. Open App_Start\Startup.Auth.cs. In the `ConfigureAuth` method, note the line:
 
-    ```
-    app.UseWsFederationAuthentication(
-        new WsFederationAuthenticationOptions
-        {
-            Wtrealm = realm,
-            MetadataAddress = metadata                                      
-        });
-    ```
+       app.UseWsFederationAuthentication(
+           new WsFederationAuthenticationOptions
+           {
+               Wtrealm = realm,
+               MetadataAddress = metadata                                      
+           });
 
     In the OWIN world, this snippet is really the bare minimum you need to configure WS-Federation authentication. It is much simpler and more elegant than WIF, where Web.config is injected with XML all over the place. The only information you need is the relying party's (RP) identifier and the URL of your AD FS service's metadata file. Here's an example:
 
@@ -190,10 +188,10 @@ Now you need to configure an RP trust in AD FS Management before you can use you
     * Name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) - used by ASP.NET to hydrate `User.Identity.Name`.
     * User principal name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn) - used to uniquely identify users in the organization.
     * Group memberships as roles (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) - can be used with `[Authorize(Roles="role1, role2,...")]` decoration to authorize controllers/actions. In reality, this approach may not be the most performant for role authorization. If your AD users belong to hundreds of security groups, they become hundreds of role claims in the SAML token. An alternative approach is to send a single role claim conditionally depending on the user's membership in a particular group. However, we'll keep it simple for this tutorial.
-    * Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add line-of-business functionality** section of [Create a line-of-business Azure app with Azure Active Directory authentication](./web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
+    * Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add line-of-business functionality** section of [Create a line-of-business Azure app with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
 
     > [!NOTE]
-    > The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](../active-directory/active-directory-token-and-claims.md).
+    > The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](/azure/active-directory/active-directory-token-and-claims/).
     > 
     > 
 11. In the Edit Claim Rules dialog, click **Add Rule**.
@@ -307,30 +305,28 @@ Since you have included group memberships as role claims in your RP trust config
     The reason for this error is that by default, MVC returns a 401 Unauthorized when a user's roles are not authorized. This triggers a reauthentication request to your identity provider (AD FS). Since the user is already authenticated, AD FS returns to the same page, which then issues another 401, creating a redirect loop. You will override AuthorizeAttribute's `HandleUnauthorizedRequest` method with simple logic to show something that makes sense instead of continuing the redirect loop.
 5. Create a file in the project called AuthorizeAttribute.cs, and paste the following code into it.
 
-    ```
-    using System;
-    using System.Web.Mvc;
-    using System.Web.Routing;
-
-    namespace WebApp_WSFederation_DotNet
-    {
-        [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
-        public class AuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
+        using System;
+        using System.Web.Mvc;
+        using System.Web.Routing;
+   
+        namespace WebApp_WSFederation_DotNet
         {
-            protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
+            [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
+            public class AuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
             {
-                if (filterContext.HttpContext.Request.IsAuthenticated)
+                protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
                 {
-                    filterContext.Result = new System.Web.Mvc.HttpStatusCodeResult((int)System.Net.HttpStatusCode.Forbidden);
-                }
-                else
-                {
-                    base.HandleUnauthorizedRequest(filterContext);
+                    if (filterContext.HttpContext.Request.IsAuthenticated)
+                    {
+                        filterContext.Result = new System.Web.Mvc.HttpStatusCodeResult((int)System.Net.HttpStatusCode.Forbidden);
+                    }
+                    else
+                    {
+                        base.HandleUnauthorizedRequest(filterContext);
+                    }
                 }
             }
         }
-    }
-    ```
 
     The override code sends an HTTP 403 (Forbidden) instead of HTTP 401 (Unauthorized) in  authenticated but unauthorized cases.
 6. Run the debugger again with `F5`. Clicking **Contact** now shows a more informative (albeit unattractive) error message:
@@ -341,12 +337,12 @@ Since you have included group memberships as role claims in your RP trust config
 ## <a name="bkmk_data"></a> Connect to on-premises data
 A reason that you would want to implement your line-of-business application with AD FS instead of Azure Active Directory is compliance issues with keeping organization data off-premise. This may also mean that your web app in Azure must access on-premise databases, since you are not allowed to use [SQL Database](https://www.azure.cn/home/features/sql-database/) as the data tier for your web apps.
 
-Azure App Service Web Apps supports accessing on-premise databases with only one approache in Azure China: [Virtual Networks](./app-service-vnet-integration-powershell.md).
+Azure App Service Web Apps supports accessing on-premise databases with only one approache in Azure China: [Virtual Networks](app-service-vnet-integration-powershell.md).
 
 ## <a name="bkmk_resources"></a> Further resources
-* [Protect the Application with SSL and the Authorize Attribute](./web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
-* [Authenticate with on-premises Active Directory in your Azure app](./web-sites-authentication-authorization.md)
-* [Create a line-of-business Azure app with Azure Active Directory authentication](./web-sites-dotnet-lob-application-azure-ad.md)
+* [Protect the Application with SSL and the Authorize Attribute](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
+* [Authenticate with on-premises Active Directory in your Azure app](web-sites-authentication-authorization.md)
+* [Create a line-of-business Azure app with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md)
 * [Use the On-Premises Organizational Authentication Option (ADFS) With ASP.NET in Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 * [Migrate a VS2013 Web Project From WIF to Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
 * [Active Directory Federation Services Overview](http://technet.microsoft.com/zh-cn/library/hh831502.aspx)

@@ -32,7 +32,7 @@ The steps in this document walk through the process of creating a new HDInsight 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -56,21 +56,15 @@ The following steps should be performed from a command-prompt, shell, or termina
 
 1. Use the following command to authenticate to your Azure subscription:
 
-    ```
-    azure login -e AzureChinaCloud
-    ```
+        azure login -e AzureChinaCloud
 
     You are prompted to provide your name and password. If you have multiple Azure subscriptions, use `azure account set <subscriptionname>` to set the subscription that the Azure CLI commands use.
 2. Switch to Azure Resource Manager mode using the following command:
 
-    ```
-    azure config mode arm
-    ```
+        azure config mode arm
 3. Create a resource group. This resource group will contain the HDInsight cluster and associated storage account.
 
-    ```
-    azure group create groupname location
-    ```
+        azure group create groupname location
 
     * Replace **groupname** with a unique name for the group. 
     * Replace **location** with the geographic region that you want to create the group in. 
@@ -78,9 +72,7 @@ The following steps should be performed from a command-prompt, shell, or termina
         For a list of valid locations, use the `azure location list` command, and then use one of the locations from the **Name** column.
 4. Create a storage account. This storage account will be used as the default storage for the HDInsight cluster.
 
-    ```
-    azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
-    ```
+        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
 
     * Replace **groupname** with the name of the group created in the previous step.
     * Replace **location** with the same location used in the previous step. 
@@ -92,9 +84,7 @@ The following steps should be performed from a command-prompt, shell, or termina
         > 
 5. Retrieve the key used to access the storage account.
 
-    ```
-    azure storage account keys list -g groupname storagename
-    ```
+        azure storage account keys list -g groupname storagename
 
     * Replace **groupname** with the resource group name.
     * Replace **storagename** with the name of the storage account.
@@ -102,9 +92,7 @@ The following steps should be performed from a command-prompt, shell, or termina
         In the data that is returned, save the **key** value for **key1**.
 6. Create an HDInsight cluster.
 
-    ```
-    azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.chinacloudapi.cn --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
-    ```
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.chinacloudapi.cn --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
     * Replace **groupname** with the resource group name.
     * Replace **Hadoop** with the cluster type that you wish to create. For example, `Hadoop`, `HBase`, `Storm` or `Spark`.
@@ -131,15 +119,15 @@ The following steps should be performed from a command-prompt, shell, or termina
 Now that you have successfully created an HDInsight cluster using the Azure CLI, use the following to learn how to work with your cluster:
 
 ### Hadoop clusters
-* [Use Hive with HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 ### HBase clusters
-* [Get started with HBase on HDInsight](./hdinsight-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](./hdinsight-hbase-build-java-maven-linux.md)
+* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ### Storm clusters
-* [Develop Java topologies for Storm on HDInsight](./hdinsight-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](./hdinsight-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](./hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
+* [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)

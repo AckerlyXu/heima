@@ -43,7 +43,7 @@ Type **RedisSessionStateProvider** into the search text box, select it from the 
 The Redis Session State Provider NuGet package has a dependency on the StackExchange.Redis.StrongName package. If the StackExchange.Redis.StrongName package is not present in your project, it is installed.
 
 >[!NOTE]
->In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it, otherwise you get naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](./cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+>In addition to the strong-named StackExchange.Redis.StrongName package, there is also the StackExchange.Redis non-strong-named version. If your project is using the non-strong-named StackExchange.Redis version you must uninstall it, otherwise you get naming conflicts in your project. For more information about these packages, see [Configure .NET cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 >
 >
 
@@ -73,13 +73,13 @@ The NuGet package downloads and adds the required assembly references and adds t
 
 The commented section provides an example of the attributes and sample settings for each attribute.
 
-Configure the attributes with the values from your cache blade in the Azure portal preview, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Redis cache settings](./cache-configure.md#configure-redis-cache-settings).
+Configure the attributes with the values from your cache blade in the Azure portal preview, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
 
 * **host** - specify your cache endpoint.
 * **port** - use either your non-SSL port or your SSL port, depending on the ssl settings.
 * **accessKey** - use either the primary or secondary key for your cache.
 * **ssl** - true if you want to secure cache/client communications with ssl; otherwise false. Be sure to specify the correct port.
-    * The non-SSL port is disabled by default for new caches. Specify true for this setting to use the SSL port. For more information about enabling the non-SSL port, see the [Access Ports](./cache-configure.md#access-ports) section in the [Configure a cache](./cache-configure.md) topic.
+    * The non-SSL port is disabled by default for new caches. Specify true for this setting to use the SSL port. For more information about enabling the non-SSL port, see the [Access Ports](cache-configure.md#access-ports) section in the [Configure a cache](cache-configure.md) topic.
 * **throwOnError** - true if you want an exception to be thrown if there is a failure, or false if you want the operation to fail silently. You can check for a failure by checking the static Microsoft.Web.Redis.RedisSessionStateProvider.LastException property. The default is true.
 * **retryTimeoutInMilliseconds** - Operations that fail are retried during this interval, specified in milliseconds. The first retry occurs after 20 milliseconds, and then retries occur every second until the retryTimeoutInMilliseconds interval expires. Immediately after this interval, the operation is retried one final time. If the operation still fails, the exception is thrown back to the caller, depending on the throwOnError setting. The default value is 0, which means no retries.
 * **databaseId** - Specifies which database to use for cache output data. If not specified, the default value of 0 is used.
@@ -119,4 +119,4 @@ Once these steps are performed, your application is configured to use the Redis 
 For more information about session state and other best practices, see [Web Development Best Practices (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## Next steps
-Check out the [ASP.NET Output Cache Provider for Azure Redis Cache](./cache-aspnet-output-cache-provider.md).
+Check out the [ASP.NET Output Cache Provider for Azure Redis Cache](cache-aspnet-output-cache-provider.md).

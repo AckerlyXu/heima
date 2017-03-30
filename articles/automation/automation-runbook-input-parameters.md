@@ -25,7 +25,7 @@ Runbook input parameters increase the flexibility of runbooks by allowing you to
 Input parameters can be configured in PowerShell Workflow. A runbook can have multiple parameters with different data types, or no parameters at all. Input parameters can be mandatory or optional, and you can assign a default value for optional parameters. You can assign values to the input parameters for a runbook when you start it through one of the available methods. These methods include starting  a runbook from the portal  or a web service. You can also start one as a child runbook that is called inline in another runbook.
 
 ## Configure input parameters in PowerShell Workflow runbooks
-[PowerShell Workflow runbooks](./automation-first-runbook-textual.md) in Azure Automation support input parameters that are defined through the following attributes.  
+[PowerShell Workflow runbooks](automation-first-runbook-textual.md) in Azure Automation support input parameters that are defined through the following attributes.  
 
 | **Property** | **Description** |
 |:--- |:--- |
@@ -78,7 +78,7 @@ You can pass values to input parameters in runbooks in the following scenarios.
 A runbook can be started many ways: through the Azure Classic Management Portal, with a webhook,  with PowerShell cmdlets, with the REST API, or with the SDK. Below we discuss different methods for starting a runbook and assigning parameters.
 
 #### Start a published runbook by using the Azure Classic Management Portal and assign parameters
-When you [start the runbook](./automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), the **Start Runbook** Pop-up opens and you can configure values for the parameters that you just created.
+When you [start the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), the **Start Runbook** Pop-up opens and you can configure values for the parameters that you just created.
 
 In the label beneath the input box, you can see the attributes that have been set for the parameter. Attributes include mandatory or optional, type, and  default value. In the help balloon next to the parameter name, you can see all the key information you need to make decisions about parameter input values. This information includes whether a parameter is mandatory or optional. It also includes the type and default value (if any), and other helpful notes.
 
@@ -174,12 +174,12 @@ If you want to start the **Get-AzureVMTextual** runbook that was created earlier
 A HTTP status code 201 is returned if the job is successfully created. For more information on response headers and the response body, refer to the article about how to [create a runbook job by using the REST API.](https://msdn.microsoft.com/zh-cn/library/azure/mt163849.aspx)
 
 ### Test a runbook and assign parameters
-When you [test the draft version of your runbook](./automation-testing-runbook.md) by using the test option, the **Test** blade opens and you can configure values for the parameters that you just created.
+When you [test the draft version of your runbook](automation-testing-runbook.md) by using the test option, the **Test** blade opens and you can configure values for the parameters that you just created.
 
 ### Link a schedule to a runbook and assign parameters
-You can [link a schedule](./automation-schedules.md) to your runbook so that the runbook starts at a specific time. You assign input parameters when you create the schedule, and the runbook will use these values when it is started by the schedule. You can't save the schedule until all mandatory parameter values are provided.
+You can [link a schedule](automation-schedules.md) to your runbook so that the runbook starts at a specific time. You assign input parameters when you create the schedule, and the runbook will use these values when it is started by the schedule. You can't save the schedule until all mandatory parameter values are provided.
 
 ## Next steps
 * For more information on runbook input and output, see [Azure Automation: runbook input, output, and nested runbooks](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/).
-* For details about different ways to start a runbook, see [Starting a runbook](./automation-starting-a-runbook.md).
-* To edit a textual runbook, refer to [Editing textual runbooks](./automation-edit-textual-runbook.md).
+* For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
+* To edit a textual runbook, refer to [Editing textual runbooks](automation-edit-textual-runbook.md).

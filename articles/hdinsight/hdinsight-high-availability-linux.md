@@ -28,7 +28,7 @@ To address this potential problem, HDInsight clusters on Azure provide two head 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Understanding the nodes
 Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. In the event that a node fails, it is taken offline and a new node is created to replace the failed node. While the node is offline, another node of the same type will be used until the new node is brought online.
@@ -38,7 +38,7 @@ Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. In t
 > 
 > 
 
-The following sections discuss the individual node types used with HDInsight. Not all node types are used for a cluster type. For example, a Hadoop cluster type will not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of [Create Linux-based Hadoop clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+The following sections discuss the individual node types used with HDInsight. Not all node types are used for a cluster type. For example, a Hadoop cluster type will not have any Nimbus nodes. For more information on nodes used by HDInsight cluster types, see the Cluster types section of [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
 
 ### Head nodes
 Some implementations of Hadoop have a single head node that hosts services and components that manage the failure of worker nodes smoothly. But any outages of master services running on the head node would cause the cluster to cease to work.
@@ -90,21 +90,17 @@ Nodes in an HDInsight cluster have an internal IP address and FQDN that can only
 
 For example, the Oozie service can only run on one head node, and using the `oozie` command from an SSH session requires the URL to the service. This can be retrieved from Ambari by using the following command:
 
-```
-curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
-```
+    curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
 This will return a value similar to the following, which contains the internal URL to use with the `oozie` command:
 
-```
-"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.chinacloudapp.cn:11000/oozie"
-```
+    "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.chinacloudapp.cn:11000/oozie"
 
 ### Accessing other node types
 You can connect to nodes that are not directly accessible over the internet by using the following methods.
 
 * **SSH**: Once connected to a head node using SSH, you can then use SSH from the head node to connect to other nodes in the cluster.
-* **SSH Tunnel**: If you need to access a web service hosted on one of the nodes that is not exposed to the internet, you must [use an SSH tunnel](./hdinsight-linux-ambari-ssh-tunnel.md).
+* **SSH Tunnel**: If you need to access a web service hosted on one of the nodes that is not exposed to the internet, you must [use an SSH tunnel](hdinsight-linux-ambari-ssh-tunnel.md).
 * **Azure Virtual Network**: If your HDInsight cluster is part of an Azure Virtual Network, any resource on the same Virtual Network can directly access all nodes in the cluster.
 
 ## How to check on a service status
@@ -132,9 +128,7 @@ The Ambari REST API is available over the internet, and the public gateway handl
 
 You can use the following command to check the state of a service through the Ambari REST API:
 
-```
-curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
-```
+    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
 * Replace **PASSWORD** with the HTTP user (admin,) account password
 * Replace **CLUSTERNAME** with the name of the cluster
@@ -142,22 +136,18 @@ curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLU
 
 For example, to check the status of the **HDFS** service on a cluster named **mycluster**, with a password of **password**, you would use the following:
 
-```
-curl -u admin:password https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
-```
+    curl -u admin:password https://mycluster.azurehdinsight.cn/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
 
 The response will be similar to the following:
 
-```
-{
-  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
-  "ServiceInfo" : {
-    "cluster_name" : "mycluster",
-    "service_name" : "HDFS",
-    "state" : "STARTED"
-  }
-}
-```
+    {
+      "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.chinacloudapp.cn:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+      "ServiceInfo" : {
+        "cluster_name" : "mycluster",
+        "service_name" : "HDFS",
+        "state" : "STARTED"
+      }
+    }
 
 The URL tells us that the service is currently running on a head node named **hn0-CLUSTERNAME**.
 
@@ -165,22 +155,16 @@ The state tells us that the service is currently running, or **STARTED**.
 
 If you do not know what services are installed on the cluster, you can use the following to retrieve a list:
 
-```
-curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services
-```
+    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services
 
 #### Service components
 Services may contain components that you wish to check the status of individually. For example, HDFS contains the NameNode component. To view information on a component, the command would be:
 
-```
-curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
-```
+    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
 If you do not know what components are provided by a service, you can use the following to retrieve a list:
 
-```
-curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
-```
+    curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
 ## How to access log files on the head nodes
 ### SSH
@@ -195,10 +179,8 @@ Similar to using an SSH client, when connecting to the cluster you must provide 
 
 Once connected, you are presented with a `sftp>` prompt. From this prompt, you can change directories, upload and download files. For example, the following commands change directories to the **/var/log/hadoop/hdfs** directory and then download all files in the directory.
 
-```
-cd /var/log/hadoop/hdfs
-get *
-```
+    cd /var/log/hadoop/hdfs
+    get *
 
 For a list of available commands, enter `help` at the `sftp>` prompt.
 
@@ -207,7 +189,7 @@ For a list of available commands, enter `help` at the `sftp>` prompt.
 
 ### Ambari
 > [!NOTE]
-> Accessing log files through Ambari requires an SSH tunnel, as the web sites for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md).
+> Accessing log files through Ambari requires an SSH tunnel, as the web sites for the individual services are not exposed publicly on the Internet. For information on using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
 From the Ambari Web UI, select the service you wish to view logs for (for example, YARN,) and then use **Quick Links** to select which head node to view the logs for.
 
@@ -228,11 +210,11 @@ When creating a new cluster, you can specify the size of the nodes. The followin
 In this document you have learned how Azure HDInsight provides high availability for Hadoop. Use the following to learn more about things mentioned in this document.
 
 * [Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Install and configure the Azure CLI](/documentation/articles/cli-install-nodejs/)
+* [Install and configure the Azure CLI](../cli-install-nodejs.md)
 * [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-* [Manage HDInsight using Ambari](./hdinsight-hadoop-manage-ambari.md)
-* [Provision Linux-based HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md)
+* [Manage HDInsight using Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.cn/
 [azure-powershell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[azure-cli]: /documentation/articles/cli-install-nodejs/
+[azure-cli]: ../cli-install-nodejs.md

@@ -29,7 +29,7 @@ This sample works in Bash shell. For options on running Azure CLI scripts on Win
 
 ## Sample script
 
-```
+```powershell
 #!/bin/bash
 
 # Update for your admin password
@@ -92,4 +92,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../virtual-machines-windows-cli-samples.md).
+Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

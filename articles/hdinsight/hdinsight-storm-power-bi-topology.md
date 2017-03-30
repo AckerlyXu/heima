@@ -34,15 +34,15 @@ Power BI allows you to visually display data as reports. This document provides 
 > <p> 
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things work. However you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 > 
-> <p>For a Java version of this project, which works with Linux-based or Windows-based HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](./hdinsight-storm-develop-java-event-hub-topology.md). 
+> <p>For a Java version of this project, which works with Linux-based or Windows-based HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md). 
 
 ## Prerequisites
 
 * An Azure Active Directory user with [Power BI](https://powerbi.com) access.
-* An HDInsight cluster. For more information, see [Get started with Storm on HDInsight](./hdinsight-apache-storm-tutorial-get-started-linux.md).
+* An HDInsight cluster. For more information, see [Get started with Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * Visual Studio (one of the following versions)
 
@@ -51,7 +51,7 @@ Power BI allows you to visually display data as reports. This document provides 
     * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
     * Visual Studio 2017 (any edition)
 
-* The HDInsight Tools for Visual Studio: See [Get started using the HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md) for information on installation information.
+* The HDInsight Tools for Visual Studio: See [Get started using the HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) for information on installation information.
 
 ## How it works
 
@@ -83,9 +83,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 2. Open the sample in Visual Studio. From **Solution Explorer**, open the **App.config** file, and then find the following entry:
 
-    ```
-    <add key="SqlAzureConnectionString" value="##TOBEFILLED##" />
-    ```
+        <add key="SqlAzureConnectionString" value="##TOBEFILLED##" />
 
     Replace the **##TOBEFILLED##** value with the database connection string copied in the previous step. Replace **{your\_username}** and **{your\_password}** with the username and password for the database.
 
@@ -108,20 +106,16 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Azure-Samp
 
 3. After the topology has ran for a few minutes, return to the SQL query window you used to create the database. Replace the existing statements with the following query:
 
-    ```
-    select * from iislogs;
-    ```
+        select * from iislogs;
 
     Use Ctrl + Shift + E to execute the query, and you should receive results similar to the following:
 
-    ```
-    1    2016-05-27 17:57:14.797    255.255.255.255    /bar    GET    200
-    2    2016-05-27 17:57:14.843    127.0.0.1    /spam/eggs    POST    500
-    3    2016-05-27 17:57:14.850    123.123.123.123    /eggs    DELETE    200
-    4    2016-05-27 17:57:14.853    127.0.0.1    /foo    POST    404
-    5    2016-05-27 17:57:14.853    10.9.8.7    /bar    GET    200
-    6    2016-05-27 17:57:14.857    192.168.1.1    /spam    DELETE    200
-    ```
+        1    2016-05-27 17:57:14.797    255.255.255.255    /bar    GET    200
+        2    2016-05-27 17:57:14.843    127.0.0.1    /spam/eggs    POST    500
+        3    2016-05-27 17:57:14.850    123.123.123.123    /eggs    DELETE    200
+        4    2016-05-27 17:57:14.853    127.0.0.1    /foo    POST    404
+        5    2016-05-27 17:57:14.853    10.9.8.7    /bar    GET    200
+        6    2016-05-27 17:57:14.857    192.168.1.1    /spam    DELETE    200
 
     This data has been written from the Storm topology.
 
@@ -176,4 +170,4 @@ The topology continues to run until you stop it or delete the Storm on HDInsight
 
 In this document, you learned how to send data from a Storm topology to SQL Database, then visualize the data using Power BI. For information on how to work with other Azure technologies using Storm on HDInsight, see the following:
 
-* [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md)
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)

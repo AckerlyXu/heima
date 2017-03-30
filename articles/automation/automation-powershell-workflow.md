@@ -288,4 +288,4 @@ This is not required if you are authenticating using a Run As account configured
 For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](http://technet.microsoft.com/zh-cn/library/jj574114.aspx).
 
 ## Next steps
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](./automation-first-runbook-textual.md)
+* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)

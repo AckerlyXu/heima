@@ -30,7 +30,7 @@ In this document, you learn how to create a basic C# Storm topology that tracks 
 
 ## Prerequisites
 
-* Visual Studio and the HDInsight tools for Visual Studio. For more information, see [Get started using the HDInsight tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+* Visual Studio and the HDInsight tools for Visual Studio. For more information, see [Get started using the HDInsight tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 * Apache Storm on HDInsight cluster (Windows-based).
 
@@ -40,7 +40,7 @@ In this document, you learn how to create a basic C# Storm topology that tracks 
 * Apache HBase on HDInsight cluster (Linux or Windows-based).
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * [Java](https://java.com) 1.7 or greater on your development environment. Java is used to package the topology when it is submitted to the HDInsight cluster.
 
@@ -200,15 +200,11 @@ Once data has been emitted, use the following steps to query the data.
 
     To return logged events, use a start time from before the Storm topology was deployed, and an end time of now. The return data contains entries similar to the following text:
 
-    ```
-    Session e6992b3e-79be-4991-afcf-5cb47dd1c81c started at 6/5/2015 6:10:15 PM. Timestamp = 1433527820737
-    ```
+        Session e6992b3e-79be-4991-afcf-5cb47dd1c81c started at 6/5/2015 6:10:15 PM. Timestamp = 1433527820737
 
 Searching for END events works the same as START events. However, END events are generated randomly between 1 and 5 minutes after the START event. You may have to try a few time ranges to find the END events. END events also contain the duration of the session - the difference between the START event time and END event time. Here is an example of data for END events:
 
-```
-Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
-```
+    Session fc9fa8e6-6892-4073-93b3-a587040d892e lasted 2 minutes, and ended at 6/5/2015 6:12:15 PM
 
 > [!NOTE]
 > While the time values you enter are in local time, the time returned from the query is in UTC.
@@ -223,4 +219,4 @@ When you are ready to stop the topology, return to the **CorrelationTopology** p
 
 ## Next steps
 
-For more Storm examples, see [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md).
+For more Storm examples, see [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md).

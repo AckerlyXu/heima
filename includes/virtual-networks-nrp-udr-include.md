@@ -21,36 +21,34 @@ UDRs contain the following properties.
 
 Sample route table in JSON format:
 
-```
-{
-    "name": "UDR-BackEnd",
-    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd",
-    "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-    "type": "Microsoft.Network/routeTables",
-    "location": "chinanorth",
-    "properties": {
-        "provisioningState": "Succeeded",
-        "routes": [
-            {
-                "name": "RouteToFrontEnd",
-                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd/routes/RouteToFrontEnd",
-                "etag": "W/\"v\"",
-                "properties": {
-                    "provisioningState": "Succeeded",
-                    "addressPrefix": "192.168.1.0/24",
-                    "nextHopType": "VirtualAppliance",
-                    "nextHopIpAddress": "192.168.0.4"
+    {
+        "name": "UDR-BackEnd",
+        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd",
+        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+        "type": "Microsoft.Network/routeTables",
+        "location": "chinanorth",
+        "properties": {
+            "provisioningState": "Succeeded",
+            "routes": [
+                {
+                    "name": "RouteToFrontEnd",
+                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd/routes/RouteToFrontEnd",
+                    "etag": "W/\"v\"",
+                    "properties": {
+                        "provisioningState": "Succeeded",
+                        "addressPrefix": "192.168.1.0/24",
+                        "nextHopType": "VirtualAppliance",
+                        "nextHopIpAddress": "192.168.0.4"
+                    }
                 }
-            }
-        ],
-        "subnets": [
-            {
-                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd"
-            }
-        ]
+            ],
+            "subnets": [
+                {
+                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd"
+                }
+            ]
+        }
     }
-}
-```
 
 ### Additional resources
 * Get more information about [UDRs](../articles/virtual-network/virtual-networks-udr-overview.md).

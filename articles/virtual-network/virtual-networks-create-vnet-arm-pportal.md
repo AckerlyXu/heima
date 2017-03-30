@@ -27,14 +27,15 @@ ms.custom: H1Hack27Feb2017
 Azure has two deployment models: Azure Resource Manager and classic. Azure recommends creating resources through the Resource Manager deployment model. To learn more about the differences between the two models, read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.
 
 This article explains how to create a VNet through the Resource Manager deployment model using the Azure portal preview. You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
+
 > [!div class="op_single_selector"]
->- [Portal](./virtual-networks-create-vnet-arm-pportal.md)
->- [PowerShell](./virtual-networks-create-vnet-arm-ps.md)
->- [CLI](./virtual-networks-create-vnet-arm-cli.md)
->- [Template](./virtual-networks-create-vnet-arm-template-click.md)
->- [Portal (Classic)](./virtual-networks-create-vnet-classic-pportal.md)
->- [PowerShell (Classic)](./virtual-networks-create-vnet-classic-netcfg-ps.md)
->- [CLI (Classic)](./virtual-networks-create-vnet-classic-cli.md)
+>- [Portal](virtual-networks-create-vnet-arm-pportal.md)
+>- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+>- [CLI](virtual-networks-create-vnet-arm-cli.md)
+>- [Template](virtual-networks-create-vnet-arm-template-click.md)
+>- [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
+>- [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+>- [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -69,12 +70,12 @@ To create a virtual network using the Azure portal preview, complete the followi
 
     ![List of subnets in VNet](./media/virtual-network-create-vnet-arm-pportal/6.png)
 
-This article explained how to create a virtual network with two subnets for testing. Before creating a virtual network for production use, we recommend reading the [Virtual network overview](./virtual-networks-overview.md) and [Virtual network plan and design](./virtual-network-vnet-plan-design-arm.md) articles to fully understand virtual networks and all settings. 
+This article explained how to create a virtual network with two subnets for testing. Before creating a virtual network for production use, we recommend reading the [Virtual network overview](virtual-networks-overview.md) and [Virtual network plan and design](virtual-network-vnet-plan-design-arm.md) articles to fully understand virtual networks and all settings. 
 
 ## Next steps
 
 Learn how to connect:
 
-- A virtual machine (VM) to a virtual network by reading the [Create a Windows VM](/documentation/articles/virtual-machines-windows-hero-tutorial/) or [Create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-portal.md) articles. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
+- A virtual machine (VM) to a virtual network by reading the [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) or [Create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-portal.md) articles. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
 - The virtual network to other virtual networks by reading the [Connect VNets](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article.
 - The virtual network to an on-premises network using a site-to-site virtual private network (VPN) or ExpressRoute circuit. Learn how by reading the [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) and [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) articles.

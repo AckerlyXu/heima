@@ -27,7 +27,7 @@ Create custom routing and virtual appliances using the Azure CLI.
 You can complete the task using one of the following CLI versions: 
 
 - [Azure CLI 1.0](#Create-the-UDR-for-the-front-end-subnet) - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](./virtual-network-create-udr-arm-cli.md) - our next generation CLI for the resource management deployment model 
+- [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md) - our next generation CLI for the resource management deployment model 
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
@@ -46,19 +46,17 @@ To create the route table and route needed for the front end subnet based on the
 
     Output:
 
-    ```
-    info:    Executing command network route-table create
-    info:    Looking up route table "UDR-FrontEnd"
-    info:    Creating route table "UDR-FrontEnd"
-    info:    Looking up route table "UDR-FrontEnd"
-    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-    routeTables/UDR-FrontEnd
-    data:    Name                            : UDR-FrontEnd
-    data:    Type                            : Microsoft.Network/routeTables
-    data:    Location                        : chinanorth
-    data:    Provisioning state              : Succeeded
-    info:    network route-table create command OK
-    ```
+        info:    Executing command network route-table create
+        info:    Looking up route table "UDR-FrontEnd"
+        info:    Creating route table "UDR-FrontEnd"
+        info:    Looking up route table "UDR-FrontEnd"
+        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
+        routeTables/UDR-FrontEnd
+        data:    Name                            : UDR-FrontEnd
+        data:    Type                            : Microsoft.Network/routeTables
+        data:    Location                        : chinanorth
+        data:    Provisioning state              : Succeeded
+        info:    network route-table create command OK
 
     Parameters:
 
@@ -73,20 +71,18 @@ To create the route table and route needed for the front end subnet based on the
 
     Output:
 
-    ```
-    info:    Executing command network route-table route create
-    info:    Looking up route "RouteToBackEnd" in route table "UDR-FrontEnd"
-    info:    Creating route "RouteToBackEnd" in a route table "UDR-FrontEnd"
-    info:    Looking up route "RouteToBackEnd" in route table "UDR-FrontEnd"
-    data:    Id                              : /subscriptions/[Subscription Id]/TestRG/providers/Microsoft.Network/
-    routeTables/UDR-FrontEnd/routes/RouteToBackEnd
-    data:    Name                            : RouteToBackEnd
-    data:    Provisioning state              : Succeeded
-    data:    Next hop type                   : VirtualAppliance
-    data:    Next hop IP address             : 192.168.0.4
-    data:    Address prefix                  : 192.168.2.0/24
-    info:    network route-table route create command OK
-    ```
+        info:    Executing command network route-table route create
+        info:    Looking up route "RouteToBackEnd" in route table "UDR-FrontEnd"
+        info:    Creating route "RouteToBackEnd" in a route table "UDR-FrontEnd"
+        info:    Looking up route "RouteToBackEnd" in route table "UDR-FrontEnd"
+        data:    Id                              : /subscriptions/[Subscription Id]/TestRG/providers/Microsoft.Network/
+        routeTables/UDR-FrontEnd/routes/RouteToBackEnd
+        data:    Name                            : RouteToBackEnd
+        data:    Provisioning state              : Succeeded
+        data:    Next hop type                   : VirtualAppliance
+        data:    Next hop IP address             : 192.168.0.4
+        data:    Address prefix                  : 192.168.2.0/24
+        info:    network route-table route create command OK
 
     Parameters:
 
@@ -102,29 +98,27 @@ To create the route table and route needed for the front end subnet based on the
 
     Output:
 
-    ```
-    info:    Executing command network vnet subnet set
-    info:    Looking up the subnet "FrontEnd"
-    info:    Looking up route table "UDR-FrontEnd"
-    info:    Setting subnet "FrontEnd"
-    info:    Looking up the subnet "FrontEnd"
-    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-    virtualNetworks/TestVNet/subnets/FrontEnd
-    data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-    data:    ProvisioningState               : Succeeded
-    data:    Name                            : FrontEnd
-    data:    Address prefix                  : 192.168.1.0/24
-    data:    Network security group          : [object Object]
-    data:    Route Table                     : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-    routeTables/UDR-FrontEnd
-    data:    IP configurations:
-    data:      /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConf
-    igurations/ipconfig1
-    data:      /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConf
-    igurations/ipconfig1
-    data:    
-    info:    network vnet subnet set command OK
-    ```
+        info:    Executing command network vnet subnet set
+        info:    Looking up the subnet "FrontEnd"
+        info:    Looking up route table "UDR-FrontEnd"
+        info:    Setting subnet "FrontEnd"
+        info:    Looking up the subnet "FrontEnd"
+        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
+        virtualNetworks/TestVNet/subnets/FrontEnd
+        data:    Type                            : Microsoft.Network/virtualNetworks/subnets
+        data:    ProvisioningState               : Succeeded
+        data:    Name                            : FrontEnd
+        data:    Address prefix                  : 192.168.1.0/24
+        data:    Network security group          : [object Object]
+        data:    Route Table                     : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
+        routeTables/UDR-FrontEnd
+        data:    IP configurations:
+        data:      /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConf
+        igurations/ipconfig1
+        data:      /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConf
+        igurations/ipconfig1
+        data:    
+        info:    network vnet subnet set command OK
 
     Parameters:
 
@@ -162,32 +156,30 @@ To enable IP forwarding in the NIC used by **FW1**, complete the following steps
 
     Output:
 
-    ```
-    info:    Executing command network nic show
-    info:    Looking up the network interface "NICFW1"
-    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-    networkInterfaces/NICFW1
-    data:    Name                            : NICFW1
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : chinanorth
-    data:    Provisioning state              : Succeeded
-    data:    MAC address                     : 00-0D-3A-30-95-B3
-    data:    Enable IP forwarding            : false
-    data:    Tags                            : displayName=NetworkInterfaces - DMZ
-    data:    Virtual machine                 : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/
-    virtualMachines/FW1
-    data:    IP configurations:
-    data:      Name                          : ipconfig1
-    data:      Provisioning state            : Succeeded
-    data:      Public IP address             : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-    publicIPAddresses/PIPFW1
-    data:      Private IP address            : 192.168.0.4
-    data:      Private IP Allocation Method  : Static
-    data:      Subnet                        : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-    virtualNetworks/TestVNet/subnets/DMZ
-    data:    
-    info:    network nic show command OK
-    ```
+        info:    Executing command network nic show
+        info:    Looking up the network interface "NICFW1"
+        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
+        networkInterfaces/NICFW1
+        data:    Name                            : NICFW1
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : chinanorth
+        data:    Provisioning state              : Succeeded
+        data:    MAC address                     : 00-0D-3A-30-95-B3
+        data:    Enable IP forwarding            : false
+        data:    Tags                            : displayName=NetworkInterfaces - DMZ
+        data:    Virtual machine                 : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/
+        virtualMachines/FW1
+        data:    IP configurations:
+        data:      Name                          : ipconfig1
+        data:      Provisioning state            : Succeeded
+        data:      Public IP address             : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
+        publicIPAddresses/PIPFW1
+        data:      Private IP address            : 192.168.0.4
+        data:      Private IP Allocation Method  : Static
+        data:      Subnet                        : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
+        virtualNetworks/TestVNet/subnets/DMZ
+        data:    
+        info:    network nic show command OK
 2. Run the following command to enable IP forwarding:
 
     ```azurecli
@@ -196,34 +188,32 @@ To enable IP forwarding in the NIC used by **FW1**, complete the following steps
 
     Output:
 
-    ```
-    info:    Executing command network nic set
-    info:    Looking up the network interface "NICFW1"
-    info:    Updating network interface "NICFW1"
-    info:    Looking up the network interface "NICFW1"
-    data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-    networkInterfaces/NICFW1
-    data:    Name                            : NICFW1
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : chinanorth
-    data:    Provisioning state              : Succeeded
-    data:    MAC address                     : 00-0D-3A-30-95-B3
-    data:    Enable IP forwarding            : true
-    data:    Tags                            : displayName=NetworkInterfaces - DMZ
-    data:    Virtual machine                 : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/
-    virtualMachines/FW1
-    data:    IP configurations:
-    data:      Name                          : ipconfig1
-    data:      Provisioning state            : Succeeded
-    data:      Public IP address             : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-    publicIPAddresses/PIPFW1
-    data:      Private IP address            : 192.168.0.4
-    data:      Private IP Allocation Method  : Static
-    data:      Subnet                        : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
-    virtualNetworks/TestVNet/subnets/DMZ
-    data:    
-    info:    network nic set command OK
-    ```
+        info:    Executing command network nic set
+        info:    Looking up the network interface "NICFW1"
+        info:    Updating network interface "NICFW1"
+        info:    Looking up the network interface "NICFW1"
+        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
+        networkInterfaces/NICFW1
+        data:    Name                            : NICFW1
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : chinanorth
+        data:    Provisioning state              : Succeeded
+        data:    MAC address                     : 00-0D-3A-30-95-B3
+        data:    Enable IP forwarding            : true
+        data:    Tags                            : displayName=NetworkInterfaces - DMZ
+        data:    Virtual machine                 : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/
+        virtualMachines/FW1
+        data:    IP configurations:
+        data:      Name                          : ipconfig1
+        data:      Provisioning state            : Succeeded
+        data:      Public IP address             : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
+        publicIPAddresses/PIPFW1
+        data:      Private IP address            : 192.168.0.4
+        data:      Private IP Allocation Method  : Static
+        data:      Subnet                        : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
+        virtualNetworks/TestVNet/subnets/DMZ
+        data:    
+        info:    network nic set command OK
 
     Parameters:
 

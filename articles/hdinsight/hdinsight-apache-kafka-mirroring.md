@@ -27,7 +27,7 @@ Mirroring can be ran as a continuous process, or used intermittently as a method
 > [!WARNING]
 > Mirroring should not be considered as a means to achieve fault-tolerance. The offset to items within a topic are different between the source and destination clusters, so clients cannot use the two interchangeably.
 > 
-> If you are concerned about fault tolerance, you should set replication for the topics within your cluster. For more information, see [Get started with Kafka on HDInsight](./hdinsight-apache-kafka-get-started.md).
+> If you are concerned about fault tolerance, you should set replication for the topics within your cluster. For more information, see [Get started with Kafka on HDInsight](hdinsight-apache-kafka-get-started.md).
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ Apache Kafka on HDInsight does not provide access to the Kafka service over the 
 ![Diagram of source and destination Kafka clusters in an Azure virtual network](./media/hdinsight-apache-kafka-mirroring/spark-kafka-vnet.png)
 
 > [!NOTE]
-> Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
+> Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 While you can create an Azure virtual network and Kafka clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network and two Kafka clusters to your Azure subscription.
 
@@ -112,17 +112,15 @@ Once the resources have been created, you are redirected to a blade for the reso
 
 1. Connect to the **source** cluster using SSH:
 
-    ```
-    ssh sshuser@source-BASENAME-ssh.azurehdinsight.cn
-    ```
+        ssh sshuser@source-BASENAME-ssh.azurehdinsight.cn
 
     Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
 
     For more information on using SSH with HDInsight, see the following documents:
 
-    * [Use SSH with HDInsight from a Linux, Mac OS, Unix client, and Bash on Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md).
+    * [Use SSH with HDInsight from a Linux, Mac OS, Unix client, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-    * [Use SSH (PuTTY) with HDInsight from a Windows client](./hdinsight-hadoop-linux-use-ssh-windows.md).
+    * [Use SSH (PuTTY) with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 2. Use the following command to find the Zookeeper hosts, set the `SOURCE_ZKHOSTS` variable, and then create several new topics named `testtopic`:
 
@@ -149,9 +147,7 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     This returns information similar to the following text:
 
-    ```
-    zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:2181
-    ```
+        zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:2181
 
     Save this information. It is used in the next section.
 
@@ -159,17 +155,15 @@ Once the resources have been created, you are redirected to a blade for the reso
 
 1. Connect to the **destination** cluster using a different SSH session:
 
-    ```
-    ssh sshuser@dest-BASENAME-ssh.azurehdinsight.cn
-    ```
+        ssh sshuser@dest-BASENAME-ssh.azurehdinsight.cn
 
     Replace **sshuser** with the SSH user name used when creating the cluster. Replace **BASENAME** with the base name used when creating the cluster.
 
     For more information on using SSH with HDInsight, see the following documents:
 
-    * [Use SSH with HDInsight from a Linux, Mac OS, Unix client, and Bash on Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with HDInsight from a Linux, Mac OS, Unix client, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH (PuTTY) with HDInsight from a Windows client](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Use the following command to create a `consumer.properties` file that describes how to communicate with the **source** cluster:
 
@@ -179,10 +173,8 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     Use the following text as the contents of the `consumer.properties` file:
 
-    ```
-    zookeeper.connect=SOURCE_ZKHOSTS
-    group.id=mirrorgroup
-    ```
+        zookeeper.connect=SOURCE_ZKHOSTS
+        group.id=mirrorgroup
 
     Replace **SOURCE_ZKHOSTS** with the Zookeeper hosts information from the **source** cluster.
 
@@ -203,9 +195,7 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     These commands return information similar to the following:
 
-    ```
-    wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092
-    ```
+        wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.chinacloudapp.cn:9092
 
 4. Use the following to create a `producer.properties` file that describes how to communicate with the **destination** cluster:
 
@@ -215,10 +205,8 @@ Once the resources have been created, you are redirected to a blade for the reso
 
     Use the following text as the contents of the `producer.properties` file:
 
-    ```
-    bootstrap.servers=DEST_BROKERS
-    compression.type=none
-    ```
+        bootstrap.servers=DEST_BROKERS
+        compression.type=none
 
     Replace **DEST_BROKERS** with the broker information from the previous step. 
 
@@ -287,6 +275,6 @@ Since the steps in this document create both clusters in the same Azure resource
 In this document, you learned how to use MirrorMaker to create a replica of a Kafka cluster. Use the following links to discover other ways to work with Kafka:
 
 * [Apache Kafka MirrorMaker documentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) at cwiki.apache.org.
-* [Get started with Apache Kafka on HDInsight](./hdinsight-apache-kafka-get-started.md)
-* [Use Apache Spark with Kafka on HDInsight](./hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Storm with Kafka on HDInsight](./hdinsight-apache-storm-with-kafka.md)
+* [Get started with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
+* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
+* [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)

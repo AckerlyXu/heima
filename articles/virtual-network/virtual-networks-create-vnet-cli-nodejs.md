@@ -27,7 +27,7 @@ Azure has two deployment models: Azure Resource Manager and classic. Azure recom
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 2.0](./virtual-networks-create-vnet-arm-cli.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-networks-create-vnet-arm-cli.md) - our next generation CLI for the resource management deployment model
 - [Azure CLI 1.0](#create-a-virtual-network) - our CLI for the classic and resource management deployment models (this article)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
@@ -36,7 +36,7 @@ You can complete the task using one of the following CLI versions:
 
 To create a virtual network using the Azure CLI, complete the following steps:
 
-1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/) article.
+1. Install and configure the Azure CLI by following the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article.
 
 2. Create a VNet and a subnet:
 
@@ -46,13 +46,11 @@ To create a virtual network using the Azure CLI, complete the following steps:
 
     Expected output:
 
-    ```
-        info:    Executing command network vnet create
-        + Looking up network configuration
-        + Looking up locations
-        + Setting network configuration
-        info:    network vnet create command OK
-    ```
+            info:    Executing command network vnet create
+            + Looking up network configuration
+            + Looking up locations
+            + Setting network configuration
+            info:    network vnet create command OK
 
     Parameters used:
 
@@ -72,17 +70,15 @@ To create a virtual network using the Azure CLI, complete the following steps:
 
     Expected output:
 
-    ```
-        info:    Executing command network vnet subnet create
-        + Looking up network configuration
-        + Creating subnet "BackEnd"
-        + Setting network configuration
-        + Looking up the subnet "BackEnd"
-        + Looking up network configuration
-        data:    Name                            : BackEnd
-        data:    Address prefix                  : 192.168.2.0/24
-        info:    network vnet subnet create command OK
-    ```
+            info:    Executing command network vnet subnet create
+            + Looking up network configuration
+            + Creating subnet "BackEnd"
+            + Setting network configuration
+            + Looking up the subnet "BackEnd"
+            + Looking up network configuration
+            data:    Name                            : BackEnd
+            data:    Address prefix                  : 192.168.2.0/24
+            info:    network vnet subnet create command OK
 
     Parameters used:
 
@@ -98,23 +94,21 @@ To create a virtual network using the Azure CLI, complete the following steps:
 
     Expected output:
 
-    ```
-        info:    Executing command network vnet show
-        Virtual network name: TestVNet
-        + Looking up the virtual network sites
-        data:    Name                            : TestVNet
-        data:    Location                        : China North
-        data:    State                           : Created
-        data:    Address space                   : 192.168.0.0/16
-        data:    Subnets:
-        data:      Name                          : FrontEnd
-        data:      Address prefix                : 192.168.1.0/24
-        data:
-        data:      Name                          : BackEnd
-        data:      Address prefix                : 192.168.2.0/24
-        data:
-        info:    network vnet show command OK
-    ```
+            info:    Executing command network vnet show
+            Virtual network name: TestVNet
+            + Looking up the virtual network sites
+            data:    Name                            : TestVNet
+            data:    Location                        : China North
+            data:    State                           : Created
+            data:    Address space                   : 192.168.0.0/16
+            data:    Subnets:
+            data:      Name                          : FrontEnd
+            data:      Address prefix                : 192.168.1.0/24
+            data:
+            data:      Name                          : BackEnd
+            data:      Address prefix                : 192.168.2.0/24
+            data:
+            info:    network vnet show command OK
 
 ## Next steps
 

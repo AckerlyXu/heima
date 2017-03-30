@@ -36,12 +36,12 @@ You will:
 
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](./app-service-web-get-started-dotnet-cli-nodejs.md) - our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0](./app-service-web-get-started-dotnet.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 1.0](app-service-web-get-started-dotnet-cli-nodejs.md) - our CLI for the classic and resource management deployment models
+- [Azure CLI 2.0](app-service-web-get-started-dotnet.md) - our next generation CLI for the resource management deployment model
 
 ## <a name="Prerequisites"></a> Prerequisites
 * [Git](http://www.git-scm.com/downloads).
-* [Azure CLI](/documentation/articles/cli-install-nodejs/).
+* [Azure CLI](../cli-install-nodejs.md).
 * A Azure account. If you don't have an account, you can 
   [sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
 
@@ -54,9 +54,7 @@ You can complete the task using one of the following CLI versions:
     If you haven't installed the tools, see [Prerequisites](#Prerequisites) for download links.
 2. Log in to Azure like this:
 
-    ```
-    azure login -e AzureChinaCloud
-    ```
+        azure login -e AzureChinaCloud
 
     Follow the help message to continue the login process.
 
@@ -64,28 +62,20 @@ You can complete the task using one of the following CLI versions:
 
 3. Change Azure CLI into ASM mode, then set the deployment user for App Service. You will deploy code using the credentials later.
 
-    ```
-    azure config mode asm
-    azure site deployment user set --username <username> --pass <password>
-    ```
+        azure config mode asm
+        azure site deployment user set --username <username> --pass <password>
 
 4. Change to a working directory (`CD`) and clone the sample ASP.NET app.
 
-    ```
-    git clone https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git
-    ```
+        git clone https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git
 
 5. Change to the repository of your sample app. 
 
-    ```
-    cd app-service-web-dotnet-get-started
-    ```
+        cd app-service-web-dotnet-get-started
 
 6. Create the App Service app resource in Azure with a unique app name and the deployment user you configured earlier. When you're prompted, specify the number of the desired region.
 
-    ```
-    azure site create <app_name> --git --gitusername <username>
-    ```
+        azure site create <app_name> --git --gitusername <username>
 
     ![Create the Azure resource for your first web app in Azure](./media/app-service-web-get-started-languages/dotnet-site-create.png)
 
@@ -94,9 +84,7 @@ You can complete the task using one of the following CLI versions:
 
 7. Deploy your sample code to your Azure app like you would push any code with Git. When prompted, use the password you configured earlier.
 
-    ```
-    git push azure master
-    ```
+        git push azure master
 
     ![Push code to your first web app in Azure](./media/app-service-web-get-started-languages/dotnet-git-push.png)
 
@@ -107,27 +95,23 @@ Congratulations, you have deployed your app to Azure App Service.
 ## See your app running live
 To see your app running live in Azure, run this command from any directory in your repository:
 
-```
-azure site browse
-```
+    azure site browse
 
 ## Make updates to your app
 You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code
 the first time. For example, every time you want to push a new change that you've tested locally, just run the following commands from your project 
 (repository) root:
 
-```
-git add .
-git commit -m "<your_message>"
-git push azure master
-```
+    git add .
+    git commit -m "<your_message>"
+    git push azure master
 
 ## Next steps
 Find out how to create, develop, and deploy .NET web apps to Azure directly in Visual Studio at 
-[Deploy an ASP.NET web app to Azure App Service, using Visual Studio](./web-sites-dotnet-get-started.md).
+[Deploy an ASP.NET web app to Azure App Service, using Visual Studio](web-sites-dotnet-get-started.md).
 
 Or, do more with your first web app. For example:
 
-* Try out [other ways to deploy your code to Azure](./web-sites-deploy.md).
+* Try out [other ways to deploy your code to Azure](web-sites-deploy.md).
 * Take your Azure app to the next level. Authenticate your users. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
-  [Add functionality to your first web app](./app-service-web-get-started-2.md).
+  [Add functionality to your first web app](app-service-web-get-started-2.md).

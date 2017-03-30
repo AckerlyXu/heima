@@ -26,10 +26,10 @@ Each runbook in Azure Automation has multiple settings that help it to be identi
 You cannot change the name of a runbook after it has been created. The Description is optional and can be up to 512 characters.
 
 ### Tags
-Tags allow you to assign distinct words and phrases to help identify a runbook. For example, when you submit a runbook to the [Runbook Gallery](./automation-runbook-gallery.md), you specify particular tags to identify which categories the runbook should be listed in. You can specify multiple tags for a runbook by separating them with commas.
+Tags allow you to assign distinct words and phrases to help identify a runbook. For example, when you submit a runbook to the [Runbook Gallery](automation-runbook-gallery.md), you specify particular tags to identify which categories the runbook should be listed in. You can specify multiple tags for a runbook by separating them with commas.
 
 ### Logging
-By default, Verbose and Progress records are not written to job history. You can change the settings for a particular runbook to log these records. For more information on these records, see [Runbook Output and Messages](./automation-runbook-output-and-messages.md).
+By default, Verbose and Progress records are not written to job history. You can change the settings for a particular runbook to log these records. For more information on these records, see [Runbook Output and Messages](automation-runbook-output-and-messages.md).
 
 ## Changing runbook settings
 
@@ -55,5 +55,5 @@ Set-AzureAutomationRunbook -AutomationAccountName $automationAccountName -Name $
 ```
 
 ## Next steps
-* To learn how to create and retrieve output and error messages from runbooks, see [Runbook Output and Messages](./automation-runbook-output-and-messages.md) 
-* To understand how to add a runbook that was already developed by the community or other source, or to create your own runbook see [Creating or Importing a Runbook](./automation-creating-importing-runbook.md)
+* To learn how to create and retrieve output and error messages from runbooks, see [Runbook Output and Messages](automation-runbook-output-and-messages.md) 
+* To understand how to add a runbook that was already developed by the community or other source, or to create your own runbook see [Creating or Importing a Runbook](automation-creating-importing-runbook.md)

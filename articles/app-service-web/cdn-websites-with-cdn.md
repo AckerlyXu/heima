@@ -22,11 +22,11 @@ ms.author: cephalin
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-[App Service](./app-service-changes-existing-services.md) can be integrated with [Azure CDN](https://www.azure.cn/home/features/cdn/), adding to the national scaling capabilities inherent in [App Service Web Apps](./app-service-changes-existing-services.md) by serving your web app content nationally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/zh-cn/library/azure/gg680302.aspx)). In scenarios like serving static images, this integration can dramatically increase the performance of your Azure App Service Web Apps and significantly improves your web app's user experience worldwide. 
+[App Service](/azure/app-service-web/app-service-changes-existing-services/) can be integrated with [Azure CDN](https://www.azure.cn/home/features/cdn/), adding to the national scaling capabilities inherent in [App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/) by serving your web app content nationally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/zh-cn/library/azure/gg680302.aspx)). In scenarios like serving static images, this integration can dramatically increase the performance of your Azure App Service Web Apps and significantly improves your web app's user experience worldwide. 
 
 Integrating Web Apps with Azure CDN gives you the following advantages:
 
-* Integrate content deployment (images, scripts, and stylesheets) as part of your web app's [continuous deployment](./app-service-continuous-deployment.md) process
+* Integrate content deployment (images, scripts, and stylesheets) as part of your web app's [continuous deployment](app-service-continuous-deployment.md) process
 * Easily upgrade the NuGet packages in your web app in Azure App Service, such as jQuery or Bootstrap versions 
 * Manage your Web application and your CDN-served content from the same Visual Studio interface
 * Integrate ASP.NET bundling and minification with Azure CDN
@@ -105,15 +105,11 @@ Once you enable this, the same link accessed with different query strings will b
     ![](./media/cdn-websites-with-cdn/11-access-success.png)
 2. Next, try to access the **~/Content/bootstrap.css** file in your ASP.NET project. In the browser window, navigate to **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**. In my setup, this URL is:
 
-    ```
-    http://az673227.azureedge.net/Content/bootstrap.css
-    ```
+        http://az673227.azureedge.net/Content/bootstrap.css
 
     Which corresponds to the following origin URL at the CDN endpoint:
 
-    ```
-    http://cdnwebapp.chinacloudsites.cn/Content/bootstrap.css
-    ```
+        http://cdnwebapp.chinacloudsites.cn/Content/bootstrap.css
 
     When you navigate to **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**, you will be prompted to download the bootstrap.css that came from your web app in Azure. 
 
@@ -138,27 +134,23 @@ The alternative is to determine which content to serve from Azure CDN on a case-
 ## <a name="configure-caching-options-for-static-files-in-your-azure-web-app"></a> Configure caching options for static files in your Azure web app
 With Azure CDN integration in your Azure web app, you can specify how you want static content to be cached in the CDN endpoint. To do this, open *Web.config* from your ASP.NET project (e.g. **cdnwebapp**) and add a `<staticContent>` element to `<system.webServer>`. The XML below configures the cache to expire in 3 days.  
 
-```
-<system.webServer>
-  <staticContent>
-    <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00"/>
-  </staticContent>
-  ...
-</system.webServer>
-```
+    <system.webServer>
+      <staticContent>
+        <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00"/>
+      </staticContent>
+      ...
+    </system.webServer>
 
 Once you do this, all static files in your Azure web app will observe the same rule in your CDN cache. For more granular control of cache settings, add a *Web.config* file into a folder and add your settings there. For example, add a *Web.config* file to the *\Content* folder and replace the content with the following XML:
 
-```
-<?xml version="1.0"?>
-<configuration>
-  <system.webServer>
-    <staticContent>
-      <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="15.00:00:00"/>
-    </staticContent>
-  </system.webServer>
-</configuration>
-```
+    <?xml version="1.0"?>
+    <configuration>
+      <system.webServer>
+        <staticContent>
+          <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="15.00:00:00"/>
+        </staticContent>
+      </system.webServer>
+    </configuration>
 
 This setting causes all static files from the *\Content* folder to be cached for 15 days.
 
@@ -179,102 +171,100 @@ Follow the steps above to setup this controller action:
 
 1. In the *\Controllers* folder, create a new .cs file called *MemeGeneratorController.cs* and replace the content with the following code. Substitute your file path for `~/Content/chuck.bmp` and your CDN name for `yourCDNName`.
 
-    ```
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Drawing;
-    using System.IO;
-    using System.Net;
-    using System.Web.Hosting;
-    using System.Web.Mvc;
-    using System.Web.UI;
+        using System;
+        using System.Collections.Generic;
+        using System.Diagnostics;
+        using System.Drawing;
+        using System.IO;
+        using System.Net;
+        using System.Web.Hosting;
+        using System.Web.Mvc;
+        using System.Web.UI;
 
-    namespace cdnwebapp.Controllers
-    {
-      public class MemeGeneratorController : Controller
-      {
-        static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
-
-        public ActionResult Index()
+        namespace cdnwebapp.Controllers
         {
-          return View();
-        }
-
-        [HttpPost, ActionName("Index")]
-        public ActionResult Index_Post(string top, string bottom)
-        {
-          var identifier = Guid.NewGuid().ToString();
-          if (!Memes.ContainsKey(identifier))
+          public class MemeGeneratorController : Controller
           {
-            Memes.Add(identifier, new Tuple<string, string>(top, bottom));
-          }
+            static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
 
-          return Content("<a href=\"" + Url.Action("Show", new {id = identifier}) + "\">here's your meme</a>");
-        }
-
-        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
-        public ActionResult Show(string id)
-        {
-          Tuple<string, string> data = null;
-          if (!Memes.TryGetValue(id, out data))
-          {
-            return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-          }
-
-          if (Debugger.IsAttached) // Preserve the debug experience
-          {
-            return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-          }
-          else // Get content from Azure CDN
-          {
-            return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-          }
-        }
-
-        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
-        public ActionResult Generate(string top, string bottom)
-        {
-          string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
-          Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
-
-          using (Graphics graphics = Graphics.FromImage(bitmap))
-          {
-            SizeF size = new SizeF();
-            using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+            public ActionResult Index()
             {
-                graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
+              return View();
             }
-            using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+
+            [HttpPost, ActionName("Index")]
+            public ActionResult Index_Post(string top, string bottom)
             {
-                graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
+              var identifier = Guid.NewGuid().ToString();
+              if (!Memes.ContainsKey(identifier))
+              {
+                Memes.Add(identifier, new Tuple<string, string>(top, bottom));
+              }
+
+              return Content("<a href=\"" + Url.Action("Show", new {id = identifier}) + "\">here's your meme</a>");
+            }
+
+            [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+            public ActionResult Show(string id)
+            {
+              Tuple<string, string> data = null;
+              if (!Memes.TryGetValue(id, out data))
+              {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+              }
+
+              if (Debugger.IsAttached) // Preserve the debug experience
+              {
+                return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+              }
+              else // Get content from Azure CDN
+              {
+                return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+              }
+            }
+
+            [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
+            public ActionResult Generate(string top, string bottom)
+            {
+              string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
+              Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
+
+              using (Graphics graphics = Graphics.FromImage(bitmap))
+              {
+                SizeF size = new SizeF();
+                using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+                {
+                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
+                }
+                using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+                {
+                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
+                }
+              }
+              MemoryStream ms = new MemoryStream();
+              bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+              return File(ms.ToArray(), "image/png");
+            }
+
+            private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
+            {
+              // Compute actual size, shrink if needed
+              while (true)
+              {
+                size = g.MeasureString(text, font);
+
+                // It fits, back out
+                if (size.Height < i.Height &&
+                     size.Width < i.Width) { return font; }
+
+                // Try a smaller font (90% of old size)
+                Font oldFont = font;
+                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
+                oldFont.Dispose();
+              }
             }
           }
-          MemoryStream ms = new MemoryStream();
-          bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-          return File(ms.ToArray(), "image/png");
         }
-
-        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
-        {
-          // Compute actual size, shrink if needed
-          while (true)
-          {
-            size = g.MeasureString(text, font);
-
-            // It fits, back out
-            if (size.Height < i.Height &&
-                 size.Width < i.Width) { return font; }
-
-            // Try a smaller font (90% of old size)
-            Font oldFont = font;
-            font = new Font(font.Name, (float)(font.Size * .9), font.Style);
-            oldFont.Dispose();
-          }
-        }
-      }
-    }
-    ```
 
 1. Right-click in the default `Index()` action and select **Add View**.
 
@@ -284,65 +274,53 @@ Follow the steps above to setup this controller action:
     ![](./media/cdn-websites-with-cdn/cdn-7-configureview.PNG)
 3. Open the new *Views\MemeGenerator\Index.cshtml* and replace the content with the following simple HTML for submitting the superlatives:
 
-    ```
-    <h2>Meme Generator</h2>
-
-    <form action="" method="post">
-        <input type="text" name="top" placeholder="Enter top text here" />
-        <br />
-        <input type="text" name="bottom" placeholder="Enter bottom text here" />
-        <br />
-        <input class="btn" type="submit" value="Generate meme" />
-    </form>
-    ```
+        <h2>Meme Generator</h2>
+   
+        <form action="" method="post">
+            <input type="text" name="top" placeholder="Enter top text here" />
+            <br />
+            <input type="text" name="bottom" placeholder="Enter bottom text here" />
+            <br />
+            <input class="btn" type="submit" value="Generate meme" />
+        </form>
 4. Publish to the Azure web app again and navigate to **http://*&lt;serviceName>*.chinacloudapp.cn/MemeGenerator/Index** in your browser. 
 
 When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` action method returns a link to the `Show` action method with the respective input identifier. When you click the link, you reach the following code:  
 
-```
-[OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
-public ActionResult Show(string id)
-{
-  Tuple<string, string> data = null;
-  if (!Memes.TryGetValue(id, out data))
-  {
-    return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-  }
+    [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+    public ActionResult Show(string id)
+    {
+      Tuple<string, string> data = null;
+      if (!Memes.TryGetValue(id, out data))
+      {
+        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+      }
 
-  if (Debugger.IsAttached) // Preserve the debug experience
-  {
-    return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-  }
-  else // Get content from Azure CDN
-  {
-    return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-  }
-}
-```
+      if (Debugger.IsAttached) // Preserve the debug experience
+      {
+        return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+      }
+      else // Get content from Azure CDN
+      {
+        return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+      }
+    }
 
 If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the Azure web app, then it will redirect to:
 
-```
-http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
-```
+    http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 Which corresponds to the following origin URL at your CDN endpoint:
 
-```
-http://<yourSiteName>.chinacloudsites.cn/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
-```
+    http://<yourSiteName>.chinacloudsites.cn/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 After URL rewrite rule previously applied, the actual file that gets cached to your CDN endpoint is:
 
-```
-http://<yourSiteName>.chinacloudsites.cn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
-```
+    http://<yourSiteName>.chinacloudsites.cn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 You can then use the `OutputCacheAttribute` attribute on the `Generate` method to specify how the action result should be cached, which Azure CDN will honor. The code below specify a cache expiration of 1 hour (3,600 seconds).
 
-```
-[OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
-```
+    [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 
 Likewise, you can serve up content from any controller action in your Azure web app through your Azure CDN, with the desired caching option.
 
@@ -359,32 +337,24 @@ Scripts and CSS stylesheets change infrequently and are prime candidates for the
 
 In the ASP.NET project that you created in [Integrate an Azure CDN endpoint with your Azure web app and serve static content in your Web pages from Azure CDN](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), open *App_Start\BundleConfig.cs* and take a look at the `bundles.Add()` method calls.
 
-```
-public static void RegisterBundles(BundleCollection bundles)
-{
-    bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                "~/Scripts/jquery-{version}.js"));
-    ...
-}
-```
+    public static void RegisterBundles(BundleCollection bundles)
+    {
+        bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                    "~/Scripts/jquery-{version}.js"));
+        ...
+    }
 
 The first `bundles.Add()` statement adds a script bundle at the virtual directory `~/bundles/jquery`. Then, open *Views\Shared\_Layout.cshtml* to see how the script bundle tag is rendered. You should be able to find the following line of Razor code:
 
-```
-@Scripts.Render("~/bundles/jquery")
-```
+    @Scripts.Render("~/bundles/jquery")
 
 When this Razor code is run in the Azure web app, it will render a `<script>` tag for the script bundle similar to the following: 
 
-```
-<script src="/bundles/jquery?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
-```
+    <script src="/bundles/jquery?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
 
 However, when it is run in Visual Studio by typing `F5`, it will render each script file in the bundle individually (in the case above, only one script file is in the bundle):
 
-```
-<script src="/Scripts/jquery-1.10.2.js"></script>
-```
+    <script src="/Scripts/jquery-1.10.2.js"></script>
 
 This enables you to debug the JavaScript code in your development environment while reducing concurrent client connections (bundling) and improving file download performance (minification) in production. It's a great feature to preserve with Azure CDN integration. Furthermore, since the rendered bundle already contains an automatically generated version string, you want to replicate that functionality so that whenever you update your jQuery version through NuGet, it can be updated at the client side as soon as possible.
 
@@ -392,48 +362,42 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 
 1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/zh-cn/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
 
-    ```
-    public static void RegisterBundles(BundleCollection bundles)
-    {
-      bundles.UseCdn = true;
-      var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
-        .GetName().Version.ToString();
-      var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?" + version;
-
-      bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
-            "~/Scripts/jquery-{version}.js"));
-
-      bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
-            "~/Scripts/jquery.validate*"));
-
-      // Use the development version of Modernizr to develop with and learn from. Then, when you're
-      // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-      bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
-            "~/Scripts/modernizr-*"));
-
-      bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
-            "~/Scripts/bootstrap.js",
-            "~/Scripts/respond.js"));
-
-      bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
-            "~/Content/bootstrap.css",
-            "~/Content/site.css"));
-    }
-    ```
+        public static void RegisterBundles(BundleCollection bundles)
+        {
+          bundles.UseCdn = true;
+          var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
+            .GetName().Version.ToString();
+          var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?" + version;
+   
+          bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
+                "~/Scripts/jquery-{version}.js"));
+   
+          bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
+                "~/Scripts/jquery.validate*"));
+   
+          // Use the development version of Modernizr to develop with and learn from. Then, when you're
+          // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
+                "~/Scripts/modernizr-*"));
+   
+          bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/respond.js"));
+   
+          bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+                "~/Content/bootstrap.css",
+                "~/Content/site.css"));
+        }
 
     Be sure to replace `<yourCDNName>` with the name of your Azure CDN.
 
     In plain words, you are setting `bundles.UseCdn = true` and added a carefully crafted CDN URL to each bundle. For example, the first constructor in the code:
 
-    ```
-    new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
-    ```
+        new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery"))
 
     is the same as: 
 
-    ```
-    new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?<W.X.Y.Z>"))
-    ```
+        new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?<W.X.Y.Z>"))
 
     This constructor tells ASP.NET bundling and minification to render individual script files when debugged locally, but use the specified CDN address to access the script in question. However, note two important characteristics with this carefully crafted CDN URL:
 
@@ -442,37 +406,31 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 
 1. The query string `<W.X.Y.Z>` pulls from *Properties\AssemblyInfo.cs* in your ASP.NET project. You can have a deployment workflow that includes incrementing the assembly version every time you publish to Azure. Or, you can just modify *Properties\AssemblyInfo.cs* in your project to automatically increment the version string every time you build, using the wildcard character '*'. For example, change `AssemblyVersion` as shown below:
 
-    ```
-    [assembly: AssemblyVersion("1.0.0.*")]
-    ```
+        [assembly: AssemblyVersion("1.0.0.*")]
 
     Any other strategy to streamline generating a unique string for the life of a deployment will work here.
 2. Republish the ASP.NET application and access the home page.
 3. View the HTML code for the page. You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your Azure web app. For example:  
 
-    ```
-    ...
-    <link href="http://az673227.azureedge.net/Content/css?1.0.0.25449" rel="stylesheet"/>
-    <script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25449"></script>
-    ...
-    <script src="http://az673227.azureedge.net/bundles/jquery?1.0.0.25449"></script>
-    <script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25449"></script>
-    ...
-    ```
+        ...
+        <link href="http://az673227.azureedge.net/Content/css?1.0.0.25449" rel="stylesheet"/>
+        <script src="http://az673227.azureedge.net/bundles/modernizer?1.0.0.25449"></script>
+        ...
+        <script src="http://az673227.azureedge.net/bundles/jquery?1.0.0.25449"></script>
+        <script src="http://az673227.azureedge.net/bundles/bootstrap?1.0.0.25449"></script>
+        ...
 4. In Visual Studio, debug the ASP.NET application in Visual Studio by typing `F5`., 
 5. View the HTML code for the page. You will still see each script file individually rendered so that you can have a consistent debug experience in Visual Studio.  
 
-    ```
-    ...
-    <link href="/Content/bootstrap.css" rel="stylesheet"/>
-    <link href="/Content/site.css" rel="stylesheet"/>
-    <script src="/Scripts/modernizr-2.6.2.js"></script>
-    ...
-    <script src="/Scripts/jquery-1.10.2.js"></script>
-    <script src="/Scripts/bootstrap.js"></script>
-    <script src="/Scripts/respond.js"></script>
-    ...    
-    ```
+        ...
+        <link href="/Content/bootstrap.css" rel="stylesheet"/>
+        <link href="/Content/site.css" rel="stylesheet"/>
+        <script src="/Scripts/modernizr-2.6.2.js"></script>
+        ...
+        <script src="/Scripts/jquery-1.10.2.js"></script>
+        <script src="/Scripts/bootstrap.js"></script>
+        <script src="/Scripts/respond.js"></script>
+        ...    
 
 ## Fallback mechanism for CDN URLs
 When your Azure CDN endpoint fails for any reason, you want your Web page to be smart enough to access your origin Web server as the fallback option for loading JavaScript or Bootstrap. It's serious enough to lose images on your web app due to CDN unavailability, but much more severe to lose crucial page functionality provided by your scripts and stylesheets.
@@ -481,39 +439,37 @@ The [Bundle](http://msdn.microsoft.com/zh-cn/library/system.web.optimization.bun
 
 1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/zh-cn/library/jj646464.aspx), and add `CdnFallbackExpression` code in four places as shown to add a fallback mechanism to the default bundles.  
 
-    ```
-    public static void RegisterBundles(BundleCollection bundles)
-    {
-      var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
-        .GetName().Version.ToString();
-      var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
-      bundles.UseCdn = true;
-
-      bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
-            { CdnFallbackExpression = "window.jquery" }
-            .Include("~/Scripts/jquery-{version}.js"));
-
-      bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
-            { CdnFallbackExpression = "$.validator" }
-            .Include("~/Scripts/jquery.validate*"));
-
-      // Use the development version of Modernizr to develop with and learn from. Then, when you're
-      // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-      bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
-            { CdnFallbackExpression = "window.Modernizr" }
-            .Include("~/Scripts/modernizr-*"));
-
-      bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap"))     
-            { CdnFallbackExpression = "$.fn.modal" }
-            .Include(
-                    "~/Scripts/bootstrap.js",
-                    "~/Scripts/respond.js"));
-
-      bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
-            "~/Content/bootstrap.css",
-            "~/Content/site.css"));
-    }
-    ```
+        public static void RegisterBundles(BundleCollection bundles)
+        {
+          var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
+            .GetName().Version.ToString();
+          var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
+          bundles.UseCdn = true;
+   
+          bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
+                { CdnFallbackExpression = "window.jquery" }
+                .Include("~/Scripts/jquery-{version}.js"));
+   
+          bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
+                { CdnFallbackExpression = "$.validator" }
+                .Include("~/Scripts/jquery.validate*"));
+   
+          // Use the development version of Modernizr to develop with and learn from. Then, when you're
+          // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+                { CdnFallbackExpression = "window.Modernizr" }
+                .Include("~/Scripts/modernizr-*"));
+   
+          bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap"))     
+                { CdnFallbackExpression = "$.fn.modal" }
+                .Include(
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/respond.js"));
+   
+          bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+                "~/Content/bootstrap.css",
+                "~/Content/site.css"));
+        }
 
     When `CdnFallbackExpression` is not null, script is injected into the HTML to test whether the bundle is loaded successfully and, if not, access the bundle directly from the origin Web server. This property needs to be set to a JavaScript expression that tests whether the respective CDN bundle is loaded properly. The expression needed to test each bundle differs according to the content. For the default bundles above:
 
@@ -529,13 +485,11 @@ The [Bundle](http://msdn.microsoft.com/zh-cn/library/system.web.optimization.bun
 3. In *App_Start\StyleFundleExtensions.cs*, rename the namespace to your ASP.NET application's namespace (e.g. **cdnwebapp**). 
 4. Go back to `App_Start\BundleConfig.cs` and replace the last `bundles.Add` statement with the following code:  
 
-    ```
-    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
-      .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
-      .Include(
-        "~/Content/bootstrap.css",
-        "~/Content/site.css"));
-    ```
+        bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
+          .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
+          .Include(
+            "~/Content/bootstrap.css",
+            "~/Content/site.css"));
 
     This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.
 5. Publish to your Azure web app again and access the home page. 
@@ -575,10 +529,8 @@ The [Bundle](http://msdn.microsoft.com/zh-cn/library/system.web.optimization.bun
     ```
 
     Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
-
-    ```
-    }())||document.write('<script src="/Content/css"><\/script>');</script>
-    ```
+   
+        }())||document.write('<script src="/Content/css"><\/script>');</script>
 
     But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 7. To test whether the fallback script is working, go back to the your CDN endpoint's blade and click **Stop**.
@@ -587,5 +539,5 @@ The [Bundle](http://msdn.microsoft.com/zh-cn/library/system.web.optimization.bun
 8. Refresh your browser window for the Azure web app. You should now see that the all scripts and stylesheets are properly loaded.
 
 ## More Information
-* [Overview of the Azure Content Delivery Network (CDN)](/documentation/articles/cdn-overview/)
+* [Overview of the Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md)
 * [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)

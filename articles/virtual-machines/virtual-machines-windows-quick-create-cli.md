@@ -86,6 +86,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-[Install a role and configure firewall tutorial](./virtual-machines-windows-hero-role.md)
+[Install a role and configure firewall tutorial](./virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Explore VM deployment CLI samples](./virtual-machines-windows-cli-samples.md)
+[Explore VM deployment CLI samples](./virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

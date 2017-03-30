@@ -19,9 +19,9 @@ ms.author: aelnably
 ---
 
 # Azure App Service App Cloning Using Azure Portal Preview
-The cloning feature in [Azure App Service Web Apps](./app-service-changes-existing-services.md) lets you easily clone existing web apps to a newly created app in a different region or in the same region. This will enable customers to deploy a number of apps across different regions quickly and easily.
+The cloning feature in [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/) lets you easily clone existing web apps to a newly created app in a different region or in the same region. This will enable customers to deploy a number of apps across different regions quickly and easily.
 
-App cloning is currently only supported for premium tier app service plans. The new feature uses the same limitations as Web Apps Backup feature, see [Back up a web app in Azure App Service](./web-sites-backup.md).
+App cloning is currently only supported for premium tier app service plans. The new feature uses the same limitations as Web Apps Backup feature, see [Back up a web app in Azure App Service](web-sites-backup.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -56,8 +56,8 @@ This feature is currently in preview, we are working to add new capabilities ove
 * Database content are not cloned
 
 ### References
-* [Web App Cloning using PowerShell](./app-service-web-app-cloning.md)
-* [Back up a web app in Azure App Service](./web-sites-backup.md)
+* [Web App Cloning using PowerShell](app-service-web-app-cloning.md)
+* [Back up a web app in Azure App Service](web-sites-backup.md)
 
 <!--Image references-->
 [1]: ./media/app-service-web-app-cloning-portal/CloningBlade.png

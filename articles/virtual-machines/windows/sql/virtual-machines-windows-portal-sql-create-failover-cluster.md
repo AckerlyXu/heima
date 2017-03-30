@@ -106,7 +106,7 @@ With these prerequisites in place, you can proceed with building your failover c
 
 1. Create the virtual machines in the availability set.
 
-    Provision two SQL Server virtual machines in the Azure availability set. For instructions, see [Provision a SQL Server virtual machine in the Azure portal preview](./virtual-machines-windows-portal-sql-server-provision.md). 
+    Provision two SQL Server virtual machines in the Azure availability set. For instructions, see [Provision a SQL Server virtual machine in the Azure portal preview](virtual-machines-windows-portal-sql-server-provision.md). 
 
     Place both virtual machines:
 
@@ -118,7 +118,7 @@ With these prerequisites in place, you can proceed with building your failover c
         >[!IMPORTANT]
         >You cannot set or change availability set after a virtual machine has been created.
 
-    Choose an image from the Azure Marketplace. You can use a Marketplace image with that includes Windows Server and SQL Server, or just the Windows Server. For details, see [Overview of SQL Server on Azure Virtual Machines](./virtual-machines-windows-sql-server-iaas-overview.md)
+    Choose an image from the Azure Marketplace. You can use a Marketplace image with that includes Windows Server and SQL Server, or just the Windows Server. For details, see [Overview of SQL Server on Azure Virtual Machines](../../virtual-machines-windows-sql-server-iaas-overview.md)
 
     The official SQL Server images in the Azure Gallery include an installed SQL Server instance, plus the SQL Server installation software, and the required key. 
 
@@ -172,7 +172,7 @@ With these prerequisites in place, you can proceed with building your failover c
 
     The storage capacity you use in production environments depends on your workload. The values described in this article are for demonstration and testing. 
 
-1. [Add the virtual machines to your pre-existing domain](./virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
+1. [Add the virtual machines to your pre-existing domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
 After the virtual machines are created and configured, you can configure the failover cluster.
 
@@ -190,7 +190,7 @@ The next step is to configure the failover cluster with S2D. In this step, you w
 
 1. To begin, connect to the first virtual machine with RDP using a domain account that is a member of local administrators, and has permissions to create objects in Active Directory. Use this account for the rest of the configuration.
 
-1. [Add Failover Clustering feature to each virtual machine](./virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
+1. [Add Failover Clustering feature to each virtual machine](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
 
     To install Failover Clustering feature from the UI, do the following steps on both virtual machines. 
     - In **Server Manager**, click **Manage**, and then click **Add Roles and Features**. 
@@ -329,7 +329,7 @@ After you have configured the failover cluster and all cluster components includ
 
 On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI. 
 
-[Create and configure an Azure load balancer](./virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
+[Create and configure an Azure load balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
 ### Create the load balancer in the Azure portal preview
 

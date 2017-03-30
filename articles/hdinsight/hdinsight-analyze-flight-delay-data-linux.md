@@ -25,15 +25,15 @@ ms.custom: H1Hack27Feb2017
 Learn how to analyze flight delay data using Hive on Linux-based HDInsight then export the data to Azure SQL Database using Sqoop.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ### Prerequisites
 
-* **An HDInsight cluster**. See [Get started using Hadoop with Hive in HDInsight on Linux](./hdinsight-hadoop-linux-tutorial-get-started.md) for steps on creating a new Linux-based HDInsight cluster.
+* **An HDInsight cluster**. See [Get started using Hadoop with Hive in HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md) for steps on creating a new Linux-based HDInsight cluster.
 
 * **Azure SQL Database**. You use an Azure SQL database as a destination data store. If you do not have a SQL Database already, see [SQL Database tutorial: Create a SQL database in minutes](../sql-database/sql-database-get-started.md).
 
-* **Azure CLI**. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/) for more steps.
+* **Azure CLI**. If you have not installed the Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) for more steps.
 
 ## Download the flight data
 
@@ -68,8 +68,8 @@ Learn how to analyze flight delay data using Hive on Linux-based HDInsight then 
 
     For more information on using SSH with Linux-based HDInsight, see the following articles:
 
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 3. Once connected, use the following to unzip the .zip file:
 
@@ -306,16 +306,16 @@ To learn more ways to work with data in HDInsight, see the following documents:
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[hdinsight-use-oozie]: ./hdinsight-use-oozie-linux-mac.md
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
-[hdinsight-get-started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-sqoop]: ./hdinsight-use-sqoop-mac-linux.md
-[hdinsight-use-pig]: ./hdinsight-use-pig.md
-[hdinsight-develop-streaming]: ./hdinsight-hadoop-streaming-python.md
-[hdinsight-develop-mapreduce]: ./hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-develop-streaming]: hdinsight-hadoop-streaming-python.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 

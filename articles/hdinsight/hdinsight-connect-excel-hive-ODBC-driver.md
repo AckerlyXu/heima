@@ -111,12 +111,12 @@ In this article you learned how to use the Microsoft Hive ODBC driver to retriev
 * [Upload Data to HDInsight][hdinsight-upload-data]
 * [Use Sqoop with HDInsight][hdinsight-use-sqoop]
 
-[hdinsight-use-sqoop]: ./hdinsight-use-sqoop.md
-[hdinsight-analyze-flight-data]: ./hdinsight-analyze-flight-delay-data.md
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
-[hdinsight-power-query]: ./hdinsight-connect-excel-power-query.md
-[hdinsight-get-started]: /documentation/articles/hdinsight-hadoop-tutorial-get-started-windows/
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
+[hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 
 [hive-odbc-driver-download]: http://go.microsoft.com/fwlink/?LinkID=286698
 

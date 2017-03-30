@@ -22,10 +22,10 @@ ms.author: larryfr
 The Ambari Web UI for HDInsight contains a Tez view that can be used to understand and debug jobs that use Tez as the execution engine. The Tez view allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
-* A Linux-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Linux-based HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
+* A Linux-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 * A modern web browser that supports HTML5.
 
 ## Understanding Tez
@@ -50,25 +50,19 @@ Use the following steps to run a Hive query that will execute using Tez.
     ![Selecting Hive View](./media/hdinsight-debug-ambari-tez-view/selecthive.png)
 3. When the Hive view loads, paste the following into the Query Editor, and then click **execute**.
 
-    ```
-    select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
-    ```
+        select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
 
     Once the job has completed, you should see the output displayed in the **Query Process Results** section. The results should be similar to the following
 
-    ```
-    market  state       country
-    en-GB   Hessen      Germany
-    en-GB   Kingston    Jamaica
-    ```
+        market  state       country
+        en-GB   Hessen      Germany
+        en-GB   Kingston    Jamaica
 4. Select the **Log** tab. You will see information similar to the following:
 
-    ```
-    INFO : Session is already open
-    INFO :
-
-    INFO : Status: Running (Executing on YARN cluster with App id application_1454546500517_0063)
-    ```
+        INFO : Session is already open
+        INFO :
+   
+        INFO : Status: Running (Executing on YARN cluster with App id application_1454546500517_0063)
 
     Save the **App id** value, as this will be used in the next section.
 
@@ -126,8 +120,8 @@ Use the following steps to run a Hive query that will execute using Tez.
     ![Task details](./media/hdinsight-debug-ambari-tez-view/taskdetails.png)
 
 ## Next Steps
-Now that you have learned how to use the Tez view, learn more about [Using Hive on HDInsight](./hdinsight-use-hive.md).
+Now that you have learned how to use the Tez view, learn more about [Using Hive on HDInsight](hdinsight-use-hive.md).
 
 For more detailed technical information on Tez, see the [Tez page at Hortonworks](http://hortonworks.com/hadoop/tez/).
 
-For more information on using Ambari with HDInsight, see [Manage HDInsight clusters using the Ambari Web UI](./hdinsight-hadoop-manage-ambari.md)
+For more information on using Ambari with HDInsight, see [Manage HDInsight clusters using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)

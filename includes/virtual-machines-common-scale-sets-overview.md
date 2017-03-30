@@ -21,14 +21,12 @@ To increase or decrease the number of virtual machines in a VM scale set, simply
 
 If you are redeploying a template to change the capacity, you could define a much smaller template which only includes the SKU and the updated capacity. An example of this is shown here: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
 
-To walk through the steps that create a scale set that is automatically scaled, see [Automatically Scale Machines in a Virtual Machine Scale Set](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md)
+To walk through the steps that create a scale set that is automatically scaled, see [Automatically Scale Machines in a Virtual Machine Scale Set](../articles/virtual-machines/virtual-machines-windows-vmss-powershell-creating.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Monitoring your VM scale set
 It is currently recommended you use the [Azure Resource Explorer](https://resources.azure.com) to view VM scale sets. VM scale sets are a resource under Microsoft.Compute, so from this site you can see them by expanding the following links:
 
-```
-subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
-```
+    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
 ## VM scale set scenarios
 This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
@@ -89,19 +87,17 @@ This section lists some typical VM scale set scenarios. Some higher level Azure 
 
 **A.** Leave the vhdContainers property blank, for example:
 
-```
-"storageProfile": {
-    "osDisk": {
-        "name": "vmssosdisk",
-        "caching": "ReadOnly",
-        "createOption": "FromImage",
-        "image": {
-            "uri": [https://mycustomimage.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd](https://mycustomimage.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd)
-        },
-        "osType": "Windows"
-    }
-},
-```
+    "storageProfile": {
+        "osDisk": {
+            "name": "vmssosdisk",
+            "caching": "ReadOnly",
+            "createOption": "FromImage",
+            "image": {
+                "uri": [https://mycustomimage.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd](https://mycustomimage.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd)
+            },
+            "osType": "Windows"
+        }
+    },
 
 **Q.** If I reduce my VM scale set capacity from 20 to 15, which VMs will be removed?
 

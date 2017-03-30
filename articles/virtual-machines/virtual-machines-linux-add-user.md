@@ -22,10 +22,9 @@ ms.author: v-livech
 # Add a user to an Azure VM
 One of the first tasks on any new Linux VM is to create a new user.  In this article, we walk through creating a sudo user account, setting the password, adding SSH Public Keys, and finally use `visudo` to allow sudo without a password.
 
-Prerequisites are: [an Azure account](https://www.azure.cn/pricing/1rmb-trial/), [SSH public and private keys](./virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group, and the Azure CLI installed and switched to Azure Resource Manager mode using `azure config mode arm`.
+Prerequisites are: [an Azure account](https://www.azure.cn/pricing/1rmb-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), an Azure resource group, and the Azure CLI installed and switched to Azure Resource Manager mode using `azure config mode arm`.
 
 ## Quick Commands
-
 ```bash
 # Add a new user on RedHat family distros
 sudo useradd -G wheel exampleUser
@@ -88,7 +87,6 @@ The `useradd` command completes the following tasks:
 The `-G` command-line flag adds the new user account to the proper Linux group giving the new user account root escalation privileges.
 
 #### Add the user
-
 ```bash
 # On RedHat family distros
 sudo useradd -G wheel exampleUser
@@ -142,7 +140,6 @@ visudo
 ```
 
 ### Verify the user, ssh keys, and sudo
-
 ```bash
 # Verify the SSH keys & User account
 ssh -i ~/.ssh/id_rsa exampleuser@exampleserver

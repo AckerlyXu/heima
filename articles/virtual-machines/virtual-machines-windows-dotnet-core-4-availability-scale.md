@@ -58,12 +58,11 @@ Follow this link to see the JSON sample within the Resource Manager template - [
     "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
   }
 ```
-
 The availability set as seen from the Azure portal preview. Each virtual machine and details about the configuration are detailed here.
 
 ![Availability Set](./media/virtual-machines-windows-dotnet-core/ase-win.png)
 
-For in-depth information on Availability Sets, see [Manage availability of virtual machines](./virtual-machines-windows-manage-availability.md). 
+For in-depth information on Availability Sets, see [Manage availability of virtual machines](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## Network Load Balancer
 Whereas an availability set provides application fault tolerance, a load balancer makes many instances of the application available on a single network address. Multiple instances of an application can be hosted on many virtual machines, each one connected to a load balancer. As the application is accessed, the load balancer routes the incoming request across the attached members. A Load Balancer can be added using the Visual Studio Add New Resource Wizard, or by inserting properly formatted JSON resource into the Azure Resource Manager template.
@@ -199,7 +198,7 @@ One example inbound NAT rule as seen in the Azure portal preview. An RDP NAT rul
 
 ![Inbound NAT Rule](./media/virtual-machines-windows-dotnet-core/natrule-win.png)
 
-For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](./virtual-machines-windows-load-balance.md).
+For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Deploy multiple VMs
 Finally, for an Availability Set or Load Balancer to effectively function, multiple virtual machines are required. Multiple VMs can be deployed using the Azure Resource Manager template copy function. Using the copy function, it is not necessary to define a finite number of Virtual Machines, rather this value can be dynamically provided at the time of deployment. The copy function consumes the number of instances to be created and handles deploying the proper number of virtual machines and associated resources.
@@ -252,4 +251,4 @@ For more information on the copy function, see [Create multiple instances of res
 ## Next step
 <hr>
 
-[Step 4 - Application Deployment with Azure Resource Manager Templates](./virtual-machines-windows-dotnet-core-5-app-deployment.md)
+[Step 4 - Application Deployment with Azure Resource Manager Templates](virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

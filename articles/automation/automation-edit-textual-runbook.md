@@ -23,7 +23,7 @@ The textual editor in Azure Automation can be used to edit PowerShell Workflow r
 
 The textual editor includes a feature to insert code for activities, assets, and child runbooks into a runbook. Rather than typing in the code yourself, you can select from a list of available resources and have the appropriate code inserted into the runbook.
 
-Each runbook in Azure Automation has two versions, Draft and Published. You edit the Draft version of the runbook and then publish it so it can be executed. The Published version cannot be edited. See [Publishing a runbook](./automation-creating-importing-runbook.md#publishing-a-runbook) for more information.
+Each runbook in Azure Automation has two versions, Draft and Published. You edit the Draft version of the runbook and then publish it so it can be executed. The Published version cannot be edited. See [Publishing a runbook](automation-creating-importing-runbook.md#publishing-a-runbook) for more information.
 
 ## <a name="to-edit-a-runbook-with-the-azure-portal"></a> To edit a runbook with the Azure Classic Management Portal
 Use the following procedure to open a runbook for editing in the textual editor.
@@ -47,7 +47,7 @@ Use the following procedure to open a runbook for editing in the textual editor.
 8. If the activity requires parameters, provide an appropriate value in place of the data type surrounded by braces <>.
 
 ### To insert code for a child runbook into a runbook
-1. In the Canvas of the textual editor, position the cursor where you want to place the [child runbook](./automation-child-runbooks.md).
+1. In the Canvas of the textual editor, position the cursor where you want to place the [child runbook](automation-child-runbooks.md).
 2. At the bottom of the screen, click **Insert** and then **Runbook**.
 3. Select the runbook to insert from the center column and click the right arrow.
 4. If the runbook has parameters, they will be listed for your information.
@@ -79,7 +79,7 @@ Out-File -InputObject $runbookContent -FilePath $scriptPath
 ```
 
 ### To Change the Contents of a Runbook Using Windows PowerShell
-The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. Note that this is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](./automation-creating-importing-runbook.md).
+The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. Note that this is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](automation-creating-importing-runbook.md).
 
 ```
 $automationAccountName = "MyAutomationAccount"
@@ -91,10 +91,10 @@ Publish-AzureAutomationRunbook -AutomationAccountName $automationAccountName -Na
 ```
 
 ## Related articles
-* [Creating or importing a runbook in Azure Automation](./automation-creating-importing-runbook.md)
-* [Learning PowerShell workflow](./automation-powershell-workflow.md)
-* [Certificates](./automation-certificates.md)
-* [Connections](./automation-connections.md)
-* [Credentials](./automation-credentials.md)
-* [Schedules](./automation-schedules.md)
-* [Variables](./automation-variables.md)
+* [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
+* [Learning PowerShell workflow](automation-powershell-workflow.md)
+* [Certificates](automation-certificates.md)
+* [Connections](automation-connections.md)
+* [Credentials](automation-credentials.md)
+* [Schedules](automation-schedules.md)
+* [Variables](automation-variables.md)

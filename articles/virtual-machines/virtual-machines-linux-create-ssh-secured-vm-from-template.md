@@ -24,10 +24,10 @@ ms.custom: H1Hack27Feb2017
 This article shows you how to quickly deploy a Linux Virtual Machine on Azure using an Azure Template.  The article requires:
 
 * an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)).
-* the [Azure CLI](/documentation/articles/cli-install-nodejs/) logged in with `azure login -e AzureChinaCloud`.
+* the [Azure CLI](../cli-install-nodejs.md) logged in with `azure login -e AzureChinaCloud`.
 * the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`.
 
-You can also quickly deploy a Linux VM template by using the [Azure portal preview](./virtual-machines-linux-quick-create-portal.md).
+You can also quickly deploy a Linux VM template by using the [Azure portal preview](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick Command Summary
 

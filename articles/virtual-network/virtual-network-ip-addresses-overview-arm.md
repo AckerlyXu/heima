@@ -26,15 +26,15 @@ You can assign IP addresses to Azure resources to communicate with other Azure r
 * **Private IP addresses**: Used for communication within an Azure virtual network (VNet), and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](./virtual-network-ip-addresses-overview-classic.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
 > 
 
-If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](./virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
+If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments).
 
 ## Public IP addresses
 Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://www.azure.cn/home/features/redis-cache/), [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
 
-In Azure Resource Manager, a [public IP](./resource-groups-networking.md#public-ip-address) address is a resource that has its own properties. You can associate a public IP address resource with any of the following resources:
+In Azure Resource Manager, a [public IP](resource-groups-networking.md#public-ip-address) address is a resource that has its own properties. You can associate a public IP address resource with any of the following resources:
 
 * Virtual machines (VM)
 * Internet-facing load balancers
@@ -91,7 +91,7 @@ The table below shows the specific property through which a public IP address ca
 | Application gateway |Front end configuration |Yes |No |
 
 ## Private IP addresses
-Private IP addresses allow Azure resources to communicate with other resources in a [virtual network](./virtual-networks-overview.md) or an on-premises network through a VPN gateway or ExpressRoute circuit, without using an Internet-reachable IP address.
+Private IP addresses allow Azure resources to communicate with other resources in a [virtual network](virtual-networks-overview.md) or an on-premises network through a VPN gateway or ExpressRoute circuit, without using an Internet-reachable IP address.
 
 In the Azure Resource Manager deployment model, a private IP address is associated to the following types of Azure resources:
 
@@ -116,7 +116,7 @@ Static private IP addresses are commonly used for:
 A private IP address is assigned to the **network interface** of a [Windows](../virtual-machines/virtual-machines-windows-about.md) or [Linux](../virtual-machines/virtual-machines-linux-azure-overview.md) VM. In case of a multi-network interface VM, each interface gets a private IP address assigned. You can specify the allocation method as either dynamic or static for a network interface.
 
 #### Internal DNS hostname resolution (for VMs)
-All Azure VMs are configured with [Azure-managed DNS servers](./virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs that reside within the same VNet.
+All Azure VMs are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs that reside within the same VNet.
 
 When you create a VM, a mapping for the hostname to its private IP address is added to the Azure-managed DNS servers. In case of a multi-network interface VM, the hostname is mapped to the private IP address of the primary network interface.
 
@@ -141,6 +141,6 @@ The limits imposed on IP addressing are indicated in the full set of [limits for
 Public IP addresses may have a nominal charge. To learn more about IP address pricing in Azure, review the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page.
 
 ## Next steps
-* [Deploy a VM with a static public IP using the Azure portal preview](./virtual-network-deploy-static-pip-arm-portal.md)
-* [Deploy a VM with a static public IP using a template](./virtual-network-deploy-static-pip-arm-template.md)
-* [Deploy a VM with a static private IP address using the Azure portal preview](./virtual-networks-static-private-ip-arm-pportal.md)
+* [Deploy a VM with a static public IP using the Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+* [Deploy a VM with a static public IP using a template](virtual-network-deploy-static-pip-arm-template.md)
+* [Deploy a VM with a static private IP address using the Azure portal preview](virtual-networks-static-private-ip-arm-pportal.md)

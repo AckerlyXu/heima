@@ -24,17 +24,13 @@ ms.author: kundanap
 
 From Azure PowerShell, run the following Azure PowerShell cmdlet:
 
-```
-  Get-AzureVMAvailableExtension
-```
+      Get-AzureVMAvailableExtension
 
 This cmdlet returns the publisher name, extension name, and version as follows:
 
-```
-  Publisher                   : Microsoft.Azure.Extensions  
-  ExtensionName               : DockerExtension
-  Version                     : 1.0
-```
+      Publisher                   : Microsoft.Azure.Extensions  
+      ExtensionName               : DockerExtension
+      Version                     : 1.0
 
 These three properties map to "publisher", "type", and "typeHandlerVersion" respectively in the above template snippet.
 
@@ -46,7 +42,7 @@ These three properties map to "publisher", "type", and "typeHandlerVersion" resp
 ## Identifying the schema for the extension configuration parameters
 The next step with authoring an extension template is to identify the format for providing configuration parameters. Each extension supports its own set of parameters.
 
-To look at sample configurations for Windows extensions, see [Windows extensions samples](./virtual-machines-windows-extensions-configuration-samples.md).
+To look at sample configurations for Windows extensions, see [Windows extensions samples](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Please refer to the following to get a fully complete template with VM extensions.
 

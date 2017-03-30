@@ -27,7 +27,7 @@ This tutorial walks you through the creation of a PowerShell Workflow runbook in
 To complete this tutorial, you will need the following.
 
 * Azure subscription. If you don't have one yet, you can [sign up for an account](https://www.azure.cn/pricing/1rmb-trial).
-* [Automation account](./automation-security-overview.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
+* [Automation account](automation-security-overview.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. We will stop and start this machine so it should not be production.
 
 ## Step 1 - Create new runbook

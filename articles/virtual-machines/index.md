@@ -55,5 +55,3 @@ Learn how to create Azure virtual machines. Tutorials, API references, and other
         </a>
     </li>    
 </ul>
-
-

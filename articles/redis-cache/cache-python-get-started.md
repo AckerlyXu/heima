@@ -20,11 +20,13 @@ ms.author: sdanie
 
 # How to use Azure Redis Cache with Python
 > [!div class="op_single_selector"]
->- [.NET](./cache-dotnet-how-to-use-azure-redis-cache.md)
->- [ASP.NET](./cache-web-app-howto.md)
->- [Node.js](./cache-nodejs-get-started.md)
->- [Java](./cache-java-get-started.md)
->- [Python](./cache-python-get-started.md)
+> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+> * [ASP.NET](cache-web-app-howto.md)
+> * [Node.js](cache-nodejs-get-started.md)
+> * [Java](cache-java-get-started.md)
+> * [Python](cache-python-get-started.md)
+> 
+> 
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -40,20 +42,18 @@ Install [redis-py](https://github.com/andymccurdy/redis-py).
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 ## Enable the non-SSL endpoint
-Some Redis clients don't support SSL, and by default the [non-SSL port is disabled for new Azure Redis Cache instances](./cache-configure.md#access-ports). At the time of this writing, the [redis-py](https://github.com/andymccurdy/redis-py) client doesn't support SSL. 
+Some Redis clients don't support SSL, and by default the [non-SSL port is disabled for new Azure Redis Cache instances](cache-configure.md#access-ports). At the time of this writing, the [redis-py](https://github.com/andymccurdy/redis-py) client doesn't support SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
 ## Add something to the cache and retrieve it
-```
->>> import redis
->>> r = redis.StrictRedis(host='<name>.redis.cache.chinacloudapi.cn',
-      port=6380, db=0, password='<key>', ssl=True)
->>> r.set('foo', 'bar')
-True
->>> r.get('foo')
-b'bar'
-```
+    >>> import redis
+    >>> r = redis.StrictRedis(host='<name>.redis.cache.chinacloudapi.cn',
+          port=6380, db=0, password='<key>', ssl=True)
+    >>> r.set('foo', 'bar')
+    True
+    >>> r.get('foo')
+    b'bar'
 
 Replace `<name>` with your cache name and `key` with your access key.
 

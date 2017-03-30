@@ -21,8 +21,10 @@ ms.author: anithaa
 
 # Troubleshoot routes using the Azure Portal Preview
 > [!div class="op_single_selector"]
->- [Azure Portal Preview](./virtual-network-routes-troubleshoot-portal.md)
->- [PowerShell](./virtual-network-routes-troubleshoot-powershell.md)
+> * [Azure Portal Preview](virtual-network-routes-troubleshoot-portal.md)
+> * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+>
+>
 
 If you are experiencing network connectivity issues to or from your Azure Virtual Machine (VM), routes may be impacting your VM traffic flows. This article provides an overview of diagnostics capabilities for routes to help troubleshoot further.
 
@@ -30,7 +32,7 @@ Route tables are associated with subnets and are effective on all network interf
 
 * **System routes:** By default, every subnet created in an Azure Virtual Network (VNet) has system route tables that allow local VNet traffic, on-premises traffic via VPN gateways, and Internet traffic. System routes also exist for peered VNets.
 * **BGP routes:** Propagated to network interfaces through ExpressRoute or site-to-site VPN connections. Learn more about BGP routing by reading the [BGP with VPN gateways](../vpn-gateway/vpn-gateway-bgp-overview.md) and [ExpressRoute overview](../expressroute/expressroute-introduction.md) articles.
-* **User-defined routes (UDR):** If you are using network virtual appliances or are forced-tunneling traffic to an on-premises network via a site-to-site VPN, you may have user-defined routes (UDRs) associated with your subnet route table. If you're not familiar with UDRs, read the [user-defined routes](./virtual-networks-udr-overview.md#user-defined-routes) article.
+* **User-defined routes (UDR):** If you are using network virtual appliances or are forced-tunneling traffic to an on-premises network via a site-to-site VPN, you may have user-defined routes (UDRs) associated with your subnet route table. If you're not familiar with UDRs, read the [user-defined routes](virtual-networks-udr-overview.md#user-defined-routes) article.
 
 With the various routes that can be applied to a network interface, it can be difficult to determine which aggregate routes are effective. To help troubleshoot VM network connectivity, you can view all the effective routes for a network interface in the Azure Resource Manager deployment model.
 
@@ -87,7 +89,7 @@ To see the aggregate routes that are applied to a VM, complete the following ste
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image5.png)
 
-For more troubleshooting scenarios for forced-tunneling and route evaluation, read the [Considerations](./virtual-network-routes-troubleshoot-portal.md#considerations) section of this article.
+For more troubleshooting scenarios for forced-tunneling and route evaluation, read the [Considerations](virtual-network-routes-troubleshoot-portal.md#considerations) section of this article.
 
 ### View effective routes for a network interface
 If network traffic flow is impacted for a particular network interface (NIC), you can view a full list of effective routes on a NIC directly. To see the aggregate routes that are applied to a NIC, complete the following steps:
@@ -145,4 +147,4 @@ A few things to keep in mind when reviewing the list of routes returned:
     * If a default route is advertised over BGP
 * For VNet peering traffic to work correctly, a system route with **nextHopType** *VNetPeering* must exist for the peered VNet's prefix range. If such a route doesn't exist and the VNet peering link looks OK:
     * Wait a few seconds and retry if it's a newly established peering link. It occasionally takes longer to propagate routes to all the network interfaces in a subnet.
-    * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](./virtual-network-nsg-troubleshoot-portal.md) article.
+    * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-portal.md) article.

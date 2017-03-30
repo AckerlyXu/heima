@@ -35,9 +35,9 @@ Hive understands how to work with structured and semi-structured data, such as t
 ## User defined functions (UDF)
 Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using UDFs with Hive, see the following:
 
-* [Use a Java User Defined Function with Hive](./hdinsight-hadoop-hive-java-udf.md)
-* [Using Python with Hive and Pig in HDInsight](./hdinsight-python.md)
-* [Use C# with Hive and Pig in HDInsight](./hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Use a Java User Defined Function with Hive](hdinsight-hadoop-hive-java-udf.md)
+* [Using Python with Hive and Pig in HDInsight](hdinsight-python.md)
+* [Use C# with Hive and Pig in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 * [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 * [Custom Hive UDF example to convert date/time formats to Hive timestamp](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -55,22 +55,18 @@ For more information, see [HDInsight: Hive Internal and External Tables Intro][c
 ## <a id="data"></a>About the sample data, an Apache log4j file
 This example uses a *log4j* sample file, which is stored at **/example/data/sample.log** in your blob storage container. Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity, for example:
 
-```
-2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
-```
+    2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
 In the previous example, the log level is ERROR.
 
 > [!NOTE]
-> You can also generate a log4j file by using the [Apache Log4j](http://zh.wikipedia.org/wiki/Log4j) logging tool and then upload that file to the blob container. See [Upload Data to HDInsight](./hdinsight-upload-data.md) for instructions. For more information about how Azure Blob storage is used with HDInsight, see [Use Azure Blob Storage with HDInsight](./hdinsight-hadoop-use-blob-storage.md).
+> You can also generate a log4j file by using the [Apache Log4j](http://zh.wikipedia.org/wiki/Log4j) logging tool and then upload that file to the blob container. See [Upload Data to HDInsight](hdinsight-upload-data.md) for instructions. For more information about how Azure Blob storage is used with HDInsight, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 > 
 > 
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system. HDInsight can access files stored in blobs by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
-```
-wasbs:///example/data/sample.log
-```
+    wasbs:///example/data/sample.log
 
 Because Azure Blob storage is the default storage for HDInsight, you can also access the file by using **/example/data/sample.log** from HiveQL.
 
@@ -82,14 +78,12 @@ Because Azure Blob storage is the default storage for HDInsight, you can also ac
 ## <a id="job"></a>Sample job: Project columns onto delimited data
 The following HiveQL statements will project columns onto delimited data that is stored in the **wasbs:///example/data** directory:
 
-```
-set hive.execution.engine=tez;
-DROP TABLE log4jLogs;
-CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
-SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
-```
+    set hive.execution.engine=tez;
+    DROP TABLE log4jLogs;
+    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
 In the previous example, the HiveQL statements perform the following actions:
 
@@ -115,13 +109,11 @@ In the previous example, the HiveQL statements perform the following actions:
 
 After creating the external table, the following statements are used to create an **internal** table.
 
-```
-set hive.execution.engine=tez;
-CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-STORED AS ORC;
-INSERT OVERWRITE TABLE errorLogs
-SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-```
+    set hive.execution.engine=tez;
+    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    STORED AS ORC;
+    INSERT OVERWRITE TABLE errorLogs
+    SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
 These statements perform the following actions:
 
@@ -142,7 +134,7 @@ These statements perform the following actions:
 ><p> 
 > ```set hive.execution.engine=tez;```
 ><p> 
-> This can be submitted on a per-query basis by placing it at the beginning of your query. You can also set this to be on by default on a cluster by setting the configuration value when you create the cluster. You can find more details in [Provisioning HDInsight Clusters](./hdinsight-hadoop-provision-linux-clusters.md).
+> This can be submitted on a per-query basis by placing it at the beginning of your query. You can also set this to be on by default on a cluster by setting the configuration value when you create the cluster. You can find more details in [Provisioning HDInsight Clusters](hdinsight-hadoop-provision-linux-clusters.md).
 > 
 > 
 
@@ -150,25 +142,25 @@ The [Hive on Tez design documents](https://cwiki.apache.org/confluence/display/H
 
 To aid in debugging jobs ran using Tez, HDInsight provides the following web UIs that allow you to view details of Tez jobs:
 
-* [Use the Tez UI on Windows-based HDInsight](./hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight](./hdinsight-debug-ambari-tez-view.md)
+* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 ## <a id="run"></a>Choose how to run the HiveQL job
 HDInsight can run HiveQL jobs using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
 | **Use this** if you want... | ...an **interactive** shell | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |
-| [Hive View](./hdinsight-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Any (browser based) |
-| [Beeline command (from an SSH session)](./hdinsight-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
-| [Hive command (from an SSH session)](./hdinsight-hadoop-use-hive-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
-| [Curl](./hdinsight-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
-| [Query console](./hdinsight-hadoop-use-hive-query-console.md) |&nbsp; |✔ |Windows |Any (browser based) |
-| [HDInsight tools for Visual Studio](./hdinsight-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux or Windows |Windows |
-| [Windows PowerShell](./hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
-| [Remote Desktop](./hdinsight-hadoop-use-hive-remote-desktop.md) |✔ |✔ |Windows |Windows |
+| [Hive View](hdinsight-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Any (browser based) |
+| [Beeline command (from an SSH session)](hdinsight-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
+| [Hive command (from an SSH session)](hdinsight-hadoop-use-hive-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
+| [Curl](hdinsight-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
+| [Query console](hdinsight-hadoop-use-hive-query-console.md) |&nbsp; |✔ |Windows |Any (browser based) |
+| [HDInsight tools for Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux or Windows |Windows |
+| [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
+| [Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
@@ -197,21 +189,21 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://zh.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: ./hdinsight-connect-excel-power-query.md
+[import-to-excel]: /azure/hdinsight-connect-excel-power-query/
 [hivetask]: http://msdn.microsoft.com/zh-cn/library/mt146771(v=sql.120).aspx
 [connectionmanager]: http://msdn.microsoft.com/zh-cn/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/zh-cn/library/mt146770(v=sql.120).aspx
 
-[hdinsight-use-pig]: ./hdinsight-use-pig.md
-[hdinsight-use-oozie]: ./hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: ./hdinsight-analyze-flight-delay-data.md
-[hdinsight-use-mapreduce]: ./hdinsight-use-mapreduce.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ./hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
 
 [Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/zh-cn/library/ee692792.aspx

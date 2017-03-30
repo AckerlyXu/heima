@@ -53,7 +53,7 @@ In this section, you will perform the following steps to create a new Azure Auto
 12. On the following **Define Credential** page type in the username of the AD user account created earlier in the **User Name** field and the password in the **Password** and **Confirm Password** fields. Click **OK** to save your changes.
 
 ## Use the credential in a runbook
-You can retrieve the credential in a runbook using the [Get-AutomationPSCredential](./automation-credentials.md) activity and then use it with [Add-AzureAccount](http://msdn.microsoft.com/zh-cn/library/azure/dn722528.aspx) to connect to your Azure subscription. If the credential is an administrator of multiple Azure subscriptions, then you should also use [Select-AzureSubscription](http://msdn.microsoft.com/zh-cn/library/dn495203.aspx) to specify the correct one. This is shown in the sample Windows PowerShell below that will typically appear at the top of most Azure Automation runbooks.
+You can retrieve the credential in a runbook using the [Get-AutomationPSCredential](automation-credentials.md) activity and then use it with [Add-AzureAccount](http://msdn.microsoft.com/zh-cn/library/azure/dn722528.aspx) to connect to your Azure subscription. If the credential is an administrator of multiple Azure subscriptions, then you should also use [Select-AzureSubscription](http://msdn.microsoft.com/zh-cn/library/dn495203.aspx) to specify the correct one. This is shown in the sample Windows PowerShell below that will typically appear at the top of most Azure Automation runbooks.
 
 ```
 $cred = Get-AutomationPSCredential -Name "myuseraccount.partner.onmschina.cn"

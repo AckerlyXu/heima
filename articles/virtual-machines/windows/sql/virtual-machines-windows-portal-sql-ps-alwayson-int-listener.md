@@ -26,16 +26,16 @@ This topic shows how to:
 
 An availability group listener is a virtual network name that clients connect to for database access. On Azure virtual machines, a load balancer holds the IP address for the listener. The load balancer routes traffic to the instance of SQL Server that is listening on the probe port. Usually, an availability group uses an internal load balancer. An Azure internal load balancer can host one or many IP addresses. Each IP address uses a specific probe port. This document shows how to use PowerShell to create a load balancer, or add IP addresses to an existing load balancer for SQL Server availability groups. 
 
-The ability to assign multiple IP addresses to an internal load balancer is new to Azure and is only available in Resource Manager model. To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines in Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can [manually configure an AlwaysOn availability group](/documentation/articles/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/).
+The ability to assign multiple IP addresses to an internal load balancer is new to Azure and is only available in Resource Manager model. To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines in Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can [manually configure an AlwaysOn availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 This topic requires that your availability groups are already configured.  
 
 Related topics include:
 
-* [Configure AlwaysOn Availability Groups in Azure VM (GUI)](/documentation/articles/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/)   
+* [Configure AlwaysOn Availability Groups in Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
 * [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-[!INCLUDE [Start your PowerShell session](../../includes/sql-vm-powershell.md)]
+[!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## Configure the Windows Firewall
 Configure the Windows Firewall to allow SQL Server access. The firewall rules allow TCP connections to the ports use by the SQL Server instance, and the listener probe. For detailed instructions, see [Configure a Windows Firewall for Database Engine Access](http://msdn.microsoft.com/zh-cn/library/ms175043.aspx#Anchor_1). Create an inbound rule for the SQL Server port and for the probe port.
@@ -146,7 +146,7 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
 
 ## Configure the listener
 
-[!INCLUDE [ag-listener-configure](../../includes/virtual-machines-ag-listener-configure.md)]
+[!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
 ## Set the listener port in SQL Server Management Studio
 
@@ -189,7 +189,7 @@ Note the following guidelines on availability group listener in Azure using inte
 * With an internal load balancer, you only access the listener from within the same virtual network.
 
 ## For more information
-For more information, see [Configure Always On availability group in Azure VM manually](/documentation/articles/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/).
+For more information, see [Configure Always On availability group in Azure VM manually](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 ## PowerShell cmdlets
 Use the following PowerShell cmdlets to create an internal load balancer for Azure virtual machines.

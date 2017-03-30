@@ -21,8 +21,10 @@ ms.author: anithaa
 
 # Troubleshoot routes using Azure PowerShell
 > [!div class="op_single_selector"]
->- [Azure Portal Preview](./virtual-network-routes-troubleshoot-portal.md)
->- [PowerShell](./virtual-network-routes-troubleshoot-powershell.md)
+> * [Azure Portal Preview](virtual-network-routes-troubleshoot-portal.md)
+> * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
+> 
+> 
 
 If you are experiencing network connectivity issues to or from your Azure Virtual Machine (VM), routes may be impacting your VM traffic flows. This article provides an overview of diagnostics capabilities for routes to help troubleshoot further.
 
@@ -30,7 +32,7 @@ Route tables are associated with subnets and are effective on all network interf
 
 * **System routes:** By default, every subnet created in an Azure Virtual Network (VNet) has system route tables that allow local VNet traffic, on-premises traffic via VPN gateways, and Internet traffic. System routes also exist for peered VNets.
 * **BGP routes:** Propagated to network interfaces through ExpressRoute or site-to-site VPN connections. Learn more about BGP routing by reading the [BGP with VPN gateways](../vpn-gateway/vpn-gateway-bgp-overview.md) and [ExpressRoute overview](../expressroute/expressroute-introduction.md) articles.
-* **User-defined routes (UDR):** If you are using network virtual appliances or are forced-tunneling traffic to an on-premises network via a site-to-site VPN, you may have user-defined routes (UDRs) associated with your subnet route table. If you're not familiar with UDRs, read the [user-defined routes](./virtual-networks-udr-overview.md#user-defined-routes) article.
+* **User-defined routes (UDR):** If you are using network virtual appliances or are forced-tunneling traffic to an on-premises network via a site-to-site VPN, you may have user-defined routes (UDRs) associated with your subnet route table. If you're not familiar with UDRs, read the [user-defined routes](virtual-networks-udr-overview.md#user-defined-routes) article.
 
 With the various routes that can be applied to a network interface, it can be difficult to determine which aggregate routes are effective. To help troubleshoot VM network connectivity, you can view all the effective routes for a network interface in the Azure Resource Manager deployment model.
 
@@ -56,34 +58,28 @@ To see the aggregate routes that are applied to a network interface, complete th
 1. Start an Azure PowerShell session and login to Azure. If you're not familiar with Azure PowerShell, read the [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) article.
 2. The following command returns all routes applied to a network interface named *VM1-NIC1* in the resource group *RG1*.
 
-    ```
-    Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
-    ```
+        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
 
     > [!TIP]
     > If you don't know the name of a network interface, type the following command to retrieve the names of all network interfaces in a resource group.*
     > 
     > 
 
-    ```
-    Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name
-    ```
+        Get-AzureRmNetworkInterface -ResourceGroupName RG1 | Format-Table Name
 
     The following output looks similar to the output for each route applied to the subnet the NIC is connected to:
 
-    ```
-    Name :
-    State : Active
-    AddressPrefix : {10.9.0.0/16}
-    NextHopType : VNetLocal
-    NextHopIpAddress : {}
+        Name :
+        State : Active
+        AddressPrefix : {10.9.0.0/16}
+        NextHopType : VNetLocal
+        NextHopIpAddress : {}
 
-    Name :
-    State : Active
-    AddressPrefix : {0.0.0.0/16}
-    NextHopType : Internet
-    NextHopIpAddress : {}
-    ```
+        Name :
+        State : Active
+        AddressPrefix : {0.0.0.0/16}
+        NextHopType : Internet
+        NextHopIpAddress : {}
 
     Notice the following in the output:
 
@@ -95,37 +91,29 @@ To see the aggregate routes that are applied to a network interface, complete th
 
     The following command returns the routes in an easier to view table:
 
-    ```
-    Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1 | Format-Table
-    ```
+        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1 | Format-Table
 
     The following output is some of the output received for the scenario described previously:
 
-    ```
-    Name State AddressPrefix NextHopType NextHopIpAddress
-    ---- ----- ------------- ----------- ----------------
-    Active {10.9.0.0/16} VnetLocal {}
-    Active {0.0.0.0/0} Internet {}
-    ```
+        Name State AddressPrefix NextHopType NextHopIpAddress
+        ---- ----- ------------- ----------- ----------------
+        Active {10.9.0.0/16} VnetLocal {}
+        Active {0.0.0.0/0} Internet {}
 3. There is no route listed to the *ChinaNorth-VNet3* VNet (Prefix 10.10.0.0/16)** from *ChinaNorth-VNet1* (Prefix 10.9.0.0/16) in the output from the previous step. As shown in the following picture, the VNet peering link with the *ChinaNorth-VNet3* VNet is in the *Disconnected* state.
 
     ![](./media/virtual-network-routes-troubleshoot-portal/image4.png)
 
     The bi-directional link for the peering is broken, which explains why VM1 could not connect to VM3 in the *ChinaNorth-VNet3* VNet. Setup a bi-directional VNet peering link again for *ChinaNorth-VNet1* and *ChinaNorth-VNet3* VNets. The output returned after the VNet peering link is correctly established follows:
 
-    ```
-    Name State AddressPrefix NextHopType NextHopIpAddress
-    ---- ----- ------------- ----------- ----------------
-    Active {10.9.0.0/16} VnetLocal {}
-    Active {10.10.0.0/16} VNetPeering {}
-    Active {0.0.0.0/0} Internet {}
-    ```
+        Name State AddressPrefix NextHopType NextHopIpAddress
+        ---- ----- ------------- ----------- ----------------
+        Active {10.9.0.0/16} VnetLocal {}
+        Active {10.10.0.0/16} VNetPeering {}
+        Active {0.0.0.0/0} Internet {}
 
     Once you determine the issue, you can add, remove, or change routes and route tables. Type the following command to see a list of the commands used to do so:
 
-    ```
-    Get-Help *-AzureRmRouteConfig
-    ```
+        Get-Help *-AzureRmRouteConfig
 
 ## Considerations
 A few things to keep in mind when reviewing the list of routes returned:
@@ -144,4 +132,4 @@ A few things to keep in mind when reviewing the list of routes returned:
     * If a default route is advertised over BGP
 * For VNet peering traffic to work correctly, a system route with **nextHopType** *VNetPeering* must exist for the peered VNet's prefix range. If such a route doesn't exist and the VNet peering link looks OK:
     * Wait a few seconds and retry if it's a newly established peering link. It occasionally takes longer to propagate routes to all the network interfaces in a subnet.
-    * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](./virtual-network-nsg-troubleshoot-powershell.md) article.
+    * Network Security Group (NSG) rules may be impacting the traffic flows. For more information, see the [Troubleshoot Network Security Groups](virtual-network-nsg-troubleshoot-powershell.md) article.

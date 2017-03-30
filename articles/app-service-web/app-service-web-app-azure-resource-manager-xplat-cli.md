@@ -20,8 +20,8 @@ ms.author: aelnably
 
 # Using Azure Resource Manager-Based XPlat CLI for Azure App Service
 > [!div class="op_single_selector"]
->- [Azure CLI](./app-service-web-app-azure-resource-manager-xplat-cli.md)
->- [Azure PowerShell](./app-service-web-app-azure-resource-manager-powershell.md)
+> * [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
+> * [Azure PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
 
 With the release of Azure Cross-platform Command-Line Tools version 0.10.5, new commands have been added. These commands give the user the ability to use Azure Resource Manager-based PowerShell commands to manage App Service.
 
@@ -48,52 +48,38 @@ Following are descriptions of the different parameters:
 
 Example to use this cmdlet:
 
-```
-azure appserviceplan create --name ContosoAppServicePlan --location "China East" --resource-group ContosoAzureResourceGroup --sku P1 --instances 10
-```
+    azure appserviceplan create --name ContosoAppServicePlan --location "China East" --resource-group ContosoAzureResourceGroup --sku P1 --instances 10
 
 ### List Existing App Service Plans
 To list the existing app service plans, use **azure appserviceplan list** command.
 
 To list all app service plans under a specific resource group, use:
 
-```
-azure appserviceplan list --resource-group ContosoAzureResourceGroup
-```
+    azure appserviceplan list --resource-group ContosoAzureResourceGroup
 
 To get a specific app service plan, use **azure appserviceplan show** command:
 
-```
-azure appserviceplan show --name ContosoAppServicePlan --resource-group chinaeast
-```
+    azure appserviceplan show --name ContosoAppServicePlan --resource-group chinaeast
 
 ### Configure an existing App Service Plan
 To change the settings for an existing app service plan, use the **azure appserviceplan config** command. You can change the sku, and the number of workers 
 
-```
-azure appserviceplan config --name ContosoAppServicePlan --resource-group ContosoAzureResourceGroup --sku S1 --instances 9
-```
+    azure appserviceplan config --name ContosoAppServicePlan --resource-group ContosoAzureResourceGroup --sku S1 --instances 9
 
 #### Scaling an App Service Plan
 To scale an existing App Service Plan, use:
 
-```
-azure appserviceplan config --name ContosoAppServicePlan --resource-group ContosoAzureResourceGroup --instances 9
-```
+    azure appserviceplan config --name ContosoAppServicePlan --resource-group ContosoAzureResourceGroup --instances 9
 
 #### Changing the SKU of an App Service Plan
 To change the sku of an existing App Service Plan, use:
 
-```
-azure appserviceplan config --name ContosoAppServicePlan --resource-group ContosoAzureResourceGroup --sku S1
-```
+    azure appserviceplan config --name ContosoAppServicePlan --resource-group ContosoAzureResourceGroup --sku S1
 
 ### Delete an existing App Service Plan
 To delete an existing app service plan, all assigned apps need to be moved or deleted first. Then using the **azure webapp delete** command you can delete the app service plan.
 
-```
-azure appserviceplan delete --name ContosoAppServicePlan --resource-group chinaeast
-```
+    azure appserviceplan delete --name ContosoAppServicePlan --resource-group chinaeast
 
 ## Managing App Service apps
 ### Create a web app
@@ -108,46 +94,34 @@ Following are descriptions of the different parameters:
 
 Example to use this cmdlet:
 
-```
-azure webapp create --name ContosoWebApp --resource-group ContosoAzureResourceGroup --plan ContosoAppServicePlan --location "China East"
-```
+    azure webapp create --name ContosoWebApp --resource-group ContosoAzureResourceGroup --plan ContosoAppServicePlan --location "China East"
 
 ### Delete an existing app
 To delete an existing app, you can use the **azure webapp delete** command. You need to specify the name of the app and the resource group name.
 
-```
-azure webapp delete --name ContosoWebApp --resource-group ContosoAzureResourceGroup
-```
+    azure webapp delete --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
 ### List existing apps
 To list the existing apps, use the **azure webapp list** command.
 
 To list all apps in a specific resource group, use:
 
-```
-azure webapp list --resource-group ContosoAzureResourceGroup
-```
+    azure webapp list --resource-group ContosoAzureResourceGroup
 
 To get a specific app, use the **azure webapp show** command.
 
-```
-azure webapp show --name ContosoWebApp --resource-group ContosoAzureResourceGroup
-```
+    azure webapp show --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
 ### Configure an existing app
 To change the settings and configurations for an existing app, use the **azure webapp config set** command.
 
 Example (1): change the php version of a app 
 
-```
-azure webapp config set --name ContosoWebApp --resource-group ContosoAzureResourceGroup --phpversion 5.6
-```
+    azure webapp config set --name ContosoWebApp --resource-group ContosoAzureResourceGroup --phpversion 5.6
 
 Example (2): add or change app settings
 
-```
-webapp config appsettings set --name ContosoWebApp --resource-group ContosoAzureResourceGroup appsetting1=appsetting1value,appsetting2=appsetting2value
-```
+    webapp config appsettings set --name ContosoWebApp --resource-group ContosoAzureResourceGroup appsetting1=appsetting1value,appsetting2=appsetting2value
 
 To know what other configuration can be changed, use the **azure webapp config set -h** command.
 
@@ -155,23 +129,17 @@ To know what other configuration can be changed, use the **azure webapp config s
 #### Restart an app
 To restart an app, you must specify the name and resource group of the app.
 
-```
-azure webapp restart --name ContosoWebApp --resource-group ContosoAzureResourceGroup
-```
+    azure webapp restart --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
 #### Stop an app
 To stop an app, you must specify the name and resource group of the app.
 
-```
-azure webapp stop --name ContosoWebApp --resource-group ContosoAzureResourceGroup
-```
+    azure webapp stop --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
 #### Start an app
 To start an app, you must specify the name and resource group of the app.
 
-```
-azure webapp start --name ContosoWebApp --resource-group ContosoAzureResourceGroup
-```
+    azure webapp start --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
 ### Manage publishing profiles of an app
 Each app has a publishing profile that can be used to publish your code.
@@ -179,9 +147,7 @@ Each app has a publishing profile that can be used to publish your code.
 #### Get Publishing Profile
 To get the publishing profile for a app, use:
 
-```
-azure webapp publishingprofile --name ContosoWebApp --resource-group ContosoAzureResourceGroup
-```
+    azure webapp publishingprofile --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
 This command echoes the publishing profile username and password to the command line.
 
@@ -191,24 +157,18 @@ To manage hostname bindings for your app, use the **azure webapp config hostname
 #### List hostname bindings
 To get the current hostname bindings for an app, use:
 
-```
-azure webapp config hostnames list --name ContosoWebApp --resource-group ContosoAzureResourceGroup
-```
+    azure webapp config hostnames list --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
 #### Add hostname bindings
 To add hostname bindings to an app, use:
 
-```
-azure webapp config hostnames add --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
-```
+    azure webapp config hostnames add --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
 
 #### Delete hostname bindings
 To delete hostname bindings, use:
 
-```
-azure webapp config hostnames delete --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
-```
+    azure webapp config hostnames delete --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
 
 ## Next Steps
 * To learn about Azure Resource Manager CLI support, see [Use the Azure CLI to manage Azure resources and resource groups.](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
-* To learn about managing App Service using PowerShell, see [Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps.](./app-service-web-app-azure-resource-manager-powershell.md)
+* To learn about managing App Service using PowerShell, see [Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps.](app-service-web-app-azure-resource-manager-powershell.md)

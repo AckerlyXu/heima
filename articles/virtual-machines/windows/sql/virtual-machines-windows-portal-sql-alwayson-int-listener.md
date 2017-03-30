@@ -8,7 +8,7 @@ manager: jhubbard
 editor: monicar
 
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
-ms.service: virtual-machines-sql-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -21,13 +21,13 @@ ms.author: mikeray
 # Configure an internal load balancer for an Always On availability group in Azure
 This topic explains how to create an internal load balancer for a SQL Server Always On availability group in Azure virtual machines running in Resource Manager model. An availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
 
-To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines in Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can [manually configure an availability group](/documentation/articles/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/).
+To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines in Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can [manually configure an availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 This topic requires that your availability groups are already configured.  
 
 Related topics include:
 
-* [Configure Always On Availability Groups in Azure VM (Manually)](/documentation/articles/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/)   
+* [Configure Always On Availability Groups in Azure VM (Manually)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
 * [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 By walking through this document you create and configure a load balancer in the Azure portal preview. After that is complete, you will configure the cluster to use the IP address from the load balancer for the availability group listener.
@@ -147,7 +147,7 @@ The next step is to configure the listener on the cluster, and bring the listene
 ### 5. Create the availability group listener on the failover cluster
 In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio (SSMS).
 
-[!INCLUDE [ag-listener-configure](../../includes/virtual-machines-ag-listener-configure.md)]
+[!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
 ### Verify the configuration of the listener
 
@@ -166,9 +166,7 @@ To test the connection:
 1. RDP to a SQL Server that is in the same virtual network, but does not own the replica. This can be the other SQL Server in the cluster.
 2. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
 
-    ```
-    sqlcmd -S <listenerName> -E
-    ```
+        sqlcmd -S <listenerName> -E
 
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica. 
 

@@ -22,12 +22,12 @@ ms.custom: H1Hack27Feb2017
 
 # Create a VM with a static public IP address using the Azure CLI 2.0
 > [!div class="op_single_selector"]
->- [Azure portal preview](./virtual-network-deploy-static-pip-arm-portal.md)
->- [PowerShell](./virtual-network-deploy-static-pip-arm-ps.md)
->- [Azure CLI 2.0](./virtual-network-deploy-static-pip-arm-cli.md)
->- [Azure CLI 1.0](./virtual-network-deploy-static-pip-cli-nodejs.md)
->- [Template](./virtual-network-deploy-static-pip-arm-template.md)
->- [PowerShell (Classic)](./virtual-networks-reserved-public-ip.md)
+>- [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+>- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+>- [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+>- [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+>- [Template](virtual-network-deploy-static-pip-arm-template.md)
+>- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -38,10 +38,10 @@ ms.custom: H1Hack27Feb2017
 
 ## <a name = "create"></a>Create the VM
 
-You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](./virtual-network-deploy-static-pip-cli-nodejs.md). The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
+You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
 
 1. Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) if you don't already have it installed.
-2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
+2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. From a command shell, login with the command `az login`.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The Azure public IP address, virtual network, network interface, and VM resources must all exist in the same location. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
@@ -128,7 +128,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     ```
 
     In addition to creating a VM, the script creates:
-    - A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md) article for details.
+    - A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
     - Virtual network, subnet, NIC, and public IP address resources. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
 
 ## <a name = "validate"></a>Validate VM creation and public IP address
@@ -148,4 +148,4 @@ It's recommended that you delete the resources if you won't use the VM in produc
 
 ## Next steps
 
-Any network traffic can flow to and from the VM created in this article. You can define inbound and outbound rules within an NSG that limit the traffic that can flow to and from the network interface, the subnet, or both. To learn more about NSGs, read the [NSG overview](./virtual-networks-nsg.md) article.
+Any network traffic can flow to and from the VM created in this article. You can define inbound and outbound rules within an NSG that limit the traffic that can flow to and from the network interface, the subnet, or both. To learn more about NSGs, read the [NSG overview](virtual-networks-nsg.md) article.

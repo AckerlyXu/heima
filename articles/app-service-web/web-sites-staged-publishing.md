@@ -22,7 +22,7 @@ ms.author: cephalin
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
-When you deploy your web app, mobile back end, and API app to [App Service](./app-service-changes-existing-services.md), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
+When you deploy your web app, mobile back end, and API app to [App Service](/azure/app-service-web/app-service-changes-existing-services/), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live apps with their own hostnames. App content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
 * You can validate app changes in a staging deployment slot before swapping it with the production slot.
 * Deploying an app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#configure-auto-swap-for-your-web-app) when pre-swap validation is not needed.
@@ -32,7 +32,7 @@ Each App Service plan mode supports a different number of deployment slots. To f
 
 * When your app has multiple slots, you cannot change the mode.
 * Scaling is not available for non-production slots.
-* Linked resource management is not supported for non-production slots. In the [Azure Portal Preview](./app-service-web-app-azure-portal.md) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
+* Linked resource management is not supported for non-production slots. In the [Azure Portal Preview](/azure/app-service-web/app-service-web-app-azure-portal/) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
 
 ## <a name="Add"></a> Add a deployment slot
 The app must be running in the **Standard** or **Premium** mode in order for you to enable multiple deployment slots.
@@ -59,7 +59,7 @@ The app must be running in the **Standard** or **Premium** mode in order for you
     ![Deployment Slot Title][StagingTitle]
 5. Click the app URL in the slot's blade. Notice the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App - block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](./app-service-deploy-local-git.md).
+There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](app-service-deploy-local-git.md).
 
 ## <a name="AboutConfiguration"></a> Configuration for deployment slots
 When you clone configuration from another deployment slot, the cloned configuration is editable. Furthermore, some configuration elements will follow the content across a swap (not slot specific) while other configuration elements will stay in the same slot after a swap (slot specific). The following lists show the configuration that will change when you swap slots.
@@ -157,12 +157,10 @@ If any errors are identified in production after a slot swap, roll the slots bac
 ## <a name="Warm-up"></a> Custom warm-up before swap
 Some apps may require custom warm-up actions. The `applicationInitialization` configuration element in web.config allows you to specify custom initialization actions to be performed before a request is received. The swap operation will wait for this custom warm-up to complete. Here is a sample web.config fragment.
 
-```
-<applicationInitialization>
-    <add initializationPage="/" hostName="[app hostname]" />
-    <add initializationPage="/Home/About" hostname="[app hostname]" />
-</applicationInitialization>
-```
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[app hostname]" />
+        <add initializationPage="/Home/About" hostname="[app hostname]" />
+    </applicationInitialization>
 
 ## <a name="Delete"></a> To delete a deployment slot
 In the blade for a deployment slot, open the deployment slot's blade, click **Overview** (the default page), 
@@ -181,35 +179,41 @@ Azure PowerShell is a module that provides cmdlets to manage Azure through Windo
 
 - - -
 ### Create a web app
-
-    New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
+```
+New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
+```
 
 - - -
 ### Create a deployment slot
-
-    New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
+```
+New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
+```
 
 - - -
 ### Initiate a swap with review (multi-phase swap) and apply destination slot configuration to source slot
-
-    $ParametersObject = @{targetSlot  = "[slot name - e.g. "production"]"}
-    Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+$ParametersObject = @{targetSlot  = "[slot name - e.g. "production"]"}
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
 
 - - -
 ### Cancel a pending swap (swap with review) and restore source slot configuration
-
-    Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
+```
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
+```
 
 - - -
 ### Swap deployment slots
-
-    $ParametersObject = @{targetSlot  = "[slot name - e.g. "production"]"}
-    Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+$ParametersObject = @{targetSlot  = "[slot name - e.g. "production"]"}
+Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
 
 - - -
 ### Delete deployment slot
-
-    Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -Name [app name]/[slot name] -ApiVersion 2015-07-01
+```
+Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -Name [app name]/[slot name] -ApiVersion 2015-07-01
+```
 
 - - -
 <!-- ======== Azure CLI =========== -->
@@ -219,7 +223,7 @@ The Azure CLI provides cross-platform commands for working with Azure, including
 
 [!INCLUDE [Azure CLI with Azure China Cloud](../../includes/azure-cli-azurechinacloud-environment-parameter.md)]
 
-* For instructions on installing and configuring the Azure CLI, including information on how to connect Azure CLI to your Azure subscription, see [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/).
+* For instructions on installing and configuring the Azure CLI, including information on how to connect Azure CLI to your Azure subscription, see [Install and Configure the Azure CLI](../cli-install-nodejs.md).
 * To list the commands available for Azure App Service in the Azure CLI, call `azure site -h`.
 
 > [!NOTE] 

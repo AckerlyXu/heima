@@ -30,7 +30,7 @@ Each virtual network can have two virtual network gateways, but only one of each
 A VPN gateway connection relies on multiple resources that are configured with specific settings. Most of the resources can be configured separately, although they must be configured in a certain order in some cases.
 
 ###Settings
-The settings that you chose for each resource are critical to creating a successful connection. For information about individual resources and settings for VPN Gateway, see [About VPN Gateway settings](./vpn-gateway-about-vpn-gateway-settings.md). You'll find information to help you understand gateway types, VPN types, connection types, gateway subnets, local network gateways, and various other resource settings that you may want to consider.
+The settings that you chose for each resource are critical to creating a successful connection. For information about individual resources and settings for VPN Gateway, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md). You'll find information to help you understand gateway types, VPN types, connection types, gateway subnets, local network gateways, and various other resource settings that you may want to consider.
 
 ###Deployment tools
 You can start out creating and configuring resources using one configuration tool, such as the Azure portal preview. You can then later decide to switch to another tool, such as PowerShell, to configure additional resources, or modify existing resources when applicable. Currently, you can't configure every resource and resource setting in the Azure portal preview. The instructions in the articles for each connection topology specify when a specific configuration tool is needed. 
@@ -113,12 +113,12 @@ You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute,
 ## Gateway SKUs
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-For more information about gateway SKUs for VPN Gateway, see [Gateway SKUs](./vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+For more information about gateway SKUs for VPN Gateway, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ### Estimated aggregate throughput by SKU
 [!INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## Next steps
-- Plan your VPN gateway configuration. See [VPN Gateway Planning and Design](./vpn-gateway-plan-design.md).
-- View the [VPN Gateway FAQ](./vpn-gateway-vpn-faq.md) for additional information.
+- Plan your VPN gateway configuration. See [VPN Gateway Planning and Design](vpn-gateway-plan-design.md).
+- View the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for additional information.
 - View the [Subscription and service limits](../azure-subscription-service-limits.md#networking-limits).

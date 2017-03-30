@@ -56,10 +56,10 @@ From a REST client, follow these instructions:
 You can modify the host name for any virtual machine or role instance by uploading a modified service configuration file, or by renaming the computer from a Remote Desktop session.
 
 ## Next steps
-[Name Resolution (DNS)](./virtual-networks-name-resolution-for-vms-and-role-instances.md)
+[Name Resolution (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Azure Service Configuration Schema (.cscfg)](https://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx)
 
 [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100)
 
-[Specify DNS settings using network configuration files](./virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+[Specify DNS settings using network configuration files](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)

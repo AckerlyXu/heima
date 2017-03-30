@@ -56,4 +56,4 @@ Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 For more information, see [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/zh-cn/library/mt603614.aspx)
 
 ## Next steps
-If you want to reuse the data disk, you can just [attach it to another VM](./virtual-machines-windows-attach-disk-portal.md)
+If you want to reuse the data disk, you can just [attach it to another VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

@@ -64,7 +64,6 @@ Configure the Linux container to use the default PHP 7.0.6 image.
 ```azurecli
 az appservice web config update --php-version 7.0.6 --name <app_name> --resource-group myResourceGroup
 ```
-
 ## Deploy sample application
 Deploy a sample PHP app from GitHub.
 
@@ -86,4 +85,4 @@ Congratulations, your first PHP web app is running live in Azure App Service.
 
 ## Next steps
 
-Explore pre-created [Web apps CLI scripts](./app-service-cli-samples.md).
+Explore pre-created [Web apps CLI scripts](app-service-cli-samples.md).

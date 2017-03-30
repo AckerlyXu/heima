@@ -424,6 +424,7 @@ rxGetInfo(destData, getVarInfo = T)
 # Var 22: DewPointCelsiusDest, Type: numeric, Low/High: (-43.0000, 29.0000)
 
 finalData <- RxXdfData(file.path(dataDir, "joined5XDF"), fileSystem = hdfsFS)
+
 ```
 
 ## Splitting data for training and test
@@ -533,7 +534,7 @@ That's it! In this article, we've shown how it's possible to combine use of Spar
 
 - For general information on R Server see the [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) article.
 
-- Other articles of interest are [R Server on Azure HDInsight](./hdinsight-hadoop-r-server-get-started.md) and [R Server on Azure HDInsight overview](./hdinsight-hadoop-r-server-overview.md).
+- Other articles of interest are [R Server on Azure HDInsight](hdinsight-hadoop-r-server-get-started.md) and [R Server on Azure HDInsight overview](hdinsight-hadoop-r-server-overview.md).
 
 For more information on use of SparkR see the following:
 

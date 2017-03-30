@@ -31,12 +31,12 @@ Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is i
 
 Before you begin this tutorial, you must have the following:
 
-* **Azure CLI**: See [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/)
+* **Azure CLI**: See [Install and Configure the Azure CLI](../cli-install-nodejs.md)
 
-* **An HDInsight cluster**: See [Get Started with HDInsight on Linux](./hdinsight-hadoop-linux-tutorial-get-started.md)
+* **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
     > [!IMPORTANT]
-    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * **An Azure SQL database**: This is created using the steps in this document
 
@@ -48,11 +48,9 @@ The workflow used in this document contains two actions. Actions are definitions
 
 1. A Hive action runs a HiveQL script to extract records from the **hivesampletable** included with HDInsight. Each row of data describes a visit from a specific mobile device. The record format appears similar to the following:
 
-    ```
-    8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-    23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-    23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
-    ```
+        8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+        23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+        23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
     The Hive script used in this document counts the total visits for each platform (such as Android or iPhone,) and stores the counts to a new Hive table.
 
@@ -104,9 +102,9 @@ Use the following steps to create a HiveQL script that defines a query, which is
 
     For more information on using SSH with HDInsight, see the following documents:
 
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix or Windows](./hdinsight-hadoop-linux-use-ssh-unix.md) - This document assumes you have access to the `ssh` command.
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix or Windows](hdinsight-hadoop-linux-use-ssh-unix.md) - This document assumes you have access to the `ssh` command.
 
-    * [Use SSH with Linux-based Hadoop on HDInsight from Windows with PuTTY](./hdinsight-hadoop-linux-use-ssh-windows.md) - This document assumes that you are using the PuTTY SSH client.
+    * [Use SSH with Linux-based Hadoop on HDInsight from Windows with PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md) - This document assumes that you are using the PuTTY SSH client.
 
 2. From the SSH connection, use the following command to create a new file:
 
@@ -249,13 +247,11 @@ Follow the steps in the [Create a SQL Database](../sql-database/sql-database-get
 
     You receive output similar to the following:
 
-    ```
-    locale is "en_US.UTF-8"
-    locale charset is "UTF-8"
-    using default charset "UTF-8"
-    Default database being set to oozietest
-    1>
-    ```
+        locale is "en_US.UTF-8"
+        locale charset is "UTF-8"
+        using default charset "UTF-8"
+        Default database being set to oozietest
+        1>
 
 3. At the `1>` prompt, enter the following lines:
 
@@ -494,16 +490,14 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     The information returned is similar to the following:
 
-    ```
-    deviceplatform  count
-    Android 31591
-    iPhone OS       22731
-    proprietary development 3
-    RIM OS  3464
-    Unknown 213
-    Windows Phone   1791
-    (6 rows affected)
-    ```
+        deviceplatform  count
+        Android 31591
+        iPhone OS       22731
+        proprietary development 3
+        RIM OS  3464
+        Unknown 213
+        Windows Phone   1791
+        (6 rows affected)
 
 For more information on the Oozie command, see [Oozie Command Line Tool](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
@@ -527,7 +521,7 @@ The Oozie Web UI provides a web-based view into the status of Oozie jobs on the 
 
 To access the Oozie Web UI, use the following steps:
 
-1. Create an SSH tunnel to the HDInsight cluster. For information on how to do this, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md).
+1. Create an SSH tunnel to the HDInsight cluster. For information on how to do this, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
 2. Once a tunnel has been created, open the Ambari web UI in your web browser. The URI for the Ambari site is **https://CLUSTERNAME.azurehdinsight.cn**. Replace **CLUSTERNAME** with the name of your Linux-based HDInsight cluster.
 
@@ -690,9 +684,7 @@ The following are specific errors you may encounter, and how to resolve them.
 
 **Symptoms**: The job status changes to **SUSPENDED**. Details for the job shows the RunHiveScript status as **START_MANUAL**. Selecting the action displays the following error message:
 
-```
-JA009: Cannot initialize Cluster. Please check your configuration for map
-```
+    JA009: Cannot initialize Cluster. Please check your configuration for map
 
 **Cause**: The WASB addresses used in the **job.xml** file do not contain the storage container or storage account name. The WASB address format must be `wasbs://containername@storageaccountname.blob.core.chinacloudapi.cn`.
 
@@ -702,17 +694,13 @@ JA009: Cannot initialize Cluster. Please check your configuration for map
 
 **Symptoms**: The job status changes to **SUSPENDED**. Details for the job shows the RunHiveScript status as **START_MANUAL**. Selecting the action shows the following error message:
 
-```
-JA002: User: oozie is not allowed to impersonate <USER>
-```
+    JA002: User: oozie is not allowed to impersonate <USER>
 
 **Cause**: Current permission settings do not allow Oozie to impersonate the specified user account.
 
 **Resolution**: Oozie is allowed to impersonate users in the **users** group. Use the `groups USERNAME` to see the groups that the user account is a member of. If the user is not a member of the **users** group, use the following command to add the user to the group:
 
-```
-sudo adduser USERNAME users
-```
+    sudo adduser USERNAME users
 
 > [!NOTE]
 > It may take several minutes before HDInsight recognizes that the user has been added to the group.
@@ -721,9 +709,7 @@ sudo adduser USERNAME users
 
 **Symptoms**: The job status changes to **KILLED**. Details for the job shows the RunSqoopExport status as **ERROR**. Selecting the action shows the following error message:
 
-```
-Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
-```
+    Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
 **Cause**: Sqoop is unable to load the database driver required to access the database.
 
@@ -757,25 +743,24 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
-[azure-data-factory-pig-hive]: /documentation/articles/data-factory-data-transformation-activities/
-[hdinsight-oozie-coordinator-time]: ./hdinsight-use-oozie-coordinator-time.md
-[hdinsight-versions]: ./hdinsight-component-versioning.md
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started]: /documentation/articles/hdinsight-hadoop-tutorial-get-started-windows/
-[hdinsight-use-sqoop]: ./hdinsight-use-sqoop-mac-linux.md
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
-[hdinsight-use-mapreduce]: ./hdinsight-use-mapreduce.md
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-use-pig]: ./hdinsight-use-pig.md
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started-emulator]: ./hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-mapreduce]: ./hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
+[hdinsight-versions]:  hdinsight-component-versioning.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: ../sql-database/sql-database-get-started.md
-[sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
+[sqldatabase-create-configue]: sql-database-create-configure.md
+[sqldatabase-get-started]: sql-database-get-started.md
 
-[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
+[azure-create-storageaccount]: storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/

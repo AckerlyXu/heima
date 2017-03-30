@@ -32,7 +32,7 @@ This sample script does the following using Azure CLI 2.0:
 * Put your web app code in a GitHub repository you own.
 
 > [!NOTE]
-> To setup continuous deployment, see [Continuous Deployment to Azure App Service](./app-service-continuous-deployment.md). In Azure China, you need to set this with KUDU.
+> To setup continuous deployment, see [Continuous Deployment to Azure App Service](app-service-continuous-deployment.md). In Azure China, you need to set this with KUDU.
 >
 >
 

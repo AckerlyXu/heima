@@ -20,7 +20,7 @@ ms.author: dariagrigoriu
 
 # Local Git Deployment to Azure App Service
 This tutorial shows you how to deploy your app to [Azure App Service] from a Git repository on your local computer. App Service supports this approach with the **Local Git** deployment option in the [Azure Portal Preview].  
-Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](./app-service-web-get-started.md).
+Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](app-service-web-get-started.md).
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -37,9 +37,7 @@ Perform the following tasks to create a new Git repository.
 2. Navigate to the directory where the content to deploy would be located.
 3. Use the following command to initialize a new Git repository:
 
-    ```
-    git init
-    ```
+        git init
 
 ## <a name="Step2"></a>Step 2: Commit your content
 App Service supports applications created in a variety of programming languages. 
@@ -50,14 +48,10 @@ App Service supports applications created in a variety of programming languages.
     * Add the following text as the contents for the index.html file and save it: *Hello Git!*
 2. From the command-line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
 
-    ```
-    git add -A 
-    ```
+        git add -A 
 3. Next, commit the changes to the repository by using the following command:
 
-    ```
-    git commit -m "Hello Azure App Service"
-    ```
+        git commit -m "Hello Azure App Service"
 
 ## <a name="Step3"></a>Step 3: Enable the App Service app repository
 Perform the following steps to enable a Git repository for your App Service app.
@@ -79,18 +73,14 @@ Use the following steps to publish your app to App Service using Local Git.
 2. Using the command-line, verify that you are in the root of your local Git repository.
 3. Use `git remote` to add the remote reference listed in **Git URL** from step 1. Your command will look similar to the following:
 
-    ```
-    git remote add azure https://<username>@localgitdeployment.scm.chinacloudsites.cn:443/localgitdeployment.git         
-    ```
+        git remote add azure https://<username>@localgitdeployment.scm.chinacloudsites.cn:443/localgitdeployment.git         
     > [!NOTE]
     > The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your web app's repository.
     > 
     > 
 4. Push your content to App Service using the new **azure** remote you just created.
 
-    ```
-    git push azure master
-    ```
+        git push azure master
 
     You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Classic Managemnt Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
 5. Go back to your app in the Azure Portal Preview. A log entry of your most recent push should be displayed in the **Deployments** blade. 
@@ -122,9 +112,7 @@ The following are errors or problems commonly encountered when using Git to publ
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
-```
-git push azure master
-```
+    git push azure master
 
 - - -
 **Symptom**: src refspec [branchname] does not match any.
@@ -133,9 +121,7 @@ git push azure master
 
 **Resolution**: Perform the push operation again, specifying the master branch. For example:
 
-```
-git push azure master
-```
+    git push azure master
 
 - - -
 **Symptom**: Error - Changes committed to remote repository but your web app not updated.
@@ -155,16 +141,16 @@ git push azure master
 ## Additional Resources
 * [Git documentation](http://git-scm.com/documentation)
 * [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
-* [Continous Deployment to Azure App Service](./app-service-continuous-deployment.md)
+* [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)
 * [How to use PowerShell for Azure](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-* [How to use the Azure Command-Line Interface](/documentation/articles/cli-install-nodejs/)
+* [How to use the Azure Command-Line Interface](../cli-install-nodejs.md)
 
-[Azure App Service]: ./app-service-changes-existing-services.md
+[Azure App Service]: /azure/app-service-changes-existing-services/
 [Azure Developer Center]: /develop/overview/
 [Azure Portal Preview]: https://portal.azure.cn
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
-[Azure Command-Line Interface]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Azure Command-Line Interface]: /azure/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart

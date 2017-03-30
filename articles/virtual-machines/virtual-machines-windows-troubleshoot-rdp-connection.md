@@ -36,7 +36,7 @@ After each troubleshooting step, try reconnecting to the VM:
 6. Restart your VM.
 7. Redeploy your VM.
 
-Continue reading if you need more detailed steps and explanations. Verify that local network equipment such as routers and firewalls are not blocking outbound TCP port 3389, as noted in [detailed RDP troubleshooting scenarios](./virtual-machines-windows-detailed-troubleshoot-rdp.md).
+Continue reading if you need more detailed steps and explanations. Verify that local network equipment such as routers and firewalls are not blocking outbound TCP port 3389, as noted in [detailed RDP troubleshooting scenarios](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!TIP]
 > If the **Connect** button for your VM is grayed out in the portal and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
@@ -77,7 +77,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
     ![Verify RDP NSG rule in the Azure portal preview](./media/virtual-machines-windows-troubleshoot-rdp-connection/verify-nsg-rules.png)
 
-    If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](./virtual-machines-windows-nsg-quickstart-portal.md). Allow TCP port 3389.
+    If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Allow TCP port 3389.
 3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this troubleshooting step may be optional.
 
     Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
@@ -104,7 +104,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
 
     After this operation finishes, ephemeral disk data is lost and dynamic IP addresses that are associated with the VM are updated.
 
-If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](./virtual-machines-windows-detailed-troubleshoot-rdp.md).
+If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="using-azure-powershell"></a> Troubleshoot using Azure PowerShell
 If you haven't already, [install and configure the latest Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
@@ -160,7 +160,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     Direction                : Inbound
     ```
 
-    If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](./virtual-machines-windows-nsg-quickstart-powershell.md). Allow TCP port 3389.
+    If you do not have a rule that allows RDP traffic, [create a Network Security Group rule](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Allow TCP port 3389.
 3. **Reset user credentials**. This troubleshooting step resets the password on the local administrator account that you specify when you are unsure of, or have forgotten, the credentials.
 
     First, specify the username and a new password by assigning credentials to the `$cred` variable as follows:
@@ -194,7 +194,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](./virtual-machines-windows-detailed-troubleshoot-rdp.md).
+If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a> Troubleshoot VMs created using the Classic deployment model
 After each troubleshooting step, try reconnecting to the VM.
@@ -212,7 +212,7 @@ After each troubleshooting step, try reconnecting to the VM.
 
     ![Verify Cloud Services endpoints in the Azure portal preview](./media/virtual-machines-windows-troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
 
-    If you do not have an endpoint that allows RDP traffic, [create a Cloud Services endpoint](./virtual-machines-windows-classic-setup-endpoints.md). Allow TCP to private port 3389.
+    If you do not have an endpoint that allows RDP traffic, [create a Cloud Services endpoint](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Allow TCP to private port 3389.
 3. **Review VM boot diagnostics**. This troubleshooting step reviews the VM console logs to determine if the VM is reporting an issue. Not all VMs have boot diagnostics enabled, so this troubleshooting step may be optional.
 
     Specific troubleshooting steps are beyond the scope of this article, but may indicate a wider problem that is affecting RDP connectivity. For more information on reviewing the console logs and VM screenshot, see [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/).
@@ -232,19 +232,19 @@ After each troubleshooting step, try reconnecting to the VM.
 
     ![Restart the VM in the Azure portal preview](./media/virtual-machines-windows-troubleshoot-rdp-connection/classic-restart-vm.png)
 
-If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](./virtual-machines-windows-detailed-troubleshoot-rdp.md).
+If you are still encountering RDP issues, you can [open a support request](https://www.azure.cn/support/contact/) or read [more detailed RDP troubleshooting concepts and steps](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Troubleshoot specific RDP errors
 You may encounter a specific error message when trying to connect to your VM via RDP. The following are the most common error messages:
 
-* [The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license](./virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdplicense).
-* [Remote Desktop can't find the computer "name"](./virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdpname).
-* [An authentication error has occurred. The Local Security Authority cannot be contacted](./virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdpauth).
-* [Windows Security error: Your credentials did not work](./virtual-machines-windows-troubleshoot-specific-rdp-errors.md#wincred).
-* [This computer can't connect to the remote computer](./virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdpconnect).
+* [The remote session was disconnected because there are no Remote Desktop License Servers available to provide a license](virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdplicense).
+* [Remote Desktop can't find the computer "name"](virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdpname).
+* [An authentication error has occurred. The Local Security Authority cannot be contacted](virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdpauth).
+* [Windows Security error: Your credentials did not work](virtual-machines-windows-troubleshoot-specific-rdp-errors.md#wincred).
+* [This computer can't connect to the remote computer](virtual-machines-windows-troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## Additional resources
-If none of these errors occurred and you still can't connect to the VM via Remote Desktop, read the detailed [troubleshooting guide for Remote Desktop](./virtual-machines-windows-detailed-troubleshoot-rdp.md).
+If none of these errors occurred and you still can't connect to the VM via Remote Desktop, read the detailed [troubleshooting guide for Remote Desktop](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* For troubleshooting steps in accessing applications running on a VM, see [Troubleshoot access to an application running on an Azure VM](./virtual-machines-linux-troubleshoot-app-connection.md).
-* If you are having issues using Secure Shell (SSH) to connect to a Linux VM in Azure, see [Troubleshoot SSH connections to a Linux VM in Azure](./virtual-machines-linux-troubleshoot-ssh-connection.md).
+* For troubleshooting steps in accessing applications running on a VM, see [Troubleshoot access to an application running on an Azure VM](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* If you are having issues using Secure Shell (SSH) to connect to a Linux VM in Azure, see [Troubleshoot SSH connections to a Linux VM in Azure](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

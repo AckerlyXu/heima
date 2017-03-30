@@ -20,17 +20,19 @@ ms.author: jroth
 
 # Connect to a SQL Server Virtual Machine on Azure (Resource Manager)
 > [!div class="op_single_selector"]
->- [Resource Manager](./virtual-machines-windows-sql-connect.md)
->- [Classic](../sqlclassic/virtual-machines-windows-classic-sql-connect.md)
+> * [Resource Manager](virtual-machines-windows-sql-connect.md)
+> * [Classic](../sqlclassic/virtual-machines-windows-classic-sql-connect.md)
+> 
+> 
 
 ## Overview
 This topic describes how to connect to your SQL Server instance running on an Azure virtual machine. It covers some [general connectivity scenarios](#connection-scenarios) and then provides [detailed steps for configuring SQL Server connectivity in an Azure VM](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 To view the classic version of this article, see [Connect to a SQL Server Virtual Machine on Azure Classic](../sqlclassic/virtual-machines-windows-classic-sql-connect.md).
 
-If you would rather have a full walk-through of both provisioning and connectivity, see [Provisioning a SQL Server Virtual Machine on Azure](./virtual-machines-windows-portal-sql-server-provision.md).
+If you would rather have a full walk-through of both provisioning and connectivity, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 ## <a name="connection-scenarios"></a> Connection scenarios
 The way a client connects to SQL Server running on a Virtual Machine differs depending on the location of the client and the machine/networking configuration. These scenarios include:
@@ -54,15 +56,11 @@ If this was not one during provisioning, then you can manually configure SQL Ser
 
 Once this is done, any client with internet access can connect to the SQL Server instance by specifying either the public IP address of the virtual machine or the DNS label assigned to that IP address. If the SQL Server port is 1433, you do not need to specify it in the connection string.
 
-```
-"Server=sqlvmlabel.chinaeast.chinacloudapp.cn;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
-```
+    "Server=sqlvmlabel.chinaeast.chinacloudapp.cn;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
 Although this enables connectivity for clients over the internet, this does not imply that anyone can connect to your SQL Server. Outside clients have to the correct username and password. For additional security, you can avoid the well-known port 1433. For example, if you configured SQL Server to listen on port 1500 and established proper firewall and network security group rules, you could connect by appending the port number to the Server name as in the following example:
 
-```
-"Server=sqlvmlabel.chinaeast.chinacloudapp.cn,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
-```
+    "Server=sqlvmlabel.chinaeast.chinacloudapp.cn,1500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
 > [!NOTE]
 > It is important to note that when you use this technique to communicate with SQL Server, all outgoing data from the Azure datacenter is subject to normal [pricing on outbound data transfers](https://www.azure.cn/pricing/details/data-transfer/).
@@ -83,9 +81,7 @@ If you use the portal to provision a SQL Server virtual machine image with the r
 
 Assuming that you have configured DNS in your virtual network, you can connect to your SQL Server instance by specifying the SQL Server VM computer name in the connection string. The following example also assumes that Windows Authentication has also been configured and that the user has been granted access to the SQL Server instance.
 
-```
-"Server=mysqlvm;Integrated Security=true"
-```
+    "Server=mysqlvm;Integrated Security=true"
 
 Note that in this scenario, you could also specify the IP address of the VM.
 
@@ -102,15 +98,15 @@ Before you can connect to the instance of SQL Server from another VM or the inte
 * [Configure a DNS Label for the public IP address](#configure-a-dns-label-for-the-public-ip-address)
 * [Connect to the Database Engine from another computer](#connect-to-the-database-engine-from-another-computer)
 
-[!INCLUDE [Connect to SQL Server in a VM](../../includes/virtual-machines-sql-server-connection-steps.md)]
+[!INCLUDE [Connect to SQL Server in a VM](../../../../includes/virtual-machines-sql-server-connection-steps.md)]
 
-[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager-nsg-rule.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager-nsg-rule.md)]
 
-[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+[!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 ## Next Steps
-To see provisioning instructions along with these connectivity steps, see [Provisioning a SQL Server Virtual Machine on Azure](./virtual-machines-windows-portal-sql-server-provision.md).
+To see provisioning instructions along with these connectivity steps, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 [Explore the Learning Path](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) for SQL Server on Azure virtual machines.
 
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](./virtual-machines-windows-sql-server-iaas-overview.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

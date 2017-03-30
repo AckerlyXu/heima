@@ -217,5 +217,5 @@ Even though Integration Modules are essentially PowerShell modules, there's stil
 
 ## Next steps
 
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](./automation-first-runbook-textual.md)
+* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 * To learn more about creating PowerShell Modules, see [Writing a Windows PowerShell Module](https://msdn.microsoft.com/zh-cn/library/dd878310%28v=vs.85%29.aspx)

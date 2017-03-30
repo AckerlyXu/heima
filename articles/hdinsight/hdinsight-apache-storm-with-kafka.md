@@ -40,9 +40,9 @@ Apache Kafka is a publish-subscribe messaging solution that is available with HD
 
 * An SSH client (you need the `ssh` and `scp` commands) - For more information on using SSH with HDInsight, see the following documents:
 
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS, and Bash on Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## Create the clusters
 
@@ -51,7 +51,7 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 ![Diagram of Storm and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
 > [!NOTE]
-> Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
+> Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 While you can create an Azure virtual network, Kafka, and Storm clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Storm clusters to your Azure subscription.
 
@@ -126,22 +126,22 @@ The steps in this document demonstrate how to set these environment variables.
 
 1. Connect to the Kafka cluster using SSH. Replace `USERNAME` with the SSH user name used when creating the cluster. Replace `BASENAME` with the base name used when creating the cluster.
 
-    ```bash
-    ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.cn
-    ```
+        ssh USERNAME@kafka-BASENAME-ssh.azurehdinsight.cn
 
     When prompted, enter the password you used when creating the clusters.
 
     For more information on using SSH with HDInsight, see the following documents:
 
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS and Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS and Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. From the SSH connection to the Kafka cluster, use the following commands to set variables for the HTTP login and cluster name. These values are used by other steps in this section.
 
-      ADMIN='admin' #replace with the name of the admin account for the cluster
-      PASSWORD='password' #replace with the password for the admin account
+    ```bash
+    ADMIN='admin' #replace with the name of the admin account for the cluster
+    PASSWORD='password' #replace with the password for the admin account
+    ```
 
 3. Use the following commands to install the `jq` utility, retrieve the cluster name, and set the `KAFKAZKHOSTS` variable:
 
@@ -238,9 +238,9 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
 
     For more information on using SSH with HDInsight, see the following documents:
 
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS, and Bash on Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based HDInsight from Linux, Unix, Mac OS, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. From the SSH connection to the Storm cluster, use the following commands to run the `set-env-variables.sh` script:
 
@@ -255,13 +255,11 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
 
     The output of the script is similar to the following example:
 
-    ```
-    Checking for jq: install ok installed
-    Exporting variables:
-    $KAFKATOPIC=stormtest
-    $KAFKABROKERS=wn0-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.chinacloudapp.cn:9092,wn1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.chinacloudapp.cn:9092
-    $KAFKAZKHOSTS=zk1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.chinacloudapp.cn:2181,zk3-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.chinacloudapp.cn:2181,zk5-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.chinacloudapp.cn:2181
-    ```
+        Checking for jq: install ok installed
+        Exporting variables:
+        $KAFKATOPIC=stormtest
+        $KAFKABROKERS=wn0-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.chinacloudapp.cn:9092,wn1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.chinacloudapp.cn:9092
+        $KAFKAZKHOSTS=zk1-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.chinacloudapp.cn:2181,zk3-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.chinacloudapp.cn:2181,zk5-storm.4rf4ncirvydube02fuj0gpxp4e.ex.internal.chinacloudapp.cn:2181
 
 3. From the SSH connection to the Storm cluster, use the following command to start the writer topology:
 
@@ -287,22 +285,20 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
 
     This command uses a script shipped with Kafka to monitor the topic. After a moment, it should start returning random sentences that have been written to the topic. The output is similar to the following example:
 
-    ```
-    i am at two with nature             
-    an apple a day keeps the doctor away
-    snow white and the seven dwarfs     
-    the cow jumped over the moon        
-    an apple a day keeps the doctor away
-    an apple a day keeps the doctor away
-    the cow jumped over the moon        
-    an apple a day keeps the doctor away
-    an apple a day keeps the doctor away
-    four score and seven years ago      
-    snow white and the seven dwarfs     
-    snow white and the seven dwarfs     
-    i am at two with nature             
-    an apple a day keeps the doctor away
-    ```
+        i am at two with nature             
+        an apple a day keeps the doctor away
+        snow white and the seven dwarfs     
+        the cow jumped over the moon        
+        an apple a day keeps the doctor away
+        an apple a day keeps the doctor away
+        the cow jumped over the moon        
+        an apple a day keeps the doctor away
+        an apple a day keeps the doctor away
+        four score and seven years ago      
+        snow white and the seven dwarfs     
+        snow white and the seven dwarfs     
+        i am at two with nature             
+        an apple a day keeps the doctor away
 
     Use Ctrl+c to stop the script.
 
@@ -334,17 +330,15 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
 
     The log contains a log of the data read from the Kafka topic. The information in the log is similar to the following text:
 
-    ```
-    2016-11-04 17:47:14.907 c.m.e.LoggerBolt [INFO] Received data: four score and seven years ago
-    2016-11-04 17:47:14.907 STDIO [INFO] the cow jumped over the moon
-    2016-11-04 17:47:14.908 c.m.e.LoggerBolt [INFO] Received data: the cow jumped over the moon
-    2016-11-04 17:47:14.911 STDIO [INFO] snow white and the seven dwarfs
-    2016-11-04 17:47:14.911 c.m.e.LoggerBolt [INFO] Received data: snow white and the seven dwarfs
-    2016-11-04 17:47:14.932 STDIO [INFO] snow white and the seven dwarfs
-    2016-11-04 17:47:14.932 c.m.e.LoggerBolt [INFO] Received data: snow white and the seven dwarfs
-    2016-11-04 17:47:14.969 STDIO [INFO] an apple a day keeps the doctor away
-    2016-11-04 17:47:14.970 c.m.e.LoggerBolt [INFO] Received data: an apple a day keeps the doctor away
-    ```
+        2016-11-04 17:47:14.907 c.m.e.LoggerBolt [INFO] Received data: four score and seven years ago
+        2016-11-04 17:47:14.907 STDIO [INFO] the cow jumped over the moon
+        2016-11-04 17:47:14.908 c.m.e.LoggerBolt [INFO] Received data: the cow jumped over the moon
+        2016-11-04 17:47:14.911 STDIO [INFO] snow white and the seven dwarfs
+        2016-11-04 17:47:14.911 c.m.e.LoggerBolt [INFO] Received data: snow white and the seven dwarfs
+        2016-11-04 17:47:14.932 STDIO [INFO] snow white and the seven dwarfs
+        2016-11-04 17:47:14.932 c.m.e.LoggerBolt [INFO] Received data: snow white and the seven dwarfs
+        2016-11-04 17:47:14.969 STDIO [INFO] an apple a day keeps the doctor away
+        2016-11-04 17:47:14.970 c.m.e.LoggerBolt [INFO] Received data: an apple a day keeps the doctor away
 
 ## Stop the topologies
 
@@ -363,6 +357,6 @@ Since the steps in this document create both clusters in the same Azure resource
 
 ## Next steps
 
-For more example topologies that can be used with Storm on HDInsight, see [Example Storm topologies and components](./hdinsight-storm-example-topology.md).
+For more example topologies that can be used with Storm on HDInsight, see [Example Storm topologies and components](hdinsight-storm-example-topology.md).
 
-For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](./hdinsight-storm-deploy-monitor-topology-linux.md)
+For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)

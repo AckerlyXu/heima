@@ -32,27 +32,25 @@ Setting up this feature requires a few simple steps:
 ### How to write traces in your code
 Writing traces in your code is easy.  In C# it's as easy as writing the following code:
 
-```
+`````````````````````````
 Trace.TraceInformation("My trace statement");
-```
+`````````````````````````
 
-
-```
+`````````````````````````
 Trace.TraceWarning("My warning statement");
-```
+`````````````````````````
 
-
-```
+`````````````````````````
 Trace.TraceError("My error statement");
-```
+`````````````````````````
 
 The Trace class lives in the System.Diagnostics namespace.
 
 In a node.js app you can write this code to achieve the same result:
 
-```
+`````````````````````````
 console.log("My trace statement").
-```
+`````````````````````````
 
 ### How to enable and view the streaming logs
 ![][BrowseSitesScreenshot]
@@ -93,14 +91,13 @@ on **(1) Console** and the **(2) console** UI opens to the right.
 
 To get familiar with the **console**, try basic commands like:
 
-```
+`````````````````````````
 dir
-```
+`````````````````````````
 
-
-```
+`````````````````````````
 cd
-```
+`````````````````````````
 
 <!-- Images. -->
 [DiagnosticsLogs]: ./media/web-sites-streaming-logs-and-console/diagnostic-logs.png

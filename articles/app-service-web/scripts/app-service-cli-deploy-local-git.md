@@ -28,7 +28,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-```
+```azurecli
 #!/bin/bash
 
 gitdirectory=<Replace with path to local Git repo>
@@ -63,7 +63,7 @@ git push azure master
 az appservice web browse --name $webappname --resource-group myResourceGroup
 ```
 
-[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

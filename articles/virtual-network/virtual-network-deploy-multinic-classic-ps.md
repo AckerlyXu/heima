@@ -27,7 +27,7 @@ ms.custom: H1Hack27Feb2017
 You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multiple NICs enable separation of traffic types across NICs. For example, one NIC might communicate with the Internet, while another communicates only with internal resources not connected to the Internet. The ability to separate network traffic across multiple NICs is required for many network virtual appliances, such as application delivery and WAN optimization solutions.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to perform these steps using the [Resource Manager deployment model](./virtual-network-deploy-multinic-arm-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to perform these steps using the [Resource Manager deployment model](virtual-network-deploy-multinic-arm-ps.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -35,7 +35,7 @@ The following steps use a resource group named *IaaSStory* for the WEB servers a
 
 ## <a name="Prerequisites"></a> Prerequisites
 
-Before you can create the DB servers, you need to create the *IaaSStory* resource group with all the necessary resources for this scenario. To create these resources, complete the steps that follow. Create a virtual network by following the steps in the [Create a virtual network](./virtual-networks-create-vnet-classic-netcfg-ps.md) article.
+Before you can create the DB servers, you need to create the *IaaSStory* resource group with all the necessary resources for this scenario. To create these resources, complete the steps that follow. Create a virtual network by following the steps in the [Create a virtual network](virtual-networks-create-vnet-classic-netcfg-ps.md) article.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -86,7 +86,6 @@ You need to create a new cloud service and a storage account for the data disks 
     New-AzureStorageAccount -StorageAccountName $prmStorageAccountName `
     -Location $location -Type Premium_LRS
     ```
-
 3. Set the storage account created above as the current storage account for your subscription.
 
     ```powershell
@@ -140,8 +139,8 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 4. Set the default NIC and assign it a static IP address.
 
     ```powershell
-    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet			-SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP 	-IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. Add a second NIC for each VM.
@@ -184,17 +183,13 @@ Now that you downloaded and changed the script based on your needs, runt he scri
 
 1. Save your script and run it from the **PowerShell** command prompt, or **PowerShell ISE**. You will see the initial output, as shown below.
 
-    ```
-    OperationDescription    OperationId                          OperationStatus
-    --------------------    -----------                          ---------------
-    New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
-    New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
+        OperationDescription    OperationId                          OperationStatus
+        --------------------    -----------                          ---------------
+        New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
+        New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded      
 
-    WARNING: No deployment found in service: 'IaaSStory-Backend'.
-    ```
+        WARNING: No deployment found in service: 'IaaSStory-Backend'.
 2. Fill out the information needed in the credentials prompt and click **OK**. The output below will be displayed.
 
-    ```
-    New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-    New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-    ```
+        New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+        New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded

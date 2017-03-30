@@ -19,16 +19,17 @@ ms.author: gwallace
 ---
 
 # Create an application gateway by using the Azure Resource Manager template
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-create-gateway-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-create-gateway-arm.md)
->- [Azure Classic PowerShell](./application-gateway-create-gateway.md)
->- [Azure Resource Manager template](./application-gateway-create-gateway-arm-template.md)
->- [Azure CLI](./application-gateway-create-gateway-cli.md)
+> * [Azure portal preview](application-gateway-create-gateway-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
+> * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+> * [Azure CLI](application-gateway-create-gateway-cli.md)
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
-To find a complete list of supported features, visit [Application Gateway Overview](./application-gateway-introduction.md)
+To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
 You learn how to download and modify an existing Azure Resource Manager template from GitHub and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
@@ -163,7 +164,7 @@ To deploy the Azure Resource Manager template you downloaded by using Azure CLI,
 
 ### Step 1
 
-If you have never used Azure CLI, see [Install and configure the Azure CLI](/documentation/articles/cli-install-nodejs/) and follow the instructions up to the point where you select your Azure account and subscription.
+If you have never used Azure CLI, see [Install and configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
 ### Step 2
 
@@ -237,11 +238,11 @@ When using SSL with a template, the certificate needs to be provided in a base64
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure an application gateway for SSL offload](./application-gateway-ssl.md).
+If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
 
-If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb.md).
+If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
 
 If you want more information about load balancing options in general, visit:
 
-* [Azure Load Balancer](../load-balancer/index.md)
-* [Azure Traffic Manager](../traffic-manager/index.md)
+* [Azure Load Balancer](/azure/load-balancer/)
+* [Azure Traffic Manager](/azure/traffic-manager/)

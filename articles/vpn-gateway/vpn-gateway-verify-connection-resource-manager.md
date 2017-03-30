@@ -33,19 +33,13 @@ To verify by using PowerShell, install the latest version of the Azure Resource 
 ### Log in to your Azure account
 1. Open your PowerShell console with elevated privileges and connect to your account.
 
-    ```
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+        Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 2. Check the subscriptions for the account.
 
-    ```
-    Get-AzureRmSubscription 
-    ```
+        Get-AzureRmSubscription 
 3. Specify the subscription that you want to use.
 
-    ```
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-    ```
+        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
 ### Verify your connection
 
@@ -60,27 +54,19 @@ To verify by using PowerShell, install the latest versions of the Azure PowerShe
 ### Log in to your Azure account
 1. Open your PowerShell console with elevated privileges and connect to your account.
 
-    ```
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+        Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 2. Check the subscriptions for the account.
 
-    ```
-    Get-AzureRmSubscription 
-    ```
+        Get-AzureRmSubscription 
 3. Specify the subscription that you want to use.
 
-    ```
-    Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-    ```
+        Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 4. Log in to use the Service Management cmdlets for the classic deployment model.
 
-    ```
-    Add-AzureAccount -Environment AzureChinaCloud
-    ```
+        Add-AzureAccount -Environment AzureChinaCloud
 
 ### Verify your connection
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
 ## Next steps
-* You can add virtual machines to your virtual networks. See [Create a Virtual Machine](/documentation/articles/virtual-machines-windows-hero-tutorial/) for steps.
+* You can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.

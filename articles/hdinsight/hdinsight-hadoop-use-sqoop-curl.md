@@ -27,7 +27,7 @@ Learn how to use Curl to run Sqoop jobs on a Hadoop cluster in HDInsight.
 Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run, monitor, and retrieve the results of Sqoop jobs. This works by using the WebHCat REST API (formerly known as Templeton) provided by your HDInsight cluster.
 
 > [!NOTE]
-> If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [Information about using HDInsight on Linux](./hdinsight-hadoop-linux-information.md).
+> If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md).
 > 
 > 
 
@@ -50,15 +50,11 @@ To complete the steps in this article, you will need the following:
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
-    ```
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
-    ```
+        curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
 
     You should receive a response similar to the following:
 
-    ```
-    {"status":"ok","version":"v1"}
-    ```
+        {"status":"ok","version":"v1"}
 
     The parameters used in this command are as follows:
 
@@ -68,9 +64,7 @@ To complete the steps in this article, you will need the following:
         The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.cn/templeton/v1**, will be the same for all requests. The path, **/status**, indicates that the request is to return a status of WebHCat (also known as Templeton) for the server. 
 2. Use the following to submit a sqoop job:
 
-    ```
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.chinacloudapi.cn;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasbs:///example/curl" https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/sqoop
-    ```
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.chinacloudapi.cn;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasbs:///example/curl" https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/sqoop
 
     The parameters used in this command are as follows:
 
@@ -84,15 +78,11 @@ To complete the steps in this article, you will need the following:
 
     This command should return a job ID that can be used to check the status of the job.
 
-    ```
-    {"id":"job_1415651640909_0026"}
-    ```
+        {"id":"job_1415651640909_0026"}
 
 1. To check the status of the job, use the following command. Replace **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then **JOBID** would be `job_1415651640909_0026`.
 
-    ```
-    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
-    ```
+        curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
 
     If the job has finished, the state will be **SUCCEEDED**.
 
@@ -102,20 +92,16 @@ To complete the steps in this article, you will need the following:
     > 
 2. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **wasbs:///example/curl**. This address stores the output of the job in the **example/curl** directory on the default storage container used by your HDInsight cluster.
 
-    You can list and download these files by using the [Azure CLI](/documentation/articles/cli-install-nodejs/). For example, to list files in **example/curl**, use the following command:
+    You can list and download these files by using the [Azure CLI](../cli-install-nodejs.md). For example, to list files in **example/curl**, use the following command:
 
-    ```
-    azure storage blob list <container-name> example/curl
-    ```
+        azure storage blob list <container-name> example/curl
 
     To download a file, use the following:
 
-    ```
-    azure storage blob download <container-name> <blob-name> <destination-file>
-    ```
+        azure storage blob download <container-name> <blob-name> <destination-file>
 
     > [!NOTE]
-    > You must either specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See <a href="./hdinsight-upload-data.md" target="_blank" for more information.
+    > You must either specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See <a href="hdinsight-upload-data.md" target="_blank" for more information.
     > 
     > 
 
@@ -131,13 +117,13 @@ For more information on the REST interface used in this article, see the <a href
 ## Next steps
 For general information on Hive with HDInsight:
 
-* [Use Sqoop with Hadoop on HDInsight](./hdinsight-use-sqoop.md)
+* [Use Sqoop with Hadoop on HDInsight](hdinsight-use-sqoop.md)
 
 For information on other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/zh-cn/library/dn479185.aspx
 
@@ -149,13 +135,13 @@ For information on other ways you can work with Hadoop on HDInsight:
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://zh.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: ./hdinsight-connect-excel-power-query.md
+[import-to-excel]: /azure/hdinsight-connect-excel-power-query/
 
-[hdinsight-use-oozie]: ./hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: ./hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ./hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/zh-cn/library/ee692792.aspx

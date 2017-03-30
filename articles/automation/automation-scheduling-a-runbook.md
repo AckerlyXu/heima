@@ -62,7 +62,7 @@ A runbook can be linked to multiple schedules, and a schedule can have multiple 
 6. If the runbook has parameters, you will be prompted for their values.  
 
 ### To link a schedule to a runbook with Windows PowerShell
-You can use the [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/zh-cn/library/azure/dn690265.aspx) to link a schedule to a runbook.  You can specify values for the runbook's parameters with the Parameters parameter. See [Starting a Runbook in Azure Automation](./automation-starting-a-runbook.md) for more information on specifying parameter values.
+You can use the [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/zh-cn/library/azure/dn690265.aspx) to link a schedule to a runbook.  You can specify values for the runbook's parameters with the Parameters parameter. See [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) for more information on specifying parameter values.
 
 The following sample commands show how to link a schedule using an Azure Service Management cmdlet with parameters.
 
@@ -99,5 +99,5 @@ Set-AzureAutomationSchedule -AutomationAccountName $automationAccountName `
 ```
 
 ## Next steps
-* To learn more about working with schedules, see [Schedule Assets in Azure Automation](./automation-schedules.md)
-* To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](./automation-starting-a-runbook.md)
+* To learn more about working with schedules, see [Schedule Assets in Azure Automation](automation-schedules.md)
+* To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)

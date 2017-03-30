@@ -21,11 +21,11 @@ ms.author: jdial
 
 # Create User-Defined Routes (UDR) using PowerShell
 > [!div class="op_single_selector"]
->- [PowerShell](./virtual-network-create-udr-arm-ps.md)
->- [Azure CLI](./virtual-network-create-udr-arm-cli.md)
->- [Template](./virtual-network-create-udr-arm-template.md)
->- [PowerShell (Classic)](./virtual-network-create-udr-classic-ps.md)
->- [CLI (Classic)](./virtual-network-create-udr-classic-cli.md)
+>- [PowerShell](virtual-network-create-udr-arm-ps.md)
+>- [Azure CLI](virtual-network-create-udr-arm-cli.md)
+>- [Template](virtual-network-create-udr-arm-template.md)
+>- [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
+>- [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
@@ -33,7 +33,7 @@ ms.author: jdial
 > Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../azure-resource-manager/resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.
 >
 
-This article covers the Resource Manager deployment model. You can also [create UDRs in the classic deployment model](./virtual-network-create-udr-classic-ps.md).
+This article covers the Resource Manager deployment model. You can also [create UDRs in the classic deployment model](virtual-network-create-udr-classic-ps.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -84,53 +84,51 @@ To create the route table and route needed for the front-end subnet based on the
 
     Expected output:
 
-    ```
-    Name              : TestVNet
-    ResourceGroupName : TestRG
-    Location          : chinanorth
-    Id                : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-    Etag              : W/"[Id]"
-    ProvisioningState : Succeeded
-    Tags              : 
-                        Name         Value
-                        ===========  =====
-                        displayName  VNet 
-
-    AddressSpace      : {
-                          "AddressPrefixes": [
-                            "192.168.0.0/16"
-                          ]
-                        }
-    DhcpOptions       : {
-                          "DnsServers": null
-                        }
-    NetworkInterfaces : null
-    Subnets           : [
-                            ...,
-                          {
-                            "Name": "FrontEnd",
-                            "Etag": "W/\"[Id]\"",
-                            "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                            "AddressPrefix": "192.168.1.0/24",
-                            "IpConfigurations": [
+        Name              : TestVNet
+        ResourceGroupName : TestRG
+        Location          : chinanorth
+        Id                : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        Etag              : W/"[Id]"
+        ProvisioningState : Succeeded
+        Tags              : 
+                            Name         Value
+                            ===========  =====
+                            displayName  VNet 
+   
+        AddressSpace      : {
+                              "AddressPrefixes": [
+                                "192.168.0.0/16"
+                              ]
+                            }
+        DhcpOptions       : {
+                              "DnsServers": null
+                            }
+        NetworkInterfaces : null
+        Subnets           : [
+                                ...,
                               {
-                                "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConfigurations/ipconfig1"
+                                "Name": "FrontEnd",
+                                "Etag": "W/\"[Id]\"",
+                                "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                                "AddressPrefix": "192.168.1.0/24",
+                                "IpConfigurations": [
+                                  {
+                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConfigurations/ipconfig1"
+                                  },
+                                  {
+                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
+                                  }
+                                ],
+                                "NetworkSecurityGroup": {
+                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+                                },
+                                "RouteTable": {
+                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
+                                },
+                                "ProvisioningState": "Succeeded"
                               },
-                              {
-                                "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
-                              }
-                            ],
-                            "NetworkSecurityGroup": {
-                              "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-                            },
-                            "RouteTable": {
-                              "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
-                            },
-                            "ProvisioningState": "Succeeded"
-                          },
-                            ...
-                        ]    
-    ```
+                                ...
+                            ]    
 
 ## Create the UDR for the back-end subnet
 
@@ -146,7 +144,7 @@ To create the route table and route needed for the back-end subnet based on the 
 
 2. Create a route table named **UDR-BackEnd** in the **chinanorth** region that contains the route created above.
 
-    ```powershell
+    ```
     $routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location chinanorth `
     -Name UDR-BackEnd -Route $route
     ```
@@ -166,52 +164,50 @@ To create the route table and route needed for the back-end subnet based on the 
 
     Expected output:
 
-    ```
-    Name              : TestVNet
-    ResourceGroupName : TestRG
-    Location          : chinanorth
-    Id                : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-    Etag              : W/"[Id]"
-    ProvisioningState : Succeeded
-    Tags              : 
-                        Name         Value
-                        ===========  =====
-                        displayName  VNet 
-
-    AddressSpace      : {
-                          "AddressPrefixes": [
-                            "192.168.0.0/16"
-                          ]
-                        }
-    DhcpOptions       : {
-                          "DnsServers": null
-                        }
-    NetworkInterfaces : null
-    Subnets           : [
-                          ...,
-                          {
-                            "Name": "BackEnd",
-                            "Etag": "W/\"[Id]\"",
-                            "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-                            "AddressPrefix": "192.168.2.0/24",
-                            "IpConfigurations": [
+        Name              : TestVNet
+        ResourceGroupName : TestRG
+        Location          : chinanorth
+        Id                : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        Etag              : W/"[Id]"
+        ProvisioningState : Succeeded
+        Tags              : 
+                            Name         Value
+                            ===========  =====
+                            displayName  VNet 
+   
+        AddressSpace      : {
+                              "AddressPrefixes": [
+                                "192.168.0.0/16"
+                              ]
+                            }
+        DhcpOptions       : {
+                              "DnsServers": null
+                            }
+        NetworkInterfaces : null
+        Subnets           : [
+                              ...,
                               {
-                                "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL2/ipConfigurations/ipconfig1"
-                              },
-                              {
-                                "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL1/ipConfigurations/ipconfig1"
+                                "Name": "BackEnd",
+                                "Etag": "W/\"[Id]\"",
+                                "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+                                "AddressPrefix": "192.168.2.0/24",
+                                "IpConfigurations": [
+                                  {
+                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL2/ipConfigurations/ipconfig1"
+                                  },
+                                  {
+                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL1/ipConfigurations/ipconfig1"
+                                  }
+                                ],
+                                "NetworkSecurityGroup": {
+                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BacEnd"
+                                },
+                                "RouteTable": {
+                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
+                                },
+                                "ProvisioningState": "Succeeded"
                               }
-                            ],
-                            "NetworkSecurityGroup": {
-                              "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BacEnd"
-                            },
-                            "RouteTable": {
-                              "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
-                            },
-                            "ProvisioningState": "Succeeded"
-                          }
-                        ]
-    ```
+                            ]
 
 ## Enable IP forwarding on FW1
 To enable IP forwarding in the NIC used by **FW1**, follow the steps below.
@@ -231,46 +227,44 @@ To enable IP forwarding in the NIC used by **FW1**, follow the steps below.
 
     Expected output:
 
-    ```
-    Name                 : NICFW1
-    ResourceGroupName    : TestRG
-    Location             : chinanorth
-    Id                   : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1
-    Etag                 : W/"[Id]"
-    ProvisioningState    : Succeeded
-    Tags                 : 
-                           Name         Value                  
-                           ===========  =======================
-                           displayName  NetworkInterfaces - DMZ
-
-    VirtualMachine       : {
-                             "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/FW1"
-                           }
-    IpConfigurations     : [
-                             {
-                               "Name": "ipconfig1",
-                               "Etag": "W/\"[Id]\"",
-                               "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1/ipConfigurations/ipconfig1",
-                               "PrivateIpAddress": "192.168.0.4",
-                               "PrivateIpAllocationMethod": "Static",
-                               "Subnet": {
-                                 "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/DMZ"
-                               },
-                               "PublicIpAddress": {
-                                 "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPFW1"
-                               },
-                               "LoadBalancerBackendAddressPools": [],
-                               "LoadBalancerInboundNatRules": [],
-                               "ProvisioningState": "Succeeded"
-                             }
-                           ]
-    DnsSettings          : {
-                             "DnsServers": [],
-                             "AppliedDnsServers": [],
-                             "InternalDnsNameLabel": null,
-                             "InternalFqdn": null
-                           }
-    EnableIPForwarding   : True
-    NetworkSecurityGroup : null
-    Primary              : True
-    ```
+        Name                 : NICFW1
+        ResourceGroupName    : TestRG
+        Location             : chinanorth
+        Id                   : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1
+        Etag                 : W/"[Id]"
+        ProvisioningState    : Succeeded
+        Tags                 : 
+                               Name         Value                  
+                               ===========  =======================
+                               displayName  NetworkInterfaces - DMZ
+   
+        VirtualMachine       : {
+                                 "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/FW1"
+                               }
+        IpConfigurations     : [
+                                 {
+                                   "Name": "ipconfig1",
+                                   "Etag": "W/\"[Id]\"",
+                                   "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1/ipConfigurations/ipconfig1",
+                                   "PrivateIpAddress": "192.168.0.4",
+                                   "PrivateIpAllocationMethod": "Static",
+                                   "Subnet": {
+                                     "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/DMZ"
+                                   },
+                                   "PublicIpAddress": {
+                                     "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPFW1"
+                                   },
+                                   "LoadBalancerBackendAddressPools": [],
+                                   "LoadBalancerInboundNatRules": [],
+                                   "ProvisioningState": "Succeeded"
+                                 }
+                               ]
+        DnsSettings          : {
+                                 "DnsServers": [],
+                                 "AppliedDnsServers": [],
+                                 "InternalDnsNameLabel": null,
+                                 "InternalFqdn": null
+                               }
+        EnableIPForwarding   : True
+        NetworkSecurityGroup : null
+        Primary              : True

@@ -82,9 +82,7 @@ To understand the logic that the code generation utility is using while converti
 
 Please note that namespaces are extracted from the JSON schema, using the logic described in the file mentioned in the previous paragraph. Namespaces extracted from the schema take precedence over whatever is provided with the /n parameter in the utility command line. If you want to override the namespaces contained within the schema, use the /nf parameter. For example, to change all namespaces from the SampleJSONSchema.avsc to my.own.nspace, execute the following command:
 
-```
-Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:. /nf:my.own.nspace
-```
+    Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:. /nf:my.own.nspace
 
 ## <a name="samples"></a> Samples
 Six examples provided in this topic illustrate different scenarios supported by the Microsoft Avro Library. The Microsoft Avro Library is designed to work with any stream. In these examples, data is manipulated via memory streams rather than file streams or databases for simplicity and consistency. The approach taken in a production environment will depend on the exact scenario requirements, data source and volume, performance constraints, and other factors.
@@ -115,121 +113,119 @@ In this example, objects (a **SensorData** class with a member **Location** stru
 
 The schema in this example is assumed to be shared between the readers and writers, so the Avro object container format is not required. For an example of how to serialize and deserialize data into memory buffers by using reflection with the object container format when the schema must be shared with the data, see <a href="#Scenario3">Serialization using object container files with reflection</a>.
 
-```
-namespace Microsoft.Hadoop.Avro.Sample
-{
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Runtime.Serialization;
-    using Microsoft.Hadoop.Avro.Container;
-    using Microsoft.Hadoop.Avro;
-
-    //Sample class used in serialization samples
-    [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
-    internal class SensorData
+    namespace Microsoft.Hadoop.Avro.Sample
     {
-        [DataMember(Name = "Location")]
-        public Location Position { get; set; }
+        using System;
+        using System.Collections.Generic;
+        using System.IO;
+        using System.Linq;
+        using System.Runtime.Serialization;
+        using Microsoft.Hadoop.Avro.Container;
+        using Microsoft.Hadoop.Avro;
 
-        [DataMember(Name = "Value")]
-        public byte[] Value { get; set; }
-    }
+        //Sample class used in serialization samples
+        [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
+        internal class SensorData
+        {
+            [DataMember(Name = "Location")]
+            public Location Position { get; set; }
 
-    //Sample struct used in serialization samples
-    [DataContract]
-    internal struct Location
-    {
-        [DataMember]
-        public int Floor { get; set; }
+            [DataMember(Name = "Value")]
+            public byte[] Value { get; set; }
+        }
 
-        [DataMember]
-        public int Room { get; set; }
-    }
+        //Sample struct used in serialization samples
+        [DataContract]
+        internal struct Location
+        {
+            [DataMember]
+            public int Floor { get; set; }
 
-    //This class contains all methods demonstrating
-    //the usage of Microsoft Avro Library
-    public class AvroSample
-    {
+            [DataMember]
+            public int Room { get; set; }
+        }
 
-        //Serialize and deserialize sample data set represented as an object using reflection.
-        //No explicit schema definition is required - schema of serialized objects is automatically built.
-        public void SerializeDeserializeObjectUsingReflection()
+        //This class contains all methods demonstrating
+        //the usage of Microsoft Avro Library
+        public class AvroSample
         {
 
-            Console.WriteLine("SERIALIZATION USING REFLECTION\n");
-            Console.WriteLine("Serializing Sample Data Set...");
-
-            //Create a new AvroSerializer instance and specify a custom serialization strategy AvroDataContractResolver
-            //for serializing only properties attributed with DataContract/DateMember
-            var avroSerializer = AvroSerializer.Create<SensorData>();
-
-            //Create a memory stream buffer
-            using (var buffer = new MemoryStream())
+            //Serialize and deserialize sample data set represented as an object using reflection.
+            //No explicit schema definition is required - schema of serialized objects is automatically built.
+            public void SerializeDeserializeObjectUsingReflection()
             {
-                //Create a data set by using sample class and struct
-                var expected = new SensorData { Value = new byte[] { 1, 2, 3, 4, 5 }, Position = new Location { Room = 243, Floor = 1 } };
 
-                //Serialize the data to the specified stream
-                avroSerializer.Serialize(buffer, expected);
+                Console.WriteLine("SERIALIZATION USING REFLECTION\n");
+                Console.WriteLine("Serializing Sample Data Set...");
 
-                Console.WriteLine("Deserializing Sample Data Set...");
+                //Create a new AvroSerializer instance and specify a custom serialization strategy AvroDataContractResolver
+                //for serializing only properties attributed with DataContract/DateMember
+                var avroSerializer = AvroSerializer.Create<SensorData>();
 
-                //Prepare the stream for deserializing the data
-                buffer.Seek(0, SeekOrigin.Begin);
+                //Create a memory stream buffer
+                using (var buffer = new MemoryStream())
+                {
+                    //Create a data set by using sample class and struct
+                    var expected = new SensorData { Value = new byte[] { 1, 2, 3, 4, 5 }, Position = new Location { Room = 243, Floor = 1 } };
 
-                //Deserialize data from the stream and cast it to the same type used for serialization
-                var actual = avroSerializer.Deserialize(buffer);
+                    //Serialize the data to the specified stream
+                    avroSerializer.Serialize(buffer, expected);
 
-                Console.WriteLine("Comparing Initial and Deserialized Data Sets...");
+                    Console.WriteLine("Deserializing Sample Data Set...");
 
-                //Finally, verify that deserialized data matches the original one
-                bool isEqual = this.Equal(expected, actual);
+                    //Prepare the stream for deserializing the data
+                    buffer.Seek(0, SeekOrigin.Begin);
 
-                Console.WriteLine("Result of Data Set Identity Comparison is {0}", isEqual);
+                    //Deserialize data from the stream and cast it to the same type used for serialization
+                    var actual = avroSerializer.Deserialize(buffer);
 
+                    Console.WriteLine("Comparing Initial and Deserialized Data Sets...");
+
+                    //Finally, verify that deserialized data matches the original one
+                    bool isEqual = this.Equal(expected, actual);
+
+                    Console.WriteLine("Result of Data Set Identity Comparison is {0}", isEqual);
+
+                }
+            }
+
+            //
+            //Helper methods
+            //
+
+            //Comparing two SensorData objects
+            private bool Equal(SensorData left, SensorData right)
+            {
+                return left.Position.Equals(right.Position) && left.Value.SequenceEqual(right.Value);
+            }
+
+            static void Main()
+            {
+
+                string sectionDivider = "---------------------------------------- ";
+
+                //Create an instance of AvroSample Class and invoke methods
+                //illustrating different serializing approaches
+                AvroSample Sample = new AvroSample();
+
+                //Serialization to memory using reflection
+                Sample.SerializeDeserializeObjectUsingReflection();
+
+                Console.WriteLine(sectionDivider);
+                Console.WriteLine("Press any key to exit.");
+                Console.Read();
             }
         }
-
-        //
-        //Helper methods
-        //
-
-        //Comparing two SensorData objects
-        private bool Equal(SensorData left, SensorData right)
-        {
-            return left.Position.Equals(right.Position) && left.Value.SequenceEqual(right.Value);
-        }
-
-        static void Main()
-        {
-
-            string sectionDivider = "---------------------------------------- ";
-
-            //Create an instance of AvroSample Class and invoke methods
-            //illustrating different serializing approaches
-            AvroSample Sample = new AvroSample();
-
-            //Serialization to memory using reflection
-            Sample.SerializeDeserializeObjectUsingReflection();
-
-            Console.WriteLine(sectionDivider);
-            Console.WriteLine("Press any key to exit.");
-            Console.Read();
-        }
     }
-}
-// The example is expected to display the following output:
-// SERIALIZATION USING REFLECTION
-//
-// Serializing Sample Data Set...
-// Deserializing Sample Data Set...
-// Comparing Initial and Deserialized Data Sets...
-// Result of Data Set Identity Comparison is True
-// ----------------------------------------
-// Press any key to exit.
-```
+    // The example is expected to display the following output:
+    // SERIALIZATION USING REFLECTION
+    //
+    // Serializing Sample Data Set...
+    // Deserializing Sample Data Set...
+    // Comparing Initial and Deserialized Data Sets...
+    // Result of Data Set Identity Comparison is True
+    // ----------------------------------------
+    // Press any key to exit.
 
 ### <a name="Scenario2"></a> Sample 2: Serialization with a generic record
 A JSON schema can be explicitly specified in a generic record when reflection cannot be used because the data cannot be represented via .NET classes with a data contract. This method is generally slower than using reflection. In such cases, the schema for the data may also be dynamic, i.e., not be known at compile time. Data represented as comma-separated values (CSV) files whose schema is unknown until it is transformed to the Avro format at run time is an example of this sort of dynamic scenario.
@@ -238,374 +234,8 @@ This example shows how to create and use an [**AvroRecord**](http://msdn.microso
 
 The schema in this example is assumed to be shared between the readers and writers, so the Avro object container format is not required. For an example of how to serialize and deserialize data into memory buffers by using a generic record with the object container format when the schema must be included with the serialized data, see the <a href="#Scenario4">Serialization using object container files with generic record</a> example.
 
-```
-namespace Microsoft.Hadoop.Avro.Sample
-{
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
-using Microsoft.Hadoop.Avro.Container;
-using Microsoft.Hadoop.Avro.Schema;
-using Microsoft.Hadoop.Avro;
-
-//This class contains all methods demonstrating
-//the usage of Microsoft Avro Library
-public class AvroSample
-{
-
-    //Serialize and deserialize sample data set by using a generic record.
-    //A generic record is a special class with the schema explicitly defined in JSON.
-    //All serialized data should be mapped to the fields of the generic record,
-    //which in turn will be then serialized.
-    public void SerializeDeserializeObjectUsingGenericRecords()
+    namespace Microsoft.Hadoop.Avro.Sample
     {
-        Console.WriteLine("SERIALIZATION USING GENERIC RECORD\n");
-        Console.WriteLine("Defining the Schema and creating Sample Data Set...");
-
-        //Define the schema in JSON
-        const string Schema = @"{
-                            ""type"":""record"",
-                            ""name"":""Microsoft.Hadoop.Avro.Specifications.SensorData"",
-                            ""fields"":
-                                [
-                                    {
-                                        ""name"":""Location"",
-                                        ""type"":
-                                            {
-                                                ""type"":""record"",
-                                                ""name"":""Microsoft.Hadoop.Avro.Specifications.Location"",
-                                                ""fields"":
-                                                    [
-                                                        { ""name"":""Floor"", ""type"":""int"" },
-                                                        { ""name"":""Room"", ""type"":""int"" }
-                                                    ]
-                                            }
-                                    },
-                                    { ""name"":""Value"", ""type"":""bytes"" }
-                                ]
-                        }";
-
-        //Create a generic serializer based on the schema
-        var serializer = AvroSerializer.CreateGeneric(Schema);
-        var rootSchema = serializer.WriterSchema as RecordSchema;
-
-        //Create a memory stream buffer
-        using (var stream = new MemoryStream())
-        {
-            //Create a generic record to represent the data
-            dynamic location = new AvroRecord(rootSchema.GetField("Location").TypeSchema);
-            location.Floor = 1;
-            location.Room = 243;
-
-            dynamic expected = new AvroRecord(serializer.WriterSchema);
-            expected.Location = location;
-            expected.Value = new byte[] { 1, 2, 3, 4, 5 };
-
-            Console.WriteLine("Serializing Sample Data Set...");
-
-            //Serialize the data
-            serializer.Serialize(stream, expected);
-
-            stream.Seek(0, SeekOrigin.Begin);
-
-            Console.WriteLine("Deserializing Sample Data Set...");
-
-            //Deserialize the data into a generic record
-            dynamic actual = serializer.Deserialize(stream);
-
-            Console.WriteLine("Comparing Initial and Deserialized Data Sets...");
-
-            //Finally, verify the results
-            bool isEqual = expected.Location.Floor.Equals(actual.Location.Floor);
-            isEqual = isEqual && expected.Location.Room.Equals(actual.Location.Room);
-            isEqual = isEqual && ((byte[])expected.Value).SequenceEqual((byte[])actual.Value);
-            Console.WriteLine("Result of Data Set Identity Comparison is {0}", isEqual);
-        }
-    }
-
-    static void Main()
-    {
-
-        string sectionDivider = "---------------------------------------- ";
-
-        //Create an instance of AvroSample class and invoke methods
-        //illustrating different serializing approaches
-        AvroSample Sample = new AvroSample();
-
-        //Serialization to memory using generic record
-        Sample.SerializeDeserializeObjectUsingGenericRecords();
-
-        Console.WriteLine(sectionDivider);
-        Console.WriteLine("Press any key to exit.");
-        Console.Read();
-    }
-}
-}
-// The example is expected to display the following output:
-// SERIALIZATION USING GENERIC RECORD
-//
-// Defining the Schema and creating Sample Data Set...
-// Serializing Sample Data Set...
-// Deserializing Sample Data Set...
-// Comparing Initial and Deserialized Data Sets...
-// Result of Data Set Identity Comparison is True
-// ----------------------------------------
-// Press any key to exit.
-```
-
-### <a name="Scenario3"></a> Sample 3: Serialization using object container files and serialization with reflection
-This example is similar to the scenario in the <a href="#Scenario1"> first example</a>, where the schema is implicitly specified with reflection. The difference is that here, the schema is not assumed to be known to the reader that deserializes it. The **SensorData** objects to be serialized and their implicitly specified schema are stored in an Avro object container file represented by the [**AvroContainer**](http://msdn.microsoft.com/zh-cn/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class.
-
-The data is serialized in this example with [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/zh-cn/library/dn627340.aspx) and deserialized with [**SequentialReader<SensorData>**](http://msdn.microsoft.com/zh-cn/library/dn627340.aspx). The result then is compared to the initial instances to ensure identity.
-
-The data in the object container file is compressed via the default [**Deflate**][deflate-100] compression codec from .NET Framework 4. See the <a href="#Scenario5"> fifth example</a> in this topic to learn how to use a more recent and superior version of the [**Deflate**][deflate-110] compression codec available in .NET Framework 4.5.
-
-```
-namespace Microsoft.Hadoop.Avro.Sample
-{
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Runtime.Serialization;
-    using Microsoft.Hadoop.Avro.Container;
-    using Microsoft.Hadoop.Avro;
-
-    //Sample class used in serialization samples
-    [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
-    internal class SensorData
-    {
-        [DataMember(Name = "Location")]
-        public Location Position { get; set; }
-
-        [DataMember(Name = "Value")]
-        public byte[] Value { get; set; }
-    }
-
-    //Sample struct used in serialization samples
-    [DataContract]
-    internal struct Location
-    {
-        [DataMember]
-        public int Floor { get; set; }
-
-        [DataMember]
-        public int Room { get; set; }
-    }
-
-    //This class contains all methods demonstrating
-    //the usage of Microsoft Avro Library
-    public class AvroSample
-    {
-
-        //Serializes and deserializes the sample data set by using reflection and Avro object container files.
-        //Serialized data is compressed with the Deflate codec.
-        public void SerializeDeserializeUsingObjectContainersReflection()
-        {
-
-            Console.WriteLine("SERIALIZATION USING REFLECTION AND AVRO OBJECT CONTAINER FILES\n");
-
-            //Path for Avro object container file
-            string path = "AvroSampleReflectionDeflate.avro";
-
-            //Create a data set by using sample class and struct
-            var testData = new List<SensorData>
-                    {
-                        new SensorData { Value = new byte[] { 1, 2, 3, 4, 5 }, Position = new Location { Room = 243, Floor = 1 } },
-                        new SensorData { Value = new byte[] { 6, 7, 8, 9 }, Position = new Location { Room = 244, Floor = 1 } }
-                    };
-
-            //Serializing and saving data to file.
-            //Creating a memory stream buffer.
-            using (var buffer = new MemoryStream())
-            {
-                Console.WriteLine("Serializing Sample Data Set...");
-
-                //Create a SequentialWriter instance for type SensorData, which can serialize a sequence of SensorData objects to stream.
-                //Data will be compressed using the Deflate codec.
-                using (var w = AvroContainer.CreateWriter<SensorData>(buffer, Codec.Deflate))
-                {
-                    using (var writer = new SequentialWriter<SensorData>(w, 24))
-                    {
-                        // Serialize the data to stream by using the sequential writer
-                        testData.ForEach(writer.Write);
-                    }
-                }
-
-                //Save stream to file
-                Console.WriteLine("Saving serialized data to file...");
-                if (!WriteFile(buffer, path))
-                {
-                    Console.WriteLine("Error during file operation. Quitting method");
-                    return;
-                }
-            }
-
-            //Reading and deserializing data.
-            //Creating a memory stream buffer.
-            using (var buffer = new MemoryStream())
-            {
-                Console.WriteLine("Reading data from file...");
-
-                //Reading data from object container file
-                if (!ReadFile(buffer, path))
-                {
-                    Console.WriteLine("Error during file operation. Quitting method");
-                    return;
-                }
-
-                Console.WriteLine("Deserializing Sample Data Set...");
-
-                //Prepare the stream for deserializing the data
-                buffer.Seek(0, SeekOrigin.Begin);
-
-                //Create a SequentialReader instance for type SensorData, which will deserialize all serialized objects from the given stream.
-                //It allows iterating over the deserialized objects because it implements the IEnumerable<T> interface.
-                using (var reader = new SequentialReader<SensorData>(
-                    AvroContainer.CreateReader<SensorData>(buffer, true)))
-                {
-                    var results = reader.Objects;
-
-                    //Finally, verify that deserialized data matches the original one
-                    Console.WriteLine("Comparing Initial and Deserialized Data Sets...");
-                    int count = 1;
-                    var pairs = testData.Zip(results, (serialized, deserialized) => new { expected = serialized, actual = deserialized });
-                    foreach (var pair in pairs)
-                    {
-                        bool isEqual = this.Equal(pair.expected, pair.actual);
-                        Console.WriteLine("For Pair {0} result of Data Set Identity Comparison is {1}", count, isEqual);
-                        count++;
-                    }
-                }
-            }
-
-            //Delete the file
-            RemoveFile(path);
-        }
-
-        //
-        //Helper methods
-        //
-
-        //Comparing two SensorData objects
-        private bool Equal(SensorData left, SensorData right)
-        {
-            return left.Position.Equals(right.Position) && left.Value.SequenceEqual(right.Value);
-        }
-
-        //Saving memory stream to a new file with the given path
-        private bool WriteFile(MemoryStream InputStream, string path)
-        {
-            if (!File.Exists(path))
-            {
-                try
-                {
-                    using (FileStream fs = File.Create(path))
-                    {
-                        InputStream.Seek(0, SeekOrigin.Begin);
-                        InputStream.CopyTo(fs);
-                    }
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("The following exception was thrown during creation and writing to the file \"{0}\"", path);
-                    Console.WriteLine(e.Message);
-                    return false;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Can not create file \"{0}\". File already exists", path);
-                return false;
-
-            }
-        }
-
-        //Reading a file content by using the given path to a memory stream
-        private bool ReadFile(MemoryStream OutputStream, string path)
-        {
-            try
-            {
-                using (FileStream fs = File.Open(path, FileMode.Open))
-                {
-                    fs.CopyTo(OutputStream);
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The following exception was thrown during reading from the file \"{0}\"", path);
-                Console.WriteLine(e.Message);
-                return false;
-            }
-        }
-
-        //Deleting file by using given path
-        private void RemoveFile(string path)
-        {
-            if (File.Exists(path))
-            {
-                try
-                {
-                    File.Delete(path);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("The following exception was thrown during deleting the file \"{0}\"", path);
-                    Console.WriteLine(e.Message);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Can not delete file \"{0}\". File does not exist", path);
-            }
-        }
-
-        static void Main()
-        {
-
-            string sectionDivider = "---------------------------------------- ";
-
-            //Create an instance of AvroSample class and invoke methods
-            //illustrating different serializing approaches
-            AvroSample Sample = new AvroSample();
-
-            //Serialization using reflection to Avro object container file
-            Sample.SerializeDeserializeUsingObjectContainersReflection();
-
-            Console.WriteLine(sectionDivider);
-            Console.WriteLine("Press any key to exit.");
-            Console.Read();
-        }
-    }
-}
-// The example is expected to display the following output:
-// SERIALIZATION USING REFLECTION AND AVRO OBJECT CONTAINER FILES
-//
-// Serializing Sample Data Set...
-// Saving serialized data to file...
-// Reading data from file...
-// Deserializing Sample Data Set...
-// Comparing Initial and Deserialized Data Sets...
-// For Pair 1 result of Data Set Identity Comparison is True
-// For Pair 2 result of Data Set Identity Comparison is True
-// ----------------------------------------
-// Press any key to exit.
-```
-
-### <a name="Scenario4"></a> Sample 4: Serialization using object container files and serialization with generic record
-This example is similar to the scenario in the <a href="#Scenario2"> second example</a>, where the schema is explicitly specified with JSON. The difference is that here, the schema is not assumed to be known to the reader that deserializes it.
-
-The test data set is collected into a list of [**AvroRecord**](http://msdn.microsoft.com/zh-cn/library/microsoft.hadoop.avro.avrorecord.aspx) objects via an explicitly defined JSON schema and then stored in an object container file represented by the [**AvroContainer**](http://msdn.microsoft.com/zh-cn/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class. This container file creates a writer that is used to serialize the data, uncompressed, to a memory stream that is then saved to a file. The [**Codec.Null**](http://msdn.microsoft.com/zh-cn/library/microsoft.hadoop.avro.container.codec.null.aspx) parameter used for creating the reader specifies that this data will not be compressed.
-
-The data is then read from the file and deserialized into a collection of objects. This collection is compared to the initial list of Avro records to confirm that they are identical.
-
-```
-namespace Microsoft.Hadoop.Avro.Sample
-{
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -620,207 +250,73 @@ namespace Microsoft.Hadoop.Avro.Sample
     public class AvroSample
     {
 
-        //Serializes and deserializes a sample data set by using a generic record and Avro object container files.
-        //Serialized data is not compressed.
-        public void SerializeDeserializeUsingObjectContainersGenericRecord()
+        //Serialize and deserialize sample data set by using a generic record.
+        //A generic record is a special class with the schema explicitly defined in JSON.
+        //All serialized data should be mapped to the fields of the generic record,
+        //which in turn will be then serialized.
+        public void SerializeDeserializeObjectUsingGenericRecords()
         {
-            Console.WriteLine("SERIALIZATION USING GENERIC RECORD AND AVRO OBJECT CONTAINER FILES\n");
-
-            //Path for Avro object container file
-            string path = "AvroSampleGenericRecordNullCodec.avro";
-
+            Console.WriteLine("SERIALIZATION USING GENERIC RECORD\n");
             Console.WriteLine("Defining the Schema and creating Sample Data Set...");
 
             //Define the schema in JSON
             const string Schema = @"{
-                            ""type"":""record"",
-                            ""name"":""Microsoft.Hadoop.Avro.Specifications.SensorData"",
-                            ""fields"":
-                                [
-                                    {
-                                        ""name"":""Location"",
-                                        ""type"":
-                                            {
-                                                ""type"":""record"",
-                                                ""name"":""Microsoft.Hadoop.Avro.Specifications.Location"",
-                                                ""fields"":
-                                                    [
-                                                        { ""name"":""Floor"", ""type"":""int"" },
-                                                        { ""name"":""Room"", ""type"":""int"" }
-                                                    ]
-                                            }
-                                    },
-                                    { ""name"":""Value"", ""type"":""bytes"" }
-                                ]
-                        }";
+                                ""type"":""record"",
+                                ""name"":""Microsoft.Hadoop.Avro.Specifications.SensorData"",
+                                ""fields"":
+                                    [
+                                        {
+                                            ""name"":""Location"",
+                                            ""type"":
+                                                {
+                                                    ""type"":""record"",
+                                                    ""name"":""Microsoft.Hadoop.Avro.Specifications.Location"",
+                                                    ""fields"":
+                                                        [
+                                                            { ""name"":""Floor"", ""type"":""int"" },
+                                                            { ""name"":""Room"", ""type"":""int"" }
+                                                        ]
+                                                }
+                                        },
+                                        { ""name"":""Value"", ""type"":""bytes"" }
+                                    ]
+                            }";
 
             //Create a generic serializer based on the schema
             var serializer = AvroSerializer.CreateGeneric(Schema);
             var rootSchema = serializer.WriterSchema as RecordSchema;
 
-            //Create a generic record to represent the data
-            var testData = new List<AvroRecord>();
-
-            dynamic expected1 = new AvroRecord(rootSchema);
-            dynamic location1 = new AvroRecord(rootSchema.GetField("Location").TypeSchema);
-            location1.Floor = 1;
-            location1.Room = 243;
-            expected1.Location = location1;
-            expected1.Value = new byte[] { 1, 2, 3, 4, 5 };
-            testData.Add(expected1);
-
-            dynamic expected2 = new AvroRecord(rootSchema);
-            dynamic location2 = new AvroRecord(rootSchema.GetField("Location").TypeSchema);
-            location2.Floor = 1;
-            location2.Room = 244;
-            expected2.Location = location2;
-            expected2.Value = new byte[] { 6, 7, 8, 9 };
-            testData.Add(expected2);
-
-            //Serializing and saving data to file.
-            //Create a MemoryStream buffer.
-            using (var buffer = new MemoryStream())
+            //Create a memory stream buffer
+            using (var stream = new MemoryStream())
             {
+                //Create a generic record to represent the data
+                dynamic location = new AvroRecord(rootSchema.GetField("Location").TypeSchema);
+                location.Floor = 1;
+                location.Room = 243;
+
+                dynamic expected = new AvroRecord(serializer.WriterSchema);
+                expected.Location = location;
+                expected.Value = new byte[] { 1, 2, 3, 4, 5 };
+
                 Console.WriteLine("Serializing Sample Data Set...");
 
-                //Create a SequentialWriter instance for type SensorData, which can serialize a sequence of SensorData objects to stream.
-                //Data will not be compressed (Null compression codec).
-                using (var writer = AvroContainer.CreateGenericWriter(Schema, buffer, Codec.Null))
-                {
-                    using (var streamWriter = new SequentialWriter<object>(writer, 24))
-                    {
-                        // Serialize the data to stream by using the sequential writer
-                        testData.ForEach(streamWriter.Write);
-                    }
-                }
+                //Serialize the data
+                serializer.Serialize(stream, expected);
 
-                Console.WriteLine("Saving serialized data to file...");
-
-                //Save stream to file
-                if (!WriteFile(buffer, path))
-                {
-                    Console.WriteLine("Error during file operation. Quitting method");
-                    return;
-                }
-            }
-
-            //Reading and deserializing the data.
-            //Create a memory stream buffer.
-            using (var buffer = new MemoryStream())
-            {
-                Console.WriteLine("Reading data from file...");
-
-                //Reading data from object container file
-                if (!ReadFile(buffer, path))
-                {
-                    Console.WriteLine("Error during file operation. Quitting method");
-                    return;
-                }
+                stream.Seek(0, SeekOrigin.Begin);
 
                 Console.WriteLine("Deserializing Sample Data Set...");
 
-                //Prepare the stream for deserializing the data
-                buffer.Seek(0, SeekOrigin.Begin);
+                //Deserialize the data into a generic record
+                dynamic actual = serializer.Deserialize(stream);
 
-                //Create a SequentialReader instance for type SensorData, which will deserialize all serialized objects from the given stream.
-                //It allows iterating over the deserialized objects because it implements the IEnumerable<T> interface.
-                using (var reader = AvroContainer.CreateGenericReader(buffer))
-                {
-                    using (var streamReader = new SequentialReader<object>(reader))
-                    {
-                        var results = streamReader.Objects;
+                Console.WriteLine("Comparing Initial and Deserialized Data Sets...");
 
-                        Console.WriteLine("Comparing Initial and Deserialized Data Sets...");
-
-                        //Finally, verify the results
-                        var pairs = testData.Zip(results, (serialized, deserialized) => new { expected = (dynamic)serialized, actual = (dynamic)deserialized });
-                        int count = 1;
-                        foreach (var pair in pairs)
-                        {
-                            bool isEqual = pair.expected.Location.Floor.Equals(pair.actual.Location.Floor);
-                            isEqual = isEqual && pair.expected.Location.Room.Equals(pair.actual.Location.Room);
-                            isEqual = isEqual && ((byte[])pair.expected.Value).SequenceEqual((byte[])pair.actual.Value);
-                            Console.WriteLine("For Pair {0} result of Data Set Identity Comparison is {1}", count, isEqual.ToString());
-                            count++;
-                        }
-                    }
-                }
-            }
-
-            //Delete the file
-            RemoveFile(path);
-        }
-
-        //
-        //Helper methods
-        //
-
-        //Saving memory stream to a new file with the given path
-        private bool WriteFile(MemoryStream InputStream, string path)
-        {
-            if (!File.Exists(path))
-            {
-                try
-                {
-                    using (FileStream fs = File.Create(path))
-                    {
-                        InputStream.Seek(0, SeekOrigin.Begin);
-                        InputStream.CopyTo(fs);
-                    }
-                    return true;
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("The following exception was thrown during creation and writing to the file \"{0}\"", path);
-                    Console.WriteLine(e.Message);
-                    return false;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Can not create file \"{0}\". File already exists", path);
-                return false;
-
-            }
-        }
-
-        //Reading a file content by using the given path to a memory stream
-        private bool ReadFile(MemoryStream OutputStream, string path)
-        {
-            try
-            {
-                using (FileStream fs = File.Open(path, FileMode.Open))
-                {
-                    fs.CopyTo(OutputStream);
-                }
-                return true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The following exception was thrown during reading from the file \"{0}\"", path);
-                Console.WriteLine(e.Message);
-                return false;
-            }
-        }
-
-        //Deleting file by using the given path
-        private void RemoveFile(string path)
-        {
-            if (File.Exists(path))
-            {
-                try
-                {
-                    File.Delete(path);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("The following exception was thrown during deleting the file \"{0}\"", path);
-                    Console.WriteLine(e.Message);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Can not delete file \"{0}\". File does not exist", path);
+                //Finally, verify the results
+                bool isEqual = expected.Location.Floor.Equals(actual.Location.Floor);
+                isEqual = isEqual && expected.Location.Room.Equals(actual.Location.Room);
+                isEqual = isEqual && ((byte[])expected.Value).SequenceEqual((byte[])actual.Value);
+                Console.WriteLine("Result of Data Set Identity Comparison is {0}", isEqual);
             }
         }
 
@@ -829,531 +325,1023 @@ namespace Microsoft.Hadoop.Avro.Sample
 
             string sectionDivider = "---------------------------------------- ";
 
-            //Create an instance of the AvroSample class and invoke methods
+            //Create an instance of AvroSample class and invoke methods
             //illustrating different serializing approaches
             AvroSample Sample = new AvroSample();
 
-            //Serialization using generic record to Avro object container file
-            Sample.SerializeDeserializeUsingObjectContainersGenericRecord();
+            //Serialization to memory using generic record
+            Sample.SerializeDeserializeObjectUsingGenericRecords();
 
             Console.WriteLine(sectionDivider);
             Console.WriteLine("Press any key to exit.");
             Console.Read();
         }
     }
-}
-// The example is expected to display the following output:
-// SERIALIZATION USING GENERIC RECORD AND AVRO OBJECT CONTAINER FILES
-//
-// Defining the Schema and creating Sample Data Set...
-// Serializing Sample Data Set...
-// Saving serialized data to file...
-// Reading data from file...
-// Deserializing Sample Data Set...
-// Comparing Initial and Deserialized Data Sets...
-// For Pair 1 result of Data Set Identity Comparison is True
-// For Pair 2 result of Data Set Identity Comparison is True
-// ----------------------------------------
-// Press any key to exit.
-```
+    }
+    // The example is expected to display the following output:
+    // SERIALIZATION USING GENERIC RECORD
+    //
+    // Defining the Schema and creating Sample Data Set...
+    // Serializing Sample Data Set...
+    // Deserializing Sample Data Set...
+    // Comparing Initial and Deserialized Data Sets...
+    // Result of Data Set Identity Comparison is True
+    // ----------------------------------------
+    // Press any key to exit.
+
+### <a name="Scenario3"></a> Sample 3: Serialization using object container files and serialization with reflection
+This example is similar to the scenario in the <a href="#Scenario1"> first example</a>, where the schema is implicitly specified with reflection. The difference is that here, the schema is not assumed to be known to the reader that deserializes it. The **SensorData** objects to be serialized and their implicitly specified schema are stored in an Avro object container file represented by the [**AvroContainer**](http://msdn.microsoft.com/zh-cn/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class.
+
+The data is serialized in this example with [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/zh-cn/library/dn627340.aspx) and deserialized with [**SequentialReader<SensorData>**](http://msdn.microsoft.com/zh-cn/library/dn627340.aspx). The result then is compared to the initial instances to ensure identity.
+
+The data in the object container file is compressed via the default [**Deflate**][deflate-100] compression codec from .NET Framework 4. See the <a href="#Scenario5"> fifth example</a> in this topic to learn how to use a more recent and superior version of the [**Deflate**][deflate-110] compression codec available in .NET Framework 4.5.
+
+    namespace Microsoft.Hadoop.Avro.Sample
+    {
+        using System;
+        using System.Collections.Generic;
+        using System.IO;
+        using System.Linq;
+        using System.Runtime.Serialization;
+        using Microsoft.Hadoop.Avro.Container;
+        using Microsoft.Hadoop.Avro;
+
+        //Sample class used in serialization samples
+        [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
+        internal class SensorData
+        {
+            [DataMember(Name = "Location")]
+            public Location Position { get; set; }
+
+            [DataMember(Name = "Value")]
+            public byte[] Value { get; set; }
+        }
+
+        //Sample struct used in serialization samples
+        [DataContract]
+        internal struct Location
+        {
+            [DataMember]
+            public int Floor { get; set; }
+
+            [DataMember]
+            public int Room { get; set; }
+        }
+
+        //This class contains all methods demonstrating
+        //the usage of Microsoft Avro Library
+        public class AvroSample
+        {
+
+            //Serializes and deserializes the sample data set by using reflection and Avro object container files.
+            //Serialized data is compressed with the Deflate codec.
+            public void SerializeDeserializeUsingObjectContainersReflection()
+            {
+
+                Console.WriteLine("SERIALIZATION USING REFLECTION AND AVRO OBJECT CONTAINER FILES\n");
+
+                //Path for Avro object container file
+                string path = "AvroSampleReflectionDeflate.avro";
+
+                //Create a data set by using sample class and struct
+                var testData = new List<SensorData>
+                        {
+                            new SensorData { Value = new byte[] { 1, 2, 3, 4, 5 }, Position = new Location { Room = 243, Floor = 1 } },
+                            new SensorData { Value = new byte[] { 6, 7, 8, 9 }, Position = new Location { Room = 244, Floor = 1 } }
+                        };
+
+                //Serializing and saving data to file.
+                //Creating a memory stream buffer.
+                using (var buffer = new MemoryStream())
+                {
+                    Console.WriteLine("Serializing Sample Data Set...");
+
+                    //Create a SequentialWriter instance for type SensorData, which can serialize a sequence of SensorData objects to stream.
+                    //Data will be compressed using the Deflate codec.
+                    using (var w = AvroContainer.CreateWriter<SensorData>(buffer, Codec.Deflate))
+                    {
+                        using (var writer = new SequentialWriter<SensorData>(w, 24))
+                        {
+                            // Serialize the data to stream by using the sequential writer
+                            testData.ForEach(writer.Write);
+                        }
+                    }
+
+                    //Save stream to file
+                    Console.WriteLine("Saving serialized data to file...");
+                    if (!WriteFile(buffer, path))
+                    {
+                        Console.WriteLine("Error during file operation. Quitting method");
+                        return;
+                    }
+                }
+
+                //Reading and deserializing data.
+                //Creating a memory stream buffer.
+                using (var buffer = new MemoryStream())
+                {
+                    Console.WriteLine("Reading data from file...");
+
+                    //Reading data from object container file
+                    if (!ReadFile(buffer, path))
+                    {
+                        Console.WriteLine("Error during file operation. Quitting method");
+                        return;
+                    }
+
+                    Console.WriteLine("Deserializing Sample Data Set...");
+
+                    //Prepare the stream for deserializing the data
+                    buffer.Seek(0, SeekOrigin.Begin);
+
+                    //Create a SequentialReader instance for type SensorData, which will deserialize all serialized objects from the given stream.
+                    //It allows iterating over the deserialized objects because it implements the IEnumerable<T> interface.
+                    using (var reader = new SequentialReader<SensorData>(
+                        AvroContainer.CreateReader<SensorData>(buffer, true)))
+                    {
+                        var results = reader.Objects;
+
+                        //Finally, verify that deserialized data matches the original one
+                        Console.WriteLine("Comparing Initial and Deserialized Data Sets...");
+                        int count = 1;
+                        var pairs = testData.Zip(results, (serialized, deserialized) => new { expected = serialized, actual = deserialized });
+                        foreach (var pair in pairs)
+                        {
+                            bool isEqual = this.Equal(pair.expected, pair.actual);
+                            Console.WriteLine("For Pair {0} result of Data Set Identity Comparison is {1}", count, isEqual);
+                            count++;
+                        }
+                    }
+                }
+
+                //Delete the file
+                RemoveFile(path);
+            }
+
+            //
+            //Helper methods
+            //
+
+            //Comparing two SensorData objects
+            private bool Equal(SensorData left, SensorData right)
+            {
+                return left.Position.Equals(right.Position) && left.Value.SequenceEqual(right.Value);
+            }
+
+            //Saving memory stream to a new file with the given path
+            private bool WriteFile(MemoryStream InputStream, string path)
+            {
+                if (!File.Exists(path))
+                {
+                    try
+                    {
+                        using (FileStream fs = File.Create(path))
+                        {
+                            InputStream.Seek(0, SeekOrigin.Begin);
+                            InputStream.CopyTo(fs);
+                        }
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("The following exception was thrown during creation and writing to the file \"{0}\"", path);
+                        Console.WriteLine(e.Message);
+                        return false;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Can not create file \"{0}\". File already exists", path);
+                    return false;
+
+                }
+            }
+
+            //Reading a file content by using the given path to a memory stream
+            private bool ReadFile(MemoryStream OutputStream, string path)
+            {
+                try
+                {
+                    using (FileStream fs = File.Open(path, FileMode.Open))
+                    {
+                        fs.CopyTo(OutputStream);
+                    }
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("The following exception was thrown during reading from the file \"{0}\"", path);
+                    Console.WriteLine(e.Message);
+                    return false;
+                }
+            }
+
+            //Deleting file by using given path
+            private void RemoveFile(string path)
+            {
+                if (File.Exists(path))
+                {
+                    try
+                    {
+                        File.Delete(path);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("The following exception was thrown during deleting the file \"{0}\"", path);
+                        Console.WriteLine(e.Message);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Can not delete file \"{0}\". File does not exist", path);
+                }
+            }
+
+            static void Main()
+            {
+
+                string sectionDivider = "---------------------------------------- ";
+
+                //Create an instance of AvroSample class and invoke methods
+                //illustrating different serializing approaches
+                AvroSample Sample = new AvroSample();
+
+                //Serialization using reflection to Avro object container file
+                Sample.SerializeDeserializeUsingObjectContainersReflection();
+
+                Console.WriteLine(sectionDivider);
+                Console.WriteLine("Press any key to exit.");
+                Console.Read();
+            }
+        }
+    }
+    // The example is expected to display the following output:
+    // SERIALIZATION USING REFLECTION AND AVRO OBJECT CONTAINER FILES
+    //
+    // Serializing Sample Data Set...
+    // Saving serialized data to file...
+    // Reading data from file...
+    // Deserializing Sample Data Set...
+    // Comparing Initial and Deserialized Data Sets...
+    // For Pair 1 result of Data Set Identity Comparison is True
+    // For Pair 2 result of Data Set Identity Comparison is True
+    // ----------------------------------------
+    // Press any key to exit.
+
+### <a name="Scenario4"></a> Sample 4: Serialization using object container files and serialization with generic record
+This example is similar to the scenario in the <a href="#Scenario2"> second example</a>, where the schema is explicitly specified with JSON. The difference is that here, the schema is not assumed to be known to the reader that deserializes it.
+
+The test data set is collected into a list of [**AvroRecord**](http://msdn.microsoft.com/zh-cn/library/microsoft.hadoop.avro.avrorecord.aspx) objects via an explicitly defined JSON schema and then stored in an object container file represented by the [**AvroContainer**](http://msdn.microsoft.com/zh-cn/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class. This container file creates a writer that is used to serialize the data, uncompressed, to a memory stream that is then saved to a file. The [**Codec.Null**](http://msdn.microsoft.com/zh-cn/library/microsoft.hadoop.avro.container.codec.null.aspx) parameter used for creating the reader specifies that this data will not be compressed.
+
+The data is then read from the file and deserialized into a collection of objects. This collection is compared to the initial list of Avro records to confirm that they are identical.
+
+    namespace Microsoft.Hadoop.Avro.Sample
+    {
+        using System;
+        using System.Collections.Generic;
+        using System.IO;
+        using System.Linq;
+        using System.Runtime.Serialization;
+        using Microsoft.Hadoop.Avro.Container;
+        using Microsoft.Hadoop.Avro.Schema;
+        using Microsoft.Hadoop.Avro;
+
+        //This class contains all methods demonstrating
+        //the usage of Microsoft Avro Library
+        public class AvroSample
+        {
+
+            //Serializes and deserializes a sample data set by using a generic record and Avro object container files.
+            //Serialized data is not compressed.
+            public void SerializeDeserializeUsingObjectContainersGenericRecord()
+            {
+                Console.WriteLine("SERIALIZATION USING GENERIC RECORD AND AVRO OBJECT CONTAINER FILES\n");
+
+                //Path for Avro object container file
+                string path = "AvroSampleGenericRecordNullCodec.avro";
+
+                Console.WriteLine("Defining the Schema and creating Sample Data Set...");
+
+                //Define the schema in JSON
+                const string Schema = @"{
+                                ""type"":""record"",
+                                ""name"":""Microsoft.Hadoop.Avro.Specifications.SensorData"",
+                                ""fields"":
+                                    [
+                                        {
+                                            ""name"":""Location"",
+                                            ""type"":
+                                                {
+                                                    ""type"":""record"",
+                                                    ""name"":""Microsoft.Hadoop.Avro.Specifications.Location"",
+                                                    ""fields"":
+                                                        [
+                                                            { ""name"":""Floor"", ""type"":""int"" },
+                                                            { ""name"":""Room"", ""type"":""int"" }
+                                                        ]
+                                                }
+                                        },
+                                        { ""name"":""Value"", ""type"":""bytes"" }
+                                    ]
+                            }";
+
+                //Create a generic serializer based on the schema
+                var serializer = AvroSerializer.CreateGeneric(Schema);
+                var rootSchema = serializer.WriterSchema as RecordSchema;
+
+                //Create a generic record to represent the data
+                var testData = new List<AvroRecord>();
+
+                dynamic expected1 = new AvroRecord(rootSchema);
+                dynamic location1 = new AvroRecord(rootSchema.GetField("Location").TypeSchema);
+                location1.Floor = 1;
+                location1.Room = 243;
+                expected1.Location = location1;
+                expected1.Value = new byte[] { 1, 2, 3, 4, 5 };
+                testData.Add(expected1);
+
+                dynamic expected2 = new AvroRecord(rootSchema);
+                dynamic location2 = new AvroRecord(rootSchema.GetField("Location").TypeSchema);
+                location2.Floor = 1;
+                location2.Room = 244;
+                expected2.Location = location2;
+                expected2.Value = new byte[] { 6, 7, 8, 9 };
+                testData.Add(expected2);
+
+                //Serializing and saving data to file.
+                //Create a MemoryStream buffer.
+                using (var buffer = new MemoryStream())
+                {
+                    Console.WriteLine("Serializing Sample Data Set...");
+
+                    //Create a SequentialWriter instance for type SensorData, which can serialize a sequence of SensorData objects to stream.
+                    //Data will not be compressed (Null compression codec).
+                    using (var writer = AvroContainer.CreateGenericWriter(Schema, buffer, Codec.Null))
+                    {
+                        using (var streamWriter = new SequentialWriter<object>(writer, 24))
+                        {
+                            // Serialize the data to stream by using the sequential writer
+                            testData.ForEach(streamWriter.Write);
+                        }
+                    }
+
+                    Console.WriteLine("Saving serialized data to file...");
+
+                    //Save stream to file
+                    if (!WriteFile(buffer, path))
+                    {
+                        Console.WriteLine("Error during file operation. Quitting method");
+                        return;
+                    }
+                }
+
+                //Reading and deserializing the data.
+                //Create a memory stream buffer.
+                using (var buffer = new MemoryStream())
+                {
+                    Console.WriteLine("Reading data from file...");
+
+                    //Reading data from object container file
+                    if (!ReadFile(buffer, path))
+                    {
+                        Console.WriteLine("Error during file operation. Quitting method");
+                        return;
+                    }
+
+                    Console.WriteLine("Deserializing Sample Data Set...");
+
+                    //Prepare the stream for deserializing the data
+                    buffer.Seek(0, SeekOrigin.Begin);
+
+                    //Create a SequentialReader instance for type SensorData, which will deserialize all serialized objects from the given stream.
+                    //It allows iterating over the deserialized objects because it implements the IEnumerable<T> interface.
+                    using (var reader = AvroContainer.CreateGenericReader(buffer))
+                    {
+                        using (var streamReader = new SequentialReader<object>(reader))
+                        {
+                            var results = streamReader.Objects;
+
+                            Console.WriteLine("Comparing Initial and Deserialized Data Sets...");
+
+                            //Finally, verify the results
+                            var pairs = testData.Zip(results, (serialized, deserialized) => new { expected = (dynamic)serialized, actual = (dynamic)deserialized });
+                            int count = 1;
+                            foreach (var pair in pairs)
+                            {
+                                bool isEqual = pair.expected.Location.Floor.Equals(pair.actual.Location.Floor);
+                                isEqual = isEqual && pair.expected.Location.Room.Equals(pair.actual.Location.Room);
+                                isEqual = isEqual && ((byte[])pair.expected.Value).SequenceEqual((byte[])pair.actual.Value);
+                                Console.WriteLine("For Pair {0} result of Data Set Identity Comparison is {1}", count, isEqual.ToString());
+                                count++;
+                            }
+                        }
+                    }
+                }
+
+                //Delete the file
+                RemoveFile(path);
+            }
+
+            //
+            //Helper methods
+            //
+
+            //Saving memory stream to a new file with the given path
+            private bool WriteFile(MemoryStream InputStream, string path)
+            {
+                if (!File.Exists(path))
+                {
+                    try
+                    {
+                        using (FileStream fs = File.Create(path))
+                        {
+                            InputStream.Seek(0, SeekOrigin.Begin);
+                            InputStream.CopyTo(fs);
+                        }
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("The following exception was thrown during creation and writing to the file \"{0}\"", path);
+                        Console.WriteLine(e.Message);
+                        return false;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Can not create file \"{0}\". File already exists", path);
+                    return false;
+
+                }
+            }
+
+            //Reading a file content by using the given path to a memory stream
+            private bool ReadFile(MemoryStream OutputStream, string path)
+            {
+                try
+                {
+                    using (FileStream fs = File.Open(path, FileMode.Open))
+                    {
+                        fs.CopyTo(OutputStream);
+                    }
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("The following exception was thrown during reading from the file \"{0}\"", path);
+                    Console.WriteLine(e.Message);
+                    return false;
+                }
+            }
+
+            //Deleting file by using the given path
+            private void RemoveFile(string path)
+            {
+                if (File.Exists(path))
+                {
+                    try
+                    {
+                        File.Delete(path);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("The following exception was thrown during deleting the file \"{0}\"", path);
+                        Console.WriteLine(e.Message);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Can not delete file \"{0}\". File does not exist", path);
+                }
+            }
+
+            static void Main()
+            {
+
+                string sectionDivider = "---------------------------------------- ";
+
+                //Create an instance of the AvroSample class and invoke methods
+                //illustrating different serializing approaches
+                AvroSample Sample = new AvroSample();
+
+                //Serialization using generic record to Avro object container file
+                Sample.SerializeDeserializeUsingObjectContainersGenericRecord();
+
+                Console.WriteLine(sectionDivider);
+                Console.WriteLine("Press any key to exit.");
+                Console.Read();
+            }
+        }
+    }
+    // The example is expected to display the following output:
+    // SERIALIZATION USING GENERIC RECORD AND AVRO OBJECT CONTAINER FILES
+    //
+    // Defining the Schema and creating Sample Data Set...
+    // Serializing Sample Data Set...
+    // Saving serialized data to file...
+    // Reading data from file...
+    // Deserializing Sample Data Set...
+    // Comparing Initial and Deserialized Data Sets...
+    // For Pair 1 result of Data Set Identity Comparison is True
+    // For Pair 2 result of Data Set Identity Comparison is True
+    // ----------------------------------------
+    // Press any key to exit.
 
 ### <a name="Scenario5"></a> Sample 5: Serialization using object container files with a custom compression codec
 The fifth example shows how to how to use a custom compression codec for Avro object container files. A sample containing the code for this example can be downloaded from the [Azure code samples](https://github.com/Azure-Samples) site.
 
 The [Avro Specification](http://avro.apache.org/docs/current/spec.html#Required+Codecs) allows usage of an optional compression codec (in addition to **Null** and **Deflate** defaults). This example is not implementing a completely new codec such as Snappy (mentioned as a supported optional codec in the [Avro Specification](http://avro.apache.org/docs/current/spec.html#snappy)). It shows how to use the .NET Framework 4.5 implementation of the [**Deflate**][deflate-110] codec, which provides a better compression algorithm based on the [zlib](http://zlib.net/) compression library than the default .NET Framework 4 version.
 
-```
-//
-// This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
-// to ensure the desired implementation of the Deflate compression algorithm is used.
-// Ensure your C# project is set up accordingly.
-//
+    //
+    // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
+    // to ensure the desired implementation of the Deflate compression algorithm is used.
+    // Ensure your C# project is set up accordingly.
+    //
 
-namespace Microsoft.Hadoop.Avro.Sample
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
-    using System.IO.Compression;
-    using System.Linq;
-    using System.Runtime.Serialization;
-    using Microsoft.Hadoop.Avro.Container;
-    using Microsoft.Hadoop.Avro;
-
-    #region Defining objects for serialization
-    //Sample class used in serialization samples
-    [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
-    internal class SensorData
+    namespace Microsoft.Hadoop.Avro.Sample
     {
-        [DataMember(Name = "Location")]
-        public Location Position { get; set; }
+        using System;
+        using System.Collections.Generic;
+        using System.Diagnostics;
+        using System.IO;
+        using System.IO.Compression;
+        using System.Linq;
+        using System.Runtime.Serialization;
+        using Microsoft.Hadoop.Avro.Container;
+        using Microsoft.Hadoop.Avro;
 
-        [DataMember(Name = "Value")]
-        public byte[] Value { get; set; }
-    }
-
-    //Sample struct used in serialization samples
-    [DataContract]
-    internal struct Location
-    {
-        [DataMember]
-        public int Floor { get; set; }
-
-        [DataMember]
-        public int Room { get; set; }
-    }
-    #endregion
-
-    #region Defining custom codec based on .NET Framework V.4.5 Deflate
-    //Avro.NET codec class contains two methods,
-    //GetCompressedStreamOver(Stream uncompressed) and GetDecompressedStreamOver(Stream compressed),
-    //which are the key ones for data compression.
-    //To enable a custom codec, one needs to implement these methods for the required codec.
-
-    #region Defining Compression and Decompression Streams
-    //DeflateStream (class from System.IO.Compression namespace that implements Deflate algorithm)
-    //cannot be directly used for Avro because it does not support vital operations like Seek.
-    //Thus one needs to implement two classes inherited from stream
-    //(one for compressed and one for decompressed stream)
-    //that use Deflate compression and implement all required features.
-    internal sealed class CompressionStreamDeflate45 : Stream
-    {
-        private readonly Stream buffer;
-        private DeflateStream compressionStream;
-
-        public CompressionStreamDeflate45(Stream buffer)
+        #region Defining objects for serialization
+        //Sample class used in serialization samples
+        [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
+        internal class SensorData
         {
-            Debug.Assert(buffer != null, "Buffer is not allowed to be null.");
+            [DataMember(Name = "Location")]
+            public Location Position { get; set; }
 
-            this.compressionStream = new DeflateStream(buffer, CompressionLevel.Fastest, true);
-            this.buffer = buffer;
+            [DataMember(Name = "Value")]
+            public byte[] Value { get; set; }
         }
 
-        public override bool CanRead
+        //Sample struct used in serialization samples
+        [DataContract]
+        internal struct Location
         {
-            get { return this.buffer.CanRead; }
-        }
+            [DataMember]
+            public int Floor { get; set; }
 
-        public override bool CanSeek
-        {
-            get { return true; }
+            [DataMember]
+            public int Room { get; set; }
         }
+        #endregion
 
-        public override bool CanWrite
-        {
-            get { return this.buffer.CanWrite; }
-        }
+        #region Defining custom codec based on .NET Framework V.4.5 Deflate
+        //Avro.NET codec class contains two methods,
+        //GetCompressedStreamOver(Stream uncompressed) and GetDecompressedStreamOver(Stream compressed),
+        //which are the key ones for data compression.
+        //To enable a custom codec, one needs to implement these methods for the required codec.
 
-        public override void Flush()
+        #region Defining Compression and Decompression Streams
+        //DeflateStream (class from System.IO.Compression namespace that implements Deflate algorithm)
+        //cannot be directly used for Avro because it does not support vital operations like Seek.
+        //Thus one needs to implement two classes inherited from stream
+        //(one for compressed and one for decompressed stream)
+        //that use Deflate compression and implement all required features.
+        internal sealed class CompressionStreamDeflate45 : Stream
         {
-            this.compressionStream.Close();
-        }
+            private readonly Stream buffer;
+            private DeflateStream compressionStream;
 
-        public override long Length
-        {
-            get { return this.buffer.Length; }
-        }
-
-        public override long Position
-        {
-            get
+            public CompressionStreamDeflate45(Stream buffer)
             {
-                return this.buffer.Position;
+                Debug.Assert(buffer != null, "Buffer is not allowed to be null.");
+
+                this.compressionStream = new DeflateStream(buffer, CompressionLevel.Fastest, true);
+                this.buffer = buffer;
             }
 
-            set
+            public override bool CanRead
             {
-                this.buffer.Position = value;
-            }
-        }
-
-        public override int Read(byte[] buffer, int offset, int count)
-        {
-            return this.buffer.Read(buffer, offset, count);
-        }
-
-        public override long Seek(long offset, SeekOrigin origin)
-        {
-            return this.buffer.Seek(offset, origin);
-        }
-
-        public override void SetLength(long value)
-        {
-            throw new NotSupportedException();
-        }
-
-        public override void Write(byte[] buffer, int offset, int count)
-        {
-            this.compressionStream.Write(buffer, offset, count);
-        }
-
-        protected override void Dispose(bool disposed)
-        {
-            base.Dispose(disposed);
-
-            if (disposed)
-            {
-                this.compressionStream.Dispose();
-                this.compressionStream = null;
-            }
-        }
-    }
-
-    internal sealed class DecompressionStreamDeflate45 : Stream
-    {
-        private readonly DeflateStream decompressed;
-
-        public DecompressionStreamDeflate45(Stream compressed)
-        {
-            this.decompressed = new DeflateStream(compressed, CompressionMode.Decompress, true);
-        }
-
-        public override bool CanRead
-        {
-            get { return true; }
-        }
-
-        public override bool CanSeek
-        {
-            get { return true; }
-        }
-
-        public override bool CanWrite
-        {
-            get { return false; }
-        }
-
-        public override void Flush()
-        {
-            this.decompressed.Close();
-        }
-
-        public override long Length
-        {
-            get { return this.decompressed.Length; }
-        }
-
-        public override long Position
-        {
-            get
-            {
-                return this.decompressed.Position;
+                get { return this.buffer.CanRead; }
             }
 
-            set
+            public override bool CanSeek
+            {
+                get { return true; }
+            }
+
+            public override bool CanWrite
+            {
+                get { return this.buffer.CanWrite; }
+            }
+
+            public override void Flush()
+            {
+                this.compressionStream.Close();
+            }
+
+            public override long Length
+            {
+                get { return this.buffer.Length; }
+            }
+
+            public override long Position
+            {
+                get
+                {
+                    return this.buffer.Position;
+                }
+
+                set
+                {
+                    this.buffer.Position = value;
+                }
+            }
+
+            public override int Read(byte[] buffer, int offset, int count)
+            {
+                return this.buffer.Read(buffer, offset, count);
+            }
+
+            public override long Seek(long offset, SeekOrigin origin)
+            {
+                return this.buffer.Seek(offset, origin);
+            }
+
+            public override void SetLength(long value)
             {
                 throw new NotSupportedException();
             }
-        }
 
-        public override int Read(byte[] buffer, int offset, int count)
-        {
-            return this.decompressed.Read(buffer, offset, count);
-        }
-
-        public override long Seek(long offset, SeekOrigin origin)
-        {
-            throw new NotSupportedException();
-        }
-
-        public override void SetLength(long value)
-        {
-            throw new NotSupportedException();
-        }
-
-        public override void Write(byte[] buffer, int offset, int count)
-        {
-            throw new NotSupportedException();
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-
-            if (disposing)
+            public override void Write(byte[] buffer, int offset, int count)
             {
-                this.decompressed.Dispose();
-            }
-        }
-    }
-    #endregion
-
-    #region Define Codec
-    //Define the actual codec class containing the required methods for manipulating streams:
-    //GetCompressedStreamOver(Stream uncompressed) and GetDecompressedStreamOver(Stream compressed).
-    //Codec class uses classes for compressed and decompressed streams defined above.
-    internal sealed class DeflateCodec45 : Codec
-    {
-
-        //We merely use different IMPLEMENTATIONS of Deflate, so CodecName remains "deflate"
-        public static readonly string CodecName = "deflate";
-
-        public DeflateCodec45()
-            : base(CodecName)
-        {
-        }
-
-        public override Stream GetCompressedStreamOver(Stream decompressed)
-        {
-            if (decompressed == null)
-            {
-                throw new ArgumentNullException("decompressed");
+                this.compressionStream.Write(buffer, offset, count);
             }
 
-            return new CompressionStreamDeflate45(decompressed);
-        }
-
-        public override Stream GetDecompressedStreamOver(Stream compressed)
-        {
-            if (compressed == null)
+            protected override void Dispose(bool disposed)
             {
-                throw new ArgumentNullException("compressed");
-            }
+                base.Dispose(disposed);
 
-            return new DecompressionStreamDeflate45(compressed);
-        }
-    }
-    #endregion
-
-    #region Define modified Codec Factory
-    //Define modified codec factory to be used in the reader.
-    //It will catch the attempt to use "Deflate" and provide  a custom codec.
-    //For all other cases, it will rely on the base class (CodecFactory).
-    internal sealed class CodecFactoryDeflate45 : CodecFactory
-    {
-
-        public override Codec Create(string codecName)
-        {
-            if (codecName == DeflateCodec45.CodecName)
-                return new DeflateCodec45();
-            else
-                return base.Create(codecName);
-        }
-    }
-    #endregion
-
-    #endregion
-
-    #region Sample Class with demonstration methods
-    //This class contains methods demonstrating
-    //the usage of Microsoft Avro Library
-    public class AvroSample
-    {
-
-        //Serializes and deserializes sample data set by using reflection and Avro object container files.
-        //Serialized data is compressed with the custom compression codec (Deflate of .NET Framework 4.5).
-        //
-        //This sample uses memory stream for all operations related to serialization, deserialization and
-        //object container manipulation, though file stream could be easily used.
-        public void SerializeDeserializeUsingObjectContainersReflectionCustomCodec()
-        {
-
-            Console.WriteLine("SERIALIZATION USING REFLECTION, AVRO OBJECT CONTAINER FILES AND CUSTOM CODEC\n");
-
-            //Path for Avro object container file
-            string path = "AvroSampleReflectionDeflate45.avro";
-
-            //Create a data set by using sample class and struct
-            var testData = new List<SensorData>
-                    {
-                        new SensorData { Value = new byte[] { 1, 2, 3, 4, 5 }, Position = new Location { Room = 243, Floor = 1 } },
-                        new SensorData { Value = new byte[] { 6, 7, 8, 9 }, Position = new Location { Room = 244, Floor = 1 } }
-                    };
-
-            //Serializing and saving data to file.
-            //Creating a memory stream buffer.
-            using (var buffer = new MemoryStream())
-            {
-                Console.WriteLine("Serializing Sample Data Set...");
-
-                //Create a SequentialWriter instance for type SensorData, which can serialize a sequence of SensorData objects to stream.
-                //Here the custom codec is introduced. For convenience, the next commented code line shows how to use built-in Deflate.
-                //Note that because the sample deals with different IMPLEMENTATIONS of Deflate, built-in and custom codecs are interchangeable
-                //in read-write operations.
-                //using (var w = AvroContainer.CreateWriter<SensorData>(buffer, Codec.Deflate))
-                using (var w = AvroContainer.CreateWriter<SensorData>(buffer, new DeflateCodec45()))
+                if (disposed)
                 {
-                    using (var writer = new SequentialWriter<SensorData>(w, 24))
+                    this.compressionStream.Dispose();
+                    this.compressionStream = null;
+                }
+            }
+        }
+
+        internal sealed class DecompressionStreamDeflate45 : Stream
+        {
+            private readonly DeflateStream decompressed;
+
+            public DecompressionStreamDeflate45(Stream compressed)
+            {
+                this.decompressed = new DeflateStream(compressed, CompressionMode.Decompress, true);
+            }
+
+            public override bool CanRead
+            {
+                get { return true; }
+            }
+
+            public override bool CanSeek
+            {
+                get { return true; }
+            }
+
+            public override bool CanWrite
+            {
+                get { return false; }
+            }
+
+            public override void Flush()
+            {
+                this.decompressed.Close();
+            }
+
+            public override long Length
+            {
+                get { return this.decompressed.Length; }
+            }
+
+            public override long Position
+            {
+                get
+                {
+                    return this.decompressed.Position;
+                }
+
+                set
+                {
+                    throw new NotSupportedException();
+                }
+            }
+
+            public override int Read(byte[] buffer, int offset, int count)
+            {
+                return this.decompressed.Read(buffer, offset, count);
+            }
+
+            public override long Seek(long offset, SeekOrigin origin)
+            {
+                throw new NotSupportedException();
+            }
+
+            public override void SetLength(long value)
+            {
+                throw new NotSupportedException();
+            }
+
+            public override void Write(byte[] buffer, int offset, int count)
+            {
+                throw new NotSupportedException();
+            }
+
+            protected override void Dispose(bool disposing)
+            {
+                base.Dispose(disposing);
+
+                if (disposing)
+                {
+                    this.decompressed.Dispose();
+                }
+            }
+        }
+        #endregion
+
+        #region Define Codec
+        //Define the actual codec class containing the required methods for manipulating streams:
+        //GetCompressedStreamOver(Stream uncompressed) and GetDecompressedStreamOver(Stream compressed).
+        //Codec class uses classes for compressed and decompressed streams defined above.
+        internal sealed class DeflateCodec45 : Codec
+        {
+
+            //We merely use different IMPLEMENTATIONS of Deflate, so CodecName remains "deflate"
+            public static readonly string CodecName = "deflate";
+
+            public DeflateCodec45()
+                : base(CodecName)
+            {
+            }
+
+            public override Stream GetCompressedStreamOver(Stream decompressed)
+            {
+                if (decompressed == null)
+                {
+                    throw new ArgumentNullException("decompressed");
+                }
+
+                return new CompressionStreamDeflate45(decompressed);
+            }
+
+            public override Stream GetDecompressedStreamOver(Stream compressed)
+            {
+                if (compressed == null)
+                {
+                    throw new ArgumentNullException("compressed");
+                }
+
+                return new DecompressionStreamDeflate45(compressed);
+            }
+        }
+        #endregion
+
+        #region Define modified Codec Factory
+        //Define modified codec factory to be used in the reader.
+        //It will catch the attempt to use "Deflate" and provide  a custom codec.
+        //For all other cases, it will rely on the base class (CodecFactory).
+        internal sealed class CodecFactoryDeflate45 : CodecFactory
+        {
+
+            public override Codec Create(string codecName)
+            {
+                if (codecName == DeflateCodec45.CodecName)
+                    return new DeflateCodec45();
+                else
+                    return base.Create(codecName);
+            }
+        }
+        #endregion
+
+        #endregion
+
+        #region Sample Class with demonstration methods
+        //This class contains methods demonstrating
+        //the usage of Microsoft Avro Library
+        public class AvroSample
+        {
+
+            //Serializes and deserializes sample data set by using reflection and Avro object container files.
+            //Serialized data is compressed with the custom compression codec (Deflate of .NET Framework 4.5).
+            //
+            //This sample uses memory stream for all operations related to serialization, deserialization and
+            //object container manipulation, though file stream could be easily used.
+            public void SerializeDeserializeUsingObjectContainersReflectionCustomCodec()
+            {
+
+                Console.WriteLine("SERIALIZATION USING REFLECTION, AVRO OBJECT CONTAINER FILES AND CUSTOM CODEC\n");
+
+                //Path for Avro object container file
+                string path = "AvroSampleReflectionDeflate45.avro";
+
+                //Create a data set by using sample class and struct
+                var testData = new List<SensorData>
+                        {
+                            new SensorData { Value = new byte[] { 1, 2, 3, 4, 5 }, Position = new Location { Room = 243, Floor = 1 } },
+                            new SensorData { Value = new byte[] { 6, 7, 8, 9 }, Position = new Location { Room = 244, Floor = 1 } }
+                        };
+
+                //Serializing and saving data to file.
+                //Creating a memory stream buffer.
+                using (var buffer = new MemoryStream())
+                {
+                    Console.WriteLine("Serializing Sample Data Set...");
+
+                    //Create a SequentialWriter instance for type SensorData, which can serialize a sequence of SensorData objects to stream.
+                    //Here the custom codec is introduced. For convenience, the next commented code line shows how to use built-in Deflate.
+                    //Note that because the sample deals with different IMPLEMENTATIONS of Deflate, built-in and custom codecs are interchangeable
+                    //in read-write operations.
+                    //using (var w = AvroContainer.CreateWriter<SensorData>(buffer, Codec.Deflate))
+                    using (var w = AvroContainer.CreateWriter<SensorData>(buffer, new DeflateCodec45()))
                     {
-                        // Serialize the data to stream using the sequential writer
-                        testData.ForEach(writer.Write);
+                        using (var writer = new SequentialWriter<SensorData>(w, 24))
+                        {
+                            // Serialize the data to stream using the sequential writer
+                            testData.ForEach(writer.Write);
+                        }
+                    }
+
+                    //Save stream to file
+                    Console.WriteLine("Saving serialized data to file...");
+                    if (!WriteFile(buffer, path))
+                    {
+                        Console.WriteLine("Error during file operation. Quitting method");
+                        return;
                     }
                 }
 
-                //Save stream to file
-                Console.WriteLine("Saving serialized data to file...");
-                if (!WriteFile(buffer, path))
+                //Reading and deserializing data.
+                //Creating a memory stream buffer.
+                using (var buffer = new MemoryStream())
                 {
-                    Console.WriteLine("Error during file operation. Quitting method");
-                    return;
-                }
-            }
+                    Console.WriteLine("Reading data from file...");
 
-            //Reading and deserializing data.
-            //Creating a memory stream buffer.
-            using (var buffer = new MemoryStream())
-            {
-                Console.WriteLine("Reading data from file...");
-
-                //Reading data from object container file
-                if (!ReadFile(buffer, path))
-                {
-                    Console.WriteLine("Error during file operation. Quitting method");
-                    return;
-                }
-
-                Console.WriteLine("Deserializing Sample Data Set...");
-
-                //Prepare the stream for deserializing the data
-                buffer.Seek(0, SeekOrigin.Begin);
-
-                //Because of SequentialReader<T> constructor signature, an AvroSerializerSettings instance is required
-                //when codec factory is explicitly specified.
-                //You may comment the line below if you want to use built-in Deflate (see next comment).
-                AvroSerializerSettings settings = new AvroSerializerSettings();
-
-                //Create a SequentialReader instance for type SensorData, which will deserialize all serialized objects from the given stream.
-                //It allows iterating over the deserialized objects because it implements the IEnumerable<T> interface.
-                //Here the custom codec factory is introduced.
-                //For convenience, the next commented code line shows how to use built-in Deflate
-                //(no explicit Codec Factory parameter is required in this case).
-                //Note that because the sample deals with different IMPLEMENTATIONS of Deflate, built-in and custom codecs are interchangeable
-                //in read-write operations.
-                //using (var reader = new SequentialReader<SensorData>(AvroContainer.CreateReader<SensorData>(buffer, true)))
-                using (var reader = new SequentialReader<SensorData>(
-                    AvroContainer.CreateReader<SensorData>(buffer, true, settings, new CodecFactoryDeflate45())))
-                {
-                    var results = reader.Objects;
-
-                    //Finally, verify that deserialized data matches the original one
-                    Console.WriteLine("Comparing Initial and Deserialized Data Sets...");
-                    bool isEqual;
-                    int count = 1;
-                    var pairs = testData.Zip(results, (serialized, deserialized) => new { expected = serialized, actual = deserialized });
-                    foreach (var pair in pairs)
+                    //Reading data from object container file
+                    if (!ReadFile(buffer, path))
                     {
-                        isEqual = this.Equal(pair.expected, pair.actual);
-                        Console.WriteLine("For Pair {0} result of Data Set Identity Comparison is {1}", count, isEqual.ToString());
-                        count++;
+                        Console.WriteLine("Error during file operation. Quitting method");
+                        return;
+                    }
+
+                    Console.WriteLine("Deserializing Sample Data Set...");
+
+                    //Prepare the stream for deserializing the data
+                    buffer.Seek(0, SeekOrigin.Begin);
+
+                    //Because of SequentialReader<T> constructor signature, an AvroSerializerSettings instance is required
+                    //when codec factory is explicitly specified.
+                    //You may comment the line below if you want to use built-in Deflate (see next comment).
+                    AvroSerializerSettings settings = new AvroSerializerSettings();
+
+                    //Create a SequentialReader instance for type SensorData, which will deserialize all serialized objects from the given stream.
+                    //It allows iterating over the deserialized objects because it implements the IEnumerable<T> interface.
+                    //Here the custom codec factory is introduced.
+                    //For convenience, the next commented code line shows how to use built-in Deflate
+                    //(no explicit Codec Factory parameter is required in this case).
+                    //Note that because the sample deals with different IMPLEMENTATIONS of Deflate, built-in and custom codecs are interchangeable
+                    //in read-write operations.
+                    //using (var reader = new SequentialReader<SensorData>(AvroContainer.CreateReader<SensorData>(buffer, true)))
+                    using (var reader = new SequentialReader<SensorData>(
+                        AvroContainer.CreateReader<SensorData>(buffer, true, settings, new CodecFactoryDeflate45())))
+                    {
+                        var results = reader.Objects;
+
+                        //Finally, verify that deserialized data matches the original one
+                        Console.WriteLine("Comparing Initial and Deserialized Data Sets...");
+                        bool isEqual;
+                        int count = 1;
+                        var pairs = testData.Zip(results, (serialized, deserialized) => new { expected = serialized, actual = deserialized });
+                        foreach (var pair in pairs)
+                        {
+                            isEqual = this.Equal(pair.expected, pair.actual);
+                            Console.WriteLine("For Pair {0} result of Data Set Identity Comparison is {1}", count, isEqual.ToString());
+                            count++;
+                        }
                     }
                 }
+
+                //Delete the file
+                RemoveFile(path);
+            }
+        #endregion
+
+            #region Helper Methods
+
+            //Comparing two SensorData objects
+            private bool Equal(SensorData left, SensorData right)
+            {
+                return left.Position.Equals(right.Position) && left.Value.SequenceEqual(right.Value);
             }
 
-            //Delete the file
-            RemoveFile(path);
-        }
-    #endregion
+            //Saving memory stream to a new file with the given path
+            private bool WriteFile(MemoryStream InputStream, string path)
+            {
+                if (!File.Exists(path))
+                {
+                    try
+                    {
+                        using (FileStream fs = File.Create(path))
+                        {
+                            InputStream.Seek(0, SeekOrigin.Begin);
+                            InputStream.CopyTo(fs);
+                        }
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("The following exception was thrown during creation and writing to the file \"{0}\"", path);
+                        Console.WriteLine(e.Message);
+                        return false;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Can not create file \"{0}\". File already exists", path);
+                    return false;
 
-        #region Helper Methods
+                }
+            }
 
-        //Comparing two SensorData objects
-        private bool Equal(SensorData left, SensorData right)
-        {
-            return left.Position.Equals(right.Position) && left.Value.SequenceEqual(right.Value);
-        }
-
-        //Saving memory stream to a new file with the given path
-        private bool WriteFile(MemoryStream InputStream, string path)
-        {
-            if (!File.Exists(path))
+            //Reading file content by using the given path to a memory stream
+            private bool ReadFile(MemoryStream OutputStream, string path)
             {
                 try
                 {
-                    using (FileStream fs = File.Create(path))
+                    using (FileStream fs = File.Open(path, FileMode.Open))
                     {
-                        InputStream.Seek(0, SeekOrigin.Begin);
-                        InputStream.CopyTo(fs);
+                        fs.CopyTo(OutputStream);
                     }
                     return true;
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("The following exception was thrown during creation and writing to the file \"{0}\"", path);
+                    Console.WriteLine("The following exception was thrown during reading from the file \"{0}\"", path);
                     Console.WriteLine(e.Message);
                     return false;
                 }
             }
-            else
-            {
-                Console.WriteLine("Can not create file \"{0}\". File already exists", path);
-                return false;
 
-            }
-        }
-
-        //Reading file content by using the given path to a memory stream
-        private bool ReadFile(MemoryStream OutputStream, string path)
-        {
-            try
+            //Deleting file by using given path
+            private void RemoveFile(string path)
             {
-                using (FileStream fs = File.Open(path, FileMode.Open))
+                if (File.Exists(path))
                 {
-                    fs.CopyTo(OutputStream);
+                    try
+                    {
+                        File.Delete(path);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("The following exception was thrown during deleting the file \"{0}\"", path);
+                        Console.WriteLine(e.Message);
+                    }
                 }
-                return true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The following exception was thrown during reading from the file \"{0}\"", path);
-                Console.WriteLine(e.Message);
-                return false;
-            }
-        }
-
-        //Deleting file by using given path
-        private void RemoveFile(string path)
-        {
-            if (File.Exists(path))
-            {
-                try
+                else
                 {
-                    File.Delete(path);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("The following exception was thrown during deleting the file \"{0}\"", path);
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Can not delete file \"{0}\". File does not exist", path);
                 }
             }
-            else
+            #endregion
+
+            static void Main()
             {
-                Console.WriteLine("Can not delete file \"{0}\". File does not exist", path);
+
+                string sectionDivider = "---------------------------------------- ";
+
+                //Create an instance of AvroSample Class and invoke methods
+                //illustrating different serializing approaches
+                AvroSample Sample = new AvroSample();
+
+                //Serialization using reflection to Avro object container file using custom codec
+                Sample.SerializeDeserializeUsingObjectContainersReflectionCustomCodec();
+
+                Console.WriteLine(sectionDivider);
+                Console.WriteLine("Press any key to exit.");
+                Console.Read();
             }
-        }
-        #endregion
-
-        static void Main()
-        {
-
-            string sectionDivider = "---------------------------------------- ";
-
-            //Create an instance of AvroSample Class and invoke methods
-            //illustrating different serializing approaches
-            AvroSample Sample = new AvroSample();
-
-            //Serialization using reflection to Avro object container file using custom codec
-            Sample.SerializeDeserializeUsingObjectContainersReflectionCustomCodec();
-
-            Console.WriteLine(sectionDivider);
-            Console.WriteLine("Press any key to exit.");
-            Console.Read();
         }
     }
-}
-// The example is expected to display the following output:
-// SERIALIZATION USING REFLECTION, AVRO OBJECT CONTAINER FILES AND CUSTOM CODEC
-//
-// Serializing Sample Data Set...
-// Saving serialized data to file...
-// Reading data from file...
-// Deserializing Sample Data Set...
-// Comparing Initial and Deserialized Data Sets...
-// For Pair 1 result of Data Set Identity Comparison is True
-//For Pair 2 result of Data Set Identity Comparison is True
-// ----------------------------------------
-// Press any key to exit.
-```
+    // The example is expected to display the following output:
+    // SERIALIZATION USING REFLECTION, AVRO OBJECT CONTAINER FILES AND CUSTOM CODEC
+    //
+    // Serializing Sample Data Set...
+    // Saving serialized data to file...
+    // Reading data from file...
+    // Deserializing Sample Data Set...
+    // Comparing Initial and Deserialized Data Sets...
+    // For Pair 1 result of Data Set Identity Comparison is True
+    //For Pair 2 result of Data Set Identity Comparison is True
+    // ----------------------------------------
+    // Press any key to exit.
 
 ### <a name="Scenario6"></a> Sample 6: Using Avro to upload data for the Azure HDInsight service
 The sixth example illustrates some programming techniques related to interacting with the Azure HDInsight service. A sample containing the code for this example can be downloaded from the [Azure code samples](https://github.com/Azure-Samples) site.
@@ -1382,15 +1370,11 @@ All of the information from the prerequisites should be entered to the sample co
 In both cases all edits should be done in the **<appSettings>** settings section. Please follow the comments in the file.
 The sample is run from the command line by executing the following command (where the .zip file with the sample was assumed to be extracted to C:\AvroHDISample; if otherwise, use the relevant file path):
 
-```
-AvroHDISample run C:\AvroHDISample\Data
-```
+    AvroHDISample run C:\AvroHDISample\Data
 
 To clean up the cluster, run the following command:
 
-```
-AvroHDISample clean
-```
+    AvroHDISample clean
 
 [deflate-100]: http://msdn.microsoft.com/zh-cn/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/zh-cn/library/system.io.compression.deflatestream(v=vs.110).aspx

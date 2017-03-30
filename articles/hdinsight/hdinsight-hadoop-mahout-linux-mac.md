@@ -34,11 +34,11 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Mahout versioning
 
-For more information about the version of Mahout in HDInsight, see [HDInsight versions and Hadoop components](./hdinsight-component-versioning.md).
+For more information about the version of Mahout in HDInsight, see [HDInsight versions and Hadoop components](hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Understanding recommendations
 
@@ -60,13 +60,11 @@ There are two files, `moviedb.txt` and `user-ratings.txt`. The user-ratings.txt 
 
 The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
 
-```
-196    242    3    881250949
-186    302    3    891717742
-22    377    1    878887116
-244    51    2    880606923
-166    346    1    886397596
-```
+    196    242    3    881250949
+    186    302    3    891717742
+    22    377    1    878887116
+    244    51    2    880606923
+    166    346    1    886397596
 
 ## Run the analysis
 
@@ -89,12 +87,10 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     The output appears as follows:
 
-    ```
-    1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
-    2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
-    3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
-    4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
-    ```
+        1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
+        2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
+        3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
+        4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
     The first column is the `userID`. The values contained in '[' and ']' are `movieId`:`recommendationScore`.
 
@@ -253,15 +249,15 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
 
-* [Hive with HDInsight](./hdinsight-use-hive.md)
-* [Pig with HDInsight](./hdinsight-use-pig.md)
-* [MapReduce with HDInsight](./hdinsight-use-mapreduce.md)
+* [Hive with HDInsight](hdinsight-use-hive.md)
+* [Pig with HDInsight](hdinsight-use-pig.md)
+* [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: ./hdinsight-hadoop-linux-tutorial-get-started.md
-[upload]: ./hdinsight-upload-data.md
+[getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md
+[upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
 [management]: https://manage.windowsazure.cn/

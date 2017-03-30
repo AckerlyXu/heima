@@ -58,7 +58,7 @@ Get-AzureRMVMImageSku -Location "China North" -Publisher "MicrosoftWindowsServer
 If you don't have an Enterprise Agreement subscription, continue reading for instructions on how to upload a custom VM and deploy with Azure Hybrid Use Benefit.
 
 ## Upload a Windows VHD
-To deploy a Windows VM in Azure, you first need to create a VHD that contains your base Windows build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](./virtual-machines-windows-upload-image.md) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. 
+To deploy a Windows VM in Azure, you first need to create a VHD that contains your base Windows build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](virtual-machines-windows-upload-image.md) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. 
 
 Make sure you have [installed and configured the latest Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
 
@@ -72,7 +72,7 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 >
 >
 
-You can also read more about [uploading the VHD to Azure process](./virtual-machines-windows-upload-image.md#upload-the-vhd-to-your-storage-account)
+You can also read more about [uploading the VHD to Azure process](virtual-machines-windows-upload-image.md#upload-the-vhd-to-your-storage-account)
 
 ## Deploy an uploaded VM via Resource Manager
 Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
@@ -112,7 +112,7 @@ For Windows Client:
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "China North" -VM $vm -LicenseType "Windows_Client"
 ```
 
-You can [read a more detailed walkthrough on deploying a VM in Azure via PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough) below, or read a more descriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](/documentation/articles/virtual-machines-windows-ps-create/).
+You can [read a more detailed walkthrough on deploying a VM in Azure via PowerShell](virtual-machines-windows-hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough) below, or read a more descriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](/documentation/articles/virtual-machines-windows-ps-create/).
 
 ## Verify your VM is utilizing the licensing benefit
 Once you have deployed your VM through either the PowerShell or Resource Manager deployment method, verify the license type with `Get-AzureRmVM` as follows:

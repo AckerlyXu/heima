@@ -42,7 +42,7 @@ With the Azure CLI, you can do the following tasks:
 ## Prerequisites
 You will need to do the following:
 
-* You will need to [install the Azure CLI](/documentation/articles/cli-install-nodejs/) and [connect to your subscription](../xplat-cli-connect.md) to use Azure resources associated with your account.
+* You will need to [install the Azure CLI](../cli-install-nodejs.md) and [connect to your subscription](../xplat-cli-connect.md) to use Azure resources associated with your account.
 * Set the correct mode for the classic deployment model by typing the following at the command prompt:
 
     ```
@@ -80,9 +80,7 @@ You will need to do the following:
 
 2. Run this command, substituting the name of your virtual machine for **myVM**.
 
-    ```
-    azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
-    ```
+        azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="resetbothcli"></a>Reset both the password and the SSH key
 1. Create a file named PrivateConf.json with these contents. Replace the **myUserName**, **mySSHKey** and **myP@ssW0rd** values with your own information.
@@ -195,4 +193,4 @@ To repair disks that are not mounting or have mount configuration errors, use th
 ## Next steps
 * If you want to use Azure PowerShell cmdlets or Azure Resource Manager templates to reset the password or SSH key, fix the SSH configuration, and check disk consistency, see the [VMAccess extension documentation on GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
 * You can also use the [Azure portal preview](https://portal.azure.cn) to reset the password or SSH key of a Linux VM deployed in the classic deployment model. You can't currently use the portal do to this for a Linux VM deployed in the Resource Manager deployment model.
-* See [About virtual machine extensions and features](./virtual-machines-linux-extensions-features.md) for more about using VM extensions for Azure virtual machines.
+* See [About virtual machine extensions and features](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more about using VM extensions for Azure virtual machines.

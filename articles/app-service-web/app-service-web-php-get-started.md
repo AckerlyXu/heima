@@ -43,8 +43,8 @@ You can apply what you learn here to other PHP web apps that you deploy to Azure
 
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](./app-service-web-php-get-started-cli-nodejs.md) - our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0](./app-service-web-php-get-started.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 1.0](app-service-web-php-get-started-cli-nodejs.md) - our CLI for the classic and resource management deployment models
+- [Azure CLI 2.0](app-service-web-php-get-started.md) - our next generation CLI for the resource management deployment model
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -60,33 +60,25 @@ You can complete the task using one of the following CLI versions:
 1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run the following commands to verify that the required tools are installed 
    properly on your machine. 
 
-    ```
-    php --version
-    composer --version
-    az --version
-    git --version
-    ```
+        php --version
+        composer --version
+        az --version
+        git --version
 
     If you haven't installed the tools, see [Prerequisites](#Prerequisites) for download links.
 
 2. Install Laravel like so:
 
-    ```
-    composer global require "laravel/installer"
-    ```
+        composer global require "laravel/installer"
 
 3. `CD` into a working directory and create a new Laravel application like so:
 
-    ```
-    cd <working_directory>
-    laravel new <app_name>
-    ```
+        cd <working_directory>
+        laravel new <app_name>
 4. `CD` into the newly created `<app_name>` directory and test the app like so:
 
-    ```
-    cd <app_name>
-    php artisan serve
-    ```
+        cd <app_name>
+        php artisan serve
 
     You should be able to navigate to http://localhost:8000 in a browser now and see the Laravel splash screen.
 
@@ -94,17 +86,15 @@ You can complete the task using one of the following CLI versions:
 
 1. Initialize a Git repository and commit all code:
 
-    ```
-    git init
-    git add .
-    git commit -m "Hurray! My first commit for my Azure web app!"
-    ```
+        git init
+        git add .
+        git commit -m "Hurray! My first commit for my Azure web app!"
 
 So far, just the regular Laravel and Git workflow, and you're not here to <a href="https://laravel.com/docs/5.3" rel="nofollow">learn Laravel</a>. So let's move on.
 
 ## Create an Azure web app and set up Git deployment
 > [!NOTE]
-> "Wait! What if I want to deploy with FTP?" There's an [FTP tutorial](./web-sites-php-mysql-deploy-use-ftp.md) for your needs. 
+> "Wait! What if I want to deploy with FTP?" There's an [FTP tutorial](web-sites-php-mysql-deploy-use-ftp.md) for your needs. 
 > 
 > 
 
@@ -113,59 +103,43 @@ of command. Let's do this.
 
 1. Log in to Azure like this:
 
-    ```
-    az login
-    ```
+        az login
 
     Follow the help message to continue the login process.
 
 3. Set the deployment user for App Service. You will deploy code using these credentials later.
 
-    ```
-    az appservice web deployment user set --user-name <username> --password <password>
-    ```
+        az appservice web deployment user set --user-name <username> --password <password>
 
 3. Create a new [resource group](../azure-resource-manager/resource-group-overview.md). For this PHP tutorial, you don't really need to know
 what it is.
 
-    ```
-    az group create --location "<location>" --name my-php-app-group
-    ```
+        az group create --location "<location>" --name my-php-app-group
 
     To see what possible values you can use for `<location>`, use the `az appservice list-locations` CLI command.
 
 3. Create a new "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). For this PHP tutorial, just 
 know that you won't be charged for web apps in this plan.
 
-    ```
-    az appservice plan create --name my-php-appservice-plan --resource-group my-php-app-group --sku FREE
-    ```
+        az appservice plan create --name my-php-appservice-plan --resource-group my-php-app-group --sku FREE
 
 4. Create a new web app with a unique name in `<app_name>`.
 
-    ```
-    az appservice web create --name <app_name> --resource-group my-php-app-group --plan my-php-appservice-plan
-    ```
+        az appservice web create --name <app_name> --resource-group my-php-app-group --plan my-php-appservice-plan
 
 5. Configure local Git deployment for your new web app with the following command:
 
-    ```
-    az appservice web source-control config-local-git --name <app_name> --resource-group my-php-app-group
-    ```
+        az appservice web source-control config-local-git --name <app_name> --resource-group my-php-app-group
 
     You will get a JSON output like this, which means that the remote Git repository is configured:
 
-    ```
-    {
-    "url": "https://<deployment_user>@<app_name>.scm.chinacloudsites.cn/<app_name>.git"
-    }
-    ```
+        {
+        "url": "https://<deployment_user>@<app_name>.scm.chinacloudsites.cn/<app_name>.git"
+        }
 
 6. Add the URL in the JSON as a Git remote for your local repository (called `azure` for simplicity).
 
-    ```
-    git remote add azure https://<deployment_user>@<app_name>.scm.chinacloudsites.cn/<app_name>.git
-    ```
+        git remote add azure https://<deployment_user>@<app_name>.scm.chinacloudsites.cn/<app_name>.git
 
 ## <a name="configure"></a> Configure the Azure web app
 For your Laravel app to work in Azure, you need to pay attention to several things. You'll do this similar exercise
@@ -190,24 +164,18 @@ Let's configure these tasks sequentially.
 
 1. Set the PHP version that your Laravel app requires.
 
-    ```
-    az appservice web config update --php-version 7.0 --name <app_name> --resource-group my-php-app-group
-    ```
+        az appservice web config update --php-version 7.0 --name <app_name> --resource-group my-php-app-group
 
     You're done setting the PHP version! 
 
 2. Generate a new `APP_KEY` for your Azure web app and set it as an app setting for your Azure web app.
 
-    ```
-    php artisan key:generate --show
-    az appservice web config appsettings update --settings APP_KEY="<output_of_php_artisan_key:generate_--show>" --name <app_name> --resource-group my-php-app-group
-    ```
+        php artisan key:generate --show
+        az appservice web config appsettings update --settings APP_KEY="<output_of_php_artisan_key:generate_--show>" --name <app_name> --resource-group my-php-app-group
 
 3. Also, turn on Laravel debugging in order to preempt any cryptic `Whoops, looks like something went wrong.` page.
 
-    ```
-    az appservice web config appsettings update --settings APP_DEBUG=true --name <app_name> --resource-group my-php-app-group
-    ```
+        az appservice web config appsettings update --settings APP_DEBUG=true --name <app_name> --resource-group my-php-app-group
 
     You're done setting environment variables!
 
@@ -269,17 +237,13 @@ You're ready to deploy your code now. You'll do this back in your command prompt
 
 1. Push your code to the Azure web app like you would for any Git repository:
 
-    ```
-    git push azure master 
-    ```
+        git push azure master 
 
     When prompted, use the credentials you created earlier.
 
 2. Let's see it run in the browser by running this command:
 
-    ```
-    az appservice web browse --name <app_name> --resource-group my-php-app-group
-    ```
+        az appservice web browse --name <app_name> --resource-group my-php-app-group
 
     Your browser should show you the Laravel splash screen.
 
@@ -331,6 +295,6 @@ string on the Laravel forums will show you that it is due to not setting the APP
 check out more helpful links for PHP in Azure below:
 
 * [PHP Developer Center](/develop/php/)
-* [Configure PHP in Azure App Service Web Apps](./web-sites-php-configure.md)
-* [Convert WordPress to Multisite in Azure App Service](./web-sites-php-convert-wordpress-multisite.md)
-* [Enterprise-class WordPress on Azure App Service](./web-sites-php-enterprise-wordpress.md)
+* [Configure PHP in Azure App Service Web Apps](web-sites-php-configure.md)
+* [Convert WordPress to Multisite in Azure App Service](web-sites-php-convert-wordpress-multisite.md)
+* [Enterprise-class WordPress on Azure App Service](web-sites-php-enterprise-wordpress.md)

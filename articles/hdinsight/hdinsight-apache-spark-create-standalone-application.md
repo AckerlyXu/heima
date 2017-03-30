@@ -32,7 +32,7 @@ This article provides step-by-step guidance on developing standalone Spark appli
 **Prerequisites**
 
 * An Azure subscription. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
-* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * A Java IDE. This article uses IntelliJ IDEA 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 
@@ -73,47 +73,41 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
     4. Click **Apply**, and then click **OK**.
 8. Update the Scala source file to include your application code. Open and replace the existing sample code with the following code and save the changes. This code reads the data from the HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that only have one digit in the sixth column, and writes the output to **/HVACOut** under the default storage container for the cluster.
 
-    ```
-    package com.microsoft.spark.example
-
-    import org.apache.spark.SparkConf
-    import org.apache.spark.SparkContext
-
-    /**
-      * Test IO to wasb
-      */
-    object WasbIOTest {
-      def main (arg: Array[String]): Unit = {
-        val conf = new SparkConf().setAppName("WASBIOTest")
-        val sc = new SparkContext(conf)
-
-        val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
-        //find the rows which have only one digit in the 7th column in the CSV
-        val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
-
-        rdd1.saveAsTextFile("wasbs:///HVACout")
-      }
-    }
-    ```
+        package com.microsoft.spark.example
+   
+        import org.apache.spark.SparkConf
+        import org.apache.spark.SparkContext
+   
+        /**
+          * Test IO to wasb
+          */
+        object WasbIOTest {
+          def main (arg: Array[String]): Unit = {
+            val conf = new SparkConf().setAppName("WASBIOTest")
+            val sc = new SparkContext(conf)
+   
+            val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+   
+            //find the rows which have only one digit in the 7th column in the CSV
+            val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
+   
+            rdd1.saveAsTextFile("wasbs:///HVACout")
+          }
+        }
 9. Update the pom.xml.
 
     1. Within `<project>\<properties>` add the following:
 
-        ```
-        <scala.version>2.10.4</scala.version>
-        <scala.compat.version>2.10.4</scala.compat.version>
-        <scala.binary.version>2.10</scala.binary.version>
-        ```
+            <scala.version>2.10.4</scala.version>
+            <scala.compat.version>2.10.4</scala.compat.version>
+            <scala.binary.version>2.10</scala.binary.version>
     2. Within `<project>\<dependencies>` add the following:
 
-        ```
-        <dependency>
-          <groupId>org.apache.spark</groupId>
-          <artifactId>spark-core_${scala.binary.version}</artifactId>
-          <version>1.4.1</version>
-        </dependency>
-        ```
+            <dependency>
+              <groupId>org.apache.spark</groupId>
+              <artifactId>spark-core_${scala.binary.version}</artifactId>
+              <version>1.4.1</version>
+            </dependency>
 
         Save changes to pom.xml.
 10. Create the .jar file. IntelliJ IDEA enables creation of JAR as an artifact of a project. Perform the following steps.
@@ -141,28 +135,28 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
 ## Run the application on the Spark cluster
 To run the application on the cluster, you must do the following:
 
-* **Copy the application jar to the Azure storage blob** associated with the cluster. You can use [**AzCopy**](../storage/storage-use-azcopy.md), a command line utility, to do so. There are a lot of other clients as well that you can use to upload data. You can find more about them at [Upload data for Hadoop jobs in HDInsight](./hdinsight-upload-data.md).
-* **Use Livy to submit an application job remotely** to the Spark cluster. Spark clusters on HDInsight includes Livy that exposes REST endpoints to remotely submit Spark jobs. For more information, see [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight](./hdinsight-apache-spark-livy-rest-interface.md).
+* **Copy the application jar to the Azure storage blob** associated with the cluster. You can use [**AzCopy**](../storage/storage-use-azcopy.md), a command line utility, to do so. There are a lot of other clients as well that you can use to upload data. You can find more about them at [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).
+* **Use Livy to submit an application job remotely** to the Spark cluster. Spark clusters on HDInsight includes Livy that exposes REST endpoints to remotely submit Spark jobs. For more information, see [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight](hdinsight-apache-spark-livy-rest-interface.md).
 
 ## <a name="seealso"></a>See also
-* [Overview: Apache Spark on Azure HDInsight](./hdinsight-apache-spark-overview.md)
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](./hdinsight-apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](./hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](./hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](./hdinsight-apache-spark-eventhub-streaming.md)
-* [Website log analysis using Spark in HDInsight](./hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
-* [Run jobs remotely on a Spark cluster using Livy](./hdinsight-apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](./hdinsight-apache-spark-use-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](./hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](./hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](./hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](./hdinsight-apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](./hdinsight-apache-spark-job-debugging.md)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)

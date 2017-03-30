@@ -23,14 +23,14 @@ ms.author: nitinme
 HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight cluster.
 
 > [!NOTE]
-> By default, Zeppelin notebooks are available only for Spark 1.6.2 on HDInsight cluster version 3.5. If you want to use Zeppelin on other versions of HDInsight Spark clusters, you can install Zeppelin using script action. For instructions, see [Install Zeppelin notebooks for Apache Spark cluster on HDInsight Linux](./hdinsight-apache-spark-use-zeppelin-notebook.md).
+> By default, Zeppelin notebooks are available only for Spark 1.6.2 on HDInsight cluster version 3.5. If you want to use Zeppelin on other versions of HDInsight Spark clusters, you can install Zeppelin using script action. For instructions, see [Install Zeppelin notebooks for Apache Spark cluster on HDInsight Linux](hdinsight-apache-spark-use-zeppelin-notebook.md).
 > 
 >
 
 **Prerequisites:**
 
 * An Azure subscription. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
-* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](./hdinsight-apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Launch a Zeppelin notebook
 1. From the Spark cluster blade, click **Cluster Dashboard**, and then click **Zeppelin Notebook**. If prompted, enter the admin credentials for the cluster.
@@ -53,29 +53,27 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
 
     In the empty paragraph that is created by default in the new notebook, paste the following snippet.
 
-    ```
-    %livy.spark
-    //The above magic instructs Zeppelin to use the Livy Scala interpreter
-
-    // Create an RDD using the default Spark context, sc
-    val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
-    // Define a schema
-    case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
-
-    // Map the values in the .csv file to the schema
-    val hvac = hvacText.map(s => s.split(",")).filter(s => s(0) != "Date").map(
-        s => Hvac(s(0), 
-                s(1),
-                s(2).toInt,
-                s(3).toInt,
-                s(6)
-        )
-    ).toDF()
-
-    // Register as a temporary table called "hvac"
-    hvac.registerTempTable("hvac")
-    ```
+        %livy.spark
+        //The above magic instructs Zeppelin to use the Livy Scala interpreter
+   
+        // Create an RDD using the default Spark context, sc
+        val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+   
+        // Define a schema
+        case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
+   
+        // Map the values in the .csv file to the schema
+        val hvac = hvacText.map(s => s.split(",")).filter(s => s(0) != "Date").map(
+            s => Hvac(s(0), 
+                    s(1),
+                    s(2).toInt,
+                    s(3).toInt,
+                    s(6)
+            )
+        ).toDF()
+   
+        // Register as a temporary table called "hvac"
+        hvac.registerTempTable("hvac")
 
     Press **SHIFT + ENTER** or click the **Play** button for the paragraph to run the snippet. The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED. The output shows up at the bottom of the same paragraph. The screenshot looks like the following:
 
@@ -84,10 +82,8 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
     You can also provide a title to each paragraph. From the right-hand corner, click the **Settings** icon, and then click **Show title**.
 5. You can now run Spark SQL statements on the **hvac** table. Paste the following query in a new paragraph. The query retrieves the building ID and the difference between the target and actual temperatures for each building on a given date. Press **SHIFT + ENTER**.
 
-    ```
-    %sql
-    select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13" 
-    ```
+        %sql
+        select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13" 
 
     The **%sql** statement at the beginning tells the notebook to use the Livy Scala interpreter.
 
@@ -98,10 +94,8 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
      Click the display options (highlighted in rectangle) to switch between different representations for the same output. Click **Settings** to choose what consitutes the key and values in the output. The screen capture above uses **buildingID** as the key and the average of **temp_diff** as the value.
 6. You can also run Spark SQL statements using variables in the query. The next snippet shows how to define a variable, **Temp**, in the query with the possible values you want to query with. When you first run the query, a drop-down is automatically populated with the values you specified for the variable.
 
-    ```
-    %sql
-    select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff from hvac where targettemp > "${Temp = 65,65|75|85}" 
-    ```
+        %sql
+        select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff from hvac where targettemp > "${Temp = 65,65|75|85}" 
 
     Paste this snippet in a new paragraph and press **SHIFT + ENTER**. The following screenshot shows the output.
 
@@ -141,9 +135,7 @@ In this article, you will see how to use the [spark-csv](http://search.maven.org
 
     c. Concatenate the three values, separated by a colon (**:**).
 
-    ```
-    com.databricks:spark-csv_2.10:1.4.0
-    ```
+        com.databricks:spark-csv_2.10:1.4.0
 
 ## Where are the Zeppelin notebooks saved?
 The Zeppelin notebooks are saved to the cluster headnodes. So, if you delete the cluster, the notebooks will be deleted as well. If you want to preserve your notebooks for later use on other clusters, you must export them after you have finished running the jobs. To export a notebook, click the **Export** icon as shown in the image below.
@@ -166,31 +158,31 @@ In such a case, you must perform the following steps before you can start runnin
 3. Run a code cell from an existing Zeppelin notebook. This creates a new Livy session in the HDInsight cluster.
 
 ## <a name="seealso"></a>See also
-* [Overview: Apache Spark on Azure HDInsight](./hdinsight-apache-spark-overview.md)
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](./hdinsight-apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](./hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](./hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](./hdinsight-apache-spark-eventhub-streaming.md)
-* [Website log analysis using Spark in HDInsight](./hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
-* [Create a standalone application using Scala](./hdinsight-apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](./hdinsight-apache-spark-livy-rest-interface.md)
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](./hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](./hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](./hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](./hdinsight-apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](./hdinsight-apache-spark-job-debugging.md)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-[hdinsight-versions]: ./hdinsight-component-versioning.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
+[hdinsight-versions]: hdinsight-component-versioning.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

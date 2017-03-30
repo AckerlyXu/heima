@@ -19,13 +19,13 @@
 ## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
-## [Azure CLI](/cli/azure/network/traffic-manager)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_traffic_manager)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html)
-## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
+## [REST](https://msdn.microsoft.com/zh-cn/library/mt163667.aspx)
 
 # Related
 ## [Application Gateway](/azure/application-gateway/)
@@ -33,10 +33,10 @@
 ## [Azure DNS](/azure/dns/)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
-## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Pricing](https://www.azure.cn/pricing/details/traffic-manager/)
+## [SLA](https://www.azure.cn/support/sla/traffic-manager/)
 ## [Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Service updates](https://azure.microsoft.com/updates/?product=traffic-manager)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)

@@ -44,18 +44,18 @@ While you can create a virtual machine in the [Azure Classic Management Portal](
 6. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don't already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Azure Storage](../articles/storage/storage-introduction.md) for more information.
 7. If you want to specify a virtual network (which is optional), select it in the Virtual Network and Subnet dropdown list boxes.
 
-    Virtual machines that are members of an availability set are deployed to different fault domains. See [Azure Virtual Network](https://www.azure.cn/home/features/networking/) for more information.
+    Virtual machines that are members of an availability set are deployed to different fault domains. See [Azure Virtual Network](https://www.azure.cn/home/features/virtual-network/) for more information.
 8. If you want your virtual machine to belong to an availability set (also optional), select the **Specify an availability set** check box and then choose an availability set in the dropdown list box. When you're done, choose the **Next** button.
 
-    Adding your virtual machine to an availability set helps your application stay available during network failures, local disk hardware failures, and any planned downtime. You need to use the [Azure Classic Management Portal](https://manage.windowsazure.cn/) to create virtual networks, subnets, and availability sets. See Manage the Availability of [Windows](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) or [Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md) Virtual Machines for more information.
+    Adding your virtual machine to an availability set helps your application stay available during network failures, local disk hardware failures, and any planned downtime. You need to use the [Azure Management Portal](https://manage.windowsazure.cn/) to create virtual networks, subnets, and availability sets. See [Manage the Availability of Virtual Machines](/azure/manage-availability-virtual-machines/) for more information.
 9. On the **Endpoints** page, specify the public endpoints that you want available to users of your virtual machine. For example, you might choose to enable HTTP (Port 80) in addition to the Remote Desktop and PowerShell endpoints, which are enabled by default. To add an endpoint, choose one in the **Port Name** dropdown list box and then choose the **Add** button. To remove an endpoint, choose the red **X** next to the name in the endpoints list.
 
     ![The Endpoints page in the virtual machines wizard.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC718351.png)
 
-    The endpoints that are available depend on the cloud service you selected for your virtual machine. See Azure Service Endpoints of [Windows](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) or [Linux](../articles/virtual-machines/virtual-machines-linux-classic-setup-endpoints.md) VM for more information.
+    The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](/azure/virtual-machines-set-up-endpoints/) for more information.
 
     > [!NOTE]
-    > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See How to Set Up Endpoints to a [Windows](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) or [Linux](../articles/virtual-machines/virtual-machines-linux-classic-setup-endpoints.md) Virtual Machine for more information.
+   > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](/azure/virtual-machines-set-up-endpoints/) for more information.
     > 
     > 
 10. After you're done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.
@@ -129,4 +129,4 @@ As you configure your virtual machine and install software on it, it's a good id
 2. On the shortcut menu, either choose the **Shutdown** command, or choose **Configure** to view the virtual machine configuration page, and then choose the **Shutdown** button.
 
 ## Next steps
-To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md) and [Create a virtual machine running Windows in the Azure Portal Preview](/documentation/articles/virtual-machines-windows-hero-tutorial/).
+To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](../articles/virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual machine running Windows in the Azure Portal Preview](../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

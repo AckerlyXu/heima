@@ -20,13 +20,14 @@ ms.author: gwallace
 ---
 
 # Create an application gateway by using the Azure CLI 2.0
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-create-gateway-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-create-gateway-arm.md)
->- [Azure Classic PowerShell](./application-gateway-create-gateway.md)
->- [Azure Resource Manager template](./application-gateway-create-gateway-arm-template.md)
->- [Azure CLI 1.0](./application-gateway-create-gateway-cli.md)
->- [Azure CLI 2.0](./application-gateway-create-gateway-cli.md)
+> * [Azure portal preview](application-gateway-create-gateway-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
+> * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
+> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload, custom health probes, and support for multi-site.
 
@@ -34,8 +35,8 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 
 You can complete the task using one of the following CLI versions:
 
-* [Azure CLI 1.0](./application-gateway-create-gateway-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
-* [Azure CLI 2.0](./application-gateway-create-gateway-cli.md) - our next generation CLI for the resource management deployment model
+* [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md) - our CLI for the classic and resource management deployment models.
+* [Azure CLI 2.0](application-gateway-create-gateway-cli.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisite: Install the Azure CLI 2.0
 
@@ -147,9 +148,9 @@ If you already have your web application defined with the backend pool in the pr
 
 ## Next steps
 
-Learn how to create custom health probes by visiting [Create a custom health probe](./application-gateway-create-probe-portal.md)
+Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 
-Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](./application-gateway-ssl-arm.md)
+Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

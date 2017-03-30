@@ -23,7 +23,7 @@ ms.author: riande
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial shows how to build a secure ASP.NET MVC 5 web app that lets users log in with credentials from Facebook or Google. The app is a simple contact list that uses the ADO.NET Entity Framework for database access. You'll deploy the app to [Azure App Service](./app-service-changes-existing-services.md). 
+This tutorial shows how to build a secure ASP.NET MVC 5 web app that lets users log in with credentials from Facebook or Google. The app is a simple contact list that uses the ADO.NET Entity Framework for database access. You'll deploy the app to [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/). 
 
 On completing the tutorial, you'll have a secure data-driven web application up and running in the cloud and using a cloud database. The following illustration shows the login page for the completed application.
 
@@ -37,10 +37,10 @@ You'll learn:
 * How to use the ADO.NET Entity Framework 6 Code First to read and write data in a SQL database.
 * How to use Entity Framework Code First Migrations to deploy a database.
 * How to store relational data in the cloud by using Azure SQL Database.
-* How to deploy a web project that uses a database to a [web app](./app-service-changes-existing-services.md) in Azure App Service.
+* How to deploy a web project that uses a database to a [web app](/azure/app-service-web/app-service-changes-existing-services/) in Azure App Service.
 
 > [!NOTE]
-> This is a long tutorial. If you want a quick introduction to Azure App Service and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](./web-sites-dotnet-get-started.md). For troubleshooting info, see the [Troubleshooting](#troubleshooting) section.
+> This is a long tutorial. If you want a quick introduction to Azure App Service and Visual Studio web projects, see [Create an ASP.NET web app in Azure App Service](web-sites-dotnet-get-started.md). For troubleshooting info, see the [Troubleshooting](#troubleshooting) section.
 > 
 > 
 
@@ -182,24 +182,22 @@ You begin by creating a simple data model in code.
     ![Add New Item dialog box][adddb002]
 3. Replace the contents of the Contact.cs file with the following code.
 
-    ```
-    using System.ComponentModel.DataAnnotations;
-    using System.Globalization;
-    namespace ContactManager.Models
-    {
-        public class Contact
+        using System.ComponentModel.DataAnnotations;
+        using System.Globalization;
+        namespace ContactManager.Models
         {
-            public int ContactId { get; set; }
-            public string Name { get; set; }
-            public string Address { get; set; }
-            public string City { get; set; }
-            public string State { get; set; }
-            public string Zip { get; set; }
-            [DataType(DataType.EmailAddress)]
-            public string Email { get; set; }
+            public class Contact
+            {
+                public int ContactId { get; set; }
+                public string Name { get; set; }
+                public string Address { get; set; }
+                public string City { get; set; }
+                public string State { get; set; }
+                public string Zip { get; set; }
+                [DataType(DataType.EmailAddress)]
+                public string Email { get; set; }
+            }
         }
-    }
-    ```
     The **Contact** class defines the data that you will store for each contact, plus a primary key, *ContactID*, that is needed by the database.
 
 ### Create web pages that enable app users to work with the contacts
@@ -229,16 +227,12 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
     ![Package Manager Console in Tools menu](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 2. In the **Package Manager Console** window, enter the following command:
 
-    ```
-    enable-migrations
-    ```
+        enable-migrations
 
     The **enable-migrations** command creates a *Migrations* folder, and it puts in that folder a *Configuration.cs* file that you can edit to seed the database and configure Migrations. 
 3. In the **Package Manager Console** window, enter the following command:
 
-    ```
-    add-migration Initial
-    ```
+        add-migration Initial
 
     The **add-migration Initial** command generates a file named **&lt;date_stamp&gt;Initial** in the *Migrations* folder. The code in this file creates the database tables. The first parameter ( **Initial** ) is used to create the name of the file. You can see the new class files in **Solution Explorer**.
 
@@ -247,70 +241,64 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 1. Open the *Migrations\Configuration.cs* file. 
 2. Add the following `using` statement. 
 
-    ```
-     using ContactManager.Models;
-    ```
+         using ContactManager.Models;
 3. Replace the *Seed* method with the following code:
 
-    ```
-    protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-    {
-        context.Contacts.AddOrUpdate(p => p.Name,
-           new Contact
-           {
-               Name = "Debra Garcia",
-               Address = "1234 Main St",
-               City = "Redmond",
-               State = "WA",
-               Zip = "10999",
-               Email = "debra@example.com",
-           },
-            new Contact
-            {
-                Name = "Thorsten Weinrich",
-                Address = "5678 1st Ave W",
-                City = "Redmond",
-                State = "WA",
-                Zip = "10999",
-                Email = "thorsten@example.com",
-            },
-            new Contact
-            {
-                Name = "Yuhong Li",
-                Address = "9012 State st",
-                City = "Redmond",
-                State = "WA",
-                Zip = "10999",
-                Email = "yuhong@example.com",
-            },
-            new Contact
-            {
-                Name = "Jon Orton",
-                Address = "3456 Maple St",
-                City = "Redmond",
-                State = "WA",
-                Zip = "10999",
-                Email = "jon@example.com",
-            },
-            new Contact
-            {
-                Name = "Diliana Alexieva-Bosseva",
-                Address = "7890 2nd Ave E",
-                City = "Redmond",
-                State = "WA",
-                Zip = "10999",
-                Email = "diliana@example.com",
-            }
-            );
-    }
-    ```
+        protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+        {
+            context.Contacts.AddOrUpdate(p => p.Name,
+               new Contact
+               {
+                   Name = "Debra Garcia",
+                   Address = "1234 Main St",
+                   City = "Redmond",
+                   State = "WA",
+                   Zip = "10999",
+                   Email = "debra@example.com",
+               },
+                new Contact
+                {
+                    Name = "Thorsten Weinrich",
+                    Address = "5678 1st Ave W",
+                    City = "Redmond",
+                    State = "WA",
+                    Zip = "10999",
+                    Email = "thorsten@example.com",
+                },
+                new Contact
+                {
+                    Name = "Yuhong Li",
+                    Address = "9012 State st",
+                    City = "Redmond",
+                    State = "WA",
+                    Zip = "10999",
+                    Email = "yuhong@example.com",
+                },
+                new Contact
+                {
+                    Name = "Jon Orton",
+                    Address = "3456 Maple St",
+                    City = "Redmond",
+                    State = "WA",
+                    Zip = "10999",
+                    Email = "jon@example.com",
+                },
+                new Contact
+                {
+                    Name = "Diliana Alexieva-Bosseva",
+                    Address = "7890 2nd Ave E",
+                    City = "Redmond",
+                    State = "WA",
+                    Zip = "10999",
+                    Email = "diliana@example.com",
+                }
+                );
+        }
 
     This code initializes (seeds) the database with contact information. For more information on seeding the database, see [Seeding and Debugging Entity Framework (EF) DBs](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx). Build the project to verify there are no compile errors.
 4. In the **Package Manager Console** enter the command:
 
-    ```
-    update-database
-    ```
+        update-database
 
     ![Package Manager Console commands][addcode009]
 
@@ -340,42 +328,36 @@ In this section you will add a local user and the *canEdit* role to the membersh
 
 1. Open the *migrations\configuration.cs* file and add the following `using` statements:
 
-    ```
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    ```
+        using Microsoft.AspNet.Identity;
+        using Microsoft.AspNet.Identity.EntityFramework;
 2. Add the following **AddUserAndRole** method to the class:
 
-    ```
-    bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
-    {
-        IdentityResult ir;
-        var rm = new RoleManager<IdentityRole>
-            (new RoleStore<IdentityRole>(context));
-        ir = rm.Create(new IdentityRole("canEdit"));
-        var um = new UserManager<ApplicationUser>(
-            new UserStore<ApplicationUser>(context));
-        var user = new ApplicationUser()
+        bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
         {
-            UserName = "user1@contoso.com",
-        };
-        ir = um.Create(user, "P_assw0rd1");
-        if (ir.Succeeded == false)
+            IdentityResult ir;
+            var rm = new RoleManager<IdentityRole>
+                (new RoleStore<IdentityRole>(context));
+            ir = rm.Create(new IdentityRole("canEdit"));
+            var um = new UserManager<ApplicationUser>(
+                new UserStore<ApplicationUser>(context));
+            var user = new ApplicationUser()
+            {
+                UserName = "user1@contoso.com",
+            };
+            ir = um.Create(user, "P_assw0rd1");
+            if (ir.Succeeded == false)
+                return ir.Succeeded;
+            ir = um.AddToRole(user.Id, "canEdit");
             return ir.Succeeded;
-        ir = um.AddToRole(user.Id, "canEdit");
-        return ir.Succeeded;
-    }
-    ```
+        }
 3. Call the new method from the **Seed** method:
 
-    ```
-    protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-    {
-        AddUserAndRole(context);
-        context.Contacts.AddOrUpdate(p => p.Name,
-            // Code removed for brevity
-    }
-    ```
+        protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+        {
+            AddUserAndRole(context);
+            context.Contacts.AddOrUpdate(p => p.Name,
+                // Code removed for brevity
+        }
 
     The following images shows the changes to *Seed* method:
 
@@ -389,57 +371,51 @@ In this section you will temporarily modify the **ExternalLoginConfirmation** me
 1. Open the **Controllers\AccountController.cs** file and navigate to the **ExternalLoginConfirmation** method.
 2. Add the following call to **AddToRoleAsync** just before the **SignInAsync** call.
 
-    ```
-    await UserManager.AddToRoleAsync(user.Id, "canEdit");
-    ```
+        await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
     The code above adds the newly registered user to the "canEdit" role, which gives them access to action methods that change (edit) data. The following snippet shows the new line of code in context.
 
-    ```
-      // POST: /Account/ExternalLoginConfirmation
-      [HttpPost]
-      [AllowAnonymous]
-      [ValidateAntiForgeryToken]
-      public async Task ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
-      {
-         if (User.Identity.IsAuthenticated)
-         {
-            return RedirectToAction("Index", "Manage");
-         }
-         if (ModelState.IsValid)
-         {
-            // Get the information about the user from the external login provider
-            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-            if (info == null)
-            {
-               return View("ExternalLoginFailure");
-            }
-            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-            var result = await UserManager.CreateAsync(user);
-            if (result.Succeeded)
-            {
-               result = await UserManager.AddLoginAsync(user.Id, info.Login);
-               if (result.Succeeded)
-               {
-                  await UserManager.AddToRoleAsync(user.Id, "canEdit");
-                  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                  return RedirectToLocal(returnUrl);
-               }
-            }
-            AddErrors(result);
-         }
-         ViewBag.ReturnUrl = returnUrl;
-         return View(model);
-      }
-    ```
+          // POST: /Account/ExternalLoginConfirmation
+          [HttpPost]
+          [AllowAnonymous]
+          [ValidateAntiForgeryToken]
+          public async Task ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+          {
+             if (User.Identity.IsAuthenticated)
+             {
+                return RedirectToAction("Index", "Manage");
+             }
+             if (ModelState.IsValid)
+             {
+                // Get the information about the user from the external login provider
+                var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+                if (info == null)
+                {
+                   return View("ExternalLoginFailure");
+                }
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await UserManager.CreateAsync(user);
+                if (result.Succeeded)
+                {
+                   result = await UserManager.AddLoginAsync(user.Id, info.Login);
+                   if (result.Succeeded)
+                   {
+                      await UserManager.AddToRoleAsync(user.Id, "canEdit");
+                      await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                      return RedirectToLocal(returnUrl);
+                   }
+                }
+                AddErrors(result);
+             }
+             ViewBag.ReturnUrl = returnUrl;
+             return View(model);
+          }
 
 Later in the tutorial you will deploy the application to Azure, where you will log-on with Google or another third party authentication provider. This will add your newly registered account to the *canEdit* role. Anyone who finds your web app's URL and has a Google ID can then register and update your database. To prevent other people from doing that, you can stop the site. You'll be able to verify who is in the *canEdit* role by examining the database.
 
 In the **Package Manager Console** hit the up arrow key to bring up the following command:
 
-```
-    Update-Database
-```
+        Update-Database
 
 The **Update-Database** command runs the **Seed** method, and that runs the **AddUserAndRole** method you added earlier. The **AddUserAndRole** method creates the user *user1@contoso.com* and adds her to the *canEdit* role.
 
@@ -448,74 +424,68 @@ In this section you apply the [Authorize](http://msdn.microsoft.com/zh-cn/librar
 
 1. Open the *App_Start\FilterConfig.cs* file and replace the *RegisterGlobalFilters* method with the following (which adds the two filters):
 
-    ```
-    public static void RegisterGlobalFilters(GlobalFilterCollection filters)
-    {
-        filters.Add(new HandleErrorAttribute());
-        filters.Add(new System.Web.Mvc.AuthorizeAttribute());
-        filters.Add(new RequireHttpsAttribute());
-    }
-    ```
+        public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+            filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute());
+        }
 
     This code adds the [Authorize](http://msdn.microsoft.com/zh-cn/library/system.web.mvc.authorizeattribute.aspx) filter and the [RequireHttps](http://msdn.microsoft.com/zh-cn/library/system.web.mvc.requirehttpsattribute.aspx) filter to the application. The [Authorize](http://msdn.microsoft.com/zh-cn/library/system.web.mvc.authorizeattribute.aspx) filter prevents anonymous users from accessing any methods in the application. You will use the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to opt out of the authorization requirement in a couple methods, so anonymous users can log in and can view the home page. The  [RequireHttps](http://msdn.microsoft.com/zh-cn/library/system.web.mvc.requirehttpsattribute.aspx) requires that all access to the web app be through HTTPS.
 
     An alternative approach is to add the [Authorize](http://msdn.microsoft.com/zh-cn/library/system.web.mvc.authorizeattribute.aspx) attribute and the [RequireHttps](http://msdn.microsoft.com/zh-cn/library/system.web.mvc.requirehttpsattribute.aspx) attribute to each controller, but it's considered a security best practice to apply them to the entire application. By adding them globally, every new controller and action method you add is automatically protected -- you don't need to remember to apply them. For more information see [Securing your ASP.NET MVC  App and the new AllowAnonymous Attribute](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). 
 2. Add the [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute to the **Index** method of the Home controller. The [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) attribute enables you to white-list the methods you want to opt out of authorization. 
 
-    ```
-    public class HomeController : Controller
-    {
-      [AllowAnonymous]
-      public ActionResult Index()
-      {
-         return View();
-      }
-    ```
+        public class HomeController : Controller
+        {
+          [AllowAnonymous]
+          public ActionResult Index()
+          {
+             return View();
+          }
 
     If you do a global search for *AllowAnonymous*, you'll see that it is used in the login and registration methods of the Account controller.
 3. In *ContactsController.cs*, add `[Authorize(Roles = "canEdit")]` to the HttpGet and HttpPost methods that change data (Create, Edit, Delete, every action method except Index and Details) in the *Cm* controller. A portion of the completed code is shown below: 
 
-    ```
-    // GET: Cm/Create
-    [Authorize(Roles = "canEdit")]
-    public ActionResult Create()
-    {
-       return View(new Contact { Address = "123 N 456 W",
-        City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
-       Zip = "59405"});
-    }
-    // POST: Cm/Create
-    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-     [Authorize(Roles = "canEdit")]
-    public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
-    {
-        if (ModelState.IsValid)
+        // GET: Cm/Create
+        [Authorize(Roles = "canEdit")]
+        public ActionResult Create()
         {
-            db.Contacts.Add(contact);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+           return View(new Contact { Address = "123 N 456 W",
+            City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
+           Zip = "59405"});
         }
-        return View(contact);
-    }
-    // GET: Cm/Edit/5
-    [Authorize(Roles = "canEdit")]
-    public ActionResult Edit(int? id)
-    {
-        if (id == null)
+        // POST: Cm/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+         [Authorize(Roles = "canEdit")]
+        public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
         {
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            if (ModelState.IsValid)
+            {
+                db.Contacts.Add(contact);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(contact);
         }
-        Contact contact = db.Contacts.Find(id);
-        if (contact == null)
+        // GET: Cm/Edit/5
+        [Authorize(Roles = "canEdit")]
+        public ActionResult Edit(int? id)
         {
-            return HttpNotFound();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
         }
-        return View(contact);
-    }
-    ```
 4. Press CTRL+F5 to run the application.
 5. If you are still logged in from a previous session, hit the **Log out** link.
 6. Click on the **About** or **Contact** links. You are redirected to the login page because anonymous users cannot view those pages.
@@ -556,9 +526,7 @@ In this section you apply the [Authorize](http://msdn.microsoft.com/zh-cn/librar
 ### Remove AddToRoleAsync, Publish, and Test
 1. Comment out or remove the following code from the **ExternalLoginConfirmation** method in the Account controller:
 
-    ```
-    await UserManager.AddToRoleAsync(user.Id, "canEdit");
-    ```
+        await UserManager.AddToRoleAsync(user.Id, "canEdit");
 2. Build the project (which saves the file changes and verifies you don't have any compile errors).
 3. Right-click the project in **Solution Explorer** and select **Publish**.
 
@@ -614,7 +582,7 @@ If you run into problems, here are some suggestions for what to try.
 
 * Errors provisioning SQL Database - Make sure you have the current SDK installed. Versions before 2.8.1 have a bug that in some scenarios causes errors when VS tries to create the database server or the database.
 * Error message "operation is not supported for your subscription offer type" when creating Azure resources - Same as above.
-* Errors when deploying - Consider going through the [basic ASP.NET deployment](./web-sites-dotnet-get-started.md) article. That deployment scenario is simpler and if you have the same problem there it may be easier to isolate. For example, in some enterprise environments a corporate firewall may prevent Web Deploy from making the kinds of connections to Azure that it requires.
+* Errors when deploying - Consider going through the [basic ASP.NET deployment](web-sites-dotnet-get-started.md) article. That deployment scenario is simpler and if you have the same problem there it may be easier to isolate. For example, in some enterprise environments a corporate firewall may prevent Web Deploy from making the kinds of connections to Azure that it requires.
 * No option to select connection string in the Publish Web wizard when you deploy - If you used a different method to create your Azure resources (for example, you are trying to deploy to  a web app and a SQL database created in the Portal), the SQL database may not be associated with the web app. The easiest solution is to create a new web app and database by using VS as shown in the tutorial. You don't have to start the tutorial over -- in the Publish Web wizard you can opt to create a new web app and you get the same Azure resource creation dialog that you get when you create the project.
 * Directions for Google or Facebook developer portal are out of date - See the featured Disqus comment at the end of this tutorial.
 
@@ -634,7 +602,7 @@ This tutorial was written by [Rick Anderson](http://blogs.msdn.com/b/rickandy/) 
 ***Please leave feedback*** on what you liked or what you would like to see improved, not only about the tutorial itself but also about the products that it demonstrates. Your feedback will help us prioritize improvements. You can also request and vote on new topics at [Show Me How With Code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](./app-service-changes-existing-services.md)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth

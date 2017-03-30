@@ -45,7 +45,7 @@ For more background information on SQL Server in Azure Virtual Machines, see [SQ
 There are several prerequisites for using Premium Storage.
 
 ### Machine size
-For using Premium Storage you will need to use DS series Virtual Machines (VM). If you have not used DS Series machines in your cloud service before, you must delete the existing VM, keep the attached disks, and then create a new cloud service before recreating the VM as DS* role size. For more information on Virtual Machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](../../virtual-machines-windows-sizes.md).
+For using Premium Storage you will need to use DS series Virtual Machines (VM). If you have not used DS Series machines in your cloud service before, you must delete the existing VM, keep the attached disks, and then create a new cloud service before recreating the VM as DS* role size. For more information on Virtual Machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Cloud services
 You can only use DS* VMs with Premium Storage when they are created in a new cloud service. If you are using SQL Server Always On in Azure, the Always On Listener will refer to the Azure Internal or External Load Balancer IP address that is associated with a cloud service. This article focuses on how to migrate while maintaining availability in this scenario.
@@ -64,39 +64,33 @@ You can raise an Azure.cn support ticket to migrate to a regional VNET, Azure.cn
 
 For example, considering the following VNET configuration:
 
-```
-<VirtualNetworkSite name="danAzureSQLnet" AffinityGroup="AzureSQLNetwork">
-<AddressSpace>
-  <AddressPrefix>10.0.0.0/8</AddressPrefix>
-  <AddressPrefix>172.16.0.0/12</AddressPrefix>
-</AddressSpace>
-<Subnets>
-...
-</VirtualNetworkSite>
-```
+    <VirtualNetworkSite name="danAzureSQLnet" AffinityGroup="AzureSQLNetwork">
+    <AddressSpace>
+      <AddressPrefix>10.0.0.0/8</AddressPrefix>
+      <AddressPrefix>172.16.0.0/12</AddressPrefix>
+    </AddressSpace>
+    <Subnets>
+    ...
+    </VirtualNetworkSite>
 
 To move this to a regional VNET in China North, change the configuration to the following:
 
-```
-<VirtualNetworkSite name="danAzureSQLnet" Location="China North">
-<AddressSpace>
-  <AddressPrefix>10.0.0.0/8</AddressPrefix>
-  <AddressPrefix>172.16.0.0/12</AddressPrefix>
-</AddressSpace>
-<Subnets>
-...
-</VirtualNetworkSite>
-```
+    <VirtualNetworkSite name="danAzureSQLnet" Location="China North">
+    <AddressSpace>
+      <AddressPrefix>10.0.0.0/8</AddressPrefix>
+      <AddressPrefix>172.16.0.0/12</AddressPrefix>
+    </AddressSpace>
+    <Subnets>
+    ...
+    </VirtualNetworkSite>
 
 ### Storage accounts
 You will need to create a new storage account that is configured for Premium Storage. Note that the use of Premium Storage is set at the storage account, not on individual VHDs, however when using a DS* Series VM you can attach VHD's from Premium and Standard Storage accounts. You may consider this if you do not want to place the OS VHD on to the Premium Storage account.
 
 The following **New-AzureStorageAccountPowerShell** command with the "Premium_LRS" **Type** creates a Premium Storage Account:
 
-```
-$newstorageaccountname = "danpremstor"
-New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "China North" -Type "Premium_LRS"   
-```
+    $newstorageaccountname = "danpremstor"
+    New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "China North" -Type "Premium_LRS"   
 
 ### VHDs Cache Settings
 The main difference between creating disks that are part of a Premium Storage account is the disk cache setting. For SQL Server Data volume disks it is recommended that you use '**Read Caching**'. For Transaction log volumes, the disk cache setting should be set to '**None**'. This is different from the recommendations for Standard Storage accounts.
@@ -137,9 +131,7 @@ For each disk, use the following steps:
     ![VirtualDiskPropertyDetails][4]
 6. For each storage pool, dump out the associated disks:
 
-    ```
-    Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
-    ```
+        Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
     ![GetStoragePool][5]
 
@@ -148,7 +140,7 @@ Now you can use this information to associate attached VHDs to Physical Disks in
 Once you have mapped VHDs to Physical Disks in Storage Pools you can then detach and copy them over to a Premium Storage account, then attach them with the correct cache setting. Please see the example in the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), steps 8 through 12. These steps show how to extract a VM-attached VHD disk configuration to a CSV file, copy the VHDs, alter the disk configuration cache settings, and finally redeploy the VM as a DS series VM with all the attached disks.
 
 ### VM storage bandwidth and VHD storage throughput
-The amount of storage performance depends on the DS* VM size specified and the VHD sizes. The VMs have different allowances for the number of VHDs that can be attached and the maximum bandwidth they will support (MB/s). For the specific bandwidth numbers, see [Virtual Machine and Cloud Service Sizes for Azure](../../virtual-machines-windows-sizes.md).
+The amount of storage performance depends on the DS* VM size specified and the VHD sizes. The VMs have different allowances for the number of VHDs that can be attached and the maximum bandwidth they will support (MB/s). For the specific bandwidth numbers, see [Virtual Machine and Cloud Service Sizes for Azure](../../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Increased IOPS are achieved with larger disk sizes. You should consider this when you think about your migration path. For details, [see the table for IOPS and Disk Types](../../../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
 
@@ -167,168 +159,142 @@ The first example demonstrates utilizing existing Azure Gallery Images. The seco
 ### Create a new VM with Premium Storage with Gallery Image
 The example below shows how to place the OS VHD onto premium storage and attach Premium Storage VHDs. However, you can also place the OS disk in a Standard Storage account and then attach VHDs that reside in a Premium Storage account. Both scenarios are demonstrated.
 
-```
-$mysubscription = "DansSubscription"
-$location = "China North"
+    $mysubscription = "DansSubscription"
+    $location = "China North"
 
-#Set up subscription
-Set-AzureSubscription -SubscriptionName $mysubscription
-Select-AzureSubscription -SubscriptionName $mysubscription -Current  
-```
+    #Set up subscription
+    Set-AzureSubscription -SubscriptionName $mysubscription
+    Select-AzureSubscription -SubscriptionName $mysubscription -Current  
 
 #### Step 1: Create a Premium Storage Account
-```
-#Create Premium Storage account, note Type
-$newxiostorageaccountname = "danspremsams"
-New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
-```
+    #Create Premium Storage account, note Type
+    $newxiostorageaccountname = "danspremsams"
+    New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
 
 #### Step 2: Create a New Cloud Service
-```
-$destcloudsvc = "danNewSvcAms"
-New-AzureService $destcloudsvc -Location $location
-```
+    $destcloudsvc = "danNewSvcAms"
+    New-AzureService $destcloudsvc -Location $location
 
 #### Step 3: Reserve a Cloud Service VIP (Optional)
-```
-#check exisitng reserved VIP
-Get-AzureReservedIP
+    #check exisitng reserved VIP
+    Get-AzureReservedIP
 
-$reservedVIPName = "sqlcloudVIP"
-New-AzureReservedIP -ReservedIPName $reservedVIPName -Label $reservedVIPName -Location $location
-```
+    $reservedVIPName = "sqlcloudVIP"
+    New-AzureReservedIP -ReservedIPName $reservedVIPName -Label $reservedVIPName -Location $location
 
 #### Step 4: Create a VM Container
-```
-#Generate storage keys for later
-$xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
+    #Generate storage keys for later
+    $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
 
-##Generate storage acc contexts
-$xioContext = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary
+    ##Generate storage acc contexts
+    $xioContext = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary
 
-#Create container
-$containerName = 'vhds'
-New-AzureStorageContainer -Name $containerName -Context $xioContext
-```
+    #Create container
+    $containerName = 'vhds'
+    New-AzureStorageContainer -Name $containerName -Context $xioContext
 
 #### Step 5: Placing OS VHD on Standard or Premium Storage
-```
-#NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
+    #NOTE: Set up subscription and default storage account which will be used to place the OS VHD in
 
-#If you want to place the OS VHD Premium Storage Account
-Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $newxiostorageaccountname  
+    #If you want to place the OS VHD Premium Storage Account
+    Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $newxiostorageaccountname  
 
-#If you wanted to place the OS VHD Standard Storage Account but attach Premium Storage VHDs then you would run this instead:
-$standardstorageaccountname = "danstdams"
+    #If you wanted to place the OS VHD Standard Storage Account but attach Premium Storage VHDs then you would run this instead:
+    $standardstorageaccountname = "danstdams"
 
-Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
-```
+    Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
 
 #### Step 6: Create VM
-```
-#Get list of available SQL Server Images from the Azure Image Gallery.
-$galleryImage = Get-AzureVMImage | where-object {$_.ImageName -like "*SQL*2014*Enterprise*"}
-$image = $galleryImage.ImageName
+    #Get list of available SQL Server Images from the Azure Image Gallery.
+    $galleryImage = Get-AzureVMImage | where-object {$_.ImageName -like "*SQL*2014*Enterprise*"}
+    $image = $galleryImage.ImageName
 
-#Set up Machine Specific Information
-$vmName = "dsDan1"
-$vnet = "dansvnetwesteur"
-$subnet = "SQL"
-$ipaddr = "192.168.0.8"
+    #Set up Machine Specific Information
+    $vmName = "dsDan1"
+    $vnet = "dansvnetwesteur"
+    $subnet = "SQL"
+    $ipaddr = "192.168.0.8"
 
-#Remember to change to DS series VM
-$newInstanceSize = "Standard_DS1"
+    #Remember to change to DS series VM
+    $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
-$availabilitySet = "cloudmigAVAMS"
+    #create new Avaiability Set
+    $availabilitySet = "cloudmigAVAMS"
 
-#Machine User Credentials
-$userName = "myadmin"
-$pass = "mycomplexpwd4*"
+    #Machine User Credentials
+    $userName = "myadmin"
+    $pass = "mycomplexpwd4*"
 
-#Create VM Config
-$vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
+    #Create VM Config
+    $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
-#Add Data and Log Disks to VM Config
-#Note the size specified '-DiskSizeInGB 1023', this will attach 2 x P30 Premium Storage Disk Type
-#Utilising the Premium Storage enabled Storage account
+    #Add Data and Log Disks to VM Config
+    #Note the size specified '-DiskSizeInGB 1023', this will attach 2 x P30 Premium Storage Disk Type
+    #Utilising the Premium Storage enabled Storage account
 
-$vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$vmName-data1.vhd"
-$vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "logDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$vmName-log1.vhd"
+    $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$vmName-data1.vhd"
+    $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "logDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$vmName-log1.vhd"
 
-#Create VM
-$vmConfigsl  | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)  
+    #Create VM
+    $vmConfigsl  | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)  
 
-#Add RDP Endpoint
-$EndpointNameRDPInt = "3389"
-Get-AzureVM -ServiceName $destcloudsvc -Name $vmName | Add-AzureEndpoint -Name "EndpointNameRDP" -Protocol "TCP" -PublicPort "53385" -LocalPort $EndpointNameRDPInt  | Update-AzureVM
+    #Add RDP Endpoint
+    $EndpointNameRDPInt = "3389"
+    Get-AzureVM -ServiceName $destcloudsvc -Name $vmName | Add-AzureEndpoint -Name "EndpointNameRDP" -Protocol "TCP" -PublicPort "53385" -LocalPort $EndpointNameRDPInt  | Update-AzureVM
 
-#Check VHD storage account, these should be in $newxiostorageaccountname
-Get-AzureVM -ServiceName $destcloudsvc -Name $vmName | Get-AzureDataDisk
-Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
-```
+    #Check VHD storage account, these should be in $newxiostorageaccountname
+    Get-AzureVM -ServiceName $destcloudsvc -Name $vmName | Get-AzureDataDisk
+    Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 
 ### Create a new VM to use Premium Storage with a custom image
 This scenario demonstrates where you have existing customized images that reside in a Standard Storage account. As mentioned if you want to place the OS VHD on Premium Storage you will need to copy the image that exists in the Standard Storage account and transfer them to a Premium Storage before it can be used. If you have an image on premise, you can also use this method to copy that directly to the Premium Storage account.
 
 #### Step 1: Create Storage Account
-```
-$mysubscription = "DansSubscription"
-$location = "China North"
+    $mysubscription = "DansSubscription"
+    $location = "China North"
 
-#Create Premium Storage account
-$newxiostorageaccountname = "danspremsams"
-New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
+    #Create Premium Storage account
+    $newxiostorageaccountname = "danspremsams"
+    New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
 
-#Standard Storage account
-$origstorageaccountname = "danstdams"
-```
+    #Standard Storage account
+    $origstorageaccountname = "danstdams"
 
 #### Step 2 Create Cloud Service
-```
-$destcloudsvc = "danNewSvcAms"
-New-AzureService $destcloudsvc -Location $location
-```
+    $destcloudsvc = "danNewSvcAms"
+    New-AzureService $destcloudsvc -Location $location
 
 #### Step 3: Use existing image
-You can use an existing image. Or, you can [take an image of an existing machine](../../virtual-machines-windows-classic-capture-image.md). Note the machine you image does not have to be DS* machine. Once you have the image, the following steps show how to copy it to the Premium Storage account with the **Start-AzureStorageBlobCopy** PowerShell commandlet.
+You can use an existing image. Or, you can [take an image of an existing machine](../../virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Note the machine you image does not have to be DS* machine. Once you have the image, the following steps show how to copy it to the Premium Storage account with the **Start-AzureStorageBlobCopy** PowerShell commandlet.
 
-```
-#Get storage account keys:
-#Standard Storage account
-$originalstorage =  Get-AzureStorageKey -StorageAccountName $origstorageaccountname
-#Premium Storage account
-$xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
+    #Get storage account keys:
+    #Standard Storage account
+    $originalstorage =  Get-AzureStorageKey -StorageAccountName $origstorageaccountname
+    #Premium Storage account
+    $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
 
-#Set up contexts for the storage accounts:
-$origContext = New-AzureStorageContext  -Environment AzureChinaCloud -StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
-$destContext = New-AzureStorageContext  -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
-```
+    #Set up contexts for the storage accounts:
+    $origContext = New-AzureStorageContext  -Environment AzureChinaCloud -StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
+    $destContext = New-AzureStorageContext  -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
 
 #### Step 4: Copy Blob between Storage Accounts
-```
-#Get Image VHD
-$myImageVHD = "dansoldonorsql2k14-os-2015-04-15.vhd"
-$containerName = 'vhds'
+    #Get Image VHD
+    $myImageVHD = "dansoldonorsql2k14-os-2015-04-15.vhd"
+    $containerName = 'vhds'
 
-#Copy Blob between accounts
-$blob = Start-AzureStorageBlobCopy -SrcBlob $myImageVHD -SrcContainer $containerName `
--DestContainer vhds -Destblob "prem-$myImageVHD" `
--Context $origContext -DestContext $destContext  
-```
+    #Copy Blob between accounts
+    $blob = Start-AzureStorageBlobCopy -SrcBlob $myImageVHD -SrcContainer $containerName `
+    -DestContainer vhds -Destblob "prem-$myImageVHD" `
+    -Context $origContext -DestContext $destContext  
 
 #### Step 5: Regularly check copy status:
-```
-$blob | Get-AzureStorageBlobCopyState
-```
+    $blob | Get-AzureStorageBlobCopyState
 
 #### Step 6: Add Image disk to Azure disk Repository in Subscription
-```
-$imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD
-$newimageName = "prem"+"dansoldonorsql2k14"
+    $imageMediaLocation = $destContext.BlobEndPoint+"/"+$myImageVHD
+    $newimageName = "prem"+"dansoldonorsql2k14"
 
-Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
-```
+    Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 
 > [!NOTE]
 > You may find that even though the status reports as success, you could still get a disk lease error. In this case, wait about 10 minutes.
@@ -338,35 +304,33 @@ Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 #### Step 7:  Build the VM
 Here you are building the VM from your image and attaching two Premium Storage VHDs:
 
-```
-$newimageName = "prem"+"dansoldonorsql2k14"
-#Set up Machine Specific Information
-$vmName = "dansolchild"
-$vnet = "westeur"
-$subnet = "Clients"
-$ipaddr = "192.168.0.41"
+    $newimageName = "prem"+"dansoldonorsql2k14"
+    #Set up Machine Specific Information
+    $vmName = "dansolchild"
+    $vnet = "westeur"
+    $subnet = "Clients"
+    $ipaddr = "192.168.0.41"
 
-#This will need to be a new cloud service
-$destcloudsvc = "danregsvcamsxio2"
+    #This will need to be a new cloud service
+    $destcloudsvc = "danregsvcamsxio2"
 
-#Use to DS Series VM
-$newInstanceSize = "Standard_DS1"
+    #Use to DS Series VM
+    $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
-$availabilitySet = "cloudmigAVAMS3"
+    #create new Avaiability Set
+    $availabilitySet = "cloudmigAVAMS3"
 
-#Machine User Credentials
-$userName = "myadmin"
-$pass = "theM)stC0mplexP@ssw0rd!"
+    #Machine User Credentials
+    $userName = "myadmin"
+    $pass = "theM)stC0mplexP@ssw0rd!"
 
-#Create VM Config
-$vmConfigsl2 = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $newimageName  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
+    #Create VM Config
+    $vmConfigsl2 = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $newimageName  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
-$vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$vmName-Datadisk-1.vhd"
-$vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "LogDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$vmName-logdisk-1.vhd"
+    $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$vmName-Datadisk-1.vhd"
+    $vmConfigsl2 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 1 -HostCaching "None"  -DiskLabel "LogDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$vmName-logdisk-1.vhd"
 
-$vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
-```
+    $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 
 ## Existing deployments that do not use Always On Availability Groups
 > [!NOTE]
@@ -589,48 +553,44 @@ In this example we are going to demonstrate moving from an ELB to ILB. ELB was a
 ![Appendix2][12]
 
 ### Pre Steps: Connect to Subscription
-```
-Add-AzureAccount -Environment AzureChinaCloud
+    Add-AzureAccount -Environment AzureChinaCloud
 
-#Set up subscription
-Get-AzureSubscription
-```
+    #Set up subscription
+    Get-AzureSubscription
 
 #### Step 1: Create New Storage Account and Cloud Service
-```
-$mysubscription = "DansSubscription"
-$location = "China North"
+    $mysubscription = "DansSubscription"
+    $location = "China North"
 
-#Storage accounts
-#current storage account where the vm to migrate resides
-$origstorageaccountname = "danstdams"
+    #Storage accounts
+    #current storage account where the vm to migrate resides
+    $origstorageaccountname = "danstdams"
 
-#Create Premium Storage account
-$newxiostorageaccountname = "danspremsams"
-New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
+    #Create Premium Storage account
+    $newxiostorageaccountname = "danspremsams"
+    New-AzureStorageAccount -StorageAccountName $newxiostorageaccountname -Location $location -Type "Premium_LRS"  
 
-#Generate storage keys for later
-$originalstorage =  Get-AzureStorageKey -StorageAccountName $origstorageaccountname
-$xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
+    #Generate storage keys for later
+    $originalstorage =  Get-AzureStorageKey -StorageAccountName $origstorageaccountname
+    $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
 
-#Generate storage acc contexts
-$origContext = New-AzureStorageContext  -Environment AzureChinaCloud -StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
-$xioContext = New-AzureStorageContext  -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
+    #Generate storage acc contexts
+    $origContext = New-AzureStorageContext  -Environment AzureChinaCloud -StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
+    $xioContext = New-AzureStorageContext  -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
 
-#Set up subscription and default storage account
-Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $origstorageaccountname
-Select-AzureSubscription -SubscriptionName $mysubscription -Current
+    #Set up subscription and default storage account
+    Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $origstorageaccountname
+    Select-AzureSubscription -SubscriptionName $mysubscription -Current
 
-#CREATE NEW CLOUD SVC
-$vnet = "dansvnetwesteur"
+    #CREATE NEW CLOUD SVC
+    $vnet = "dansvnetwesteur"
 
-##Existing cloud service
-$sourceSvc="dansolSrcAms"
+    ##Existing cloud service
+    $sourceSvc="dansolSrcAms"
 
-##Create new cloud service
-$destcloudsvc = "danNewSvcAms"
-New-AzureService $destcloudsvc -Location $location
-```
+    ##Create new cloud service
+    $destcloudsvc = "danNewSvcAms"
+    New-AzureService $destcloudsvc -Location $location
 
 #### Step 2: Increase the permitted failures on resources <Optional>
 On certain resources that belong to your Always On Availability Group there are limits on how many failures that can occur in a period, where the cluster service will attempt to restart the resource group. It is recommended you increase this whilst you are walking through this procedure, since if you don't manually failover and trigger failovers by shutting down machines you can get close to this limit.
@@ -667,14 +627,12 @@ If 'RegisterAllIpProviders' is 1:
 
 The code below will dump out the VNN settings and set it for you, please note, for the change to take effect you will need to take the VNN offline and turn it back online, this taking the Listener offline causing client connectivity disruption.
 
-```
-##Always On Listener Name
-$ListenerName = "Mylistener"
-##Get AlwaysOn Network Name Settings
-Get-ClusterResource $ListenerName| Get-ClusterParameter
-##Set RegisterAllProvidersIP
-Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
-```
+    ##Always On Listener Name
+    $ListenerName = "Mylistener"
+    ##Get AlwaysOn Network Name Settings
+    Get-ClusterResource $ListenerName| Get-ClusterParameter
+    ##Set RegisterAllProvidersIP
+    Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  1
 
 In a later migration step you will need to update the Always On listener with an updated IP address that will reference a load balancer, this will involve an IP Address resource removal and addition. After the IP update, you need to ensure the new IP address has been updated in DNS Zone and that the clients are updating their local DNS cache.
 
@@ -682,15 +640,13 @@ If your clients reside in a different network segment and reference a different 
 
 By default the TTL for DNS Record that is associated with the Listener in Always On in Azure is 1200 seconds. You may wish to reduce this if you are under time constraint during your migration to ensure the clients update their DNS with the updated IP address for the listener. You can see and modify the configuration by dumping out the configuration of the VNN:
 
-```
-$AGName = "myProductionAG"
-$ListenerName = "Mylistener"
-#Look at HostRecordTTL
-Get-ClusterResource $ListenerName| Get-ClusterParameter
+    $AGName = "myProductionAG"
+    $ListenerName = "Mylistener"
+    #Look at HostRecordTTL
+    Get-ClusterResource $ListenerName| Get-ClusterParameter
 
-#Set HostRecordTTL Examples
-Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 120
-```
+    #Set HostRecordTTL Examples
+    Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 120
 
 Please note, the lower the 'HostRecordTTL', a higher amount of DNS traffic will occur.
 
@@ -702,19 +658,15 @@ For more information regarding the settings above, please see [MultiSubnetFailov
 #### Step 5: Cluster quorum settings
 As you are going to be taking out at least one SQL Server down at a time, you should modify the cluster quorum setting, if using File Share Witness (FSW) with 2 nodes, you should set the quorum to allow node majority and utilize dynamic voting, and this is to allow for a single node to remain standing.
 
-```
-Set-ClusterQuorum -NodeMajority  
-```
+    Set-ClusterQuorum -NodeMajority  
 
 For more information on managing and configuring the cluster quorum, please see [Configure and Manage the Quorum in a Windows Server 2012 Failover Cluster](https://technet.microsoft.com/zh-cn/library/jj612870.aspx).
 
 #### Step 6: Extract Existing Endpoints and ACLs
-```
-#GET Endpoint info
-Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureEndpoint
-#GET ACL Rules for Each EP, this example is for the Always On Endpoint
-Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
-```
+    #GET Endpoint info
+    Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureEndpoint
+    #GET ACL Rules for Each EP, this example is for the Always On Endpoint
+    Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate | Get-AzureAclConfig -EndpointName "myAOEndPoint-LB"  
 
 Save these to a text file.
 
@@ -726,53 +678,51 @@ If you have more than 2 SQL Servers, you should change the failover of another s
 #### Step 8: Remove Secondary VM from cloud service
 You should be planning to migrate a cloud secondary node first, if this is currently primary, you should initiate a manual failover.
 
-```
-$vmNameToMigrate="dansqlams2"
+    $vmNameToMigrate="dansqlams2"
 
-#Check machine status
-Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
+    #Check machine status
+    Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
-#Shutdown secondary VM
-Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
+    #Shutdown secondary VM
+    Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
 
-#Extract disk configuration
+    #Extract disk configuration
 
-##Building Existing Data Disk Configuration
-$file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
-$datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
-Add-Content $file "lun, vhdname, hostcaching, disklabel, diskName"
-foreach ($disk in $datadisks)
-{
-  $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"
-  $disk.Lun, , $disk.HostCaching, $vhdname, $disk.DiskLabel,$disks.DiskName
-# Write-Host "copying disk $disk"
-$adddisk = "{0},{1},{2},{3},{4}" -f $disk.Lun,$vhdname, $disk.HostCaching, $disk.DiskLabel, $disk.DiskName
-$adddisk | add-content -path $file
-}
+    ##Building Existing Data Disk Configuration
+    $file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
+    $datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
+    Add-Content $file "lun, vhdname, hostcaching, disklabel, diskName"
+    foreach ($disk in $datadisks)
+    {
+      $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"
+      $disk.Lun, , $disk.HostCaching, $vhdname, $disk.DiskLabel,$disks.DiskName
+    # Write-Host "copying disk $disk"
+    $adddisk = "{0},{1},{2},{3},{4}" -f $disk.Lun,$vhdname, $disk.HostCaching, $disk.DiskLabel, $disk.DiskName
+    $adddisk | add-content -path $file
+    }
 
-#Get OS Disk
-$osdisks = Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureOSDisk ## | select -ExpandProperty MediaLink
-$osvhdname = $osdisks.MediaLink.AbsolutePath -creplace  "/vhds/"
-$osdisks.OS, $osdisks.HostCaching, $osvhdname, $osdisks.DiskLabel, $osdisks.DiskName
-$addosdisk = "{0},{1},{2},{3},{4}" -f $osdisks.OS,$osvhdname, $osdisks.HostCaching, $osdisks.Disklabel , $osdisks.DiskName
-$addosdisk | add-content -path $file
+    #Get OS Disk
+    $osdisks = Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureOSDisk ## | select -ExpandProperty MediaLink
+    $osvhdname = $osdisks.MediaLink.AbsolutePath -creplace  "/vhds/"
+    $osdisks.OS, $osdisks.HostCaching, $osvhdname, $osdisks.DiskLabel, $osdisks.DiskName
+    $addosdisk = "{0},{1},{2},{3},{4}" -f $osdisks.OS,$osvhdname, $osdisks.HostCaching, $osdisks.Disklabel , $osdisks.DiskName
+    $addosdisk | add-content -path $file
 
-#Import disk config
-$diskobjects  = Import-CSV $file
+    #Import disk config
+    $diskobjects  = Import-CSV $file
 
-#Check disk config, make sure below returns the disks associated with the VM
-$diskobjects
+    #Check disk config, make sure below returns the disks associated with the VM
+    $diskobjects
 
-#Identify OS Disk
-$osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
-$osdiskforbuild = $osdiskimport.diskName
+    #Identify OS Disk
+    $osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
+    $osdiskforbuild = $osdiskimport.diskName
 
-#Check machibe is off
-Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
+    #Check machibe is off
+    Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
 
-#Drop machine and rebuild to new cls
-Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
-```
+    #Drop machine and rebuild to new cls
+    Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### Step 9: Change disk caching settings in CSV file and save
 For data volumes these should be set to READONLY.
@@ -782,48 +732,44 @@ For TLOG volumes these should be set to NONE.
 ![Appendix7][17]
 
 #### Step 10: Copy VHDS
-```
-#Ensure you have created the container for these:
-$containerName = 'vhds'
+    #Ensure you have created the container for these:
+    $containerName = 'vhds'
 
-#Create container
-New-AzureStorageContainer -Name $containerName -Context $xioContext
+    #Create container
+    New-AzureStorageContainer -Name $containerName -Context $xioContext
 
-####DISK COPYING####
-#Get disks from csv, get settings for each VHDs and copy to Premium Storage accoun
-ForEach ($disk in $diskobjects)
-   {
-   $lun = $disk.Lun
-   $vhdname = $disk.vhdname
-   $cacheoption = $disk.HostCaching
-   $disklabel = $disk.DiskLabel
-   $diskName = $disk.DiskName
-   Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname has cache setting : $cacheoption"
+    ####DISK COPYING####
+    #Get disks from csv, get settings for each VHDs and copy to Premium Storage accoun
+    ForEach ($disk in $diskobjects)
+       {
+       $lun = $disk.Lun
+       $vhdname = $disk.vhdname
+       $cacheoption = $disk.HostCaching
+       $disklabel = $disk.DiskLabel
+       $diskName = $disk.DiskName
+       Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname has cache setting : $cacheoption"
 
-   #Start async copy
-   Start-AzureStorageBlobCopy -srcUri "https://$origstorageaccountname.blob.core.chinacloudapi.cn/vhds/$vhdname" `
--SrcContext $origContext `
--DestContainer $containerName `
--DestBlob $vhdname `
--DestContext $xioContext
-   }
-```
+       #Start async copy
+       Start-AzureStorageBlobCopy -srcUri "https://$origstorageaccountname.blob.core.chinacloudapi.cn/vhds/$vhdname" `
+    -SrcContext $origContext `
+    -DestContainer $containerName `
+    -DestBlob $vhdname `
+    -DestContext $xioContext
+       }
 
 You can check the copy status of the VHDs to the Premium Storage account:
 
-```
-ForEach ($disk in $diskobjects)
-   {
-   $lun = $disk.Lun
-   $vhdname = $disk.vhdname
-   $cacheoption = $disk.HostCaching
-   $disklabel = $disk.DiskLabel
-   $diskName = $disk.DiskName
+    ForEach ($disk in $diskobjects)
+       {
+       $lun = $disk.Lun
+       $vhdname = $disk.vhdname
+       $cacheoption = $disk.HostCaching
+       $disklabel = $disk.DiskLabel
+       $diskName = $disk.DiskName
 
-   $copystate = Get-AzureStorageBlobCopyState -Blob $vhdname -Container $containerName -Context $xioContext
-Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status
-   }
-```
+       $copystate = Get-AzureStorageBlobCopyState -Blob $vhdname -Container $containerName -Context $xioContext
+    Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status
+       }
 
 ![Appendix8][18]
 
@@ -831,107 +777,97 @@ Wait until all these are recorded as success.
 
 For information for individual blobs:
 
-```
-Get-AzureStorageBlobCopyState -Blob "blobname.vhd" -Container $containerName -Context $xioContext
-```
+    Get-AzureStorageBlobCopyState -Blob "blobname.vhd" -Container $containerName -Context $xioContext
 
 #### Step 11: Register OS disk
-```
-#Change storage account
-Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountname
-Select-AzureSubscription -SubscriptionName $mysubscription -Current
+    #Change storage account
+    Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountname
+    Select-AzureSubscription -SubscriptionName $mysubscription -Current
 
-#Register OS disk
-$osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
-$osvhd = $osdiskimport.vhdname
-$osdiskforbuild = $osdiskimport.diskName
+    #Register OS disk
+    $osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
+    $osvhd = $osdiskimport.vhdname
+    $osdiskforbuild = $osdiskimport.diskName
 
-#Registering OS disk, but as XIO disk
-$xioDiskName = $osdiskforbuild + "xio"
-Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$osvhd"  -Label "BootDisk" -OS "Windows"
-```
+    #Registering OS disk, but as XIO disk
+    $xioDiskName = $osdiskforbuild + "xio"
+    Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$osvhd"  -Label "BootDisk" -OS "Windows"
 
 #### Step 12: Import secondary into new cloud service
 The code below also uses the added option here you can import the machine and use the retainable VIP.
 
-```
-#Build VM Config
-$ipaddr = "192.168.0.5"
-#Remember to change to XIO
-$newInstanceSize = "Standard_DS13"
-$subnet = "SQL"
+    #Build VM Config
+    $ipaddr = "192.168.0.5"
+    #Remember to change to XIO
+    $newInstanceSize = "Standard_DS13"
+    $subnet = "SQL"
 
-#Create new Avaiability Set
-$availabilitySet = "cloudmigAVAMS"
+    #Create new Avaiability Set
+    $availabilitySet = "cloudmigAVAMS"
 
-#build machine config into object
-$vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
+    #build machine config into object
+    $vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
-#Reload disk config
-$diskobjects  = Import-CSV $file
-$datadiskimport = $diskobjects | where {$_.lun -ne "Windows"}
+    #Reload disk config
+    $diskobjects  = Import-CSV $file
+    $datadiskimport = $diskobjects | where {$_.lun -ne "Windows"}
 
-ForEach ( $attachdatadisk in $datadiskimport)
-   {
-$label = $attachdatadisk.disklabel
-$lunNo = $attachdatadisk.lun
-$hostcach = $attachdatadisk.hostcaching
-$datadiskforbuild = $attachdatadisk.diskName
-$vhdname = $attachdatadisk.vhdname
+    ForEach ( $attachdatadisk in $datadiskimport)
+       {
+    $label = $attachdatadisk.disklabel
+    $lunNo = $attachdatadisk.lun
+    $hostcach = $attachdatadisk.hostcaching
+    $datadiskforbuild = $attachdatadisk.diskName
+    $vhdname = $attachdatadisk.vhdname
 
-###Attaching disks to a VM during a deploy to a new cloud service and new storage account is different from just attaching VHDs to just a redeploy in a new cloud service
-$vmConfig | Add-AzureDataDisk -ImportFrom -MediaLocation "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$vhdname" -LUN $lunNo -HostCaching $hostcach -DiskLabel $label
+    ###Attaching disks to a VM during a deploy to a new cloud service and new storage account is different from just attaching VHDs to just a redeploy in a new cloud service
+    $vmConfig | Add-AzureDataDisk -ImportFrom -MediaLocation "https://$newxiostorageaccountname.blob.core.chinacloudapi.cn/vhds/$vhdname" -LUN $lunNo -HostCaching $hostcach -DiskLabel $label
 
-}
+    }
 
-#Create VM
-$vmConfig  | New-AzureVM -ServiceName $destcloudsvc -Location $location -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)
-```
+    #Create VM
+    $vmConfig  | New-AzureVM -ServiceName $destcloudsvc -Location $location -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)
 
 #### Step 13: Create ILB on New Cloud Svc, Add Load Balanced Endpoints and ACLs
-```
-#Check for existing ILB
-GET-AzureInternalLoadBalancer -ServiceName $destcloudsvc
+    #Check for existing ILB
+    GET-AzureInternalLoadBalancer -ServiceName $destcloudsvc
 
-$ilb="sqlIntIlbDest"
-$subnet = "SQL"
-$IP="192.168.0.25"
-Add-AzureInternalLoadBalancer -ServiceName $destcloudsvc -InternalLoadBalancerName $ilb -SubnetName $subnet -StaticVNetIPAddress $IP
+    $ilb="sqlIntIlbDest"
+    $subnet = "SQL"
+    $IP="192.168.0.25"
+    Add-AzureInternalLoadBalancer -ServiceName $destcloudsvc -InternalLoadBalancerName $ilb -SubnetName $subnet -StaticVNetIPAddress $IP
 
-#Endpoints
-$epname="sqlIntEP"
-$prot="tcp"
-$locport=1433
-$pubport=1433
-Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
+    #Endpoints
+    $epname="sqlIntEP"
+    $prot="tcp"
+    $locport=1433
+    $pubport=1433
+    Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
 
-#SET Azure ACLs or Network Security Groups & Windows FWs
+    #SET Azure ACLs or Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/zh-cn/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/zh-cn/library/azure/dn495192.aspx
 
-####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
-```
+    ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 
 #### Step 14: Update Always On
-```
-#Code to be executed on a Cluster Node
-$ClusterNetworkNameAmsterdam = "Cluster Network 2" # the azure cluster subnet network name
-$newCloudServiceIPAmsterdam = "192.168.0.25" # IP address of your cloud service
+    #Code to be executed on a Cluster Node
+    $ClusterNetworkNameAmsterdam = "Cluster Network 2" # the azure cluster subnet network name
+    $newCloudServiceIPAmsterdam = "192.168.0.25" # IP address of your cloud service
 
-$AGName = "myProductionAG"
-$ListenerName = "Mylistener"
+    $AGName = "myProductionAG"
+    $ListenerName = "Mylistener"
 
-Add-ClusterResource "IP Address $newCloudServiceIPAmsterdam" -ResourceType "IP Address" -Group $AGName -ErrorAction Stop |  Set-ClusterParameter -Multiple @{"Address"="$newCloudServiceIPAmsterdam";"ProbePort"="59999";SubnetMask="255.255.255.255";"Network"=$ClusterNetworkNameAmsterdam;"OverrideAddressMatch"=1;"EnableDhcp"=0} -ErrorAction Stop
+    Add-ClusterResource "IP Address $newCloudServiceIPAmsterdam" -ResourceType "IP Address" -Group $AGName -ErrorAction Stop |  Set-ClusterParameter -Multiple @{"Address"="$newCloudServiceIPAmsterdam";"ProbePort"="59999";SubnetMask="255.255.255.255";"Network"=$ClusterNetworkNameAmsterdam;"OverrideAddressMatch"=1;"EnableDhcp"=0} -ErrorAction Stop
 
-#set dependancy and NETBIOS, then remove old IP address
+    #set dependancy and NETBIOS, then remove old IP address
 
-#set NETBIOS, then remove old IP address
-Get-ClusterGroup $AGName | Get-ClusterResource -Name "IP Address $newCloudServiceIPAmsterdam" | Set-ClusterParameter -Name EnableNetBIOS -Value 0
+    #set NETBIOS, then remove old IP address
+    Get-ClusterGroup $AGName | Get-ClusterResource -Name "IP Address $newCloudServiceIPAmsterdam" | Set-ClusterParameter -Name EnableNetBIOS -Value 0
 
-#set dependency to Listener (OR Dependency) and delete previous IP Address resource that references:
+    #set dependency to Listener (OR Dependency) and delete previous IP Address resource that references:
 
-#Make sure no static records in DNS
-```
+    #Make sure no static records in DNS
 
 ![Appendix9][19]
 
@@ -946,55 +882,53 @@ You should now check DNS Servers on your SQL Server client networks and make sur
 At this point you wait for the secondary that node that was migrated to fully resynchronize with the on-premise node and switch to synchronous replication node and make it the AFP.  
 
 #### Step 17: Migrate second node
-```
-$vmNameToMigrate="dansqlams1"
+    $vmNameToMigrate="dansqlams1"
 
-Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
+    Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
-#Get endpoint information
-$endpoint = Get-AzureVM -ServiceName $sourceSvc  -Name $vmNameToMigrate | Get-AzureEndpoint
+    #Get endpoint information
+    $endpoint = Get-AzureVM -ServiceName $sourceSvc  -Name $vmNameToMigrate | Get-AzureEndpoint
 
-#Shutdown VM
-Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
+    #Shutdown VM
+    Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | stop-AzureVM
 
-#Get disk config
+    #Get disk config
 
-#Building Existing Data Disk Configuration
-$file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
-$datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
-Add-Content $file "lun, vhdname, hostcaching, disklabel, diskName"
-foreach ($disk in $datadisks)
-{
-  $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"
-  $disk.Lun, , $disk.HostCaching, $vhdname, $disk.DiskLabel,$disks.DiskName
-# Write-Host "copying disk $disk"
-$adddisk = "{0},{1},{2},{3},{4}" -f $disk.Lun,$vhdname, $disk.HostCaching, $disk.DiskLabel, $disk.DiskName
-$adddisk | add-content -path $file
-}
+    #Building Existing Data Disk Configuration
+    $file = "C:\Azure Storage Testing\mydiskconfig_$vmNameToMigrate.csv"
+    $datadisks = @(Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureDataDisk )
+    Add-Content $file "lun, vhdname, hostcaching, disklabel, diskName"
+    foreach ($disk in $datadisks)
+    {
+      $vhdname = $disk.MediaLink.AbsolutePath -creplace  "/vhds/"
+      $disk.Lun, , $disk.HostCaching, $vhdname, $disk.DiskLabel,$disks.DiskName
+    # Write-Host "copying disk $disk"
+    $adddisk = "{0},{1},{2},{3},{4}" -f $disk.Lun,$vhdname, $disk.HostCaching, $disk.DiskLabel, $disk.DiskName
+    $adddisk | add-content -path $file
+    }
 
-#Get OS Disk
-$osdisks = Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureOSDisk ## | select -ExpandProperty MediaLink
-$osvhdname = $osdisks.MediaLink.AbsolutePath -creplace  "/vhds/"
-$osdisks.OS, $osdisks.HostCaching, $osvhdname, $osdisks.DiskLabel, $osdisks.DiskName
-$addosdisk = "{0},{1},{2},{3},{4}" -f $osdisks.OS,$osvhdname, $osdisks.HostCaching, $osdisks.Disklabel , $osdisks.DiskName
-$addosdisk | add-content -path $file
+    #Get OS Disk
+    $osdisks = Get-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate | Get-AzureOSDisk ## | select -ExpandProperty MediaLink
+    $osvhdname = $osdisks.MediaLink.AbsolutePath -creplace  "/vhds/"
+    $osdisks.OS, $osdisks.HostCaching, $osvhdname, $osdisks.DiskLabel, $osdisks.DiskName
+    $addosdisk = "{0},{1},{2},{3},{4}" -f $osdisks.OS,$osvhdname, $osdisks.HostCaching, $osdisks.Disklabel , $osdisks.DiskName
+    $addosdisk | add-content -path $file
 
-#Import disk config
-$diskobjects  = Import-CSV $file
+    #Import disk config
+    $diskobjects  = Import-CSV $file
 
-#Check disk configuration
-$diskobjects
+    #Check disk configuration
+    $diskobjects
 
-#Identify OS Disk
-$osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
-$osdiskforbuild = $osdiskimport.diskName
+    #Identify OS Disk
+    $osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
+    $osdiskforbuild = $osdiskimport.diskName
 
-#Check machine is off
-Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
+    #Check machine is off
+    Get-AzureVM -ServiceName $sourceSvc -Name  $vmNameToMigrate
 
-#Drop machine and rebuild to new cls
-Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
-```
+    #Drop machine and rebuild to new cls
+    Remove-AzureVM -ServiceName $sourceSvc -Name $vmNameToMigrate
 
 #### Step 18: Change disk caching settings in CSV file and save
 For data volumes these should be set to READONLY.
@@ -1004,72 +938,66 @@ For TLOG volumes these should be set to NONE.
 ![Appendix11][21]
 
 #### Step 19: Create New Independent Storage Account for Secondary Node
-```
-$newxiostorageaccountnamenode2 = "danspremsams2"
-New-AzureStorageAccount -StorageAccountName $newxiostorageaccountnamenode2 -Location $location -Type "Premium_LRS"  
+    $newxiostorageaccountnamenode2 = "danspremsams2"
+    New-AzureStorageAccount -StorageAccountName $newxiostorageaccountnamenode2 -Location $location -Type "Premium_LRS"  
 
-#Reset the storage account src if node 1 in a different storage account
-$origstorageaccountname2nd = "danstdams2"
+    #Reset the storage account src if node 1 in a different storage account
+    $origstorageaccountname2nd = "danstdams2"
 
-#Generate storage keys for later
-$xiostoragenode2 = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountnamenode2
+    #Generate storage keys for later
+    $xiostoragenode2 = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountnamenode2
 
-#Generate storage acc contexts
-$xioContextnode2 = New-AzureStorageContext  -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountnamenode2 -StorageAccountKey $xiostoragenode2.Primary  
+    #Generate storage acc contexts
+    $xioContextnode2 = New-AzureStorageContext  -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountnamenode2 -StorageAccountKey $xiostoragenode2.Primary  
 
-#Set up subscription and default storage account
-Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountnamenode2
-Select-AzureSubscription -SubscriptionName $mysubscription -Current
-```
+    #Set up subscription and default storage account
+    Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountnamenode2
+    Select-AzureSubscription -SubscriptionName $mysubscription -Current
 
 #### Step 20: Copy VHDS
-```
-#Ensure you have created the container for these:
-$containerName = 'vhds'
+    #Ensure you have created the container for these:
+    $containerName = 'vhds'
 
-#Create container
-New-AzureStorageContainer -Name $containerName -Context $xioContextnode2  
+    #Create container
+    New-AzureStorageContainer -Name $containerName -Context $xioContextnode2  
 
-####DISK COPYING####
-##get disks from csv, get settings for each VHDs and copy to Premium Storage accoun
-ForEach ($disk in $diskobjects)
-   {
-   $lun = $disk.Lun
-   $vhdname = $disk.vhdname
-   $cacheoption = $disk.HostCaching
-   $disklabel = $disk.DiskLabel
-   $diskName = $disk.DiskName
-   Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname has cache setting : $cacheoption"
+    ####DISK COPYING####
+    ##get disks from csv, get settings for each VHDs and copy to Premium Storage accoun
+    ForEach ($disk in $diskobjects)
+       {
+       $lun = $disk.Lun
+       $vhdname = $disk.vhdname
+       $cacheoption = $disk.HostCaching
+       $disklabel = $disk.DiskLabel
+       $diskName = $disk.DiskName
+       Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname has cache setting : $cacheoption"
 
-   #Start async copy
-   Start-AzureStorageBlobCopy -srcUri "https://$origstorageaccountname2nd.blob.core.chinacloudapi.cn/vhds/$vhdname" `
-    -SrcContext $origContext `
-    -DestContainer $containerName `
-    -DestBlob $vhdname `
-    -DestContext $xioContextnode2
-   }
+       #Start async copy
+       Start-AzureStorageBlobCopy -srcUri "https://$origstorageaccountname2nd.blob.core.chinacloudapi.cn/vhds/$vhdname" `
+        -SrcContext $origContext `
+        -DestContainer $containerName `
+        -DestBlob $vhdname `
+        -DestContext $xioContextnode2
+       }
 
-#Check for copy progress
+    #Check for copy progress
 
-#check induvidual blob status
-Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
-```
+    #check induvidual blob status
+    Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
 
 You can check the VHD copy status for all VHDs:
 
-```
-ForEach ($disk in $diskobjects)
-   {
-   $lun = $disk.Lun
-   $vhdname = $disk.vhdname
-   $cacheoption = $disk.HostCaching
-   $disklabel = $disk.DiskLabel
-   $diskName = $disk.DiskName
+    ForEach ($disk in $diskobjects)
+       {
+       $lun = $disk.Lun
+       $vhdname = $disk.vhdname
+       $cacheoption = $disk.HostCaching
+       $disklabel = $disk.DiskLabel
+       $diskName = $disk.DiskName
 
-   $copystate = Get-AzureStorageBlobCopyState -Blob $vhdname -Container $containerName -Context $xioContextnode2
-Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status
-   }
-```
+       $copystate = Get-AzureStorageBlobCopyState -Blob $vhdname -Container $containerName -Context $xioContextnode2
+    Write-Host "Copying Disk Lun $lun, Label : $disklabel, VHD : $vhdname, STATUS = " $copystate.Status
+       }
 
 ![Appendix12][22]
 
@@ -1077,72 +1005,66 @@ Wait until all these are recorded as success.
 
 For information for individual blobs:
 
-```
-#Check induvidual blob status
-Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
-```
+    #Check induvidual blob status
+    Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 
 #### Step 21: Register OS disk
-```
-#change storage account to the new XIO storage account
-Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountnamenode2
-Select-AzureSubscription -SubscriptionName $mysubscription -Current
+    #change storage account to the new XIO storage account
+    Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount $newxiostorageaccountnamenode2
+    Select-AzureSubscription -SubscriptionName $mysubscription -Current
 
-#Register OS disk
-$osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
-$osvhd = $osdiskimport.vhdname
-$osdiskforbuild = $osdiskimport.diskName
+    #Register OS disk
+    $osdiskimport = $diskobjects | where {$_.lun -eq "Windows"}
+    $osvhd = $osdiskimport.vhdname
+    $osdiskforbuild = $osdiskimport.diskName
 
-#Registering OS disk, but as XIO disk
-$xioDiskName = $osdiskforbuild + "xio"
-Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountnamenode2.blob.core.chinacloudapi.cn/vhds/$osvhd"  -Label "BootDisk" -OS "Windows"
+    #Registering OS disk, but as XIO disk
+    $xioDiskName = $osdiskforbuild + "xio"
+    Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageaccountnamenode2.blob.core.chinacloudapi.cn/vhds/$osvhd"  -Label "BootDisk" -OS "Windows"
 
-#Build VM Config
-$ipaddr = "192.168.0.4"
-$newInstanceSize = "Standard_DS13"
+    #Build VM Config
+    $ipaddr = "192.168.0.4"
+    $newInstanceSize = "Standard_DS13"
 
-#Join to existing Avaiability Set
+    #Join to existing Avaiability Set
 
-#Build machine config into object
-$vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
+    #Build machine config into object
+    $vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
-#Reload disk config
-$diskobjects  = Import-CSV $file
-$datadiskimport = $diskobjects | where {$_.lun -ne "Windows"}
+    #Reload disk config
+    $diskobjects  = Import-CSV $file
+    $datadiskimport = $diskobjects | where {$_.lun -ne "Windows"}
 
-ForEach ( $attachdatadisk in $datadiskimport)
-   {
-$label = $attachdatadisk.disklabel
-$lunNo = $attachdatadisk.lun
-$hostcach = $attachdatadisk.hostcaching
-$datadiskforbuild = $attachdatadisk.diskName
-$vhdname = $attachdatadisk.vhdname
+    ForEach ( $attachdatadisk in $datadiskimport)
+       {
+    $label = $attachdatadisk.disklabel
+    $lunNo = $attachdatadisk.lun
+    $hostcach = $attachdatadisk.hostcaching
+    $datadiskforbuild = $attachdatadisk.diskName
+    $vhdname = $attachdatadisk.vhdname
 
-###This is different to just a straight cloud service change
-#note if you do not have a disk label the command below will fail, populate as required.
-$vmConfig | Add-AzureDataDisk -ImportFrom -MediaLocation "https://$newxiostorageaccountnamenode2.blob.core.chinacloudapi.cn/vhds/$vhdname" -LUN $lunNo -HostCaching $hostcach -DiskLabel $label
+    ###This is different to just a straight cloud service change
+    #note if you do not have a disk label the command below will fail, populate as required.
+    $vmConfig | Add-AzureDataDisk -ImportFrom -MediaLocation "https://$newxiostorageaccountnamenode2.blob.core.chinacloudapi.cn/vhds/$vhdname" -LUN $lunNo -HostCaching $hostcach -DiskLabel $label
 
-}
+    }
 
-#Create VM
-$vmConfig  | New-AzureVM -ServiceName $destcloudsvc -Location $location -VNetName $vnet -Verbose
-```
+    #Create VM
+    $vmConfig  | New-AzureVM -ServiceName $destcloudsvc -Location $location -VNetName $vnet -Verbose
 
 #### Step 22: Add Load Balanced Endpoints and ACLs
-```
-#Endpoints
-$epname="sqlIntEP"
-$prot="tcp"
-$locport=1433
-$pubport=1433
-Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
+    #Endpoints
+    $epname="sqlIntEP"
+    $prot="tcp"
+    $locport=1433
+    $pubport=1433
+    Get-AzureVM -ServiceName $destcloudsvc -Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
 
-#STOP!!! CHECK in the Azure Classic Management Portal or Machine Endpoints through powershell that these Endpoints are created!
+    #STOP!!! CHECK in the Azure Classic Management Portal or Machine Endpoints through powershell that these Endpoints are created!
 
-#SET ACLs or Azure Network Security Groups & Windows FWs
+    #SET ACLs or Azure Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/zh-cn/library/azure/dn495192.aspx
-```
+    #http://msdn.microsoft.com/zh-cn/library/azure/dn495192.aspx
 
 #### Step 23: Test failover
 You should now let the migrated node synchronize with the on-premise Always On node, place it in to synchronous replication mode and wait until it is synchronized. Then failover from on-prem to the first node migrated, which is the AFP. Once that has worked, change the last migrated node to the AFP.

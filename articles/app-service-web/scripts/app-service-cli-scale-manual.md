@@ -29,7 +29,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-```
+```azurecli
 #/bin/bash
 
 # Variables
@@ -49,7 +49,7 @@ az appservice web create --name $appName --plan AppServiceManualScalePlan --reso
 az appservice plan update --number-of-workers 2 --name AppServiceManualScalePlan --resource-group myResourceGroup
 ```
 
-[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

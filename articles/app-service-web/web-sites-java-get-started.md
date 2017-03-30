@@ -89,15 +89,15 @@ For more information about developing Java applications in Azure, see the [Java 
 
 <!-- URL List -->
 
-[Add an application or webpage to your Java web app]: ./web-sites-java-add-app.md
+[Add an application or webpage to your Java web app]: web-sites-java-add-app.md
 [Azure App Service plans overview]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [Azure Portal Preview]: https://portal.azure.cn/
 [sign up for a trial]: https://www.azure.cn/pricing/1rmb-trial/
 [Try App Service]: https://azure.microsoft.com/try/app-service/
-[web app in Azure App Service]: ./app-service-changes-existing-services.md
+[web app in Azure App Service]: /azure/app-service-web/app-service-changes-existing-services/
 [Java Developer Center]: /develop/java/
 [Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
-[Upload a custom Java web app to Azure]: ./web-sites-java-custom-upload.md
+[Upload a custom Java web app to Azure]: web-sites-java-custom-upload.md
 
 <!-- IMG List -->
 

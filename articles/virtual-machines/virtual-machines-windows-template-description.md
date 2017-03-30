@@ -35,7 +35,7 @@ This example shows a typical resource section of a template for creating a speci
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop",    
+      "name": "virtualMachineLoop",	
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -279,15 +279,15 @@ To set this property, the network interface must exist. Therefore, you need a de
 
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
 
-- [size](./virtual-machines-windows-sizes.md)
-- [name](./virtual-machines-linux-infrastructure-naming-guidelines.md) and credentials
-- disk and [operating system settings](./virtual-machines-windows-cli-ps-findimage.md)
+- [size](virtual-machines-windows-sizes.md)
+- [name](virtual-machines-linux-infrastructure-naming-guidelines.md) and credentials
+- disk and [operating system settings](virtual-machines-windows-cli-ps-findimage.md)
 - [network interface](../virtual-network/virtual-networks-multiple-nics.md) 
 - boot diagnostics
 
 ## Disks and images
 
-In Azure, vhd files can represent [disks or images](../storage/storage-about-disks-and-vhds-windows.md). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
+In Azure, vhd files can represent [disks or images](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
 
 ### Create new virtual machines and new disks from a platform image
 
@@ -313,7 +313,7 @@ If you want to create a Linux operating system, you might use this definition:
 },
 ```
 
-Configuration settings for the operating system disk are assigned with the osDisk element. The example defines a new managed disk with the caching mode set to **ReadWrite** and that the disk is being created from a [platform image](./virtual-machines-windows-cli-ps-findimage.md):
+Configuration settings for the operating system disk are assigned with the osDisk element. The example defines a new managed disk with the caching mode set to **ReadWrite** and that the disk is being created from a [platform image](virtual-machines-windows-cli-ps-findimage.md):
 
 ```
 "osDisk": { 
@@ -358,7 +358,7 @@ If you want to create a virtual machine from a managed image, change the imageRe
 
 ### Attach data disks
 
-You can optionally add data disks to the VMs. The [number of disks](./virtual-machines-windows-sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
+You can optionally add data disks to the VMs. The [number of disks](virtual-machines-windows-sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
 
 ```
 "dataDisks": [
@@ -374,7 +374,7 @@ You can optionally add data disks to the VMs. The [number of disks](./virtual-ma
 
 ## Extensions
 
-Although [extensions](./virtual-machines-windows-extensions-features.md) are a separate resource, they are closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](./virtual-machines-windows-extensions-diagnostics-template.md) being added to the VMs:
+Although [extensions](virtual-machines-windows-extensions-features.md) are a separate resource, they are closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](virtual-machines-windows-extensions-diagnostics-template.md) being added to the VMs:
 
 ```
 { 
@@ -409,7 +409,7 @@ Although [extensions](./virtual-machines-windows-extensions-features.md) are a s
 
 This extension resource uses the storageName variable and the diagnostic variables to provide values. If you want to change the data that is collected by this extension, you can add more performance counters to the wadperfcounters variable. You could also choose to put the diagnostics data into a different storage account than where the VM disks are stored.
 
-There are many extensions that you can install on a VM, but the most useful is probably the [Custom Script Extension](./virtual-machines-windows-extensions-customscript.md). In the example, a PowerShell script named start.ps1 runs on each VM when it first starts:
+There are many extensions that you can install on a VM, but the most useful is probably the [Custom Script Extension](virtual-machines-windows-extensions-customscript.md). In the example, a PowerShell script named start.ps1 runs on each VM when it first starts:
 
 ```
 {
@@ -457,5 +457,5 @@ It's not a problem to use the same template to create resources or to update exi
 ## Next Steps
 
 - Create your own template using [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
-- Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](./virtual-machines-windows-ps-template.md).
-- Learn how to manage the VMs that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](./virtual-machines-windows-ps-manage.md).
+- Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md).
+- Learn how to manage the VMs that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).

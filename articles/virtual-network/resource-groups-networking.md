@@ -83,9 +83,7 @@ As mentioned earlier, network resources can be managed via a variety of interfac
 
 The Rest API's conform to the HTTP 1.1 protocol specification. The general URI structure of the API is presented below:
 
-```
-https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
-```
+    https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
 
 And the parameters in braces represent the following elements:
 
@@ -106,134 +104,128 @@ In addition to managing resources imperatively (via APIs or SDK), you can also u
 
 A sample representation of a template is provided below -
 
-```
-{
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-  "contentVersion": "<version-number-of-template>",
-  "parameters": { <parameter-definitions-of-template> },
-  "variables": { <variable-definitions-of-template> },
-  "resources": [ { <definition-of-resource-to-deploy> } ],
-  "outputs": { <output-of-template> }    
-}
-```
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "contentVersion": "<version-number-of-template>",
+      "parameters": { <parameter-definitions-of-template> },
+      "variables": { <variable-definitions-of-template> },
+      "resources": [ { <definition-of-resource-to-deploy> } ],
+      "outputs": { <output-of-template> }    
+    }
 
 The template is primarily a JSON description of the resources and the instance values injected via parameters. The example below can be used to create a virtual network with 2 subnets.
 
-```
-{
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VNET.json",
-    "contentVersion": "1.0.0.0",
-    "parameters" : {
-      "location": {
-        "type": "String",
-        "allowedValues": ["China East", "China North"],
-        "metadata" : {
-          "Description" : "Deployment location"
-        }
-      },
-      "virtualNetworkName":{
-        "type" : "string",
-        "defaultValue":"myVNET",
-        "metadata" : {
-          "Description" : "VNET name"
-        }
-      },
-      "addressPrefix":{
-        "type" : "string",
-        "defaultValue" : "10.0.0.0/16",
-        "metadata" : {
-          "Description" : "Address prefix"
-        }
-
-      },
-      "subnet1Name": {
-        "type" : "string",
-        "defaultValue" : "Subnet-1",
-        "metadata" : {
-          "Description" : "Subnet 1 Name"
-        }
-      },
-      "subnet2Name": {
-        "type" : "string",
-        "defaultValue" : "Subnet-2",
-        "metadata" : {
-          "Description" : "Subnet 2 name"
-        }
-      },
-      "subnet1Prefix" : {
-        "type" : "string",
-        "defaultValue" : "10.0.0.0/24",
-        "metadata" : {
-          "Description" : "Subnet 1 Prefix"
-        }
-      },
-      "subnet2Prefix" : {
-        "type" : "string",
-        "defaultValue" : "10.0.1.0/24",
-        "metadata" : {
-          "Description" : "Subnet 2 Prefix"
-        }
-      }
-    },
-    "resources": [
     {
-      "apiVersion": "2015-05-01-preview",
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('virtualNetworkName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[parameters('addressPrefix')]"
-          ]
-        },
-        "subnets": [
-          {
-            "name": "[parameters('subnet1Name')]",
-            "properties" : {
-              "addressPrefix": "[parameters('subnet1Prefix')]"
+        "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VNET.json",
+        "contentVersion": "1.0.0.0",
+        "parameters" : {
+          "location": {
+            "type": "String",
+            "allowedValues": ["China East", "China North"],
+            "metadata" : {
+              "Description" : "Deployment location"
             }
           },
-          {
-            "name": "[parameters('subnet2Name')]",
-            "properties" : {
-              "addressPrefix": "[parameters('subnet2Prefix')]"
+          "virtualNetworkName":{
+            "type" : "string",
+            "defaultValue":"myVNET",
+            "metadata" : {
+              "Description" : "VNET name"
+            }
+          },
+          "addressPrefix":{
+            "type" : "string",
+            "defaultValue" : "10.0.0.0/16",
+            "metadata" : {
+              "Description" : "Address prefix"
+            }
+
+          },
+          "subnet1Name": {
+            "type" : "string",
+            "defaultValue" : "Subnet-1",
+            "metadata" : {
+              "Description" : "Subnet 1 Name"
+            }
+          },
+          "subnet2Name": {
+            "type" : "string",
+            "defaultValue" : "Subnet-2",
+            "metadata" : {
+              "Description" : "Subnet 2 name"
+            }
+          },
+          "subnet1Prefix" : {
+            "type" : "string",
+            "defaultValue" : "10.0.0.0/24",
+            "metadata" : {
+              "Description" : "Subnet 1 Prefix"
+            }
+          },
+          "subnet2Prefix" : {
+            "type" : "string",
+            "defaultValue" : "10.0.1.0/24",
+            "metadata" : {
+              "Description" : "Subnet 2 Prefix"
             }
           }
+        },
+        "resources": [
+        {
+          "apiVersion": "2015-05-01-preview",
+          "type": "Microsoft.Network/virtualNetworks",
+          "name": "[parameters('virtualNetworkName')]",
+          "location": "[parameters('location')]",
+          "properties": {
+            "addressSpace": {
+              "addressPrefixes": [
+                "[parameters('addressPrefix')]"
+              ]
+            },
+            "subnets": [
+              {
+                "name": "[parameters('subnet1Name')]",
+                "properties" : {
+                  "addressPrefix": "[parameters('subnet1Prefix')]"
+                }
+              },
+              {
+                "name": "[parameters('subnet2Name')]",
+                "properties" : {
+                  "addressPrefix": "[parameters('subnet2Prefix')]"
+                }
+              }
+            ]
+          }
+        }
         ]
-      }
     }
-    ]
-}
-```
 
 You have the option of providing the parameter values manually when using a template, or you can use a parameter file. The example below shows a possible set of parameter values to be used with the template above:
 
-```
-{
-  "location": {
-      "value": "China East"
-  },
-  "virtualNetworkName": {
-      "value": "VNET1"
-  },
-  "subnet1Name": {
-      "value": "Subnet1"
-  },
-  "subnet2Name": {
-      "value": "Subnet2"
-  },
-  "addressPrefix": {
-      "value": "192.168.0.0/16"
-  },
-  "subnet1Prefix": {
-      "value": "192.168.1.0/24"
-  },
-  "subnet2Prefix": {
-      "value": "192.168.2.0/24"
-  }
-}
-```
+    {
+      "location": {
+          "value": "China East"
+      },
+      "virtualNetworkName": {
+          "value": "VNET1"
+      },
+      "subnet1Name": {
+          "value": "Subnet1"
+      },
+      "subnet2Name": {
+          "value": "Subnet2"
+      },
+      "addressPrefix": {
+          "value": "192.168.0.0/16"
+      },
+      "subnet1Prefix": {
+          "value": "192.168.1.0/24"
+      },
+      "subnet2Prefix": {
+          "value": "192.168.2.0/24"
+      }
+    }
 
 The main advantages of using templates are:
 

@@ -26,7 +26,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-```
+```powershell
 $appdirectory="<Replace with your app directory>"
 $webappname="mywebapp$(Get-Random)"
 $location="China North"

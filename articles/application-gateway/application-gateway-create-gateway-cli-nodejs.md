@@ -20,19 +20,22 @@ ms.author: gwallace
 ---
 
 # Create an application gateway by using the Azure CLI
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-create-gateway-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-create-gateway-arm.md)
->- [Azure Classic PowerShell](./application-gateway-create-gateway.md)
->- [Azure Resource Manager template](./application-gateway-create-gateway-arm-template.md)
->- [Azure CLI 1.0](./application-gateway-create-gateway-cli.md)
->- [Azure CLI 2.0](./application-gateway-create-gateway-cli.md)
+> * [Azure portal preview](application-gateway-create-gateway-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
+> * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
+> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+> 
+> 
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload, custom health probes, and support for multi-site.
 
 ## Prerequisite: Install the Azure CLI
 
-To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](/documentation/articles/cli-install-nodejs/) and you need to [log on to Azure](../xplat-cli-connect.md). 
+To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](../cli-install-nodejs.md) and you need to [log on to Azure](../xplat-cli-connect.md). 
 
 > [!NOTE]
 > If you don't have an Azure account, you need one. Go sign up for a [trial here](../active-directory/sign-up-organization.md).
@@ -125,9 +128,9 @@ If you already have your web application defined with the backend pool in the pr
 
 ## Next steps
 
-Learn how to create custom health probes by visiting [Create a custom health probe](./application-gateway-create-probe-portal.md)
+Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 
-Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](./application-gateway-ssl-arm.md)
+Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

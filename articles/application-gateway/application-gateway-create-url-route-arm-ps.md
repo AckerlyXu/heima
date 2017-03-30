@@ -17,11 +17,11 @@ ms.date: 12/15/2016
 wacn.date: ''
 ms.author: gwallace
 ---
-
 # Create an application gateway using Path-based routing
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-create-url-route-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-create-url-route-arm-ps.md)
+> * [Azure portal preview](application-gateway-create-url-route-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 
 URL Path-based routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL lists in Application Gateway and send the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
 
@@ -114,7 +114,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 In the example above, we created a resource group called "appgw-RG" and location "China North".
 
 > [!NOTE]
-> If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](./application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](./application-gateway-probe-overview.md) for more information.
+> If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 > 
 > 
 
@@ -260,10 +260,9 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. To configure the frontend IP CNAME record, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
 
-```
+```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 ```
-
 
 ```
 Name                     : publicIP01
@@ -289,4 +288,4 @@ DnsSettings              : {
 
 ## Next steps
 
-If you want to learn Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](./application-gateway-ssl-arm.md).
+If you want to learn Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-ssl-arm.md).

@@ -26,7 +26,7 @@ ms.author: jgao
 In this article, you'll learn how to define workflows and coordinators, and how to trigger the coordinator jobs, based on time. It is helpful to go through [Use Oozie with HDInsight][hdinsight-use-oozie] before you read this article. In addition to Oozie, you can also schedule jobs using Azure Data Factory.
 
 > [!NOTE]
-> This article requires a Windows-based HDInsight cluster. For information on using Oozie, including time-based jobs, on a Linux-based cluster, see [Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight](./hdinsight-use-oozie-linux-mac.md)
+> This article requires a Windows-based HDInsight cluster. For information on using Oozie, including time-based jobs, on a Linux-based cluster, see [Use Oozie with Hadoop to define and run a workflow on Linux-based HDInsight](hdinsight-use-oozie-linux-mac.md)
 
 ## <a id="whatisoozie"></a> What is Oozie
 Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is integrated with the Hadoop stack, and it supports Hadoop jobs for Apache MapReduce, Apache Pig, Apache Hive, and Apache Sqoop. It can also be used to schedule jobs that are specific to a system, such as Java programs or shell scripts.
@@ -39,23 +39,19 @@ The workflow contains two actions:
 
 1. A Hive action runs a HiveQL script to count the occurrences of each log-level type in a log4j log file. Each log4j log consists of a line of fields that contains a [LOG LEVEL] field to show the type and the severity, for example:
 
-    ```
-    2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
-    2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
-    2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
-    ...
-    ```
+        2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
+        2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
+        2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
+        ...
 
     The Hive script output is similar to:
 
-    ```
-    [DEBUG] 434
-    [ERROR] 3
-    [FATAL] 1
-    [INFO]  96
-    [TRACE] 816
-    [WARN]  4
-    ```
+        [DEBUG] 434
+        [ERROR] 3
+        [FATAL] 1
+        [INFO]  96
+        [TRACE] 816
+        [WARN]  4
 
     For more information about Hive, see [Use Hive with HDInsight][hdinsight-use-hive].
 2. A Sqoop action exports the HiveQL action output to a table in an Azure SQL database. For more information about Sqoop, see [Use Sqoop with HDInsight][hdinsight-use-sqoop].
@@ -73,7 +69,7 @@ Before you begin this tutorial, you must have the following:
     > [!IMPORTANT]
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
     ><p>
-    > Please follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](./hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
+    > Please follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
 
 * **An HDInsight cluster**. For information about creating an HDInsight cluster, see [Create HDInsight clusters][hdinsight-provision], or [Get started with HDInsight][hdinsight-get-started]. You will need the following data to go through the tutorial:
 
@@ -118,11 +114,9 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
 
 1. Create a text file with the following content:
 
-    ```
-    DROP TABLE ${hiveTableName};
-    CREATE EXTERNAL TABLE ${hiveTableName}(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
-    INSERT OVERWRITE DIRECTORY '${hiveOutputFolder}' SELECT t4 AS sev, COUNT(*) AS cnt FROM ${hiveTableName} WHERE t4 LIKE '[%' GROUP BY t4;
-    ```
+        DROP TABLE ${hiveTableName};
+        CREATE EXTERNAL TABLE ${hiveTableName}(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED FIELDS TERMINATED BY ' ' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
+        INSERT OVERWRITE DIRECTORY '${hiveOutputFolder}' SELECT t4 AS sev, COUNT(*) AS cnt FROM ${hiveTableName} WHERE t4 LIKE '[%' GROUP BY t4;
 
     There are three variables used in the script:
 
@@ -130,7 +124,7 @@ The Hive action in the workflow calls a HiveQL script file. This script file con
     * ${hiveDataFolder}
     * ${hiveOutputFolder}
 
-        The workflow definition file (workflow.xml in this tutorial) will pass these values to this HiveQL script at run time.
+    The workflow definition file (workflow.xml in this tutorial) will pass these values to this HiveQL script at run time.
 2. Save the file as **C:\Tutorials\UseOozie\useooziewf.hql** by using ANSI (ASCII) encoding. (Use Notepad if your text editor doesn't provide this option.) This script file will be deployed to the HDInsight cluster later in the tutorial.
 
 **To define a workflow**
@@ -270,9 +264,7 @@ HDInsight uses Azure Blob storage for data storage. wasbs:// is Microsoft's impl
 When you provision an HDInsight cluster, an Azure Blob storage account and a specific container from that account is designated as the default file system, like in HDFS. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or from different Azure subscriptions during the provisioning process. For instructions about adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. To simplify the Azure PowerShell script used in this tutorial, all of the files are stored in the default file system container located at */tutorials/useoozie*. By default, this container has the same name as the HDInsight cluster name.
 The syntax is:
 
-```
-wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/<path>/<filename>
-```
+    wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/<path>/<filename>
 
 > [!NOTE]
 > Only the *wasb://* syntax is supported in HDInsight cluster version 3.0. The older *asv://* syntax is supported in HDInsight 2.1 and 1.6 clusters, but it is not supported in HDInsight 3.0 clusters.
@@ -281,17 +273,13 @@ wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/<path>
 
 A file that is stored in the default file system container can be accessed from HDInsight by using any of the following URIs (I am using workflow.xml as an example):
 
-```
-wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie/workflow.xml
-wasbs:///tutorials/useoozie/workflow.xml
-/tutorials/useoozie/workflow.xml
-```
+    wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn/tutorials/useoozie/workflow.xml
+    wasbs:///tutorials/useoozie/workflow.xml
+    /tutorials/useoozie/workflow.xml
 
 If you want to access the file directly from the storage account, the blob name for the file is:
 
-```
-tutorials/useoozie/workflow.xml
-```
+    tutorials/useoozie/workflow.xml
 
 **Understand Hive internal and external tables**
 
@@ -737,20 +725,20 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 
-[hdinsight-versions]: ./hdinsight-component-versioning.md
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: ./hdinsight-administer-use-management-portal.md
+[hdinsight-versions]:  hdinsight-component-versioning.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
-[hdinsight-use-sqoop]: ./hdinsight-use-sqoop.md
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-admin-powershell]: ./hdinsight-administer-use-powershell.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-use-pig]: ./hdinsight-use-pig.md
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
-[hdinsight-develop-java-mapreduce]: ./hdinsight-develop-deploy-java-mapreduce-linux.md
-[hdinsight-use-oozie]: ./hdinsight-use-oozie.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
 
 [sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 

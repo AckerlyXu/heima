@@ -75,7 +75,7 @@ For detailed information about how to configure authentication, see [How to conf
 ## <a id="internal"></a> Service account authentication
 App Service authentication works for internal scenarios such as for calling from one API app to another API app. In this scenario you get a token by using credentials for a service account instead of end user credentials. A service account is also known as a *service principal* in Azure Active Directory, and authentication using such an account is also known as a service-to-service scenario. 
 
-For service-to-service scenarios, protect the called API app by using Azure Active Directory, and provide an AAD service principal authorization token when you call the API app. You get a token by providing the client ID and client secret from the AAD application. No special Azure-only code is required, such as used to be true for handling the Mobile Services Zumo token. An example of this scenario using ASP.NET API apps is covered by the tutorial [Service principal authentication for API Apps](./app-service-api-dotnet-service-principal-auth.md).
+For service-to-service scenarios, protect the called API app by using Azure Active Directory, and provide an AAD service principal authorization token when you call the API app. You get a token by providing the client ID and client secret from the AAD application. No special Azure-only code is required, such as used to be true for handling the Mobile Services Zumo token. An example of this scenario using ASP.NET API apps is covered by the tutorial [Service principal authentication for API Apps](app-service-api-dotnet-service-principal-auth.md).
 
 If you want to handle a service-to-service scenario without using App Service authentication, you can use client certificates or basic authentication. For information about client certificates in Azure, see [How To Configure TLS Mutual Authentication for Web Apps](../app-service-web/app-service-web-configure-tls-mutual-auth.md). For information about basic authentication in ASP.NET, see [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
 
@@ -98,9 +98,9 @@ For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT),
 
 For more information about Azure Active Directory, see the following resources.
 
-* [Azure AD scenarios](../active-directory/active-directory-authentication-scenarios.md)
-* [Azure AD developers' guide](../active-directory/active-directory-developers-guide.md)
+* [Azure AD scenarios](/azure/active-directory/active-directory-authentication-scenarios/)
+* [Azure AD developers' guide](/azure/active-directory/active-directory-developers-guide/)
 * [Azure AD samples](https://github.com/azure-samples?query=active-directory)
 
 ## Next steps
-This article has explained authentication and authorization features of App Service that you can use for API apps. The next tutorial in the getting started series shows how to implement [user authentication in App Service API Apps](./app-service-api-dotnet-user-principal-auth.md).
+This article has explained authentication and authorization features of App Service that you can use for API apps. The next tutorial in the getting started series shows how to implement [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).

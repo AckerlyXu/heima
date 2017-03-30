@@ -166,125 +166,114 @@ Click right arrow, leave the defaults on the screen #3 and click the "check" but
 #### STEP 1: Upload tarballs
 Using scp or pscp, copy the previously downloaded software to ~/downloads directory using the following command format:
 
-```
-pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.chinacloudapp.cn:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
-```
+    pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.chinacloudapp.cn:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
+
 Repeat the above command for JRE as well as for the Cassandra bits.
 
 #### STEP 2: Prepare the directory structure and extract the archives
 Log into the VM and create the directory structure and extract software as a super user using the bash script below:
 
-```
-#!/bin/bash
-CASS_INSTALL_DIR="/opt/cassandra"
-JRE_INSTALL_DIR="/opt/java"
-CASS_DATA_DIR="/var/lib/cassandra"
-CASS_LOG_DIR="/var/log/cassandra"
-DOWNLOADS_DIR="~/downloads"
-JRE_TARBALL="server-jre-8u5-linux-x64.tar.gz"
-CASS_TARBALL="apache-cassandra-2.0.8-bin.tar.gz"
-SVC_USER="localadmin"
+    #!/bin/bash
+    CASS_INSTALL_DIR="/opt/cassandra"
+    JRE_INSTALL_DIR="/opt/java"
+    CASS_DATA_DIR="/var/lib/cassandra"
+    CASS_LOG_DIR="/var/log/cassandra"
+    DOWNLOADS_DIR="~/downloads"
+    JRE_TARBALL="server-jre-8u5-linux-x64.tar.gz"
+    CASS_TARBALL="apache-cassandra-2.0.8-bin.tar.gz"
+    SVC_USER="localadmin"
 
-RESET_ERROR=1
-MKDIR_ERROR=2
+    RESET_ERROR=1
+    MKDIR_ERROR=2
 
-reset_installation ()
-{
-   rm -rf $CASS_INSTALL_DIR 2> /dev/null
-   rm -rf $JRE_INSTALL_DIR 2> /dev/null
-   rm -rf $CASS_DATA_DIR 2> /dev/null
-   rm -rf $CASS_LOG_DIR 2> /dev/null
-}
-make_dir ()
-{
-   if [ -z "$1" ]
-   then
-      echo "make_dir: invalid directory name"
-      exit $MKDIR_ERROR
-   fi
+    reset_installation ()
+    {
+       rm -rf $CASS_INSTALL_DIR 2> /dev/null
+       rm -rf $JRE_INSTALL_DIR 2> /dev/null
+       rm -rf $CASS_DATA_DIR 2> /dev/null
+       rm -rf $CASS_LOG_DIR 2> /dev/null
+    }
+    make_dir ()
+    {
+       if [ -z "$1" ]
+       then
+          echo "make_dir: invalid directory name"
+          exit $MKDIR_ERROR
+       fi
 
-   if [ -d "$1" ]
-   then
-      echo "make_dir: directory already exists"
-      exit $MKDIR_ERROR
-   fi
+       if [ -d "$1" ]
+       then
+          echo "make_dir: directory already exists"
+          exit $MKDIR_ERROR
+       fi
 
-   mkdir $1 2>/dev/null
-   if [ $? != 0 ]
-   then
-      echo "directory creation failed"
-      exit $MKDIR_ERROR
-   fi
-}
+       mkdir $1 2>/dev/null
+       if [ $? != 0 ]
+       then
+          echo "directory creation failed"
+          exit $MKDIR_ERROR
+       fi
+    }
 
-unzip()
-{
-   if [ $# == 2 ]
-   then
-      tar xzf $1 -C $2
-   else
-      echo "archive error"
-   fi
+    unzip()
+    {
+       if [ $# == 2 ]
+       then
+          tar xzf $1 -C $2
+       else
+          echo "archive error"
+       fi
 
-}
+    }
 
-if [ -n "$1" ]
-then
-   SVC_USER=$1
-fi
+    if [ -n "$1" ]
+    then
+       SVC_USER=$1
+    fi
 
-reset_installation
-make_dir $CASS_INSTALL_DIR
-make_dir $JRE_INSTALL_DIR
-make_dir $CASS_DATA_DIR
-make_dir $CASS_LOG_DIR
+    reset_installation
+    make_dir $CASS_INSTALL_DIR
+    make_dir $JRE_INSTALL_DIR
+    make_dir $CASS_DATA_DIR
+    make_dir $CASS_LOG_DIR
 
-#unzip JRE and Cassandra
-unzip $HOME/downloads/$JRE_TARBALL $JRE_INSTALL_DIR
-unzip $HOME/downloads/$CASS_TARBALL $CASS_INSTALL_DIR
+    #unzip JRE and Cassandra
+    unzip $HOME/downloads/$JRE_TARBALL $JRE_INSTALL_DIR
+    unzip $HOME/downloads/$CASS_TARBALL $CASS_INSTALL_DIR
 
-#Change the ownership to the service credentials
+    #Change the ownership to the service credentials
 
-chown -R $SVC_USER:$GROUP $CASS_DATA_DIR
-chown -R $SVC_USER:$GROUP $CASS_LOG_DIR
-echo "edit /etc/profile to add JRE to the PATH"
-echo "installation is complete"
-```
+    chown -R $SVC_USER:$GROUP $CASS_DATA_DIR
+    chown -R $SVC_USER:$GROUP $CASS_LOG_DIR
+    echo "edit /etc/profile to add JRE to the PATH"
+    echo "installation is complete"
 
 If you paste this script into vim window, make sure to remove the carriage return ('\r') using the following command:
 
-```
-tr -d '\r' <infile.sh >outfile.sh
-```
+    tr -d '\r' <infile.sh >outfile.sh
 
 #### Step 3: Edit etc/profile
 Append the following at the end:
 
-```
-JAVA_HOME=/opt/java/jdk1.8.0_05
-CASS_HOME= /opt/cassandra/apache-cassandra-2.0.8
-PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$CASS_HOME/bin
-export JAVA_HOME
-export CASS_HOME
-export PATH
-```
+    JAVA_HOME=/opt/java/jdk1.8.0_05
+    CASS_HOME= /opt/cassandra/apache-cassandra-2.0.8
+    PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$CASS_HOME/bin
+    export JAVA_HOME
+    export CASS_HOME
+    export PATH
 
 #### Step 4: Install JNA for production systems
 Use the following command sequence:
 
 The following command will install jna-3.2.7.jar and jna-platform-3.2.7.jar to /usr/share.java directory
 
-```
-sudo apt-get install libjna-java
-```
+    sudo apt-get install libjna-java
 
 Create symbolic links in $CASS_HOME/lib directory so that Cassandra startup script can find these jars:
 
-```
-ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
+    ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
-ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
-```
+    ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 #### Step 5: Configure cassandra.yaml
 Edit cassandra.yaml on each VM to reflect configuration needed by all the virtual machines [we will tweak this during the actual provisioning]:
@@ -304,7 +293,7 @@ Log into the virtual machine using the hostname (hk-cas-template.chinacloudapp.c
 Execute the following sequence of actions to capture the image:
 
 ##### 1. Deprovision
-Use the command "sudo waagent -deprovision+user" to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](./virtual-machines-linux-classic-capture-image.md) to Use as a Template more details on the image capture process.
+Use the command "sudo waagent -deprovision+user" to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) to Use as a Template more details on the image capture process.
 
 ##### 2: Shutdown the VM
 Make sure that the virtual machine is highlighted and click the SHUTDOWN link from the bottom command bar.
@@ -370,60 +359,58 @@ The above process can be executed using Azure Classic Management Portal; use a W
 
 **List 1: PowerShell script for provisioning virtual machines**
 
-```
-    #Tested with Azure Powershell - November 2014
-    #This powershell script deployes a number of VMs from an existing image inside an Azure region
-    #Import your Azure subscription into the current Powershell session before proceeding
-    #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #Tested with Azure Powershell - November 2014
+        #This powershell script deployes a number of VMs from an existing image inside an Azure region
+        #Import your Azure subscription into the current Powershell session before proceeding
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
 
-    #fundamental variables - change these to reflect your subscription
-    $country="china"; $region="north"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
-    $numVMs=8;$prefix = "hk-cass";$ilbIP="your_ilb_ip"
-    $subscriptionName = "Azure_subscription_name";
-    $vmSize="ExtraSmall"; $imageName="your_linux_image_name"
-    $ilbName="ThriftInternalLB"; $thriftEndPoint="ThriftEndPoint"
+        #fundamental variables - change these to reflect your subscription
+        $country="china"; $region="north"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
+        $numVMs=8;$prefix = "hk-cass";$ilbIP="your_ilb_ip"
+        $subscriptionName = "Azure_subscription_name";
+        $vmSize="ExtraSmall"; $imageName="your_linux_image_name"
+        $ilbName="ThriftInternalLB"; $thriftEndPoint="ThriftEndPoint"
 
-    #generated variables
-    $serviceName = "$prefix-svc-$region-$country"; $azureRegion = "$region $country"
+        #generated variables
+        $serviceName = "$prefix-svc-$region-$country"; $azureRegion = "$region $country"
 
-    $vmNames = @()
-    for ($i=0; $i -lt $numVMs; $i++)
-    {
-       $vmNames+=("$prefix-vm"+($i+1) + "-$region-$country" );
-    }
+        $vmNames = @()
+        for ($i=0; $i -lt $numVMs; $i++)
+        {
+           $vmNames+=("$prefix-vm"+($i+1) + "-$region-$country" );
+        }
 
-    #select an Azure subscription already imported into Powershell session
-    Select-AzureSubscription -SubscriptionName $subscriptionName -Current
-    Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storageAccount
+        #select an Azure subscription already imported into Powershell session
+        Select-AzureSubscription -SubscriptionName $subscriptionName -Current
+        Set-AzureSubscription -SubscriptionName $subscriptionName -CurrentStorageAccountName $storageAccount
 
-    #create an empty cloud service
-    New-AzureService -ServiceName $serviceName -Label "hkcass$region" -Location $azureRegion
-    Write-Host "Created $serviceName"
+        #create an empty cloud service
+        New-AzureService -ServiceName $serviceName -Label "hkcass$region" -Location $azureRegion
+        Write-Host "Created $serviceName"
 
-    $VMList= @()   # stores the list of azure vm configuration objects
-    #create the list of VMs
-    foreach($vmName in $vmNames)
-    {
-       $VMList += New-AzureVMConfig -Name $vmName -InstanceSize ExtraSmall -ImageName $imageName |
-       Add-AzureProvisioningConfig -Linux -LinuxUser "localadmin" -Password "Local123" |
-       Set-AzureSubnet "data"
-    }
+        $VMList= @()   # stores the list of azure vm configuration objects
+        #create the list of VMs
+        foreach($vmName in $vmNames)
+        {
+           $VMList += New-AzureVMConfig -Name $vmName -InstanceSize ExtraSmall -ImageName $imageName |
+           Add-AzureProvisioningConfig -Linux -LinuxUser "localadmin" -Password "Local123" |
+           Set-AzureSubnet "data"
+        }
 
-    New-AzureVM -ServiceName $serviceName -VNetName $vnetName -VMs $VMList
+        New-AzureVM -ServiceName $serviceName -VNetName $vnetName -VMs $VMList
 
-    #Create internal load balancer
-    Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
-    Write-Host "Created $ilbName"
-    #Add add the thrift endpoint to the internal load balancer for all the VMs
-    foreach($vmName in $vmNames)
-    {
-        Get-AzureVM -ServiceName $serviceName -Name $vmName |
-            Add-AzureEndpoint -Name $thriftEndPoint -LBSetName "ThriftLBSet" -Protocol tcp -LocalPort 9160 -PublicPort 9160 -ProbePort 9160 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ilbName |
-            Update-AzureVM
+        #Create internal load balancer
+        Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
+        Write-Host "Created $ilbName"
+        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        foreach($vmName in $vmNames)
+        {
+            Get-AzureVM -ServiceName $serviceName -Name $vmName |
+                Add-AzureEndpoint -Name $thriftEndPoint -LBSetName "ThriftLBSet" -Protocol tcp -LocalPort 9160 -PublicPort 9160 -ProbePort 9160 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ilbName |
+                Update-AzureVM
 
-        Write-Host "created $vmName"     
-    }
-```
+            Write-Host "created $vmName"     
+        }
 
 **Step 3: Configure Cassandra on each VM**
 
@@ -431,22 +418,17 @@ Log into the VM and perform the following:
 
 * Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the data center and rack properties:
 
-    ```
-    dc =CHINAEAST, rack =rack1
-    ```
+        dc =CHINAEAST, rack =rack1
+
 * Edit cassandra.yaml to configure seed nodes as below:
 
-    ```
-    Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
-    ```
+        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
 **Step 4: Start the VMs and test the cluster**
 
 Log into one of the nodes (e.g. hk-c1-china-north) and run the following command to see the status of the cluster:
 
-```
-   nodetool -h 10.1.2.4 -p 7199 status
-```
+       nodetool -h 10.1.2.4 -p 7199 status
 
 You should see the display similar to the one below for an 8-node cluster:
 
@@ -467,22 +449,19 @@ Use the following steps to test the cluster:
 
 1. Using the Powershell command Get-AzureInternalLoadbalancer commandlet, obtain the IP address of the internal load balancer (e.g.  10.1.2.101). The syntax of the command is shown below:
 
-    ```
-    Get-AzureLoadbalancer -ServiceName "hk-c-svc-china-north" [displays the details of the internal load balancer along with its IP address]
-    ```
+        Get-AzureLoadbalancer -ServiceName "hk-c-svc-china-north" [displays the details of the internal load balancer along with its IP address]
+
 2. Log into the web farm VM (e.g. hk-w1-china-north) using Putty or ssh
 3. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. Use the following CQL commands to verify if the cluster is working:
 
-    ```
-    CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
-    USE customers_ks;
-    CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-    INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-    INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+        CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
+        USE customers_ks;
+        CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+        INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+        INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
 
-    SELECT * FROM Customers;
-    ```
+        SELECT * FROM Customers;
 
     You should see a display like the one below:
 
@@ -553,10 +532,8 @@ Edit both the local networks to replace the placeholder gateway IP address with 
 ### Step 6: Update the shared key
 Use the following Powershell script to update the IPSec key of each VPN gateway [use the sake key for both the gateways]:
 
-```
-Set-AzureVNetGatewayKey -VNetName hk-vnet-china-east -LocalNetworkSiteName hk-lnet-map-to-china-north -SharedKey D9E76BKK
-Set-AzureVNetGatewayKey -VNetName hk-vnet-china-north -LocalNetworkSiteName hk-lnet-map-to-china-east -SharedKey D9E76BKK
-```
+    Set-AzureVNetGatewayKey -VNetName hk-vnet-china-east -LocalNetworkSiteName hk-lnet-map-to-china-north -SharedKey D9E76BKK
+    Set-AzureVNetGatewayKey -VNetName hk-vnet-china-north -LocalNetworkSiteName hk-lnet-map-to-china-east -SharedKey D9E76BKK
 
 ### Step 7: Establish the VNET-to-VNET connection
 From the Azure Classic Management Portal, use the "DASHBOARD" menu of both the virtual networks to establish gateway-to-gateway connection. Use the "CONNECT" menu items in the bottom toolbar. After a few minutes the dashboard should display the connection details graphically.
@@ -583,15 +560,12 @@ Log into the VM and perform the following:
 
 1. Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the data center and rack properties in the format:
 
-    ```
-    dc =CHINAEAST
-    rack =rack1
-    ```
+        dc =CHINAEAST
+        rack =rack1
+
 2. Edit cassandra.yaml to configure seed nodes:
 
-    ```
-    Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
-    ```
+        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 
 ### Step 10: Start Cassandra
 Log into each VM and start Cassandra in the background by running the following command:
@@ -610,15 +584,13 @@ By now Cassandra has been deployed to 16 nodes with 8 nodes in each Azure region
 1. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 2. Execute the following CQL commands:
 
-    ```
-    CREATE KEYSPACE customers_ks
-    WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'CHINANORTH' : 3, 'CHINAEAST' : 3};
-    USE customers_ks;
-    CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-    INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-    INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-    SELECT * FROM Customers;
-    ```
+        CREATE KEYSPACE customers_ks
+        WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'CHINANORTH' : 3, 'CHINAEAST' : 3};
+        USE customers_ks;
+        CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+        INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+        INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+        SELECT * FROM Customers;
 
     You should see a display like the one below:
 
@@ -631,13 +603,11 @@ By now Cassandra has been deployed to 16 nodes with 8 nodes in each Azure region
 1. Execute $CASS_HOME/bin/cqlsh 10.2.2.101 9160
 2. Execute the following CQL commands:
 
-    ```
-    USE customers_ks;
-    CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
-    INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
-    INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
-    SELECT * FROM Customers;
-    ```
+        USE customers_ks;
+        CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
+        INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
+        INSERT INTO Customers(customer_id, firstname, lastname) VALUES (2, 'Jane', 'Doe');
+        SELECT * FROM Customers;
 
     You should see the same display as seen for the West region:
 
@@ -657,90 +627,88 @@ Using one of the Linux VMs crated in the "web" tier previously, we will execute 
 2. Install node package "cassandra-client" using npm
 3. Execute the following script at the shell prompt which displays the json string of the retrieved data:
 
-    ```
-    var pooledCon = require('cassandra-client').PooledConnection;
-    var ksName = "custsupport_ks";
-    var cfName = "customers_cf";
-    var hostList = ['internal_loadbalancer_ip:9160'];
-    var ksConOptions = { hosts: hostList,
-                         keyspace: ksName, use_bigints: false };
+        var pooledCon = require('cassandra-client').PooledConnection;
+        var ksName = "custsupport_ks";
+        var cfName = "customers_cf";
+        var hostList = ['internal_loadbalancer_ip:9160'];
+        var ksConOptions = { hosts: hostList,
+                             keyspace: ksName, use_bigints: false };
 
-    function createKeyspace(callback){
-       var cql = 'CREATE KEYSPACE ' + ksName + ' WITH strategy_class=SimpleStrategy AND strategy_options:replication_factor=1';
-       var sysConOptions = { hosts: hostList,  
-                             keyspace: 'system', use_bigints: false };
-       var con = new pooledCon(sysConOptions);
-       con.execute(cql,[],function(err) {
-       if (err) {
-         console.log("Failed to create Keyspace: " + ksName);
-         console.log(err);
-       }
-       else {
-         console.log("Created Keyspace: " + ksName);
-         callback(ksConOptions, populateCustomerData);
-       }
-       });
-       con.shutdown();
-    }
-
-    function createColumnFamily(ksConOptions, callback){
-      var params = ['customers_cf','custid','varint','custname',
-                    'text','custaddress','text'];
-      var cql = 'CREATE COLUMNFAMILY ? (? ? PRIMARY KEY,? ?, ? ?)';
-    var con =  new pooledCon(ksConOptions);
-      con.execute(cql,params,function(err) {
-          if (err) {
-             console.log("Failed to create column family: " + params[0]);
+        function createKeyspace(callback){
+           var cql = 'CREATE KEYSPACE ' + ksName + ' WITH strategy_class=SimpleStrategy AND strategy_options:replication_factor=1';
+           var sysConOptions = { hosts: hostList,  
+                                 keyspace: 'system', use_bigints: false };
+           var con = new pooledCon(sysConOptions);
+           con.execute(cql,[],function(err) {
+           if (err) {
+             console.log("Failed to create Keyspace: " + ksName);
              console.log(err);
-          }
-          else {
-             console.log("Created column family: " + params[0]);
-             callback();
-          }
-      });
-      con.shutdown();
-    }
+           }
+           else {
+             console.log("Created Keyspace: " + ksName);
+             callback(ksConOptions, populateCustomerData);
+           }
+           });
+           con.shutdown();
+        }
 
-    //populate Data
-    function populateCustomerData() {
-       var params = ['John','Infinity Dr, TX', 1];
-       updateCustomer(ksConOptions,params);
+        function createColumnFamily(ksConOptions, callback){
+          var params = ['customers_cf','custid','varint','custname',
+                        'text','custaddress','text'];
+          var cql = 'CREATE COLUMNFAMILY ? (? ? PRIMARY KEY,? ?, ? ?)';
+        var con =  new pooledCon(ksConOptions);
+          con.execute(cql,params,function(err) {
+              if (err) {
+                 console.log("Failed to create column family: " + params[0]);
+                 console.log(err);
+              }
+              else {
+                 console.log("Created column family: " + params[0]);
+                 callback();
+              }
+          });
+          con.shutdown();
+        }
 
-       params = ['Tom','Fermat Ln, WA', 2];
-       updateCustomer(ksConOptions,params);
-    }
+        //populate Data
+        function populateCustomerData() {
+           var params = ['John','Infinity Dr, TX', 1];
+           updateCustomer(ksConOptions,params);
 
-    //update will also insert the record if none exists
-    function updateCustomer(ksConOptions,params)
-    {
-      var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';
-      var con = new pooledCon(ksConOptions);
-      con.execute(cql,params,function(err) {
-          if (err) console.log(err);
-          else console.log("Inserted customer : " + params[0]);
-      });
-      con.shutdown();
-    }
+           params = ['Tom','Fermat Ln, WA', 2];
+           updateCustomer(ksConOptions,params);
+        }
 
-    //read the two rows inserted above
-    function readCustomer(ksConOptions)
-    {
-      var cql = 'SELECT * FROM customers_cf WHERE custid IN (1,2)';
-      var con = new pooledCon(ksConOptions);
-      con.execute(cql,[],function(err,rows) {
-          if (err)
-             console.log(err);
-          else
-             for (var i=0; i<rows.length; i++)
-                console.log(JSON.stringify(rows[i]));
-        });
-       con.shutdown();
-    }
+        //update will also insert the record if none exists
+        function updateCustomer(ksConOptions,params)
+        {
+          var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';
+          var con = new pooledCon(ksConOptions);
+          con.execute(cql,params,function(err) {
+              if (err) console.log(err);
+              else console.log("Inserted customer : " + params[0]);
+          });
+          con.shutdown();
+        }
 
-    //exectue the code
-    createKeyspace(createColumnFamily);
-    readCustomer(ksConOptions)
-    ```
+        //read the two rows inserted above
+        function readCustomer(ksConOptions)
+        {
+          var cql = 'SELECT * FROM customers_cf WHERE custid IN (1,2)';
+          var con = new pooledCon(ksConOptions);
+          con.execute(cql,[],function(err,rows) {
+              if (err)
+                 console.log(err);
+              else
+                 for (var i=0; i<rows.length; i++)
+                    console.log(JSON.stringify(rows[i]));
+            });
+           con.shutdown();
+        }
+
+        //exectue the code
+        createKeyspace(createColumnFamily);
+        readCustomer(ksConOptions)
 
 ## Conclusion
 Azure is a flexible platform that allows the running of both Microsoft as well as open source software as demonstrated by this exercise. Highly available Cassandra clusters can be deployed on a single data center through the spreading of the cluster nodes across multiple fault domains. Cassandra clusters can also be deployed across multiple geographically distant Azure regions for disaster proof systems. Azure and Cassandra together enables the construction of highly scalable, highly available and disaster recoverable cloud services needed by today's internet scale services.  

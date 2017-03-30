@@ -33,7 +33,7 @@ To complete the steps in this article, you need the following.
 * An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based).
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * Visual Studio 2012, 2013, 2015 or 2017.
 
@@ -57,9 +57,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 
 5. To install the .NET SDK packages, use the following command:
 
-    ```
-    Install-Package Microsoft.Azure.Management.HDInsight.Job
-    ```
+        Install-Package Microsoft.Azure.Management.HDInsight.Job
 
 6. From Solution Explorer, double-click **Program.cs** to open it. Replace the existing code with the following.
 
@@ -126,11 +124,11 @@ As you can see, the .NET SDK for Hadoop allows you to create .NET applications t
 
 ## <a id="nextsteps"></a> Next steps
 
-For information on Pig in HDInsight, see [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md).
+For information on Pig in HDInsight, see [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md).
 
 For more information on using Hadoop on HDInsight, see the following documents:
 
-* [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md)
-* [Use MapReduce with Hadoop on HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.cn/

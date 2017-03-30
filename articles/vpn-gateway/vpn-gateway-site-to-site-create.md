@@ -21,10 +21,12 @@ ms.author: cherylmc
 
 # Create a VNet with a Site-to-Site connection using the Classic Management Portal
 > [!div class="op_single_selector"]
->- [Resource Manager - Azure Portal Preview](./vpn-gateway-howto-site-to-site-resource-manager-portal.md)
->- [Resource Manager - PowerShell](./vpn-gateway-create-site-to-site-rm-powershell.md)
->- [Classic - Azure Portal Preview](./vpn-gateway-howto-site-to-site-classic-portal.md)
->- [Classic - Classic Management Portal](./vpn-gateway-site-to-site-create.md)
+> * [Resource Manager - Azure Portal Preview](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+> * [Classic - Azure Portal Preview](vpn-gateway-howto-site-to-site-classic-portal.md)
+> * [Classic - Classic Management Portal](vpn-gateway-site-to-site-create.md)
+>
+>
 
 This article walks you through creating a virtual network and a site-to-site VPN gateway connection to your on-premises network using the classic deployment model and the Classic Management Portal. Site-to-Site connections can be used for cross-premises and hybrid configurations.
 
@@ -38,12 +40,12 @@ The following table shows the currently available deployment models and methods 
 [!INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 #### Additional configurations
-If you want to connect VNets together, see [Configure a VNet-to-VNet connection for the classic deployment model](./virtual-networks-configure-vnet-to-vnet-connection.md). If you want to add a Site-to-Site connection to a VNet that already has a connection, see [Add a S2S connection to a VNet with an existing VPN gateway connection](./vpn-gateway-multi-site.md).
+If you want to connect VNets together, see [Configure a VNet-to-VNet connection for the classic deployment model](virtual-networks-configure-vnet-to-vnet-connection.md). If you want to add a Site-to-Site connection to a VNet that already has a connection, see [Add a S2S connection to a VNet with an existing VPN gateway connection](vpn-gateway-multi-site.md).
 
 ## Before you begin
 Verify that you have the following items before beginning configuration.
 
-* A compatible VPN device and someone who is able to configure it. See [About VPN Devices](./vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
+* A compatible VPN device and someone who is able to configure it. See [About VPN Devices](vpn-gateway-about-vpn-devices.md). If you aren't familiar with configuring your VPN device, or are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
 * An externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 * An Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 
@@ -91,7 +93,7 @@ Click the checkmark on the bottom of the page and your virtual network will begi
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="VNetGateway"></a>Configure your virtual network gateway
-Configure the virtual network gateway to create a secure site-to-site connection. See [Configure a virtual network gateway in the Azure Classic Management Portal](./vpn-gateway-configure-vpn-gateway-mp.md).
+Configure the virtual network gateway to create a secure site-to-site connection. See [Configure a virtual network gateway in the Azure Classic Management Portal](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Next steps
  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../virtual-machines/index.md).

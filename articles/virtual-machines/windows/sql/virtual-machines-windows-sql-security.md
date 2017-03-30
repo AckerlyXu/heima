@@ -48,6 +48,6 @@ Following is a list of security recommendations to consider when configuring and
 * If your virtual machines should be accessed only from a specific network, use Windows Firewall to restrict access to certain IP addresses or network subnets.
 
 ## Next Steps
-If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](./virtual-machines-windows-sql-performance.md).
+If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](./virtual-machines-windows-sql-server-iaas-overview.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).

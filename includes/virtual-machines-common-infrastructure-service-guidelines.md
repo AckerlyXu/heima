@@ -138,7 +138,7 @@ Operating system disks and data disks have a maximum size of 1023 gigabytes (GB)
 ### Striped disks
 Besides providing the ability to create disks larger than 1023 GB, in many instances, using striping for data disks enhances performance by allowing multiple blobs to back the storage for a single volume. With striping, the I/O required to write and read data from a single logical disk proceeds in parallel.
 
-Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see Sizes for [Windows](../articles/virtual-machines/virtual-machines-windows-sizes.md) or [Linux](../articles/virtual-machines/virtual-machines-linux-sizes.md) virtual machines.
+Azure imposes limits on the amount of data disks and bandwidth available, depending on the virtual machine size. For details, see [Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 If you are using disk striping for Azure data disks, consider the following guidelines:
 
@@ -177,7 +177,7 @@ Cloud services are a fundamental building block in Azure service management, bot
 In the case of IaaS, cloud services offer similar functionality, although in most cases, the load balancer functionality is used to forward traffic to specific TCP or UDP ports from the Internet to the many virtual machines within that cloud service.
 
 > [!NOTE]
-> Cloud services do not exist in Azure Resource Manager. For an introduction to the advantages of Resource Manager, see [Azure compute, network and storage providers under Azure Resource Manager](/documentation/articles/virtual-machines-windows-compare-deployment-models/).
+> Cloud services do not exist in Azure Resource Manager. For an introduction to the advantages of Resource Manager, see [Azure compute, network and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 > 
 > 
 
@@ -388,10 +388,10 @@ This configuration incorporates:
 ## Additional resources
 [Azure subscription and service limits, quotas, and constraints](../articles/azure-subscription-service-limits.md#storage-limits)
 
-[Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md)
+[Sizes for virtual machines](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Azure storage scalability and performance targets](../articles/storage/storage-scalability-targets.md)
 
 [Datacenter extension reference architecture diagram](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
-[Azure compute, network, and storage providers under Azure Resource Manager](/documentation/articles/virtual-machines-windows-compare-deployment-models/)
+[Azure compute, network, and storage providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-windows-compare-deployment-models.md)

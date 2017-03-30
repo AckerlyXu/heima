@@ -51,7 +51,7 @@ The third script restarts all the VMs that were provisioned, and then just the t
 This script creates a resource group and then it creates three VMs to restart.
 Two of them are tagged.
 
-```
+```azurecli
 #!/bin/bash
 
 # Create a resource group where we'll create the VMs that we'll start
@@ -68,7 +68,7 @@ az vm create -g myResourceGroup -n myVM3 --image UbuntuLTS --admin-username depl
 This script checks on the provisioning status every 20 seconds until all three VMs are provisioned,
 or one of them fails to provision.
 
-```
+```azurecli
 #!/bin/bash
 
 # Wait for the VMs to be provisioned
@@ -88,7 +88,7 @@ echo "The VMs are provisioned."
 This script restarts all the VMs in the resource group,
 and then it restarts just the tagged VMs.
 
-```
+```azurecli
 #!/bin/bash
 
 # Get the IDs of all the VMs in the resource group and restart those
@@ -123,4 +123,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-cli-samples.md).
+Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

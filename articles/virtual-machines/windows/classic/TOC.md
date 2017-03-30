@@ -9,7 +9,7 @@
 # Get started
 ## [Create a VM using the portal](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Log on to a VM](../../virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-## [Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
+## [Install Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [Install Azure CLI](../../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # How to
@@ -88,18 +88,18 @@
 ## [Reset RDP password](../../virtual-machines-windows-classic-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Azure CLI](/cli/azure/vm)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Author Resource Manager templates](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Community templates](https://azure.microsoft.com/documentation/templates)
-## [Compute REST](/rest/api/compute)
-## [Network REST](/rest/api)
-## [Storage REST](/rest/api/storageservices)
+## [Community templates](https://github.com/Azure/azure-quickstart-templates)
+## [Compute REST](https://docs.microsoft.com/rest/api/compute)
+## [Network REST](https://docs.microsoft.com/rest/api)
+## [Storage REST](https://docs.microsoft.com/rest/api/storageservices)
 
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
+## [Pricing](https://www.azure.cn/pricing/details/virtual-machines/#Windows)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

@@ -35,7 +35,7 @@ To incorporate ReportViewer into your Azure Web site, you need to complete the f
 * **Publish** the ASP.NET Web application to Azure
 
 ## Prerequisites
-Review the "General recommendation and best practices" section in [SQL Server Business Intelligence in Azure Virtual Machines](./virtual-machines-windows-classic-ps-sql-bi.md).
+Review the "General recommendation and best practices" section in [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-bi.md).
 
 > [!NOTE]
 > ReportViewer controls are shipped with Visual Studio, Standard Edition or above. If you are using the Web Developer Express Edition, you must install the [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) to use the ReportViewer runtime features.
@@ -87,6 +87,6 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 ## Resources
 [Microsoft Reports](https://msdn.microsoft.com/zh-cn/library/bb885185.aspx)
 
-[SQL Server Business Intelligence in Azure Virtual Machines](./virtual-machines-windows-classic-ps-sql-bi.md)
+[SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-bi.md)
 
-[Use PowerShell to Create an Azure VM With a Native Mode Report Server](./virtual-machines-windows-classic-ps-sql-report.md)
+[Use PowerShell to Create an Azure VM With a Native Mode Report Server](virtual-machines-windows-classic-ps-sql-report.md)

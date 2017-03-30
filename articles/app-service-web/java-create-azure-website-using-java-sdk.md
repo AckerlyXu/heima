@@ -71,20 +71,16 @@ To create your own self-signed certificate, open a command console on your opera
 
 To create the .pfx file:
 
-```
-<java-install-dir>/bin/keytool -genkey -alias <keystore-id>
- -keystore <cert-store-dir>/<cert-file-name>.pfx -storepass <password>
- -validity 3650 -keyalg RSA -keysize 2048 -storetype pkcs12
- -dname "CN=Self Signed Certificate 20141118170652"
-```
+    <java-install-dir>/bin/keytool -genkey -alias <keystore-id>
+     -keystore <cert-store-dir>/<cert-file-name>.pfx -storepass <password>
+     -validity 3650 -keyalg RSA -keysize 2048 -storetype pkcs12
+     -dname "CN=Self Signed Certificate 20141118170652"
 
 To create the .cer file:
 
-```
-<java-install-dir>/bin/keytool -export -alias <keystore-id>
- -storetype pkcs12 -keystore <cert-store-dir>/<cert-file-name>.pfx
- -storepass <password> -rfc -file <cert-store-dir>/<cert-file-name>.cer
-```
+    <java-install-dir>/bin/keytool -export -alias <keystore-id>
+     -storetype pkcs12 -keystore <cert-store-dir>/<cert-file-name>.pfx
+     -storepass <password> -rfc -file <cert-store-dir>/<cert-file-name>.cer
 
 where:
 
@@ -103,12 +99,10 @@ To upload a self-signed certificate to Azure, go to the **Settings** page in the
 #### Convert the PFX file into JKS
 In the Windows Command Prompt (running as admin), cd to the directory containing the certificates and run the following command, where `<java-install-dir>` is the directory in which you installed Java on your computer:
 
-```
-<java-install-dir>/bin/keytool.exe -importkeystore
- -srckeystore <cert-store-dir>/<cert-file-name>.pfx
- -destkeystore <cert-store-dir>/<cert-file-name>.jks
- -srcstoretype pkcs12 -deststoretype JKS
-```
+    <java-install-dir>/bin/keytool.exe -importkeystore
+     -srckeystore <cert-store-dir>/<cert-file-name>.pfx
+     -destkeystore <cert-store-dir>/<cert-file-name>.jks
+     -srcstoretype pkcs12 -deststoretype JKS
 
 1. When prompted, enter the destination keystore password; this will be the password for the JKS file.
 2. When prompted, enter the source keystore password; this is the password you specified for the PFX file.
@@ -138,10 +132,8 @@ In this section you create a workspace and a Maven project for the web app creat
     This step can take several minutes depending on the speed of your connection. When the index rebuilds, you should see the Azure packages in the **central** Maven repository.
 6. In **Dependencies**, click **Add**. In **Enter Group ID...** enter `azure-management`. Select the packages for base management and App Service Web Apps management:
 
-    ```
-    com.microsoft.azure  azure-management
-    com.microsoft.azure  azure-management-websites
-    ```
+        com.microsoft.azure  azure-management
+        com.microsoft.azure  azure-management-websites
 
     > **Note:** If you are updating the dependencies after a new version
     > release, you need to re-add each of the dependencies in this list.
@@ -165,50 +157,46 @@ Next, write the code that calls APIs in the Azure SDK for Java to create the App
 #### Add necessary imports
 In WebCreator.java, add the following imports; these imports provide access to classes in the management libraries for consuming Azure APIs:
 
-```
-// General imports
-import java.net.URI;
-import java.util.ArrayList;
+    // General imports
+    import java.net.URI;
+    import java.util.ArrayList;
 
-// Imports for Exceptions
-import java.io.IOException;
-import java.net.URISyntaxException;
-import javax.xml.parsers.ParserConfigurationException;
-import com.microsoft.windowsazure.exception.ServiceException;
-import org.xml.sax.SAXException;
+    // Imports for Exceptions
+    import java.io.IOException;
+    import java.net.URISyntaxException;
+    import javax.xml.parsers.ParserConfigurationException;
+    import com.microsoft.windowsazure.exception.ServiceException;
+    import org.xml.sax.SAXException;
 
-// Imports for Azure App Service management configuration
-import com.microsoft.windowsazure.Configuration;
-import com.microsoft.windowsazure.management.configuration.ManagementConfiguration;
+    // Imports for Azure App Service management configuration
+    import com.microsoft.windowsazure.Configuration;
+    import com.microsoft.windowsazure.management.configuration.ManagementConfiguration;
 
-// Service management imports for App Service Web Apps creation
-import com.microsoft.windowsazure.management.websites.*;
-import com.microsoft.windowsazure.management.websites.models.*;
+    // Service management imports for App Service Web Apps creation
+    import com.microsoft.windowsazure.management.websites.*;
+    import com.microsoft.windowsazure.management.websites.models.*;
 
-// Imports for authentication
-import com.microsoft.windowsazure.core.utils.KeyStoreType;
-```
+    // Imports for authentication
+    import com.microsoft.windowsazure.core.utils.KeyStoreType;
 
 #### Define the main entry point class
 Because the purpose of the AzureWebDemo application is to create an App Service Web App, name the main class for this application `WebAppCreator`. This class provides the main entry point code that calls the Azure Service Management API to create the web app.
 
 Add the following parameter definitions for the web app and webspace. You will need to provide your own Azure subscription ID and certificate information.
 
-```
-public class WebAppCreator {
+    public class WebAppCreator {
 
-    // Parameter definitions used for authentication.
-    private static String uri = "https://management.core.chinacloudapi.cn/";
-    private static String subscriptionId = "<subscription-id>";
-    private static String keyStoreLocation = "<certificate-store-path>";
-    private static String keyStorePassword = "<certificate-password>";
+        // Parameter definitions used for authentication.
+        private static String uri = "https://management.core.chinacloudapi.cn/";
+        private static String subscriptionId = "<subscription-id>";
+        private static String keyStoreLocation = "<certificate-store-path>";
+        private static String keyStorePassword = "<certificate-password>";
 
-    // Define web app parameter values.
-    private static String webAppName = "WebDemoWebApp";
-    private static String domainName = ".chinacloudsites.cn";
-    private static String webSpaceName = WebSpaceNames.WESTUSWEBSPACE;
-    private static String appServicePlanName = "WebDemoAppServicePlan";
-```
+        // Define web app parameter values.
+        private static String webAppName = "WebDemoWebApp";
+        private static String domainName = ".chinacloudsites.cn";
+        private static String webSpaceName = WebSpaceNames.WESTUSWEBSPACE;
+        private static String appServicePlanName = "WebDemoAppServicePlan";
 
 where:
 
@@ -230,66 +218,64 @@ where:
 #### Define the web creation method
 Next, define a method to create the web app. This method, `createWebApp`, specifies the parameters of the web app and the webspace. It also creates and configures the App Service Web Apps management client, which is defined by the [WebSiteManagementClient][WebSiteManagementClient] object. The management client is key to creating Web Apps. It provides RESTful web services that allow applications to manage web apps (performing operations such as create, update, and delete) by calling the service management API.
 
-```
-private static void createWebApp() throws Exception {
+    private static void createWebApp() throws Exception {
 
-    // Specify configuration settings for the App Service management client.
-    Configuration config = ManagementConfiguration.configure(
-        new URI(uri),
-        subscriptionId,
-        keyStoreLocation,  // Path to the JKS file
-        keyStorePassword,  // Password for the JKS file
-        KeyStoreType.jks   // Flag that you are using a JKS keystore
-    );
+        // Specify configuration settings for the App Service management client.
+        Configuration config = ManagementConfiguration.configure(
+            new URI(uri),
+            subscriptionId,
+            keyStoreLocation,  // Path to the JKS file
+            keyStorePassword,  // Password for the JKS file
+            KeyStoreType.jks   // Flag that you are using a JKS keystore
+        );
 
-    // Create the App Service Web Apps management client to call Azure APIs
-    // and pass it the App Service management configuration object.
-    WebSiteManagementClient webAppManagementClient = WebSiteManagementService.create(config);
+        // Create the App Service Web Apps management client to call Azure APIs
+        // and pass it the App Service management configuration object.
+        WebSiteManagementClient webAppManagementClient = WebSiteManagementService.create(config);
 
-    // Create an App Service plan for the web app with the specified parameters.
-    WebHostingPlanCreateParameters appServicePlanParams = new WebHostingPlanCreateParameters();
-    appServicePlanParams.setName(appServicePlanName);
-    appServicePlanParams.setSKU(SkuOptions.Free);
-    webAppManagementClient.getWebHostingPlansOperations().create(webSpaceName, appServicePlanParams);
+        // Create an App Service plan for the web app with the specified parameters.
+        WebHostingPlanCreateParameters appServicePlanParams = new WebHostingPlanCreateParameters();
+        appServicePlanParams.setName(appServicePlanName);
+        appServicePlanParams.setSKU(SkuOptions.Free);
+        webAppManagementClient.getWebHostingPlansOperations().create(webSpaceName, appServicePlanParams);
 
-    // Set webspace parameters.
-    WebSiteCreateParameters.WebSpaceDetails webSpaceDetails = new WebSiteCreateParameters.WebSpaceDetails();
-    webSpaceDetails.setGeoRegion(GeoRegionNames.WESTUS);
-    webSpaceDetails.setPlan(WebSpacePlanNames.VIRTUALDEDICATEDPLAN);
-    webSpaceDetails.setName(webSpaceName);
+        // Set webspace parameters.
+        WebSiteCreateParameters.WebSpaceDetails webSpaceDetails = new WebSiteCreateParameters.WebSpaceDetails();
+        webSpaceDetails.setGeoRegion(GeoRegionNames.WESTUS);
+        webSpaceDetails.setPlan(WebSpacePlanNames.VIRTUALDEDICATEDPLAN);
+        webSpaceDetails.setName(webSpaceName);
 
-    // Set web app parameters.
-    // Note that the server farm name takes the Azure App Service plan name.
-    WebSiteCreateParameters webAppCreateParameters = new WebSiteCreateParameters();
-    webAppCreateParameters.setName(webAppName);
-    webAppCreateParameters.setServerFarm(appServicePlanName);
-    webAppCreateParameters.setWebSpace(webSpaceDetails);
+        // Set web app parameters.
+        // Note that the server farm name takes the Azure App Service plan name.
+        WebSiteCreateParameters webAppCreateParameters = new WebSiteCreateParameters();
+        webAppCreateParameters.setName(webAppName);
+        webAppCreateParameters.setServerFarm(appServicePlanName);
+        webAppCreateParameters.setWebSpace(webSpaceDetails);
 
-    // Set usage metrics attributes.
-    WebSiteGetUsageMetricsResponse.UsageMetric usageMetric = new WebSiteGetUsageMetricsResponse.UsageMetric();
-    usageMetric.setSiteMode(WebSiteMode.Basic);
-    usageMetric.setComputeMode(WebSiteComputeMode.Shared);
+        // Set usage metrics attributes.
+        WebSiteGetUsageMetricsResponse.UsageMetric usageMetric = new WebSiteGetUsageMetricsResponse.UsageMetric();
+        usageMetric.setSiteMode(WebSiteMode.Basic);
+        usageMetric.setComputeMode(WebSiteComputeMode.Shared);
 
-    // Define the web app object.
-    ArrayList<String> fullWebAppName = new ArrayList<String>();
-    fullWebAppName.add(webAppName + domainName);
-    WebSite webApp = new WebSite();
-    webApp.setHostNames(fullWebAppName);
+        // Define the web app object.
+        ArrayList<String> fullWebAppName = new ArrayList<String>();
+        fullWebAppName.add(webAppName + domainName);
+        WebSite webApp = new WebSite();
+        webApp.setHostNames(fullWebAppName);
 
-    // Create the web app.
-    WebSiteCreateResponse webAppCreateResponse = webAppManagementClient.getWebSitesOperations().create(webSpaceName, webAppCreateParameters);
+        // Create the web app.
+        WebSiteCreateResponse webAppCreateResponse = webAppManagementClient.getWebSitesOperations().create(webSpaceName, webAppCreateParameters);
 
-    // Output the HTTP status code of the response; 200 indicates the request succeeded; 4xx indicates failure.
-    System.out.println("----------");
-    System.out.println("Web app created - HTTP response " + webAppCreateResponse.getStatusCode() + "\n");
+        // Output the HTTP status code of the response; 200 indicates the request succeeded; 4xx indicates failure.
+        System.out.println("----------");
+        System.out.println("Web app created - HTTP response " + webAppCreateResponse.getStatusCode() + "\n");
 
-    // Output the name of the web app that this application created.
-    String shinyNewWebAppName = webAppCreateResponse.getWebSite().getName();
-    System.out.println("----------\n");
-    System.out.println("Name of web app created: " + shinyNewWebAppName + "\n");
-    System.out.println("----------\n");
-}
-```
+        // Output the name of the web app that this application created.
+        String shinyNewWebAppName = webAppCreateResponse.getWebSite().getName();
+        System.out.println("----------\n");
+        System.out.println("Name of web app created: " + shinyNewWebAppName + "\n");
+        System.out.println("----------\n");
+    }
 
 The code will output the HTTP status of the response indicating success or failure, and if successful, will output the name of the created web app.
 
@@ -298,32 +284,28 @@ Provide the main() method code that calls createWebApp() to create the web app.
 
 Finally, call `createWebApp` from `main`:
 
-```
-    public static void main(String[] args)
-        throws IOException, URISyntaxException, ServiceException,
-        ParserConfigurationException, SAXException, Exception {
+        public static void main(String[] args)
+            throws IOException, URISyntaxException, ServiceException,
+            ParserConfigurationException, SAXException, Exception {
 
-        // Create web app
-        createWebApp();
+            // Create web app
+            createWebApp();
 
-    }  // end of main()
+        }  // end of main()
 
-}  // end of WebAppCreator class
-```
+    }  // end of WebAppCreator class
 
 #### Run the application and verify web app creation
 To verify that your application runs, click **Run > Run**. When the application completes running, you should see the following output in the Eclipse console:
 
-```
-----------
-Web app created - HTTP response 200
+    ----------
+    Web app created - HTTP response 200
 
-----------
+    ----------
 
-Name of web app created: WebDemoWebApp
+    Name of web app created: WebDemoWebApp
 
-----------
-```
+    ----------
 
 Log into the Azure Classic Management Portal and click **Web Apps**. The new web app should appear in the Web Apps list within a few minutes.
 
@@ -343,16 +325,14 @@ In order to demonstrate how to deploy an application to the web, the following p
 3. In the **Select JSP Template** dialog, select **New JSP File (html)** and click **Finish**.
 4. In index.jsp, add the following code in the `<head>` and `<body>` tag sections:
 
-    ```
-    <head>
-      ...
-      java.util.Date date = new java.util.Date();
-    </head>
-
-    <body>
-      Hello, the time is <%= date %> 
-    </body>
-    ```
+        <head>
+          ...
+          java.util.Date date = new java.util.Date();
+        </head>
+   
+        <body>
+          Hello, the time is <%= date %> 
+        </body>
 
 #### Run the Hello World application in localhost
 Before you run this application, you need to configure a few properties.
@@ -382,11 +362,9 @@ Before you run this application, you need to configure a few properties.
 #### Export the application as a WAR
 Export the web project files as a web archive (WAR) file so that you can deploy it to the web app. The following web project files reside in the WebContent folder:
 
-```
-META-INF
-WEB-INF
-index.jsp
-```
+    META-INF
+    WEB-INF
+    index.jsp
 
 1. Right-click the WebContent folder and select **Export**.
 2. In the **Export Select** dialog, click **Web > WAR** file, then click **Next**.
@@ -394,12 +372,12 @@ index.jsp
 
     `<project-path>/JSPHello/src/JSPHello.war`
 
-For more information on deploying WAR files, see [Add a Java application to Azure App Service Web Apps](./web-sites-java-add-app.md).
+For more information on deploying WAR files, see [Add a Java application to Azure App Service Web Apps](web-sites-java-add-app.md).
 
 ### Deploying the Hello World Application Using FTP
 Select a third-party FTP client to publish the application. This procedure describes two options: the Kudu console built into Azure; and FileZilla, a popular tool with a convenient, graphical UI.
 
-> **Note:** The Azure Toolkit for Eclipse supports deployment to storage accounts and cloud services, but does not currently support deployment to web apps. You can deploy to storage accounts and cloud services using an Azure Deployment Project as described in [Creating a Hello World Application for Azure in Eclipse](../azure-toolkit-for-eclipse-creating-a-hello-world-application.md), but not to web apps. Use other methods such as FTP or GitHub to transfer files to your web app.
+> **Note:** The Azure Toolkit for Eclipse supports deployment to storage accounts and cloud services, but does not currently support deployment to web apps. You can deploy to storage accounts and cloud services using an Azure Deployment Project as described in [Creating a Hello World Application for Azure in Eclipse](/azure/azure-toolkit-for-eclipse-creating-a-hello-world-application/), but not to web apps. Use other methods such as FTP or GitHub to transfer files to your web app.
 > 
 > **Note:** We do not recommend using FTP from the Windows command prompt (the command-line FTP.EXE utility that ships with Windows). FTP clients that use active FTP, such as FTP.EXE, often fail to work over firewalls. Active FTP specifies an internal LAN-based address, to which an FTP server will likely fail to connect.
 > 
@@ -407,7 +385,7 @@ Select a third-party FTP client to publish the application. This procedure descr
 
 For more information on deployment to an App Service web app using FTP, see the following topics:
 
-* [Deploy using an FTP utility](./web-sites-deploy.md)
+* [Deploy using an FTP utility](web-sites-deploy.md)
 
 #### Set up deployment credentials
 Make sure you have run the **AzureWebDemo** application to create a web app. You will transfer files to this location.
@@ -430,17 +408,15 @@ To obtain FTP connection information from the publish profile:
 1. In the web app's blade, click **Get publish profile**. This will download a .publishsettings file to your local drive.
 2. Open the .publishsettings file in an XML editor or text editor and find the `<publishProfile>` element containing `publishMethod="FTP"`. It should look like the following:
 
-    ```
-    <publishProfile
-        profileName="WebDemoWebApp - FTP"
-        publishMethod="FTP"
-        publishUrl="ftp://waws-prod-bay-NNN.ftp.azurewebsites.chinacloudapi.cn/site/wwwroot"
-        ftpPassiveMode="True"
-        userName="WebDemoWebApp\$WebDemoWebApp"
-        userPWD="<deployment-password>"
-        ...
-    </publishProfile>
-    ```
+        <publishProfile
+            profileName="WebDemoWebApp - FTP"
+            publishMethod="FTP"
+            publishUrl="ftp://waws-prod-bay-NNN.ftp.azurewebsites.chinacloudapi.cn/site/wwwroot"
+            ftpPassiveMode="True"
+            userName="WebDemoWebApp\$WebDemoWebApp"
+            userPWD="<deployment-password>"
+            ...
+        </publishProfile>
 3. Note that the web app's `publishProfile` settings map to the FileZilla Site Manager settings as follows:
 
 * `publishUrl` is the same as **FTP host name**, the value you set in **Host**.
@@ -479,15 +455,11 @@ One way to publish the application is to use the Kudu debug console built into A
 
 At first JSPHello.war appears in the directory area by itself:
 
-```
 ![][9]
-```
 
 In a short time (probably less than 5 minutes) Tomcat Server will unzip the WAR file into an unpacked JSPHello directory. Click the ROOT directory to see whether index.jsp has been unzipped and copied there. If so, navigate back to the webapps directory to see whether the unpacked JSPHello directory has been created. If you do not see these items, wait and repeat.
 
-```
 ![][10]
-```
 
 #### Publish your application using FileZilla (optional)
 Another tool you can use to publish the application is FileZilla, a popular third-party FTP client with a convenient, graphical UI. You can download and install FileZilla from [http://filezilla-project.org/](http://filezilla-project.org/) if you do not already have it. For more information on using the client, see the [FileZilla documentation](https://wiki.filezilla-project.org/Documentation) and this blog entry on [FTP Clients - Part 4: FileZilla](http://blogs.msdn.com/b/robert_mcmurray/archive/2008/12/17/ftp-clients-part-4-filezilla.aspx).
@@ -543,9 +515,9 @@ This procedure creates an App Service web app. You will be billed for the resour
 [9]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-1.png
 [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
 
-[Azure App Service]: ./app-service-changes-existing-services.md
+[Azure App Service]: /azure/app-service-web/app-service-changes-existing-services/
 [Web Platform Installer]: http://go.microsoft.com/fwlink/?LinkID=252838
-[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse-installation.md
+[Azure Toolkit for Eclipse]: /azure/azure-toolkit-for-eclipse-installation/
 [Azure Classic Management Portal]: https://manage.windowsazure.cn
 [What is an Azure AD directory]: http://technet.microsoft.com/zh-cn/library/jj573650.aspx
 [Create and Upload a Management Certificate for Azure]: ../cloud-services/cloud-services-certs-create.md

@@ -1,5 +1,3 @@
-<!-- not suitable for Mooncake -->
-
 ---
 title: Use internal DNS for VM name resolution with the Azure CLI 2.0 | Azure
 description: How to create virtual network interface cards and use internal DNS for VM name resolution on Azure with the Azure CLI 2.0
@@ -22,12 +20,12 @@ ms.author: v-livech
 ---
 
 # Create virtual network interface cards and use internal DNS for VM name resolution on Azure
-This article shows you how to set static internal DNS names for Linux VMs using virtual network interface cards (vNics) and DNS label names with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](./virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md). Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
+This article shows you how to set static internal DNS names for Linux VMs using virtual network interface cards (vNics) and DNS label names with the Azure CLI 2.0. You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
 
 The requirements are:
 
 * [an Azure account](https://www.azure.cn/pricing/1rmb-trial/)
-* [SSH public and private key files](./virtual-machines-linux-mac-create-ssh-keys.md)
+* [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/cli/azure/#login).
@@ -76,7 +74,7 @@ az group create --name myResourceGroup --location chinanorth
 
 ## Create the virtual network
 
-The next step is to build a virtual network to launch the VMs into. The virtual network contains one subnet for this walkthrough. For more information on Azure virtual networks, see [Create a virtual network by using the Azure CLI](../virtual-network/virtual-networks-create-vnet-arm-cli.md). 
+The next step is to build a virtual network to launch the VMs into. The virtual network contains one subnet for this walkthrough. For more information on Azure virtual networks, see [Create a virtual network by using the Azure CLI](../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Create the virtual network with [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
 
@@ -90,7 +88,7 @@ az network vnet create \
 ```
 
 ## Create the Network Security Group
-Azure Network Security Groups are equivalent to a firewall at the network layer. For more information about Network Security Groups, see [How to create NSGs in the Azure CLI](../virtual-network/virtual-networks-create-nsg-arm-cli.md). 
+Azure Network Security Groups are equivalent to a firewall at the network layer. For more information about Network Security Groups, see [How to create NSGs in the Azure CLI](../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Create the network security group with [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
 
@@ -162,6 +160,6 @@ By using the CLI flags to call out existing resources, we instruct Azure to depl
 
 ## Next steps
 
-* [Use an Azure Resource Manager template to create a specific deployment](./virtual-machines-linux-cli-deploy-templates.md)
-* [Create your own custom environment for a Linux VM using Azure CLI commands directly](./virtual-machines-linux-create-cli-complete.md)
-* [Create a Linux VM on Azure using templates](./virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Use an Azure Resource Manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a Linux VM on Azure using templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

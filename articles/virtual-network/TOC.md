@@ -75,7 +75,7 @@
 ##### [CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
 
 #### Multiple IP addresses
-##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
+##### [Azure portal preview](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Template](virtual-network-multiple-ip-addresses-template.md)
@@ -98,11 +98,11 @@
 
 ## Configure
 ### Accelerated networking for VMs
-#### [Azure portal](virtual-network-accelerated-networking-portal.md)
+#### [Azure portal preview](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
 ### [Optimize VM network throughput](virtual-network-optimize-network-bandwidth.md)
 ### Access control lists
-#### [Classic portal](virtual-networks-acl.md)
+#### [Classic Management Portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
 ### [Name resolution for VMs and cloud services](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
@@ -125,13 +125,12 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Reference
-## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
-## [PowerShell (Classic)](/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
-## [Azure CLI](/cli/azure/network)
+## [PowerShell (Resource Manager)](https://docs.microsoft.com/powershell/resourcemanager/azurerm.network/v3.4.0/azurerm.network)
+## [PowerShell (Classic)](https://docs.microsoft.com/powershell/servicemanagement/azure.networking/v3.4.0/azure.networking)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 ## [Java](/java/api/)
-## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
-## [REST (Classic)](https://msdn.microsoft.com/library/jj157182.aspx)
-
+## [REST (Resource Manager)](https://msdn.microsoft.com/zh-cn/library/mt163658.aspx)
+## [REST (Classic)](https://msdn.microsoft.com/zh-cn/library/jj157182.aspx)
 
 # Related
 ## [Virtual Machines](/azure/virtual-machines/)
@@ -145,5 +144,5 @@
 # Resources
 ## [Networking blog](http://azure.microsoft.com/blog/topics/networking)
 ## [Networking forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
-## [Pricing](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Pricing](https://www.azure.cn/pricing/details/virtual-network/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

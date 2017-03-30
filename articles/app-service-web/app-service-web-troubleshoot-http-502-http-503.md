@@ -21,7 +21,7 @@ ms.author: cephalin
 ---
 
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps
-"502 bad gateway" and "503 service unavailable" are common errors in your web app hosted in [Azure App Service](./app-service-changes-existing-services.md). This article helps you troubleshoot these errors.
+"502 bad gateway" and "503 service unavailable" are common errors in your web app hosted in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/). This article helps you troubleshoot these errors.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the CSDN Azure](https://www.azure.cn/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://www.azure.cn/support/contact/) and click on **Get Support**.
 
@@ -63,7 +63,7 @@ Some of the metrics that you might want to monitor for your web app are
 
 For more information, see:
 
-* [Monitor Web Apps in Azure App Service](./web-sites-monitor.md)
+* [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
 * [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 ### <a name="collect"></a> 2. Collect data
@@ -105,7 +105,7 @@ For more information on features available in Kudu, see
 #### Scale the web app
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
-For more information on scaling, see [Scale a web app in Azure App Service](./web-sites-scale.md).
+For more information on scaling, see [Scale a web app in Azure App Service](web-sites-scale.md).
 
 Additionally, you can choose to run your application on more than one instance . This not only provides you with more processing capability, but also gives you some amount of fault tolerance. If the process goes down on one instance, the other instance will still continue serving requests.
 

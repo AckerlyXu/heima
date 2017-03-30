@@ -22,11 +22,11 @@ ms.custom: H1Hack27Feb2017
 
 # Create a VM with a static public IP address using an Azure Resource Manager template
 > [!div class="op_single_selector"]
->- [Azure portal preview](./virtual-network-deploy-static-pip-arm-portal.md)
->- [PowerShell](./virtual-network-deploy-static-pip-arm-ps.md)
->- [Azure CLI](./virtual-network-deploy-static-pip-arm-cli.md)
->- [Template](./virtual-network-deploy-static-pip-arm-template.md)
->- [PowerShell (Classic)](./virtual-networks-reserved-public-ip.md)
+>- [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+>- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+>- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+>- [Template](virtual-network-deploy-static-pip-arm-template.md)
+>- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
@@ -119,13 +119,11 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 
     Expected output:
 
-    ```
-    ResourceGroupName : PIPTEST
-    Location          : chinanorth
-    ProvisioningState : Succeeded
-    Tags              :
-    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
-    ```
+        ResourceGroupName : PIPTEST
+        Location          : chinanorth
+        ProvisioningState : Succeeded
+        Tags              :
+        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/StaticPublicIP
 
 3. In a PowerShell console, run the `New-AzureRmResourceGroupDeployment` cmdlet to deploy the template.
 
@@ -137,37 +135,35 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 
     Expected output:
 
-    ```
-    DeploymentName    : DeployVM
-    ResourceGroupName : PIPTEST
-    ProvisioningState : Succeeded
-    Timestamp         : [Date and time]
-    Mode              : Incremental
-    TemplateLink      :
-                        Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
-                        ter/IaaS-Story/03-Static-public-IP/azuredeploy.json
-                        ContentVersion : 1.0.0.0
-
-    Parameters        :
-                        Name                      Type                       Value     
-                        ========================  =========================  ==========
-                        vnetName                  String                     WTestVNet
-                        vnetPrefix                String                     192.168.0.0/16
-                        frontEndSubnetName        String                     FrontEnd  
-                        frontEndSubnetPrefix      String                     192.168.1.0/24
-                        storageAccountNamePrefix  String                     iaasestd  
-                        stdStorageType            String                     Standard_LRS
-                        osType                    String                     Windows   
-                        adminUsername             String                     adminUser
-                        adminPassword             SecureString                         
-
-    Outputs           :
-    ```
+        DeploymentName    : DeployVM
+        ResourceGroupName : PIPTEST
+        ProvisioningState : Succeeded
+        Timestamp         : [Date and time]
+        Mode              : Incremental
+        TemplateLink      :
+                            Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
+                            ter/IaaS-Story/03-Static-public-IP/azuredeploy.json
+                            ContentVersion : 1.0.0.0
+   
+        Parameters        :
+                            Name                      Type                       Value     
+                            ========================  =========================  ==========
+                            vnetName                  String                     WTestVNet
+                            vnetPrefix                String                     192.168.0.0/16
+                            frontEndSubnetName        String                     FrontEnd  
+                            frontEndSubnetPrefix      String                     192.168.1.0/24
+                            storageAccountNamePrefix  String                     iaasestd  
+                            stdStorageType            String                     Standard_LRS
+                            osType                    String                     Windows   
+                            adminUsername             String                     adminUser
+                            adminPassword             SecureString                         
+   
+        Outputs           :
 
 ## Deploy the template by using the Azure CLI
 To deploy the template by using the Azure CLI, complete the following steps:
 
-1. If you have never used Azure CLI, follow the steps in the [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/) article to install and configure it.
+1. If you have never used Azure CLI, follow the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article to install and configure it.
 2. Run the `azure config mode` command to switch to Resource Manager mode, as shown below.
 
     ```azurecli
@@ -176,9 +172,7 @@ To deploy the template by using the Azure CLI, complete the following steps:
 
     The expected output for the command above:
 
-    ```
-    info:    New mode is arm
-    ```
+        info:    New mode is arm
 
 3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), select its content, and save it to a file in your computer. For this example, the parameters are saved to a file named *parameters.json*. Change the parameter values within the file if desired, but at a minimum, it's recommended that you change the value for the adminPassword parameter to a unique, complex password.
 4. Run the `azure group deployment create` cmd to deploy the new VNet by using the template and parameter files you downloaded and modified above. In the command below, replace <path> with the path you saved the file to. 
@@ -189,19 +183,17 @@ To deploy the template by using the Azure CLI, complete the following steps:
 
     Expected output (lists parameter values used):
 
-    ```
-    info:    Executing command group create
-    + Getting resource group PIPTEST2
-    + Creating resource group PIPTEST2
-    info:    Created resource group PIPTEST2
-    + Initializing template configurations and parameters
-    + Creating a deployment
-    info:    Created template deployment "azuredeploy"
-    data:    Id:                  /subscriptions/[Subscription ID]/resourceGroups/PIPTEST2
-    data:    Name:                PIPTEST2
-    data:    Location:            chinanorth
-    data:    Provisioning State:  Succeeded
-    data:    Tags: null
-    data:
-    info:    group create command OK
-    ```
+        info:    Executing command group create
+        + Getting resource group PIPTEST2
+        + Creating resource group PIPTEST2
+        info:    Created resource group PIPTEST2
+        + Initializing template configurations and parameters
+        + Creating a deployment
+        info:    Created template deployment "azuredeploy"
+        data:    Id:                  /subscriptions/[Subscription ID]/resourceGroups/PIPTEST2
+        data:    Name:                PIPTEST2
+        data:    Location:            chinanorth
+        data:    Provisioning State:  Succeeded
+        data:    Tags: null
+        data:
+        info:    group create command OK

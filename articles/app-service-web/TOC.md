@@ -30,7 +30,6 @@
 ## [Authentication and authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Authentication with on-premises AD](web-sites-authentication-authorization.md)
 
-
 # How-To guides
 ## Develop your app	
 ### ASP.NET
@@ -132,12 +131,10 @@
 ### [Use Azure Resource Manager with PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
 ### [Manage apps using Azure Automation](automation-manage-web-app.md)
 
-
-
 # Reference	
-## [CLI 2.0](/cli/azure/appservice)
+## [CLI 2.0](https://docs.microsoft.com/cli/azure/appservice)
 ## [PowerShell](/powershell)
-## [REST API](/rest/api/appservice/) 
+## [REST API](https://docs.microsoft.com/rest/api/appservice/) 
 		
 # Resources	
 ## Troubleshooting		
@@ -145,7 +142,7 @@
 ### [Troubleshoot Node.js app](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 ### [Troubleshoot HTTP 502 & 503](app-service-web-troubleshoot-http-502-http-503.md)
 ### [Troubleshoot performance issues](app-service-web-troubleshoot-performance-degradation.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/app-service/) 	
+## [Pricing](https://www.azure.cn/pricing/details/app-service/) 	
 ## [Quota Information](../azure-subscription-service-limits.md#app-service-limits)	
 ## [Service Updates & Release Notes](https://azure.microsoft.com/updates/?product=app-service)	
 ## [Best practices](app-service-best-practices.md)
@@ -153,4 +150,4 @@
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=app-service)
 ## Cookbooks	
 ### [Reference Architectures](../guidance/guidance-ra-app-service.md)	
-### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)	
+### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)

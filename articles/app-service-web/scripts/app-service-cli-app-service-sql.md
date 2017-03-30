@@ -29,7 +29,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-```
+```azurecli
 #/bin/bash
 
 # Variables
@@ -63,7 +63,7 @@ az sql db create --resource-group myResourceGroup --server $serverName --name My
 az appservice web config appsettings update --settings "SQLSRV_CONNSTR=Server=tcp:$serverName.database.chinacloudapi.cn;Database=MySampleDatabase;User ID=$username@$serverName;Password=$sqlServerPassword;Trusted_Connection=False;Encrypt=True;" --name $appName --resource-group myResourceGroup
 ```
 
-[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

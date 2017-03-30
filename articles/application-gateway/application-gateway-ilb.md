@@ -19,9 +19,10 @@ ms.author: gwallace
 ---
 
 # Create an Application Gateway with an Internal Load Balancer (ILB)
+
 > [!div class="op_single_selector"]
->- [Azure Classic PowerShell](./application-gateway-ilb.md)
->- [Azure Resource Manager PowerShell](./application-gateway-ilb-arm.md)
+> * [Azure Classic PowerShell](application-gateway-ilb.md)
+> * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
 
 Application Gateway can be configured with an internet facing virtual IP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications not exposed to internet. It's also useful for services/tiers within a multi-tier application, which sits in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination. This article walks you through the steps to configure an application gateway with an ILB.
 
@@ -43,10 +44,9 @@ To create an application gateway, perform the following steps in the order liste
 
 **To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
-```
+```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
-
 
 ```
 VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
@@ -60,10 +60,9 @@ Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state. 
 
-```
+```powershell
 Get-AzureApplicationGateway AppGwTest
 ```
-
 
 ```
 VERBOSE: 4:39:39 PM - Begin Operation:
@@ -100,69 +99,67 @@ Note the following:
 * The Frontend IP *Type* should be set to 'Private'
 * The *StaticIPAddress* should be set to the desired internal IP on which the gateway receives traffic. Note that the *StaticIPAddress* element is optional. If not set, an available internal IP from the deployed subnet is chosen. 
 * The value of the *Name* element specified in *FrontendIPConfiguration* should be used in the HTTPListener's *FrontendIP* element to refer to the FrontendIPConfiguration.
-
-    **Configuration XML sample**
-
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
-        <FrontendIPConfigurations>
-            <FrontendIPConfiguration>
-                <Name>fip1</Name> 
-                <Type>Private</Type> 
-                <StaticIPAddress>10.0.0.10</StaticIPAddress> 
-            </FrontendIPConfiguration>
-        </FrontendIPConfigurations>
-        <FrontendPorts>
-            <FrontendPort>
-                <Name>FrontendPort1</Name>
-                <Port>80</Port>
-            </FrontendPort>
-        </FrontendPorts>
-        <BackendAddressPools>
-            <BackendAddressPool>
-                <Name>BackendPool1</Name>
-                <IPAddresses>
-                    <IPAddress>10.0.0.1</IPAddress>
-                    <IPAddress>10.0.0.2</IPAddress>
-                </IPAddresses>
-            </BackendAddressPool>
-        </BackendAddressPools>
-        <BackendHttpSettingsList>
-            <BackendHttpSettings>
-                <Name>BackendSetting1</Name>
-                <Port>80</Port>
-                <Protocol>Http</Protocol>
-                <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-            </BackendHttpSettings>
-        </BackendHttpSettingsList>
-        <HttpListeners>
-            <HttpListener>
-                <Name>HTTPListener1</Name>
-                <FrontendIP>fip1</FrontendIP>
-                <FrontendPort>FrontendPort1</FrontendPort>
-                <Protocol>Http</Protocol>
-            </HttpListener>
-        </HttpListeners>
-        <HttpLoadBalancingRules>
-            <HttpLoadBalancingRule>
-                <Name>HttpLBRule1</Name>
-                <Type>basic</Type>
-                <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
-                <Listener>HTTPListener1</Listener>
-                <BackendAddressPool>BackendPool1</BackendAddressPool>
-            </HttpLoadBalancingRule>
-        </HttpLoadBalancingRules>
-    </ApplicationGatewayConfiguration>
-    ```
+  
+  **Configuration XML sample**
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+    <FrontendIPConfigurations>
+        <FrontendIPConfiguration>
+            <Name>fip1</Name> 
+            <Type>Private</Type> 
+            <StaticIPAddress>10.0.0.10</StaticIPAddress> 
+        </FrontendIPConfiguration>
+    </FrontendIPConfigurations>
+    <FrontendPorts>
+        <FrontendPort>
+            <Name>FrontendPort1</Name>
+            <Port>80</Port>
+        </FrontendPort>
+    </FrontendPorts>
+    <BackendAddressPools>
+        <BackendAddressPool>
+            <Name>BackendPool1</Name>
+            <IPAddresses>
+                <IPAddress>10.0.0.1</IPAddress>
+                <IPAddress>10.0.0.2</IPAddress>
+            </IPAddresses>
+        </BackendAddressPool>
+    </BackendAddressPools>
+    <BackendHttpSettingsList>
+        <BackendHttpSettings>
+            <Name>BackendSetting1</Name>
+            <Port>80</Port>
+            <Protocol>Http</Protocol>
+            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+        </BackendHttpSettings>
+    </BackendHttpSettingsList>
+    <HttpListeners>
+        <HttpListener>
+            <Name>HTTPListener1</Name>
+            <FrontendIP>fip1</FrontendIP>
+            <FrontendPort>FrontendPort1</FrontendPort>
+            <Protocol>Http</Protocol>
+        </HttpListener>
+    </HttpListeners>
+    <HttpLoadBalancingRules>
+        <HttpLoadBalancingRule>
+            <Name>HttpLBRule1</Name>
+            <Type>basic</Type>
+            <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
+            <Listener>HTTPListener1</Listener>
+            <BackendAddressPool>BackendPool1</BackendAddressPool>
+        </HttpLoadBalancingRule>
+    </HttpLoadBalancingRules>
+</ApplicationGatewayConfiguration>
+```
 
 ## <a name="set-the-gateway-configuration"></a> Set the gateway configuration
 Next, you'll set the application gateway. You can use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration object, or with a configuration XML file. 
 
-```
+```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 ```
-
 
 ```
 VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
@@ -181,10 +178,9 @@ Once the gateway has been configured, use the `Start-AzureApplicationGateway` cm
 > 
 > 
 
-```
+```powershell
 Start-AzureApplicationGateway AppGwTest 
 ```
-
 
 ```
 VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
@@ -201,10 +197,9 @@ Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If 
 > [!NOTE]
 > The application gateway is configured to accept traffic at the configured ILB endpoint of 10.0.0.10 in this example.
 
-```
+```powershell
 Get-AzureApplicationGateway AppGwTest 
 ```
-
 
 ```
 VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
@@ -223,5 +218,5 @@ DnsName       : appgw-b2a11563-2b3a-4172-a4aa-226ee4c23eed.chinacloudapp.cn
 ## Next steps
 If you want more information about load balancing options in general, see:
 
-* [Azure Load Balancer](../load-balancer/index.md)
-* [Azure Traffic Manager](../traffic-manager/index.md)
+* [Azure Load Balancer](/azure/load-balancer/)
+* [Azure Traffic Manager](/azure/traffic-manager/)

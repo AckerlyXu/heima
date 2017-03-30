@@ -46,7 +46,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 **Requirements**
 
@@ -68,9 +68,9 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 > [!NOTE]
 > The following steps create a Linux-based HDInsight cluster. To create a Windows-based cluster, select **Windows** as the cluster OS when creating the cluster, and use the Windows (PowerShell) script instead of the bash script.
 ><p>
-> You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](./hdinsight-hadoop-customize-cluster-linux.md).
+> You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](./hdinsight-hadoop-provision-linux-clusters.md), but do not complete provisioning.
+1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md), but do not complete provisioning.
 
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the following information:
 
@@ -92,10 +92,10 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
 5. Use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
 
-6. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](./hdinsight-hadoop-provision-linux-clusters.md).
+6. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
 Once cluster creation finishes, you are able to use the jars added through this script from Hive without having to use the `ADD JAR` statement.
 
 ## Next steps
 
-For more information on working with Hive, see [Use Hive with HDInsight](./hdinsight-use-hive.md)
+For more information on working with Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md)

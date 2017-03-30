@@ -36,7 +36,7 @@ NSGs contain the following properties.
 | Rules |Rules that define what traffic is allowed, or denied | |See [NSG rules](#Nsg-rules) below |
 
 > [!NOTE]
-> Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](./virtual-networks-acl-powershell.md).
+> Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md).
 > 
 
 ### <a name="Nsg-rules"></a> NSG rules
@@ -119,10 +119,10 @@ You can implement NSGs in the classic or Resource Manager deployment models usin
 | Deployment tool | Classic | Resource Manager |
 | --- | --- | --- |
 | Classic Management Portal | No  | No |
-| Azure portal preview   | Yes | [Yes](./virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [Yes](./virtual-networks-create-nsg-classic-ps.md) | [Yes](./virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI      | [Yes](./virtual-networks-create-nsg-classic-cli.md) | [Yes](./virtual-networks-create-nsg-arm-cli.md) |
-| ARM template   | No  | [Yes](./virtual-networks-create-nsg-arm-template.md) |
+| Azure portal preview   | Yes | [Yes](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](virtual-networks-create-nsg-arm-ps.md) |
+| Azure CLI      | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](virtual-networks-create-nsg-arm-cli.md) |
+| ARM template   | No  | [Yes](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="Planning" id="planning"></a> Planning
 Before implementing NSGs, you need to answer the following questions:
@@ -162,7 +162,7 @@ The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a sp
 ### <a name="subnets"></a> Subnets
 * Consider the number of tiers your workload requires. Each tier can be isolated by using a subnet, with an NSG applied to the subnet. 
 * If you need to implement a subnet for a VPN gateway, or ExpressRoute circuit, make sure you do **NOT** apply an NSG to that subnet. If you do so, your cross VNet or cross premises connectivity will not work.
-* If you need to implement a virtual appliance, make sure you deploy the virtual appliance on its own subnet, so that your User Defined Routes (UDRs) can work correctly. You can implement a subnet level NSG to filter traffic in and out of this subnet. Learn more about [how to control traffic flow and use virtual appliances](./virtual-networks-udr-overview.md).
+* If you need to implement a virtual appliance, make sure you deploy the virtual appliance on its own subnet, so that your User Defined Routes (UDRs) can work correctly. You can implement a subnet level NSG to filter traffic in and out of this subnet. Learn more about [how to control traffic flow and use virtual appliances](virtual-networks-udr-overview.md).
 
 ### Load balancers
 * Consider the load balancing and NAT rules for each load balancer being used by each of your workloads.These rules are bound to a back end pool that contains NICs (Resource Manager deployments) or VMs/role instances (classic deployments). Consider creating an NSG for each back end pool, allowing only traffic mapped through the rules implemented in the load balancers. That guarantees that traffic coming to the backend pool directly, without passing through the load balancer, is also filtered.
@@ -170,7 +170,7 @@ The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a sp
 * Similar to public facing load balancers, when you create NSGs to filter traffic coming through an internal load balancer (ILB), you need to understand that the source port and address range applied are the ones from the computer originating the call, not the load balancer. And the destination port and address range are related to the computer receiving the traffic, not the load balancer.
 
 ### Other
-* Endpoint-based ACLs and NSGs are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Manage endpoint ACLs](./virtual-networks-acl-powershell.md).
+* Endpoint-based ACLs and NSGs are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Manage endpoint ACLs](virtual-networks-acl-powershell.md).
 * In the Resource Manager deployment model, you can use an NSG associated to a NIC for VMs with multiple NICs to enable management (remote access) by NIC, therefore segregating traffic.
 * Similar to the use of load balancers, when filtering traffic from other VNets, you must use the source address range of the remote computer, not the gateway connecting the VNets.
 * Many Azure services cannot be connected to Azure Virtual Networks and therefore, traffic to and from them cannot be filtered with NSGs.  Read the documentation for the services you use to determine whether or not they can be connected to VNets.
@@ -251,6 +251,6 @@ Requirements 1-6 (with exception of 3) above are all confined to subnet spaces. 
 Since some of the NSGs above need to be associated to individual NICs, you need to deploy this scenario as a Resource Manager deployment. Notice how rules are combined for subnet and NIC level, depending on how they need to be applied. 
 
 ## Next steps
-* [Deploy NSGs in the classic deployment model](./virtual-networks-create-nsg-classic-ps.md).
-* [Deploy NSGs in Resource Manager](./virtual-networks-create-nsg-arm-pportal.md).
-* [Manage NSG logs](./virtual-network-nsg-manage-log.md).
+* [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
+* [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
+* [Manage NSG logs](virtual-network-nsg-manage-log.md).

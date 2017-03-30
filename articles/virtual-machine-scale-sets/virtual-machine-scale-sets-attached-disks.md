@@ -1,5 +1,3 @@
-<!-- not suitable for Mooncake -->
-
 ---
 title: Azure Virtual Machine Scale Sets Attached Data Disks | Azure
 description: Learn how to use attached data disks with virtual machine scale sets

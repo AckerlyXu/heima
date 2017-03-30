@@ -25,7 +25,7 @@ ms.author: larryfr
 In this article, you will learn how to use Secure Shell (SSH) to connect to a Linux-based HDInsight cluster, and then interactively submit Hive queries by using the [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline-NewCommandLineShell) command-line tool.
 
 > [!NOTE]
-> Beeline uses JDBC to connect to Hive. For more information on using JDBC with Hive, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](./hdinsight-connect-hive-jdbc-driver.md).
+> Beeline uses JDBC to connect to Hive. For more information on using JDBC with Hive, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md).
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following:
@@ -33,38 +33,32 @@ To complete the steps in this article, you will need the following:
 * A Linux-based Hadoop on HDInsight cluster.
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * An SSH client. Linux, Unix, and Mac OS should come with an SSH client. Windows users must download a client, such as [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a id="ssh"></a>Connect with SSH
 Connect to the fully qualified domain name (FQDN) of your HDInsight cluster by using the SSH command. The FQDN will be the name you gave the cluster, then **.azurehdinsight.cn**. For example, the following would connect to a cluster named **myhdinsight**:
 
-```
-ssh admin@myhdinsight-ssh.azurehdinsight.cn
-```
+    ssh admin@myhdinsight-ssh.azurehdinsight.cn
 
 **If you provided a certificate key for SSH authentication** when you created the HDInsight cluster, you may need to specify the location of the private key on your client system:
 
-```
-ssh admin@myhdinsight-ssh.azurehdinsight.cn -i ~/mykey.key
-```
+    ssh admin@myhdinsight-ssh.azurehdinsight.cn -i ~/mykey.key
 
 **If you provided a password for SSH authentication** when you created the HDInsight cluster, you will need to provide the password when prompted.
 
-For more information on using SSH with HDInsight, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix](./hdinsight-hadoop-linux-use-ssh-unix.md).
+For more information on using SSH with HDInsight, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ### PuTTY (Windows-based clients)
 Windows does not provide a built-in SSH client. We recommend using **PuTTY**, which can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](./hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ## <a id="beeline"></a>Use the Beeline command
 1. Once connected, use the following to start Beeline:
 
-    ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
-    ```
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
 
     This will start the Beeline client, and connect to the JDBC url. Here, `localhost` is used since HiveServer2 runs on both head nodes in the cluster, and we're running Beeline directly on the primary headnode.
 
@@ -73,48 +67,40 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
     If you view help, you will notice `!sql`, which is used to execute HiveQL statements. However, HiveQL is so commonly used that you can omit the preceding `!sql`. The following two statements have exactly the same results; displaying the tables currently available through Hive:
 
-    ```
-    !sql show tables;
-    show tables;
-    ```
+        !sql show tables;
+        show tables;
 
     On a new cluster, only one table should be listed: **hivesampletable**.
 3. Use the following to display the schema for the hivesampletable:
 
-    ```
-    describe hivesampletable;
-    ```
+        describe hivesampletable;
 
     This will return the following information:
 
-    ```
-    +-----------------------+------------+----------+--+
-    |       col_name        | data_type  | comment  |
-    +-----------------------+------------+----------+--+
-    | clientid              | string     |          |
-    | querytime             | string     |          |
-    | market                | string     |          |
-    | deviceplatform        | string     |          |
-    | devicemake            | string     |          |
-    | devicemodel           | string     |          |
-    | state                 | string     |          |
-    | country               | string     |          |
-    | querydwelltime        | double     |          |
-    | sessionid             | bigint     |          |
-    | sessionpagevieworder  | bigint     |          |
-    +-----------------------+------------+----------+--+
-    ```
+        +-----------------------+------------+----------+--+
+        |       col_name        | data_type  | comment  |
+        +-----------------------+------------+----------+--+
+        | clientid              | string     |          |
+        | querytime             | string     |          |
+        | market                | string     |          |
+        | deviceplatform        | string     |          |
+        | devicemake            | string     |          |
+        | devicemodel           | string     |          |
+        | state                 | string     |          |
+        | country               | string     |          |
+        | querydwelltime        | double     |          |
+        | sessionid             | bigint     |          |
+        | sessionpagevieworder  | bigint     |          |
+        +-----------------------+------------+----------+--+
 
     This displays the columns in the table. While we could perform some queries against this data, let's instead create a brand new table to demonstrate how to load data into Hive and apply a schema.
 4. Enter the following statements to create a new table named **log4jLogs** by using sample data provided with the HDInsight cluster:
 
-    ```
-    DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
-    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
-    ```
+        DROP TABLE log4jLogs;
+        CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+        ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
+        SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     These statements perform the following actions:
 
@@ -165,15 +151,11 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
 
 1. Use the following command to create a new file named **query.hql**:
 
-    ```
-    nano query.hql
-    ```
+        nano query.hql
 2. Once the editor opens, use the following as the contents of the file. This query will create a new 'internal' table named **errorLogs**:
 
-    ```
-    CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
-    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
-    ```
+        CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
+        INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
     These statements perform the following actions:
 
@@ -188,9 +170,7 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
 3. To save the file, use **Ctrl**+**_X**, then enter **Y**, and finally **Enter**.
 4. Use the following to run the file using Beeline. Replace **HOSTNAME** with the name obtained earlier for the head node, and **PASSWORD** with the password for the admin account:
 
-    ```
-    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
-    ```
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
 
     > [!NOTE]
     > The `-i` parameter starts Beeline, runs the statements in the query.hql file, and remains in Beeline at the `jdbc:hive2://localhost:10001/>` prompt. You can also run a file using the `-f` parameter, which returns you to Bash after the file has been processed.
@@ -198,22 +178,18 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
     > 
 5. To verify that the **errorLogs** table was created, use the following statement to return all the rows from **errorLogs**:
 
-    ```
-    SELECT * from errorLogs;
-    ```
+        SELECT * from errorLogs;
 
     Three rows of data should be returned, all containing **[ERROR]** in column t4:
 
-    ```
-    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-    | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
-    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-    | 2012-02-03    | 18:35:34      | SampleClass0  | [ERROR]       | incorrect     | id            |               |
-    | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
-    | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
-    +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-    3 rows selected (1.538 seconds)
-    ```
+        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+        | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
+        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+        | 2012-02-03    | 18:35:34      | SampleClass0  | [ERROR]       | incorrect     | id            |               |
+        | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
+        | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
+        +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
+        3 rows selected (1.538 seconds)
 
 ## More about Beeline connectivity
 The steps in this document use `localhost` to connect to HiveServer2 running on the cluster headnode. While you can also use the hostname or the fully qualified domain name of the headnode those require additional steps to the process (steps to find the hostname or FQDN). Using `localhost` is sufficient when using Beeline from the headnode.
@@ -222,9 +198,7 @@ If you have an edge node in your cluster, with Beeline installed, you will need 
 
 If you have Beeline installed on a client outside of your cluster, you can connect using the following command. Replace **CLUSTERNAME** with the name of your HDInsight cluster. Replace **PASSWORD** with the password for the admin (HTTP login) account.
 
-```
-beeline -u 'jdbc:hive2://CLUSTERNAME.azurehdinsight.cn:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=hive2' -n admin -p PASSWORD
-```
+    beeline -u 'jdbc:hive2://CLUSTERNAME.azurehdinsight.cn:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=hive2' -n admin -p PASSWORD
 
 Note that the parameters/URI is different than when running directly on a headnode or from an edge node within the cluster. This is because connecting to the cluster from the internet uses a public gateway that routes traffic over port 443. Also, several other services are exposed through the public gateway on port 443, so the URI is different than when connecting directly. When connecting from the internet you must also authenticate the session by providing the password.
 
@@ -233,17 +207,17 @@ As you can see, the Beeline command provides an easy way to interactively run Hi
 
 For general information on Hive in HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information on other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 If you are using Tez with Hive, see the following documents for debugging information:
 
-* [Use the Tez UI on Windows-based HDInsight](./hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight](./hdinsight-debug-ambari-tez-view.md)
+* [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/zh-cn/library/dn479185.aspx
 
@@ -255,15 +229,15 @@ If you are using Tez with Hive, see the following documents for debugging inform
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://zh.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: ./hdinsight-connect-excel-power-query.md
+[import-to-excel]: /azure/hdinsight-connect-excel-power-query/
 
-[hdinsight-use-oozie]: ./hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: ./hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ./hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/zh-cn/library/ee692792.aspx

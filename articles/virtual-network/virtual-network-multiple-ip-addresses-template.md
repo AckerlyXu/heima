@@ -72,7 +72,7 @@ To deploy the template using the Azure portal preview, complete the following st
 
     Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network	
     ```
 
     Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
@@ -143,7 +143,7 @@ To deploy the template using the Azure CLI 1.0, complete the following steps:
 
     Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network	
     ```
 
     Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:

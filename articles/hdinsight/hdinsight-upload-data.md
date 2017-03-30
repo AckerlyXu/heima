@@ -61,43 +61,31 @@ The Azure CLI is a cross-platform tool that allows you to manage Azure services.
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. [Install and configure the Azure CLI for Mac, Linux and Windows](/documentation/articles/cli-install-nodejs/).
+1. [Install and configure the Azure CLI for Mac, Linux and Windows](../cli-install-nodejs.md).
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
-    ```
-    azure login -e AzureChinaCloud
-    ```
+        azure login -e AzureChinaCloud
 
     When prompted, enter the user name and password for your subscription.
 3. Enter the following command to list the storage accounts for your subscription:
 
-    ```
-    azure storage account list
-    ```
+        azure storage account list
 4. Select the storage account that contains the blob you want to work with, then use the following command to retrieve the key for this account:
 
-    ```
-    azure storage account keys list <storage-account-name>
-    ```
+        azure storage account keys list <storage-account-name>
 
     This should return **Primary** and **Secondary** keys. Copy the **Primary** key value because it will be used in the next steps.
 5. Use the following command to retrieve a list of blob containers within the storage account:
 
-    ```
-    azure storage container list -a <storage-account-name> -k <primary-key>
-    ```
+        azure storage container list -a <storage-account-name> -k <primary-key>
 6. Use the following commands to upload and download files to the blob:
 
     * To upload a file:
 
-        ```
-        azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
-        ```
+            azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
     * To download a file:
 
-        ```
-        azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
-        ```
+            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
 > [!NOTE]
 > If you will always be working with the same storage account, you can set the following environment variables instead of specifying the account and key for every command:
@@ -117,22 +105,20 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
 2. Set the values of the first five variables in the following script:
 
-    ```
-    $resourceGroupName = "<AzureResourceGroupName>"
-    $storageAccountName = "<StorageAccountName>"
-    $containerName = "<ContainerName>"
+        $resourceGroupName = "<AzureResourceGroupName>"
+        $storageAccountName = "<StorageAccountName>"
+        $containerName = "<ContainerName>"
 
-    $fileName ="<LocalFileName>"
-    $blobName = "<BlobName>"
+        $fileName ="<LocalFileName>"
+        $blobName = "<BlobName>"
 
-    # Get the storage account key
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
-    # Create the storage context object
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
+        # Get the storage account key
+        $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
+        # Create the storage context object
+        $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
-    # Copy the file from local workstation to the Blob container
-    Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
-    ```
+        # Copy the file from local workstation to the Blob container
+        Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
 3. Paste the script into the Azure PowerShell console to run it to copy the file.
 
 For example PowerShell scripts created to work with HDInsight, see [HDInsight tools](https://github.com/blackmist/hdinsight-tools).
@@ -142,9 +128,7 @@ AzCopy is a command-line tool that is designed to simplify the task of transferr
 
 The AzCopy syntax is:
 
-```
-AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
-```
+    AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
 
 For more information, see [AzCopy - Uploading/Downloading files for Azure Blobs][azure-azcopy].
 
@@ -153,28 +137,22 @@ The Hadoop command line is only useful for storing data into blob storage when t
 
 In order to use the Hadoop command, you must first connect to the headnode using one of the following methods:
 
-* **Windows-based HDInsight**: [Connect using Remote Desktop](./hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **Linux-based HDInsight**: Connect using SSH ([the SSH command](./hdinsight-hadoop-linux-use-ssh-unix.md) or [PuTTY](./hdinsight-hadoop-linux-use-ssh-windows.md))
+* **Windows-based HDInsight**: [Connect using Remote Desktop](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+* **Linux-based HDInsight**: Connect using SSH ([the SSH command](hdinsight-hadoop-linux-use-ssh-unix.md) or [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
 
 Once connected, you can use the following syntax to upload a file to storage.
 
-```
-hadoop -copyFromLocal <localFilePath> <storageFilePath>
-```
+    hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 For example, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Because the default file system for HDInsight is in Azure Blob storage, /example/data.txt is actually in Azure Blob storage. You can also refer to the file as:
 
-```
-wasbs:///example/data/data.txt
-```
+    wasbs:///example/data/data.txt
 
 or
 
-```
-wasbs://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/example/data/davinci.txt
-```
+    wasbs://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/example/data/davinci.txt
 
 For a list of other Hadoop commands that work with files, see [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -188,7 +166,7 @@ There are also several applications that provide a graphical interface for worki
 
 | Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Microsoft Visual Studio Tools for HDInsight](./hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Microsoft Visual Studio Tools for HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
@@ -196,7 +174,7 @@ There are also several applications that provide a graphical interface for worki
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 ### Visual Studio Tools for HDInsight
-For more information, see [Navigate the linked resources](./hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+For more information, see [Navigate the linked resources](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
 ### <a id="storageexplorer"></a>Azure Storage Explorer
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in blobs. It is a free, open source tool that can be downloaded from [http://storageexplorer.com/](http://storageexplorer.com/). The source code is available from this link as well.
@@ -244,35 +222,31 @@ For more information on installing the Azure SDKs, see [Azure downloads](/downlo
 ### <a id="storageexception"></a>Storage exception for write on blob
 **Symptoms**: When using the `hadoop` or `hdfs dfs` commands to write files that are ~12GB or larger on an HBase cluster, you may encounter the following error:
 
-```
-ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
-copyFromLocal: java.io.IOException
-        at com.microsoft.azure.storage.core.Utility.initIOException(Utility.java:661)
-        at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:366)
-        at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:350)
-        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
-        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
-        at java.util.concurrent.FutureTask.run(FutureTask.java:262)
-        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
-        at java.lang.Thread.run(Thread.java:745)
-Caused by: com.microsoft.azure.storage.StorageException: The request body is too large and exceeds the maximum permissible limit.
-        at com.microsoft.azure.storage.StorageException.translateException(StorageException.java:89)
-        at com.microsoft.azure.storage.core.StorageRequest.materializeException(StorageRequest.java:307)
-        at com.microsoft.azure.storage.core.ExecutionEngine.executeWithRetry(ExecutionEngine.java:182)
-        at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlockInternal(CloudBlockBlob.java:816)
-        at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlock(CloudBlockBlob.java:788)
-        at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
-        ... 7 more
-```
+    ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
+    copyFromLocal: java.io.IOException
+            at com.microsoft.azure.storage.core.Utility.initIOException(Utility.java:661)
+            at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:366)
+            at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:350)
+            at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+            at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
+            at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+            at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+            at java.lang.Thread.run(Thread.java:745)
+    Caused by: com.microsoft.azure.storage.StorageException: The request body is too large and exceeds the maximum permissible limit.
+            at com.microsoft.azure.storage.StorageException.translateException(StorageException.java:89)
+            at com.microsoft.azure.storage.core.StorageRequest.materializeException(StorageRequest.java:307)
+            at com.microsoft.azure.storage.core.ExecutionEngine.executeWithRetry(ExecutionEngine.java:182)
+            at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlockInternal(CloudBlockBlob.java:816)
+            at com.microsoft.azure.storage.blob.CloudBlockBlob.uploadBlock(CloudBlockBlob.java:788)
+            at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
+            ... 7 more
 
 **Cause**: HBase on HDInsight clusters default to a block size of 256KB when writing to Azure storage. While this works for HBase APIs or REST APIs, it will result in an error when using the `hadoop` or `hdfs dfs` command-line utilities.
 
 **Resolution**: Use `fs.azure.write.request.size` to specify a larger block size. You can do this on a per-use basis by using the `-D` parameter. The following is an example using this parameter with the `hadoop` command:
 
-```
-hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
-```
+    hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
 
 You can also increase the value of `fs.azure.write.request.size` globally by using Ambari. The following steps can be used to change the value in the Ambari Web UI:
 
@@ -285,7 +259,7 @@ You can also increase the value of `fs.azure.write.request.size` globally by usi
 
 ![Image of changing the value through Ambari Web UI](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
 
-For more information on using Ambari, see [Manage HDInsight clusters using the Ambari Web UI](./hdinsight-hadoop-manage-ambari.md).
+For more information on using Ambari, see [Manage HDInsight clusters using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ## Next steps
 Now that you understand how to get data into HDInsight, read the following articles to learn how to perform analysis:
@@ -298,20 +272,20 @@ Now that you understand how to get data into HDInsight, read the following artic
 [azure-management-portal]: https://portal.azure.cn
 [azure-powershell]: http://msdn.microsoft.com/zh-cn/library/azure/jj152841.aspx
 
-[azure-storage-client-library]: ../storage/storage-dotnet-how-to-use-blobs.md
+[azure-storage-client-library]: /azure/storage/storage-dotnet-how-to-use-blobs/
 [azure-create-storage-account]: ../storage/storage-create-storage-account.md
 [azure-azcopy-download]: ../storage/storage-use-azcopy.md
 [azure-azcopy]: ../storage/storage-use-azcopy.md
 
-[hdinsight-use-sqoop]: ./hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
-[hdinsight-submit-jobs]: ./hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-get-started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-use-pig]: ./hdinsight-use-pig.md
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 
 [sqldatabase-create-configure]: ../sql-database/sql-database-get-started.md
 
@@ -319,7 +293,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
-[azurecli]: /documentation/articles/cli-install-nodejs/
+[azurecli]: ../cli-install-nodejs.md
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png

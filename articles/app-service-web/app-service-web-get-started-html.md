@@ -79,4 +79,4 @@ Congratulations, your first static HTML site is running live in Azure App Servic
 
 ## Next steps
 
-Explore pre-created [Web apps CLI scripts](./app-service-cli-samples.md).
+Explore pre-created [Web apps CLI scripts](app-service-cli-samples.md).

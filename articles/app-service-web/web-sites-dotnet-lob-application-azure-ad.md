@@ -23,7 +23,7 @@ ms.author: cephalin
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 This article shows you how to create a .NET line-of-business app in 
-[Azure App Service Web Apps](./app-service-changes-existing-services.md) using the 
+[Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/) using the 
 [Authentication / Authorization](../app-service/app-service-authentication-overview.md) feature. It also shows how 
 to use the [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 
 to query directory data in the application.
@@ -116,7 +116,7 @@ You need the following to complete this tutorial:
     ```
 2. You will get something like this.
 
-    ```
+    ```json
     {
     "id": "/subscriptions/<Subscription id>/resourceGroups/<resource group>/providers/Microsoft.Web/sites/<you app>/config/authsettings",
     "name": "authsettings",
@@ -153,13 +153,11 @@ You need the following to complete this tutorial:
     ```
 15. Update `clientSecret` and `additionalLoginParams` properties as follows.
 
-    ```
-    ...
-    "clientSecret": "<client key from the Azure Active Directory application>",
-    ...
-    "additionalLoginParams": ["response_type=code id_token", "resource=https://graph.chinacloudapi.cn"],
-    ...
-    ```
+        ...
+        "clientSecret": "<client key from the Azure Active Directory application>",
+        ...
+        "additionalLoginParams": ["response_type=code id_token", "resource=https://graph.chinacloudapi.cn"],
+        ...
 8. PUT the json to the above URL.
 17. Now, to test if you have the authorization token to access the Azure Active Directory Graph API, just navigate to
     **https://&lt;*appname*>.chinacloudsites.cn/.auth/me** in your browser. If you configured everything correctly, you
@@ -183,29 +181,27 @@ Now, you create a simple CRUD work items tracker.
 
 1. In the ~\Models folder, create a class file called WorkItem.cs, and replace `public class WorkItem {...}` with the following code:
 
-    ```
-    using System.ComponentModel.DataAnnotations;
-
-    public class WorkItem
-    {
-
-        [Key]
-        public int ItemID { get; set; }
-        public string AssignedToID { get; set; }
-        public string AssignedToName { get; set; }
-        public string Description { get; set; }
-        public WorkItemStatus Status { get; set; }
-    }
-
-    public enum WorkItemStatus
-    {
-
-        Open,
-        Investigating,
-        Resolved,
-        Closed
-    }
-    ```
+        using System.ComponentModel.DataAnnotations;
+   
+        public class WorkItem
+        {
+   
+            [Key]
+            public int ItemID { get; set; }
+            public string AssignedToID { get; set; }
+            public string AssignedToName { get; set; }
+            public string Description { get; set; }
+            public WorkItemStatus Status { get; set; }
+        }
+   
+        public enum WorkItemStatus
+        {
+   
+            Open,
+            Investigating,
+            Resolved,
+            Closed
+        }
 2. Build the project to make your new model accessible to the scaffolding logic in Visual Studio.
 3. Add a new scaffolded item `WorkItemsController` to the ~\Controllers folder (right-click **Controllers**, 
    point to **Add**, and select **New scaffolded item**). 
@@ -371,9 +367,7 @@ Now, you create a simple CRUD work items tracker.
 14. Finally, in ~\Global.asax, add the following line of code in the `Application_Start()` method. `Ctrl`+`.` on each naming resolution error to 
     fix it.
 
-    ```
-    AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
-    ```
+        AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 
     > [!NOTE]
     > You need this line of code because the default MVC template uses <code>[ValidateAntiForgeryToken]</code> decoration 
@@ -414,10 +408,10 @@ authorize users with the `[Authorize]` decoration.
 
 ## <a name="bkmk_resources"></a> Further resources
 * [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md)
-* [Authenticate with on-premises Active Directory in your Azure app](./web-sites-authentication-authorization.md)
-* [Create a line-of-business app in Azure with AD FS authentication](./web-sites-dotnet-lob-application-adfs.md)
+* [Authenticate with on-premises Active Directory in your Azure app](web-sites-authentication-authorization.md)
+* [Create a line-of-business app in Azure with AD FS authentication](web-sites-dotnet-lob-application-adfs.md)
 * [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 * [Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
-* [Azure Active Directory Supported Token and Claim Types](../active-directory/active-directory-token-and-claims.md)
+* [Azure Active Directory Supported Token and Claim Types](/azure/active-directory/active-directory-token-and-claims/)
 
-[Protect the Application with SSL and the Authorize Attribute]: ./web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
+[Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute

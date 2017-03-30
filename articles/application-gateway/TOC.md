@@ -44,14 +44,14 @@
 ### [Diagnostic logging and metrics](application-gateway-diagnostics.md)
 # Reference
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
-## [Azure CLI 2.0](/cli/azure/network/application-gateway)
+## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
-## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt299393)
+## [REST (Classic)](https://msdn.microsoft.com/zh-cn/library/azure/mt299393)
 # Related
 ## [ExpressRoute](/azure/expressroute/)
 ## [Virtual network](/azure/virtual-network/)
@@ -60,8 +60,8 @@
 ## [Load balancer](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
 # Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Pricing](https://www.azure.cn/pricing/details/application-gateway/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [Service updates](https://azure.microsoft.com/updates/?product=application-gateway)
-## [SLA](https://azure.microsoft.com/support/legal/sla/)
+## [SLA](https://www.azure.cn/support/legal/sla/)

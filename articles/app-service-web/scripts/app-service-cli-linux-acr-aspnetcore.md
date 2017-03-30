@@ -29,7 +29,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Create app sample
 
-```
+```azurecli
 #/bin/bash
 
 # Variables
@@ -62,7 +62,7 @@ az appservice web create --name $appName --plan AppServiceLinuxDockerPlan --reso
 az appservice web config container update --docker-registry-server-url http://${acrUrl} --docker-custom-image-name ${acrUrl}/$dockerHubContainerName:$dockerContainerVersion --docker-registry-server-user ${acrCreds[0]} --docker-registry-server-password ${acrCreds[1]} --name $appName --resource-group myResourceGroup
 ```
 
-[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

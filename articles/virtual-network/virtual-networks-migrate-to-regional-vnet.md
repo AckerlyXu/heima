@@ -36,7 +36,7 @@ Going forward, when creating new VNets, use *Region*. You'll see this as an opti
 ### About VNets currently associated with affinity groups
 VNets that are currently associated with affinity groups are enabled for migration to regional VNets. To migrate to a regional VNet, follow these steps:
 
-1. Export the network configuration file. You can use PowerShell or the Classic Management Portal. For instructions using the Classic Management Portal, see [Configure your VNet using a Network Configuration File](./virtual-networks-using-network-configuration-file.md).
+1. Export the network configuration file. You can use PowerShell or the Classic Management Portal. For instructions using the Classic Management Portal, see [Configure your VNet using a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 2. Edit your network configuration file, replacing the old values with the new values. 
 
     > [!NOTE]
@@ -49,7 +49,7 @@ VNets that are currently associated with affinity groups are enabled for migrati
     **Old value:** \<VirtualNetworkSitename="VNetChinsNorth" AffinityGroup="VNetDemoAG"\> 
 
     **New value:** \<VirtualNetworkSitename="VNetChinsNorth" Location="China North"\>
-3. Save your changes and [import](./virtual-networks-using-network-configuration-file.md) the network configuration to Azure.
+3. Save your changes and [import](virtual-networks-using-network-configuration-file.md) the network configuration to Azure.
 
 > [!NOTE]
 > This migration does NOT cause any downtime to your services.

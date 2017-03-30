@@ -28,7 +28,7 @@ ms.custom: H1Hack27Feb2017
 
 You can complete the task using one of the following CLI versions: 
 
-- [Azure CLI 1.0](./virtual-networks-create-nsg-cli-nodejs.md) - our CLI for the classic and resource management deployment models 
+- [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md) - our CLI for the classic and resource management deployment models 
 - [Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -57,9 +57,9 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
 
     Parameters:
 
-   * `--resource-group`: Name of the resource group where the NSG is created. For our scenario, *TestRG*.
-   * `--location`: Azure region where the new NSG is created. For our scenario, *chinanorth*.
-   * `--name`: Name for the new NSG. For our scenario, *NSG-FrontEnd*.
+    * `--resource-group`: Name of the resource group where the NSG is created. For our scenario, *TestRG*.
+    * `--location`: Azure region where the new NSG is created. For our scenario, *chinanorth*.
+    * `--name`: Name for the new NSG. For our scenario, *NSG-FrontEnd*.
 
     The expected output is quite a bit of information including a list of all the default rules. The following example shows the default rules using a JMESPATH query filter with the `table` output format:
 
@@ -71,18 +71,16 @@ To create an NSG named *NSG-FrontEnd* based on the scenario preceding, follow th
     -o table
     ```
 
-   Output:
+    Output:
 
-   ```
-    Access    Desc                                                    DestPortRange    Direction      Priority
-    --------  ------------------------------------------------------  ---------------  -----------  ----------
-    Allow     Allow inbound traffic from all VMs in VNET              *                Inbound           65000
-    Allow     Allow inbound traffic from azure load balancer          *                Inbound           65001
-    Deny      Deny all inbound traffic                                *                Inbound           65500
-    Allow     Allow outbound traffic from all VMs to all VMs in VNET  *                Outbound          65000
-    Allow     Allow outbound traffic from all VMs to Internet         *                Outbound          65001
-    Deny      Deny all outbound traffic                               *                Outbound          65500
-   ```
+        Access    Desc                                                    DestPortRange    Direction      Priority
+        --------  ------------------------------------------------------  ---------------  -----------  ----------
+        Allow     Allow inbound traffic from all VMs in VNET              *                Inbound           65000
+        Allow     Allow inbound traffic from azure load balancer          *                Inbound           65001
+        Deny      Deny all inbound traffic                                *                Inbound           65500
+        Allow     Allow outbound traffic from all VMs to all VMs in VNET  *                Outbound          65000
+        Allow     Allow outbound traffic from all VMs to Internet         *                Outbound          65001
+        Deny      Deny all outbound traffic                               *                Outbound          65500
 
 3. Create a rule that allows access to port 3389 (RDP) from the Internet with the [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) command.
 

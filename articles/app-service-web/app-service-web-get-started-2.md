@@ -19,7 +19,7 @@ ms.author: cephalin
 ---
 
 # Add functionality to your first web app
-In [Deploy your first web app to Azure in five minutes](./app-service-web-get-started-cli-nodejs.md), you deployed a sample web app to
+In [Deploy your first web app to Azure in five minutes](app-service-web-get-started-cli-nodejs.md), you deployed a sample web app to
 [Azure App Service](../app-service/app-service-value-prop-what-is.md). In this article, you'll quickly add some
 great functionalities to your deployed web app. In a few minutes, you will:
 
@@ -80,7 +80,7 @@ For more information, see [App Service Authentication/Authorization](https://azu
 
 ## Scale your app automatically based on demand
 Next, let's autoscale your app so that it will automatically adjust it capacity to respond to user demand (further reading at
-[Scale up your app in Azure](./web-sites-scale.md) and
+[Scale up your app in Azure](web-sites-scale.md) and
 [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md)).
 
 Briefly, you scale your web app in two ways:
@@ -123,7 +123,7 @@ You may have noticed in the **Scale Settings** blade that you can do a lot more,
 * Autoscale on a schedule
 * Set autoscaling behavior for a future event
 
-For more information on scaling up your app, see [Scale up your app in Azure](./web-sites-scale.md). For more information on
+For more information on scaling up your app, see [Scale up your app in Azure](web-sites-scale.md). For more information on
 scaling out, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 ## Receive alerts for your app
@@ -165,12 +165,12 @@ each one of these tools to discover the simple yet powerful tools at your finger
 
 Find out how to do more with your deployed app. Here's only a partial list:
 
-* [Set up staging environments](./web-sites-staged-publishing.md) - Deploy your app to a staging URL before putting it into production. Update your live
+* [Set up staging environments](web-sites-staged-publishing.md) - Deploy your app to a staging URL before putting it into production. Update your live
   web app with confidence. Set up an elaborate DevOps solution with multiple deployment slots.
-* [Set up continuous deployment](./app-service-continuous-deployment.md) - Integrate app deployment into your source control system. Deploy to
+* [Set up continuous deployment](app-service-continuous-deployment.md) - Integrate app deployment into your source control system. Deploy to
   Azure with every commit.
-* [Back up your app](./web-sites-backup.md) - Set up back up and restore for your web app. Prepare for unexpected failures and recover from them.
-* [Enable diagnostic logs](./web-sites-enable-diagnostic-log.md) - Read the IIS logs from Azure or application traces.
+* [Back up your app](web-sites-backup.md) - Set up back up and restore for your web app. Prepare for unexpected failures and recover from them.
+* [Enable diagnostic logs](web-sites-enable-diagnostic-log.md) - Read the IIS logs from Azure or application traces.
 * [Scan your app for vulnerabilities](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
   Scan your web app against modern threats using service provided by [Tinfoil Security](https://www.tinfoilsecurity.com/).
 * [Learn how App Service works](../app-service/app-service-how-works-readme.md)

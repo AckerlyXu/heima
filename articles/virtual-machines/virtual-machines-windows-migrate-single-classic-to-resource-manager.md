@@ -1,5 +1,3 @@
-<!-- not suitable for Mooncake -->
-
 ---
 title: Migrate a single VM from the classic deployment model to Azure Managed Disks | Azure
 description: Migrate a single Azure VM from the classic deployment model to Managed Disks in the Resource Manager deployment model.
@@ -35,7 +33,7 @@ Pick a location where Azure Managed Disks are available. If you are migrating to
 
 ### VM sizes
 
-If you are migrating to Premium Managed Disks, you have to update the size of the VM to Premium Storage capable size available in the region where VM is located. Review the VM sizes that are Premium Storage capable. The Azure VM size specifications are listed in [Sizes for virtual machines](./virtual-machines-windows-sizes.md).
+If you are migrating to Premium Managed Disks, you have to update the size of the VM to Premium Storage capable size available in the region where VM is located. Review the VM sizes that are Premium Storage capable. The Azure VM size specifications are listed in [Sizes for virtual machines](virtual-machines-windows-sizes.md).
 Review the performance characteristics of virtual machines that work with Premium Storage and choose the most appropriate VM size that best suits your workload. Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic.
 
 ### Disk sizes
@@ -165,4 +163,4 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 ## Next steps
 
-- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](./virtual-machines-windows-connect-logon.md).
+- Connect to the virtual machine. For instructions, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

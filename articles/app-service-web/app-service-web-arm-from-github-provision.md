@@ -47,12 +47,10 @@ To run the deployment automatically, click the following button:
 ### repoURL
 The URL for GitHub repository that contains the project to deploy. This parameter contains a default value but this value is only intended to show you how to provide the URL for repository. You can use this value when testing the template but you will want to provide the URL your own repository when working with the template.
 
-```
-"repoURL": {
-    "type": "string",
-    "defaultValue": "https://github.com/davidebbo-test/Mvc52Application.git"
-}
-```
+    "repoURL": {
+        "type": "string",
+        "defaultValue": "https://github.com/davidebbo-test/Mvc52Application.git"
+    }
 
 > [!NOTE]
 > This sample GitHub Repo cannot be deployed correctly in Azure China because the Jquery package of Nuget cannot be downloaded correctly. You can create a usable project and push it to GitHub.
@@ -60,12 +58,10 @@ The URL for GitHub repository that contains the project to deploy. This paramete
 ### branch
 The branch of the repository to use when deploying the application. The default value is master, but you can provide the name of any branch in the repository that you wish to deploy.
 
-```
-"branch": {
-    "type": "string",
-    "defaultValue": "master"
-}
-```
+    "branch": {
+        "type": "string",
+        "defaultValue": "master"
+    }
 
 ## Resources to deploy
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
@@ -82,35 +78,33 @@ The web app also has a child resource which is defined in **resources** section 
 is linked to a particular GitHub repository. The GitHub repository is defined with the code **"RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git"** You might hard-code the repository URL when you want to create a template that repeatedly deploys a single project while requiring the minimum number of parameters.
 Instead of hard-coding the repository URL, you can add a parameter for the repository URL and use that value for the **RepoUrl** property.
 
-```
-{
-  "apiVersion": "2015-08-01",
-  "name": "[parameters('siteName')]",
-  "type": "Microsoft.Web/sites",
-  "location": "[resourceGroup().location]",
-  "dependsOn": [
-    "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-  ],
-  "properties": {
-    "serverFarmId": "[parameters('hostingPlanName')]"
-  },
-  "resources": [
     {
       "apiVersion": "2015-08-01",
-      "name": "web",
-      "type": "sourcecontrols",
+      "name": "[parameters('siteName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
       "properties": {
-        "RepoUrl": "[parameters('repoURL')]",
-        "branch": "[parameters('branch')]",
-        "IsManualIntegration": true
-      }
+        "serverFarmId": "[parameters('hostingPlanName')]"
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-08-01",
+          "name": "web",
+          "type": "sourcecontrols",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+          ],
+          "properties": {
+            "RepoUrl": "[parameters('repoURL')]",
+            "branch": "[parameters('branch')]",
+            "IsManualIntegration": true
+          }
+        }
+      ]
     }
-  ]
-}
-```
 
 >[!NOTE]
 > In Azure China, we cannot setup GitHub Credential throught the new portal yet. Hence, `IsManualIntegration` must be `true`.
@@ -119,23 +113,17 @@ Instead of hard-coding the repository URL, you can add a parameter for the repos
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-```
-New-AzureRmResourceGroupDeployment -TemplateFile path/to/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "China North" -ResourceGroupName ExampleDeployGroup
-```
+    New-AzureRmResourceGroupDeployment -TemplateFile path/to/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "China North" -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-```
-azure group deployment create -g {resource-group-name} --template-file path/to/azuredeploy.json
-```
+    azure group deployment create -g {resource-group-name} --template-file path/to/azuredeploy.json
 
 ### Azure CLI 2.0
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-```
-az group deployment create -g {resource-group-name} --template-file path/to/azuredeploy.json --parameters '@azuredeploy.parameters.json'
-```
+    az group deployment create -g {resource-group-name} --template-file path/to/azuredeploy.json --parameters '@azuredeploy.parameters.json'
 
 > [!NOTE] 
 > For content of the parameters JSON file, see [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.parameters.json).

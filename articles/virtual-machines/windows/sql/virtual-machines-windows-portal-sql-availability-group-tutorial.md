@@ -46,7 +46,7 @@ The following table lists the prerequisites that you need to complete before sta
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Add Failover Clustering Feature | Both SQL Servers require this feature |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Installation domain account | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
 
-Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](./virtual-machines-windows-portal-sql-availability-group-prereq.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
+Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear - H2's appear in the right pane on the web page and are important for navigation.*-->
 
@@ -57,7 +57,7 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 1. RDP to the first SQL Server using a domain account that is an administrator on both SQL Servers and the witness server.
 
     >[!TIP]
-    >If you followed the [prerequisites document](./virtual-machines-windows-portal-sql-availability-group-prereq.md), you created an account called **CORP\Install**. Use this account.
+    >If you followed the [prerequisites document](virtual-machines-windows-portal-sql-availability-group-prereq.md), you created an account called **CORP\Install**. Use this account.
 
 2. In the **Server Manager** dashboard, select **Tools**, and then click **Failover Cluster Manager**.
 3. In the left pane, right-click **Failover Cluster Manager**, and then click **Create a Cluster**.
@@ -263,7 +263,7 @@ You are now ready to configure an Availability Group using the following steps:
 
     ![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/64-newagreplica.png)
 
-6. Click **Endpoints** to see the database mirroring endpoint for this Availability Group. Use the same port that you used when you set the [firewall rule for database mirroring endpoints](./virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
+6. Click **Endpoints** to see the database mirroring endpoint for this Availability Group. Use the same port that you used when you set the [firewall rule for database mirroring endpoints](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
 
     ![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
@@ -409,11 +409,11 @@ To configure the load balancer, you need to create a backend pool, a probe, and 
 The next thing to do is to configure an Availability Group listener on the failover cluster.
 
 > [!NOTE]
-> This tutorial shows how to create a single listener - with one ILB IP address. To create one or more listeners using one or more IP addresses, see [Create Availability Group listener and load balancer | Azure](./virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
+> This tutorial shows how to create a single listener - with one ILB IP address. To create one or more listeners using one or more IP addresses, see [Create Availability Group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 
-[!INCLUDE [ag-listener-configure](../../includes/virtual-machines-ag-listener-configure.md)]
+[!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
 ## Set listener port
 
@@ -468,4 +468,4 @@ The SQLCMD connection automatically connects to whichever instance of SQL Server
 
 ## Next steps
 
-- [Add an IP address to a load balancer for a second availability group](./virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).
+- [Add an IP address to a load balancer for a second availability group](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP).

@@ -27,7 +27,7 @@ ms.author: larryfr
 This document provides an example of using Azure PowerShell in the Azure Resource Group mode to run Hive queries in a Hadoop on HDInsight cluster.
 
 > [!NOTE]
-> This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md).
+> This document does not provide a detailed description of what the HiveQL statements that are used in the examples do. For information on the HiveQL that is used in this example, see [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md).
 
 <a id="prereq"></a>
 **Prerequisites**
@@ -39,7 +39,7 @@ To complete the steps in this article, you will need the following.
     [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * **A workstation with Azure PowerShell**.
 
@@ -106,20 +106,16 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **hivejob.ps1** file, then use the following command to run the script:
 
-    ```
-    .\hivejob.ps1
-    ```
+        .\hivejob.ps1
 
     When the script runs, you will be prompted to enter the cluster name and the HTTPS/Admin account credentials for the cluster. You may also be prompted to login to your Azure subscription.
 
 3. When the job completes, it should return information similar to the following:
 
-    ```
-    Display the standard output...
-    2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
-    2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
-    2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
-    ```
+        Display the standard output...
+        2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
+        2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
+        2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
 
 4. As mentioned earlier, **Invoke-Hive** can be used to run a query and wait for the response. Use the following script to see how Invoke-Hive works:
 
@@ -150,11 +146,9 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
     The output will look like the following:
 
-    ```
-    2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
-    2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
-    2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
-    ```
+        2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
+        2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
+        2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
     > [!NOTE]
     > For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the **Invoke-Hive** cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasbs://.
@@ -186,9 +180,9 @@ As you can see, Azure PowerShell provides an easy way to run Hive queries in an 
 
 For general information about Hive in HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

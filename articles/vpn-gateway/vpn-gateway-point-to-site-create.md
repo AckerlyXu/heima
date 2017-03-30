@@ -21,10 +21,12 @@ ms.author: cherylmc
 
 # Configure a Point-to-Site connection to a VNet using the Classic Management Portal (classic)
 > [!div class="op_single_selector"]
->- [Resource Manager - Azure Portal Preview](./vpn-gateway-howto-point-to-site-resource-manager-portal.md)
->- [Resource Manager - PowerShell](./vpn-gateway-howto-point-to-site-rm-ps.md)
->- [Classic - Azure Portal Preview](./vpn-gateway-howto-point-to-site-classic-azure-portal.md)
->- [Classic - Classic Management Portal](./vpn-gateway-point-to-site-create.md)
+> * [Resource Manager - Azure Portal Preview](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Classic - Azure Portal Preview](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Classic - Classic Management Portal](vpn-gateway-point-to-site-create.md)
+> 
+> 
 
 A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. P2S is a VPN connection over SSTP (Secure Socket Tunneling Protocol). Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. P2S connections do not require a VPN device or a public-facing IP address. You establish the VPN connection from the client computer.
 
@@ -96,10 +98,10 @@ In this section you will do the following:
 
 If you are using an enterprise solution, you can use your existing certificate chain. Obtain the .cer file for the root certificate that you want to use.
 
-If you are not using an enterprise certificate solution, you need to create a self-signed root certificate. To create a self-signed root certificate that contains the necessary fields for P2S authentication, you can use PowerShell. [Create a self-signed root certificate for Point-to-Site connections using PowerShell](./vpn-gateway-certificates-point-to-site.md) walks you through the steps to create a self-signed root certificate.
+If you are not using an enterprise certificate solution, you need to create a self-signed root certificate. To create a self-signed root certificate that contains the necessary fields for P2S authentication, you can use PowerShell. [Create a self-signed root certificate for Point-to-Site connections using PowerShell](vpn-gateway-certificates-point-to-site.md) walks you through the steps to create a self-signed root certificate.
 
 > [!NOTE]
-> Previously, makecert was the recommended method to create self-signed root certificates and generate client certificates for Point-to-Site connections. You can now use PowerShell to create these certificates. One benefit of using PowerShell is the ability to create SHA-2 certificates. See [Create a self-signed root certificate for Point-to-Site connections using PowerShell](./vpn-gateway-certificates-point-to-site.md) for the required values.
+> Previously, makecert was the recommended method to create self-signed root certificates and generate client certificates for Point-to-Site connections. You can now use PowerShell to create these certificates. One benefit of using PowerShell is the ability to create SHA-2 certificates. See [Create a self-signed root certificate for Point-to-Site connections using PowerShell](vpn-gateway-certificates-point-to-site.md) for the required values.
 >
 >
 
@@ -128,7 +130,7 @@ You can either generate a unique certificate for each client that will connect, 
 - Make sure the client certificate that you issue is based on the 'User' certificate template that has 'Client Authentication' as the first item in the use list, rather than Smart Card Logon, etc. You can check the certificate by double-clicking the client certificate and viewing **Details > Enhanced Key Usage**.
 
 ####Self-signed root root certificate 
-If you are using a self-signed root certificate, see [Generate a client certificate using PowerShell](./vpn-gateway-certificates-point-to-site.md#clientcert) for steps to generate a client certificate that is compatible with Point-to-Site connections.
+If you are using a self-signed root certificate, see [Generate a client certificate using PowerShell](vpn-gateway-certificates-point-to-site.md#clientcert) for steps to generate a client certificate that is compatible with Point-to-Site connections.
 
 ## <a name="installclientcert"></a>Section 3 - Export and install the client certificate
 
@@ -191,18 +193,16 @@ To connect to the virtual network, you also need to configure a VPN client. The 
 
 Example:
 
-```
-PPP adapter VNet1:
-    Connection-specific DNS Suffix .:
-    Description.....................: VNet1
-    Physical Address................:
-    DHCP Enabled....................: No
-    Autoconfiguration Enabled.......: Yes
-    IPv4 Address....................: 192.168.130.2(Preferred)
-    Subnet Mask.....................: 255.255.255.255
-    Default Gateway.................:
-    NetBIOS over Tcpip..............: Enabled
-```
+    PPP adapter VNet1:
+        Connection-specific DNS Suffix .:
+        Description.....................: VNet1
+        Physical Address................:
+        DHCP Enabled....................: No
+        Autoconfiguration Enabled.......: Yes
+        IPv4 Address....................: 192.168.130.2(Preferred)
+        Subnet Mask.....................: 255.255.255.255
+        Default Gateway.................:
+        NetBIOS over Tcpip..............: Enabled
 
 ## <a name="faq"></a>Point-to-Site FAQ
 

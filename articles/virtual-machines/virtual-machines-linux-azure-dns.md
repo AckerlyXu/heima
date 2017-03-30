@@ -94,9 +94,7 @@ DNS is primarily a UDP protocol.  As the UDP protocol doesn't guarantee message 
 
 To check the current settings on a Linux VM, 'cat /etc/resolv.conf' and look at the 'options' line, for example:
 
-```
-options timeout:1 attempts:5
-```
+    options timeout:1 attempts:5
 
 The resolv.conf file is auto-generated and should not be edited.  The specific steps for adding the 'options' line vary by distro:
 

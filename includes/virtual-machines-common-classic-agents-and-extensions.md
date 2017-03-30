@@ -5,7 +5,7 @@ VM extensions can help you:
 * Reset or install connectivity features, such as RDP and SSH
 * Diagnose, monitor, and manage your VMs
 
-There are many other features as well. New VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see Azure [Windows](../articles/virtual-machines/virtual-machines-windows-extensions-features.md) or [Linux](../articles/virtual-machines/virtual-machines-linux-extensions-features.md) VM Extensions and Features.
+There are many other features as well. New VM Extension features are released regularly. This article describes the Azure VM Agents for Windows and Linux, and how they support VM Extension functionality. For a listing of VM Extensions by feature category, see [Azure VM Extensions and Features](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Azure VM Agents for Windows and Linux
 The Azure Virtual Machines Agent (VM Agent) is a secured, light-weight process that installs, configures, and removes VM extensions on instances of Azure Virtual Machines. The VM Agent acts as the secure local control service for your Azure VM. The extensions that the agent loads provide specific features to increase your productivity using the instance.
@@ -25,13 +25,11 @@ The VM Agent is enabled in the following situations:
 
 * When you manually download and install the VM Agent on an existing VM instance, and set the **ProvisionGuestAgent** value to **true**. You can use this technique for Windows and Linux agents, by using a PowerShell command or a REST call. (If you do not set the **ProvisionGuestAgent** value after manually installing the VM Agent, the addition of the VM Agent is not detected properly.) The following code example shows how to do this using PowerShell where the `$svc` and `$name` arguments have already been determined:
 
-    ```
-    $vm = Get-AzureVM -ServiceName $svc -Name $name
-    $vm.VM.ProvisionGuestAgent = $TRUE
-    Update-AzureVM -Name $name -VM $vm.VM -ServiceName $svc
-    ```
+      $vm = Get-AzureVM -ServiceName $svc -Name $name
+      $vm.VM.ProvisionGuestAgent = $TRUE
+      Update-AzureVM -Name $name -VM $vm.VM -ServiceName $svc
 
-* When you create a VM image that includes an installed VM Agent. Once the image with the VM Agent exists, you can upload that image to Azure. For a Windows VM, download the [Windows VM Agent .msi file](http://go.microsoft.com/fwlink/?LinkID=394789) and install the VM Agent. For a Linux VM, install the VM Agent from the GitHub repository located at <https://github.com/Azure/WALinuxAgent>. For more information on how to install the VM Agent on Linux, see the [Azure Linux VM Agent User Guide](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md).
+* When you create a VM image that includes an installed VM Agent. Once the image with the VM Agent exists, you can upload that image to Azure. For a Windows VM, download the [Windows VM Agent .msi file](http://go.microsoft.com/fwlink/?LinkID=394789) and install the VM Agent. For a Linux VM, install the VM Agent from the GitHub repository located at <https://github.com/Azure/WALinuxAgent>. For more information on how to install the VM Agent on Linux, see the [Azure Linux VM Agent User Guide](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > In PaaS, the VM Agent is called **WindowsAzureGuestAgent**, and is always available on Web and Worker Role VMs. (For more information, see [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).) The VM Agent for Role VMs can now add extensions to the cloud service VMs in the same way that it does for persistent Virtual Machines. The biggest difference between VM Extensions on role VMs and persistent VMs is when the VM extensions are added. With role VMs, extensions are added first to the cloud service, then to the deployments within that cloud service.
@@ -43,4 +41,4 @@ The VM Agent is enabled in the following situations:
 >
 
 ## Find, Add, Update, and Remove VM Extensions
-For details on these tasks, see Add, Find, Update, and Remove Azure [Windows](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md) or [Linux](../articles/virtual-machines/virtual-machines-linux-classic-manage-extensions.md) VM Extensions.
+For details on these tasks, see [Add, Find, Update, and Remove Azure VM Extensions](../articles/virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

@@ -54,11 +54,9 @@ Invoke-WebRequest 'http://watestsdp2008r2.chinacloudapp.cn/Probe' -MaximumRedire
 
 Example output:
 
-```
-StatusCode StatusDescription
----------- -----------------
-       301 Moved Permanently
-```
+    StatusCode StatusDescription
+    ---------- -----------------
+           301 Moved Permanently
 
 Notice that we received a redirect response. As stated previously, any StatusCode other than 200 is considered a failure. Traffic Manager changes the endpoint status to Offline. To resolve the problem, check the website configuration to ensure that the proper StatusCode can be returned from the probe path. Reconfigure the Traffic Manager probe to point to a path that returns a 200.
 
@@ -81,13 +79,13 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 ## Next Steps
 
-[About Traffic Manager traffic routing methods](./traffic-manager-routing-methods.md)
+[About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
 
-[What is Traffic Manager](./traffic-manager-overview.md)
+[What is Traffic Manager](traffic-manager-overview.md)
 
-[Cloud Services](../cloud-services/index.md)
+[Cloud Services](/azure/cloud-services/)
 
-[Azure Web Apps](../app-service-web/index.md)
+[Azure Web Apps](/azure/app-service/web/)
 
 [Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/zh-cn/library/hh758255.aspx)
 

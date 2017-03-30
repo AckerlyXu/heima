@@ -23,7 +23,7 @@ ms.author: kyliel
 This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system. After you upload it, you can use it as your own image to create a virtual machine (VM) in Azure.
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about uploading a VHD using the Resource Manager model, see [here](./virtual-machines-linux-upload-vhd.md).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about uploading a VHD using the Resource Manager model, see [here](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Prerequisites
 This article assumes that you have the following items:
@@ -44,96 +44,76 @@ On the virtual machine where you installed the FreeBSD operating system, complet
 
 1. Enable DHCP.
 
-    ```
-    # echo 'ifconfig_hn0="SYNCDHCP"' >> /etc/rc.conf
-    # service netif restart
-    ```
+        # echo 'ifconfig_hn0="SYNCDHCP"' >> /etc/rc.conf
+        # service netif restart
 2. Enable SSH.
 
     SSH is enabled by default after installation from disc. If it isn't enabled for some reason, or if you use FreeBSD VHD directly, type the following:
 
-    ```
-    # echo 'sshd_enable="YES"' >> /etc/rc.conf
-    # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-    # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-    # service sshd restart
-    ```
+        # echo 'sshd_enable="YES"' >> /etc/rc.conf
+        # ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+        # ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
+        # service sshd restart
 3. Set up a serial console.
 
-    ```
-    # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
-    # echo 'comconsole_speed="115200"' >> /boot/loader.conf
-    ```
+        # echo 'console="comconsole vidconsole"' >> /boot/loader.conf
+        # echo 'comconsole_speed="115200"' >> /boot/loader.conf
 4. Install sudo.
 
     The root account is disabled in Azure. This means you need to utilize sudo from an unprivileged user to run commands with elevated privileges.
 
-    ```
-    # pkg install sudo
-    ```
+        # pkg install sudo
 
 5. Prerequisites for Azure Agent.
 
-    ```
-    # pkg install python27  
-    # pkg install Py27-setuptools27   
-    # ln -s /usr/local/bin/python2.7 /usr/bin/python   
-    # pkg install git
-    ```
+        # pkg install python27  
+        # pkg install Py27-setuptools27   
+        # ln -s /usr/local/bin/python2.7 /usr/bin/python   
+        # pkg install git
 6. Install Azure Agent.
 
     The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). The version 2.0.10 + officially supports FreeBSD 10 & 10.1, and the version 2.1.4 officially supports FreeBSD 10.2 and later releases.
 
-    ```
-    # git clone https://github.com/Azure/WALinuxAgent.git  
-    # cd WALinuxAgent  
-    # git tag  
-    …
-    WALinuxAgent-2.0.16
-    …
-    v2.1.4
-    v2.1.4.rc0
-    v2.1.4.rc1
-    ```
+        # git clone https://github.com/Azure/WALinuxAgent.git  
+        # cd WALinuxAgent  
+        # git tag  
+        …
+        WALinuxAgent-2.0.16
+        …
+        v2.1.4
+        v2.1.4.rc0
+        v2.1.4.rc1
 
     For 2.0, let's use 2.0.16 as an example:
 
-    ```
-    # git checkout WALinuxAgent-2.0.16
-    # python setup.py install  
-    # ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
-    ```
+        # git checkout WALinuxAgent-2.0.16
+        # python setup.py install  
+        # ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
 
     For 2.1, let's use 2.1.4 as an example:
 
-    ```
-    # git checkout v2.1.4
-    # python setup.py install  
-    # ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
-    # ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
-    ```
+        # git checkout v2.1.4
+        # python setup.py install  
+        # ln -sf /usr/local/sbin/waagent /usr/sbin/waagent  
+        # ln -sf /usr/local/sbin/waagent2.0 /usr/sbin/waagent2.0
 
     > [!IMPORTANT]
     > After you install Azure Agent, it's a good idea to verify that it's running:
     >
     >
 
-    ```
-    # waagent -version
-    WALinuxAgent-2.1.4 running on freebsd 10.3
-    Python: 2.7.11
-    # service -e | grep waagent
-    /etc/rc.d/waagent
-    # cat /var/log/waagent.log
-    ```
+        # waagent -version
+        WALinuxAgent-2.1.4 running on freebsd 10.3
+        Python: 2.7.11
+        # service -e | grep waagent
+        /etc/rc.d/waagent
+        # cat /var/log/waagent.log
 7. Deprovision the system.
 
     Deprovision the system to clean it and make it suitable for re-provisioning. The following command also deletes the last provisioned user account and the associated data:
 
-    ```
-    # echo "y" |  /usr/local/sbin/waagent -deprovision+user  
-    # echo  'waagent_enable="YES"' >> /etc/rc.conf
-    ```
+        # echo "y" |  /usr/local/sbin/waagent -deprovision+user  
+        # echo  'waagent_enable="YES"' >> /etc/rc.conf
 
     Now you can shut down your VM.
 
@@ -209,18 +189,14 @@ When you upload the .vhd file, you can place it anywhere within your Blob storag
 
 From the Azure PowerShell window you used in the previous step, type:
 
-```
-    Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
-```
+        Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
 ## Step 5: Create a VM with the uploaded .vhd file
 After you upload the .vhd file, you can add it as an image to the list of custom images that are associated with your subscription and create a virtual machine with this custom image.
 
 1. From the Azure PowerShell window you used in the previous step, type:
 
-    ```
-    Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
-    ```
+        Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
     > [!NOTE]
     > Use Linux as the OS type. The current Azure PowerShell version accepts only "Linux" or "Windows" as a parameter.

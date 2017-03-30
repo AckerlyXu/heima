@@ -32,7 +32,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-```
+```azurecli
 #!/bin/bash
 
 fqdn=<Replace with www.{yourdomain}>
@@ -73,7 +73,7 @@ az appservice web config ssl bind --certificate-thumbprint $thumbprint --ssl-typ
 echo "You can now browse to https://$fqdn"
 ```
 
-[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

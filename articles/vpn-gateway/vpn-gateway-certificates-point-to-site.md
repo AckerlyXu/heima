@@ -35,12 +35,10 @@ The following steps walk you through creating a self-signed root certificate usi
 1. From a computer running Windows 10, open a Windows PowerShell console with elevated privileges.
 2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*.
 
-    ```
-    $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-    -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
-    -HashAlgorithm sha256 -KeyLength 2048 `
-    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
-    ```
+        $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+        -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
+        -HashAlgorithm sha256 -KeyLength 2048 `
+        -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
 
 ### <a name="cer"></a>To obtain the public key
 
@@ -71,13 +69,11 @@ This example uses the declared '$cert' variable from the previous section. If yo
 
 Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'.  If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in 'Certificates - Current User\Personal\Certificates' on your computer.
 
-```
-New-SelfSignedCertificate -Type Custom -KeySpec Signature `
--Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
--HashAlgorithm sha256 -KeyLength 2048 `
--CertStoreLocation "Cert:\CurrentUser\My" `
--Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
-```
+	New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+	-Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+	-HashAlgorithm sha256 -KeyLength 2048 `
+	-CertStoreLocation "Cert:\CurrentUser\My" `
+	-Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 
 ### Example 2
 
@@ -85,40 +81,30 @@ If you are creating additional client certificates, or are not using the same Po
 
 1. Identify the self-signed root certificate that is installed on the computer. This cmdlet returns a list of certificates that are installed on your computer.
 
-    ```
-    Get-ChildItem -Path "Cert:\CurrentUser\My"
-    ```
+        Get-ChildItem -Path "Cert:\CurrentUser\My"
 
 2. Locate the subject name from the returned list, then copy the thumbprint that is located next to it to a text file. In the following example, there are two certificates. The CN name is the name of the self-signed root certificate from which you want to generate a child certificate. In this case, 'P2SRootCert'.
 
-    ```
-    Thumbprint                                Subject
-    ----------                                -------
-    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
-    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
-    ```
+        Thumbprint                                Subject
+        ----------                                -------
+        AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
+        7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
 
 3. Declare a variable for the root certificate using the thumbprint from the previous step. Replace THUMBPRINT with the thumbprint of the root certificate from which you want to generate a child certificate.
 
-    ```
-    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
-    ```
+        $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
 
     For example, using the thumbprint for P2SRootCert in the previous step, the variable would look like this:
 
-    ```
-    $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
-    ```
-
+        $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
+    	
 4.  Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'. If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in 'Certificates - Current User\Personal\Certificates' on your computer.
 
-    ```
-    New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-    -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
-    -HashAlgorithm sha256 -KeyLength 2048 `
-    -CertStoreLocation "Cert:\CurrentUser\My" `
-    -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
-    ```
+        New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+        -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+        -HashAlgorithm sha256 -KeyLength 2048 `
+        -CertStoreLocation "Cert:\CurrentUser\My" `
+        -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 
 ## <a name="clientexport"></a>Export a client certificate   
 
@@ -144,5 +130,5 @@ If you want to create a P2S connection from a client computer other than the one
 ## Next steps
 Continue with your Point-to-Site configuration. 
 
-* For **Resource Manager** deployment model steps, see [Configure a Point-to-Site connection to a VNet](./vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
-* For **classic** deployment model steps, see [Configure a Point-to-Site VPN connection to a VNet (classic)](./vpn-gateway-howto-point-to-site-classic-azure-portal.md).
+* For **Resource Manager** deployment model steps, see [Configure a Point-to-Site connection to a VNet](vpn-gateway-howto-point-to-site-resource-manager-portal.md). 
+* For **classic** deployment model steps, see [Configure a Point-to-Site VPN connection to a VNet (classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md).

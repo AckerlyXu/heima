@@ -31,29 +31,27 @@ You can download the existing ARM template for creating a VNet and two subnets f
 9. Save the file to a a local folder on your computer.
 10. Open the file you just saved and edit the values for the parameters. Use the values below to deploy the VNet described in our scenario.
 
-    ```
-    {
-      "location": {
-        "value": "China North"
-      },
-      "vnetName": {
-          "value": "TestVNet"
-      },
-      "addressPrefix": {
-          "value": "192.168.0.0/16"
-      },
-      "subnet1Name": {
-          "value": "FrontEnd"
-      },
-      "subnet1Prefix": {
-        "value": "192.168.1.0/24"
-      },
-      "subnet2Name": {
-          "value": "BackEnd"
-      },
-      "subnet2Prefix": {
-          "value": "192.168.2.0/24"
-      }
-    }
-    ```
+        {
+          "location": {
+            "value": "China North"
+          },
+          "vnetName": {
+              "value": "TestVNet"
+          },
+          "addressPrefix": {
+              "value": "192.168.0.0/16"
+          },
+          "subnet1Name": {
+              "value": "FrontEnd"
+          },
+          "subnet1Prefix": {
+            "value": "192.168.1.0/24"
+          },
+          "subnet2Name": {
+              "value": "BackEnd"
+          },
+          "subnet2Prefix": {
+              "value": "192.168.2.0/24"
+          }
+        }
 11. Save the file.

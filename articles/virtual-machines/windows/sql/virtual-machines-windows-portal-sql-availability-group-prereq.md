@@ -22,7 +22,7 @@ ms.author: mikeray
 
 # Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines
 
-This tutorial shows how to complete the prerequisites to create a [SQL Server Always On Availability Group on Azure Virtual Machines](./virtual-machines-windows-portal-sql-availability-group-tutorial.md). When the prerequisites are completed, you have a domain controller, two SQL Servers, and a witness server in a single resource group.
+This tutorial shows how to complete the prerequisites to create a [SQL Server Always On Availability Group on Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-tutorial.md). When the prerequisites are completed, you have a domain controller, two SQL Servers, and a witness server in a single resource group.
 
 **Time estimate**: It may take a couple of hours to complete the prerequisites. Much of this time is spent creating virtual machines.
 
@@ -131,7 +131,7 @@ The following table summarizes the network configuration settings:
 
 ## Create availability sets
 
-Before creating virtual machines, you need to create availability sets. Availability sets reduce downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](../../virtual-machines-windows-manage-availability.md).
+Before creating virtual machines, you need to create availability sets. Availability sets reduce downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](../../virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 You need two availability sets. One is for the domain controllers. The second is for the SQL Servers.
 
@@ -345,7 +345,7 @@ Next, create three VMs, including two SQL Server VMs, and a VM for the an additi
 <br/>
 
 > [!NOTE]
-> The machine sizes suggested here are meant for testing availability groups in Azure VMs. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](./virtual-machines-windows-sql-performance.md).
+> The machine sizes suggested here are meant for testing availability groups in Azure VMs. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
@@ -495,4 +495,4 @@ Repeat these steps on the second SQL Server in the same way.
 
 ## Next steps
 
-* [Create SQL Server Always On Availability Group on Azure Virtual Machines](./virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+* [Create SQL Server Always On Availability Group on Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-tutorial.md)

@@ -60,7 +60,7 @@ If you prefer to perform your own penetration tests or want to use another scann
 obtain prior approval to perform the desired penetration tests.
 
 ## <a name="https"></a> Secure communication with customers
-If you use the **\*.chinacloudsites.cn** domain name created for your App Service app, you can immediately use HTTPS, as an SSL certificate is provided for all **\*.chinacloudsites.cn** domain names. If your site uses a [custom domain name](./web-sites-custom-domain-name.md), you can upload an SSL certificate to [enable HTTPS](./web-sites-configure-ssl-certificate.md) for the custom domain.
+If you use the **\*.chinacloudsites.cn** domain name created for your App Service app, you can immediately use HTTPS, as an SSL certificate is provided for all **\*.chinacloudsites.cn** domain names. If your site uses a [custom domain name](web-sites-custom-domain-name.md), you can upload an SSL certificate to [enable HTTPS](web-sites-configure-ssl-certificate.md) for the custom domain.
 
 Enabling [HTTPS](https://en.wikipedia.org/wiki/HTTPS) can help protect against MITM attacks on the communication between your app and its users.
 
@@ -102,7 +102,7 @@ configuration settings will remain encrypted unless you view or configure them u
 
 Storing configuration information in App Service makes it possible for the app's administrator to lock down sensitive information for the production apps. Developers can use a separate set of configuration settings
 for app development and the settings can be automatically superseded by the settings configured in App Service. Not even the developers need to know the secrets configured for the production app. For more information on 
-configuring app settings and connection strings in App Service, see [Configuring web apps](./web-sites-configure.md).
+configuring app settings and connection strings in App Service, see [Configuring web apps](web-sites-configure.md).
 
 ### FTPS
 Azure App Service provides secure FTP access to the file system for your app through **FTPS**. This allows you to securely access the application code on the web app as well as diagnostics logs. It is recommended that you
@@ -125,7 +125,7 @@ For more information on the security of the Azure platform, information on repor
 
 For more information on **web.config** or **applicationhost.config** files in App Service apps, see [Configuration options unlocked in Azure App Service web apps](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
-For information on logging information for App Service apps, which may be useful in detecting attacks, see [Enable diagnostic logging](./web-sites-enable-diagnostic-log.md).
+For information on logging information for App Service apps, which may be useful in detecting attacks, see [Enable diagnostic logging](web-sites-enable-diagnostic-log.md).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](./app-service-changes-existing-services.md)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)

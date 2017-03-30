@@ -155,8 +155,8 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
-                        <p><a href="/cli/azure/redis">Azure CLI 2​.0 (Preview)</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/cli/azure/redis">Azure CLI 2​.0 (Preview)</a></p>
                     </div>
                 </div>
             </div>
@@ -190,5 +190,3 @@ Learn how to use Azure Redis Cache, a secure data cache and messaging broker tha
         </div>
     </li>
 </ul>
-
-

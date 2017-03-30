@@ -28,7 +28,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-```
+```azurecli
 #!/bin/bash
 
 fqdn=<Replace with www.{yourdomain}>
@@ -58,7 +58,7 @@ az appservice web config hostname add --webapp $webappname --resource-group myRe
 echo "You can now browse to http://$fqdn"
 ```
 
-[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

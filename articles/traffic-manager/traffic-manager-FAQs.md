@@ -117,7 +117,7 @@ Azure Resource Manager requires all resource groups to specify a location, which
 
 ### How do I determine the current health of each endpoint?
 
-The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal preview. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/zh-cn/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/zh-cn/library/mt125941.aspx), and [cross-platform Azure CLI](/documentation/articles/cli-install-nodejs/).
+The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal preview. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/zh-cn/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/zh-cn/library/mt125941.aspx), and [cross-platform Azure CLI](../cli-install-nodejs.md).
 
 Azure does not provide historical information about past endpoint health or the ability to raise alerts about changes to endpoint health.
 

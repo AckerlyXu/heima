@@ -40,7 +40,7 @@ Read the [Overview of the Azure Activity Log](../monitoring-and-diagnostics/moni
 
 ## Enable diagnostic logging
 
-Diagnostic logging must be enabled for *each* NSG you want to collect data for. If you don't have an existing NSG, complete the steps in the [Create a network security group](./virtual-networks-create-nsg-arm-pportal.md) article to create one. You can enable NSG diagnostic logging using any of the following methods:
+Diagnostic logging must be enabled for *each* NSG you want to collect data for. If you don't have an existing NSG, complete the steps in the [Create a network security group](virtual-networks-create-nsg-arm-pportal.md) article to create one. You can enable NSG diagnostic logging using any of the following methods:
 
 ### Azure portal preview
 

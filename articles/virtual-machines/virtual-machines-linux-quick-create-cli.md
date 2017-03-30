@@ -1,5 +1,3 @@
-<!-- not suitable for Mooncake -->
-
 ---
 title: Azure Quick Start - Create VM CLI | Azure
 description: Quickly learn to create virtual machines with the Azure CLI.
@@ -88,6 +86,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md)
+[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Explore VM deployment CLI samples](./virtual-machines-linux-cli-samples.md)
+[Explore VM deployment CLI samples](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

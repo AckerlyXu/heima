@@ -43,7 +43,6 @@ Create the vNet and subNet of the [virtual network](../virtual-network/virtual-n
     $subnetName = "mySubNet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-
 2. Create the vNet. This example sets the virtual network name to be **myVnetName**, the location to **China North**, and the address prefix for the virtual network to **10.0.0.0/16**. 
 
     ```powershell
@@ -63,7 +62,6 @@ To enable communication with the virtual machine in the virtual network, you nee
     $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```
-
 2. Create the NIC. In this example, the NIC name is set to **myNicName**.
 
     ```powershell
@@ -85,9 +83,10 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
     -DestinationAddressPrefix * -DestinationPortRange 3389
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
+	
 ```
 
-For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](./virtual-machines-windows-nsg-quickstart-powershell.md).
+For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Set the VM name and size
 
@@ -106,7 +105,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ## Configure the OS disk
 
-The specialised OS could be a VHD that you [uploaded to Azure](./virtual-machines-windows-upload-image.md) or a [copy the VHD from an existing Azure VM](./virtual-machines-windows-vhd-copy.md). 
+The specialised OS could be a VHD that you [uploaded to Azure](virtual-machines-windows-upload-image.md) or a [copy the VHD from an existing Azure VM](virtual-machines-windows-vhd-copy.md). 
 
 You can choose one of two options:
 - **Option 1**: Create a specialized managed disk from a specialied VHD in an existing storage account to use as the OS disk.
@@ -133,7 +132,7 @@ or
     -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
-Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](./virtual-machines-windows-create-managed-disk-ps.md). 
+Optional: Attach additional managed disks as data disks. This option assumes that you created your managed data disks using [Create managed data disks](virtual-machines-windows-create-managed-disk-ps.md). 
 
 ```powershell
 $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
@@ -146,7 +145,6 @@ $vm = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName -CreateOptio
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.chinacloudapi.cn/myContainer/myOsDisk.vhd"
     ```
-
 2. Add the OS disk by using the URL of the copied OS VHD. In this example, when the OS disk is created, the term "osDisk" is appened to the VM name to create the OS disk name. This example also specifies that this Windows-based VHD should be attached to the VM as the OS disk.
 
     ```powershell
@@ -178,6 +176,7 @@ If this command was successful, you'll see output like this:
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------
                          True         OK OK   
+
 ```
 
 ## Verify that the VM was created
@@ -189,4 +188,4 @@ $vmList.Name
 ```
 
 ## Next steps
-To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.cn), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](./virtual-machines-windows-connect-logon.md).
+To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.cn), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

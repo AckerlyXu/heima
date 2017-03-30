@@ -25,7 +25,7 @@ ms.author: larryfr
 Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they are very useful for diagnosing problems that occur at run-time.
 
 > [!IMPORTANT]
-> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document only work with HDInsight clusters that use Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="whichServices"></a>Services
 You can enable heap dumps for the following services:
@@ -56,9 +56,7 @@ Map and reduce processes are slightly different, as these are a child process of
 ### Enable heap dumps
 The following option enables heap dumps when an OutOfMemoryError occurs:
 
-```
--XX:+HeapDumpOnOutOfMemoryError
-```
+    -XX:+HeapDumpOnOutOfMemoryError
 
 The **+** indicates that this option is enabled. The default is disabled.
 
@@ -70,18 +68,14 @@ The **+** indicates that this option is enabled. The default is disabled.
 ### Dump location
 The default location for the dump file is the current working directory. You can control where the file is stored using the following option:
 
-```
--XX:HeapDumpPath=/path
-```
+    -XX:HeapDumpPath=/path
 
 For example, using `-XX:HeapDumpPath=/tmp` will cause the dumps to be stored in the /tmp directory.
 
 ### Scripts
 You can also trigger a script when an **OutOfMemoryError** occurs. For example, triggering a notification so you know that the error has occurred. This is controlled using the following option:
 
-```
--XX:OnOutOfMemoryError=/path/to/script
-```
+    -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
 > Since Hadoop is a distributed system, any script used must be placed on all nodes in the cluster that the service runs on.

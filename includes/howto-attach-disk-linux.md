@@ -1,4 +1,4 @@
-For more information about disks, see [About Disks and VHDs for Virtual Machines](../articles/storage/storage-about-disks-and-vhds-linux.md).
+For more information about disks, see [About Disks and VHDs for Virtual Machines](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a id="attachempty"></a> Attach an empty disk
 1. Open Azure CLI 1.0 and [connect to your Azure subscription](../articles/xplat-cli-connect.md). Make sure you are in Azure Service Management mode (`azure config mode asm`).
@@ -16,18 +16,18 @@ For more information about disks, see [About Disks and VHDs for Virtual Machines
 
     The output is similar to the following example:
 
-    ```azurecli
+    ```bash
     info:    Executing command vm disk list
+   
+    * Fetching disk images
+    * Getting virtual machines
+    * Getting VM disks
+     data:    Lun  Size(GB)  Blob-Name                         OS
+     data:    ---  --------  --------------------------------  -----
+     data:         30        myVM-2645b8030676c8f8.vhd  Linux
+     data:    0    100       myVM-76f7ee1ef0f6dddc.vhd
+     info:    vm disk list command OK
     ```
-
-       * Fetching disk images
-       * Getting virtual machines
-       * Getting VM disks
-         data:    Lun  Size(GB)  Blob-Name                         OS
-         data:    ---  --------  --------------------------------  -----
-         data:         30        myVM-2645b8030676c8f8.vhd  Linux
-         data:    0    100       myVM-76f7ee1ef0f6dddc.vhd
-         info:    vm disk list command OK
 
 ## <a id="attachexisting"></a> Attach an existing disk
 Attaching an existing disk requires that you have a .vhd available in a storage account.
@@ -43,15 +43,15 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 
     ```azurecli
      info:    Executing command vm disk list
+   
+    * Fetching disk images
+     data:    Name                                          OS
+     data:    --------------------------------------------  -----
+     data:    myTestVhd                                     Linux
+     data:    TestVM-ubuntuVMasm-0-201508060029150744  Linux
+     data:    TestVM-ubuntuVMasm-0-201508060040530369
+     info:    vm disk list command OK
     ```
-
-       * Fetching disk images
-         data:    Name                                          OS
-         data:    --------------------------------------------  -----
-         data:    myTestVhd                                     Linux
-         data:    TestVM-ubuntuVMasm-0-201508060029150744  Linux
-         data:    TestVM-ubuntuVMasm-0-201508060040530369
-         info:    vm disk list command OK
 
 3. If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using
    `azure vm disk create` or `azure vm disk upload`. An example of `disk create` would be as in the following example:
@@ -94,17 +94,17 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 
     ```azurecli
      info:    Executing command vm disk list
+   
+    * Fetching disk images
+    * Getting virtual machines
+    * Getting VM disks
+     data:    Lun  Size(GB)  Blob-Name                         OS
+     data:    ---  --------  --------------------------------  -----
+     data:         30        TestVM-2645b8030676c8f8.vhd  Linux
+     data:    1    10        test.VHD
+     data:    0    100        TestVM-76f7ee1ef0f6dddc.vhd
+     info:    vm disk list command OK
     ```
-
-       * Fetching disk images
-       * Getting virtual machines
-       * Getting VM disks
-         data:    Lun  Size(GB)  Blob-Name                         OS
-         data:    ---  --------  --------------------------------  -----
-         data:         30        TestVM-2645b8030676c8f8.vhd  Linux
-         data:    1    10        test.VHD
-         data:    0    100        TestVM-76f7ee1ef0f6dddc.vhd
-         info:    vm disk list command OK
 
 > [!NOTE]
 > After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage (see the following steps for more information on how to do initialize the disk).

@@ -40,9 +40,7 @@ HDInsight cluster billing starts once a cluster is created and stops when the cl
 
 From a PowerShell prompt, use the following command to delete the cluster:
 
-```
-Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
-```
+    Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
 
 Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
@@ -50,8 +48,6 @@ Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
 From a prompt, use the following to delete the cluster:
 
-```
-azure hdinsight cluster delete CLUSTERNAME
-```
+    azure hdinsight cluster delete CLUSTERNAME
 
 Replace **CLUSTERNAME** with the name of your HDInsight cluster.

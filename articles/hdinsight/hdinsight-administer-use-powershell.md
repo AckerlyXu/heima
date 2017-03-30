@@ -39,47 +39,37 @@ If you have installed Azure PowerShell version 0.9x, you must uninstall it befor
 
 To check the version of the installed PowerShell:
 
-```
-Get-Module *azure*
-```
+    Get-Module *azure*
 
 To uninstall the older version, run Programs and Features in the control panel. 
 
 ## Create clusters
-See [Create Linux-based clusters in HDInsight using Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
+See [Create Linux-based clusters in HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
 ## List clusters
 Use the following command to list all clusters in the current subscription:
 
-```
-Get-AzureRmHDInsightCluster
-```
+    Get-AzureRmHDInsightCluster
 
 ## Show cluster
 Use the following command to show details of a specific cluster in the current subscription:
 
-```
-Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
-```
+    Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ## <a name="delete-clusters"></a> Delete clusters
 Use the following command to delete a cluster:
 
-```
-Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
-```
+    Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 You can also delete a cluster by removing the resource group that contains the cluster. Please note, this will delete all the resources in the group including the default storage account.
 
-```
-Remove-AzureRmResourceGroup -Name <Resource Group Name>
-```
+    Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
 ## Scale clusters
 The cluster scaling feature allows you to change the number of worker nodes used by a cluster that is running in Azure HDInsight without having to re-create the cluster.
 
 > [!NOTE]
-> Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](./hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 > 
 > 
 
@@ -94,11 +84,9 @@ The impact of changing the number of data nodes for each type of cluster support
 
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster and running the following commands from a command prompt window:
 
-    ```
-    >pushd %HBASE_HOME%\bin
-    >hbase shell
-    >balancer
-    ```
+        >pushd %HBASE_HOME%\bin
+        >hbase shell
+        >balancer
 * Storm
 
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
@@ -116,18 +104,14 @@ The impact of changing the number of data nodes for each type of cluster support
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
-    ```
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
-    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
-    ```
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 To change the Hadoop cluster size by using Azure PowerShell, run the following command from a client machine:
 
-```
-Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-```
+    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 
 ## <a name="grant/revoke-access" id="grantrevoke-access"></a> Grant/revoke access
 HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
@@ -140,26 +124,22 @@ HDInsight clusters have the following HTTP web services (all of these services h
 
 By default, these services are granted for access. You can revoke/grant the access. To revoke:
 
-```
-Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
-```
+    Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
 
 To grant:
 
-```
-$clusterName = "<HDInsight Cluster Name>"
+    $clusterName = "<HDInsight Cluster Name>"
 
-# Credential option 1
-$hadoopUserName = "admin"
-$hadoopUserPassword = "<Enter the Password>"
-$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
+    # Credential option 1
+    $hadoopUserName = "admin"
+    $hadoopUserPassword = "<Enter the Password>"
+    $hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
+    $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
 
-# Credential option 2
-#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+    # Credential option 2
+    #$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
 
-Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
-```
+    Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
 > [!NOTE]
 > By granting/revoking the access, you will reset the cluster user name and password.
@@ -174,47 +154,43 @@ It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If 
 ## Find the default storage account
 The following Powershell script demonstrates how to get the default storage account name and the default storage account key for a cluster.
 
-```
-$clusterName = "<HDInsight Cluster Name>"
+    $clusterName = "<HDInsight Cluster Name>"
 
-$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-$resourceGroupName = $cluster.ResourceGroup
-$defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.chinacloudapi.cn", "")
-$defaultBlobContainerName = $cluster.DefaultStorageContainer
-$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
-$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
-```
+    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $resourceGroupName = $cluster.ResourceGroup
+    $defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.chinacloudapi.cn", "")
+    $defaultBlobContainerName = $cluster.DefaultStorageContainer
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
+    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey 
 
 ## Find the resource group
 In the Resource Manager mode, each HDInsight cluster belongs to an Azure resource group.  To find the resource group:
 
-```
-$clusterName = "<HDInsight Cluster Name>"
+    $clusterName = "<HDInsight Cluster Name>"
 
-$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-$resourceGroupName = $cluster.ResourceGroup
-```
+    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $resourceGroupName = $cluster.ResourceGroup
 
 ## Submit jobs
 **To submit MapReduce jobs**
 
-See [Run Hadoop MapReduce samples in Windows-based HDInsight](./hdinsight-run-samples.md).
+See [Run Hadoop MapReduce samples in Windows-based HDInsight](hdinsight-run-samples.md).
 
 **To submit Hive jobs** 
 
-See [Run Hive queries using PowerShell](./hdinsight-hadoop-use-hive-powershell.md).
+See [Run Hive queries using PowerShell](hdinsight-hadoop-use-hive-powershell.md).
 
 **To submit Pig jobs**
 
-See [Run Pig jobs using PowerShell](./hdinsight-hadoop-use-pig-powershell.md).
+See [Run Pig jobs using PowerShell](hdinsight-hadoop-use-pig-powershell.md).
 
 **To submit Sqoop jobs**
 
-See [Use Sqoop with HDInsight](./hdinsight-use-sqoop.md).
+See [Use Sqoop with HDInsight](hdinsight-use-sqoop.md).
 
 **To submit Oozie jobs**
 
-See [Use Oozie with Hadoop to define and run a workflow in HDInsight](./hdinsight-use-oozie.md).
+See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie.md).
 
 ## Upload data to Azure Blob storage
 See [Upload data to HDInsight][hdinsight-upload-data].
@@ -232,18 +208,18 @@ See [Upload data to HDInsight][hdinsight-upload-data].
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
-[hdinsight-get-started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-provision-custom-options]: /documentation/articles/hdinsight-provision-clusters/#configuration
-[hdinsight-submit-jobs]: ./hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-provision-custom-options]: hdinsight-provision-clusters.md#configuration
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
-[hdinsight-admin-cli]: ./hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: ./hdinsight-administer-use-management-portal.md
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: ./hdinsight-use-mapreduce.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
-[hdinsight-flight]: ./hdinsight-analyze-flight-delay-data.md
+[hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
+[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/zh-cn/library/dn858087.aspx
 

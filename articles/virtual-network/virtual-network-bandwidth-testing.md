@@ -130,10 +130,9 @@ And on the SENDER, run:
 ```bash
 ntttcp -s10.0.0.4 -t 300
 ```
-
  
 Test length defaults to 60 seconds if no time parameter is given
 
 ## Next steps
-* Depending on results, there may be room to [Optimize network throughput machines](./virtual-network-optimize-network-bandwidth.md) for your scenario.
-* Learn more wtih [Azure Virtual Network frequently asked questions (FAQ)](./virtual-networks-faq.md)
+* Depending on results, there may be room to [Optimize network throughput machines](virtual-network-optimize-network-bandwidth.md) for your scenario.
+* Learn more wtih [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

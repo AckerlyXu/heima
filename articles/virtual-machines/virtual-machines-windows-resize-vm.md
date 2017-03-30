@@ -30,7 +30,6 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
     ```powershell
     Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName> 
     ```
-
 2. If the desired size is listed, run the following commands to resize the VM. If the desired size is not listed, go on to step 3.
 
     ```powershell
@@ -38,7 +37,6 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
     $vm.HardwareProfile.VmSize = "<newVMsize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
-
 3. If the desired size is not listed, run the following commands to deallocate the VM, resize it, and restart the VM.
 
     ```powershell
@@ -64,7 +62,6 @@ If the new size for a VM in an availability set is not available on the hardware
     ```powershell
     Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName>
     ```
-
 2. If the desired size is listed, run the following commands to resize the VM. If it is not listed, go to step 3.
 
     ```powershell
@@ -72,7 +69,6 @@ If the new size for a VM in an availability set is not available on the hardware
     $vm.HardwareProfile.VmSize = "<newVmSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
-
 3. If the desired size is not listed, continue with the following steps to deallocate all VMs in the availability set, resize VMs, and restart them.
 4. Stop all VMs in the availability set.
 
@@ -86,7 +82,6 @@ If the new size for a VM in an availability set is not available on the hardware
         Stop-AzureRmVM -ResourceGroupName $rg -Name $vmName -Force
     } 
     ```
-
 5. Resize and restart the VMs in the availability set.
 
     ```powershell

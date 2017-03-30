@@ -1,48 +1,56 @@
-For more details about disks, see [About Disks and VHDs for Virtual Machines](/documentation/articles/virtual-machines-disks-vhds/).
-
-##<a id="attachempty"></a>How to: Attach an empty disk
-
+## Attach an empty disk
 Attaching an empty disk is a simple way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.
 
-1. Click **Virtual Machines**, and then select the appropriate VM.
+1. Click **Virtual Machines (classic)**, and then select the appropriate VM.
 
-2. On the command bar, click **Attach**, and then click **Attach Empty Disk**.
+2. In the Settings menu, click **Disks**.
 
-    ![Attach an empty disk](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
+   ![Attach a new empty disk](./media/howto-attach-disk-windows-linux/menudisksattachnew.png)
 
-3. The **Attach an Empty Disk** dialog box appears.
+3. On the command bar, click **Attach new**.  
+    The **Attach new disk** dialog box appears.
 
-    ![Attach a new empty disk](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
+    ![Attach a new disk](./media/howto-attach-disk-windows-linux/newdiskdetail.png)
 
-    Do the following:
-
+    Fill in the following information:
     - In **File Name**, accept the default name or type another one for the .vhd file. The data disk uses an automatically generated name, even if you type another name for the .vhd file.
+    - Select the **Type** of the data disk. All virtual machines support standard disks. Many virtual machines also support premium disks.
+    - Select the **Size (GB)** of the data disk.
+    - For **Host caching**, choose none or Read Only.
+    - Click OK to finish.
 
-    - Type the **Size (GB)** of the data disk.
+4. After the data disk is created and attached, it's listed in the disks section of the VM.
 
-    - Click the check mark to finish.
-
-4. After the data disk is created and attached, it's listed in the dashboard of the VM.
-
-    ![Empty data disk successfully attached](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
+   ![New and empty data disk successfully attached](./media/howto-attach-disk-windows-linux/newdiskemptysuccessful.png)
 
 > [!NOTE]
-> After you add a new data disk, you'll need to log on to the VM and initialize the disk so that it can be used. 
+> After you add a data disk, you need to log on to the VM and initialize the disk so that it can be used.
 
-##<a id="attachexisting"></a>How to: Attach an existing disk
-
+## How to: Attach an existing disk
 Attaching an existing disk requires that you have a .vhd available in a storage account. Use the [Add-AzureVhd](https://msdn.microsoft.com/zh-cn/library/azure/dn495173.aspx) cmdlet to upload the .vhd file to the storage account. After you've created and uploaded the .vhd file, you can attach it to a VM.
 
-1. Click **Virtual Machines**, and then select the appropriate virtual machine.
+1. Click **Virtual Machines (classic)**, and then select the appropriate virtual machine.
 
-2. On the command bar, click **Attach**, and then select **Attach Disk**.
+2. In the Settings menu, click **Disks**.
 
-    ![Attach data disk](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
+3. On the command bar, click **Attach existing**.
 
-3. Select the data disk and then click the check mark to attach the data disk.
+    ![Attach data disk](./media/howto-attach-disk-windows-linux/menudisksattachexisting.png)
 
-    ![Enter data disk details](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
+4. Click **Location**. The available storage accounts display. Next, select an appropriate storage account from those listed.
 
-4. After the data disk is attached, it's listed in the dashboard of the VM.
+    ![Provide disk storage account](./media/howto-attach-disk-windows-linux/existdiskstorageaccounts.png)
 
-    ![Data disk successfully attached](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
+5. A **Storage account** holds one or more containers that contain disk drives (vhds). Select the appropriate container from those listed.
+
+    ![Provide container of virtual-machines-windows](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
+
+6. The **vhds** panel lists the disk drives held in the container. Click one of the disks, and then click Select.
+
+    ![Provide disk image for virtual-machines-windows](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
+
+7. The **Attach existing disk** panel displays again, with the location containing the storage account, container, and selected hard disk (vhd) to add to the virtual machine.
+
+  Set **Host caching** to none or Read only, then click OK.
+
+    ![Data disk successfully attached](./media/howto-attach-disk-windows-linux/exisitingdisksuccessful.png)

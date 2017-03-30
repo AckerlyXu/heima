@@ -1,6 +1,6 @@
-An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see Manage the availability of [Windows](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) or [Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md) virtual machines.
+An availability set helps keep your virtual machines available during downtime, such as during maintenance. Placing two or more similarly configured virtual machines in an availability set creates the redundancy needed to maintain availability of the applications or services that your virtual machine runs. For details about how this works, see [Manage the availability of virtual machines][Manage the availability of virtual machines].
 
-It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see Load balancing for Azure infrastructure services of [Windows](../articles/virtual-machines/virtual-machines-windows-load-balance.md) or [Linux](../articles/load-balancer/load-balancer-overview.md) virtual machines.
+It's a best practice to use both availability sets and load-balancing endpoints to help ensure that your application is always available and running efficiently. For details about load-balanced endpoints, see [Load balancing for Azure infrastructure services][Load balancing for Azure infrastructure services].
 
 You can add classic virtual machines into an availability set by using one of two options:
 
@@ -33,7 +33,7 @@ To use the Azure portal preview:
 8. Review your configuration settings. When you're done, click **Create**.
 9. While Azure creates your virtual machine, you can track the progress under **Virtual Machines** in the hub menu.
 
-To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
+To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set
 In the Azure portal preview, you can add existing classic virtual machines to an existing availability set
@@ -54,9 +54,7 @@ In the Azure portal preview, you can add existing classic virtual machines to an
 
 To use Azure PowerShell commands, open an administrator-level Azure PowerShell session and run the following command. For the placeholders (such as &lt;VmCloudServiceName&gt;), replace everything within the quotes, including the < and > characters, with the correct names.
 
-```
-Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
-```
+    Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
 > [!NOTE]
 > The virtual machine might have to be restarted to finish adding it to the availability set.
@@ -70,5 +68,5 @@ Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvai
 [Load balancing for Azure infrastructure services]: ../articles/load-balancer/load-balancer-overview.md
 [Manage the availability of virtual machines]: ../articles/virtual-machines/virtual-machines-linux-manage-availability.md
 
-[Create a virtual machine running Windows]: /documentation/articles/virtual-machines-windows-hero-tutorial/
+[Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md

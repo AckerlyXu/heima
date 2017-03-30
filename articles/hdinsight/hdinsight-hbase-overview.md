@@ -52,22 +52,22 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 ## <a name="next-steps"></a>Next steps
 * [Get started using HBase with Hadoop in HDInsight][hbase-get-started]
 * [Create HDInsight clusters on Azure Virtual Network][hbase-provision-vnet]
-* [Configure HBase replication in HDInsight](./hdinsight-hbase-replication.md)
+* [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md)
 * [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)][hbase-build-java-maven]
 
 ## <a name="see-also"></a>See also
 * [Apache HBase](https://hbase.apache.org/)
 * [Bigtable: A Distributed Storage System for Structured Data](http://research.google.com/archive/bigtable.html)
 
-[hbase-provision-vnet]: ./hdinsight-hbase-provision-vnet.md
+[hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-[hbase-build-java-maven]: ./hdinsight-hbase-build-java-maven.md
+[hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
 
-[hdinsight-storage]: ./hdinsight-hadoop-use-blob-storage.md
+[hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 
-[hbase-get-started]: /documentation/articles/hdinsight-hbase-tutorial-get-started/
+[hbase-get-started]: /azure/hdinsight-hbase-get-started/
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

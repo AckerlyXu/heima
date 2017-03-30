@@ -151,52 +151,54 @@ From the Azure portal preview, the virtual network looks like the following imag
 ![Virtual Network](./media/virtual-machines-linux-dotnet-core/vnet.png)
 
 ## Network Interface
- A network interface connects a virtual machine to a virtual network, more specifically to a subnet that has been defined in the virtual network. 
+A network interface connects a virtual machine to a virtual network, more specifically to a subnet that has been defined in the virtual network. 
 
- Follow this link to see the JSON sample within the Resource Manager template - [Network Interface](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
+Follow this link to see the JSON sample within the Resource Manager template - [Network Interface](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
 
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkInterfaces",
-      "name": "[concat(variables('networkInterfaceNamePrefix'), copyindex())]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "network-interface"
-      },
-      "copy": {
-        "name": "nicLoop",
-        "count": "[parameters('numberOfInstances')]"
-      },
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-        "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'), '/inboundNatRules/', 'SSH-VM', copyIndex())]"
-      ],
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[variables('subnetRef')]"
-              },
-              "loadBalancerBackendAddressPools": [
-                {
-                  "id": "[variables('lbPoolID')]"
-                }
-              ],
-              "loadBalancerInboundNatRules": [
-                {
-                  "id": "[concat(variables('lbID'),'/inboundNatRules/SSH-VM', copyIndex())]"
-                }
-              ]
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Network/networkInterfaces",
+  "name": "[concat(variables('networkInterfaceNamePrefix'), copyindex())]",
+  "location": "[resourceGroup().location]",
+  "tags": {
+    "displayName": "network-interface"
+  },
+  "copy": {
+    "name": "nicLoop",
+    "count": "[parameters('numberOfInstances')]"
+  },
+  "dependsOn": [
+    "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+    "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+    "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
+    "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'), '/inboundNatRules/', 'SSH-VM', copyIndex())]"
+  ],
+  "properties": {
+    "ipConfigurations": [
+      {
+        "name": "ipconfig1",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "subnet": {
+            "id": "[variables('subnetRef')]"
+          },
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "[variables('lbPoolID')]"
             }
-          }
-        ]
+          ],
+          "loadBalancerInboundNatRules": [
+            {
+              "id": "[concat(variables('lbID'),'/inboundNatRules/SSH-VM', copyIndex())]"
+            }
+          ]
+        }
       }
-    }
+    ]
+  }
+}
+```
 
 Each virtual machine resource includes a network profile. The network interface is associated with the virtual machine in this profile.  
 
@@ -267,4 +269,4 @@ For more information on deploying Azure SQL Database, see [Azure SQL Database do
 ## Next step
 <hr>
 
-[Step 2 - Access and Security in Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-3-access-security.md)
+[Step 2 - Access and Security in Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

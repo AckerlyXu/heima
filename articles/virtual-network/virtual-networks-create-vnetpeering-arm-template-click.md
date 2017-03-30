@@ -63,7 +63,6 @@ To create a VNet peering by using Resource Manager templates, complete the follo
         ]
         }
     ```
-
 3. The section below shows the definition of a VNet peering link for VNet2 to VNet1, based on the scenario above.  Copy the content below and save it to a file named VNetPeeringVNet2.json.
 
     ```json
@@ -123,33 +122,31 @@ To create a VNet peering by using Resource Manager templates, complete the follo
 
     Returned output:
 
-    ```
-    DeploymentName        : VNetPeeringVNet1
-    ResourceGroupName    : VNet101
-    ProvisioningState        : Succeeded
-    Timestamp            : MM/DD/YEAR 9:05:03 AM
-    Mode            : Incremental
-    TemplateLink        :
-    Parameters            :
-    Outputs            :
-    DeploymentDebugLogLevel : RequestContent, ResponseContent
-
+        DeploymentName        : VNetPeeringVNet1
+        ResourceGroupName    : VNet101
+        ProvisioningState        : Succeeded
+        Timestamp            : MM/DD/YEAR 9:05:03 AM
+        Mode            : Incremental
+        TemplateLink        :
+        Parameters            :
+        Outputs            :
+        DeploymentDebugLogLevel : RequestContent, ResponseContent
+   
+    ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet2.json -DeploymentDebugLogLevel all
     ```
 
     Returned output:
 
-    ```
-    DeploymentName        : VNetPeeringVNet2
-    ResourceGroupName    : VNet101
-    ProvisioningState        : Succeeded
-    Timestamp            : MM/DD/YEAR 9:07:22 AM
-    Mode            : Incremental
-    TemplateLink        :
-    Parameters            :
-    Outputs            :
-    DeploymentDebugLogLevel : RequestContent, ResponseContent
-    ```
+        DeploymentName        : VNetPeeringVNet2
+        ResourceGroupName    : VNet101
+        ProvisioningState        : Succeeded
+        Timestamp            : MM/DD/YEAR 9:07:22 AM
+        Mode            : Incremental
+        TemplateLink        :
+        Parameters            :
+        Outputs            :
+        DeploymentDebugLogLevel : RequestContent, ResponseContent
 5. After the deployment is finished, run the following cmdlet to view the peering state:
 
     ```powershell
@@ -158,25 +155,23 @@ To create a VNet peering by using Resource Manager templates, complete the follo
 
     Returned output:
 
-    ```
-    Name            : LinkToVNet2
-    Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet1/virtualNetworkPeerings/LinkToVNet2
-    Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    ResourceGroupName    : VNet101
-    VirtualNetworkName    : VNet1
-    ProvisioningState        : Succeeded
-    RemoteVirtualNetwork    : {
-                                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet2"
-                                    }
-    AllowVirtualNetworkAccess    : True
-    AllowForwardedTraffic            : False
-    AllowGatewayTransit              : False
-    UseRemoteGateways                : False
-    RemoteGateways                   : null
-    RemoteVirtualNetworkAddressSpace : null
-    ```
+        Name            : LinkToVNet2
+        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet1/virtualNetworkPeerings/LinkToVNet2
+        Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName    : VNet101
+        VirtualNetworkName    : VNet1
+        ProvisioningState        : Succeeded
+        RemoteVirtualNetwork    : {
+                                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet2"
+                                        }
+        AllowVirtualNetworkAccess    : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
 
-    After the peering is established in this scenario, you should be able to initiate the connections from any VM to any VM across both VNets. By default, `AllowVirtualNetworkAccess` is *True* and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine-grain control of access between two virtual networks. Read the [Network security groups](./virtual-networks-create-nsg-arm-ps.md) article to learn more about NSGs.
+    After the peering is established in this scenario, you should be able to initiate the connections from any VM to any VM across both VNets. By default, `AllowVirtualNetworkAccess` is *True* and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine-grain control of access between two virtual networks. Read the [Network security groups](virtual-networks-create-nsg-arm-ps.md) article to learn more about NSGs.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
@@ -233,7 +228,6 @@ To create a VNet peering across subscriptions, complete the following steps:
         ]
         }
     ```
-
 4. In User-B's login session, run the following cmdlet:
 
     ```powershell
@@ -305,7 +299,6 @@ To create a VNet peering across subscriptions, complete the following steps:
         ]
         }
     ```
-
 2. The following JSON is the content of a template for creating a VNet peering from VNet1 to HubVnet. Note that AllowForwardedTraffic is set to true.
 
     ```json
@@ -335,8 +328,7 @@ To create a VNet peering across subscriptions, complete the following steps:
         ]
         }
     ```
-
-3. After peering is established, you can refer to this [article](./virtual-network-create-udr-arm-ps.md) to define user-defined routes (UDR) to redirect VNet1 traffic through a virtual appliance to use its capabilities. When you specify the next hop address in route, you can set it to the IP address of the virtual appliance in the peer VNet HubVNet.
+3. After peering is established, you can refer to this [article](virtual-network-create-udr-arm-ps.md) to define user-defined routes (UDR) to redirect VNet1 traffic through a virtual appliance to use its capabilities. When you specify the next hop address in route, you can set it to the IP address of the virtual appliance in the peer VNet HubVNet.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
 
@@ -378,7 +370,6 @@ To create a peering between virtual networks from different deployment models, c
         ]
         }
     ```
-
 3. To deploy the template file, run the following cmdlet to create or update the deployment:
 
     ```powershell
@@ -387,17 +378,15 @@ To create a peering between virtual networks from different deployment models, c
 
     Returned output:
 
-    ```
-    DeploymentName          : VnetPeering
-    ResourceGroupName       : MyResourceGroup
-    ProvisioningState       : Succeeded
-    Timestamp               : XX/XX/YYYY 5:42:33 PM
-    Mode                    : Incremental
-    TemplateLink            :
-    Parameters              :
-    Outputs                 :
-    DeploymentDebugLogLevel : RequestContent, ResponseContent
-    ```
+        DeploymentName          : VnetPeering
+        ResourceGroupName       : MyResourceGroup
+        ProvisioningState       : Succeeded
+        Timestamp               : XX/XX/YYYY 5:42:33 PM
+        Mode                    : Incremental
+        TemplateLink            :
+        Parameters              :
+        Outputs                 :
+        DeploymentDebugLogLevel : RequestContent, ResponseContent
 4. After the deployment succeeds, you can run the following cmdlet to view the peering state:
 
     ```powershell
@@ -406,26 +395,24 @@ To create a peering between virtual networks from different deployment models, c
 
     Returned output:
 
-    ```
-    Name                             : LinkToVNET2
-    Id                               : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResource
-                               Group/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeering
-                               s/LinkToVNET2
-    Etag                             : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    ResourceGroupName                : MyResourceGroup
-    VirtualNetworkName               : VNET1
-    PeeringState                     : Connected
-    ProvisioningState                : Succeeded
-    RemoteVirtualNetwork             : {
-                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/M
-                               yResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
-                               }
-    AllowVirtualNetworkAccess        : True
-    AllowForwardedTraffic            : False
-    AllowGatewayTransit              : False
-    UseRemoteGateways                : False
-    RemoteGateways                   : null
-    RemoteVirtualNetworkAddressSpace : null
-    ```
+        Name                             : LinkToVNET2
+        Id                               : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResource
+                                   Group/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeering
+                                   s/LinkToVNET2
+        Etag                             : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName                : MyResourceGroup
+        VirtualNetworkName               : VNET1
+        PeeringState                     : Connected
+        ProvisioningState                : Succeeded
+        RemoteVirtualNetwork             : {
+                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/M
+                                   yResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
+                                   }
+        AllowVirtualNetworkAccess        : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
 
     After peering is established between a classic VNet and a resource manager VNet, you should be able to initiate connections from any virtual machine in VNET1 to any virtual machine in VNET2 and vice versa.

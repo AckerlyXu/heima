@@ -38,7 +38,7 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 > When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                               
 
 ## <a name="devicetable"></a>Validated VPN devices
-We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](./vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure.
+We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure.
 
 To help configure your VPN device, refer to the links that correspond to appropriate device family. For VPN device support, contact your device manufacturer.
 

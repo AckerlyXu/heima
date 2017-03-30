@@ -31,10 +31,10 @@ This article explains how to create a virtual machine (VM) through the Azure Res
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
-You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](./virtual-network-multiple-ip-addresses-cli-nodejs.md). Change the values, as appropriate, for your environment. The steps that follow explain how to create an example VM with multiple IP addresses, as described in the scenario. Change variable values in "" and IP address types as required for your implementation. 
+You can complete this task using the Azure CLI 2.0 (this article) or the [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md). Change the values, as appropriate, for your environment. The steps that follow explain how to create an example VM with multiple IP addresses, as described in the scenario. Change variable values in "" and IP address types as required for your implementation. 
 
 1. Install the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) if you don't already have it installed.
-2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
+2. Create an SSH public and private key pair for Linux VMs by completing the steps in the [Create an SSH public and private key pair for Linux VMs](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 3. From a command shell, login with the command `az login` and select the subscription you're using.
 4. <a name="register"></a>Run the following PowerShell commands (you cannot register using the CLI) to register for the preview:
 
@@ -122,7 +122,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
     # Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
     # to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs 
-    # article: https://docs.microsoft.com/azure/networking/virtual-network-deploy-multinic-arm-cli.
+    # article: /azure/virtual-network/virtual-network-deploy-multinic-arm-cli.
 
     # Create a VM and attach the NIC.
 
@@ -159,7 +159,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
     ```
 
     In addition to creating a VM with a NIC with 3 IP configurations, the script creates:
-        - A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md) article for details.
+        - A single premium managed disk by default, but you have other options for the disk type you can create. Read the [Create a Linux VM using the Azure CLI 2.0](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for details.
         - A virtual network with one subnet and two public IP addresses. Alternatively, you can use *existing* virtual network, subnet, NIC, or public IP address resources. To learn how to use existing network resources rather than creating additional resources, enter `az vm create -h`.
 
     > [!NOTE]
@@ -173,7 +173,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
 You can add additional private and public IP addresses to an existing NIC by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
 
-1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI 2.0 installation](https://docs.microsoft.com/cli/azure/install-az-cli2) article and login to your Azure account with the `az-login` command.
+1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI 2.0 installation](https://docs.microsoft.com/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) article and login to your Azure account with the `az-login` command.
 
 2. Register for the public preview by following [step 4](#register) in the **Create a VM with multiple IP addresses** section of this article.
 

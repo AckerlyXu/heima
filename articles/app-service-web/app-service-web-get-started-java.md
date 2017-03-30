@@ -77,4 +77,4 @@ Congratulations, your first Java web app is running live in Azure App Service.
 
 ## Next steps
 
-Explore pre-created [Web apps CLI scripts](./app-service-cli-samples.md).
+Explore pre-created [Web apps CLI scripts](app-service-cli-samples.md).

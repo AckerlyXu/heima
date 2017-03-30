@@ -8,8 +8,6 @@ You must create a load-balanced endpoint for each VM hosting an Azure replica. I
 6. Run **Get-AzurePublishSettingsFile**. This cmdlet directs you to a browser to download a publish settings file to a local directory. You may be prompted for your log-in credentials for your Azure subscription.
 7. Run the **Import-AzurePublishSettingsFile** command with the path of the publish settings file that you downloaded:
 
-    ```
-    Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
-    ```
+        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
 
     Once the publish settings file is imported, you can manage your Azure subscription in the PowerShell session.

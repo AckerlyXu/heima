@@ -20,14 +20,16 @@ ms.author: robmcm
 
 # Create a Node.js web app in Azure App Service
 > [!div class="op_single_selector"]
->- [.Net](./web-sites-dotnet-get-started.md)
->- [Node.js](./web-sites-nodejs-develop-deploy-mac.md)
->- [Java](./web-sites-java-get-started.md)
->- [PHP - Git](./web-sites-php-mysql-deploy-use-git.md)
->- [PHP - FTP](./web-sites-php-mysql-deploy-use-ftp.md)
->- [Python](./web-sites-python-ptvs-django-mysql.md)
+> * [.Net](web-sites-dotnet-get-started.md)
+> * [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+> * [Java](web-sites-java-get-started.md)
+> * [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+> * [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+> * [Python](web-sites-python-ptvs-django-mysql.md)
+> 
+> 
 
-This tutorial shows how to create a simple [Node.js](http://nodejs.org) application and deploy it to a [web app](./app-service-web-overview.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md) by using [Git](http://git-scm.com). The instructions in this tutorial can be followed on any operating system that is capable of running Node.js.
+This tutorial shows how to create a simple [Node.js](http://nodejs.org) application and deploy it to a [web app](app-service-web-overview.md) in [Azure App Service](../app-service/app-service-value-prop-what-is.md) by using [Git](http://git-scm.com). The instructions in this tutorial can be followed on any operating system that is capable of running Node.js.
 
 You'll learn:
 
@@ -94,19 +96,15 @@ In this section, you'll create a **server.js** file that contains a slightly mod
 2. Use a text editor to create a new file named **server.js** in the *helloworld* directory.
 3. Copy the following code into the **server.js** file, and then save the file:
 
-    ```
-    var http = require('http')
-    var port = process.env.PORT || 1337;
-    http.createServer(function(req, res) {
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
-      res.end('Hello World\n');
-    }).listen(port);
-    ```
+        var http = require('http')
+        var port = process.env.PORT || 1337;
+        http.createServer(function(req, res) {
+          res.writeHead(200, { 'Content-Type': 'text/plain' });
+          res.end('Hello World\n');
+        }).listen(port);
 4. Open the command line, and use the following command to start the web app locally.
 
-    ```
-    node server.js
-    ```
+        node server.js
 5. Open your web browser and navigate to http://localhost:1337. 
 
     A webpage that displays "Hello World" appears, as shown in the following screenshot.
@@ -119,43 +117,33 @@ In this section, you'll create a **server.js** file that contains a slightly mod
     For installation instructions for your platform, see the [Git download page](http://git-scm.com/download).
 2. From the command line, change directories to the **helloworld** directory and enter the following command to initialize a local Git repository.
 
-    ```
-    git init
-    ```
+        git init
 3. Use the following commands to add files to the repository:
 
-    ```
-    git add .
-    git commit -m "initial commit"
-    ```
+        git add .
+        git commit -m "initial commit"
 4. Add a Git remote for pushing updates to the web app that you created previously, by using the following command:
 
-    ```
-    git remote add azure [URL for remote repository]
-    ```
+        git remote add azure [URL for remote repository]
 5. Push your changes to Azure by using the following command:
 
-    ```
-    git push azure master
-    ```
+        git push azure master
 
     You are prompted for the password that you created earlier. The output is similar to the following example.
 
-    ```
-    Counting objects: 3, done.
-    Delta compression using up to 8 threads.
-    Compressing objects: 100% (2/2), done.
-    Writing objects: 100% (3/3), 374 bytes, done.
-    Total 3 (delta 0), reused 0 (delta 0)
-    remote: New deployment received.
-    remote: Updating branch 'master'.
-    remote: Preparing deployment for commit id '5ebbe250c9'.
-    remote: Preparing files for deployment.
-    remote: Deploying Web.config to enable Node.js activation.
-    remote: Deployment successful.
-    To https://user@testsite.scm.chinacloudsites.cn/testsite.git
-     * [new branch]      master -> master
-    ```
+        Counting objects: 3, done.
+        Delta compression using up to 8 threads.
+        Compressing objects: 100% (2/2), done.
+        Writing objects: 100% (3/3), 374 bytes, done.
+        Total 3 (delta 0), reused 0 (delta 0)
+        remote: New deployment received.
+        remote: Updating branch 'master'.
+        remote: Preparing deployment for commit id '5ebbe250c9'.
+        remote: Preparing files for deployment.
+        remote: Deploying Web.config to enable Node.js activation.
+        remote: Deployment successful.
+        To https://user@testsite.scm.chinacloudsites.cn/testsite.git
+         * [new branch]      master -> master
 6. To view your app, click the **Browse** button on the **Web App** part in the Azure portal preview.
 
     ![Browse button](./media/web-sites-nodejs-develop-deploy-mac/browsebutton.png)
@@ -167,11 +155,9 @@ In this section, you'll create a **server.js** file that contains a slightly mod
 2. Save the file.
 3. From the command line, change directories to the **helloworld** directory and run the following commands:
 
-    ```
-    git add .
-    git commit -m "changing to hello azure"
-    git push azure master
-    ```
+        git add .
+        git commit -m "changing to hello azure"
+        git push azure master
 
     You are prompted for your password again.
 4. Refresh the browser window that you navigated to the web app's URL.
@@ -186,9 +172,9 @@ You've deployed a Node.js application to a web app in Azure App Service. To lear
 
 Node.js provides a rich ecosystem of modules that can be used by your applications. To learn how Web Apps works with modules, see [Using Node.js modules with Azure applications](../nodejs-use-node-modules-azure-apps.md).
 
-If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure App Service](./web-sites-nodejs-debug.md) for information on diagnosing the problem.
+If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure App Service](web-sites-nodejs-debug.md) for information on diagnosing the problem.
 
-This article uses the Azure Portal Preview to create a web app. You can also use the [Azure Command-Line Interface](/documentation/articles/cli-install-nodejs/) or [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to perform the same operations.
+This article uses the Azure Portal Preview to create a web app. You can also use the [Azure Command-Line Interface](../cli-install-nodejs.md) or [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to perform the same operations.
 
 For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
 

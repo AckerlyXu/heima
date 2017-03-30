@@ -34,7 +34,7 @@ To complete the steps in this article, you will need the following:
 * A Hadoop on HDInsight cluster. Either Linux-based or Windows-based clusters will work.
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is a JDBC client application.
 
@@ -47,9 +47,7 @@ To build and run the example Java application linked from this article, you will
 
 JDBC connections to an HDInsight cluster on Azure are made over 443, and the traffic is secured using SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. So a typical connection string would like the following:
 
-```
-jdbc:hive2://CLUSTERNAME.azurehdinsight.cn:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
-```
+    jdbc:hive2://CLUSTERNAME.azurehdinsight.cn:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2
 
 Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
@@ -74,11 +72,9 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
         1. Create a new directory that will contain the files. For example, `mkdir hivedriver`.
         2. From a command prompt, Bash, PowerShell or other command-line prompt, change directories to the new directory and use the following commands to copy the files from the HDInsight cluster.
 
-            ```
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-            ```
+                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-jdbc*standalone.jar .
+                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+                scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
 
             Replace **USERNAME** with the SSH user account name for the cluster. Replace **CLUSTERNAME** with the HDInsight cluster name.
 
@@ -157,9 +153,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
 8. Once connected, enter the following query into the SQL query dialog, and then select the **Run** icon. The results area should show the results of the query.
 
-    ```
-    select * from hivesampletable limit 10;
-    ```
+        select * from hivesampletable limit 10;
 
     ![sql query dialog, including results](./media/hdinsight-connect-hive-jdbc-driver/sqlquery.png)
 
@@ -190,9 +184,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 1. Download the commons-codec jar file from your HDInsight cluster.
 
-    ```
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
-    ```
+        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
 
 2. Exit SQuirreL, and then go to the directory where SQuirreL is installed on your system. In the SquirreL directory, under the `lib` directory, replace the existing commons-codec.jar with the one downloaded from the HDInsight cluster.
 
@@ -202,7 +194,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 Now that you have learned how to use JDBC to work with Hive, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Upload data to HDInsight](./hdinsight-upload-data.md)
-* [Use Hive with HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce jobs with HDInsight](./hdinsight-use-mapreduce.md)
+* [Upload data to HDInsight](hdinsight-upload-data.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)

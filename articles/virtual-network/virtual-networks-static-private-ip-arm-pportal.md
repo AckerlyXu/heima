@@ -21,23 +21,24 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # Configure private IP addresses for a virtual machine using the Azure portal preview
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./virtual-networks-static-private-ip-arm-pportal.md)
->- [PowerShell](./virtual-networks-static-private-ip-arm-ps.md)
->- [Azure CLI](./virtual-networks-static-private-ip-arm-cli.md)
->- [Azure portal preview (Classic)](./virtual-networks-static-private-ip-classic-pportal.md)
->- [PowerShell (Classic)](./virtual-networks-static-private-ip-classic-ps.md)
->- [Azure CLI (Classic)](./virtual-networks-static-private-ip-classic-cli.md)
+>- [Azure portal preview](virtual-networks-static-private-ip-arm-pportal.md)
+>- [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
+>- [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
+>- [Azure portal preview (Classic)](virtual-networks-static-private-ip-classic-pportal.md)
+>- [PowerShell (Classic)](virtual-networks-static-private-ip-classic-ps.md)
+>- [Azure CLI (Classic)](virtual-networks-static-private-ip-classic-cli.md)
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the Resource Manager deployment model. You can also [manage static private IP address in the classic deployment model](./virtual-networks-static-private-ip-classic-pportal.md).
+This article covers the Resource Manager deployment model. You can also [manage static private IP address in the classic deployment model](virtual-networks-static-private-ip-classic-pportal.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-The sample steps below expect a simple environment already created. If you want to run the steps as they are displayed in this document, first build the test environment described in [create a vnet](./virtual-networks-create-vnet-arm-pportal.md).
+The sample steps below expect a simple environment already created. If you want to run the steps as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-pportal.md).
 
 ## How to create a VM for testing static private IP addresses
 You cannot set a static private IP address during the creation of a VM in the Resource Manager deployment mode by using the Azure portal preview. You must create the VM first, tehn set its private IP to be static.
@@ -98,6 +99,6 @@ To remove the static private IP address from the VM created above, follow the st
 1. From the **IP addresses** blade shown above, click **Dynamic** under **Assignment**, and then click **Save**.
 
 ## Next steps
-* Learn about [reserved public IP](./virtual-networks-reserved-public-ip.md) addresses.
-* Learn about [instance-level public IP (ILPIP)](./virtual-networks-instance-level-public-ip.md) addresses.
+* Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
+* Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
 * Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/zh-cn/library/azure/dn722420.aspx).

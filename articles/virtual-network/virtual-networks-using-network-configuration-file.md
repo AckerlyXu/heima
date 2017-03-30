@@ -29,7 +29,7 @@ To edit the network configuration file, you can simply open the file, make the a
 
 You should closely follow the guidance for [network configuration file schema settings](https://msdn.microsoft.com/zh-cn/library/azure/jj157100.aspx). 
 
-Azure considers a subnet that has something deployed to it as **in use**. When a subnet is in use, it cannot be modified. Before modifying, move anything that you have deployed to the subnet to a different subnet that isn't being modified.   See [Move a VM or Role Instance to a Different Subnet](./virtual-networks-move-vm-role-to-subnet.md).
+Azure considers a subnet that has something deployed to it as **in use**. When a subnet is in use, it cannot be modified. Before modifying, move anything that you have deployed to the subnet to a different subnet that isn't being modified.   See [Move a VM or Role Instance to a Different Subnet](virtual-networks-move-vm-role-to-subnet.md).
 
 ## Export and import virtual network settings using the Azure portal preview (Classic)
 You can import and export network configuration settings contained in your network configuration file by using PowerShell or the Classic Management Portal. The instructions below will help you export and import using the Classic Management Portal. 

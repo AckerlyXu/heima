@@ -1,5 +1,3 @@
-<!-- need to be verified -->
-
 ---
 title: Use SSH keys with Windows for Linux VMs | Azure
 description: Learn how to generate and use SSH keys on a Windows computer to connect to a Linux virtual machine on Azure.
@@ -23,8 +21,10 @@ ms.author: rasquill
 
 # How to Use SSH keys with Windows on Azure
 > [!div class="op_single_selector"]
->- [Windows](./virtual-machines-linux-ssh-from-windows.md)
->- [Linux/Mac](./virtual-machines-linux-mac-create-ssh-keys.md)
+> * [Windows](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> * [Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+>
+>
 
 When you connect to Linux virtual machines (VMs) in Azure, you should use [public-key cryptography](https://wikipedia.org/wiki/Public-key_cryptography) to provide a more secure way to log in to your Linux VM. This process involves a public and private key exchange using the secure shell (SSH) command to authenticate yourself rather than a username and password. Passwords are vulnerable to brute-force attacks, especially on Internet-facing VMs such as web servers. This article provides an overview of SSH keys and how to generate the appropriate keys on a Windows computer.
 
@@ -58,9 +58,9 @@ Azure requires at least 2048-bit, **ssh-rsa** formatted public and private keys.
 
 Here are the deployment scenarios, and the types of files you use in each:
 
-1. **ssh-rsa** keys are required for any deployment using the [Azure portal preview](https://portal.azure.cn), and Resource Manager deployments using the [Azure CLI](/documentation/articles/cli-install-nodejs/).
+1. **ssh-rsa** keys are required for any deployment using the [Azure portal preview](https://portal.azure.cn), and Resource Manager deployments using the [Azure CLI](../cli-install-nodejs.md).
     * These keys are usually all most people need.
-2. A `.pem` file is required to create VMs using the Classic deployment. These keys are supported in Classic deployments when using the [Azure portal preview](https://portal.azure.cn) or [Azure CLI](/documentation/articles/cli-install-nodejs/).
+2. A `.pem` file is required to create VMs using the Classic deployment. These keys are supported in Classic deployments when using the [Azure portal preview](https://portal.azure.cn) or [Azure CLI](../cli-install-nodejs.md).
     * You only need to create these additional keys and certificates if you are managing resources created using the Classic deployment model.
 
 ## Install Git for Windows
@@ -137,7 +137,6 @@ The following example creates this additional private key specifically for PuTTY
     ```bash
     chmod 0600 myPrivateKey_rsa
     ```
-
 2. Download and run PuTTYgen from the following location: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 3. Click the menu: **File** > **Load Private Key**
 4. Locate your private key (`myPrivateKey_rsa` in the previous example). The default directory when you start **Git Bash** is `C:\Users\%username%`. Change the file filter to show **All Files (\*.\*)**:
@@ -179,8 +178,8 @@ Again, PuTTY is a common SSH client for Windows. You are free to use any SSH cli
 4. Click **Open** to connect to your virtual machine
 
 ## Next steps
-You can also generate the public and private keys [using OS X and Linux](./virtual-machines-linux-mac-create-ssh-keys.md).
+You can also generate the public and private keys [using OS X and Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For more information about Bash for Windows and the benefits of having OSS tools readily available on your Windows computer, see [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about).
 
-If you have trouble using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](./virtual-machines-linux-troubleshoot-ssh-connection.md).
+If you have trouble using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

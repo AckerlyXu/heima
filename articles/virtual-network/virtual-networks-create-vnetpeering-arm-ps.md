@@ -49,24 +49,22 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 
     Returned output:
 
-    ```
-    Name            : LinkToVNet2
-    Id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
-    Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    ResourceGroupName    : vnet101
-    VirtualNetworkName    : vnet1
-    PeeringState        : Initiated
-    ProvisioningState    : Succeeded
-    RemoteVirtualNetwork    : {
-    "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
-                                    }
-    AllowVirtualNetworkAccess    : True
-    AllowForwardedTraffic    : False
-    AllowGatewayTransit    : False
-        UseRemoteGateways    : False
-        RemoteGateways        : null
-        RemoteVirtualNetworkAddressSpace : null
-    ```
+        Name            : LinkToVNet2
+        Id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
+        Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName    : vnet101
+        VirtualNetworkName    : vnet1
+        PeeringState        : Initiated
+        ProvisioningState    : Succeeded
+        RemoteVirtualNetwork    : {
+        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
+                                        }
+        AllowVirtualNetworkAccess    : True
+        AllowForwardedTraffic    : False
+        AllowGatewayTransit    : False
+            UseRemoteGateways    : False
+            RemoteGateways        : null
+            RemoteVirtualNetworkAddressSpace : null
 
 4. This step will create a VNet peering link for VNet2 to VNet1:
 
@@ -76,24 +74,22 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 
     Returned output:
 
-    ```
-    Name            : LinkToVNet1
-    Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2/virtualNetworkPeerings/LinkToVNet1
-    Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    ResourceGroupName    : vnet101
-    VirtualNetworkName    : vnet2
-    PeeringState        : Connected
-    ProvisioningState    : Succeeded
-    RemoteVirtualNetwork    : {
-                                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
-                                    }
-    AllowVirtualNetworkAccess    : True
-    AllowForwardedTraffic    : False
-    AllowGatewayTransit    : False
-    UseRemoteGateways    : False
-    RemoteGateways        : null
-    RemoteVirtualNetworkAddressSpace : null
-    ```
+        Name            : LinkToVNet1
+        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2/virtualNetworkPeerings/LinkToVNet1
+        Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName    : vnet101
+        VirtualNetworkName    : vnet2
+        PeeringState        : Connected
+        ProvisioningState    : Succeeded
+        RemoteVirtualNetwork    : {
+                                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
+                                        }
+        AllowVirtualNetworkAccess    : True
+        AllowForwardedTraffic    : False
+        AllowGatewayTransit    : False
+        UseRemoteGateways    : False
+        RemoteGateways        : null
+        RemoteVirtualNetworkAddressSpace : null
 5. Once the VNet peering link is created, enter the following command to view the link state:
 
     ```powershell
@@ -102,24 +98,22 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 
     Returned output:
 
-    ```
-    Name            : LinkToVNet2
-    Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
-    Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    ResourceGroupName    : vnet101
-    VirtualNetworkName    : vnet1
-    PeeringState        : Connected
-    ProvisioningState    : Succeeded
-    RemoteVirtualNetwork    : {
-                                         "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
-                                    }
-    AllowVirtualNetworkAccess    : True
-    AllowForwardedTraffic            : False
-    AllowGatewayTransit              : False
-    UseRemoteGateways                : False
-    RemoteGateways                   : null
-    RemoteVirtualNetworkAddressSpace : null
-    ```
+        Name            : LinkToVNet2
+        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
+        Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName    : vnet101
+        VirtualNetworkName    : vnet1
+        PeeringState        : Connected
+        ProvisioningState    : Succeeded
+        RemoteVirtualNetwork    : {
+                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
+                                        }
+        AllowVirtualNetworkAccess    : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
 
     There are a few configurable properties for VNet peering:
 
@@ -142,26 +136,24 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 
     You can run `Get-AzureRmVirtualNetworkPeering` to double check the property value after the change. From the output, you can see `AllowForwardedTraffic` changes set to *True* after running the previous cmdlets.
 
-    ```
-    Name            : LinkToVNet2
-    Id            : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
-    Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    ResourceGroupName    : vnet101
-    VirtualNetworkName    : vnet1
-    PeeringState        : Connected
-    ProvisioningState    : Succeeded
-    RemoteVirtualNetwork    : {
-                                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
-                                    }
-    AllowVirtualNetworkAccess    : True
-    AllowForwardedTraffic        : True
-    AllowGatewayTransit        : False
-    UseRemoteGateways        : False
-    RemoteGateways        : null
-    RemoteVirtualNetworkAddressSpace : null
-    ```
+        Name            : LinkToVNet2
+        Id            : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
+        Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName    : vnet101
+        VirtualNetworkName    : vnet1
+        PeeringState        : Connected
+        ProvisioningState    : Succeeded
+        RemoteVirtualNetwork    : {
+                                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
+                                        }
+        AllowVirtualNetworkAccess    : True
+        AllowForwardedTraffic        : True
+        AllowGatewayTransit        : False
+        UseRemoteGateways        : False
+        RemoteGateways        : null
+        RemoteVirtualNetworkAddressSpace : null
 
-    After peering is established, VMs should be able to communicate with each other across both VNets. By default, `AllowVirtualNetworkAccess` is *True* and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine grain control of access between two VNets. Read the [network security group](./virtual-networks-create-nsg-arm-ps.md) article to learn more about NSGs.
+    After peering is established, VMs should be able to communicate with each other across both VNets. By default, `AllowVirtualNetworkAccess` is *True* and VNet peering will provision the proper ACLs to allow the communication between VNets. You can still apply network security group (NSG) rules to block connectivity between specific subnets or virtual machines to gain fine grain control of access between two VNets. Read the [network security group](virtual-networks-create-nsg-arm-ps.md) article to learn more about NSGs.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
@@ -214,7 +206,7 @@ To create VNet peering across subscriptions using PowerShell, complete the follo
     Add-AzureRmVirtualNetworkPeering -Name LinkToVNet1 -VirtualNetwork $HubVNet -RemoteVirtualNetworkId $vnet1.Id
     ```
 
-2. After peering is established, you can refer to this [article](./virtual-network-create-udr-arm-ps.md) and define a user-defined route (UDR) to redirect VNet1 traffic through a virtual appliance to use its capabilities. When you specify the next hop address in the route, you can set it to the IP address of the virtual appliance in the peer VNet HubVNet. The following is a sample:
+2. After peering is established, you can refer to this [article](virtual-network-create-udr-arm-ps.md) and define a user-defined route (UDR) to redirect VNet1 traffic through a virtual appliance to use its capabilities. When you specify the next hop address in the route, you can set it to the IP address of the virtual appliance in the peer VNet HubVNet. The following is a sample:
 
     ```powershell
     $route = New-AzureRmRouteConfig -Name TestNVA -AddressPrefix 10.3.0.0/16 -NextHopType VirtualAppliance -NextHopIpAddress 192.0.1.5
@@ -241,9 +233,7 @@ To create VNet peering across subscriptions using PowerShell, complete the follo
 
 3. To establish VNet peering in this scenario, only one link is needed, specifically a link from **VNET1** to **VNET2**. This step requires knowing your classic VNet's resource ID. The resource group ID format looks like the following example:
 
-    ```
-       subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
-    ```
+           subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.ClassicNetwork/virtualNetworks/{VirtualNetworkName}
 
     Be sure to replace SubscriptionID, ResourceGroupName, and VirtualNetworkName with the appropriate names.
 
@@ -255,24 +245,22 @@ To create VNet peering across subscriptions using PowerShell, complete the follo
 
 4. Once the VNet peering link is created, you can see the link state, as shown in the following output:
 
-    ```
-    Name                             : LinkToVNet2
-    Id                               : /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeerings/LinkToVNet2
-    Etag                             : W/"acecbd0f-766c-46be-aa7e-d03e41c46b16"
-    ResourceGroupName                : MyResourceGroup
-    VirtualNetworkName               : VNET1
-    PeeringState                     : Connected
-    ProvisioningState                : Succeeded
-    RemoteVirtualNetwork             : {
-                                     "Id": "/subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
-                                   }
-    AllowVirtualNetworkAccess        : True
-    AllowForwardedTraffic            : False
-    AllowGatewayTransit              : False
-    UseRemoteGateways                : False
-    RemoteGateways                   : null
-    RemoteVirtualNetworkAddressSpace : null
-    ```
+        Name                             : LinkToVNet2
+        Id                               : /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeerings/LinkToVNet2
+        Etag                             : W/"acecbd0f-766c-46be-aa7e-d03e41c46b16"
+        ResourceGroupName                : MyResourceGroup
+        VirtualNetworkName               : VNET1
+        PeeringState                     : Connected
+        ProvisioningState                : Succeeded
+        RemoteVirtualNetwork             : {
+                                         "Id": "/subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
+                                       }
+        AllowVirtualNetworkAccess        : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
 
 ## Remove a VNet peering
 1. In order to remove a VNet peering, you need to run the following cmdlet:

@@ -32,7 +32,7 @@ Learn how to submit Hive queries using HDInsight .NET SDK.
 ## Prerequisites
 Before you begin this article, you must have the following items:
 
-* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](./hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 * **Visual Studio 2013/2015/2017**.
 
 ## Submit Hive queries using HDInsight .NET SDK
@@ -43,9 +43,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command:
 
-    ```
-    Install-Package Microsoft.Azure.Management.HDInsight.Job
-    ```
+        Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Use the following code:
 
     ```csharp
@@ -131,7 +129,6 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
             }
         }
     ```
-
 4. Press **F5** to run the application.
 
 The output of the application shall be similar to:
@@ -143,11 +140,11 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 * [Get started with Azure HDInsight][hdinsight-get-started]
 * [Create Hadoop clusters in HDInsight][hdinsight-provision]
-* [Manage Hadoop clusters in HDInsight by using the Azure portal preview](./hdinsight-administer-use-management-portal.md)
+* [Manage Hadoop clusters in HDInsight by using the Azure portal preview](hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK reference](https://msdn.microsoft.com/zh-cn/library/mt271028.aspx)
-* [Use Pig with HDInsight](./hdinsight-use-pig.md)
-* [Use Sqoop with HDInsight](./hdinsight-use-sqoop-mac-linux.md)
-* [Create non-interactive authentication .NET HDInsight applications](./hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use Sqoop with HDInsight](hdinsight-use-sqoop-mac-linux.md)
+* [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md)
 
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-get-started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md

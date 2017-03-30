@@ -28,11 +28,11 @@ You can quickly create a Traffic Manager profile by using Quick Create in the Az
 
 ### To create a Traffic Manager profile
 
-1. **Deploy your cloud services and websites to your production environment.** For more information about cloud services, see [Cloud Services](../cloud-services/index.md). For more information about websites, see [Websites](https://www.azure.cn/home/features/app-service/web-apps/).
+1. **Deploy your cloud services and websites to your production environment.** For more information about cloud services, see [Cloud Services](/azure/cloud-services/). For more information about websites, see [Websites](https://www.azure.cn/home/features/app-service/web-apps/).
 2. **Log in to the Azure Classic Management Portal.** Click **New** on the lower left of the portal, click **Network Services > Traffic Manager**, and then click **Quick Create** to begin configuring your profile.
 3. **Configure the DNS prefix.** Give your traffic manager profile a unique DNS prefix name. You can specify only the prefix for a Traffic Manager domain name.
 4. **Select the subscription.** Select the appropriate Azure subscription. Each profile is associated with a single subscription. If you only have one subscription, this option does not appear.
-5. **Select the traffic routing method.** Select the traffic routing method in **traffic routing Policy**. For more information about traffic routing methods, see [About Traffic Manager traffic routing methods](./traffic-manager-routing-methods.md).
+5. **Select the traffic routing method.** Select the traffic routing method in **traffic routing Policy**. For more information about traffic routing methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
 6. **Click "Create" to create the profile**. When the profile configuration is completed, you can locate your profile in the Traffic Manager pane in the Azure Classic Management Portal.
 7. **Configure endpoints, monitoring, and additional settings in the Azure Classic Management Portal.** Using Quick Create only configures basic settings. It is necessary to configure additional settings such as the list of endpoints and the endpoint failover order.
 
@@ -76,9 +76,9 @@ You can view the change history for your Traffic Manager profile in the Azure Cl
 
 ## Next steps
 
-* [Add an endpoint](./traffic-manager-endpoints.md)
-* [Configure failover routing method](./traffic-manager-configure-failover-routing-method.md)
-* [Configure round robin routing method](./traffic-manager-configure-round-robin-routing-method.md)
-* [Configure performance routing method](./traffic-manager-configure-performance-routing-method.md)
-* [Point a company Internet domain to a Traffic Manager domain name](./traffic-manager-point-internet-domain.md)
-* [Troubleshooting Traffic Manager degraded state](./traffic-manager-troubleshooting-degraded.md)
+* [Add an endpoint](traffic-manager-endpoints.md)
+* [Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
+* [Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
+* [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+* [Point a company Internet domain to a Traffic Manager domain name](traffic-manager-point-internet-domain.md)
+* [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)

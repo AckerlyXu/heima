@@ -54,15 +54,15 @@ You also learn how to create hybrid topologies that use C# and Java components.
 
 * Azure SDK 2.9.5 or later
 
-* HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
+* HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
 
     > [!NOTE]
     > HDInsight Tools for Visual Studio are not supported on Visual Studio Express
 
-* Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](/documentation/articles/hdinsight-apache-storm-tutorial-get-started/) for steps to create a cluster.
+* Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) for steps to create a cluster.
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Templates
 
@@ -96,7 +96,7 @@ For an example topology that uses this component and works with Storm on HDInsig
 
 ## Create a C# topology
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Open Visual Studio, select **File** > **New**, and then **Project**.
 
@@ -415,9 +415,7 @@ Transactional topologies implement the following to support replay of data:
 
 * **Sequence ID**: When emitting a tuple, a unique sequence ID can be specified. This value identifies the tuple for replay (Ack and Fail) processing. For example, the spout in the **Storm Sample** project uses the following when emitting data:
 
-    ```
-    this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
-    ```
+        this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
 
     This code emits a tuple that contains a sentence to the default stream, with the sequence ID value contained in **lastSeqId**. For this example, **lastSeqId** is incremented for every tuple emitted.
 
@@ -529,9 +527,7 @@ For more information, see the [ConfigurationManager](#configurationmanager) sect
 
 When using a C# topology with a Linux-based HDInsight cluster, you may encounter the following error:
 
-```
-System.TypeLoadException: Failure has occurred while loading a type.
-```
+    System.TypeLoadException: Failure has occurred while loading a type.
 
 This error occurs when you use a binary that is not compatible with the version of .NET that mono supports.
 
@@ -700,15 +696,13 @@ To view errors that have occurred in a running topology, use the following steps
 
 If you encounter errors submitting a topology to HDInsight, you can find logs for the server-side components that handle topology submission on your HDInsight cluster. To retrieve these logs, use the following command from a command line:
 
-```
-scp sshuser@clustername-ssh.azurehdinsight.cn:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
-```
+    scp sshuser@clustername-ssh.azurehdinsight.cn:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 
 Replace __sshuser__ with the SSH user account for the cluster. Replace __clustername__ with the name of the HDInsight cluster. If you used a password for the SSH account, you are prompted to enter it. The command downloads the file to the directory that the command is ran from.
 
 ## Next steps
 
-For an example of processing data from Event Hubs, see [Process events from Azure Event Hub with Storm on HDInsight](./hdinsight-storm-develop-csharp-event-hub-topology.md).
+For an example of processing data from Event Hubs, see [Process events from Azure Event Hub with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
 For an example of a C# topology that splits stream data into multiple streams, see [C# Storm example](https://github.com/Blackmist/csharp-storm-example).
 
@@ -718,19 +712,19 @@ For more ways to work with HDInsight and more Storm on HDInsight samples, see th
 
 **Microsoft SCP.NET**
 
-* [SCP programming guide](./hdinsight-storm-scp-programming-guide.md)
+* [SCP programming guide](hdinsight-storm-scp-programming-guide.md)
 
 **Apache Storm on HDInsight**
 
-* [Deploy and monitor topologies with Apache Storm on HDInsight](./hdinsight-storm-deploy-monitor-topology.md)
-* [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md)
+* [Deploy and monitor topologies with Apache Storm on HDInsight](hdinsight-storm-deploy-monitor-topology.md)
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
 **Apache Hadoop on HDInsight**
 
-* [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 
-* [Getting started with HBase on HDInsight](/documentation/articles/hdinsight-hbase-tutorial-get-started/)
+* [Getting started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started.md)

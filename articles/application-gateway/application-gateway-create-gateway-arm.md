@@ -19,21 +19,22 @@ ms.author: gwallace
 ---
 
 # Create, start, or delete an application gateway by using Azure Resource Manager
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-create-gateway-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-create-gateway-arm.md)
->- [Azure Classic PowerShell](./application-gateway-create-gateway.md)
->- [Azure Resource Manager template](./application-gateway-create-gateway-arm-template.md)
->- [Azure CLI](./application-gateway-create-gateway-cli.md)
+> * [Azure portal preview](application-gateway-create-gateway-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
+> * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+> * [Azure CLI](application-gateway-create-gateway-cli.md)
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
-To find a complete list of supported features, visit [Application Gateway Overview](./application-gateway-introduction.md)
+To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
 This article walks you through the steps to create, configure, start, and delete an application gateway.
 
 > [!IMPORTANT]
-> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager and classic. Make sure that you understand [deployment models and tools](../azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This document covers creating an application gateway by using Azure Resource Manager. To use the classic version, go to [Create an application gateway classic deployment by using PowerShell](./application-gateway-create-gateway.md).
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager and classic. Make sure that you understand [deployment models and tools](../azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article. This document covers creating an application gateway by using Azure Resource Manager. To use the classic version, go to [Create an application gateway classic deployment by using PowerShell](application-gateway-create-gateway.md).
 
 ## Before you begin
 
@@ -100,7 +101,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 In the example above, we created a resource group called **appgw-RG** and location **China North**.
 
 > [!NOTE]
-> If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](./application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](./application-gateway-probe-overview.md) for more information.
+> If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
 ## Create a virtual network and a subnet for the application gateway
 
@@ -262,10 +263,9 @@ Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
 
-```
+```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 ```
-
 
 ```
 Name                     : publicIP01
@@ -291,11 +291,11 @@ DnsSettings              : {
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure an application gateway for SSL offload](./application-gateway-ssl.md).
+If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
 
-If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb.md).
+If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
 
 If you want more information about load balancing options in general, see:
 
-* [Azure Load Balancer](../load-balancer/index.md)
-* [Azure Traffic Manager](../traffic-manager/index.md)
+* [Azure Load Balancer](/azure/load-balancer/)
+* [Azure Traffic Manager](/azure/traffic-manager/)

@@ -72,6 +72,6 @@ The following table provides definitions for the properties of a custom health p
 > For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>. The port used will be the same port as defined in the back-end HTTP settings.
 
 ## Next steps
-After learning about Application Gateway health monitoring, you can configure a [custom health probe](./application-gateway-create-probe-portal.md) in the Azure portal preview or a [custom health probe](./application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.
+After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal preview or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

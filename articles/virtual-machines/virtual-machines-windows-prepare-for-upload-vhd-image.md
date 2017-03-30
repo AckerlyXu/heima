@@ -62,7 +62,6 @@ On the virtual machine you plan to upload to Azure, run all the following comman
     ```CMD
     netsh winhttp reset proxy
     ```
-
 3. Set the disk SAN policy to [Onlineall](https://technet.microsoft.com/zh-cn/library/gg252636.aspx). 
 
     ```CMD
@@ -73,10 +72,9 @@ On the virtual machine you plan to upload to Azure, run all the following comman
 
 4. Set Coordinated Universal Time (UTC) time for Windows and the startup type of the Windows Time (w32time) service to **Automatically**:
 
-    ```
+    ```CMD
     REG ADD HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_DWORD /d 1
     ```
-
 
     ```CMD
     sc config w32time start= auto
@@ -139,36 +137,30 @@ sc config RemoteRegistry start= auto
     For more information about configuring certificates for RDP listener, see [Listener Certificate Configurations in Windows Server ](https://blogs.technet.microsoft.com/askperf/2014/05/28/listener-certificate-configurations-in-windows-server-2012-2012-r2/)
 2. Configure the [KeepAlive](https://technet.microsoft.com/zh-cn/library/cc957549.aspx) values for RDP service:
 
-    ```
+    ```CMD
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveEnable /t REG_DWORD  /d 1 /f
     ```
 
-
-    ```
+    ```CMD
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v KeepAliveInterval /t REG_DWORD  /d 1 /f
     ```
-
 
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v KeepAliveTimeout /t REG_DWORD /d 1 /f
     ```
-
 3. Configure the authentication mode for the RDP service:
 
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD  /d 1 /f
     ```
 
-
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SecurityLayer /t REG_DWORD  /d 1 /f
     ```
 
-
     ```CMD
     REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v fAllowSecProtocolNegotiation /t REG_DWORD  /d 1 /f
     ```
-
 4. Enable RDP service by adding the following subkeys to the registry:
 
     ```CMD
@@ -181,7 +173,6 @@ sc config RemoteRegistry start= auto
     ```powershell
     Enable-PSRemoting -force
     ```
-
 2. Run the following commands in the command prompt window to make sure that the following guest operating system firewall rules are in place:
 
     * Inbound
@@ -283,9 +274,9 @@ Install the latest updates for Windows. If that's not possible, make sure that t
 * [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
 
 ## <a id="step23"></a> Run Sysprep
-If you want to create an image to deploy to multiple VMs, you need to [generalize the image by running Sysprep](./virtual-machines-windows-generalize-vhd.md) before you upload the VHD to Azure. You don't need to run Sysprep to use a specialized VHD. For more information, see the following articles:
+If you want to create an image to deploy to multiple VMs, you need to [generalize the image by running Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before you upload the VHD to Azure. You don't need to run Sysprep to use a specialized VHD. For more information, see the following articles:
 
-* [Generalize a Windows virtual machine using Sysprep](./virtual-machines-windows-generalize-vhd.md)
+* [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## Complete recommended configurations
@@ -313,4 +304,4 @@ The following settings do not affect VHD uploading. However, we strongly recomme
     ```
 
 ## Next steps
-* [Upload a Windows VM image to Azure for Resource Manager deployments](./virtual-machines-windows-upload-image.md)
+* [Upload a Windows VM image to Azure for Resource Manager deployments](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

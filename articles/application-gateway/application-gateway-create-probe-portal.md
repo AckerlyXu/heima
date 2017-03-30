@@ -21,16 +21,16 @@ ms.author: gwallace
 
 # Create a custom probe for Application Gateway by using the portal
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-create-probe-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-create-probe-ps.md)
->- [Azure Classic PowerShell](./application-gateway-create-probe-classic-ps.md)
+> * [Azure portal preview](application-gateway-create-probe-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
+> * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 ## Scenario
 
 The following scenario goes through creating a custom health probe in an existing application gateway.
-The scenario assumes that you have already followed the steps to [Create an Application Gateway](./application-gateway-create-gateway-portal.md).
+The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
 
 ## <a name="createprobe"></a>Create the probe
 
@@ -86,7 +86,7 @@ specified in the probe. If the call to host:Port/path does not return an Http 20
 
 ## Next steps
 
-To learn how to configure SSL Offloading with Azure Application Gateway, see [Configure SSL Offload](./application-gateway-ssl-portal.md)
+To learn how to configure SSL Offloading with Azure Application Gateway, see [Configure SSL Offload](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png

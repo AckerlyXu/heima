@@ -21,17 +21,17 @@ ms.author: jdial
 
 # Create User-Defined Routes (UDR) using the Azure CLI 2.0
 > [!div class="op_single_selector"]
->- [PowerShell](./virtual-network-create-udr-arm-ps.md)
->- [Azure CLI](./virtual-network-create-udr-arm-cli.md)
->- [Template](./virtual-network-create-udr-arm-template.md)
->- [PowerShell (Classic deployment)](./virtual-network-create-udr-classic-ps.md)
->- [CLI (Classic deployment)](./virtual-network-create-udr-classic-cli.md)
+>- [PowerShell](virtual-network-create-udr-arm-ps.md)
+>- [Azure CLI](virtual-network-create-udr-arm-cli.md)
+>- [Template](virtual-network-create-udr-arm-template.md)
+>- [PowerShell (Classic deployment)](virtual-network-create-udr-classic-ps.md)
+>- [CLI (Classic deployment)](virtual-network-create-udr-classic-cli.md)
 
 ## CLI versions to complete the task 
 
 You can complete the task using one of the following CLI versions: 
 
-- [Azure CLI 1.0](./virtual-network-create-udr-arm-cli-nodejs.md) - our CLI for the classic and resource management deployment models 
+- [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md) - our CLI for the classic and resource management deployment models 
 - [Azure CLI 2.0](#Create-the-UDR-for-the-front-end-subnet) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]

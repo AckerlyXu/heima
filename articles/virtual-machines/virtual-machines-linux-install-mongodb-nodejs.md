@@ -29,7 +29,7 @@ ms.author: iainfou
 You can complete the task using one of the following CLI versions:
 
 - Azure CLI 1.0 - our CLI for the classic and resource management deployment models (this article)
-- Azure CLI 2.0 - Does not support Virtual Machines in Azure China because of the API version.
+- [Azure CLI 2.0](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a> Manually install and configure MongoDB on a VM
 MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for Linux distros including Red Hat / CentOS, SUSE, Ubuntu, and Debian. The following example creates a `CentOS` VM using an SSH key stored at `~/.ssh/id_rsa.pub`. Answer the prompts for storage account name, DNS name, and admin credentials:
@@ -178,8 +178,8 @@ azure group create --name myResourceGroup --location ChinaNorth \
 > 
 
 ## Next steps
-In these examples, you connect to the MongoDB instance locally from the VM. If you want to connect to the MongoDB instance from another VM or network, ensure the appropriate [Network Security Group rules are created](./virtual-machines-linux-nsg-quickstart.md).
+In these examples, you connect to the MongoDB instance locally from the VM. If you want to connect to the MongoDB instance from another VM or network, ensure the appropriate [Network Security Group rules are created](virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For more information about creating using templates, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
-The Azure Resource Manager templates use the Custom Script Extension to download and execute scripts on your VMs. For more information, see [Using the Azure Custom Script Extension with Linux Virtual Machines](./virtual-machines-linux-extensions-customscript.md).
+The Azure Resource Manager templates use the Custom Script Extension to download and execute scripts on your VMs. For more information, see [Using the Azure Custom Script Extension with Linux Virtual Machines](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

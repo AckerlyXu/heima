@@ -24,7 +24,7 @@ ms.author: thmullan
 
 This tutorial shows how to build a multi-tenant web app with a "[shared database, shared schema](https://msdn.microsoft.com/zh-cn/library/aa479086.aspx)" tenancy model, using Entity Framework and [Row-Level Security](https://msdn.microsoft.com/zh-cn/library/dn765131.aspx). In this model, a single database contains data for many tenants, and each row in each table is associated with a "Tenant ID." Row-Level Security (RLS), a new feature for Azure SQL Database, is used to prevent tenants from accessing each other's data. This requires just a single, small change to the application. By centralizing the tenant access logic within the database itself, RLS simplifies the application code and reduces the risk of accidental data leakage between tenants.
 
-Let's start with the simple Contact Manager application from [Create an ASP.NET MVP app with auth and SQL DB and deploy to Azure App Service](./web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Right now, the application allows all users (tenants) to see all contacts:
+Let's start with the simple Contact Manager application from [Create an ASP.NET MVP app with auth and SQL DB and deploy to Azure App Service](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Right now, the application allows all users (tenants) to see all contacts:
 
 ![Contact Manager application before enabling RLS](./media/web-sites-dotnet-entity-framework-row-level-security/ContactManagerApp-Before.png)
 
@@ -42,145 +42,145 @@ We will add an [interceptor](https://msdn.microsoft.com/data/dn469464.aspx) (in 
 3. Name the new class "SessionContextInterceptor.cs" and click Add.
 4. Replace the contents of SessionContextInterceptor.cs with the following code.
 
-    ```
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Data.Common;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure.Interception;
-    using Microsoft.AspNet.Identity;
+```
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.Common;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure.Interception;
+using Microsoft.AspNet.Identity;
 
-    namespace ContactManager.Models
+namespace ContactManager.Models
+{
+    public class SessionContextInterceptor : IDbConnectionInterceptor
     {
-        public class SessionContextInterceptor : IDbConnectionInterceptor
+        public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-            public void Opened(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+            // Set SESSION_CONTEXT to current UserId whenever EF opens a connection
+            try
             {
-                // Set SESSION_CONTEXT to current UserId whenever EF opens a connection
-                try
+                var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+                if (userId != null)
                 {
-                    var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-                    if (userId != null)
-                    {
-                        DbCommand cmd = connection.CreateCommand();
-                        cmd.CommandText = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId";
-                        DbParameter param = cmd.CreateParameter();
-                        param.ParameterName = "@UserId";
-                        param.Value = userId;
-                        cmd.Parameters.Add(param);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                catch (System.NullReferenceException)
-                {
-                    // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
+                    DbCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "EXEC sp_set_session_context @key=N'UserId', @value=@UserId";
+                    DbParameter param = cmd.CreateParameter();
+                    param.ParameterName = "@UserId";
+                    param.Value = userId;
+                    cmd.Parameters.Add(param);
+                    cmd.ExecuteNonQuery();
                 }
             }
-
-            public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+            catch (System.NullReferenceException)
             {
-            }
-
-            public void BeganTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void BeginningTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void Closed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void Closing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void ConnectionStringGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionStringGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionStringSet(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionStringSetting(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ConnectionTimeoutGetting(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
-            {
-            }
-
-            public void ConnectionTimeoutGot(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
-            {
-            }
-
-            public void DataSourceGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void DataSourceGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void DatabaseGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void DatabaseGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void Disposed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void Disposing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void EnlistedTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void EnlistingTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
-            {
-            }
-
-            public void ServerVersionGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void ServerVersionGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
-            {
-            }
-
-            public void StateGetting(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
-            {
-            }
-
-            public void StateGot(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
-            {
+                // If no user is logged in, leave SESSION_CONTEXT null (all rows will be filtered)
             }
         }
 
-        public class SessionContextConfiguration : DbConfiguration
+        public void Opening(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
         {
-            public SessionContextConfiguration()
-            {
-                AddInterceptor(new SessionContextInterceptor());
-            }
+        }
+
+        public void BeganTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void BeginningTransaction(DbConnection connection, BeginTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Closed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Closing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSet(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionStringSetting(DbConnection connection, DbConnectionPropertyInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGetting(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void ConnectionTimeoutGot(DbConnection connection, DbConnectionInterceptionContext<int> interceptionContext)
+        {
+        }
+
+        public void DataSourceGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DataSourceGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void DatabaseGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void Disposed(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void Disposing(DbConnection connection, DbConnectionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistedTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void EnlistingTransaction(DbConnection connection, EnlistTransactionInterceptionContext interceptionContext)
+        {
+        }
+
+        public void ServerVersionGetting(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void ServerVersionGot(DbConnection connection, DbConnectionInterceptionContext<string> interceptionContext)
+        {
+        }
+
+        public void StateGetting(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
+        }
+
+        public void StateGot(DbConnection connection, DbConnectionInterceptionContext<System.Data.ConnectionState> interceptionContext)
+        {
         }
     }
-    ```
+
+    public class SessionContextConfiguration : DbConfiguration
+    {
+        public SessionContextConfiguration()
+        {
+            AddInterceptor(new SessionContextInterceptor());
+        }
+    }
+}
+```
 
 That's the only application change required. Go ahead and build and publish the application.
 
@@ -234,6 +234,7 @@ CREATE SECURITY POLICY Security.userSecurityPolicy
     ADD FILTER PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts,
     ADD BLOCK PREDICATE Security.userAccessPredicate(UserId) ON dbo.Contacts
 go
+
 ```
 
 This code does three things. First, it creates a new schema as a best practice for centralizing and limiting access to the RLS objects. Next, it creates a predicate function that will return '1' when the UserId of a row matches the UserId in SESSION_CONTEXT. Finally, it creates a security policy that adds this function as both a filter and block predicate on the Contacts table. The filter predicate causes queries to return only rows that belong to the current user, and the block predicate acts as a safeguard to prevent the application from ever accidentally inserting a row for the wrong user.

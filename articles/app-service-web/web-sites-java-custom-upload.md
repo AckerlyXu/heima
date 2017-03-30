@@ -21,7 +21,7 @@ ms.author: robmcm
 # Upload a custom Java web app to Azure
 This topic explains how to upload a custom Java web app to [Azure App Service] Web Apps. Included is information that applies to any Java website or web app, and also some examples for specific applications.
 
-Note that Azure provides a means for creating Java web apps using the Azure Portal Preview's configuration UI, as documented at [Create a Java web app in Azure App Service](./web-sites-java-get-started.md). This tutorial is for scenarios in which you do not want to use the Azure Portal Preview configuration UI.
+Note that Azure provides a means for creating Java web apps using the Azure Portal Preview's configuration UI, as documented at [Create a Java web app in Azure App Service](web-sites-java-get-started.md). This tutorial is for scenarios in which you do not want to use the Azure Portal Preview configuration UI.
 
 ## Configuration guidelines
 The following describes the settings expected for custom Java web apps on Azure.
@@ -41,25 +41,21 @@ The following information describes the **httpPlatform** format within web.confi
 
 Examples (shown with **processPath** included):
 
-```
-processPath="%HOME%\site\wwwroot\bin\tomcat\bin\catalina.bat"
-arguments="start"
+    processPath="%HOME%\site\wwwroot\bin\tomcat\bin\catalina.bat"
+    arguments="start"
 
-processPath="%JAVA_HOME\bin\java.exe"
-arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
-```
+    processPath="%JAVA_HOME\bin\java.exe"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 
 **processPath** - Path to the executable or script that will launch a process listening for HTTP requests.
 
 Examples:
 
-```
-processPath="%JAVA_HOME%\bin\java.exe"
+    processPath="%JAVA_HOME%\bin\java.exe"
 
-processPath="%HOME%\site\wwwroot\bin\tomcat\bin\startup.bat"
+    processPath="%HOME%\site\wwwroot\bin\tomcat\bin\startup.bat"
 
-processPath="%HOME%\site\wwwroot\bin\tomcat\bin\catalina.bat"
-```
+    processPath="%HOME%\site\wwwroot\bin\tomcat\bin\catalina.bat"
 
 **rapidFailsPerMinute** (Default=10.) Number of times the process specified in **processPath** is allowed to crash per minute. If this limit is exceeded, **HttpPlatformHandler** will stop launching the process for the remainder of the minute.
 
@@ -87,25 +83,23 @@ For the following applications, a web.config file and the application configurat
 ### Tomcat
 While there are two variations on Tomcat that are supplied with App Service Web Apps, it is still quite possible to upload customer specific instances. Below is an example of an install of Tomcat with a different Java Virtual Machine (JVM).
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <handlers>
-      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
-    </handlers>
-    <httpPlatform processPath="%HOME%\site\wwwroot\bin\tomcat\bin\startup.bat" 
-        arguments="">
-      <environmentVariables>
-        <environmentVariable name="CATALINA_OPTS" value="-Dport.http=%HTTP_PLATFORM_PORT%" />
-        <environmentVariable name="CATALINA_HOME" value="%HOME%\site\wwwroot\bin\tomcat" />
-        <environmentVariable name="JRE_HOME" value="%HOME%\site\wwwroot\bin\java" /> <!-- optional, if not specified, this will default to %programfiles%\Java -->
-        <environmentVariable name="JAVA_OPTS" value="-Djava.net.preferIPv4Stack=true" />
-      </environmentVariables>
-    </httpPlatform>
-  </system.webServer>
-</configuration>
-```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+      <system.webServer>
+        <handlers>
+          <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+        </handlers>
+        <httpPlatform processPath="%HOME%\site\wwwroot\bin\tomcat\bin\startup.bat" 
+            arguments="">
+          <environmentVariables>
+            <environmentVariable name="CATALINA_OPTS" value="-Dport.http=%HTTP_PLATFORM_PORT%" />
+            <environmentVariable name="CATALINA_HOME" value="%HOME%\site\wwwroot\bin\tomcat" />
+            <environmentVariable name="JRE_HOME" value="%HOME%\site\wwwroot\bin\java" /> <!-- optional, if not specified, this will default to %programfiles%\Java -->
+            <environmentVariable name="JAVA_OPTS" value="-Djava.net.preferIPv4Stack=true" />
+          </environmentVariables>
+        </httpPlatform>
+      </system.webServer>
+    </configuration>
 
 On the Tomcat side, there are a few configuration changes that need to be made. The server.xml needs to be edited to set:
 
@@ -120,41 +114,37 @@ Direct3d calls are not supported on App Service Web Apps. To disable those, add 
 ### Jetty
 As is the case for Tomcat, customers can upload their own instances for Jetty. In the case of running the full install of Jetty, the configuration would look like this:
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <handlers>
-      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
-    </handlers>
-    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
-        startupTimeLimit="20"
-      startupRetryCount="10"
-      stdoutLogEnabled="true">
-    </httpPlatform>
-  </system.webServer>
-</configuration>
-```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+      <system.webServer>
+        <handlers>
+          <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+        </handlers>
+        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
+             arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+            startupTimeLimit="20"
+          startupRetryCount="10"
+          stdoutLogEnabled="true">
+        </httpPlatform>
+      </system.webServer>
+    </configuration>
 
 The Jetty configuration needs to be changed in the start.ini to set `java.net.preferIPv4Stack=true`.
 
 ### Springboot
 In order to get a Springboot application running you need to upload your JAR or WAR file and add the following web.config file. The web.config file goes into the wwwroot folder. In the web.config adjust the arguments to point to your JAR file, in the following example the JAR file is located in the wwwroot folder as well.  
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <handlers>
-      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
-    </handlers>
-    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
-        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\my-web-project.jar&quot;">
-    </httpPlatform>
-  </system.webServer>
-</configuration>
-```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+      <system.webServer>
+        <handlers>
+          <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+        </handlers>
+        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+            arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\my-web-project.jar&quot;">
+        </httpPlatform>
+      </system.webServer>
+    </configuration>
 
 ### Hudson
 Our test used the Hudson 3.1.2 war and the default Tomcat 7.0.50 instance but without using the UI to set things up.  Because Hudson is a software build tool, it is advised to install it on dedicated instances where the **AlwaysOn** flag can be set on the web app.
@@ -163,27 +153,25 @@ Our test used the Hudson 3.1.2 war and the default Tomcat 7.0.50 instance but wi
 2. Download apache maven 3.0.5 (compatible with Hudson) and place it in **d:\home\site\wwwroot**.
 3. Create web.config in **d:\home\site\wwwroot** and paste the following contents in it:
 
-    ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <configuration>
-      <system.webServer>
-        <handlers>
-          <add name="httppPlatformHandler" path="*" verb="*" 
-    modules="httpPlatformHandler" resourceType="Unspecified" />
-        </handlers>
-        <httpPlatform processPath="%AZURE_TOMCAT7_HOME%\bin\startup.bat"
-    startupTimeLimit="20"
-    startupRetryCount="10">
-    <environmentVariables>
-      <environmentVariable name="HUDSON_HOME" 
-    value="%HOME%\site\wwwroot\hudson_home" />
-      <environmentVariable name="JAVA_OPTS" 
-    value="-Djava.net.preferIPv4Stack=true -Duser.home=%HOME%/site/wwwroot/user_home -Dhudson.DNSMultiCast.disabled=true" />
-    </environmentVariables>            
-        </httpPlatform>
-      </system.webServer>
-    </configuration>
-    ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <configuration>
+          <system.webServer>
+            <handlers>
+              <add name="httppPlatformHandler" path="*" verb="*" 
+        modules="httpPlatformHandler" resourceType="Unspecified" />
+            </handlers>
+            <httpPlatform processPath="%AZURE_TOMCAT7_HOME%\bin\startup.bat"
+        startupTimeLimit="20"
+        startupRetryCount="10">
+        <environmentVariables>
+          <environmentVariable name="HUDSON_HOME" 
+        value="%HOME%\site\wwwroot\hudson_home" />
+          <environmentVariable name="JAVA_OPTS" 
+        value="-Djava.net.preferIPv4Stack=true -Duser.home=%HOME%/site/wwwroot/user_home -Dhudson.DNSMultiCast.disabled=true" />
+        </environmentVariables>            
+            </httpPlatform>
+          </system.webServer>
+        </configuration>
 
     At this point the web app can be restarted to take the changes.  Connect to http://yourwebapp/hudson to start Hudson.
 4. After Hudson configures itself, you should see the following screen:
@@ -214,35 +202,31 @@ Using Liferay 6.1.2 Community Edition GA3 bundled with Tomcat, the following fil
 
 In the **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** folder, create a file named **portal-ext.properties**. This file needs to contain one line, as shown here:
 
-```
-liferay.home=%HOME%/site/wwwroot/liferay
-```
+    liferay.home=%HOME%/site/wwwroot/liferay
 
 At the same directory level as the tomcat-7.0.40 folder, create a file named **web.config** with the following content:
 
-```
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <handlers>
-<add name="httpPlatformHandler" path="*" verb="*"
-     modules="httpPlatformHandler" resourceType="Unspecified" />
-    </handlers>
-    <httpPlatform processPath="%HOME%\site\wwwroot\tomcat-7.0.40\bin\catalina.bat" 
-                  arguments="run" 
-                  startupTimeLimit="10" 
-                  requestTimeout="00:10:00" 
-                  stdoutLogEnabled="true">
-      <environmentVariables>
-  <environmentVariable name="CATALINA_OPTS" value="-Dport.http=%HTTP_PLATFORM_PORT%" />
-  <environmentVariable name="CATALINA_HOME" value="%HOME%\site\wwwroot\tomcat-7.0.40" />
-        <environmentVariable name="JRE_HOME" value="D:\Program Files\Java\jdk1.7.0_51" /> 
-        <environmentVariable name="JAVA_OPTS" value="-Djava.net.preferIPv4Stack=true" />
-      </environmentVariables>
-    </httpPlatform>
-  </system.webServer>
-</configuration>
-```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+      <system.webServer>
+        <handlers>
+    <add name="httpPlatformHandler" path="*" verb="*"
+         modules="httpPlatformHandler" resourceType="Unspecified" />
+        </handlers>
+        <httpPlatform processPath="%HOME%\site\wwwroot\tomcat-7.0.40\bin\catalina.bat" 
+                      arguments="run" 
+                      startupTimeLimit="10" 
+                      requestTimeout="00:10:00" 
+                      stdoutLogEnabled="true">
+          <environmentVariables>
+      <environmentVariable name="CATALINA_OPTS" value="-Dport.http=%HTTP_PLATFORM_PORT%" />
+      <environmentVariable name="CATALINA_HOME" value="%HOME%\site\wwwroot\tomcat-7.0.40" />
+            <environmentVariable name="JRE_HOME" value="D:\Program Files\Java\jdk1.7.0_51" /> 
+            <environmentVariable name="JAVA_OPTS" value="-Djava.net.preferIPv4Stack=true" />
+          </environmentVariables>
+        </httpPlatform>
+      </system.webServer>
+    </configuration>
 
 Under the **httpPlatform** block, the **requestTimeout** is set to "00:10:00".  It can be reduced but then you are likely to see some timeout errors while Liferay is bootstrapping.  If this value is changed, then the **connectionTimeout** in the tomcat server.xml should also be modified.  
 
@@ -258,4 +242,4 @@ For more information about Java, see the [Java Developer Center](/develop/java/)
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 <!-- External Links -->
-[Azure App Service]: ./app-service-changes-existing-services.md
+[Azure App Service]: /azure/app-service-web/app-service-changes-existing-services/

@@ -24,13 +24,11 @@ A service configuration file may contain a DnsServers element with a list of IPv
 
 **NetworkConfiguration element**
 
-```
-  <DnsServers>
-    <DnsServer name="ID1" IPAddress="IPAddress1" />
-    <DnsServer name="ID2" IPAddress="IPAddress2" />
-    <DnsServer name="ID3" IPAddress="IPAddress3" />
-  </DnsServers>
-```
+      <DnsServers>
+        <DnsServer name="ID1" IPAddress="IPAddress1" />
+        <DnsServer name="ID2" IPAddress="IPAddress2" />
+        <DnsServer name="ID3" IPAddress="IPAddress3" />
+      </DnsServers>
 
 > [!WARNING]
 > The **name** attribute in the **DnsServer** element is used only as a reference name. It does not represent the host name for the DNS server. Each **DnsServer** attribute value must be unique across the entire Azure subscription.
@@ -42,4 +40,4 @@ A service configuration file may contain a DnsServers element with a list of IPv
 
 [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100)
 
-[Configure a Virtual Network Using Network Configuration Files](./virtual-networks-create-vnet-classic-portal.md)
+[Configure a Virtual Network Using Network Configuration Files](virtual-networks-create-vnet-classic-portal.md)

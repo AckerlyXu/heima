@@ -29,20 +29,21 @@ Azure has two deployment models: Azure Resource Manager and classic. Azure recom
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](./virtual-networks-create-vnet-cli-nodejs.md) - our CLI for the classic and resource management deployment models
+- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md) - our CLI for the classic and resource management deployment models
 - [Azure CLI 2.0](#create-a-virtual-network) - our next generation CLI for the resource management deployment model (this article)`
 
     [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
     You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
+
 > [!div class="op_single_selector"]
->- [Portal](./virtual-networks-create-vnet-arm-pportal.md)
->- [PowerShell](./virtual-networks-create-vnet-arm-ps.md)
->- [CLI](./virtual-networks-create-vnet-arm-cli.md)
->- [Template](./virtual-networks-create-vnet-arm-template-click.md)
->- [Portal (Classic)](./virtual-networks-create-vnet-classic-pportal.md)
->- [PowerShell (Classic)](./virtual-networks-create-vnet-classic-netcfg-ps.md)
->- [CLI (Classic)](./virtual-networks-create-vnet-classic-cli.md)
+>- [Portal](virtual-networks-create-vnet-arm-pportal.md)
+>- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+>- [CLI](virtual-networks-create-vnet-arm-cli.md)
+>- [Template](virtual-networks-create-vnet-arm-template-click.md)
+>- [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
+>- [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+>- [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
@@ -118,11 +119,9 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
     Which produces the following output:
 
-    ```
-        Where      Name      Group
-        ---------  --------  -------
-        chinaeast  TestVNet  TestRG
-    ```
+            Where      Name      Group
+            ---------  --------  -------
+            chinaeast  TestVNet  TestRG
 
 4. Create a subnet:
 
@@ -170,11 +169,9 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
     Expected output:
 
-    ```
-    Name      Where      Group    Status       SubnetCount
-    --------  ---------  -------  ---------  -------------
-    TestVNet  chinaeast  TestRG   Succeeded              2
-    ```
+        Name      Where      Group    Status       SubnetCount
+        --------  ---------  -------  ---------  -------------
+        TestVNet  chinaeast  TestRG   Succeeded              2
 
 6. Query the properties of the subnets:
 
@@ -188,12 +185,10 @@ To create a virtual network using the Azure CLI 2.0, complete the following step
 
     Expected output:
 
-    ```
-    Name      CIDR            Status
-    --------  --------------  ---------
-    FrontEnd  192.168.1.0/24  Succeeded
-    BackEnd   192.168.2.0/24  Succeeded
-    ```
+        Name      CIDR            Status
+        --------  --------------  ---------
+        FrontEnd  192.168.1.0/24  Succeeded
+        BackEnd   192.168.2.0/24  Succeeded
 
 ## Next steps
 

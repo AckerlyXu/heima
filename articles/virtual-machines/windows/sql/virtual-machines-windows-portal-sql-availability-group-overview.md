@@ -35,16 +35,16 @@ When you are ready to build a SQL Server availability aroup on Azure Virtual Mac
 
 ## Manually create an availability group
 
-[Configure Always On availability group in Azure VM manually - Resource Manager](/documentation/articles/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/)
+[Configure Always On availability group in Azure VM manually - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 
 ## Manually create an availability group in Azure portal preview
 
 You can also create the virtual machines yourself without the template. First, complete the prerequisites, then create the availability group. See the following topics: 
 
-- [Configure prerequisites for SQL Server Always On availability groups on Azure Virtual Machines](./virtual-machines-windows-portal-sql-availability-group-prereq.md)
+- [Configure prerequisites for SQL Server Always On availability groups on Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 
-- [Create Always On Availability Group to improve availability and disaster recovery](./virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+- [Create Always On Availability Group to improve availability and disaster recovery](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 
 ## Next steps
 
-[Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions](./virtual-machines-windows-portal-sql-availability-group-dr.md).
+[Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions](virtual-machines-windows-portal-sql-availability-group-dr.md).

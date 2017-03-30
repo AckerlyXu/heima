@@ -29,7 +29,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-```
+```azurecli
 #/bin/bash
 
 # Variables
@@ -54,7 +54,7 @@ docCreds=$(az documentdb list-keys --name $appName --resource-group myResourceGr
 az appservice web config appsettings update --settings "DOCDB_URL=$docdb" "DOCDB_KEY=$docCreds" --name $appName --resource-group myResourceGroup
 ```
 
-[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

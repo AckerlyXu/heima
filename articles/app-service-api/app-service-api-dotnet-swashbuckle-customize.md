@@ -53,36 +53,32 @@ The following steps show how to customize Swashbuckle by using the *SwaggerConfi
 
     The `IOperationFilter` interface provides an extensibility point for Swashbuckle users who want to customize various aspects of the Swagger metadata process. The following code demonstrates one method of changing the operation-id-generation behavior. The code appends parameter names to the operation id name.  
 
-    ```
-    using Swashbuckle.Swagger;
-    using System.Web.Http.Description;
-
-    namespace ContactsList
-    {
-        public class MultipleOperationsWithSameVerbFilter : IOperationFilter
+        using Swashbuckle.Swagger;
+        using System.Web.Http.Description;
+   
+        namespace ContactsList
         {
-            public void Apply(
-                Operation operation,
-                SchemaRegistry schemaRegistry,
-                ApiDescription apiDescription)
+            public class MultipleOperationsWithSameVerbFilter : IOperationFilter
             {
-                if (operation.parameters != null)
+                public void Apply(
+                    Operation operation,
+                    SchemaRegistry schemaRegistry,
+                    ApiDescription apiDescription)
                 {
-                    operation.operationId += "By";
-                    foreach (var parm in operation.parameters)
+                    if (operation.parameters != null)
                     {
-                        operation.operationId += string.Format("{0}",parm.name);
+                        operation.operationId += "By";
+                        foreach (var parm in operation.parameters)
+                        {
+                            operation.operationId += string.Format("{0}",parm.name);
+                        }
                     }
                 }
             }
         }
-    }
-    ```
 2. In *App_Start\SwaggerConfig.cs* file, call the `OperationFilter` method to cause Swashbuckle to use the new `IOperationFilter` implementation.
 
-    ```
-    c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
-    ```
+        c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
 
     ![](./media/app-service-api-dotnet-swashbuckle-customize/usefilter.png)
 
@@ -97,61 +93,6 @@ The following steps show how to customize Swashbuckle by using the *SwaggerConfi
 ## Allow response codes other than 200
 By default, Swashbuckle assumes that an HTTP 200 (OK) response is the *only* legitimate response from a Web API method. In some cases, you may want to return other response codes without causing the client to raise an exception.  For example, the following Web API code demonstrates a scenario in which you would want the client to accept either a 200 or a 404 as valid responses.
 
-```
-[ResponseType(typeof(Contact))]
-public HttpResponseMessage Get(int id)
-{
-    var contacts = GetContacts();
-
-    var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
-
-    if (requestedContact == null)
-    {
-        return Request.CreateResponse(HttpStatusCode.NotFound);
-    }
-    else
-    {
-        return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
-    }
-}
-```
-
-In this scenario, the Swagger that Swashbuckle generates by default specifies only one legitimate HTTP status code, HTTP 200.
-
-![](./media/app-service-api-dotnet-swashbuckle-customize/http-200-output-only.png)
-
-Since Visual Studio uses the Swagger API definition to generate code for the client, it creates client code that raises an exception for any response other than an HTTP 200. The code below is from a C# client generated for this sample Web API method.
-
-```
-if (statusCode != HttpStatusCode.OK)
-{
-    HttpOperationException<object> ex = new HttpOperationException<object>();
-    ex.Request = httpRequest;
-    ex.Response = httpResponse;
-    ex.Body = null;
-    if (shouldTrace)
-    {
-        ServiceClientTracing.Error(invocationId, ex);
-    }
-    throw ex;
-} 
-```
-
-Swashbuckle provides two ways of customizing the list of expected HTTP response codes that it generates, using XML comments or the `SwaggerResponse` attribute. The attribute is easier, but it is only available in Swashbuckle 5.1.5 or later. The API Apps preview new-project template in Visual Studio 2013 includes Swashbuckle version 5.0.0, so if you used the template and don't want to update Swashbuckle, your only option is to use XML comments. 
-
-### Customize expected response codes using XML comments
-Use this method to specify response codes if your Swashbuckle version is earlier than 5.1.5.
-
-1. First, add XML documentation comments over the methods you wish to specify HTTP response codes for. Taking the sample Web API action shown above and applying the XML documentation to it would result in code like the following example. 
-
-    ```
-    /// <summary>
-    /// Returns the specified contact.
-    /// </summary>
-    /// <param name="id">The ID of the contact.</param>
-    /// <returns>A contact record with an HTTP 200, or null with an HTTP 404.</returns>
-    /// <response code="200">OK</response>
-    /// <response code="404">Not Found</response>
     [ResponseType(typeof(Contact))]
     public HttpResponseMessage Get(int id)
     {
@@ -168,18 +109,65 @@ Use this method to specify response codes if your Swashbuckle version is earlier
             return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
         }
     }
-    ```
+
+In this scenario, the Swagger that Swashbuckle generates by default specifies only one legitimate HTTP status code, HTTP 200.
+
+![](./media/app-service-api-dotnet-swashbuckle-customize/http-200-output-only.png)
+
+Since Visual Studio uses the Swagger API definition to generate code for the client, it creates client code that raises an exception for any response other than an HTTP 200. The code below is from a C# client generated for this sample Web API method.
+
+    if (statusCode != HttpStatusCode.OK)
+    {
+        HttpOperationException<object> ex = new HttpOperationException<object>();
+        ex.Request = httpRequest;
+        ex.Response = httpResponse;
+        ex.Body = null;
+        if (shouldTrace)
+        {
+            ServiceClientTracing.Error(invocationId, ex);
+        }
+        throw ex;
+    } 
+
+Swashbuckle provides two ways of customizing the list of expected HTTP response codes that it generates, using XML comments or the `SwaggerResponse` attribute. The attribute is easier, but it is only available in Swashbuckle 5.1.5 or later. The API Apps preview new-project template in Visual Studio 2013 includes Swashbuckle version 5.0.0, so if you used the template and don't want to update Swashbuckle, your only option is to use XML comments. 
+
+### Customize expected response codes using XML comments
+Use this method to specify response codes if your Swashbuckle version is earlier than 5.1.5.
+
+1. First, add XML documentation comments over the methods you wish to specify HTTP response codes for. Taking the sample Web API action shown above and applying the XML documentation to it would result in code like the following example. 
+
+        /// <summary>
+        /// Returns the specified contact.
+        /// </summary>
+        /// <param name="id">The ID of the contact.</param>
+        /// <returns>A contact record with an HTTP 200, or null with an HTTP 404.</returns>
+        /// <response code="200">OK</response>
+        /// <response code="404">Not Found</response>
+        [ResponseType(typeof(Contact))]
+        public HttpResponseMessage Get(int id)
+        {
+            var contacts = GetContacts();
+   
+            var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
+   
+            if (requestedContact == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
+            }
+        }
 2. Add instructions in the *SwaggerConfig.cs* file to direct Swashbuckle to make use of the XML documentation file.
 
     * Open *SwaggerConfig.cs* and create a method on the *SwaggerConfig* class to specify the path to the documentation XML file. 
 
-        ```
-        private static string GetXmlCommentsPath()
-        {
-            return string.Format(@"{0}\XmlComments.xml", 
-                System.AppDomain.CurrentDomain.BaseDirectory);
-        }
-        ```
+           private static string GetXmlCommentsPath()
+           {
+               return string.Format(@"{0}\XmlComments.xml", 
+                   System.AppDomain.CurrentDomain.BaseDirectory);
+           }
     * Scroll down in the *SwaggerConfig.cs* file until you see the commented-out line of code resembling the screen shot below. 
 
         ![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-commented-out.png)
@@ -196,20 +184,18 @@ Once you perform these steps, the Swagger JSON generated by Swashbuckle will ref
 
 When you use Visual Studio to regenerate the client code for your REST API, the C# code accepts both the HTTP OK and Not Found status codes without raising an exception, allowing your consuming code to make decisions on how to handle the return of a null Contact record. 
 
-```
-    if (statusCode != HttpStatusCode.OK && statusCode != HttpStatusCode.NotFound)
-    {
-        HttpOperationException<object> ex = new HttpOperationException<object>();
-        ex.Request = httpRequest;
-        ex.Response = httpResponse;
-        ex.Body = null;
-        if (shouldTrace)
+        if (statusCode != HttpStatusCode.OK && statusCode != HttpStatusCode.NotFound)
         {
-            ServiceClientTracing.Error(invocationId, ex);
+            HttpOperationException<object> ex = new HttpOperationException<object>();
+            ex.Request = httpRequest;
+            ex.Response = httpResponse;
+            ex.Body = null;
+            if (shouldTrace)
+            {
+                ServiceClientTracing.Error(invocationId, ex);
+            }
+                throw ex;
         }
-            throw ex;
-    }
-```
 
 The code for this demonstration can be found in [this GitHub repository](https://github.com/Azure-Samples/app-service-api-dotnet-swashbuckle-swaggerresponse). Along with the Web API project marked up with XML documentation comments is a Console Application project that contains a generated client for this API. 
 
@@ -224,30 +210,26 @@ The [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master
     ![](./media/app-service-api-dotnet-swashbuckle-customize/update-nuget-dialog.png)
 3. Add the *SwaggerResponse* attributes to the Web API action methods for which you want to specify valid HTTP response codes. 
 
-    ```
-    [SwaggerResponse(HttpStatusCode.OK)]
-    [SwaggerResponse(HttpStatusCode.NotFound)]
-    [ResponseType(typeof(Contact))]
-    public HttpResponseMessage Get(int id)
-    {
-        var contacts = GetContacts();
-
-        var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
-        if (requestedContact == null)
+        [SwaggerResponse(HttpStatusCode.OK)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [ResponseType(typeof(Contact))]
+        public HttpResponseMessage Get(int id)
         {
-            return Request.CreateResponse(HttpStatusCode.NotFound);
+            var contacts = GetContacts();
+   
+            var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
+            if (requestedContact == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            else
+            {
+                return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
+            }
         }
-        else
-        {
-            return Request.CreateResponse<Contact>(HttpStatusCode.OK, requestedContact);
-        }
-    }
-    ```
 4. Add a `using` statement for the attribute's namespace:
 
-    ```
-    using Swashbuckle.Swagger.Annotations;
-    ```
+        using Swashbuckle.Swagger.Annotations;
 5. Browse to the */swagger/docs/v1* URL of your project and the various HTTP response codes will be visible in the Swagger JSON. 
 
     ![](./media/app-service-api-dotnet-swashbuckle-customize/multiple-responses-post-attributes.png)

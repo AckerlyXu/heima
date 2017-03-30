@@ -22,7 +22,7 @@ ms.author: sdanie
 This topic describes how to review and update the configuration for your Azure Redis Cache instances, and covers the default Redis server configuration for Azure Redis Cache instances.
 
 > [!NOTE]
-> For more information on configuring and using premium cache features, see [How to configure persistence](./cache-how-to-premium-persistence.md), [How to configure clustering](./cache-how-to-premium-clustering.md), and [How to configure Virtual Network support](./cache-how-to-premium-vnet.md).
+> For more information on configuring and using premium cache features, see [How to configure persistence](cache-how-to-premium-persistence.md), [How to configure clustering](cache-how-to-premium-clustering.md), and [How to configure Virtual Network support](cache-how-to-premium-vnet.md).
 > 
 > 
 
@@ -71,7 +71,7 @@ You can view and configure the following settings using the **Resource Menu**.
 
 ### <a name="activity-log"></a> Activity log
 
-Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](./cache-how-to-monitor.md#operations-and-alerts).
+Click **Activity log** to view actions performed on your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) and [Audit operations with Resource Manager](../azure-resource-manager/resource-group-audit.md). For more information on monitoring Azure Redis Cache events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a> Access control (IAM)
 
@@ -168,21 +168,21 @@ Further information can be found on the **Recommendations** blade.
 
 ![Recommendations](./media/cache-configure/redis-cache-recommendations.png)
 
-You can monitor these metrics on the [Monitoring charts](./cache-how-to-monitor.md#monitoring-charts) and [Usage charts](./cache-how-to-monitor.md#usage-charts) sections of the **Redis Cache** blade.
+You can monitor these metrics on the [Monitoring charts](cache-how-to-monitor.md#monitoring-charts) and [Usage charts](cache-how-to-monitor.md#usage-charts) sections of the **Redis Cache** blade.
 
 Each pricing tier has different limits for client connections, memory, and bandwidth. If your cache approaches maximum capacity for these metrics over a sustained period of time, a recommendation is created. For more information about the metrics and limits reviewed by the **Recommendations** tool, see the following table:
 
 | Redis Cache metric | More information |
 | --- | --- |
-| Network bandwidth usage |[Cache performance - available bandwidth](./cache-faq.md#cache-performance) |
+| Network bandwidth usage |[Cache performance - available bandwidth](cache-faq.md#cache-performance) |
 | Connected clients |[Default Redis server configuration - maxclients](#maxclients) |
-| Server load |[Usage charts - Redis Server Load](./cache-how-to-monitor.md#usage-charts) |
-| Memory usage |[Cache performance - size](./cache-faq.md#cache-performance) |
+| Server load |[Usage charts - Redis Server Load](cache-how-to-monitor.md#usage-charts) |
+| Memory usage |[Cache performance - size](cache-faq.md#cache-performance) |
 
-To upgrade your cache, click **Upgrade now** to change the [pricing tier](#pricing-tier) and scale your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](./cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+To upgrade your cache, click **Upgrade now** to change the [pricing tier](#pricing-tier) and scale your cache. For more information on choosing a pricing tier, see [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 ### <a name="pricing-tier"></a> Pricing tier
-Click **Pricing tier** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Redis Cache](./cache-how-to-scale.md).
+Click **Pricing tier** to view or change the pricing tier for your cache. For more information on scaling, see [How to Scale Azure Redis Cache](cache-how-to-scale.md).
 
 ![Redis Cache pricing tier](./media/cache-configure/pricing-tier.png)
 
@@ -199,7 +199,7 @@ Click **(PREVIEW) Redis Cluster Size** to change the cluster size for a running 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
 
 > [!IMPORTANT]
-> Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Redis Cache](./cache-how-to-premium-clustering.md).
+> Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 > 
 > 
 
@@ -226,7 +226,7 @@ Click **Storage Account** to select the storage account to use, and choose eithe
 Click **OK** to save the persistence configuration.
 
 > [!IMPORTANT]
-> Redis data persistence is only available for Premium caches. For more information, see [How to configure persistence for a Premium Azure Redis Cache](./cache-how-to-premium-persistence.md).
+> Redis data persistence is only available for Premium caches. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 > 
 > 
 
@@ -243,12 +243,12 @@ The **Schedule updates** blade allows you to designate a maintenance window for 
 To specify a maintenance window, check the desired days and specify the maintenance window start hour for each day, and click **OK**. Note that the maintenance window time is in UTC. 
 
 > [!IMPORTANT]
-> The **Schedule updates** functionality is only available for Premium tier caches. For more information and instructions, see [Azure Redis Cache administration - Schedule updates](./cache-administration.md#schedule-updates).
+> The **Schedule updates** functionality is only available for Premium tier caches. For more information and instructions, see [Azure Redis Cache administration - Schedule updates](cache-administration.md#schedule-updates).
 > 
 > 
 
 ## <a name="virtual-network"></a> Virtual Network
-The **Virtual Network** section allows you to configure the virtual network settings for your cache. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Redis Cache](./cache-how-to-premium-vnet.md).
+The **Virtual Network** section allows you to configure the virtual network settings for your cache. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
 > Virtual network settings are only available for premium caches that were configured with VNET support during cache creation. 
@@ -304,7 +304,7 @@ Import can be used to bring Redis compatible RDB files from any Redis server run
 Export allows you to export the data stored in Azure Redis Cache to Redis compatible RDB files. You can use this feature to move data from one Azure Redis Cache instance to another or to another Redis server. During the export process, a temporary file is created on the VM that hosts the Azure Redis Cache server instance, and the file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
 > [!IMPORTANT]
-> Import/Export is only available for Premium tier caches. For more information and instructions, see [Import and Export data in Azure Redis Cache](./cache-how-to-import-export-data.md).
+> Import/Export is only available for Premium tier caches. For more information and instructions, see [Import and Export data in Azure Redis Cache](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -320,14 +320,14 @@ If you have a premium cache with clustering enabled, you can select which shards
 To reboot one or more nodes of your cache, select the desired nodes and click **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then click **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
 > [!IMPORTANT]
-> Reboot is only available for Premium tier caches. For more information and instructions, see [Azure Redis Cache administration - Reboot](./cache-administration.md#reboot).
+> Reboot is only available for Premium tier caches. For more information and instructions, see [Azure Redis Cache administration - Reboot](cache-administration.md#reboot).
 > 
 > 
 
 ## <a name="monitoring"></a> Monitoring
 
 The **Monitoring** section allows you to configure diagnostics and monitoring for your Redis Cache. 
-For more information on Azure Redis Cache monitoring and diagnostics, see [How to monitor Azure Redis Cache](./cache-how-to-monitor.md).
+For more information on Azure Redis Cache monitoring and diagnostics, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md).
 
 ![Diagnostics](./media/cache-configure/redis-cache-diagnostics.png)
 
@@ -336,15 +336,15 @@ For more information on Azure Redis Cache monitoring and diagnostics, see [How t
 * [Diagnostics](#diagnostics)
 
 ### <a name="redis-metrics"></a> Redis metrics
-Click **Redis metrics** to [view metrics](./cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) for your cache.
+Click **Redis metrics** to [view metrics](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) for your cache.
 
 ### <a name="alert-rules"></a> Alert rules
 
-Click **Alert rules** to configure alerts based on Redis Cache metrics. For more information, see [Operations and alerts](./cache-how-to-monitor.md#operations-and-alerts).
+Click **Alert rules** to configure alerts based on Redis Cache metrics. For more information, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="diagnostics"></a> Diagnostics
 
-Click **Diagnostics** to [configure the storage account](./cache-how-to-monitor.md#enable-cache-diagnostics) used to store cache diagnostics.
+Click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#enable-cache-diagnostics) used to store cache diagnostics.
 
 ![Redis Cache Diagnostics](./media/cache-configure/redis-cache-diagnostics-settings.png)
 
@@ -360,7 +360,7 @@ The settings in the **Support + troubleshooting** section provide you with optio
 **Resource health** watches your resource and tells you if it's running as expected.
 
 > [!NOTE]
-> Resource health is currently unable to report on the health of Azure Redis Cache instances hosted in a virtual network. For more information, see [Do all cache features work when hosting a cache in a VNET?](./cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
+> Resource health is currently unable to report on the health of Azure Redis Cache instances hosted in a virtual network. For more information, see [Do all cache features work when hosting a cache in a VNET?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
 > 
 > 
 
@@ -407,10 +407,10 @@ New Azure Redis Cache instances are configured with the following default Redis 
     * P4 (53 GB - 530 GB) - up to 64 databases
     * All premium caches with Redis cluster enabled - Redis cluster only supports use of database 0 so the `databases` limit for any premium cache with Redis cluster enabled is effectively 1 and the [Select](http://redis.io/commands/select) command is not allowed.
 
-For more information about databases, see [What are Redis databases?](./cache-faq.md#what-are-redis-databases)
+For more information about databases, see [What are Redis databases?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzureRmRedisCache](./cache-howto-manage-redis-cache-powershell.md#databases).
+> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 > 
 > 
 
@@ -455,9 +455,9 @@ You can securely issue commands to your Azure Redis Cache instances using the **
 > [!IMPORTANT]
 > The Redis Console does not work with VNET, clustering, and databases other than 0. 
 ><p> 
-><p> * [VNET](./cache-how-to-premium-vnet.md) - When your cache is part of a VNET, only clients in the VNET can access the cache. Because the Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
-><p> * [Clustering](./cache-how-to-premium-clustering.md) - The Redis Console uses the redis-cli.exe client, which does not currently support clustering. The redis-cli utility in the [unstable](http://redis.io/download) branch of the Redis repository at GitHub implements basic support when started with the `-c` switch. For more information, see [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [http://redis.io](http://redis.io) in the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
-><p> * The Redis Console makes a new connection to database 0 each time you submit a command. You can't use the `SELECT` command to select a different database, because the database is reset to 0 with each command. For information on running Redis commands, including changing to a different database, see [How can I run Redis commands?](./cache-faq.md#how-can-i-run-redis-commands)
+><p> * [VNET](cache-how-to-premium-vnet.md) - When your cache is part of a VNET, only clients in the VNET can access the cache. Because the Redis Console uses the redis-cli.exe client hosted on VMs that are not part of your VNET, it can't connect to your cache.
+><p> * [Clustering](cache-how-to-premium-clustering.md) - The Redis Console uses the redis-cli.exe client, which does not currently support clustering. The redis-cli utility in the [unstable](http://redis.io/download) branch of the Redis repository at GitHub implements basic support when started with the `-c` switch. For more information, see [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) on [http://redis.io](http://redis.io) in the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial).
+><p> * The Redis Console makes a new connection to database 0 each time you submit a command. You can't use the `SELECT` command to select a different database, because the database is reset to 0 with each command. For information on running Redis commands, including changing to a different database, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
 > 
 > 
 
@@ -479,4 +479,4 @@ You can move your cache to a new subscription by clicking **Move**.
 For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 ## Next steps
-* For more information on working with Redis commands, see [How can I run Redis commands?](./cache-faq.md#how-can-i-run-redis-commands)
+* For more information on working with Redis commands, see [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)

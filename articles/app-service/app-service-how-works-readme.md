@@ -45,11 +45,11 @@ As a whole, App Service capabilities enable developers to focus on their code an
 
 Learn more about App Service in one of the following topics:
 
-* [What is Azure App Service?](./app-service-value-prop-what-is.md)
+* [What is Azure App Service?](app-service-value-prop-what-is.md)
     * [Web App](../app-service-web/app-service-web-overview.md)
     * [Mobile App](../app-service-mobile/app-service-mobile-value-prop.md)
     * [API App](../app-service-api/app-service-api-apps-why-best-platform.md)
 * [Azure App Service Architecture (presentation)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
 * [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md)
-* [Understanding App Service Plans](./azure-web-sites-web-hosting-plans-in-depth-overview.md)
+* [Understanding App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 * [Azure App Service Development Stacks Support](https://azure.microsoft.com/blog/windows-azure-websites-development-stacks-support/)

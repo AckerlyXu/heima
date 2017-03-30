@@ -26,14 +26,7 @@ This tutorial helps you deploy n [Umbraco](https://our.umbraco.org/) web app to 
 
 ## Prerequisites
 You need a Azure account. If you don't have an account, you can 
-[sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F) or 
-[activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-
-> [!NOTE]
-> You can [Try App Service](https://azure.microsoft.com/try/app-service/) without an Azure account. Create a starter app and play with
-> it for up to an hour--no credit card required, no commitments.
-> 
-> 
+[sign up for a trial](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F).
 
 ## Deploy the ASP.NET app
 1. Sign in to the [Azure portal preview](https://portal.azure.cn).
@@ -104,8 +97,8 @@ When Azure completes app deployment you see another notification.
     ![Umbraco configuration - first Umbraco in Azure App Service](./media/app-service-web-get-started-dotnet-portal/umbraco-config.png)
 
 ## Next steps
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](./web-sites-dotnet-get-started.md) - Learn how to create a 
+* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](web-sites-dotnet-get-started.md) - Learn how to create a 
 new Azure web app from Visual Studio, using any one of the included application templates.
-* [Deploy your code to Azure App Service](./web-sites-deploy.md)- Learn how to deploy from FTP or from source control repositories.
-* [Add functionality to your first web app](./app-service-web-get-started-2.md) - Take your Azure app to the next level. Authenticate your users. 
+* [Deploy your code to Azure App Service](web-sites-deploy.md)- Learn how to deploy from FTP or from source control repositories.
+* [Add functionality to your first web app](app-service-web-get-started-2.md) - Take your Azure app to the next level. Authenticate your users. 
 Scale it based on demand. Set up some performance alerts. All with a few clicks.

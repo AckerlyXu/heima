@@ -21,8 +21,10 @@ ms.author: cherylmc
 
 # Configure forced tunneling using the classic deployment model
 > [!div class="op_single_selector"]
->- [PowerShell - Classic](./vpn-gateway-about-forced-tunneling.md)
->- [PowerShell - Resource Manager](./vpn-gateway-forced-tunneling-rm.md)
+> * [PowerShell - Classic](vpn-gateway-about-forced-tunneling.md)
+> * [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+> 
+> 
 
 Forced tunneling lets you redirect or "force" all Internet-bound traffic back to your on-premises location via a Site-to-Site VPN tunnel for inspection and auditing. This is a critical security requirement for most enterprise IT policies. 
 
@@ -70,43 +72,41 @@ Verify that you have the following items before beginning configuration.
 ## Configure forced tunneling
 The following procedure will help you specify forced tunneling for a virtual network. The configuration steps correspond to the VNet network configuration file.
 
-```
-<VirtualNetworkSite name="MultiTier-VNet" Location="China North">
- <AddressSpace>
-  <AddressPrefix>10.1.0.0/16</AddressPrefix>
-    </AddressSpace>
-    <Subnets>
-      <Subnet name="Frontend">
-        <AddressPrefix>10.1.0.0/24</AddressPrefix>
-      </Subnet>
-      <Subnet name="Midtier">
-        <AddressPrefix>10.1.1.0/24</AddressPrefix>
-      </Subnet>
-      <Subnet name="Backend">
-        <AddressPrefix>10.1.2.0/23</AddressPrefix>
-      </Subnet>
-      <Subnet name="GatewaySubnet">
-        <AddressPrefix>10.1.200.0/28</AddressPrefix>
-      </Subnet>
-    </Subnets>
-    <Gateway>
-      <ConnectionsToLocalNetwork>
-        <LocalNetworkSiteRef name="DefaultSiteHQ">
-          <Connection type="IPsec" />
-        </LocalNetworkSiteRef>
-        <LocalNetworkSiteRef name="Branch1">
-          <Connection type="IPsec" />
-        </LocalNetworkSiteRef>
-        <LocalNetworkSiteRef name="Branch2">
-          <Connection type="IPsec" />
-        </LocalNetworkSiteRef>
-        <LocalNetworkSiteRef name="Branch3">
-          <Connection type="IPsec" />
-        </LocalNetworkSiteRef>
-    </Gateway>
-  </VirtualNetworkSite>
-</VirtualNetworkSite>
-```
+    <VirtualNetworkSite name="MultiTier-VNet" Location="China North">
+     <AddressSpace>
+      <AddressPrefix>10.1.0.0/16</AddressPrefix>
+        </AddressSpace>
+        <Subnets>
+          <Subnet name="Frontend">
+            <AddressPrefix>10.1.0.0/24</AddressPrefix>
+          </Subnet>
+          <Subnet name="Midtier">
+            <AddressPrefix>10.1.1.0/24</AddressPrefix>
+          </Subnet>
+          <Subnet name="Backend">
+            <AddressPrefix>10.1.2.0/23</AddressPrefix>
+          </Subnet>
+          <Subnet name="GatewaySubnet">
+            <AddressPrefix>10.1.200.0/28</AddressPrefix>
+          </Subnet>
+        </Subnets>
+        <Gateway>
+          <ConnectionsToLocalNetwork>
+            <LocalNetworkSiteRef name="DefaultSiteHQ">
+              <Connection type="IPsec" />
+            </LocalNetworkSiteRef>
+            <LocalNetworkSiteRef name="Branch1">
+              <Connection type="IPsec" />
+            </LocalNetworkSiteRef>
+            <LocalNetworkSiteRef name="Branch2">
+              <Connection type="IPsec" />
+            </LocalNetworkSiteRef>
+            <LocalNetworkSiteRef name="Branch3">
+              <Connection type="IPsec" />
+            </LocalNetworkSiteRef>
+        </Gateway>
+      </VirtualNetworkSite>
+    </VirtualNetworkSite>
 
 In this example, the virtual network "MultiTier-VNet" has three subnets: *Frontend*, *Midtier*, and *Backend* subnets, with four cross premises connections: *DefaultSiteHQ*, and three *Branches*. 
 
@@ -114,59 +114,41 @@ The steps will set the *DefaultSiteHQ* as the default site connection for forced
 
 1. Create a routing table. Use the following cmdlet to create your route table.
 
-    ```
-    New-AzureRouteTable -Name "MyRouteTable" -Label "Routing Table for Forced Tunneling" -Location "China North"
-    ```
+        New-AzureRouteTable -Name "MyRouteTable" -Label "Routing Table for Forced Tunneling" -Location "China North"
 2. Add a default route to the routing table. 
 
     The following example adds a default route to the routing table created in Step 1. Note that the only route supported is the destination prefix of "0.0.0.0/0" to the "VPNGateway" NextHop.
 
-    ```
-    Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute -RouteTable "MyRouteTable" -RouteName "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VPNGateway
-    ```
+        Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute -RouteTable "MyRouteTable" -RouteName "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VPNGateway
 3. Associate the routing table to the subnets. 
 
     After a routing table is created and a route added, use the following example to add or associate the route table to a VNet subnet. The example adds the route table "MyRouteTable" to the Midtier and Backend subnets of VNet MultiTier-VNet.
 
-    ```
-    Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
-
-    Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
-    ```
+        Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+   
+        Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 4. Assign a default site for forced tunneling. 
 
     In the preceding step, the sample cmdlet scripts created the routing table and associated the route table to two of the VNet subnets. The remaining step is to select a local site among the multi-site connections of the virtual network as the default site or tunnel.
 
-    ```
-    $DefaultSite = @("DefaultSiteHQ")
-    Set-AzureVNetGatewayDefaultSite -VNetName "MultiTier-VNet" -DefaultSite "DefaultSiteHQ"
-    ```
+        $DefaultSite = @("DefaultSiteHQ")
+        Set-AzureVNetGatewayDefaultSite -VNetName "MultiTier-VNet" -DefaultSite "DefaultSiteHQ"
 
 ## Additional PowerShell cmdlets
 ### To delete a route table
-```
-Remove-AzureRouteTable -Name <routeTableName>
-```
+    Remove-AzureRouteTable -Name <routeTableName>
 
 ### To list a route table
-```
-Get-AzureRouteTable [-Name <routeTableName> [-DetailLevel <detailLevel>]]
-```
+    Get-AzureRouteTable [-Name <routeTableName> [-DetailLevel <detailLevel>]]
 
 ### To delete a route from a route table
-```
-Remove-AzureRouteTable -Name <routeTableName>
-```
+    Remove-AzureRouteTable -Name <routeTableName>
 
 ### To remove a route from a subnet
-```
-Remove-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
-```
+    Remove-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### To list the route table associated with a subnet
-```
-Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
-```
+    Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### To remove a default site from a VNet VPN gateway
     Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>

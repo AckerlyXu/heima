@@ -42,83 +42,79 @@ To view all existing NSGs in a subscription, run the `Get-AzureRmNetworkSecurity
 
 Expected result:
 
-```
-Name                 : NSG-BackEnd
-ResourceGroupName    : RG-NSG
-Location             : chinanorth
-Id                   : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/
-                       Microsoft.Network/networkSecurityGroups/NSG-BackEnd
-Etag                 : W/"[Id]"
-ResourceGuid         : [Id]
-ProvisioningState    : Succeeded
-Tags                 :                            
-SecurityRules        : [...]
-DefaultSecurityRules : [...]
-NetworkInterfaces    : [...]
-Subnets              : [...]
+    Name                 : NSG-BackEnd
+    ResourceGroupName    : RG-NSG
+    Location             : chinanorth
+    Id                   : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/
+                           Microsoft.Network/networkSecurityGroups/NSG-BackEnd
+    Etag                 : W/"[Id]"
+    ResourceGuid         : [Id]
+    ProvisioningState    : Succeeded
+    Tags                 :                            
+    SecurityRules        : [...]
+    DefaultSecurityRules : [...]
+    NetworkInterfaces    : [...]
+    Subnets              : [...]
 
-Name                 : NSG-FrontEnd
-ResourceGroupName    : RG-NSG
-Location             : chinaeast
-Id                   : /subscriptions/[Subscription Id]/resourceGroups/NRP-RG/providers/
-                       Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
-Etag                 : W/"[Id]"
-ResourceGuid         : [Id]
-ProvisioningState    : Succeeded
-Tags                 : 
-SecurityRules        : [...]
-DefaultSecurityRules : [...]
-NetworkInterfaces    : [...]
-Subnets              : [...]
+    Name                 : NSG-FrontEnd
+    ResourceGroupName    : RG-NSG
+    Location             : chinaeast
+    Id                   : /subscriptions/[Subscription Id]/resourceGroups/NRP-RG/providers/
+                           Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
+    Etag                 : W/"[Id]"
+    ResourceGuid         : [Id]
+    ProvisioningState    : Succeeded
+    Tags                 : 
+    SecurityRules        : [...]
+    DefaultSecurityRules : [...]
+    NetworkInterfaces    : [...]
+    Subnets              : [...]
 
-Name                 : WEB1
-ResourceGroupName    : RG101
-Location             : chinaeast2
-Id                   : /subscriptions/[Subscription Id]/resourceGroups/RG101/providers/M
-                       icrosoft.Network/networkSecurityGroups/WEB1
-Etag                 : W/"[Id]"
-ResourceGuid         : [Id]
-ProvisioningState    : Succeeded
-Tags                 : 
-SecurityRules        : [...]
-DefaultSecurityRules : [...]
-NetworkInterfaces    : [...]
-Subnets              : [...]
-```
+    Name                 : WEB1
+    ResourceGroupName    : RG101
+    Location             : chinaeast2
+    Id                   : /subscriptions/[Subscription Id]/resourceGroups/RG101/providers/M
+                           icrosoft.Network/networkSecurityGroups/WEB1
+    Etag                 : W/"[Id]"
+    ResourceGuid         : [Id]
+    ProvisioningState    : Succeeded
+    Tags                 : 
+    SecurityRules        : [...]
+    DefaultSecurityRules : [...]
+    NetworkInterfaces    : [...]
+    Subnets              : [...]
 
 To view the list of NSGs in a specific resource group, run the `Get-AzureRmNetworkSecurityGroup` cmdlet.
 
 Expected output:
 
-```
-Name                 : NSG-BackEnd
-ResourceGroupName    : RG-NSG
-Location             : chinanorth
-Id                   : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/
-                       Microsoft.Network/networkSecurityGroups/NSG-BackEnd
-Etag                 : W/"[Id]"
-ResourceGuid         : [Id]
-ProvisioningState    : Succeeded
-Tags                 :                            
-SecurityRules        : [...]
-DefaultSecurityRules : [...]
-NetworkInterfaces    : [...]
-Subnets              : [...]
+    Name                 : NSG-BackEnd
+    ResourceGroupName    : RG-NSG
+    Location             : chinanorth
+    Id                   : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/
+                           Microsoft.Network/networkSecurityGroups/NSG-BackEnd
+    Etag                 : W/"[Id]"
+    ResourceGuid         : [Id]
+    ProvisioningState    : Succeeded
+    Tags                 :                            
+    SecurityRules        : [...]
+    DefaultSecurityRules : [...]
+    NetworkInterfaces    : [...]
+    Subnets              : [...]
 
-Name                 : NSG-FrontEnd
-ResourceGroupName    : RG-NSG
-Location             : chinaeast
-Id                   : /subscriptions/[Subscription Id]/resourceGroups/NRP-RG/providers/
-                       Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
-Etag                 : W/"[Id]"
-ResourceGuid         : [Id]
-ProvisioningState    : Succeeded
-Tags                 : 
-SecurityRules        : [...]
-DefaultSecurityRules : [...]
-NetworkInterfaces    : [...]
-Subnets              : [...]
-```
+    Name                 : NSG-FrontEnd
+    ResourceGroupName    : RG-NSG
+    Location             : chinaeast
+    Id                   : /subscriptions/[Subscription Id]/resourceGroups/NRP-RG/providers/
+                           Microsoft.Network/networkSecurityGroups/NSG-FrontEnd
+    Etag                 : W/"[Id]"
+    ResourceGuid         : [Id]
+    ProvisioningState    : Succeeded
+    Tags                 : 
+    SecurityRules        : [...]
+    DefaultSecurityRules : [...]
+    NetworkInterfaces    : [...]
+    Subnets              : [...]
 
 ### List all rules for an NSG
 To view the rules of an NSG named **NSG-FrontEnd**, enter the following command:
@@ -129,35 +125,33 @@ Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd | S
 
 Expected output:
 
-```
-Name                     : rdp-rule
-Id                       : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/                           Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule
-Etag                     : W/"[Id]"
-ProvisioningState        : Succeeded
-Description              : Allow RDP
-Protocol                 : Tcp
-SourcePortRange          : *
-DestinationPortRange     : 3389
-SourceAddressPrefix      : Internet
-DestinationAddressPrefix : *
-Access                   : Allow
-Priority                 : 100
-Direction                : Inbound
+    Name                     : rdp-rule
+    Id                       : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/                           Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule
+    Etag                     : W/"[Id]"
+    ProvisioningState        : Succeeded
+    Description              : Allow RDP
+    Protocol                 : Tcp
+    SourcePortRange          : *
+    DestinationPortRange     : 3389
+    SourceAddressPrefix      : Internet
+    DestinationAddressPrefix : *
+    Access                   : Allow
+    Priority                 : 100
+    Direction                : Inbound
 
-Name                     : web-rule
-Id                       : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/                           Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule
-Etag                     : W/"[Id]"
-ProvisioningState        : Succeeded
-Description              : Allow HTTP
-Protocol                 : Tcp
-SourcePortRange          : *
-DestinationPortRange     : 80
-SourceAddressPrefix      : Internet
-DestinationAddressPrefix : *
-Access                   : Allow
-Priority                 : 101
-Direction                : Inbound
-```
+    Name                     : web-rule
+    Id                       : /subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/                           Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule
+    Etag                     : W/"[Id]"
+    ProvisioningState        : Succeeded
+    Description              : Allow HTTP
+    Protocol                 : Tcp
+    SourcePortRange          : *
+    DestinationPortRange     : 80
+    SourceAddressPrefix      : Internet
+    DestinationAddressPrefix : *
+    Access                   : Allow
+    Priority                 : 101
+    Direction                : Inbound
 
 > [!NOTE]
 > You can also use `Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name "NSG-FrontEnd" | Select DefaultSecurityRules -ExpandProperty DefaultSecurityRules` to list the default rules from the **NSG-FrontEnd** NSG.
@@ -172,15 +166,13 @@ Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
 
 Look for the **NetworkInterfaces** and **Subnets** properties as shown below:
 
-```
-NetworkInterfaces    : []
-Subnets              : [
-                         {
-                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                           "IpConfigurations": []
-                         }
-                       ]
-```
+    NetworkInterfaces    : []
+    Subnets              : [
+                             {
+                               "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                               "IpConfigurations": []
+                             }
+                           ]
 
 In the previous example, the NSG is not associated to any network interfaces (NICs); it is associated to a subnet named **FrontEnd**.
 
@@ -220,35 +212,33 @@ To add a rule allowing **inbound** traffic to port **443** from any machine to t
 
     Expected output showing only the security rules:
 
-    ```
-    Name                 : NSG-FrontEnd
-    ...
-    SecurityRules        : [
-                             {
-                               "Name": "rdp-rule",
-                               ...
-                             },
-                             {
-                               "Name": "web-rule",
-                               ...
-                             },
-                             {
-                               "Name": "https-rule",
-                               "Etag": "W/\"[Id]\"",
-                               "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/https-rule",
-                               "Description": "Allow HTTPS",
-                               "Protocol": "Tcp",
-                               "SourcePortRange": "*",
-                               "DestinationPortRange": "443",
-                               "SourceAddressPrefix": "*",
-                               "DestinationAddressPrefix": "*",
-                               "Access": "Allow",
-                               "Priority": 102,
-                               "Direction": "Inbound",
-                               "ProvisioningState": "Succeeded"
-                             }
-                           ]
-    ```
+        Name                 : NSG-FrontEnd
+        ...
+        SecurityRules        : [
+                                 {
+                                   "Name": "rdp-rule",
+                                   ...
+                                 },
+                                 {
+                                   "Name": "web-rule",
+                                   ...
+                                 },
+                                 {
+                                   "Name": "https-rule",
+                                   "Etag": "W/\"[Id]\"",
+                                   "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/https-rule",
+                                   "Description": "Allow HTTPS",
+                                   "Protocol": "Tcp",
+                                   "SourcePortRange": "*",
+                                   "DestinationPortRange": "443",
+                                   "SourceAddressPrefix": "*",
+                                   "DestinationAddressPrefix": "*",
+                                   "Access": "Allow",
+                                   "Priority": 102,
+                                   "Direction": "Inbound",
+                                   "ProvisioningState": "Succeeded"
+                                 }
+                               ]
 
 ### Change a rule
 To change the rule created above to allow inbound traffic from the **Internet** only, follow the steps below.
@@ -283,35 +273,33 @@ To change the rule created above to allow inbound traffic from the **Internet** 
 
     Expected output showing only the security rules:
 
-    ```
-    Name                 : NSG-FrontEnd
-    ...
-    SecurityRules        : [
-                             {
-                               "Name": "rdp-rule",
-                               ...
-                             },
-                             {
-                               "Name": "web-rule",
-                               ...
-                             },
-                             {
-                               "Name": "https-rule",
-                               "Etag": "W/\"[Id]\"",
-                               "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/https-rule",
-                               "Description": "Allow HTTPS",
-                               "Protocol": "Tcp",
-                               "SourcePortRange": "*",
-                               "DestinationPortRange": "443",
-                               "SourceAddressPrefix": "Internet",
-                               "DestinationAddressPrefix": "*",
-                               "Access": "Allow",
-                               "Priority": 102,
-                               "Direction": "Inbound",
-                               "ProvisioningState": "Succeeded"
-                             }
-                           ]
-    ```
+        Name                 : NSG-FrontEnd
+        ...
+        SecurityRules        : [
+                                 {
+                                   "Name": "rdp-rule",
+                                   ...
+                                 },
+                                 {
+                                   "Name": "web-rule",
+                                   ...
+                                 },
+                                 {
+                                   "Name": "https-rule",
+                                   "Etag": "W/\"[Id]\"",
+                                   "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/https-rule",
+                                   "Description": "Allow HTTPS",
+                                   "Protocol": "Tcp",
+                                   "SourcePortRange": "*",
+                                   "DestinationPortRange": "443",
+                                   "SourceAddressPrefix": "Internet",
+                                   "DestinationAddressPrefix": "*",
+                                   "Access": "Allow",
+                                   "Priority": 102,
+                                   "Direction": "Inbound",
+                                   "ProvisioningState": "Succeeded"
+                                 }
+                               ]
 
 ### Delete a rule
 1. Run the following command to retrieve the existing NSG and store it in a variable:
@@ -334,20 +322,18 @@ To change the rule created above to allow inbound traffic from the **Internet** 
 
     Expected output showing only the security rules, notice the **https-rule** is no longer listed:
 
-    ```
-    Name                 : NSG-FrontEnd
-    ...
-    SecurityRules        : [
-                             {
-                               "Name": "rdp-rule",
-                               ...
-                             },
-                             {
-                               "Name": "web-rule",
-                               ...
-                             }
-                           ]
-    ```
+        Name                 : NSG-FrontEnd
+        ...
+        SecurityRules        : [
+                                 {
+                                   "Name": "rdp-rule",
+                                   ...
+                                 },
+                                 {
+                                   "Name": "web-rule",
+                                   ...
+                                 }
+                               ]
 
 ## Manage associations
 You can associate an NSG to subnets and NICs. You can also dissociate an NSG from any resource it's associated to.
@@ -381,15 +367,13 @@ To associate the **NSG-FrontEnd** NSG to the **TestNICWeb1** NIC, complete the f
 
     Expected output showing only the **NetworkSecurityGroup** property:
 
-    ```
-    NetworkSecurityGroup : {
-                             "SecurityRules": [],
-                             "DefaultSecurityRules": [],
-                             "NetworkInterfaces": [],
-                             "Subnets": [],
-                             "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-                           }
-    ```
+        NetworkSecurityGroup : {
+                                 "SecurityRules": [],
+                                 "DefaultSecurityRules": [],
+                                 "NetworkInterfaces": [],
+                                 "Subnets": [],
+                                 "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+                               }
 
 ### <a name="Dissociate-an-NSG-from-a-NIC"></a> Dissociate an NSG from a NIC
 To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, complete the following steps:
@@ -414,9 +398,7 @@ To dissociate the **NSG-FrontEnd** NSG from the **TestNICWeb1** NIC, complete th
 
     Expected output showing only the **NetworkSecurityGroup** property:
 
-    ```
-    NetworkSecurityGroup : null
-    ```
+        NetworkSecurityGroup : null
 
 ### <a name="Dissociate-an-NSG-from-a-subnet"></a> Dissociate an NSG from a subnet
 To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, complete the following steps:
@@ -447,27 +429,25 @@ To dissociate the **NSG-FrontEnd** NSG from the **FrontEnd** subnet, complete th
 
     Expected output showing only the properties of the **FrontEnd** subnet. Notice there isn't a property for **NetworkSecurityGroup**:
 
-    ```
-        ...
-        Subnets           : [
-                              {
-                                "Name": "FrontEnd",
-                                "Etag": "W/\"[Id]\"",
-                                "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24",
-                                "IpConfigurations": [
+            ...
+            Subnets           : [
                                   {
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
+                                    "Name": "FrontEnd",
+                                    "Etag": "W/\"[Id]\"",
+                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                                    "AddressPrefix": "192.168.1.0/24",
+                                    "IpConfigurations": [
+                                      {
+                                        "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
+                                      },
+                                      {
+                                        "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
+                                      }
+                                    ],
+                                    "ProvisioningState": "Succeeded"
                                   },
-                                  {
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
-                                  }
-                                ],
-                                "ProvisioningState": "Succeeded"
-                              },
-                                ...
-                            ]
-    ```
+                                    ...
+                                ]
 
 ### Associate an NSG to a subnet
 To associate the **NSG-FrontEnd** NSG to the **FronEnd** subnet again, complete the following steps:
@@ -504,17 +484,15 @@ To associate the **NSG-FrontEnd** NSG to the **FronEnd** subnet again, complete 
 
     Expected output showing only the **NetworkSecurityGroup** property of the **FrontEnd** subnet:
 
-    ```
-    ...
-    "NetworkSecurityGroup": {
-                              "SecurityRules": [],
-                              "DefaultSecurityRules": [],
-                              "NetworkInterfaces": [],
-                              "Subnets": [],
-                              "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-                            }
-    ...
-    ```
+        ...
+        "NetworkSecurityGroup": {
+                                  "SecurityRules": [],
+                                  "DefaultSecurityRules": [],
+                                  "NetworkInterfaces": [],
+                                  "Subnets": [],
+                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/RG-NSG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+                                }
+        ...
 
 ## Delete an NSG
 You can only delete an NSG if it's not associated to any resource. To delete an NSG, follow the steps below.
@@ -533,4 +511,4 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
     > 
 
 ## Next steps
-* [Enable logging](./virtual-network-nsg-manage-log.md) for NSGs.
+* [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
