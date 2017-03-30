@@ -151,15 +151,15 @@ Now you know what a preconfigured solution is, you can get started by deploying 
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
-[lnk-what-is-azure-iot]:/documentation/articles/iot-suite/iot-suite-what-is-azure-iot/
+[lnk-what-is-azure-iot]: ./iot-suite-what-is-azure-iot.md/
 [lnk-asa]: ../stream-analytics/index.md
-[lnk-event-processor]:/documentation/articles/event-hubs/event-hubs-programming-guide/#event-processor-host
-[lnk-web-job]:/documentation/articles/app-service-web/web-sites-create-web-jobs/
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md/
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-predictive-maintenance]:/documentation/articles/iot-suite/iot-suite-predictive-overview/
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-predictive-maintenance]: ./iot-suite-predictive-overview.md/
+[lnk-azureiotsuite]: https://www.azureiotsuite.cn/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-getstarted-preconfigured]: /documentation/articles/iot-suite/iot-suite-getstarted-preconfigured-solutions/
+[lnk-getstarted-preconfigured]: ./iot-suite-getstarted-preconfigured-solutions.md/
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md

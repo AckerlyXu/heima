@@ -23,7 +23,7 @@ This page provides interface and routing configuration samples for Cisco IOS-XE 
 >[!IMPORTANT]
 > Samples in this page are intended to be purely for guidance. You must work with your vendor's sales / technical team and your networking team to come up with appropriate configurations to meet your needs. Microsoft will not support issues related to configurations listed in this page. You must contact your device vendor for support issues.
 
-Router configuration samples below apply to all peerings. Review [ExpressRoute peerings](/documentation/articles/expressroute/expressroute-circuit-peerings/) and [ExpressRoute routing requirements](/documentation/articles/expressroute/expressroute-routing/) for more details on routing.
+Router configuration samples below apply to all peerings. Review [ExpressRoute peerings](./expressroute-circuit-peerings.md/) and [ExpressRoute routing requirements](./expressroute-routing.md/) for more details on routing.
 
 ## Cisco IOS-XE based routers
 
@@ -33,7 +33,7 @@ The samples in this section apply for any router running the IOS-XE OS family.
 
 You will require a sub interface per peering in every router you connect to Microsoft. A sub interface can be identified with a VLAN ID or a stacked pair of VLAN IDs and an IP address.
 
-#### Dot1Q interface definition
+**Dot1Q interface definition**
 
 This sample provides the sub-interface definition for a sub-interface with a single VLAN ID. The VLAN ID is unique per peering. The last octet of your IPv4 address will always be an odd number.
 
@@ -227,4 +227,4 @@ protocols {
 
 ## Next Steps
 
-See the [ExpressRoute FAQ](/documentation/articles/expressroute/expressroute-faqs/) for more details.
+See the [ExpressRoute FAQ](./expressroute-faqs.md/) for more details.

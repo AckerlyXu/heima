@@ -75,10 +75,8 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
                 self.todoService.client.currentUser = user;
                 NSLog(@"User logged in: %@", user.userId);
 
-        ```
-            [self refresh];
-        }
-        ```
+                [self refresh];
+            }
         }];
     }
     ```

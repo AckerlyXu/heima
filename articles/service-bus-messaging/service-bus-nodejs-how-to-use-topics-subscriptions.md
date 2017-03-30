@@ -68,7 +68,7 @@ communicate with the Service Bus REST services.
 
 Using Notepad or another text editor, add the following to the top of the **server.js** file of the application:
 
-```
+```javascript
 var azure = require('azure');
 ```
 
@@ -87,7 +87,7 @@ following code creates a **ServiceBusService** object. Add it near the
 top of the **server.js** file, after the statement to import the azure
 module:
 
-```
+```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
@@ -97,7 +97,7 @@ topic with the specified name will be created. The following code uses
 **createTopicIfNotExists** to create or connect to the topic named
 'MyTopic':
 
-```
+```javascript
 serviceBusService.createTopicIfNotExists('MyTopic',function(error){
     if(!error){
         // Topic was created or exists
@@ -110,7 +110,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 enable you to override default topic settings such as message time to
 live or maximum topic size. The following example sets the maximum topic size to 5GB with a time to live of 1 minute:
 
-```
+```javascript
 var topicOptions = {
         MaxSizeInMegabytes: '5120',
         DefaultMessageTimeToLive: 'PT1M'
@@ -124,16 +124,15 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 ```
 
 ### Filters
-
 Optional filtering operations can be applied to operations performed using **ServiceBusService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
-```
+```javascript
 function handle (requestOptions, next)
 ```
 
 After performing preprocessing on the request options, the method calls `next` passing a callback with the following signature:
 
-```
+```javascript
 function (returnObject, finalCallback, next)
 ```
 
@@ -155,10 +154,12 @@ queue.
 
 > [!NOTE]
 > Subscriptions are persistent and will continue to exist until
-either they, or the topic they are associated with, are deleted. If your
-application contains logic to create a subscription, it should first
-check if the subscription already exists by using the
-**getSubscription** method.
+> either they, or the topic they are associated with, are deleted. If your
+> application contains logic to create a subscription, it should first
+> check if the subscription already exists by using the
+> **getSubscription** method.
+>
+>
 
 ### Create a subscription with the default (MatchAll) filter
 
@@ -169,7 +170,7 @@ subscription's virtual queue. The following example creates a
 subscription named 'AllMessages' and uses the default **MatchAll**
 filter.
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
     if(!error){
         // subscription created
@@ -194,15 +195,17 @@ add new filters to an existing subscription.
 
 > [!NOTE]
 > Because the default filter is applied automatically to all new
-subscriptions, you must first remove the default filter or the
-**MatchAll** will override any other filters you may specify. You can
-remove the default rule by using the **deleteRule** method of the
-**ServiceBusService** object.
+> subscriptions, you must first remove the default filter or the
+> **MatchAll** will override any other filters you may specify. You can
+> remove the default rule by using the **deleteRule** method of the
+> **ServiceBusService** object.
+>
+>
 
 The following example creates a subscription named `HighMessages` with a
 **SqlFilter** that only selects messages that have a custom **messagenumber** property greater than 3:
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
     if(!error){
         // subscription created
@@ -239,7 +242,7 @@ Similarly, the following example creates a subscription named
 `LowMessages` with a **SqlFilter** that only selects messages that have
 a **messagenumber** property less than or equal to 3:
 
-```
+```javascript
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
     if(!error){
         // subscription created
@@ -294,7 +297,7 @@ The following example demonstrates how to send five test messages to
 message varies on the iteration of the loop (this will determine which
 subscriptions receive it):
 
-```
+```javascript
 var message = {
     body: '',
     customProperties: {
@@ -446,6 +449,6 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
   [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/zh-cn/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Create and deploy a Node.js application to an Azure Web Site]: /documentation/articles/app-service-web/web-sites-nodejs-develop-deploy-mac
-  [Node.js Cloud Service with Storage]: /documentation/articles/cloud-services/cloud-services-nodejs-develop-deploy-app
-  [Node.js Web Application with Storage]: /documentation/articles/cloud-services/storage-nodejs-use-table-storage-cloud-service-app
+  [Create and deploy a Node.js application to an Azure Web Site]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Node.js Web Application with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md

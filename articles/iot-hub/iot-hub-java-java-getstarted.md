@@ -65,8 +65,8 @@ In this section, you create a Java console app that creates a device identity in
       <version>1.0.15</version>
     </dependency>
     ```
-
-    > AZURE.NOTE]
+    
+    > [!NOTE]
     > You can check for the latest version of **iot-service-client** using [Maven search][lnk-maven-service-search].
 
 4. Save and close the pom.xml file.
@@ -464,9 +464,9 @@ To learn how to extend your IoT solution and process device-to-cloud messages at
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 
-[lnk-eventhubs-tutorial]: /documentation/articles/event-hubs/event-hubs-csharp-ephcs-getstarted/
+[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md/
 [lnk-devguide-identity]: ./iot-hub-devguide-identity-registry.md
-[lnk-event-hubs-overview]: /documentation/articles/event-hubs/event-hubs-overview/
+[lnk-event-hubs-overview]: ../event-hubs/event-hubs/event-hubs-overview.md/
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md

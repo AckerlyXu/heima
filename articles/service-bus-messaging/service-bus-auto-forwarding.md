@@ -24,7 +24,7 @@ The *auto-forwarding* feature enables you to chain a queue or subscription to an
 
 You can enable auto-forwarding by setting the [QueueDescription.ForwardTo][] or [SubscriptionDescription.ForwardTo][] properties on the [QueueDescription][] or [SubscriptionDescription][] objects for the source, as in the following example.
 
-```
+```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
 srcSubscription.ForwardTo = destTopic;
 namespaceManager.CreateSubscription(srcSubscription));
@@ -68,4 +68,4 @@ To learn more about Service Bus performance improvements, see [Partitioned messa
   [SubscriptionDescription]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
   [0]: ./media/service-bus-auto-forwarding/IC628631.gif
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Partitioned messaging entities]: /documentation/articles/service-bus-partitioning
+  [Partitioned messaging entities]: ./service-bus-partitioning.md

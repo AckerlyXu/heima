@@ -54,7 +54,7 @@ Services such as Azure Storage, SQL databases, and Websites are offered on publi
 
 Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. Once public peering is enabled, you will be able to connect to all Azure services. We do not allow you to selectively pick services for which we advertise routes to. You can review the list of prefixes we advertise to you through this peering on the [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653) page. The page is updated weekly.
 
-You can define custom route filters within your network to consume only the routes you need. Refer to the  [Routing](./expressroute-routing.md) page for detailed information on routing configuration. You can define custom route filters within your network to consume only the routes you need. 
+You can define custom route filters within your network to consume only the routes you need. Refer to the [Routing](expressroute-routing.md) page for detailed information on routing configuration. 
 
 See the [FAQ page](./expressroute-faqs.md) for more information on services supported through the public peering routing domain. 
 

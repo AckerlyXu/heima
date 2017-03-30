@@ -36,7 +36,7 @@ You can create Service Bus queues and topics in 1, 2, 3, 4, or 5 GB sizes (the d
 
 There are several ways to create a partitioned queue or topic. When you create the queue or topic from your application, you can enable partitioning for the queue or topic by respectively setting the [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] or [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] property to **true**. These properties must be set at the time the queue or topic is created. It is not possible to change these properties on an existing queue or topic. For example:
 
-```
+```csharp
 // Create partitioned topic
 NamespaceManager ns = NamespaceManager.CreateFromConnectionString(myConnectionString);
 TopicDescription td = new TopicDescription(TopicName);
@@ -70,7 +70,7 @@ Note that a partition key "pins" a message to a specific fragment. If the messag
 ## Advanced topics: use transactions with partitioned entities
 Messages that are sent as part of a transaction must specify a partition key. This can be one of the following properties: [BrokeredMessage.SessionId][BrokeredMessage.SessionId], [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey], or [BrokeredMessage.MessageId][BrokeredMessage.MessageId]. All messages that are sent as part of the same transaction must specify the same partition key. If you attempt to send a message without a partition key within a transaction, Service Bus returns an invalid operation exception. If you attempt to send multiple messages within the same transaction that have different partition keys, Service Bus returns an invalid operation exception. For example:
 
-```
+```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
 using (TransactionScope ts = new TransactionScope(committableTransaction))
 {
@@ -89,7 +89,7 @@ To send a transactional message to a session-aware topic or queue, the message m
 
 Unlike regular (non-partitioned) queues or topics, it is not possible to use a single transaction to send multiple messages to different sessions. If attempted, Service Bus returns an invalid operation exception. For example:
 
-```
+```csharp
 CommittableTransaction committableTransaction = new CommittableTransaction();
 using (TransactionScope ts = new TransactionScope(committableTransaction))
 {

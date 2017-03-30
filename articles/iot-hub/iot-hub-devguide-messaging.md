@@ -396,7 +396,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 
 [lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md
-[lnk-d2c-guidance]: /documentation/articles/iot-hub-devguide-d2c-guidance.md
+[lnk-d2c-guidance]: ./iot-hub-devguide-d2c-guidance.md
 [lnk-endpoints]: ./iot-hub-devguide-endpoints.md
 [lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md

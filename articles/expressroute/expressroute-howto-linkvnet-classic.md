@@ -20,9 +20,9 @@ ms.author: ganesr
 # Connect a virtual network to an ExpressRoute circuit
 
 > [!div class="op_single_selector"]
->- [Azure Portal - Resource Manager](/documentation/articles/expressroute/expressroute-howto-linkvnet-portal-resource-manager/)
->- [PowerShell - Resource Manager] (/documentation/articles/expressroute/expressroute-howto-linkvnet-arm/)  
->- [PowerShell - Classic](/documentation/articles/expressroute/expressroute-howto-linkvnet-classic/)
+>- [Azure Portal - Resource Manager](./expressroute-howto-linkvnet-portal-resource-manager.md/)
+>- [PowerShell - Resource Manager] (./expressroute-howto-linkvnet-arm.md/)  
+>- [PowerShell - Classic](./expressroute-howto-linkvnet-classic.md/)
 
 This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the classic deployment model and PowerShell. Virtual networks can either be in the same subscription or can be part of another subscription.
 
@@ -33,14 +33,14 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 ## Configuration prerequisites
 
 1. You need the latest version of the Azure PowerShell modules. You can download the latest PowerShell modules from the PowerShell section of the [Azure Downloads page](/downloads/). Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules. 
-2. You need to review the [prerequisites](/documentation/articles/expressroute/expressroute-prerequisites/), [routing requirements](/documentation/articles/expressroute/expressroute-routing/), and [workflows](/documentation/articles/expressroute/expressroute-workflows/) before you begin configuration.
+2. You need to review the [prerequisites](./expressroute-prerequisites.md/), [routing requirements](./expressroute-routing.md/), and [workflows](./expressroute-workflows.md/) before you begin configuration.
 3. You must have an active ExpressRoute circuit. 
-    - Follow the instructions to [create an ExpressRoute circuit](/documentation/articles/expressroute/expressroute-howto-circuit-classic/) and have your connectivity provider enable the circuit.
-    - Ensure that you have Azure private peering configured for your circuit. See the [configure routing](/documentation/articles/expressroute/expressroute-howto-routing-classic/) article for routing instructions. 
+    - Follow the instructions to [create an ExpressRoute circuit](./expressroute-howto-circuit-classic.md/) and have your connectivity provider enable the circuit.
+    - Ensure that you have Azure private peering configured for your circuit. See the [configure routing](./expressroute-howto-routing-classic.md/) article for routing instructions. 
     - Ensure that Azure private peering is configured and the BGP peering between your network and Microsoft is up so that you can enable end-to-end connectivity.
-    - You must have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [configure a virtual network for ExpressRoute](/documentation/articles/expressroute/expressroute-howto-vnet-portal-classic/).
+    - You must have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [configure a virtual network for ExpressRoute](./expressroute-howto-vnet-portal-classic.md/).
 
-You can link up to 10 virtual networks to an ExpressRoute circuit. All virtual networks must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit, or link virtual networks that are in other geopolitical regions if you enabled the ExpressRoute premium add-on. Check the [FAQ](/documentation/articles/expressroute/expressroute-faqs/) for more details on the premium add-on.
+You can link up to 10 virtual networks to an ExpressRoute circuit. All virtual networks must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit, or link virtual networks that are in other geopolitical regions if you enabled the ExpressRoute premium add-on. Check the [FAQ](./expressroute-faqs.md/) for more details on the premium add-on.
 
 ## Connect a virtual network in the same subscription to a circuit
 
@@ -166,4 +166,4 @@ Provisioned SalesVNET1
 
 ## Next steps
 
-For more information about ExpressRoute, see the [ExpressRoute FAQ](/documentation/articles/expressroute/expressroute-faqs/).
+For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md/).

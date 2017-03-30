@@ -30,7 +30,7 @@ You can upload service certificates to Azure classic portal either using the Azu
 
 Service certificates can be managed separately from your services, and may be managed by different individuals. For example, a developer may upload a service package that refers to a certificate that an IT manager has previously uploaded to Azure. An IT manager can manage and renew that certificate (changing the configuration of the service) without needing to upload a new service package. Updating without a new service package is possible because the logical name, store name, and location of the certificate is in the service definition file and while the certificate thumbprint is specified in the service configuration file. To update the certificate, it's only necessary to upload a new certificate and change the thumbprint value in the service configuration file.
 
->[AZURE.Note]
+>[!Note]
 >The [Cloud Services FAQ](./cloud-services-faq.md#certificates) article has some helpful information about certificates.
 
 ## What are management certificates?
@@ -72,7 +72,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 >[!NOTE]
 > If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
 
-If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
+If you want to use this [certificate with the management portal](./azure-api-management-certs.md), export it to a **.cer** file:
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -82,16 +82,16 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 There are many pages on the internet that cover how to do this with IIS. [Here](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) is a great one I found that I think explains it well. 
 
 ### Java
-You can use Java to [create a certificate](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
+You can use Java to [create a certificate](./java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### Linux
-[This](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) article describes how to create certificates with SSH.
+[This](./virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article describes how to create certificates with SSH.
 
 ## Next steps
 
 [Upload your service certificate to the Azure classic portal](./cloud-services-configure-ssl-certificate.md) (or the [Azure portal](./cloud-services-configure-ssl-certificate-portal.md)).
 
-Upload a [management API certificate](../azure-api-management-certs.md) to the Azure classic portal.
+Upload a [management API certificate](./azure-api-management-certs.md) to the Azure classic portal.
 
 >[!NOTE]
 > The Azure portal does not use management certificates to access the API but instead uses user accounts.

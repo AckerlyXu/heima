@@ -54,7 +54,7 @@ The template defines the following parameters.
 
 The name of the Service Bus namespace to create.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string",
 "metadata": { 
@@ -67,7 +67,7 @@ The name of the Service Bus namespace to create.
 
 The name of the queue created in the Service Bus namespace.
 
-```
+```json
 "serviceBusQueueName": {
 "type": "string"
 }
@@ -77,7 +77,7 @@ The name of the queue created in the Service Bus namespace.
 
 The Service Bus API version of the template.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -87,7 +87,7 @@ The Service Bus API version of the template.
 
 Creates a standard Service Bus namespace of type **Messaging**, with a queue.
 
-```
+```json
 "resources ": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -118,13 +118,13 @@ Creates a standard Service Bus namespace of type **Messaging**, with a queue.
 
 ## PowerShell
 
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## Azure CLI
 
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>

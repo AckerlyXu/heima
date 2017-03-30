@@ -134,24 +134,24 @@ You can also explore some of the other features and capabilities of the IoT Suit
 * [Frequently asked questions for IoT Suite][lnk-faq]
 * [IoT security from the ground up][lnk-security-groundup]
 
-[img-resource-group]: media/iot-suite-predictive-overview/resource-group.png
-[img-simulation-stopped]: media/iot-suite-predictive-overview/simulation-stopped.png
-[img-simulation-running]: media/iot-suite-predictive-overview/simulation-running.png
-[img-simulation-warning]: media/iot-suite-predictive-overview/simulation-warning.png
-[img-provisioning-complete]: media/iot-suite-predictive-overview/provisioned.png
+[img-resource-group]: ./media/iot-suite-predictive-overview/resource-group.png
+[img-simulation-stopped]: ./media/iot-suite-predictive-overview/simulation-stopped.png
+[img-simulation-running]: ./media/iot-suite-predictive-overview/simulation-running.png
+[img-simulation-warning]: ./media/iot-suite-predictive-overview/simulation-warning.png
+[img-provisioning-complete]: ./media/iot-suite-predictive-overview/provisioned.png
 
 [lnk-powerbi]: https://www.github.com/Microsoft/PowerBI-visuals
-[lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
-[lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk_iot_suite]: iot-suite-overview.md
+[lnk-predictive-walkthrough]: ./iot-suite-predictive-walkthrough.md
+[lnk_preconfigured_solutions]: ./iot-suite-what-are-preconfigured-solutions.md
+[lnk_iot_suite]: ./iot-suite-overview.md
 [lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
-[lnk-faq]: iot-suite-faq.md
-[lnk-security-groundup]: securing-iot-ground-up.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-faq]: ./iot-suite-faq.md
+[lnk-security-groundup]: ../iot-hub/securing-iot-ground-up.md
+[lnk-azureiotsuite]: https://www.azureiotsuite.cn/
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
-[lnk-permissions]: iot-suite-permissions.md
+[lnk-azureiotsuite]: https://www.azureiotsuite.cn
+[lnk-permissions]: ./iot-suite-permissions.md
 [lnk-portal]: http://portal.azure.com/

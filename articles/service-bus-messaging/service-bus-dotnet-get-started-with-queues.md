@@ -70,14 +70,14 @@ To send messages to the queue, we will write a C# console application using Visu
 ### Write some code to send a message to the queue
 
 1. Add the following using statement to the top of the Program.cs file.
-
-    ```
+   
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 
 2. Add the following code to the `Main` method, set the **connectionString** variable as the connection string that was obtained when creating the namespace, and set **queueName** as the queue name that used when creating the queue.
-
-    ```
+   
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
 
@@ -87,8 +87,8 @@ To send messages to the queue, we will write a C# console application using Visu
     ```
 
     Here is what your Program.cs should look like.
-
-    ```
+   
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
 
@@ -119,14 +119,14 @@ To send messages to the queue, we will write a C# console application using Visu
 1. Create a new console application and add a reference to the Service Bus NuGet package, similar to the previous sending application.
 
 2. Add the following `using` statement to the top of the Program.cs file.
-
-    ```
+   
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 
 3. Add the following code to the `Main` method, set the **connectionString** variable as the connection string that was obtained when creating the namespace, and set **queueName** as the queue name that you used when creating the queue.
-
-    ```
+   
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
 
@@ -142,8 +142,8 @@ To send messages to the queue, we will write a C# console application using Visu
     ```
 
     Here is what your Program.cs file should look like:
-
-    ```
+   
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
 

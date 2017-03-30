@@ -82,11 +82,11 @@ You can decide whether you want to update all of the roles in your service or a 
 
 The following diagram illustrates how the upgrade proceeds if you are upgrading all of the roles in the service:
 
-![Upgrade service](media/cloud-services-update-azure-service/IC345879.png "Upgrade service")
+![Upgrade service](./media/cloud-services-update-azure-service/IC345879.png "Upgrade service")
 
 This next diagram illustrates how the update proceeds if you are upgrading only a single role:
 
-![Upgrade role](media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
+![Upgrade role](./media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
 
 During an automatic update, the Azure Fabric Controller periodically evaluates the health of the cloud service to determine when it’s safe to walk the next UD. This health evaluation is performed on a per-role basis and considers only instances in the latest version (i.e. instances from UDs that have already been walked). It verifies that a minimum number of role instances, for each role, have achieved a satisfactory terminal state.
 
@@ -164,7 +164,7 @@ Upgrade domains are identified with a zero-based index: the first upgrade domain
 
 The following diagram illustrates how a service than contains two roles are distributed when the service defines two upgrade domains. The service is running eight instances of the web role and nine instances of the worker role.
 
-![Distribution of Upgrade Domains](media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
+![Distribution of Upgrade Domains](./media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
 
 > [!NOTE]
 > Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.

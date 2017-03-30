@@ -57,7 +57,7 @@ In both cases, you can retrieve your connection string using the `CloudConfigura
 
 The service configuration mechanism enables you to dynamically change configuration settings from the [Azure portal][] without redeploying your application. For example, add a `Setting` label to your service definition (**.csdef**) file, as shown in the next example.
 
-```
+```xml
 <ServiceDefinition name="Azure1">
 ...
     <WebRole name="MyRole" vmsize="Small">
@@ -71,7 +71,7 @@ The service configuration mechanism enables you to dynamically change configurat
 
 You then specify values in the service configuration (.cscfg) file.
 
-```
+```xml
 <ServiceConfiguration serviceName="Azure1">
 ...
     <Role name="MyRole">
@@ -90,7 +90,7 @@ Use the Shared Access Signature (SAS) key name and key values retrieved from the
 
 When using websites or Virtual Machines, it is recommended that you use the .NET configuration system (for example, Web.config). You store the connection string using the `<appSettings>` element.
 
-```
+```xml
 <configuration>
     <appSettings>
         <add key="Microsoft.ServiceBus.ConnectionString"
@@ -109,13 +109,13 @@ The following example constructs a `NamespaceManager` object using the Azure `Cl
 with a connection string consisting of the base address of a Service Bus namespace and the appropriate
 SAS credentials with permissions to manage it. This connection string is of the following form.
 
-```
-Endpoint=sb://<yourNamespace>.servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
+```xml
+Endpoint=sb://<yourNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<yourKey>
 ```
 
 Use the following example, given the configuration settings in the previous section.
 
-```
+```csharp
 // Create the topic if it does not exist already.
 string connectionString =
     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
@@ -131,7 +131,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 There are overloads of the [CreateTopic](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) method that enable you to set properties of the topic, for example, to set the default time-to-live (TTL) value to be applied to messages sent to the topic. These settings are applied by using the [TopicDescription](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) class. The following example shows how to create a topic named **TestTopic** with a maximum size of 5 GB and a default message TTL of 1 minute.
 
-```
+```csharp
 // Configure Topic Settings.
 TopicDescription td = new TopicDescription("TestTopic");
 td.MaxSizeInMegabytes = 5120;
@@ -165,7 +165,7 @@ restricts the set of messages passed to the subscription's virtual queue.
 
 If no filter is specified when a new subscription is created, the **MatchAll** filter is the default filter that is used. When you use the **MatchAll** filter, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named "AllMessages" and uses the default **MatchAll** filter.
 
-```
+```csharp
 string connectionString =
     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -186,7 +186,7 @@ The most flexible type of filter supported by subscriptions is the [SqlFilter][]
 
 The following example creates a subscription named **HighMessages** with a [SqlFilter][] object that only selects messages that have a custom **MessageNumber** property greater than 3.
 
-```
+```csharp
 // Create a "HighMessages" filtered subscription.
 SqlFilter highMessagesFilter =
    new SqlFilter("MessageNumber > 3");
@@ -198,7 +198,7 @@ namespaceManager.CreateSubscription("TestTopic",
 
 Similarly, the following example creates a subscription named **LowMessages** with a [SqlFilter][] that only selects messages that have a **MessageNumber** property less than or equal to 3.
 
-```
+```csharp
 // Create a "LowMessages" filtered subscription.
 SqlFilter lowMessagesFilter =
    new SqlFilter("MessageNumber <= 3");
@@ -216,7 +216,7 @@ To send a message to a Service Bus topic, your application creates a [TopicClien
 
 The following code demonstrates how to create a [TopicClient](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.topicclient.aspx) object for the **TestTopic** topic created earlier using the [`CreateFromConnectionString`](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.topicclient.createfromconnectionstring.aspx) API call.
 
-```
+```csharp
 string connectionString =
     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -231,7 +231,7 @@ standard properties (such as [Label](https://msdn.microsoft.com/zh-cn/library/az
 
 The following example demonstrates how to send five test messages to the **TestTopic** [TopicClient](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.topicclient.aspx) object obtained in the previous code example. Note that the [MessageNumber](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) property value of each message varies depending on the iteration of the loop (this determines which subscriptions receive it).
 
-```
+```csharp
 for (int i=0; i<5; i++)
 {
   // Create message, passing a string message for the body.
@@ -259,7 +259,7 @@ it finds the next message to be consumed, locks it to prevent other consumers re
 The following example demonstrates how messages can be received and processed using the default **PeekLock** mode. To specify a different [ReceiveMode](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.receivemode.aspx) value, you can use another overload for [CreateFromConnectionString](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.subscriptionclient.createfromconnectionstring.aspx). This example uses the [OnMessage](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) callback to process messages as they arrive
 into the **HighMessages** subscription.
 
-```
+```csharp
 string connectionString =
     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -311,14 +311,14 @@ redelivered. If the scenario cannot tolerate duplicate processing, then applicat
 
 The following example demonstrates how to delete the topic **TestTopic** from the **HowToSample** service namespace.
 
-```
+```csharp
 // Delete Topic.
 namespaceManager.DeleteTopic("TestTopic");
 ```
 
 Deleting a topic also deletes any subscriptions that are registered with the topic. Subscriptions can also be deleted independently. The following code demonstrates how to delete a subscription named **HighMessages** from the **TestTopic** topic.
 
-```
+```csharp
 namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 ```
 

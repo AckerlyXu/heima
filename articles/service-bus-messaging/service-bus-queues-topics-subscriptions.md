@@ -30,7 +30,7 @@ Using queues to intermediate between message producers and consumers provides an
 
 Creating a queue is a multi-step process. You perform management operations for Service Bus messaging entities (both queues and topics) via the [Microsoft.ServiceBus.NamespaceManager](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.aspx) class, which is constructed by supplying the base address of the Service Bus namespace and the user credentials. [NamespaceManager](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.aspx) provides methods to create, enumerate and delete messaging entities. After creating a [Microsoft.ServiceBus.TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) object from the SAS name and key, and a service namespace management object, you can use the [Microsoft.ServiceBus.NamespaceManager.CreateQueue](https://msdn.microsoft.com/zh-cn/library/azure/hh293157.aspx) method to create the queue. For example:
 
-```
+```csharp
 // Create management credentials
 TokenProvider credentials = TokenProvider. CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
 // Create namespace client
@@ -39,7 +39,7 @@ NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.Cr
 
 You can then create a queue object and a messaging factory with the Service Bus URI as an argument. For example:
 
-```
+```csharp
 QueueDescription myQueue;
 myQueue = namespaceClient.CreateQueue("TestQueue");
 MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials); 
@@ -48,7 +48,7 @@ QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
 
 You can then send messages to the queue. For example, if you have a list of brokered messages called `MessageList`, the code appears similar to the following:
 
-```
+```csharp
 for (int count = 0; count < 6; count++)
 {
     var issue = MessageList[count];
@@ -59,7 +59,7 @@ for (int count = 0; count < 6; count++)
 
 You then receive messages from the queue as follows:
 
-```
+```csharp
 while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, seconds: 5))) != null)
     {
         Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
@@ -87,27 +87,27 @@ By way of comparison, the message-sending functionality of a queue maps directly
 
 Creating a topic is similar to creating a queue, as shown in the example in the previous section. Create the service URI, and then use the [NamespaceManager](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.aspx) class to create the namespace client. You can then create a topic using the [CreateTopic](https://msdn.microsoft.com/zh-cn/library/azure/hh293080.aspx) method. For example:
 
-```
+```csharp
 TopicDescription dataCollectionTopic = namespaceClient.CreateTopic("DataCollectionTopic");
 ```
 
 Next, add subscriptions as desired:
 
-```
+```csharp
 SubscriptionDescription myAgentSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Inventory");
 SubscriptionDescription myAuditSubscription = namespaceClient.CreateSubscription(myTopic.Path, "Dashboard");
 ```
 
 You can then create a topic client. For example:
 
-```
+```csharp
 MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider);
 TopicClient myTopicClient = factory.CreateTopicClient(myTopic.Path)
 ```
 
 Using the message sender, you can send and receive messages to and from the topic, as shown in the previous section. For example:
 
-```
+```csharp
 foreach (BrokeredMessage message in messageList)
 {
     myTopicClient.Send(message);
@@ -118,7 +118,7 @@ foreach (BrokeredMessage message in messageList)
 
 Similar to queues, messages are received from a subscription using a [SubscriptionClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptionclient) object instead of a [QueueClient](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queueclient) object. Create the subscription client, passing the name of the topic, the name of the subscription, and (optionally) the receive mode as parameters. For example, with the **Inventory** subscription:
 
-```
+```csharp
 // Create the subscription client
 MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider); 
 
@@ -145,7 +145,7 @@ In many scenarios, messages that have specific characteristics must be processed
 
 Using the previous example, to filter messages coming only from **Store1**, you would create the Dashboard subscription as follows:
 
-```
+```csharp
 namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFilter("StoreName = 'Store1'"));
 ```
 

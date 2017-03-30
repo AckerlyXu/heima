@@ -32,7 +32,7 @@ Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before
 
 Add the following `import` statements to the top of the Java file:
 
-```
+```java
 // Include the following imports to use Service Bus APIs
 import com.microsoft.windowsazure.services.servicebus.*;
 import com.microsoft.windowsazure.services.servicebus.models.*;

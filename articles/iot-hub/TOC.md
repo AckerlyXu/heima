@@ -224,10 +224,10 @@
 ## [REST (Device Messaging) REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # Related
-## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## [Azure IoT Suite](../iot-suite/index.md)
+## [Azure Event Hubs](../event-hubs/index.md)
+## [Stream Analytics](../stream-analytics/index.md)
+## [Machine Learning](../machine-learning/index.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/iot-hub/)

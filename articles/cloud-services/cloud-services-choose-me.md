@@ -24,7 +24,7 @@ Is Azure Cloud Services the choice for you? Azure provides different hosting mod
 <a name="tellmecs"></a>
 ## Tell me about cloud services
 
-Cloud Services is an example of Platform-as-a-Service(PaaS). Like [App Service](/documentation/articles/app-service-web/app-service-web-overview/), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an App Service is hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
+Cloud Services is an example of Platform-as-a-Service(PaaS). Like [App Service](../app-service-web/app-service-web-overview.md/), this technology is designed to support applications that are scalable, reliable, and cheap to operate. Just like an App Service is hosted on VMs, so too are Cloud Services, however, you have more control over the VMs. You can install your own software on Cloud Service VMs and you can remote into them.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png) 
 
@@ -40,9 +40,9 @@ Any combination of these two slightly different VM hosting options are available
 * **Worker role**  
   Runs Windows Server without IIS.
 
-For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](/documentation/articles/service-bus/service-bus-fundamentals-hybrid-solutions/) or [Azure Queues](/documentation/articles/storage/storage-introduction/).)
+For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md/) or [Azure Queues](../storage/storage-introduction.md/).)
 
-As the figure above suggests, all of the VMs in a single application run in the same cloud service. Because of this, users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform will [scale and deploy](/documentation/articles/cloud-services/cloud-services-how-to-scale/) the VMs in a Cloud Services application in a way that avoids a single point of hardware failure. 
+As the figure above suggests, all of the VMs in a single application run in the same cloud service. Because of this, users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform will [scale and deploy](./cloud-services-how-to-scale/) the VMs in a Cloud Services application in a way that avoids a single point of hardware failure. 
 
 Even though applications run in virtual machines, it's important to understand that Cloud Services provides PaaS, not IaaS. Here's one way to think about it: With IaaS, such as Azure Virtual Machines, you first create and configure the environment your application will run in, then deploy your application into this environment. You're responsible for managing much of this world, doing things such as deploying new patched versions of the operating system in each VM. In PaaS, by contrast, it's as if the environment already exists. All you have to do is deploy your application. Management of the platform it runs on, including deploying new versions of the operating system, is handled for you.
 
@@ -59,5 +59,5 @@ The PaaS nature of Cloud Services has other implications, too. One of the most i
 ## Next steps
 [Create a cloud service app in .NET](./cloud-services-dotnet-get-started.md)  
 [Create a cloud service app in Node.js](./cloud-services-nodejs-develop-deploy-app.md)  
-[Create a cloud service app in PHP](../cloud-services-php-create-web-role.md)  
+[Create a cloud service app in PHP](./cloud-services-php-create-web-role.md)  
 [Create a cloud service app in Python](./cloud-services-python-ptvs.md)

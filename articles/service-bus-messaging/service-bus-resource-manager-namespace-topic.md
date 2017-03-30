@@ -54,7 +54,7 @@ The template defines the following parameters.
 
 The name of the Service Bus namespace to create.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string"
 }
@@ -64,7 +64,7 @@ The name of the Service Bus namespace to create.
 
 The name of the topic created in the Service Bus namespace.
 
-```
+```json
 "serviceBusTopicName": {
 "type": "string"
 }
@@ -74,7 +74,7 @@ The name of the topic created in the Service Bus namespace.
 
 The name of the subscription created in the Service Bus namespace.
 
-```
+```json
 "serviceBusSubscriptionName": {
 "type": "string"
 }
@@ -84,7 +84,7 @@ The name of the subscription created in the Service Bus namespace.
 
 The Service Bus API version of the template.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -93,7 +93,7 @@ The Service Bus API version of the template.
 
 Creates a standard Service Bus namespace of type **Messaging**, with topic and subscription.
 
-```
+```json
 "resources ": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -132,14 +132,12 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
-
-```
+```powershell
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## Azure CLI
-
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>

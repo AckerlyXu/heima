@@ -20,8 +20,8 @@ ms.author: charleywen
 # Configure ExpressRoute and Site-to-Site coexisting connections for the Resource Manager deployment model
 
 > [!div class="op_single_selector"]
->- [PowerShell - Resource Manager](/documentation/articles/expressroute/expressroute-howto-coexist-resource-manager/)
->- [PowerShell - Classic](/documentation/articles/expressroute/expressroute-howto-coexist-classic/)
+>- [PowerShell - Resource Manager](./expressroute-howto-coexist-resource-manager.md/)
+>- [PowerShell - Classic](./expressroute-howto-coexist-classic.md/)
 
 Having the ability to configure Site-to-Site VPN and ExpressRoute has several advantages. You can configure Site-to-Site VPN as a secure failover path for ExressRoute, or use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. We will cover the steps to configure both scenarios in this article. This article applies to the Resource Manager deployment model. This configuration is not available in the Azure portal.
 
@@ -30,7 +30,7 @@ Having the ability to configure Site-to-Site VPN and ExpressRoute has several ad
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 >[!IMPORTANT]
-> ExpressRoute circuits must be pre-configured before you follow the instructions below. Make sure that you have followed the guides to [create an ExpressRoute circuit](/documentation/articles/expressroute/expressroute-howto-circuit-arm/) and [configure routing](/documentation/articles/expressroute/expressroute-howto-routing-arm/) before you follow the steps below.
+> ExpressRoute circuits must be pre-configured before you follow the instructions below. Make sure that you have followed the guides to [create an ExpressRoute circuit](./expressroute-howto-circuit-arm.md/) and [configure routing](./expressroute-howto-routing-arm.md/) before you follow the steps below.
 
 ## Limits and limitations
 
@@ -51,7 +51,7 @@ You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. Th
 > 
 > 
 
-![Coexist](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
+![Coexist](./media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
 ### Configure a Site-to-Site VPN to connect to sites not connected through ExpressRoute
 
@@ -91,7 +91,7 @@ This procedure will walk you through creating a VNet and create Site-to-Site and
     $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
     ```
 
-3. Create a virtual network including Gateway Subnet. For more information about the virtual network configuration, see [Azure Virtual Network configuration](/documentation/articles/virtual-network/virtual-networks-create-vnet-arm-ps/).
+3. Create a virtual network including Gateway Subnet. For more information about the virtual network configuration, see [Azure Virtual Network configuration](../virtual-network/virtual-networks-create-vnet-arm-ps.md/).
 
     >[!IMPORTANT]
     > The Gateway Subnet must be /27 or a shorter prefix (such as /26 or /25).
@@ -115,7 +115,7 @@ This procedure will walk you through creating a VNet and create Site-to-Site and
     $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
     ```
 
-4. <a name="gw"></a>Create an ExpressRoute gateway. For more information about the ExpressRoute gateway configuration, see [ExpressRoute gateway configuration](/documentation/articles/expressroute/expressroute-howto-add-gateway-resource-manager/). The GatewaySKU must be *Standard* or *HighPerformance*.
+4. <a name="gw"></a>Create an ExpressRoute gateway. For more information about the ExpressRoute gateway configuration, see [ExpressRoute gateway configuration](./expressroute-howto-add-gateway-resource-manager.md/). The GatewaySKU must be *Standard* or *HighPerformance*.
 
     ```
     $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
@@ -243,7 +243,7 @@ You can follow the steps below to add Point-to-Site configuration to your VPN ga
     Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
     ```
 
-For more information on Point-to-Site VPN, see [Configure a Point-to-Site connection](/documentation/articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps/).
+For more information on Point-to-Site VPN, see [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md/).
 
 ## Next steps
 For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md).

@@ -39,10 +39,10 @@ Explore these resources to continue learning about IoT Suite and the preconfigur
 [lnk-whatissuite]: ./iot-suite-overview.md
 [lnk-whatarepreconfigured]: ./iot-suite-what-are-preconfigured-solutions.md
 
-[lnk-preconfigured-solutions]:./iot-suite-getstarted-preconfigured-solutions.md
+[lnk-preconfigured-solutions]: ./iot-suite-getstarted-preconfigured-solutions.md
 [Azure IoT Hub]: https://www.azure.cn/home/features/iot-hub/
 [Azure Event Hubs]: https://www.azure.cn/home/features/event-hubs/
 [Azure Stream Analytics]: https://www.azure.cn/home/features/stream-analytics/
 [Azure Machine Learning]: https://www.azure.cn/home/features/machine-learning/
 [Azure storage]: https://www.azure.cn/home/features/storage/
-[lnk-predictive-maintenance]:./iot-suite-predictive-overview.md
+[lnk-predictive-maintenance]: ./iot-suite-predictive-overview.md

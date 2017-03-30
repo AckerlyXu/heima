@@ -34,7 +34,7 @@ You will learn the following:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end is an ASP.NET MVC web role and the back end is a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project, that is deployed to an Azure website instead of a cloud service. For instructions about what to do differently on an Azure website front end, see the [Next steps](#nextsteps) section. You can also try out the [.NET on-premises/cloud hybrid application](/documentation/articles/service-bus-dotnet-hybrid-app-using-service-bus-relay/) tutorial.
+In this tutorial you'll build and run the multi-tier application in an Azure cloud service. The front end is an ASP.NET MVC web role and the back end is a worker-role that uses a Service Bus queue. You can create the same multi-tier application with the front end as a web project, that is deployed to an Azure website instead of a cloud service. For instructions about what to do differently on an Azure website front end, see the [Next steps](#nextsteps) section. You can also try out the [.NET on-premises/cloud hybrid application](./service-bus-dotnet-hybrid-app-using-service-bus-relay.md/) tutorial.
 
 The following screen shot shows the completed application.
 
@@ -179,107 +179,98 @@ queue and displays status information about the queue.
 
 In this section, you create the various pages that your application displays.
 
-1.  In the OnlineOrder.cs file in Visual Studio, replace the
-    existing namespace definition with the following code:
-
-    ```
-    namespace FrontendWebRole.Models
-    {
-        public class OnlineOrder
-        {
-            public string Customer { get; set; }
-            public string Product { get; set; }
-        }
-    }
-    ```
-
-2.  In **Solution Explorer**, double-click
-    **Controllers\HomeController.cs**. Add the following **using**
-    statements at the top of the file to include the namespaces for the
-    model you just created, as well as Service Bus.
-
-    ```
-    using FrontendWebRole.Models;
-    using Microsoft.ServiceBus.Messaging;
-    using Microsoft.ServiceBus;
-    ```
-
-3.  Also in the HomeController.cs file in Visual Studio, replace the
-    existing namespace definition with the following code. This code
-    contains methods for handling the submission of items to the queue.
-
-    ```
-    namespace FrontendWebRole.Controllers
-    {
-        public class HomeController : Controller
-        {
-            public ActionResult Index()
-            {
-                // Simply redirect to Submit, since Submit will serve as the
-                // front page of this application.
-                return RedirectToAction("Submit");
-            }
-
-            public ActionResult About()
-            {
-                return View();
-            }
-
-            // GET: /Home/Submit.
-            // Controller method for a view you will create for the submission
-            // form.
-            public ActionResult Submit()
-            {
-                // Will put code for displaying queue message count here.
-
-                return View();
-            }
-
-            // POST: /Home/Submit.
-            // Controller method for handling submissions from the submission
-            // form.
-            [HttpPost]
-            // Attribute to help prevent cross-site scripting attacks and
-            // cross-site request forgery.  
-            [ValidateAntiForgeryToken]
-            public ActionResult Submit(OnlineOrder order)
-            {
-                if (ModelState.IsValid)
-                {
-                    // Will put code for submitting to queue here.
-
-                    return RedirectToAction("Submit");
-                }
-                else
-                {
-                    return View(order);
-                }
-            }
-        }
-    }
-    ```
-
-4.  On the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
-
-5.  Now, create the view for the `Submit()` method you
-    created earlier. Right-click within the `Submit()` method (the overload of `Submit()` that takes no parameters), and then choose
-    **Add View**.
-
-    ![][14]
-
-6.  A dialog box appears for creating the view. In the **Template** list, choose **Create**. In the **Model class** list, click the **OnlineOrder** class.
-
-    ![][15]
-
-7.  Click **Add**.
-
-8.  Now, change the displayed name of your application. In **Solution Explorer**, double-click the
-    **Views\Shared\\_Layout.cshtml** file to open it in the Visual
-    Studio editor.
-
-9.  Replace all occurrences of **My ASP.NET Application** with
-    **LITWARE'S Products**.
-
+1. In the OnlineOrder.cs file in Visual Studio, replace the
+   existing namespace definition with the following code:
+   
+   ```csharp
+   namespace FrontendWebRole.Models
+   {
+       public class OnlineOrder
+       {
+           public string Customer { get; set; }
+           public string Product { get; set; }
+       }
+   }
+   ```
+2. In **Solution Explorer**, double-click
+   **Controllers\HomeController.cs**. Add the following **using**
+   statements at the top of the file to include the namespaces for the
+   model you just created, as well as Service Bus.
+   
+   ```csharp
+   using FrontendWebRole.Models;
+   using Microsoft.ServiceBus.Messaging;
+   using Microsoft.ServiceBus;
+   ```
+3. Also in the HomeController.cs file in Visual Studio, replace the
+   existing namespace definition with the following code. This code
+   contains methods for handling the submission of items to the queue.
+   
+   ```csharp
+   namespace FrontendWebRole.Controllers
+   {
+       public class HomeController : Controller
+       {
+           public ActionResult Index()
+           {
+               // Simply redirect to Submit, since Submit will serve as the
+               // front page of this application.
+               return RedirectToAction("Submit");
+           }
+   
+           public ActionResult About()
+           {
+               return View();
+           }
+   
+           // GET: /Home/Submit.
+           // Controller method for a view you will create for the submission
+           // form.
+           public ActionResult Submit()
+           {
+               // Will put code for displaying queue message count here.
+   
+               return View();
+           }
+   
+           // POST: /Home/Submit.
+           // Controller method for handling submissions from the submission
+           // form.
+           [HttpPost]
+           // Attribute to help prevent cross-site scripting attacks and
+           // cross-site request forgery.  
+           [ValidateAntiForgeryToken]
+           public ActionResult Submit(OnlineOrder order)
+           {
+               if (ModelState.IsValid)
+               {
+                   // Will put code for submitting to queue here.
+   
+                   return RedirectToAction("Submit");
+               }
+               else
+               {
+                   return View(order);
+               }
+           }
+       }
+   }
+   ```
+4. On the **Build** menu, click **Build Solution** to test the accuracy of your work so far.
+5. Now, create the view for the `Submit()` method you
+   created earlier. Right-click within the `Submit()` method (the overload of `Submit()` that takes no parameters), and then choose
+   **Add View**.
+   
+   ![][14]
+6. A dialog box appears for creating the view. In the **Template** list, choose **Create**. In the **Model class** list, click the **OnlineOrder** class.
+   
+   ![][15]
+7. Click **Add**.
+8. Now, change the displayed name of your application. In **Solution Explorer**, double-click the
+   **Views\Shared\\_Layout.cshtml** file to open it in the Visual
+   Studio editor.
+9. Replace all occurrences of **My ASP.NET Application** with
+   **LITWARE'S Products**.
 10. Remove the **Home**, **About**, and **Contact** links. Delete the highlighted code:
 
     ![][28]
@@ -289,8 +280,8 @@ In this section, you create the various pages that your application displays.
     **Views\Home\Submit.cshtml** file to open it in the Visual Studio
     editor. Add the following line after `<h2>Submit</h2>`. For now,
     the `ViewBag.MessageCount` is empty. You will populate it later.
-
-    ```
+    
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 
@@ -314,7 +305,7 @@ Service Bus queue.
 
 3.  Now, add code that encapsulates the connection information and initializes the connection to a Service Bus queue. Replace the entire contents of QueueConnector.cs with the following code, and enter values for `your Service Bus namespace` (your namespace name) and `yourKey`, which is the **primary key** you previously obtained from the Azure portal.
 
-    ```
+   ```csharp
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -378,7 +369,7 @@ Service Bus queue.
 
 5.  Add the following line of code at the end of the **Application_Start** method.
 
-    ```
+   ```csharp
     FrontendWebRole.QueueConnector.Initialize();
     ```
 
@@ -389,7 +380,7 @@ Service Bus queue.
 7.  Update the `Submit()` method (the overload that takes no parameters) as follows to get the message count
     for the queue.
 
-    ```
+   ```csharp
     public ActionResult Submit()
     {
         // Get a NamespaceManager which allows you to perform management and
@@ -407,7 +398,7 @@ Service Bus queue.
 8.  Update the `Submit(OnlineOrder order)` method (the overload that takes one parameter) as follows to submit
     order information to the queue.
 
-    ```
+   ```csharp
     public ActionResult Submit(OnlineOrder order)
     {
         if (ModelState.IsValid)
@@ -465,20 +456,20 @@ submissions. This example uses the **Worker Role with Service Bus Queue** Visual
 
 11. In **WorkerRole.cs**, change the value of the **QueueName** variable from `"ProcessingQueue"` to `"OrdersQueue"` as shown in the following code.
 
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 
 12. Add the following using statement at the top of the WorkerRole.cs file.
 
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 
 13. In the `Run()` function, inside the `OnMessage()` call, replace the contents of the `try` clause with the following code.
-
-    ```
+    
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();

@@ -64,7 +64,7 @@ However, there are a few things to watch out for in the use of *AppCmd.exe* as a
 
 It is a good practice to check the **errorlevel** after calling *AppCmd.exe*, which is easy to do if you wrap the call to *AppCmd.exe* with a *.cmd* file. If you detect a known **errorlevel** response, you can ignore it, or pass it back.
 
-The errorlevels returned by *AppCmd.exe* are listed in the winerror.h file, and can also be seen on [MSDN](https://msdn.microsoft.com/zh-cn/library/windows/desktop/ms681382.aspx).
+The errorlevel returned by *AppCmd.exe* are listed in the winerror.h file, and can also be seen on [MSDN](https://msdn.microsoft.com/zh-cn/library/windows/desktop/ms681382.aspx).
 
 ### Example of managing the error level
 
@@ -395,7 +395,7 @@ Visual Studio does not provide a debugger to step through batch files, so it's g
 "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 ```
 
-To simplify your xml, you can create a wrapper *cmd* file that calls all of your startup tasks along with logging and ensures each child-task shares the same environment variables. This may have an 
+To simplify your xml, you can create a wrapper *cmd* file that calls all of your startup tasks along with logging and ensures each child-task shares the same environment variables. 
 You may find it annoying though to use `>> "%TEMP%\StartupLog.txt" 2>&1` on the end of each startup task. You can enforce task logging by creating a wrapper that handles logging for you. This wrapper calls the real batch file you want to run. Any output from the target batch file will be redirected to the *Startuplog.txt* file.
 
 The following example shows how to redirect all output from a startup batch file. In this example, the ServerDefinition.csdef file creates a startup task that calls *logwrap.cmd*. *logwrap.cmd* calls *Startup2.cmd*, redirecting all output to **%TEMP%\\StartupLog.txt**.

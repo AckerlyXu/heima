@@ -33,8 +33,6 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 ## Network requirements
 - **Redundant connectivity**: there is no redundancy requirement on physical connectivity between you and your provider. Microsoft does require redundant BGP sessions to be set up between Microsoft’s routers and the peering routers, even when you have just [one physical connection to a cloud exchange](./expressroute-faqs.md#onep2plink). 
 - **Routing**: depending on how you connect to the Microsoft Cloud, you or your provider need to set up and manage the BGP sessions for [routing domains](./expressroute-circuit-peerings.md). Some Ethernet connectivity provider or cloud exchange provider may offer BGP management as a value-add service.
-- **NAT**: Microsoft only accepts public IP addresses through Microsoft peering. If you are using private IP addresses in your on-premises network, you or your provider need to translate the private IP addresses to the public IP addresses [using the NAT](/documentation/articles/expressroute-nat/).
-- **QoS**: Skype for Business has various services (for example; voice, video, text) that require differentiated QoS treatment. You and your provider should follow the [QoS requirements](/documentation/articles/expressroute-qos/).
 - **Network Security**: consider [network security](../best-practices-network-security.md) when connecting to the Microsoft Cloud via ExpressRoute.
 
 ## Office 365
@@ -56,8 +54,8 @@ If you plan to enable CRM Online on ExpressRoute, review the following documents
 
 - For more information about ExpressRoute, see the [ExpressRoute FAQ](./expressroute-faqs.md).
 - Find an ExpressRoute connectivity provider. See [ExpressRoute partners and peering locations](./expressroute-locations.md).
-- Refer to requirements for [Routing](./expressroute-routing.md), [NAT](/documentation/articles/expressroute-nat/) and [QoS](/documentation/articles/expressroute-qos/).
+- Refer to requirements for [Routing](./expressroute-routing.md).
 - Configure your ExpressRoute connection.
     - [Create an ExpressRoute circuit](./expressroute-howto-circuit-classic.md)
     - [Configure routing](./expressroute-howto-routing-classic.md)
-    - [Link a VNet to an ExpressRoute circuit](/documentation/articles/expressroute-howto-linkvnet-classic
+    - [Link a VNet to an ExpressRoute circuit](./expressroute-howto-linkvnet-classic.md)

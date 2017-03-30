@@ -50,14 +50,14 @@ The power of this transactional capability becomes apparent when the transfer qu
 
 To set up such transfers, you create a message sender that targets the destination queue via the transfer queue. You will also have a receiver that pulls messages from that same queue. For example:
 
-```
+```csharp
 var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
 var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
 ```
 
 A simple transaction then uses these elements, as in the following example:
 
-```
+```csharp
 var msg = receiver.Receive();
 
 using (scope = new TransactionScope())

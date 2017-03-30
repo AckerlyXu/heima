@@ -284,7 +284,7 @@ To learn more about the options for customizing the preconfigured solutions, see
 [lnk-dynamic]: ./iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: ./iot-suite-remote-monitoring-device-info.md
 
-[IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
+[IoT Device SDK]: ./iot-hub-sdks-summary.md/
 [lnk-permissions]: ./iot-suite-permissions.md
 [lnk-dashboard-controller]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/Controllers/DashboardController.cs#L27
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27

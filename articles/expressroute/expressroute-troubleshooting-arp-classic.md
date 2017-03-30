@@ -19,7 +19,7 @@ ms.author: ganesr
 # ExpressRoute troubleshooting guide: Getting ARP tables in the classic deployment model
 
 > [!div class="op_single_selector"]
-[PowerShell - Resource Manager](/documentation/articles/expressroute-troubleshooting-arp-resourcemanager/)
+[PowerShell - Resource Manager](expressroute-troubleshooting-arp-resourcemanager.md/)
 [PowerShell - Classic](./expressroute-troubleshooting-arp-classic.md)
 
 This article walks you through the steps for getting the Address Resolution Protocol (ARP) tables for your Azure ExpressRoute circuit.

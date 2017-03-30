@@ -15,12 +15,12 @@ wacn.date: 05/17/2016
 # How to Manage Cloud Services
 
 > [!div class="op_single_selector"]
->- [Azure portal](/documentation/articles/cloud-services/cloud-services-how-to-manage-portal/)
->- [Azure classic portal](/documentation/articles/cloud-services/cloud-services-how-to-manage/)
+>- [Azure portal](./cloud-services-how-to-manage-portal.md/)
+>- [Azure classic portal](./cloud-services-how-to-manage.md/)
 
 Your cloud service is managed in the **Cloud Services (classic)** area of the Azure portal. This article describes some common actions you would take while managing your cloud services. Which includes updating, deleting, scaling, and promoting a staged deployment to production.
 
-More information about how to scale your cloud service is available [here](/documentation/articles/cloud-services/cloud-services-how-to-scale-portal/).
+More information about how to scale your cloud service is available [here](./cloud-services-how-to-scale-portal.md/).
 
 ## How to: Update a cloud service role or deployment
 If you need to update the application code for your cloud service, use **Update** on the cloud service blade. You can update a single role or all roles. To update, you can upload a new service package or service configuration file.
@@ -108,13 +108,13 @@ Use the following procedure to delete a deployment or your cloud service.
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 
 > [!NOTE]
-> When a cloud service is deleted, and verbose monitoring is configured, you must delete the data manually from your storage account. For information about where to find the metrics tables, see [this](/documentation/articles/cloud-services/cloud-services-how-to-monitor/) article.
+> When a cloud service is deleted, and verbose monitoring is configured, you must delete the data manually from your storage account. For information about where to find the metrics tables, see [this](./cloud-services-how-to-monitor.md/) article.
 
 [Azure portal]: https://portal.azure.cn
 
 ## Next steps
 
-* [General configuration of your cloud service](/documentation/articles/cloud-services/cloud-services-how-to-configure-portal/).
-* Learn how to [deploy a cloud service](/documentation/articles/cloud-services/cloud-services-how-to-create-deploy-portal/).
-* Configure a [custom domain name](/documentation/articles/cloud-services/cloud-services-custom-domain-name-portal/).
-* Configure [ssl certificates](/documentation/articles/cloud-services/cloud-services-configure-ssl-certificate-portal/).
+* [General configuration of your cloud service](./cloud-services-how-to-configure-portal.md/).
+* Learn how to [deploy a cloud service](./cloud-services-how-to-create-deploy-portal.md/).
+* Configure a [custom domain name](./cloud-services-custom-domain-name-portal.md/).
+* Configure [ssl certificates](./cloud-services-configure-ssl-certificate-portal.md/).

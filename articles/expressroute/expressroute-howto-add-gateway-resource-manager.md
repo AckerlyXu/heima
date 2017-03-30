@@ -20,8 +20,8 @@ ms.author: charwen
 # Configure a virtual network gateway for ExpressRoute using Resource Manager and PowerShell
 
 > [!div class="op_single_selector"]
->- [PowerShell - Resource Manager](/documentation/articles/expressroute/expressroute-howto-add-gateway-resource-manager/)
->- [PowerShell - Classic](/documentation/articles/expressroute/expressroute-howto-add-gateway-classic/)
+>- [PowerShell - Resource Manager](./expressroute-howto-add-gateway-resource-manager.md/)
+>- [PowerShell - Classic](./expressroute-howto-add-gateway-classic.md/)
 
 This article will walk you through the steps to add, resize, and remove a virtual network (VNet) gateway for a pre-existing VNet. The steps for this configuration are specifically for VNets that were created using the **Resource Manager deployment model** and that will be be used in an ExpressRoute configuration. 
 
@@ -37,4 +37,4 @@ Verify that you have installed the Azure PowerShell cmdlets needed for this conf
 
 ## Next steps
 
-After you have created the VNet gateway, you can link your VNet to an ExpressRoute circuit. See [Link a Virtual Network to an ExpressRoute circuit](/documentation/articles/expressroute/expressroute-howto-linkvnet-arm/).
+After you have created the VNet gateway, you can link your VNet to an ExpressRoute circuit. See [Link a Virtual Network to an ExpressRoute circuit](./expressroute-howto-linkvnet-arm.md/).
