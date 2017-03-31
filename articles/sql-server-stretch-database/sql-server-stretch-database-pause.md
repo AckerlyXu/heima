@@ -46,7 +46,7 @@ GO;
 ### Use Transact\-SQL to resume data migration
 Run the following command.
 
-```
+```tsql
 ALTER TABLE <table name>
     SET ( REMOTE_DATA_ARCHIVE ( MIGRATION_STATE = OUTBOUND ) ) ;
 ```

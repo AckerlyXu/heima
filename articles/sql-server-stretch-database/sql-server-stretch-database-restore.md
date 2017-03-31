@@ -63,14 +63,15 @@ To restore a deleted Azure database to the point when it was deleted by using th
 
     -   Specify whether to make a copy of the remote data and connect to the copy (recommended).  
 
-        ```
+   	```tsql  
         USE <Stretch-enabled database name>;
-        ```
+        
         GO
         EXEC sp_rda_reauthorize_db
             @credential = N'<existing_database_scoped_credential_name>',
             @with_copy = 1 ;  
         GO
+    ```  
 
 ## See also
 
