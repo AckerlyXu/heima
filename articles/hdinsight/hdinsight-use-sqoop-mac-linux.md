@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use Sqoop with Hadoop in HDInsight (SSH)
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 

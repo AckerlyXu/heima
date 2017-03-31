@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Node.js web app using the Azure Table Service
 ## Overview
 This tutorial shows you how to use Table service provided by Azure Data Management to store and access data from a [node] application hosted in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/) Web Apps. This tutorial assumes that you have some prior experience using node and [Git].
@@ -102,10 +102,10 @@ In this section you will create a new Node application and use npm to add module
            create : ./public/javascripts
            create : ./bin
            create : ./bin/www
-   
+
            install dependencies:
              $ cd . && npm install
-   
+
            run the app:
              $ DEBUG=my-application ./bin/www
 
@@ -171,7 +171,7 @@ A *model* is an object that represents the data in your application. For the app
 4. Add the following code to define and export the Task object. This object is responsible for connecting to the table.
 
           module.exports = Task;
-   
+
         function Task(storageClient, tableName, partitionKey) {
           this.storageClient = storageClient;
           this.tableName = tableName;
@@ -195,7 +195,7 @@ A *model* is an object that represents the data in your application. For the app
               }
             });
           },
-   
+
           addItem: function(item, callback) {
             self = this;
             // use entityGenerator to set types
@@ -215,7 +215,7 @@ A *model* is an object that represents the data in your application. For the app
               callback(null);
             });
           },
-   
+
           updateItem: function(rKey, callback) {
             self = this;
             self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
@@ -242,7 +242,7 @@ A *controller* handles HTTP requests and renders the HTML response.
 
         var azure = require('azure-storage');
         var async = require('async');
-   
+
         module.exports = TaskList;
 3. Define a **TaskList** object.
 
@@ -260,7 +260,7 @@ A *controller* handles HTTP requests and renders the HTML response.
               res.render('index',{title: 'My ToDo List ', tasks: items});
             });
           },
-   
+
           addTask: function(req,res) {
             var self = this;
             var item = req.body.item;
@@ -271,7 +271,7 @@ A *controller* handles HTTP requests and renders the HTML response.
               res.redirect('/');
             });
           },
-   
+
           completeTask: function(req,res) {
             var self = this;
             var completedTasks = Object.keys(req.body);
@@ -321,7 +321,7 @@ A *controller* handles HTTP requests and renders the HTML response.
         var Task = require('./models/task');
         var task = new Task(azure.createTableService(accountName, accountKey), tableName, partitionKey);
         var taskList = new TaskList(task);
-   
+
         app.get('/', taskList.showTasks.bind(taskList));
         app.post('/addtask', taskList.addTask.bind(taskList));
         app.post('/completetask', taskList.completeTask.bind(taskList));
@@ -332,11 +332,11 @@ A *controller* handles HTTP requests and renders the HTML response.
 2. Replace the entire contents of the file with the following code. This defines a view that displays existing tasks and includes a form for adding new tasks and marking existing ones as completed.
 
         extends layout
-   
+
         block content
           h1= title
           br
-   
+
           form(action="/completetask", method="post")
             table.table.table-striped.table-bordered
               tr
@@ -549,7 +549,7 @@ While the steps in this article describe using the Table Service to store inform
 <!-- URLs -->
 
 [Build and deploy a Node.js web app in Azure App Service]: web-sites-nodejs-develop-deploy-mac.md
-[Azure Developer Center]: /develop/nodejs/
+[Azure Developer Center]: https://www.azure.cn/develop/nodejs/
 
 [node]: http://nodejs.org
 [Git]: http://git-scm.com

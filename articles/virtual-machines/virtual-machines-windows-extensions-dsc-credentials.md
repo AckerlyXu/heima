@@ -18,8 +18,8 @@ ms.workload: na
 ms.date: 09/15/2016
 wacn.date: ''
 ms.author: zachal
----
 
+---
 # Passing credentials to the Azure DSC extension handler
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

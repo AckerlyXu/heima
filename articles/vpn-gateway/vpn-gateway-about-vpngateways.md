@@ -1,5 +1,5 @@
 ---
-title: VPN Gateway Overview: Create cross-premises VPN connections to Azure virtual networks | Azure
+title: 'VPN Gateway Overview: Create cross-premises VPN connections to Azure virtual networks | Azure'
 description: This VPN Gateway Overview explains the ways to connect to Azure virtual networks using a VPN connection over the Internet. Included are diagrams of basic connection configurations.
 services: vpn-gateway
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # About VPN Gateway
 To send network traffic between your Azure virtual network and your on-premises site, you must create a virtual network gateway for your virtual network. A VPN gateway is a type of virtual network gateway that sends encrypted traffic across a public connection. You can also use VPN gateways to send traffic between Azure virtual networks over the Microsoft network.
 

@@ -1,6 +1,6 @@
 ---
 title: Get started with Apache Kafka on HDInsight | Azure
-description: Learn the basics of creating and working with Kafka on HDInsight.
+description: 'Learn the basics of creating and working with Kafka on HDInsight.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -17,7 +17,6 @@ ms.date: 02/14/2017
 wacn.date: ''
 ms.author: larryfr
 ---
-
 # Get started with Apache Kafka (preview) on HDInsight
 
 [Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that is available with HDInsight. It is often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. In this document, you learn how to create a Kafka on HDInsight cluster and then send and receive data from a Java application.

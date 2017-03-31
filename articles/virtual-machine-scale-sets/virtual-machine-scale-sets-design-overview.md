@@ -18,8 +18,8 @@ ms.topic: article
 ms.date: 02/13/2017
 wacn.date: ''
 ms.author: negat
----
 
+---
 # Designing VM Scale Sets For Scale
 This topic discusses design considerations for Virtual Machine Scale Sets. For information about what Virtual Machine Scale Sets are, refer to [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md).
 

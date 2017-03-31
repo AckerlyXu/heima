@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 wacn.date: ''
 ms.author: nepeters
----
 
+---
 # Using the Azure Custom Script Extension with Linux Virtual Machines
 >[!NOTE]
 > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.

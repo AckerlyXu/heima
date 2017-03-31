@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: ''
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -18,6 +18,7 @@ ms.date: 05/16/2016
 wacn.date: ''
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
+
 ---
 
 # Resize a Linux VM with Azure CLI 1.0

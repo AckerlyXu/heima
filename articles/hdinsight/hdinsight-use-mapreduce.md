@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use MapReduce in Hadoop on HDInsight
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]

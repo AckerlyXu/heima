@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Configure an application gateway for SSL offload by using the classic deployment model
 
 > [!div class="op_single_selector"]

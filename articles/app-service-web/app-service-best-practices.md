@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 06/30/2016
 wacn.date: ''
 ms.author: dariagrigoriu
----
 
+---
 # Best Practices for Azure App Service
 This article summarizes best practices for using [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/). 
 

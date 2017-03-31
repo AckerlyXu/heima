@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to configure data persistence for a Premium Azure Redis Cache
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. This article describes how to configure persistence in a premium Azure Redis Cache instance.
 

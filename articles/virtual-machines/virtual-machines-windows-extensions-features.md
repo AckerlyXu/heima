@@ -18,8 +18,8 @@ ms.date: 03/06/2017
 wacn.date: ''
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Virtual machine extensions and features for Windows
 
 Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. For example, if a virtual machine requires software installation, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run by using the Azure CLI, PowerShell, Azure Resource Manager templates, and the Azure portal preview. Extensions can be bundled with a new virtual machine deployment or run against any existing system.

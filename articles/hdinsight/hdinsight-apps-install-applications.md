@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Install third-party Hadoop applications on Azure HDInsight
 
 In this article, you will learn how to install an already published third-party Hadoop application on Azure HDInsight. For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).

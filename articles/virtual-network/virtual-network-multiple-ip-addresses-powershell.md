@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 wacn.date: ''
 ms.author: jdial;annahar
----
 
+---
 # Assign multiple IP addresses to virtual machines using PowerShell
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using PowerShell. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.
+This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using PowerShell. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 

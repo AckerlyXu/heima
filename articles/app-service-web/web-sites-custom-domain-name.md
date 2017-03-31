@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/30/2017
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Map a custom domain name to an Azure app
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 

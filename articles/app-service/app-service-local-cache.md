@@ -18,8 +18,8 @@ ms.workload: na
 ms.date: 03/04/2016
 wacn.date: ''
 ms.author: cfowler
----
 
+---
 # Azure App Service Local Cache overview
 Azure web app content is stored on Azure Storage and is surfaced up in a durable manner as a content share. This design is intended to work with a variety of apps and has the following attributes:  
 

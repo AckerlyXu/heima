@@ -18,8 +18,8 @@ ms.date: 03/17/2017
 wacn.date: ''
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Azure subscription and accounts guidelines for Windows VMs
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 03/08/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # Azure Redis Cache FAQ
 Learn the answers to common questions, patterns, and best practices for Azure Redis Cache.
 

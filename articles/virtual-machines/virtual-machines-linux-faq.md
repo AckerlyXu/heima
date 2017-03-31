@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 08/16/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Frequently asked question about Linux Virtual Machines
 This article addresses some common questions about Linux virtual machines created in Azure using the Resource Manager deployment model. For the Windows version of this topic, see [Frequently asked question about Windows Virtual Machines](virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

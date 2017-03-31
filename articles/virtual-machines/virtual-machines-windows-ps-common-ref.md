@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 wacn.date: ''
 ms.author: davidmu
----
 
+---
 # Common PowerShell commands for creating and managing Azure Virtual Machines
 
 This article covers some of the Azure PowerShell commands that you can use to create and manage virtual machines in your Azure subscription.  For more detailed help with specific command-line switches and options, you can use **Get-Help** *command*.
@@ -42,7 +42,7 @@ These variables might be useful for you if running more than one of the commands
 | Set OS disk to use a platform image |$vm = [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Set-AzureRmVMOSDisk) -VM $vm -Name "myOSDisk" -VhdUri "http://mystore1.blob.core.chinacloudapi.cn/vhds/myOSDisk.vhd" -CreateOption FromImage<BR></BR><BR></BR>The name of the operating system disk and its location in [storage](../storage/storage-powershell-guide-full.md) is added to the configuration object that you previously created. |
 | Set OS disk to use a generalized image |$vm = Set-AzureRmVMOSDisk -VM $vm -Name "myOSDisk" -SourceImageUri "https://mystore1.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/myimages/myprefix-osDisk.{guid}.vhd" -VhdUri "https://mystore1.blob.core.chinacloudapi.cn/vhds/disk_name.vhd" -CreateOption FromImage -Windows<BR></BR><BR></BR>The name of the operating system disk, the location of the source image, and the disk's location in [storage](../storage/storage-powershell-guide-full.md) is added to the configuration object. |
 | Set OS disk to use a specialized image |$vm = Set-AzureRmVMOSDisk -VM $vm -Name "myOSDisk" -VhdUri "http://mystore1.blob.core.chinacloudapi.cn/vhds/" -CreateOption Attach -Windows |
-| Create a VM |[New-AzureRmVM](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.4.0/new-azurermvm) -ResourceGroupName $myResourceGroup -Location $location -VM $vm<BR></BR><BR></BR>All resources are created in a [resource group](../azure-resource-manager/powershell-azure-resource-manager.md). Before you run this command, run New-AzureRmVMConfig, Set-AzureRmVMOperatingSystem, Set-AzureRmVMSourceImage, Add-AzureRmVMNetworkInterface, and Set-AzureRmVMOSDisk. |
+| Create a VM |[New-AzureRmVM](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.4.0/new-azurermvm) -ResourceGroupName $myResourceGroup -Location $location -VM $vm<BR></BR><BR></BR>All resources are created in a [resource group](../powershell-azure-resource-manager.md). Before you run this command, run New-AzureRmVMConfig, Set-AzureRmVMOperatingSystem, Set-AzureRmVMSourceImage, Add-AzureRmVMNetworkInterface, and Set-AzureRmVMOSDisk. |
 
 ## Get information about VMs
 

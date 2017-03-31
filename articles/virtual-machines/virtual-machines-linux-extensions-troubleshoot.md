@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 wacn.date: ''
 ms.author: kundanap
----
 
+---
 # Troubleshooting Azure Linux VM extension failures
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 

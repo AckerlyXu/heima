@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/25/2016
 wacn.date: ''
 ms.author: v-donntr
----
 
+---
 # Create a Web App in Azure App Service using the Azure SDK for Java
 <!-- Azure Active Directory workflow is not yet available on the Azure Portal Preview -->
 
@@ -122,7 +122,7 @@ In this section you create a workspace and a Maven project for the web app creat
     * Packaging: jar
     * Name: AzureWebDemo
 
-        Click **Finish**.
+    Click **Finish**.
 3. Open the new project's pom.xml file in Project Explorer. Select the **Dependencies** tab. As this is a new project, no packages are listed yet.
 4. Open the Maven Repositories view. **Click Window > Show View > Other > Maven > Maven Repositories** and click **OK**. The **Maven Repositories** view will appear at the bottom of the IDE.
 5. Open **Global Repositories**, right-click the **central** repository, and select **Rebuild Index**.
@@ -329,7 +329,7 @@ In order to demonstrate how to deploy an application to the web, the following p
           ...
           java.util.Date date = new java.util.Date();
         </head>
-   
+
         <body>
           Hello, the time is <%= date %> 
         </body>
@@ -477,7 +477,7 @@ Another tool you can use to publish the application is FileZilla, a popular thir
     * **User:** Enter the Deployment / FTP user that you copied from the dashboard. This is the full FTP username, which has the form *webappname\username*.
     * **Password:** Enter the password that you specified when you set the deployment credentials.
 
-        On the **Transfer Settings** tab, select **Passive**.
+    On the **Transfer Settings** tab, select **Passive**.
 3. Click **Connect**. If successful, FileZilla's console will display a `Status: Connected` message and issue a `LIST` command to list the directory contents.
 4. In the **Local** site panel, select the source directory in which the JSPHello.war file resides; the path will be similar to the following:
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/21/2016
 wacn.date: ''
 ms.author: zarizvi
----
 
+---
 # Supported Move Configurations
 You can move Azure Web App resources using the [Resource Manager Move Resources API](../azure-resource-manager/resource-group-move-resources.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy a web app that is linked to a GitHub repository | Azure
+title: Deploy a web app that is linked to a GitHub repository | Azure 
 description: Use an Azure Resource Manager template to deploy a web app that contains a project from a GitHub repository.
 services: app-service
 documentationcenter: ''
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 04/27/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Deploy a web app linked to a GitHub repository
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/29/2016
 wacn.date: ''
 ms.author: aelnably
----
 
+---
 # Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps
 > [!div class="op_single_selector"]
 > * [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
@@ -175,7 +175,7 @@ To reset both the publishing password for FTP and web deploy for a web app, use:
 To learn about how to manage web app certificates, see [SSL Certificates binding using PowerShell](app-service-web-app-powershell-ssl-binding.md)
 
 ### Next Steps
-* To learn about Azure Resource Manager PowerShell support, see [Using Azure PowerShell with Azure Resource Manager.](../azure-resource-manager/powershell-azure-resource-manager.md)
+* To learn about Azure Resource Manager PowerShell support, see [Using Azure PowerShell with Azure Resource Manager.](../powershell-azure-resource-manager.md)
 * To learn about managing App Service SSL certificates using PowerShell, see [SSL Certificates binding using PowerShell.](app-service-web-app-powershell-ssl-binding.md)
 * To learn about the full list of Azure Resource Manager-based PowerShell cmdlets for Azure Web Apps, see [Azure Cmdlet Reference of Web Apps Azure Resource Manager PowerShell Cmdlets.](https://msdn.microsoft.com/zh-cn/library/mt619237.aspx)
 * * To learn about managing App Service using CLI, see [Using Azure Resource Manager-Based XPlat CLI for Azure Web App.](app-service-web-app-azure-resource-manager-xplat-cli.md)

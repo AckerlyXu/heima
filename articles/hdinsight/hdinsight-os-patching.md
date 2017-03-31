@@ -7,7 +7,7 @@ author: bhanupr
 manager: asadk
 editor: bhanupr
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: bhanupr
----
 
+---
 # How to configure the OS patching schedule for Linux-based HDInsight clusters
 The virtual machines in an HDInsight cluster need to be rebooted occasionally so that important security patches can be installed. As of August 1, 2016, new Linux-based HDInsight clusters (version 3.4 or greater,) will be rebooted using the following schedule:
 

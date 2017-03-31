@@ -19,7 +19,6 @@ ms.author: larryfr
 ROBOTS: NOINDEX
 
 ---
-
 # Use the Tez UI to debug Tez Jobs on Windows-based HDInsight
 The Tez UI is a web page that can be used to understand and debug jobs that use Tez as the execution engine on Windows-based HDInsight clusters. The Tez UI allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 

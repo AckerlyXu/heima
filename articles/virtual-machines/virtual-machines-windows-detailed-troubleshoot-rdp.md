@@ -19,8 +19,8 @@ ms.topic: support-article
 ms.date: 12/20/2016
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Detailed troubleshooting steps for remote desktop connection issues to Windows VMs in Azure
 This article provides detailed troubleshooting steps to diagnose and fix complex Remote Desktop errors for Windows-based Azure virtual machines.
 

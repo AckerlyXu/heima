@@ -1,6 +1,6 @@
 ---
-title: SQL Server Availability Groups - Azure Virtual Machines - Prereq | Azure
-description: This tutorial shows how to configure the prerequisites for creating a SQL Server Always On Availability Group in Azure VMs.
+title: SQL Server Availability Groups - Azure Virtual Machines - Prereq | Azure 
+description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On Availability Group in Azure VMs."
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -18,6 +18,7 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: ''
 ms.author: mikeray
+
 ---
 
 # Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines

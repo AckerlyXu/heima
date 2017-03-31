@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/28/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run Hive queries using the HDInsight tools for Visual Studio
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]

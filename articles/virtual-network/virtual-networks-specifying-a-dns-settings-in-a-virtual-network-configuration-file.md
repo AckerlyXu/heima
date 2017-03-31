@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Specifying DNS settings in a virtual network configuration file
 A network configuration file has two elements that you can use to specify Domain Name System (DNS) settings: **DnsServers** and **DnsServerRef**. You can add a list of DNS servers by specifying their IP addresses and reference names to the **DnsServers** element. You can then use a **DnsServerRef** element to specify which DNS server entries from the DnsServers element are used for different network sites within your virtual network.
 

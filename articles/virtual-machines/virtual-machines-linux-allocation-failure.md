@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/02/2016
 wacn.date: ''
 ms.author: cjiang
----
 
+---
 # Troubleshoot allocation failures when you create, restart, or resize Linux VMs in Azure
 When you create a VM, restart stopped (deallocated) VMs, or resize a VM, Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations -- even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services. You can also [troubleshoot allocation failures when you create, restart, or resize Windows VMs in Azure](virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

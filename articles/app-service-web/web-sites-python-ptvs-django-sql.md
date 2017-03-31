@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/07/2016
 wacn.date: ''
 ms.author: huvalo
----
 
+---
 # Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

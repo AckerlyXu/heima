@@ -7,7 +7,7 @@ author: vlivech
 manager: timlt
 editor: ''
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,6 +16,7 @@ ms.workload: infrastructure
 ms.date: 11/21/2016
 wacn.date: ''
 ms.author: v-livech
+
 ---
 
 # Deploy a Linux VM into an existing VNet & NSG using the portal

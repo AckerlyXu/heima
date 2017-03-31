@@ -20,7 +20,6 @@ ms.author: nitinme
 ROBOTS: NOINDEX
 
 ---
-
 # Customize Windows-based HDInsight clusters using Script Action
 **Script Action** can be used to invoke [custom scripts](hdinsight-hadoop-script-actions.md)
 during the cluster creation process for installing additional software on a cluster.

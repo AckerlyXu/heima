@@ -18,8 +18,8 @@ ms.topic: support-article
 ms.date: 01/10/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Troubleshooting specific RDP error messages to a Windows VM in Azure
 You may receive a specific error message when using Remote Desktop connection to a Windows virtual machine (VM) in Azure. This article details some of the more common error messages encountered, along with troubleshooting steps to resolve them. If you are having issues connecting to your VM using RDP but do not encounter a specific error message, see the [troubleshooting guide for Remote Desktop](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

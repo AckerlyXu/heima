@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/27/2017
 wacn.date: ''
 ms.author: larryfr
+
 ms.custom: H1Hack27Feb2017
 ---
-
 # Use Python User Defined Functions (UDF) with Hive and Pig in HDInsight
 
 Hive and Pig are great for working with data in HDInsight, but sometimes you need a more general-purpose language. Both Hive and Pig allow you to create User Defined Functions (UDF) using many programming languages. In this article, you learn how to use a Python UDF from Hive and Pig.

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Create a PHP-MySQL web app in Azure App Service and deploy using FTP
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -118,7 +118,7 @@ To build and run the app locally, follow the steps below. Note that these steps 
               <input type="submit" name="submit" value="Submit" />
         </form>
         <?php
-   
+
         ?>
         </body>
         </html>

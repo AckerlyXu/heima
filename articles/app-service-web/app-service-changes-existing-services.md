@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/12/2016
 wacn.date: ''
 ms.author: yochaykk
----
 
+---
 # Azure App Service and existing Azure services
 This article outlines the changes to existing Azure services as part of the change to bring together several Azure services into [Azure App Service](https://www.azure.cn/home/features/app-service/), a new integrated offering.
 

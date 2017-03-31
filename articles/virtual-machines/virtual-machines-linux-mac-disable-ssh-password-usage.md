@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 08/26/2016
 wacn.date: ''
 ms.author: v-livech
----
 
+---
 # Disable SSH passwords on your Linux VM by configuring SSHD
 This article focuses on how to lock down the login security of your Linux VM.  As soon as the SSH port 22 is opened to the world bots start trying to login by guessing passwords.  What we will do in this article is disable password logins over SSH.  By completely removing the ability to use passwords we protect the Linux VM from this type of brute force attack.  The added bonus is we will configure Linux SSHD to only allow logins via SSH public & private keys, by far the most secure way to login to Linux.  The possible combinations of it would require to guess the private key is immense and therefore discourages bots from even bothering to try to brute force SSH keys.
 

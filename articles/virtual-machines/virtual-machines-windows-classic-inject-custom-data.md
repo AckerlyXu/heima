@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 08/23/2016
 wacn.date: ''
 ms.author: rasquill
----
 
+---
 # Injecting custom data into an Azure virtual machine
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about using the Custom Script Extension with the Resource Manager model, see [here](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

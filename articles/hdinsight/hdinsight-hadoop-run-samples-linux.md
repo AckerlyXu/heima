@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run the Hadoop samples in HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 

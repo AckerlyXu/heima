@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/02/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Use empty edge nodes in HDInsight
 
 Learn how to add an empty edge node to a Linux-based HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes, but with no hadoop services running. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
@@ -104,7 +104,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
     * **Ssh Password**: Enter the SSH user password.
     * **Install Script Action**: Keep the default value for going through this tutorial.
 
-        Some properties have been hardcoded in the template: Cluster type, Cluster worker node count, Edge node size, and Edge node name.
+    Some properties have been hardcoded in the template: Cluster type, Cluster worker node count, Edge node size, and Edge node name.
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the cluster with the edge node.
 
 ## Access an edge node

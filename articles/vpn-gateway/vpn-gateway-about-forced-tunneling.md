@@ -1,5 +1,5 @@
 ---
-title: Configure forced tunneling for Azure Site-to-Site connections: classic | Azure
+title: 'Configure forced tunneling for Azure Site-to-Site connections: classic | Azure'
 description: How to redirect or 'force' all Internet-bound traffic back to your on-premises location.
 services: vpn-gateway
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2016
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Configure forced tunneling using the classic deployment model
 > [!div class="op_single_selector"]
 > * [PowerShell - Classic](vpn-gateway-about-forced-tunneling.md)
@@ -53,7 +53,7 @@ Forced tunneling in Azure is configured via virtual network user defined routes 
 * With the release of user defined routes, you can create a routing table to add a default route, and then associate the routing table to your VNet subnet(s) to enable forced tunneling on those subnets.
 * You need to set a "default site" among the cross-premises local sites connected to the virtual network.
 * Forced tunneling must be associated with a VNet that has a dynamic routing VPN gateway (not a static gateway).
-* ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions. Please see the [ExpressRoute Documentation](../expressroute/index.md) for more information.
+* ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions. Please see the [ExpressRoute Documentation](/azure/expressroute/) for more information.
 
 ## Configuration overview
 In the following example, the Frontend subnet is not forced tunneled. The workloads in the Frontend subnet can continue to accept and respond to customer requests from the Internet directly. The Mid-tier and Backend subnets are forced tunneled. Any outbound connections from these two subnets to the Internet will be forced or redirected back to an on-premises site via one of the S2S VPN tunnels.
@@ -125,7 +125,7 @@ The steps will set the *DefaultSiteHQ* as the default site connection for forced
     After a routing table is created and a route added, use the following example to add or associate the route table to a VNet subnet. The example adds the route table "MyRouteTable" to the Midtier and Backend subnets of VNet MultiTier-VNet.
 
         Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
-   
+
         Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 4. Assign a default site for forced tunneling. 
 

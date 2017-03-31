@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Jupyter notebooks kernels with Apache Spark clusters in HDInsight 
 
 HDInsight Spark clusters provide kernels that you can use with the Jupyter notebook for testing your Spark applications. A kernel is a program that runs and interprets your code. The two kernels are:

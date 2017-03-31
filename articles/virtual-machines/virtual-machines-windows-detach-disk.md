@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # How to detach a data disk from a Windows virtual machine
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. 
 

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/07/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Install MongoDB on a Windows VM in Azure
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).  This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. To install and configure MongoDB using the Resource Manager deployment model, see [this article](virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

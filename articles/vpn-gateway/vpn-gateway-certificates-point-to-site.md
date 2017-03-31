@@ -1,5 +1,5 @@
 ---
-title: Create a self-signed certificates for Point-to-Site: PowerShell: Azure | Azure
+title: 'Create a self-signed certificates for Point-to-Site: PowerShell: Azure | Azure'
 description: This article contains steps to create a self-signed root certificate, export the public key, and generate client certificates using PowerShell on Windows 10.
 services: vpn-gateway
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Create a self-signed root certificate for Point-to-Site connections using PowerShell
 
 Point-to-Site connections use certificates to authenticate. When you configure a Point-to-Site connection, you need to upload the public key (.cer file) of a root certificate to Azure. This article helps you create a self-signed root certificate, export the public key, and generate and install client certificates.
@@ -97,7 +97,7 @@ If you are creating additional client certificates, or are not using the same Po
     For example, using the thumbprint for P2SRootCert in the previous step, the variable would look like this:
 
         $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
-    	
+
 4.  Modify and run the example to generate a client certificate. If you run the following example without modifying it, the result is a client certificate named 'P2SChildCert'. If you want to name the child certificate something else, modify the CN value. Do not change the TextExtension when running this example. The client certificate that you generate is automatically installed in 'Certificates - Current User\Personal\Certificates' on your computer.
 
         New-SelfSignedCertificate -Type Custom -KeySpec Signature `

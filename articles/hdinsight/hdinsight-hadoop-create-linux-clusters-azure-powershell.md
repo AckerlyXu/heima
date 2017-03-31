@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Create Linux-based clusters in HDInsight using Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 

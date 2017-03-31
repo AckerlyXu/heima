@@ -16,8 +16,8 @@ ms.workload: iaas-sql-server
 ms.date: 12/28/2016
 wacn.date: ''
 ms.author: mikeray
----
 
+---
 # Configure one or more Always On Availability Group Listeners - Resource Manager
 This topic shows how to:
 

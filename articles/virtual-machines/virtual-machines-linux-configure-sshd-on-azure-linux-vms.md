@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 11/21/2016
 wacn.date: ''
 ms.author: v-livech
+
 ---
 
 # Configure SSHD on Azure Linux VMs

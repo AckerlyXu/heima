@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 01/03/2017
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Azure CLI commands in Resource Manager mode
 This article provides syntax and options for Azure command-line interface (CLI) commands you'd commonly use to create and manage Azure resources in the Azure Resource Manager deployment model. You access these commands by running the CLI in Resource Manager (arm) mode. This is not a complete reference, and your CLI version may show slightly different commands or parameters. For a general overview of Azure resources and resource groups, see [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
 > This article shows Resource Manager mode commands in the Azure CLI, sometimes called Azure CLI 1.0. 
->To work in the Resource Manager model, you can also try the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), our next generation multi-platform CLI. However, Azure CLI 2.0 does not support Virtual Machines or Storage in Azure China because of the API version.
+>To work in the Resource Manager model, you can also try the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2), our next generation multi-platform CLI.
 > Find out more about the [old and new Azure CLIs](https://docs.microsoft.com/cli/azure/old-and-new-clis).
 >
 

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/06/2016
 wacn.date: ''
 ms.author: cjiang
----
 
+---
 # Troubleshoot classic deployment issues with creating a new Linux virtual machine in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
 

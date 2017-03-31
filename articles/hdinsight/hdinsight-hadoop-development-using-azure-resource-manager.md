@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Migrating to Azure Resource Manager-based development tools for HDInsight clusters
 
 HDInsight is deprecating Azure Service Manager (ASM)-based tools for HDInsight. If you have been using Azure PowerShell, Azure CLI, or the HDInsight .NET SDK to work with HDInsight clusters, you are encouraged to use the Azure Resource Manager (ARM)-based versions of PowerShell, CLI, and .NET SDK going forward. This article provides pointers on how to migrate to the new ARM-based approach. Wherever applicable, this article also points out the differences between the ASM and ARM approaches for HDInsight.
@@ -248,7 +248,7 @@ Following are some examples on how an operation is performed using the ASM-based
 
         //Certificate auth
         //This logs the application in using a subscription administration certificate, which is not offered in Azure Resource Manager (ARM)
-  
+
         const string subid = "454467d4-60ca-4dfd-a556-216eeeeeeee1";
         var cred = new HDInsightCertificateCredential(new Guid(subid), new X509Certificate2(@"path\to\certificate.cer"));
         var client = HDInsightClient.Connect(cred);
@@ -258,34 +258,34 @@ Following are some examples on how an operation is performed using the ASM-based
         //This will log the application in as itself, rather than on behalf of a specific user.
         //For details, including how to set up the application, see:
        //   https://www.azure.cn/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
-  
+
         var authFactory = new AuthenticationFactory();
-  
+
         var account = new AzureAccount { Type = AzureAccount.AccountType.ServicePrincipal, Id = clientId };
-  
+
         var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureChinaCloud];
-  
+
         var accessToken = authFactory.Authenticate(account, env, tenantId, secretKey, ShowDialog.Never).AccessToken;
-  
+
         var creds = new TokenCloudCredentials(subId.ToString(), accessToken);
-  
+
         _hdiManagementClient = new HDInsightManagementClient(creds, new Uri("https://management.chinacloudapi.cn/"));
 * New command (ARM) (User authorization)
 
         //User auth
         //This will log the application in on behalf of the user.
         //The end-user will see a login popup.
-  
+
         var authFactory = new AuthenticationFactory();
-  
+
         var account = new AzureAccount { Type = AzureAccount.AccountType.User, Id = username };
-  
+
         var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureChinaCloud];
-  
+
         var accessToken = authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto).AccessToken;
-  
+
         var creds = new TokenCloudCredentials(subId.ToString(), accessToken);
-  
+
         _hdiManagementClient = new HDInsightManagementClient(creds, new Uri("https://management.chinacloudapi.cn/"));
 
 **Creating a cluster**

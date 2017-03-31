@@ -18,9 +18,10 @@ ms.date: 04/27/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create a VM with a static public IP address using an Azure Resource Manager template
+
 > [!div class="op_single_selector"]
 >- [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
 >- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -144,7 +145,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
                             Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/mas
                             ter/IaaS-Story/03-Static-public-IP/azuredeploy.json
                             ContentVersion : 1.0.0.0
-   
+
         Parameters        :
                             Name                      Type                       Value     
                             ========================  =========================  ==========
@@ -157,7 +158,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
                             osType                    String                     Windows   
                             adminUsername             String                     adminUser
                             adminPassword             SecureString                         
-   
+
         Outputs           :
 
 ## Deploy the template by using the Azure CLI

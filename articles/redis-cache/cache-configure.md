@@ -16,8 +16,8 @@ ms.workload: tbd
 ms.date: 03/08/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to configure Azure Redis Cache
 This topic describes how to review and update the configuration for your Azure Redis Cache instances, and covers the default Redis server configuration for Azure Redis Cache instances.
 

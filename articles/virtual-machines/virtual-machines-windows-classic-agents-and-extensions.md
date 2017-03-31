@@ -18,8 +18,8 @@ ms.date: 02/27/2017
 wacn.date: ''
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
----
 
+---
 # About the virtual machine agent and extensions for Windows VMs
 
 > [!IMPORTANT]

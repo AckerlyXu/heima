@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 06/01/2016
 wacn.date: ''
 ms.author: glenga
----
 
+---
 # How to use Azure blob storage with the WebJobs SDK
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

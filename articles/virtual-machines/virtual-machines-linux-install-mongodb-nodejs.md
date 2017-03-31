@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/20/2016
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # How to install and configure MongoDB on a Linux VM using the Azure CLI 1.0
 [MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article shows you how to install and configure MongoDB on a Linux VM in Azure using the Resource Manager deployment model. Examples are shown that detail how to:
 

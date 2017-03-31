@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # How to capture a classic Linux virtual machine as an image
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to [perform these steps using the Resource Manager model](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -17,8 +17,8 @@ ms.workload: big-compute
 ms.date: 08/25/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Get started running Excel and SOA workloads on an HPC Pack cluster in Azure
 This article shows you how to deploy a Microsoft HPC Pack cluster on Azure virtual machines by using an Azure quickstart template, or optionally an Azure PowerShell deployment script. The cluster uses Azure Marketplace VM images designed to run Microsoft Excel or service-oriented architecture (SOA) workloads with HPC Pack. You can use the cluster to run simple Excel HPC and SOA services from an on-premises client computer. The Excel HPC services include Excel workbook offloading and Excel user-defined functions, or UDFs.
 
@@ -37,7 +37,6 @@ At a high level, the following diagram shows the HPC Pack cluster you create.
 ## Step 1. Set up an HPC Pack cluster in Azure
 We show two options to set up the cluster: first, using an Azure quickstart template and the Azure portal preview; and second, using an Azure PowerShell deployment script.
 
-<!-- need to be customized -->
 ### Option 1. Use a quickstart template
 Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure portal preview. When you open the template in the portal, you get a simple UI where you enter the settings for your cluster. Here are the steps. 
 

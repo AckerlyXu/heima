@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Configure an existing application gateway for hosting multiple web applications
 
 > [!div class="op_single_selector"]

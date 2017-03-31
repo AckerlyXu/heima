@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 02/13/2017
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Deploy a WordPress app in the Azure portal preview in five minutes
 
 This tutorial shows you how to deploy your first [WordPress](https://wordpress.org/) web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md) 

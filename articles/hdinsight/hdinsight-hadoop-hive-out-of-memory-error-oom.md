@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: rashimg;jgao
----
 
+---
 # Fix an Out of Memory (OOM) error with Hive memory settings in Hadoop in Azure HDInsight
 One of the common problems our customers face is getting an Out of Memory (OOM) error when using Hive. This article describes a customer scenario and the Hive settings we recommended to fix the issue.
 

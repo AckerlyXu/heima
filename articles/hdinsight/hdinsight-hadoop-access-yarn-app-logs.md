@@ -20,7 +20,6 @@ ms.author: jgao
 ROBOTS: NOINDEX
 
 ---
-
 # Access YARN application logs on Windows-based HDInsight
 This topic explains how to access the logs for YARN (Yet Another Resource Negotiator) applications that have finished on a Windows-based Hadoop cluster in Azure HDInsight
 

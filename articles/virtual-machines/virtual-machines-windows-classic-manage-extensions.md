@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 wacn.date: ''
 ms.author: rasquill
----
 
+---
 # Manage virtual machine extensions
 Describes how to find, add, modify, or remove VM Extensions with either Windows or Linux Virtual Machines on Azure.
 

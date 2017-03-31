@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/23/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # API Apps overview
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/06/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to troubleshoot Azure Redis Cache
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/20/2016
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Install and configure MongoDB on a Windows VM in Azure
 [MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through installing and configuring MongoDB on a Windows Server 2012 R2 virtual machine (VM) in Azure. You can also [install MongoDB on a Linux VM in Azure](virtual-machines-linux-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

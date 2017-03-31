@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Get started with API Apps, ASP.NET, and Swagger in Azure App Service
 [!INCLUDE [selector](../../includes/app-service-api-get-started-selector.md)]
 
@@ -345,7 +345,7 @@ The ToDoListAPI project already has the generated client code, but in the follow
             var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
             return client;
         }
-   
+
         public async Task<IEnumerable<ToDoItem>> Get()
         {
             using (var client = NewDataAPIClient())

@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Create HDInsight clusters using the Azure CLI
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

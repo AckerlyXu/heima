@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 03/08/2017
 wacn.date: ''
 ms.author: jeffstok
+
 ---
 
 # Mixing use of ScaleR and SparkR in HDInsight

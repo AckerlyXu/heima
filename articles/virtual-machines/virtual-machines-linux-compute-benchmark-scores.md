@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Compute benchmark scores for Linux VMs
 The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu. Compute benchmark scores are also available for [Windows VMs](virtual-machines-windows-compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

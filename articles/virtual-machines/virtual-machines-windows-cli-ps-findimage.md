@@ -17,8 +17,8 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 wacn.date: ''
 ms.author: rasquill
----
 
+---
 # Navigate and select Windows virtual machine images in Azure with PowerShell
 This topic describes how to find VM image publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Windows VM images are:
 

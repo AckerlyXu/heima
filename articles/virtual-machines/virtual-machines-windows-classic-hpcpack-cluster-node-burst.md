@@ -17,8 +17,8 @@ ms.workload: big-compute
 ms.date: 10/14/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Add on-demand "burst" nodes to an HPC Pack cluster in Azure
 If you set up a [Microsoft HPC Pack](https://technet.microsoft.com/zh-cn/library/cc514029) cluster in Azure, you might want a way to quickly scale the cluster capacity up or down, without maintaining a set of preconfigured compute node VMs. This article shows you how to add on-demand "burst" nodes (worker role instances
 running in a cloud service) as compute resources to a

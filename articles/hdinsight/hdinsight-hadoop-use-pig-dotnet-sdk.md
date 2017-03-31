@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 03/03/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run Pig jobs using the .NET SDK for Hadoop in HDInsight
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 

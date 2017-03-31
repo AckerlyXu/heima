@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Create a custom probe for Application Gateway by using the portal
 > [!div class="op_single_selector"]
 > * [Azure portal preview](application-gateway-create-probe-portal.md)

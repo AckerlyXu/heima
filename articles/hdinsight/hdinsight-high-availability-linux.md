@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Availability and reliability of Hadoop clusters in HDInsight
 
 Hadoop achieves high availability and reliability by distributing redundant copies of services and data across the nodes in a cluster. However standard distributions of Hadoop typically have only a single head node. Any outage of the single head node can cause the cluster to stop working.

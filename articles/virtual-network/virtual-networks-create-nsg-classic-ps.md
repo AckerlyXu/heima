@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # How to create NSGs (classic) in PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 

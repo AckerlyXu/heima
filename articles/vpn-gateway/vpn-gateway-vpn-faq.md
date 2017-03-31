@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # VPN Gateway FAQ
 ## Connecting to virtual networks
 ### Can I connect virtual networks in different Azure regions?

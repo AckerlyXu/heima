@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # HBase tutorial: Get started using Apache HBase in HDInsight
 
 Learn how to create an HBase cluster in HDInsight, create HBase tables, and query tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
@@ -159,7 +159,6 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
         STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
         WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:Phone,Office:Phone,Office:Address')
         TBLPROPERTIES ('hbase.table.name' = 'Contacts');
-
 4. Run the following HiveQL script to query the data in the HBase table:
 
          SELECT count(*) FROM hbasecontacts;
@@ -191,7 +190,6 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 
         curl -u <UserName>:<Password> \
         -G https://<ClusterName>.azurehdinsight.cn/hbaserest/
-
 3. Use the following command to create a new HBase table with two-column families:
 
         curl -u <UserName>:<Password> \

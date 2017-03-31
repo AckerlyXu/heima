@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 08/04/2015
 wacn.date: ''
 ms.author: huvalo
----
 
+---
 # Django Hello World web application on a Windows Server VM
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-classic-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)

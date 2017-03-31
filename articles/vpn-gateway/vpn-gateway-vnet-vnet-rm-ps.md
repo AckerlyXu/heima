@@ -1,5 +1,5 @@
 ---
-title: Connect an Azure virtual network to another VNet: PowerShell | Azure
+title: 'Connect an Azure virtual network to another VNet: PowerShell | Azure'
 description: This article walks you through connecting virtual networks together by using Azure Resource Manager and PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Configure a VNet-to-VNet connection using PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal Preview](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -426,5 +426,5 @@ In this example, because the gateways are in the different subscriptions, we've 
 
 ## Next steps
 
-* Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](../virtual-machines/index.md) for more information.
+* Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/azure/virtual-machines/) for more information.
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).

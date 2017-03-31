@@ -18,8 +18,8 @@ ms.date: 12/16/2016
 wacn.date: ''
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Troubleshoot deployment issues when creating a new Windows VM in Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 

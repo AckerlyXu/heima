@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Create an application gateway by using the Azure CLI 2.0
 
 > [!div class="op_single_selector"]
@@ -138,6 +138,7 @@ az network application-gateway create \
 --frontend-port 443 \
 --routing-rule-type Basic \
 --http-settings-port 80
+
 ```
 
 > [!NOTE]

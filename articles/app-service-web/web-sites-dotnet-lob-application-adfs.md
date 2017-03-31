@@ -16,8 +16,8 @@ ms.workload: web
 ms.date: 08/31/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Create a line-of-business Azure app with AD FS authentication
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -308,7 +308,7 @@ Since you have included group memberships as role claims in your RP trust config
         using System;
         using System.Web.Mvc;
         using System.Web.Routing;
-   
+
         namespace WebApp_WSFederation_DotNet
         {
             [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]

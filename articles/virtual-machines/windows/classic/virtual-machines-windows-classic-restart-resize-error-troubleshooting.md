@@ -17,8 +17,8 @@ ms.date: 01/10/2017
 wacn.date: ''
 ms.devlang: na
 ms.author: delhan
----
 
+---
 # Troubleshoot classic deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure
 > [!div class="op_single_selector"]
 > * [Classic](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)

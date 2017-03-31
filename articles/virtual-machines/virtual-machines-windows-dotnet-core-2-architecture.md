@@ -18,8 +18,8 @@ ms.date: 11/21/2016
 wacn.date: ''
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Application architecture with Azure Resource Manager templates for Windows VMs
 
 When developing an Azure Resource Manager deployment, compute requirements need to be mapped to Azure resources and services. If an application consists of several http endpoints, a database, and a data caching service, the Azure resources that host each of these components needs to be rationalized. For instance, the sample Music Store application includes a web application that is hosted on a virtual machine, and a SQL database, which is hosted in Azure SQL database. 
@@ -110,7 +110,7 @@ Clicking into the storage account blob container, the virtual hard drive file fo
 
 ![Virtual Hard Drives](./media/virtual-machines-windows-dotnet-core/vhd-win.png)
 
-For more information on Azure Storage, see [Azure Storage documentation](../storage/index.md).
+For more information on Azure Storage, see [Azure Storage documentation](/azure/storage/).
 
 ## Virtual Network
 If a virtual machine requires internal networking such as the ability to communicate with other virtual machines and Azure resources, an Azure Virtual Network is required.  A virtual network does not make the virtual machine accessible over the internet. Public connectivity requires a public IP address, which is detailed later in this series.
@@ -222,7 +222,7 @@ From the Azure portal preview, the network interface looks like the following im
 
 ![Network Interface](./media/virtual-machines-windows-dotnet-core/nic-win.png)
 
-For more information on Azure Virtual Networks, see [Azure Virtual Network documentation](../virtual-network/index.md).
+For more information on Azure Virtual Networks, see [Azure Virtual Network documentation](/azure/virtual-network/).
 
 ## Azure SQL Database
 In addition to a virtual machine hosting the Music Store website, an Azure SQL Database is deployed to host the Music Store database. The advantage of using Azure SQL Database here is that a second set of virtual machines is not required, and scale and availability is built into the service.
@@ -267,7 +267,7 @@ A view of the SQL server and MusicStore database as seen in the Azure portal pre
 
 ![SQL Server](./media/virtual-machines-windows-dotnet-core/sql-win.png)
 
-For more information on deploying Azure SQL Database, see [Azure SQL Database documentation](../sql-database/index.md).
+For more information on deploying Azure SQL Database, see [Azure SQL Database documentation](/azure/sql-database/).
 
 ## Next step
 <hr>

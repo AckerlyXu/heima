@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine Scale Sets: Existing Virtual Network Template | Azure
+title: 'Azure Virtual Machine Scale Sets: Existing Virtual Network Template | Azure'
 description: Learn to create a scale set template with existing virtual network
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 3/06/2017
 wacn.date: ''
 ms.author: negat
+
 ---
 
 # About this article

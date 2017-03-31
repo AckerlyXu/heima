@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2015
 wacn.date: ''
 ms.author: asabbour
----
 
+---
 # MariaDB (MySQL) cluster: Azure tutorial
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers the classic deployment model. Azure recommends that most new deployments use the Azure Resource Manager model.
@@ -55,7 +55,6 @@ This article describes how to complete the following steps:
 4. Find the name of the CentOS 7 virtual machine image.
 
         azure vm image list | findstr CentOS
-
     The output will be something like `f1179221e23b4dbb89e39d70e5bc9e72__OpenLogic-CentOS-70-20160329`.
 
     Use that name in the following step.

@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 05/10/2016
 wacn.date: ''
 ms.author: magoedte;bwren
----
 
+---
 # Azure Automation overview
 Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals. You can automate processes using runbooks or automate configuration management using Desired State Configuration. This article provides brief overview of Azure Automation and answers some common questions. You can refer to other articles in this library for more detailed information on the different topics.
 

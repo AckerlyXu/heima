@@ -20,7 +20,6 @@ ms.author: jgao
 ROBOTS: NOINDEX
 
 ---
-
 # Use Sqoop with Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
@@ -176,7 +175,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 The PowerShell sample performs the following steps:
 
 1. Connect to Azure.
-2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
 3. Create an Azure SQL Database server, an Azure SQL database, and two tables. 
 
     If you use SQL Server instead, use the following statements to create the tables:
@@ -189,7 +188,7 @@ The PowerShell sample performs the following steps:
          [t5] [nvarchar](50),
          [t6] [nvarchar](50),
          [t7] [nvarchar](50))
-   
+
         CREATE TABLE [dbo].[mobiledata](
          [clientid] [nvarchar](50),
          [querytime] [nvarchar](50),

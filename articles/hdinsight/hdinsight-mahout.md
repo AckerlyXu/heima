@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/19/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Generate movie recommendations by using Apache Mahout with Hadoop in HDInsight (PowerShell)
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 

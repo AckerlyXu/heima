@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Use time-based Oozie coordinator with Hadoop in HDInsight to define workflows and coordinate jobs
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -743,7 +743,7 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 [sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.cn/
-[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
+[azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/

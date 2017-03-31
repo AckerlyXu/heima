@@ -18,8 +18,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 

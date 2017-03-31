@@ -17,8 +17,8 @@ ms.workload: big-compute
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Options with HPC Pack to create and manage a Windows HPC cluster in Azure
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 

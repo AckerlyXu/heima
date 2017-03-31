@@ -18,6 +18,7 @@ ms.date: 3/17/2017
 wacn.date: ''
 ms.author: negat
 ms.custom: na
+
 ---
 
 # Azure Virtual Machine Scale Sets FAQ
@@ -32,13 +33,13 @@ Yes. See https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-au
 
 ### Where do I find the metric names for autoscaling using host-based metrics?
 
-/documentation/articles/monitoring-supported-metrics/
+https://docs.microsoft.com/azure/monitoring-supported-metrics/
 
 ### Are there any examples of autoscaling based on a service bus topic and queue length?
 
 Yes. See:
 
-/documentation/articles/insights-autoscale-common-metrics/
+https://docs.microsoft.com/azure/insights-autoscale-common-metrics/
 
 For service bus queue:
 
@@ -70,17 +71,17 @@ https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-au
 
 You can create alerts on metrics on scale sets via PS or CLI. See:
 
-/documentation/articles/insights-powershell-samples/#create-alert-rules
+https://docs.microsoft.com/azure/insights-powershell-samples/#create-alert-rules
 
-/documentation/articles/insights-cli-samples/#work-with-alerts
+https://docs.microsoft.com/azure/insights-cli-samples/#work-with-alerts
 
 the TargetResourceId of the scale set looks like: /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
 You can choose any VM perf counter as the metric to alert on:
 
-/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-windows-vm-v2-as-a-guest-os
+https://docs.microsoft.com/azure/insights-autoscale-common-metrics/#compute-metrics-for-windows-vm-v2-as-a-guest-os
 
-/documentation/articles/insights-autoscale-common-metrics/#compute-metrics-for-linux-vm-v2-as-a-guest-os
+https://docs.microsoft.com/azure/insights-autoscale-common-metrics/#compute-metrics-for-linux-vm-v2-as-a-guest-os
 
 ### How can I set up autoscale on a scale set using PowerShell?
 
@@ -114,7 +115,7 @@ It supports both windows and Linux.
 
 #### Create a self-signed Cert in a KeyVault
 
-One way to create a self-signed cert in a KeyVault is to use the instructions from this Service Fabric article here: /documentation/articles/service-fabric-cluster-security/
+One way to create a self-signed cert in a KeyVault is to use the instructions from this Service Fabric article here: https://docs.microsoft.com/azure/service-fabric-cluster-security/
 
 The powershell commands:
 
@@ -279,7 +280,7 @@ The CRP component does not persist any customer secrets. If you stop deallocate 
 
 This issue is not hit on scale-out because there is a cached copy of the secret in fabric (at least in the single fabric tenant model).
 
-### Why do we have to specify the exact location for the Certificate URL, as referenced here: per /documentation/articles/service-fabric-cluster-security/, 
+### Why do we have to specify the exact location for the Certificate URL, as referenced here: per https://docs.microsoft.com/azure/service-fabric-cluster-security/, 
 https://<name of the vault>.vault.chinacloudapi.cn:443/secrets/<exact location>
 
 Per KeyVault documentation, the get-secret REST API should return the latest version of the secret if version is not specified:
@@ -435,7 +436,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### I need to execute a custom script hosted on a private storage account. I have no problems when the storage is public but when I try to use a Shared Access Signature(SAS) it fails with the error: "Missing mandatory parameters for valid Shared Access Signature". I know that link+SAS works fine from my local browser.
 
-You must set up protected settings with the storage account key and name for this scenario to work. See /documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings
+You must set up protected settings with the storage account key and name for this scenario to work. See https://docs.microsoft.com/azure/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings
 
 ## Networking
 

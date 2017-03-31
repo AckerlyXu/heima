@@ -13,12 +13,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
+
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 wacn.date: ''
 ms.author: jroth
----
 
+---
 # Provision a SQL Server virtual machine in the Azure Portal Preview
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md)

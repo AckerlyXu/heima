@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: ''
 ms.author: juliako
----
 
+---
 # Azure SDK for .NET 2.7 and .NET 2.7.1 Release Notes
 ## Overview
 This document contains the release notes for the Azure SDK for .NET 2.7 release. 

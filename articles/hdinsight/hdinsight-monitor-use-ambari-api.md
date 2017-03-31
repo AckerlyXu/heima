@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Monitor Hadoop clusters in HDInsight using the Ambari API
 Learn how to monitor HDInsight clusters by using Ambari APIs.
 

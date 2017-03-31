@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/19/2016
 wacn.date: ''
 ms.author: huvalo
----
 
+---
 # Creating web apps with Bottle in Azure
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/02/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Upload and create a Linux VM from custom disk with the Azure CLI 2.0
 This article shows you how to upload a virtual hard disk (VHD) to Azure with the Azure CLI 2.0 and create Linux VMs from this custom disk. You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
 
@@ -285,7 +285,7 @@ Within the `Microsoft.Compute/virtualMachines` provider of your template, you ha
           }
 ```
 
-You can use [this existing template to create a VM from a custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) or read about [creating your own Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). 
+You can use [this existing template to create a VM from a custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) or read about [creating your own Azure Resource Manager templates](../resource-group-authoring-templates.md). 
 
 Once you have a template configured, use [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) to create your VMs. Specify the URI of your JSON template with the `--template-uri` parameter:
 

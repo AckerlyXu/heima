@@ -18,8 +18,8 @@ ms.topic: article
 ms.date: 03/24/2016
 wacn.date: ''
 ms.author: negat
----
 
+---
 # What are virtual machine scale sets?
 Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
 

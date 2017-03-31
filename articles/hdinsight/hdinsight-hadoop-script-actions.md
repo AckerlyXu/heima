@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Develop Script Action scripts for HDInsight Windows-based clusters
 Learn how to write Script Action scripts for HDInsight. For information on using Script Action scripts, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). For the same article written for Linux-based HDInsight clusters, see [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md).
 

@@ -17,8 +17,8 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Create a Windows high-performance computing (HPC) cluster with the HPC Pack IaaS deployment script
 Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC Pack 2012 R2 cluster for Windows workloads in Azure virtual machines. The cluster consists of an Active Directory-joined head node running Windows Server and Microsoft HPC Pack, and additional Windows compute resources you specify. You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For examples, see [Create an HPC cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster/) and [Create an HPC cluster with a custom compute node image](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image/).
 

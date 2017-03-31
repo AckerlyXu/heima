@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 10/19/2016
 wacn.date: ''
 ms.author: drewm
----
 
+---
 # Resize a Windows VM created in the classic deployment model
 This article shows you how to resize a Windows VM, created in the classic deployment model using Azure Powershell.
 

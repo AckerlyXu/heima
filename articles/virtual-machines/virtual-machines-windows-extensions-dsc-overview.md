@@ -18,8 +18,8 @@ ms.workload: na
 ms.date: 01/09/2017
 wacn.date: ''
 ms.author: zachal
----
 
+---
 # Introduction to the Azure Desired State Configuration extension handler
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

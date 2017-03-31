@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Machine Error Messages
-description: ''
+description: 
 services: virtual-machines
 documentationcenter: ''
 author: xujing-ms
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 3/17/2017
 wacn.date: ''
 ms.author: xujing
----
 
+---
 # Azure Virtual Machine Error Messages
 This article describes the common error codes and messages you encounter when managing an Azure Virtual Machine(VM).  
 

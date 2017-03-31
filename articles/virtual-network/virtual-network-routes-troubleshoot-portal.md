@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 wacn.date: ''
 ms.author: anithaa
----
 
+---
 # Troubleshoot routes using the Azure Portal Preview
 > [!div class="op_single_selector"]
 > * [Azure Portal Preview](virtual-network-routes-troubleshoot-portal.md)
@@ -139,7 +139,7 @@ A few things to keep in mind when reviewing the list of routes returned:
     * BGP route
     * System (Default) route
 
-        With effective routes, you can only see effective routes that are LPM match based on all the availble routes. By showing how the routes are actually evaluated for a given NIC, this makes it a lot easier to troubleshoot specific routes that may be impacting connectivity to/from your VM.
+    With effective routes, you can only see effective routes that are LPM match based on all the availble routes. By showing how the routes are actually evaluated for a given NIC, this makes it a lot easier to troubleshoot specific routes that may be impacting connectivity to/from your VM.
 * If you have UDRs and are sending traffic to a network virtual appliance (NVA), with *VirtualAppliance* as **nextHopType**, ensure that IP forwarding is enabled on the NVA receiving the traffic or packets are dropped.
 * If Forced tunneling is enabled, all outbound Internet traffic will be routed to on-premises. RDP/SSH from Internet to your VM may not work with this setting, depending on how the on-premises handles this traffic.
   Forced-tunneling can be enabled:

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 06/30/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # User authentication for API Apps in Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

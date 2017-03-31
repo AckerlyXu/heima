@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 wacn.date: ''
 ms.author: amsriva
----
 
+---
 # Application Gateway multiple site hosting
 
 Multiple site hosting enables you to configure more than one web application on the same application gateway instance. This feature allows you to configure a more efficient topology for your deployments by adding up to 20 websites to one application gateway. Each website can be directed to its own backend pool. In the following example, application gateway is serving traffic for contoso.com and fabrikam.com from two back-end server pools called ContosoServerPool and FabrikamServerPool.

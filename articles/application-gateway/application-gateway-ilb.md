@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Create an Application Gateway with an Internal Load Balancer (ILB)
 
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Note the following:
 * The Frontend IP *Type* should be set to 'Private'
 * The *StaticIPAddress* should be set to the desired internal IP on which the gateway receives traffic. Note that the *StaticIPAddress* element is optional. If not set, an available internal IP from the deployed subnet is chosen. 
 * The value of the *Name* element specified in *FrontendIPConfiguration* should be used in the HTTPListener's *FrontendIP* element to refer to the FrontendIPConfiguration.
-  
+
   **Configuration XML sample**
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

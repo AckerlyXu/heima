@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Configure PHP in Azure App Service Web Apps
 ## <a name="WhatIs"></a> Introduction
 This guide will show you how to configure the built-in PHP runtime for Web Apps in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [trial]. To get the most from this guide, you should first create a PHP web app in App Service.
@@ -86,7 +86,7 @@ For any built-in PHP runtime, you can change any of the configuration options by
         ; Example Settings
         display_errors=On
         upload_max_filesize=10M
-   
+
         ; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
         ; log_errors=On
 3. Deploy your web app.

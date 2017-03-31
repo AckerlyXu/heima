@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/06/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Restore an app in Azure
 This article shows you how to restore an app in [Azure App Service](../app-service/app-service-value-prop-what-is.md)
 that you have previously backed up (see [Back up your app in Azure](web-sites-backup.md)). You can restore your app

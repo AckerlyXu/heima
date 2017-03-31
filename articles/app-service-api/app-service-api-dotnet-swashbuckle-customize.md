@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/29/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Customize Swashbuckle-generated API definitions
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -55,7 +55,7 @@ The following steps show how to customize Swashbuckle by using the *SwaggerConfi
 
         using Swashbuckle.Swagger;
         using System.Web.Http.Description;
-   
+
         namespace ContactsList
         {
             public class MultipleOperationsWithSameVerbFilter : IOperationFilter
@@ -147,9 +147,9 @@ Use this method to specify response codes if your Swashbuckle version is earlier
         public HttpResponseMessage Get(int id)
         {
             var contacts = GetContacts();
-   
+
             var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
-   
+
             if (requestedContact == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
@@ -216,7 +216,7 @@ The [SwaggerResponse](https://github.com/domaindrivendev/Swashbuckle/blob/master
         public HttpResponseMessage Get(int id)
         {
             var contacts = GetContacts();
-   
+
             var requestedContact = contacts.FirstOrDefault(x => x.Id == id);
             if (requestedContact == null)
             {

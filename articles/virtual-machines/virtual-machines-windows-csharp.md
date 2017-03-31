@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: davidmu
----
 
+---
 # Deploy an Azure Virtual Machine Using C# #
 
 This article shows you how use C# to create an Azure virtual machine and its supporting resources.

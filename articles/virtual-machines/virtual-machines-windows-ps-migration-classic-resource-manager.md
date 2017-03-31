@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: kasing
----
 
+---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell
 These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. 
 
@@ -210,7 +210,7 @@ If the prepared configuration looks good, you can move forward and commit the re
 ### Migrate virtual machines in a virtual network
 To migrate virtual machines in a virtual network, you migrate the virtual network. The virtual machines automatically migrate with the virtual network. Pick the virtual network that you want to migrate. 
 > [!NOTE]
-> [Migrate single classic virtual machine](virtual-machines-windows-migrate-single-classic-to-resource-manager.md) by creating a new Resource Manager virtual machine with Managed Disks using the VHD (OS and data) files of the virtual machine. 
+> [Migrate single classic virtual machine](./virtual-machines-windows-migrate-single-classic-to-resource-manager.md) by creating a new Resource Manager virtual machine with Managed Disks using the VHD (OS and data) files of the virtual machine. 
 
 This example sets the virtual network name to **myVnet**. Replace the example virtual network name with your own. 
 

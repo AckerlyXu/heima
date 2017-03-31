@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/24/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Manage a web app in Azure App Service
 This topic contains links to resources for managing a web app in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/). Management includes all of the tasks that keep your web app running smoothly. 
 

@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: ''
 ms.author: mikeray
----
 
+---
 # Configure Always On availability group in Azure VM (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager: Manual](../sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)

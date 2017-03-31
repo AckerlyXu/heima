@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 07/28/2015
 wacn.date: ''
 ms.author: rashimg
----
 
+---
 # Optimize Hive queries for Hadoop in HDInsight
 By default, Hadoop clusters are not optimized for performance. This article covers a few of the most common Hive performance optimization methods that you can apply to our queries.
 
@@ -117,7 +117,7 @@ Once the partitioned table is created, you can either create static partitioning
         PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
         SELECT * FROM lineitem 
         WHERE lineitem.L_SHIPDATE = '5/23/1996 12:00:00 AM'
-  
+
         ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM'))
         LOCATION 'wasbs://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
 * **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table as shown below:

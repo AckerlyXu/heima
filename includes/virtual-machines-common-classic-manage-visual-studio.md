@@ -23,7 +23,7 @@ While you can create a virtual machine in the [Azure Classic Management Portal](
     * **MSDN Images** lists virtual machine images of software available to MSDN subscribers, such as Visual Studio and Microsoft Dynamics.
     * **Private Images** lists specialized and generalized virtual machine images that you've created.
 
-        To learn about specialized and generalized virtual machines, see [VM Image](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). See [How to Capture a Windows Virtual Machine to Use as a Template](../articles/virtual-machines/virtual-machines-windows-classic-capture-image.md) for information about how to turn a virtual machine into a template that you can use to quickly create new pre-configured virtual machines.
+        To learn about specialized and generalized virtual machines, see [VM Image](https://azure.microsoft.com/blog/2014/04/14/vm-image-blog-post/). See [How to Capture a Windows Virtual Machine to Use as a Template](/azure/virtual-machines-capture-image-windows-server/) for information about how to turn a virtual machine into a template that you can use to quickly create new pre-configured virtual machines.
 
         You can click a virtual machine image name to see information about the image on the right side of the page.
 
@@ -44,7 +44,7 @@ While you can create a virtual machine in the [Azure Classic Management Portal](
 6. Virtual machines created in Visual Studio require a cloud service. On the **Cloud Service Settings** page, select a cloud service for the virtual machine, or click **<Create New…>** in the dropdown list if you don't already have a cloud service or want to use a new one. A storage account is also required, so choose a storage account (or create a new storage account) in the **Storage account** dropdown list box. See [Introduction to Azure Storage](../articles/storage/storage-introduction.md) for more information.
 7. If you want to specify a virtual network (which is optional), select it in the Virtual Network and Subnet dropdown list boxes.
 
-    Virtual machines that are members of an availability set are deployed to different fault domains. See [Azure Virtual Network](https://www.azure.cn/home/features/virtual-network/) for more information.
+    Virtual machines that are members of an availability set are deployed to different fault domains. See [Azure Virtual Network](https://www.azure.cn/home/features/networking/) for more information.
 8. If you want your virtual machine to belong to an availability set (also optional), select the **Specify an availability set** check box and then choose an availability set in the dropdown list box. When you're done, choose the **Next** button.
 
     Adding your virtual machine to an availability set helps your application stay available during network failures, local disk hardware failures, and any planned downtime. You need to use the [Azure Management Portal](https://manage.windowsazure.cn/) to create virtual networks, subnets, and availability sets. See [Manage the Availability of Virtual Machines](/azure/manage-availability-virtual-machines/) for more information.
@@ -55,7 +55,7 @@ While you can create a virtual machine in the [Azure Classic Management Portal](
     The endpoints that are available depend on the cloud service you selected for your virtual machine. See [Azure Service Endpoints](/azure/virtual-machines-set-up-endpoints/) for more information.
 
     > [!NOTE]
-   > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](/azure/virtual-machines-set-up-endpoints/) for more information.
+    > Enabling public endpoints makes services on your virtual machine available to the internet. Be sure to install and properly configure the endpoints and services on your virtual machine, such as setting access control lists (ACLs) for the endpoints. See [How to Set Up Endpoints to a Virtual Machine](/azure/virtual-machines-set-up-endpoints/) for more information.
     > 
     > 
 10. After you're done configuring the virtual machine settings, choose the **Create** button to create the virtual machine.
@@ -104,7 +104,7 @@ As you configure your virtual machine and install software on it, it's a good id
 4. Provide an image label and description. A default label and description are provided, but you can overwrite them with your own if you like.
 5. If you have already run Sysprep on this virtual machine, select the **I have run Sysprep on the virtual machine** box.
 
-    Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine's version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](../articles/virtual-machines/virtual-machines-windows-classic-capture-image.md) for more information. Back up the VM before running Sysprep.
+    Sysprep is a tool that, among other things, removes systems-specific data from the virtual machine's version of Windows, making it template that others can use. See [How to Capture a Windows Virtual Machine to Use as a Template](/azure/virtual-machines-capture-image-windows-server/) for more information. Back up the VM before running Sysprep.
 6. After you're done configuring the capture settings, choose the **Capture** button to create the checkpoint.
 
     As Azure creates the checkpoint, the **Azure Activity Log** shows the progress of the operation.

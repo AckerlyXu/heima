@@ -7,7 +7,7 @@ author: tracsman
 manager: rossort
 editor: ''
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: ''
 ms.author: jonor
----
 
+---
 # Example 1 - Build a simple DMZ using NSGs with an Azure Resource Manager template
 [Return to the Security Boundary Best Practices Page][HOME]
 

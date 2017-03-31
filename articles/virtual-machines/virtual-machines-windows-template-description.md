@@ -17,11 +17,12 @@ ms.topic: article
 ms.date: 03/07/2017
 wacn.date: ''
 ms.author: davidmu
+
 ---
 
 # Virtual machines in an Azure Resource Manager template
 
-This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn't describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md).
+This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn't describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../resource-manager-template-walkthrough.md).
 
 There are many [templates in the gallery](https://github.com/Azure/azure-quickstart-templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
 
@@ -168,7 +169,7 @@ Use these opportunities for getting the latest API versions:
 
 ## Parameters and variables
 
-[Parameters](../azure-resource-manager/resource-group-authoring-templates.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
+[Parameters](../resource-group-authoring-templates.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
 
 ```
 "parameters": {
@@ -180,7 +181,7 @@ Use these opportunities for getting the latest API versions:
 
 When you deploy the example template, you enter values for the name and password of the administrator account on each VM and the number of VMs to create. You have the option of specifying parameter values in a separate file that's managed with the template, or providing values when prompted.
 
-[Variables](../azure-resource-manager/resource-group-authoring-templates.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
+[Variables](../resource-group-authoring-templates.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
 
 ```
 "variables": { 
@@ -213,7 +214,7 @@ When you deploy the example template, you enter values for the name and password
 }, 
 ```
 
-When you deploy the example template, variable values are used for the name and identifier of the previously created storage account. Variables are also used to provide the settings for the diagnostic extension. Use the [best practices for creating Azure Resource Manager templates](../azure-resource-manager/resource-manager-template-best-practices.md) to help you decide how you want to structure the parameters and variables in your template.
+When you deploy the example template, variable values are used for the name and identifier of the previously created storage account. Variables are also used to provide the settings for the diagnostic extension. Use the [best practices for creating Azure Resource Manager templates](../resource-manager-template-best-practices.md) to help you decide how you want to structure the parameters and variables in your template.
 
 ## Resource loops
 
@@ -221,7 +222,7 @@ When you need more than one virtual machine for your application, you can use a 
 
 ```
 "copy": {
-  "name": "virtualMachineLoop",    
+  "name": "virtualMachineLoop",	
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -252,7 +253,7 @@ Keep in mind that creating a loop for one resource in the template may require y
 
 ## Dependencies
 
-Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../azure-resource-manager/resource-group-define-dependencies.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
+Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../resource-group-define-dependencies.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
 
 ```
 "dependsOn": [
@@ -452,10 +453,10 @@ If you are curious about the status of resources in the deployment, you can use 
 
 ![Get deployment information](./media/virtual-machines-windows-template-description/virtual-machines-deployment-info.png)
 
-It's not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../azure-resource-manager/resource-group-template-deploy.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that are not in the template.
+It's not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../resource-group-template-deploy.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that are not in the template.
 
 ## Next Steps
 
-- Create your own template using [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+- Create your own template using [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 - Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md).
 - Learn how to manage the VMs that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).

@@ -19,14 +19,13 @@ wacn.date: ''
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ---
-
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md)
 > * [Classic](virtual-machines-windows-classic-sql-server-agent-extension.md)
 > 
 >
- 
+
 The SQL Server IaaS Agent Extension (SQLIaaSAgent) runs on Azure virtual machines to automate administration tasks. This topic provides an overview of the services supported by the extension as well as instructions for installation, status, and removal.
 
 > [!IMPORTANT] 

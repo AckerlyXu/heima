@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/13/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Migrate from a Windows-based HDInsight cluster to a Linux-based cluster
 While Windows-based HDInsight provides an easy way to use Hadoop in the cloud, you may need to migrate to a Linux-based cluster. For example, to take advantage of Linux-based tools and technologies that are required for your solution. Many things in the Hadoop ecosystem are developed on Linux-based systems, and may not be available for use with Windows-based HDInsight. Additionally, many books, videos, and other training material assume that you are using a Linux system when working with Hadoop.
 

@@ -17,8 +17,8 @@ ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # User-defined routes and IP forwarding
 
 When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with each other over the network, automatically. You do not need to specify a gateway, even though the VMs are in different subnets. The same is true for communication from the VMs to the public Internet, and even to your on-premises network when a hybrid connection from Azure to your own datacenter is present.

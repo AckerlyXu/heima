@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 wacn.date: ''
 ms.author: kundanap
----
 
+---
 # Azure Windows VM Extension Configuration Samples
 > [!div class="op_single_selector"]
 > * [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

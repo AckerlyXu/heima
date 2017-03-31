@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/06/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to Scale Azure Redis Cache
 > [!NOTE]
 > The Azure Redis Cache scaling feature is currently in preview. 

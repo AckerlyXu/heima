@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 wacn.date: ''
 ms.author: naziml
----
 
+---
 # How To Configure TLS Mutual Authentication for Web App
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/29/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Create a web app in Azure that connects to MongoDB running on a virtual machine
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

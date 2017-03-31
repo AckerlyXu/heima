@@ -1,6 +1,6 @@
 ---
-title: SQL Server Availability Groups - Azure Virtual Machines - Tutorial | Azure
-description: This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines.
+title: SQL Server Availability Groups - Azure Virtual Machines - Tutorial | Azure  
+description: "This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -18,6 +18,7 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: ''
 ms.author: mikeray
+
 ---
 
 # Create Always On Availability Group to improve availability and disaster recovery

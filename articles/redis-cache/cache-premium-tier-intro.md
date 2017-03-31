@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/06/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # Introduction to the Azure Redis Cache Premium tier
 Azure Redis Cache is a distributed, managed cache that helps you build highly scalable and responsive applications by providing super-fast access to your data. 
 

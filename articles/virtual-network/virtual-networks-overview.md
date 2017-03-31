@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Virtual networks
 An Azure virtual network (VNet) is a representation of your own network in the cloud.  It is a logical isolation of the Azure cloud dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can also further segment your VNet into subnets and launch Azure IaaS virtual machines (VMs) and/or [Cloud services (PaaS role instances)](../cloud-services/cloud-services-choose-me.md). Additionally, you can connect the virtual network to your on-premises network using one of the [connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
 
@@ -53,7 +53,7 @@ Notice how the Azure infrastructure takes on the role of the router, allowing ac
 A subnet is a range of IP addresses in the VNet, you can divide a VNet into multiple subnets for organization and security. VMs and PaaS role instances deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration. You can also configure route tables and NSGs to a subnet.
 
 ## IP addresses
-There are two types of IP addresses assigned to resources in Azure: *public* and *private*. Public IP Addresses allow Azure resources to communicate with the internet and other Azure public-facing services like [Azure Redis Cache](https://www.azure.cn/home/features/redis-cache/), [Azure Event Hubs](../event-hubs/index.md). Private IP Addresses allow communication between resources in a virtual network, along with those connected through a VPN, without using an Internet-routable IP addresses.
+There are two types of IP addresses assigned to resources in Azure: *public* and *private*. Public IP Addresses allow Azure resources to communicate with the internet and other Azure public-facing services like [Azure Redis Cache](https://www.azure.cn/home/features/redis-cache/), [Azure Event Hubs](/azure/event-hubs/). Private IP Addresses allow communication between resources in a virtual network, along with those connected through a VPN, without using an Internet-routable IP addresses.
 
 To learn more about IP addresses in Azure, visit [IP addresses in virtual network](virtual-network-ip-addresses-overview-arm.md)
 

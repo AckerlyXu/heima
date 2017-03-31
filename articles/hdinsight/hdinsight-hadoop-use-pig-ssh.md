@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run Pig jobs on a Linux-based cluster with the Pig command (SSH)
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 

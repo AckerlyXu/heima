@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use a Java UDF with Hive in HDInsight
 Hive is great for working with data in HDInsight, but sometimes you need a more general purpose language. Hive allows you to create user-defined functions (UDF) using a variety of programming languages. In this document, you will learn how to use a Java UDF from Hive.
 
@@ -129,11 +129,11 @@ Hive is great for working with data in HDInsight, but sometimes you need a more 
 5. Replace the contents of the **ExampleUDF.java** file with the following, then save the file.
 
         package com.microsoft.examples;
-   
+
         import org.apache.hadoop.hive.ql.exec.Description;
         import org.apache.hadoop.hive.ql.exec.UDF;
         import org.apache.hadoop.io.*;
-   
+
         // Description of the UDF
         @Description(
             name="ExampleUDF",

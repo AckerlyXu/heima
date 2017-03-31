@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 08/08/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Secure your app's custom domain with HTTPS
 
 This article shows you how to enable HTTPS for a web app, a mobile app backend, or an API app in 
@@ -102,7 +102,7 @@ to generate it:
         ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
         ProviderType = 12
         HashAlgorithm = SHA256
-   
+
         [EnhancedKeyUsageExtension]
         OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
 
@@ -194,9 +194,9 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
         Organizational Unit Name (eg, section) []: Azure
         Common Name (eg, YOUR name) []: www.microsoft.com
         Email Address []:
-   
+
         Please enter the following 'extra' attributes to be sent with your certificate request
-   
+
            A challenge password []:
 
     When finished, you should have two files in your working directory: **myserver.key** and **server.csr**. 
@@ -360,7 +360,7 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
         RequestType = Cert            ; Self-signed certificate
         ValidityPeriod = Years
         ValidityPeriodUnits = 1
-   
+
         [EnhancedKeyUsageExtension]
         OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
 
@@ -409,7 +409,7 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
         distinguished_name     = req_distinguished_name
         attributes             = req_attributes
         x509_extensions        = v3_ca
-   
+
         [ req_distinguished_name ]
         countryName            = Country Name (2 letter code)
         countryName_min            = 2
@@ -422,12 +422,12 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
         commonName_max            = 64
         emailAddress            = Email Address
         emailAddress_max        = 40
-   
+
         [ req_attributes ]
         challengePassword        = A challenge password
         challengePassword_min        = 4
         challengePassword_max        = 20
-   
+
         [ v3_ca ]
          subjectKeyIdentifier=hash
          authorityKeyIdentifier=keyid:always,issuer:always

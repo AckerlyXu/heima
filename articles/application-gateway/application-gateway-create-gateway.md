@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 wacn.date: ''
 ms.author: gwallace
----
 
-# Create, start, or delete an application gateway with PowerShell
+---
+# Create, start, or delete an application gateway with PowerShell 
 
 > [!div class="op_single_selector"]
 > * [Azure portal preview](application-gateway-create-gateway-portal.md)

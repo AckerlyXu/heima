@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-service-management
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # How to reset the Remote Desktop service or its login password in a Windows VM created using the Classic deployment model
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. You can also [perform these steps for VMs created with the Resource Manager deployment model](virtual-machines-windows-reset-rdp.md).

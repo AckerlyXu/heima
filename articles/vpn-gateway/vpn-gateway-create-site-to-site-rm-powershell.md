@@ -1,5 +1,5 @@
 ---
-title: Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: PowerShell | Azure
+title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: PowerShell | Azure'
 description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Create a VNet with a Site-to-Site VPN connection using PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal Preview](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -51,7 +51,7 @@ Verify that you have the following items before beginning configuration.
 * The latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
 
 ## <a name="Login"></a>1. Connect to your subscription
-Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
+Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
@@ -199,5 +199,5 @@ If you need to change the prefixes for your local network gateway, use the follo
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Next steps
-*  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+*  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/azure/virtual-machines/).
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).

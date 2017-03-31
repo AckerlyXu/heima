@@ -6,9 +6,9 @@ documentationcenter: virtual-machines
 author: rickstercdn
 manager: timlt
 editor: tysonn
-tags: ''
+tags: 
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-Windows
 ms.devlang: na
 ms.topic: article

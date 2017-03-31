@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/02/2017
 wacn.date: ''
 ms.author: szark
----
 
+---
 # Introduction to Linux on Azure
 This topic provides an overview of some aspects of using Linux virtual machines in the Azure cloud. Deploying a Linux virtual machine is a straightforward process using an image from the gallery.
 

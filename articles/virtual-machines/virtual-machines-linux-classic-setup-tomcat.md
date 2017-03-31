@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/15/2015
 wacn.date: ''
 ms.author: ningk
----
 
+---
 # Set up Tomcat7 on a Linux virtual machine with Azure
 Apache Tomcat (or simply Tomcat, also formerly called Jakarta Tomcat) is an open source web server and servlet container developed by the Apache Software Foundation (ASF). Tomcat implements the Java Servlet and the JavaServer Pages (JSP) specifications from Sun Microsystems. Tomcat provides a pure Java HTTP web server environment in which to run Java code. In the simplest configuration, Tomcat runs in a single operating system process. This process runs a Java virtual machine (JVM). Every HTTP request from a browser to Tomcat is processed as a separate thread in the Tomcat process.  
 
@@ -285,7 +285,6 @@ When you use an SFTP client (such as FileZilla) to connect to your virtual machi
      Command:    put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
      Error:    /var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
      Error:    File transfer failed
-
 #### Possible root cause
 You have no permissions to access the /var/lib/tomcat7/webapps folder.  
 #### Solution  

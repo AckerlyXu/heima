@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/01/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Agile software development with Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Create a virtual network using the Azure CLI
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]

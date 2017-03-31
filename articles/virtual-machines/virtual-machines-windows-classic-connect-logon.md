@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Log on to a Windows virtual machine using the Azure portal preview
 In the Azure portal preview, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
 

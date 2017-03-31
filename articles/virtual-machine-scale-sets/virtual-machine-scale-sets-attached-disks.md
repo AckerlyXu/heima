@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 2/6/2017
 wacn.date: ''
 ms.author: guybo
----
 
+---
 # Azure VM scale sets and attached data disks
 Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) now support virtual machines with attached data disks. Data disks can be defined in the storage profile for scale sets created with Azure Managed Disks. Previously the only directly attached storage options available with VMs in scale sets were the OS drive and temp drives.
 

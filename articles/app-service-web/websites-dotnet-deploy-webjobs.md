@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 04/27/2016
 wacn.date: ''
 ms.author: glenga
----
 
+---
 # Deploy WebJobs using Visual Studio
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/05/2016
 wacn.date: ''
 ms.author: dariagrigoriu
----
 
+---
 # Configure deployment credentials for Azure App Service
 [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/) supports two types of credentials for [local Git deployment](app-service-deploy-local-git.md) 
 and [FTP/S deployment](app-service-deploy-ftp.md).

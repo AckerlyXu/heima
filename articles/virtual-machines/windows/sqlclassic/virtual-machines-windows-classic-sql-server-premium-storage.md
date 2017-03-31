@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 wacn.date: ''
 ms.author: jroth
----
 
+---
 # Use Azure Premium Storage with SQL Server on Virtual Machines
 ## Overview
 [Azure Premium Storage](../../../storage/storage-premium-storage.md) is the next generation of storage that provides low latency and high throughput IO. It works best for key IO intensive workloads, such as SQL Server on IaaS [Virtual Machines](https://www.azure.cn/home/features/virtual-machines/).

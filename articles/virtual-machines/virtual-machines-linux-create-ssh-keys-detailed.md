@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: ''
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -17,6 +17,7 @@ ms.topic: get-started-article
 ms.date: 2/6/2016
 wacn.date: ''
 ms.author: rasquill
+
 ---
 
 # Detailed walk through to create an SSH key pair and additional certificates for a Linux VM in Azure

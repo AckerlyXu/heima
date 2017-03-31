@@ -6,7 +6,7 @@ Take a look at these videos for more about VM scale sets:
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## Creating and managing VM scale sets
-VM scale sets can be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/zh-cn/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../articles/azure-resource-manager/resource-group-authoring-templates.md).
+VM scale sets can be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/zh-cn/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../articles/resource-group-authoring-templates.md).
 
 A set of example templates for VM scale sets can be found in the Azure Quickstart templates GitHub repository here:
 

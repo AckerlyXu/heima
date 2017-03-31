@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/08/2016
 wacn.date: ''
 ms.author: magoedte;bwren
----
 
+---
 # Starting a runbook in Azure Automation
 The following table will help you determine the method to start a runbook in Azure Automation that is most suitable to your particular scenario. This article includes details on starting a runbook with the Azure Classic Management Portal and with Windows PowerShell. Details on the other methods are provided in other documentation that you can access from the links below.
 
@@ -44,9 +44,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 ## <a name="starting-a-runbook-with-windows-powershell"></a> Starting a runbook with Windows PowerShell
 You can use the [Start-AzureAutomationRunbook](http://msdn.microsoft.com/zh-cn/library/azure/dn690259.aspx) to start a runbook with Windows PowerShell. The following sample code starts a runbook called Test-Runbook.
 
-```
-Start-AzureAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook"
-```
+    Start-AzureAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook"
 
 Start-AzureAutomationRunbook returns a job object that you can use to track its status once the runbook is started. You can then use this job object with [Get-AzureAutomationJob](http://msdn.microsoft.com/zh-cn/library/azure/dn690263.aspx) to determine the status of the job and [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/zh-cn/library/azure/dn690268.aspx) to get its output. The following sample code starts a runbook called Test-Runbook, waits until it has completed, and then displays its output.
 

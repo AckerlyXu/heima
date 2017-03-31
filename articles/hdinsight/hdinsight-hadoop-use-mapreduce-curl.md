@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run MapReduce jobs with Hadoop on HDInsight using Curl
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
@@ -76,7 +76,6 @@ To complete the steps in this article, you will need the following:
         This command should return a job ID that can be used to check the status of the job:
 
             {"id":"job_1415651640909_0026"}
-
 3. To check the status of the job, use the following command. Replace the **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then the JOBID would be `job_1415651640909_0026`.
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state

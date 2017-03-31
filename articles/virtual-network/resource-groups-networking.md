@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Network Resource Provider
 An underpinning need in today's business success, is the ability to build and manage large scale network aware applications in an agile, flexible, secure and repeatable way. Azure Resource Manager enables you to create such applications, as a single collection of resources in resource groups. Such resources are managed through various resource providers under Resource Manager.
 

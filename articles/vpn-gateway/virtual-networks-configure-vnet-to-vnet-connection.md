@@ -1,5 +1,5 @@
 ---
-title: Connect an Azure virtual network to another VNet: Classic | Azure
+title: 'Connect an Azure virtual network to another VNet: Classic | Azure'
 description: How to connect Azure virtual networks together using PowerShell and the Azure Classic Management Portal.
 services: vpn-gateway
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Configure a VNet-to-VNet connection for the classic deployment model
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal Preview](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -193,4 +193,4 @@ When all the previous steps have been completed, set the IPsec/IKE pre-shared ke
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 ## Next steps
-You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](../virtual-machines/index.md) for more information.
+You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/azure/virtual-machines/) for more information.

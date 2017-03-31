@@ -1,5 +1,3 @@
-<!-- not suitable for Mooncake -->
-
 ---
 title: Migrate from AWS and other platforms to Managed Disks in Azure | Azure
 description: Create VMs in Azure using VHDs uploaded from other clouds like AWS or other virtualization platforms and take advantage of Azure Managed Disks.
@@ -10,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -20,6 +18,7 @@ ms.date: 02/07/2017
 wacn.date: ''
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
+
 ---
 
 # Migrate from Amazon Web Services (AWS) and other platforms to Managed Disks in Azure

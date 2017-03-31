@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 04/27/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Provision a web app with a SQL Database
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

@@ -1,5 +1,5 @@
 ---
-title: Get started with Node.js web apps in Azure App Service | Azure
+title: Get started with Node.js web apps in Azure App Service | Azure 
 description: Learn how to deploy a Node.js application to a web app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Get started with Node.js web apps in Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -234,18 +234,18 @@ To enable Node-Inspector, follow these steps:
 [Azure CLI]:../cli-install-nodejs.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Bower]: http://bower.io/
-[Create a Node.js chat application with Socket.IO in Azure App Service]: web-sites-nodejs-chat-app-socketio.md
-[Deploy a Sails.js web app to Azure App Service]: app-service-web-nodejs-sails.md
+[Create a Node.js chat application with Socket.IO in Azure App Service]: ./web-sites-nodejs-chat-app-socketio.md
+[Deploy a Sails.js web app to Azure App Service]: ./app-service-web-nodejs-sails.md
 [Exploring the Super Secret Kudu Debug Console]: /azure/aog-web-app-diagnostics-kudu/
 [Express generator for Yeoman]: https://github.com/petecoop/generator-express
 [Git]: http://www.git-scm.com/downloads
-[How to use io.js with Azure App Service Web Apps]: web-sites-nodejs-iojs.md
+[How to use io.js with Azure App Service Web Apps]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [sign up for a trial]: https://www.azure.cn/pricing/1rmb-trial/
-[web app]: app-service-web-overview.md
+[web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->

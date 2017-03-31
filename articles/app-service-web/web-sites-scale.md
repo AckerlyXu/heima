@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/05/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Scale up an app in Azure
 This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2016
 wacn.date: ''
 ms.author: bwren
----
 
+---
 # Runbook settings
 Each runbook in Azure Automation has multiple settings that help it to be identified and to change its logging behavior. Each of these settings is described below followed by procedures on how to modify them.
 
@@ -46,13 +46,11 @@ You can use the [Set-AzureAutomationRunbook](https://msdn.microsoft.com/zh-cn/li
 
 The following sample commands show how to set the properties for a runbook. This sample adds three tags to the existing tags and specifies that verbose records should be logged.
 
-```
-$automationAccountName = "MyAutomationAccount"
-$runbookName = "Sample-TestRunbook"
-$tags = (Get-AzureAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName).Tags
-$tags += "Tag1,Tag2,Tag3"
-Set-AzureAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -LogVerbose $true -Tags $tags
-```
+    $automationAccountName = "MyAutomationAccount"
+    $runbookName = "Sample-TestRunbook"
+    $tags = (Get-AzureAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName).Tags
+    $tags += "Tag1,Tag2,Tag3"
+    Set-AzureAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -LogVerbose $true -Tags $tags
 
 ## Next steps
 * To learn how to create and retrieve output and error messages from runbooks, see [Runbook Output and Messages](automation-runbook-output-and-messages.md) 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/28/2016
 wacn.date: ''
 ms.author: dariagrigoriu
----
 
+---
 # Continuous Deployment to Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

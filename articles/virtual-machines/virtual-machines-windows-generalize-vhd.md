@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 10/20/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Generalize a Windows virtual machine using Sysprep
 This section shows you how to generalize your Windows virtual machine for use as an image. Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/zh-cn/library/bb457073.aspx).
 

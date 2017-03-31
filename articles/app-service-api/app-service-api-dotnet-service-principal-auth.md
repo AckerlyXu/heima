@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 06/30/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Service principal authentication for API Apps in Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -161,12 +161,12 @@ Make the following changes in the ToDoListAPI project in Visual Studio.
             static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
             static string clientSecret = ConfigurationManager.AppSettings["ida:ClientSecret"];
             static string resource = ConfigurationManager.AppSettings["ida:Resource"];
-   
+
             public static AuthenticationResult GetS2SAccessTokenForProdMSA()
             {
                 return GetS2SAccessToken(authority, resource, clientId, clientSecret);
             }
-   
+
             static AuthenticationResult GetS2SAccessToken(string authority, string resource, string clientId, string clientSecret)
             {
                 var clientCredential = new ClientCredential(clientId, clientSecret);

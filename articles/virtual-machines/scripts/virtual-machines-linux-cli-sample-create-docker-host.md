@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Script Sample - Create a Docker host| Azure
-description: Azure CLI Script Sample - Create a Docker host
+description: Azure CLI Script Sample - Create a Docker host 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-service-management
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article

@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2016
 wacn.date: ''
 ms.author: kasing
----
 
+---
 # Manage your virtual machines by using Azure PowerShell
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For common PowerShell commands using the Resource Manager model, see [here](virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

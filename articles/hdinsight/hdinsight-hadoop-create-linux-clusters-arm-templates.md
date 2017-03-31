@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Create Hadoop clusters in HDInsight using Azure Resource Management templates
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -68,7 +68,7 @@ Using the Azure portal preview, you can configure all the properties of a cluste
 
     To access a template in your library, click **More services** from the left menu, and then click **Templates** (under the **Other** category).
 
-> [!NOTE]
+> [!Note]
 > The templates must be used with the parameter files together.  Otherwise, you might get unexpected results.  For example, the default clusterKind property value is always hadoop despite what you have specified before you download the template.
 
 ## <a name="deploy-with-powershell"></a> Deploy with PowerShell
@@ -158,7 +158,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 * For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
-* For guidance on deploying your solution to different environments, see [Development and test environments in Azure](../azure-resource-manager/solution-dev-test-environments.md).
+* For guidance on deploying your solution to different environments, see [Development and test environments in Azure](../solution-dev-test-environments.md).
 * To learn about the sections of the Azure Resource Manager template, see [Authoring templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](../azure-resource-manager/resource-group-template-functions.md).
 

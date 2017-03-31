@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Create a Node.js chat application with Socket.IO in Azure App Service
 Socket.IO provides real-time communication between your node.js server and clients using WebSockets. It also supports fallback to other transports (such as long polling) that work with older browsers. This tutorial will walk you through hosting a Socket.IO based chat application as an Azure web app, and show you how to scale the application using [Azure Redis Cache]. For more information on Socket.IO, see <http://socket.io/>.
 
@@ -137,7 +137,7 @@ Perform the steps in [Create a cache in Azure Redis Cache] to create a new cache
 
         var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
         var sub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
-   
+
         var redis = require('socket.io-redis');
         io.adapter(redis({pubClient: pub, subClient: sub}));
 
@@ -219,10 +219,10 @@ If client browsers keep falling back to long polling instead of using WebSockets
         <!--
              This configuration file is required if iisnode is used to run node processes behind
              IIS or IIS Express.  For more information, visit:
-  
+
              https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config
         -->
-  
+
         <configuration>
           <system.webServer>
             <!-- Visit http://blogs.msdn.com/b/windowsazure/archive/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites.aspx for more information on WebSocket support -->
@@ -237,12 +237,12 @@ If client browsers keep falling back to long polling instead of using WebSockets
                 <rule name="NodeInspector" patternSyntax="ECMAScript" stopProcessing="true">
                   <match url="^app.js\/debug[\/]?" />
                 </rule>
-  
+
                 <!-- First we consider whether the incoming URL matches a physical file in the /public folder -->
                 <rule name="StaticContent">
                   <action type="Rewrite" url="public{REQUEST_URI}"/>
                 </rule>
-  
+
                 <!-- All other URLs are mapped to the node.js web app entry point -->
                 <rule name="DynamicContent">
                   <conditions>
@@ -257,7 +257,7 @@ If client browsers keep falling back to long polling instead of using WebSockets
                 * watchedFiles: semi-colon separated list of files that will be watched for changes to restart the server
                 * node_env: will be propagated to node as NODE_ENV environment variable
                 * debuggingEnabled - controls whether the built-in debugger is enabled
-  
+
               See https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config for a full list of options
             -->
             <!--<iisnode watchedFiles="web.config;*.js"/>-->

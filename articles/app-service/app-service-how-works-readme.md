@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 02/23/2017
 wacn.date: ''
 ms.author: yochayk
----
 
+---
 # How App Service works
 Azure App Service is a cloud service that's designed to solve the practical problems that engineers face today.
 App Service focuses on providing superior developer productivity without compromising on the need to deliver applications at cloud scale. 

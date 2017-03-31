@@ -16,8 +16,8 @@ ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 wacn.date: ''
 ms.author: jroth
----
 
+---
 # Connect to a SQL Server Virtual Machine on Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-connect.md)

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/25/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Azure App Service web app advanced config and extensions
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

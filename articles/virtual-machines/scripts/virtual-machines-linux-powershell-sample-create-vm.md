@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell Script Sample - Create a Linux VM | Azure
-description: Azure PowerShell Script Sample - Create a Linux VM
+description: Azure PowerShell Script Sample - Create a Linux VM 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-service-management
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article

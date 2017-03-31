@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/07/2017
 wacn.date: ''
 ms.author: cynthn
+
 ---
 
 # Migrate Azure VMs to Managed Disks in Azure

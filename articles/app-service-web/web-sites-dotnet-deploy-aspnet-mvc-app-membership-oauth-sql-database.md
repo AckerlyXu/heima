@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/21/2016
 wacn.date: ''
 ms.author: riande
----
 
+---
 # Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

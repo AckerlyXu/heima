@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/15/2015
 wacn.date: ''
 ms.author: saurabh
----
 
+---
 # Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -84,7 +84,6 @@ The configuration needs to be updated to include the following:
         ```
         <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
         ```
-
     * For more information on how metrics are generated based on the performance counters and metrics configuration, see [Azure Diagnostics metrics table in storage](virtual-machines-windows-extensions-diagnostics-template.md#wadmetrics-tables-in-storage).
 * The **StorageAccount** element needs to be updated with the name of the diagnostics storage account.
 

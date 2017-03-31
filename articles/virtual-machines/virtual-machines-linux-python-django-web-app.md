@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 11/17/2015
 wacn.date: ''
 ms.author: huvalo
----
 
+---
 # Django Hello World web application on a Linux VM
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-classic-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -83,7 +83,6 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
         def home(request):
             html = "<html><body>Hello World!</body></html>"
             return HttpResponse(html)
-
 4. Now replace the contents of the **urls.py** file with the following:
 
         from django.conf.urls import patterns, url
@@ -99,7 +98,6 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
         </VirtualHost>
         WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
         WSGIPythonPath /var/www/helloworld
-
 2. Enable the site with the following command:
 
        $ sudo a2ensite helloworld

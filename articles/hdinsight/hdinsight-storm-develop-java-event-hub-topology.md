@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 02/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Process events from Azure Event Hubs with Storm on HDInsight (Java)
 
 Learn how to use Azure Event Hubs with Storm on HDInsight. This example uses Java-based components to read and write data in Azure Event Hubs.

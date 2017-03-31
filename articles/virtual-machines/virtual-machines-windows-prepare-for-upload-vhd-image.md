@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 1/11/2017
 wacn.date: ''
 ms.author: glimoli;genli
----
 
+---
 # Prepare a Windows VHD or VHDX to upload to Azure
 To upload a Windows VM from on-premises to Azure, you must prepare the virtual hard disk (VHD or VHDX). Azure only supports generation 1 virtual machines that are in the VHD file format and have a fixed sized disk. The maximum size allowed for the VHD is 1,023 GB. You can convert a generation 1 virtual machine from VHDX to the VHD file format and from dynamically expanding to a fixed sized disk. But you can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 
@@ -273,7 +273,7 @@ Install the latest updates for Windows. If that's not possible, make sure that t
 * [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
 * [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
 
-## <a id="step23"></a> Run Sysprep
+## Run Sysprep  <a id="step23"></a>    
 If you want to create an image to deploy to multiple VMs, you need to [generalize the image by running Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before you upload the VHD to Azure. You don't need to run Sysprep to use a specialized VHD. For more information, see the following articles:
 
 * [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -296,7 +296,6 @@ The following settings do not affect VHD uploading. However, we strongly recomme
 
     sc config wer start= auto
     ```
-
 * After the VM is created in Azure, configure the system defined size pagefile on drive D:
 
     ```CMD

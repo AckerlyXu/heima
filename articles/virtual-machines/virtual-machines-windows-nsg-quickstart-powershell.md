@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Opening ports and endpoints to a VM in Azure using PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 

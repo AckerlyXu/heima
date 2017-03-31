@@ -18,8 +18,8 @@ ms.workload: na
 ms.date: 09/15/2016
 wacn.date: ''
 ms.author: zachal
----
 
+---
 # Using Virtual Machine Scale Sets with the Azure DSC Extension
 [Virtual Machine Scale Sets (VMSS)](virtual-machine-scale-sets-overview.md) can be used with the [Azure Desired State Configuration (DSC)](../virtual-machines/virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) extension handler. VMSS provides a way to deploy and manage large numbers of virtual machines, and can elastically scale in and out in response to load. DSC is used to configure the VMs as they come online so they are running the production software.
 

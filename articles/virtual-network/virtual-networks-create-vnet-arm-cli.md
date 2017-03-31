@@ -18,8 +18,8 @@ ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create a virtual network using the Azure CLI 2.0
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]

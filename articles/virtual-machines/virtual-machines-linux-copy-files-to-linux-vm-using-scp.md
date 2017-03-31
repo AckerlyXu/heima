@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 12/14/2016
 wacn.date: ''
 ms.author: v-livech
+
 ---
 
 # Moving files to and from a Linux VM using SCP

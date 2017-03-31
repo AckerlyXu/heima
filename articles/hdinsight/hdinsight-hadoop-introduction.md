@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 12/14/2016
 wacn.date: ''
 ms.author: cgronlun
----
 
+---
 # An introduction to the Hadoop ecosystem on Azure HDInsight
  This article provides an introduction to Hadoop on Azure HDInsight, its ecosystem, and big data. Learn about the Hadoop components, common terminology, and scenarios for big data analysis.
 

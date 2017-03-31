@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Create an application gateway by using the Azure Resource Manager template
 
 > [!div class="op_single_selector"]

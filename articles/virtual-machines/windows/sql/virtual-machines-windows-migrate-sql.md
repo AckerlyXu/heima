@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: carlasab
----
 
+---
 # Migrate a SQL Server database to SQL Server in an Azure VM
 
 There are a number of methods to migrate an on-premises SQL Server user database to SQL Server in an Azure VM. This article will briefly discuss various methods and recommend the best method for various scenarios.

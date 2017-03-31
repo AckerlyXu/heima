@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Ports and URIs used by HDInsight
 This document provides a list of the ports used by Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
 

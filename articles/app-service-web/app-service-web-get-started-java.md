@@ -1,6 +1,6 @@
 ---
 title: Create your first Java web app in Azure in five minutes | Azure
-description: Learn how easy it is to run web apps in App Service by deploying a sample app.
+description: Learn how easy it is to run web apps in App Service by deploying a sample app. 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Create your first Java web app in Azure in five minutes
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 

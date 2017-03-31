@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/02/2017
 wacn.date: ''
 ms.author: davidmu
----
 
+---
 # Common PowerShell commands for Azure Virtual Networks
 
 If you want to create a virtual machine, you need to create a [virtual network](../virtual-network/virtual-networks-overview.md) or know about an existing virtual network in which the VM can be added. Typically, when you create a VM, you also need to consider creating the resources described in this article.

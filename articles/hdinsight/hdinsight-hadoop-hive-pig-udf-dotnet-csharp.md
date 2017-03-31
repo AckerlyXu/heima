@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/02/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

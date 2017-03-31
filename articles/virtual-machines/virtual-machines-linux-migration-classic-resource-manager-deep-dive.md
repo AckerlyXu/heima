@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 10/12/2016
 wacn.date: ''
 ms.author: kasing
----
 
+---
 # Technical deep dive on platform-supported migration from classic to Azure Resource Manager
 In this article, we do a technical deep dive on migration at a resource and feature level to help you understand how the platform migrates resources from the classic deployment model to the Azure Resource Manager deployment model. For more information, please read the service announcement article: [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
 

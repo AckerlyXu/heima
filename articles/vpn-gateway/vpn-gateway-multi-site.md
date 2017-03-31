@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2016
 wacn.date: ''
 ms.author: yushwang
----
 
+---
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)

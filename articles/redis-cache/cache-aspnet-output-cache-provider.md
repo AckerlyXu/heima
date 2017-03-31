@@ -16,8 +16,8 @@ ms.workload: tbd
 ms.date: 02/14/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # ASP.NET Output Cache Provider for Azure Redis Cache
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

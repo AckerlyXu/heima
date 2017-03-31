@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use Power BI to visualize data from an Apache Storm topology
 
 Power BI allows you to visually display data as reports. This document provides an example of how to use Apache Storm on HDInsight to generate data for Power BI.
@@ -33,8 +33,8 @@ Power BI allows you to visually display data as reports. This document provides 
 > To use a C# topology with a Linux-based cluster, update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. The version of the package must also match the major version of Storm installed on HDInsight. For example, Storm on HDInsight versions 3.3 and 3.4 use Storm version 0.10.x, while HDInsight 3.5 uses Storm 1.0.x.
 > <p> 
 > C# topologies on Linux-based clusters must use .NET 4.5, and use Mono to run on the HDInsight cluster. Most things work. However you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
-> 
-> <p>For a Java version of this project, which works with Linux-based or Windows-based HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md). 
+> <p>
+> For a Java version of this project, which works with Linux-based or Windows-based HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## Prerequisites
 

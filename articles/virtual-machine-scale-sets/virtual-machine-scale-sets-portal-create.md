@@ -19,8 +19,8 @@ ms.date: 09/15/2016
 wacn.date: ''
 ms.author: negat
 ms.custom: H1Hack27Feb2017
----
 
+---
 # How to create a Virtual Machine Scale Set with the Azure portal preview
 This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal preview. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
 

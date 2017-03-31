@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Control network traffic flow with network security groups
 
 A network security group (NSG) contains a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using both models, but Azure recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using both models, but Azure recommends that most new deployments use the Resource Manager model.
 
 ## NSG resource
 NSGs contain the following properties.

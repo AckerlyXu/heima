@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/28/2016
 wacn.date: ''
 ms.author: glenga
----
 
+---
 # Create a .NET WebJob in Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

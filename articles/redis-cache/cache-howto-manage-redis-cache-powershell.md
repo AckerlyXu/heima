@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/14/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # Manage Azure Redis Cache with Azure PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)

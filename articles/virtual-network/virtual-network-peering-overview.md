@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 wacn.date: ''
 ms.author: narayan
----
 
+---
 # Virtual network peering
 Virtual network (VNet) peering enables you to connect two VNets in the same region through the Azure backbone network. Once peered, the two VNets appear as one for connectivity purposes. The two VNets are still managed as separate resources, but virtual machines (VM) in the peered VNets can communicate with each other directly by using private IP addresses.
 

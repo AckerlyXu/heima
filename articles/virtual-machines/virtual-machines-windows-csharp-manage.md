@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: davidmu
----
 
+---
 # Manage Azure Virtual Machines using Azure Resource Manager and C# #
 
 The tasks in this article show you how to manage virtual machines, such as starting, stopping, and updating.
@@ -208,7 +208,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
         Getting information about the virtual machine...
         hardwareProfile
           vmSize: Standard_D1_v2
-   
+
         storageProfile
           imageReference
             publisher: MicrosoftWindowsServer
@@ -221,18 +221,18 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
             createOption: FromImage
             uri: http://store1.blob.core.chinacloudapi.cn/vhds/myosdisk.vhd
             caching: ReadWrite
-   
+
           osProfile
             computerName: vm1
             adminUsername: account1
             provisionVMAgent: True
             enableAutomaticUpdates: True
-   
+
           networkProfile
             networkInterface 
               id: /subscriptions/{subscription-id}
                 /resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nc1
-   
+
           vmAgent
             vmAgentVersion2.7.1198.766
             statuses
@@ -241,7 +241,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
             displayStatus: Ready
             message: GuestAgent is running and accepting new configurations.
             time: 4/13/2016 8:35:32 PM
-   
+
           disks
             name: myosdisk
             statuses
@@ -249,7 +249,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
               level: Info
               displayStatus: Provisioning succeeded
               time: 4/13/2016 8:04:36 PM
-   
+
           VM general status
             provisioningStatus: Succeeded
             id: /subscriptions/{subscription-id}
@@ -257,7 +257,7 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
             name: vm1
             type: Microsoft.Compute/virtualMachines
             location: chinaeast
-   
+
           VM instance status
             code: ProvisioningState/succeeded
               level: Info

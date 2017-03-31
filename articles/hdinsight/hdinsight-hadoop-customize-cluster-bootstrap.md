@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Customize HDInsight clusters using Bootstrap
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

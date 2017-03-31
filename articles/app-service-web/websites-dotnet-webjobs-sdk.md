@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 06/01/2016
 wacn.date: ''
 ms.author: glenga
----
 
+---
 # What is the Azure WebJobs SDK
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

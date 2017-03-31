@@ -17,7 +17,6 @@ ms.date: 03/20/2017
 wacn.date: ''
 ms.author: larryfr
 ---
-
 # Use Apache Kafka (preview) with Storm on HDInsight
 
 Apache Kafka is a publish-subscribe messaging solution that is available with HDInsight. Apache Storm is a distributed system that can be used to analyze data in real-time. This document demonstrates how you can use Storm on HDInsight to read and process data from Kafka on HDInsight. The example in this document uses a Java-based Storm topology that relies on the Kafka spout and bolt components available with Apache Storm.
@@ -263,9 +262,7 @@ Leave the SSH connection to the Kafka cluster active, as you can use it to verif
 
 3. From the SSH connection to the Storm cluster, use the following command to start the writer topology:
 
-    ```bash
-    storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writer.yaml -e
-    ```
+        storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /writer.yaml -e
 
     The parameters used with this command are:
 

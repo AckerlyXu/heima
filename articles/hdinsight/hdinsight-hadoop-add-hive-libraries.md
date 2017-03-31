@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/27/2017
 wacn.date: ''
 ms.author: larryfr
+
 ms.custom: H1Hack27Feb2017
 ---
-
 # Add custom Hive libraries when creating your HDInsight cluster
 
 If you have libraries that you use frequently with Hive on HDInsight, this document contains information on using a Script Action to pre-load the libraries during cluster creation. Libraries added using the steps in this document are globally available in Hive - there is no need to use [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) to load them.

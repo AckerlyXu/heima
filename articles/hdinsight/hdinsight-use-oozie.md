@@ -7,7 +7,6 @@ tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-ROBOTS: NOINDEX
 
 ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
 ms.service: hdinsight
@@ -18,8 +17,9 @@ ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: jgao
----
+ROBOTS: NOINDEX
 
+---
 # Use Oozie with Hadoop to define and run a workflow in HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
@@ -175,7 +175,7 @@ Azure PowerShell currently doesn't provide any cmdlets for defining Oozie jobs. 
 The PowerShell script in this section performs the following steps:
 
 1. Connect to Azure.
-2. Create an Azure resource group. For more information, see [Use Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
+2. Create an Azure resource group. For more information, see [Use Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 3. Create an Azure SQL Database server, an Azure SQL database, and two tables. These are used by the Sqoop action in the workflow.
 
     The table name is *log4jLogCount*.
@@ -645,11 +645,11 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: ../sql-database/sql-database-create-configure.md
-[sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
+[sqldatabase-create-configue]: ../sql-database-create-configure.md
+[sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.cn/
-[azure-create-storageaccount]: ../storage/storage-create-storage-account.md
+[azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/

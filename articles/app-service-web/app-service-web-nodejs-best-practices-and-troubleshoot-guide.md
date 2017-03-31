@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 06/06/2016
 wacn.date: ''
 ms.author: ranjithr;wadeh
----
 
+---
 # Best practices and troubleshooting guide for node applications on Azure Web Apps
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -77,7 +77,6 @@ This [schema file](https://github.com/Azure/iisnode/blob/master/src/config/iisno
         <add name="iisnode" path="app.js" verb="\*" modules="iisnode" responseBufferLimit="0"/>    
     </handlers>
     ```
-
 * watchedFiles
 
     This is a semi-colon separated list of files that will be watched for changes. A change to a file causes the application to recycle. Each entry consists of an optional directory name plus required file name which are relative to the directory where the main application entry point is located. Wild cards are allowed in the file name portion only. Default value is "\*.js;web.config"

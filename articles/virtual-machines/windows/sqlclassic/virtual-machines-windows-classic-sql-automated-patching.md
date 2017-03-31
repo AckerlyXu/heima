@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: jroth
----
 
+---
 # Automated Patching for SQL Server in Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)

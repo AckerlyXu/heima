@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 06/16/2016
 wacn.date: ''
 ms.author: kasing
----
 
+---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager
 ## WinRM in Azure Service Management vs Azure Resource Manager
 

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Access YARN application logs on Linux-based HDInsight
 This document explains how to access the logs for YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight.
 

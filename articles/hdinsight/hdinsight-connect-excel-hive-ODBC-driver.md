@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Connect Excel to Hadoop with the Microsoft Hive ODBC driver
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
 

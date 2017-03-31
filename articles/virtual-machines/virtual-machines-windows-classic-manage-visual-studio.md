@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 12/09/2016
 wacn.date: ''
 ms.author: tarcher
----
 
+---
 # Create and manage Windows virtual machines in Visual Studio
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

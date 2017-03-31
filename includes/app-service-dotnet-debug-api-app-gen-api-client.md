@@ -36,7 +36,7 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
         static void Main(string[] args)
         {
             var client = new ContactsList();
-   
+
             // Send GET request.
             var contacts = client.Contacts.Get();
             foreach (var c in contacts)
@@ -44,7 +44,7 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
                 Console.WriteLine("{0}: {1} {2}",
                     c.Id, c.Name, c.EmailAddress);
             }
-   
+
             // Send POST request.
             client.Contacts.Post(new Models.Contact
             {
@@ -52,7 +52,7 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
                 Name = "Loretta Kahn",
                 Id = 4
             });
-   
+
             Console.WriteLine("Finished");
             Console.ReadLine();
         }

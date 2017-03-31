@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 wacn.date: ''
 ms.author: magoedte;bwren
----
 
+---
 # Runbook and module galleries for Azure Automation
 Rather than creating your own runbooks and modules in Azure Automation, you can access a variety of scenarios that have already been built by Microsoft and the community.  You can either use these scenarios without modification or you can use them as a starting point and edit them for your specific requirements.
 

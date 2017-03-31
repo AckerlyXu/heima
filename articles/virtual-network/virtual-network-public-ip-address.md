@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
+ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: jdial
+
 ---
 
 # Public IP addresses

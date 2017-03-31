@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 2/21/2017
 wacn.date: ''
 ms.author: juluk
----
 
+---
 # Deploy LAMP stack with the Azure CLI 1.0
 This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure Account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI](../cli-install-nodejs.md) that is [connected to your Azure account](../xplat-cli-connect.md).
 

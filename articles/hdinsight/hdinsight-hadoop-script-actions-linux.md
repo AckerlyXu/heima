@@ -1,6 +1,6 @@
 ---
 title: Script action development with Linux-based HDInsight | Azure
-description: How to customize Linux-based HDInsight clusters with Script Action. Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. 
+description: 'How to customize Linux-based HDInsight clusters with Script Action. Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. '
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/10/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Script action development with HDInsight
 
 Script actions are a way to customize Azure HDInsight clusters by specifying cluster configuration settings or installing additional services, tools, or other software on the cluster. You can use script actions during cluster creation or on a running cluster.

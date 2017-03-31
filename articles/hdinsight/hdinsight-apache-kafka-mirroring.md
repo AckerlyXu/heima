@@ -17,7 +17,6 @@ ms.date: 02/13/2017
 wacn.date: ''
 ms.author: larryfr
 ---
-
 # Use MirrorMaker to create a replica of a Kafka on HDInsight cluster (preview)
 
 Apache Kafka includes a mirroring feature, which allows you to replicate topics from one Kafka cluster to another. For example, replicating records between Kafka cluster in different Azure regions.

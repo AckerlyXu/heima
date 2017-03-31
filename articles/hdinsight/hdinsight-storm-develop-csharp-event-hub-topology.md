@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

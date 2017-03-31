@@ -18,8 +18,8 @@ ms.topic: article
 ms.date: 09/06/2016
 wacn.date: ''
 ms.author: rclaus
----
 
+---
 # Optimize your Linux VM on Azure
 Creating a Linux virtual machine (VM) is easy to do from the command line or from the portal. This tutorial shows you how to ensure you have set it up to optimize its performance on the Azure platform. This topic uses an Ubuntu Server VM, but you can also create Linux virtual machine using [your own images as templates](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 

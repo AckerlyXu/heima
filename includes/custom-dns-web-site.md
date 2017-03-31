@@ -4,7 +4,7 @@ When you create a website, Azure provides a friendly subdomain on the chinacloud
 Optionally, you can use Azure Traffic Manager to load balance incoming traffic to your website. For more information on how Traffic Manager works with Websites, see [Controlling Azure Web Sites Traffic with Azure Traffic Manager][trafficmanager].
 
 > [!NOTE]
-> The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
+> The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="https://www.azure.cn/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
 > 
 > [!NOTE]
 > The steps in this task require you to configure your websites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="https://www.azure.cn/pricing/details/web-sites/">Websites Pricing Details</a> for more information.

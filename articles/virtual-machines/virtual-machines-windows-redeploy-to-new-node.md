@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Redeploy Windows virtual machine to new Azure node
 If you have been facing difficulties troubleshooting Remote Desktop (RDP) connection or application access to Windows-based Azure virtual machine (VM), redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure PowerShell or the Azure portal preview.
 

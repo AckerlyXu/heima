@@ -16,8 +16,8 @@ ms.workload: tbd
 ms.date: 02/14/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to administer Azure Redis Cache
 This topic describes how to perform administration tasks such as [rebooting](#reboot) and [scheduling updates](#schedule-updates) for your Azure Redis Cache instances.
 

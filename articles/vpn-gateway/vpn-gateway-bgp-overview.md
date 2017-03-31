@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: yushwang
----
 
+---
 # Overview of BGP with Azure VPN Gateways
 This article provides an overview of BGP (Border Gateway Protocol) support in Azure VPN Gateways.
 

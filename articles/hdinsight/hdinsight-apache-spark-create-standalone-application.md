@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Create a standalone Scala application to run on Apache Spark cluster on HDInsight
 
 This article provides step-by-step guidance on developing standalone Spark applications written in Scala using Maven with IntelliJ IDEA. The article uses Apache Maven as the build system and starts with an existing Maven archetype for Scala provided by IntelliJ IDEA.  At a high-level, creating a Scala application in IntelliJ IDEA will involve the following steps:
@@ -74,10 +74,10 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
 8. Update the Scala source file to include your application code. Open and replace the existing sample code with the following code and save the changes. This code reads the data from the HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that only have one digit in the sixth column, and writes the output to **/HVACOut** under the default storage container for the cluster.
 
         package com.microsoft.spark.example
-   
+
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
-   
+
         /**
           * Test IO to wasb
           */
@@ -85,12 +85,12 @@ If IntelliJ IDEA installation did not not prompt for enabling Scala plugin, laun
           def main (arg: Array[String]): Unit = {
             val conf = new SparkConf().setAppName("WASBIOTest")
             val sc = new SparkContext(conf)
-   
+
             val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-   
+
             //find the rows which have only one digit in the 7th column in the CSV
             val rdd1 = rdd.filter(s => s.split(",")(6).length() == 1)
-   
+
             rdd1.saveAsTextFile("wasbs:///HVACout")
           }
         }

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/02/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Flighting deployment (beta testing) in Azure App Service
 This tutorial shows you how to do *flighting deployments* by integrating the various capabilities of [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/) and [Azure Application Insights](https://www.azure.cn/home/features/application-insights/).
 

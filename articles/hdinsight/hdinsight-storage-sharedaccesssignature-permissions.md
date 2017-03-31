@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 02/28/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight
 HDInsight uses Azure storage Blobs for data storage. While HDInsight must have full access to the blob used as default storage for the cluster, you can restrict permissions to data stored in other blobs used by the cluster. For example, you may want to make some data read-only. You can do this using Shared Access Signatures.
 
@@ -170,7 +170,7 @@ If you have an existing Linux-based cluster, you can add the SAS to the **core-s
     * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn
     * **Value**: The SAS returned by the C# or Python application you ran previously
 
-        Replace **CONTAINERNAME** with the container name you used with the C# or SAS application. Replace **STORAGEACCOUNTNAME** with the storage account name you used.
+    Replace **CONTAINERNAME** with the container name you used with the C# or SAS application. Replace **STORAGEACCOUNTNAME** with the storage account name you used.
 5. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
 
     Click **OK** when the changes have been completed.

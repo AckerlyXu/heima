@@ -19,7 +19,6 @@ wacn.date: ''
 ms.author: szark
 ms.custom: H1Hack27Feb2017
 ---
-
 # Understanding and using the Azure Linux Agent
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

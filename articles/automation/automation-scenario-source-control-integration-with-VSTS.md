@@ -4,20 +4,18 @@ description: Scenario walks you through setting up integration with an Azure Aut
 services: automation
 documentationcenter: ''
 author: eamono
-manager: ''
+manager: 
 editor: ''
 keywords: azure powershell, VSTS, source control, automation
-
 ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
 ms.service: automation
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 01/24/2017 
 wacn.date: ''
 ---
-
 # Azure Automation scenario - Automation source control integration with Visual Studio Team Services
 
 In this scenario, you have a Visual Studio Team Services project that you are using to manage Azure Automation runbooks or DSC configurations under source control.

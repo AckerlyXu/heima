@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/25/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Controlling Azure web app traffic with Azure Traffic Manager
 > [!NOTE]
 > This article provides summary information for Azure Traffic Manager as it relates to Azure App Service Web Apps. More information about Azure Traffic Manager itself can be found by visiting the links at the end of this article.

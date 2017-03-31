@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # About VPN Gateway configuration settings
 A VPN gateway is a type of virtual network gateway that sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks across the Azure backbone.
 

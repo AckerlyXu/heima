@@ -18,8 +18,8 @@ ms.date: 06/24/2015
 wacn.date: ''
 ms.author: hbai
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Deploy and configure a 3-node Deis cluster in Azure
 This article walks you through provisioning a [Deis](http://deis.io/) cluster on Azure. It covers all the steps from creating the necessary certificates to deploying and scaling a sample **Go** application on the newly provisioned cluster.
 
@@ -249,4 +249,4 @@ This article walked you through all the steps to provision a new Deis cluster on
 
 [azure-command-line-tools]: ../cli-install-nodejs.md
 [resource-group-overview]: ../azure-resource-manager/resource-group-overview.md
-[powershell-azure-resource-manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md

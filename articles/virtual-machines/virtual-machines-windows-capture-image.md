@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/15/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # How to capture a VM image from a generalized Azure VM
 This article shows you how to use Azure PowerShell to create an image of a generalized Azure VM. You can then use the image to create another VM. The image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create the new VM. 
 

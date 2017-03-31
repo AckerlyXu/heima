@@ -17,7 +17,7 @@ ms.topic: get-started-article
 ms.date: 2/21/2017
 wacn.date: ''
 ms.author: negat
----
 
+---
 # Create a Linux Virtual Machine Scale Set using Azure CLI
 [!INCLUDE [virtual-machines-linux-cli-vmss-quick-create-include](../../includes/virtual-machines-linux-nodejs-cli-vmss-quick-create-include.md)]

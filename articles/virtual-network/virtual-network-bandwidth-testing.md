@@ -7,7 +7,7 @@ author: steveesp
 manager: Gerald DeGrace
 editor: ''
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -16,6 +16,7 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 wacn.date: ''
 ms.author: steveesp
+
 ---
 
 # Bandwidth/Throughput testing (NTTTCP)
@@ -27,11 +28,11 @@ and the other as RECEIVER.
 
 #### Deploying VMs for testing
 For the purposes of this test, the two VMs should be in either the same Cloud Service or the same Availability Set so that we can use their internal IPs and exclude the Load Balancers from the test. It is possible to test with the VIP but this kind of testing is outside the scope of this document.
- 
+
 Make a note of the RECEIVER's IP address. Let's call that IP "a.b.c.r"
 
 Make a note of the number of cores on the VM. Let's call this "\#num\_cores"
- 
+
 Run the NTTTCP test for 300 seconds (or 5 minutes) on the sender VM and receiver VM.
 
 Tip: When setting up this test for the first time, you might try a shorter test period to get feedback sooner. Once the tool is working as expected, extend the test period to 300 seconds for the most accurate results.
@@ -130,7 +131,7 @@ And on the SENDER, run:
 ```bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+
 Test length defaults to 60 seconds if no time parameter is given
 
 ## Next steps

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 04/19/2016
 wacn.date: ''
 ms.author: timlt
----
 
+---
 # Managing Azure Virtual Machines using Azure Automation
 This guide introduces you to the Azure Automation service and how it can be used to simplify managing your Azure virtual machines.
 

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: hanuk;robmcm
----
 
+---
 # Running Cassandra with Linux on Azure and Accessing it from Node.js
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. See Resource Manager templates for [Datastax Enterprise](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax) and [Spark cluster and Cassandra on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-and-cassandra-on-centos/).

@@ -18,6 +18,7 @@ ms.topic: article
 ms.date: 1/25/2017
 wacn.date: ''
 ms.author: negat
+
 ---
 
 # Convert a scale set template to a managed disk scale set template

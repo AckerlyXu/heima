@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/24/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # How to detach a disk from a Windows virtual machine
 > [!IMPORTANT]
 > Azure has two distinct deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about how to detach a disk using the Resource Manager model, see [here](virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

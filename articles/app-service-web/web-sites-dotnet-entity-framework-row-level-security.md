@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security
+title: 'Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security'
 description: Learn how to develop an ASP.NET MVC 5 web app with a multi-tenant SQL Database backent, using Entity Framework and Row-Level Security.
 metakeywords: azure asp.net mvc entity framework multi tenant row level security rls sql database
 services: app-service\web
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 04/25/2016
 wacn.date: ''
 ms.author: thmullan
----
 
+---
 # Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

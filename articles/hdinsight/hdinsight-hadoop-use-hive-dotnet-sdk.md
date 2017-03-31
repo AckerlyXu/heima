@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/03/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Run Hive queries using HDInsight .NET SDK
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 

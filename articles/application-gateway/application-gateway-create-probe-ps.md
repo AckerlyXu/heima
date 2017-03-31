@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
 
 > [!div class="op_single_selector"]

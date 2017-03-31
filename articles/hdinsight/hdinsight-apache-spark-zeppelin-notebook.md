@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/04/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
 
 HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight cluster.
@@ -55,13 +55,13 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
 
         %livy.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
-   
+
         // Create an RDD using the default Spark context, sc
         val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-   
+
         // Define a schema
         case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
-   
+
         // Map the values in the .csv file to the schema
         val hvac = hvacText.map(s => s.split(",")).filter(s => s(0) != "Date").map(
             s => Hvac(s(0), 
@@ -71,7 +71,7 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
                     s(6)
             )
         ).toDF()
-   
+
         // Register as a temporary table called "hvac"
         hvac.registerTempTable("hvac")
 

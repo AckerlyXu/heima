@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/02/2017
 wacn.date: ''
 ms.author: szark
----
 
+---
 # Prepare an Ubuntu virtual machine for Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -117,7 +117,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
         # sudo apt-get update
         # sudo apt-get install walinuxagent
 
-    >[!NOTE]
+    >[!Note]
     The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
 8. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:

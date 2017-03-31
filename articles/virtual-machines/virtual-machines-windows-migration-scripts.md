@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 1/23/2017
 wacn.date: ''
 ms.author: kasing
----
 
+---
 # Community tools to migrate IaaS resources from classic to Azure Resource Manager
 This article catalogs the tools that have been provided by the community to assist with migration of IaaS resources from classic to the Azure Resource Manager deployment model.
 

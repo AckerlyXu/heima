@@ -18,8 +18,8 @@ ms.date: 03/02/2017
 wacn.date: ''
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Different ways to create a Windows virtual machine
 
 Azure offers different ways to create a virtual machine because virtual machines are suited for different users and purposes. This means that you need to make some choices about the virtual machine and how to create it. This article gives you a summary of these choices and links to instructions.

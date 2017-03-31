@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine Scale Sets: Minimum Viable Scale Set | Azure
+title: 'Azure Virtual Machine Scale Sets: Minimum Viable Scale Set | Azure'
 description: Learn to create a minimum viable scale set template
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -17,11 +17,12 @@ ms.topic: article
 ms.date: 2/14/2017
 wacn.date: ''
 ms.author: negat
+
 ---
 
 # About this tutorial
 
-[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial series shows how to create a minimum viable scale set template and how to modify this template to suit various scenarios. All examples come from this [github repo](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repo. These templates and diffs are intended to be simple, not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
+[Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) are a great way to deploy groups of related resources. This tutorial series shows how to create a minimum viable scale set template and how to modify this template to suit various scenarios. All examples come from this [github repo](https://github.com/gatneil/mvss). Each diff shown in this walkthrough is the result of doing a `git diff` between branches in this repo. These templates and diffs are intended to be simple, not full-fledged examples. For more complete examples of scale set templates, see the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates) and search for folders that contain the string `vmss`.
 
 ## A minimum viable scale set
 
@@ -109,7 +110,7 @@ In addition to the required `type`, `name`, `apiVersion`, and `location` propert
 +      ],
 ```
 
-The scale set needs to know what size of VM to create (the "sku name") and how many such VMs to create (the "sku capacity"). To see which VM sizes are available, refer to the [VM Sizes documentation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
+The scale set needs to know what size of VM to create (the "sku name") and how many such VMs to create (the "sku capacity"). To see which VM sizes are available, refer to the [VM Sizes documentation](/azure/virtual-machines/virtual-machines-windows-sizes).
 
 ```diff
 +      "sku": {

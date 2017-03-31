@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: rachelap;robmcm
----
 
+---
 # Build and deploy a Java API app in Azure App Service
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
@@ -166,19 +166,19 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
 4. Overwrite the code in the file with this new code to add a mock implementation to the service code. 
 
         package io.swagger.api.impl;
-   
+
         import io.swagger.api.*;
-        
+
         import io.swagger.model.Contact;
         import java.util.*;
         import io.swagger.api.NotFoundException;
-               
+
         import javax.ws.rs.core.Response;
         import javax.ws.rs.core.SecurityContext;
-   
+
         @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JaxRSServerCodegen", date = "2015-11-24T21:54:11.648Z")
         public class ContactsApiServiceImpl extends ContactsApiService {
-   
+
             private ArrayList<Contact> loadContacts()
             {
                 ArrayList<Contact> list = new ArrayList<Contact>();
@@ -187,20 +187,20 @@ In this section, you'll replace the Swagger-generated code's server-side impleme
                 list.add(new Contact(3, "Lora Riggs", "lora@contoso.com"));
                 return list;
             }
-   
+
             @Override
             public Response contactsGet(SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 return Response.ok().entity(list).build();
                 }
-   
+
             @Override
             public Response contactsGetById(Integer id, SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 Contact ret = null;
-   
+
                 for(int i=0; i<list.size(); i++)
                 {
                     if(list.get(i).getId() == id)

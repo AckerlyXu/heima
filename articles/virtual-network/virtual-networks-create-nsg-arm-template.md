@@ -18,8 +18,8 @@ ms.date: 02/02/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create network security groups using an Azure Resource Manager template
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
@@ -118,7 +118,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
                             Actions  NotActions
                             =======  ==========
                             *                  
-   
+
         Resources         :
                             Name                Type                                     Location
                             ==================  =======================================  ========
@@ -141,7 +141,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
                             TestVNet            Microsoft.Network/virtualNetworks        chinanorth  
                             testvnetstorageprm  Microsoft.Storage/storageAccounts        chinanorth  
                             testvnetstoragestd  Microsoft.Storage/storageAccounts        chinanorth  
-   
+
         ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
 
 ## Deploy the ARM template by using the Azure CLI

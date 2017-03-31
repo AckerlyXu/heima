@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Create a virtual network (classic) using a network configuration file with PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 

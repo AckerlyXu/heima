@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Consume an API app from JavaScript using CORS
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -211,13 +211,13 @@ The following steps summarize the process for enabling Web API CORS support. For
             public static void Register(HttpConfiguration config)
             {
                 // Web API configuration and services
-   
+
                 // The following line enables you to control CORS by using Web API code
                 config.EnableCors();
-   
+
                 // Web API routes
                 config.MapHttpAttributeRoutes();
-   
+
                 config.Routes.MapHttpRoute(
                     name: "DefaultApi",
                     routeTemplate: "api/{controller}/{id}",

@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 wacn.date: ''
 ms.author: jdial
+
 ---
 
 # Create your first virtual network

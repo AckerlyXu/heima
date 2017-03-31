@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 

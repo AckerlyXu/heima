@@ -17,8 +17,8 @@ ms.date: 01/10/2017
 wacn.date: ''
 ms.devlang: na
 ms.author: delhan
----
 
+---
 # Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
 > [!div class="op_single_selector"]
 > * [Classic](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)

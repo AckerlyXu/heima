@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Create HBase clusters in Azure Virtual Network
 Learn how to create Azure HDInsight HBase clusters in an [Azure Virtual Network][1].
 

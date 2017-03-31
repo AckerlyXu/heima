@@ -20,7 +20,6 @@ wacn.date: ''
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
 ---
-
 # Add a disk to a Linux VM
 This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. 
 
@@ -316,7 +315,6 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-
 * In some cases the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
 
     **Ubuntu**

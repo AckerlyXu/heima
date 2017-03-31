@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/30/2016
 wacn.date: ''
 ms.author: josephd
----
 
+---
 # Set up a web-based LOB application in a hybrid cloud for testing
 This topic steps you through creating a simulated hybrid cloud environment for testing a web-based line of business (LOB) application hosted in Azure. Here is the resulting configuration.
 

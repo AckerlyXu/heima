@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Deploy an ASP.NET web app to Azure App Service, using Visual Studio
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 

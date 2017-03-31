@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/29/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Troubleshoot a web app in Azure App Service using Visual Studio
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -574,7 +574,7 @@ For more information about troubleshooting web apps in Azure App Service, see th
 For help with a specific troubleshooting question, start a thread in one of the following forums:
 
 * [The Azure forum on the ASP.NET site](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [The Azure forum on MSDN](http://social.msdn.microsoft.com/Forums/zh-cn/home?forum=windowsazurezhchs).
+* [The Azure forum on MSDN](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=windowsazurezhchs).
 * [CSDN](http://azure.csdn.net/).
 
 ### Debugging in Visual Studio

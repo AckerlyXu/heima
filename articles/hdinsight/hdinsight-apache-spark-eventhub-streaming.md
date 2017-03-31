@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Spark Streaming: Process events from Azure Event Hubs with Apache Spark cluster on HDInsight
 Spark Streaming extends the core Spark API to build scalable, high-throughput, fault-tolerant stream processing applications. Data can be ingested from many sources. In this article we use Azure Event Hubs to ingest data. Event Hubs is a highly scalable ingestion system that can intake millions of events per second. 
 

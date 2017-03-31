@@ -7,7 +7,6 @@ author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ROBOTS: NOINDEX
 
 ms.assetid: 6fb7b5c2-8df4-40b1-a9e2-6815080004f9
 ms.service: hdinsight
@@ -18,8 +17,9 @@ ms.topic: article
 ms.date: 05/17/2016
 wacn.date: ''
 ms.author: nitinme
----
+ROBOTS: NOINDEX
 
+---
 # Use Hive with Windows-based HDInsight to analyze logs from websites
 Learn how to use HiveQL with HDInsight to analyze logs from a website. Website log analysis can be used to segment your audience based on similar activities, categorize site visitors by demographics, and to find out the content they view, the websites they come from, and so on.
 

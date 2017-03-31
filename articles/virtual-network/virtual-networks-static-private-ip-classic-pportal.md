@@ -18,8 +18,8 @@ ms.date: 02/04/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Configure private IP addresses for a virtual machine (Classic) using the Azure portal preview
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]

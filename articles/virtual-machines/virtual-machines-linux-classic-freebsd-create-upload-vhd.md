@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 wacn.date: ''
 ms.author: kyliel
----
 
+---
 # Create and upload a FreeBSD VHD to Azure
 This article shows you how to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system. After you upload it, you can use it as your own image to create a virtual machine (VM) in Azure.
 

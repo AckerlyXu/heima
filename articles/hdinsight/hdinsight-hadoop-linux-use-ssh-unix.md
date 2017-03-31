@@ -1,6 +1,6 @@
 ---
 title: Use SSH with HDInsight (Hadoop) from Windows, Linux, Unix, or OS X | Azure
-description:  You can access HDInsight using Secure Shell (SSH). This document provides information on using SSH with HDInsight from Windows, Linux, Unix, or OS X clients.
+description: " You can access HDInsight using Secure Shell (SSH). This document provides information on using SSH with HDInsight from Windows, Linux, Unix, or OS X clients."
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -17,10 +17,11 @@ ms.workload: big-data
 ms.date: 02/27/2017
 wacn.date: ''
 ms.author: larryfr
+
 ms.custom: H1Hack27Feb2017
 ---
-
 # Use SSH with HDInsight (Hadoop) from Bash on Windows 10, Linux, Unix, or OS X
+
 > [!div class="op_single_selector"]
 > * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
 > * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)

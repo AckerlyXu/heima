@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/03/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Manage resources for Apache Spark cluster on Azure HDInsight 
 
 In this article you will learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster. You will also learn about how to tune the cluster configuration for optimal performance.
@@ -80,26 +80,20 @@ For applications running in the Jupyter notebook, you can use the `%%configure` 
 
 The snippet below shows how to change the configuration for an application running in Jupyter.
 
-```
-%%configure
-{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
-```
+    %%configure
+    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
 
 Configuration parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column.
 
 ### Change the parameters for an application submitted using spark-submit
 Following command is an example of how to change the configuration parameters for a batch application that is submitted using `spark-submit`.
 
-```
-spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 --num-executors 10 <location of application jar file> <application parameters>
-```
+    spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 --num-executors 10 <location of application jar file> <application parameters>
 
 ### Change the parameters for an application submitted using cURL
 Following command is an example of how to change the configuration parameters for a batch application that is submitted using using cURL.
 
-```
-curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
-```
+    curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 
 ### How do I change these parameters on a Spark Thrift Server?
 Spark Thrift Server provides JDBC/ODBC access to a Spark cluster and is used to service Spark SQL queries. Tools like Power BI, Tableau etc. use ODBC protocol to communicate with Spark Thrift Server to execute Spark SQL queries as a Spark Application. When a Spark cluster is created, two instances of the Spark Thrift Server are started, one on each head node. Each Spark Thrift Server is visible as a Spark application in the YARN UI.

@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run Hive queries with Hadoop in HDInsight with Curl
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -66,7 +66,6 @@ To complete the steps in this article, you will need the following:
     This should return a response similar to the following:
 
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
-
 2. Use the following to create a new table named **log4jLogs**:
 
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'wasbs:///example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="wasbs:///example/curl" https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/hive
@@ -107,7 +106,6 @@ To complete the steps in this article, you will need the following:
         This command should return a job ID that can be used to check the status of the job.
 
             {"id":"job_1415651640909_0026"}
-
 3. To check the status of the job, use the following command. Replace **JOBID** with the value returned in the previous step. For example, if the return value was `{"id":"job_1415651640909_0026"}`, then **JOBID** would be `job_1415651640909_0026`.
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/JOBID | jq .status.state
@@ -129,7 +127,7 @@ To complete the steps in this article, you will need the following:
         azure storage blob download <container-name> <blob-name> <destination-file>
 
     > [!NOTE]
-    > You must either specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See <a href="./hdinsight-upload-data.md" target="_blank" for more information.
+    > You must either specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See <a href="hdinsight-upload-data.md" target="_blank" for more information.
     > 
     > 
 5. Use the following statements to create a new 'internal' table named **errorLogs**:

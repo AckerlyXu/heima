@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 06/27/2016
 wacn.date: ''
 ms.author: rasquill
----
 
+---
 # Linux and open-source computing on Azure
 Find all the documentation you need to create and manage Linux-based virtual machines in the classic deployment model.
 

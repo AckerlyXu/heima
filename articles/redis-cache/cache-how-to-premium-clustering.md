@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/14/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to configure Redis clustering for a Premium Azure Redis Cache
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. This article describes how to configure clustering in a premium Azure Redis Cache instance.
 

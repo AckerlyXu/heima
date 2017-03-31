@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 06/29/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # App Service API Apps - What's changed
 At the Connect() event in November 2015, a number of improvements to Azure App Service were [announced](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/). These improvements include underlying changes to API Apps to better align with Mobile and Web Apps, reduce concept count and improve deployment and runtime performance. Starting November 30, 2015, new API apps you create using the Azure management portal or the latest tooling will reflect these changes. This article describes these changes, as well as how to redeploy existing apps to take advantage of the capabilities.
 

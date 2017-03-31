@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/21/2017
 wacn.date: ''
 ms.author: danielsollondon
----
 
+---
 # Creating Virtual Machine Scale Sets using PowerShell cmdlets
 This article walks through an example of how to create a Virtual Machine scale set (VMSS). It creates a scale set of three nodes, with associated Networking and Storage.
 

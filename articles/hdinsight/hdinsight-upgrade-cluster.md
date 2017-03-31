@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/11/2017
 wacn.date: ''
 ms.author: bhanupr
----
 
+---
 # Upgrade HDInsight cluster to a newer version
 To take advantage of the latest HDInsight features, we recommend that HDInsight clusters be upgraded to latest version. 
 Follow the below guidelines to upgrade your HDInsight cluster versions.

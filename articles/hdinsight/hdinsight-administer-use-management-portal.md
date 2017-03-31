@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Manage Windows-based Hadoop clusters in HDInsight by using the Azure portal preview
 
 Using the [Azure portal preview][azure-portal], you can create Windows-based Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Create non-interactive authentication .NET HDInsight applications
 You can run your .NET Azure HDInsight application either under application's own identity (non-interactive) or under the identity of the signed-in user of the application (interactive). For a sample of the interactive application, see [Connect to Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). This article shows you how to create non-interactive authentication .NET application to connect to Azure and manage HDInsight.
 
@@ -62,19 +62,19 @@ You must assign the application to a [role](../active-directory/role-based-acces
         using Microsoft.Azure.Common.Authentication.Models;
         using Microsoft.Azure.Management.Resources;
         using Microsoft.Azure.Management.HDInsight;
-        
+
         namespace CreateHDICluster
         {
             internal class Program
             {
                 private static HDInsightManagementClient _hdiManagementClient;
-        
+
                 private static Guid SubscriptionId = new Guid("<Enter Your Azure Subscription ID>");
                 private static string tenantID = "<Enter Your Tenant ID (A.K.A. Directory ID)>";
                 private static string applicationID = "<Enter Your Application ID>";
                 private static string secretKey = "<Enter the Application Secret Key>";
                 private static Uri BaseUri = new Uri("https://management.chinacloudapi.cn/");
-        
+
                 private static void Main(string[] args)
                 {
                     var key = new SecureString();
@@ -82,12 +82,12 @@ You must assign the application to a [role](../active-directory/role-based-acces
 
                     var tokenCreds = GetTokenCloudCredentials(tenantID, applicationID, key);
                     var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-        
+
                     var resourceManagementClient = new ResourceManagementClient(BaseUri, subCloudCredentials);
                     resourceManagementClient.Providers.Register("Microsoft.HDInsight");
-        
+
                     _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials, BaseUri);
-        
+
                     var results = _hdiManagementClient.Clusters.List();
                     foreach (var name in results.Clusters)
                     {
@@ -108,10 +108,10 @@ You must assign the application to a [role](../active-directory/role-based-acces
                     var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureChinaCloud];
                     var accessToken =
                         authFactory.Authenticate(account, env, tenantId, secretKey, ShowDialog.Never).AccessToken;
-        
+
                     return new TokenCloudCredentials(accessToken);
                 }
-        
+
                 public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
                 {
                     return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);

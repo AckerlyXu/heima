@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 02/29/2016
 wacn.date: ''
 ms.author: cfowler
----
 
+---
 # Connect a web app in Azure App Service to Redis Cache via the Memcache protocol
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

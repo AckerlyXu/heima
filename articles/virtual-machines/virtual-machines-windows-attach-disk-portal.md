@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 11/28/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # How to attach a data disk to a Windows VM in the Azure portal preview
 This article shows you how to attach both new and existing disks to a Windows virtual machine through the Azure portal preview. You can also [attach a data disk to a Linux VM in the Azure portal preview](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Before you do this, review these tips:
 

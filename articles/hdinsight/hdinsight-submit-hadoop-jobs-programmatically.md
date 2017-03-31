@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/14/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Submit Hadoop jobs in HDInsight
 
 You can submit Hadoop jobs using .NET SDK, Curl, and Azure PowerShell:

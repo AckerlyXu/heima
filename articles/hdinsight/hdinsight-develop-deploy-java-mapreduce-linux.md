@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Develop Java MapReduce programs for Hadoop on HDInsight Linux
 
 Learn how to use Apache Maven to create a Java-based MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.
@@ -268,6 +268,7 @@ This command copies the files from the local system to the head node.
     ```bash
     yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
     ```
+
     This command starts the WordCount MapReduce application. The input file is **/example/data/gutenberg/davinci.txt**, and the output is stored in **/example/data/wordcountout**. Both the input file and output are stored to the default storage for the cluster.
 
 3. Once the job completes, use the following command to view the results:

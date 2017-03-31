@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2017
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Technical articles for Windows VMs in the classic deployment model
 Find all the documentation you need to create and manage Windows-based Azure virtual machines in the classic deployment model.
 

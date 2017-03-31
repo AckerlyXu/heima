@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2016
 wacn.date: ''
 ms.author: bwren;sngun
----
 
+---
 # Managing Azure Automation data
 This article contains multiple topics for managing an Azure Automation environment.
 
@@ -50,7 +50,7 @@ You can export your runbooks to script files using either the Azure Classic Mana
 You cannot export integration modules from Azure Automation.  You must ensure that they are available outside of the automation account.
 
 ### Assets
-You cannot export [assets](./index.md) from Azure Automation.  Using the Azure Classic Management Portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
+You cannot export [assets](/azure/automation/) from Azure Automation.  Using the Azure Classic Management Portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
 
 You can use [Azure cmdlets](https://msdn.microsoft.com/zh-cn/library/dn690262.aspx) to retrieve details of unencrypted assets and either save them for future reference or create equivalent assets in another automation account.
 

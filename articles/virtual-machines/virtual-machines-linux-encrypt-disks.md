@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Encrypt disks on a Linux VM using the Azure CLI
 For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI and the Resource Manager deployment model.
 

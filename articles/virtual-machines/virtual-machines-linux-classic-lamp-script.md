@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/13/2016
 wacn.date: ''
 ms.author: guybo
----
 
+---
 # Deploy a LAMP app using the Azure CustomScript Extension for Linux
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about deploying a LAMP stack using the Resource Manager model, see [here](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Build Machine Learning applications to run on Apache Spark clusters on HDInsight
 
 Learn how to build a machine learning application using an Apache Spark cluster in HDInsight. This article shows how to use the Jupyter notebook available with the cluster to build and test our application. The application uses the sample HVAC.csv data that is available on all clusters by default.
@@ -65,11 +65,11 @@ In this application we use a Spark ML pipeline to perform a document classificat
         from pyspark.ml.classification import LogisticRegression
         from pyspark.ml.feature import HashingTF, Tokenizer
         from pyspark.sql import Row
-   
+
         import os
         import sys
         from pyspark.sql.types import *
-   
+
         from pyspark.mllib.classification import LogisticRegressionWithSGD
         from pyspark.mllib.regression import LabeledPoint
         from numpy import array

@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 11/14/2016
 wacn.date: ''
 ms.author: magoedte
----
 
+---
 # Authenticate Runbooks with Azure Service Management and Resource Manager
 This article describes the steps you must perform to configure an Azure AD User account for Azure Automation runbooks running against Azure Service Management or Azure Resource Manager  resources.  While this continues to be a supported authentication identity for your Azure Resource Manager based runbooks, the recommended method is using the new Azure Run As account.       
 
@@ -55,10 +55,8 @@ In this section, you will perform the following steps to create a new Azure Auto
 ## Use the credential in a runbook
 You can retrieve the credential in a runbook using the [Get-AutomationPSCredential](automation-credentials.md) activity and then use it with [Add-AzureAccount](http://msdn.microsoft.com/zh-cn/library/azure/dn722528.aspx) to connect to your Azure subscription. If the credential is an administrator of multiple Azure subscriptions, then you should also use [Select-AzureSubscription](http://msdn.microsoft.com/zh-cn/library/dn495203.aspx) to specify the correct one. This is shown in the sample Windows PowerShell below that will typically appear at the top of most Azure Automation runbooks.
 
-```
-$cred = Get-AutomationPSCredential -Name "myuseraccount.partner.onmschina.cn"
-Add-AzureAccount -Environment AzureChinaCloud -Credential $cred
-Select-AzureSubscription -SubscriptionName "My Subscription"
-```
+    $cred = Get-AutomationPSCredential -Name "myuseraccount.partner.onmschina.cn"
+    Add-AzureAccount -Environment AzureChinaCloud -Credential $cred
+    Select-AzureSubscription -SubscriptionName "My Subscription"
 
 You should repeat these lines after any [checkpoints](http://technet.microsoft.com/zh-cn/library/dn469257.aspx#bk_Checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.

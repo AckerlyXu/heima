@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/08/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Plan and design Azure Virtual Networks
 Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](virtual-networks-create-vnet-arm-pportal.md) one before proceeding.
 

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 05/16/2016
 wacn.date: ''
 ms.author: raviperi
----
 
+---
 # SCP programming guide
 SCP is a platform to build real time, reliable, consistent and high performance data processing application. It is built on top of [Apache Storm](http://storm.incubator.apache.org/) -- a stream processing system designed by the OSS communities. Storm is designed by Nathan Marz and open sourced by Twitter. It leverages [Apache ZooKeeper](http://zookeeper.apache.org/), another Apache project to enable highly reliable distributed coordination and state management. 
 
@@ -509,7 +509,6 @@ Our SCP component includes Java side and C\# side. In order to interact with nat
         {
             List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
         }
-
 2. **Serialization in C\# side and Deserialization in Java side side**
 
     The serialization method in C\# side should be specified in C\# user code:

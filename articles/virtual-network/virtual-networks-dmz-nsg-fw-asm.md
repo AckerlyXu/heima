@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 wacn.date: ''
 ms.author: jonor;sivae
----
 
+---
 # Example 2 - Build a DMZ to protect applications with a Firewall and NSGs
 [Return to the Security Boundary Best Practices Page][HOME]
 

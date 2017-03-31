@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Add a Java application to Azure App Service Web Apps
 Once you have initialized your Java web app in [Azure App Service][Azure App Service] as documented at [Create a Java web app in Azure App Service](web-sites-java-get-started.md), you can upload your application by placing your WAR in the **webapps** folder.
 
@@ -38,4 +38,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 [Azure Java Developer Center]: /develop/java/
 [Azure App Service]: /azure/app-service-web/app-service-changes-existing-services/
-[Deploy your app to Azure App Service]: web-sites-deploy.md
+[Deploy your app to Azure App Service]: ./web-sites-deploy.md

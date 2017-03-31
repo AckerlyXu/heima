@@ -16,8 +16,8 @@ ms.workload: web
 ms.date: 10/24/2016
 wacn.date: ''
 ms.author: sumuth
----
 
+---
 # Use DevOps environments effectively for your web apps
 This article shows you how to set up and manage web application deployments when multiple versions of your application are in various environments, such as development, staging, quality assurance (QA), and production. Each version of your application can be considered as a development environment for the specific purpose of your deployment process. For example, developers can use the QA environment to test the quality of the application before they push the changes to production.
 Multiple development environments can be a challenge because you need to track code, manage resources (compute, web app, database, cache, etc.), and deploy code across environments.
@@ -113,7 +113,7 @@ In this section, you will learn how to set up a deployment workflow by using slo
 
 4. Copy the following code in `wp-config.azure.php`:
 
-    ```
+    ```    
     <?php
     // MySQL settings
     /** The name of the database for WordPress */
@@ -162,7 +162,7 @@ In this section, you will learn how to set up a deployment workflow by using slo
     * prefix. Only numbers, letters, and underscores please!
     */
     $table_prefix = getenv('DB_PREFIX');
-    ```
+```
 
 #### Use relative paths
 One last thing to configure in the WordPress app is relative paths. WordPress stores URL information in the database. This storage makes moving content from one environment to another more difficult. You need to update the database every time you move from local to stage or stage to production environments. To reduce the risk of issues that can be caused with deploying a database every time you deploy from one environment to another, use the [Relative Root links plugin](https://wordpress.org/plugins/root-relative-urls/), which you can install by using the WordPress administrator dashboard.
@@ -365,7 +365,7 @@ Purchase a license for Courier2 for the `*.chinacloudsites.cn` domain and your c
           <!-- <passwordEncoding>Clear</passwordEncoding>-->
           </repository>
      </repositories>
-    ```
+     ```
 
 4. Under `<repositories>`, enter the production site URL and user information.
     If you are using the default Umbraco membership provider, then add the ID for the Administration user in the &lt;user&gt; section.

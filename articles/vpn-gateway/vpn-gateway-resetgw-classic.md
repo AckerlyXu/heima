@@ -1,5 +1,5 @@
 ---
-title: Reset an Azure VPN gateway to reestablish IPsec tunnels | Azure
+title: 'Reset an Azure VPN gateway to reestablish IPsec tunnels | Azure'
 description: This article walks you through resetting your Azure VPN Gateway to reestablish IPsec tunnels. The article applies to VPN gateways in both the classic, and the Resource Manager deployment models.
 services: vpn-gateway
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Reset a VPN Gateway
 
 Resetting the Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more Site-to-Site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly, but are not able to establish IPsec tunnels with the Azure VPN gateways. This article walks you through resetting your Azure VPN Gateway. 

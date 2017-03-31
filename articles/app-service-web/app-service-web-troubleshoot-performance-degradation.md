@@ -18,8 +18,8 @@ ms.topic: article
 ms.date: 07/06/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Troubleshoot slow web app performance issues in Azure App Service
 This article helps you troubleshoot slow web app performance issues in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/).
 
@@ -158,4 +158,4 @@ This is often the simplest way to recover from one-time issues. On the [Azure Po
  ![restart web app to solve performance issues](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 You can also manage your web app using Azure Powershell. For more information, see
-[Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
+[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).

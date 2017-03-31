@@ -1,6 +1,6 @@
 ---
 title: Automated Backup v2 for SQL Server 2016 Azure Virtual Machines | Azure
-description: Explains the Automated Backup feature for SQL Server 2016 VMs running in Azure. This article is specific to VMs using the Resource Manager.
+description: 'Explains the Automated Backup feature for SQL Server 2016 VMs running in Azure. This article is specific to VMs using the Resource Manager.'
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 01/30/2017
 wacn.date: ''
 ms.author: jroth
----
 
+---
 # Automated Backup v2 for SQL Server 2016 Azure Virtual Machines (Resource Manager)
 
 Automated Backup v2 automatically configures [Managed Backup to Azure](https://msdn.microsoft.com/zh-cn/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2016 Standard, Enterprise, or Developer editions. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
@@ -150,7 +150,7 @@ If you are enabling Automated Backup for the first time, Azure configures the SQ
 You can use PowerShell to configure Automated Backup v2. Before you begin, you must:
 
 - [Download and install the latest Azure PowerShell](http://aka.ms/webpi-azps).
-- Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
+- Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
 
 ### Install the SQL IaaS Extension
 If you provisioned a SQL Server virtual machine from the Azure portal preview, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzureRmVM** command and examining the **Extensions** property.

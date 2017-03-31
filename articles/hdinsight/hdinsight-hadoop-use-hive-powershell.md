@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/19/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run Hive queries using PowerShell
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Extend HDInsight capabilities by using Azure Virtual Network
 Azure Virtual Network allows you to extend your Hadoop solutions to incorporate on-premises resources such as SQL Server. It also allows you to combine multiple HDInsight cluster types, or to create secure private networks between resources in the cloud.
 
@@ -264,10 +264,10 @@ For example, to return the FQDN from an HDInsight Hadoop cluster, you can use on
         $Password = <cluster admin password>
         $DnsSuffix = ".azurehdinsight.cn"
         $ClusterFQDN = $ClusterDnsName + $DnsSuffix
-  
+
         $webclient = new-object System.Net.WebClient
         $webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
-  
+
         $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/yarn/        components/resourcemanager"
         $Response = $webclient.DownloadString($Url)
         $JsonObject = $Response | ConvertFrom-Json
@@ -299,10 +299,10 @@ To get the ZooKeeper quorum address, use one of the following methods to query t
         $Password = <cluster admin password>
         $DnsSuffix = ".azurehdinsight.cn"
         $ClusterFQDN = $ClusterDnsName + $DnsSuffix
-  
+
         $webclient = new-object System.Net.WebClient
         $webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
-  
+
         $Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum"
         $Response = $webclient.DownloadString($Url)
         $JsonObject = $Response | ConvertFrom-Json

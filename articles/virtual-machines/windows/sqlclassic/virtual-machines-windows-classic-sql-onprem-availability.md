@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2016
 wacn.date: ''
 ms.author: mikeray
----
 
+---
 # Extend on-premises Always On Availability Groups to Azure
 Always On Availability Groups provide high availability for groups of database by adding secondary replicas. These replicas allow failing over databases in case of a failure. In addition they can be used to offload read workloads or backup tasks.
 

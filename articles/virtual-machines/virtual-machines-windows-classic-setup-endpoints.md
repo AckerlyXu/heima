@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # How to set up endpoints on a classic Windows virtual machine in Azure
 All Windows virtual machines that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. This article is also available for [Linux virtual machines](virtual-machines-linux-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 

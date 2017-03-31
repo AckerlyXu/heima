@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 02/28/2017
 wacn.date: ''
 ms.author: jeffstok
----
 
+---
 #Introduction to R Server and open-source R capabilities on HDInsight
 
 With Azure HDInsight, Microsoft R Server is now available as an option when you create HDInsight clusters in Azure. This new capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
@@ -36,7 +36,7 @@ To include R Server in an HDInsight cluster, you must select the R Server cluste
 ## Learn about data storage options
 Default storage for the HDFS file system of HDInsight clusters can be associated with either an Azure Storage account. This ensures that whatever data is uploaded to the cluster storage during analysis is made persistent. There are various tools for data transfer to the storage option you select including the storage account's portal-based upload facility and the [AzCopy](../storage/storage-use-azcopy.md) utility.
 
-you have the option of adding access to additional Blob during the cluster provisioning process. See [Getting started with R Server on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) for information on adding access to additional accounts, and the supplementary [Azure Storage options for R Server on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) article to learn about using multiple
+you have the option of adding access to additional Blob during the cluster provisioning process. See [Getting started with R Server on HDInsight](/azure/hdinsight/hdinsight-hadoop-r-server-get-started) for information on adding access to additional accounts, and the supplementary [Azure Storage options for R Server on HDInsight](/azure/hdinsight/hdinsight-hadoop-r-server-storage) article to learn about using multiple
 storage accounts.
 
 You can also use [Azure Files](../storage/storage-how-to-use-files-linux.md) as a storage option for use on the edge node. Azure Files enables you to mount a file share that was created in Azure Storage to the Linux file system. For more information about data storage options for R Server on HDInsight cluster, see [Azure Storage options for R Server on HDInsight clusters](hdinsight-hadoop-r-server-storage.md).

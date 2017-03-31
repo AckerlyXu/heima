@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 2/21/2017
 wacn.date: ''
 ms.author: negat
----
 
+---
 # Create a Linux Virtual Machine Scale Set with the Azure CLI 2.0
 
 This article uses the Azure CLI 2.0. If you wish to use the Azure CLI 1.0, see [this article](./virtual-machine-scale-sets-linux-create-cli-nodejs.md).

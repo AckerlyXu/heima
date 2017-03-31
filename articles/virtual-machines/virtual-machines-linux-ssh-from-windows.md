@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/08/2017
 wacn.date: ''
 ms.author: rasquill
----
 
+---
 # How to Use SSH keys with Windows on Azure
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 wacn.date: ''
 ms.author: kundanap
----
 
+---
 # Authoring Azure Resource Manager templates with Windows VM extensions
 [!INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 

@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: amitsriva
----
 
+---
 # Backend health, diagnostics logging and metrics for Application Gateway
 
 Azure provides the capability to monitor resources with logging and metrics. Application Gateway provides these capabilities with backend health, logging, and metrics.

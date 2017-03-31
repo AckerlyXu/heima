@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/19/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight
 Scalding is a Scala library that makes it easy to create Hadoop MapReduce jobs. It offers a concise syntax, as well as tight integration with Scala.
 
@@ -27,7 +27,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure trial](https://www.azure.cn/pricing/1rmb-trial/).
 
-* **A Windows or Linux based Hadoop on HDInsight cluster**. See [Provision Linux-based Hadoop on HDInsight](hdinsight-hadoop-provision-linux-clusters.md) or [Provision Windows-based Hadoop on HDInsight](/documentation/articles/hdinsight-provision-clusters/) for more information.
+* **A Windows or Linux based Hadoop on HDInsight cluster**. See [Provision Linux-based Hadoop on HDInsight](hdinsight-hadoop-provision-linux-clusters.md) or [Provision Windows-based Hadoop on HDInsight](hdinsight-provision-clusters.md) for more information.
 
     > [!IMPORTANT]
     > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
@@ -159,9 +159,9 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 4. Open the **src/main/scala/com/microsoft/example/App.scala** file and replace the contents with the following:
 
         package com.microsoft.example
-   
+
         import com.twitter.scalding._
-   
+
         class WordCount(args : Args) extends Job(args) {
             // 1. Read lines from the specified input location
             // 2. Extract individual words from each line
@@ -171,7 +171,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
             .flatMap('line -> 'word) { line : String => tokenize(line) }
             .groupBy('word) { _.size }
             .write(Tsv(args("output")))
-   
+
             //Tokenizer to split sentance into words
             def tokenize(text : String) : Array[String] = {
             text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
@@ -244,7 +244,7 @@ The following steps use Windows PowerShell. For other methods of running MapRedu
 1. Start Azure PowerShell and Log in to your Azure account. After providing your credentials, the command returns information about your account.
 
         Add-AzureRMAccount
-   
+
         Id                             Type       ...
         --                             ----
         someone@example.com            User       ...

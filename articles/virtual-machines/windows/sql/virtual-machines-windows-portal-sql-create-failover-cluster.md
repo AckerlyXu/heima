@@ -1,6 +1,6 @@
 ---
-title: SQL Server FCI - Azure Virtual Machines | Azure
-description: This article explains how to create SQL Server Failover Cluster Instance on Azure Virtual Machines.
+title: SQL Server FCI - Azure Virtual Machines | Azure 
+description: "This article explains how to create SQL Server Failover Cluster Instance on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -18,6 +18,7 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: ''
 ms.author: mikeray
+
 ---
 
 # Configure SQL Server Failover Cluster Instance on Azure Virtual Machines
@@ -163,6 +164,7 @@ With these prerequisites in place, you can proceed with building your failover c
     Both virtual machines need at least two data disks.
 
     Attach raw disks - not NTFS formatted disks. 
+
     >[!NOTE]
     >If you attach NTFS-formatted disks, you can only enable S2D with no disk eligibility check.  
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/29/2016
 wacn.date: ''
 ms.author: mahender
----
 
+---
 # Authentication and authorization in Azure App Service
 ## What is App Service Authentication / Authorization?
 App Service Authentication / Authorization is a feature that provides a way for your application to sign in users so that you don't have to change code on the app backend. It provides an easy way to protect your application and work with per-user data.

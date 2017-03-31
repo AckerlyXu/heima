@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/13/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Connect to Hive on Azure HDInsight using the Hive JDBC driver
 
 [!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]

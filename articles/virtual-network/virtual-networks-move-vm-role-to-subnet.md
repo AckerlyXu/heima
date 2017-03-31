@@ -17,8 +17,8 @@ ms.date: 03/22/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Move a VM (Classic) or Cloud Services role instance to a different subnet using PowerShell
 You can use PowerShell to move your VMs (Classic) from one subnet to another in the same virtual network (VNet). Role instances can be moved by editing the CSCFG file, rather than using PowerShell.
 

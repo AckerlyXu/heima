@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 01/27/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to create a Web App with Redis Cache
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)

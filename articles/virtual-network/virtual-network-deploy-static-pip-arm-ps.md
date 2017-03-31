@@ -18,9 +18,10 @@ ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create a VM with a static public IP address using PowerShell
+
 > [!div class="op_single_selector"]
 >- [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
 >- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -31,7 +32,7 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -177,7 +178,7 @@ After making any necessary changes, and understanding the script show above, run
         ProvisioningState : Succeeded
         Tags              : 
         ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
-   
+
         AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
         DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
         Subnets           : {FrontEnd}
@@ -202,7 +203,7 @@ After making any necessary changes, and understanding the script show above, run
         Name              : WTestVNet
         Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         Id                : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
+
         AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
         DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
         Subnets           : {FrontEnd}
@@ -233,7 +234,7 @@ After making any necessary changes, and understanding the script show above, run
         Name              : WTestVNet
         Etag              : [Id]
         Id                : /subscriptions/[Subscription Id]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
-   
+
         TrackingOperationId : [Id]
         RequestId           : [Id]
         Status              : Succeeded

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/31/2016
 wacn.date: ''
 ms.author: jodehavi
----
 
+---
 # Deploy a web app with MSDeploy, custom hostname and SSL certificate
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

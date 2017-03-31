@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 03/02/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Analyze sensor data with Apache Storm, Event Hub, and HBase in HDInsight (Hadoop)
 Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hub. The data is then stored into Apache HBase on HDInsight, and visualized using D3.js.
 
@@ -282,7 +282,7 @@ The Resource Manager template used in this document is located in a public blob 
     * **SSH Password**: The password for the SSH user for the Storm and HBase clusters.
     * **Location**: The region that the clusters are created in.
 
-        Click **OK** to save the parameters.
+    Click **OK** to save the parameters.
 
 3. Use the **Basics** section to create a resource group or select an existing one.
 4. In the **Resource group location** dropdown menu, select the same location as you selected for the **Location** parameter in the **Settings** section.

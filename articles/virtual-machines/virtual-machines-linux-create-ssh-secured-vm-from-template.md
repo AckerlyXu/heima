@@ -18,8 +18,8 @@ ms.date: 10/24/2016
 wacn.date: ''
 ms.author: v-livech
 ms.custom: H1Hack27Feb2017
----
 
+---
 # How to create a Linux VM using an Azure Resourec Manager template
 This article shows you how to quickly deploy a Linux Virtual Machine on Azure using an Azure Template.  The article requires:
 
@@ -30,7 +30,6 @@ This article shows you how to quickly deploy a Linux Virtual Machine on Azure us
 You can also quickly deploy a Linux VM template by using the [Azure portal preview](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick Command Summary
-
 ```azurecli
 azure group create \
     -n myResourceGroup \

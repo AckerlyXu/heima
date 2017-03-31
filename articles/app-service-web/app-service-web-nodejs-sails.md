@@ -1,5 +1,5 @@
 ---
-title: Deploy a Sails.js web app to Azure App Service | Azure
+title: Deploy a Sails.js web app to Azure App Service | Azure 
 description: Learn how to deploy a Node.js application Azure App Service. This tutorial shows you how to deploy a Sails.js web app.
 services: app-service\web
 documentationcenter: nodejs
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Deploy a Sails.js web app to Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -169,7 +169,7 @@ For more information, see [Get stdout and stderr logs from iisnode](app-service-
 If the app has started successfully, the stdout log should show you the familiar message:
 
                    .-..-.
-    
+
        Sails              <|    .-..-.
        v0.12.11            |\
                           /|.\

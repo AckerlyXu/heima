@@ -19,7 +19,6 @@ wacn.date: ''
 ms.author: crwilcox
 ms.custom: H1Hack27Feb2017
 ---
-
 # Creating an Azure VM, installing Jupyter, and running a Jupyter Notebook on Azure
 The [Jupyter project](http://jupyter.org), formerly the [IPython project](http://ipython.org), provides a collection of tools for scientific computing using powerful interactive shells that combine code execution with the creation of a live computational document. These notebook files can contain arbitrary text, mathematical formulas, input code, results, graphics, videos and any other kind of media that a modern web browser is capable of displaying. Whether you're absolutely new to Python and want to learn it in a fun, interactive environment or do some serious parallel/technical computing, the Jupyter Notebook is a great choice.
 
@@ -234,6 +233,6 @@ profiling and parallel computing integration.
 ## Next steps
 For more information, see the [Python Developer Center](/develop/python/).
 
-[portal-vm-linux]: virtual-machines-linux-quick-create-portal.md
+[portal-vm-linux]: /azure/virtual-machines-linux-tutorial-portal-rm/
 [repository]: https://github.com/ipython/ipython
 [Python Tools for Visual Studio]: http://aka.ms/ptvs

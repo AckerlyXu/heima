@@ -1,6 +1,6 @@
 ---
 title: Use FreeBSD's Packet Filter to create a firewall in Azure | Azure
-description: Learn how to deploy a NAT firewall using FreeBSD's PF in Azure.
+description: Learn how to deploy a NAT firewall using FreeBSD's PF in Azure. 
 services: virtual-machines-linux
 documentationcenter: ''
 author: KylieLiang
@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 02/20/2017
 wacn.date: ''
 ms.author: kyliel
+
 ---
 
 # How to use FreeBSD's Packet Filter to create a secure firewall in Azure

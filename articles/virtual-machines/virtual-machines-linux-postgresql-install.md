@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 wacn.date: ''
 ms.author: mingzhan
----
 
+---
 # Install and configure PostgreSQL on Azure
 PostgreSQL is an advanced open-source database similar to Oracle and DB2. It includes enterprise-ready features such as full ACID compliance, reliable transactional processing, and multi-version concurrency control. It also supports standards such as ANSI SQL and SQL/MED (including foreign data wrappers for Oracle, MySQL, MongoDB, and many others). It is highly extensible with support for over 12 procedural languages, GIN and GiST indexes, spatial data support, and multiple NoSQL-like features for JSON or key-value-based applications.
 

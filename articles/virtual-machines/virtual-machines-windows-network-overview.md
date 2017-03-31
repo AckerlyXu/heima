@@ -17,6 +17,7 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: davidmu
+
 ---
 
 # Virtual networks and Windows virtual machines in Azure 

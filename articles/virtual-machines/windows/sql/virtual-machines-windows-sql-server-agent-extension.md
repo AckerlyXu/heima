@@ -19,7 +19,6 @@ wacn.date: ''
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ---
-
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)

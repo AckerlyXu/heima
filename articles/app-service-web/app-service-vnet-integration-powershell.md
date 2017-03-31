@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/29/2016
 wacn.date: ''
 ms.author: ccompy
----
 
+---
 # Connect your app to your virtual network by using PowerShell
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

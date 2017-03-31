@@ -1,5 +1,5 @@
 ---
-title: Script action: Install Python packages with Jupyter notebooks on Azure HDInsight | Azure
+title: 'Script action: Install Python packages with Jupyter notebooks on Azure HDInsight | Azure'
 description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use external python packages.
 services: hdinsight
 documentationcenter: ''
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/07/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Use Script Action to install external Python packages for Jupyter notebooks in Apache Spark clusters on HDInsight
 > [!div class="op_single_selector"]
 > * [Using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)

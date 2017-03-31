@@ -18,8 +18,8 @@ ms.workload: na
 ms.date: 09/15/2016
 wacn.date: ''
 ms.author: zachal
----
 
+---
 # Windows VMSS and Desired State Configuration with Azure Resource Manager templates
 This article describes the Resource Manager template for the [Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 

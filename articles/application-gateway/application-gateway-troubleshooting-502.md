@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: amsriva
+
 ---
 
 # Troubleshooting bad gateway errors in Application Gateway

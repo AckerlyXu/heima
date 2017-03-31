@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: cynthn
+
 ---
 
 # Frequently asked question about Windows Virtual Machines

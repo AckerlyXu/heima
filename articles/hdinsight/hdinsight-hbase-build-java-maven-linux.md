@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use Maven to build Java applications that use HBase with Linux-based HDInsight (Hadoop)
 Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java by using Apache Maven. Then use the application with a Linux-based HDInsight cluster.
 

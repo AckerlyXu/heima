@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2016
 wacn.date: ''
 ms.author: rclaus
----
 
+---
 # Miscellaneous considerations for Oracle virtual machine images
 This article covers considerations for Oracle virtual machines in Azure, which are based on Oracle software images provided by Oracle.  
 

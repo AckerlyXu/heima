@@ -1,6 +1,6 @@
 ---
 title: Upload a specialized VHD to Azure to use for creating a new VM | Azure
-description: Upload a specialized VHD to Azure to use for creating a new VM.
+description: Upload a specialized VHD to Azure to use for creating a new VM. 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -18,6 +18,7 @@ ms.date: 02/05/2017
 wacn.date: ''
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
+
 ---
 
 # How to upload a specialized VHD to create a VM in Azure
@@ -209,6 +210,7 @@ $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Al
 
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
+
 ```
 
 For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

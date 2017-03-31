@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/29/2016
 wacn.date: ''
 ms.author: aelnably
----
 
+---
 # Using Azure Resource Manager-Based XPlat CLI for Azure App Service
 > [!div class="op_single_selector"]
 > * [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)

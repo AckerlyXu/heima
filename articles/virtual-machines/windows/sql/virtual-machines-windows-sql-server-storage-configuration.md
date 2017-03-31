@@ -16,8 +16,8 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 wacn.date: ''
 ms.author: ninarn
----
 
+---
 # Storage configuration for SQL Server VMs
 When you configure a SQL Server virtual machine image in Azure, the Portal helps to automate your storage configuration. This includes attaching storage to the VM, making that storage accessible to SQL Server, and configuring it to optimize for your specific performance requirements.
 

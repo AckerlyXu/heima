@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Install custom Hadoop applications on Azure HDInsight
 
 In this article, you will learn how to install a Hadoop application on Azure HDInsight, which has not been published to the Azure portal preview. The application you will install in this article is [Hue](http://gethue.com/).

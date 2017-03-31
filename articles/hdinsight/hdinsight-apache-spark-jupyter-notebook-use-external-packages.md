@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight
 > [!div class="op_single_selector"]
 > * [Using cell magic](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -90,7 +90,7 @@ You must have the following:
 8. You can then run the snippets, like shown below, to view the data from the dataframe you created in the previous step.
 
         df.show()
-   
+
         df.select("Time").count()
 
 ## <a name="seealso"></a>See also

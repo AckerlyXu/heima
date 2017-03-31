@@ -189,7 +189,7 @@ data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201606270  chinanort
 info:    vm image list command OK
 ```
 
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
+Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 ## <a name="powershell"></a> PowerShell
 > [!NOTE]

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/03/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Run MapReduce jobs using HDInsight .NET SDK
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 

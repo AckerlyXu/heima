@@ -1,5 +1,5 @@
 ---
-title: Connect an Azure virtual network to another VNet: Portal | Azure
+title: 'Connect an Azure virtual network to another VNet: Portal | Azure'
 description: Create a VPN gateway connection between VNets by using Resource Manager and the Azure portal preview.
 services: vpn-gateway
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Configure a VNet-to-VNet connection using the Azure portal preview
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal Preview](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -193,4 +193,4 @@ View the FAQ details for additional information about VNet-to-VNet connections.
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](../virtual-machines/index.md) for more information.
+Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/azure/virtual-machines/) for more information.

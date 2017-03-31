@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 01/19/2017
 wacn.date: ''
 ms.author: larryfr
+
 ms.custom: H1Hack27Feb2017
 ---
-
 # Use Azure PowerShell to run Pig jobs with HDInsight
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

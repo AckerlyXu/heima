@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 08/08/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Move a Linux VM to another subscription or resource group
 This article walks you through how to move a Linux VM between resource groups or subscriptions. Moving a VM between subscriptions can be handy if you created a VM in a personal subscription and now want to move it to your company's subscription.
 

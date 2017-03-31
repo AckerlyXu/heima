@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2016
 wacn.date: ''
 ms.author: rclaus
----
 
+---
 # DNS Name Resolution Options for Linux VMs in Azure
 Azure provides DNS name resolution by default for all VMs contained within a single Virtual Network. You are able to implement your own DNS name resolution solution by configuring your own DNS services on your Azure hosted VMs. The following scenarios should help you choose which one works better for your particular situation.
 

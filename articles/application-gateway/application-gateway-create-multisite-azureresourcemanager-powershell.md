@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 wacn.date: ''
 ms.author: amsriva
----
 
+---
 # Create an application gateway for hosting multiple web applications
 
 > [!div class="op_single_selector"]
@@ -116,7 +116,6 @@ Assign the address range 10.0.0.0/24 to the subnet variable to be used to hold t
 ```powershell
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name appgatewaysubnet -AddressPrefix 10.0.0.0/24
 ```
-
 ### Step 2
 
 Assign the address range 10.0.1.0/24 to the subnet2 variable to be used for the backend pools.

@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 03/13/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Get started: Create Apache Spark cluster in Azure HDInsight and run interactive queries using Spark SQL
 
 Learn how to create an [Apache Spark](hdinsight-apache-spark-overview.md) cluster in HDInsight and then use [Jupyter](https://jupyter.org) notebook to run Spark SQL interactive queries on the Spark cluster.

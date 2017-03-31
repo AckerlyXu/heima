@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Create a PHP-SQL web app and deploy to Azure App Service using Git
 This tutorial shows you how to create a PHP web app in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/) that connects to Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL web app running in Azure.
 
@@ -143,7 +143,7 @@ To run the application locally, follow the steps below. Note that these steps as
               <input type="submit" name="submit" value="Submit" />
         </form>
         <?php
-   
+
         ?>
         </body>
         </html>

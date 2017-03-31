@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Virtual appliance scenario
 A common scenario among larger Azure customer is the need to provide a two-tiered application exposed to the Internet, while allowing access to the back tier from an on-premises datacenter. This document will walk you through a scenario using User Defined Routes (UDR), a VPN Gateway, and network virtual appliances to deploy a two-tier environment that meets the following requirements:
 

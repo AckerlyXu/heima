@@ -20,7 +20,6 @@ ms.author: jgao
 ROBOTS: NOINDEX
 
 ---
-
 # Run Hadoop MapReduce samples in Windows-based HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 

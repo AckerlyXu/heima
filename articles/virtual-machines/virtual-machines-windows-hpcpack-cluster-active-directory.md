@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 11/14/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Manage an HPC Pack cluster in Azure using Azure Active Directory
 [Microsoft HPC Pack 2016](https://technet.microsoft.com/zh-cn/library/cc514029) supports integration with [Azure Active Directory](../active-directory/index.md) (Azure AD) for administrators who deploy an HPC Pack cluster in Azure.
 
@@ -154,7 +154,7 @@ You can now run the HPC Pack commands or use the HPC Pack Job manager GUI to sub
 > [!NOTE]
 > When you try to connect to the HPC Pack cluster in Azure for the first time, a popup windows appears. Enter your Azure AD credentials to log in. The token is then cached. Later connections to the cluster in Azure use the cached token unless authentication changes or the cached is cleared.
 >
-  
+
 For example, after completing the previous steps, you can query for jobs from an on-premises client as follows:
 
 ```powershell

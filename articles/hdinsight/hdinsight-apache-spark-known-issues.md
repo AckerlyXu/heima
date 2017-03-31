@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/18/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Known issues for Apache Spark cluster on HDInsight
 
 This document keeps track of all the known issues for the HDInsight Spark public preview.  

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 10/20/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Create a copy of a specialized Windows VM running in Azure
 This article shows you how to use the AZCopy tool to create a copy of the VHD from a specialized Windows VM that is running in Azure. You can then use the copy of the VHD to create a new VM. 
 

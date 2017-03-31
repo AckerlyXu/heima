@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 wacn.date: ''
 ms.author: zivr
----
 
+---
 # Azure Metadata Service - Scheduled Events (Preview)
 
 > [!NOTE] 
@@ -318,7 +318,7 @@ def main():
 if __name__ == '__main__':
   main()
   sys.exit(0)
-```
 
+```
 ## Next Steps 
 [Planned maintenance for virtual machines in Azure](./virtual-machines-linux-planned-maintenance.md)

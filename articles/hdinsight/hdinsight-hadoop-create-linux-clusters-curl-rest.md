@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Create HDInsight clusters using cURL and the Azure REST API
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

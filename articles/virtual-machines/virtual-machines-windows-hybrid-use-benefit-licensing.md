@@ -18,8 +18,8 @@ ms.workload: infrastructure-services
 ms.date: 3/10/2017
 wacn.date: ''
 ms.author: georgem
----
 
+---
 # Azure Hybrid Use Benefit for Windows Server and Windows Client
 For customers with Software Assurance, Azure Hybrid Use Benefit allows you to use your on-premises Windows Server and Windows Client licenses and run Windows virtual machines in Azure at a reduced cost. Azure Hybrid Use Benefit for Windows Server includes Windows Server 2008R2, Windows Server 2012, Windows Server 2012R2, and Windows Server 2016. Azure Hybrid Use Benefit for Windows Client includes Windows 10. For more information, please see the [Azure Hybrid Use Benefit licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
@@ -58,7 +58,7 @@ Get-AzureRMVMImageSku -Location "China North" -Publisher "MicrosoftWindowsServer
 If you don't have an Enterprise Agreement subscription, continue reading for instructions on how to upload a custom VM and deploy with Azure Hybrid Use Benefit.
 
 ## Upload a Windows VHD
-To deploy a Windows VM in Azure, you first need to create a VHD that contains your base Windows build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](virtual-machines-windows-upload-image.md) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. 
+To deploy a Windows VM in Azure, you first need to create a VHD that contains your base Windows build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. 
 
 Make sure you have [installed and configured the latest Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
 
@@ -112,7 +112,7 @@ For Windows Client:
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "China North" -VM $vm -LicenseType "Windows_Client"
 ```
 
-You can [read a more detailed walkthrough on deploying a VM in Azure via PowerShell](virtual-machines-windows-hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough) below, or read a more descriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](/documentation/articles/virtual-machines-windows-ps-create/).
+You can [read a more detailed walkthrough on deploying a VM in Azure via PowerShell](virtual-machines-windows-hybrid-use-benefit-licensing.md#detailed-powershell-deployment-walkthrough) below, or read a more descriptive guide on the different steps to [create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Verify your VM is utilizing the licensing benefit
 Once you have deployed your VM through either the PowerShell or Resource Manager deployment method, verify the license type with `Get-AzureRmVM` as follows:
@@ -138,7 +138,7 @@ LicenseType              :
 ```
 
 ## Detailed PowerShell deployment walkthrough
-The following detailed PowerShell steps show a full deployment of a VM. You can read more context as to the actual cmdlets and different components being created in [Create a Windows VM using Resource Manager and PowerShell](/documentation/articles/virtual-machines-windows-ps-create/). You step through creating your resource group, storage account, and virtual networking, then define your VM and finally create your VM.
+The following detailed PowerShell steps show a full deployment of a VM. You can read more context as to the actual cmdlets and different components being created in [Create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You step through creating your resource group, storage account, and virtual networking, then define your VM and finally create your VM.
 
 First, securely obtain credentials, set a location, and resource group name:
 

@@ -17,8 +17,8 @@ ms.date: 02/21/2017
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Manage network security groups using the Azure CLI 1.0
 
 ## CLI versions to complete the task 

@@ -1,6 +1,6 @@
 ---
-title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recovery | Azure
-description: This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region.
+title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recovery | Azure 
+description: "This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region."
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -15,9 +15,10 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: "01/09/2017"
 wacn.date: ''
 ms.author: mikeray
+
 ---
 
 # Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions

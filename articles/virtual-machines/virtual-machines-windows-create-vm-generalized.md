@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 10/10/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Create a VM from a generalized VHD image
 A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or by running Sysprep on an existing Azure VM and then [copying the VHD](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -118,7 +118,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 
     # Size of the virtual machine. This example creates "Standard_D2_v2" sized VM. 
     # See the VM sizes documentation for more information: 
-    # /documentation/articles/virtual-machines-windows-sizes/
+    # /azure/virtual-machines-windows-sizes/
     $vmSize = "Standard_D2_v2"
 
     # Computer name for the VM. This examples sets the computer name as "myComputer".

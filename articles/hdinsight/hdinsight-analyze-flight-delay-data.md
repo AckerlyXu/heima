@@ -19,7 +19,6 @@ ms.author: jgao
 ROBOTS: NOINDEX
 
 ---
-
 # Analyze flight delay data by using Hive in HDInsight
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

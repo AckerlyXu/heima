@@ -1,6 +1,6 @@
 ---
 title: Compute context options for R Server on HDInsight | Azure
-description: Learn about the different compute context options available to users with R Server on HDInsight
+description: Learn about the different compute context options available to users with R Server on HDInsight 
 services: HDInsight
 documentationcenter: ''
 author: jeffstokes72
@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 02/28/2017
 wacn.date: ''
 ms.author: jeffstok
----
 
+---
 # Compute context options for R Server on HDInsight
 Microsoft R Server on Azure HDInsight provides the latest capabilities for R-based analytics. It uses data that's stored in HDFS in a container in your [Azure Blob](../storage/storage-introduction.md "Azure Blob storage") storage account or the local Linux file system. Since R Server is built on open source R, the R-based applications you build can leverage any of the 8000+ open source R packages. They can also leverage the routines in [ScaleR](http://www.revolutionanalytics.com/revolution-r-enterprise-scaler "Revolution Analytics ScaleR"), Microsoft's big data analytics package that's included with R Server.  
 

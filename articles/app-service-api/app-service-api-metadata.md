@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/30/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # App Service API Apps metadata for API discovery and code generation
 Support for [Swagger 2.0](http://swagger.io/) API metadata is built into App Service API Apps. You don't have to use Swagger, but if you do use it, you can take advantage of API Apps features that make discovery and consumption easier.   
 

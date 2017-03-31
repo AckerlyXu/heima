@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/26/2016
 wacn.date: ''
 ms.author: jaime-espinosa
----
 
+---
 # Reference for navigating the Azure portal preview
 Azure Websites are now called [App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/). We're updating all of our documentation to reflect this name change and to provide instructions for the Azure Portal Preview. Until that process is done, you can use this document as a guide for working with Web Apps in the Azure portal preview.
 

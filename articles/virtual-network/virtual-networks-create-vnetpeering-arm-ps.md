@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 wacn.date: ''
 ms.author: narayan; annahar
----
 
+---
 # Create a virtual network peering using Azure PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 

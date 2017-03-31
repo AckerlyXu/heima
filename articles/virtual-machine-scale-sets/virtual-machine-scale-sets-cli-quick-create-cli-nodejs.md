@@ -18,8 +18,8 @@ ms.topic: article
 ms.date: 2/21/2017
 wacn.date: ''
 ms.author: negat
----
 
+---
 # Quickly create a scale set using the Azure CLI 1.0
 [!INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-nodejs-cli-vmss-quick-create-include.md)]
 

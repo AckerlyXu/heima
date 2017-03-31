@@ -2,13 +2,13 @@
 title: Azure CLI Script Sample - Deploy a web app to a staging environment | Azure
 description: Azure CLI Script Sample - Deploy a web app to a staging environment
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
-ms.assetid: ''
+ms.assetid:
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na

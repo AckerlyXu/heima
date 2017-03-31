@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/07/2016
 wacn.date: ''
 ms.author: tdykstra
----
 
+---
 # Azure App Service, Virtual Machines, Service Fabric, and Cloud Services comparison
 ## Overview
 Azure offers several ways to host web sites: [Azure App Service][Azure App Service], [Virtual Machines][Virtual Machines], [Service Fabric][Service Fabric], and [Cloud Services][Cloud Services]. This article helps you understand the options and make the right choice for your web application.
@@ -163,14 +163,14 @@ To get started with the option(s) you choose for your application, see the follo
 [Azure App Service]: https://www.azure.cn/home/features/app-service/
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
-[Service Fabric]: https://www.azure.cn/home/features/service-fabric
+[Service Fabric]: https://www.azure.cn/home/features/service-fabric/
 [ClearDB]: http://www.cleardb.com/
 [WebJobs]: /azure/app-service-web/websites-webjobs-resources/
 [Configuring an SSL certificate for an Azure Website]: /azure/app-service-web/web-sites-configure-ssl-certificate/
-[dotnet]: /develop/net/
-[nodejs]: /develop/nodejs/
-[PHP]: /develop/php/
-[Python]: /develop/python/
+[dotnet]: https://www.azure.cn/develop/net/
+[nodejs]: https://www.azure.cn/develop/nodejs/
+[PHP]: https://www.azure.cn/develop/php/
+[Python]: https://www.azure.cn/develop/python/
 [servicebus]: /azure/service-bus/
 [sqldatabase]: /azure/sql-database/
 [Storage]: /azure/storage/

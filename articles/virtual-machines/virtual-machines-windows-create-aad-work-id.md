@@ -17,8 +17,8 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 wacn.date: ''
 ms.author: rasquill
----
 
+---
 # Creating a Work or School identity in Azure Active Directory to use with Windows VMs
 If you created a personal Azure account -- you used an *Azure.cn account* identity to create it. Many great features of Azure -- [resource group templates](../azure-resource-manager/resource-group-overview.md) is one example -- require a work or school account (an identity managed by Azure Active Directory) to work. You can follow the instructions below to create a new work or school account because fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain that you can use to create a new work or school account that you can use with Azure features that require it.
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2016
 wacn.date: ''
 ms.author: magoedte;bwren
----
 
+---
 # Runbook output and messages in Azure Automation
 Most Azure Automation runbooks will have some form of output such as an error message to the user or a complex object intended to be consumed by another workflow. Windows PowerShell provides [multiple streams](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) to send output from a script or workflow. Azure Automation works with each of these streams differently, and you should follow best practices for how to use each when you are creating a runbook.
 
@@ -37,46 +37,38 @@ The Output stream is intended for output of objects created by a script or workf
 
 You can write data to the output stream using [Write-Output](http://technet.microsoft.com/zh-cn/library/hh849921.aspx) or by putting the object on its own line in the runbook.
 
-```
-#The following lines both write an object to the output stream.
-Write-Output -InputObject $object
-$object
-```
+    #The following lines both write an object to the output stream.
+    Write-Output -InputObject $object
+    $object
 
 ### Output from a function
 When you write to the output stream in a function that is included in your runbook, the output is passed back to the runbook. If the runbook assigns that output to a variable, then it is not written to the output stream. Writing to any other streams from within the function will write to the corresponding stream for the runbook.
 
 Consider the following sample runbook.
 
-```
-Workflow Test-Runbook
-{
-    Write-Verbose "Verbose outside of function" -Verbose
-    Write-Output "Output outside of function"
-    $functionOutput = Test-Function
-    $functionOutput
+    Workflow Test-Runbook
+    {
+        Write-Verbose "Verbose outside of function" -Verbose
+        Write-Output "Output outside of function"
+        $functionOutput = Test-Function
+        $functionOutput
 
-Function Test-Function
- {
-    Write-Verbose "Verbose inside of function" -Verbose
-    Write-Output "Output inside of function"
-  }
-}
-```
+    Function Test-Function
+     {
+        Write-Verbose "Verbose inside of function" -Verbose
+        Write-Output "Output inside of function"
+      }
+    }
 
 The output stream for the runbook job would be:
 
-```
-Output inside of function
-Output outside of function
-```
+    Output inside of function
+    Output outside of function
 
 The verbose stream for the runbook job would be:
 
-```
-Verbose outside of function
-Verbose inside of function
-```
+    Verbose outside of function
+    Verbose inside of function
 
 Once you have published the runbook and before you start it, you must also turn on Verbose logging in the runbook settings in order to get the Verbose stream output.
 
@@ -92,15 +84,13 @@ Here is a list of example output types:
 
 The following sample runbook outputs a string object and includes a declaration of its output type. If your runbook outputs an array of a certain type, then you should still specify the type as opposed to an array of the type.
 
-```
-Workflow Test-Runbook
-{
-   [OutputType([string])]
+    Workflow Test-Runbook
+    {
+       [OutputType([string])]
 
-   $output = "This is some string output."
-   Write-Output $output
-}
-```
+       $output = "This is some string output."
+       Write-Output $output
+    }
 
 ## <a id="message-streams" name="Message"></a> Message streams
 Unlike the output stream, message streams are intended to communicate information to the user. There are multiple message streams for different kinds of information, and each is handled differently by Azure Automation.
@@ -110,13 +100,11 @@ The Warning and Error streams are intended to log problems that occur in a runbo
 
 Create a warning or error message using the [Write-Warning](https://technet.microsoft.com/zh-cn/library/hh849931.aspx) or [Write-Error](http://technet.microsoft.com/zh-cn/library/hh849962.aspx) cmdlet. Activities may also write to these streams.
 
-```
-#The following lines create a warning message and then an error message that will suspend the runbook.
+    #The following lines create a warning message and then an error message that will suspend the runbook.
 
-$ErrorActionPreference = "Stop"
-Write-Warning -Message "This is a warning message."
-Write-Error -Message "This is an error message that will stop the runbook because of the preference variable."
-```
+    $ErrorActionPreference = "Stop"
+    Write-Warning -Message "This is a warning message."
+    Write-Error -Message "This is an error message that will stop the runbook because of the preference variable."
 
 ### <a id="verbose-streams" name="Verbose"></a> Verbose stream
 The Verbose message stream is for general information about the runbook operation. Since the [Debug Stream](#Debug) is not available in a runbook, verbose messages should be used for debug information. By default, verbose messages from published runbooks will not be stored in the job history. To store verbose messages, configure published runbooks to Log Verbose Records on the Configure tab of the runbook in the Azure Classic Management Portal. In most cases, you should keep the default setting of not logging verbose records for a runbook for performance reasons. Turn on this option only to troubleshoot or debug a runbook.
@@ -125,11 +113,9 @@ When [testing a runbook](automation-testing-runbook.md), verbose messages are no
 
 Create a verbose message using the [Write-Verbose](http://technet.microsoft.com/zh-cn/library/hh849951.aspx) cmdlet.
 
-```
-#The following line creates a verbose message.
+    #The following line creates a verbose message.
 
-Write-Verbose -Message "This is a verbose message."
-```
+    Write-Verbose -Message "This is a verbose message."
 
 ### <a id="debug-streams" name="Debug"></a> Debug stream
 The Debug stream is intended for use with an interactive user and should not be used in runbooks.
@@ -167,18 +153,16 @@ In Windows PowerShell, you can retrieve output and messages from a runbook using
 
 The following example starts a sample runbook and then waits for it to complete. Once completed, its output stream is collected from the job.
 
-```
-$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
+    $job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
 
-$doLoop = $true
-While ($doLoop) {
-$job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
-   $status = $job.Status
-   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
-}
+    $doLoop = $true
+    While ($doLoop) {
+    $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
+       $status = $job.Status
+       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
+    }
 
-Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
-```
+    Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
 
 ## Next steps
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)

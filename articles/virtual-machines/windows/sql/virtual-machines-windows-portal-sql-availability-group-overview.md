@@ -1,6 +1,6 @@
 ---
-title: SQL Server Availability Groups - Azure Virtual Machines - Overview | Azure
-description: This article introduces SQL Server Availability Groups on Azure virtual machines.
+title: SQL Server Availability Groups - Azure Virtual Machines - Overview | Azure 
+description: "This article introduces SQL Server Availability Groups on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -9,14 +9,15 @@ editor: monicar
 tags: azure-service-management
 
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
-ms.service: virtual-machines-sql-windows
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/13/2017
+ms.date: "01/13/2017"
 wacn.date: ''
 ms.author: mikeray
+
 ---
 
 # Introducing SQL Server Always On availability groups on Azure virtual machines #

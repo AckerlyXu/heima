@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/26/2016
 wacn.date: ''
 ms.author: huvalo
----
 
+---
 # Configuring Python with Azure App Service Web Apps
 This tutorial describes options for authoring and configuring a basic Web Server Gateway Interface (WSGI) compliant Python application on [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/).
 

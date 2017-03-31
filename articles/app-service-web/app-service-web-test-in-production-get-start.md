@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/13/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Get started with test in production for Web Apps
 Testing in production, or live-testing your web app using live customer traffic, is a test strategy that app developers increasingly integrate into their [agile development](https://en.wikipedia.org/wiki/Agile_software_development) methodology. It enables you to test the quality of your apps with live user traffic in your production environment, as opposed to synthesized data in a test environment. By exposing your new app to real users, you can be informed on the real problems your app may face once it is deployed. You can verify the functionality, performance, and value of your app updates against the volume, velocity, and variety of real user traffic, which you can never approximate in a test environment.
 

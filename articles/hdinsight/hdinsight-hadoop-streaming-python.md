@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Develop Python streaming programs for HDInsight
 
 Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java. In this article, you will learn how to use Python to perform MapReduce operations.

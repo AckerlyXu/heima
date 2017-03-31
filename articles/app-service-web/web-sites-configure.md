@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Configure web apps in Azure App Service
 This topic explains how to configure a web app using the [Azure Portal Preview].
 
@@ -149,14 +149,14 @@ For more information, see [How to: Monitor web endpoint status].
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [Azure Portal Preview]: https://portal.azure.cn/
-[Configure a custom domain name in Azure App Service]: web-sites-custom-domain-name.md
-[Deploy to Staging Environments for Web Apps in Azure App Service]: web-sites-staged-publishing.md
-[Enable HTTPS for an app in Azure App Service]: web-sites-configure-ssl-certificate.md
+[Configure a custom domain name in Azure App Service]: ./web-sites-custom-domain-name.md
+[Deploy to Staging Environments for Web Apps in Azure App Service]: ./web-sites-staged-publishing.md
+[Enable HTTPS for an app in Azure App Service]: ./web-sites-configure-ssl-certificate.md
 [How to: Monitor web endpoint status]: /azure/app-service-web/web-sites-monitor/
-[Monitoring basics for Web Apps in Azure App Service]: web-sites-monitor.md
+[Monitoring basics for Web Apps in Azure App Service]: ./web-sites-monitor.md
 [pipeline mode]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Scale a web app in Azure App Service]: web-sites-scale.md
-[socket.io]: web-sites-nodejs-chat-app-socketio.md
+[Scale a web app in Azure App Service]: ./web-sites-scale.md
+[socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Try App Service]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->

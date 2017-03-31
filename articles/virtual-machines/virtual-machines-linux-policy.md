@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 04/13/2016
 wacn.date: ''
 ms.author: singhkay
----
 
+---
 # Apply security and policies to Linux VMs with Azure Resource Manager
 By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we will describe how you can use Azure Resource Manager policies to define the desired behavior for your organization's Virtual Machines.
 
@@ -32,7 +32,7 @@ The outline for the steps to accomplish this is as below
 ## Azure Resource Manager Policy 101
 For getting started with Azure Resource Manager policies, we recommend reading the article below and then continuing with the steps in this article. The article below describes the basic definition and structure of a policy, how policies get evaluated and gives various examples of policy definitions.
 
-* [Use Policy to manage resources and control access](../azure-resource-manager/resource-manager-policy.md)
+* [Use Policy to manage resources and control access](../resource-manager-policy.md)
 
 ## Define a policy for your Virtual Machine
 One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps.

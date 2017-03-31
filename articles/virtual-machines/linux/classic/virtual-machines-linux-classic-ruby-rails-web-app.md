@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Ruby on Rails Web application on an Azure VM
 This tutorial shows how to host a Ruby on Rails website on Azure using a Linux virtual machine.  
 
@@ -104,9 +104,9 @@ You should see output similar to the following.
     * **PUBLIC PORT**: 80
     * **PRIVATE PORT**: 3000
 
-        This will create a public port of 80 that will route traffic to the private port of 3000, where the Rails server is listening.
+    This will create a public port of 80 that will route traffic to the private port of 3000, where the Rails server is listening.
 
-        ![new endpoint dialog][new-endpoint]
+    ![new endpoint dialog][new-endpoint]
 5. Click the check mark to save the endpoint.
 6. A message should appear that states **UPDATE IN PROGRESS**. Once this message disappears, the endpoint is active. You may now test your application by navigating to the DNS name of your virtual machine. The website should appear similar to the following:
 

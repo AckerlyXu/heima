@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # Create a Redis Cache using a template
 In this topic, you learn how to create an Azure Resource Manager template that deploys an Azure Redis Cache. The cache can be used with an existing storage account to keep diagnostic data. You also learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/15/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Create a custom virtual machine running Windows using the classic deployment model
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.

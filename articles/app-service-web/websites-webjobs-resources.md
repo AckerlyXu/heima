@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/28/2016
 wacn.date: ''
 ms.author: glenga
----
 
+---
 # Azure WebJobs documentation resources
 ## Overview
 This topic links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK. Azure WebJobs provide an easy way to run scripts or programs as background processes in the context of an [App Service web app, API app, or mobile app](../app-service/app-service-value-prop-what-is.md). You can upload and run an executable file such as as cmd, bat, exe (.NET), ps1, sh, php, py, js and jar. These programs run as WebJobs on a schedule (cron) or continuously.

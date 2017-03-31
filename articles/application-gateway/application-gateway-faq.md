@@ -16,6 +16,7 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: gwallace
+
 ---
 
 # Frequently asked questions for Application Gateway

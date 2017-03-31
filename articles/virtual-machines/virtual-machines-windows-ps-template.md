@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
 
 ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
@@ -18,13 +18,14 @@ ms.date: 03/07/2017
 wacn.date: ''
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
+
 ---
 
 # Create a Windows virtual machine from a Resource Manager template
 
 This article shows you how to deploy an Azure Resource Manager template using PowerShell. The [template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
-For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](virtual-machines-windows-template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md).
+For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](virtual-machines-windows-template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../resource-manager-template-walkthrough.md).
 
 It should take about five minutes to do the steps in this article.
 

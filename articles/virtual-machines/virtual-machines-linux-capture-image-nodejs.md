@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Capture a Linux virtual machine running on Azure
 Follow the steps in this article to generalize and capture your Azure Linux virtual machine (VM) in the Resource Manager deployment model. When you generalize the VM, you remove personal account information and prepare the VM to be used as an image. You then capture a generalized virtual hard disk (VHD) image for the OS, VHDs for attached data disks, and a [Resource Manager template](../azure-resource-manager/resource-group-overview.md) for new VM deployments. This article details how to capture a VM image with the Azure CLI 1.0 for a VM using unmanaged disks. You can also [capture a VM using Azure Managed Disks with the Azure CLI 2.0](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Managed disks are handled by the Azure platform and do not require any preparation or location to store them. For more information, see [Azure Managed Disks overview](../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -66,19 +66,16 @@ Use the Azure CLI to generalize and capture the VM. In the following examples, r
     ```azurecli
     azure config mode arm
     ```
-
 3. Shut down the VM that you already deprovisioned by using the following command:
 
     ```azurecli
     azure vm deallocate -g myResourceGroup -n myVM
     ```
-
 4. Generalize the VM with the following command:
 
     ```azurecli
     azure vm generalize -g myResourceGroup -n myVM
     ```
-
 5. Now run the **azure vm capture** command, which captures the VM. In the following example, the image VHDs are captured with names beginning with **MyVHDNamePrefix**, and the **-t** option specifies a path to the template **MyTemplate.json**. 
 
     ```azurecli

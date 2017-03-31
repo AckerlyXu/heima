@@ -17,9 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Create User-Defined Routes (UDR) using a template
+
 > [!div class="op_single_selector"]
 >- [PowerShell](virtual-network-create-udr-arm-ps.md)
 >- [Azure CLI](virtual-network-create-udr-arm-cli.md)
@@ -137,7 +138,7 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
                             Actions  NotActions
                             =======  ==========
                             *                  
-   
+
         Resources         : 
                             Name                Type                                     Location
                             ==================  =======================================  ========

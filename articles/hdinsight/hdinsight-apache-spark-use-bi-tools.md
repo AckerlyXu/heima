@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/13/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Use BI tools with Apache Spark cluster on Azure HDInsight
 
 Learn how to use Apache Spark in Azure HDInsight to analyze a raw sample data set and then use BI tools to visualize the data. This article demonstrates how to use BI tools such as Power BI and Tableau with HDInsight Spark clusters.

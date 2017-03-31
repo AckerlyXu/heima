@@ -7,7 +7,7 @@ author: vlivech
 manager: timlt
 editor: ''
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,6 +16,7 @@ ms.workload: infrastructure
 ms.date: 12/07/2016
 wacn.date: ''
 ms.author: v-livech
+
 ---
 
 # Mount Azure File storage on Linux VMs by using SMB with Azure CLI 1.0

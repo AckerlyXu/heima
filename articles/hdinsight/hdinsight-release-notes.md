@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 2/28/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Release notes for Hadoop components on Azure HDInsight
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
@@ -1542,5 +1542,5 @@ Release notes for the Hortonworks Data Platforms (HDPs) that are used by HDInsig
 
 [webpi-link]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
 
-[hdinsight-install-spark]: /documentation/articles/hdinsight-hadoop-spark-install/
-[hdinsight-r-scripts]: hdinsight-hadoop-r-scripts.md
+[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+[hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/

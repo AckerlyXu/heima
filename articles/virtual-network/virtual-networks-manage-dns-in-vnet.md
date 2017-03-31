@@ -17,8 +17,8 @@ ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Manage DNS servers used by a virtual network (Classic) using the Azure portal preview (Classic)
 
 You can manage the list of DNS servers used in a virtual network (VNet) in the Azure portal preview (Classic) or in the network configuration file. You can add up to 12 DNS servers for each VNet. When specifying DNS servers, it's important to verify that you list your DNS servers in the correct order for your environment. DNS server lists do not work round-robin. They are used in the order that they are specified. If the first DNS server on the list is able to be reached, the client will use that DNS server regardless of whether the DNS server is functioning properly or not. To change the DNS server order for your virtual network, remove the DNS servers from the list and add them back in the order that you want.

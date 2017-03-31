@@ -17,8 +17,8 @@ ms.workload: app-service
 ms.date: 03/08/2017
 wacn.date: ''
 ms.author: cfowler
----
 
+---
 # Azure PowerShell Samples
 
 The following table includes links to bash scripts built using the Azure PowerShell.

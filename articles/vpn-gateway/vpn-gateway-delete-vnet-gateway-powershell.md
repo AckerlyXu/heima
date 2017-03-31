@@ -1,6 +1,6 @@
 ---
-title: Delete a virtual network gateway: PowerShell: Azure Resource Manager | Azure
-description: Delete a virtual network gateway using PowerShell in the Resource Manager deployment model.
+title: 'Delete a virtual network gateway: PowerShell: Azure Resource Manager | Azure'
+description: Delete a virtual network gateway using PowerShell in the Resource Manager deployment model. 
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -8,17 +8,17 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: ''
+ms.topic: 
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Delete a virtual network gateway using PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
@@ -77,7 +77,7 @@ You may be prompted to confirm the deletion of each of the connections.
 ###4. Get the list of the corresponding local network gateways.
 
 	$LNG=Get-AzureRmLocalNetworkGateway -ResourceGroupName "RG1" | where-object {$_.Id -In $Conns.LocalNetworkGateway2.Id}
-	
+
 ###5. Delete the local network gateways.
 You may be prompted to confirm the deletion of each of the local network gateway.
 
@@ -128,7 +128,7 @@ The following steps apply to the Resource Manager deployment model.
 ###2. Check to see if the virtual network gateway has any connections.
 
 	get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
- 
+
 There may be other connections to the virtual network gateway that are part of a different resource group. Check for additional connections in each additional resource group. In this example, we are checking for connections from RG2. Run this for each resource group that you have which may have a connection to the virtual network gateway.
 
 	get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG2" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
@@ -137,9 +137,9 @@ There may be other connections to the virtual network gateway that are part of a
 Because this is a VNet-to-VNet configuration, you need the list of connections in both directions.
 
 	$ConnsL=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
- 
+
 In this example, we are checking for connections from RG2. Run this for each resource group that you have which may have a connection to the virtual network gateway.
- 
+
 	$ConnsR=get-azurermvirtualnetworkgatewayconnection -ResourceGroupName "<NameOfResourceGroup2>" | where-object {$_.VirtualNetworkGateway2.Id -eq $GW.Id}
 
 ###4. Delete all connections.
@@ -173,7 +173,7 @@ You may be prompted to confirm the deletion of the Public IP.
 	$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 
 ###9. Delete the gateway subnet and set the configuration.
- 
+
 	$GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
 	Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 
@@ -216,7 +216,7 @@ You may be prompted to confirm the deletion of the Public IP.
 	$PubIP | foreach-object {remove-azurermpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
 
 ###6. Delete the gateway subnet and set the configuration.
- 
+
 	$GWSub = Get-AzureRmVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
 	Set-AzureRmVirtualNetwork -VirtualNetwork $GWSub
 

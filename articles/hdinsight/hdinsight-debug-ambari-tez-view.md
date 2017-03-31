@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use Ambari Views to debug Tez Jobs on HDInsight
 The Ambari Web UI for HDInsight contains a Tez view that can be used to understand and debug jobs that use Tez as the execution engine. The Tez view allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
@@ -61,7 +61,7 @@ Use the following steps to run a Hive query that will execute using Tez.
 
         INFO : Session is already open
         INFO :
-   
+
         INFO : Status: Running (Executing on YARN cluster with App id application_1454546500517_0063)
 
     Save the **App id** value, as this will be used in the next section.

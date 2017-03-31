@@ -7,7 +7,7 @@ author: iainfoulds
 manager: timlt
 editor: ''
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,6 +16,7 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 wacn.date: ''
 ms.author: iainfou
+
 ---
 
 # Expand OS disk on a Linux VM using the Azure CLI with the Azure CLI 1.0
@@ -28,7 +29,7 @@ You can complete the task using one of the following CLI versions:
 - [Azure CLI 2.0](virtual-machines-linux-expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
-You need the [latest Azure CLI 1.0](../cli-install-nodejs.md) installed and logged in to an [Azure account](/pricing/1rmb-trial/) using the Resource Manager mode as follows:
+You need the [latest Azure CLI 1.0](../cli-install-nodejs.md) installed and logged in to an [Azure account](https://www.azure.cn/pricing/1rmb-trial/) using the Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm

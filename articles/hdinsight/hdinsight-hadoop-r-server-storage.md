@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 02/28/2017
 wacn.date: ''
 ms.author: jeffstok
----
 
+---
 # Azure Storage options for R Server on HDInsight
 Microsoft R Server on HDInsight has access to both Azure Blob, as a means of persisting data, code, result objects from analysis, and so on.
 

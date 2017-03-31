@@ -16,8 +16,8 @@ ms.workload: web
 ms.date: 09/01/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Create a line-of-business Azure app with Azure Active Directory authentication
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

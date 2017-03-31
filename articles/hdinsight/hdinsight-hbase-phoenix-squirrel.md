@@ -6,7 +6,6 @@ documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
-ROBOTS: NOINDEX
 
 ms.assetid: 1a756e98-75c1-44cd-a178-c5119683b7b7
 ms.service: hdinsight
@@ -17,8 +16,9 @@ ms.workload: big-data
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: jgao
----
+ROBOTS: NOINDEX
 
+---
 # Use Apache Phoenix and SQuirreL with Windows-based HBase clusters in HDInsight
 Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to install and configure SQuirreL on your workstation to connect to an HBase cluster in HDInsight. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 

@@ -18,8 +18,8 @@ ms.topic: get-started-article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # What is HBase in HDInsight: A NoSQL database that provides BigTable-like capabilities for Hadoop
 Apache HBase is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.
 

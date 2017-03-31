@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 wacn.date: ''
 ms.author: kyliel
----
 
+---
 # Introduction to FreeBSD on Azure
 This topic provides an overview of running a FreeBSD virtual machine in Azure.
 

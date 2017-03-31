@@ -15,9 +15,9 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/28/2016
 wacn.date: ''
-ms.author: mikeray
----
+ms.author: mikeray 
 
+---
 # Configure an internal load balancer for an Always On availability group in Azure
 This topic explains how to create an internal load balancer for a SQL Server Always On availability group in Azure virtual machines running in Resource Manager model. An availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
 

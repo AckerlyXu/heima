@@ -6,7 +6,7 @@ documentationcenter: ''
 author: bureado
 manager: timlt
 editor: ''
-tags: azure-service-management
+tags: azure-service-management 
 
 ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
 ms.service: virtual-machines-linux
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 04/14/2015
 wacn.date: ''
 ms.author: jparrel
----
 
+---
 # Use load-balanced sets to clusterize MySQL on Linux
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. A [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/mysql-replication/) is available if you need to deploy a MySQL cluster.

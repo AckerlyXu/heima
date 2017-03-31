@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 wacn.date: ''
 ms.author: larryfr
+
 ms.custom: H1Hack27Feb2017
 ---
-
 # Use Maven to develop a Java-based word count topology for Storm on HDInsight
 
 Learn how to create a Java-based topology for Apache Storm on HDInsight by using Maven. You create a basic word-count application using Maven and Java, where the topology is defined in Java. Then, you learn how to define the topology using the Flux framework.
@@ -634,7 +634,6 @@ The YAML file defines the components to use for the topology, how data flows bet
             <version>${storm.version}</version>
         </dependency>
         ```
-
     * Add the following plugin to the `<plugins>` section. This plugin handles the creation of a package (jar file) for the project, and applies some transformations specific to Flux when creating the package.
 
         ```xml
@@ -676,7 +675,7 @@ The YAML file defines the components to use for the topology, how data flows bet
         </plugin>
         ```
 
-   * In the **exec-maven-plugin** `<configuration>` section, change the value for `<mainClass>` to `org.apache.storm.flux.Flux`. This setting allows Flux to handle running the topology locally in development.
+    * In the **exec-maven-plugin** `<configuration>` section, change the value for `<mainClass>` to `org.apache.storm.flux.Flux`. This setting allows Flux to handle running the topology locally in development.
 
     * In the `<resources>` section, add the following to the `<includes>`. This includes the YAML file that defines the topology as part of the project.
 

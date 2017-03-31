@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 08/18/2016
 wacn.date: ''
 ms.author: v-livech
----
 
+---
 # Add a user to an Azure VM
 One of the first tasks on any new Linux VM is to create a new user.  In this article, we walk through creating a sudo user account, setting the password, adding SSH Public Keys, and finally use `visudo` to allow sudo without a password.
 

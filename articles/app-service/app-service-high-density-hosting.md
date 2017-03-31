@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/11/2017
 wacn.date: ''
 ms.author: byvinyal
----
 
+---
 # High density hosting on Azure App Service
 When using App Service, your application is decoupled from the capacity 
 allocated to it by two concepts:

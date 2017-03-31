@@ -18,7 +18,7 @@ ms.topic: support-article
 ms.date: 12/20/2016
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Troubleshoot application connectivity issues on a Linux Azure virtual machine
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]

@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/08/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use MapReduce with Hadoop on HDInsight with SSH
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]

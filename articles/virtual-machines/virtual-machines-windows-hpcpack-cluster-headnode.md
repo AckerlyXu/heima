@@ -17,8 +17,8 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Create the head node of an HPC Pack cluster in an Azure VM with a Marketplace image
 Use a [Microsoft HPC Pack 2012 R2 virtual machine image](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) from the Azure Marketplace and the Azure portal preview
 to create the head node of an HPC cluster. This HPC Pack

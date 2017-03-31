@@ -7,7 +7,6 @@ author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ROBOTS: NOINDEX
 
 ms.assetid: 7f4a4e02-45ab-40dd-842b-3ec034f256c9
 ms.service: hdinsight
@@ -18,8 +17,9 @@ ms.topic: article
 ms.date: 02/05/2017
 wacn.date: ''
 ms.author: larryfr
----
+ROBOTS: NOINDEX
 
+---
 # Use Maven to build Java applications that use HBase with Windows-based HDInsight (Hadoop)
 Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java by using Apache Maven. Then use the application with Azure HDInsight (Hadoop).
 

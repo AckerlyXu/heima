@@ -18,7 +18,7 @@ Use VNets to:
 Visit the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md) to see a decision table that will help you decide the best network design option for you.
 
 ### How do I get started?
-Visit [the Virtual Network documentation](../articles/virtual-network/index.md) to get started. This page has links to common configuration steps as well as information that will help you understand the things that you'll need to take into consideration when designing your virtual network.
+Visit [the Virtual Network documentation](/azure/virtual-network/) to get started. This page has links to common configuration steps as well as information that will help you understand the things that you'll need to take into consideration when designing your virtual network.
 
 ### What services can I use with VNets?
 VNets can be used with a variety of different Azure services, such as Cloud Services (PaaS), Virtual Machines, and Web Apps. However, there are a few services that are not supported on a VNet. Please check the specific service you want to use and verify that it is compatible.
@@ -172,7 +172,7 @@ You can only use compute services within VNets. Compute services are limited to 
 ### Can I use Web Apps with Virtual Network?
 Yes. You can deploy Web Apps inside a VNet. Adding to that, Web Apps can securely connect and access resources in your Azure VNet if you have point-to-site configured for your VNet. For more information, see the following:
 
-* [Web Apps Virtual Network Integration](../articles/app-service-web/app-service-vnet-integration-powershell.md)
+* [Web Apps Virtual Network Integration](/azure/app-service-web/app-service-vnet-integration-powershell/)
 
 ### Can I deploy cloud services with web and worker roles (PaaS) in a VNet?
 Yes. You can deploy PaaS services within VNets.

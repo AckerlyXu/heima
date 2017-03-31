@@ -11,11 +11,12 @@ tags: azure-portal
 ms.service: hdinsight
 ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 'na'
 ms.workload: big-data
 ms.date: 02/23/2017
 wacn.date: ''
 ms.author: larryfr
+
 ms.custom: H1Hack27Feb2017
 ---
 

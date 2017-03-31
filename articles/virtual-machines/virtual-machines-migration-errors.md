@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 10/13/2016
 wacn.date: ''
 ms.author: kasing
----
 
+---
 # Common errors during Classic to Azure Resource Manager migration
 This article catalogs the most common errors and mitigations during the migration of IaaS resources from Azure classic deployment model to the Azure Resource Manager stack.
 

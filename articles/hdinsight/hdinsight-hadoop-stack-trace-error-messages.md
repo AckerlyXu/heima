@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: rashimg;jgao
----
 
+---
 # Index of Hadoop in HDInsight troubleshooting articles
 Articles are organized by types of errors.
 

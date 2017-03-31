@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run Pig jobs with Hadoop on HDInsight by using Curl
 
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]

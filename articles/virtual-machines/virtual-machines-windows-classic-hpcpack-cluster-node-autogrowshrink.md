@@ -16,8 +16,8 @@ ms.workload: big-compute
 ms.date: 12/08/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload
 If you deploy Azure "burst" nodes in your HPC Pack cluster, or you
 create an HPC Pack cluster in Azure VMs, you may want a way to

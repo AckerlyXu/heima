@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 10/10/2016
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Upload and create a Linux VM from custom disk image by using the Azure CLI 1.0
 This article shows you how to upload a virtual hard disk (VHD) to Azure using the Resource Manager deployment model and create Linux VMs from this custom image. This functionality allows you to install and configure a Linux distro to your requirements and then use that VHD to quickly create Azure virtual machines (VMs).
 
@@ -159,6 +159,7 @@ data:    ----  -----------------------------------------------------------------
 data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINApdSGQ94H9zkszYyxpe8erw==  Full
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
+
 ```
 
 Make a note of `key1` as you will use it to interact with your storage account in the next steps.
@@ -220,7 +221,7 @@ Within the `Microsoft.Compute/virtualMachines` provider of your template, you ha
           }
 ```
 
-You can use [this existing template to create a VM from a custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) or read about [creating your own Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). 
+You can use [this existing template to create a VM from a custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) or read about [creating your own Azure Resource Manager templates](../resource-group-authoring-templates.md). 
 
 Once you have a template configured, you create your VMs using the `azure group deployment create` command. Specify the URI of your JSON template with the `--template-uri` parameter:
 

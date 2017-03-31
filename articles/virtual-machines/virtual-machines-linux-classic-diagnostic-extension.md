@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/15/2015
 wacn.date: ''
 ms.author: Ning
----
 
+---
 # Use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM
 ## Introduction
 (**Note**: The Linux Diagnostic Extension is open-sourced on [Github](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) where the most current information on the extension is first published. You might want to check the [Github page](https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic) first.)

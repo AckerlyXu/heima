@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/10/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Customize Linux-based HDInsight clusters using Script Action
 
 HDInsight provides a configuration option called **Script Action** that invokes custom scripts that customize the cluster. These scripts can be used during cluster creation, or on an already running cluster, and are used to install additional components or change configuration settings.

@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 02/28/2017
 wacn.date: ''
 ms.author: jeffstok
----
 
+---
 # Get started using R Server on HDInsight
 HDInsight includes an R Server option to be integrated into your HDInsight cluster. This allows R scripts to use Spark and MapReduce to run distributed computations. In this document, you learn how to create an R Server on HDInsight cluster and then run an R script that demonstrates using Spark for distributed R computations.
 

@@ -18,8 +18,8 @@ ms.date: 09/30/2016
 wacn.date: ''
 ms.author: josephd
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create SharePoint server farms using the Azure portal preview marketplace
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]

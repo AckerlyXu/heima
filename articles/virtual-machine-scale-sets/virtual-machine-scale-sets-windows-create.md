@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 02/21/2017
 wacn.date: ''
 ms.author: adegeo
----
 
+---
 # Create a Windows virtual machine scale set using Azure PowerShell
 These steps follow a fill-in-the-blanks approach for creating an Azure virtual machine scale set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
 

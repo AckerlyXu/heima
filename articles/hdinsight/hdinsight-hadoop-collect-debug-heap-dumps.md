@@ -20,7 +20,6 @@ ms.author: jgao
 ROBOTS: NOINDEX
 
 ---
-
 # Collect heap dumps in Blob storage to debug and analyze Hadoop services
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 

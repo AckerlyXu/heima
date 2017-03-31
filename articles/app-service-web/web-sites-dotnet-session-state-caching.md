@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 wacn.date: ''
 ms.author: riande
----
 
+---
 # Session state with Azure Redis cache in Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

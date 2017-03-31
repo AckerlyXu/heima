@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/07/2016
 wacn.date: ''
 ms.author: byvinyal
----
 
+---
 # How to: Monitor Apps in Azure App Service
 [App Service](/azure/app-service-web/app-service-changes-existing-services/) provides
 built in monitoring functionality in the [Azure Portal Preview](https://portal.azure.cn).

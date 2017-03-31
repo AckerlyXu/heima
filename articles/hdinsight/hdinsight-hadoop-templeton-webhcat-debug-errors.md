@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Understand and resolve errors received from WebHCat (Templeton,) on HDInsight
 When using WebHCat (formerly known as Templeton,) to work with HDInsight, you may receive errors. This document provides guidance on common errors - why they occur and what you can do to resolve them.
 

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/07/2017
 wacn.date: ''
 ms.author: davidmu
----
 
+---
 # Manage Azure Virtual Machines using PowerShell
 
 This article shows you common management tasks you might perform on an Azure virtual machine.

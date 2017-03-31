@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 wacn.date: ''
 ms.author: asaxton
----
 
+---
 # SQL Server Business Intelligence in Azure Virtual Machines
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
@@ -288,7 +288,6 @@ In the virtual machines firewall, open port **2382** and create a static Analysi
 1. To verify ports that are already in use on the VM and what process is using the ports, run the following command with administrative privileges:
 
         netstat /ao
-
 2. Use SQL Server Management Studio to create a static Analysis Services named instance port by updating 'Port' value in tabular AS instance general properties. For more information, see the "Use a fixed port for a default or named instance" in [Configure the Windows Firewall to Allow Analysis Services Access](https://msdn.microsoft.com/zh-cn/library/ms174937.aspx#bkmk_fixed).
 3. Restart the tabular instance of the Analysis Services  service.
 

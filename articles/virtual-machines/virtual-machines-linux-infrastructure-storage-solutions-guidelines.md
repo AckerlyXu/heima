@@ -18,8 +18,8 @@ ms.date: 03/17/2017
 wacn.date: ''
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Azure storage infrastructure guidelines for Linux VMs
 
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]

@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 10/17/2016
 wacn.date: ''
 ms.author: juliako
----
 
+---
 # Azure SDK for .NET Release Notes
 This topic contains links to Azure SDK for .NET Release Notes. 
 

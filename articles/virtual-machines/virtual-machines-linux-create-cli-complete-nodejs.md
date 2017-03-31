@@ -17,8 +17,8 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Create a complete Linux environment with the Azure CLI 1.0
 In this article, we build a simple network with a load balancer and a pair of VMs that are useful for development and simple computing. We walk through the process command by command, until you have two working, secure Linux VMs to which you can connect from anywhere on the Internet. Then you can move on to more complex networks and environments.
 

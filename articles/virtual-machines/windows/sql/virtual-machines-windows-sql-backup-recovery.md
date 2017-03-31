@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 wacn.date: ''
 ms.author: jroth
----
 
+---
 # Backup and Restore for SQL Server in Azure Virtual Machines
 ## Overview
 Backing up data in SQL Server databases is an important part of the strategy in protecting against data loss due to application or user errors. This is equally true for SQL Server running on Azure Virtual Machines (VMs).

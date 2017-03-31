@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 11/28/2016
 wacn.date: ''
 ms.author: mikeray
----
 
+---
 # Configure an external listener for Always On Availability Groups in Azure
 > [!div class="op_single_selector"]
 > * [Internal Listener](virtual-machines-windows-classic-ps-sql-int-listener.md)

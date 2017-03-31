@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # How to install and configure Trend Micro Deep Security as a Service on a Windows VM
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
@@ -77,4 +77,4 @@ It takes a few minutes for the agent to start running when it is installed. Afte
 
 <!--Link references-->
 [How to log on to a virtual machine running Windows Server]: virtual-machines-windows-classic-connect-logon.md
-[Azure VM Extensions and features]: virtual-machines-windows-extensions-features.md
+[Azure VM Extensions and features]: /azure/virtual-machines/virtual-machines-windows-extensions-features/

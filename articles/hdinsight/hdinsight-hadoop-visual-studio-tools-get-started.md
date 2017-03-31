@@ -18,8 +18,8 @@ ms.workload: big-data
 ms.date: 03/07/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Get started using Azure Data Lake (HDInsight) Tools for Visual Studio to run a Hive query
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

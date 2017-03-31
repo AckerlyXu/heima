@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/08/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Manage HDInsight clusters by using the Ambari Web UI
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]

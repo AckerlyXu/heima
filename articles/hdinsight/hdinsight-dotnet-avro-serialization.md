@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Serialize data in Hadoop with the Microsoft Avro Library
 This topic shows how to use the <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> to serialize objects and other data structures into streams in order to persist them to memory, a database, or a file, and also how to deserialize them to recover the original objects.
 
@@ -72,9 +72,7 @@ To get familiar with the command-line syntax, execute the following command from
 
 To test the utility, you can generate C# classes from the sample JSON schema file provided with the source code. Execute the following command:
 
-```
-Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
-```
+    Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
 
 This is supposed to produce two C# files in the current directory: SensorData.cs and Location.cs.
 

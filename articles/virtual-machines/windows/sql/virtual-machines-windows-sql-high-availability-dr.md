@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 wacn.date: ''
 ms.author: mikeray
----
 
+---
 # High availability and disaster recovery for SQL Server in Azure Virtual Machines
 ## Overview
 Azure virtual machines (VMs) with SQL Server can help lower the cost of a high availability and disaster recovery (HADR) database solution. Most SQL Server HADR solutions are supported in Azure virtual machines, both as Azure-only and as hybrid solutions. In an Azure-only solution, the entire HADR system runs in Azure. In a hybrid configuration, part of the solution runs in Azure and the other part runs on-premises in your organization. The flexibility of the Azure environment enables you to move partially or completely to Azure to satisfy the budget and HADR requirements of your SQL Server database systems.
@@ -47,7 +47,7 @@ You can have a high availability solution for SQL Server at a database level wit
 
 | Technology | Example Architectures |
 | --- | --- |
-| **Always On Availability Groups** |Availability replicas running in Azure VMs in the same region provide high availability. You need to configure a domain controller VM, because Windows failover clustering requires an Active Directory domain.<br/> ![Always On Availability Groups](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>For more information, see [Configure Always On Availability Groups in Azure (manually)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). |
+| **Always On Availability Groups** |Availability replicas running in Azure VMs in the same region provide high availability. You need to configure a domain controller VM, because Windows failover clustering requires an Active Directory domain.<br/> ![Always On Availability Groups](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_ha_always_on.gif)<br/>For more information, see [Configure Always On Availability Groups in Azure (manually)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md). |
 | **Always On Failover Cluster Instances** |Failover Cluster Instances (FCI), which require shared storage, can be created in 3 different ways.<br/><br/>1. A two-node failover cluster running in Azure VMs with attached storage using [Windows Server 2016 Storage Spaces Direct \(S2D\)](virtual-machines-windows-portal-sql-create-failover-cluster.md) to provide a software-based virtual SAN.<br/><br/>2. A two-node failover cluster running in Azure VMs with storage supported by a third-party clustering solution. For a specific example that uses SIOS DataKeeper, see [High availability for a file share using failover clustering and 3rd party software SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>3. A two-node failover cluster running in Azure VMs with remote iSCSI Target shared block storage via ExpressRoute. For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRoute with Equinix to Azure VMs.<br/><br/>For third-party shared storage and data replication solutions, you should contact the vendor for any issues related to accessing data on failover.<br/><br/>Note that using FCI on top of [Azure File storage](https://www.azure.cn/home/features/storage/files/) is not supported yet, because this solution does not utilize Premium Storage. We are working to support this soon. |
 
 ## Azure-only: Disaster recovery solutions

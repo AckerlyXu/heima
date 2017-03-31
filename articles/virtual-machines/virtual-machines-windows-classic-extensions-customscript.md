@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: nepeters
+
 ---
 
 # Custom Script Extension for Windows using the classic deployment model

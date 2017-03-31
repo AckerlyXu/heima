@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Enable heap dumps for Hadoop services on Linux-based HDInsight (Preview)
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 

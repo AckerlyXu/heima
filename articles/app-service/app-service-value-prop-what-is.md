@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 wacn.date: ''
 ms.author: byvinyal
----
 
+---
 # What is Azure App Service?
 *App Service* is a [platform-as-a-service](https://zh.wikipedia.org/wiki/平台即服务) (PaaS) offering of Azure. Create web and mobile apps for any platform or device. Integrate your apps with SaaS solutions, connect with on-premises applications, and automate your business processes. Azure runs your apps on fully managed virtual machines (VMs), with your choice of shared VM resources or dedicated VMs.
 

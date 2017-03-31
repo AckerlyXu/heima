@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2016
 wacn.date: ''
 ms.author: yushwang
----
 
+---
 # Highly Available Cross-Premises and VNet-to-VNet Connectivity
 This article provides an overview of Highly Available configuration options for your cross-premises and VNet-to-VNet connectivity using Azure VPN gateways.
 

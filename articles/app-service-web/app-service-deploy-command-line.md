@@ -1,5 +1,5 @@
 ---
-title: Automate deployment of your Azure app with command-line tools | Azure
+title: Automate deployment of your Azure app with command-line tools | Azure 
 description: Discover information on how you can deploy your Azure app from the command-line
 services: app-service
 documentationcenter: ''
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Automate deployment of your Azure app with command-line tools
 You can automate deployment of your Azure apps with command-line tools. This article lists available tools and the useful links that show you how to use them in your deployment workflow. 
 

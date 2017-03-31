@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/10/2017
 wacn.date: ''
 ms.author: szark
----
 
+---
 # Prepare a Red Hat-based virtual machine for Azure
 In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) virtual machine for use in Azure. Versions of RHEL that are covered in this article are 6.7+ and 7.1+. Hypervisors for preparation that are covered in this article are Hyper-V, Kernel-based Virtual Machine (KVM), and VMware. For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/articles/1989673).
 
@@ -100,7 +100,7 @@ This section assumes that you have already installed a RHEL image (from an ISO f
 
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.  The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
-    >[!IMPORTANT]
+    >[!Important]
     RHEL 6.5 and earlier must also set the kernel parameter `numa=off`. See Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 11. Ensure that the SSH server is installed and configured to start at boot time. This is usually the default. Modify /etc/ssh/sshd_config to include the following line:
@@ -277,7 +277,7 @@ This section assumes that you have already installed a RHEL image (from an ISO f
 
     Graphical and quiet boot are not useful in a cloud environment where we want all the logs to be sent to the serial port.  The `crashkernel` option may be left configured if desired, but note that this parameter will reduce the amount of available memory in the VM by 128MB or more, which may be problematic on the smaller VM sizes.
 
-    >[!IMPORTANT]
+    >[!Important]
     RHEL 6.5 and earlier must also set the kernel parameter `numa=off`. See Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 10. Add Hyper-V modules into initramfs:  

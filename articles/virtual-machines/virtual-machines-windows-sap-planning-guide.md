@@ -19,8 +19,8 @@ ms.date: 11/08/2016
 wacn.date: ''
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
----
 
+---
 # SAP NetWeaver on Azure Windows Virtual Machines (VMs) - Planning and Implementation Guide
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -660,7 +660,7 @@ By building up an Azure Virtual Network you can define the address range of the 
 
 Every Virtual Machine in Azure needs to be connected to a Virtual Network.
 
-More details can be found in [this article][resource-groups-networking] and on [this page](../virtual-network/index.md).
+More details can be found in [this article][resource-groups-networking] and on [this page](/azure/virtual-network/).
 
 > [!NOTE]
 > By default, once a VM is deployed you cannot change the Virtual Network configuration. The TCP/IP settings must be left to the Azure DHCP server. Default behavior is Dynamic IP assignment.
@@ -1042,7 +1042,6 @@ The copy of a VHD itself within a storage account is a process which takes only 
 copy on write). After you have a copy of the VHD file you can attach it to a virtual machine or use it as an image to attach copies of the VHD to virtual machines.
 
 ##### Powershell
-
 ```powershell
 # attach a vhd to a vm
 $vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>

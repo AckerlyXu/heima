@@ -16,7 +16,7 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 wacn.date: ''
 ms.author: rasquill
----
 
+---
 # AzureLogCollector Extension
 [!INCLUDE [virtual-machines-common-log-collector-extension](../../includes/virtual-machines-common-log-collector-extension.md)]

@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/16/2017
 wacn.date: ''
 ms.author: v-livech
+
 ---
 
 # Create virtual network interface cards and use internal DNS for VM name resolution on Azure

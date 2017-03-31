@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 wacn.date: ''
 ms.author: lvargas
----
 
+---
 # Application Patterns and Development Strategies for SQL Server in Azure Virtual Machines
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -46,7 +46,7 @@ A typical *n-tier* application includes the presentation tier, the business tier
 
 Application layers describe the logical groupings of the functionality and components in an application; whereas tiers describe the physical distribution of the functionality and components on separate physical servers, computers, networks, or remote locations. The layers of an application may reside on the same physical computer (the same tier) or may be distributed over separate computers (n-tier), and the components in each layer communicate with components in other layers through well-defined interfaces. You can think of the term tier as referring to physical distribution patterns such as two-tier, three-tier, and n-tier. A **2-tier application pattern** contains two application tiers: application server and database server. The direct communication happens between the application server and the database server. The application server contains both web-tier and business-tier components. In **3-tier application pattern**, there are three application tiers: web server, application server, which contains the business logic tier and/or business tier data access components, and the database server. The communication between the web server and the database server happens over the application server. For detailed information on application layers and tiers, see [Microsoft Application Architecture Guide](https://msdn.microsoft.com/zh-cn/library/ff650706.aspx).
 
-Before you start reading this article, you should have knowledge on the fundamental concepts of SQL Server and Azure. For information, see [SQL Server Books Online](https://msdn.microsoft.com/zh-cn/library/bb545450.aspx), [SQL Server in Azure Virtual Machines](./virtual-machines-windows-sql-server-iaas-overview.md) and [Azure.cn](https://www.azure.cn/).
+Before you start reading this article, you should have knowledge on the fundamental concepts of SQL Server and Azure. For information, see [SQL Server Books Online](https://msdn.microsoft.com/zh-cn/library/bb545450.aspx), [SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) and [Azure.cn](https://www.azure.cn/).
 
 This article describes several application patterns that can be suitable for your simple applications as well as the highly complex enterprise applications. Before detailing each pattern, we recommend that you should familiarize yourself with the available data storage services in Azure, such as [Azure Storage](../../../storage/storage-introduction.md), [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md), and [SQL Server in an Azure Virtual Machine](virtual-machines-windows-sql-server-iaas-overview.md). To make the best design decisions for your applications, understand when to use which data storage service clearly.
 
@@ -196,7 +196,7 @@ Another approach to implement this application pattern is to use a consolidated 
 ## Pattern with Azure VMs, Azure SQL Database, and Azure App Service (Web Apps)
 The primary goal of this application pattern is to show you how to combine Azure infrastructure as a service (IaaS) components with Azure platform-as-a-service components (PaaS) in your solution. This pattern is focused on Azure SQL Database for relational data storage. It does not include SQL Server in an Azure virtual machine, which is part of the Azure infrastructure as a service offering.
 
-In this application pattern, you deploy a database application to Azure by placing the presentation and business tiers in the same virtual machine and accessing a database in Azure SQL Database (SQL Database) servers. You can implement the presentation tier by using traditional IIS-based web solutions. Or, you can implement a combined presentation and business tier by using [Azure Web Apps](/azure/app-service/web/).
+In this application pattern, you deploy a database application to Azure by placing the presentation and business tiers in the same virtual machine and accessing a database in Azure SQL Database (SQL Database) servers. You can implement the presentation tier by using traditional IIS-based web solutions. Or, you can implement a combined presentation and business tier by using [Azure Web Apps](/azure/app-service-web/).
 
 This application pattern is useful when:
 
@@ -243,7 +243,7 @@ In n-tier hybrid application pattern, you can implement the following workflow i
         * With secure site-to-site connection, you can establish network connectivity between your on-premises network and your virtual network in Azure. It is recommended for connecting your on-premises data center environment to Azure.
         * With secure point-to-site connection, you can establish network connectivity between your virtual network in Azure and your individual computers running anywhere. It is mostly recommended for development and test purposes.
 
-        For information on how to connect to SQL Server in Azure, see [Connect to a SQL Server Virtual Machine on Azure](./virtual-machines-windows-sql-connect.md).
+        For information on how to connect to SQL Server in Azure, see [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-windows-sql-connect.md).
 4. Set up scheduled jobs and alerts that back up on-premises data in a virtual machine disk in Azure. For more information, see [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/zh-cn/library/jj919148.aspx) and [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 5. Depending on your application's needs, you can implement one of the following three common scenarios:
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/16/2016
 wacn.date: ''
 ms.author: narayan;aglick
----
 
+---
 # Virtual Network - Business Continuity
 ## Overview
 A Virtual Network (VNet) is a logical representation of your network in the cloud. It allows you to define your own private IP address space and segment the network into subnets. VNets serves as a trust boundary to host your compute resources such as Azure Virtual Machines and Cloud Services (web/worker roles). A VNet allows direct private IP communication between the resources hosted in it. A Virtual Network can also be linked to an on-premises network through one of the hybrid options such as a VPN Gateway or ExpressRoute.

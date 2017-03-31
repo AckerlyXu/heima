@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 10/28/2016
 wacn.date: ''
 ms.author: guybo
----
 
+---
 # Troubleshooting autoscale with Virtual Machine Scale Sets
 **Problem** - you've created an autoscaling infrastructure in Azure Resource Manager using VM Scale Sets -  for example by deploying a template like this: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale  - you have your scale rules defined and it works great, except that no matter how much load you put on the VMs, it won't autoscale.
 

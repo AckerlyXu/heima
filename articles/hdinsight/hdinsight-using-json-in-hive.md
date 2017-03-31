@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 06/22/2015
 wacn.date: ''
 ms.author: rashimg
----
 
+---
 # Process and analyze JSON documents using Hive in HDInsight
 Learn how to process and analyze JSON files using Hive in HDInsight. The following JSON document will be used in the tutorial
 

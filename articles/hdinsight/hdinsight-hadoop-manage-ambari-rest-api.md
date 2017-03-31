@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/23/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Manage HDInsight clusters by using the Ambari REST API
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
@@ -145,7 +145,7 @@ When working with HDInsight, you may need to know the fully qualified domain nam
 
 * **All nodes**
 
-    ```
+    ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/hosts" \
     | jq '.items[].Hosts.host_name'
     ```
@@ -159,7 +159,7 @@ When working with HDInsight, you may need to know the fully qualified domain nam
 
 * **Head nodes**
 
-    ```
+    ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/HDFS/components/NAMENODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
@@ -173,7 +173,7 @@ When working with HDInsight, you may need to know the fully qualified domain nam
 
 * **Worker nodes**
 
-    ```
+    ```bash
     curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
@@ -187,7 +187,7 @@ When working with HDInsight, you may need to know the fully qualified domain nam
 
 * **Zookeeper nodes**
 
-    ```
+    ```bash
     curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
     | jq '.host_components[].HostRoles.host_name'
     ```
@@ -208,7 +208,7 @@ When working with HDInsight, you may need to know the fully qualified domain nam
 
 You must know the FQDN for the host before you can obtain the IP address. Once you have the FQDN, you can then get the IP address of the host. The following examples first query Ambari for the FQDN of all the host nodes, then query Ambari for the IP address of each host.
 
-```
+```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
 do
     IP=$(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/hosts/$HOSTNAME" | jq -r '.Hosts.ip')

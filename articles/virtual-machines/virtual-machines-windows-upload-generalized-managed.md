@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/08/2017
 wacn.date: ''
 ms.author: cynthn
+
 ---
 
 # Create a new VM from a generalized VHD uploaded to Azure using Managed Disks
@@ -277,8 +278,7 @@ $cred = Get-Credential
     $vmName = "myVM"
     $computerName = "myComputer"
     ```
-
-2. Set the size of the virtual machine. This example creates **Standard_DS1_v2** sized VM. See the [VM sizes](virtual-machines-windows-sizes.md) documentation for more information.
+2. Set the size of the virtual machine. This example creates **Standard_DS1_v2** sized VM. See the [VM sizes](/azure/virtual-machines-windows-sizes/) documentation for more information.
 
     ```powershell
     $vmSize = "Standard_DS1_v2"

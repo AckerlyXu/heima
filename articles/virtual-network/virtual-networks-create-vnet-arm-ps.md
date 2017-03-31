@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: ''
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
----
+ms.custom: H1Hack27Feb2017 
 
+---
 # Create a virtual network using PowerShell
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]

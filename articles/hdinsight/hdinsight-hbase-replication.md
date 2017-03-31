@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 02/22/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Configure HBase replication
 
 Learn how to configure HBase replication within one virtual network (VNet) or between two virtual networks.

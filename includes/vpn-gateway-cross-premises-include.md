@@ -8,5 +8,5 @@
 | **Typical use case** |Prototyping, dev / test / lab scenarios for cloud services and virtual machines |Dev / test / lab scenarios and small scale production workloads for cloud services and virtual machines |Access to all Azure services (validated list), Enterprise-class and mission critical workloads, Backup, Big Data, Azure as a DR site |
 | **SLA** |[SLA](https://www.azure.cn/support/legal/sla/) |[SLA](https://www.azure.cn/support/legal/sla/) |[SLA](https://www.azure.cn/support/legal/sla/) |
 | **Pricing** |[Pricing](https://www.azure.cn/pricing/details/vpn-gateway/) |[Pricing](https://www.azure.cn/pricing/details/vpn-gateway/) |[Pricing](https://www.azure.cn/pricing/details/expressroute/) |
-| **Technical Documentation** |[VPN Gateway Documentation](../articles/vpn-gateway/index.md) |[VPN Gateway Documentation](../articles/vpn-gateway/index.md) |[ExpressRoute Documentation](../articles/expressroute/index.md) |
+| **Technical Documentation** |[VPN Gateway Documentation](/azure/vpn-gateway/) |[VPN Gateway Documentation](/azure/vpn-gateway/) |[ExpressRoute Documentation](/azure/expressroute/) |
 | **FAQ** |[VPN Gateway FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[VPN Gateway FAQ](../articles/vpn-gateway/vpn-gateway-vpn-faq.md) |[ExpressRoute FAQ](../articles/expressroute/expressroute-faqs.md) |

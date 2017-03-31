@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2016
 wacn.date: ''
 ms.author: yushwang
----
 
+---
 # Configure active-active S2S VPN connections with Azure VPN Gateways using Azure Resource Manager and PowerShell
 This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
 
@@ -84,7 +84,7 @@ For this exercise, we'll start by declaring our variables. The example below dec
     $Connection152 = "VNet1toSite5_2"
 
 #### 2. Connect to your subscription and create a new resource group
-Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
+Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/13/2016
 wacn.date: ''
 ms.author: guybo
----
 
+---
 # Upgrade a virtual machine scale set
 This article describes how you can roll out an OS update to an Azure virtual machine scale set without any downtime. In this context, an OS update involves changing the version or SKU of the OS or changing the URI of a custom image. Updating without downtime means updating virtual machines one at a time or in groups (such as one fault domain at a time) rather than all at once. By doing so, any virtual machines that are not being upgraded can keep running.
 

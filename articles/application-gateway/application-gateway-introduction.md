@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Overview of Application Gateway
 
 ## What is Application Gateway

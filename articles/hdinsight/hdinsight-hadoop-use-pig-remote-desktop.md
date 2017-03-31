@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run Pig jobs from a Remote Desktop connection
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 

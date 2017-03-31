@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 06/06/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Enable diagnostics logging for web apps in Azure App Service
 ## Overview
 Azure provides built-in diagnostics to assist with debugging an [App Service web app](/azure/app-service-web/app-service-changes-existing-services/). In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.

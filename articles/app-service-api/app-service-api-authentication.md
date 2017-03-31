@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/23/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Authentication and authorization for API Apps in Azure App Service
 ## Overview
 > [!NOTE]

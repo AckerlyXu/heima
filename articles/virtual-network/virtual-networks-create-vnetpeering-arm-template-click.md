@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2016
 wacn.date: ''
 ms.author: narayan;annahar
----
 
+---
 # Create a virtual network peering using an Azure Resource Manager template
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
@@ -131,7 +131,7 @@ To create a VNet peering by using Resource Manager templates, complete the follo
         Parameters            :
         Outputs            :
         DeploymentDebugLogLevel : RequestContent, ResponseContent
-   
+
     ```powershell
     New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet2.json -DeploymentDebugLogLevel all
     ```

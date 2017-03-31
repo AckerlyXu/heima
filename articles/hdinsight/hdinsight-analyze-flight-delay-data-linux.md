@@ -17,9 +17,9 @@ ms.topic: article
 ms.date: 02/07/2017
 wacn.date: ''
 ms.author: larryfr
+
 ms.custom: H1Hack27Feb2017
 ---
-
 # Analyze flight delay data by using Hive on Linux-based HDInsight
 
 Learn how to analyze flight delay data using Hive on Linux-based HDInsight then export the data to Azure SQL Database using Sqoop.

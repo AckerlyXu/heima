@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Classic endpoints for Windows VMs with Azure Resource Manager
 [!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 

@@ -1,4 +1,5 @@
 ---
+
 title: Use a Windows troubleshooting VM in the Azure portal preview | Azure
 description: Learn how to troubleshoot Windows virtual machine issues in Azure by connecting the OS disk to a recovery VM using the Azure portal preview
 services: virtual-machines-windows
@@ -15,6 +16,7 @@ ms.workload: infrastructure
 ms.date: 12/12/2016
 wacn.date: ''
 ms.author: iainfou
+
 ---
 
 # Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal preview

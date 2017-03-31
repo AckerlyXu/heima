@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/24/2017
 wacn.date: ''
 ms.author: kasing
----
 
+---
 # Set up Key Vault for virtual machines in Azure Resource Manager
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]

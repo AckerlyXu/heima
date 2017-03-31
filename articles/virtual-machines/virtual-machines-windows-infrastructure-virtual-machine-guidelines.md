@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/17/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Azure virtual machines guidelines for Windows
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 

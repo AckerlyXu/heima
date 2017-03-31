@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Script Sample - Create a Linux VM with NLB | Azure
-description: Azure CLI Script Sample - Create a Linux VM with NLB
+description: Azure CLI Script Sample - Create a Linux VM with NLB 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-service-management
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article

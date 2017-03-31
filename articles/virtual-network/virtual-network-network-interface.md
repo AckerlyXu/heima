@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: jdial
+
 ---
 
 # Network interfaces

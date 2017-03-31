@@ -1,5 +1,5 @@
 ---
-title: Connect a computer to an Azure virtual network using Point-to-Site: PowerShell | Azure
+title: 'Connect a computer to an Azure virtual network using Point-to-Site: PowerShell | Azure'
 description: Securely connect a computer to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection.
 services: vpn-gateway
 documentationcenter: na
@@ -17,13 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Configure a Point-to-Site connection to a VNet using PowerShell
 > [!div class="op_single_selector"]
->- [Resource Manager - Azure Portal Preview](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
->- [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
->- [Classic - Azure Portal Preview](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Resource Manager - Azure Portal Preview](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+> * [Classic - Azure Portal Preview](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> 
+> 
 
 A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. P2S is a VPN connection over SSTP (Secure Socket Tunneling Protocol). Point-to-Site connections are useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. P2S connections do not require a VPN device or a public-facing IP address. You establish the VPN connection from the client computer.
 
@@ -62,7 +64,7 @@ We use the following values for this configuration. We set the variables in sect
 * **VpnType: RouteBased**
 
 ## Before beginning
-* Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
+* Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can sign up for a [trial account](https://www.azure.cn/pricing/1rmb-trial).
 * Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets. When working with PowerShell for this configuration, make sure that you are running as administrator. 
 
 ## <a name="declare"></a>Part 1 - Log in and set variables
@@ -340,4 +342,4 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../virtual-machines/index.md). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/azure/virtual-machines/). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md).

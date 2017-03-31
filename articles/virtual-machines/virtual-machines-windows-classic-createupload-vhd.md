@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/21/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Create and upload a Windows Server VHD to Azure
 This article shows you how to upload your own generalized VM image as a virtual hard disk (VHD) so you can use it to create virtual machines. For more details about disks and VHDs in Azure, see [About Disks and VHDs for Virtual Machines](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

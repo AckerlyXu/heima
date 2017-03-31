@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 wacn.date: ''
 ms.author: kumud
----
 
+---
 <!-- repub for nofollow -->
 
 # Disable, Enable, or Delete a Profile

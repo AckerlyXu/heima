@@ -18,8 +18,8 @@ ms.date: 11/21/2016
 wacn.date: ''
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Availability and scale in Azure Resource Manager templates for Linux VMs
 
 Availability and scale refer to uptime and the ability to meet demand. If an application must be up 99.9% of the time, it needs to have an architecture that allows for multiple concurrent compute resources. For instance, rather than having a single website, a configuration with a higher level of availability includes multiple instances of the same site, with balancing technology in front of them. In this configuration, one instance of the application can be taken down for maintenance, while the remaining continue to function. Scale on the other hand refers to an applications ability to serve demand. With a load balanced application, adding or removing instances from the pool allows an application to scale to meet demand.

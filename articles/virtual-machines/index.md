@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Virtual Machines Documentation - Tutorials, API Reference | Azure
 description: Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.
 services: virtual-machines
 author: carolz
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 # Virtual Machines Documentation

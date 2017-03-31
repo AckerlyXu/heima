@@ -20,7 +20,6 @@ ms.author: jgao
 ROBOTS: NOINDEX
 
 ---
-
 # Install and use R on HDInsight Hadoop clusters
 Learn how to customize Windows based HDInsight cluster with R using Script Action, and how to use R on HDInsight clusters. The [HDInsight offering](https://www.azure.cn/pricing/details/hdinsight/) includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. For more information, see [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md). For information on using R with a Linux-based cluster, see [Install and use R on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-r-scripts-linux.md).
 
@@ -107,6 +106,6 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 * [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md): Script Action sample about installing Solr.
 
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[hdinsight-provision]: ./hdinsight-provision-clusters/
+[hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md

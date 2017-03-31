@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/08/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use the Hive View with Hadoop in HDInsight
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]

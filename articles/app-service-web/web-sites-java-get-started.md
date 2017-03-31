@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Create a Java web app in Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -43,7 +43,7 @@ There are several ways you can set up a Java application in an App Service web a
     * You want to configure the web container from scratch yourself. 
     * You want to use a version of Java that isn't supported in App Service and want to upload it yourself.
 
-        For cases like these, you can create an app using the Azure Portal Preview, and then provide the appropriate runtime files manually. In this case, the files will be counted against your storage space quotas for your App Service plan. For more information, see [Upload a custom Java web app to Azure].
+    For cases like these, you can create an app using the Azure Portal Preview, and then provide the appropriate runtime files manually. In this case, the files will be counted against your storage space quotas for your App Service plan. For more information, see [Upload a custom Java web app to Azure].
 
 ## <a name="portal"></a> Create and configure a Java web app
 This section shows how to create a web app and configure it for Java using the **Application settings** blade of the portal.
@@ -89,7 +89,7 @@ For more information about developing Java applications in Azure, see the [Java 
 
 <!-- URL List -->
 
-[Add an application or webpage to your Java web app]: web-sites-java-add-app.md
+[Add an application or webpage to your Java web app]: ./web-sites-java-add-app.md
 [Azure App Service plans overview]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [Azure Portal Preview]: https://portal.azure.cn/
 [sign up for a trial]: https://www.azure.cn/pricing/1rmb-trial/
@@ -97,7 +97,7 @@ For more information about developing Java applications in Azure, see the [Java 
 [web app in Azure App Service]: /azure/app-service-web/app-service-changes-existing-services/
 [Java Developer Center]: /develop/java/
 [Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
-[Upload a custom Java web app to Azure]: web-sites-java-custom-upload.md
+[Upload a custom Java web app to Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
 

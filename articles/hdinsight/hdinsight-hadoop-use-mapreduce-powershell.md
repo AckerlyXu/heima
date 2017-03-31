@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/19/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run MapReduce jobs with Hadoop on HDInsight using PowerShell
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]

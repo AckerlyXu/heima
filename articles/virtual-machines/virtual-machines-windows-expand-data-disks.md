@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: ''
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 wacn.date: ''
 ms.author: cynthn
+
 ---
 
 # Increase the size of a data disk attached to a Windows VM

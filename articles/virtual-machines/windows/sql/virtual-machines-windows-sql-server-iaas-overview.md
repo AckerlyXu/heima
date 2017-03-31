@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 01/09/2017
 wacn.date: ''
 ms.author: jroth
----
 
+---
 # Overview of SQL Server on Azure Virtual Machines
 This topic describes your options for running SQL Server on Azure virtual machines (VMs), along with [links to portal images](#option-1-create-a-sql-vm-with-per-minute-licensing) and an overview of [common tasks](#manage-your-sql-vm).
 

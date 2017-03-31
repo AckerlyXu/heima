@@ -18,8 +18,8 @@ ms.date: 02/15/2017
 wacn.date: ''
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
----
 
+---
 # How to find Linux VM images with the Azure CLI
 This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. 
 

@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-service-management
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -17,8 +17,8 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 wacn.date: ''
 ms.author: nepeters
----
 
+---
 # Azure CLI Samples for Windows virtual machines
 
 The following table includes links to bash scripts built using the Azure CLI that deploy Windows virtual machines.

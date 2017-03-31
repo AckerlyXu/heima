@@ -1,5 +1,5 @@
 ---
-title: Azure Web Apps Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Web Apps Documentation - Tutorials, API Reference | Azure
 description: Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and more.
 services: app-service
 author: carolz
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 # Azure Web Apps Documentation
@@ -156,7 +157,7 @@ ms.author: carolz
         </div>
         </a>
     </li>
-   
+
      <li>
         <a href="/azure/app-service-web/app-service-web-get-started-php">
         <div class="cardSize">
@@ -193,7 +194,7 @@ ms.author: carolz
         </div>
         </a>
     </li>
-   
+
 </ul>
 
 ---

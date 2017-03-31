@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2016
 wacn.date: ''
 ms.author: amsriva
----
 
+---
 # VPN Gateway classic to Resource Manager migration
 VPN Gateways can now be migrated from classic to Resource Manager deployment model. You can read more about Azure Resource Manager [features and benefits](../azure-resource-manager/resource-group-overview.md). In this article, we  detail how to migrate from classic deployments to newer Resource Manager based model. 
 

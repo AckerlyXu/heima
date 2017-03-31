@@ -11,14 +11,14 @@ tags: azure-resource-manager
 ms.assetid: f38f8a44-6c88-4490-a84a-46388212d24c
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: ''
+ms.topic: 
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Different ways to create a Linux virtual machine in Azure
 You have the flexibility in Azure to create a Linux virtual machine (VM) using tools and workflows comfortable to you. This article summarizes these differences and examples for creating your Linux VMs.
 
@@ -38,7 +38,6 @@ The Azure CLI 1.0 is available across platforms via an npm package, distro-provi
         azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
           --image-urn CoreOS
         ```
-
 * [Create a secured Linux VM using an Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
     * The following example creates a VM using a template stored on GitHub:
@@ -47,7 +46,6 @@ The Azure CLI 1.0 is available across platforms via an npm package, distro-provi
         azure group create --name myResourceGroup --location ChinaNorth 
           --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
         ```
-
 * [Create a complete Linux environment using the Azure CLI](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
     * Includes creating a load balancer and multiple VMs in an availability set.

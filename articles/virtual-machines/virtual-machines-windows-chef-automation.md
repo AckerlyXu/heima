@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 05/19/2015
 wacn.date: ''
 ms.author: diviso
----
 
+---
 # Automating Azure virtual machine deployment with Chef
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

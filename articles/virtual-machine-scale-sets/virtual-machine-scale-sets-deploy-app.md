@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/07/2017
 wacn.date: ''
 ms.author: guybo
----
 
+---
 # Deploy an App on Virtual Machine Scale Sets
 An application running on a VM Scale Set is typically deployed in one of three ways:
 

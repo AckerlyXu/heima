@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/01/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Operating system functionality on Azure App Service
 This article describes the common baseline operating system functionality that is available to all apps running on [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/). This functionality includes file, network, and registry access, and diagnostics logs and events. 
 

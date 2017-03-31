@@ -18,8 +18,8 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 wacn.date: ''
 ms.author: hermannd
----
 
+---
 # Deploying SAP IDES EHP7 SP3 for SAP ERP 6.0 on Azure
 This article describes how to deploy SAP IDES running with SQL Server and Windows OS on Azure 
 via SAP Cloud Appliance Library 3.0. The screenshots show the process step by step. Deploying other 

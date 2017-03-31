@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/7/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Create a VM from a generalized managed VM image
 
 You can create multiple VMs from a managed VM image in Azure. A managed VM image contains the information necessary to create a VM, including the OS and data disks. The VHDs that make up the image, including both the OS disks and any data disks, are stored as managed disks. 
@@ -127,8 +127,7 @@ $cred = Get-Credential
     $vmName = "myVM"
     $computerName = "myComputer"
     ```
-
-2. Set the size of the virtual machine. This example creates **Standard_DS1_v2** sized VM. See the [VM sizes](virtual-machines-windows-sizes.md) documentation for more information.
+2. Set the size of the virtual machine. This example creates **Standard_DS1_v2** sized VM. See the [VM sizes](/azure/virtual-machines-windows-sizes/) documentation for more information.
 
     ```powershell
     $vmSize = "Standard_DS1_v2"

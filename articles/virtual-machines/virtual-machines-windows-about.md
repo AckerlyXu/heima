@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 01/20/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # About Windows virtual machines in Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

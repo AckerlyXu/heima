@@ -20,7 +20,6 @@ ms.author: larryfr
 ROBOTS: NOINDEX
 
 ---
-
 # Run Hive queries using the Query Console
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -92,7 +91,7 @@ If you are using Tez with Hive, see the following documents for debugging inform
 * [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
 * [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
-[1]: hdinsight-hadoop-visual-studio-tools-get-started.md
+[1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/zh-cn/library/dn479185.aspx
 

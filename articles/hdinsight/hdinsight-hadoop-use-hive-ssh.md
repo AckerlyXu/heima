@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use Hive with Hadoop in HDInsight with SSH
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -59,7 +59,6 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 1. Once connected, start the Hive CLI by using the following command:
 
         hive
-
 2. Using the CLI, enter the following statements to create a new table named **log4jLogs** by using the sample data:
 
         DROP TABLE log4jLogs;

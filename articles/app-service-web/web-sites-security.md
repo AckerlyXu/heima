@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/12/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Secure an app in Azure App Service
 This article helps you get started on securing your web app, mobile app backend, or API app in Azure App Service. 
 

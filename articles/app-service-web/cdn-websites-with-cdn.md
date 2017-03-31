@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/01/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Use Azure CDN in Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -275,7 +275,7 @@ Follow the steps above to setup this controller action:
 3. Open the new *Views\MemeGenerator\Index.cshtml* and replace the content with the following simple HTML for submitting the superlatives:
 
         <h2>Meme Generator</h2>
-   
+
         <form action="" method="post">
             <input type="text" name="top" placeholder="Enter top text here" />
             <br />
@@ -368,22 +368,22 @@ Follow the steps below to integration ASP.NET bundling and minification with you
           var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
             .GetName().Version.ToString();
           var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?" + version;
-   
+
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
-   
+
           bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
                 "~/Scripts/jquery.validate*"));
-   
+
           // Use the development version of Modernizr to develop with and learn from. Then, when you're
           // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
           bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
                 "~/Scripts/modernizr-*"));
-   
+
           bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js"));
-   
+
           bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
@@ -445,27 +445,27 @@ The [Bundle](http://msdn.microsoft.com/zh-cn/library/system.web.optimization.bun
             .GetName().Version.ToString();
           var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
           bundles.UseCdn = true;
-   
+
           bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
                 { CdnFallbackExpression = "window.jquery" }
                 .Include("~/Scripts/jquery-{version}.js"));
-   
+
           bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
                 { CdnFallbackExpression = "$.validator" }
                 .Include("~/Scripts/jquery.validate*"));
-   
+
           // Use the development version of Modernizr to develop with and learn from. Then, when you're
           // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
           bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
                 { CdnFallbackExpression = "window.Modernizr" }
                 .Include("~/Scripts/modernizr-*"));
-   
+
           bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap"))     
                 { CdnFallbackExpression = "$.fn.modal" }
                 .Include(
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/respond.js"));
-   
+
           bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
@@ -478,9 +478,9 @@ The [Bundle](http://msdn.microsoft.com/zh-cn/library/system.web.optimization.bun
     * `window.Modernizr` is defined in modernizer-{version}.js
     * `$.fn.modal` is defined in bootstrap.js
 
-        You might have noticed that I did not set CdnFallbackExpression for the `~/Cointent/css` bundle. This is because currently there is a [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) that injects a `<script>` tag for the fallback CSS instead of the expected `<link>` tag.
+    You might have noticed that I did not set CdnFallbackExpression for the `~/Cointent/css` bundle. This is because currently there is a [bug in System.Web.Optimization](https://aspnetoptimization.codeplex.com/workitem/104) that injects a `<script>` tag for the fallback CSS instead of the expected `<link>` tag.
 
-        There is, however, a good [Style Bundle Fallback](https://github.com/EmberConsultingGroup/StyleBundleFallback) offered by [Ember Consulting Group](https://github.com/EmberConsultingGroup). 
+    There is, however, a good [Style Bundle Fallback](https://github.com/EmberConsultingGroup/StyleBundleFallback) offered by [Ember Consulting Group](https://github.com/EmberConsultingGroup). 
 2. To use the workaround for CSS, create a new .cs file in your ASP.NET project's *App_Start* folder called *StyleBundleExtensions.cs*, and replace its content with the [code from GitHub](https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs). 
 3. In *App_Start\StyleFundleExtensions.cs*, rename the namespace to your ASP.NET application's namespace (e.g. **cdnwebapp**). 
 4. Go back to `App_Start\BundleConfig.cs` and replace the last `bundles.Add` statement with the following code:  
@@ -529,7 +529,7 @@ The [Bundle](http://msdn.microsoft.com/zh-cn/library/system.web.optimization.bun
     ```
 
     Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
-   
+
         }())||document.write('<script src="/Content/css"><\/script>');</script>
 
     But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.

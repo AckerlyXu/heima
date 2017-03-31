@@ -7,7 +7,6 @@ author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ROBOTS: NOINDEX
 
 ms.assetid: b1e6f338-8ac1-4b38-bbb5-2f7388b9de3b
 ms.service: hdinsight
@@ -18,8 +17,9 @@ ms.topic: article
 ms.date: 02/05/2016
 wacn.date: ''
 ms.author: nitinme
----
+ROBOTS: NOINDEX
 
+---
 # Install and use Solr on Windows-based HDInsight clusters
 
 Learn how to customize Windows-based HDInsight cluster with Solr using Script Action, and how to use Solr to search data. 

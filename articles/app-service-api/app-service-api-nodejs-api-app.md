@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Build a Node.js RESTful API and deploy it to an API app in Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
@@ -91,9 +91,9 @@ While App Service supports many ways to deploy your code to an API app, this tut
     This code uses the JSON data stored in the **lib/contacts.json** file that is served by **lib/contactRepository.js**. The new contacts.js code responds to HTTP requests to get all of the contacts and return them as a JSON payload. 
 
         'use strict';
-   
+
         var repository = require('../lib/contactRepository');
-   
+
         module.exports = {
             get: function contacts_get(req, res) {
                 res.json(repository.all())
@@ -102,9 +102,9 @@ While App Service supports many ways to deploy your code to an API app, this tut
 3. Replace the code in the **handlers/contacts/{id}.js** file with the following code. 
 
         'use strict';
-   
+
         var repository = require('../../lib/contactRepository');
-   
+
         module.exports = {
             get: function contacts_get(req, res) {
                 res.json(repository.get(req.params['id']));
@@ -115,33 +115,33 @@ While App Service supports many ways to deploy your code to an API app, this tut
     The changes made to the server.js file are called out by using comments so you can see the changes being made. 
 
         'use strict';
-   
+
         var port = process.env.PORT || 8000; // first change
-   
+
         var http = require('http');
         var express = require('express');
         var bodyParser = require('body-parser');
         var swaggerize = require('swaggerize-express');
         var swaggerUi = require('swaggerize-ui'); // second change
         var path = require('path');
-   
+
         var app = express();
-   
+
         var server = http.createServer(app);
-   
+
         app.use(bodyParser.json());
-   
+
         app.use(swaggerize({
             api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
-   
+
         // change four
         app.use('/docs', swaggerUi({
           docs: '/swagger'  
         }));
-   
+
         server.listen(port, function () { // fifth and final change
         });
 

@@ -18,8 +18,8 @@ ms.date: 02/16/2017
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Configure private IP addresses for a virtual machine using the Azure CLI 2.0
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]

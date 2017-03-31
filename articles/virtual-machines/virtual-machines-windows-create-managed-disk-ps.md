@@ -1,6 +1,6 @@
 ---
 title: Create a managed disk from a VHD in Azure| Azure
-description: Create a managed disk from a VHD that is currently in an Azure storage account, using the Resource Manager deployment model.
+description: Create a managed disk from a VHD that is currently in an Azure storage account, using the Resource Manager deployment model. 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/05/2017
 wacn.date: ''
 ms.author: cynthn
+
 ---
 
 # Create managed disks from unmanaged disks in a storage account

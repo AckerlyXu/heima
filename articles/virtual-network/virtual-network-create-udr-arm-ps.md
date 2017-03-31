@@ -17,9 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Create User-Defined Routes (UDR) using PowerShell
+
 > [!div class="op_single_selector"]
 >- [PowerShell](virtual-network-create-udr-arm-ps.md)
 >- [Azure CLI](virtual-network-create-udr-arm-cli.md)
@@ -94,7 +95,7 @@ To create the route table and route needed for the front-end subnet based on the
                             Name         Value
                             ===========  =====
                             displayName  VNet 
-   
+
         AddressSpace      : {
                               "AddressPrefixes": [
                                 "192.168.0.0/16"
@@ -174,7 +175,7 @@ To create the route table and route needed for the back-end subnet based on the 
                             Name         Value
                             ===========  =====
                             displayName  VNet 
-   
+
         AddressSpace      : {
                               "AddressPrefixes": [
                                 "192.168.0.0/16"
@@ -237,7 +238,7 @@ To enable IP forwarding in the NIC used by **FW1**, follow the steps below.
                                Name         Value                  
                                ===========  =======================
                                displayName  NetworkInterfaces - DMZ
-   
+
         VirtualMachine       : {
                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/FW1"
                                }

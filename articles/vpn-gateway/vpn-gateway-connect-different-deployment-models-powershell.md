@@ -1,5 +1,5 @@
 ---
-title: Connect classic virtual networks to Azure Resource Manager VNets: PowerShell | Azure
+title: 'Connect classic virtual networks to Azure Resource Manager VNets: PowerShell | Azure'
 description: Learn how to create a VPN connection between classic VNets and Resource Manager VNets using VPN Gateway and PowerShell
 services: vpn-gateway
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Connect virtual networks from different deployment models using PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)

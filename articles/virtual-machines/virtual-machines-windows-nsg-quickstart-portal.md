@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Opening ports to a VM in Azure using the Azure portal preview
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 

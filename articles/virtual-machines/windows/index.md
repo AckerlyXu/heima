@@ -1,5 +1,5 @@
 ---
-title: Azure Windows Virtual Machines Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Windows Virtual Machines Documentation - Tutorials, API Reference | Azure
 description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
 services: virtual-machines\windows
 author: carolz
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 # Windows Virtual Machines Documentation
@@ -123,7 +124,7 @@ ms.author: carolz
 </ul>
 
 ---
- 
+
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>

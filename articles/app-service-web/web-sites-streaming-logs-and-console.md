@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/12/2016
 wacn.date: ''
 ms.author: byvinyal
----
 
+---
 # Streaming Logs and the Console
 ## Streaming Logs
 The **Azure portal preview** provides an integrated streaming log viewer that 

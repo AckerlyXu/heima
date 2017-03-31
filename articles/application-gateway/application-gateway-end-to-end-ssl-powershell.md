@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Configure SSL Policy and end to end SSL with Application Gateway using PowerShell
 
 ## Overview

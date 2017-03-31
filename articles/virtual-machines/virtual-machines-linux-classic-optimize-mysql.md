@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/15/2015
 wacn.date: ''
 ms.author: ningk
----
 
+---
 # Optimize MySQL Performance on Azure Linux VMs
 There are many factors that affect MySQL performance on Azure, both in virtual hardware selection and software configuration. This article focuses on optimizing performance through storage, system, and database configurations.
 

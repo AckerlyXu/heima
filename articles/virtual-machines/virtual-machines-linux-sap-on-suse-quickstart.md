@@ -18,8 +18,8 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 wacn.date: ''
 ms.author: hermannd
----
 
+---
 # Running SAP NetWeaver on Azure SUSE Linux VMs
 This article describes various things to consider when you're running SAP NetWeaver on Azure SUSE Linux virtual machines (VMs). As of May 19 2016 SAP NetWeaver is officially supported on SUSE Linux VMs on Azure. All details regarding Linux versions, 
 SAP kernel versions and so on can be found in SAP Note 1928533 "SAP Applications on Azure: Supported Products and Azure VM types".
@@ -40,14 +40,12 @@ While it's still possible to use the standard SLES images for SAP installations 
     PS  : Get-AzureRmVMImagePublisher -Location "China North"  | where-object { $_.publishername -like "*US*"  }
     CLI : azure vm image list-publishers chinanorth | grep "US"
     ```
-
 * Look for existing offerings from SUSE:
 
     ```
     PS  : Get-AzureRmVMImageOffer -Location "China North" -Publisher "SUSE"
     CLI : azure vm image list-offers chinanorth SUSE
     ```
-
 * Look for SUSE SLES offerings:
 
     ```
@@ -56,7 +54,6 @@ While it's still possible to use the standard SLES images for SAP installations 
     CLI : azure vm image list-skus chinanorth SUSE SLES
     CLI : azure vm image list-skus chinanorth SUSE SLES-SAP
     ```
-
 * Look for a specific version of a SLES SKU:
 
     ```
@@ -118,6 +115,7 @@ file is created, you can deploy the VM by using the following CLI command as an 
 
 ```
    azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
+
 ```
 
 For more details about JSON template files, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md) and [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/).

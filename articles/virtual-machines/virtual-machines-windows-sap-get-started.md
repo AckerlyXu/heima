@@ -19,8 +19,8 @@ ms.date: 12/08/2016
 wacn.date: ''
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Using SAP on Azure Windows Virtual Machines (VMs)
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830

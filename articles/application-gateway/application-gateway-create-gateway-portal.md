@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Create an application gateway by using the portal
 
 > [!div class="op_single_selector"]

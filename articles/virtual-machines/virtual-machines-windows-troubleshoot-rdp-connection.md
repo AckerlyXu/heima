@@ -18,8 +18,8 @@ ms.topic: support-article
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Troubleshoot Remote Desktop connections to an Azure virtual machine
 The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual machine (VM) can fail for various reasons, leaving you unable to access your VM. The issue can be with the Remote Desktop service on the VM, the network connection, or the Remote Desktop client on your host computer. This article guides you through some of the most common methods to resolve RDP connection issues. 
 
@@ -126,7 +126,6 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location Westus -Name "myVMAccessExtension"
     ```
-
 2. **Verify Network Security Group rules**. This troubleshooting step verifies that you have a rule in your Network Security Group to permit RDP traffic. The default port for RDP is TCP port 3389. A rule to permit RDP traffic may not be created automatically when you create your VM.
 
     First, assign all the configuration data for your Network Security Group to the `$rules` variable. The following example obtains information about the Network Security Group named `myNetworkSecurityGroup` in the resource group named `myResourceGroup`:
@@ -177,7 +176,6 @@ After each troubleshooting step, try connecting to your VM again. If you still c
         -UserName $cred.GetNetworkCredential().Username `
         -Password $cred.GetNetworkCredential().Password
     ```
-
 4. **Restart your VM**. This troubleshooting step can correct any underlying issues the VM itself is having.
 
     The following example restarts the VM named `myVM` in the resource group named `myResourceGroup`:
@@ -185,7 +183,6 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     ```powershell
     Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
-
 5. **Redeploy your VM**. This troubleshooting step redeploys your VM to another host within Azure to correct any underlying platform or networking issues.
 
     The following example redeploys the VM named `myVM` in the `ChinaNorth` location and in the resource group named `myResourceGroup`:

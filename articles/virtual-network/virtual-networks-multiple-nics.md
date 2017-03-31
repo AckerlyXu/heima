@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Create a VM (Classic) with multiple NICs
 You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multiple NICs are a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multiple NICs also provide isolation of traffic between NICs.
 
@@ -27,7 +27,7 @@ You can create virtual machines (VMs) in Azure and attach multiple network inter
 The figure shows a VM with three NICs, each connected to a different subnet.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure recommends that most new deployments use Resource Manager.
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure recommends that most new deployments use Resource Manager.
 
 * Internet-facing VIP (classic deployments) is only supported on the "default" NIC. There is only one VIP to the IP of the default NIC.
 * At this time, Instance Level Public IP (LPIP) addresses (classic deployments) are not supported for multi NIC VMs.
@@ -199,7 +199,7 @@ To add a default route on the secondary NIC, follow the steps below:
 4. To test connectivity, go back to the command prompt and try to ping a different subnet from the secondary NIC as shown int eh example below:
 
         C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
-   
+
         Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
         Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
         Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
@@ -207,9 +207,9 @@ To add a default route on the secondary NIC, follow the steps below:
 5. You can also check your route table to check the newly added route, as shown below:
 
         C:\Users\Administrator>route print
-   
+
         ...
-   
+
         IPv4 Route Table
         ===========================================================================
         Active Routes:

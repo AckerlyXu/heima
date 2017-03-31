@@ -1,6 +1,6 @@
 ---
 title: Create a managed image in Azure | Azure
-description: Create a managed image of a generalized VM or VHD in Azure. Images can be used to create multiple VMs that use managed disks.
+description: Create a managed image of a generalized VM or VHD in Azure. Images can be used to create multiple VMs that use managed disks. 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/27/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Capture a managed image of a generalized VM in Azure
 
 A managed image resource can be created from a generalized VM that is stored as either a managed disk or an unmanaged disks in a storage account. The image can then be used to create multiple VMs that use managed disks for storage. 

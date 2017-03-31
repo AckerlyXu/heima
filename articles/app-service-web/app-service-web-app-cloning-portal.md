@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 03/08/2016
 wacn.date: ''
 ms.author: aelnably
----
 
+---
 # Azure App Service App Cloning Using Azure Portal Preview
 The cloning feature in [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/) lets you easily clone existing web apps to a newly created app in a different region or in the same region. This will enable customers to deploy a number of apps across different regions quickly and easily.
 

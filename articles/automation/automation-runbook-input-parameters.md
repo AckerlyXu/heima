@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 wacn.date: ''
 ms.author: sngun
----
 
+---
 # Runbook input parameters
 Runbook input parameters increase the flexibility of runbooks by allowing you to pass data to it when it is started. The parameters allow the runbook actions to be targeted for specific scenarios and environments. In this article, we will walk you through different scenarios where input parameters are used in runbooks.
 
@@ -39,14 +39,14 @@ Windows PowerShell supports more attributes of input parameters than those liste
 A parameter definition in PowerShell Workflow runbooks has the following general form, where multiple parameters are separated by commas.
 
 ```
-     Param
-     (
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+  Param
+  (
+      [Parameter (Mandatory= $true/$false)]
+      [Type] Name1 = <Default value>,
 
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
-     )
+      [Parameter (Mandatory= $true/$false)]
+      [Type] Name2 = <Default value>
+  )
 ```
 
 > [!NOTE]
@@ -60,16 +60,12 @@ In this parameter definition, the parameters **$VMName** and **$resourceGroupNam
 
 If your runbook has an object type input parameter, then use a PowerShell hashtable with (name,value) pairs to pass in a value. For example, if you have the following parameter in a runbook:
 
-```
- [Parameter (Mandatory = $true)]
- [object] $FullName
-```
+     [Parameter (Mandatory = $true)]
+     [object] $FullName
 
 Then you can pass the following value to the parameter:
 
-```
-@{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
-```
+    @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 
 ## Assign values to input parameters in runbooks
 You can pass values to input parameters in runbooks in the following scenarios.
@@ -107,7 +103,7 @@ In the label beneath the input box, you can see the attributes that have been se
 #### Start a runbook by using an SDK and assign parameters
 * **Azure Service Management method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
 
-    ```
+    ```      
     public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -141,9 +137,7 @@ In the label beneath the input box, you can see the attributes that have been se
 #### Start a runbook by using the REST API and assign parameters
 A runbook job can be created and started with the Azure Automation REST API by using the **PUT** method with the following request URI.
 
-```
-https://management.core.chinacloudapi.cn/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
-```
+    https://management.core.chinacloudapi.cn/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08
 
 In the request URI, replace the following parameters:
 
@@ -160,15 +154,15 @@ In order to pass parameters to the runbook job, use the request body. It takes t
 If you want to start the **Get-AzureVMTextual** runbook that was created earlier with **VMName** and **resourceGroupName** as parameters, use the following JSON format for the request body.
 
 ```
-    {
-      "properties":{
-        "runbook":{
-        "name":"Get-AzureVMTextual"},
-      "parameters":{
-         "VMName":"WSVMClassic",
-         "resourceGroupName":"WSCS1"}
-        }
-    }
+ {
+   "properties":{
+     "runbook":{
+     "name":"Get-AzureVMTextual"},
+   "parameters":{
+      "VMName":"WSVMClassic",
+      "resourceGroupName":"WSCS1"}
+     }
+ }
 ```
 
 A HTTP status code 201 is returned if the job is successfully created. For more information on response headers and the response body, refer to the article about how to [create a runbook job by using the REST API.](https://msdn.microsoft.com/zh-cn/library/azure/mt163849.aspx)

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/02/2017
 wacn.date: ''
 ms.author: szark
----
 
+---
 # Linux on Azure-Endorsed Distributions
 > [!NOTE]
 > If you have a few moments, please help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.

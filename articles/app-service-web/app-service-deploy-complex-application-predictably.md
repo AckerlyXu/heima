@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/06/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Provision and deploy microservices predictably in Azure
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

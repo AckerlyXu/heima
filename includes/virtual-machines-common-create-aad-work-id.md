@@ -84,7 +84,7 @@ You should be rewarded with success that looks like the following.
 ![](./media/virtual-machines-common-create-aad-work-id/successtourdialog.png)
 
 ## Next steps
-You can now use your new Azure Active Directory identity to use [Azure resource group templates](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
+You can now use your new Azure Active Directory identity to use [Azure resource group templates](../articles/xplat-cli-azure-resource-manager.md).
 
     azure login -e AzureChinaCloud -u <username>    
     info:    Executing command login

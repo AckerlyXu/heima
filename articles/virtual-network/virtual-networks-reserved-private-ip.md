@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # How to set a static internal private IP address using PowerShell (Classic)
 In most cases, you won't need to specify a static internal IP address for your virtual machine. VMs in a virtual network will automatically receive an internal IP address from a range that you specify. But in certain cases, specifying a static IP address for a particular VM makes sense. For example, if your VM is going to run DNS or will be a domain controller. A static internal IP address stays with the VM even through a stop/deprovision state. 
 

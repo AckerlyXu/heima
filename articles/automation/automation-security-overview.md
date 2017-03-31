@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: magoedte
----
 
+---
 # Introduction to authentication in Azure Automation  
 Azure Automation allows you to automate tasks against resources in Azure, on-premises.  In order for a runbook to perform its required actions, it must have permissions to securely access the resources with the minimal rights required within the subscription.
 

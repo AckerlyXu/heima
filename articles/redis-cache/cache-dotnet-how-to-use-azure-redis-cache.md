@@ -16,17 +16,17 @@ ms.topic: hero-article
 ms.date: 03/08/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to Use Azure Redis Cache
 > [!div class="op_single_selector"]
->- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
->- [ASP.NET](cache-web-app-howto.md)
->- [Node.js](cache-nodejs-get-started.md)
->- [Java](cache-java-get-started.md)
->- [Python](cache-python-get-started.md)
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+> * [ASP.NET](cache-web-app-howto.md)
+> * [Node.js](cache-nodejs-get-started.md)
+> * [Java](cache-java-get-started.md)
+> * [Python](cache-python-get-started.md)
+> 
+> 
 
 This guide shows you how to get started using **Azure Redis Cache**. Azure Redis Cache is based on the popular open source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Azure.cn. A cache created using Azure Redis Cache is accessible from any application within Azure.
 

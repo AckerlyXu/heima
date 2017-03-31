@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 01/30/2017
 wacn.date: ''
 ms.author: jdial
+
 ---
 
 # Create a virtual network (classic) with a netcfg file using the Azure Classic Management Portal

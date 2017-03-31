@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Manage Hadoop clusters in HDInsight by using the Azure portal preview
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
@@ -213,7 +213,7 @@ Ambari then changes the password on all nodes in the cluster.
         #! /bin/bash
         USER=$1
         PASS=$2
-   
+
         usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 2. Upload the file to a storage location that can be accessed from HDInsight using an HTTP or HTTPS address. For example, a public file store such as OneDrive or Azure Blob storage. Save the URI (HTTP or HTTPS address,) to the file, as this is needed in the next step.
 3. From the Azure portal preview, click **HDInsight Clusters**.

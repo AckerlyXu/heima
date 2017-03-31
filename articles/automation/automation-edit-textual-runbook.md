@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 wacn.date: ''
 ms.author: magoedte;bwren
----
 
+---
 # Editing textual runbooks in Azure Automation
 The textual editor in Azure Automation can be used to edit PowerShell Workflow runbooks. This has the typical features of other code editors such as intellisense and color coding  with additional special features to assist you in accessing resources common to runbooks.  This article provides detailed steps for performing different functions with this editor.
 
@@ -67,28 +67,24 @@ To edit a runbook with Windows PowerShell, you use the editor of your choice and
 ### To Retrieve the Contents of a Runbook Using Windows PowerShell
 The following sample commands show how to retrieve the script for a runbook and save it to a script file. In this example, the Draft version is retrieved. It is also possible to retrieve the Published version of the runbook although this version cannot be changed.
 
-```
-$automationAccountName = "MyAutomationAccount"
-$runbookName = "Sample-TestRunbook"
-$scriptPath = "c:\runbooks\Sample-TestRunbook.ps1"
+    $automationAccountName = "MyAutomationAccount"
+    $runbookName = "Sample-TestRunbook"
+    $scriptPath = "c:\runbooks\Sample-TestRunbook.ps1"
 
-$runbookDefinition = Get-AzureAutomationRunbookDefinition -AutomationAccountName $automationAccountName -Name $runbookName -Slot Draft
-$runbookContent = $runbookDefinition.Content
+    $runbookDefinition = Get-AzureAutomationRunbookDefinition -AutomationAccountName $automationAccountName -Name $runbookName -Slot Draft
+    $runbookContent = $runbookDefinition.Content
 
-Out-File -InputObject $runbookContent -FilePath $scriptPath
-```
+    Out-File -InputObject $runbookContent -FilePath $scriptPath
 
 ### To Change the Contents of a Runbook Using Windows PowerShell
 The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. Note that this is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](automation-creating-importing-runbook.md).
 
-```
-$automationAccountName = "MyAutomationAccount"
-$runbookName = "Sample-TestRunbook"
-$scriptPath = "c:\runbooks\Sample-TestRunbook.ps1"
+    $automationAccountName = "MyAutomationAccount"
+    $runbookName = "Sample-TestRunbook"
+    $scriptPath = "c:\runbooks\Sample-TestRunbook.ps1"
 
-Set-AzureAutomationRunbookDefinition -AutomationAccountName $automationAccountName -Name $runbookName -Path $scriptPath -Overwrite
-Publish-AzureAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName
-```
+    Set-AzureAutomationRunbookDefinition -AutomationAccountName $automationAccountName -Name $runbookName -Path $scriptPath -Overwrite
+    Publish-AzureAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName
 
 ## Related articles
 * [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/29/2016
 wacn.date: ''
 ms.author: riande
----
 
+---
 # Create a REST service using ASP.NET Web API and SQL Database in Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -320,7 +320,7 @@ The application shows the seed data and provides edit, details and delete links.
                             }
                         });
                     }
-   
+
                     $.getJSON("api/contacts", function (data) {
                         self.contacts(data);
                     });
@@ -593,12 +593,12 @@ For more information, see the [Open Web Application Security Project](https://ww
                       return cookieToken + ":" + formToken;                
                    }
                 }
-   
+
                function ContactsViewModel() {
                   var self = this;
                   self.contacts = ko.observableArray([]);
                   self.addContact = function () {
-   
+
                      $.ajax({
                         type: "post",
                         url: "api/contacts",
@@ -611,7 +611,7 @@ For more information, see the [Open Web Application Security Project](https://ww
                            'RequestVerificationToken': '@TokenHeaderValue()'
                         }
                      });
-   
+
                   }
                   self.removeContact = function (contact) {
                      $.ajax({
@@ -623,10 +623,10 @@ For more information, see the [Open Web Application Security Project](https://ww
                         headers: {
                            'RequestVerificationToken': '@TokenHeaderValue()'
                         }
-   
+
                      });
                   }
-   
+
                   $.getJSON("api/contacts", function (data) {
                      self.contacts(data);
                   });

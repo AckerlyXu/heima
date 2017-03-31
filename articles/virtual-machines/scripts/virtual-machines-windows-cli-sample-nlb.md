@@ -1,14 +1,14 @@
 ---
 title: Azure CLI Script Sample - Create a Windows Server 2016 VM with NLB | Azure
-description: Azure CLI Script Sample - Create a Windows Server 2016 VM with NLB
+description: Azure CLI Script Sample - Create a Windows Server 2016 VM with NLB 
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
 manager: timlt
 editor: tysonn
-tags: ''
+tags: 
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-Windows
 ms.devlang: na
 ms.topic: article

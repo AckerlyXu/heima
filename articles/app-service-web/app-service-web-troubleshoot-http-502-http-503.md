@@ -18,8 +18,8 @@ ms.topic: article
 ms.date: 07/06/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps
 "502 bad gateway" and "503 service unavailable" are common errors in your web app hosted in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/). This article helps you troubleshoot these errors.
 
@@ -122,4 +122,4 @@ This is often the simplest way to recover from one-time issues. On the [Azure Po
  ![restart app to solve HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
 You can also manage your web app using Azure Powershell. For more information, see
-[Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
+[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).

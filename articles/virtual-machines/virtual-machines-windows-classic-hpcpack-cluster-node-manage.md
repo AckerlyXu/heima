@@ -17,8 +17,8 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
 If you created an HPC Pack 2012 R2 cluster in Azure VMs, you might want ways to easily add, remove,
 start (provision), or stop (deprovision) some compute node VMs in the

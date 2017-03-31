@@ -1,5 +1,5 @@
 ---
-title: Connect your on-premises network to an Azure virtual network: Site-to-Site VPN (classic): Portal | Azure
+title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN (classic): Portal | Azure'
 description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using the portal.
 services: vpn-gateway
 documentationcenter: na
@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Create a VNet with a Site-to-Site connection using the Azure portal preview (classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal Preview](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -213,4 +213,4 @@ When the connection is created, the result is: **Status: Successful**.
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/azure/virtual-machines/).

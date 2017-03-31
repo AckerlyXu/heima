@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/13/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Capture an image of an Azure Windows virtual machine created with the classic deployment model.
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For Resource Manager model information, see [Create a copy Windows VM running in Azure](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

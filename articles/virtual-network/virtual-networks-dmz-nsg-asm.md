@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: ''
 ms.author: jonor
----
 
+---
 # Example 1 - Build a simple DMZ using NSGs with classic PowerShell
 
 > [!div class="op_single_selector"]
@@ -141,7 +141,6 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
     ```
 
 6. This rule denies traffic from the internet to any servers on the network. With the rules at priority 110 and 120, the effect is to allow only inbound internet traffic to the firewall and RDP ports on servers and blocks everything else. This rule is a "fail-safe" rule to block all unexpected flows.
-
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule `

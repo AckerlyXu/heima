@@ -1,14 +1,14 @@
 ---
 title: Azure CLI Script Sample - Create a Windows Server VM | Azure
-description: Azure CLI Script Sample - Create a Windows Server VM
+description: Azure CLI Script Sample - Create a Windows Server VM 
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
 manager: timlt
 editor: tysonn
-tags: ''
+tags:
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-Windows
 ms.devlang: na
 ms.topic: article

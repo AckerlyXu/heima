@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Run Sqoop jobs with Hadoop in HDInsight with Curl
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 

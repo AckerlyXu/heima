@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/02/2017
 wacn.date: ''
 ms.author: szark
----
 
+---
 # Prepare a CentOS-based virtual machine for Azure
 * [Prepare a CentOS 6.x virtual machine for Azure](#centos-6x)
 * [Prepare a CentOS 7.0+ virtual machine for Azure](#centos-70)

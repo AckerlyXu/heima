@@ -16,9 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Reserved IP addresses (Classic)
+
 > [!div class="op_single_selector"]
 >- [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
 >- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)

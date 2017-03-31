@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 08/24/2016
 wacn.date: ''
 ms.author: szark
----
 
+---
 # Prepare a SLES or openSUSE virtual machine for Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

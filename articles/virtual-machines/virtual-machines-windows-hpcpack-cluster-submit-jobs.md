@@ -17,8 +17,8 @@ ms.workload: big-compute
 ms.date: 10/14/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

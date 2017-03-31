@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/01/2016
 wacn.date: ''
 ms.author: mingzhan
----
 
+---
 # How to install MySQL on Azure
 In this article, you will learn how to install and configure MySQL on an Azure virtual machine running Linux.
 

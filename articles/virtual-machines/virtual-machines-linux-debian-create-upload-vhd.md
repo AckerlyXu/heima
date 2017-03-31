@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/02/2017
 wacn.date: ''
 ms.author: szark
----
 
+---
 # Prepare a Debian VHD for Azure
 ## Prerequisites
 This section assumes that you have already installed a Debian Linux operating system from an .iso file downloaded from the [Debian website](https://www.debian.org/distrib/) to a virtual hard disk. Multiple tools exist to create .vhd files; Hyper-V is only one example. For instructions using Hyper-V, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/zh-cn/library/hh846766.aspx).
@@ -51,11 +51,9 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 4. Edit the `/etc/default/grub` file and modify the **GRUB_CMDLINE_LINUX** parameter as follows to include additional kernel parameters for Azure.
 
         GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 rootdelay=30"
-
 5. Rebuild the grub and run:
 
         # sudo update-grub
-
 6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 7 or 8:
 
     **Debian 7.x "Wheezy"**
@@ -76,7 +74,6 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 
         # sudo apt-get update
         # sudo apt-get install waagent
-
 2. For Debian 7, it is required to run the 3.16-based kernel from the wheezy-backports repository. First create a file called /etc/apt/preferences.d/linux.pref with the following contents:
 
         Package: linux-image-amd64 initramfs-tools
@@ -89,7 +86,6 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-
 4. Click **Action** -> Shut Down in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## Next steps

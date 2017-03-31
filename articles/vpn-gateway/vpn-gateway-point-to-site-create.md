@@ -1,5 +1,5 @@
 ---
-title: Connect a computer to an Azure virtual network using Point-to-Site: Classic Management Portal| Azure
+title: 'Connect a computer to an Azure virtual network using Point-to-Site: Classic Management Portal| Azure'
 description: Securely connect to your classic Azure Virtual Network by creating a Point-to-Site VPN gateway connection using the Classic Management Portal.
 services: vpn-gateway
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Configure a Point-to-Site connection to a VNet using the Classic Management Portal (classic)
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal Preview](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -210,4 +210,4 @@ Example:
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../virtual-machines/index.md). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/azure/virtual-machines/). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/virtual-machines-linux-azure-vm-network-overview.md).

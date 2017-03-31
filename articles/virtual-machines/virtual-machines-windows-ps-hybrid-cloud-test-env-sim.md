@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/30/2016
 wacn.date: ''
 ms.author: josephd
----
 
+---
 # Set up a simulated hybrid cloud environment for testing
 This article steps you through creating a simulated hybrid cloud environment with Azure using two Azure virtual networks. Here is the resulting configuration.
 

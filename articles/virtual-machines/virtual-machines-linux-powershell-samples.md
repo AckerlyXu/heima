@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-service-management
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -17,8 +17,8 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: nepeters
----
 
+---
 # Azure Virtual Machine PowerShell samples
 
 The following table includes links to PowerShell scripts samples that create and manage Linux virtual machines.

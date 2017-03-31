@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 11/15/2016
 wacn.date: ''
 ms.author: jroth
----
 
+---
 # Security Considerations for SQL Server in Azure Virtual Machines
 This topic includes overall security guidelines that help establish secure access to SQL Server instances in an Azure VM. However, in order to ensure better protection to your SQL Server database instances in Azure, we recommend that you implement the traditional on-premises security practices in addition to the security best practices for Azure.
 

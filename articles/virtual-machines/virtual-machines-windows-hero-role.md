@@ -18,8 +18,8 @@ ms.topic: article
 ms.date: 09/06/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Experiment with installing a role on your Windows VM
 Once you have your first virtual machine (VM) up and running, you can move on to installing software and services. For this tutorial, we are going to use Server Manager on the Windows Server VM to install IIS. Then, we will create a Network Security Group (NSG) using the Azure portal preview to open port 80 to IIS traffic. 
 

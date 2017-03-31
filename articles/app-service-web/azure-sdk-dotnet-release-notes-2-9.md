@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: ''
 ms.author: juliako;mikhegn
----
 
+---
 # Azure SDK for .NET 2.9 release notes
 
 This topic includes release notes for versions 2.9 and 2.9.6 of Azure SDK for .NET.

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/02/2017
 wacn.date: ''
 ms.author: bprakash
----
 
+---
 # What are the different Hadoop components and versions available with HDInsight?
 
 Learn about the service levels offered for Azure HDInsight, as well as the Hadoop ecosystem components and versions included. Each HDInsight version is a cloud distribution of a version of the HortonWorks Data Platform (HDP).

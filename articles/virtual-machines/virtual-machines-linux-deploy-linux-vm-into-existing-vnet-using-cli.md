@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 01/31/2017
 wacn.date: ''
 ms.author: iainfou
+
 ---
 
 # Deploy a Linux VM into an existing virtual network

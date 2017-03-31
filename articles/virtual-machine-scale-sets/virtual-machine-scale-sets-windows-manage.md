@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 wacn.date: ''
 ms.author: adegeo
----
 
+---
 # Manage virtual machines in a virtual machine scale set
 Use the tasks in this article to manage virtual machines in your virtual machine scale set.
 

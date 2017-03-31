@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2016
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Configure a VPN gateway for the classic deployment model
 If you want to create a secure cross-premises connection between Azure and your on-premises location, you need to configure a VPN gateway connection. In the classic deployment model, a gateway can be one of two VPN routing types: static, or dynamic. The type you choose depends on both your network design plan, and the on-premises VPN device you want to use. 
 

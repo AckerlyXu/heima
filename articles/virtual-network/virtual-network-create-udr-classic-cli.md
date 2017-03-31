@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Control routing and use virtual appliances (classic) using the Azure CLI
 
 > [!div class="op_single_selector"]

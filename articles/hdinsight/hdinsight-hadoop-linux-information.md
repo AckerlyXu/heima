@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/02/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Information about using HDInsight on Linux
 
 Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.

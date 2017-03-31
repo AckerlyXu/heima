@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Install and use Hue on HDInsight Hadoop clusters
 
 Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue.

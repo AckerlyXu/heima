@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 wacn.date: ''
 ms.author: anithaa
----
 
+---
 # Troubleshoot Network Security Groups using the Azure Portal Preview
 > [!div class="op_single_selector"]
 > * [Azure Portal Preview](virtual-network-nsg-troubleshoot-portal.md)

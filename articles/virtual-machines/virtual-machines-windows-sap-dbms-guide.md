@@ -19,8 +19,8 @@ ms.date: 11/08/2016
 wacn.date: ''
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
----
 
+---
 # SAP NetWeaver on Azure Windows Virtual Machines (VMs) - DBMS Deployment Guide
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830

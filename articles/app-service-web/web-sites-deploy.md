@@ -1,5 +1,5 @@
 ---
-title: Deploy your app to Azure App Service | Azure
+title: Deploy your app to Azure App Service | Azure 
 description: Learn how to deploy your app to Azure App Service.
 services: app-service
 documentationcenter: ''
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
 ms.author: cephalin;dariac
----
 
+---
 # Deploy your app to Azure App Service
 This article helps you determine the best option to deploy the files for your web app, mobile app backend, or API app to [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/), and then guides you to appropriate resources with instructions specific to your preferred option.
 

@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
@@ -91,4 +91,4 @@ You can verify your VPN connection either in the portal, or by using PowerShell.
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 ## Next steps
-* Once your connection is complete, you can add virtual machines to your virtual networks. See the [virtual machines documents](../virtual-machines/index.md) for more information.
+* Once your connection is complete, you can add virtual machines to your virtual networks. See the [virtual machines documents](/azure/virtual-machines/) for more information.

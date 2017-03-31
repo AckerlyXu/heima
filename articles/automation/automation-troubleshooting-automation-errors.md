@@ -18,8 +18,8 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2017
 wacn.date: ''
 ms.author: sngun; v-reagie
----
 
+---
 # Troubleshooting common issues in Azure Automation 
 This article provides help troubleshooting common errors you might experience in Azure Automation and suggests possible solutions to resolve them.
 
@@ -37,13 +37,11 @@ In order to determine what's wrong, take the following steps:
 1. Make sure that you don't have any special characters, including the **@** character in the Automation credential asset name that you are using to connect to Azure.  
 2. Check that you can use the username and password that are stored in the Azure Automation credential in your local PowerShell ISE editor. You can do this by running the following cmdlets in the PowerShell ISE:  
 
-    ```
-    $Cred = Get-Credential  
-    #Using Azure Service Management   
-    Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred  
-    #Using Azure Resource Manager  
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
-    ```
+        $Cred = Get-Credential  
+        #Using Azure Service Management   
+        Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred  
+        #Using Azure Resource Manager  
+        Login-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
 3. If your authentication fails locally, this means that you haven't set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
 
 ### Scenario: Unable to find the Azure subscription

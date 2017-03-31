@@ -1,6 +1,6 @@
 ---
 title: Use PowerShell to Create a VM With a Native Mode Report Server | Azure
-description: This topic describes and walks you through the deployment and configuration of a SQL Server Reporting Services native mode report server in an Azure Virtual Machine. 
+description: 'This topic describes and walks you through the deployment and configuration of a SQL Server Reporting Services native mode report server in an Azure Virtual Machine. '
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -17,8 +17,8 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 wacn.date: ''
 ms.author: asaxton
----
 
+---
 # Use PowerShell to Create an Azure VM With a Native Mode Report Server
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model.
@@ -276,7 +276,6 @@ To use the Windows PowerShell script to configure the report server, complete th
         write-host -foregroundcolor DarkGray $starttime StartTime
         $time=Get-Date
         write-host -foregroundcolor DarkGray $time
-
 5. If you created the VM with an HTTP port other than 80, modify the parameter $HTTPport = 80.
 6. The script is currently configured for  Reporting Services. If you want to run the script for  Reporting Services, modify the version portion of the path to the namespace to "v11", on the Get-WmiObject statement.
 7. Run the script.
@@ -301,7 +300,6 @@ To use Windows PowerShell to configure the report server, complete the following
     You can then run the following to verify the policy:
 
         Get-ExecutionPolicy
-
 4. In **Windows PowerShell ISE**, click the **View** menu and then click **Show Script Pane**.
 5. Copy the following script and paste it into the Windows PowerShell ISE script pane.
 
@@ -455,7 +453,6 @@ To use Windows PowerShell to configure the report server, complete the following
         write-host -foregroundcolor DarkGray $starttime StartTime
         $time=Get-Date
         write-host -foregroundcolor DarkGray $time
-
 6. Modify the **$certificatehash** parameter in the script:
 
     * This is a **required** parameter. If you did not save the certificate value from the previous steps, use one of the following methods to copy the certificate hash value from the certificates thumbprint.:
@@ -542,7 +539,6 @@ If you configured a private port for HTTPS other than 443, modify the following 
 2. If you used a port other than 443 when you configured the HTTPS endpoint on the VM, update the port in the following command and then run the command:
 
         New-NetFirewallRule -DisplayName "Report Server (TCP on port 443)" -Direction Inbound -Protocol TCP -LocalPort 443
-
 3. When the command completes, **Ok** is displayed in the command prompt.
 
 To verify that the port is opened, open a Windows PowerShell window and run the following command:
@@ -555,15 +551,12 @@ To verify that the basic report server functionality is now working, open your b
 * On the VM, browse to the report server URL:
 
         http://localhost/reportserver
-
 * On the VM, browse to the report manger URL:
 
         http://localhost/Reports
-
 * From your local computer, browse to the **remote** report Manager on the VM. Update the DNS name in the following example as appropriate. When prompted for a password, use the administrator credentials you created when the VM was provisioned. The user name is in the [Domain]\[user name] format, where the domain is the VM computer name, for example ssrsnativecloud\testuser. If you are not using HTTP**S**, remove the **s** in the URL. See the next section for information on creating additional users on VM.
 
         https://ssrsnativecloud.chinacloudapp.cn/Reports
-
 * From your local computer, browse to the remote report server URL. Update the DNS name in the following example as appropriate. If you are not using HTTPS, remove the s in the URL.
 
         https://ssrsnativecloud.chinacloudapp.cn/ReportServer

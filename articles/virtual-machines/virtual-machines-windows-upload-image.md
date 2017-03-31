@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/06/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Upload a Windows VHD from an on-premises VM to Azure
 This article shows you how to create and upload a Windows virtual hard disk (VHD) to be used in creating an Azure Vm. You can upload a VHD from either a generalized VM or a specialized VM. 
 
