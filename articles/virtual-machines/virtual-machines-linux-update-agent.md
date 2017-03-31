@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/14/2015
 wacn.date: ''
 ms.author: mingzhan
----
 
+---
 # How to update the Azure Linux Agent on a VM to the latest version from GitHub
 To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a Linux VM in Azure, you must already have:
 
@@ -30,7 +30,7 @@ To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a L
 <br>
 
 > [!NOTE]
-> If you will  be performing this task from a Windows computer, you can use PuTTY to SSH into your Linux machine. For more information, see [How to Log on to a Virtual Machine Running Linux](./virtual-machines-linux-mac-create-ssh-keys.md).
+> If you will  be performing this task from a Windows computer, you can use PuTTY to SSH into your Linux machine. For more information, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
@@ -109,7 +109,6 @@ wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/wa
 ```
 
 ### For version 2.1.x or later, type:
-
 ```bash
 wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
 unzip WALinuxAgent-[version].zip

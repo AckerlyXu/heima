@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/09/2016
 wacn.date: ''
 ms.author: tarcher
----
 
+---
 # Creating a virtual machine for a web application with Visual Studio
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

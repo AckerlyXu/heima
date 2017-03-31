@@ -78,9 +78,9 @@ The Performance traffic routing method allows you to direct traffic to the endpo
 
 ## Next steps
 
-* [Manage Traffic Manager Profiles](./traffic-manager-manage-profiles.md)
-* [Traffic Manager routing methods](./traffic-manager-routing-methods.md)
-* [Testing Traffic Manager Settings](./traffic-manager-testing-settings.md)
-* [Point a company Internet domain to a Traffic Manager domain](./traffic-manager-point-internet-domain.md)
-* [Manage Traffic Manager endpoints](./traffic-manager-manage-endpoints.md)
-* [Troubleshooting Traffic Manager degraded state](./traffic-manager-troubleshooting-degraded.md)
+* [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md)
+* [Traffic Manager routing methods](traffic-manager-routing-methods.md)
+* [Testing Traffic Manager Settings](traffic-manager-testing-settings.md)
+* [Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md)
+* [Manage Traffic Manager endpoints](traffic-manager-manage-endpoints.md)
+* [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)

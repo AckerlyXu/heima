@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 02/10/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Encrypt disks on a Linux VM using the Azure CLI
 For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI and the Resource Manager deployment model.
 
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to encrypt virtual disks on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#overview-of-disk-encryption).
 
-You need the [latest Azure CLI](/documentation/articles/cli-install-nodejs/) installed and logged in using the Resource Manager mode as follows:
+You need the [latest Azure CLI](../cli-install-nodejs.md) installed and logged in using the Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm
@@ -154,7 +154,7 @@ Disk encryption is not currently supported in the following scenarios:
 * Updating the cryptographic keys on an already encrypted Linux VM.
 
 ## Create the Azure Key Vault and keys
-To complete the remainder of this guide, you need the [latest Azure CLI](/documentation/articles/cli-install-nodejs/) installed and logged in using the Resource Manager mode as follows:
+To complete the remainder of this guide, you need the [latest Azure CLI](../cli-install-nodejs.md) installed and logged in using the Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm

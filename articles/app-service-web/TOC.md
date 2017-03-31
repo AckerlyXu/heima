@@ -30,7 +30,6 @@
 ## [Authentication and authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Authentication with on-premises AD](web-sites-authentication-authorization.md)
 
-
 # How-To guides
 ## Develop your app	
 ### ASP.NET
@@ -57,10 +56,10 @@
 #### [Java](web-sites-java-add-app.md)
 #### [Node.js on Linux](app-service-linux-using-nodejs-pm2.md)
 #### [Python](web-sites-python-configure.md)
-			
+
 ### Configure application
 #### [Use app settings](web-sites-configure.md)
-			
+
 ## [Deploy to Azure](web-sites-deploy.md)
 ### [Deploy via FTP](app-service-deploy-content-sync.md)
 ### [Deploy via cloud sync](web-sites-deploy.md)
@@ -89,7 +88,7 @@
 ### [Connect to Azure VNet](web-sites-integrate-with-vnet.md)
 ### [Connect to Azure VNet with PowerShell](app-service-vnet-integration-powershell.md)
 ### [Connect to MongoDB on Azure VM](web-sites-dotnet-store-data-mongodb-vm.md)
-			
+
 ##Secure app
 ### Authenticate users		
 #### [Authenticate with Azure AD](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -104,7 +103,7 @@
 #### [Configure 3rd-party SSL cert](web-sites-configure-ssl-certificate.md)
 ### [Enforce HTTPS](web-sites-configure-ssl-certificate.md#enforce-https-on-your-app)
 ### [Configure TLS mutual authentication](app-service-web-configure-tls-mutual-auth.md)
-			
+
 ##Scale app		
 ### [Scale up](web-sites-scale.md)
 ### [Scale out](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -132,20 +131,18 @@
 ### [Use Azure Resource Manager with PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
 ### [Manage apps using Azure Automation](automation-manage-web-app.md)
 
-
-
 # Reference	
-## [CLI 2.0](/cli/azure/appservice)
+## [CLI 2.0](https://docs.microsoft.com/cli/azure/appservice)
 ## [PowerShell](/powershell)
-## [REST API](/rest/api/appservice/) 
-		
+## [REST API](https://docs.microsoft.com/rest/api/appservice/) 
+
 # Resources	
 ## Troubleshooting		
 ### [Troubleshoot with Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 ### [Troubleshoot Node.js app](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 ### [Troubleshoot HTTP 502 & 503](app-service-web-troubleshoot-http-502-http-503.md)
 ### [Troubleshoot performance issues](app-service-web-troubleshoot-performance-degradation.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/app-service/) 	
+## [Pricing](https://www.azure.cn/pricing/details/app-service/) 	
 ## [Quota Information](../azure-subscription-service-limits.md#app-service-limits)	
 ## [Service Updates & Release Notes](https://azure.microsoft.com/updates/?product=app-service)	
 ## [Best practices](app-service-best-practices.md)
@@ -153,4 +150,4 @@
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=app-service)
 ## Cookbooks	
 ### [Reference Architectures](../guidance/guidance-ra-app-service.md)	
-### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)	
+### [Deployment Scripts](https://azure.microsoft.com/documentation/scripts/)

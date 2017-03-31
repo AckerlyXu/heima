@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use Pig with Hadoop on HDInsight
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
@@ -43,29 +43,25 @@ For more information about Pig Latin, see [Pig Latin Reference Manual 1](http://
 
 For an example of using UDFs with Pig, see the following documents:
 
-* [Use DataFu with Pig in HDInsight](./hdinsight-hadoop-use-pig-datafu-udf.md) - DataFu is a collection of useful UDFs maintained by Apache
-* [Use Python with Pig and Hive in HDInsight](./hdinsight-python.md)
-* [Use C# with Hive and Pig in HDInsight](./hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Use DataFu with Pig in HDInsight](hdinsight-hadoop-use-pig-datafu-udf.md) - DataFu is a collection of useful UDFs maintained by Apache
+* [Use Python with Pig and Hive in HDInsight](hdinsight-python.md)
+* [Use C# with Hive and Pig in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 ## <a id="data"></a>About the sample data
 This example uses a *log4j* sample file, which is stored at **/example/data/sample.log** in your blob storage container. Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity, for example:
 
-```
-2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
-```
+    2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
 In the previous example, the log level is ERROR.
 
 > [!NOTE]
-> You can also generate a log4j file by using the [Apache Log4j](http://zh.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](./hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](./hdinsight-hadoop-use-blob-storage.md).
+> You can also generate a log4j file by using the [Apache Log4j](http://zh.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 > 
 > 
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters. HDInsight can access files stored in blobs by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
-```
-wasbs:///example/data/sample.log
-```
+    wasbs:///example/data/sample.log
 
 Because WASB is the default storage for HDInsight, you can also access the file by using **/example/data/sample.log** from Pig Latin.
 
@@ -77,15 +73,13 @@ Because WASB is the default storage for HDInsight, you can also access the file 
 ## <a id="job"></a>About the sample job
 The following Pig Latin job loads the **sample.log** file from the default storage for your HDInsight cluster. Then it performs a series of transformations that result in a count of how many times each log level occurred in the input data. The results are dumped into STDOUT.
 
-```
-LOGS = LOAD 'wasbs:///example/data/sample.log';
-LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-RESULT = order FREQUENCIES by COUNT desc;
-DUMP RESULT;
-```
+    LOGS = LOAD 'wasbs:///example/data/sample.log';
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+    RESULT = order FREQUENCIES by COUNT desc;
+    DUMP RESULT;
 
 The following image shows a breakdown of what each transformation does to the data.
 
@@ -96,16 +90,16 @@ HDInsight can run Pig Latin jobs by using a variety of methods. Use the followin
 
 | **Use this** if you want... | ...an **interactive** shell | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system** |
 |:--- |:---:|:---:|:--- |:--- |
-| [SSH](./hdinsight-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
-| [Curl](./hdinsight-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
-| [.NET SDK for Hadoop](./hdinsight-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux or Windows |Windows (for now) |
-| [Windows PowerShell](./hdinsight-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
-| [Remote Desktop](./hdinsight-hadoop-use-pig-remote-desktop.md) |✔ |✔ |Windows |Windows |
+| [SSH](hdinsight-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, or Windows |
+| [Curl](hdinsight-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
+| [.NET SDK for Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux or Windows |Windows (for now) |
+| [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux or Windows |Windows |
+| [Remote Desktop](hdinsight-hadoop-use-pig-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Running Pig jobs on Azure HDInsight using on-premises SQL Server Integration Services
 You can also use SQL Server Integration Services (SSIS) to run a Pig job. The Azure Feature Pack for SSIS provides the following components that work with Pig jobs on HDInsight.
@@ -120,8 +114,8 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Hive with HDInsight][hdinsight-use-hive]
-* [Use Sqoop with HDInsight](./hdinsight-use-sqoop.md)
-* [Use Oozie with HDInsight](./hdinsight-use-oozie.md)
+* [Use Sqoop with HDInsight](hdinsight-use-sqoop.md)
+* [Use Oozie with HDInsight](hdinsight-use-oozie.md)
 * [Use MapReduce jobs with HDInsight][hdinsight-use-mapreduce]
 
 [apachepig-home]: http://pig.apache.org/
@@ -131,15 +125,15 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [connectionmanager]: http://msdn.microsoft.com/zh-cn/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/zh-cn/library/mt146770(v=sql.120).aspx
 
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
 
-[hdinsight-admin-powershell]: ./hdinsight-administer-use-powershell.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-use-mapreduce]: ./hdinsight-use-mapreduce.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ./hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
 [Powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 

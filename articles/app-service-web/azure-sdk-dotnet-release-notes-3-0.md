@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for .NET 3.0 Release Notes | Azure
+title: Azure SDK for .NET 3.0 Release Notes | Azure 
 description: Azure SDK for .NET 3.0 Release Notes
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 03/07/2017
 wacn.date: ''
 ms.author: juliako;mikhegn
----
 
+---
 # Azure SDK for .NET 3.0 release notes
 
 This topic includes release notes for version 3.0 of the Azure SDK for .NET.

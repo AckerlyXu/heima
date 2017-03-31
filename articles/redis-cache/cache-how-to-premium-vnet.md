@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. A VNet is a private network in the cloud. When an Azure Redis Cache instance is configured with a VNet, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNet. This article describes how to configure virtual network support for a premium Azure Redis Cache instance.
 
@@ -26,7 +26,7 @@ Azure Redis Cache has different cache offerings which provide flexibility in the
 > 
 > 
 
-For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](./cache-premium-tier-intro.md).
+For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md).
 
 ## Why VNet?
 [Azure Virtual Network (VNet)](https://www.azure.cn/home/features/networking/) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access to Azure Redis Cache.
@@ -62,20 +62,18 @@ After the cache is created, you can view the configuration for the VNet by click
 
 To connect to your Azure Redis cache instance when using a VNet, specify the host name of your cache in the connection string as shown in the following example.
 
-```
-private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-{
-    return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=password");
-});
-
-public static ConnectionMultiplexer Connection
-{
-    get
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
-        return lazyConnection.Value;
+        return ConnectionMultiplexer.Connect("contoso5premium.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=password");
+    });
+
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
+        }
     }
-}
-```
 
 ## Azure Redis Cache VNet FAQ
 The following list contains answers to commonly asked questions about the Azure Redis Cache scaling.
@@ -152,7 +150,7 @@ For more information about ExpressRoute, see [ExpressRoute technical overview](.
 ## Next steps
 Learn how to use more premium cache features.
 
-* [Introduction to the Azure Redis Cache Premium tier](./cache-premium-tier-intro.md)
+* [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 

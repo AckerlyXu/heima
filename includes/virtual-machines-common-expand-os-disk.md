@@ -18,26 +18,22 @@ In this article we'll accomplish the task of resizing the OS drive using resourc
     Login-AzureRmAccount -EnvironmentName AzureChinaCloud
     Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
     ```
-
 2. Set your resource group name and VM name as follows:
 
     ```Powershell
     $rgName = 'my-resource-group-name'
     $vmName = 'my-vm-name'
     ```
-
 3. Obtain a reference to your VM as follows:
 
     ```Powershell
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-
 4. Stop the VM before resizing the disk as follows:
 
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-
 5. And here comes the moment we've been waiting for! Set the size of the OS disk to the desired value and update the VM as follows:
 
     ```Powershell
@@ -85,4 +81,4 @@ Similarly you may reference other data disks attached to the VM, either by using
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md).
+If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

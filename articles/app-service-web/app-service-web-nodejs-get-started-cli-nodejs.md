@@ -1,5 +1,5 @@
 ---
-title: Get started with Node.js web apps in Azure App Service | Azure
+title: Get started with Node.js web apps in Azure App Service | Azure 
 description: Learn how to deploy a Node.js application to a web app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Get started with Node.js web apps in Azure App Service
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -27,8 +27,8 @@ This tutorial shows how to create a simple [Node.js] application and deploy it t
 
 You can complete the task using one of the following CLI versions:
 
-- [Azure CLI 1.0](./app-service-web-nodejs-get-started-cli-nodejs.md) - our CLI for the classic and resource management deployment models
-- [Azure CLI 2.0](./app-service-web-nodejs-get-started.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 1.0](app-service-web-nodejs-get-started-cli-nodejs.md) - our CLI for the classic and resource management deployment models
+- [Azure CLI 2.0](app-service-web-nodejs-get-started.md) - our next generation CLI for the resource management deployment model
 
 ## Prerequisites
 * [Node.js]
@@ -41,14 +41,10 @@ You can complete the task using one of the following CLI versions:
 ## Create and deploy a simple Node.js web app
 1. Open the command-line terminal of your choice and install the [Express generator for Yeoman].
 
-    ```
-    npm install -g generator-express
-    ```
+        npm install -g generator-express
 2. `CD` to a working directory and generate an express app using the following syntax:
 
-    ```
-    yo express
-    ```
+        yo express
 
     Choose the following options when prompted:  
 
@@ -61,44 +57,34 @@ You can complete the task using one of the following CLI versions:
     `? Select a build tool to use:` **Grunt**
 3. `CD` to the root directory of your new app and start it to make sure it runs in your development environment:
 
-    ```
-    npm start
-    ```
+        npm start
 
     In your browser, navigate to <http://localhost:3000> to make sure that you can see the Express home page. Once you've verified your app runs properly, use `Ctrl-C` to stop it.
 4. Change into ASM mode and log in to Azure (you need [Azure CLI](#prereq)):
 
-    ```
-    azure config mode asm
-    azure login -e AzureChinaCloud
-    ```
+        azure config mode asm
+        azure login -e AzureChinaCloud
 
     Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
 
 3. Set the deployment user for App Service. You will deploy code using the credentials later.
 
-    ```
-    azure site deployment user set --username <username> --pass <password>
-    ```
+        azure site deployment user set --username <username> --pass <password>
 
 5. Make sure you're still in the root directory of your app, then create the App Service app resource in Azure with a unique app name with the next command. For example: http://{appname}.chinacloudsites.cn
 
-    ```
-    azure site create --git {appname}
-    ```
+        azure site create --git {appname}
 
     Follow the prompt to select an Azure region to deploy to. 
 6. Open the ./config/config.js file from the root of your application and change the production port to `process.env.port`; your `production` property in the `config` object should look like the following example:
 
-    ```
-    production: {
-        root: rootPath,
-        app: {
-            name: 'express1'
-        },
-        port: process.env.port,
-    }
-    ```
+        production: {
+            root: rootPath,
+            app: {
+                name: 'express1'
+            },
+            port: process.env.port,
+        }
 
     > [!NOTE] 
     > By default, Azure App Service runs Node.js applications with the `production` environment variables (`process.env.NODE_ENV="production"`.
@@ -108,26 +94,20 @@ You can complete the task using one of the following CLI versions:
 
 7. Open ./package.json and add the `engines` property to [specify the desired Node.js version](#version).
 
-    ```
-    "engines": {
-        "node": "6.9.1"
-    }, 
-    ```
+        "engines": {
+            "node": "6.9.1"
+        }, 
 8. Save your changes, then use git to deploy your app to Azure. When prompted, use the user credentials you created earlier.
 
-    ```
-    git add .
-    git add -f config
-    git commit -m "{your commit message}"
-    git push azure master
-    ```
+        git add .
+        git add -f config
+        git commit -m "{your commit message}"
+        git push azure master
 
     The Express generator already provides a .gitignore file, so your `git push` doesn't consume bandwidth trying to upload the node_modules/ directory.
 9. Finally, launch your live Azure app in the browser:
 
-    ```
-    azure site browse
-    ```
+        azure site browse
 
     You should now see your Node.js web app running live in Azure App Service.
 
@@ -159,11 +139,9 @@ The following tutorials will show you how to work with a specific framework in A
 In your typical workflow, you tell App Service to use a specific Node.js engine as you normally would in package.json.
 For example:
 
-```
-"engines": {
-    "node": "6.9.1"
-}, 
-```
+    "engines": {
+        "node": "6.9.1"
+    }, 
 
 The Kudu deployment engine determines which Node.js engine to use in the following order:
 
@@ -173,9 +151,7 @@ The Kudu deployment engine determines which Node.js engine to use in the followi
 
 For the updated list of all supported Node.js/NPM versions in Azure App Service, access the following URL for your app:
 
-```
-https://<app_name>.scm.chinacloudsites.cn/api/diagnostics/runtime
-```
+    https://<app_name>.scm.chinacloudsites.cn/api/diagnostics/runtime
 
 > [!NOTE]
 > It is recommended that you explicitly define the Node.js engine you want. The default Node.js version can change,
@@ -194,26 +170,20 @@ To read iisnode logs, follow these steps.
 1. Open the iisnode.yml file that the Azure CLI provides.
 2. Set the two following parameters: 
 
-    ```
-    loggingEnabled: true
-    logDirectory: iisnode
-    ```
+        loggingEnabled: true
+        logDirectory: iisnode
 
     Together, they tell iisnode in App Service to put its stdout and stderror output in the D:\home\site\wwwroot\**iisnode** directory.
 3. Save your changes, then push your changes to Azure with the following Git commands:
 
-    ```
-    git add .
-    git commit -m "{your commit message}"
-    git push azure master
-    ```
+        git add .
+        git commit -m "{your commit message}"
+        git push azure master
 
     iisnode is now configured. The next steps show you how to access these logs.
 4. In your browser, access the Kudu debug console for your app, which is at:
 
-    ```
-    https://{appname}.scm.chinacloudsites.cn/DebugConsole 
-    ```
+        https://{appname}.scm.chinacloudsites.cn/DebugConsole 
 
     This URL differs from the web app URL by the addition of "*.scm.*" to the DNS name. If you omit that addition to the URL, you will get a 404 error.
 5. Navigate to D:\home\site\wwwroot\iisnode
@@ -234,47 +204,39 @@ To enable Node-Inspector, follow these steps:
 
 1. Open iisnode.yml at your repository root and specify the following parameters: 
 
-    ```
-    debuggingEnabled: true
-    debuggerExtensionDll: iisnode-inspector.dll
-    ```
+        debuggingEnabled: true
+        debuggerExtensionDll: iisnode-inspector.dll
 2. Save your changes, then push your changes to Azure with the following Git commands:
 
-    ```
-    git add .
-    git commit -m "{your commit message}"
-    git push azure master
-    ```
+        git add .
+        git commit -m "{your commit message}"
+        git push azure master
 3. Now, just navigate to your app's start file as specified by the start script in your package.json, with /debug added to the URL. For example,
 
-    ```
-    http://{appname}.chinacloudsites.cn/server.js/debug
-    ```
+        http://{appname}.chinacloudsites.cn/server.js/debug
 
     Or,
 
-    ```
-    http://{appname}.chinacloudsites.cn/app.js/debug
-    ```
+        http://{appname}.chinacloudsites.cn/app.js/debug
 
 ## More resources
 * [Specifying a Node.js version in an Azure application](../nodejs-specify-node-version-azure-apps.md)
-* [Best practices and troubleshooting guide for Node.js applications on Azure](./app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
-* [How to debug a Node.js web app in Azure App Service](./web-sites-nodejs-debug.md)
+* [Best practices and troubleshooting guide for Node.js applications on Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
+* [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md)
 * [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
 * [Node.js Developer Center](/develop/nodejs/)
-* [Get started with web apps in Azure App Service](./app-service-web-get-started.md)
+* [Get started with web apps in Azure App Service](app-service-web-get-started.md)
 * [Exploring the Super Secret Kudu Debug Console]
 
 <!-- URL List -->
 
-[Azure CLI]: /documentation/articles/cli-install-nodejs/
+[Azure CLI]:../cli-install-nodejs.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Bower]: http://bower.io/
 [Create a Node.js chat application with Socket.IO in Azure App Service]: ./web-sites-nodejs-chat-app-socketio.md
 [Deploy a Sails.js web app to Azure App Service]: ./app-service-web-nodejs-sails.md
-[Exploring the Super Secret Kudu Debug Console]: /documentation/articles/aog-web-app-diagnostics-kudu/
+[Exploring the Super Secret Kudu Debug Console]: /azure/aog-web-app-diagnostics-kudu/
 [Express generator for Yeoman]: https://github.com/petecoop/generator-express
 [Git]: http://www.git-scm.com/downloads
 [How to use io.js with Azure App Service Web Apps]: ./web-sites-nodejs-iojs.md

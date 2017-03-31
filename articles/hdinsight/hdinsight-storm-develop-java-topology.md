@@ -17,9 +17,9 @@ ms.workload: big-data
 ms.date: 02/13/2017
 wacn.date: ''
 ms.author: larryfr
+
 ms.custom: H1Hack27Feb2017
 ---
-
 # Use Maven to develop a Java-based word count topology for Storm on HDInsight
 
 Learn how to create a Java-based topology for Apache Storm on HDInsight by using Maven. You create a basic word-count application using Maven and Java, where the topology is defined in Java. Then, you learn how to define the topology using the Flux framework.
@@ -60,9 +60,7 @@ The following environment variables may be set when you install Java and the JDK
 
 From the command line, use the following command to create a Maven project named **WordCount**:
 
-```
-mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
-```
+    mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 
 > [!NOTE]
 > If you are using PowerShell, you must surround the`-D` parameters with double quotes.
@@ -94,7 +92,7 @@ Maven allows you to define project-level values called properties. Add the follo
     <!--
     Storm 0.10.0 is for HDInsight 3.3 and 3.4.
     To find the version information for earlier HDInsight cluster
-    versions, see /documentation/articles/hdinsight-component-versioning/
+    versions, see https://www.azure.cn/azure/hdinsight/hdinsight-component-versioning/
     -->
     <storm.version>0.10.0</storm.version>
 </Properties>
@@ -544,21 +542,17 @@ For more information on configuring logging for Log4j, see [http://logging.apach
 
 After you save the files, use the following command to test the topology locally.
 
-```
-mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
-```
+    mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 As it runs, the topology displays startup information. The following text is an example of the word count output:
 
-```
-17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
-17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
-17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
-17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
-17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
-17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
-17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
-```
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
 
 By looking at the logging emitted by the WordCount bolt, you can see that 'and' has been emitted 113 times. The count continues to go up as long as the topology runs because the spout continuously emits the same sentences.
 
@@ -640,7 +634,6 @@ The YAML file defines the components to use for the topology, how data flows bet
             <version>${storm.version}</version>
         </dependency>
         ```
-
     * Add the following plugin to the `<plugins>` section. This plugin handles the creation of a package (jar file) for the project, and applies some transformations specific to Flux when creating the package.
 
         ```xml
@@ -682,7 +675,7 @@ The YAML file defines the components to use for the topology, how data flows bet
         </plugin>
         ```
 
-   * In the **exec-maven-plugin** `<configuration>` section, change the value for `<mainClass>` to `org.apache.storm.flux.Flux`. This setting allows Flux to handle running the topology locally in development.
+    * In the **exec-maven-plugin** `<configuration>` section, change the value for `<mainClass>` to `org.apache.storm.flux.Flux`. This setting allows Flux to handle running the topology locally in development.
 
     * In the `<resources>` section, add the following to the `<includes>`. This includes the YAML file that defines the topology as part of the project.
 
@@ -694,59 +687,45 @@ The YAML file defines the components to use for the topology, how data flows bet
 
 1. Use the following to compile and execute the Flux topology using Maven:
 
-    ```
-    mvn compile exec:java -Dexec.args="--local -R /topology.yaml"
-    ```
+        mvn compile exec:java -Dexec.args="--local -R /topology.yaml"
 
     If you are using PowerShell, use the following command:
 
-    ```
-    mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
-    ```
+        mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
 
     If you are on a Linux/Unix/OS X system, and have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following commands instead:
 
-    ```
-    mvn compile package
-    storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
-    ```
+        mvn compile package
+        storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
 
     The `--local` parameter runs the topology in local mode on your development environment. The `-R /topology.yaml` parameter uses the `topology.yaml` file resource from the jar file to define the topology.
 
     As it runs, the topology displays startup information. The following text is an example of the output:
 
-    ```
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
-    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
-    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
-    ```
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+        17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
 
     There is a 10-second delay between batches of logged information.
 
 2. Make a copy of the `topology.yaml` file from the project. Name the new file `newtopology.yaml`. In the `newtopology.yaml` file, find the following section and change the value of `10` to `5`. This changes the interval between emitting batches of word counts from 10 seconds to 5.
 
-    ```
-    - id: "counter-bolt"
-    className: "com.microsoft.example.WordCount"
-    constructorArgs:
-    - 5
-    parallelism: 1
-    ```
+        - id: "counter-bolt"
+        className: "com.microsoft.example.WordCount"
+        constructorArgs:
+        - 5
+        parallelism: 1
 
 3. To run the topology, use the following command:
 
-    ```
-    mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
-    ```
+        mvn exec:java -Dexec.args="--local /path/to/newtopology.yaml"
 
     Or, if you have Storm on your Linux/Unix/OS X development environment:
 
-    ```
-    storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
-    ```
+        storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local /path/to/newtopology.yaml
 
     Change the `/path/to/newtopology.yaml` to the path to the newtopology.yaml file you created in the previous step. This command uses the newtopology.yaml as the topology definition. Since we didn't include the `compile` parameter, Maven uses the version of the project built in previous steps.
 
@@ -762,14 +741,14 @@ Trident applications can be created by using Maven projects. You use the same ba
 
 For more information about Trident, see the [Trident API Overview](http://storm.apache.org/documentation/Trident-API-Overview.html).
 
-For an example of a Trident application, see [Twitter trending topics with Apache Storm on HDInsight](./hdinsight-storm-twitter-trending.md).
+For an example of a Trident application, see [Twitter trending topics with Apache Storm on HDInsight](hdinsight-storm-twitter-trending.md).
 
 ## Next Steps
 
 You have learned how to create a Storm topology by using Java. Now learn how to:
 
-* [Deploy and manage Apache Storm topologies on HDInsight](./hdinsight-storm-deploy-monitor-topology.md)
+* [Deploy and manage Apache Storm topologies on HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
-* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](./hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
-You can find more example Storm topologies by visiting [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md).
+You can find more example Storm topologies by visiting [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md).

@@ -18,8 +18,8 @@ ms.topic: article
 ms.date: 09/15/2016
 wacn.date: ''
 ms.author: drewm
----
 
+---
 # Change the availability set for a Windows VM
 The following steps describe how to change the availability set of a VM using Azure PowerShell. A VM can only be added to an availability set when it is created. In order to change the availability set, you need to delete and recreate the virtual machine. 
 
@@ -65,19 +65,16 @@ The following steps describe how to change the availability set of a VM using Az
     ```powershell
     $vm.Extensions
     ```
-
 2. Delete the VM without deleting any of the disks or the network interfaces.
 
     ```powershell
     Remove-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName> 
     ```
-
 3. Create the availability set if it does not already exist
 
     ```powershell
     New-AzureRmAvailabilitySet -ResourceGroupName <resourceGroupName> -Name <availabilitySetName> -Location "<location>" 
     ```
-
 4. Recreate the VM using the new availability set
 
     ```powershell
@@ -89,8 +86,7 @@ The following steps describe how to change the availability set of a VM using Az
 
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ```
-
-5. Add data disks and extensions. For more information, see [Attach Data Disk to VM](./virtual-machines-windows-attach-disk-portal.md) and [Extension Configuration Samples](./virtual-machines-windows-extensions-configuration-samples.md). Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
+5. Add data disks and extensions. For more information, see [Attach Data Disk to VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Extension Configuration Samples](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
 
 ## Example Script
 The following script provides an example of gathering the required information, deleting the original VM and then recreating it in a new availability set.
@@ -157,4 +153,4 @@ The following script provides an example of gathering the required information, 
 ```
 
 ## Next steps
-Add additional storage to your VM by adding an additional [data disk](./virtual-machines-windows-attach-disk-portal.md).
+Add additional storage to your VM by adding an additional [data disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

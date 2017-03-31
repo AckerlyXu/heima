@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use Maven to build Java applications that use HBase with Linux-based HDInsight (Hadoop)
 Learn how to create and build an [Apache HBase](http://hbase.apache.org/) application in Java by using Apache Maven. Then use the application with a Linux-based HDInsight cluster.
 
 [Maven](http://maven.apache.org/) is a software project management and comprehension tool that allows you to build software, documentation, and reports for Java projects. In this article, you learn how to use it to create a basic Java application that that creates, queries, and deletes an HBase table on a Linux-based HDInsight cluster.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Requirements
 
@@ -35,7 +35,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 * [Maven](http://maven.apache.org/)
 
-* [A Linux-based Azure HDInsight cluster with HBase](./hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+* [A Linux-based Azure HDInsight cluster with HBase](hdinsight-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
 
     [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
@@ -48,9 +48,9 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
     For more information on using SSH and SCP with HDInsight, see the following documents:
 
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, and Bash on Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## Create the project
 
@@ -58,9 +58,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 2. Use the **mvn** command, which is installed with Maven, to generate the scaffolding for the project.
 
-    ```
-    mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-    ```
+        mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
     This command creates a directory with the same name as the **artifactID** parameter (**hbaseapp** in this example.) This directory contains the following items:
 
@@ -91,7 +89,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
     | 3.2 |0.98.4-hadoop2 |
     | 3.3, 3.4 and 3.5 |1.1.2 |
 
-    For more information on HDInsight versions and components, see [What are the different Hadoop components available with HDInsight](./hdinsight-component-versioning.md).
+    For more information on HDInsight versions and components, see [What are the different Hadoop components available with HDInsight](hdinsight-component-versioning.md).
 
 2. If you are using an HDInsight 3.3, 3.4 or 3.5 cluster, you must also add the following to the `<dependencies>` section:
 
@@ -167,9 +165,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 6. Use the following command to copy the HBase configuration from the HDInsight server to the **conf** directory. Replace **USERNAME** with the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
 
-    ```
-    scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
-    ```
+        scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
 
     > [!NOTE]
     > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
@@ -367,9 +363,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 1. From the **hbaseapp** directory, use the following command to build a JAR file that contains the application:
 
-    ```
-    mvn clean package
-    ```
+        mvn clean package
 
     This command cleans any previous build artifacts, downloads any dependencies that have not already been installed, then builds and packages the application.
 
@@ -384,9 +378,7 @@ The following steps use `scp` to copy the JAR to the primary head node of your H
 
 1. Use the following to upload the jar to the HDInsight cluster. Replace **USERNAME** with the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
 
-    ```
-    scp ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:hbaseapp-1.0-SNAPSHOT.jar
-    ```
+        scp ./target/hbaseapp-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:hbaseapp-1.0-SNAPSHOT.jar
 
     This command uploads the file to the home directory for your SSH user account.
 
@@ -397,9 +389,7 @@ The following steps use `scp` to copy the JAR to the primary head node of your H
 
 2. Use SSH to connect to the HDInsight cluster. Replace **USERNAME** the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
 
-    ```
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
-    ```
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
     > [!NOTE]
     > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
@@ -408,28 +398,22 @@ The following steps use `scp` to copy the JAR to the primary head node of your H
 
 3. Once connected, use the following to create an HBase table using the Java application:
 
-    ```
-    hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
-    ```
+        hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
 
     This command creates a new HBase table named **people**, and populates it with data.
 
 4. Next, use the following to search for email addresses stored in the table:
 
-    ```
-    hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.SearchByEmail contoso.com
-    ```
+        hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.SearchByEmail contoso.com
 
     You should receive the following results:
 
-    ```
-    Franklin Holtz - ID: 2
-    Franklin Holtz - franklin@contoso.com - ID: 2
-    Rae Schroeder - ID: 4
-    Rae Schroeder - rae@contoso.com - ID: 4
-    Gabriela Ingram - ID: 6
-    Gabriela Ingram - gabriela@contoso.com - ID: 6
-    ```
+        Franklin Holtz - ID: 2
+        Franklin Holtz - franklin@contoso.com - ID: 2
+        Rae Schroeder - ID: 4
+        Rae Schroeder - rae@contoso.com - ID: 4
+        Gabriela Ingram - ID: 6
+        Gabriela Ingram - gabriela@contoso.com - ID: 6
 
 ## Upload the JAR and run jobs (PowerShell)
 
@@ -643,25 +627,19 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
 
 3. Open a new Azure PowerShell window, change directories to the **hbaseapp** directory, and then run the following command:
 
-    ```
-    PS C:\ Import-Module c:\path\to\hbase-runner.psm1
-    ```
+        PS C:\ Import-Module c:\path\to\hbase-runner.psm1
 
     Change the path to the location of the **hbase-runner.psm1** file created earlier. This command registers the module with Azure PowerShell.
 
 4. Use the following command to upload the **hbaseapp-1.0-SNAPSHOT.jar** to your HDInsight cluster.
 
-    ```
-    Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
-    ```
+        Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
 
     Replace **hdinsightclustername** with the name of your HDInsight cluster. The command uploads the **hbaseapp-1.0-SNAPSHOT.jar** to the **example/jars** location in the primary storage for your HDInsight cluster.
 
 5. After the files are uploaded, use the following code to create a table using the **hbaseapp**:
 
-    ```
-    Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
-    ```
+        Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
 
     Replace **hdinsightclustername** with the name of your HDInsight cluster.
 
@@ -669,22 +647,18 @@ The following steps use Azure PowerShell to upload the JAR to the default storag
 
 6. To search for entries in the table, use the following command:
 
-    ```
-    Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
-    ```
+        Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
 
     Replace **hdinsightclustername** with the name of your HDInsight cluster.
 
     This command uses the **SearchByEmail** class to search for any rows where the **contactinformation** column family and the **email** column, contains the string **contoso.com**. You should receive the following results:
 
-    ```
-      Franklin Holtz - ID: 2
-      Franklin Holtz - franklin@contoso.com - ID: 2
-      Rae Schroeder - ID: 4
-      Rae Schroeder - rae@contoso.com - ID: 4
-      Gabriela Ingram - ID: 6
-      Gabriela Ingram - gabriela@contoso.com - ID: 6
-    ```
+          Franklin Holtz - ID: 2
+          Franklin Holtz - franklin@contoso.com - ID: 2
+          Rae Schroeder - ID: 4
+          Rae Schroeder - rae@contoso.com - ID: 4
+          Gabriela Ingram - ID: 6
+          Gabriela Ingram - gabriela@contoso.com - ID: 6
 
     Using **fabrikam.com** for the `-emailRegex` value returns the users that have **fabrikam.com** in the email field. You can also use regular expressions as the search term. For example, **^r** returns email addresses that begin with the letter 'r'.
 

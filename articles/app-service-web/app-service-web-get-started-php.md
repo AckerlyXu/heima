@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Create your first PHP web app in Azure in five minutes
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)]
 
@@ -64,7 +64,6 @@ Configure the Linux container to use the default PHP 7.0.6 image.
 ```azurecli
 az appservice web config update --php-version 7.0.6 --name <app_name> --resource-group myResourceGroup
 ```
-
 ## Deploy sample application
 Deploy a sample PHP app from GitHub.
 
@@ -86,4 +85,4 @@ Congratulations, your first PHP web app is running live in Azure App Service.
 
 ## Next steps
 
-Explore pre-created [Web apps CLI scripts](./app-service-cli-samples.md).
+Explore pre-created [Web apps CLI scripts](app-service-cli-samples.md).

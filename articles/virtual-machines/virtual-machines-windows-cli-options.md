@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-service-management
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -56,8 +56,8 @@ Once completed, a bash session will start that is preloaded with the Azure CLI t
 
 ## Next Steps
 
-[CLI sample for Azure virtual machines](./virtual-machines-linux-cli-samples.md)
+[CLI sample for Azure virtual machines](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [CLI samples for Azure Web Apps](../app-service-web/app-service-cli-samples.md)
 
-[CLI samples for Azure SQL](/documentation/articles/sql-database-cli-samples/)
+[CLI samples for Azure SQL](../sql-database/sql-database-cli-samples.md)

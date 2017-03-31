@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Configure PHP in Azure App Service Web Apps
 ## <a name="WhatIs"></a> Introduction
-This guide will show you how to configure the built-in PHP runtime for Web Apps in [Azure App Service](./app-service-changes-existing-services.md), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [trial]. To get the most from this guide, you should first create a PHP web app in App Service.
+This guide will show you how to configure the built-in PHP runtime for Web Apps in [Azure App Service](/azure/app-service-web/app-service-changes-existing-services/), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [trial]. To get the most from this guide, you should first create a PHP web app in App Service.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -43,50 +43,36 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 ### Azure PowerShell (Windows)
 1. Open Azure PowerShell, and login to your account:
 
-    ```
-    PS C:\> Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-    ```
+        PS C:\> Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 2. Set the PHP version for the web app.
 
-    ```
-    PS C:\> Set-AzureWebsite -PhpVersion {5.4 | 5.5 | 5.6} -Name {app-name}
-    ```
+        PS C:\> Set-AzureWebsite -PhpVersion {5.4 | 5.5 | 5.6} -Name {app-name}
 3. The PHP version is now set. You can confirm these settings:
 
-    ```
-    PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
-    ```
+        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### Azure Command-Line Interface (Linux, Mac, Windows)
 To use the Azure Command-Line Interface, you must have **Node.js** installed on your computer.
 
 1. Open Terminal, and login to your account.
 
-    ```
-    azure login -e AzureChinaCloud
-    ```
+        azure login -e AzureChinaCloud
 2. Set the PHP version for the web app.
 
-    ```
-    azure site set --php-version {5.4 | 5.5 | 5.6} {app-name}
-    ```
+        azure site set --php-version {5.4 | 5.5 | 5.6} {app-name}
 
 3. The PHP version is now set. You can confirm these settings:
 
-    ```
-    azure site show {app-name}
-    ```
+        azure site show {app-name}
 
 > [!NOTE] 
 > The [Azure CLI 2.0](https://github.com/Azure/azure-cli) commands that are equivalent to the above are:
 >
 >
 
-```
-az login
-az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}
-az appservice web config show -g {resource-group-name} -n {app-name}
-```
+    az login
+    az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}
+    az appservice web config show -g {resource-group-name} -n {app-name}
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -97,14 +83,12 @@ For any built-in PHP runtime, you can change any of the configuration options by
 1. Add a [.user.ini] file to your root directory.
 2. Add configuration settings to the `.user.ini` file using the same syntax you would use in a `php.ini` file. For example, if you wanted to turn the `display_errors` setting on and set `upload_max_filesize` setting to 10M, your `.user.ini` file would contain this text:
 
-    ```
-    ; Example Settings
-    display_errors=On
-    upload_max_filesize=10M
+        ; Example Settings
+        display_errors=On
+        upload_max_filesize=10M
 
-    ; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
-    ; log_errors=On
-    ```
+        ; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
+        ; log_errors=On
 3. Deploy your web app.
 4. Restart the web app. (Restarting is necessary because the frequency with which PHP reads `.user.ini` files is governed by the `user_ini.cache_ttl` setting, which is a system level setting and is 300 seconds (5 minutes) by default. Restarting the web app forces PHP to read the new settings in the `.user.ini` file.)
 
@@ -115,11 +99,9 @@ As an alternative to using a `.user.ini` file, you can use the [ini_set()] funct
 2. Create an `settings.ini` file using Kudu Console (http://&lt;site-name&gt;.scm.azurewebsite.net) in the `d:\home\site\ini` directory.
 3. Add configuration settings to the `settings.ini` file using the same syntax you would use in a php.ini file. For example, if you wanted to point the `curl.cainfo` setting to a `*.crt` file and set 'wincache.maxfilesize' setting to 512K, your `settings.ini` file would contain this text:
 
-    ```
-    ; Example Settings
-    curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
-    wincache.maxfilesize=512
-    ```
+        ; Example Settings
+        curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
+        wincache.maxfilesize=512
 4. Restart your Web App to load the changes.
 
 ## How to: Enable extensions in the default PHP runtime
@@ -132,11 +114,9 @@ As noted in the previous section, the best way to see the default PHP version, i
 4. Create an `ini` file in `d:\home\site\ini` called `extensions.ini`.
 5. Add configuration settings to the `extensions.ini` file using the same syntax you would use in a php.ini file. For example, if you wanted to enable the MongoDB and XDebug extensions, your `extensions.ini` file would contain this text:
 
-    ```
-    ; Enable Extensions
-    extension=d:\home\site\ext\php_mongo.dll
-    zend_extension=d:\home\site\ext\php_xdebug.dll
-    ```
+        ; Enable Extensions
+        extension=d:\home\site\ext\php_mongo.dll
+        zend_extension=d:\home\site\ext\php_xdebug.dll
 6. Restart your Web App to load the changes.
 
 ### Configure via App Setting
@@ -176,7 +156,7 @@ Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime t
 
 ## <a name="composer"></a> How to: Enable Composer automation in Azure
 By default, App Service doesn't do anything with composer.json, if you have one in your PHP
-project. If you use [Git deployment](./app-service-web-php-get-started.md), you can enable composer.json 
+project. If you use [Git deployment](app-service-web-php-get-started.md), you can enable composer.json 
 processing during `git push` by enabling the Composer extension.
 
 > [!NOTE]

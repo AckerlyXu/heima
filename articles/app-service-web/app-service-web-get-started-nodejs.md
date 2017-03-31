@@ -1,6 +1,6 @@
 ---
 title: Create your first Node.js web app in Azure in five minutes | Azure
-description: Learn how easy it is to run web apps in App Service by deploying a sample Node.js app.
+description: Learn how easy it is to run web apps in App Service by deploying a sample Node.js app. 
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Create your first Node.js web app in Azure in five minutes
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
@@ -86,4 +86,4 @@ Congratulations, your first Node.js web app is running live in Azure App Service
 
 ## Next steps
 
-Explore pre-created [Web apps CLI scripts](./app-service-cli-samples.md).
+Explore pre-created [Web apps CLI scripts](app-service-cli-samples.md).

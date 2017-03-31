@@ -55,7 +55,7 @@ The template defines the following parameters.
 
 The name of the Service Bus namespace to create.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string"
 }
@@ -65,7 +65,7 @@ The name of the Service Bus namespace to create.
 
 The name of the authorization rule for the namespace.
 
-```
+```json
 "namespaceAuthorizationRuleName ": {
 "type": "string"
 }
@@ -75,7 +75,7 @@ The name of the authorization rule for the namespace.
 
 The name of the queue in the Service Bus namespace.
 
-```
+```json
 "serviceBusQueueName": {
 "type": "string"
 }
@@ -85,7 +85,7 @@ The name of the queue in the Service Bus namespace.
 
 The Service Bus API version of the template.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -95,7 +95,7 @@ The Service Bus API version of the template.
 
 Creates a standard Service Bus namespace of type **Messaging**, and a Service Bus authorization rule for namespace and entity.
 
-```
+```json
 "resources": [
         {
             "apiVersion": "[variables('sbVersion')]",
@@ -151,14 +151,12 @@ Creates a standard Service Bus namespace of type **Messaging**, and a Service Bu
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## Azure CLI
-
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>

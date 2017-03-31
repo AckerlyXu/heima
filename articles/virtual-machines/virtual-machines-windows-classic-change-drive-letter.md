@@ -1,6 +1,6 @@
 ---
-title: Make the D: drive of a VM a data disk | Azure
-description: Describes how to change drive letters for a Windows VM so that you can use the D: drive as a data drive.
+title: 'Make the D: drive of a VM a data disk | Azure'
+description: 'Describes how to change drive letters for a Windows VM so that you can use the D: drive as a data drive.'
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Use the D: drive as a data drive on a Windows VM
 If your application needs to use the D drive to store data, follow these instructions to use a different drive letter for the temporary disk. Never use the temporary disk to store data that you need to keep.
 
@@ -31,8 +31,8 @@ For more information about how Azure uses the temporary disk, see [Understanding
 ## Attach the data disk
 First, you'll need to attach the data disk to the virtual machine. 
 
-* To use the portal, see [How to attach a data disk in the Azure portal preview](./virtual-machines-windows-attach-disk-portal.md)
-* To use the Classic Management Portal, see [How to attach a data disk to a Windows virtual machine](./virtual-machines-windows-classic-attach-disk.md). 
+* To use the portal, see [How to attach a data disk in the Azure portal preview](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* To use the Classic Management Portal, see [How to attach a data disk to a Windows virtual machine](virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 
 
 ## Temporarily move pagefile.sys to C drive
 1. Connect to the virtual machine. 
@@ -66,4 +66,4 @@ First, you'll need to attach the data disk to the virtual machine.
 9. Restart the virtual machine.
 
 ## Next steps
-* You can increase the storage available to your virtual machine by [attaching a additional data disk](./virtual-machines-windows-attach-disk-portal.md).
+* You can increase the storage available to your virtual machine by [attaching a additional data disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

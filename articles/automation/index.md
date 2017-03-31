@@ -1,5 +1,5 @@
 ---
-title: Azure Automation Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Automation Documentation - Tutorials, API Reference | Azure
 description: Learn how to use Automation to automate processes and configuration management in order to save time and increase reliability of regular administrative tasks.
 services: automation
 author: carolz
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 # Automation Documentation
@@ -126,7 +127,7 @@ Learn how to use Automation to save time and increase the reliability of regular
         </div>
         </a>
     </li>
-    
+
 </ul>
 
 ---
@@ -139,8 +140,8 @@ Learn how to use Automation to save time and increase the reliability of regular
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p>
-                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">Classic PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">Classic PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -164,13 +165,11 @@ Learn how to use Automation to save time and increase the reliability of regular
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST API</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt163781">Classic REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/zh-cn/library/azure/mt662285.aspx">REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/zh-cn/library/azure/mt163781">Classic REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-

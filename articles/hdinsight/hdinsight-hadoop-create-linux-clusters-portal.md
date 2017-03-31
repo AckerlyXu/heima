@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/16/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Create Linux-based clusters in HDInsight using the Azure portal preview
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -34,7 +34,7 @@ The Azure portal preview is a web-based management tool for services and resourc
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create clusters
-The Azure portal preview exposes most of the cluster properties. Using Azure Resource Manager template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](./hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+The Azure portal preview exposes most of the cluster properties. Using Azure Resource Manager template, you can hide a lot of details. For more information, see [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 1. Sign in to the [Azure  portal preview](https://portal.azure.cn).
 2. Click **+**, click **Intelligence + Analytics**, and then click **HDInsight**.
@@ -60,8 +60,8 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
 
         * **Operating System**: Select **Linux**.
 
-        * **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](./hdinsight-component-versioning.md).
-        * **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](./hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+        * **Version**: Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+        * **Cluster Tier**: Azure HDInsight provides the big data cloud offerings in two categories: Standard tier and Premium tier. For more information, see [Cluster tiers](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
 
     * For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
 
@@ -69,8 +69,8 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
 
         For more information on using SSH with HDInsight, see one of the following articles:
 
-        * [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Use SSH with Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+        * [Use SSH with Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+        * [Use SSH with Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
     * For **Resource group**, specify whether you want to create a new resource group or use an existing one.
 
@@ -89,7 +89,7 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
 
     Click **Next**. 
 
-5. Optionally, click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](./hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+5. Optionally, click **Applications** to install applications that work with HDInsight clusters. These applications can be developed by Microsoft, independent software vendors (ISV) or by yourself. For more information, see [Install HDInsight applications](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 6. Click **Cluster size** to display information about the nodes that will be created for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of the cluster will be shown within the blade.
 
@@ -110,8 +110,8 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
 
     | Option | Description |
     |--------|-------------|
-    | **Script Actions** | Use this option if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](./hdinsight-hadoop-customize-cluster-linux.md). |
-    | **Virtual Network** | Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](./hdinsight-extend-hadoop-virtual-network.md). |
+    | **Script Actions** | Use this option if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). |
+    | **Virtual Network** | Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network. For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capabilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md). |
 
     Click **Next**.
 
@@ -136,8 +136,8 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
     * **Delete**: Deletes the HDInsight cluster.
 
 ## Customize clusters
-* See [Customize HDInsight clusters using Bootstrap](./hdinsight-hadoop-customize-cluster-bootstrap.md).
-* See [Customize HDInsight clusters using Script Action](./hdinsight-hadoop-customize-cluster-linux.md).
+* See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+* See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 ## Delete the cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -146,22 +146,22 @@ The Azure portal preview exposes most of the cluster properties. Using Azure Res
 Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster:
 
 ### Hadoop clusters
-* [Use Hive with HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 ### HBase clusters
-* [Get started with HBase on HDInsight](./hdinsight-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](./hdinsight-hbase-build-java-maven-linux.md)
+* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ### Storm clusters
-* [Develop Java topologies for Storm on HDInsight](./hdinsight-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](./hdinsight-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](./hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
+* [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
 ### Spark clusters
-* [Create a standalone application using Scala](./hdinsight-apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](./hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](./hdinsight-apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](./hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](./hdinsight-apache-spark-eventhub-streaming.md)
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Process vehicle sensor data from Azure Event Hubs using Apache Storm on HDInsight
 
 Learn how to process vehicle sensor data from Azure Event Hubs using Apache Storm on HDInsight. This example reads sensor data from Azure Event Hubs, enriches the data by referencing data stored in Azure DocumentDB, and finally store the data into Azure Storage using the Hadoop File System (HDFS).
@@ -58,4 +58,4 @@ A complete, automated solution for this scenario is available as part of the [HD
 
 ## Next Steps
 
-For more example Storm topologies, see [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md).
+For more example Storm topologies, see [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md).

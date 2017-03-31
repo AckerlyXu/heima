@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 wacn.date: ''
 ms.author: memccror
----
 
+---
 # How to tag a Linux virtual machine in Azure
 This article describes different ways to tag a Linux virtual machine in Azure through the Resource Manager deployment model. Tags are user-defined key/value pairs which can be placed directly on a resource or a resource group. Azure currently supports up to 15 tags per resource and resource group. Tags may be placed on a resource at the time of creation or added to an existing resource. Please note, tags are supported for resources created via the Resource Manager deployment model only.
 
@@ -29,21 +29,15 @@ To begin, [install and configure the Azure CLI](../azure-resource-manager/xplat-
 
 You can view all properties for a given Virtual Machine, including the tags, using this command:
 
-```
-    azure vm show -g MyResourceGroup -n MyTestVM
-```
+        azure vm show -g MyResourceGroup -n MyTestVM
 
 To add a new VM tag through the Azure CLI, you can use the `azure vm set` command along with the tag parameter **-t**:
 
-```
-    azure vm set -g MyResourceGroup -n MyTestVM -t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
-```
+        azure vm set -g MyResourceGroup -n MyTestVM -t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
 To remove all tags, you can use the **-T** parameter in the `azure vm set` command.
 
-```
-    azure vm set - g MyResourceGroup -n MyTestVM -T
-```
+        azure vm set - g MyResourceGroup -n MyTestVM -T
 
 Now that we have applied tags to our resources Azure CLI and the Portal, let's take a look at the usage details to see the tags in the billing portal.
 
@@ -56,4 +50,4 @@ Now that we have applied tags to our resources Azure CLI and the Portal, let's t
 [Azure CLI environment]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
-[Understanding your Azure Bill]: /documentation/articles/billing-understand-your-bill/
+[Understanding your Azure Bill]: ../billing-understand-your-bill.md

@@ -40,7 +40,7 @@ Performing an operation (send, receive, delete, etc.) takes some time. This time
 
 -   **Asynchronous operations**: the client schedules operations by performing asynchronous operations. The next request is started before the previous request is completed. The following is an example of an asynchronous send operation:
 
-    ```
+ ```csharp
     BrokeredMessage m1 = new BrokeredMessage(body);
     BrokeredMessage m2 = new BrokeredMessage(body);
 
@@ -58,7 +58,7 @@ Performing an operation (send, receive, delete, etc.) takes some time. This time
 
     This is an example of an asynchronous receive operation:
 
-    ```
+  ```csharp
     Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
     Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
 
@@ -90,7 +90,7 @@ By default, a client uses a batch interval of 20ms. You can change the batch int
 
 To disable batching, set the [BatchFlushInterval][BatchFlushInterval] property to **TimeSpan.Zero**. For example:
 
-```
+```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
 mfs.TokenProvider = tokenProvider;
 mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05);
@@ -104,7 +104,7 @@ To increase the throughput of a queue, topic, or subscription, Service Bus batch
 
 When creating a new queue, topic or subscription, batched store access is enabled by default. To disable batched store access, set the [EnableBatchedOperations][EnableBatchedOperations] property to **false** before creating the entity. For example:
 
-```
+```csharp
 QueueDescription qd = new QueueDescription();
 qd.EnableBatchedOperations = false;
 Queue q = namespaceManager.CreateQueue(qd);
@@ -128,7 +128,7 @@ Prefetching does not affect the number of billable messaging operations, and is 
 ## Express queues and topics
 Express entities enable high throughput and reduced latency scenarios. With express entities, if a message is sent to a queue or topic, the message is not immediately stored in the messaging store. Instead, it is cached in memory. If a message remains in the queue for more than a few seconds, it is automatically written to stable storage, thus protecting it against loss due to an outage. Writing the message into a memory cache increases throughput and reduces latency because there is no access to stable storage at the time the message is sent. Messages that are consumed within a few seconds are not written to the messaging store. The following example creates an express topic.
 
-```
+```csharp
 TopicDescription td = new TopicDescription(TopicName);
 td.EnableExpress = true;
 namespaceManager.CreateTopic(td);
@@ -142,7 +142,7 @@ If a message containing critical information that must not be lost is sent to an
 ## Use of partitioned queues or topics
 Internally, Service Bus uses the same node and messaging store to process and store all messages for a messaging entity (queue or topic). A partitioned queue or topic, on the other hand, is distributed across multiple nodes and messaging stores. Partitioned queues and topics not only yield a higher throughput than regular queues and topics, they also exhibit superior availability. To create a partitioned entity, set the [EnablePartitioning][EnablePartitioning] property to **true**, as shown in the following example. For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
 
-```
+```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
 qd.EnablePartitioning = true;

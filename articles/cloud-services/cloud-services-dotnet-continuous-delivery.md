@@ -798,7 +798,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 ## Next steps
 
-To enable remote debugging when using continuous delivery, see [Enable remote debugging when using continuous delivery to publish to Azure](/documentation/articles/cloud-services/cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging/).
+To enable remote debugging when using continuous delivery, see [Enable remote debugging when using continuous delivery to publish to Azure](./cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md/).
 
   [Team Foundation Build Service]: https://msdn.microsoft.com/zh-cn/library/ee259687.aspx
   [.NET Framework 4]: https://www.microsoft.com/zh-cn/download/details.aspx?id=17851

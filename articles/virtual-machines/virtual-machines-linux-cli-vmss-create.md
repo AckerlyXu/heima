@@ -18,14 +18,14 @@ ms.topic: article
 ms.date: 03/24/2016
 wacn.date: ''
 ms.author: negat
----
 
+---
 # What are virtual machine scale sets?
 Virtual Machine Scale Sets allow you to manage multiple VMs as a set. At a high level, scale sets have the following pros and cons:
 
 Pros:
 
-1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](./virtual-machines-linux-manage-availability.md)). 
+1. High availability. Each scale set puts its VMs into an Availability Set with 5 Fault Domains (FDs) and 5 Update Domains (UDs) to ensure availability (for more information on FDs and UDs, see [VM availability](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). 
 2. Easy integration with Azure Load Balancer and App Gateway.
 4. Simplified deployment, management, and clean up of VMs.
 5. Support common Windows and Linux flavors, as well as custom images.

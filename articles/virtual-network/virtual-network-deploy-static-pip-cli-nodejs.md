@@ -18,27 +18,28 @@ ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create a VM with a static public IP address using the Azure CLI 1.0
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./virtual-network-deploy-static-pip-arm-portal.md)
->- [PowerShell](./virtual-network-deploy-static-pip-arm-ps.md)
->- [Azure CLI 2.0](./virtual-network-deploy-static-pip-arm-cli.md)
->- [Azure CLI 1.0](./virtual-network-deploy-static-pip-cli-nodejs.md)
->- [Template](./virtual-network-deploy-static-pip-arm-template.md)
->- [PowerShell (Classic)](./virtual-networks-reserved-public-ip.md)
+>- [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+>- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+>- [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
+>- [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+>- [Template](virtual-network-deploy-static-pip-arm-template.md)
+>- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-You can complete this task using the Azure CLI 1.0 (this article) or the [Azure CLI 2.0](./virtual-network-deploy-static-pip-arm-cli.md). 
+You can complete this task using the Azure CLI 1.0 (this article) or the [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md). 
 
 ## <a name = "create"></a>Step 1 - Start your script
 You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Complete the following steps to change the script to work in your environment:
@@ -157,7 +158,6 @@ Now that all necessary resources are in place, you can create a new VM.
         --admin-username $username \
         --admin-password $password
     ```
-
 2. Save the script file.
 
 ## Step 4 - Run the script
@@ -171,85 +171,83 @@ After making any necessary changes, and understanding the script show above, run
 
 2. The output below should be displayed after a few minutes.
 
-    ```
-    info:    Executing command group create
-    info:    Getting resource group IaaSStory
-    info:    Creating resource group IaaSStory
-    info:    Created resource group IaaSStory
-    data:    Id:                  /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
-    data:    Name:                IaaSStory
-    data:    Location:            chinanorth
-    data:    Provisioning State:  Succeeded
-    data:    Tags: null
-    data:
-    info:    group create command OK
-    info:    Executing command network vnet create
-    info:    Looking up virtual network "TestVNet"
-    info:    Creating virtual network "TestVNet"
-    info:    Loading virtual network state
-    data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/TestVNet
-    data:    Name                            : TestVNet
-    data:    Type                            : Microsoft.Network/virtualNetworks
-    data:    Location                        : chinanorth
-    data:    ProvisioningState               : Succeeded
-    data:    Address prefixes:
-    data:      192.168.0.0/16
-    info:    network vnet create command OK
-    info:    Executing command network vnet subnet create
-    info:    Looking up the subnet "FrontEnd"
-    info:    Creating subnet "FrontEnd"
-    info:    Looking up the subnet "FrontEnd"
-    data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-    data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-    data:    ProvisioningState               : Succeeded
-    data:    Name                            : FrontEnd
-    data:    Address prefix                  : 192.168.1.0/24
-    data:
-    info:    network vnet subnet create command OK
-    info:    Executing command network public-ip create
-    info:    Looking up the public ip "PIPWEB1"
-    info:    Creating public ip address "PIPWEB1"
-    info:    Looking up the public ip "PIPWEB1"
-    data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
-    data:    Name                            : PIPWEB1
-    data:    Type                            : Microsoft.Network/publicIPAddresses
-    data:    Location                        : chinanorth
-    data:    Provisioning state              : Succeeded
-    data:    Allocation method               : Static
-    data:    Idle timeout                    : 4
-    data:    IP Address                      : 40.78.63.253
-    data:    Domain name label               : iaasstoryws1
-    data:    FQDN                            : iaasstoryws1.chinanorth.chinacloudapp.cn
-    info:    network public-ip create command OK
-    info:    Executing command network nic create
-    info:    Looking up the network interface "NICWEB1"
-    info:    Looking up the public ip "PIPWEB1"
-    info:    Creating network interface "NICWEB1"
-    info:    Looking up the network interface "NICWEB1"
-    data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkInterfaces/NICWEB1
-    data:    Name                            : NICWEB1
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : chinanorth
-    data:    Provisioning state              : Succeeded
-    data:    Enable IP forwarding            : false
-    data:    IP configurations:
-    data:      Name                          : NIC-config
-    data:      Provisioning state            : Succeeded
-    data:      Public IP address             : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
-    data:      Private IP address            : 192.168.1.101
-    data:      Private IP Allocation Method  : Static
-    data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory2/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-    data:
-    info:    network nic create command OK
-    info:    Executing command storage account create
-    info:    Creating storage account
-    info:    storage account create command OK
-    info:    Executing command vm create
-    info:    Looking up the VM "WEB1"
-    info:    Using the VM Size "Standard_A1"
-    info:    The [OS, Data] Disk or image configuration requires storage account
-    info:    Looking up the storage account iaasstorystorage
-    info:    Looking up the NIC "NICWEB1"
-    info:    Creating VM "WEB1"
-    info:    vm create command OK
-    ```
+        info:    Executing command group create
+        info:    Getting resource group IaaSStory
+        info:    Creating resource group IaaSStory
+        info:    Created resource group IaaSStory
+        data:    Id:                  /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
+        data:    Name:                IaaSStory
+        data:    Location:            chinanorth
+        data:    Provisioning State:  Succeeded
+        data:    Tags: null
+        data:
+        info:    group create command OK
+        info:    Executing command network vnet create
+        info:    Looking up virtual network "TestVNet"
+        info:    Creating virtual network "TestVNet"
+        info:    Loading virtual network state
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/TestVNet
+        data:    Name                            : TestVNet
+        data:    Type                            : Microsoft.Network/virtualNetworks
+        data:    Location                        : chinanorth
+        data:    ProvisioningState               : Succeeded
+        data:    Address prefixes:
+        data:      192.168.0.0/16
+        info:    network vnet create command OK
+        info:    Executing command network vnet subnet create
+        info:    Looking up the subnet "FrontEnd"
+        info:    Creating subnet "FrontEnd"
+        info:    Looking up the subnet "FrontEnd"
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+        data:    Type                            : Microsoft.Network/virtualNetworks/subnets
+        data:    ProvisioningState               : Succeeded
+        data:    Name                            : FrontEnd
+        data:    Address prefix                  : 192.168.1.0/24
+        data:
+        info:    network vnet subnet create command OK
+        info:    Executing command network public-ip create
+        info:    Looking up the public ip "PIPWEB1"
+        info:    Creating public ip address "PIPWEB1"
+        info:    Looking up the public ip "PIPWEB1"
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
+        data:    Name                            : PIPWEB1
+        data:    Type                            : Microsoft.Network/publicIPAddresses
+        data:    Location                        : chinanorth
+        data:    Provisioning state              : Succeeded
+        data:    Allocation method               : Static
+        data:    Idle timeout                    : 4
+        data:    IP Address                      : 40.78.63.253
+        data:    Domain name label               : iaasstoryws1
+        data:    FQDN                            : iaasstoryws1.chinanorth.chinacloudapp.cn
+        info:    network public-ip create command OK
+        info:    Executing command network nic create
+        info:    Looking up the network interface "NICWEB1"
+        info:    Looking up the public ip "PIPWEB1"
+        info:    Creating network interface "NICWEB1"
+        info:    Looking up the network interface "NICWEB1"
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkInterfaces/NICWEB1
+        data:    Name                            : NICWEB1
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : chinanorth
+        data:    Provisioning state              : Succeeded
+        data:    Enable IP forwarding            : false
+        data:    IP configurations:
+        data:      Name                          : NIC-config
+        data:      Provisioning state            : Succeeded
+        data:      Public IP address             : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/publicIPAddresses/PIPWEB1
+        data:      Private IP address            : 192.168.1.101
+        data:      Private IP Allocation Method  : Static
+        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory2/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
+        data:
+        info:    network nic create command OK
+        info:    Executing command storage account create
+        info:    Creating storage account
+        info:    storage account create command OK
+        info:    Executing command vm create
+        info:    Looking up the VM "WEB1"
+        info:    Using the VM Size "Standard_A1"
+        info:    The [OS, Data] Disk or image configuration requires storage account
+        info:    Looking up the storage account iaasstorystorage
+        info:    Looking up the NIC "NICWEB1"
+        info:    Creating VM "WEB1"
+        info:    vm create command OK

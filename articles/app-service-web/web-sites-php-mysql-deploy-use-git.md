@@ -17,17 +17,17 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Create a PHP-MySQL web app in Azure App Service and deploy using Git
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to [App Service](./app-service-changes-existing-services.md) using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
+This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to [App Service](/azure/app-service-web/app-service-changes-existing-services/) using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
 
 You will learn:
 
-* How to create a web app and a MySQL database using the [Azure Portal Preview][management-portal]. Because PHP is enabled in [App Service Web Apps](./app-service-changes-existing-services.md) by default, nothing special is required to run your PHP code.
+* How to create a web app and a MySQL database using the [Azure Portal Preview][management-portal]. Because PHP is enabled in [App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/) by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
 * How to enable the Composer extension to automate Composer tasks at every `git push`.
 
@@ -79,113 +79,103 @@ To build and run the application locally, follow the steps below. Note that thes
 
 1. Connect to the remote MySQL server, using the value for `Data Source`, `User Id`, `Password`, and `Database` that you retrieved earlier:
 
-    ```
-    mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
-    ```
+        mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
 2. The MySQL command prompt will appear:
 
-    ```
-    mysql>
-    ```
+        mysql>
 3. Paste in the following `CREATE TABLE` command to create the `registration_tbl` table in your database:
 
-    ```
-    CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
-    ```
+        CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 4. In the root of your local application folder create **index.php** file.
 5. Open the **index.php** file in a text editor or IDE and add the following code, and complete the necessary changes marked with `//TODO:` comments.
 
-    ```
-    <html>
-    <head>
-    <Title>Registration Form</Title>
-    <style type="text/css">
-        body { background-color: #fff; border-top: solid 10px #000;
-            color: #333; font-size: .85em; margin: 20; padding: 20;
-            font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-        }
-        h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
-        h1 { font-size: 2em; }
-        h2 { font-size: 1.75em; }
-        h3 { font-size: 1.2em; }
-        table { margin-top: 0.75em; }
-        th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
-        td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
-    </style>
-    </head>
-    <body>
-    <h1>Register here!</h1>
-    <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
-    <form method="post" action="index.php" enctype="multipart/form-data" >
-          Name  <input type="text" name="name" id="name"/></br>
-          Email <input type="text" name="email" id="email"/></br>
-          <input type="submit" name="submit" value="Submit" />
-    </form>
-    <?php
-        // DB connection info
-        //TODO: Update the values for $host, $user, $pwd, and $db
-        //using the values you retrieved earlier from the Azure Portal Preview.
-        $host = "value of Data Source";
-        $user = "value of User Id";
-        $pwd = "value of Password";
-        $db = "value of Database";
-        // Connect to database.
-        try {
-            $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
-            $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-        }
-        catch(Exception $e){
-            die(var_dump($e));
-        }
-        // Insert registration info
-        if(!empty($_POST)) {
-        try {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $date = date("Y-m-d");
-            // Insert data
-            $sql_insert = "INSERT INTO registration_tbl (name, email, date)
-                       VALUES (?,?,?)";
-            $stmt = $conn->prepare($sql_insert);
-            $stmt->bindValue(1, $name);
-            $stmt->bindValue(2, $email);
-            $stmt->bindValue(3, $date);
-            $stmt->execute();
-        }
-        catch(Exception $e) {
-            die(var_dump($e));
-        }
-        echo "<h3>Your're registered!</h3>";
-        }
-        // Retrieve data
-        $sql_select = "SELECT * FROM registration_tbl";
-        $stmt = $conn->query($sql_select);
-        $registrants = $stmt->fetchAll();
-        if(count($registrants) > 0) {
-            echo "<h2>People who are registered:</h2>";
-            echo "<table>";
-            echo "<tr><th>Name</th>";
-            echo "<th>Email</th>";
-            echo "<th>Date</th></tr>";
-            foreach($registrants as $registrant) {
-                echo "<tr><td>".$registrant['name']."</td>";
-                echo "<td>".$registrant['email']."</td>";
-                echo "<td>".$registrant['date']."</td></tr>";
+        <html>
+        <head>
+        <Title>Registration Form</Title>
+        <style type="text/css">
+            body { background-color: #fff; border-top: solid 10px #000;
+                color: #333; font-size: .85em; margin: 20; padding: 20;
+                font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
             }
-             echo "</table>";
-        } else {
-            echo "<h3>No one is currently registered.</h3>";
-        }
-    ?>
-    </body>
-    </html>
-    ```
+            h1, h2, h3,{ color: #000; margin-bottom: 0; padding-bottom: 0; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.75em; }
+            h3 { font-size: 1.2em; }
+            table { margin-top: 0.75em; }
+            th { font-size: 1.2em; text-align: left; border: none; padding-left: 0; }
+            td { padding: 0.25em 2em 0.25em 0em; border: 0 none; }
+        </style>
+        </head>
+        <body>
+        <h1>Register here!</h1>
+        <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+        <form method="post" action="index.php" enctype="multipart/form-data" >
+              Name  <input type="text" name="name" id="name"/></br>
+              Email <input type="text" name="email" id="email"/></br>
+              <input type="submit" name="submit" value="Submit" />
+        </form>
+        <?php
+            // DB connection info
+            //TODO: Update the values for $host, $user, $pwd, and $db
+            //using the values you retrieved earlier from the Azure Portal Preview.
+            $host = "value of Data Source";
+            $user = "value of User Id";
+            $pwd = "value of Password";
+            $db = "value of Database";
+            // Connect to database.
+            try {
+                $conn = new PDO( "mysql:host=$host;dbname=$db", $user, $pwd);
+                $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+            }
+            catch(Exception $e){
+                die(var_dump($e));
+            }
+            // Insert registration info
+            if(!empty($_POST)) {
+            try {
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $date = date("Y-m-d");
+                // Insert data
+                $sql_insert = "INSERT INTO registration_tbl (name, email, date)
+                           VALUES (?,?,?)";
+                $stmt = $conn->prepare($sql_insert);
+                $stmt->bindValue(1, $name);
+                $stmt->bindValue(2, $email);
+                $stmt->bindValue(3, $date);
+                $stmt->execute();
+            }
+            catch(Exception $e) {
+                die(var_dump($e));
+            }
+            echo "<h3>Your're registered!</h3>";
+            }
+            // Retrieve data
+            $sql_select = "SELECT * FROM registration_tbl";
+            $stmt = $conn->query($sql_select);
+            $registrants = $stmt->fetchAll();
+            if(count($registrants) > 0) {
+                echo "<h2>People who are registered:</h2>";
+                echo "<table>";
+                echo "<tr><th>Name</th>";
+                echo "<th>Email</th>";
+                echo "<th>Date</th></tr>";
+                foreach($registrants as $registrant) {
+                    echo "<tr><td>".$registrant['name']."</td>";
+                    echo "<td>".$registrant['email']."</td>";
+                    echo "<td>".$registrant['date']."</td></tr>";
+                }
+                 echo "</table>";
+            } else {
+                echo "<h3>No one is currently registered.</h3>";
+            }
+        ?>
+        </body>
+        </html>
 
 1. In a terminal go to your application folder and type the following command:
 
-    ```
-    php -S localhost:8000
-    ```
+       php -S localhost:8000
 
 You can now browse to **http://localhost:8000/** to test the application.
 
@@ -200,13 +190,11 @@ After you have tested your app locally, you can publish it to Web Apps using Git
 1. (Optional)  If you've forgotten or misplaced your Git remote repostitory URL, navigate to the web app properties on the Azure Portal Preview.
 2. Open GitBash (or a terminal, if Git is in your `PATH`), change directories to the root directory of your application, and run the following commands:
 
-    ```
-    git init
-    git add .
-    git commit -m "initial commit"
-    git remote add azure [URL for remote repository]
-    git push azure master
-    ```
+        git init
+        git add .
+        git commit -m "initial commit"
+        git remote add azure [URL for remote repository]
+        git push azure master
 
     You will be prompted for the password you created earlier.
 
@@ -223,11 +211,9 @@ To publish changes to your app, follow these steps:
 1. Make changes to your app locally.
 2. Open GitBash (or a terminal, it Git is in your `PATH`), change directories to the root directory of your app, and run the following commands:
 
-    ```
-    git add .
-    git commit -m "comment describing changes"
-    git push azure master
-    ```
+        git add .
+        git commit -m "comment describing changes"
+        git push azure master
 
     You will be prompted for the password you created earlier.
 

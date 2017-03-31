@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/05/2016
 wacn.date: ''
 ms.author: dariagrigoriu
----
 
+---
 # Configure deployment credentials for Azure App Service
-[Azure App Service](./app-service-changes-existing-services.md) supports two types of credentials for [local Git deployment](./app-service-deploy-local-git.md) 
-and [FTP/S deployment](./app-service-deploy-ftp.md).
+[Azure App Service](/azure/app-service-web/app-service-changes-existing-services/) supports two types of credentials for [local Git deployment](app-service-deploy-local-git.md) 
+and [FTP/S deployment](app-service-deploy-ftp.md).
 
 * **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. These are the default
 credentials set that can be set or reset from the [Azure Classic Management Portal](https://manage.windowsazure.cn) where each App Service app has an editing entry point under **Dashboard > quick glance**.
@@ -77,4 +77,4 @@ To reset the app-level credentials:
 
 ## Next steps
 
-Find out how to use these credentials to deploy your app from [local Git](./app-service-deploy-local-git.md) or using [FTP/S](./app-service-deploy-ftp.md).
+Find out how to use these credentials to deploy your app from [local Git](app-service-deploy-local-git.md) or using [FTP/S](app-service-deploy-ftp.md).

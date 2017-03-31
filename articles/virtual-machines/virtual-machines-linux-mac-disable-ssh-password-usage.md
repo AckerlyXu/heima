@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 08/26/2016
 wacn.date: ''
 ms.author: v-livech
----
 
+---
 # Disable SSH passwords on your Linux VM by configuring SSHD
 This article focuses on how to lock down the login security of your Linux VM.  As soon as the SSH port 22 is opened to the world bots start trying to login by guessing passwords.  What we will do in this article is disable password logins over SSH.  By completely removing the ability to use passwords we protect the Linux VM from this type of brute force attack.  The added bonus is we will configure Linux SSHD to only allow logins via SSH public & private keys, by far the most secure way to login to Linux.  The possible combinations of it would require to guess the private key is immense and therefore discourages bots from even bothering to try to brute force SSH keys.
 
@@ -40,7 +40,7 @@ SSHD is the SSH Server that runs on the Linux VM.  SSH is a client that runs fro
 For this article it is very important to keep one login to your Linux VM open for the entire walk through.  For this reason we will open two terminals and SSH to the Linux VM from both of them.  We will use the first terminal to make the changes to SSHDs configuration file and restart the SSHD service.  We will use the second terminal to test those changes once the service is restarted.  Because we are disabling SSH passwords and relying strictly on SSH keys, if your SSH keys are not correct and you close the connection to the VM, the VM will be permanently locked and no one will be able to login to it requiring it to be deleted and recreated.
 
 ## Prerequisites
-* [Create SSH keys on Linux and Mac for Linux VMs in Azure](./virtual-machines-linux-mac-create-ssh-keys.md)
+* [Create SSH keys on Linux and Mac for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Azure account
     * [trial signup](https://www.azure.cn/pricing/1rmb-trial/)
     * [Azure portal preview](http://portal.azure.cn)
@@ -118,7 +118,6 @@ PermitRootLogin no
 ```
 
 #### Disable Challenge-response Authentication
-
 ```sh
 # Change ChallengeResponseAuthentication to this:
 ChallengeResponseAuthentication no
@@ -130,13 +129,11 @@ From the T1 shell verify that you are still logged in.  This is critical so you 
 From T2 run:
 
 ##### On the Debian Family
-
 ```bash
 sudo service ssh restart
 ```
 
 ##### On the RedHat Family
-
 ```bash
 sudo service sshd restart
 ```

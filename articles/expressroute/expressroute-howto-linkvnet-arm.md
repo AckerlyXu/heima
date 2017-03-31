@@ -21,7 +21,7 @@ ms.author: ganesr
 
 > [!div class="op_single_selector"]
 >- [Azure Portal - Resource Manager](./expressroute-howto-linkvnet-portal-resource-manager.md)
->- [PowerShell - Resource Manager] (/documentation/articles/expressroute-howto-linkvnet-arm/)
+>- [PowerShell - Resource Manager] (./expressroute-howto-linkvnet-arm.md/)
 >- [PowerShell - Classic](./expressroute-howto-linkvnet-classic.md)
 
 This article will help you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription.

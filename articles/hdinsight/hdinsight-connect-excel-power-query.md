@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/06/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Connect Excel to Hadoop by using Power Query
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -56,7 +56,7 @@ The Power Query add-in for Excel makes it easy to import data from your HDInsigh
     **Note:** If you don't see the **Power Query** menu, go to **File** > **Options** > **Add-Ins**, and select **COM Add-ins** from the drop-down **Manage** box at the bottom of the page. Select the **Go...** button and verify that the box for the Power Query for Excel add-in has been checked.
 
     **Note:** Power Query also allows you to import data from HDFS by clicking **From Other Sources**.
-4. For **Account Name**, enter the name of the Azure Blob storage account associated with your cluster, and then click **OK**. (For Azure China, **Account Name** must be a full url, such as: https://<your account name\>.blob.core.chinacloudapi.cn/) [This can be the default storage account](./hdinsight-administer-use-management-portal.md#find-the-default-storage-account) or a linked storage account.  The format is *https://\<StorageAccountName\>.blob.core.chinacloudapi.cn/*.
+4. For **Account Name**, enter the name of the Azure Blob storage account associated with your cluster, and then click **OK**. (For Azure China, **Account Name** must be a full url, such as: https://<your account name\>.blob.core.chinacloudapi.cn/) [This can be the default storage account](hdinsight-administer-use-management-portal.md#find-the-default-storage-account) or a linked storage account.  The format is *https://\<StorageAccountName\>.blob.core.chinacloudapi.cn/*.
 5. For **Account Key**, enter the key for the Blob storage account, and then click **Save**. (You need to do this only the first time you access this store.)
 6. In the **Navigator** pane on the left of the Query Editor, double-click the Blob storage container name. By default, the container name is the same name as the cluster name.
 7. Locate **HiveSampleData.txt** in the **Name** column (the folder path is **../hive/warehouse/hivesampletable/**), and then click **Binary** on the left of HiveSampleData.txt. HiveSampleData.txt comes with all the cluster. Optionally, you can use your own file.
@@ -72,9 +72,9 @@ In this article, you learned how to use Power Query to retrieve data from HDInsi
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-ODBC]
 * [Upload Data to HDInsight][hdinsight-upload-data]
 
-[hdinsight-ODBC]: ./hdinsight-connect-excel-hive-ODBC-driver.md
-[hdinsight-get-started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
+[hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
 
 [image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.SelectHdiSource.png
 [image-hdi-powerquery-importdata]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportData.png

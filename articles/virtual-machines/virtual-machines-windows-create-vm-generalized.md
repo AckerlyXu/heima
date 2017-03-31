@@ -17,19 +17,19 @@ ms.topic: article
 ms.date: 10/10/2016
 wacn.date: ''
 ms.author: cynthn
+
 ---
-
 # Create a VM from a generalized VHD image
-A generalized VHD image has had all of your personal account information removed using [Sysprep](./virtual-machines-windows-generalize-vhd.md). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](./virtual-machines-windows-upload-image.md), or by running Sysprep on an existing Azure VM and then [copying the VHD](./virtual-machines-windows-vhd-copy.md).
+A generalized VHD image has had all of your personal account information removed using [Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can create a generalized VHD by running Sysprep on an on-premises VM, then [uploading the VHD to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), or by running Sysprep on an existing Azure VM and then [copying the VHD](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-If you want to create a VM from a specialized VHD, see [Create a VM from a specialized VHD](./virtual-machines-windows-create-vm-specialized.md).
+If you want to create a VM from a specialized VHD, see [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 The quickest way to create a VM from a generalized VHD is to use a [quick start template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image). 
 
 ## Prerequisites
-If you are going to use a VHD uploaded from an on-premises VM, like one created using Hyper-V, you should make sure you followed the directions in [Prepare a Windows VHD to upload to Azure](./virtual-machines-windows-prepare-for-upload-vhd-image.md). 
+If you are going to use a VHD uploaded from an on-premises VM, like one created using Hyper-V, you should make sure you followed the directions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Both uploaded VHDs and existing Azure VM VHDs need to be generalized before you can create a VM using this method. For more information, see [Generalize a Windows virtual machine using Sysprep](./virtual-machines-windows-generalize-vhd.md). 
+Both uploaded VHDs and existing Azure VM VHDs need to be generalized before you can create a VM using this method. For more information, see [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## Set the URI of the VHD
 The URI for the VHD to use is in the format: https://**mystorageaccount**.blob.core.chinacloudapi.cn/**mycontainer**/**MyVhdName**.vhd. In this example the VHD named **myVHD** is in the storage account **mystorageaccount** in the container **mycontainer**.
@@ -48,7 +48,6 @@ Create the vNet and subnet of the [virtual network](../virtual-network/virtual-n
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-
 2. Create the virtual network. The following sample creates a virtual network named **myVnet** in the **China North** location with the address prefix of **10.0.0.0/16**.  
 
     ```powershell
@@ -68,7 +67,6 @@ To enable communication with the virtual machine in the virtual network, you nee
     $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```
-
 2. Create the NIC. This example creates a NIC named **myNic**. 
 
     ```powershell
@@ -80,7 +78,7 @@ To enable communication with the virtual machine in the virtual network, you nee
 ## Create the network security group and an RDP rule
 To be able to log in to your VM using RDP, you need to have a security rule that allows RDP access on port 3389. 
 
-This example creates an NSG named **myNsg** that contains a rule called **myRdpRule** that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](./virtual-machines-windows-nsg-quickstart-powershell.md).
+This example creates an NSG named **myNsg** that contains a rule called **myRdpRule** that allows RDP traffic over port 3389. For more information about NSGs, see [Opening ports to a VM in Azure using PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
@@ -120,7 +118,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 
     # Size of the virtual machine. This example creates "Standard_D2_v2" sized VM. 
     # See the VM sizes documentation for more information: 
-    # /documentation/articles/virtual-machines-windows-sizes/
+    # /azure/virtual-machines-windows-sizes/
     $vmSize = "Standard_D2_v2"
 
     # Computer name for the VM. This examples sets the computer name as "myComputer".
@@ -168,4 +166,4 @@ When complete, you should see the newly created VM in the [Azure portal preview]
 ```
 
 ## Next steps
-To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](./virtual-machines-windows-ps-manage.md).
+To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

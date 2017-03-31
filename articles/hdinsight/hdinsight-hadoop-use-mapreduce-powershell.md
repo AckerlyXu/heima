@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/19/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Run MapReduce jobs with Hadoop on HDInsight using PowerShell
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -34,7 +34,7 @@ To complete the steps in this article, you will need the following:
 * **An Azure HDInsight (Hadoop on HDInsight) cluster**
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * **A workstation with Azure PowerShell**.
 
@@ -125,25 +125,21 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **mapreducejob.ps1** file, then use the following command to run the script:
 
-    ```
-    .\mapreducejob.ps1
-    ```
+        .\mapreducejob.ps1
 
     When you run the script, you are prompted for the name of the HDInsight cluster and the HTTPS/Admin account name and password for the cluster. You may also be prompted to authenticate to your Azure subscription.
 
 3. When the job completes, you should receive output similar to the following:
 
-    ```
-    Cluster         : CLUSTERNAME
-    ExitCode        : 0
-    Name            : wordcount
-    PercentComplete : map 100% reduce 100%
-    Query           :
-    State           : Completed
-    StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
-    SubmissionTime  : 12/5/2014 8:34:09 PM
-    JobId           : job_1415949758166_0071
-    ```
+        Cluster         : CLUSTERNAME
+        ExitCode        : 0
+        Name            : wordcount
+        PercentComplete : map 100% reduce 100%
+        Query           :
+        State           : Completed
+        StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
+        SubmissionTime  : 12/5/2014 8:34:09 PM
+        JobId           : job_1415949758166_0071
 
     This output indicates that the job completed successfully.
 
@@ -183,9 +179,9 @@ As you can see, Azure PowerShell provides an easy way to run MapReduce jobs on a
 
 For general information about MapReduce jobs in HDInsight:
 
-* [Use MapReduce on HDInsight Hadoop](./hdinsight-use-mapreduce.md)
+* [Use MapReduce on HDInsight Hadoop](hdinsight-use-mapreduce.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)

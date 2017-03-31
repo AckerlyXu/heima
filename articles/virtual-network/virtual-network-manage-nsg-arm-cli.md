@@ -18,8 +18,8 @@ ms.date: 02/21/2017
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Manage network security groups using the Azure CLI 2.0
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
@@ -28,13 +28,13 @@ ms.custom: H1Hack27Feb2017
 
 You can complete the task using one of the following CLI versions: 
 
-- [Azure CLI 1.0](./virtual-network-manage-nsg-cli-nodejs.md) - our CLI for the classic and resource management deployment models 
+- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md) - our CLI for the classic and resource management deployment models 
 - [Azure CLI 2.0](#View-existing-NSGs) - our next generation CLI for the resource management deployment model (this article)
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
 > 
 
 [!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
@@ -51,12 +51,10 @@ az network nsg list -g RG-NSG -o table
 
 Expected output:
 
-```
-Location    Name          ProvisioningState    ResourceGroup    ResourceGuid
-----------  ------------  -------------------  ---------------  ------------------------------------
-chinaeast   NSG-BackEnd   Succeeded            RG-NSG           <guid>
-chinaeast   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
-```
+    Location    Name          ProvisioningState    ResourceGroup    ResourceGuid
+    ----------  ------------  -------------------  ---------------  ------------------------------------
+    chinaeast   NSG-BackEnd   Succeeded            RG-NSG           <guid>
+    chinaeast   NSG-FrontEnd  Succeeded            RG-NSG           <guid>
 
 ## List all rules for an NSG
 To view the rules of an NSG named **NSG-FrontEnd**, run the [az network nsg show](https://docs.microsoft.com/cli/azure/network/nsg#show) command using a [JMESPATH query filter](https://docs.microsoft.com/cli/azure/query-az-cli2) and the `-o table` output format:
@@ -71,18 +69,16 @@ To view the rules of an NSG named **NSG-FrontEnd**, run the [az network nsg show
 
 Expected output:
 
-```
-Name                           Desc                                                    Access    Direction    DestPortRange    DestAddrPrefix    SrcPortRange    SrcAddrPrefix
------------------------------  ------------------------------------------------------  --------  -----------  ---------------  ----------------  --------------  -----------------
-AllowVnetInBound               Allow inbound traffic from all VMs in VNET              Allow     Inbound      *                VirtualNetwork    *               VirtualNetwork
-AllowAzureLoadBalancerInBound  Allow inbound traffic from azure load balancer          Allow     Inbound      *                *                 *               AzureLoadBalancer
-DenyAllInBound                 Deny all inbound traffic                                Deny      Inbound      *                *                 *               *
-AllowVnetOutBound              Allow outbound traffic from all VMs to all VMs in VNET  Allow     Outbound     *                VirtualNetwork    *               VirtualNetwork
-AllowInternetOutBound          Allow outbound traffic from all VMs to Internet         Allow     Outbound     *                Internet          *               *
-DenyAllOutBound                Deny all outbound traffic                               Deny      Outbound     *                *                 *               *
-rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
-web-rule                                                                               Allow     Inbound      80               *                 *               Internet
-```
+    Name                           Desc                                                    Access    Direction    DestPortRange    DestAddrPrefix    SrcPortRange    SrcAddrPrefix
+    -----------------------------  ------------------------------------------------------  --------  -----------  ---------------  ----------------  --------------  -----------------
+    AllowVnetInBound               Allow inbound traffic from all VMs in VNET              Allow     Inbound      *                VirtualNetwork    *               VirtualNetwork
+    AllowAzureLoadBalancerInBound  Allow inbound traffic from azure load balancer          Allow     Inbound      *                *                 *               AzureLoadBalancer
+    DenyAllInBound                 Deny all inbound traffic                                Deny      Inbound      *                *                 *               *
+    AllowVnetOutBound              Allow outbound traffic from all VMs to all VMs in VNET  Allow     Outbound     *                VirtualNetwork    *               VirtualNetwork
+    AllowInternetOutBound          Allow outbound traffic from all VMs to Internet         Allow     Outbound     *                Internet          *               *
+    DenyAllOutBound                Deny all outbound traffic                               Deny      Outbound     *                *                 *               *
+    rdp-rule                                                                               Allow     Inbound      3389             *                 *               Internet
+    web-rule                                                                               Allow     Inbound      80               *                 *               Internet
 > [!NOTE]
 > You can also use [az network nsg rule list](https://docs.microsoft.com/cli/azure/network/nsg/rule#list) to list only the custom rules from an NSG .
 >
@@ -348,6 +344,5 @@ You can only delete an NSG if it's not associated to any resource. To delete an 
     ```azurecli
     az network nsg delete --resource-group RG-NSG --name NSG-FrontEnd
     ```
-
 ## Next steps
-* [Enable logging](./virtual-network-nsg-manage-log.md) for NSGs.
+* [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.

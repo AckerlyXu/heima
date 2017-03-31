@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/10/2016
 wacn.date: ''
 ms.author: zivr
----
 
+---
 # Azure Metadata Service - Scheduled Events (Preview)
 
 > [!NOTE] 
-> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Azure Supplemental Terms of Use for Azure Previews.] (/support/legal/preview-supplemental-terms/)
+> Previews are made available to you on the condition that you agree to the terms of use. For more information, see [Azure Supplemental Terms of Use for Azure Previews.](https://www.azure.cn/support/legal/preview-supplemental-terms/)
 >
 
 Scheduled Events is one of the subservices under Azure Metadata Service that surfaces information regarding upcoming events (for example, reboot) so your application can prepare for them and limit disruption. It is available for all Azure Virtual Machine types including PaaS and IaaS. Scheduled Events gives your Virtual Machine time to perform preventive tasks and minimize the effect of an event. 
@@ -66,28 +66,24 @@ In both cases, the user initiated operation takes longer to complete since sched
 ### Query for events
 You can query for Scheduled Events simply by making the following call
 
-```
-curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
-```
+	curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
 In the case where there are scheduled events, the response contains an array of events: 
 
-```
-{
- "DocumentIncarnation":{IncarnationID},
- "Events":[
-      {
-            "EventId":{eventID},
-            "EventType":"Reboot" | "Redeploy" | "Freeze",
-            "ResourceType":"VirtualMachine",
-            "Resources":[{resourceName}],
-            "EventStatus":"Scheduled" | "Started",
-            "NotBefore":{timeInUTC},              
-     }
- ]
-}
-```
+	{
+     "DocumentIncarnation":{IncarnationID},
+     "Events":[
+          {
+                "EventId":{eventID},
+                "EventType":"Reboot" | "Redeploy" | "Freeze",
+                "ResourceType":"VirtualMachine",
+                "Resources":[{resourceName}],
+                "EventStatus":"Scheduled" | "Started",
+                "NotBefore":{timeInUTC},              
+         }
+     ]
+	}
 
 EventType Captures the expected impact on the Virtual Machine where:
 - Freeze: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files, or network connections
@@ -153,7 +149,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-    ApproveScheduledEvent $event.EventId $scheduledEventURI 
+	ApproveScheduledEvent $event.EventId $scheduledEventURI 
     }
 }
 ```
@@ -192,6 +188,7 @@ The following sample is of a client surfacing APIs to communicate with the Metad
             }
         }
     }
+
 ```
 
 Scheduled Events could be parsed using the following data structures 
@@ -227,6 +224,7 @@ Scheduled Events could be parsed using the following data structures
             this.eventId = eventId;
         }
     }
+
 ```
 
 A Sample Program using the client to retrieve, handle, and acknowledge events:   
@@ -276,11 +274,13 @@ public class Program
         // Add logic for handling events here
     }
 }
+
 ```
 
 ## Python Sample 
 
 ```python
+
 #!/usr/bin/python
 
 import json
@@ -318,7 +318,7 @@ def main():
 if __name__ == '__main__':
   main()
   sys.exit(0)
-```
 
+```
 ## Next Steps 
 [Planned maintenance for virtual machines in Azure](./virtual-machines-linux-planned-maintenance.md)

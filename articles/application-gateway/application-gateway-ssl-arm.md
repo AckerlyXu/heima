@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Configure an application gateway for SSL offload by using Azure Resource Manager
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-ssl-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-ssl-arm.md)
->- [Azure Classic PowerShell](./application-gateway-ssl.md)
+> * [Azure portal preview](application-gateway-ssl-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+> * [Azure Classic PowerShell](application-gateway-ssl.md)
 
 Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
@@ -224,10 +225,9 @@ This sample creates an application gateway with all configuration items from the
 
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
 
-```
+```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 ```
-
 
 ```
 Name                     : publicIP01
@@ -253,9 +253,9 @@ DnsSettings              : {
 
 ## Next steps
 
-If you want to configure an application gateway to use with an internal load balancer (ILB), see [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb.md).
+If you want to configure an application gateway to use with an internal load balancer (ILB), see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
 
 If you want more information about load balancing options in general, see:
 
-* [Azure Load Balancer](../load-balancer/index.md)
-* [Azure Traffic Manager](../traffic-manager/index.md)
+* [Azure Load Balancer](/azure/load-balancer/)
+* [Azure Traffic Manager](/azure/traffic-manager/)

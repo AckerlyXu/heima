@@ -101,6 +101,7 @@ With the change to premium storage, you also have an increased number of databas
 - The user executing the script should be in the [mediumrc role][mediumrc role] or higher. To add a user to this role, execute the following:
       ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
+```sql
     -------------------------------------------------------------------------------
     -- Step 1: Create table to control index rebuild
     -- Run as user in mediumrc or higher
@@ -140,6 +141,7 @@ With the change to premium storage, you also have an increased number of databas
     --------------------------------------------------------------------------------
     drop table sql_statements;
     go
+```
 
 If you encounter any issues with your data warehouse, [create a support ticket][create a support ticket] and reference “migration to premium storage” as the possible cause.
 

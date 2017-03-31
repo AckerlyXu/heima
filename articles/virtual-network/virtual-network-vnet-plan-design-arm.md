@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/08/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Plan and design Azure Virtual Networks
-Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](./virtual-networks-overview.md) and [how to deploy](./virtual-networks-create-vnet-arm-pportal.md) one before proceeding.
+Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](virtual-networks-create-vnet-arm-pportal.md) one before proceeding.
 
 ## Plan
 A thorough understanding of Azure subscriptions, regions, and network resources is critical for success. You can use the list of considerations below as a starting point. Once you understand those considerations, you can define the requirements for your network design.
@@ -77,7 +77,7 @@ Subnets contain the following properties.
 | **ipConfigurations** |Collection of IP configuration objects used by NICs connected to the subnet | |
 
 ### Name resolution
-By default, your VNet uses [Azure-provided name resolution](./virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](./virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names between your networks.  
+By default, your VNet uses [Azure-provided name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md) to resolve names between your networks.  
 
 ### <a name="Limits"></a> Limits
 Review the networking limits in the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article to ensure that your design doesn't conflict with any of the limits. Some limits can be increased by opening a [support ticket](https://www.azure.cn/support/support-ticket-form/?l=zh-cn).
@@ -117,9 +117,9 @@ The table below shows some common design patterns for using subscriptions and VN
 You should consider multiple subnets in a VNet in the following scenarios:
 
 * **Not enough private IP addresses for all NICs in a subnet**. If your subnet address space does not contain enough IP addresses for the number of NICs in the subnet, you need to create multiple subnets. Keep in mind that Azure reserves 5 private IP addresses from each subnet that cannot be used: the first and last addresses of the address space (for the subnet address, and multicast) and 3 addresses to be used internally (for DHCP and DNS purposes).
-* **Security**. You can use subnets to separate groups of VMs from one another for workloads that have a multi-layer structure, and apply different [network security groups (NSGs)](./virtual-networks-nsg.md#subnets) for those subnets.
+* **Security**. You can use subnets to separate groups of VMs from one another for workloads that have a multi-layer structure, and apply different [network security groups (NSGs)](virtual-networks-nsg.md#subnets) for those subnets.
 * **Hybrid connectivity**. You can use VPN gateways and ExpressRoute circuits to [connect](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel) your VNets to one another, and to your on-premises data center(s). VPN gateways and ExpressRoute circuits require a subnet of their own to be created.
-* **Virtual appliances**. You can use a virtual appliance, such as a firewall, WAN accelerator, or VPN gateway in an Azure VNet. When you do so, you need to [route traffic](./virtual-networks-udr-overview.md) to those appliances and isolate them in their own subnet.
+* **Virtual appliances**. You can use a virtual appliance, such as a firewall, WAN accelerator, or VPN gateway in an Azure VNet. When you do so, you need to [route traffic](virtual-networks-udr-overview.md) to those appliances and isolate them in their own subnet.
 
 ### Subnet and NSG design patterns
 The table below shows some common design patterns for using subnets.
@@ -185,7 +185,7 @@ You should start your design planning by answering the question in the [Define r
     Yes. The networking team needs full control on the virtual networking settings, while developers should only be able to deploy their VMs to pre-existing subnets.
 
 ### Design
-You should follow the design specifying subscriptions, VNets, subnets, and NSGs. We will discuss NSGs here, but you should learn more about [NSGs](./virtual-networks-nsg.md) before finishing your design.
+You should follow the design specifying subscriptions, VNets, subnets, and NSGs. We will discuss NSGs here, but you should learn more about [NSGs](virtual-networks-nsg.md) before finishing your design.
 
 **Number of subscriptions and VNets**
 
@@ -236,7 +236,7 @@ The following requirements are related to access control:
 Based on those requirements, you could add users from the networking team to the built-in **Network Contributor** role in each subscription; and create a custom role for the application developers in each subscription giving them rights to add VMs to existing subnets.
 
 ## Next steps
-* [Deploy a virtual network](./virtual-networks-create-vnet-arm-template-click.md) based on a scenario.
+* [Deploy a virtual network](virtual-networks-create-vnet-arm-template-click.md) based on a scenario.
 * Understand how to [load balance](../load-balancer/load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](../traffic-manager/traffic-manager-overview.md).
-* Learn more about [NSGs and how to plan and design](./virtual-networks-nsg.md) an NSG solution.
+* Learn more about [NSGs and how to plan and design](virtual-networks-nsg.md) an NSG solution.
 * Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel).

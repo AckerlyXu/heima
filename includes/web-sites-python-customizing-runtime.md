@@ -6,9 +6,7 @@ Azure will determine the version of Python to use for its virtual environment wi
 
 Valid values for the contents of 
 
-```
-\runtime.txt
-```
+    \runtime.txt
 
 are:
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Web Apps Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure Web Apps Documentation - Tutorials, API Reference | Azure
 description: Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and more.
 services: app-service
 author: carolz
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 # Azure Web Apps Documentation
@@ -23,7 +24,7 @@ ms.author: carolz
         <div class="callout">
             <a href="https://azure.microsoft.com/community/training/courses/developing-dotnet-microsoft-azure-getting-started/">
                 <img src="media/index/pluralsight.svg" />
-                Free PluralSight video training - Developing with .NET on Microsoft Azure
+                Free PluralSight video training - Developing with .NET on Azure
             </a>
         </div>
     </div>
@@ -156,7 +157,7 @@ ms.author: carolz
         </div>
         </a>
     </li>
-   
+
      <li>
         <a href="/azure/app-service-web/app-service-web-get-started-php">
         <div class="cardSize">
@@ -193,7 +194,7 @@ ms.author: carolz
         </div>
         </a>
     </li>
-   
+
 </ul>
 
 ---
@@ -206,7 +207,7 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
+                        <p><a href="https://docs.microsoft.com/cli/azure/appservice">Azure CLI 2.0</a></p>
                     </div>
                 </div>
             </div>
@@ -231,12 +232,10 @@ ms.author: carolz
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/appservice">REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/appservice">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-

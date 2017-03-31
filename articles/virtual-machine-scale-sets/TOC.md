@@ -26,8 +26,6 @@
 ### [Work with large scale sets](virtual-machine-scale-sets-placement-groups.md)
 ### [Convert a scale set template to use managed disk](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## Manage
 ### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
 ### [Autoscale and scale sets](virtual-machine-scale-sets-autoscale-overview.md)
@@ -44,12 +42,12 @@
 ### [Scale Set FAQ](virtual-machine-scale-sets-faq.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/virtualmachinescalesets/)
+## [REST](https://docs.microsoft.com/rest/api/virtualmachinescalesets/)
 
 # Resources
 ## Pricing 
-### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
-### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+### [Linux](https://www.azure.cn/pricing/details/virtual-machine-scale-sets/linux/)
+### [Windows](https://www.azure.cn/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

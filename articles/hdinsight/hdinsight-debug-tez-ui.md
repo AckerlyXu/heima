@@ -6,7 +6,6 @@ documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-ROBOTS: NOINDEX
 
 ms.assetid: a55bccb9-7c32-4ff2-b654-213a2354bd5c
 ms.service: hdinsight
@@ -17,16 +16,17 @@ ms.workload: big-data
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: larryfr
----
+ROBOTS: NOINDEX
 
+---
 # Use the Tez UI to debug Tez Jobs on Windows-based HDInsight
 The Tez UI is a web page that can be used to understand and debug jobs that use Tez as the execution engine on Windows-based HDInsight clusters. The Tez UI allows you to visualize the job as a graph of connected items, drill into each item, and retrieve statistics and logging information.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
-* A Windows-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Windows-based HDInsight](/documentation/articles/hdinsight-hadoop-tutorial-get-started-windows/).
+* A Windows-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).
 
     > [!IMPORTANT]
     > The Tez UI is only available on Windows-based HDInsight clusters created after February 8th, 2016.
@@ -37,9 +37,7 @@ The Tez UI is a web page that can be used to understand and debug jobs that use 
 ## Understanding Tez
 Tez is an extensible framework for data processing in Hadoop that provides greater speeds than traditional MapReduce processing. For Windows-based HDInsight clusters, it is an optional engine that you can enable for Hive by using the following command as part of your Hive query:
 
-```
-set hive.execution.engine=tez;
-```
+    set hive.execution.engine=tez;
 
 When work is submitted to Tez, it creates a Directed Acyclic Graph (DAG) that describes the order of execution of the actions required by the job. Individual actions are called vertices, and execute a piece of the overall job. The actual execution of the work described by a vertex is called a task, and may be distributed across multiple nodes in the cluster.
 
@@ -57,23 +55,17 @@ Use the following steps to run a Hive query that will execute using Tez.
 1. In a web browser, navigate to https://CLUSTERNAME.azurehdinsight.cn, where **CLUSTERNAME** is the name of your HDInsight cluster.
 2. From the menu at the top of the page, select the **Hive Editor**. This will display a page with the following example query.
 
-    ```
-    Select * from hivesampletable
-    ```
+        Select * from hivesampletable
 
     Erase the example query and replace it with the following.
 
-    ```
-    set hive.execution.engine=tez;
-    select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
-    ```
+        set hive.execution.engine=tez;
+        select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
 3. Select the **Submit** button. The **Job Session** section at the bottom of the page will display the status of the query. Once the status changes to **Completed**, select the **View Details** link to view the results. The **Job Output** should be similar to the following:
 
-    ```
-    en-GB   Hessen      Germany
-    en-GB   Kingston    Jamaica
-    en-GB   Nairobi Area    Kenya
-    ```
+        en-GB   Hessen      Germany
+        en-GB   Kingston    Jamaica
+        en-GB   Nairobi Area    Kenya
 
 ## Use the Tez UI
 > [!NOTE]
@@ -145,6 +137,6 @@ Use the following steps to run a Hive query that will execute using Tez.
     ![Task details](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## Next Steps
-Now that you have learned how to use the Tez view, learn more about [Using Hive on HDInsight](./hdinsight-use-hive.md).
+Now that you have learned how to use the Tez view, learn more about [Using Hive on HDInsight](hdinsight-use-hive.md).
 
 For more detailed technical information on Tez, see the [Tez page at Hortonworks](http://hortonworks.com/hadoop/tez/).

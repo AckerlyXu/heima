@@ -7,7 +7,7 @@ author: steveesp
 manager: Gerald DeGrace
 editor: ''
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -16,6 +16,7 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2017
 wacn.date: ''
 ms.author: steveesp
+
 ---
 
 # Optimize network throughput for Azure virtual machines
@@ -33,13 +34,11 @@ A VM using Receive Side Scaling (RSS) can reach higher maximal throughput than a
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled                 : False
     ```
-
 2. Enter the following command to enable RSS:
 
     ```powershell
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
     ```
-
     The previous command does not have an output. The command changed NIC settings, causing temporary connectivity loss for about one minute. A Reconnecting dialog box appears during the connectivity loss. Connectivity is typically restored after the third attempt.
 3. Confirm that RSS is enabled in the VM by entering the `Get-NetAdapterRss` command again. If successful, the following example output is returned:
 

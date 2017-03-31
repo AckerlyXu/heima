@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/12/2016
 wacn.date: ''
 ms.author: yochaykk
----
 
+---
 # Azure App Service and existing Azure services
 This article outlines the changes to existing Azure services as part of the change to bring together several Azure services into [Azure App Service](https://www.azure.cn/home/features/app-service/), a new integrated offering.
 
@@ -48,7 +48,7 @@ The following table explains how existing Azure services map to App Service and 
 <td align="left">Web Apps</td>
 <td align="left"><li>For Azure Websites, App Service is strictly limited to changing the name  Websites to Web Apps.
 <p><li>All your existing instances of Websites are now Web Apps in App Service.</p>
-<p><li>You can access your existing websites via the <a href="./app-service-web-app-azure-portal.md">Azure Portal Preview</a>, where you will find all your existing sites under <em>App Service</em>.</p>
+<p><li>You can access your existing websites via the <a href="/azure/app-service-web/app-service-web-app-azure-portal/">Azure Portal Preview</a>, where you will find all your existing sites under <em>App Service</em>.</p>
 <p><li><em>Web Hosting Plan</em> is now <em>App Service Plan</em>. An <em>App Service Plan</em> can host any app type of App Service, such as Web, Mobile, or API apps.</p>
 <p><li>Azure App Service Web Apps is in General Availability.</p>
 <p><li><a href="https://www.azure.cn/home/features/app-service/web-apps/">Learn more about Web Apps</a>.</p></td>
@@ -58,7 +58,7 @@ The following table explains how existing Azure services map to App Service and 
 <td align="left">Mobile Apps</td>
 <td align="left"><p><li>Mobile Services continue to be available as a standalone service and remain fully supported.</p>
 <p><li>Mobile Apps is an app type in App Service, which integrates all of the functionality of Mobile Services and more.</p>
-<p><li>It is easy to <a href="../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md">migrate from Mobile Services to Mobile Apps</a>.</p>
+<p><li>It is easy to <a href="/azure/app-service-mobile/app-service-mobile-migrating-from-mobile-services/">migrate from Mobile Services to Mobile Apps</a>.</p>
 <p><li>As part of App Service, Mobile Apps get new capabilities beyond Mobile Services, such as  integration with on-premises and SaaS systems, staging slots, WebJobs, better scaling options, and more.</p>
 <p><li><a href="https://www.azure.cn/home/features/app-service/mobile-apps/">Learn more about Mobile Apps</a>.</p>
 </tr>
@@ -72,4 +72,4 @@ The following table explains how existing Azure services map to App Service and 
 </tbody>
 </table>
 
-To learn more, please visit [App Service documentation](../app-service/index.md).
+To learn more, please visit [App Service documentation](/azure/app-service/).

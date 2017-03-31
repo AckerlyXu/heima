@@ -17,9 +17,9 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
----
+ms.custom: H1Hack27Feb2017 
 
+---
 # Create a virtual network using an Azure Resource Manager template
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -27,14 +27,15 @@ ms.custom: H1Hack27Feb2017
 Azure has two deployment models: Azure Resource Manager and classic. Azure recommends creating resources through the Resource Manager deployment model. To learn more about the differences between the two models, read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.
 
 This article explains how to create a VNet through the Resource Manager deployment model using an Azure Resource Manager template. You can also create a VNet through Resource Manager using other tools or create a VNet through the classic deployment model by selecting a different option from the following list:
+
 > [!div class="op_single_selector"]
->- [Portal](./virtual-networks-create-vnet-arm-pportal.md)
->- [PowerShell](./virtual-networks-create-vnet-arm-ps.md)
->- [CLI](./virtual-networks-create-vnet-arm-cli.md)
->- [Template](./virtual-networks-create-vnet-arm-template-click.md)
->- [Portal (Classic)](./virtual-networks-create-vnet-classic-pportal.md)
->- [PowerShell (Classic)](./virtual-networks-create-vnet-classic-netcfg-ps.md)
->- [CLI (Classic)](./virtual-networks-create-vnet-classic-cli.md)
+>- [Portal](virtual-networks-create-vnet-arm-pportal.md)
+>- [PowerShell](virtual-networks-create-vnet-arm-ps.md)
+>- [CLI](virtual-networks-create-vnet-arm-cli.md)
+>- [Template](virtual-networks-create-vnet-arm-template-click.md)
+>- [Portal (Classic)](virtual-networks-create-vnet-classic-pportal.md)
+>- [PowerShell (Classic)](virtual-networks-create-vnet-classic-netcfg-ps.md)
+>- [CLI (Classic)](virtual-networks-create-vnet-classic-cli.md)
 
 You will learn how to download and modify and existing ARM template from GitHub, and deploy the template from GitHub, PowerShell, and the Azure CLI.
 
@@ -118,17 +119,15 @@ Complete the following steps to deploy the template you downloaded by using Powe
 
     Expected output:
 
-    ```
-    ResourceGroupName : TestRG
-    Location          : chinaeast
-    ProvisioningState : Succeeded
-    Tags              :
-    Permissions       :
-                        Actions  NotActions
-                        =======  ==========
-                        *
-    ResourceId        : /subscriptions/[Id]/resourceGroups/TestRG
-    ```
+        ResourceGroupName : TestRG
+        Location          : chinaeast
+        ProvisioningState : Succeeded
+        Tags              :
+        Permissions       :
+                            Actions  NotActions
+                            =======  ==========
+                            *
+        ResourceId        : /subscriptions/[Id]/resourceGroups/TestRG
 
 3. Run the following command to deploy the new VNet using the template and parameter files you downloaded and modified above:
 
@@ -139,26 +138,24 @@ Complete the following steps to deploy the template you downloaded by using Powe
 
     Expected output:
 
-    ```
-    DeploymentName    : TestVNetDeployment
-    ResourceGroupName : TestRG
-    ProvisioningState : Succeeded
-    Timestamp         : [Date and time]
-    Mode              : Incremental
-    TemplateLink      :
-    Parameters        :
-                        Name             Type                       Value
-                        ===============  =========================  ==========
-                        location         String                     China North
-                        vnetName         String                     TestVNet
-                        addressPrefix    String                     192.168.0.0/16
-                        subnet1Prefix    String                     192.168.1.0/24
-                        subnet1Name      String                     FrontEnd
-                        subnet2Prefix    String                     192.168.2.0/24
-                        subnet2Name      String                     BackEnd
+        DeploymentName    : TestVNetDeployment
+        ResourceGroupName : TestRG
+        ProvisioningState : Succeeded
+        Timestamp         : [Date and time]
+        Mode              : Incremental
+        TemplateLink      :
+        Parameters        :
+                            Name             Type                       Value
+                            ===============  =========================  ==========
+                            location         String                     China North
+                            vnetName         String                     TestVNet
+                            addressPrefix    String                     192.168.0.0/16
+                            subnet1Prefix    String                     192.168.1.0/24
+                            subnet1Name      String                     FrontEnd
+                            subnet2Prefix    String                     192.168.2.0/24
+                            subnet2Name      String                     BackEnd
 
-    Outputs           :
-    ```
+        Outputs           :
 4. Run the following command to view the properties of the new VNet:
 
     ```powershell
@@ -167,46 +164,44 @@ Complete the following steps to deploy the template you downloaded by using Powe
 
     Expected output:
 
-    ```
-    Name              : TestVNet
-    ResourceGroupName : TestRG
-    Location          : chinaeast
-    Id                : /subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-    Etag              : W/"[Id]"
-    ProvisioningState : Succeeded
-    Tags              :
-    AddressSpace      : {
-                          "AddressPrefixes": [
-                            "192.168.0.0/16"
-                          ]
-                        }
-    DhcpOptions       : {
-                          "DnsServers": null
-                        }
-    NetworkInterfaces : null
-    Subnets           : [
-                          {
-                            "Name": "FrontEnd",
-                            "Etag": "W/\"[Id]\"",
-                            "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                            "AddressPrefix": "192.168.1.0/24",
-                            "IpConfigurations": [],
-                            "NetworkSecurityGroup": null,
-                            "RouteTable": null,
-                            "ProvisioningState": "Succeeded"
-                          },
-                          {
-                            "Name": "BackEnd",
-                            "Etag": "W/\"[Id]\"",
-                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-                            "AddressPrefix": "192.168.2.0/24",
-                            "IpConfigurations": [],
-                            "NetworkSecurityGroup": null,
-                            "RouteTable": null,
-                            "ProvisioningState": "Succeeded"
-                          }
-                        ]
-    ```
+        Name              : TestVNet
+        ResourceGroupName : TestRG
+        Location          : chinaeast
+        Id                : /subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        Etag              : W/"[Id]"
+        ProvisioningState : Succeeded
+        Tags              :
+        AddressSpace      : {
+                              "AddressPrefixes": [
+                                "192.168.0.0/16"
+                              ]
+                            }
+        DhcpOptions       : {
+                              "DnsServers": null
+                            }
+        NetworkInterfaces : null
+        Subnets           : [
+                              {
+                                "Name": "FrontEnd",
+                                "Etag": "W/\"[Id]\"",
+                                "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                                "AddressPrefix": "192.168.1.0/24",
+                                "IpConfigurations": [],
+                                "NetworkSecurityGroup": null,
+                                "RouteTable": null,
+                                "ProvisioningState": "Succeeded"
+                              },
+                              {
+                                "Name": "BackEnd",
+                                "Etag": "W/\"[Id]\"",
+                                "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+                                "AddressPrefix": "192.168.2.0/24",
+                                "IpConfigurations": [],
+                                "NetworkSecurityGroup": null,
+                                "RouteTable": null,
+                                "ProvisioningState": "Succeeded"
+                              }
+                            ]
 
 ## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a> Deploy the template using click-to-deploy
 
@@ -238,6 +233,6 @@ You can reuse pre-defined Azure Resource Manager templates uploaded to a GitHub 
 
 Learn how to connect:
 
-- A virtual machine (VM) to a virtual network by reading the [Create a Windows VM](/documentation/articles/virtual-machines-windows-hero-tutorial/) or [Create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-portal.md) articles. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
+- A virtual machine (VM) to a virtual network by reading the [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) or [Create a Linux VM](../virtual-machines/virtual-machines-linux-quick-create-portal.md) articles. Instead of creating a VNet and subnet in the steps of the articles, you can select an existing VNet and subnet to connect a VM to.
 - The virtual network to other virtual networks by reading the [Connect VNets](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) article.
 - The virtual network to an on-premises network using a site-to-site virtual private network (VPN) or ExpressRoute circuit. Learn how by reading the [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) and [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-arm.md) articles.

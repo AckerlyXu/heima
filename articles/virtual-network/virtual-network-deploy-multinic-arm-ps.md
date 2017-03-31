@@ -18,20 +18,21 @@ ms.date: 02/02/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create a VM with multiple NICs using PowerShell
+
 > [!div class="op_single_selector"]
->- [PowerShell](./virtual-network-deploy-multinic-arm-ps.md)
->- [Azure CLI](./virtual-network-deploy-multinic-arm-cli.md)
->- [Template](./virtual-network-deploy-multinic-arm-template.md)
->- [PowerShell (Classic)](./virtual-network-deploy-multinic-classic-ps.md)
->- [Azure CLI (Classic)](./virtual-network-deploy-multinic-classic-cli.md)
+>- [PowerShell](virtual-network-deploy-multinic-arm-ps.md)
+>- [Azure CLI](virtual-network-deploy-multinic-arm-cli.md)
+>- [Template](virtual-network-deploy-multinic-arm-template.md)
+>- [PowerShell (Classic)](virtual-network-deploy-multinic-classic-ps.md)
+>- [Azure CLI (Classic)](virtual-network-deploy-multinic-classic-cli.md)
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](./virtual-network-deploy-multinic-classic-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](virtual-network-deploy-multinic-classic-ps.md).
 >
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
@@ -91,7 +92,6 @@ You can download the full PowerShell script used [here](https://raw.githubuserco
     $ipAddressPrefix       = "192.168.2."
     $numberOfVMs           = 2
     ```
-
 3. Retrieve the existing resources needed for your deployment.
 
     ```powershell
@@ -109,20 +109,17 @@ You need to create a new resource group, a storage account for the data disks, a
     ```powershell
     New-AzureRmResourceGroup -Name $backendRGName -Location $location
     ```
-
 2. Create a new premium storage account in the resource group created above.
 
     ```powershell
     $prmStorageAccount = New-AzureRmStorageAccount -Name $prmStorageAccountName `
     -ResourceGroupName $backendRGName -Type Premium_LRS -Location $location
     ```
-
 3. Create a new availability set.
 
     ```powershell
     $avSet = New-AzureRmAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
     ```
-
 4. Get the local administrator account credentials to be used for each VM.
 
     ```powershell
@@ -207,137 +204,133 @@ Now that you downloaded and changed the script based on your needs, runt he scri
 
 1. Save your script and run it from the **PowerShell** command prompt, or **PowerShell ISE**. You will see the initial output, as follows:
 
-    ```
-    ResourceGroupName : IaaSStory-Backend
-    Location          : chinanorth
-    ProvisioningState : Succeeded
-    Tags              :
-    Permissions       :
-        Actions  NotActions
-        =======  ==========
-            *                  
+        ResourceGroupName : IaaSStory-Backend
+        Location          : chinanorth
+        ProvisioningState : Succeeded
+        Tags              :
+        Permissions       :
+            Actions  NotActions
+            =======  ==========
+                *                  
 
-    ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend
-    ```
+        ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend
 
 2. After a few minutes, fill out the credentials prompt and click **OK**. The output below represents a single VM. Notice the entire process took 8 minutes to complete.
 
-    ```
-    ResourceGroupName            :
-    Id                           :
-    Name                         : DB2
-    Type                         :
-    Location                     :
-    Tags                         :
-    TagsText                     : null
-    AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
-    AvailabilitySetReferenceText : 	{
-                                 "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Compute/availabilitySets/ASDB"
-                                }
-    Extensions                   :
-    ExtensionsText               : null
-    HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
-    HardwareProfileText          : {
-                                    "VirtualMachineSize": "Standard_DS3"
-                                   }
-    InstanceView                 :
-    InstanceViewText             : null
-    NetworkProfile               :
-    NetworkProfileText           : null
-    OSProfile                    :
-    OSProfileText                : null
-    Plan                         :
-    PlanText                     : null
-    ProvisioningState            :
-    StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
-    StorageProfileText           : {
-                                     "DataDisks": [
-                                       {
-                                         "Lun": 0,
-                                         "Caching": null,
-                                         "CreateOption": "empty",
-                                         "DiskSizeGB": 127,
-                                         "Name": "DB2-datadisk-1",
-                                         "SourceImage": null,
-                                         "VirtualHardDisk": {
-                                           "Uri": "https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/DB2-datadisk-1.vhd"
-                                         }
+        ResourceGroupName            :
+        Id                           :
+        Name                         : DB2
+        Type                         :
+        Location                     :
+        Tags                         :
+        TagsText                     : null
+        AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
+        AvailabilitySetReferenceText : 	{
+                                     "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/Microsoft.Compute/availabilitySets/ASDB"
+                                    }
+        Extensions                   :
+        ExtensionsText               : null
+        HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
+        HardwareProfileText          : {
+                                        "VirtualMachineSize": "Standard_DS3"
                                        }
-                                     ],
-                                     "ImageReference": null,
-                                     "OSDisk": null
-                                   }
-    DataDiskNames                : {DB2-datadisk-1}
-    NetworkInterfaceIDs          :
-    RequestId                    :
-    StatusCode                   : 0
+        InstanceView                 :
+        InstanceViewText             : null
+        NetworkProfile               :
+        NetworkProfileText           : null
+        OSProfile                    :
+        OSProfileText                : null
+        Plan                         :
+        PlanText                     : null
+        ProvisioningState            :
+        StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
+        StorageProfileText           : {
+                                         "DataDisks": [
+                                           {
+                                             "Lun": 0,
+                                             "Caching": null,
+                                             "CreateOption": "empty",
+                                             "DiskSizeGB": 127,
+                                             "Name": "DB2-datadisk-1",
+                                             "SourceImage": null,
+                                             "VirtualHardDisk": {
+                                               "Uri": "https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/DB2-datadisk-1.vhd"
+                                             }
+                                           }
+                                         ],
+                                         "ImageReference": null,
+                                         "OSDisk": null
+                                       }
+        DataDiskNames                : {DB2-datadisk-1}
+        NetworkInterfaceIDs          :
+        RequestId                    :
+        StatusCode                   : 0
 
-    ResourceGroupName            :
-    Id                           :
-    Name                         : DB2
-    Type                         :
-    Location                     :
-    Tags                         :
-    TagsText                     : null
-    AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
-    AvailabilitySetReferenceText : {
-                                     "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/
-                                   Microsoft.Compute/availabilitySets/ASDB"
-                                   }
-    Extensions                   :
-    ExtensionsText               : null
-    HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
-    HardwareProfileText          : {
-                                     "VirtualMachineSize": "Standard_DS3"
-                                   }
-    InstanceView                 :
-    InstanceViewText             : null
-    NetworkProfile               :
-    NetworkProfileText           : null
-    OSProfile                    :
-    OSProfileText                : null
-    Plan                         :
-    PlanText                     : null
-    ProvisioningState            :
-    StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
-    StorageProfileText           : {
-                                     "DataDisks": [
-                                       {
-                                         "Lun": 0,
-                                         "Caching": null,
-                                         "CreateOption": "empty",
-                                         "DiskSizeGB": 127,
-                                         "Name": "DB2-datadisk-1",
-                                         "SourceImage": null,
-                                         "VirtualHardDisk": {
-                                           "Uri": "https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/DB2-datadisk-1.vhd"
-                                         }
-                                       },
-                                       {
-                                         "Lun": 1,
-                                         "Caching": null,
-                                         "CreateOption": "empty",
-                                         "DiskSizeGB": 127,
-                                         "Name": "DB2-datadisk-2",
-                                         "SourceImage": null,
-                                         "VirtualHardDisk": {
-                                           "Uri": "https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/DB2-datadisk-2.vhd"
-                                         }
+        ResourceGroupName            :
+        Id                           :
+        Name                         : DB2
+        Type                         :
+        Location                     :
+        Tags                         :
+        TagsText                     : null
+        AvailabilitySetReference     : Microsoft.Azure.Management.Compute.Models.AvailabilitySetReference
+        AvailabilitySetReferenceText : {
+                                         "ReferenceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend/providers/
+                                       Microsoft.Compute/availabilitySets/ASDB"
                                        }
-                                     ],
-                                     "ImageReference": null,
-                                     "OSDisk": null
-                                   }
-    DataDiskNames                : {DB2-datadisk-1, DB2-datadisk-2}
-    NetworkInterfaceIDs          :
-    RequestId                    :
-    StatusCode                   : 0
-    EndTime             : [Date] [Time]
-    Error               :
-    Output              :
-    StartTime           : [Date] [Time]
-    Status              : Succeeded
-    TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    StatusCode          : OK
-    ```
+        Extensions                   :
+        ExtensionsText               : null
+        HardwareProfile              : Microsoft.Azure.Management.Compute.Models.HardwareProfile
+        HardwareProfileText          : {
+                                         "VirtualMachineSize": "Standard_DS3"
+                                       }
+        InstanceView                 :
+        InstanceViewText             : null
+        NetworkProfile               :
+        NetworkProfileText           : null
+        OSProfile                    :
+        OSProfileText                : null
+        Plan                         :
+        PlanText                     : null
+        ProvisioningState            :
+        StorageProfile               : Microsoft.Azure.Management.Compute.Models.StorageProfile
+        StorageProfileText           : {
+                                         "DataDisks": [
+                                           {
+                                             "Lun": 0,
+                                             "Caching": null,
+                                             "CreateOption": "empty",
+                                             "DiskSizeGB": 127,
+                                             "Name": "DB2-datadisk-1",
+                                             "SourceImage": null,
+                                             "VirtualHardDisk": {
+                                               "Uri": "https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/DB2-datadisk-1.vhd"
+                                             }
+                                           },
+                                           {
+                                             "Lun": 1,
+                                             "Caching": null,
+                                             "CreateOption": "empty",
+                                             "DiskSizeGB": 127,
+                                             "Name": "DB2-datadisk-2",
+                                             "SourceImage": null,
+                                             "VirtualHardDisk": {
+                                               "Uri": "https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/DB2-datadisk-2.vhd"
+                                             }
+                                           }
+                                         ],
+                                         "ImageReference": null,
+                                         "OSDisk": null
+                                       }
+        DataDiskNames                : {DB2-datadisk-1, DB2-datadisk-2}
+        NetworkInterfaceIDs          :
+        RequestId                    :
+        StatusCode                   : 0
+        EndTime             : [Date] [Time]
+        Error               :
+        Output              :
+        StartTime           : [Date] [Time]
+        Status              : Succeeded
+        TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        StatusCode          : OK

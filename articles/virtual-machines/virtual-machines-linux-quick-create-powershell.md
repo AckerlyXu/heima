@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -17,13 +17,14 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 wacn.date: ''
 ms.author: nepeters
+
 ---
 
 # Create a Linux virtual machine with PowerShell
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This guide details using PowerShell to create and Azure virtual machine running Ubuntu 14.04 LTS.
 
-Before you start, a public SSH key with the name `id_rsa.pub` needs to be stored in the `.ssh` directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](./virtual-machines-linux-mac-create-ssh-keys.md).
+Before you start, a public SSH key with the name `id_rsa.pub` needs to be stored in the `.ssh` directory of your Windows user profile. For detailed information on creating SSH keys for Azure, see [Create SSH keys for Azure](./virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Log in to Azure
 
@@ -115,7 +116,7 @@ Run the following commands to return the public IP address of the virtual machin
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-ssh-from-windows#create-a-private-key-for-putty) can be used to create the connection. 
+From a system with SSH installed, used the following command to connect to the virtual machine. If working on Windows, [Putty](/azure/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) can be used to create the connection. 
 
 ```bash
 ssh <Public IP Address>
@@ -133,6 +134,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md)
+[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Explore VM deployment PowerShell samples](./virtual-machines-linux-powershell-samples.md)
+[Explore VM deployment PowerShell samples](./virtual-machines-linux-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

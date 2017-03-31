@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Develop Java MapReduce programs for Hadoop on HDInsight Linux
 
 Learn how to use Apache Maven to create a Java-based MapReduce application, then deploy and run it on a Linux-based Hadoop on HDInsight cluster.
@@ -260,26 +260,28 @@ This command copies the files from the local system to the head node.
 
 1. Connect to HDInsight using SSH as described in the following articles:
 
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+   * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
+   * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. From the SSH session, use the following command to run the MapReduce application:
 
-       yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
+    ```bash
+    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
+    ```
 
     This command starts the WordCount MapReduce application. The input file is **/example/data/gutenberg/davinci.txt**, and the output is stored in **/example/data/wordcountout**. Both the input file and output are stored to the default storage for the cluster.
 
 3. Once the job completes, use the following command to view the results:
 
-       hdfs dfs -cat /example/data/wordcountout/*
+    ```bash
+    hdfs dfs -cat /example/data/wordcountout/*
+    ```
 
     You should receive a list of words and counts, with values similar to the following text:
 
-    ```
-    zeal    1
-    zelus   1
-    zenith  2
-    ```
+        zeal    1
+        zelus   1
+        zenith  2
 
 ## <a id="nextsteps"></a>Next steps
 
@@ -287,7 +289,7 @@ In this document, you have learned how to develop a Java MapReduce job. See the 
 
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
-* [Use MapReduce with HDInsight](./hdinsight-use-mapreduce.md)
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 For more information, see also the [Java Developer Center](/develop/java/).
 
@@ -295,14 +297,14 @@ For more information, see also the [Java Developer Center](/develop/java/).
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
 [azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
 
-[hdinsight-use-sqoop]: ./hdinsight-use-sqoop.md
-[hdinsight-ODBC]: ./hdinsight-connect-excel-hive-ODBC-driver.md
-[hdinsight-power-query]: ./hdinsight-connect-excel-power-query.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
-[hdinsight-admin-powershell]: ./hdinsight-administer-use-powershell.md
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-use-pig]: ./hdinsight-use-pig.md
-[hdinsight-power-query]: ./hdinsight-connect-excel-power-query.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx

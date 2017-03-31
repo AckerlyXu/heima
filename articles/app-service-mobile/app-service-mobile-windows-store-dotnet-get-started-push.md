@@ -164,7 +164,6 @@ Use the procedure below that matches your backend project type&mdash;either [.NE
 
 ##<a id="update-app"></a>Add push notifications to your app
 Next, your app must register for push notifications on start-up. When you have already enabled authentication, make sure that the user signs-in before trying to register for push notifications.
-Next, your app must register for push notifications on start-up. When you have already enabled authentication, make sure that the user signs-in before trying to register for push notifications. For more information, see [Authenticate first](https://github.com/Azure-Samples/app-service-mobile-windows-quickstart/blob/master/README.md#authenticate-first) in the quick start complete sample.
 
 1. Open the **App.xaml.cs** project file and add the following `using` statements:
 

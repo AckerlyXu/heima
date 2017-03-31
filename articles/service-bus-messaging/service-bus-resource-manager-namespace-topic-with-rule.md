@@ -24,10 +24,10 @@ For the complete template, see the [Service Bus namespace with topic, subscripti
 > [!NOTE]
 > The following Azure Resource Manager templates are available for download and deployment.
 > 
->-  [Create a Service Bus namespace with queue and authorization rule](/documentation/artices/service-bus-resource-manager-namespace-auth-rule/)
->-  [Create a Service Bus namespace with queue](/documentation/artices/service-bus-resource-manager-namespace-queue/)
->-  [Create a Service Bus namespace](/documentation/artices/service-bus-resource-manager-namespace/)
->-  [Create a Service Bus namespace with topic and subscription](/documentation/artices/service-bus-resource-manager-namespace-topic/)
+>-  [Create a Service Bus namespace with queue and authorization rule](./service-bus-resource-manager-namespace-auth-rule.md/)
+>-  [Create a Service Bus namespace with queue](./service-bus-resource-manager-namespace-queue.md/)
+>-  [Create a Service Bus namespace](./service-bus-resource-manager-namespace.md/)
+>-  [Create a Service Bus namespace with topic and subscription](./service-bus-resource-manager-namespace-topic.md/)
 > 
 > To check for the latest templates, visit the [Azure Quickstart Templates][Azure Quickstart Templates] gallery and search for Service Bus.
 > 
@@ -36,7 +36,7 @@ For the complete template, see the [Service Bus namespace with topic, subscripti
 ## What will you deploy?
 With this template, you deploy a Service Bus namespace with topic, subscription, and rule (filter).
 
-[Service Bus topics and subscriptions](/documentation/artices/service-bus-queues-topics-subscriptions/#topics-and-subscriptions) provide a one-to-many form of communication, in a *publish/subscribe* pattern. When using topics and subscriptions, components of a distributed application do not communicate directly with each other, instead they exchange messages via topic that acts as an intermediary.A subscription to a topic resembles a virtual queue that receives copies of messages that were sent to the topic. A filter on subscription enables you to specify which messages sent to a topic should appear within a specific topic subscription.
+[Service Bus topics and subscriptions](./service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) provide a one-to-many form of communication, in a *publish/subscribe* pattern. When using topics and subscriptions, components of a distributed application do not communicate directly with each other, instead they exchange messages via topic that acts as an intermediary.A subscription to a topic resembles a virtual queue that receives copies of messages that were sent to the topic. A filter on subscription enables you to specify which messages sent to a topic should appear within a specific topic subscription.
 
 ## What are rules (filters)?
 In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this, you can configure subscriptions to find messages that have desired properties and then perform certain modifications to those properties. While Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. This is accomplished using subscription filters. To learn more on rules(filters), see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
@@ -53,7 +53,7 @@ The template defines the following parameters:
 ### serviceBusNamespaceName
 The name of the Service Bus namespace to create.
 
-```
+```json
 "serviceBusNamespaceName": {
 "type": "string"
 }
@@ -62,7 +62,7 @@ The name of the Service Bus namespace to create.
 ### serviceBusTopicName
 The name of the topic created in the Service Bus namespace.
 
-```
+```json
 "serviceBusTopicName": {
 "type": "string"
 }
@@ -71,7 +71,7 @@ The name of the topic created in the Service Bus namespace.
 ### serviceBusSubscriptionName
 The name of the subscription created in the Service Bus namespace.
 
-```
+```json
 "serviceBusSubscriptionName": {
 "type": "string"
 }
@@ -79,7 +79,7 @@ The name of the subscription created in the Service Bus namespace.
 ### serviceBusRuleName
 The name of the rule(filter) created in the Service Bus namespace.
 
-```
+```json
    "serviceBusRuleName": {
    "type": "string",
   }
@@ -87,7 +87,7 @@ The name of the rule(filter) created in the Service Bus namespace.
 ### serviceBusApiVersion
 The Service Bus API version of the template.
 
-```
+```json
 "serviceBusApiVersion": {
 "type": "string"
 }
@@ -95,7 +95,7 @@ The Service Bus API version of the template.
 ## Resources to deploy
 Creates a standard Service Bus namespace of type **Messaging**, with topic and subscription and rules.
 
-```
+```json
  "resources": [{
         "apiVersion": "[variables('sbVersion')]",
         "name": "[parameters('serviceBusNamespaceName')]",
@@ -148,12 +148,12 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## PowerShell
-```
+```powershell
 New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
 ```
 
 ## Azure CLI
-```
+```cli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-subscription-rule/azuredeploy.json>
@@ -162,15 +162,15 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## Next steps
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
-* [Manage Azure Service Bus using Azure Automation](/documentation/artices/service-bus-automation-manage/)
-* [Manage Service Bus with PowerShell](/documentation/artices/service-bus-powershell-how-to-provision/)
+* [Manage Azure Service Bus using Azure Automation](./service-bus-automation-manage.md/)
+* [Manage Service Bus with PowerShell](./service-bus-powershell-how-to-provision.md/)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: /documentation/artices/resource-group-authoring-templates/
+[Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md/
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Learn more about Service Bus topics and subscriptions]: /documentation/artices/service-bus-queues-topics-subscriptions/
-[Using Azure PowerShell with Azure Resource Manager]: /documentation/artices/powershell-azure-resource-manager/
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: /documentation/artices/xplat-cli-azure-resource-manager/
-[Recommended naming conventions for Azure resources]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
+[Learn more about Service Bus topics and subscriptions]: ./service-bus-queues-topics-subscriptions.md/
+[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md/
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md/
+[Recommended naming conventions for Azure resources]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions.md/
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
-[Service Bus queues, topics, and subscriptions]:/documentation/artices/service-bus-queues-topics-subscriptions/
+[Service Bus queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md/

@@ -1,5 +1,5 @@
 ---
-title: Connect classic virtual networks to Azure Resource Manager VNets: Portal | Azure
+title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal | Azure'
 description: Learn how to create a VPN connection between classic VNets and Resource Manager VNets using VPN Gateway and the portal
 services: vpn-gateway
 documentationcenter: na
@@ -17,12 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2017
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Connect virtual networks from different deployment models using the portal
 > [!div class="op_single_selector"]
->- [Portal](./vpn-gateway-connect-different-deployment-models-portal.md)
->- [PowerShell](./vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> 
+> 
 
 Azure currently has two management models: classic and Resource Manager (RM). If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. This article walks you through connecting classic VNets to Resource Manager VNets to allow the resources located in the separate deployment models to communicate with each other over a gateway connection. 
 
@@ -168,27 +170,19 @@ In this section, you will create the connection between the VNets. These steps r
 
 1. Open the PowerShell console with elevated rights and log in to your Azure account. The following cmdlet prompts you for the login credentials for your Azure Account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell.
 
-    ```
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud 
-    ```
+        Login-AzureRmAccount -EnvironmentName AzureChinaCloud 
 
 2. Get a list of your Azure subscriptions if you have more than one subscription.
 
-    ```
-    Get-AzureRmSubscription
-    ```
+        Get-AzureRmSubscription
 
 3. Specify the subscription that you want to use. 
 
-    ```
-    Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-    ```
+        Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 
 4. Add your Azure Account to use the classic PowerShell cmdlets. To do so, you can use the following command:
 
-    ```
-    Add-AzureAccount -Environment AzureChinaCloud
-    ```
+        Add-AzureAccount -Environment AzureChinaCloud
 
 ### Part 2 - Download your network configuration file
 
@@ -196,9 +190,7 @@ Sometimes the names for classic VNets and Local network sites are changed in the
 
 1. Export your Azure network configuration file by running the following command. You can change the location of the file to export to a different location if necessary.
 
-    ```
-    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-    ```
+        Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 3. Use a text editor, such as Notepad, to open the .xml file and view the contents. Verify the values for the names of your classic virtual network and local network site.
 
 ### Part 3 - Set the shared key
@@ -211,27 +203,21 @@ Set the shared key for the connection from the classic VNet to the Resource Mana
 
 In the PowerShell console, set your shared key by running the following sample, making sure to replace the values with your own. The return for this sample should show **Status: Successful**.
 
-```
-    Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
-    -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
-```
+        Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
+        -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
 ### Part 4 - Create the VPN connection by running the following commands:
 
 1. Set the variables.
 
-    ```
-    $vnet01gateway = Get-AzureRMLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
-    $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
-    ```
+        $vnet01gateway = Get-AzureRMLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
+        $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
 
 2. Create the connection. In this example, `-Name` is the name that you want to name your connection, not something that you have already created. The following example creates a connection named 'RM-Classic'. Notice that the `-ConnectionType` is 'IPsec', not 'Vnet2Vnet', and that the `-SharedKey` matches the key you set earlier.
 
-    ```
-    New-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
-    -Location "China East" -VirtualNetworkGateway1 `
-    $vnet02gateway -LocalNetworkGateway2 `
-    $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-    ```
+        New-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
+        -Location "China East" -VirtualNetworkGateway1 `
+        $vnet02gateway -LocalNetworkGateway2 `
+        $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 ## Section 5: Verify your connections
 You can verify your connections by using the Azure portal preview or PowerShell. When verifying, you may need to wait a minute or two as the connection is being created. When a connection is successful, the connectivity state will go from 'Connecting' to 'Connected'.

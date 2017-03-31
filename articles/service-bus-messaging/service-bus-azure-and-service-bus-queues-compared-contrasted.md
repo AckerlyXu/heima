@@ -137,8 +137,8 @@ This section compares advanced capabilities provided by Storage queues and Servi
 * The concept of "message sessions" supported by Service Bus enables messages that belong to a certain logical group to be associated with a given receiver, which in turn creates a session-like affinity between messages and their respective receivers. You can enable this advanced functionality in Service Bus by setting the [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) property on a message. Receivers can then listen on a specific session ID and receive messages that share the specified session identifier.
 * The duplication detection functionality supported by Service Bus queues automatically removes duplicate messages sent to a queue or topic, based on the value of the [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) property.
 
-## <a name="capacity-and-quotas"></a> Capacity and quotas
 
+## <a name="capacity-and-quotas"></a> Capacity and quotas
 This section compares Storage Queues and Service Bus queues from the perspective of [capacity and quotas](./service-bus-quotas.md) that may apply.
 
 | Comparison Criteria | Storage queues | Service Bus Queues |

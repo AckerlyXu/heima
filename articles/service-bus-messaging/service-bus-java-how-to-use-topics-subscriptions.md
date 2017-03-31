@@ -66,11 +66,11 @@ To create a namespace:
 
 Make sure you have installed the [Azure SDK for Java][] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
 
-![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![](./media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
 Add the following import statements to the top of the Java file:
 
-```
+```java
 import com.microsoft.windowsazure.services.servicebus.*;
 import com.microsoft.windowsazure.services.servicebus.models.*;
 import com.microsoft.windowsazure.core.*;
@@ -179,7 +179,7 @@ service.deleteRule("TestTopic", "HighMessages", "$Default");
 
 Similarly, the following example creates a subscription named `LowMessages` with a [SqlFilter][] object that only selects messages that have a **MessageNumber** property less than or equal to 3:
 
-```
+```java
 // Create a "LowMessages" filtered subscription
 SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
 CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
@@ -200,7 +200,7 @@ To send a message to a Service Bus topic, your application obtains a
 **ServiceBusContract** object. The following code demonstrates how to send a
 message for the `TestTopic` topic created previously within the `HowToSample` namespace:
 
-```
+```java
 BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
@@ -221,7 +221,7 @@ Note how the **MessageNumber** property value of each message varies on
 the iteration of the loop (this will determine which subscriptions
 receive it):
 
-```
+```java
 for (int i=0; i<5; i++)  {
 // Create message, passing a string message for the body
 BrokeredMessage message = new BrokeredMessage("Test message " + i);
@@ -270,7 +270,7 @@ The example below demonstrates how messages can be received and
 processed using **PeekLock** mode (not the default mode). The example
 below performs a loop and processes messages in the "HighMessages" subscription and then exits when there are no more messages (alternatively, it could be set to wait for new messages).
 
-```
+```java
 try
 {
     ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
@@ -357,7 +357,7 @@ The primary way to delete topics and subscriptions is to use a
 **ServiceBusContract** object. Deleting a topic will also delete any subscriptions that are registered
 with the topic. Subscriptions can also be deleted independently.
 
-```
+```java
 // Delete subscriptions
 service.deleteSubscription("TestTopic", "AllMessages");
 service.deleteSubscription("TestTopic", "HighMessages");

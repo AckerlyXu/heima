@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 07/06/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Back up your app in Azure
 The Backup and Restore feature in [Azure App Service](../app-service/app-service-value-prop-what-is.md) lets you easily
 create app backups manually or automatically. You can restore your app to a previous state, or create a new app based on 
 one of your original app's backups. 
 
-For information on restoring an app from backup, see [Restore an app in Azure](./web-sites-restore.md).
+For information on restoring an app from backup, see [Restore an app in Azure](web-sites-restore.md).
 
 ## <a name="whatsbackedup"></a> What gets backed up
 App Service can back up the following information:
@@ -42,7 +42,7 @@ This information is backed up to the Azure storage account and container that yo
 
 ## <a name="requirements"></a> Requirements and restrictions
 * The Backup and Restore feature requires the App Service plan to be in the **Standard** tier or higher. For more information 
-  about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](./web-sites-scale.md). Note that 
+  about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](web-sites-scale.md). Note that 
   **Premium** tier allows a greater number of daily backups than **Standard** tier.
 * You need an Azure storage account and container in the same subscription as the app that 
   you want to back up. For more information on Azure storage accounts, see the 
@@ -56,7 +56,7 @@ This information is backed up to the Azure storage account and container that yo
 
     > [!NOTE]
     > If you see the message below, click it to upgrade your App Service plan before you can proceed with backups.
-    > See [Scale up an app in Azure](./web-sites-scale.md) for more information.  
+    > See [Scale up an app in Azure](web-sites-scale.md) for more information.  
     > ![Choose storage account](./media/web-sites-backup/01UpgradePlan.png)
     > 
     > 
@@ -106,7 +106,7 @@ After you have configured a storage account and container for backups, you can m
 ## <a name="partialbackups"></a> Backup just part of your app
 Sometimes you don't want to backup everything on your app. Here are a few examples:
 
-* You [set up weekly backups](./web-sites-backup.md#configure-automated-backups) of your app that contains static content that never changes, such as old blog posts or images.
+* You [set up weekly backups](web-sites-backup.md#configure-automated-backups) of your app that contains static content that never changes, such as old blog posts or images.
 * Your app has over 10GB of content (that's the max amount you can backup at a time).
 * You don't want to back up the log files.
 
@@ -124,13 +124,11 @@ The below steps show how you would exclude these files from the backup.
 
 1. Go to `http://{yourapp}.scm.chinacloudsites.cn/DebugConsole` and identify the folders that you want to exclude from your backups. In this example, you would want to exclude the following files and folders shown in that UI:
 
-    ```
-    D:\home\site\wwwroot\Logs
-    D:\home\LogFiles
-    D:\home\site\wwwroot\Images\2013
-    D:\home\site\wwwroot\Images\2014
-    D:\home\site\wwwroot\Images\brand.png
-    ```
+        D:\home\site\wwwroot\Logs
+        D:\home\LogFiles
+        D:\home\site\wwwroot\Images\2013
+        D:\home\site\wwwroot\Images\2014
+        D:\home\site\wwwroot\Images\brand.png
 
     >[!NOTE]
     > The last line shows that you can exclude individuals files as well as folders.
@@ -141,13 +139,13 @@ The below steps show how you would exclude these files from the backup.
     \site\wwwroot\Images\2013
     \site\wwwroot\Images\2014
     \site\wwwroot\Images\brand.png
-3. Upload this file to the `D:\home\site\wwwroot\` directory of your site using [ftp](./web-sites-deploy.md#ftp) or any other method. If you wish, you can create the file directly in `http://{yourapp}.scm.chinacloudsites.cn/DebugConsole` and insert the content there.
+3. Upload this file to the `D:\home\site\wwwroot\` directory of your site using [ftp](web-sites-deploy.md#ftp) or any other method. If you wish, you can create the file directly in `http://{yourapp}.scm.chinacloudsites.cn/DebugConsole` and insert the content there.
 4. Run backups the same way you would normally do it, [manually](#create-a-manual-backup) or [automatically](#configure-automated-backups).
 
 Now, any files and folders that are specified in `_backup.filter` will be excluded from the backup. In this example, the log files and the 2013 and 2014 image files will no longer be backed up, as well as brand.png.
 
 > [!NOTE]
-> You restore partial backups of your site the same way you would [restore a regular backup](./web-sites-restore.md). The restore process will do the right thing.
+> You restore partial backups of your site the same way you would [restore a regular backup](web-sites-restore.md). The restore process will do the right thing.
 ><p> 
 ><p> When a full backup is restored, all content on the site is replaced with whatever is in the backup. If a file is on the site but not in the backup it gets deleted. But when a partial backup is restored, any content that is located in one of the blacklisted directories, or any blacklisted file, is left as is.
 > 
@@ -164,8 +162,8 @@ The database backup for the app is stored in the root of the .zip file. For a SQ
 > 
 
 ## <a name="nextsteps"></a> Next Steps
-For information on restoring an app from a backup, see [Restore an app in Azure](./web-sites-restore.md). You can also backup and restore App Service apps
-using REST API (see [Use REST to back up and restore App Service apps](./websites-csm-backup.md)).
+For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md). You can also backup and restore App Service apps
+using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
 
 <!-- IMAGES -->
 [ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage.png

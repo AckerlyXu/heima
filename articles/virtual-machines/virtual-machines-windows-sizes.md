@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Sizes for Windows virtual machines in Azure
-This article describes the available sizes and options for the Azure virtual machines you can use to run your Windows apps and workloads. It also provides deployment considerations to be aware of when you're planning to use these resources.  This article is also available for [Linux virtual machines](./virtual-machines-linux-sizes.md).
+This article describes the available sizes and options for the Azure virtual machines you can use to run your Windows apps and workloads. It also provides deployment considerations to be aware of when you're planning to use these resources.  This article is also available for [Linux virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!IMPORTANT]
 > * For information about pricing of the various sizes, see [Virtual Machines Pricing](https://www.azure.cn/pricing/details/virtual-machines/). 

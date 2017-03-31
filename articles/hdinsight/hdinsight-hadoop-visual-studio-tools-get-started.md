@@ -18,8 +18,8 @@ ms.workload: big-data
 ms.date: 03/07/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Get started using Azure Data Lake (HDInsight) Tools for Visual Studio to run a Hive query
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -34,7 +34,7 @@ Data Lake Tools for Visual Studio can be used to access both Data Lake Analytics
 
 To complete this tutorial and use the Data Lake Tools in Visual Studio, you'll need the following:
 
-* An Azure HDInsight cluster: To create one, see [Get started using Linux-based HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md)
+* An Azure HDInsight cluster: To create one, see [Get started using Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * A workstation with the following software:
 
     * Windows 10, Windows 8.1, Windows 8, or Windows 7.
@@ -109,9 +109,7 @@ All HDInsight clusters come with a sample Hive table called *hivesampletable*. W
 1. From **Server Explorer**, expand **Azure** > **HDInsight** > the cluster of your choice > **Hive Databases** > **Default** > **hivesampletable** to see the table schema.
 2. Right-click **hivesampletable**, and then click **View Top 100 Rows** to list the rows. It is equivalent to running the following Hive query using Hive ODBC driver:
 
-    ```
-    SELECT * FROM hivesampletable LIMIT 100
-    ```
+        SELECT * FROM hivesampletable LIMIT 100
 
     You can customize the row count.
 
@@ -271,12 +269,12 @@ In this article, you learned how to connect to HDInsight clusters from Visual St
 [14]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png
 
 <!--Link references-->
-[hdinsight-create-clusters]: ./hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight.introduction]: ./hdinsight-hadoop-introduction.md
-[hdinsight.get.started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight.hive]: ./hdinsight-use-hive.md
-[hdinsight.submit.jobs]: ./hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight.storm.visual.studio.tools]: ./hdinsight-storm-develop-csharp-visual-studio-topology.md
-[hdinsight.access.application.logs]: ./hdinsight-hadoop-access-yarn-app-logs.md
+[hdinsight-create-clusters]: hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight.introduction]: hdinsight-hadoop-introduction.md
+[hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight.hive]: hdinsight-use-hive.md
+[hdinsight.submit.jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight.storm.visual.studio.tools]: hdinsight-storm-develop-csharp-visual-studio-topology.md
+[hdinsight.access.application.logs]: hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org

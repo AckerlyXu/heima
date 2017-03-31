@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # How to migrate a virtual network from an affinity group to a region
 You can use an affinity group to ensure that resources created within the same affinity group are physically hosted by servers that are close together, enabling these resources to communicate quicker. In the past, affinity groups were a requirement for creating virtual networks (VNets). At that time, the network manager service that managed VNets could only work within a set of physical servers or scale unit. Architectural improvements have increased the scope of network management to a region.
 
@@ -36,7 +36,7 @@ Going forward, when creating new VNets, use *Region*. You'll see this as an opti
 ### About VNets currently associated with affinity groups
 VNets that are currently associated with affinity groups are enabled for migration to regional VNets. To migrate to a regional VNet, follow these steps:
 
-1. Export the network configuration file. You can use PowerShell or the Classic Management Portal. For instructions using the Classic Management Portal, see [Configure your VNet using a Network Configuration File](./virtual-networks-using-network-configuration-file.md).
+1. Export the network configuration file. You can use PowerShell or the Classic Management Portal. For instructions using the Classic Management Portal, see [Configure your VNet using a Network Configuration File](virtual-networks-using-network-configuration-file.md).
 2. Edit your network configuration file, replacing the old values with the new values. 
 
     > [!NOTE]
@@ -49,7 +49,7 @@ VNets that are currently associated with affinity groups are enabled for migrati
     **Old value:** \<VirtualNetworkSitename="VNetChinsNorth" AffinityGroup="VNetDemoAG"\> 
 
     **New value:** \<VirtualNetworkSitename="VNetChinsNorth" Location="China North"\>
-3. Save your changes and [import](./virtual-networks-using-network-configuration-file.md) the network configuration to Azure.
+3. Save your changes and [import](virtual-networks-using-network-configuration-file.md) the network configuration to Azure.
 
 > [!NOTE]
 > This migration does NOT cause any downtime to your services.

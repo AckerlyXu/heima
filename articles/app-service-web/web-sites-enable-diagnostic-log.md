@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/06/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Enable diagnostics logging for web apps in Azure App Service
 ## Overview
-Azure provides built-in diagnostics to assist with debugging an [App Service web app](./app-service-changes-existing-services.md). In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
+Azure provides built-in diagnostics to assist with debugging an [App Service web app](/azure/app-service-web/app-service-changes-existing-services/). In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-This article uses the [Azure Portal Preview](https://portal.azure.cn), Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](./web-sites-dotnet-troubleshoot-visual-studio.md).
+This article uses the [Azure Portal Preview](https://portal.azure.cn), Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -39,11 +39,9 @@ You can enable or disable the following kinds of logs:
 ### Application diagnostics
 Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](http://msdn.microsoft.com/zh-cn/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
 
-```
-System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
-```
+    System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-At runtime you can retrieve these logs to help with troubleshooting. For more information, see [Troubleshooting Azure web apps in Visual Studio](./web-sites-dotnet-troubleshoot-visual-studio.md).
+At runtime you can retrieve these logs to help with troubleshooting. For more information, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 App Service web apps also log deployment information when you publish content to a web app. This happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
 
@@ -85,7 +83,7 @@ While all three storage locations provide the same basic information for logged 
 > Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](/downloads/#).
 >
 > [!NOTE]
-> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](../powershell-install-configure.md).
+> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/azure/powershell-install-configure/).
 >
 >
 
@@ -111,28 +109,24 @@ To access diagnostic information using FTP, visit the **Dashboard** of your web 
 ### Download with Azure PowerShell
 To download the log files, start a new instance of Azure PowerShell and use the following command:
 
-```
-Save-AzureWebSiteLog -Name webappname
-```
+    Save-AzureWebSiteLog -Name webappname
 
 This will save the logs for the web app specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](../powershell-install-configure.md).
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/azure/powershell-install-configure/).
 >
 >
 
 ### Download with Azure Command-Line Interface
 To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-```
-azure site log download webappname
-```
+    azure site log download webappname
 
 This will save the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](/documentation/articles/cli-install-nodejs/).
+> If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../cli-install-nodejs.md).
 >
 >
 
@@ -150,54 +144,42 @@ While developing an application, it is often useful to see logging information i
 ### Streaming with Azure PowerShell
 To stream logging information, start a new instance of Azure PowerShell and use the following command:
 
-```
-Get-AzureWebSiteLog -Name webappname -Tail
-```
+    Get-AzureWebSiteLog -Name webappname -Tail
 
 This will connect to the web app specified by the **-Name** parameter and begin streaming information to the PowerShell window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.
 
 To filter specific events, such as errors, use the **-Message** parameter. For example:
 
-```
-Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-```
+    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
 
 To filter specific log types, such as HTTP, use the **-Path** parameter. For example:
 
-```
-Get-AzureWebSiteLog -Name webappname -Tail -Path http
-```
+    Get-AzureWebSiteLog -Name webappname -Tail -Path http
 
 To see a list of available paths, use the -ListPath parameter.
 
 > [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](../powershell-install-configure.md).
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/azure/powershell-install-configure/).
 >
 >
 
 ### Streaming with Azure Command-Line Interface
 To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-```
-azure site log tail webappname
-```
+    azure site log tail webappname
 
 This will connect to the web app named 'webappname' and begin streaming information to the window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) will be streamed to the local console.
 
 To filter specific events, such as errors, use the **--Filter** parameter. For example:
 
-```
-azure site log tail webappname --filter Error
-```
+    azure site log tail webappname --filter Error
 
 To filter specific log types, such as HTTP, use the **--Path** parameter. For example:
 
-```
-azure site log tail webappname --path http
-```
+    azure site log tail webappname --path http
 
 > [!NOTE]
-> If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](/documentation/articles/cli-install-nodejs/).
+> If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../cli-install-nodejs.md).
 >
 >
 
@@ -209,15 +191,11 @@ Application diagnostics stores information in a specific format for .NET applica
 
 Each line logged to the file system or received using streaming will be in the following format:
 
-```
-{Date}  PID[{process id}] {event type/level} {message}
-```
+    {Date}  PID[{process id}] {event type/level} {message}
 
 For example, an error event would appear similar to the following:
 
-```
-2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
-```
+    2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
 Logging to the file system provides the most basic information of the three available methods, providing only the time, process id, event level, and message.
 
@@ -257,10 +235,8 @@ When logging to blob storage, data is stored in comma-separated values (CSV) for
 
 The data stored in a blob would look similar to the following:
 
-```
-date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
-2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
-```
+    date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
+    2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
 > The first line of the log will contain the column headers as represented in this example.
@@ -284,10 +260,10 @@ The web server logs are formatted using the [W3C extended log file format](http:
 >
 
 ## <a name="nextsteps"></a> Next steps
-* [How to Monitor Web Apps](./web-sites-monitor.md)
-* [Troubleshooting Azure web apps in Visual Studio](./web-sites-dotnet-troubleshoot-visual-studio.md)
+* [How to Monitor Web Apps](/azure/app-service-web/web-sites-monitor/)
+* [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](./app-service-changes-existing-services.md)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure portal preview](./app-service-web-app-azure-portal.md)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure portal preview](/azure/app-service-web/app-service-web-app-azure-portal/)

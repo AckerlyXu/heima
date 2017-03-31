@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Configure an application gateway for SSL offload by using the classic deployment model
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-ssl-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-ssl-arm.md)
->- [Azure Classic PowerShell](./application-gateway-ssl.md)
+> * [Azure portal preview](application-gateway-ssl-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+> * [Azure Classic PowerShell](application-gateway-ssl.md)
 
 Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
@@ -74,7 +75,6 @@ This sample shows the cmdlet on the first line, followed by the output.
 ```powershell
 Get-AzureApplicationGatewaySslCertificate AppGwTest
 ```
-
 
 ```
 VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
@@ -190,7 +190,6 @@ This sample shows an application gateway that is up, running, and is ready to ta
 Get-AzureApplicationGateway AppGwTest
 ```
 
-
 ```
 Name          : AppGwTest2
 Description   :
@@ -207,5 +206,5 @@ DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.chinacloudapp.cn
 
 If you want more information about load balancing options in general, see:
 
-* [Azure Load Balancer](../load-balancer/index.md)
-* [Azure Traffic Manager](../traffic-manager/index.md)
+* [Azure Load Balancer](/azure/load-balancer/)
+* [Azure Traffic Manager](/azure/traffic-manager/)

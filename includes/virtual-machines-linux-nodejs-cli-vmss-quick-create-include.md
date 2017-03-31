@@ -1,6 +1,6 @@
 ## Prerequisites
 
-If you haven't already, you can get an [Azure subscription trial](https://www.azure.cn/pricing/1rmb-trial/) and the [Azure CLI 1.0](/documentation/articles/cli-install-nodejs/) [connected to your Azure account](../articles/xplat-cli-connect.md). Make sure the Azure CLI is in Resource Manager mode as follows:
+If you haven't already, you can get an [Azure subscription trial](https://www.azure.cn/pricing/1rmb-trial/) and the [Azure CLI 1.0](../articles/cli-install-nodejs.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Make sure the Azure CLI is in Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm

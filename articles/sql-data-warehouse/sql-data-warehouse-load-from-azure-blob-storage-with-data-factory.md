@@ -65,7 +65,7 @@ Link your Azure storage account and SQL Data Warehouse to your data factory.
 
 2. To register SQL Data Warehouse navigate to the 'Author and Deploy' section, select 'New Data Store', and then 'Azure SQL Data Warehouse'. Copy and paste in this template, and then fill in your specific information.
 
-    ```
+    ```JSON
     {
     "name": "<Linked Service Name>",
     "properties": {
@@ -86,7 +86,7 @@ After creating the linked services, we will have to define the data sets.  Here 
 
 2. Click 'New dataset' and then 'Azure Blob storage' to link your storage to your data factory.  You can use the below script to define your data in Azure Blob storage:
 
-    ```
+    ```JSON
     {
         "name": "<Dataset Name>",
         "properties": {
@@ -119,7 +119,7 @@ After creating the linked services, we will have to define the data sets.  Here 
 
 3. Now we will also define our dataset for SQL Data Warehouse.  We start in the same way, by clicking 'New dataset' and then 'Azure SQL Data Warehouse'.
 
-    ```
+    ```JSON
     {
         "name": "DWDataset",
         "properties": {
@@ -142,7 +142,7 @@ Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the
 
 In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
 
-```
+```JSON
 {
     "name": "<Pipeline Name>",
     "properties": {
@@ -206,18 +206,18 @@ These topics provide detailed information about Azure Data Factory. They discuss
 
 <!--Article references-->
 [AZCopy documentation]: ../storage/storage-use-azcopy.md
-[Azure SQL Data Warehouse Connector]: /documentation/articles/data-factory-azure-sql-data-warehouse-connector/
+<!--[Azure SQL Data Warehouse Connector]: /documentation/articles/data-factory-azure-sql-data-warehouse-connector/-->
 [BCP]: ./sql-data-warehouse-load-with-bcp.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 [Create a storage account]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Data Factory]: /documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/
-[Get started with Azure Data Factory (Data Factory Editor)]: /documentation/articles/data-factory-build-your-first-pipeline-using-editor/
-[Introduction to Azure Data Factory]: /documentation/articles/data-factory-introduction/
+<!--[Data Factory]: /documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/-->
+<!--[Get started with Azure Data Factory (Data Factory Editor)]: /documentation/articles/data-factory-build-your-first-pipeline-using-editor/-->
+<!--[Introduction to Azure Data Factory]: /documentation/articles/data-factory-introduction/-->
 [Load sample data into SQL Data Warehouse]: ./sql-data-warehouse-load-sample-databases.md
-[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: /documentation/articles/data-factory-azure-sql-data-warehouse-connector/
+<!--[Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: /documentation/articles/data-factory-azure-sql-data-warehouse-connector/-->
 [PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]: /documentation/articles/data-factory-copy-data-from-azure-blob-storage-to-sql-database/
-[Tutorial: Get started with Azure Data Factory]: /documentation/articles/data-factory-build-your-first-pipeline/
+<!--[Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]: /documentation/articles/data-factory-copy-data-from-azure-blob-storage-to-sql-database/-->
+<!--[Tutorial: Get started with Azure Data Factory]: /documentation/articles/data-factory-build-your-first-pipeline/-->
 
 <!--MSDN references-->
 

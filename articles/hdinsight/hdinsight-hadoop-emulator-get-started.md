@@ -1,6 +1,6 @@
 ---
 title: Use a Hadoop sandbox to learn about Hadoop | Azure
-description: To start learning about using the Hadoop ecosystem, you can set up a Hadoop sandbox from Hortonworks on an Azure virtual machine. 
+description: 'To start learning about using the Hadoop ecosystem, you can set up a Hadoop sandbox from Hortonworks on an Azure virtual machine. '
 keywords: hadoop emulator,hadoop sandbox
 editor: cgronlun
 manager: jhubbard
@@ -18,11 +18,11 @@ ms.topic: article
 ms.date: 01/06/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Get started in the Hadoop ecosystem with a Hadoop Sandbox on a virtual machine
 
-Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to learn about the Hadoop ecosystem. The sandbox provides a local development environment to learn about Hadoop, Hadoop Distributed File System (HDFS), and job submission. Once you are familiar with Hadoop, you can start using Hadoop on Azure by creating an HDInsight cluster. For more information on how to get started, see [Get started with Hadoop on HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
+Learn how to install the Hadoop sandbox from Hortonworks on a virtual machine to learn about the Hadoop ecosystem. The sandbox provides a local development environment to learn about Hadoop, Hadoop Distributed File System (HDFS), and job submission. Once you are familiar with Hadoop, you can start using Hadoop on Azure by creating an HDInsight cluster. For more information on how to get started, see [Get started with Hadoop on HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 ## Prerequisites
 * [Oracle VirtualBox](https://www.virtualbox.org/). Download and install it from [here](https://www.virtualbox.org/wiki/Downloads).
@@ -58,9 +58,7 @@ To download an older HDP version sandbox, expand the archive:
     The first time you connect using SSH, you will be prompted to change the password for the root account. Enter a new password, which will be used when you login using SSH in the future.
 2. Once logged in, enter the following command:
 
-    ```
-    ambari-admin-password-reset
-    ```
+        ambari-admin-password-reset
 
     When prompted, provide a password for the Ambari admin account. This will be used when you access the Ambari Web UI.
 
@@ -68,21 +66,15 @@ To download an older HDP version sandbox, expand the archive:
 
 1. From an SSH connection to the sandbox, use the following command to start the Hive shell:
 
-    ```
-    hive
-    ```
+        hive
 2. Once the shell has started, use the following to view the tables that are provided with the sandbox:
 
-    ```
-    show tables;
-    ```
+        show tables;
 3. Use the following to retrieve 10 rows from the `sample_07` table:
 
-    ```
-    select * from sample_07 limit 10;
-    ```
+        select * from sample_07 limit 10;
 
 ## Next steps
-* [Learn how to use Visual Studio with the Hortonworks Sandbox](./hdinsight-hadoop-emulator-visual-studio.md)
+* [Learn how to use Visual Studio with the Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 * [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

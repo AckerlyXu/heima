@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 10/20/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Generalize a Windows virtual machine using Sysprep
 This section shows you how to generalize your Windows virtual machine for use as an image. Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/zh-cn/library/bb457073.aspx).
 
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](./virtual-machines-windows-prepare-for-upload-vhd-image.md) before running Sysprep. 
+> If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VM](virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
 > 
 > 
 
@@ -44,5 +44,5 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 > 
 
 ## Next Steps
-* If the VM is on-premises, you can now [upload the VHD to Azure](./virtual-machines-windows-upload-image.md).
-* If the VM is already in Azure, you can now [create an image from the generalized VM](./virtual-machines-windows-capture-image.md).
+* If the VM is on-premises, you can now [upload the VHD to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* If the VM is already in Azure, you can now [create an image from the generalized VM](virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

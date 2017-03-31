@@ -1,5 +1,3 @@
-<!-- need to be verified -->
-
 ## Quick steps
 The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images using the Resource Manager deployment model. Follow these steps once your virtual machine starts running.
 

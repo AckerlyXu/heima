@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: davidmu
----
 
+---
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template
 This article shows you how to deploy an Azure Resource Manager template using C#. The [template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
-For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](./virtual-machines-windows-template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md).
+For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](virtual-machines-windows-template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../resource-manager-template-walkthrough.md).
 
 It takes about 10 minutes to do these steps.
 
@@ -222,24 +222,28 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 1. To delete the resource group, add this method to the Program class:
 
-       public static async void DeleteResourceGroupAsync(
-         TokenCredentials credential,
-         string groupName,
-         string subscriptionId)
-       {
-         Console.WriteLine("Deleting resource group...");
-         var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
-           { SubscriptionId = subscriptionId };
-         await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
-       }
+    ```
+    public static async void DeleteResourceGroupAsync(
+      TokenCredentials credential,
+      string groupName,
+      string subscriptionId)
+    {
+      Console.WriteLine("Deleting resource group...");
+      var resourceManagementClient = new ResourceManagementClient(new Uri("https://management.chinacloudapi.cn/"), credential)
+        { SubscriptionId = subscriptionId };
+      await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+    }
+    ```
 
 2. To call the method that you just added, add this code to the Main method:
 
-       DeleteResourceGroupAsync(
-         credential,
-         groupName,
-         subscriptionId);
-       Console.ReadLine();
+    ```
+    DeleteResourceGroupAsync(
+      credential,
+      groupName,
+      subscriptionId);
+    Console.ReadLine();
+    ```
 
 ## Step 8: Run the console application
 
@@ -255,5 +259,5 @@ It should take about five minutes for this console application to run completely
 
 ## Next Steps
 * If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
-* Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](./virtual-machines-windows-csharp.md).
-* Learn how to manage the virtual machine that you created by reviewing [Manage Azure Virtual Machines using Azure Resource Manager and C#](./virtual-machines-windows-csharp-manage.md).
+* Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](virtual-machines-windows-csharp.md).
+* Learn how to manage the virtual machine that you created by reviewing [Manage Azure Virtual Machines using Azure Resource Manager and C#](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -17,8 +17,8 @@ ms.workload: big-compute
 ms.date: 10/14/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -28,7 +28,7 @@ Configure an on-premises client computer to submit jobs to a [Microsoft HPC Pack
 
 ## Prerequisites
 * **HPC Pack head node deployed in an Azure VM** - We recommend that you use
-  automated tools such as an [Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/) or an [Azure PowerShell script](./virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md)
+  automated tools such as an [Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/) or an [Azure PowerShell script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
   to deploy the head node and cluster. You need the DNS
   name of the head node and the credentials of a cluster administrator to
   complete the steps in this article.
@@ -52,7 +52,7 @@ For detailed procedures, see [Install the Microsoft HPC Pack Web
 Components](http://technet.microsoft.com/zh-cn/library/hh314627.aspx).
 
 > [!TIP]
-> Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](./virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster,
+> Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster,
 > you can optionally install and configure the web components as part of the deployment.
 > 
 > 
@@ -71,13 +71,11 @@ Components](http://technet.microsoft.com/zh-cn/library/hh314627.aspx).
     ```powershell
     cd $env:CCP_HOME\bin
     ```
-
 3. To configure the REST interface and start the HPC Web Service, type the following command:
 
     ```powershell
     .\Set-HPCWebComponents.ps1 -Service REST -enable
     ```
-
 4. When prompted to select a certificate, choose the certificate that corresponds to the public DNS name of the head node. For example, if you deploy the head node VM using the classic deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.chinacloudapp.cn. If you use the Resource Manager deployment model, the certificate name looks like CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.chinacloudapp.cn.
 
     > [!NOTE]
@@ -89,7 +87,6 @@ Components](http://technet.microsoft.com/zh-cn/library/hh314627.aspx).
     ```powershell
     .\Set-HPCWebComponents.ps1 -Service Portal -enable
     ```
-
 6. After the script completes, stop and restart the HPC Job Scheduler Service by typing the following commands:
 
     ```powershell
@@ -179,7 +176,6 @@ from the on-premises computer. For example, you can use HPC Pack GUI tools or co
     ```
     https://<HeadNodeDnsName>.<region>.chinacloudapp.cn/HpcPortal
     ```
-
 2. In the security dialog box that appears, type the domain credentials of the HPC cluster administrator. (You can also add other cluster users in different roles. See [Managing Cluster Users](https://technet.microsoft.com/zh-cn/library/ff919335.aspx).)
 
     The web portal opens to the job list view.

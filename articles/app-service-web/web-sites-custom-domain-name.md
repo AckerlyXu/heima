@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/30/2017
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Map a custom domain name to an Azure app
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
@@ -203,7 +203,7 @@ domain name (FQDN) of your custom domain to the list.
 ## Migrate an active domain name
 
 If the domain name you want to map is already in use by an existing website, and you want to avoid downtime, see 
-[Migrate an active custom domain to App Service](./app-service-custom-domain-name-migrate.md).
+[Migrate an active custom domain to App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="verify"></a> Verify DNS propagation
 After you finish the configuration steps, it can take some time for the changes to propagate, depending on your DNS provider. You can verify that the DNS propagation is working as expected by using [http://digwebinterface.com/](http://digwebinterface.com/). After you browse to the site, specify the hostnames in the textbox and click **Dig**. Verify the results to confirm if the recent changes have taken effect.  
@@ -216,7 +216,7 @@ After you finish the configuration steps, it can take some time for the changes 
 > 
 
 ## Next steps
-Learn how to secure your custom domain name with HTTPS by [using an SSL certificate from elsewhere](./web-sites-configure-ssl-certificate.md).
+Learn how to secure your custom domain name with HTTPS by [using an SSL certificate from elsewhere](web-sites-configure-ssl-certificate.md).
 
 <!-- Images -->
 [subdomain]: ./media/web-sites-custom-domain-name/azurewebsites-subdomain.png

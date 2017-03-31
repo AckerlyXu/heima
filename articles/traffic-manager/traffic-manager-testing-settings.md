@@ -36,9 +36,7 @@ The following examples help you test your Traffic Manager profile.
 2. Type `ipconfig /flushdns` to flush the DNS resolver cache.
 3. Type `nslookup <your Traffic Manager domain name>`. For example, the following command checks the domain name with the prefix *myapp.contoso*
 
-    ```
-    nslookup myapp.contoso.trafficmanager.cn
-    ```
+        nslookup myapp.contoso.trafficmanager.cn
 
     A typical result shows the following information:
 
@@ -71,6 +69,6 @@ Alternatively, there are free web-based DNS lookup and dig services available. S
 
 ## Next steps
 
-* [About Traffic Manager traffic routing methods](./traffic-manager-routing-methods.md)
-* [Traffic Manager performance considerations](./traffic-manager-performance-considerations.md)
-* [Troubleshooting Traffic Manager degraded state](./traffic-manager-troubleshooting-degraded.md)
+* [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
+* [Traffic Manager performance considerations](traffic-manager-performance-considerations.md)
+* [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)

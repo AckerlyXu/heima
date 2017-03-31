@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure App Service Documentation - Tutorials, API Reference | Azure
 description: Learn how to use App Service to create web and mobile apps for any platform or device using tutorials, videos, API references, and other documentation.
 services: app-service
 author: carolz
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 #App Service Documentation
@@ -127,5 +128,3 @@ Learn how to use App Service to develop and host web and mobile apps for any pla
         </a>
     </li>
 </ul>
-
-

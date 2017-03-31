@@ -7,7 +7,7 @@ author: iainfoulds
 manager: timlt
 editor: ''
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 03/07/2017
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
-Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp.org)) for your Linux VM using the Resource Manager deployment model. You can also [perform these steps for VMs using the Classic deployment model](./virtual-machines-linux-classic-remote-desktop.md).
+Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp)) for your Linux VM using the Resource Manager deployment model. You can also [perform these steps for VMs using the Classic deployment model](virtual-machines-linux-classic-remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## Prerequisites
 This article requires an existing Linux VM in Azure. If you need to create a VM, use one of the following methods:
 
-- The [Azure CLI 2.0](./virtual-machines-linux-quick-create-cli.md) or [Azure CLI 1.0](./virtual-machines-linux-quick-create-cli-nodejs.md)
-- The [Azure portal preview](./virtual-machines-linux-quick-create-portal.md)
+- The [Azure CLI 2.0](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure CLI 1.0](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- The [Azure portal preview](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 You also need to be logged in to an [active Azure account](https://www.azure.cn/pricing/1rmb-trial/).
 
@@ -100,7 +100,7 @@ First, SSH to your VM. The following example connects to the VM named `myvm.chin
 ssh ops@myvm.chinanorth.chinacloudapp.cn ~/.ssh/id_rsa.pub
 ```
 
-If you are using Windows and need more information on using SSH, see [How to use SSH keys with Windows](./virtual-machines-linux-ssh-from-windows.md).
+If you are using Windows and need more information on using SSH, see [How to use SSH keys with Windows](virtual-machines-linux-ssh-from-windows.md).
 
 Next, install xfce using `apt` as follows:
 
@@ -139,7 +139,7 @@ sudo passwd ops
 > Specifying a password does not update your sshd configuration to permit password logins if it currently does not. From a security perspective, you may wish to connect to your VM with an SSH tunnel using key-based authentication and then connect to xrdp. If so, skip the following step on creating a network security group rule to allow remote desktop traffic.
 
 ## Create a Network Security Group rule for Remote Desktop traffic
-To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md) You can also [use the Azure portal preview to create a network security group rule](./virtual-machines-windows-nsg-quickstart-portal.md).
+To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) You can also [use the Azure portal preview to create a network security group rule](virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The following examples create a network security group rule named `myNetworkSecurityGroupRule` to `allow` traffic on `tcp` port `3389`.
 
@@ -200,9 +200,9 @@ tail -f /var/log/syslog
 
 Other Linux distributions such as Red Hat Enterprise Linux and SUSE may have different ways to restart services and alternate log file locations to review.
 
-If you do not receive any response in your remote desktop client and do not see any events in the system log, this behavior indicates that remote desktop traffic cannot reach the VM. Review your network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](./virtual-machines-linux-troubleshoot-app-connection.md).
+If you do not receive any response in your remote desktop client and do not see any events in the system log, this behavior indicates that remote desktop traffic cannot reach the VM. Review your network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next steps
-For more information about creating and using SSH keys with Linux VMs, see [Create SSH keys for Linux VMs in Azure](./virtual-machines-linux-mac-create-ssh-keys.md).
+For more information about creating and using SSH keys with Linux VMs, see [Create SSH keys for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-For information on using SSH from Windows, see [How to use SSH keys with Windows](./virtual-machines-linux-ssh-from-windows.md).
+For information on using SSH from Windows, see [How to use SSH keys with Windows](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

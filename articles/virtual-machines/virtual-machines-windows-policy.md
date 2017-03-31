@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 04/13/2016
 wacn.date: ''
 ms.author: kasing
----
 
+---
 # Apply security and policies to Windows VMs with Azure Resource Manager
 By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we will describe how you can use Azure Resource Manager policies to define the desired behavior for your organization's Virtual Machines.
 

@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 10/10/2016
 wacn.date: ''
 ms.author: juliako
----
 
+---
 # Azure SDK for .NET 2.5.1 Release Notes
 This document contains the release notes for the Azure SDK for .NET 2.5.1 release. 
 
@@ -34,7 +34,7 @@ The following are new features and updates in the Azure SDK for .NET 2.5.1.
     * Web App and API App publishing dialogs have been enhanced to support the Azure Portal Preview concept of resource grouping, and selection/creation of Azure Resource Groups and App Service Plans are represented in the new Web App and API App provisioning dialog. 
     * Azure API App Server Explorer nodes provide links to the API Apps deep link in the Azure Portal Preview, as well as other features like Log Streaming and Remote Debugging.
 
-    For known issues and current limitations in Azure SDK .NET 2.5.1 [this](./app-service-release-notes.md#known_issues_2_5_1) section below.
+    For known issues and current limitations in Azure SDK .NET 2.5.1 [this](app-service-release-notes.md#known_issues_2_5_1) section below.
 * New features\scenarios related to **HDInsight Tools** in Visual Studio are enabled in this release. 
 
     * Local validation of hive scripts. Click the Validate script button in the toolbar to see if there are any errors in your script. 

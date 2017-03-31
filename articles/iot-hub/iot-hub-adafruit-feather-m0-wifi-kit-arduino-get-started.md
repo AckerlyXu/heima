@@ -126,7 +126,7 @@ If you have any problems during the lessons, look for solutions in the [Troubles
 
 [Lesson-1-end-to-end-diagram]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson1.png
 [configure-your-device]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md
-[get-the-tools]: /documentation/articles/iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md
+[get-the-tools]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md
 [create-and-deploy-the-blink-application]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md
 [lesson-2-end-to-end-diagram]: ./media/iot-hub-adafruit-feather-m0-wifi-lessons/e2e-lesson2.png
 [get-azure-tools]: ./iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md

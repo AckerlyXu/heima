@@ -8,7 +8,7 @@ manager: narayan
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 wacn.date: ''
 ms.author: annahar
----
 
+---
 # Assign multiple IP addresses to virtual machines using Azure CLI 1.0
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure CLI 1.0. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.
+This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure CLI 1.0. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
@@ -31,9 +31,9 @@ This article explains how to create a virtual machine (VM) through the Azure Res
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
-You can complete this task using the Azure CLI 1.0 (this article) or the [Azure CLI 2.0](./virtual-network-multiple-ip-addresses-cli.md). The steps that follow explain how to create an example VM with multiple IP addresses, as described in the scenario. Change variable names and IP address types as required for your implementation.
+You can complete this task using the Azure CLI 1.0 (this article) or the [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md). The steps that follow explain how to create an example VM with multiple IP addresses, as described in the scenario. Change variable names and IP address types as required for your implementation.
 
-1. Install and configure the Azure CLI 1.0 by following the steps in the [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/) article and log into your Azure account with the `azure-login` command.
+1. Install and configure the Azure CLI 1.0 by following the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article and log into your Azure account with the `azure-login` command.
 
 2. Register for the preview by running the following commands in PowerShell (you cannot register using the CLI) after you login and select the appropriate subscription:
 
@@ -55,7 +55,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
     >[!NOTE] 
     >This may take a few minutes.
 
-3. [Create a resource group](../virtual-machines/virtual-machines-linux-create-cli-complete.md#create-resource-groups-and-choose-deployment-locations) followed by a [virtual network and subnet](../virtual-machines/virtual-machines-linux-create-cli-complete.md#create-a-virtual-network-and-subnet). Change the ``` --address-prefixes ``` and ```--address-prefix``` fields to the following to follow the exact sceanrio outlined in this article:
+3. [Create a resource group](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) followed by a [virtual network and subnet](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Change the ``` --address-prefixes ``` and ```--address-prefix``` fields to the following to follow the exact sceanrio outlined in this article:
 
     ```azurecli
     --address-prefixes 10.0.0.0/16
@@ -65,7 +65,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
     >[!NOTE] 
     >The referenced article above uses China North as the location to create resources, but this article uses West China North. Make location changes appropriately.
 
-4. [Create  a storage account](../virtual-machines/virtual-machines-linux-create-cli-complete.md#create-a-storage-account) for your VM.
+4. [Create  a storage account](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) for your VM.
 
 5. Create the NIC and the IP configurations you want to assign to the NIC. You can add, remove, or change the configurations as necessary. The following configurations are described in the scenario:
 
@@ -76,7 +76,9 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
     - A public IP address resource with a static public IP address
     - An IP configuration with the public IP address resource and a dynamic private IP address
 
-        azure network public-ip create --resource-group myResourceGroup --location chinaeast --name myPublicIP --domain-name-label mypublicdns --allocation-method Static
+    ```azurecli
+    azure network public-ip create --resource-group myResourceGroup --location chinaeast --name myPublicIP --domain-name-label mypublicdns --allocation-method Static
+    ```
 
     > [!NOTE]
     > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://www.azure.cn/pricing/details/reserved-ip-addresses/) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
@@ -87,11 +89,13 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
 
     **IPConfig-2**
 
-     Enter the following commands to create a new public IP address resource and a new IP configuration with a static public IP address and a static private IP address:
+    Enter the following commands to create a new public IP address resource and a new IP configuration with a static public IP address and a static private IP address:
 
-        azure network public-ip create --resource-group myResourceGroup --location chinaeast --name myPublicIP2 --domain-name-label mypublicdns2 --allocation-method Static
+    ```azurecli
+    azure network public-ip create --resource-group myResourceGroup --location chinaeast --name myPublicIP2 --domain-name-label mypublicdns2 --allocation-method Static
 
-        azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic1 --name IPConfig-2 --private-ip-address 10.0.0.5 --public-ip-name myPublicIP2
+    azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic1 --name IPConfig-2 --private-ip-address 10.0.0.5 --public-ip-name myPublicIP2
+    ```
 
     **IPConfig-3**
 
@@ -104,7 +108,7 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
     >[!NOTE] 
     >Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs article.
 
-6. [Create a Linux VM](../virtual-machines/virtual-machines-linux-create-cli-complete.md#create-the-linux-vms) article. Be sure to remove the ```  --availset-name myAvailabilitySet \ ``` property as it is not required for this scenario. Use the appropriate location based on your scenario. 
+6. [Create a Linux VM](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms) article. Be sure to remove the ```  --availset-name myAvailabilitySet \ ``` property as it is not required for this scenario. Use the appropriate location based on your scenario. 
 
     >[!WARNING] 
     > Step 6 in the Create a VM article fails if the VM size is not supported in the location you selected. Run the following command to get a full list of VMs in China East, for example:
@@ -118,14 +122,13 @@ You can complete this task using the Azure CLI 1.0 (this article) or the [Azure 
     ```azurecli
     azure network nic show --resource-group myResourceGroup --name myNic1
     ```
-
 8. Add the private IP addresses to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article.
 
 ## <a name="add"></a>Add IP addresses to a VM
 
 You can add additional private and public IP addresses to an existing NIC by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
 
-1. Open Azure CLI and complete the remaining steps in this section within a single CLI session. If you don't already have Azure CLI installed and configured, complete the steps in the [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/) article and log into your Azure account.
+1. Open Azure CLI and complete the remaining steps in this section within a single CLI session. If you don't already have Azure CLI installed and configured, complete the steps in the [Install and Configure the Azure CLI](../cli-install-nodejs.md) article and log into your Azure account.
 
 2. Register for the public preview by following step 2 in the **Create a VM with multiple IP addresses** section.
 
@@ -172,13 +175,11 @@ You can add additional private and public IP addresses to an existing NIC by com
 
     Look for a line similar to the one that follows in the returned output:
 
-    ```
-    Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
-    -----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
-    default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
-    IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
-    IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet
-    ```
+        Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
+        -----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
+        default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
+        IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
+        IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet
 
     Since the **Public IP** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 
@@ -200,13 +201,11 @@ You can add additional private and public IP addresses to an existing NIC by com
 
     You should see output similar to the following: 
 
-    ```
-    Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
-    -----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
-    default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
-    IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
-    IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3
-    ```
+        Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
+        -----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
+        default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
+        IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
+        IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3
 
 9. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 

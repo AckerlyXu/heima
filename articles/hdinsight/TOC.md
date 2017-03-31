@@ -138,7 +138,7 @@
 ### Build HDInsight applications
 #### [Install HDInsight apps](hdinsight-apps-install-applications.md)
 #### [Install custom apps](hdinsight-apps-install-custom-applications.md)
-#### [Use REST to install apps](https://msdn.microsoft.com/library/mt706515.aspx)
+#### [Use REST to install apps](https://msdn.microsoft.com/zh-cn/library/mt706515.aspx)
 #### [Publish HDInsight apps to Azure Marketplace](hdinsight-apps-publish-applications.md)
 ## Secure
 ### [Use SSH tunneling](hdinsight-linux-ambari-ssh-tunnel.md)
@@ -151,7 +151,7 @@
 #### [Use cURL and the Azure REST API](hdinsight-hadoop-create-linux-clusters-curl-rest.md)
 #### [Use the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 #### [Use the Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
-#### [Use the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
+#### [Use the Azure portal preview](hdinsight-hadoop-create-linux-clusters-portal.md)
 #### [Use Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 ### [Manage Hadoop clusters](hdinsight-administer-use-portal-linux.md)
 #### [Use .NET SDK](hdinsight-administer-use-dotnet-sdk.md)
@@ -185,12 +185,12 @@
 #### [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Reference
-## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
-## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET (Hadoop)](https://msdn.microsoft.com/zh-cn/library/mt271028.aspx)
 ## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-## [REST](/rest/api/hdinsight/)
-## [REST (Spark)](/rest/api/hdinsightspark/)
+## [REST](https://docs.microsoft.com/rest/api/hdinsight/)
+## [REST (Spark)](https://docs.microsoft.com/rest/api/hdinsightspark/)
 
 # Related
 ## Windows clusters
@@ -200,7 +200,7 @@
 ### [Start with HBase](hdinsight-hbase-tutorial-get-started.md)
 ### [Run Hadoop MapReduce samples](hdinsight-run-samples.md)
 ### [Create Hadoop clusters](hdinsight-provision-clusters.md)
-#### [Use the Azure portal](hdinsight-hadoop-create-windows-clusters-portal.md)
+#### [Use the Azure portal preview](hdinsight-hadoop-create-windows-clusters-portal.md)
 #### [Use .NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md)
 #### [Use Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md)
 #### [Use Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md)
@@ -219,9 +219,9 @@
 ### [Analyze flight delay data](hdinsight-analyze-flight-delay-data.md)
 ### [Develop script actions](hdinsight-hadoop-script-actions.md)
 ### [Analyze Twitter data](hdinsight-analyze-twitter-data.md)
-### [Manage clusters with Azure portal](hdinsight-administer-use-management-portal.md)
+### [Manage clusters with Azure portal preview](hdinsight-administer-use-management-portal.md)
 ### [Monitor clusters using the Ambari API](hdinsight-monitor-use-ambari-api.md)
 
 # Resources
-## [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight)
+## [Get help on the forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)

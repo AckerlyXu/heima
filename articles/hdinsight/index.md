@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure HDInsight Documentation - Tutorials, API Reference | Azure
 description: Learn Hadoop on HDInsight. Documentation shows you how to use Hadoop, Spark, HBase, R-Server, and more to process, analyze, and gain insights from big data.
 services: hdinsight
 author: carolz
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 
@@ -131,7 +132,7 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
 </ul>
 
 ---
- 
+
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
@@ -140,7 +141,7 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -152,7 +153,7 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt271028.aspx">.NET (Hadoop)</a></p>
+                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt271028.aspx">.NET (Hadoop)</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
                         <p><a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET (Avro)</a></p>
                     </div>
@@ -166,13 +167,11 @@ Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or histor
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
-                        <p><a href="/rest/api/hdinsightspark/">REST API (Spark)</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/hdinsight/">REST API</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/hdinsightspark/">REST API (Spark)</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-

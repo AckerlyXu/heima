@@ -17,7 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 08/23/2016
 wacn.date: ''
 ms.author: rclaus
----
 
+---
 # Common Azure CLI commands on Linux and Mac
 [!INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]

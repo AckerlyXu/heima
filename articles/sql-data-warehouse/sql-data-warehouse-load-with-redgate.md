@@ -22,10 +22,10 @@ ms.author: mausher;barbkess
 
 > [!div class="op_single_selector"]
 >- [Redgate](./sql-data-warehouse-load-with-redgate.md)
-<!-- Data Factory not supported on Azure.cn-->
-<!-- - [Data Factory](/documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/)-->
 - [PolyBase](./sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](./sql-data-warehouse-load-with-bcp.md)
+<!-- Data Factory not supported on Azure.cn-->
+<!-- - [Data Factory](/documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/)-->
 
 This tutorial shows you how to use [Redgate's Data Platform Studio](http://www.red-gate.com/products/azure-development/data-platform-studio/) (DPS) to move data from an on-premise SQL Server to Azure SQL Data Warehouse. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with SQL Data Warehouse.
 

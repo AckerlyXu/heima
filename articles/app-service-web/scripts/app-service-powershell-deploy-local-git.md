@@ -26,7 +26,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-```
+```powershell
 $gitdirectory="<Replace with path to local Git repo>"
 $webappname="mywebapp$(Get-Random)"
 $location="China North"

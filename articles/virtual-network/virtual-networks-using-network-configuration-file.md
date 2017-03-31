@@ -1,6 +1,6 @@
 ---
 title: Configure an Azure Virtual Network (Classic) - Network configuration file | Azure
-description: Learn how to modify virtual networks (Classic) by exporting, changing, and importing a network configuration file using the Azure Classic Management portal preview (Classic).
+description: Learn how to modify virtual networks (Classic) by exporting, changing, and importing a network configuration file using the Azure Classic Management portal.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Configure a virtual network (Classic) using a network configuration file
-You can configure a virtual network (Classic) by using the Azure Classic Management portal preview (Classic), or by using a network configuration file. You cannot create or modify a virtual network through the Azure Resource Manager deployment model using a network configuration file. You also cannot use the Azure portal preview to create or modify a virtual network (Classic).
+You can configure a virtual network (Classic) by using the Azure Classic Management portal, or by using a network configuration file. You cannot create or modify a virtual network through the Azure Resource Manager deployment model using a network configuration file. You also cannot use the Azure portal preview to create or modify a virtual network (Classic).
 
 ## Creating and modifying a network configuration file
 The easiest way to author a network configuration file is to export the network settings from an existing virtual network (Classic) configuration, then modify the file to contain the settings that you want to configure for your virtual networks.
@@ -29,15 +29,15 @@ To edit the network configuration file, you can simply open the file, make the a
 
 You should closely follow the guidance for [network configuration file schema settings](https://msdn.microsoft.com/zh-cn/library/azure/jj157100.aspx). 
 
-Azure considers a subnet that has something deployed to it as **in use**. When a subnet is in use, it cannot be modified. Before modifying, move anything that you have deployed to the subnet to a different subnet that isn't being modified.   See [Move a VM or Role Instance to a Different Subnet](./virtual-networks-move-vm-role-to-subnet.md).
+Azure considers a subnet that has something deployed to it as **in use**. When a subnet is in use, it cannot be modified. Before modifying, move anything that you have deployed to the subnet to a different subnet that isn't being modified.   See [Move a VM or Role Instance to a Different Subnet](virtual-networks-move-vm-role-to-subnet.md).
 
-## Export and import virtual network settings using the Azure portal preview (Classic)
+## Export and import virtual network settings using the Azure Classic Management portal
 You can import and export network configuration settings contained in your network configuration file by using PowerShell or the Classic Management Portal. The instructions below will help you export and import using the Classic Management Portal. 
 
 ### To export your network settings
 When you export, all of the settings for the virtual networks in your subscription will be written to an .xml file. 
 
-1. Log into the [Azure portal preview (Classic)](https://manage.windowsazure.cn/).
+1. Log into the [Azure Classic Management portal](https://manage.windowsazure.cn/).
 2. In the Classic Management portal, on the bottom of the **networks** page, click **Export**. 
 3. On the **Export network configuration** window, verify that you have selected the subscription for which you want to export your network settings. Then, click the checkmark on the lower right. 
 4. When you are prompted, save the *NetworkConfig.xml* file to the location of your choice.

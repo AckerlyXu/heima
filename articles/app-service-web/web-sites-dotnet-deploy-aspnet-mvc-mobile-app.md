@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/12/2016
 wacn.date: ''
 ms.author: cephalin;riande
----
 
+---
 # Deploy an ASP.NET MVC 5 mobile web app in Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -151,15 +151,13 @@ To see how the Web app would look without Bootstrap, open
 *bootstrap.js* and *bootstrap.css*. The following code shows the last
 two statements of the `RegisterBundles` method after the change:
 
-```
- bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-          //"~/Scripts/bootstrap.js",
-          "~/Scripts/respond.js"));
+     bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+              //"~/Scripts/bootstrap.js",
+              "~/Scripts/respond.js"));
 
-bundles.Add(new StyleBundle("~/Content/css").Include(
-          //"~/Content/bootstrap.css",
-          "~/Content/site.css"));
-```
+    bundles.Add(new StyleBundle("~/Content/css").Include(
+              //"~/Content/bootstrap.css",
+              "~/Content/site.css"));
 
 Press `Ctrl+F5` to run the application.
 
@@ -203,22 +201,18 @@ and change the title from **MVC5 Application** to **MVC5 Application
 In each `Html.ActionLink` call for the navigation bar, remove "Browse by" in each link
 *ActionLink*. The following code shows the completed `<ul class="nav navbar-nav">` tag of the mobile layout file.
 
-```
-<ul class="nav navbar-nav">
-    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    <li>@Html.ActionLink("Date", "AllDates", "Home")</li>
-    <li>@Html.ActionLink("Speaker", "AllSpeakers", "Home")</li>
-    <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
-</ul>
-```
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Date", "AllDates", "Home")</li>
+        <li>@Html.ActionLink("Speaker", "AllSpeakers", "Home")</li>
+        <li>@Html.ActionLink("Tag", "AllTags", "Home")</li>
+    </ul>
 
 Copy the *Views\\Home\\AllTags.cshtml* file to
 *Views\\Home\\AllTags.Mobile.cshtml*. Open the new file and change the
 `<h2>` element from "Tags" to "Tags (M)":
 
-```
-<h2>Tags (M)</h2>
-```
+    <h2>Tags (M)</h2>
 
 Browse to the tags page using a desktop browser and using mobile browser
 emulator. The mobile browser emulator shows the two changes you made
@@ -242,13 +236,11 @@ the *AllTags* view.
 Open the *Global.asax* file and add the following code to the bottom of the
 `Application_Start` method.
 
-```
-DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
-{
-    ContextCondition = (context => context.GetOverriddenUserAgent().IndexOf
-        ("iPhone", StringComparison.OrdinalIgnoreCase) >= 0)
-});
-```
+    DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
+    {
+        ContextCondition = (context => context.GetOverriddenUserAgent().IndexOf
+            ("iPhone", StringComparison.OrdinalIgnoreCase) >= 0)
+    });
 
 This code defines a new display mode named "iPhone" that will be matched
 against each incoming request. If the incoming request matches the
@@ -271,9 +263,7 @@ then choose `using System.Web.WebPages;`. This adds a reference to the
 Alternatively, you can just manually add the following line to the
 `using` section of the file.
 
-```
-using System.Web.WebPages;
-```
+    using System.Web.WebPages;
 
 Save the changes. Copy the
 *Views\\Shared\\\_Layout.Mobile.cshtml* file to
@@ -311,12 +301,10 @@ You can globally disable a default (non-mobile) view from rendering
 inside a mobile layout by setting `RequireConsistentDisplayMode` to
 `true` in the *Views\\\_ViewStart.cshtml* file, like this:
 
-```
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
-}
-```
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
+    }
 
 When `RequireConsistentDisplayMode` is set to `true`, the mobile layout
 (*\_Layout.Mobile.cshtml*) is used only for mobile views (i.e. when the
@@ -333,14 +321,12 @@ You can disable consistent display mode in a specific view by setting
 following markup in the *Views\\Home\\AllSpeakers.cshtml* file sets
 `RequireConsistentDisplayMode` to `false`:
 
-```
-@model IEnumerable<string>
+    @model IEnumerable<string>
 
-@{
-    ViewBag.Title = "All speakers";
-    DisplayModeProvider.Instance.RequireConsistentDisplayMode = false;
-}
-```
+    @{
+        ViewBag.Title = "All speakers";
+        DisplayModeProvider.Instance.RequireConsistentDisplayMode = false;
+    }
 
 In this section we've seen how to create mobile layouts and views and
 how to create layouts and views for specific devices such as the iPhone.
@@ -361,22 +347,20 @@ You can use the Bootstrap [linked list group][linked list group] styling to
 improve the *Speakers* view. In *Views\\Home\\AllSpeakers.cshtml*,
 replace the contents of the Razor file with the code below.
 
-```
- @model IEnumerable<string>
+     @model IEnumerable<string>
 
-@{
-    ViewBag.Title = "All Speakers";
-}
-
-<h2>Speakers</h2>
-
-<div class="list-group">
-    @foreach (var speaker in Model)
-    {
-        @Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker }, new { @class = "list-group-item" })
+    @{
+        ViewBag.Title = "All Speakers";
     }
-</div>
-```
+
+    <h2>Speakers</h2>
+
+    <div class="list-group">
+        @foreach (var speaker in Model)
+        {
+            @Html.ActionLink(speaker, "SessionsBySpeaker", new { speaker }, new { @class = "list-group-item" })
+        }
+    </div>
 
 The `class="list-group"` attribute in the `<div>` tag applies the
 Bootstrap list styling, and the `class="input-group-item"` attribute
@@ -399,30 +383,28 @@ few lines of code. You will first add a search box to the view, then
 hook up with the JavaScript code for the filter function. In
 *Views\\Home\\AllSpeakers.cshtml*, add a \<form\> tag just after the \<h2\> tag, as shown below:
 
-```
-@model IEnumerable<string>
+    @model IEnumerable<string>
 
-@{
-    ViewBag.Title = "All Speakers";
-}
-
-<h2>Speakers</h2>
-
-<form class="input-group">
-    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-    <input type="text" class="form-control" placeholder="Search speaker">
-</form>
-<br />
-<div class="list-group">
-    @foreach (var speaker in Model)
-    {
-        @Html.ActionLink(speaker, 
-                         "SessionsBySpeaker", 
-                         new { speaker }, 
-                         new { @class = "list-group-item" })
+    @{
+        ViewBag.Title = "All Speakers";
     }
-</div>
-```
+
+    <h2>Speakers</h2>
+
+    <form class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+        <input type="text" class="form-control" placeholder="Search speaker">
+    </form>
+    <br />
+    <div class="list-group">
+        @foreach (var speaker in Model)
+        {
+            @Html.ActionLink(speaker, 
+                             "SessionsBySpeaker", 
+                             new { speaker }, 
+                             new { @class = "list-group-item" })
+        }
+    </div>
 
 Notice that the `<form>` and `<input>` tags both have the Bootstrap
 styles applied to them. The `<span>` element adds a Bootstrap
@@ -432,44 +414,40 @@ search box.
 In the *Scripts* folder, add a JavaScript file called *filter.js*. Open
 the file and paste the following code into it:
 
-```
-$(function () {
+    $(function () {
 
-    // reset the search form when the page loads
-    $("form").each(function () {
-        this.reset();
-    });
+        // reset the search form when the page loads
+        $("form").each(function () {
+            this.reset();
+        });
 
-    // wire up the events to the <input> element for search/filter
-    $("input").bind("keyup change", function () {
-        var searchtxt = this.value.toLowerCase();
-        var items = $(".list-group-item");
+        // wire up the events to the <input> element for search/filter
+        $("input").bind("keyup change", function () {
+            var searchtxt = this.value.toLowerCase();
+            var items = $(".list-group-item");
 
-        // show all speakers that begin with the typed text and hide others
-        for (var i = 0; i < items.length; i++) {
-            var val = items[i].text.toLowerCase();
-            val = val.substring(0, searchtxt.length);
-            if (val == searchtxt) {
-                $(items[i]).show();
+            // show all speakers that begin with the typed text and hide others
+            for (var i = 0; i < items.length; i++) {
+                var val = items[i].text.toLowerCase();
+                val = val.substring(0, searchtxt.length);
+                if (val == searchtxt) {
+                    $(items[i]).show();
+                }
+                else {
+                    $(items[i]).hide();
+                }
             }
-            else {
-                $(items[i]).hide();
-            }
-        }
+        });
     });
-});
-```
 
 You also need to include filter.js in your registered bundles. Open
 *App\_Start\\BundleConfig.cs* and change the first bundles. Change the
 first `bundles.Add` statement (for the **jquery** bundle) to include
 *Scripts\\filter.js*, as follows:
 
-```
- bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-            "~/Scripts/jquery-{version}.js",
-            "~/Scripts/filter.js"));
-```
+     bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/filter.js"));
 
 The **jquery** bundle is already rendered by the default *\_Layout*
 view. Later, you can utilize the same JavaScript code to apply the
@@ -485,12 +463,10 @@ according to your search string.
 Like the *Speakers* view, the *Tags* view is readable, but the links
 are small and difficult to tap on a mobile device. You can fix the *Tags* view the same way you fix the *Speakers* view, if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllTags.cshtml*:
 
-```
-@Html.ActionLink(tag, 
-                 "SessionsByTag", 
-                 new { tag }, 
-                 new { @class = "list-group-item" })
-```
+    @Html.ActionLink(tag, 
+                     "SessionsByTag", 
+                     new { tag }, 
+                     new { @class = "list-group-item" })
 
 The refreshed desktop browser looks as follows:
 
@@ -509,12 +485,10 @@ And the refreshed mobile browser looks as follows:
 You can improve the *Dates* view like you improved the *Speakers* and
 *Tags* views if you use the code changes described earlier, but with the following `Html.ActionLink` method syntax in *Views\\Home\\AllDates.cshtml*:
 
-```
-@Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
-                 "SessionsByDate", 
-                 new { date }, 
-                 new { @class = "list-group-item" })
-```
+    @Html.ActionLink(date.ToString("ddd, MMM dd, h:mm tt"), 
+                     "SessionsByDate", 
+                     new { date }, 
+                     new { @class = "list-group-item" })
 
 You will get a refreshed mobile browser view like this:
 
@@ -526,33 +500,31 @@ values by date. This can be done with the Bootstrap
 the contents of the *Views\\Home\\AllDates.cshtml* file with the
 following code:
 
-```
-@model IEnumerable<DateTime>
+    @model IEnumerable<DateTime>
 
-@{
-    ViewBag.Title = "All Dates";
-}
+    @{
+        ViewBag.Title = "All Dates";
+    }
 
-<h2>Dates</h2>
+    <h2>Dates</h2>
 
-@foreach (var dategroup in Model.GroupBy(x=>x.Date))
-{
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            @dategroup.Key.ToString("ddd, MMM dd")
+    @foreach (var dategroup in Model.GroupBy(x=>x.Date))
+    {
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                @dategroup.Key.ToString("ddd, MMM dd")
+            </div>
+            <div class="panel-body list-group">
+                @foreach (var date in dategroup)
+                {
+                    @Html.ActionLink(date.ToString("h:mm tt"), 
+                                     "SessionsByDate", 
+                                     new { date }, 
+                                     new { @class = "list-group-item" })
+                }
+            </div>
         </div>
-        <div class="panel-body list-group">
-            @foreach (var date in dategroup)
-            {
-                @Html.ActionLink(date.ToString("h:mm tt"), 
-                                 "SessionsByDate", 
-                                 new { date }, 
-                                 new { @class = "list-group-item" })
-            }
-        </div>
-    </div>
-}
-```
+    }
 
 This code creates a separate `<div class="panel panel-primary">` tag for
 each distinct date in the list, and uses the [linked list group][linked list group] for the
@@ -584,38 +556,36 @@ difficult to read on a mobile browser. To fix this, open
 *Views\\Home\\SessionsTable.cshtml* and then replace the contents of the
 file with the following code:
 
-```
-@model IEnumerable<Mvc5Mobile.Models.Session>
+    @model IEnumerable<Mvc5Mobile.Models.Session>
 
-<h2>@ViewBag.Title</h2>
+    <h2>@ViewBag.Title</h2>
 
-<div class="container">
-    <div class="row">
-        @foreach (var session in Model)
-        {
-            <div class="col-md-4">
-                <div class="list-group">
-                    @Html.ActionLink(session.Title, 
-                                     "SessionByCode", 
-                                     new { session.Code }, 
-                                     new { @class="list-group-item active" })
-                    <div class="list-group-item">
-                        <div class="list-group-item-text">
-                            @Html.Partial("_SpeakersLinks", session)
-                        </div>
-                        <div class="list-group-item-info">
-                            @session.DateText
-                        </div>
-                        <div class="list-group-item-info small hidden-xs">
-                            @Html.Partial("_TagsLinks", session)
+    <div class="container">
+        <div class="row">
+            @foreach (var session in Model)
+            {
+                <div class="col-md-4">
+                    <div class="list-group">
+                        @Html.ActionLink(session.Title, 
+                                         "SessionByCode", 
+                                         new { session.Code }, 
+                                         new { @class="list-group-item active" })
+                        <div class="list-group-item">
+                            <div class="list-group-item-text">
+                                @Html.Partial("_SpeakersLinks", session)
+                            </div>
+                            <div class="list-group-item-info">
+                                @session.DateText
+                            </div>
+                            <div class="list-group-item-info small hidden-xs">
+                                @Html.Partial("_TagsLinks", session)
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
-```
 
 The code does 3 things:
 
@@ -665,45 +635,43 @@ The default desktop view is fine, but you can improve the look easily by using s
 Open *Views\\Home\\SessionByCode.cshtml* and replace the contents with
 the following markup:
 
-```
-@model Mvc5Mobile.Models.Session
+    @model Mvc5Mobile.Models.Session
 
-@{
-    ViewBag.Title = "Session details";
-}
-<h3>@Model.Title (@Model.Code)</h3>
-<p>
-    <strong>@Model.DateText</strong> in <strong>@Model.Room</strong>
-</p>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        Speakers
-    </div>
-    @foreach (var speaker in Model.Speakers)
-    {
-        @Html.ActionLink(speaker, 
-                         "SessionsBySpeaker", 
-                         new { speaker }, 
-                         new { @class="panel-body" })
+    @{
+        ViewBag.Title = "Session details";
     }
-</div>
+    <h3>@Model.Title (@Model.Code)</h3>
+    <p>
+        <strong>@Model.DateText</strong> in <strong>@Model.Room</strong>
+    </p>
 
-<p>@Model.Abstract</p>
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        Tags
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Speakers
+        </div>
+        @foreach (var speaker in Model.Speakers)
+        {
+            @Html.ActionLink(speaker, 
+                             "SessionsBySpeaker", 
+                             new { speaker }, 
+                             new { @class="panel-body" })
+        }
     </div>
-    @foreach (var tag in Model.Tags)
-    {
-        @Html.ActionLink(tag, 
-                         "SessionsByTag", 
-                         new { tag }, 
-                         new { @class = "panel-body" })
-    }
-</div>
-```
+
+    <p>@Model.Abstract</p>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Tags
+        </div>
+        @foreach (var tag in Model.Tags)
+        {
+            @Html.ActionLink(tag, 
+                             "SessionsByTag", 
+                             new { tag }, 
+                             new { @class = "panel-body" })
+        }
+    </div>
 
 The new markup uses Bootstrap panels styling to improve the mobile view. 
 
@@ -737,7 +705,7 @@ mobile-friendly Web applications. These include:
 * [W3C Candidate Recommendation for media queries][W3C Candidate Recommendation for media queries]
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](./app-service-changes-existing-services.md)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
 
 <!-- Internal Links -->
 [Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject

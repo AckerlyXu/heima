@@ -99,11 +99,15 @@ The Basic tier includes, and is strictly limited to, 100 brokered connections pe
 
 >[!NOTE]
 > 1,000 brokered connections are included with the Standard messaging tier (via the base charge) and can be shared across all queues, topics, and subscriptions within the associated Azure subscription.
+>
+>
 
 <br />
 
 >[!NOTE]
 > Billing is based on the peak number of concurrent connections and is prorated hourly based on 744 hours per month.
+>
+>
 
 |Premium Tier
 |---|
@@ -152,4 +156,4 @@ Yes. There are no connection charges for sending events using HTTP, regardless o
 
 - See the [Service Bus FAQ](./service-bus-faq.md#service-bus-pricing) for some common FAQs around Service bus pricing and billing.
 
-[Azure classic portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.cn

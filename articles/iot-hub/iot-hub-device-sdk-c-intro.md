@@ -32,11 +32,11 @@ You can find the [**Azure IoT device SDK for C**](https://github.com/Azure/azure
 
 The latest version of the libraries can be found in the **master** branch of this repository:
 
-  ![](media/iot-hub-device-sdk-c-intro/01-MasterBranch.PNG)
+  ![](./media/iot-hub-device-sdk-c-intro/01-MasterBranch.PNG)
 
 This repository contains the entire family of Azure IoT device SDKs. However, this article is about the Azure IoT device SDK *for C* which can be found in the **c** folder.
 
-  ![](media/iot-hub-device-sdk-c-intro/02-CFolder.PNG)
+  ![](./media/iot-hub-device-sdk-c-intro/02-CFolder.PNG)
 
 * The core implementation of the SDK can be found in the **iothub\_client** folder which contains the implementation of the lowest API layer in the SDK: the **IoTHubClient** library. The **IoTHubClient** library contains APIs implementing raw messaging for sending messages to IoT Hub as well as receiving messages from it. When using this library, you are responsible for implementing message serialization (eventually using the serializer sample described below), but other details of communicating with IoT Hub are handled for you.
 * The **serializer** folder contains helper functions and samples showing how to serialize data before sending to Azure IoT Hub using the client library. Note that the use of the serializer is not mandatory and only provided as a convenience. If you use the **serializer** library, you start by defining a model that specifies the events you want to send to IoT Hub as well as the messages you expect to receive from it. Once the model is defined, the SDK provides you an API surface that enables you to easily work with events and messages without having to worry about serialization details.

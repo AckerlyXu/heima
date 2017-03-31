@@ -1,6 +1,6 @@
 ---
 title: Get started with Apache Kafka on HDInsight | Azure
-description: Learn the basics of creating and working with Kafka on HDInsight.
+description: 'Learn the basics of creating and working with Kafka on HDInsight.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -17,7 +17,6 @@ ms.date: 02/14/2017
 wacn.date: ''
 ms.author: larryfr
 ---
-
 # Get started with Apache Kafka (preview) on HDInsight
 
 [Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that is available with HDInsight. It is often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. In this document, you learn how to create a Kafka on HDInsight cluster and then send and receive data from a Java application.
@@ -35,9 +34,9 @@ You must have the following to successfully complete this Apache Kafka tutorial:
 
 * **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following documents:
 
-    * **Linux, Unix, OS X, and Windows 10 clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, and Bash on Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * **Linux, Unix, OS X, and Windows 10 clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, Unix, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * **Windows clients**: See [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * **Windows clients**: See [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
 
@@ -107,13 +106,13 @@ Replace **SSHUSER** with the SSH username you provided during cluster creation. 
 When prompted, enter the password you used for the SSH account.
 
 > [!NOTE]
-> If you have a version of Windows that does not include the SSH command, see the[Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md) document. It contains information on using the PuTTY SSH client for Windows.
+> If you have a version of Windows that does not include the SSH command, see the[Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) document. It contains information on using the PuTTY SSH client for Windows.
 
 For information on using SSH with HDInsight, see the following documents:
 
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-* [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+* [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ##<a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
 
@@ -318,22 +317,20 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 
     The output is similar to the following text:
 
-    ```
-    dwarfs  13635
-    ago     13664
-    snow    13636
-    dwarfs  13636
-    ago     13665
-    a       13803
-    ago     13666
-    a       13804
-    ago     13667
-    ago     13668
-    jumped  13640
-    jumped  13641
-    a       13805
-    snow    13637
-    ```
+        dwarfs  13635
+        ago     13664
+        snow    13636
+        dwarfs  13636
+        ago     13665
+        a       13803
+        ago     13666
+        a       13804
+        ago     13667
+        ago     13668
+        jumped  13640
+        jumped  13641
+        a       13805
+        snow    13637
 
     > [!NOTE]
     > The count increments each time a word is encountered.
@@ -349,6 +346,6 @@ The streaming API was added to Kafka in version 0.10.0; earlier versions rely on
 In this document, you have learned the basics of working with Apache Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
 * [Apache Kafka documentation](http://kafka.apache.org/documentation.html) at kafka.apache.org.
-* [Use MirrorMaker to create a replica of Kafka on HDInsight](./hdinsight-apache-kafka-mirroring.md)
-* [Use Apache Storm with Kafka on HDInsight](./hdinsight-apache-storm-with-kafka.md)
-* [Use Apache Spark with Kafka on HDInsight](./hdinsight-apache-spark-with-kafka.md)
+* [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
+* [Use Apache Spark with Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)

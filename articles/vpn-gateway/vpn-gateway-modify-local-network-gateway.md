@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2016
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Modify local network gateway settings using PowerShell
 Sometimes the settings for your local network gateway AddressPrefix or GatewayIPAddress change. The instructions below will help you modify your local network gateway settings. You can also modify these settings in the Azure portal preview.
 
@@ -32,4 +32,4 @@ You'll need to install the latest version of the Azure Resource Manager PowerShe
 [!INCLUDE [vpn-gateway-modify-lng-gateway-ip-rm](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
 
 ## Next steps
-You can verify your gateway connection. See [Verify a gateway connection](./vpn-gateway-verify-connection-resource-manager.md).
+You can verify your gateway connection. See [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md).

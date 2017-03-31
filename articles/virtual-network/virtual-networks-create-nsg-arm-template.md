@@ -18,8 +18,8 @@ ms.date: 02/02/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create network security groups using an Azure Resource Manager template
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
@@ -28,7 +28,7 @@ ms.custom: H1Hack27Feb2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the Resource Manager deployment model. You can also [create NSGs in the classic deployment model](./virtual-networks-create-nsg-classic-ps.md).
+This article covers the Resource Manager deployment model. You can also [create NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -110,46 +110,44 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 
     Expected output:
 
-    ```
-    ResourceGroupName : TestRG
-    Location          : chinanorth
-    ProvisioningState : Succeeded
-    Tags              :
-    Permissions       :
-                        Actions  NotActions
-                        =======  ==========
-                        *                  
+        ResourceGroupName : TestRG
+        Location          : chinanorth
+        ProvisioningState : Succeeded
+        Tags              :
+        Permissions       :
+                            Actions  NotActions
+                            =======  ==========
+                            *                  
 
-    Resources         :
-                        Name                Type                                     Location
-                        ==================  =======================================  ========
-                        sqlAvSet            Microsoft.Compute/availabilitySets       chinanorth  
-                        webAvSet            Microsoft.Compute/availabilitySets       chinanorth  
-                        SQL1                Microsoft.Compute/virtualMachines        chinanorth  
-                        SQL2                Microsoft.Compute/virtualMachines        chinanorth  
-                        Web1                Microsoft.Compute/virtualMachines        chinanorth  
-                        Web2                Microsoft.Compute/virtualMachines        chinanorth  
-                        TestNICSQL1         Microsoft.Network/networkInterfaces      chinanorth  
-                        TestNICSQL2         Microsoft.Network/networkInterfaces      chinanorth  
-                        TestNICWeb1         Microsoft.Network/networkInterfaces      chinanorth  
-                        TestNICWeb2         Microsoft.Network/networkInterfaces      chinanorth  
-                        NSG-BackEnd         Microsoft.Network/networkSecurityGroups  chinanorth  
-                        NSG-FrontEnd        Microsoft.Network/networkSecurityGroups  chinanorth  
-                        TestPIPSQL1         Microsoft.Network/publicIPAddresses      chinanorth  
-                        TestPIPSQL2         Microsoft.Network/publicIPAddresses      chinanorth  
-                        TestPIPWeb1         Microsoft.Network/publicIPAddresses      chinanorth  
-                        TestPIPWeb2         Microsoft.Network/publicIPAddresses      chinanorth  
-                        TestVNet            Microsoft.Network/virtualNetworks        chinanorth  
-                        testvnetstorageprm  Microsoft.Storage/storageAccounts        chinanorth  
-                        testvnetstoragestd  Microsoft.Storage/storageAccounts        chinanorth  
+        Resources         :
+                            Name                Type                                     Location
+                            ==================  =======================================  ========
+                            sqlAvSet            Microsoft.Compute/availabilitySets       chinanorth  
+                            webAvSet            Microsoft.Compute/availabilitySets       chinanorth  
+                            SQL1                Microsoft.Compute/virtualMachines        chinanorth  
+                            SQL2                Microsoft.Compute/virtualMachines        chinanorth  
+                            Web1                Microsoft.Compute/virtualMachines        chinanorth  
+                            Web2                Microsoft.Compute/virtualMachines        chinanorth  
+                            TestNICSQL1         Microsoft.Network/networkInterfaces      chinanorth  
+                            TestNICSQL2         Microsoft.Network/networkInterfaces      chinanorth  
+                            TestNICWeb1         Microsoft.Network/networkInterfaces      chinanorth  
+                            TestNICWeb2         Microsoft.Network/networkInterfaces      chinanorth  
+                            NSG-BackEnd         Microsoft.Network/networkSecurityGroups  chinanorth  
+                            NSG-FrontEnd        Microsoft.Network/networkSecurityGroups  chinanorth  
+                            TestPIPSQL1         Microsoft.Network/publicIPAddresses      chinanorth  
+                            TestPIPSQL2         Microsoft.Network/publicIPAddresses      chinanorth  
+                            TestPIPWeb1         Microsoft.Network/publicIPAddresses      chinanorth  
+                            TestPIPWeb2         Microsoft.Network/publicIPAddresses      chinanorth  
+                            TestVNet            Microsoft.Network/virtualNetworks        chinanorth  
+                            testvnetstorageprm  Microsoft.Storage/storageAccounts        chinanorth  
+                            testvnetstoragestd  Microsoft.Storage/storageAccounts        chinanorth  
 
-    ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
-    ```
+        ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
 
 ## Deploy the ARM template by using the Azure CLI
 To deploy the ARM template by using the Azure CLI, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
 
     ```azurecli
@@ -158,9 +156,7 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
 
     The following is the expected output for the command:
 
-    ```
-    info:    New mode is arm
-    ```
+        info:    New mode is arm
 
 3. Run the **`azure group deployment create`** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
@@ -170,22 +166,20 @@ To deploy the ARM template by using the Azure CLI, follow the steps below.
 
     Expected output:
 
-    ```
-    info:    Executing command group create
-    info:    Getting resource group TestRG
-    info:    Creating resource group TestRG
-    info:    Created resource group TestRG
-    info:    Initializing template configurations and parameters
-    info:    Creating a deployment
-    info:    Created template deployment "azuredeploy"
-    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
-    data:    Name:                TestRG
-    data:    Location:            chinanorth
-    data:    Provisioning State:  Succeeded
-    data:    Tags: null
-    data:    
-    info:    group create command OK
-    ```
+        info:    Executing command group create
+        info:    Getting resource group TestRG
+        info:    Creating resource group TestRG
+        info:    Created resource group TestRG
+        info:    Initializing template configurations and parameters
+        info:    Creating a deployment
+        info:    Created template deployment "azuredeploy"
+        data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+        data:    Name:                TestRG
+        data:    Location:            chinanorth
+        data:    Provisioning State:  Succeeded
+        data:    Tags: null
+        data:    
+        info:    group create command OK
 
     * **-n (or --name)**. Name of the resource group to be created.
     * **-l (or --location)**. Azure region where the resource group will be created.

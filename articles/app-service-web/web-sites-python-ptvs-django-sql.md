@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 07/07/2016
 wacn.date: ''
 ms.author: huvalo
----
 
+---
 # Django and SQL Database on Azure with Python Tools 2.2 for Visual Studio
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates.
 
-We'll learn how to use a SQL database hosted on Azure, how to configure the web app to use a SQL database, and how to publish the web app to [Azure App Service Web Apps](./app-service-changes-existing-services.md).
+We'll learn how to use a SQL database hosted on Azure, how to configure the web app to use a SQL database, and how to publish the web app to [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/).
 
 See the [Python Developer Center] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with Azure Table Storage, MySQL and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services].
 
@@ -91,28 +91,24 @@ databases with Django. Then we'll run the web app locally.
 
 1. In Visual Studio, open **settings.py**, from the *ProjectName* folder. Temporarily paste the connection string in the editor. The connection string is in this format:
 
-    ```
-    Server=<ServerName>,<ServerPort>;Database=<DatabaseName>;User ID=<UserName>;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-    ```
+        Server=<ServerName>,<ServerPort>;Database=<DatabaseName>;User ID=<UserName>;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
     Edit the definition of `DATABASES` to use the values above.
 
-    ```
-    DATABASES = {
-        'default': {
-            'ENGINE': 'sql_server.pyodbc',
-            'NAME': '<DatabaseName>',
-            'USER': '<UserName>',
-            'PASSWORD': '{your_password_here}',
-            'HOST': '<ServerName>',
-            'PORT': '<ServerPort>',
-            'OPTIONS': {
-                'driver': 'SQL Server Native Client 11.0',
-                'MARS_Connection': 'True',
+        DATABASES = {
+            'default': {
+                'ENGINE': 'sql_server.pyodbc',
+                'NAME': '<DatabaseName>',
+                'USER': '<UserName>',
+                'PASSWORD': '{your_password_here}',
+                'HOST': '<ServerName>',
+                'PORT': '<ServerPort>',
+                'OPTIONS': {
+                    'driver': 'SQL Server Native Client 11.0',
+                    'MARS_Connection': 'True',
+                }
             }
         }
-    }
-    ```
 
 1. In Solution Explorer, under **Python Environments**, right-click on the virtual environment and select **Install Python Package**.
 2. Install the package `pyodbc` using **pip**.
@@ -159,7 +155,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 * [SQL Database]
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](./app-service-changes-existing-services.md)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
 
 <!--Link references-->
 [Python Developer Center]: /develop/python/
@@ -177,4 +173,4 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 [Web Projects]: http://go.microsoft.com/fwlink/?LinkId=624027
 [Cloud Service Projects]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Django Documentation]: https://www.djangoproject.com/
-[SQL Database]: ../sql-database/index.md
+[SQL Database]: /azure/sql-database/

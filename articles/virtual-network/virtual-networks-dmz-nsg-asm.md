@@ -16,12 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: ''
 ms.author: jonor
----
 
+---
 # Example 1 - Build a simple DMZ using NSGs with classic PowerShell
+
 > [!div class="op_single_selector"]
->- [Resource Manager Template](./virtual-networks-dmz-nsg.md)
->- [Classic - PowerShell](./virtual-networks-dmz-nsg-asm.md)
+> * [Resource Manager Template](virtual-networks-dmz-nsg.md)
+> * [Classic - PowerShell](virtual-networks-dmz-nsg-asm.md)
+> 
+>
 
 This example creates a primitive DMZ with four Windows servers and Network Security Groups. This example describes each of the relevant PowerShell commands to provide a deeper understanding of each step. There is also a Traffic Scenario section to provide an in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
 
@@ -45,7 +48,7 @@ To build the environment;
 2. Update the user variables in the script to match the environment the script is to be run against (subscriptions, service names, etc.)
 3. Execute the script in PowerShell
 
->[!NOTE]
+>[!Note]
 >The region signified in the PowerShell script must match the region signified in the network configuration xml file.
 >
 >
@@ -91,15 +94,15 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
     * "Priority" sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
     * "Action" signifies if traffic affected by this rule is blocked or allowed.
 
-        ```PowerShell
-        Get-AzureNetworkSecurityGroup -Name $NSGName | `
+    ```PowerShell    
+    Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
         -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[4] `
         -DestinationPortRange '53' `
         -Protocol *
-        ```
+    ```
 
 3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. This rule uses two special types of address prefixes; "VIRTUAL_NETWORK" and "INTERNET." These tags are an easy way to address a larger category of address prefixes.
 
@@ -138,7 +141,6 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
     ```
 
 6. This rule denies traffic from the internet to any servers on the network. With the rules at priority 110 and 120, the effect is to allow only inbound internet traffic to the firewall and RDP ports on servers and blocks everything else. This rule is a "fail-safe" rule to block all unexpected flows.
-
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule `
@@ -149,7 +151,6 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
         -DestinationPortRange '*' `
         -Protocol *
     ```
-
 7. The final rule denies traffic from the Frontend subnet to the Backend subnet. Since this rule is an Inbound only rule, reverse traffic is allowed (from the Backend to the Frontend).
 
     ```PowerShell

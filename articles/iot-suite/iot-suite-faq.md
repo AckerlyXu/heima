@@ -80,12 +80,12 @@ You can also explore some of the other features and capabilities of the IoT Suit
 * [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
 * [IoT security from the ground up][lnk-security-groundup]
 
-[lnk-predictive-overview]: /documentation/articles/iot-suite/iot-suite-predictive-overview/
-[lnk-security-groundup]: /documentation/articles/iot-suite/securing-iot-ground-up/
+[lnk-predictive-overview]: ./iot-suite-predictive-overview.md/
+[lnk-security-groundup]: ./securing-iot-ground-up.md/
 [link-azuresupportticket]: https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: ../azure-subscription-service-limits.md#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.cn
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-azureiotsuite]: https://www.azureiotsuite.cn/
 [lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-remote-monitoring-github]: https://github.com/Azure/azure-iot-remote-monitoring 
 [lnk-dreamspark]: https://www.dreamspark.com/Product/Product.aspx?productid=99 

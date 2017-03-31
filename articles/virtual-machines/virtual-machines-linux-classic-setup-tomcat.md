@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/15/2015
 wacn.date: ''
 ms.author: ningk
----
 
+---
 # Set up Tomcat7 on a Linux virtual machine with Azure
 Apache Tomcat (or simply Tomcat, also formerly called Jakarta Tomcat) is an open source web server and servlet container developed by the Apache Software Foundation (ASF). Tomcat implements the Java Servlet and the JavaServer Pages (JSP) specifications from Sun Microsystems. Tomcat provides a pure Java HTTP web server environment in which to run Java code. In the simplest configuration, Tomcat runs in a single operating system process. This process runs a Java virtual machine (JVM). Every HTTP request from a browser to Tomcat is processed as a separate thread in the Tomcat process.  
 
@@ -133,53 +133,37 @@ Tomcat is written in Java. There are two kinds of Java Development Kits (JDKs), 
 
 Use the following command to download OpenJDK.   
 
-```
-sudo apt-get update  
-sudo apt-get install openjdk-7-jre  
-```
+    sudo apt-get update  
+    sudo apt-get install openjdk-7-jre  
 
 * To create a directory to contain the JDK files:  
 
-    ```
-    sudo mkdir /usr/lib/jvm  
-    ```
+        sudo mkdir /usr/lib/jvm  
 * To extract the JDK files into the /usr/lib/jvm/ directory:  
 
-    ```
-    sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/
-    ```
+        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/
 
 #### Install Oracle JDK
 
 Use the following command to download Oracle JDK from the Oracle website.  
 
-```
- wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
-```
+     wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
 * To create a directory to contain the JDK files:  
 
-    ```
-    sudo mkdir /usr/lib/jvm  
-    ```
+        sudo mkdir /usr/lib/jvm  
 * To extract the JDK files into the /usr/lib/jvm/ directory:  
 
-    ```
-    sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
-    ```
+        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
 * To set Oracle JDK as the default Java virtual machine:  
 
-    ```
-    sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
+        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
 
-    sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
-    ```
+        sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
 
 #### Confirm that Java installation is successful
 You can use a command like the following to test if the Java runtime environment is installed correctly:  
 
-```
-java -version  
-```
+    java -version  
 
 If you installed OpenJDK, you should see a message like the following:
 ![Successful OpenJDK installation message][14]
@@ -190,9 +174,7 @@ If you installed Oracle JDK, you should see a message like the following:
 ### Install Tomcat7
 Use the following command to install Tomcat7.  
 
-```
-sudo apt-get install tomcat7  
-```
+    sudo apt-get install tomcat7  
 
 If you are not using Tomcat7, use the appropriate variation of this command.  
 
@@ -205,11 +187,9 @@ There are other optional Tomcat components that you can install.
 
 Use the **sudo apt-cache search tomcat7** command to see all of the available components. Use the following commands to install some useful components.  
 
-```
-sudo apt-get install tomcat7-admin      #admin web applications
+    sudo apt-get install tomcat7-admin      #admin web applications
 
-sudo apt-get install tomcat7-user         #tools to create user instances  
-```
+    sudo apt-get install tomcat7-user         #tools to create user instances  
 
 ## Phase 4: Configure Tomcat7
 In this phase, you administer Tomcat.
@@ -217,34 +197,24 @@ In this phase, you administer Tomcat.
 ### Start and stop Tomcat7
 The Tomcat7 server automatically starts when you install it. You can also start it with the following command:   
 
-```
-sudo /etc/init.d/tomcat7 start
-```
+    sudo /etc/init.d/tomcat7 start
 
 To stop Tomcat7:
 
-```
-sudo /etc/init.d/tomcat7 stop
-```
+    sudo /etc/init.d/tomcat7 stop
 
 To view the status of Tomcat7:
 
-```
-sudo /etc/init.d/tomcat7 status
-```
+    sudo /etc/init.d/tomcat7 status
 
 To restart Tomcat services: 
 
-```
-sudo /etc/init.d/tomcat7 restart
-```
+    sudo /etc/init.d/tomcat7 restart
 
 ### Tomcat7 administration
 You can edit the Tomcat user configuration file to set up your admin credentials. Use the following command:  
 
-```
-sudo vi  /etc/tomcat7/tomcat-users.xml   
-```
+    sudo vi  /etc/tomcat7/tomcat-users.xml   
 
 Here is an example:  
 ![Screenshot that shows the sudo vi command output][17]  
@@ -254,9 +224,7 @@ Here is an example:
 
 After editing this file, you should restart Tomcat7 services with the following command to ensure that the changes take effect:  
 
-```
-sudo /etc/init.d/tomcat7 restart  
-```
+    sudo /etc/init.d/tomcat7 restart  
 
 Open your browser, and enter **http://<your tomcat server DNS name>/manager/html** as the URL. For the example in this article, the URL is http://tomcatexample.chinacloudapp.cn/manager/html.  
 
@@ -296,20 +264,16 @@ After connecting, you should see something similar to the following:
 * If the Tomcat listen port is not the same as the private port of the endpoint for traffic to the virtual machine, you need change the private port to be the same as the Tomcat listen port.   
 * If the issue is caused by firewall/iptables, add the following lines to /etc/sysconfig/iptables. The second line is only needed for https traffic:  
 
-    ```
-    -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+        -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 
-    -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
-    ```
+        -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
     > [!IMPORTANT]
     > Make sure the previous lines are positioned above any lines that would globally restrict access, such as the following: -A INPUT -j REJECT --reject-with icmp-host-prohibited
 
 To reload the iptables, run the following command:
 
-```
-service iptables restart
-```
+    service iptables restart
 
 This has been tested on CentOS 6.3.
 
@@ -317,12 +281,10 @@ This has been tested on CentOS 6.3.
 #### Symptom
 When you use an SFTP client (such as FileZilla) to connect to your virtual machine and navigate to /var/lib/tomcat7/webapps/ to publish your site, you get an error message similar to the following:  
 
-```
- status:    Listing directory /var/lib/tomcat7/webapps
- Command:    put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
- Error:    /var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
- Error:    File transfer failed
-```
+     status:    Listing directory /var/lib/tomcat7/webapps
+     Command:    put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
+     Error:    /var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
+     Error:    File transfer failed
 #### Possible root cause
 You have no permissions to access the /var/lib/tomcat7/webapps folder.  
 #### Solution  
@@ -334,17 +296,13 @@ Use the -R option to apply the permissions for all files inside of a directory t
 
 This command also works for directories. The -R option changes the permissions for all files and directories inside the directory. Here is an example:  
 
-```
- sudo chown -R username:group directory  
-```
+     sudo chown -R username:group directory  
 
 This command changes ownership (both user and group) for all files and directories that are inside the directory.  
 
 The following command only changes the permission of the folder directory. The files and folders inside the directory are not changed.  
 
-```
- sudo chown username:group directory
-```
+     sudo chown username:group directory
 
 [1]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-01.png
 [2]: ./media/virtual-machines-linux-classic-setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-02.png

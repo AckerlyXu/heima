@@ -1,5 +1,5 @@
 ---
-title: Azure VPN Gateway Documentation - Tutorials, API Reference | Microsoft Docs
+title: Azure VPN Gateway Documentation - Tutorials, API Reference | Azure
 description: Learn how to configure virtual private network (VPN) gateways to manage traffic between cloud virtual networks and on-premises, or between cloud VNets.
 services: vpn-gateway
 author: carolz
@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
+wacn.date: ''
 ms.author: carolz
 ---
 # VPN Gateway Documentation
@@ -83,7 +84,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started creating a site-to-site connection using the Azure portal</h3>
+                        <h3>Get Started creating a site-to-site connection using the Azure portal preview</h3>
                     </div>
                 </div>
             </div>
@@ -101,7 +102,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started creating a point-to-site connection using the Azure portal</h3>
+                        <h3>Get Started creating a point-to-site connection using the Azure portal preview</h3>
                     </div>
                 </div>
             </div>
@@ -119,7 +120,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started creating a VNet-to-VNet connection using the Azure portal</h3>
+                        <h3>Get Started creating a VNet-to-VNet connection using the Azure portal preview</h3>
                     </div>
                 </div>
             </div>
@@ -127,7 +128,7 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
         </a>
     </li>
  </ul>
- 
+
 ---
 
 <h2>Reference</h2>
@@ -138,8 +139,8 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (resource manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (classic)</a></p>
+                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt163510(v=azure.300)">PowerShell (resource manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt270335(v=azure.300)">PowerShell (classic)</a></p>
                     </div>
                 </div>
             </div>
@@ -151,13 +152,11 @@ Learn how to configure VPN Gateway, a virtual private network gateway. Documenta
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (resource manager)</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (classic)</a></p>
+                        <p><a href="https://msdn.microsoft.com/zh-cn/library/mt163859">REST (resource manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/zh-cn/library/jj154113">REST (classic)</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
 </ul>
-
-

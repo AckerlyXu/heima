@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2016
 wacn.date: ''
 ms.author: rclaus
----
 
+---
 # DNS Name Resolution Options for Linux VMs in Azure
 Azure provides DNS name resolution by default for all VMs contained within a single Virtual Network. You are able to implement your own DNS name resolution solution by configuring your own DNS services on your Azure hosted VMs. The following scenarios should help you choose which one works better for your particular situation.
 
@@ -94,9 +94,7 @@ DNS is primarily a UDP protocol.  As the UDP protocol doesn't guarantee message 
 
 To check the current settings on a Linux VM, 'cat /etc/resolv.conf' and look at the 'options' line, for example:
 
-```
-options timeout:1 attempts:5
-```
+    options timeout:1 attempts:5
 
 The resolv.conf file is auto-generated and should not be edited.  The specific steps for adding the 'options' line vary by distro:
 

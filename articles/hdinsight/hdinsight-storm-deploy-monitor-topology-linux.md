@@ -25,18 +25,18 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
+> The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date). 
 > <p>  
-> For information on deploying and monitoring topologies on Windows-based HDInsight, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](./hdinsight-storm-deploy-monitor-topology.md)
+> For information on deploying and monitoring topologies on Windows-based HDInsight, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
 ## Prerequisites
-* **A Linux-based Storm on HDInsight cluster**: see [Get started with Apache Storm on HDInsight](./hdinsight-apache-storm-tutorial-get-started-linux.md) for steps on creating a cluster
+* **A Linux-based Storm on HDInsight cluster**: see [Get started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) for steps on creating a cluster
 
 * **Familiarity with SSH and SCP**: For more information on using SSH and SCP with HDInsight, see the following:
 
-    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 * **An SCP client**: This is provided with all Linux, Unix, and OS X systems. For Windows clients, we recommend PSCP, which is available from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -46,21 +46,17 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
 1. Use SSH to connect to the HDInsight cluster. Replace **USERNAME** the the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
 
-    ```
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
-    ```
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
     For more information on using SSH to connect to your HDInsight cluster, see the following documents:
 
-    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. Use the following command to start an example topology:
 
-    ```
-    storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
-    ```
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology WordCount
 
     This will start the example WordCount topology on the cluster. It will randomly generate sentences and count the occurrance of each word in the sentences.
 
@@ -82,33 +78,25 @@ The `storm` utility allows you to work with running topologies from the command 
 ### List topologies
 Use the following command to list all running topologies:
 
-```
-storm list
-```
+    storm list
 
 This will return information similar to the following:
 
-```
-Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
--------------------------------------------------------------------
-WordCount            ACTIVE     29         2            263
-```
+    Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
+    -------------------------------------------------------------------
+    WordCount            ACTIVE     29         2            263
 
 ### Deactivate and reactivate
 Deactivating a topology pauses it until it is killed or reactivated. Use the following to deactivate and reactivate:
 
-```
-storm Deactivate TOPOLOGYNAME
+    storm Deactivate TOPOLOGYNAME
 
-storm Activate TOPOLOGYNAME
-```
+    storm Activate TOPOLOGYNAME
 
 ### Kill a running topology
 Storm topologies, once started, will continue running until stopped. To stop a topology, use the following command:
 
-```
-storm stop TOPOLOGYNAME
-```
+    storm stop TOPOLOGYNAME
 
 ### Rebalance
 Rebalancing a topology allows the system to revise the parallelism of the topology. For example, if you have resized the cluster to add more notes, rebalancing will allow a running topology to make use of the new nodes.
@@ -118,9 +106,7 @@ Rebalancing a topology allows the system to revise the parallelism of the topolo
 > 
 > 
 
-```
-storm rebalance TOPOLOGYNAME
-```
+    storm rebalance TOPOLOGYNAME
 
 ## <a name="monitor-and-manage-using-the-storm-ui"></a> Monitor and manage using the Storm UI
 The Storm UI provides a web interface for working with running topologies, and is included on your HDInsight cluster. To view the Storm UI, use a web browser to open **https://CLUSTERNAME.azurehdinsight.cn/stormui**, where **CLUSTERNAME** is the name of your cluster.
@@ -171,7 +157,7 @@ The Storm UI is built on top of the REST API, so you can perform similar managem
 For more information, see [Storm UI REST API](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html). The following information is specific to using the REST API with Apache Storm on HDInsight.
 
 > [!IMPORTANT]
-> The Storm REST API is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md).
+> The Storm REST API is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 > 
 > 
 
@@ -196,6 +182,6 @@ Requests to the REST API must use **basic authentication**, so you use the HDIns
 Information that is returned from the REST API may only be usable from within the cluster or virtual machines on the same Azure Virtual Network as the cluster. For example, the fully qualified domain name (FQDN) returned for Zookeeper servers will not be accessible from the Internet.
 
 ## Next Steps
-Now that you've learned how to deploy and monitor topologies by using the Storm Dashboard, learn how to [Develop Java-based topologies using Maven](./hdinsight-storm-develop-java-topology.md).
+Now that you've learned how to deploy and monitor topologies by using the Storm Dashboard, learn how to [Develop Java-based topologies using Maven](hdinsight-storm-develop-java-topology.md).
 
-For a list of more example topologies, see [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md).
+For a list of more example topologies, see [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md).

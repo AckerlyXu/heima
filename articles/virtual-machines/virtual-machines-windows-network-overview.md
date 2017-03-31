@@ -17,6 +17,7 @@ ms.topic: get-started-article
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: davidmu
+
 ---
 
 # Virtual networks and Windows virtual machines in Azure 
@@ -42,7 +43,7 @@ In addition to those basic resources, you should also consider these optional re
 
 ## Network interfaces
 
-A [network interface (NIC)](../virtual-network/virtual-network-network-interface.md) is the interconnection between a VM and a virtual network (VNet). A VM must have at least one NIC, but can have more than one, depending on the size of the VM you create. Learn about how many NICs each VM size supports in [Sizes for virtual machines in Azure](./virtual-machines-windows-sizes.md). 
+A [network interface (NIC)](../virtual-network/virtual-network-network-interface.md) is the interconnection between a VM and a virtual network (VNet). A VM must have at least one NIC, but can have more than one, depending on the size of the VM you create. Learn about how many NICs each VM size supports in [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md). 
 
 If you want to create a VM with more than one NIC, you must create the VM with at least two.  After creation you can add additional NICs up to the number supported by the VM size, but you cannot add additional NICs to a VM only created with one, regardless of how many NICs the VM size supports. 
 
@@ -167,9 +168,9 @@ This table lists the methods that you can use to create a VM in a VNet.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal preview](/documentation/articles/virtual-machines-windows-hero-tutorial/) | Uses the default network settings that were previously mentioned to create a VM with a single NIC. To create a VM with multiple NICs, you must use a different method. |
-| [Azure PowerShell](/documentation/articles/virtual-machines-windows-ps-create/) | Includes the use of [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v1.3.4/Add-AzureRmVMNetworkInterface) to add the NIC that you previously created to the VM configuration. |
-| [Template](./virtual-machines-windows-ps-template.md) | Use [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) as a guide for deploying a VM using a template. |
+| [Azure portal preview](virtual-machines-windows-hero-tutorial.md) | Uses the default network settings that were previously mentioned to create a VM with a single NIC. To create a VM with multiple NICs, you must use a different method. |
+| [Azure PowerShell](virtual-machines-windows-ps-create.md) | Includes the use of [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v1.3.4/Add-AzureRmVMNetworkInterface) to add the NIC that you previously created to the VM configuration. |
+| [Template](virtual-machines-windows-ps-template.md) | Use [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) as a guide for deploying a VM using a template. |
 
 ## Next steps
 

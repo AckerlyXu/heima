@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -69,14 +69,15 @@ After the deployment has completed, create an SSH connection with the virtual ma
 
 3. Run the following command to create an SSH session. Replace the connection string with the one you copied from the Azure portal preview.
 
-    ssh <replace with IP address>
-
+```bash 
+ssh <replace with IP address>
+```
 ## Delete virtual machine
 
 When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group from the virtual machine blade and click **Delete**.
 
 ## Next steps
 
-[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md)
+[Create highly available virtual machines tutorial](./virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Explore VM deployment CLI samples](./virtual-machines-linux-cli-samples.md)
+[Explore VM deployment CLI samples](./virtual-machines-linux-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

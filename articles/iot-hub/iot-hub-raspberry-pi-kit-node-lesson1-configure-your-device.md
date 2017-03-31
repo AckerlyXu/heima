@@ -21,7 +21,7 @@ ms.author: xshi
 
 # Configure your device
 ## What you will do
-Configure Pi for first-time use and install the Raspbian operating system. Raspbian is a free operating system that is optimized for the Raspberry Pi hardware. If you have any problems, you can seek solutions on the [troubleshooting page](/documentation/artilcles/iot-hub-raspberry-pi-kit-node-troubleshooting/).
+Configure Pi for first-time use and install the Raspbian operating system. Raspbian is a free operating system that is optimized for the Raspberry Pi hardware. If you have any problems, you can seek solutions on the [troubleshooting page](./iot-hub-raspberry-pi-kit-node-troubleshooting.md/).
 
 ## What you will learn
 In this article, you will learn:

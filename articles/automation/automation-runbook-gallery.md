@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 wacn.date: ''
 ms.author: magoedte;bwren
----
 
+---
 # Runbook and module galleries for Azure Automation
 Rather than creating your own runbooks and modules in Azure Automation, you can access a variety of scenarios that have already been built by Microsoft and the community.  You can either use these scenarios without modification or you can use them as a starting point and edit them for your specific requirements.
 
@@ -68,5 +68,5 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 You can send requests to [User Voice](https://www.azure.cn/product-feedback).  If you need help writing a runbook or have a question about PowerShell, post a question to our [forum](http://social.msdn.microsoft.com/Forums/zh-cn/home?forum=windowsazurezhchsen-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Next Steps
-* To get started with runbooks, see [Creating or importing a runbook in Azure Automation](./automation-creating-importing-runbook.md)
-* [Learning PowerShell workflow](./automation-powershell-workflow.md)
+* To get started with runbooks, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
+* [Learning PowerShell workflow](automation-powershell-workflow.md)

@@ -181,12 +181,12 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 
 <!-- Links -->
 
-[Get started with IoT Hub]: /documentation/articles/iot-hub/iot-hub-node-node-getstarted/
+[Get started with IoT Hub]: ./iot-hub-node-node-getstarted.md/
 [IoT Hub Developer Guide - C2D]: ./iot-hub-devguide-messaging.md
-[IoT Hub Developer Guide]: /documentation/articles/iot-hub/iot-hub-devguide/
+[IoT Hub Developer Guide]: ./iot-hub-devguide.md/
 [Azure IoT Developer Center]: /develop/iot/
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.cn
-[Azure IoT Suite]: /documentation/suites/iot-suite/
+[Azure IoT Suite]: ../iot-suite/index.md

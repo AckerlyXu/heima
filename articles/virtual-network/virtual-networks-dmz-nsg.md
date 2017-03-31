@@ -7,7 +7,7 @@ author: tracsman
 manager: rossort
 editor: ''
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -16,13 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 wacn.date: ''
 ms.author: jonor
----
 
+---
 # Example 1 - Build a simple DMZ using NSGs with an Azure Resource Manager template
 [Return to the Security Boundary Best Practices Page][HOME]
+
 > [!div class="op_single_selector"]
->- [Resource Manager Template](./virtual-networks-dmz-nsg.md)
->- [Classic - PowerShell](./virtual-networks-dmz-nsg-asm.md)
+> * [Resource Manager Template](virtual-networks-dmz-nsg.md)
+> * [Classic - PowerShell](virtual-networks-dmz-nsg-asm.md)
+> 
+>
 
 This example creates a primitive DMZ with four Windows servers and Network Security Groups. This example describes each of the relevant template sections to provide a deeper understanding of each step. There is also a Traffic Scenario section to provide an in-depth step-by-step look at how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete template code and instructions to build this environment to test and experiment with various scenarios. 
 
@@ -98,24 +101,24 @@ Each rule is discussed in more detail as follows:
     * "Priority" sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
     * "Access" signifies if traffic affected by this rule is blocked ("Deny") or allowed ("Allow").
 
-        ```JSON
+    ```JSON
+    "properties": {
+    "securityRules": [
+      {
+        "name": "enable_dns_rule",
         "properties": {
-        "securityRules": [
-          {
-            "name": "enable_dns_rule",
-            "properties": {
-              "description": "Enable Internal DNS",
-              "protocol": "*",
-              "sourcePortRange": "*",
-              "destinationPortRange": "53",
-              "sourceAddressPrefix": "VirtualNetwork",
-              "destinationAddressPrefix": "10.0.2.4",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound"
-            }
-          },
-        ```
+          "description": "Enable Internal DNS",
+          "protocol": "*",
+          "sourcePortRange": "*",
+          "destinationPortRange": "53",
+          "sourceAddressPrefix": "VirtualNetwork",
+          "destinationAddressPrefix": "10.0.2.4",
+          "access": "Allow",
+          "priority": 100,
+          "direction": "Inbound"
+        }
+      },
+    ```
 
 3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. 
 

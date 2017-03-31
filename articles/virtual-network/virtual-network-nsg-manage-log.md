@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2017
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Log analytics for network security groups (NSGs)
 
 You can enable the following diagnostic log categories for NSGs:
@@ -27,7 +27,7 @@ You can enable the following diagnostic log categories for NSGs:
 * **Rule counter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic.
 
 > [!NOTE]
-> Diagnostic logs are only available for NSGs deployed through the Azure Resource Manager deployment model. You cannot enable diagnostic logging for NSGs deployed through the classic deployment model. For a better understanding of the two models, reference the [Understanding Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.
+> Diagnostic logs are only available for NSGs deployed through the Azure Resource Manager deployment model. You cannot enable diagnostic logging for NSGs deployed through the classic deployment model. For a better understanding of the two models, reference the [Understanding Azure deployment models](../resource-manager-deployment-model.md) article.
 
 Activity logging (previously known as audit or operational logs) is enabled by default for NSGs created through either Azure deployment model. To determine which operations were completed on NSGs in the activity log, look for entries that contain the following resource types: 
 
@@ -40,7 +40,7 @@ Read the [Overview of the Azure Activity Log](../monitoring-and-diagnostics/moni
 
 ## Enable diagnostic logging
 
-Diagnostic logging must be enabled for *each* NSG you want to collect data for. If you don't have an existing NSG, complete the steps in the [Create a network security group](./virtual-networks-create-nsg-arm-pportal.md) article to create one. You can enable NSG diagnostic logging using any of the following methods:
+Diagnostic logging must be enabled for *each* NSG you want to collect data for. If you don't have an existing NSG, complete the steps in the [Create a network security group](virtual-networks-create-nsg-arm-pportal.md) article to create one. You can enable NSG diagnostic logging using any of the following methods:
 
 ### Azure portal preview
 

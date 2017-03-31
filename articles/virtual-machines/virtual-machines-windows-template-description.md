@@ -17,11 +17,12 @@ ms.topic: article
 ms.date: 03/07/2017
 wacn.date: ''
 ms.author: davidmu
+
 ---
 
 # Virtual machines in an Azure Resource Manager template
 
-This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn't describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md).
+This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn't describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../resource-manager-template-walkthrough.md).
 
 There are many [templates in the gallery](https://github.com/Azure/azure-quickstart-templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
 
@@ -35,7 +36,7 @@ This example shows a typical resource section of a template for creating a speci
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop",    
+      "name": "virtualMachineLoop",	
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -168,7 +169,7 @@ Use these opportunities for getting the latest API versions:
 
 ## Parameters and variables
 
-[Parameters](../azure-resource-manager/resource-group-authoring-templates.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
+[Parameters](../resource-group-authoring-templates.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
 
 ```
 "parameters": {
@@ -180,7 +181,7 @@ Use these opportunities for getting the latest API versions:
 
 When you deploy the example template, you enter values for the name and password of the administrator account on each VM and the number of VMs to create. You have the option of specifying parameter values in a separate file that's managed with the template, or providing values when prompted.
 
-[Variables](../azure-resource-manager/resource-group-authoring-templates.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
+[Variables](../resource-group-authoring-templates.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
 
 ```
 "variables": { 
@@ -213,7 +214,7 @@ When you deploy the example template, you enter values for the name and password
 }, 
 ```
 
-When you deploy the example template, variable values are used for the name and identifier of the previously created storage account. Variables are also used to provide the settings for the diagnostic extension. Use the [best practices for creating Azure Resource Manager templates](../azure-resource-manager/resource-manager-template-best-practices.md) to help you decide how you want to structure the parameters and variables in your template.
+When you deploy the example template, variable values are used for the name and identifier of the previously created storage account. Variables are also used to provide the settings for the diagnostic extension. Use the [best practices for creating Azure Resource Manager templates](../resource-manager-template-best-practices.md) to help you decide how you want to structure the parameters and variables in your template.
 
 ## Resource loops
 
@@ -221,7 +222,7 @@ When you need more than one virtual machine for your application, you can use a 
 
 ```
 "copy": {
-  "name": "virtualMachineLoop",    
+  "name": "virtualMachineLoop",	
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -252,7 +253,7 @@ Keep in mind that creating a loop for one resource in the template may require y
 
 ## Dependencies
 
-Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../azure-resource-manager/resource-group-define-dependencies.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
+Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../resource-group-define-dependencies.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
 
 ```
 "dependsOn": [
@@ -279,15 +280,15 @@ To set this property, the network interface must exist. Therefore, you need a de
 
 Several profile elements are used when defining a virtual machine resource. Some are required and some are optional. For example, the hardwareProfile, osProfile, storageProfile, and networkProfile elements are required, but the diagnosticsProfile is optional. These profiles define settings such as:
 
-- [size](./virtual-machines-windows-sizes.md)
-- [name](./virtual-machines-linux-infrastructure-naming-guidelines.md) and credentials
-- disk and [operating system settings](./virtual-machines-windows-cli-ps-findimage.md)
+- [size](virtual-machines-windows-sizes.md)
+- [name](virtual-machines-linux-infrastructure-naming-guidelines.md) and credentials
+- disk and [operating system settings](virtual-machines-windows-cli-ps-findimage.md)
 - [network interface](../virtual-network/virtual-networks-multiple-nics.md) 
 - boot diagnostics
 
 ## Disks and images
 
-In Azure, vhd files can represent [disks or images](../storage/storage-about-disks-and-vhds-windows.md). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
+In Azure, vhd files can represent [disks or images](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it is referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it is referred to as an image.   
 
 ### Create new virtual machines and new disks from a platform image
 
@@ -313,7 +314,7 @@ If you want to create a Linux operating system, you might use this definition:
 },
 ```
 
-Configuration settings for the operating system disk are assigned with the osDisk element. The example defines a new managed disk with the caching mode set to **ReadWrite** and that the disk is being created from a [platform image](./virtual-machines-windows-cli-ps-findimage.md):
+Configuration settings for the operating system disk are assigned with the osDisk element. The example defines a new managed disk with the caching mode set to **ReadWrite** and that the disk is being created from a [platform image](virtual-machines-windows-cli-ps-findimage.md):
 
 ```
 "osDisk": { 
@@ -358,7 +359,7 @@ If you want to create a virtual machine from a managed image, change the imageRe
 
 ### Attach data disks
 
-You can optionally add data disks to the VMs. The [number of disks](./virtual-machines-windows-sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
+You can optionally add data disks to the VMs. The [number of disks](virtual-machines-windows-sizes.md) depends on the size of operating system disk that you use. With the size of the VMs set to Standard_DS1_v2, the maximum number of data disks that could be added to the them is two. In the example, one managed data disk is being added to each VM:
 
 ```
 "dataDisks": [
@@ -374,7 +375,7 @@ You can optionally add data disks to the VMs. The [number of disks](./virtual-ma
 
 ## Extensions
 
-Although [extensions](./virtual-machines-windows-extensions-features.md) are a separate resource, they are closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](./virtual-machines-windows-extensions-diagnostics-template.md) being added to the VMs:
+Although [extensions](virtual-machines-windows-extensions-features.md) are a separate resource, they are closely tied to VMs. Extensions can be added as a child resource of the VM or as a separate resource. The example shows the [Diagnostics Extension](virtual-machines-windows-extensions-diagnostics-template.md) being added to the VMs:
 
 ```
 { 
@@ -409,7 +410,7 @@ Although [extensions](./virtual-machines-windows-extensions-features.md) are a s
 
 This extension resource uses the storageName variable and the diagnostic variables to provide values. If you want to change the data that is collected by this extension, you can add more performance counters to the wadperfcounters variable. You could also choose to put the diagnostics data into a different storage account than where the VM disks are stored.
 
-There are many extensions that you can install on a VM, but the most useful is probably the [Custom Script Extension](./virtual-machines-windows-extensions-customscript.md). In the example, a PowerShell script named start.ps1 runs on each VM when it first starts:
+There are many extensions that you can install on a VM, but the most useful is probably the [Custom Script Extension](virtual-machines-windows-extensions-customscript.md). In the example, a PowerShell script named start.ps1 runs on each VM when it first starts:
 
 ```
 {
@@ -452,10 +453,10 @@ If you are curious about the status of resources in the deployment, you can use 
 
 ![Get deployment information](./media/virtual-machines-windows-template-description/virtual-machines-deployment-info.png)
 
-It's not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../azure-resource-manager/resource-group-template-deploy.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that are not in the template.
+It's not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../resource-group-template-deploy.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that are not in the template.
 
 ## Next Steps
 
-- Create your own template using [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
-- Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](./virtual-machines-windows-ps-template.md).
-- Learn how to manage the VMs that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](./virtual-machines-windows-ps-manage.md).
+- Create your own template using [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+- Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](virtual-machines-windows-ps-template.md).
+- Learn how to manage the VMs that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).

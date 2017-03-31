@@ -33,8 +33,8 @@ This article walks you through the steps to create and manage routing configurat
 ## Configuration prerequisites
 
 - You will need the latest version of the Azure PowerShell modules, version 1.0 or later. 
-- Make sure that you have reviewed the [prerequisites](/documentation/articles/expressroute/expressroute-prerequisites/) page, the [routing requirements](/documentation/articles/expressroute/expressroute-routing/) page and the [workflows](/documentation/articles/expressroute/expressroute-workflows/) page before you begin configuration.
-- You must have an active ExpressRoute circuit. Follow the instructions to [create an ExpressRoute circuit](/documentation/articles/expressroute/expressroute-howto-circuit-arm/) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
+- Make sure that you have reviewed the [prerequisites](./expressroute-prerequisites.md/) page, the [routing requirements](./expressroute-routing.md/) page and the [workflows](./expressroute-workflows.md/) page before you begin configuration.
+- You must have an active ExpressRoute circuit. Follow the instructions to [create an ExpressRoute circuit](./expressroute-howto-circuit-arm.md/) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets described below.
 
 These instructions only apply to circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
 

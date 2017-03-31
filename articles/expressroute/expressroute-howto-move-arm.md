@@ -23,7 +23,7 @@ To use an ExpressRoute circuit for both the classic and Resource Manager deploym
 
 ## Before you begin
 - Verify that you have the latest version of the Azure PowerShell modules (at least version 1.0). 
-- Make sure that you have reviewed the [prerequisites](/documentation/articles/expressroute/expressroute-prerequisites/), [routing requirements](/documentation/articles/expressroute/expressroute-routing/), and [workflows](/documentation/articles/expressroute/expressroute-workflows/) before you begin configuration.
+- Make sure that you have reviewed the [prerequisites](./expressroute-prerequisites.md/), [routing requirements](./expressroute-routing.md/), and [workflows](./expressroute-workflows.md/) before you begin configuration.
 - Review the information that is provided under [Moving an ExpressRoute circuit from classic to Resource Manager](./expressroute-move.md). Make sure that you fully understand the limits and limitations.
 - Verify that the circuit is fully operational in the classic deployment model.
 - Ensure that you have a resource group that was created in the Resource Manager deployment model.
@@ -122,8 +122,8 @@ After moving your classic ExpressRoute circuit to the Resource Manager deploymen
 
 5. You can now manage links to the ExpressRoute circuit using the classic deployment model commands for classic VNets, and the Resource Manager commands for Resource Manager VNets. The following articles will walk you through how to manage links to the ExpressRoute circuit:
 
-- [Link your virtual network to your ExpressRoute circuit in the Resource Manager deployment model](/documentation/articles/expressroute/expressroute-howto-linkvnet-arm/)
-- [Link your virtual network to your ExpressRoute circuit in the classic deployment model](/documentation/articles/expressroute/expressroute-howto-linkvnet-classic/)
+- [Link your virtual network to your ExpressRoute circuit in the Resource Manager deployment model](./expressroute-howto-linkvnet-arm.md/)
+- [Link your virtual network to your ExpressRoute circuit in the classic deployment model](./expressroute-howto-linkvnet-classic.md/)
 
 ### To disable ExpressRoute circuit access to the classic deployment model
 Run the following cmdlets to disable access to the classic deployment model.

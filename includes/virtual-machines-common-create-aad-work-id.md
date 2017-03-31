@@ -84,34 +84,32 @@ You should be rewarded with success that looks like the following.
 ![](./media/virtual-machines-common-create-aad-work-id/successtourdialog.png)
 
 ## Next steps
-You can now use your new Azure Active Directory identity to use [Azure resource group templates](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
+You can now use your new Azure Active Directory identity to use [Azure resource group templates](../articles/xplat-cli-azure-resource-manager.md).
 
-```
-azure login -e AzureChinaCloud -u <username>    
-info:    Executing command login
-warn:    Please note that currently you can login only via Microsoft organizational account or service principal. For instructions on how to set them up, please read http://aka.ms/Dhf67j.
-Password: *********
-/info:    Added subscription Azure Pass
-info:    Setting subscription Azure Pass as default
-+
-info:    login command OK
-ralph@local:~$ azure config mode arm
-info:    New mode is arm
-ralph@local:~$ azure group list
-info:    Executing command group list
-+ Listing resource groups
-info:    No matched resource groups were found
-info:    group list command OK
-ralph@local:~$ azure group create newgroup chinanorth
-info:    Executing command group create
-+ Getting resource group newgroup
-+ Creating resource group newgroup
-info:    Created resource group newgroup
-data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/newgroup
-data:    Name:                newgroup
-data:    Location:            chinanorth
-data:    Provisioning State:  Succeeded
-data:    Tags:
-data:
-info:    group create command OK
-```
+    azure login -e AzureChinaCloud -u <username>    
+    info:    Executing command login
+    warn:    Please note that currently you can login only via Microsoft organizational account or service principal. For instructions on how to set them up, please read http://aka.ms/Dhf67j.
+    Password: *********
+    /info:    Added subscription Azure Pass
+    info:    Setting subscription Azure Pass as default
+    +
+    info:    login command OK
+    ralph@local:~$ azure config mode arm
+    info:    New mode is arm
+    ralph@local:~$ azure group list
+    info:    Executing command group list
+    + Listing resource groups
+    info:    No matched resource groups were found
+    info:    group list command OK
+    ralph@local:~$ azure group create newgroup chinanorth
+    info:    Executing command group create
+    + Getting resource group newgroup
+    + Creating resource group newgroup
+    info:    Created resource group newgroup
+    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/newgroup
+    data:    Name:                newgroup
+    data:    Location:            chinanorth
+    data:    Provisioning State:  Succeeded
+    data:    Tags:
+    data:
+    info:    group create command OK

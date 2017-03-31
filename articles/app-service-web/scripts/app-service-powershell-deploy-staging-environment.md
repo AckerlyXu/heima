@@ -26,7 +26,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-```
+```powershell
 $gitrepo="<Replace with your GitHub repo URL>"
 $webappname="mywebapp$(Get-Random)"
 $location="China North"

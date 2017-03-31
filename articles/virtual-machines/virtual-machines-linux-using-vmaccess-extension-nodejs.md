@@ -17,20 +17,20 @@ ms.topic: article
 ms.date: 10/25/2016
 wacn.date: ''
 ms.author: v-livech
----
 
+---
 # Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension with the Azure CLI 1.0
 This article shows you how to use the Azure VMAcesss Extension to check or repair a disk, reset user access, manage user accounts, or reset the SSHD configuration on Linux. The article requires:
 
 * an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)).
-* the [Azure CLI](/documentation/articles/cli-install-nodejs/) logged in with `azure login -e AzureChinaCloud`.
+* the [Azure CLI](../cli-install-nodejs.md) logged in with `azure login -e AzureChinaCloud`.
 * the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`.
 
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
 - [Azure CLI 1.0](#quick-commands)- our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](./virtual-machines-linux-using-vmaccess-extension.md) - our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - our next generation CLI for the resource management deployment model
 
 ## <a name="quick-commands"></a> Quick commands
 There are two ways to use VMAccess on your Linux VMs:
@@ -41,13 +41,11 @@ There are two ways to use VMAccess on your Linux VMs:
 For the quick command section, we are going to use the Azure CLI 1.0 `azure vm reset-access` method. In the following command examples, replace the values that contain "example" with the values from your own environment.
 
 ## Create a Resource Group and Linux VM
-
 ```bash
 azure group create myResourceGroup chinanorth
 ```
 
 ## Create a Debian VM
-
 ```azurecli
 azure vm quick-create \
   -M ~/.ssh/id_rsa.pub \
@@ -93,7 +91,6 @@ azure vm reset-access \
 ```
 
 ## Remove a user
-
 ```azurecli
 azure vm reset-access \
   -g myResourceGroup \
@@ -263,8 +260,8 @@ azure vm extension set \
 ## Next steps
 Updating Linux using Azure VMAccess Extensions is one method to make changes on a running Linux VM.  You can also use tools like cloud-init and Azure Templates to modify your Linux VM on boot.
 
-[About virtual machine extensions and features](./virtual-machines-linux-extensions-features.md)
+[About virtual machine extensions and features](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Authoring Azure Resource Manager templates with Linux VM extensions](./virtual-machines-linux-extensions-authoring-templates.md)
+[Authoring Azure Resource Manager templates with Linux VM extensions](virtual-machines-linux-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Using cloud-init to customize a Linux VM during creation](./virtual-machines-linux-using-cloud-init.md)
+[Using cloud-init to customize a Linux VM during creation](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 11/14/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Manage an HPC Pack cluster in Azure using Azure Active Directory
 [Microsoft HPC Pack 2016](https://technet.microsoft.com/zh-cn/library/cc514029) supports integration with [Azure Active Directory](../active-directory/index.md) (Azure AD) for administrators who deploy an HPC Pack cluster in Azure.
 
@@ -93,7 +93,6 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
         }
     ],
     ```
-
 7. Save the file. Then in the portal, click **Manage Manifest** > **Upload Manifest**. You can then upload the edited manifest.
 8. Click **Users**, select a user, and then click **Assign**. Assign one of the available roles (HpcUsers or HpcAdminMirror) to the user. Repeat this step with additional users in the directory. For background information about cluster users, see [Managing Cluster Users](https://technet.microsoft.com/zh-cn/library/ff919335(v=ws.11).aspx).
 
@@ -122,6 +121,7 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
 3. Run the following command:
 
     ```powershell
+
     Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.chinacloudapi.cn/ -AADAppName HpcClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
     ```
 
@@ -138,6 +138,7 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
     Connect-ServiceFabricCluster
 
     Move-ServiceFabricPrimaryReplica -ServiceName "fabric:/HpcApplication/SchedulerStatefulService"
+
     ```
 
 ## Step 4: Manage and submit jobs from the client
@@ -148,12 +149,12 @@ Center. When you begin the installation, choose the setup option for the **HPC P
 
 To prepare the client computer, install the certificate used during HPC cluster setup on the client computer. Use standard Windows certificate management procedures to install the public certificate to the **Certificates - Current user** > **Trusted Root Certification Authorities** store. 
 
-You can now run the HPC Pack commands or use the HPC Pack Job manager GUI to submit and manage cluster jobs by using the Azure AD account. For job submission options, see [Submit HPC jobs to an HPC Pack cluster in Azure](./virtual-machines-windows-hpcpack-cluster-submit-jobs.md#step-3-run-test-jobs-on-the-cluster).
+You can now run the HPC Pack commands or use the HPC Pack Job manager GUI to submit and manage cluster jobs by using the Azure AD account. For job submission options, see [Submit HPC jobs to an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md#step-3-run-test-jobs-on-the-cluster).
 
 > [!NOTE]
 > When you try to connect to the HPC Pack cluster in Azure for the first time, a popup windows appears. Enter your Azure AD credentials to log in. The token is then cached. Later connections to the cluster in Azure use the cached token unless authentication changes or the cached is cleared.
 >
-  
+
 For example, after completing the previous steps, you can query for jobs from an on-premises client as follows:
 
 ```powershell

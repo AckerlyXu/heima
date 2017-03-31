@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 03/06/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UI's
 
 Linux-based HDInsight clusters provide access to Ambari web UI over the Internet, but some features of the UI are not. For example, the web UI for other services that are surfaced through Ambari. For full functionality of the Ambari web UI, you must use an SSH tunnel to the cluster head.
@@ -86,7 +86,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
 
 Use the following steps to create an SSH tunnel using PuTTY.
 
-1. Open PuTTY, and enter your connection information. If you are not familiar with PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md) for information on how to use it with HDInsight.
+1. Open PuTTY, and enter your connection information. If you are not familiar with PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) for information on how to use it with HDInsight.
 
 2. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.
 
@@ -153,9 +153,9 @@ Once the cluster has been established, use the following steps to verify that yo
 
 Now that you have learned how to create and use an SSH tunnel, see the following for information on monitoring and managing your cluster using Ambari:
 
-* [Manage HDInsight clusters by using Ambari](./hdinsight-hadoop-manage-ambari.md)
+* [Manage HDInsight clusters by using Ambari](hdinsight-hadoop-manage-ambari.md)
 
 For more information on using SSH with HDInsight, see the following:
 
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)

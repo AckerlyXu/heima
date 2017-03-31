@@ -1,14 +1,14 @@
 ---
 title: Azure CLI Script Sample - Create a Windows Server 2016 VM with NLB | Azure
-description: Azure CLI Script Sample - Create a Windows Server 2016 VM with NLB
+description: Azure CLI Script Sample - Create a Windows Server 2016 VM with NLB 
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
 manager: timlt
 editor: tysonn
-tags: ''
+tags: 
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-Windows
 ms.devlang: na
 ms.topic: article
@@ -29,7 +29,7 @@ This sample works in a Bash Shell. For options on running Azure CLI scripts on W
 
 ## Sample script
 
-```
+```powershell
 #!/bin/bash
 
 # Update for your admin password
@@ -138,4 +138,4 @@ This script uses the following commands to create a resource group, virtual mach
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
 
-Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../virtual-machines-windows-cli-samples.md).
+Additional virtual machine CLI script samples can be found in the [Azure Windows VM documentation](../virtual-machines-windows-cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

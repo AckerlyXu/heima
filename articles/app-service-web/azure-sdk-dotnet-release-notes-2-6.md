@@ -15,12 +15,12 @@ ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: ''
 ms.author: juliako
----
 
+---
 # Azure SDK for .NET 2.6 Release Notes
 This document contains the release notes for the Azure SDK for .NET 2.6 release. 
 
-With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .NET 4.5.2 or .NET 4.6 provided that you manually install the target .NET Framework on the Cloud Service Role. See [Install .NET on a Cloud Service Role](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .NET 4.5.2 or .NET 4.6 provided that you manually install the target .NET Framework on the Cloud Service Role. See [Install .NET on a Cloud Service Role](/azure/cloud-services/cloud-services-dotnet-install-dotnet/).
 
 ## Service Bus updates
 * Event Hubs: 
@@ -37,7 +37,7 @@ With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .
 
     Now HDInsight Tools for Visual Studio support connecting to HDInsight emulator, so you could develop your Hive scripts locally without introducing any cost, then execute those scripts against your HDInsight clusters. 
 
-    For more information, refer to [this manual](../hdinsight/hdinsight-hadoop-emulator-get-started.md).
+    For more information, refer to [this manual](/azure/hdinsight/hdinsight-hadoop-emulator-get-started/).
 * **HDInsight Tools for Visual Studio support for generic Hadoop clusters** (Preview)
 
     Now HDInsight Tools for Visual Studio support generic Hadoop clusters, so you can use HDInsight Tools for Visual Studio to do the following:
@@ -46,7 +46,7 @@ With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .
     * write Hive query with enhanced IntelliSense/auto-completion support, 
     * view all the jobs in your cluster with an intuitive UI. 
 
-    For more information, refer to [this manual](../hdinsight/hdinsight-hadoop-emulator-get-started.md).
+    For more information, refer to [this manual](/azure/hdinsight/hdinsight-hadoop-emulator-get-started/).
 
 ## In-Role Cache updates
 * **In-Role Cache** was updated to use **Microsoft Azure Storage SDK** version 4.3. Until now, the **In-Role Cache** was using Microsoft Azure Storage SDK version 1.7.
@@ -75,12 +75,12 @@ The Azure resource manager tools have been updated to include templates for Virt
 ## Diagnostics improvements for Cloud Services
 Azure SDK 2.6 brings back support for collecting diagnostics logs in the Azure compute emulator and transferring them to development storage. Any diagnostics logs (including application trace Logs, Event Tracing for Windows (ETW) logs, performance counters, infrastructure logs and windows event logs) generated when the application is running in the emulator can be transferred to development storage to verify that your diagnostics logging is working on your local machine. 
 
-The Diagnostics storage account can now be specified in the service configuration (.cscfg) file making it easier to use different diagnostics storage accounts for different environments. There are some notable differences between how the connection string worked in Azure SDK 2.4 and Azure SDK 2.6. For more information on how to use the Diagnostics Storage connection string and how it impacts your projects see [Configuring Diagnostics for Azure Cloud Services](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+The Diagnostics storage account can now be specified in the service configuration (.cscfg) file making it easier to use different diagnostics storage accounts for different environments. There are some notable differences between how the connection string worked in Azure SDK 2.4 and Azure SDK 2.6. For more information on how to use the Diagnostics Storage connection string and how it impacts your projects see [Configuring Diagnostics for Azure Cloud Services](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/).
 
 ## Breaking changes
 ### Azure Resource Manager Tools
 * The **Cloud Deployment Projects** project type available in the Azure SDK 2.5 has been renamed to **Azure Resource Group**.
-* **Cloud Deployment Projects** type of projects created in the Azure SDK 2.5 can be used in 2.6 but deploying the template from Visual Studio will fail. However, deploying with the PowerShell script will still work as it did previously.  For information on how to use **Cloud Deployment Projects** in 2.6 read this [post](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* **Cloud Deployment Projects** type of projects created in the Azure SDK 2.5 can be used in 2.6 but deploying the template from Visual Studio will fail. However, deploying with the PowerShell script will still work as it did previously.  For information on how to use **Cloud Deployment Projects** in 2.6 read this [post](/azure/vs-azure-tools-resource-groups-deployment-projects-create-deploy/).
 
 ## Known issues
 * Collecting diagnostics logs in the emulator requires a 64-bit operating system. Diagnostics logs will not be collected when running on a 32-bit operating system. This does not affect any other emulator functionality. 

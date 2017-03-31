@@ -18,20 +18,21 @@ ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create a VM with a static public IP address using PowerShell
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./virtual-network-deploy-static-pip-arm-portal.md)
->- [PowerShell](./virtual-network-deploy-static-pip-arm-ps.md)
->- [Azure CLI](./virtual-network-deploy-static-pip-arm-cli.md)
->- [Template](./virtual-network-deploy-static-pip-arm-template.md)
->- [PowerShell (Classic)](./virtual-networks-reserved-public-ip.md)
+>- [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+>- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+>- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+>- [Template](virtual-network-deploy-static-pip-arm-template.md)
+>- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the classic deployment model.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -172,76 +173,74 @@ After making any necessary changes, and understanding the script show above, run
 1. From a PowerShell console, or PowerShell ISE, run the script above.
 2. The following output should be displayed after a few minutes:
 
-    ```
-    ResourceGroupName : IaaSStory
-    Location          : chinanorth
-    ProvisioningState : Succeeded
-    Tags              : 
-    ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
+        ResourceGroupName : IaaSStory
+        Location          : chinanorth
+        ProvisioningState : Succeeded
+        Tags              : 
+        ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory
 
-    AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-    DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-    Subnets           : {FrontEnd}
-    ProvisioningState : Succeeded
-    AddressSpaceText  : {
-                          "AddressPrefixes": [
-                            "192.168.0.0/16"
-                          ]
-                        }
-    DhcpOptionsText   : {}
-    SubnetsText       : [
-                          {
-                            "Name": "FrontEnd",
-                            "AddressPrefix": "192.168.1.0/24"
-                          }
-                        ]
-    ResourceGroupName : IaaSStory
-    Location          : chinanorth
-    ResourceGuid      : [Id]
-    Tag               : {}
-    TagsTable         : 
-    Name              : WTestVNet
-    Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    Id                : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
+        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
+        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
+        Subnets           : {FrontEnd}
+        ProvisioningState : Succeeded
+        AddressSpaceText  : {
+                              "AddressPrefixes": [
+                                "192.168.0.0/16"
+                              ]
+                            }
+        DhcpOptionsText   : {}
+        SubnetsText       : [
+                              {
+                                "Name": "FrontEnd",
+                                "AddressPrefix": "192.168.1.0/24"
+                              }
+                            ]
+        ResourceGroupName : IaaSStory
+        Location          : chinanorth
+        ResourceGuid      : [Id]
+        Tag               : {}
+        TagsTable         : 
+        Name              : WTestVNet
+        Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        Id                : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
 
-    AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
-    DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
-    Subnets           : {FrontEnd}
-    ProvisioningState : Succeeded
-    AddressSpaceText  : {
-                          "AddressPrefixes": [
-                            "192.168.0.0/16"
-                          ]
-                        }
-    DhcpOptionsText   : {
-                          "DnsServers": []
-                        }
-    SubnetsText       : [
-                          {
-                            "Name": "FrontEnd",
-                            "Etag": [Id],
-                            "Id": "/subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/FrontEnd",
-                            "AddressPrefix": "192.168.1.0/24",
-                            "IpConfigurations": [],
-                            "ProvisioningState": "Succeeded"
-                          }
-                        ]
-    ResourceGroupName : IaaSStory
-    Location          : chinanorth
-    ResourceGuid      : [Id]
-    Tag               : {}
-    TagsTable         : 
-    Name              : WTestVNet
-    Etag              : [Id]
-    Id                : /subscriptions/[Subscription Id]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
+        AddressSpace      : Microsoft.Azure.Commands.Network.Models.PSAddressSpace
+        DhcpOptions       : Microsoft.Azure.Commands.Network.Models.PSDhcpOptions
+        Subnets           : {FrontEnd}
+        ProvisioningState : Succeeded
+        AddressSpaceText  : {
+                              "AddressPrefixes": [
+                                "192.168.0.0/16"
+                              ]
+                            }
+        DhcpOptionsText   : {
+                              "DnsServers": []
+                            }
+        SubnetsText       : [
+                              {
+                                "Name": "FrontEnd",
+                                "Etag": [Id],
+                                "Id": "/subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/FrontEnd",
+                                "AddressPrefix": "192.168.1.0/24",
+                                "IpConfigurations": [],
+                                "ProvisioningState": "Succeeded"
+                              }
+                            ]
+        ResourceGroupName : IaaSStory
+        Location          : chinanorth
+        ResourceGuid      : [Id]
+        Tag               : {}
+        TagsTable         : 
+        Name              : WTestVNet
+        Etag              : [Id]
+        Id                : /subscriptions/[Subscription Id]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet
 
-    TrackingOperationId : [Id]
-    RequestId           : [Id]
-    Status              : Succeeded
-    StatusCode          : OK
-    Output              : 
-    StartTime           : [Subscription Id]
-    EndTime             : [Subscription Id]
-    Error               : 
-    ErrorText           :
-    ```
+        TrackingOperationId : [Id]
+        RequestId           : [Id]
+        Status              : Succeeded
+        StatusCode          : OK
+        Output              : 
+        StartTime           : [Subscription Id]
+        EndTime             : [Subscription Id]
+        Error               : 
+        ErrorText           :

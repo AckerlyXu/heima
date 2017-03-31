@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 wacn.date: ''
 ms.author: amsriva
----
 
+---
 # Application Gateway multiple site hosting
 
 Multiple site hosting enables you to configure more than one web application on the same application gateway instance. This feature allows you to configure a more efficient topology for your deployments by adding up to 20 websites to one application gateway. Each website can be directed to its own backend pool. In the following example, application gateway is serving traffic for contoso.com and fabrikam.com from two back-end server pools called ContosoServerPool and FabrikamServerPool.
@@ -123,4 +123,4 @@ There is no change required in the routing rule. The routing rule 'Basic' should
 
 ## Next steps
 
-After learning about multiple site hosting, go to [create an application gateway using multiple site hosting](./application-gateway-create-multisite-azureresourcemanager-powershell.md) to create an application gateway with ability to support more than one web application.
+After learning about multiple site hosting, go to [create an application gateway using multiple site hosting](application-gateway-create-multisite-azureresourcemanager-powershell.md) to create an application gateway with ability to support more than one web application.

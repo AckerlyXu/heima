@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 07/06/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Restore an app in Azure
 This article shows you how to restore an app in [Azure App Service](../app-service/app-service-value-prop-what-is.md)
-that you have previously backed up (see [Back up your app in Azure](./web-sites-backup.md)). You can restore your app
+that you have previously backed up (see [Back up your app in Azure](web-sites-backup.md)). You can restore your app
 with its linked databases (SQL Database or MySQL) on-demand to a previous state, or create a new app based on one of
 your original app's backup. Creating a new app that runs in parallel to the latest version can be useful for A/B
 testing.
 
 Restoring from backups is available to apps running in **Standard** and **Premium** tier. For information about scaling
-up your app, see [Scale up an app in Azure](./web-sites-scale.md). **Premium** tier allows a greater number of daily
+up your app, see [Scale up an app in Azure](web-sites-scale.md). **Premium** tier allows a greater number of daily
 backups to be performed than **Standard** tier.
 
 ## <a name="PreviousBackup"></a> Restore an app from an existing backup
@@ -79,7 +79,7 @@ backups to be performed than **Standard** tier.
 The details blade will display the available information related to the restore operation.
 
 ## Next Steps
-You can also backup and restore App Service apps using REST API (see [Use REST to back up and restore App Service apps](./websites-csm-backup.md)).
+You can also backup and restore App Service apps using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
 
 <!-- IMAGES -->
 [ChooseRestoreNow]: ./media/web-sites-restore/02ChooseRestoreNow.png

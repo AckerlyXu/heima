@@ -16,73 +16,69 @@ ms.workload: big-data
 ms.date: 06/22/2015
 wacn.date: ''
 ms.author: rashimg
----
 
+---
 # Process and analyze JSON documents using Hive in HDInsight
 Learn how to process and analyze JSON files using Hive in HDInsight. The following JSON document will be used in the tutorial
 
-```
-{
-    "StudentId": "trgfg-5454-fdfdg-4346",
-    "Grade": 7,
-    "StudentDetails": [
-        {
-            "FirstName": "Peggy",
-            "LastName": "Williams",
-            "YearJoined": 2012
-        }
-    ],
-    "StudentClassCollection": [
-        {
-            "ClassId": "89084343",
-            "ClassParticipation": "Satisfied",
-            "ClassParticipationRank": "High",
-            "Score": 93,
-            "PerformedActivity": false
-        },
-        {
-            "ClassId": "78547522",
-            "ClassParticipation": "NotSatisfied",
-            "ClassParticipationRank": "None",
-            "Score": 74,
-            "PerformedActivity": false
-        },
-        {
-            "ClassId": "78675563",
-            "ClassParticipation": "Satisfied",
-            "ClassParticipationRank": "Low",
-            "Score": 83,
-            "PerformedActivity": true
-        }
-    ]
-}
-```
+    {
+        "StudentId": "trgfg-5454-fdfdg-4346",
+        "Grade": 7,
+        "StudentDetails": [
+            {
+                "FirstName": "Peggy",
+                "LastName": "Williams",
+                "YearJoined": 2012
+            }
+        ],
+        "StudentClassCollection": [
+            {
+                "ClassId": "89084343",
+                "ClassParticipation": "Satisfied",
+                "ClassParticipationRank": "High",
+                "Score": 93,
+                "PerformedActivity": false
+            },
+            {
+                "ClassId": "78547522",
+                "ClassParticipation": "NotSatisfied",
+                "ClassParticipationRank": "None",
+                "Score": 74,
+                "PerformedActivity": false
+            },
+            {
+                "ClassId": "78675563",
+                "ClassParticipation": "Satisfied",
+                "ClassParticipationRank": "Low",
+                "Score": 83,
+                "PerformedActivity": true
+            }
+        ]
+    }
 
-The file can be found at wasbs://processjson@hditutorialdata.blob.core.windows.net/. For more information on using Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](./hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster if you want.
+The file can be found at wasbs://processjson@hditutorialdata.blob.core.windows.net/. For more information on using Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster if you want.
 
-In this tutorial, you will use the Hive console.  For instructions of opening the Hive console, see [Use Hive with Hadoop on HDInsight with Remote Desktop](./hdinsight-hadoop-use-hive-remote-desktop.md).
+In this tutorial, you will use the Hive console.  For instructions of opening the Hive console, see [Use Hive with Hadoop on HDInsight with Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md).
 
 ## Flatten JSON documents
 The methods listed in the next section require the JSON document in a single row. So you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on Analyzing JSON data.
 
-```
-DROP TABLE IF EXISTS StudentsRaw;
-CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
+    DROP TABLE IF EXISTS StudentsRaw;
+    CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
 
-DROP TABLE IF EXISTS StudentsOneLine;
-CREATE EXTERNAL TABLE StudentsOneLine
-(
-  json_body string
-)
-STORED AS TEXTFILE LOCATION '/json/students';
+    DROP TABLE IF EXISTS StudentsOneLine;
+    CREATE EXTERNAL TABLE StudentsOneLine
+    (
+      json_body string
+    )
+    STORED AS TEXTFILE LOCATION '/json/students';
 
-INSERT OVERWRITE TABLE StudentsOneLine
-SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
-      FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
-      GROUP BY INPUT__FILE__NAME;
+    INSERT OVERWRITE TABLE StudentsOneLine
+    SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
+          FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
+          GROUP BY INPUT__FILE__NAME;
 
-SELECT * FROM StudentsOneLine
-```
+    SELECT * FROM StudentsOneLine
 
 The raw JSON file is located at **wasbs://processjson@hditutorialdata.blob.core.windows.net/**. The *StudentsRaw* Hive table points to the raw un-flattened JSON document.
 
@@ -109,12 +105,10 @@ Hive provides a built-in UDF called [get json object](https://cwiki.apache.org/c
 
 Get the first name and last name for each student
 
-```
-SELECT
-  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
-  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
-FROM StudentsOneLine;
-```
+    SELECT
+      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
+      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
+    FROM StudentsOneLine;
 
 Here is the output when running this query in console window.
 
@@ -130,12 +124,10 @@ This is why the Hive wiki recommends using json_tuple.
 ### Use the JSON_TUPLE UDF
 Another UDF provided by Hive is called [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple) which performs better than [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). This method takes a set of keys and a JSON string, and returns a tuple of values using one function. The following query returns the student id and the grade from the JSON document:
 
-```
-SELECT q1.StudentId, q1.Grade
-  FROM StudentsOneLine jt
-  LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
-    AS StudentId, Grade;
-```
+    SELECT q1.StudentId, q1.Grade
+      FROM StudentsOneLine jt
+      LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
+        AS StudentId, Grade;
 
 The output of this script in the Hive console:
 
@@ -177,9 +169,7 @@ SerDe is the best choice for parsing nested JSON documents, it allows you to def
 
 6. In the hive prompt, type "add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar". Since in my case, the jar is in the C:\apps\dist\hive-0.13.x\bin folder, I can directly add the jar with the name as shown below:
 
-    ```
-    add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
-    ```
+        add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
     ![Adding JAR to your project][image-hdi-hivejson-addjar]
 
@@ -187,34 +177,30 @@ Now, you are ready to use the SerDe to run queries against the JSON document.
 
 The following statement create a table with a defined schema
 
-```
-DROP TABLE json_table;
-CREATE EXTERNAL TABLE json_table (
-  StudentId string,
-  Grade int,
-  StudentDetails array<struct<
-      FirstName:string,
-      LastName:string,
-      YearJoined:int
+    DROP TABLE json_table;
+    CREATE EXTERNAL TABLE json_table (
+      StudentId string,
+      Grade int,
+      StudentDetails array<struct<
+          FirstName:string,
+          LastName:string,
+          YearJoined:int
+          >
+      >,
+      StudentClassCollection array<struct<
+          ClassId:string,
+          ClassParticipation:string,
+          ClassParticipationRank:string,
+          Score:int,
+          PerformedActivity:boolean
+          >
       >
-  >,
-  StudentClassCollection array<struct<
-      ClassId:string,
-      ClassParticipation:string,
-      ClassParticipationRank:string,
-      Score:int,
-      PerformedActivity:boolean
-      >
-  >
-) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
-LOCATION '/json/students';
-```
+    ) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
+    LOCATION '/json/students';
 
 To list the first name and last name of the student
 
-```
-SELECT StudentDetails.FirstName, StudentDetails.LastName FROM json_table;
-```
+    SELECT StudentDetails.FirstName, StudentDetails.LastName FROM json_table;
 
 Here is the result from the Hive console.
 
@@ -222,11 +208,9 @@ Here is the result from the Hive console.
 
 To calculate the sum of scores of the JSON document
 
-```
-SELECT SUM(scores)
-FROM json_table jt
-  lateral view explode(jt.StudentClassCollection.Score) collection as scores;
-```
+    SELECT SUM(scores)
+    FROM json_table jt
+      lateral view explode(jt.StudentClassCollection.Score) collection as scores;
 
 The query above uses [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) UDF to expand the array of scores so that they can be summed.
 
@@ -235,13 +219,10 @@ Here is the output from the Hive console.
 ![SerDe Query 2][image-hdi-hivejson-serde_query2]
 
 To find which subjects a given student has scored more than 80 points
-
-```
-SELECT  
-  jt.StudentClassCollection.ClassId
-FROM json_table jt
-  lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
-```
+    SELECT  
+      jt.StudentClassCollection.ClassId
+    FROM json_table jt
+      lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
 
 The query above returns a Hive array unlike get\_json\_object which returns a string.
 
@@ -249,20 +230,18 @@ The query above returns a Hive array unlike get\_json\_object which returns a st
 
 If you want to skil malformed JSON, then as explained in the [wiki page](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) of this SerDe you can achieve that by typing the code below:  
 
-```
-ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
-```
+    ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
 
 ## Summary
 In conclusion, the type of JSON operator in Hive that you choose depends on your scenario. If you have a simple JSON document and you only have one field to look up on - you can choose to use the Hive UDF get\_json\_object. If you have more than one keys to look up on then you can use json_tuple. If you have a nested document, then you should use the JSON SerDe.
 
 For other related articles, see
 
-* [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](./hdinsight-use-hive.md)
-* [Analyze flight delay data by using Hive in HDInsight](./hdinsight-analyze-flight-delay-data.md)
+* [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md)
+* [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
 * [Run a Hadoop job using DocumentDB and HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
 
-[hdinsight-python]: ./hdinsight-python.md
+[hdinsight-python]: hdinsight-python.md
 
 [image-hdi-hivejson-flatten]: ./media/hdinsight-using-json-in-hive/flatten.png
 [image-hdi-hivejson-getjsonobject]: ./media/hdinsight-using-json-in-hive/getjsonobject.png

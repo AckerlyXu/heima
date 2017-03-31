@@ -16,24 +16,25 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Reserved IP addresses (Classic)
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./virtual-network-deploy-static-pip-arm-portal.md)
->- [PowerShell](./virtual-network-deploy-static-pip-arm-ps.md)
->- [Azure CLI](./virtual-network-deploy-static-pip-arm-cli.md)
->- [Template](./virtual-network-deploy-static-pip-arm-template.md)
->- [PowerShell (Classic)](./virtual-networks-reserved-public-ip.md)
+>- [Azure portal preview](virtual-network-deploy-static-pip-arm-portal.md)
+>- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+>- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+>- [Template](virtual-network-deploy-static-pip-arm-template.md)
+>- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 IP addresses in Azure fall into two categories: dynamic and reserved. Public IP addresses managed by Azure are dynamic by default. That means that the IP address used for a given cloud service (VIP) or to access a VM or role instance directly (ILPIP) can change from time to time, when resources are shutdown or deallocated.
 
 To prevent IP addresses from changing, you can reserve an IP address. Reserved IPs can be used only as a VIP, ensuring that the IP address for the cloud service will be the same even as resources are shutdown or deallocated. Furthermore, you can convert existing dynamic IPs used as a VIP to a reserved IP address.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to reserve a static public IP address using the [Resource Manager deployment model](./virtual-network-ip-addresses-overview-arm.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Azure recommends that most new deployments use the Resource Manager model. Learn how to reserve a static public IP address using the [Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
 
-To learn more about IP addresses in Azure, read the [IP addresses](./virtual-network-ip-addresses-overview-classic.md) article.
+To learn more about IP addresses in Azure, read the [IP addresses](virtual-network-ip-addresses-overview-classic.md) article.
 
 ## When do I need a reserved IP?
 * **You want to ensure that the IP is reserved in your subscription**. If you want to reserve an IP address that will not be released from your subscription under any circumstance, you should use a reserved public IP.  
@@ -50,7 +51,7 @@ To learn more about IP addresses in Azure, read the [IP addresses](./virtual-net
 4. How do I reserve an IP address?
     * You can use PowerShell, the [Azure Management REST API](https://msdn.microsoft.com/zh-cn/library/azure/dn722420.aspx), or the [Azure portal preview](https://portal.azure.cn) to reserve an IP address in a particular region. This reserved IP address is associated to your subscription.
 5. Can I use this with affinity group based VNets?
-    * Reserved IPs are only supported in regional VNets. It is not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or an affinity group, see [About Regional VNets and Affinity Groups](./virtual-networks-migrate-to-regional-vnet.md).
+    * Reserved IPs are only supported in regional VNets. It is not supported for VNets that are associated with affinity groups. For more information about associating a VNet with a region or an affinity group, see [About Regional VNets and Affinity Groups](virtual-networks-migrate-to-regional-vnet.md).
 
 ## Manage reserved VIPs
 
@@ -70,20 +71,18 @@ Get-AzureReservedIP
 
 Expected output:
 
-```
-ReservedIPName       : MyReservedIP
-Address              : 23.101.114.211
-Id                   : d73be9dd-db12-4b5e-98c8-bc62e7c42041
-Label                :
-Location             : China North
-State                : Created
-InUse                : False
-ServiceName          :
-DeploymentName       :
-OperationDescription : Get-AzureReservedIP
-OperationId          : 55e4f245-82e4-9c66-9bd8-273e815ce30a
-OperationStatus      : Succeeded
-```
+    ReservedIPName       : MyReservedIP
+    Address              : 23.101.114.211
+    Id                   : d73be9dd-db12-4b5e-98c8-bc62e7c42041
+    Label                :
+    Location             : China North
+    State                : Created
+    InUse                : False
+    ServiceName          :
+    DeploymentName       :
+    OperationDescription : Get-AzureReservedIP
+    OperationId          : 55e4f245-82e4-9c66-9bd8-273e815ce30a
+    OperationStatus      : Succeeded
 
 Once an IP is reserved, it remains associated to your subscription until you delete it. To delete the reserved IP shown above, run the following PowerShell command:
 
@@ -112,7 +111,7 @@ New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 ```
 
 > [!NOTE]
-> When you create a reserved IP to use with a cloud service, you'll still need to refer to the VM by using *VIP:&lt;port number>* for inbound communication. Reserving an IP does not mean you can connect to the VM directly. The reserved IP is assigned to the cloud service that the VM has been deployed to. If you want to connect to a VM by IP directly, you have to configure an instance-level public IP. An instance-level public IP is a type of public IP (called a ILPIP) that is assigned directly to your VM. It cannot be reserved. See [Instance-level Public IP (ILPIP)](./virtual-networks-instance-level-public-ip.md) for more information.
+> When you create a reserved IP to use with a cloud service, you'll still need to refer to the VM by using *VIP:&lt;port number>* for inbound communication. Reserving an IP does not mean you can connect to the VM directly. The reserved IP is assigned to the cloud service that the VM has been deployed to. If you want to connect to a VM by IP directly, you have to configure an instance-level public IP. An instance-level public IP is a type of public IP (called a ILPIP) that is assigned directly to your VM. It cannot be reserved. See [Instance-level Public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) for more information.
 > 
 
 ## Remove a reserved IP from a running deployment
@@ -142,26 +141,24 @@ Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestSer
 ## Associate a reserved IP to a cloud service by using a service configuration file
 You can also associate a reserved IP to a cloud service by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved VIP named *MyReservedIP*:
 
-```
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
-  <Role name="WebRole1">
-    <Instances count="1" />
-    <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-    </ConfigurationSettings>
-  </Role>
-  <NetworkConfiguration>
-    <AddressAssignments>
-      <ReservedIPs>
-       <ReservedIP name="MyReservedIP"/>
-      </ReservedIPs>
-    </AddressAssignments>
-  </NetworkConfiguration>
-</ServiceConfiguration>
-```
+    <?xml version="1.0" encoding="utf-8"?>
+    <ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
+      <Role name="WebRole1">
+        <Instances count="1" />
+        <ConfigurationSettings>
+          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+        </ConfigurationSettings>
+      </Role>
+      <NetworkConfiguration>
+        <AddressAssignments>
+          <ReservedIPs>
+           <ReservedIP name="MyReservedIP"/>
+          </ReservedIPs>
+        </AddressAssignments>
+      </NetworkConfiguration>
+    </ServiceConfiguration>
 
 ## Next steps
-* Understand how [IP addressing](./virtual-network-ip-addresses-overview-classic.md) works in the classic deployment model.
-* Learn about [reserved private IP addresses](./virtual-networks-reserved-private-ip.md).
-* Learn about [Instance Level Public IP (ILPIP) addresses](./virtual-networks-instance-level-public-ip.md).
+* Understand how [IP addressing](virtual-network-ip-addresses-overview-classic.md) works in the classic deployment model.
+* Learn about [reserved private IP addresses](virtual-networks-reserved-private-ip.md).
+* Learn about [Instance Level Public IP (ILPIP) addresses](virtual-networks-instance-level-public-ip.md).

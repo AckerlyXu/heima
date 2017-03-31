@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # IP address types and allocation methods (classic) in Azure
 You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure: public and private.
 
@@ -27,7 +27,7 @@ Public IP addresses are used for communication with the Internet, including Azur
 Private IP addresses are used for communication within an Azure virtual network (VNet), a cloud service, and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the classic deployment model. Azure recommends that most new deployments use Resource Manager. Learn about IP addresses in Resource Manager by reading the [IP addresses](./virtual-network-ip-addresses-overview-arm.md) article.
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the classic deployment model. Azure recommends that most new deployments use Resource Manager. Learn about IP addresses in Resource Manager by reading the [IP addresses](virtual-network-ip-addresses-overview-arm.md) article.
 
 ## Public IP addresses
 Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://www.azure.cn/home/features/redis-cache/), [Azure Event Hubs](https://www.azure.cn/home/features/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
@@ -56,7 +56,7 @@ A cloud service always has a public IP address referred to as a virtual IP addre
 
 A cloud service can contain multiple IaaS VMs, or PaaS role instances, all exposed through the same cloud service VIP. You can also assign [multiple VIPs to a cloud service](../load-balancer/load-balancer-multivip.md), which enables multi-VIP scenarios like multi-tenant environment with SSL-based websites.
 
-You can ensure the public IP address of a cloud service remains the same, even when all the role instances are stopped, by using a *static* public IP address, referred to as [Reserved IP](./virtual-networks-reserved-public-ip.md). You can create a static (reserved) IP resource in a specific location and assign it to any cloud service in that location. You cannot specify the actual IP address for the reserved IP, it is allocated from pool of available IP addresses in the location it is created. This IP address is not released until you explicitly delete it.
+You can ensure the public IP address of a cloud service remains the same, even when all the role instances are stopped, by using a *static* public IP address, referred to as [Reserved IP](virtual-networks-reserved-public-ip.md). You can create a static (reserved) IP resource in a specific location and assign it to any cloud service in that location. You cannot specify the actual IP address for the reserved IP, it is allocated from pool of available IP addresses in the location it is created. This IP address is not released until you explicitly delete it.
 
 Static (reserved) public IP addresses are commonly used in the scenarios where a cloud service:
 
@@ -71,7 +71,7 @@ Static (reserved) public IP addresses are commonly used in the scenarios where a
 > 
 
 ### IaaS VMs and PaaS role instances
-You can assign a public IP address directly to an IaaS [VM](../virtual-machines/virtual-machines-linux-azure-overview.md) or PaaS role instance within a cloud service. This is referred to as an instance-level public IP address ([ILPIP](./virtual-networks-instance-level-public-ip.md)). This public IP address can be dynamic only.
+You can assign a public IP address directly to an IaaS [VM](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or PaaS role instance within a cloud service. This is referred to as an instance-level public IP address ([ILPIP](virtual-networks-instance-level-public-ip.md)). This public IP address can be dynamic only.
 
 > [!NOTE]
 > This is different from the VIP of the cloud service, which is a container for IaaS VMs or PaaS role instances, since a cloud service can contain multiple IaaS VMs, or PaaS role instances, all exposed through the same cloud service VIP.
@@ -95,7 +95,7 @@ The table below shows each resource type with the possible allocation methods (d
 | Application gateway |Yes |No |No |
 
 ## Private IP addresses
-Private IP addresses allow Azure resources to communicate with other resources in a cloud service or a [virtual network](./virtual-networks-overview.md)(VNet), or to on-premises network (through a VPN gateway or ExpressRoute circuit), without using an Internet-reachable IP address.
+Private IP addresses allow Azure resources to communicate with other resources in a cloud service or a [virtual network](virtual-networks-overview.md)(VNet), or to on-premises network (through a VPN gateway or ExpressRoute circuit), without using an Internet-reachable IP address.
 
 In Azure classic deployment model, a private IP address can be assigned to the following Azure resources:
 
@@ -125,7 +125,7 @@ Static private IP addresses are commonly used for:
 * VMs running services accessed by other apps through an IP address.
 
 #### Internal DNS hostname resolution
-All Azure VMs and PaaS role instances are configured with [Azure-managed DNS servers](./virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs and role instances that reside within the same VNet or cloud service.
+All Azure VMs and PaaS role instances are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs and role instances that reside within the same VNet or cloud service.
 
 When you create a VM, a mapping for the hostname to its private IP address is added to the Azure-managed DNS servers. In case of a multi-NIC VM, the hostname is mapped to the private IP address of the primary NIC. However, this mapping information is restricted to resources within the same cloud service or VNet.
 
@@ -175,4 +175,4 @@ Below is a comparison of IP addressing features in Resource Manager and the clas
 | Internal load balancer (ILB) |Assigned to the ILB (dynamic or static) |Assigned to the ILB's front end configuration (dynamic or static) | |
 
 ## Next steps
-* [Deploy a VM with a static private IP address](./virtual-networks-static-private-ip-classic-pportal.md) using the Classic Management Portal.
+* [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the Classic Management Portal.

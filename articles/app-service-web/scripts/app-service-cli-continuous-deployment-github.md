@@ -20,7 +20,7 @@ ms.author: cephalin
 
 # Create a web app with continuous deployment from GitHub
 
-This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, see [Create a web app and deploy code from GitHub](./app-service-cli-deploy-github.md).
+This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, see [Create a web app and deploy code from GitHub](app-service-cli-deploy-github.md).
 
 If needed, install the Azure CLI using the instruction found in the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli). Also, ensure that:
 
@@ -32,7 +32,7 @@ This sample works in a Bash shell. For options on running Azure CLI scripts on W
 
 ## Create app sample
 
-```
+```azurecli
 #!/bin/bash
 
 gitrepo=<Replace with your GitHub repo URL>
@@ -57,7 +57,7 @@ az appservice web source-control config --name $webappname --resource-group myRe
 az appservice web browse --name $webappname --resource-group myResourceGroup
 ```
 
-[!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

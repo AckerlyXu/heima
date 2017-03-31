@@ -1,6 +1,6 @@
 ---
 title: Automated Backup v2 for SQL Server 2016 Azure Virtual Machines | Azure
-description: Explains the Automated Backup feature for SQL Server 2016 VMs running in Azure. This article is specific to VMs using the Resource Manager.
+description: 'Explains the Automated Backup feature for SQL Server 2016 VMs running in Azure. This article is specific to VMs using the Resource Manager.'
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -17,13 +17,13 @@ ms.workload: iaas-sql-server
 ms.date: 01/30/2017
 wacn.date: ''
 ms.author: jroth
----
 
+---
 # Automated Backup v2 for SQL Server 2016 Azure Virtual Machines (Resource Manager)
 
-Automated Backup v2 automatically configures [Managed Backup to Azure](https://msdn.microsoft.com/zh-cn/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2016 Standard, Enterprise, or Developer editions. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the [SQL Server IaaS Agent Extension](./virtual-machines-windows-sql-server-agent-extension.md).
+Automated Backup v2 automatically configures [Managed Backup to Azure](https://msdn.microsoft.com/zh-cn/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2016 Standard, Enterprise, or Developer editions. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## Prerequisites
 To use Automated Backup v2, review the following prerequisites:
@@ -40,7 +40,7 @@ To use Automated Backup v2, review the following prerequisites:
 - SQL Server 2016 Developer
 
 > [!IMPORTANT]
-> Automated Backup v2 works with SQL Server 2016. If you are using SQL Server 2014, you can use Automated Backup v1 to back up your databases. For more information, see [Automated Backup for SQL Server 2014 Azure Virtual Machines](./virtual-machines-windows-sql-automated-backup.md).
+> Automated Backup v2 works with SQL Server 2016. If you are using SQL Server 2014, you can use Automated Backup v1 to back up your databases. For more information, see [Automated Backup for SQL Server 2014 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 **Database configuration**:
 
@@ -54,7 +54,7 @@ For more information about the impact of the full recovery model on backups, see
 - Resource Manager
 
 > [!NOTE]
-> Automated Backup relies on the **SQL Server IaaS Agent Extension**. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](./virtual-machines-windows-sql-server-agent-extension.md).
+> Automated Backup relies on the **SQL Server IaaS Agent Extension**. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## Settings
 The following table describes the options that can be configured for Automated Backup v2. The actual configuration steps vary depending on whether you use the Azure portal preview or Azure Windows PowerShell commands.
@@ -131,7 +131,7 @@ In the **SQL Server settings** blade, select **Automated backup**. The following
 > [!NOTE]
 > Automated Backup v2 is disabled by default.
 
-For context, see the complete topic on [provisioning a SQL Server virtual machine in Azure](./virtual-machines-windows-portal-sql-server-provision.md).
+For context, see the complete topic on [provisioning a SQL Server virtual machine in Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Existing VMs
 For existing SQL Server virtual machines, select your SQL Server virtual machine. Then select the **SQL Server configuration** section of the **Settings** blade.
@@ -150,7 +150,7 @@ If you are enabling Automated Backup for the first time, Azure configures the SQ
 You can use PowerShell to configure Automated Backup v2. Before you begin, you must:
 
 - [Download and install the latest Azure PowerShell](http://aka.ms/webpi-azps).
-- Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
+- Open Windows PowerShell and associate it with your account. You can do this by following the steps in the [Configure your subscription](/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) section of the provisioning topic.
 
 ### Install the SQL IaaS Extension
 If you provisioned a SQL Server virtual machine from the Azure portal preview, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzureRmVM** command and examining the **Extensions** property.
@@ -315,8 +315,8 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ## Next steps
 Automated Backup v2 configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup](https://msdn.microsoft.com/zh-cn/library/dn449496.aspx) to understand the behavior and implications.
 
-You can find additional backup and restore guidance for SQL Server on Azure VMs in the following topic: [Backup and Restore for SQL Server in Azure Virtual Machines](./virtual-machines-windows-sql-backup-recovery.md).
+You can find additional backup and restore guidance for SQL Server on Azure VMs in the following topic: [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
-For information about other available automation tasks, see [SQL Server IaaS Agent Extension](./virtual-machines-windows-sql-server-agent-extension.md).
+For information about other available automation tasks, see [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
-For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](./virtual-machines-windows-sql-server-iaas-overview.md).
+For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).

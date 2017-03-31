@@ -30,7 +30,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
-```
+```powershell
 $gitrepo="<Replace with your GitHub repo URL>"
 $gittoken="<Replace with your GitHub token>"
 $webappname="mywebapp$(Get-Random)"

@@ -1,6 +1,6 @@
 ---
 title: Load balancing for infrastructure services | Azure
-description: Describes the two types of load balancing supported by Azure: Load balancer for cloud services and Azure Traffic Manager for client traffic.
+description: 'Describes the two types of load balancing supported by Azure: Load balancer for cloud services and Azure Traffic Manager for client traffic.'
 services: load-balancer
 documentationcenter: ''
 author: kumudd
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/02/2016
 wacn.date: ''
 ms.author: kumud
----
 
+---
 # Load balancing for Azure infrastructure services
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

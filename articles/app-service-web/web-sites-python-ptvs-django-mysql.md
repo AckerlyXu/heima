@@ -16,14 +16,14 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 wacn.date: ''
 ms.author: huvalo
----
 
+---
 # Django and MySQL on Azure with Python Tools 2.2 for Visual Studio
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-In this tutorial, you'll use [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python) to create a simple polls web app using one of the PTVS sample templates. You'll learn how to use a MySQL service hosted on Azure, how to configure the web app to use MySQL, and how to publish the web app to [Azure App Service Web Apps](./app-service-changes-existing-services.md).
+In this tutorial, you'll use [Python Tools for Visual Studio](https://www.visualstudio.com/vs/python) to create a simple polls web app using one of the PTVS sample templates. You'll learn how to use a MySQL service hosted on Azure, how to configure the web app to use MySQL, and how to publish the web app to [Azure App Service Web Apps](/azure/app-service-web/app-service-changes-existing-services/).
 
 See the [Python Developer Center] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with Azure Table Storage, MySQL, and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services].
 
@@ -83,24 +83,20 @@ In this section, you'll configure our web app to use the MySQL database you just
 
 1. In Visual Studio, open **settings.py**, from the *ProjectName* folder. Temporarily paste the connection string in the editor. The connection string is in this format:
 
-    ```
-    Database=<NAME>;Data Source=<HOST>;User Id=<USER>;Password=<PASSWORD>
-    ```
+        Database=<NAME>;Data Source=<HOST>;User Id=<USER>;Password=<PASSWORD>
 
     Change the default database **ENGINE** to use MySQL, and set the values for **NAME**, **USER**, **PASSWORD** and **HOST** from the **CONNECTIONSTRING**.
 
-    ```
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': '<Database>',
-            'USER': '<User Id>',
-            'PASSWORD': '<Password>',
-            'HOST': '<Data Source>',
-            'PORT': '',
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': '<Database>',
+                'USER': '<User Id>',
+                'PASSWORD': '<Password>',
+                'HOST': '<Data Source>',
+                'PORT': '',
+            }
         }
-    }
-    ```
 2. In Solution Explorer, under **Python Environments**, right-click on the virtual environment and select **Install Python Package**.
 3. Install the package `mysqlclient` using **pip**.
 

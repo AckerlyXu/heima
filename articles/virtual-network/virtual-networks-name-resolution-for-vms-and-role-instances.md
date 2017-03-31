@@ -104,9 +104,7 @@ DNS is primarily a UDP protocol.  As the UDP protocol doesn't guarantee message 
 
 To check the current settings on a Linux VM, 'cat /etc/resolv.conf' and look at the 'options' line, e.g.:
 
-```
-options timeout:1 attempts:5
-```
+    options timeout:1 attempts:5
 
 The resolv.conf file is usually auto-generated and should not be edited.  The specific steps for adding the 'options' line vary by distro:
 
@@ -138,13 +136,13 @@ If needed, the Internal DNS suffix can be determined using PowerShell or the API
 
 If forwarding queries to Azure doesn't suit your needs, you will need to provide your own DNS solution.  Your DNS solution will need to:
 
-* Provide appropriate hostname resolution, e.g. via [DDNS](./virtual-networks-name-resolution-ddns.md).  Note, if using DDNS you may need to disable DNS record scavenging as Azure's DHCP leases are very long and scavenging may remove DNS records prematurely. 
+* Provide appropriate hostname resolution, e.g. via [DDNS](virtual-networks-name-resolution-ddns.md).  Note, if using DDNS you may need to disable DNS record scavenging as Azure's DHCP leases are very long and scavenging may remove DNS records prematurely. 
 * Provide appropriate recursive resolution to allow resolution of external domain names.
 * Be accessible (TCP and UDP on port 53) from the clients it serves and be able to access the internet.
 * Be secured against access from the internet, to mitigate threats posed by external agents.
 
 > [!NOTE]
-> For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](./virtual-networks-instance-level-public-ip.md) should be assigned to each DNS server VM.  If you choose to use Windows Server as your DNS server, [this article](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) provides additional performance analysis and optimizations.
+> For best performance, when using Azure VMs as DNS servers, IPv6 should be disabled and an [Instance-Level Public IP](virtual-networks-instance-level-public-ip.md) should be assigned to each DNS server VM.  If you choose to use Windows Server as your DNS server, [this article](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) provides additional performance analysis and optimizations.
 > 
 > 
 
@@ -177,4 +175,4 @@ Classic deployment model:
 
 * [Azure Service Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/ee758710)
 * [Virtual Network Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100)
-* [Configure a Virtual Network by Using a Network Configuration File](./virtual-networks-using-network-configuration-file.md)
+* [Configure a Virtual Network by Using a Network Configuration File](virtual-networks-using-network-configuration-file.md)

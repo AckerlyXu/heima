@@ -18,8 +18,8 @@ ms.date: 11/21/2016
 wacn.date: ''
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Application deployment with Azure Resource Manager templates for Linux VMs
 
 Once all Azure infrastructural requirements have been identified and translated into a deployment template, the actual application deployment needs to be addressed. Application deployment here is referring to installing the actual application binaries onto Azure resources. For the Music Store sample, .Net Core, NGINX, and Supervisor need to be installed and configured on each virtual machine. The Music Store binaries need to be installed onto the virtual machine, and the Music Store database pre-created.
@@ -113,7 +113,7 @@ Notice in the below JSON that the script is stored in GitHub. This script could 
 }
 ```
 
-For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](./virtual-machines-linux-extensions-customscript.md).
+For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next Step
 <hr>

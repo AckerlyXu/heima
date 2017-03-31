@@ -17,7 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 06/29/2016
 wacn.date: ''
 ms.author: mwasson
----
 
+---
 # Best Practices for running a Windows VM on Azure
 [!INCLUDE [gudiance-comput-single-vm-windows](../../includes/guidance-compute-single-vm-windows.md)]

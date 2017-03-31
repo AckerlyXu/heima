@@ -16,12 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Create an application gateway with an internal load balancer (ILB) by using Azure Resource Manager
+
 > [!div class="op_single_selector"]
->- [Azure Classic PowerShell](./application-gateway-ilb.md)
->- [Azure Resource Manager PowerShell](./application-gateway-ilb-arm.md)
+> * [Azure Classic PowerShell](application-gateway-ilb.md)
+> * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
 
 Azure Application Gateway can be configured with an Internet-facing VIP or with an internal endpoint that is not exposed to the Internet, also known as an internal load balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications that are not exposed to the Internet. It's also useful for services and tiers within a multi-tier application that sit in a security boundary that is not exposed to the Internet but still require round-robin load distribution, session stickiness, or Secure Sockets Layer (SSL) termination.
 
@@ -55,7 +56,7 @@ Here are the steps that are needed to create an application gateway:
 
 ## Create a resource group for Resource Manager
 
-Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
+Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Step 1
 
@@ -220,10 +221,9 @@ $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw
 
 Use `Stop-AzureRmApplicationGateway` to stop the application gateway. This sample shows the `Stop-AzureRmApplicationGateway` cmdlet on the first line, followed by the output.
 
-```
+```powershell
 Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 ```
-
 
 ```
 VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
@@ -238,7 +238,6 @@ Once the application gateway is in a stopped state, use the `Remove-AzureRmAppli
 ```powershell
 Remove-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 ```
-
 
 ```
 VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
@@ -257,7 +256,6 @@ To verify that the service has been removed, you can use the `Get-AzureRmApplica
 Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
-
 ```
 VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
@@ -266,11 +264,11 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure an application gateway for SSL offload](./application-gateway-ssl.md).
+If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
 
-If you want to configure an application gateway to use with an ILB, see [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb.md).
+If you want to configure an application gateway to use with an ILB, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
 
 If you want more information about load balancing options in general, see:
 
-* [Azure Load Balancer](../load-balancer/index.md)
-* [Azure Traffic Manager](../traffic-manager/index.md)
+* [Azure Load Balancer](/azure/load-balancer/)
+* [Azure Traffic Manager](/azure/traffic-manager/)

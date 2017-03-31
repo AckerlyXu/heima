@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/02/2017
 wacn.date: ''
 ms.author: bprakash
----
 
+---
 # What are the different Hadoop components and versions available with HDInsight?
 
 Learn about the service levels offered for Azure HDInsight, as well as the Hadoop ecosystem components and versions included. Each HDInsight version is a cloud distribution of a version of the HortonWorks Data Platform (HDP).
@@ -36,7 +36,7 @@ Azure HDInsight provides the big data cloud offerings in two categories: **Stand
 
 | HDInsight Premium feature | Description |
 | --- | --- |
-| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (AAD) domains for enterprise-level security. You can now configure a list of employees from your enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. The enterprise admin can also configure role based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data accessed by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](./hdinsight-domain-joined-configure.md). |
+| Domain-joined HDInsight clusters |Join HDInsight clusters to Azure Active Directory (AAD) domains for enterprise-level security. You can now configure a list of employees from your enterprise who can authenticate through Azure Active Directory to log on to HDInsight cluster. The enterprise admin can also configure role based access control for Hive security using [Apache Ranger](http://hortonworks.com/apache/ranger/), thus restricting access to data to only as much as needed. Finally, the admin can audit the data accessed by employees, and any changes done to access control policies, thus achieving a high degree of governance of their corporate resources. For more information, see [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md). |
 
 ### Cluster types supported for HDInsight Premium
 The following table lists the HDInsight cluster type and Premium support matrix.
@@ -93,7 +93,7 @@ The component versions associated with HDInsight cluster versions may change in 
 
 **Release notes**
 
-See [HDInsight release notes](./hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
+See [HDInsight release notes](hdinsight-release-notes.md) for additional release notes on the latest versions of HDInsight.
 
 ## <a name="supported-hdinsight-versions"></a> Supported HDInsight versions
 The following table lists the versions of HDInsight currently available, the corresponding Hortonworks Data Platform versions that they use, and their release dates. When known, their support expiration and deprecation dates are also provided. Please note the following:
@@ -146,7 +146,7 @@ The **Deprecation Date** is the date after which the cluster version cannot be c
 
 [wa-forums]: https://www.azure.cn/support/forums/
 
-[connect-excel-with-hive-ODBC]: ./hdinsight-connect-excel-hive-ODBC-driver.md
+[connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 
 [hdp-2-2]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/bk_HDP_RelNotes/content/ch_relnotes_v220.html
 

@@ -18,8 +18,8 @@ ms.date: 11/21/2016
 wacn.date: ''
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Application architecture with Azure Resource Manager templates for Linux VMs
 
 When developing an Azure Resource Manager deployment, compute requirements need to be mapped to Azure resources and services. If an application consists of several http endpoints, a database, and a data caching service, the Azure resources that host each of these components needs to be rationalized. For instance, the sample Music Store application includes a web application that is hosted on a virtual machine, and a SQL database, which is hosted in Azure SQL database. 
@@ -106,7 +106,7 @@ Clicking into the storage account blob container, the virtual hard drive file fo
 
 ![Virtual Hard Drives](./media/virtual-machines-linux-dotnet-core/vhd.png)
 
-For more information on Azure Storage, see [Azure Storage documentation](../storage/index.md).
+For more information on Azure Storage, see [Azure Storage documentation](/azure/storage/).
 
 ## Virtual Network
 If a virtual machine requires internal networking such as the ability to communicate with other virtual machines and Azure resources, an Azure Virtual Network is required.  A virtual network does not make the virtual machine accessible over the internet. Public connectivity requires a public IP address, which is detailed later in this series.
@@ -151,52 +151,54 @@ From the Azure portal preview, the virtual network looks like the following imag
 ![Virtual Network](./media/virtual-machines-linux-dotnet-core/vnet.png)
 
 ## Network Interface
- A network interface connects a virtual machine to a virtual network, more specifically to a subnet that has been defined in the virtual network. 
+A network interface connects a virtual machine to a virtual network, more specifically to a subnet that has been defined in the virtual network. 
 
- Follow this link to see the JSON sample within the Resource Manager template - [Network Interface](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
+Follow this link to see the JSON sample within the Resource Manager template - [Network Interface](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
 
-    {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkInterfaces",
-      "name": "[concat(variables('networkInterfaceNamePrefix'), copyindex())]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "network-interface"
-      },
-      "copy": {
-        "name": "nicLoop",
-        "count": "[parameters('numberOfInstances')]"
-      },
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-        "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'), '/inboundNatRules/', 'SSH-VM', copyIndex())]"
-      ],
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[variables('subnetRef')]"
-              },
-              "loadBalancerBackendAddressPools": [
-                {
-                  "id": "[variables('lbPoolID')]"
-                }
-              ],
-              "loadBalancerInboundNatRules": [
-                {
-                  "id": "[concat(variables('lbID'),'/inboundNatRules/SSH-VM', copyIndex())]"
-                }
-              ]
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Network/networkInterfaces",
+  "name": "[concat(variables('networkInterfaceNamePrefix'), copyindex())]",
+  "location": "[resourceGroup().location]",
+  "tags": {
+    "displayName": "network-interface"
+  },
+  "copy": {
+    "name": "nicLoop",
+    "count": "[parameters('numberOfInstances')]"
+  },
+  "dependsOn": [
+    "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+    "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+    "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
+    "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'), '/inboundNatRules/', 'SSH-VM', copyIndex())]"
+  ],
+  "properties": {
+    "ipConfigurations": [
+      {
+        "name": "ipconfig1",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "subnet": {
+            "id": "[variables('subnetRef')]"
+          },
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "[variables('lbPoolID')]"
             }
-          }
-        ]
+          ],
+          "loadBalancerInboundNatRules": [
+            {
+              "id": "[concat(variables('lbID'),'/inboundNatRules/SSH-VM', copyIndex())]"
+            }
+          ]
+        }
       }
-    }
+    ]
+  }
+}
+```
 
 Each virtual machine resource includes a network profile. The network interface is associated with the virtual machine in this profile.  
 
@@ -216,7 +218,7 @@ From the Azure portal preview, the network interface looks like the following im
 
 ![Network Interface](./media/virtual-machines-linux-dotnet-core/nic.png)
 
-For more information on Azure Virtual Networks, see [Azure Virtual Network documentation](../virtual-network/index.md).
+For more information on Azure Virtual Networks, see [Azure Virtual Network documentation](/azure/virtual-network/).
 
 ## Azure SQL Database
 In addition to a virtual machine hosting the Music Store website, an Azure SQL Database is deployed to host the Music Store database. The advantage of using Azure SQL Database here is that a second set of virtual machines is not required, and scale and availability is built into the service.
@@ -262,9 +264,9 @@ A view of the SQL server and MusicStore database as seen in the Azure portal pre
 
 ![SQL Server](./media/virtual-machines-linux-dotnet-core/sql.png)
 
-For more information on deploying Azure SQL Database, see [Azure SQL Database documentation](../sql-database/index.md).
+For more information on deploying Azure SQL Database, see [Azure SQL Database documentation](/azure/sql-database/).
 
 ## Next step
 <hr>
 
-[Step 2 - Access and Security in Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-3-access-security.md)
+[Step 2 - Access and Security in Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Develop Apache Storm topologies using Python on HDInsight
 
 Apache Storm supports multiple languages, even allowing you to combine components from several languages in one topology. In this document, you will learn how to use Python components in your Java and Clojure-based Storm topologies on HDInsight.
@@ -25,7 +25,7 @@ Apache Storm supports multiple languages, even allowing you to combine component
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> This document provides steps on using both Windows and Linux-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> This document provides steps on using both Windows and Linux-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -56,17 +56,15 @@ Both methods are described in this document, along with example projects.
 
 ## Python components with a Java topology
 > [!NOTE]
-> This example is available at [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) in the **JavaTopology** directory. This is a Maven based project. If you are unfamiliar with Maven, see [Develop Java-based topologies with Apache Storm on HDInsight](./hdinsight-storm-develop-java-topology.md) for more information on creating a Maven project for a Storm topology.
+> This example is available at [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) in the **JavaTopology** directory. This is a Maven based project. If you are unfamiliar with Maven, see [Develop Java-based topologies with Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md) for more information on creating a Maven project for a Storm topology.
 > 
 > 
 
 A Java-based topology that uses Python (or other JVM language components,) initially appears to use Java components; but if you look in each of the Java spouts/bolts, you'll see code similar to the following:
 
-```
-public SplitBolt() {
-    super("python", "countbolt.py");
-}
-```
+    public SplitBolt() {
+        super("python", "countbolt.py");
+    }
 
 This is where Java invokes Python and runs the script that contains the actual bolt logic. The Java spouts/bolts (for this example,) simply declare the fields in the tuple that will be emitted by the underlying Python component.
 
@@ -93,9 +91,7 @@ This includes all the files in the `/multilang` folder in the jar that will be b
 ### Build and run the project
 To run this project locally, just use the following Maven command to build and run in local mode:
 
-```
-mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCount
-```
+    mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCount
 
 Use ctrl+c to kill the process.
 
@@ -103,9 +99,7 @@ To deploy the project to an HDInsight cluster running Apache Storm, use the foll
 
 1. Build an uber jar:
 
-    ```
-    mvn package
-    ```
+        mvn package
 
     This will create a file named **WordCount--1.0-SNAPSHOT.jar** in the `/target` directory for this project.
 2. Upload the jar file to the Hadoop cluster using one of the following methods:
@@ -143,9 +137,7 @@ This topology was created by using [Leiningen](http://leiningen.org) to [create 
 ### Build and run the project
 **To build and run the project locally**, use the following command:
 
-```
-lein clean, run
-```
+    lein clean, run
 
 To stop the topology, use **Ctrl+C**.
 
@@ -153,9 +145,7 @@ To stop the topology, use **Ctrl+C**.
 
 1. Create an uberjar containing the topology and required dependencies:
 
-    ```
-    lein uberjar
-    ```
+        lein uberjar
 
     This will create a new file named `wordcount-1.0-SNAPSHOT.jar` in the `target\uberjar+uberjar` directory.
 2. Use one of the following methods to deploy and run the topology to an HDInsight cluster:
@@ -164,20 +154,16 @@ To stop the topology, use **Ctrl+C**.
 
         1. Copy the file to the HDInsight cluster head node using `scp`. For example:
 
-            ```
-            scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:wordcount-1.0-SNAPSHOT.jar
-            ```
+                scp wordcount-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:wordcount-1.0-SNAPSHOT.jar
 
             Replace USERNAME with an SSH user for your cluster, and CLUSTERNAME with your HDInsight cluster name.
         2. Once the file has been copied to the cluster, use SSH to connect to the cluster and submit the job. For information on using SSH with HDInsight, see one of the following:
 
-            * [Use SSH with Linux-based HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
-            * [Use SSH with Linux-based HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+            * [Use SSH with Linux-based HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+            * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
         3. Once connected, use the following to start the topology:
 
-            ```
-            storm jar wordcount-1.0-SNAPSHOT.jar wordcount.core wordcount
-            ```
+                storm jar wordcount-1.0-SNAPSHOT.jar wordcount.core wordcount
     * **Windows-based HDInsight**
 
         1. Connect to the Storm Dashboard by going to HTTPS://CLUSTERNAME.azurehdinsight.cn/ in your browser. Replace CLUSTERNAME with your HDInsight cluster name and provide the admin name and password when prompted.
@@ -197,5 +183,5 @@ To stop the topology, use **Ctrl+C**.
 ## Next steps
 In this document, you learned how to use Python components from a Storm topology. See the following documents for other ways to use Python with HDInsight:
 
-* [How to use Python for streaming MapReduce jobs](./hdinsight-hadoop-streaming-python.md)
-* [How to use Python User Defined Functions (UDF) in Pig and Hive](./hdinsight-python.md)
+* [How to use Python for streaming MapReduce jobs](hdinsight-hadoop-streaming-python.md)
+* [How to use Python User Defined Functions (UDF) in Pig and Hive](hdinsight-python.md)

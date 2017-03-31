@@ -16,14 +16,14 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Build a Node.js RESTful API and deploy it to an API app in Azure
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and deploy it to an [API app](./app-service-api-apps-why-best-platform.md) in 
+This tutorial shows how to create a simple [Node.js](http://nodejs.org) API and deploy it to an [API app](app-service-api-apps-why-best-platform.md) in 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md) by using [Git](http://git-scm.com). You can use any operating system that can run Node.js, and you'll do all your work using command line tools such as cmd.exe or bash.
 
 ## Prerequisites
@@ -38,14 +38,12 @@ While App Service supports many ways to deploy your code to an API app, this tut
 1. Open a command line interface that can run Node.js and Git commands.
 2. Navigate to a folder that you can use for a local Git repository, and clone the [GitHub repository containing the sample code](https://github.com/Azure-Samples/app-service-api-node-contact-list).
 
-    ```
-    git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
-    ```
+        git clone https://github.com/Azure-Samples/app-service-api-node-contact-list.git
 
     The sample API provides two endpoints: a Get request to `/contacts` returns a list of names and email addresses in JSON format, while `/contacts/{id}` returns only the selected contact.
 
 ## Scaffold (auto-generate) Node.js code based on Swagger metadata
-[Swagger](http://swagger.io/) is a file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](./app-service-api-metadata.md). This section of the tutorial models an API development workflow in which you create Swagger metadata first and use that to scaffold (auto-generate) server code for the API. 
+[Swagger](http://swagger.io/) is a file format for metadata that describes a RESTful API. Azure App Service has [built-in support for Swagger metadata](app-service-api-metadata.md). This section of the tutorial models an API development workflow in which you create Swagger metadata first and use that to scaffold (auto-generate) server code for the API. 
 
 > [!NOTE]
 > You can skip this section if you don't want to learn how to scaffold Node.js code from a Swagger metadata file. If you want to just deploy sample code to a new API app, go directly to the [Create an API app in Azure](#createapiapp) section.
@@ -55,17 +53,13 @@ While App Service supports many ways to deploy your code to an API app, this tut
 ### Install and execute Swaggerize
 1. Execute the following commands to install the **yo** and **generator-swaggerize** NPM modules globally.
 
-    ```
-    npm install -g yo
-    npm install -g generator-swaggerize
-    ```
+        npm install -g yo
+        npm install -g generator-swaggerize
 
     Swaggerize is a tool that generates server code for an API described by a Swagger metadata file. The Swagger file that you'll use is named *api.json* and is located in the *start* folder of the repository you cloned.
 2. Navigate to the *start* folder, and then execute the `yo swaggerize` command. Swaggerize will ask a series of questions.  For **what to call this project**, enter "ContactList", for **path to swagger document**, enter "api.json", and for **Express, Hapi, or Restify**, enter "express".
 
-    ```
-    yo swaggerize
-    ```
+        yo swaggerize
 
     ![Swaggerize Command Line](./media/app-service-api-nodejs-api-app/swaggerize-command-line.png)
 
@@ -74,27 +68,19 @@ While App Service supports many ways to deploy your code to an API app, this tut
     Swaggerize creates an application folder, scaffolds handlers and configuration files, and generates a **package.json** file. The express view engine is used to generate the Swagger help page.  
 3. If the `swaggerize` command fails with an "unexpected token" or "invalid escape sequence" error, correct the cause of the error by editing the generated *package.json* file. In the `regenerate` line under `scripts`, change the back slash that precedes *api.json* to a forward slash, so that the line looks like the following example:
 
-    ```
-     "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
-    ```
+         "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
 4. Navigate to the folder that contains the scaffolded code (in this case, the */start/ContactList* subfolder).
 5. Run `npm install`.
 
-    ```
-    npm install
-    ```
+        npm install
 6. Install the **jsonpath** NPM module. 
 
-    ```
-    npm install --save jsonpath
-    ```
+        npm install --save jsonpath
 
     ![Jsonpath Install](./media/app-service-api-nodejs-api-app/jsonpath-install.png)
 7. Install the **swaggerize-ui** NPM module. 
 
-    ```
-    npm install --save swaggerize-ui
-    ```
+        npm install --save swaggerize-ui
 
     ![Swaggerize Ui Install](./media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
@@ -104,73 +90,65 @@ While App Service supports many ways to deploy your code to an API app, this tut
 
     This code uses the JSON data stored in the **lib/contacts.json** file that is served by **lib/contactRepository.js**. The new contacts.js code responds to HTTP requests to get all of the contacts and return them as a JSON payload. 
 
-    ```
-    'use strict';
+        'use strict';
 
-    var repository = require('../lib/contactRepository');
+        var repository = require('../lib/contactRepository');
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.all())
-        }
-    };
-    ```
+        module.exports = {
+            get: function contacts_get(req, res) {
+                res.json(repository.all())
+            }
+        };
 3. Replace the code in the **handlers/contacts/{id}.js** file with the following code. 
 
-    ```
-    'use strict';
+        'use strict';
 
-    var repository = require('../../lib/contactRepository');
+        var repository = require('../../lib/contactRepository');
 
-    module.exports = {
-        get: function contacts_get(req, res) {
-            res.json(repository.get(req.params['id']));
-        }    
-    };
-    ```
+        module.exports = {
+            get: function contacts_get(req, res) {
+                res.json(repository.get(req.params['id']));
+            }    
+        };
 4. Replace the code in **server.js** with the following code. 
 
     The changes made to the server.js file are called out by using comments so you can see the changes being made. 
 
-    ```
-    'use strict';
+        'use strict';
 
-    var port = process.env.PORT || 8000; // first change
+        var port = process.env.PORT || 8000; // first change
 
-    var http = require('http');
-    var express = require('express');
-    var bodyParser = require('body-parser');
-    var swaggerize = require('swaggerize-express');
-    var swaggerUi = require('swaggerize-ui'); // second change
-    var path = require('path');
+        var http = require('http');
+        var express = require('express');
+        var bodyParser = require('body-parser');
+        var swaggerize = require('swaggerize-express');
+        var swaggerUi = require('swaggerize-ui'); // second change
+        var path = require('path');
 
-    var app = express();
+        var app = express();
 
-    var server = http.createServer(app);
+        var server = http.createServer(app);
 
-    app.use(bodyParser.json());
+        app.use(bodyParser.json());
 
-    app.use(swaggerize({
-        api: path.resolve('./config/swagger.json'), // third change
-        handlers: path.resolve('./handlers'),
-        docspath: '/swagger' // fourth change
-    }));
+        app.use(swaggerize({
+            api: path.resolve('./config/swagger.json'), // third change
+            handlers: path.resolve('./handlers'),
+            docspath: '/swagger' // fourth change
+        }));
 
-    // change four
-    app.use('/docs', swaggerUi({
-      docs: '/swagger'  
-    }));
+        // change four
+        app.use('/docs', swaggerUi({
+          docs: '/swagger'  
+        }));
 
-    server.listen(port, function () { // fifth and final change
-    });
-    ```
+        server.listen(port, function () { // fifth and final change
+        });
 
 ### Test with the API running locally
 1. Activate the server using the Node.js command-line executable. 
 
-    ```
-    node server.js
-    ```
+        node server.js
 2. When you browse to **http://localhost:8000/contacts**, you see the JSON output of the contact list (or you're prompted to download it, depending on your browser). 
 
     ![All Contacts Api Call](./media/app-service-api-nodejs-api-app/all-contacts-api-call.png)
@@ -240,39 +218,29 @@ In this section you create a local Git repository that contains your server code
 1. Copy the `ContactList` folder to a location that you can use for a new local Git repository. If you did the first part of the tutorial, copy `ContactList` from the `start` folder; otherwise, copy `ContactList` from the `end` folder.
 2. In your command line tool, navigate to the new folder, then execute the following command to create a new local Git repository. 
 
-    ```
-    git init
-    ```
+        git init
 
      ![New Local Git Repo](./media/app-service-api-nodejs-api-app/new-local-git-repo.png)
 3. If you did the first part of this tutorial and copied the `ContactList` folder, the copy likely included the `node_modules` folder. You do not want to include the `node_modules` folder in source control as it is created for you during the deployment process via the `package.json` file and `npm install`. Thus, add a `.gitignore` file by running the following command in the root of your project directory.
 
-    ```
-     touch .gitignore
-    ```
+         touch .gitignore
 
     Open the .gitignore file and add `node_modules` to the first line of the file. You can confirm the `node_modules` folder is being ignored by source control if you run `git status` and do not see the directory in the list. There is a (GitHub project)[https://github.com/github/gitignore/blob/master/Node.gitignore] for recommended files to ignore in a NodeJS project if you want to add more rules.
 
 4. Execute the following command to add a Git remote for your API app's repository. 
 
-    ```
-    git remote add azure YOUR_GIT_CLONE_URL_HERE
-    ```
+        git remote add azure YOUR_GIT_CLONE_URL_HERE
 
     **Note**: Replace the string "YOUR_GIT_CLONE_URL_HERE" with your own Git clone URL that you copied earlier. 
 5. Execute the following commands to create a commit that contains all of your code. 
 
-    ```
-    git add .
-    git commit -m "initial revision"
-    ```
+        git add .
+        git commit -m "initial revision"
 
     ![Git Commit Output](./media/app-service-api-nodejs-api-app/git-commit-output.png)
 6. Execute the command to push your code to Azure. When you're prompted for a password, enter the one that you created earlier in the Azure portal preview.
 
-    ```
-    git push azure master
-    ```
+        git push azure master
 
     This triggers a deployment to your API app.  
 7. In your browser, navigate back to the **Deployments** blade for your API app, and you see that the deployment is occurring. 
@@ -299,4 +267,4 @@ In this section you create a local Git repository that contains your server code
 Now that you have continuous delivery wired up, you can make code changes and deploy them to Azure simply by pushing commits to your Azure Git repository.
 
 ## Next steps
-At this point you've successfully created an API App and deployed Node.js API code to it. The next tutorial shows how to [consume API apps from JavaScript clients, using CORS](./app-service-api-cors-consume-javascript.md).
+At this point you've successfully created an API App and deployed Node.js API code to it. The next tutorial shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).

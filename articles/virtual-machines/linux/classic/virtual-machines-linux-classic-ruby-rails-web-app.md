@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # Ruby on Rails Web application on an Azure VM
 This tutorial shows how to host a Ruby on Rails website on Azure using a Linux virtual machine.  
 
@@ -46,32 +46,24 @@ Follow the steps in [Create a Virtual Machine Running Linux][vm-instructions].
 
 After the VM is provisioned, you can get the SSH endpoint by running the following command:
 
-```
-azure vm endpoint list <vm-name>  
-```
+    azure vm endpoint list <vm-name>  
 
 ## Install Ruby on Rails
 1. Use SSH to connect to the VM.
 2. From the SSH session, use the following commands to install Ruby on the VM:
 
-    ```
-    sudo apt-get update -y
-    sudo apt-get upgrade -y
-    sudo apt-get install ruby ruby-dev build-essential libsqlite3-dev zlib1g-dev nodejs -y
-    ```
+        sudo apt-get update -y
+        sudo apt-get upgrade -y
+        sudo apt-get install ruby ruby-dev build-essential libsqlite3-dev zlib1g-dev nodejs -y
 
     The installation may take a few minutes. When it completes, use the following command to verify that Ruby is installed:
 
-    ```
-    ruby -v
-    ```
+        ruby -v
 
     This returns the version of Ruby that was installed.
 3. Use the following command to install Rails:
 
-    ```
-    sudo gem install rails --no-rdoc --no-ri -V
-    ```
+        sudo gem install rails --no-rdoc --no-ri -V
 
     Use the --no-rdoc and --no-ri flags to skip installing the documentation, which is faster.
     This command will likely take a long time to execute, so adding the -V will display information about the installation progress.
@@ -79,25 +71,21 @@ azure vm endpoint list <vm-name>
 ## Create and run an app
 While still logged in via SSH, run the following commands:
 
-```
-rails new myapp
-cd myapp
-rails server -b 0.0.0.0 -p 3000
-```
+    rails new myapp
+    cd myapp
+    rails server -b 0.0.0.0 -p 3000
 
 The [new](http://guides.rubyonrails.org/command_line.html#rails-new) command creates a new Rails app. The [server](http://guides.rubyonrails.org/command_line.html#rails-server) command starts the WEBrick web server that comes with Rails. (For production use, you would probably want to use a different server, such as Unicorn or Passenger.)
 
 You should see output similar to the following.
 
-```
-=> Booting WEBrick
-=> Rails 4.2.1 application starting in development on http://0.0.0.0:3000
-=> Run `rails server -h` for more startup options
-=> Ctrl-C to shutdown server
-[2015-06-09 23:34:23] INFO  WEBrick 1.3.1
-[2015-06-09 23:34:23] INFO  ruby 1.9.3 (2013-11-22) [x86_64-linux]
-[2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
-```
+    => Booting WEBrick
+    => Rails 4.2.1 application starting in development on http://0.0.0.0:3000
+    => Run `rails server -h` for more startup options
+    => Ctrl-C to shutdown server
+    [2015-06-09 23:34:23] INFO  WEBrick 1.3.1
+    [2015-06-09 23:34:23] INFO  ruby 1.9.3 (2013-11-22) [x86_64-linux]
+    [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## Add an endpoint
 1. Go to the [Azure Classic Management Portal][management-portal] and select your VM.
@@ -116,9 +104,9 @@ You should see output similar to the following.
     * **PUBLIC PORT**: 80
     * **PRIVATE PORT**: 3000
 
-        This will create a public port of 80 that will route traffic to the private port of 3000, where the Rails server is listening.
+    This will create a public port of 80 that will route traffic to the private port of 3000, where the Rails server is listening.
 
-        ![new endpoint dialog][new-endpoint]
+    ![new endpoint dialog][new-endpoint]
 5. Click the check mark to save the endpoint.
 6. A message should appear that states **UPDATE IN PROGRESS**. Once this message disappears, the endpoint is active. You may now test your application by navigating to the DNS name of your virtual machine. The website should appear similar to the following:
 

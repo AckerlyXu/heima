@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 wacn.date: ''
 ms.author: nepeters
----
 
+---
 # Using the Azure Custom Script Extension with Linux Virtual Machines
 >[!NOTE]
 > Templates you downloaded from the GitHub Repo "azure-quickstart-templates" must be modified in order to fit in the Azure China Cloud Environment. For example, replace some endpoints -- "blob.core.windows.net" by "blob.core.chinacloudapi.cn", "cloudapp.azure.com" by "chinacloudapp.cn"; change some unsupported VM images; and, changes some unsupported VM sizes.
@@ -37,12 +37,12 @@ Schema:
 * **fileUris**: (optional, string array) the URLs for files to be downloaded.
 * **timestamp** (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
 
-    ```json
-    {
-      "fileUris": ["<url>"],
-      "commandToExecute": "<command-to-execute>"
-    }
-    ```
+```json
+{
+  "fileUris": ["<url>"],
+  "commandToExecute": "<command-to-execute>"
+}
+```
 
 ### Protected Configuration
 Schema:
@@ -51,13 +51,13 @@ Schema:
 * **storageAccountName**: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
 * **storageAccountKey**: (optional, string) the access key of storage account.
 
-    ```json
-    {
-      "commandToExecute": "<command-to-execute>",
-      "storageAccountName": "<storage-account-name>",
-      "storageAccountKey": "<storage-account-key>"
-    }
-    ```
+```json
+{
+  "commandToExecute": "<command-to-execute>",
+  "storageAccountName": "<storage-account-name>",
+  "storageAccountKey": "<storage-account-key>"
+}
+```
 
 ## Azure CLI
 When using the Azure CLI to run the Custom Script Extension, create a configuration file or files containing at minimum the file uri, and the script execution command.
@@ -230,4 +230,4 @@ info:    vm extension get command OK
 ```
 
 ## Next Steps
-For information on other VM Script Extensions, see [Azure Script Extension overview for Linux](./virtual-machines-linux-extensions-features.md).
+For information on other VM Script Extensions, see [Azure Script Extension overview for Linux](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

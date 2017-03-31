@@ -1,7 +1,7 @@
 ## Generate an API app client
 The API App tools in Visual Studio make it easy to generate C# code that calls to your Azure API Apps from desktop, store, and mobile apps. 
 
-1. In Visual Studio, open the solution that contains the API app from the [Create API app](/documentation/articles/app-service-dotnet-create-api-app/) topic. 
+1. In Visual Studio, open the solution that contains the API app from the [Create API app](../articles/app-service-api/app-service-dotnet-create-api-app.md) topic. 
 2. From **Solution Explorer**, right-click the solution and select the **Add** > **New Project**.
 
     ![Add a new project](./media/app-service-dotnet-debug-api-app-gen-api-client/01-add-new-project-v3.png)
@@ -33,31 +33,29 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
         ![Generation Complete](./media/app-service-dotnet-debug-api-app-gen-api-client/06-code-gen-output-v3.png)
 6. Open the **Program.cs** file from the project root and replace the **Main** method with the following code: 
 
-    ```
-    static void Main(string[] args)
-    {
-        var client = new ContactsList();
-
-        // Send GET request.
-        var contacts = client.Contacts.Get();
-        foreach (var c in contacts)
+        static void Main(string[] args)
         {
-            Console.WriteLine("{0}: {1} {2}",
-                c.Id, c.Name, c.EmailAddress);
+            var client = new ContactsList();
+
+            // Send GET request.
+            var contacts = client.Contacts.Get();
+            foreach (var c in contacts)
+            {
+                Console.WriteLine("{0}: {1} {2}",
+                    c.Id, c.Name, c.EmailAddress);
+            }
+
+            // Send POST request.
+            client.Contacts.Post(new Models.Contact
+            {
+                EmailAddress = "lkahn@contoso.com",
+                Name = "Loretta Kahn",
+                Id = 4
+            });
+
+            Console.WriteLine("Finished");
+            Console.ReadLine();
         }
-
-        // Send POST request.
-        client.Contacts.Post(new Models.Contact
-        {
-            EmailAddress = "lkahn@contoso.com",
-            Name = "Loretta Kahn",
-            Id = 4
-        });
-
-        Console.WriteLine("Finished");
-        Console.ReadLine();
-    }
-    ```
 
 ## Test the API app client
 Once the API app has been coded, it's time to test the code.

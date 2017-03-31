@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/10/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Customize Linux-based HDInsight clusters using Script Action
 
 HDInsight provides a configuration option called **Script Action** that invokes custom scripts that customize the cluster. These scripts can be used during cluster creation, or on an already running cluster, and are used to install additional components or change configuration settings.
@@ -26,7 +26,7 @@ HDInsight provides a configuration option called **Script Action** that invokes 
 > [!IMPORTANT]
 > The ability to use script actions on an already running cluster is only available for Linux-based HDInsight clusters.
 ><p>
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 Script actions can also be published to the Azure Marketplace as an HDInsight application. Some of the examples in this document show how you can install an HDInsight application using script action commands from PowerShell and the .NET SDK.
 
@@ -37,7 +37,7 @@ If you are using a domain-joined HDInsight cluster, there are two Ambari permiss
 * **AMBARI.RUN\_CUSTOM\_COMMAND**: The Ambari Administrator role has this permission by default.
 * **CLUSTER.RUN\_CUSTOM\_COMMAND**: Both the HDInsight Cluster Administrator and Ambari Administrator have this permission by default.
 
-For more information on working with permissions with domain-joined HDInsight, see [Manage domain-joined HDInsight clusters](./hdinsight-domain-joined-manage.md).
+For more information on working with permissions with domain-joined HDInsight, see [Manage domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md).
 
 ## Access control
 
@@ -129,12 +129,10 @@ Unlike script actions used during cluster creation, a failure in a script ran on
 
 When applying a script to a cluster, the cluster state changes to from **Running** to **Accepted**, then **HDInsight configuration**, and finally back to **Running** for successful scripts. The script status is logged in the script action history, and you can use this to determine if the script succeeded or failed. For example, the `Get-AzureRmHDInsightScriptActionHistory` PowerShell cmdlet can be used to view the status of a script. It returns information similar to the following:
 
-```
-ScriptExecutionId : 635918532516474303
-StartTime         : 2/23/2016 7:40:55 PM
-EndTime           : 2/23/2016 7:41:05 PM
-Status            : Succeeded
-```
+    ScriptExecutionId : 635918532516474303
+    StartTime         : 2/23/2016 7:40:55 PM
+    EndTime           : 2/23/2016 7:41:05 PM
+    Status            : Succeeded
 
 > [!NOTE]
 > If you have changed the cluster user (admin) password after the cluster was created, this may cause script actions ran against this cluster to fail. If you have any persisted script actions that target worker nodes, these may fail when you add nodes to the cluster through resize operations.
@@ -145,12 +143,12 @@ Script Action scripts can be used from the Azure portal preview, Azure PowerShel
 
 | Name | Script |
 | --- | --- |
-| **Add an Azure Storage account** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. See [Add additional storage to an HDInsight cluster](./hdinsight-hadoop-add-storage.md). |
-| **Install Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. See [Install and use Hue on HDInsight clusters](./hdinsight-hadoop-hue-linux.md). |
-| **Install R** |https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. See [Install and use R on HDInsight clusters](/documentation/articles/hdinsight-hadoop-r-scripts-linux/). |
-| **Install Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. See [Install and use Solr on HDInsight clusters](./hdinsight-hadoop-solr-install-linux.md). |
-| **Install Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. See [Install and use Giraph on HDInsight clusters](./hdinsight-hadoop-giraph-install-linux.md). |
-| **Pre-load Hive libraries** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. See [Add Hive libraries on HDInsight clusters](./hdinsight-hadoop-add-hive-libraries.md) |
+| **Add an Azure Storage account** |https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. See [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md). |
+| **Install Hue** |https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. See [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md). |
+| **Install R** |https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. See [Install and use R on HDInsight clusters](hdinsight-hadoop-r-scripts-linux.md). |
+| **Install Solr** |https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md). |
+| **Install Giraph** |https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). |
+| **Pre-load Hive libraries** |https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh. See [Add Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## Use a Script Action during cluster creation
 
@@ -158,7 +156,7 @@ This section provides examples on the different ways you can use script actions 
 
 ### Use a Script Action during cluster creation from the Azure portal preview
 
-1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](/documentation/articles/hdinsight-provision-clusters/).
+1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 2. Under **Optional Configuration**, for the **Script Actions** blade, click **add script action** to provide details about the script action, as shown below:
 
     ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
@@ -178,7 +176,7 @@ This section provides examples on the different ways you can use script actions 
 In this section, we use Azure Resource Manager templates to create an HDInsight cluster and also use a script action to install custom components (R, in this example) on the cluster. This section provides a sample template to create a cluster using script action.
 
 > [!NOTE]
-> The steps in this section demonstrate creating a cluster using a script action. For an example of creating a cluster from a template using an HDInsight application, see [Install custom HDInsight applications](./hdinsight-apps-install-custom-applications.md).
+> The steps in this section demonstrate creating a cluster using a script action. For an example of creating a cluster from a template using an HDInsight application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 #### Before you begin
 
@@ -190,219 +188,205 @@ In this section, we use Azure Resource Manager templates to create an HDInsight 
 
 1. Copy the following template to a location on your computer. This template installs Giraph on the headnodes as well as worker nodes in the cluster. You can also verify if the JSON template is valid. Paste your template content into [JSONLint](http://jsonlint.com/), an online JSON validation tool.
 
-    ```
-        {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "clusterLocation": {
-                "type": "string",
-                "defaultValue": "China North",
-                "allowedValues": [ "China North" ]
-            },
-            "clusterName": {
-                "type": "string"
-            },
-            "clusterUserName": {
-                "type": "string",
-                "defaultValue": "admin"
-            },
-            "clusterUserPassword": {
-                "type": "securestring"
-            },
-            "sshUserName": {
-                "type": "string",
-                "defaultValue": "username"
-            },
-            "sshPassword": {
-                "type": "securestring"
-            },
-            "clusterStorageAccountName": {
-                "type": "string"
-            },
-            "clusterStorageAccountResourceGroup": {
-                "type": "string"
-            },
-            "clusterStorageType": {
-                "type": "string",
-                "defaultValue": "Standard_LRS",
-                "allowedValues": [
-                    "Standard_LRS",
-                    "Standard_GRS",
-                    "Standard_ZRS"
-                ]
-            },
-            "clusterStorageAccountContainer": {
-                "type": "string"
-            },
-            "clusterHeadNodeCount": {
-                "type": "int",
-                "defaultValue": 1
-            },
-            "clusterWorkerNodeCount": {
-                "type": "int",
-                "defaultValue": 2
-            }
-        },
-        "variables": {
-        },
-        "resources": [
             {
-                "name": "[parameters('clusterStorageAccountName')]",
-                "type": "Microsoft.Storage/storageAccounts",
-                "location": "[parameters('clusterLocation')]",
-                "apiVersion": "2015-05-01-preview",
-                "dependsOn": [ ],
-                "tags": { },
-                "properties": {
-                    "accountType": "[parameters('clusterStorageType')]"
+            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {
+                "clusterLocation": {
+                    "type": "string",
+                    "defaultValue": "China North",
+                    "allowedValues": [ "China North" ]
+                },
+                "clusterName": {
+                    "type": "string"
+                },
+                "clusterUserName": {
+                    "type": "string",
+                    "defaultValue": "admin"
+                },
+                "clusterUserPassword": {
+                    "type": "securestring"
+                },
+                "sshUserName": {
+                    "type": "string",
+                    "defaultValue": "username"
+                },
+                "sshPassword": {
+                    "type": "securestring"
+                },
+                "clusterStorageAccountName": {
+                    "type": "string"
+                },
+                "clusterStorageAccountResourceGroup": {
+                    "type": "string"
+                },
+                "clusterStorageType": {
+                    "type": "string",
+                    "defaultValue": "Standard_LRS",
+                    "allowedValues": [
+                        "Standard_LRS",
+                        "Standard_GRS",
+                        "Standard_ZRS"
+                    ]
+                },
+                "clusterStorageAccountContainer": {
+                    "type": "string"
+                },
+                "clusterHeadNodeCount": {
+                    "type": "int",
+                    "defaultValue": 1
+                },
+                "clusterWorkerNodeCount": {
+                    "type": "int",
+                    "defaultValue": 2
                 }
             },
-            {
-                "name": "[parameters('clusterName')]",
-                "type": "Microsoft.HDInsight/clusters",
-                "location": "[parameters('clusterLocation')]",
-                "apiVersion": "2015-03-01-preview",
-                "dependsOn": [
-                    "[concat('Microsoft.Storage/storageAccounts/', parameters('clusterStorageAccountName'))]"
-                ],
-                "tags": { },
-                "properties": {
-                    "clusterVersion": "3.5",
-                    "osType": "Linux",
-                    "clusterDefinition": {
-                        "kind": "hadoop",
-                        "configurations": {
-                            "gateway": {
-                                "restAuthCredential.isEnabled": true,
-                                "restAuthCredential.username": "[parameters('clusterUserName')]",
-                                "restAuthCredential.password": "[parameters('clusterUserPassword')]"
+            "variables": {
+            },
+            "resources": [
+                {
+                    "name": "[parameters('clusterStorageAccountName')]",
+                    "type": "Microsoft.Storage/storageAccounts",
+                    "location": "[parameters('clusterLocation')]",
+                    "apiVersion": "2015-05-01-preview",
+                    "dependsOn": [ ],
+                    "tags": { },
+                    "properties": {
+                        "accountType": "[parameters('clusterStorageType')]"
+                    }
+                },
+                {
+                    "name": "[parameters('clusterName')]",
+                    "type": "Microsoft.HDInsight/clusters",
+                    "location": "[parameters('clusterLocation')]",
+                    "apiVersion": "2015-03-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Storage/storageAccounts/', parameters('clusterStorageAccountName'))]"
+                    ],
+                    "tags": { },
+                    "properties": {
+                        "clusterVersion": "3.5",
+                        "osType": "Linux",
+                        "clusterDefinition": {
+                            "kind": "hadoop",
+                            "configurations": {
+                                "gateway": {
+                                    "restAuthCredential.isEnabled": true,
+                                    "restAuthCredential.username": "[parameters('clusterUserName')]",
+                                    "restAuthCredential.password": "[parameters('clusterUserPassword')]"
+                                }
                             }
+                        },
+                        "storageProfile": {
+                            "storageaccounts": [
+                                {
+                                    "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.chinacloudapi.cn')]",
+                                    "isDefault": true,
+                                    "container": "[parameters('clusterStorageAccountContainer')]",
+                                    "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
+                                }
+                            ]
+                        },
+                        "computeProfile": {
+                            "roles": [
+                                {
+                                    "name": "headnode",
+                                    "targetInstanceCount": "[parameters('clusterHeadNodeCount')]",
+                                    "hardwareProfile": {
+                                        "vmSize": "Large"
+                                    },
+                                    "osProfile": {
+                                        "linuxOperatingSystemProfile": {
+                                            "username": "[parameters('sshUserName')]",
+                                            "password": "[parameters('sshPassword')]"
+                                        }
+                                    },
+                                    "scriptActions": [
+                                        {
+                                            "name": "installGiraph",
+                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
+                                            "parameters": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "workernode",
+                                    "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
+                                    "hardwareProfile": {
+                                        "vmSize": "Large"
+                                    },
+                                    "osProfile": {
+                                        "linuxOperatingSystemProfile": {
+                                            "username": "[parameters('sshUserName')]",
+                                            "password": "[parameters('sshPassword')]"
+                                        }
+                                    },
+                                    "scriptActions": [
+                                        {
+                                            "name": "installR",
+                                            "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
+                                            "parameters": ""
+                                        }
+                                    ]
+                                }
+                            ]
                         }
-                    },
-                    "storageProfile": {
-                        "storageaccounts": [
-                            {
-                                "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.chinacloudapi.cn')]",
-                                "isDefault": true,
-                                "container": "[parameters('clusterStorageAccountContainer')]",
-                                "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
-                            }
-                        ]
-                    },
-                    "computeProfile": {
-                        "roles": [
-                            {
-                                "name": "headnode",
-                                "targetInstanceCount": "[parameters('clusterHeadNodeCount')]",
-                                "hardwareProfile": {
-                                    "vmSize": "Large"
-                                },
-                                "osProfile": {
-                                    "linuxOperatingSystemProfile": {
-                                        "username": "[parameters('sshUserName')]",
-                                        "password": "[parameters('sshPassword')]"
-                                    }
-                                },
-                                "scriptActions": [
-                                    {
-                                        "name": "installGiraph",
-                                        "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
-                                        "parameters": ""
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "workernode",
-                                "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
-                                "hardwareProfile": {
-                                    "vmSize": "Large"
-                                },
-                                "osProfile": {
-                                    "linuxOperatingSystemProfile": {
-                                        "username": "[parameters('sshUserName')]",
-                                        "password": "[parameters('sshPassword')]"
-                                    }
-                                },
-                                "scriptActions": [
-                                    {
-                                        "name": "installR",
-                                        "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
-                                        "parameters": ""
-                                    }
-                                ]
-                            }
-                        ]
                     }
                 }
-            }
-        ],
-        "outputs": {
-            "cluster":{
-                "type" : "object",
-                "value" : "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
+            ],
+            "outputs": {
+                "cluster":{
+                    "type" : "object",
+                    "value" : "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
+                }
             }
         }
-    }
-    ```
 2. Start Azure PowerShell and Log in to your Azure account. After providing your credentials, the command returns information about your account.
 
-    ```
-    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+        Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 
-    Id                             Type       ...
-    --                             ----
-    someone@example.com            User       ...
-    ```
+        Id                             Type       ...
+        --                             ----
+        someone@example.com            User       ...
 3. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
 
-    ```
-    Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
-    ```
+        Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
     > [!NOTE]
     > You can use `Get-AzureRmSubscription` to get a list of all subscriptions associated with your account, which includes the subscription Id for each one.
 
 4. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
 
-    ```
-    New-AzureRmResourceGroup -Name myresourcegroup -Location "China North"
+        New-AzureRmResourceGroup -Name myresourcegroup -Location "China North"
 
-    ResourceGroupName : myresourcegroup
-    Location          : chinanorth
-    ProvisioningState : Succeeded
-    Tags              :
-    Permissions       :
-                        Actions  NotActions
-                        =======  ==========
-                        *
-    ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
-    ```
+        ResourceGroupName : myresourcegroup
+        Location          : chinanorth
+        ProvisioningState : Succeeded
+        Tags              :
+        Permissions       :
+                            Actions  NotActions
+                            =======  ==========
+                            *
+        ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
 5. To create a new deployment for your resource group, run the **New-AzureRmResourceGroupDeployment** command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template you created. If your template requires any parameters, you must pass those parameters as well. In this case, the script action to install R on the cluster does not require any parameters.
 
-    ```
-    New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
-    ```
+        New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
 
     You are prompted to provide values for the parameters defined in the template.
 
 1. When the resource group has been deployed, a summary of the deployment is displayed.
 
-    ```
-      DeploymentName    : mydeployment
-      ResourceGroupName : myresourcegroup
-      ProvisioningState : Succeeded
-      Timestamp         : 8/17/2015 7:00:27 PM
-      Mode              : Incremental
-      ...
-    ```
+          DeploymentName    : mydeployment
+          ResourceGroupName : myresourcegroup
+          ProvisioningState : Succeeded
+          Timestamp         : 8/17/2015 7:00:27 PM
+          Mode              : Incremental
+          ...
 
 2. If your deployment fails, you can use the following cmdlets to get information about the failures.
 
-    ```
-    Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
-    ```
+        Get-AzureRmResourceGroupDeployment -ResourceGroupName myresourcegroup -ProvisioningState Failed
 
 ### Use a Script Action during cluster creation from Azure PowerShell
 
@@ -412,38 +396,32 @@ Perform the following steps:
 
 1. Open the Azure PowerShell console and use the following to log in to your Azure subscription and declare some PowerShell variables:
 
-    ```
-    # LOGIN TO ZURE
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+        # LOGIN TO ZURE
+        Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
-    # PROVIDE VALUES FOR THESE VARIABLES
-    $subscriptionId = "<SubscriptionId>"        # ID of the Azure subscription
-    $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
-    $storageAccountName = "<StorageAccountName>"    # Azure storage account that hosts the default container
-    $storageAccountKey = "<StorageAccountKey>"      # Key for the storage account
-    $containerName = $clusterName
-    $location = "<MicrosoftDataCenter>"                # Location of the HDInsight cluster. It must be in the same data center as the storage account.
-    $clusterNodes = <ClusterSizeInNumbers>            # The number of nodes in the HDInsight cluster.
-    $resourceGroupName = "<ResourceGroupName>"      # The resource group that the HDInsight cluster is created in
-    ```
+        # PROVIDE VALUES FOR THESE VARIABLES
+        $subscriptionId = "<SubscriptionId>"        # ID of the Azure subscription
+        $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
+        $storageAccountName = "<StorageAccountName>"    # Azure storage account that hosts the default container
+        $storageAccountKey = "<StorageAccountKey>"      # Key for the storage account
+        $containerName = $clusterName
+        $location = "<MicrosoftDataCenter>"                # Location of the HDInsight cluster. It must be in the same data center as the storage account.
+        $clusterNodes = <ClusterSizeInNumbers>            # The number of nodes in the HDInsight cluster.
+        $resourceGroupName = "<ResourceGroupName>"      # The resource group that the HDInsight cluster is created in
 
 2. Specify the configuration values (such as nodes in the cluster) and the default storage to be used.
 
-    ```
-    # SPECIFY THE CONFIGURATION OPTIONS
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
-    $config = New-AzureRmHDInsightClusterConfig
-    $config.DefaultStorageAccountName="$storageAccountName.blob.core.chinacloudapi.cn"
-    $config.DefaultStorageAccountKey=$storageAccountKey
-    ```
+        # SPECIFY THE CONFIGURATION OPTIONS
+        Select-AzureRmSubscription -SubscriptionId $subscriptionId
+        $config = New-AzureRmHDInsightClusterConfig
+        $config.DefaultStorageAccountName="$storageAccountName.blob.core.chinacloudapi.cn"
+        $config.DefaultStorageAccountKey=$storageAccountKey
 
 3. Use **Add-AzureRmHDInsightScriptAction** cmdlet to invoke the script. The following example uses a script that installs Giraph on the cluster:
 
-    ```
-    # INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
-    $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-    $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-    ```
+        # INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
+        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
     The **Add-AzureRmHDInsightScriptAction** cmdlet takes the following parameters:
 
@@ -457,29 +435,21 @@ Perform the following steps:
 
 4. Set the admin/HTTPS user for the cluster:
 
-    ```
-    $httpCreds = get-credential
-    ```
+        $httpCreds = get-credential
 
     When prompted, enter 'admin' as the name, and provide a password.
 
 5. Set the SSH credentials:
 
-    ```
-    $sshCreds = get-credential
-    ```
+        $sshCreds = get-credential
 
     When prompted, enter the SSH user name and password. If you want to secure the SSH account with a certificate instead of a password, use a blank password and set `$sshPublicKey` to the contents of the certificate public key you wish to use. For example:
 
-    ```
-    $sshPublicKey = Get-Content .\path\to\public.key -Raw
-    ```
+        $sshPublicKey = Get-Content .\path\to\public.key -Raw
 
 6. Finally, create the cluster:
 
-    ```
-    New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
-    ```
+        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
 
     If you are using a public key to secure your SSH account, you must also specify `-SshPublicKey $sshPublicKey` as a parameter.
 
@@ -487,7 +457,7 @@ It can take several minutes before the cluster is created.
 
 ### Use a Script Action during cluster creation from the HDInsight .NET SDK
 
-The HDInsight .NET SDK provides client libraries that makes it easier to work with HDInsight from a .NET application. For a code sample, see [Create Linux-based clusters in HDInsight using the .NET SDK](./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action).
+The HDInsight .NET SDK provides client libraries that makes it easier to work with HDInsight from a .NET application. For a code sample, see [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action).
 
 ## <a name="apply-a-script-action-to-a-running-cluster"></a> Apply a Script Action to a running cluster
 
@@ -532,60 +502,48 @@ Before proceeding, make sure you have installed and configured Azure PowerShell.
 
 1. Open the Azure PowerShell console and use the following to log in to your Azure subscription and declare some PowerShell variables:
 
-    ```
-    # LOGIN TO ZURE
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+        # LOGIN TO ZURE
+        Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
-    # PROVIDE VALUES FOR THESE VARIABLES
-    $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
-    $saName = "<ScriptActionName>"                  # Name of the script action
-    $saURI = "<URI to the script>"                  # The URI where the script is located
-    $nodeTypes = "headnode", "workernode"
-    ```
+        # PROVIDE VALUES FOR THESE VARIABLES
+        $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
+        $saName = "<ScriptActionName>"                  # Name of the script action
+        $saURI = "<URI to the script>"                  # The URI where the script is located
+        $nodeTypes = "headnode", "workernode"
 
    > [!NOTE]
    > If using an HDInsight Premium cluster, you can use a nodetype of `"edgenode"` to run the script on the edge node.
 
 2. Use the following command to apply the script to the cluster:
 
-    ```
-    Submit-AzureRmHDInsightScriptAction -ClusterName $clusterName -Name $saName -Uri $saURI -NodeTypes $nodeTypes -PersistOnSuccess
-    ```
+        Submit-AzureRmHDInsightScriptAction -ClusterName $clusterName -Name $saName -Uri $saURI -NodeTypes $nodeTypes -PersistOnSuccess
 
     Once the job completes, you should receive information similar to the following:
 
-    ```
-    OperationState  : Succeeded
-    ErrorMessage    :
-    Name            : Giraph
-    Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
-    Parameters      :
-    NodeTypes       : {HeadNode, WorkerNode}
-    ```
+        OperationState  : Succeeded
+        ErrorMessage    :
+        Name            : Giraph
+        Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+        Parameters      :
+        NodeTypes       : {HeadNode, WorkerNode}
 
 ### Apply a Script Action to a running cluster from the Azure CLI
 
-Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](/documentation/articles/cli-install-nodejs/).
+Before proceeding, make sure you have installed and configured the Azure CLI. For more information, see [Install the Azure CLI](../cli-install-nodejs.md).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 1. Open a shell session, terminal, command-prompt or other command line for your system and use the following command to switch to Azure Resource Manager mode.
 
-    ```
-    azure config mode arm
-    ```
+        azure config mode arm
 
 2. Use the following to authenticate to your Azure subscription.
 
-    ```
-    azure login -e AzureChinaCloud
-    ```
+        azure login -e AzureChinaCloud
 
 3. Use the following command to apply a script action to a running cluster
 
-    ```
-    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
-    ```
+        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
 
     If you omit parameters for this command, you are prompted for them. If the script you specify with `-u` accepts parameters, you can specify them using the `-p` parameter.
 
@@ -595,15 +553,13 @@ Before proceeding, make sure you have installed and configured the Azure CLI. Fo
 
     Once the job completes, you receive output similar to the following.
 
-    ```
-    info:    Executing command hdinsight script-action create
-    + Executing Script Action on HDInsight cluster
-    data:    Operation Info
-    data:    ---------------
-    data:    Operation status:
-    data:    Operation ID:  b707b10e-e633-45c0-baa9-8aed3d348c13
-    info:    hdinsight script-action create command OK
-    ```
+        info:    Executing command hdinsight script-action create
+        + Executing Script Action on HDInsight cluster
+        data:    Operation Info
+        data:    ---------------
+        data:    Operation status:
+        data:    Operation ID:  b707b10e-e633-45c0-baa9-8aed3d348c13
+        info:    hdinsight script-action create command OK
 
 ### Apply a Script Action to a running cluster using REST API
 
@@ -653,23 +609,21 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [https:/
 
 The following example script demonstrates using the cmdlets to promote, then demote a script.
 
-```
-# Get a history of scripts
-Get-AzureRmHDInsightScriptActionHistory -ClusterName mycluster
+    # Get a history of scripts
+    Get-AzureRmHDInsightScriptActionHistory -ClusterName mycluster
 
-# From the list, we want to get information on a specific script
-Get-AzureRmHDInsightScriptActionHistory -ClusterName mycluster -ScriptExecutionId 635920937765978529
+    # From the list, we want to get information on a specific script
+    Get-AzureRmHDInsightScriptActionHistory -ClusterName mycluster -ScriptExecutionId 635920937765978529
 
-# Promote this to a persisted script
-# Note: the script must have a unique name to be promoted
-# if the name is not unique, you receive an error
-Set-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -ScriptExecutionId 635920937765978529
+    # Promote this to a persisted script
+    # Note: the script must have a unique name to be promoted
+    # if the name is not unique, you receive an error
+    Set-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -ScriptExecutionId 635920937765978529
 
-# Demote the script back to ad hoc
-# Note that demotion uses the unique script name instead of
-# execution ID.
-Remove-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -Name "Install Giraph"
-```
+    # Demote the script back to ad hoc
+    # Note that demotion uses the unique script name instead of
+    # execution ID.
+    Remove-AzureRmHDInsightPersistedScriptAction -ClusterName mycluster -Name "Install Giraph"
 
 ### Using the Azure CLI
 
@@ -698,7 +652,7 @@ The Azure HDInsight service is a flexible platform that enables you to build big
 
 There are two types of open-source components that are available in the HDInsight service:
 
-* **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, YARN ResourceManager, the Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight?](./hdinsight-component-versioning.md).
+* **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, YARN ResourceManager, the Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight?](hdinsight-component-versioning.md).
 * **Custom components** - You, as a user of the cluster, can install or use in your workload any component available in the community or created by you.
 
 > [!WARNING]
@@ -752,9 +706,7 @@ If the cluster creation failed due to an error in script action, the script acti
 
 * All stdout and stderr of the corresponding host is uploaded to the storage account. There is one **output-\*.txt** and **errors-\*.txt** for each script action. The output-*.txt file contains information about the URI of the script that got run on the host. For example
 
-    ```
-    'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
-    ```
+        'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
 * It's possible that you repeatedly create a script action cluster with the same name. In such case, you can distinguish the relevant logs based on the DATE folder name. For example, the folder structure for a cluster (mycluster) created on different dates appears similar to the following:
 
@@ -794,9 +746,9 @@ sudo pip install azure-storage==0.20.0
 
 For more information on connecting to the cluster using SSH, see the following documents:
 
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, or Windows](./hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, or Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-* [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+* [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ### History doesn't show scripts used during cluster creation
 
@@ -814,9 +766,9 @@ There are two exceptions:
 
 See the following for information and examples on creating and using scripts to customize a cluster:
 
-* [Develop Script Action scripts for HDInsight](./hdinsight-hadoop-script-actions-linux.md)
-* [Install and use Solr on HDInsight clusters](./hdinsight-hadoop-solr-install-linux.md)
-* [Install and use Giraph on HDInsight clusters](./hdinsight-hadoop-giraph-install-linux.md)
-* [Add additional storage to an HDInsight cluster](./hdinsight-hadoop-add-storage.md)
+* [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions-linux.md)
+* [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md)
+* [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
+* [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Stages during cluster creation"

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -32,7 +32,7 @@ In this tutorial, you will learn how to use the Visual Studio templates installe
 * **EventHubReader**: Reads data from Event Hubs and logs the data to the Storm logs
 
 > [!NOTE] 
-> For a Java version of this project, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](./hdinsight-storm-develop-java-event-hub-topology.md).
+> For a Java version of this project, see [Process events from Azure Event Hubs with Storm on HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## SCP.NET
 
@@ -48,7 +48,7 @@ The Microsoft.SCP.Net.SDK NuGet package used by your project must match the majo
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 HDInsight 3.4 and greater use Mono to run C# topologies. Most things work with Mono. However you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 
@@ -171,7 +171,7 @@ You can download a complete version of the project created in this tutorial from
 
 ### Prerequisites
 
-* An [Apache Storm on HDInsight cluster version 3.5](/documentation/articles/hdinsight-apache-storm-tutorial-get-started/)
+* An [Apache Storm on HDInsight cluster version 3.5](hdinsight-apache-storm-tutorial-get-started.md)
 
     > [!WARNING]
     > The example used in this document requires Storm on HDInsight version 3.5. This will not work with older versions of HDInsight due to breaking class name changes. For a version of this example that works with older clusters, see [https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).
@@ -180,7 +180,7 @@ You can download a complete version of the project created in this tutorial from
 
 * The [Azure .NET SDK](/downloads/)
 
-* The [HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md)
+* The [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 * Java JDK 1.7 greater on your development environment. JDK downloads are available from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
@@ -212,7 +212,7 @@ Event Hubs is the data source for this example. Use the information in the **Cre
 
 ## Configure the EventHubWriter
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
+1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2. Download the solution from [eventhub-storm-hybrid](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
@@ -270,11 +270,9 @@ Event Hubs is the data source for this example. Use the information in the **Cre
 
 9. In the **Executors** section, select one of the links in the **Port** column. This will display information logged by the component. The logged information is similar to the following text:
 
-    ```
-    2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
-    2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
-    2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
-    ```
+        2017-03-02 14:51:29.255 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,255 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1830978598,"deviceId":"8566ccbc-034d-45db-883d-d8a31f34068e"}
+        2017-03-02 14:51:29.283 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,283 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1756413275,"deviceId":"647a5eff-823d-482f-a8b4-b95b35ae570b"}
+        2017-03-02 14:51:29.313 m.s.p.TaskHost [INFO] Received C# STDOUT: 2017-03-02 14:51:29,312 [1] INFO  EventHubReader_LogBolt [(null)] - Received data: {"deviceValue":1108478910,"deviceId":"206a68fa-8264-4d61-9100-bfdb68ee8f0a"}
 
 ## Stop the topologies
 
@@ -290,6 +288,6 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 
 In this document, you have learned how to use the Java Event Hubs Spout and Bolt from a C# topology to work with data in Azure Event Hub. To learn more about creating C# topologies, see the following documents:
 
-* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](./hdinsight-storm-develop-csharp-visual-studio-topology.md)
-* [SCP programming guide](./hdinsight-storm-scp-programming-guide.md)
-* [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md)
+* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [SCP programming guide](hdinsight-storm-scp-programming-guide.md)
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)

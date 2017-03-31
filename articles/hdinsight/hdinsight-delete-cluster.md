@@ -16,9 +16,9 @@ ms.workload: big-data
 ms.date: 02/08/2017
 wacn.date: ''
 ms.author: larryfr
+
 ms.custom: H1Hack27Feb2017
 ---
-
 # Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI
 
 HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. In this document, you learn how to delete a cluster using the Azure portal preview, Azure PowerShell, and the Azure CLI.
@@ -40,9 +40,7 @@ HDInsight cluster billing starts once a cluster is created and stops when the cl
 
 From a PowerShell prompt, use the following command to delete the cluster:
 
-```
-Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
-```
+    Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
 
 Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
@@ -50,8 +48,6 @@ Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
 From a prompt, use the following to delete the cluster:
 
-```
-azure hdinsight cluster delete CLUSTERNAME
-```
+    azure hdinsight cluster delete CLUSTERNAME
 
 Replace **CLUSTERNAME** with the name of your HDInsight cluster.

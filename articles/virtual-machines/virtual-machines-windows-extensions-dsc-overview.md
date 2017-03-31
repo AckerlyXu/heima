@@ -18,8 +18,8 @@ ms.workload: na
 ms.date: 01/09/2017
 wacn.date: ''
 ms.author: zachal
----
 
+---
 # Introduction to the Azure Desired State Configuration extension handler
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -110,7 +110,6 @@ configuration IISInstall
 
 The following steps place the IisInstall.ps1 script on the specified VM, execute the configuration, and report back on status.
 ###Classic model
-
 ```powershell
 #Azure PowerShell cmdlets are required
 Import-Module Azure
@@ -130,7 +129,6 @@ $demoVM | Update-AzureVM -Verbose
 #check on status
 Get-AzureVMDscExtensionStatus -VM $demovm -Verbose
 ```
-
 ###Azure Resource Manager model
 
 ```powershell
@@ -142,6 +140,7 @@ $storageName = "demostorage"
 Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
 Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName iisInstall.ps1.zip -AutoUpdate:$true -ConfigurationName "IISInstall"
+
 ```
 
 ## Logging
@@ -152,8 +151,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
 ## Next steps
 For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-Examine the [Azure Resource Manager template for the DSC extension](./virtual-machines-windows-extensions-dsc-template.md). 
+Examine the [Azure Resource Manager template for the DSC extension](virtual-machines-windows-extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 To find additional functionality you can manage with PowerShell DSC, [browse the PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) for more DSC resources.
 
-For details on passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](./virtual-machines-windows-extensions-dsc-credentials.md).
+For details on passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](virtual-machines-windows-extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

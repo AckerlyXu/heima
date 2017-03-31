@@ -2,13 +2,13 @@
 title: Azure CLI Script Sample - Continuously deploy web app from GitHub | Azure
 description: Azure CLI Script Sample - Continuously deploy web app from GitHub
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: erikre
-editor: ''
+editor: 
 tags: azure-service-management
 
-ms.assetid: ''
+ms.assetid:
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
@@ -32,7 +32,7 @@ This sample script does the following using Azure CLI 2.0:
 * Put your web app code in a GitHub repository you own.
 
 > [!NOTE]
-> To setup continuous deployment, see [Continuous Deployment to Azure App Service](./app-service-continuous-deployment.md). In Azure China, you need to set this with KUDU.
+> To setup continuous deployment, see [Continuous Deployment to Azure App Service](app-service-continuous-deployment.md). In Azure China, you need to set this with KUDU.
 >
 >
 

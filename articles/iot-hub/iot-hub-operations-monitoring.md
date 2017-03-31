@@ -200,8 +200,8 @@ To further explore the capabilities of IoT Hub, see:
 - [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
-[1]: media/iot-hub-operations-monitoring/enable-OM-1.png
-[2]: media/iot-hub-operations-monitoring/enable-OM-2.png
+[1]: ./media/iot-hub-operations-monitoring/enable-OM-1.png
+[2]: ./media/iot-hub-operations-monitoring/enable-OM-2.png
 
 [lnk-get-started]: ./iot-hub-csharp-csharp-getstarted.md
 [lnk-diagnostic-metrics]: ./iot-hub-metrics.md

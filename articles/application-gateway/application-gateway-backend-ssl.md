@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 wacn.date: ''
 ms.author: amsriva
----
 
+---
 # Overview of end to end SSL and SSL Policy on Application Gateway
 
 Application gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. This feature allows web servers to be unburdened from costly encryption/decryption overhead. However for some customers unencrypted communication to the backend servers is not an acceptable option. This unencrypted communication could be due to security/compliance requirements or the application may only accept secure connection. For such applications, application gateway now supports end to end SSL encryption.
@@ -47,7 +47,7 @@ Application gateway supports user configurable SSL negotiation policies, which a
 
 ## Next steps
 
-After learning about end to end SSL and SSL policy, go to [enable end to end SSL on application gateway](./application-gateway-end-to-end-ssl-powershell.md) to create an application gateway using end to end SSL.
+After learning about end to end SSL and SSL policy, go to [enable end to end SSL on application gateway](application-gateway-end-to-end-ssl-powershell.md) to create an application gateway using end to end SSL.
 
 <!--Image references-->
 

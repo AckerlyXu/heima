@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/07/2017
 wacn.date: ''
 ms.author: guybo
----
 
+---
 # Deploy an App on Virtual Machine Scale Sets
 An application running on a VM Scale Set is typically deployed in one of three ways:
 
@@ -29,7 +29,7 @@ An application running on a VM Scale Set is typically deployed in one of three w
 ## Install new software on a platform image at deployment time
 A platform image in this context is an operating system image from the Azure Marketplace, like Ubuntu 16.04, Windows Server 2012 R2, etc.
 
-You can install new software on a platform image using a [VM Extension](../virtual-machines/virtual-machines-windows-extensions-features.md). A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension. [Here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) is an example Azure Resource Manager Template that uses an [Azure Desired State Configuration (DSC) extension](./virtual-machine-scale-sets-dsc.md) to install IIS and a .NET MVC application integrated with Azure autoscale.
+You can install new software on a platform image using a [VM Extension](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension. [Here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) is an example Azure Resource Manager Template that uses an [Azure Desired State Configuration (DSC) extension](virtual-machine-scale-sets-dsc.md) to install IIS and a .NET MVC application integrated with Azure autoscale.
 
 An advantage of this approach is you have a level of separation between your application code and the OS, and can maintain your application separately. Of course that means there are also more moving parts, and VM deployment time could be longer if there is a lot for the script to download and configure.
 
@@ -37,10 +37,10 @@ An advantage of this approach is you have a level of separation between your app
 >If you pass sensitive information in your Custom Script Extension command (such as a password), be sure to specify the `commandToExecute` in the `protectedSettings` attribute of the Custom Script Extension instead of the `settings` attribute.
 
 ## Create a custom VM image that includes both the OS and the application in a single VHD 
-Here the scale set consists of a set of VMs copied from an image created by you, which you have to maintain. This approach requires no extra configuration at VM deployment time. However, in the `2016-03-30` version of VM Scale Sets (and earlier versions), the OS disks for the VMs in the scale set are limited to a single storage account. Thus, you can have a maximum of 40 VMs in a scale set, as opposed to the 100 VM per scale set limit with platform images. See [Scale Set Design Overview](./virtual-machine-scale-sets-design-overview.md) for more details.
+Here the scale set consists of a set of VMs copied from an image created by you, which you have to maintain. This approach requires no extra configuration at VM deployment time. However, in the `2016-03-30` version of VM Scale Sets (and earlier versions), the OS disks for the VMs in the scale set are limited to a single storage account. Thus, you can have a maximum of 40 VMs in a scale set, as opposed to the 100 VM per scale set limit with platform images. See [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md) for more details.
 
 >[!NOTE]
->VM Scale Sets API version `2016-04-30-preview` supports using Azure Managed Disks for the Operating System disk and any extra data disks. For more information, see [Managed Disks Overview](../storage/storage-managed-disks-overview.md) and [Use Attached Data Disks](./virtual-machine-scale-sets-attached-disks.md). 
+>VM Scale Sets API version `2016-04-30-preview` supports using Azure Managed Disks for the Operating System disk and any extra data disks. For more information, see [Managed Disks Overview](../storage/storage-managed-disks-overview.md) and [Use Attached Data Disks](virtual-machine-scale-sets-attached-disks.md). 
 
 ## Deploy a platform or a custom image as a container host and your app as one or more containers
 A platform or a custom image is basically a container host, so you can install your application as one or more containers.  You can manage your application containers with an orchestrator or configuration management tool. The nice thing about this approach is that you have abstracted your cloud infrastructure from the application layer and can maintain them separately.

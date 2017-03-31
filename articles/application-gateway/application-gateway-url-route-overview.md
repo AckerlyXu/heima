@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # URL Path Based Routing overview
 
 URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. One of the scenarios is to route requests for different content types to different backend server pools.
@@ -92,4 +92,4 @@ Snippet of PathBasedRouting rule:
 
 ## Next steps
 
-After learning about URL-based content routing, go to [create an application gateway using URL-based routing](./application-gateway-create-url-route-portal.md) to create an application gateway with URL routing rules.
+After learning about URL-based content routing, go to [create an application gateway using URL-based routing](application-gateway-create-url-route-portal.md) to create an application gateway with URL routing rules.

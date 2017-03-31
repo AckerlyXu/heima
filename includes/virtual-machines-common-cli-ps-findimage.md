@@ -73,7 +73,7 @@ and the output is:
 
 The quickest way to locate an image is to call the `azure vm image list` command and pass the location, the publisher name (it's not case-sensitive!), and an offer -- if you know the offer. For example, the following list is only a short example -- many lists are quite long -- if you know that "Canonical" is a publisher for the "UbuntuServer" offer.
 
-```
+```azurecli
 azure vm image list chinanorth canonical ubuntuserver
 info:    Executing command vm image list
 warn:    The parameter --sku if specified will be ignored
@@ -104,7 +104,7 @@ The **Urn** column will be the form you pass to `azure vm quick-create`.
 
 Often, however, you don't yet know what is available. In this case, you can navigate images by using the `azure vm image list-publishers` command and specifying a data center location at the prompt. For example, the following lists all image publishers in the China North location (pass the location argument by lowercasing and removing spaces from the standard locations)
 
-```
+```azurecli
 azure vm image list-publishers
 info:    Executing command vm image list-publishers
 Location: chinanorth
@@ -155,7 +155,7 @@ info:    vm image list-offers command OK
 
 Now we know that in the China North region, Canonical publishes the **UbuntuServer** offer on Azure. But what SKUs? To get those values, you call `azure vm image list-skus` and respond to the prompt with the location, publisher, and offer that you have discovered.
 
-```
+```azurecli
 azure vm image list-skus
 info:    Executing command vm image list-skus
 Location: chinanorth
@@ -189,7 +189,7 @@ data:    canonical  ubuntuserver  16.04.0-LTS  Linux  16.04.201606270  chinanort
 info:    vm image list command OK
 ```
 
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
+Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the URN information, which you just found, or to use a template with that URN information, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md).
 
 ## <a name="powershell"></a> PowerShell
 > [!NOTE]

@@ -22,10 +22,11 @@ ms.author: cakarst;barbkess
 
 > [!div class="op_single_selector"]
 >- [Redgate](./sql-data-warehouse-load-with-redgate.md)
-<!-- Data Factory not supported on Azure.cn-->
-<!-- - [Data Factory](/documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/)-->
 - [PolyBase](./sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](./sql-data-warehouse-load-with-bcp.md)
+
+<!-- Data Factory not supported on Azure.cn-->
+<!-- - [Data Factory](/documentation/articles/sql-data-warehouse-get-started-load-with-azure-data-factory/)-->
 
 This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and PolyBase. When finished, you will know how to:
 

@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use MapReduce in Hadoop on HDInsight
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -50,15 +50,13 @@ Languages or frameworks that are based on Java and the Java Virtual Machine (for
 
 Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT - the mapper and reducer read data a line at a time from STDIN, and write the output to STDOUT. Each line read or emitted by the mapper and reducer must be in the format of a key/value pair, delimited by a tab charaacter:
 
-```
-[key]/t[value]
-```
+    [key]/t[value]
 
 For more information, see [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
 For examples of using Hadoop streaming with HDInsight, see the following:
 
-* [Develop Python MapReduce jobs](./hdinsight-hadoop-streaming-python.md)
+* [Develop Python MapReduce jobs](hdinsight-hadoop-streaming-python.md)
 
 ## <a id="data"></a>About the sample data
 
@@ -66,9 +64,7 @@ In this example, for sample data, you will use the notebooks of Leonardo Da Vinc
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters. HDInsight can access files stored in Blob storage by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
-```
-wasbs:///example/data/gutenberg/davinci.txt
-```
+    wasbs:///example/data/gutenberg/davinci.txt
 
 Because Azure Blob storage is the default storage for HDInsight, you can also access the file by using **/example/data/gutenberg/davinci.txt**.
 
@@ -156,7 +152,7 @@ public class WordCount {
 }
 ```
 
-For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](./hdinsight-develop-deploy-java-mapreduce-linux.md).
+For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md).
 
 ## <a id="run"></a>Run the MapReduce
 
@@ -164,31 +160,31 @@ HDInsight can run HiveQL jobs by using a variety of methods. Use the following t
 
 | **Use this**... | **...to do this** | ...with this **cluster operating system** | ...from this **client operating system** |
 |:--- |:--- |:--- |:--- |
-| [SSH](./hdinsight-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux |Linux, Unix, Mac OS X, or Windows |
-| [Curl](./hdinsight-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
-| [Windows PowerShell](./hdinsight-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
-| [Remote Desktop](./hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
+| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux |Linux, Unix, Mac OS X, or Windows |
+| [Curl](hdinsight-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
+| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
+| [Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Use the Hadoop command through **Remote Desktop** |Windows |Windows |
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a id="nextsteps"></a>Next steps
 
 Although MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. There are several Java-based frameworks that make it easier to define MapReduce applications, as well as technologies such as Pig and Hive, which provide an easier way to work with data in HDInsight. To learn more, see the following articles:
 
-* [Develop Java MapReduce programs for HDInsight](./hdinsight-develop-deploy-java-mapreduce-linux.md)
-* [Develop Python streaming MapReduce programs for HDInsight](./hdinsight-hadoop-streaming-python.md)
-* [Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight](./hdinsight-hadoop-mapreduce-scalding.md)
+* [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
+* [Develop Python streaming MapReduce programs for HDInsight](hdinsight-hadoop-streaming-python.md)
+* [Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
 
-[hdinsight-upload-data]: ./hdinsight-upload-data.md
-[hdinsight-get-started]: ./hdinsight-hadoop-linux-tutorial-get-started.md
-[hdinsight-develop-mapreduce-jobs]: ./hdinsight-develop-deploy-java-mapreduce-linux.md
-[hdinsight-use-hive]: ./hdinsight-use-hive.md
-[hdinsight-use-pig]: ./hdinsight-use-pig.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
 
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 

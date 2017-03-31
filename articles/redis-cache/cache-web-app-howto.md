@@ -16,15 +16,17 @@ ms.topic: hero-article
 ms.date: 01/27/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to create a Web App with Redis Cache
 > [!div class="op_single_selector"]
->- [.NET](./cache-dotnet-how-to-use-azure-redis-cache.md)
->- [ASP.NET](./cache-web-app-howto.md)
->- [Node.js](./cache-nodejs-get-started.md)
->- [Java](./cache-java-get-started.md)
->- [Python](./cache-python-get-started.md)
+> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+> * [ASP.NET](cache-web-app-howto.md)
+> * [Node.js](cache-nodejs-get-started.md)
+> * [Java](cache-java-get-started.md)
+> * [Python](cache-python-get-started.md)
+> 
+> 
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
@@ -444,7 +446,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     }
     ```
 
-    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database and then stored in the cache for next time. In this sample we're using JSON.NET serialization to serialize the .NET objects to and from the cache. For more information, see [How to work with .NET objects in Azure Redis Cache](./cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
+    The `GetFromList` method reads the team statistics from cache as a serialized `List<Team>`. If there is a cache miss, the team statistics are read from the database and then stored in the cache for next time. In this sample we're using JSON.NET serialization to serialize the .NET objects to and from the cache. For more information, see [How to work with .NET objects in Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
     ```c#
     List<Team> GetFromList()
@@ -770,12 +772,12 @@ To run the application locally on your machine, you need an Azure Redis Cache in
 
 * If you have published your application to Azure as described in the previous section, you can use the Azure Redis Cache instance that was provisioned during that step.
 * If you have another existing Azure Redis Cache instance, you can use that to run this sample locally.
-* If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](./cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+* If you need to create an Azure Redis Cache instance, you can follow the steps in [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Once you have selected or created the cache to use, browse to the cache in the Azure portal preview and retrieve the [host name](./cache-configure.md#properties) and [access keys](./cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](./cache-configure.md#configure-redis-cache-settings).
+Once you have selected or created the cache to use, browse to the cache in the Azure portal preview and retrieve the [host name](cache-configure.md#properties) and [access keys](cache-configure.md#access-keys) for your cache. For instructions, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
 
 1. Open the `WebAppPlusCacheAppSecrets.config` file that you created during the [Configure the application to use Redis Cache](#configure-the-application-to-use-redis-cache) step of this tutorial using the editor of your choice.
-2. Edit the `value` attribute and replace `MyCache.redis.cache.chinacloudapi.cn` with the [host name](./cache-configure.md#properties) of your cache, and specify either the [primary or secondary key](./cache-configure.md#access-keys) of your cache as the password.
+2. Edit the `value` attribute and replace `MyCache.redis.cache.chinacloudapi.cn` with the [host name](cache-configure.md#properties) of your cache, and specify either the [primary or secondary key](cache-configure.md#access-keys) of your cache as the password.
 
     ```xml
     <appSettings>
@@ -796,13 +798,13 @@ Once you have selected or created the cache to use, browse to the cache in the A
     * For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Learn more about the [Code first to a new database](https://msdn.microsoft.com/data/jj193542) approach to Entity Framework that's used in this tutorial.
 * Learn more about [web apps in Azure App Service](../app-service-web/app-service-web-overview.md).
-* Learn how to [monitor](./cache-how-to-monitor.md) your cache in the Azure portal preview.
+* Learn how to [monitor](cache-how-to-monitor.md) your cache in the Azure portal preview.
 * Explore Azure Redis Cache premium features
 
-    * [How to configure persistence for a Premium Azure Redis Cache](./cache-how-to-premium-persistence.md)
-    * [How to configure clustering for a Premium Azure Redis Cache](./cache-how-to-premium-clustering.md)
-    * [How to configure Virtual Network support for a Premium Azure Redis Cache](./cache-how-to-premium-vnet.md)
-    * See the [Azure Redis Cache FAQ](./cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches.
+    * [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
+    * [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
+    * [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
+    * See the [Azure Redis Cache FAQ](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches.
 
 <!-- IMAGES -->
 [cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png

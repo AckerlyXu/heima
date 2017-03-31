@@ -17,7 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 wacn.date: ''
 ms.author: kirpas
----
 
+---
 # How to expand the OS drive of a Virtual Machine in an Azure Resource Group
 [!INCLUDE [virtual-machine-common-expand-os-disk](../../includes/virtual-machines-common-expand-os-disk.md)]

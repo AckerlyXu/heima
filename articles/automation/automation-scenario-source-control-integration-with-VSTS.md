@@ -4,20 +4,18 @@ description: Scenario walks you through setting up integration with an Azure Aut
 services: automation
 documentationcenter: ''
 author: eamono
-manager: ''
+manager: 
 editor: ''
 keywords: azure powershell, VSTS, source control, automation
-
 ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
 ms.service: automation
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
+ms.date: 01/24/2017 
 wacn.date: ''
 ---
-
 # Azure Automation scenario - Automation source control integration with Visual Studio Team Services
 
 In this scenario, you have a Visual Studio Team Services project that you are using to manage Azure Automation runbooks or DSC configurations under source control.
@@ -25,7 +23,7 @@ This article describes how to integrate VSTS with your Azure Automation environm
 
 ## Getting the scenario
 
-This scenario consists of two PowerShell runbooks that you can import directly from the [Runbook Gallery](./automation-runbook-gallery.md) in the Azure portal preview or download from the [PowerShell Gallery](https://www.powershellgallery.com).
+This scenario consists of two PowerShell runbooks that you can import directly from the [Runbook Gallery](automation-runbook-gallery.md) in the Azure portal preview or download from the [PowerShell Gallery](https://www.powershellgallery.com).
 
 ### Runbooks
 
@@ -45,7 +43,7 @@ Create a [personal access token](https://www.visualstudio.com/docs/integrate/get
 
 ![](./media/automation-scenario-source-control-integration-with-VSTS/VSTSPersonalToken.png) 
 
-Create a [secure variable](./automation-variables.md) in your automation account to hold the personal access token so that the runbook can authenticate to VSTS and sync the runbooks or configurations into the Automation account. You can name this VSToken. 
+Create a [secure variable](automation-variables.md) in your automation account to hold the personal access token so that the runbook can authenticate to VSTS and sync the runbooks or configurations into the Automation account. You can name this VSToken. 
 
 ![](./media/automation-scenario-source-control-integration-with-VSTS/VSTSTokenVariable.png)
 
@@ -53,10 +51,10 @@ Import the runbook that will sync your runbooks or configurations into the autom
 
 ![](./media/automation-scenario-source-control-integration-with-VSTS/VSTSPowerShellGallery.png)
 
-You can now [publish](./automation-creating-importing-runbook.md#publishing-a-runbook) this runbook so you can create a webhook. 
+You can now [publish](automation-creating-importing-runbook.md#publishing-a-runbook) this runbook so you can create a webhook. 
 ![](./media/automation-scenario-source-control-integration-with-VSTS/VSTSPublishRunbook.png)
 
-Create a [webhook](./automation-webhooks.md) for this Sync-VSTS runbook and fill in the parameters as shown below. Make sure you copy the webhook url as you will need it for a service hook in VSTS. The VSAccessTokenVariableName is the name (VSToken) of the secure variable that you created earlier to hold the personal access token. 
+Create a [webhook](automation-webhooks.md) for this Sync-VSTS runbook and fill in the parameters as shown below. Make sure you copy the webhook url as you will need it for a service hook in VSTS. The VSAccessTokenVariableName is the name (VSToken) of the secure variable that you created earlier to hold the personal access token. 
 
 Integrating with VSTS (Sync-VSTS.ps1) will take the following parameters.
 ### Sync-VSTS Parameters

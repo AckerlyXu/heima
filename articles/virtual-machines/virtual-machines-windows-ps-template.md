@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
 
 ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
@@ -18,13 +18,14 @@ ms.date: 03/07/2017
 wacn.date: ''
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
+
 ---
 
 # Create a Windows virtual machine from a Resource Manager template
 
 This article shows you how to deploy an Azure Resource Manager template using PowerShell. The [template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
-For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](./virtual-machines-windows-template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md).
+For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](virtual-machines-windows-template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../resource-manager-template-walkthrough.md).
 
 It should take about five minutes to do the steps in this article.
 
@@ -69,29 +70,27 @@ You're asked to provide the name of the administrator account on the VM, the pas
 
 You should see something like this example:
 
-```
-DeploymentName    : azuredeploy
-ResourceGroupName : myResourceGroup
-ProvisioningState : Succeeded
-Timestamp         : 12/29/2016 8:11:37 PM
-Mode              : Incremental
-TemplateLink      :
-   Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/
-                    101-vm-simple-windows/azuredeploy.json
-   ContentVersion : 1.0.0.0
-Parameters        :
-  Name             Type                       Value
-  ===============  =========================  ==========
-  adminUsername    String                     myAdminUser
-  adminPassword    SecureString
-  dnsLabelPrefix   String                     myDomain
-  windowsOSVersion String                     2016-Datacenter
-Outputs           :
-  Name             Type                       Value
-  ===============  =========================  ===========
-  hostname         String                     myDomain.chinaeast.chinacloudapp.cn
-DeploymentDebugLogLevel :
-```
+    DeploymentName    : azuredeploy
+    ResourceGroupName : myResourceGroup
+    ProvisioningState : Succeeded
+    Timestamp         : 12/29/2016 8:11:37 PM
+    Mode              : Incremental
+    TemplateLink      :
+       Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/
+                        101-vm-simple-windows/azuredeploy.json
+       ContentVersion : 1.0.0.0
+    Parameters        :
+      Name             Type                       Value
+      ===============  =========================  ==========
+      adminUsername    String                     myAdminUser
+      adminPassword    SecureString
+      dnsLabelPrefix   String                     myDomain
+      windowsOSVersion String                     2016-Datacenter
+    Outputs           :
+      Name             Type                       Value
+      ===============  =========================  ===========
+      hostname         String                     myDomain.chinaeast.chinacloudapp.cn
+    DeploymentDebugLogLevel :
 
 > [!NOTE]
 > You can also deploy templates and parameters from local files. To learn more, see [Using Azure PowerShell with Azure Storage](../storage/storage-powershell-guide-full.md).
@@ -99,5 +98,5 @@ DeploymentDebugLogLevel :
 ## Next Steps
 
 - If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
-- Learn how to use Azure PowerShell to create a virtual machine from [Create a Windows VM using Resource Manager and PowerShell](/documentation/articles/virtual-machines-windows-ps-create/).
-- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](./virtual-machines-windows-ps-manage.md).
+- Learn how to use Azure PowerShell to create a virtual machine from [Create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

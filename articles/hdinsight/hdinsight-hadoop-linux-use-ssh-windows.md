@@ -17,17 +17,18 @@ ms.workload: big-data
 ms.date: 01/12/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use SSH with HDInsight (Hadoop) from PuTTY on Windows
+
 > [!div class="op_single_selector"]
->- [PuTTY (Windows)](./hdinsight-hadoop-linux-use-ssh-windows.md)
->- [SSH (Windows, Linux, Unix, OS X)](./hdinsight-hadoop-linux-use-ssh-unix.md)
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://zh.wikipedia.org/wiki/Secure_Shell) allows you to remotely perform operations on your Linux-based HDInsight clusters using a command-line interface. This document provides information on connecting to HDInsight from Windows-based clients by using the PuTTY SSH client.
 
 > [!NOTE]
-> The steps in this article assume you are using a Windows-based system with the PuTTY SSH client. If you are using a Linux, Unix, OS X, or Windows system that provides the `ssh` command, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md).
+> The steps in this article assume you are using a Windows-based system with the PuTTY SSH client. If you are using a Linux, Unix, OS X, or Windows system that provides the `ssh` command, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Prerequisites
 
@@ -93,7 +94,7 @@ When creating a Linux-based HDInsight cluster, you must provide the public key c
 
 * **Azure CLI for Mac, Linux and Windows** - Uses command-line commands to create the cluster.
 
-Each of these methods will require the public key. For complete information on creating a Linux-based HDInsight cluster, see [Provision Linux-based HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md).
+Each of these methods will require the public key. For complete information on creating a Linux-based HDInsight cluster, see [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
 ### Azure Portal Preview
 
@@ -107,9 +108,9 @@ This creates a login for the specified user, and enables either password authent
 
 ### Azure Command-Line Interface for Mac, Linux, and Windows
 
-You can use the [Azure CLI for Mac, Linux and Windows](/documentation/articles/cli-install-nodejs/) to create a new cluster by using the `azure hdinsight cluster create` command.
+You can use the [Azure CLI for Mac, Linux and Windows](../cli-install-nodejs.md) to create a new cluster by using the `azure hdinsight cluster create` command.
 
-For more information on using this command, see [Provision Hadoop Linux clusters in HDInsight using custom options](./hdinsight-hadoop-provision-linux-clusters.md).
+For more information on using this command, see [Provision Hadoop Linux clusters in HDInsight using custom options](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## Connect to a Linux-based HDInsight cluster
 
@@ -139,7 +140,7 @@ For more information on using this command, see [Provision Hadoop Linux clusters
 6. When prompted, enter the user that you entered when you created the cluster. If you provided a password for the user, you will be prompted to enter it also.
 
 > [!NOTE]
-> The above steps assume you are using port 22, which will connect to the primary headnode on the HDInsight cluster. If you use port 23, you will connect to the secondary. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](./hdinsight-high-availability-linux.md).
+> The above steps assume you are using port 22, which will connect to the primary headnode on the HDInsight cluster. If you use port 23, you will connect to the secondary. For more information on the head nodes, see [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
 
 ### Connect to worker nodes
 
@@ -170,21 +171,15 @@ If you provided an SSH key when you created your user account, you must perform 
 
 7. After the connection has been established, use the following to retrieve a list of the nodes in your cluster. Replace *ADMINPASSWORD* with the password for your cluster admin account. Replace *CLUSTERNAME* with the name of your cluster.
 
-    ```
-    curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/hosts
-    ```
+        curl --user admin:ADMINPASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/hosts
 
     This will return information in JSON format for the nodes in the cluster, including `host_name`, which contains the fully qualified domain name (FQDN) for each node. The following is an example of a `host_name` entry returned by the **curl** command:
 
-    ```
-    "host_name" : "workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.chinacloudapp.cn"
-    ```
+        "host_name" : "workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.chinacloudapp.cn"
 
 8. Once you have a list of the worker nodes you want to connect to, use the following command from the PuTTY session to open a connection to a worker node:
 
-    ```
-    ssh USERNAME@FQDN
-    ```
+        ssh USERNAME@FQDN
 
     Replace *USERNAME* with your SSH user name and *FQDN* with the FQDN for the worker node. For example, `workernode0.workernode-0-e2f35e63355b4f15a31c460b6d4e1230.j1.internal.chinacloudapp.cn`.
 
@@ -203,19 +198,15 @@ If you need to add more accounts to your cluster, perform the following steps:
 
 2. From an SSH session to the cluster, add the new user with the following command:
 
-    ```
-    sudo adduser --disabled-password <username>
-    ```
+        sudo adduser --disabled-password <username>
 
     This will create a new user account, but will disable password authentication.
 
 3. Create the directory and files to hold the key by using the following commands:
 
-    ```
-    sudo mkdir -p /home/<username>/.ssh
-    sudo touch /home/<username>/.ssh/authorized_keys
-    sudo nano /home/<username>/.ssh/authorized_keys
-    ```
+        sudo mkdir -p /home/<username>/.ssh
+        sudo touch /home/<username>/.ssh/authorized_keys
+        sudo nano /home/<username>/.ssh/authorized_keys
 
 4. When the nano editor opens, copy and paste in the contents of the public key for the new user account. Finally, use **Ctrl-X** to save the file and exit the editor.
 
@@ -223,9 +214,7 @@ If you need to add more accounts to your cluster, perform the following steps:
 
 5. Use the following command to change ownership of the .ssh folder and contents to the new user account:
 
-    ```
-    sudo chown -hR <username>:<username> /home/<username>/.ssh
-    ```
+        sudo chown -hR <username>:<username> /home/<username>/.ssh
 
 6. You should now be able to authenticate to the server with the new user account and private key.
 
@@ -236,14 +225,14 @@ SSH can be used to tunnel local requests, such as web requests, to the HDInsight
 > [!IMPORTANT]
 > An SSH tunnel is a requirement for accessing the web UI for some Hadoop services. For example, both the Job History UI or Resource Manager UI can only be accessed using an SSH tunnel.
 
-For more information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md).
+For more information on creating and using an SSH tunnel, see [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## Next steps
 
 Now that you understand how to authenticate by using an SSH key, learn how to use MapReduce with Hadoop on HDInsight.
 
-* [Use Hive with HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce jobs with HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.cn/

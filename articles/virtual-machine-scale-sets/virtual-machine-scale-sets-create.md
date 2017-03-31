@@ -20,9 +20,9 @@ ms.author: adegeo
 ---
 
 # Create and deploy a Virtual Machine Scale Set
-Virtual machine scale sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual Machine Scale Sets](./virtual-machine-scale-sets-overview.md).
+Virtual machine scale sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).
 
-This tutorial shows you how to create a virtual machine scale set **without** using the Azure portal preview. For information on how to use the Azure portal preview, see [How to create a Virtual Machine Scale Set with the Azure portal preview](./virtual-machine-scale-sets-portal-create.md).
+This tutorial shows you how to create a virtual machine scale set **without** using the Azure portal preview. For information on how to use the Azure portal preview, see [How to create a Virtual Machine Scale Set with the Azure portal preview](virtual-machine-scale-sets-portal-create.md).
 
 >[!NOTE]
 >For more information about Azure Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -33,10 +33,9 @@ If you're using the Azure CLI 2.0 or PowerShell to create a scale set, you first
 
 For more information on how to install, set up, and log in to Azure with Azure CLI 2.0 or PowerShell, see [Getting Started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli.md) or [Get started with Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/resourcemanager/).
 
-```
+```azurecli
 az login
 ```
-
 
 ```powershell
 Login-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -46,10 +45,9 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 You first need to create a resource group that the virtual machine scale set is associated with.
 
-```
+```azurecli
 az group create --location chinanorth2 --name vmss-test-1
 ```
-
 
 ```powershell
 New-AzureRmResourceGroup -Location chinanorth2 -Name vmss-test-1
@@ -96,10 +94,9 @@ PowerShell is more complicated to use than the Azure CLI. While the Azure CLI pr
 
 The cmdlets work can be piped in sequence. Here is an example of how to get all images for the **China North 2** region whose publisher has the name **microsoft** in it.
 
-```
+```powershell
 Get-AzureRMVMImagePublisher -Location ChinaNorth2 | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
 ```
-
 
 ```
 PublisherName              Offer                    Skus
@@ -157,8 +154,8 @@ A sample template is available [on GitHub](https://github.com/gatneil/mvss/tree/
 
 ## Create from Visual Studio
 
-With Visual Studio, you can create an Azure Resource Group project and add a Virtual Machine Scale Set template to it. You can choose which template you want to import, like from GitHub or the Azure Gallery. A deployment PowerShell script is also generated for you. For more information, see [How to create a Virtual Machine Scale Set with Visual Studio](./virtual-machine-scale-sets-vs-create.md).
+With Visual Studio, you can create an Azure Resource Group project and add a Virtual Machine Scale Set template to it. You can choose which template you want to import, like from GitHub or the Azure Gallery. A deployment PowerShell script is also generated for you. For more information, see [How to create a Virtual Machine Scale Set with Visual Studio](virtual-machine-scale-sets-vs-create.md).
 
 ## Create from the Azure portal preview
 
-The Azure portal preview provides a convenient way to quickly create a scale set. For more information, see [How to create a Virtual Machine Scale Set with the Azure portal preview](./virtual-machine-scale-sets-portal-create.md).
+The Azure portal preview provides a convenient way to quickly create a scale set. For more information, see [How to create a Virtual Machine Scale Set with the Azure portal preview](virtual-machine-scale-sets-portal-create.md).

@@ -7,7 +7,7 @@ author: vlivech
 manager: timlt
 editor: ''
 
-ms.assetid: ''
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,6 +16,7 @@ ms.workload: infrastructure
 ms.date: 12/07/2016
 wacn.date: ''
 ms.author: v-livech
+
 ---
 
 # Mount Azure File storage on Linux VMs by using SMB with Azure CLI 1.0
@@ -23,16 +24,16 @@ ms.author: v-livech
 This article shows how to mount Azure File storage on a Linux VM by using the Server Message Block (SMB) protocol. File storage offers file shares in the cloud via the standard SMB protocol. The requirements are:
 
 * An [Azure account](https://www.azure.cn/pricing/1rmb-trial/)
-* [Secure Shell (SSH) public and private key files](./virtual-machines-linux-mac-create-ssh-keys.md)
+* [Secure Shell (SSH) public and private key files](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## CLI versions to use
 You can complete the task by using one of the following command-line interface (CLI) versions:
 
 - [Azure CLI 1.0](#quick-commands) - our CLI for the classic and resource management deployment models (this article)
-- [Azure CLI 2.0](./virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md)- our next generation CLI for the resource management deployment model
+- [Azure CLI 2.0](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)- our next generation CLI for the resource management deployment model
 
 ## <a name="quick-commands"></a> Quick commands
-To accomplish the task quickly, follow the steps in this section. For more detailed information and context, begin at the ["Detailed walkthrough"](./virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough) section.
+To accomplish the task quickly, follow the steps in this section. For more detailed information and context, begin at the ["Detailed walkthrough"](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough) section.
 
 ### Prerequisites
 * A resource group
@@ -91,7 +92,6 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
     azure storage account keys list myStorageAccount \
     --resource-group myResourceGroup
     ```
-
 3. Create the File storage share.
 
     The File storage share contains the SMB share. The quota is always expressed in gigabytes (GB). To create the File storage share, use the following code:
@@ -127,6 +127,6 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 
 ## Next steps
 
-- [Using cloud-init to customize a Linux VM during creation](./virtual-machines-linux-using-cloud-init.md)
-- [Add a disk to a Linux VM](./virtual-machines-linux-add-disk.md)
-- [Encrypt disks on a Linux VM by using the Azure CLI](./virtual-machines-linux-encrypt-disks.md)
+- [Using cloud-init to customize a Linux VM during creation](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Encrypt disks on a Linux VM by using the Azure CLI](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -18,8 +18,8 @@ ms.date: 02/04/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Manage network security groups using the Azure portal preview
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
@@ -28,7 +28,7 @@ ms.custom: H1Hack27Feb2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the Resource Manager deployment model. You can also [create NSGs in the classic deployment model](./virtual-networks-create-nsg-classic-ps.md).
+This article covers the Resource Manager deployment model. You can also [create NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -90,5 +90,5 @@ To create the **NSG-BackEnd** NSG and associate it to the **BackEnd** subnet, fo
 3. Repeat the steps in [Associate the NSG to the FrontEnd subnet](#Associate-the-NSG-to-the-FrontEnd-subnet) to associate the **NSG-Backend** NSG to the **BackEnd** subnet.
 
 ## Next Steps
-* Learn how to [manage existing NSGs](./virtual-network-manage-nsg-arm-portal.md)
-* [Enable logging](./virtual-network-nsg-manage-log.md) for NSGs.
+* Learn how to [manage existing NSGs](virtual-network-manage-nsg-arm-portal.md)
+* [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.

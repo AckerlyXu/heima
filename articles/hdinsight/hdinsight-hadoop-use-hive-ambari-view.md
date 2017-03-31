@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/08/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Use the Hive View with Hadoop in HDInsight
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -26,14 +26,14 @@ ms.author: larryfr
 Ambari is a management and monitoring utility provided with Linux-based HDInsight clusters. One of the features provided through Ambari is a Web UI that can be used to run Hive queries. This is the **Hive View**, part of the Ambari Views provided with your HDInsight cluster.
 
 > [!NOTE]
-> Ambari has many capabilities that are not discussed in this document. For more information, see [Manage HDInsight clusters by using the Ambari Web UI](./hdinsight-hadoop-manage-ambari.md).
+> Ambari has many capabilities that are not discussed in this document. For more information, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
 ## Prerequisites
 
-* A Linux-based HDInsight cluster. For information on creating cluster, see [Get started with Linux-based HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
+* A Linux-based HDInsight cluster. For information on creating cluster, see [Get started with Linux-based HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Open the Hive view
 
@@ -96,10 +96,8 @@ Use the following steps from the Hive view to execute a Hive query.
 
 3. Once the query has finished, The **Query Process Results** section displays the results of the operation. The **Stop execution** button also changes back to a green **Execute** button when the query completes. The **Results** tab should contain the following information:
 
-    ```
-    sev       cnt
-    [ERROR]   3
-    ```
+        sev       cnt
+        [ERROR]   3
 
     The **Logs** tab can be used to view the logging information created by the job.
 
@@ -110,9 +108,10 @@ Use the following steps from the Hive view to execute a Hive query.
 
 5.To add a new worksheet, use the **New Worksheet** button at the bottom of the **Query Editor**. In the new worksheet, enter the following HiveQL statements:
 
-```
+    ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
+    ```
 
 These statements perform the following actions:
 
@@ -123,7 +122,6 @@ These statements perform the following actions:
 * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
 
     Use the **Execute** button to run this query. The **Results** tab does not contain any information when the query returns zero rows. The status should show as **SUCCEEDED** once the query completes.
-```
 
 ### Hive settings
 
@@ -159,7 +157,7 @@ Select the **Tez** icon to the right of the editor.
 
 ![Tez icon for hive view](./media/hdinsight-hadoop-use-hive-ambari-view/hive-view-tez-icon.png)
 
-This displays the Directed Acyclic Graph (DAG) used by Tez for this query, if one is available. If you want to view the DAG for queries you've ran in the past, or debug the Tez process, use the [Tez View](./hdinsight-debug-ambari-tez-view.md) instead.
+This displays the Directed Acyclic Graph (DAG) used by Tez for this query, if one is available. If you want to view the DAG for queries you've ran in the past, or debug the Tez process, use the [Tez View](hdinsight-debug-ambari-tez-view.md) instead.
 
 ### Notifications
 
@@ -179,12 +177,10 @@ Notifications are messages that are generated when running queries. For example,
 
     Execute the query to verify that it works. The results are similar to the following example:
 
-    ```
-    errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
-    2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
-    2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
-    2012-02-03     19:25:27     SampleClass4     [ERROR]     incorrect     id
-    ```
+        errorlogs.t1     errorlogs.t2     errorlogs.t3     errorlogs.t4     errorlogs.t5     errorlogs.t6     errorlogs.t7
+        2012-02-03     18:35:34     SampleClass0     [ERROR]     incorrect     id     
+        2012-02-03     18:55:54     SampleClass1     [ERROR]     incorrect     id     
+        2012-02-03     19:25:27     SampleClass4     [ERROR]     incorrect     id
 
 2. Use the **Save as** button at the bottom of the editor. Name this query **Errorlogs** and select **OK**. The name of the worksheet changes to **Errorlogs**.
 
@@ -223,15 +219,15 @@ You can then use the UDF in your query. For example, `SELECT myawesomeudf(name) 
 
 For more information on using UDFs with Hive on HDInsight, see the following:
 
-* [Using Python with Hive and Pig in HDInsight](./hdinsight-python.md)
+* [Using Python with Hive and Pig in HDInsight](hdinsight-python.md)
 * [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a id="nextsteps"></a>Next steps
 For general information on Hive in HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](./hdinsight-use-hive.md)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information on other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

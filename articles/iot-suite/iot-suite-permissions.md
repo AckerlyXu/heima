@@ -110,7 +110,7 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 
 To continue learning about IoT Suite, see how you can [customize a preconfigured solution][lnk-customize].
 
-[img-flowchart]: media/iot-suite-permissions/flowchart.png
+[img-flowchart]: ./media/iot-suite-permissions/flowchart.png
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
@@ -120,7 +120,7 @@ To continue learning about IoT Suite, see how you can [customize a preconfigured
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-application-manifest.md
 [lnk-service-admins]: https://www.azure.cn/support/changing-service-admin-and-co-admin/
-[lnk-admin-roles]: /documentation/articles/billing-add-change-azure-subscription-administrator/
+
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: ./iot-suite-guidance-on-customizing-preconfigured-solutions.md

@@ -1,5 +1,3 @@
-<!-- not suitable for Mooncake -->
-
 ---
 title: Convert an Azure Resource Manager scale set template to use managed disk | Azure
 description: Convert a scale set template to a managed disk scale set template.
@@ -20,6 +18,7 @@ ms.topic: article
 ms.date: 1/25/2017
 wacn.date: ''
 ms.author: negat
+
 ---
 
 # Convert a scale set template to a managed disk scale set template
@@ -116,6 +115,7 @@ In the diff below, we can see that we are removing the depends on clause referri
              },
              "imageReference": "[variables('imageReference')]"
            },
+
 ```
 
 There is no explicit property in the scale set configuration for whether to use managed or unmanaged disk. The scale set knows which to use based on the properties that are present in the storage profile. Thus, it is important when modifying the template to ensure that the right properties are in the storage profile of the scale set.

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/16/2017
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # How to run a Java application server on a virtual machine created with the classic deployment model
 > [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For a Resource Manager template to deploy a webapp with Java 8 and Tomcat, see [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat/).

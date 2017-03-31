@@ -17,18 +17,19 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: gwallace
----
 
+---
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-create-probe-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-create-probe-ps.md)
->- [Azure Classic PowerShell](./application-gateway-create-probe-classic-ps.md)
+> * [Azure portal preview](application-gateway-create-probe-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
+> * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](./application-gateway-create-probe-classic-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](application-gateway-create-probe-classic-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -135,9 +136,9 @@ The parameters used are:
 * **Hostname and path** - Complete URL path that is invoked by Application Gateway to determine the health of the instance. For example, if you have a website **http://contoso.com/**, then the custom probe can be configured for **http://contoso.com/path/custompath.htm** for probe checks to have a successful HTTP response.
 * **UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as **unhealthy**.
 
-    ```powershell
-    $probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
-    ```
+```powershell
+$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+```
 
 ### Step 4
 
@@ -276,10 +277,9 @@ Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, application gateway requires a dynamically assigned DNS name, which is not friendly. To ensure end users can hit the application gateway a CNAME record can be used to point to the public endpoint of the application gateway. To do this, retrieve details of the application gateway and its associated IP/DNS name using the PublicIPAddress element attached to the application gateway. The application gateway's DNS name should be used to create a CNAME record, which points the two web applications to this DNS name. The use of A-records is not recommended since the VIP may change on restart of application gateway.
 
-```
+```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
 ```
-
 
 ```
 Name                     : publicIP01
@@ -305,4 +305,4 @@ DnsSettings              : {
 
 ## Next steps
 
-Learn to configure SSL offloading by visiting: [Configure SSL Offload](./application-gateway-ssl-arm.md)
+Learn to configure SSL offloading by visiting: [Configure SSL Offload](application-gateway-ssl-arm.md)

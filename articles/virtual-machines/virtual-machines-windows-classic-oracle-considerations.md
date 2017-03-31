@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2016
 wacn.date: ''
 ms.author: rclaus
----
 
+---
 # Miscellaneous considerations for Oracle virtual machine images
 This article covers considerations for Oracle virtual machines in Azure, which are based on Oracle software images provided by Oracle.  
 
@@ -52,7 +52,7 @@ Consider two different approaches for attaching multiple disks based on whether 
 ### High availability and disaster recovery considerations
 When using Oracle Database in Azure virtual machines, you are responsible for implementing a high availability and disaster recovery solution to avoid any downtime. You are also responsible for backing up your own data and application.
 
-High availability and disaster recovery for Oracle Database Enterprise Edition (without RAC) on Azure can be achieved using [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), or [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), with two databases in two separate virtual machines. Both virtual machines should be in the same [cloud service](./virtual-machines-linux-classic-connect-vms.md) and the same [virtual network](../virtual-network/index.md) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend placing the virtual machines in the same [availability set](./virtual-machines-windows-manage-availability.md) to allow Azure to place them into separate fault domains and upgrade domains. Only virtual machines in the same cloud service can participate in the same availability set. Each virtual machine must have at least 2 GB of memory and 5 GB of disk space.
+High availability and disaster recovery for Oracle Database Enterprise Edition (without RAC) on Azure can be achieved using [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), or [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate), with two databases in two separate virtual machines. Both virtual machines should be in the same [cloud service](virtual-machines-linux-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) and the same [virtual network](/azure/virtual-network/) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend placing the virtual machines in the same [availability set](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to allow Azure to place them into separate fault domains and upgrade domains. Only virtual machines in the same cloud service can participate in the same availability set. Each virtual machine must have at least 2 GB of memory and 5 GB of disk space.
 
 With Oracle Data Guard, high availability can be achieved with a primary database in one virtual machine, a secondary (standby) database in another virtual machine, and one-way replication set up between them. The result is read access to the copy of the database. With Oracle GoldenGate, you can configure bi-directional replication between the two databases. To learn how to set up a high-availability solution for your databases using these tools, see [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) and [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) documentation at the Oracle website. If you need read-write access to the copy of the database, you can use [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
@@ -64,11 +64,9 @@ With Oracle Data Guard, high availability can be achieved with a primary databas
 * **UDP multicast is not supported.** Azure supports UDP unicasting, but not multicasting or broadcasting. WebLogic Server is able to rely on Azure UDP unicast capabilities. For best results relying on UDP unicast, we recommend that the WebLogic cluster size be kept static, or be kept with no more than 10 managed servers included in the cluster.
 * **WebLogic Server expects public and private ports to be the same for T3 access (for example, when using Enterprise JavaBeans).** Consider a multi-tier scenario where a service layer (EJB) application is running on a WebLogic Server cluster consisting of two or more managed servers, in a cloud service named **SLWLS**. The client tier is in a different cloud service, running a simple Java program trying to call EJB in the service layer. Because it is necessary to load balance the service layer, a public load-balanced endpoint needs to be created for the Virtual Machines in the WebLogic Server cluster. If the private port that you specify for that endpoint is different from the public port (for example, 7006:7008), an error such as the following occurs:
 
-    ```
-    [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.chinacloudapp.cn:7006:
+        [java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.chinacloudapp.cn:7006:
 
-    Bootstrap to: example.chinacloudapp.cn/138.91.142.178:7006' over: 't3' got an error or timed out]
-    ```
+        Bootstrap to: example.chinacloudapp.cn/138.91.142.178:7006' over: 't3' got an error or timed out]
 
     This is because for any remote T3 access, WebLogic Server expects the load balancer port and the WebLogic managed server port to be the same. In the above case, the client is accessing port 7006 (the load balancer port) and the managed server is listening on 7008 (the private port). This restriction is applicable only for T3 access, not HTTP.
 
@@ -77,9 +75,7 @@ With Oracle Data Guard, high availability can be achieved with a primary databas
     * Use the same private and public port numbers for load balanced endpoints dedicated to T3 access.
     * Include the following JVM parameter when starting WebLogic Server:
 
-        ```
-        -Dweblogic.rjvm.enableprotocolswitch=true
-        ```
+            -Dweblogic.rjvm.enableprotocolswitch=true
 
     For related information, see KB article **860340.1** at <http://support.oracle.com>.
 

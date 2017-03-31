@@ -41,7 +41,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 7. After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.
 
 > [!NOTE]
-> After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered they way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](./traffic-manager-configure-failover-routing-method.md).
+> After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered they way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](traffic-manager-configure-failover-routing-method.md).
 
 ## To disable an endpoint
 
@@ -66,8 +66,8 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## Next steps
 
-* [Manage Traffic Manager profiles](./traffic-manager-manage-profiles.md)
-* [Configure routing methods](./traffic-manager-configure-routing-method.md)
-* [Troubleshooting Traffic Manager degraded state](./traffic-manager-troubleshooting-degraded.md)
-* [Traffic Manager performance considerations](./traffic-manager-performance-considerations.md)
+* [Manage Traffic Manager profiles](traffic-manager-manage-profiles.md)
+* [Configure routing methods](traffic-manager-configure-routing-method.md)
+* [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
+* [Traffic Manager performance considerations](traffic-manager-performance-considerations.md)
 * [Operations on Traffic Manager (REST API Reference)](https://msdn.microsoft.com/zh-cn/library/hh758255.aspx)

@@ -200,16 +200,18 @@ Once the external table is created, you can either load the data into a new tabl
 * To load the data into a new table, run the [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. The new table will have the columns named in the query. The data types of the columns will match the data types in the external table definition.
 * To load the data into an existing table, use the [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] statement.
 
-    -- Load the data from Azure blob storage to SQL Data Warehouse
+```sql
+-- Load the data from Azure blob storage to SQL Data Warehouse
 
-    CREATE TABLE dbo.DimDate2
-    WITH
-    (   
-        CLUSTERED COLUMNSTORE INDEX,
-        DISTRIBUTION = ROUND_ROBIN
-    )
-    AS
-    SELECT * FROM [dbo].[DimDate2External];
+CREATE TABLE dbo.DimDate2
+WITH
+(   
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = ROUND_ROBIN
+)
+AS
+SELECT * FROM [dbo].[DimDate2External];
+```
 
 ## Step 4: Create statistics on your newly loaded data
 SQL Data Warehouse does not auto-create or auto-update statistics. Therefore, to achieve high query performance, it's important to create statistics on each column of each table after the first load. It's also important to update statistics after substantial changes in the data.

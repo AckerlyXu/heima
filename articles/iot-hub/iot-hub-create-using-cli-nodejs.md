@@ -122,7 +122,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-azure-portal]: https://portal.azure.cn/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-CLI-install]: /documentation/articles/xplat-cli-install/
+[lnk-CLI-install]: ../xplat-cli-install.md/
 [lnk-rest-api]: https://msdn.microsoft.com/zh-cn/library/mt589014.aspx
 [lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 

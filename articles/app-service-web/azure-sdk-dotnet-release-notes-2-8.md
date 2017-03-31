@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 02/24/2017
 wacn.date: ''
 ms.author: juliako
----
 
+---
 # Azure SDK for .NET 2.8, 2.8.1 and 2.8.2
 ## Overview
 This article contains the release notes (that includes known issues and breaking changes) for the Azure SDK for .NET 2.8, 2.8.1 and 2.8.2 releases. 

@@ -1,6 +1,6 @@
 ---
-title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recovery | Azure
-description: This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region.
+title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recovery | Azure 
+description: "This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region."
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -15,9 +15,10 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/09/2017
+ms.date: "01/09/2017"
 wacn.date: ''
 ms.author: mikeray
+
 ---
 
 # Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions
@@ -30,7 +31,7 @@ The following image shows a common deployment of an availability group on Azure 
 
 ![Availability Group](./media/virtual-machines-windows-portal-sql-availability-group-dr/00-availability-group-basic.png)
 
-In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. To build this architecture, see [Availability Group template or tutorial](./virtual-machines-windows-portal-sql-availability-group-overview.md).
+In this deployment, all virtual machines are in one Azure region. The availability group replicas can have synchronous commit with automatic failover on SQL-1 and SQL-2. To build this architecture, see [Availability Group template or tutorial](virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 This architecture is vulnerable to downtime if the Azure region becomes inaccessible. To overcome this vulnerability, add a replica in a different Azure region. The following diagram shows how the new architecture would look:
 
@@ -70,9 +71,9 @@ To create a replica in a remote data center, do the following steps:
 
     This domain controller provides authentication if the domain controller in the primary site is not available. 
 
-1. [Create a SQL Server virtual machine in the new region](./virtual-machines-windows-portal-sql-server-provision.md).
+1. [Create a SQL Server virtual machine in the new region](virtual-machines-windows-portal-sql-server-provision.md).
 
-1. [Create an Azure load balancer in the network on the new region](./virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
+1. [Create an Azure load balancer in the network on the new region](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer).
 
     This load balancer must:
 
@@ -82,13 +83,13 @@ To create a replica in a remote data center, do the following steps:
     - Use a TCP port probe specific to the IP address.
     - Have a load balancing rule specific to the SQL Server in the same region.  
 
-1. [Add Failover Clustering feature to the new SQL Server](./virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
+1. [Add Failover Clustering feature to the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-cluster-features-to-both-sql-servers).
 
-1. [Join the new SQL Server to the domain](./virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
+1. [Join the new SQL Server to the domain](virtual-machines-windows-portal-sql-availability-group-prereq.md#joinDomain).
 
-1. [Set the new SQL Server service account to use a domain account](./virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
+1. [Set the new SQL Server service account to use a domain account](virtual-machines-windows-portal-sql-availability-group-prereq.md#setServiceAccount).
 
-1. [Add the new SQL Server to the Windows Server Failover Cluster](./virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
+1. [Add the new SQL Server to the Windows Server Failover Cluster](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
 1. Create an IP address resource on the cluster. 
 
@@ -103,7 +104,7 @@ To create a replica in a remote data center, do the following steps:
 
 1. On the new SQL Server in SQL Server Configuration Manager, [enable Always On Availability Groups](http://msdn.microsoft.com/zh-cn/library/ff878259.aspx).
 
-1. [Open firewall ports on the new SQL Server](./virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server). 
+1. [Open firewall ports on the new SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server). 
 
     The port numbers you need to open depend on your environment. Open ports for the mirroring endpoint and Azure load balancer health probe.
 
@@ -120,7 +121,7 @@ To create a replica in a remote data center, do the following steps:
     >[!IMPORTANT]
     >The cluster resource group includes both IP addresses. Both IP addresses are dependencies for the listener client access point. Use the **OR** operator in the cluster dependency configuration.
 
-1. [Set the cluster parameters in PowerShell](./virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
+1. [Set the cluster parameters in PowerShell](virtual-machines-windows-portal-sql-availability-group-tutorial.md#setparam).
 
 Run the PowerShell script with the cluster network name, IP address, and probe port that you configured on the load balancer in the new region.
 
@@ -177,6 +178,6 @@ For more information, see the following topics:
 ## Additional Links
 
 * [Always On Availability Groups](http://msdn.microsoft.com/zh-cn/library/hh510230.aspx)
-* [Azure Virtual Machines](../index.md)
-* [Azure Load Balancers](./virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
+* [Azure Virtual Machines](/azure/virtual-machines/windows/)
+* [Azure Load Balancers](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure Availability Sets](../../virtual-machines-windows-manage-availability.md)

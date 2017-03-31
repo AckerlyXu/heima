@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 01/19/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Generate movie recommendations by using Apache Mahout with Hadoop in HDInsight (PowerShell)
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
@@ -33,21 +33,21 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
     [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * **A workstation with Azure PowerShell**.
 
     > [!IMPORTANT]
     > Azure PowerShell support for managing HDInsight resources using Azure Service Manager is **deprecated**, and will be removed by January 1, 2017. The steps in this document use the new HDInsight cmdlets that work with Azure Resource Manager.
     ><p>
-    > Please follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](./hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
+    > Please follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) to install the latest version of Azure PowerShell. If you have scripts that need to be modified to use the new cmdlets that work with Azure Resource Manager, see [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) for more information.
 
 ## <a name="recommendations"></a>Generate recommendations by using Azure PowerShell
 
 > [!NOTE]
 > Although the job used in this section works by using Azure PowerShell, many of the classes provided with Mahout do not currently work with Azure PowerShell, and they must be run by using the Hadoop command line. For a list of classes that do not work with Azure PowerShell, see the [Troubleshooting](#troubleshooting) section.
 ><p>
-><p> For an example of using SSH to connect to HDInsight and run Mahout examples directly on the cluster, see [Generate movie recommendations using Mahout and HDInsight (SSH)](./hdinsight-hadoop-mahout-linux-mac.md).
+><p> For an example of using SSH to connect to HDInsight and run Mahout examples directly on the cluster, see [Generate movie recommendations using Mahout and HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
 
 One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the users preference for the item). Mahout can then perform co-occurrence analysis to determine: *users who have a preference for an item also have a preference for these other items*. Mahout then determines users with like-item preferences, which can be used to make recommendations.
 
@@ -67,13 +67,11 @@ There are two files, `moviedb.txt` (information about the movies,) and `user-rat
 
 The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
 
-```
-196    242    3    881250949
-186    302    3    891717742
-22    377    1    878887116
-244    51    2    880606923
-166    346    1    886397596
-```
+    196    242    3    881250949
+    186    302    3    891717742
+    22    377    1    878887116
+    244    51    2    880606923
+    166    346    1    886397596
 
 ### Run the job
 
@@ -182,12 +180,10 @@ The Mahout job does not return the output to STDOUT. Instead, it stores it in th
 
 The following is an example of the content of this file:
 
-```
-1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
-2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
-3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
-4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
-```
+    1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
+    2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
+    3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
+    4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
 The first column is the `userID`. The values contained in '[' and ']' are `movieId`:`recommendationScore`.
 
@@ -283,42 +279,38 @@ $recommendations | format-table $recommendationFormat
 
 The following is an example of running the script:
 
-```
-PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\user-ratings.txt -movieFile .\moviedb.txt -recommendationFile .\output.txt
-```
+    PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\user-ratings.txt -movieFile .\moviedb.txt -recommendationFile .\output.txt
 
 The output should appear similar to the following:
 
-```
-Reading movies descriptions
-Reading rated movies
-Reading recommendations
-Rated movies
----------------------------
-Movie                                    Rating
------                                    ------
-Devil's Own, The (1997)                  1
-Alien: Resurrection (1997)               3
-187 (1997)                               2
-(lines ommitted)
+    Reading movies descriptions
+    Reading rated movies
+    Reading recommendations
+    Rated movies
+    ---------------------------
+    Movie                                    Rating
+    -----                                    ------
+    Devil's Own, The (1997)                  1
+    Alien: Resurrection (1997)               3
+    187 (1997)                               2
+    (lines ommitted)
 
----------------------------
-Recommended movies
----------------------------
+    ---------------------------
+    Recommended movies
+    ---------------------------
 
-Movie                                    Score
------                                    -----
-Good Will Hunting (1997)                 4.6504064
-Swingers (1996)                          4.6862745
-Wings of the Dove, The (1997)            4.6666665
-People vs. Larry Flynt, The (1996)       4.834559
-Everyone Says I Love You (1996)          4.707071
-Secrets & Lies (1996)                    4.818182
-That Thing You Do! (1996)                4.75
-Grosse Pointe Blank (1997)               4.8235292
-Donnie Brasco (1997)                     4.6792455
-Lone Star (1996)                         4.7099237
-```
+    Movie                                    Score
+    -----                                    -----
+    Good Will Hunting (1997)                 4.6504064
+    Swingers (1996)                          4.6862745
+    Wings of the Dove, The (1997)            4.6666665
+    People vs. Larry Flynt, The (1996)       4.834559
+    Everyone Says I Love You (1996)          4.707071
+    Secrets & Lies (1996)                    4.818182
+    That Thing You Do! (1996)                4.75
+    Grosse Pointe Blank (1997)               4.8235292
+    Donnie Brasco (1997)                     4.6792455
+    Lone Star (1996)                         4.7099237
 
 ## <a name="troubleshooting"></a>Troubleshooting
 
@@ -392,22 +384,22 @@ Mahout jobs that use the following classes return a variety of error messages if
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-To run jobs that use these classes, connect to the HDInsight cluster using SSH and run the jobs from the command-line. For an example of using SSH to run Mahout jobs, see [Generate movie recommendations using Mahout and HDInsight (SSH)](./hdinsight-hadoop-mahout-linux-mac.md).
+To run jobs that use these classes, connect to the HDInsight cluster using SSH and run the jobs from the command-line. For an example of using SSH to run Mahout jobs, see [Generate movie recommendations using Mahout and HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
 
 ## Next steps
 
 Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
 
-* [Hive with HDInsight](./hdinsight-use-hive.md)
-* [Pig with HDInsight](./hdinsight-use-pig.md)
-* [MapReduce with HDInsight](./hdinsight-use-mapreduce.md)
+* [Hive with HDInsight](hdinsight-use-hive.md)
+* [Pig with HDInsight](hdinsight-use-pig.md)
+* [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: ./hdinsight-hadoop-linux-tutorial-get-started.md
-[upload]: ./hdinsight-upload-data.md
+[getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md
+[upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest
 [management]: https://manage.windowsazure.cn/

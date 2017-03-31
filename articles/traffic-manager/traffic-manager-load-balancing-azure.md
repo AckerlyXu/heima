@@ -1,6 +1,6 @@
 ---
 title: Using load-balancing services in Azure | Azure
-description: This tutorial shows you how to create a scenario by using the Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer.
+description: 'This tutorial shows you how to create a scenario by using the Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
 author: liumichelle
@@ -33,7 +33,7 @@ At a conceptual level, each of these services plays a distinct role in the load-
     * Priority routing to direct all traffic to an endpoint, with other endpoints as backup.
     * Weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each endpoint.
 
-    The client connects directly to that endpoint. Azure Traffic Manager detects when an endpoint is unhealthy and then redirects the clients to another healthy instance. Refer to [Azure Traffic Manager documentation](./traffic-manager-overview.md) to learn more about the service.
+    The client connects directly to that endpoint. Azure Traffic Manager detects when an endpoint is unhealthy and then redirects the clients to another healthy instance. Refer to [Azure Traffic Manager documentation](traffic-manager-overview.md) to learn more about the service.
 * **Application Gateway** provides application delivery controller (ADC) as a service, offering various Layer 7 load-balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU-intensive SSL termination to the application gateway. Other Layer 7 routing capabilities include round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single application gateway. Application Gateway can be configured as an Internet-facing gateway, an internal-only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable, and highly available. It provides a rich set of diagnostics and logging capabilities for better manageability.
 * **Load Balancer** is an integral part of the Azure SDN stack, providing high-performance, low-latency Layer 4 load-balancing services for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints and define rules to map inbound connections to back-end pool destinations by using TCP and HTTP health-probing options to manage service availability.
 
@@ -65,7 +65,7 @@ The following diagram shows the architecture of this scenario:
 2. On the **Create Traffic Manager profile** blade, enter the following basic information:
 
     * **Name**: Give your Traffic Manager profile a DNS prefix name.
-    * **Routing method**: Select the traffic-routing method policy. For more information about the methods, see [About Traffic Manager traffic routing methods](./traffic-manager-routing-methods.md).
+    * **Routing method**: Select the traffic-routing method policy. For more information about the methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
     * **Subscription**: Select the subscription that contains the profile.
     * **Resource group**: Select the resource group that contains the profile. It can be a new or existing resource group.
     * **Resource group location**: Traffic Manager service is global and not bound to a location. However, you must specify a region for the group where the metadata associated with the Traffic Manager profile resides. This location has no impact on the runtime availability of the profile.
@@ -205,6 +205,6 @@ Now we configure the IP address and load-balancer front-end port in the applicat
 
 ## Next steps
 
-* [Overview of Traffic Manager](./traffic-manager-overview.md)
+* [Overview of Traffic Manager](traffic-manager-overview.md)
 * [Application Gateway overview](../application-gateway/application-gateway-introduction.md)
 * [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md)

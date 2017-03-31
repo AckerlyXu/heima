@@ -7,7 +7,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Assign multiple IP addresses to virtual machines using an Azure Resource Manager template
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using a Resource Manager template. Multiple public and private IP addresses cannot be assigned to the same NIC when deploying a VM through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article.
+This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using a Resource Manager template. Multiple public and private IP addresses cannot be assigned to the same NIC when deploying a VM through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
@@ -72,7 +72,7 @@ To deploy the template using the Azure portal preview, complete the following st
 
     Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network	
     ```
 
     Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
@@ -106,7 +106,7 @@ To deploy the template using PowerShell, complete the following steps:
 
     Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network	
     ```
 
     Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:
@@ -143,7 +143,7 @@ To deploy the template using the Azure CLI 1.0, complete the following steps:
 
     Register-AzureRmProviderFeature -FeatureName AllowLoadBalancingonSecondaryIpconfigs -ProviderNamespace Microsoft.Network
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network	
     ```
 
     Do not attempt to complete the remaining steps until you see the following output when you run the ```Get-AzureRmProviderFeature``` command:

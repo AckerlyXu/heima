@@ -18,8 +18,8 @@ ms.date: 09/30/2016
 wacn.date: ''
 ms.author: josephd
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create SharePoint server farms using the Azure portal preview marketplace
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
@@ -76,7 +76,7 @@ See [this article](https://technet.microsoft.com/zh-cn/library/mt723354.aspx) fo
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
 ## Managing the SharePoint farms
-You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](./virtual-machines-windows-quick-create-portal.md#connect-to-virtual-machine).
+You can administer the servers of these farms through Remote Desktop connections. For more information, see [Log on to the virtual machine](virtual-machines-windows-quick-create-portal.md#connect-to-virtual-machine).
 
 From the Central Administration SharePoint site, you can configure My sites, SharePoint applications, and other functionality. For more information, see [Configure SharePoint](http://technet.microsoft.com/zh-cn/library/ee836142.aspx).
 

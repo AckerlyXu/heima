@@ -56,13 +56,11 @@ When you create a new certificate, you upload a .cer or .pfx file to Azure Autom
 
 The following example demonstrates how to create a new Automation certificate and mark it exportable. This imports an existing .pfx file.
 
-```
-$certName = 'MyCertificate'
-$certPath = '.\MyCert.pfx'
-$certPwd = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
+    $certName = 'MyCertificate'
+    $certPath = '.\MyCert.pfx'
+    $certPwd = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
 
-New-AzureAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath -Password $certPwd -Exportable
-```
+    New-AzureAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath -Password $certPwd -Exportable
 
 ## Using a certificate
 
@@ -72,9 +70,7 @@ You must use the **Get-AutomationCertificate** activity to use a certificate. Yo
 
 The following sample code shows how to add a certificate to a cloud service in a runbook. In this sample, the password is retrieved from an encrypted automation variable.
 
-```
-$serviceName = 'MyCloudService'
-$cert = Get-AutomationCertificate -Name 'MyCertificate'
-$certPwd = Get-AutomationVariable -Name 'MyCertPassword'
-Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
-```
+    $serviceName = 'MyCloudService'
+    $cert = Get-AutomationCertificate -Name 'MyCertificate'
+    $certPwd = Get-AutomationVariable -Name 'MyCertPassword'
+    Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert

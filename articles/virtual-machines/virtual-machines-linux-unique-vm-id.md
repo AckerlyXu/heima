@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 01/23/2017
 wacn.date: ''
 ms.author: kmouss
----
 
+---
 # Accessing and Using Azure VM Unique ID
 Azure VM unique ID is a 128bits identifier encoded and stored in all Azure IaaS VM's SMBIOS and can currently be read using platform BIOS commands.
 
@@ -31,10 +31,10 @@ Azure VM unique ID is a Read-only property. Azure Unique VM ID won't change upon
 To access Azure Unique VM ID from within the VM:
 
 ## Create a VM
-For more information, see [Create a Virtual Machine](./virtual-machines-linux-creation-choices.md)
+For more information, see [Create a Virtual Machine](virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Connect to the VM
-For more information, see [SSH from Linux](./virtual-machines-linux-mac-create-ssh-keys.md)
+For more information, see [SSH from Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Query VM Unique ID
 Command (example uses **Ubuntu**):

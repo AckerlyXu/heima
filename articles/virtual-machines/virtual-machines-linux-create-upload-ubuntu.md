@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 02/02/2017
 wacn.date: ''
 ms.author: szark
----
 
+---
 # Prepare an Ubuntu virtual machine for Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -34,9 +34,9 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 **Ubuntu installation notes**
 
-* Please see also [General Linux Installation Notes](./virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
+* Please see also [General Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
 * The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
-* When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](./virtual-machines-linux-configure-lvm.md) or [RAID](./virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
+* When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting. [LVM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks if preferred.
 * Do not configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the steps below.
 * All of the VHDs must have sizes that are multiples of 1 MB.
 
@@ -54,64 +54,50 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
     Before editing `/etc/apt/sources.list`, it is recommended to make a backup:
 
-    ```
-    # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-    ```
+        # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
     Ubuntu 12.04:
 
-    ```
-    # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
-    # sudo apt-get update
-    ```
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
 
     Ubuntu 14.04:
 
-    ```
-    # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
-    # sudo apt-get update
-    ```
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
 
     Ubuntu 16.04:
 
-    ```
-    # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
-    # sudo apt-get update
-    ```
+        # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
+        # sudo apt-get update
 
 4. The Ubuntu Azure images are now following the *hardware enablement* (HWE) kernel. Update the operating system to the latest kernel by running the following commands:
 
     Ubuntu 12.04:
 
-    ```
-    # sudo apt-get update
-    # sudo apt-get install linux-image-generic-lts-trusty linux-cloud-tools-generic-lts-trusty
-    # sudo apt-get install hv-kvp-daemon-init
-    (recommended) sudo apt-get dist-upgrade
+        # sudo apt-get update
+        # sudo apt-get install linux-image-generic-lts-trusty linux-cloud-tools-generic-lts-trusty
+        # sudo apt-get install hv-kvp-daemon-init
+        (recommended) sudo apt-get dist-upgrade
 
-    # sudo reboot
-    ```
+        # sudo reboot
 
     Ubuntu 14.04:
 
-    ```
-    # sudo apt-get update
-    # sudo apt-get install linux-image-virtual-lts-vivid linux-lts-vivid-tools-common
-    # sudo apt-get install hv-kvp-daemon-init
-    (recommended) sudo apt-get dist-upgrade
+        # sudo apt-get update
+        # sudo apt-get install linux-image-virtual-lts-vivid linux-lts-vivid-tools-common
+        # sudo apt-get install hv-kvp-daemon-init
+        (recommended) sudo apt-get dist-upgrade
 
-    # sudo reboot
-    ```
+        # sudo reboot
 
     Ubuntu 16.04:
 
-    ```
-    # sudo apt-get update
-    # sudo apt-get install linux-generic-hwe-16.04 linux-cloud-tools-generic-hwe-16.04
-    (recommended) sudo apt-get dist-upgrade
+        # sudo apt-get update
+        # sudo apt-get install linux-generic-hwe-16.04 linux-cloud-tools-generic-hwe-16.04
+        (recommended) sudo apt-get dist-upgrade
 
-    # sudo reboot
-    ```
+        # sudo reboot
 
     **See also:**
 
@@ -120,9 +106,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 5. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
 
-    ```
-    GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
-    ```
+        GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
 
     Save and close this file, and then run `sudo update-grub`. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.
 
@@ -130,26 +114,22 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 7. Install the Azure Linux Agent:
 
-    ```
-    # sudo apt-get update
-    # sudo apt-get install walinuxagent
-    ```
+        # sudo apt-get update
+        # sudo apt-get install walinuxagent
 
-    >[!NOTE]
+    >[!Note]
     The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
 8. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-    ```
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
-    ```
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 
 9. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## Next steps
-You're now ready to use your Ubuntu Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](./virtual-machines-linux-classic-create-upload-vhd.md).
+You're now ready to use your Ubuntu Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see steps 2 and 3 in [Creating and uploading a virtual hard disk that contains the Linux operating system](virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## References
 Ubuntu hardware enablement (HWE) kernel:

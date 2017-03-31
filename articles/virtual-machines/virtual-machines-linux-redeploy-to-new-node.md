@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: iainfou
----
 
+---
 # Redeploy Linux virtual machine to new Azure node
 If you have been facing difficulties troubleshooting SSH or application access to a Linux virtual machine (VM) in Azure, redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure CLI or the Azure portal preview.
 
@@ -40,7 +40,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="azure-cli-10"></a> Azure CLI 1.0
-Install the [latest Azure CLI 1.0](/documentation/articles/cli-install-nodejs/), log in to an Azure account, and make sure that you are in Resource Manager mode (`azure config mode arm`).
+Install the [latest Azure CLI 1.0](../cli-install-nodejs.md), log in to an Azure account, and make sure that you are in Resource Manager mode (`azure config mode arm`).
 
 The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`:
 
@@ -51,4 +51,4 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
 ## Next steps
-If you are having issues connecting to your VM, you can find specific help on [troubleshooting SSH connections](./virtual-machines-linux-troubleshoot-ssh-connection.md) or [detailed SSH troubleshooting steps](./virtual-machines-linux-detailed-troubleshoot-ssh-connection.md). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](./virtual-machines-linux-troubleshoot-app-connection.md).
+If you are having issues connecting to your VM, you can find specific help on [troubleshooting SSH connections](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [detailed SSH troubleshooting steps](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

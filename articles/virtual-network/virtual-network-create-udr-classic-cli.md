@@ -17,25 +17,26 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Control routing and use virtual appliances (classic) using the Azure CLI
+
 > [!div class="op_single_selector"]
->- [PowerShell](./virtual-network-create-udr-arm-ps.md)
->- [Azure CLI](./virtual-network-create-udr-arm-cli.md)
->- [Template](./virtual-network-create-udr-arm-template.md)
->- [PowerShell (Classic)](./virtual-network-create-udr-classic-ps.md)
->- [CLI (Classic)](./virtual-network-create-udr-classic-cli.md)
+>- [PowerShell](virtual-network-create-udr-arm-ps.md)
+>- [Azure CLI](virtual-network-create-udr-arm-cli.md)
+>- [Template](virtual-network-create-udr-arm-template.md)
+>- [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
+>- [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the classic deployment model. You can also [control routing and use virtual appliances in the Resource Manager deployment model](./virtual-network-create-udr-arm-cli.md).
+This article covers the classic deployment model. You can also [control routing and use virtual appliances in the Resource Manager deployment model](virtual-network-create-udr-arm-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-The sample Azure CLI commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, create the environment shown in [create a VNet (classic) using the Azure CLI](./virtual-networks-create-vnet-classic-cli.md).
+The sample Azure CLI commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, create the environment shown in [create a VNet (classic) using the Azure CLI](virtual-networks-create-vnet-classic-cli.md).
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
@@ -50,9 +51,7 @@ To create the route table and route needed for the front end subnet based on the
 
     Output:
 
-    ```
-    info:    New mode is asm
-    ```
+        info:    New mode is asm
 
 2. Run the following command to create a route table for the front-end subnet:
 
@@ -62,14 +61,12 @@ To create the route table and route needed for the front end subnet based on the
 
     Output:
 
-    ```
-    info:    Executing command network route-table create
-    info:    Creating route table "UDR-FrontEnd"
-    info:    Getting route table "UDR-FrontEnd"
-    data:    Name                            : UDR-FrontEnd
-    data:    Location                        : China North
-    info:    network route-table create command OK
-    ```
+        info:    Executing command network route-table create
+        info:    Creating route table "UDR-FrontEnd"
+        info:    Getting route table "UDR-FrontEnd"
+        data:    Name                            : UDR-FrontEnd
+        data:    Location                        : China North
+        info:    network route-table create command OK
 
     Parameters:
 
@@ -83,12 +80,10 @@ To create the route table and route needed for the front end subnet based on the
 
     Output:
 
-    ```
-    info:    Executing command network route-table route set
-    info:    Getting route table "UDR-FrontEnd"
-    info:    Setting route "RouteToBackEnd" in a route table "UDR-FrontEnd"
-    info:    network route-table route set command OK
-    ```
+        info:    Executing command network route-table route set
+        info:    Getting route table "UDR-FrontEnd"
+        info:    Setting route "RouteToBackEnd" in a route table "UDR-FrontEnd"
+        info:    network route-table route set command OK
 
     Parameters:
 
@@ -104,18 +99,16 @@ To create the route table and route needed for the front end subnet based on the
 
     Output:
 
-    ```
-    info:    Executing command network vnet subnet route-table add
-    info:    Looking up the subnet "FrontEnd"
-    info:    Looking up network configuration
-    info:    Looking up network gateway route tables in virtual network "TestVNet" subnet "FrontEnd"
-    info:    Associating route table "UDR-FrontEnd" and subnet "FrontEnd"
-    info:    Looking up network gateway route tables in virtual network "TestVNet" subnet "FrontEnd"
-    data:    Route table name                : UDR-FrontEnd
-    data:      Location                      : China North
-    data:      Routes:
-    info:    network vnet subnet route-table add command OK    
-    ```
+        info:    Executing command network vnet subnet route-table add
+        info:    Looking up the subnet "FrontEnd"
+        info:    Looking up network configuration
+        info:    Looking up network gateway route tables in virtual network "TestVNet" subnet "FrontEnd"
+        info:    Associating route table "UDR-FrontEnd" and subnet "FrontEnd"
+        info:    Looking up network gateway route tables in virtual network "TestVNet" subnet "FrontEnd"
+        data:    Route table name                : UDR-FrontEnd
+        data:      Location                      : China North
+        data:      Routes:
+        info:    network vnet subnet route-table add command OK    
 
     Parameters:
 

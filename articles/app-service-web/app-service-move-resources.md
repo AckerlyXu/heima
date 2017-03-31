@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/21/2016
 wacn.date: ''
 ms.author: zarizvi
----
 
+---
 # Supported Move Configurations
 You can move Azure Web App resources using the [Resource Manager Move Resources API](../azure-resource-manager/resource-group-move-resources.md).
 
@@ -25,7 +25,7 @@ Azure Web Apps currently supports the following move scenarios:
 
 * Move the entire contents of a resource group (web apps, app service plans, and certificates) to another resource group. 
 
-    > [!NOTE]
+    > [!Note]
     > The destination resource group can not contain any Microsoft.Web resources in this scenario.
 
 * Move individual web apps to a different resource group, while still hosting them in their current app service plan (the app service plan stays in the old resource group).

@@ -16,21 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2016
 wacn.date: ''
 ms.author: jdial
----
 
+---
 # Specifying DNS Settings in a Service Configuration File
 ## DNS elements
 A service configuration file may contain a DnsServers element with a list of IPv4 addresses for the Domain Name System (DNS) servers that the service will use. Settings in the service configuration file take precedence over settings in the network configuration file. For more information, see [Azure Service Configuration Schema (.cscfg File)](https://msdn.microsoft.com/zh-cn/library/azure/ee758710.aspx).
 
 **NetworkConfiguration element**
 
-```
-  <DnsServers>
-    <DnsServer name="ID1" IPAddress="IPAddress1" />
-    <DnsServer name="ID2" IPAddress="IPAddress2" />
-    <DnsServer name="ID3" IPAddress="IPAddress3" />
-  </DnsServers>
-```
+      <DnsServers>
+        <DnsServer name="ID1" IPAddress="IPAddress1" />
+        <DnsServer name="ID2" IPAddress="IPAddress2" />
+        <DnsServer name="ID3" IPAddress="IPAddress3" />
+      </DnsServers>
 
 > [!WARNING]
 > The **name** attribute in the **DnsServer** element is used only as a reference name. It does not represent the host name for the DNS server. Each **DnsServer** attribute value must be unique across the entire Azure subscription.
@@ -42,4 +40,4 @@ A service configuration file may contain a DnsServers element with a list of IPv
 
 [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/zh-cn/library/azure/jj157100)
 
-[Configure a Virtual Network Using Network Configuration Files](./virtual-networks-create-vnet-classic-portal.md)
+[Configure a Virtual Network Using Network Configuration Files](/azure/virtual-network/virtual-networks-create-vnet-classic-portal/)

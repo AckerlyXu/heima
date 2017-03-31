@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/06/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Provision and deploy microservices predictably in Azure
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -63,7 +63,7 @@ If you use GitHub for source control, you can put a [Deploy to Azure button](htt
 ## Get the sample resource group template
 So now let's get right to it.
 
-1. Please read [Agile software development with Azure App Service](./app-service-agile-software-development.md)to know about how to deploy the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) App Service sample.
+1. Please read [Agile software development with Azure App Service](app-service-agile-software-development.md)to know about how to deploy the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) App Service sample.
 6. Login to the Azure Portal Preview. Note that the web app is already connected to the GitHub repository under **External Project**. 
 
     ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
@@ -239,7 +239,7 @@ The last cmdlet, `New-AzureResourceGroup`, is the one that actually performs the
 In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale application composed of microservices. In this tutorial, you have deployed a two-microservice application to Azure as a single resource group using the Azure Resource Manager template. Hopefully, it has given you the knowledge you need in order to start converting your application in Azure into a template and can provision and deploy it predictably. 
 
 ## Next Steps
-Find out how to [apply agile methodologies and continuously publish your microservices application with ease](./app-service-agile-software-development.md).
+Find out how to [apply agile methodologies and continuously publish your microservices application with ease](app-service-agile-software-development.md).
 
 ## <a name="resources"></a> More resources
 * [Azure Resource Manager Template Language](../azure-resource-manager/resource-group-authoring-templates.md)

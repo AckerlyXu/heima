@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2016
 wacn.date: ''
 ms.author: jdial
+
 ---
 
 # Create your first virtual network
@@ -25,7 +26,7 @@ Learn how to create a virtual network (VNet) with two subnets, create two virtua
 
 ![Virtual network diagram](./media/virtual-network-get-started-vnet-subnet/vnet-diagram.png)
 
-An Azure virtual network (VNet) is a representation of your own network in the cloud. You can control your Azure network settings and define DHCP address blocks, DNS settings, security policies, and routing. To learn more about VNet concepts, read the [Virtual Network overview](./virtual-networks-overview.md) article. Complete the following steps to create the resources shown in the picture:
+An Azure virtual network (VNet) is a representation of your own network in the cloud. You can control your Azure network settings and define DHCP address blocks, DNS settings, security policies, and routing. To learn more about VNet concepts, read the [Virtual Network overview](virtual-networks-overview.md) article. Complete the following steps to create the resources shown in the picture:
 
 1. [Create a VNet with two subnets](#create-vnet)
 2. [Create two VMs, each with one network interface (NIC)](#create-vms), and associate a network security group (NSG) to each NIC
@@ -54,7 +55,7 @@ To create a virtual network with two subnets, complete the steps that follow. Di
     |**Subnet name**|*Front-end*|The subnet name must be unique within the virtual network.|
     |**Subnet address range**|*10.0.0.0/24*| The range you specify must exist within the address space you defined for the virtual network.|
     |**Subscription**|*[Your subscription]*|Select a subscription to create the VNet in. A VNet exists within a single subscription.|
-    |**Resource group**|**Create new:** *MyRG*|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups) overview article.|
+    |**Resource group**|**Create new:** *MyRG*|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) overview article.|
     |**Location**|*China North*| Typically the location that is closest to your physical location is selected.|
 
     The VNet takes a few seconds to create. Once it's created, you see the Azure portal preview dashboard.
@@ -71,7 +72,7 @@ To create a virtual network with two subnets, complete the steps that follow. Di
     |---|---|---|
     |**Name**|*Back-end*|The name must be unique within the virtual network.|
     |**Address range**|*10.0.1.0/24*|The range you specify must exist within the address space you defined for the virtual network.|
-    |**Network security group** and **Route table**|*None* (default)|Network security groups (NSG)s are covered later in this article. To learn more about user-defined routes, read the [User-defined routes](./virtual-networks-udr-overview.md) article.|
+    |**Network security group** and **Route table**|*None* (default)|Network security groups (NSG)s are covered later in this article. To learn more about user-defined routes, read the [User-defined routes](virtual-networks-udr-overview.md) article.|
 
 10. After the new subnet is added to the VNet, you can close the **MyVNet - Subnets** blade, then close the **All resources** blade.
 
@@ -97,19 +98,19 @@ To create the web server VM, complete the following steps:
     |**Resource group**|**Use existing:** Select *MyRG*|Though we're using the same resource group as we did for the VNet, the resources don't have to exist in the same resource group.|
     |**Location**|*China North*|The location must be the same location that you specified in step 5 of the [Create a virtual network with two subnets](#create-vnet) section of this article. VMs and the VNets they connect to must exist in the same location.|
 
-4. In the **Choose a size** blade, click *DS1_V2 Standard*, then click **Select**. Read the [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) article for a list of all Windows VM sizes supported by Azure.
+4. In the **Choose a size** blade, click *DS1_V2 Standard*, then click **Select**. Read the [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article for a list of all Windows VM sizes supported by Azure.
 5. In the **Settings** blade, enter or select the following values and click **OK**:
 
     |**Setting**|**Value**|**Details**|
     |---|---|---|
     |**Storage: Use managed disks**|*Yes*||
-    |**Virtual network**| Select *MyVNet*|You can select any VNet that exists in the same location as the VM you're creating. To learn more about VNets and subnets, read the [Virtual network](./virtual-networks-overview.md) article.|
+    |**Virtual network**| Select *MyVNet*|You can select any VNet that exists in the same location as the VM you're creating. To learn more about VNets and subnets, read the [Virtual network](virtual-networks-overview.md) article.|
     |**Subnet**|Select *Front-end*|You can select any subnet that exists within the VNet.|
-    |**Public IP address**|Accept the default|A public IP address enables you to connect to the VM from the Internet. To learn more about public IP addresses, read the [IP addresses](./virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.|
+    |**Public IP address**|Accept the default|A public IP address enables you to connect to the VM from the Internet. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.|
     |**Network security group (firewall)**|Accept the default|Click the **(new) MyWebServer-nsg** default NSG the portal created to view its settings. In the **Create network security group** blade that opens, notice that it has one inbound rule that allows TCP/3389 (RDP) traffic from any source IP address.|
-    |**All other values**|Accept the defaults|To learn more about the remaining settings, read the [About VMs](../virtual-machines/virtual-machines-windows-overview.md) article.|
+    |**All other values**|Accept the defaults|To learn more about the remaining settings, read the [About VMs](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) article.|
 
-    Network security groups (NSG) enable you to create inbound/outbound rules for the type of network traffic that can flow to and from the VM. By default, all inbound traffic to the VM is denied. You might add additional inbound rules for TCP/80 (HTTP) and TCP/443 (HTTPS) for a production web server. There is no rule for outbound traffic because by default, all outbound traffic is allowed. You can add/remove rules to control traffic per your policies. Read the [Network security groups](./virtual-networks-nsg.md) article to learn more about NSGs.
+    Network security groups (NSG) enable you to create inbound/outbound rules for the type of network traffic that can flow to and from the VM. By default, all inbound traffic to the VM is denied. You might add additional inbound rules for TCP/80 (HTTP) and TCP/443 (HTTPS) for a production web server. There is no rule for outbound traffic because by default, all outbound traffic is allowed. You can add/remove rules to control traffic per your policies. Read the [Network security groups](virtual-networks-nsg.md) article to learn more about NSGs.
 
 6.  In the **Summary** blade, review the settings and click **OK** to create the VM. A status tile is displayed on the portal dashboard as the VM creates. It may take a few minutes to create. You don't need to wait for it to complete. You can continue to the next step while the VM is created.
 
@@ -156,7 +157,7 @@ Though you created one VNet and two VMs, the Azure portal preview created severa
 
     ![Resource group contents](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md), [Disk](../storage/storage-about-disks-and-vhds-windows.md), and [Storage account](../storage/storage-introduction.md) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](./virtual-network-network-interface.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses](./virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
+To learn more about VMs, disks, and storage accounts, read the [Virtual machine](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and [Storage account](../storage/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) overview articles. You can see the two default NSGs the portal created for you. You can also see that the portal created two network interface (NIC) resources. A NIC enables a VM to connect to other resources over the VNet. Read the [NIC](virtual-network-network-interface.md) article to learn more about NICs. The portal also created one Public IP address resource. Public IP addresses are one setting for a public IP address resource. To learn more about public IP addresses, read the [IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) article.
 
 ## <a name="connect-to-from-vms"></a>Connect to the VMs
 
@@ -199,7 +200,7 @@ To connect outbound to the Internet from the web server VM, complete the followi
 
 You are able to connect to the Internet from the VM because all outbound connectivity from the VM is allowed by default. You can limit outbound connectivity by adding addition rules to the NSG applied to the NIC, to the subnet the NIC is connected to, or both.
 
-If the VM is put in the stopped (deallocated) state using the portal, the public IP address can change. If you require that the public IP address never change, you can use the static allocation method for the IP address, rather than the dynamic allocation method (which is the default). To learn more about the differences between allocation methods, read the [IP address types and allocation methods](./virtual-network-ip-addresses-overview-arm.md) article.
+If the VM is put in the stopped (deallocated) state using the portal, the public IP address can change. If you require that the public IP address never change, you can use the static allocation method for the IP address, rather than the dynamic allocation method (which is the default). To learn more about the differences between allocation methods, read the [IP address types and allocation methods](virtual-network-ip-addresses-overview-arm.md) article.
 
 ### <a name="webserver-to-dbserver"></a>Connect to the database server VM from the web server VM
 
@@ -216,7 +217,7 @@ You are able to make the connection to the database server VM from the web serve
 
 - TCP/3389 inbound connections are enabled for any source IP in the default NSG created in step 5 of the [Create the database server VM](#create-database-server-vm) section of this article.
 - You initiated the connection from the web server VM, which is connected to the same VNet as the database server VM. To connect to a VM that doesn't have a public IP address assigned to it, you must connect from another VM connected to the same VNet, even if the VM is connected to a different subnet.
-- Even though the VMs are connected to different subnets, Azure creates default routes that enable connectivity between subnets. You can override the default routes by creating your own however. Read the [User-defined routes](./virtual-networks-udr-overview.md) article to learn more about routing in Azure.
+- Even though the VMs are connected to different subnets, Azure creates default routes that enable connectivity between subnets. You can override the default routes by creating your own however. Read the [User-defined routes](virtual-networks-udr-overview.md) article to learn more about routing in Azure.
 
 If you try to initiate a remote connection to the database server VM from the Internet, as you did in the [Connect to the web server VM from the Internet](#connect-from-internet) section of this article, you see that the **Connect** option is grayed out. Connect is grayed out because there is no public IP address assigned to the VM, so inbound connections to it from the Internet are not possible.
 
@@ -244,8 +245,8 @@ To delete all resources created in this article, complete the following steps:
 
 In this exercise, you created a VNet and two VMs. You specified come custom settings during VM creation, and accepted several default settings. We recommend that you read the following articles, before deploying production VNets and VMs, to ensure you understand all available settings:
 
-- [Virtual networks](./virtual-networks-overview.md)
-- [Public IP addresses](./virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
-- [Network interfaces](./virtual-network-network-interface.md)
-- [Network security groups](./virtual-networks-nsg.md)
-- [Virtual machines](../virtual-machines/virtual-machines-windows-overview.md)
+- [Virtual networks](virtual-networks-overview.md)
+- [Public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
+- [Network interfaces](virtual-network-network-interface.md)
+- [Network security groups](virtual-networks-nsg.md)
+- [Virtual machines](../virtual-machines/virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -313,7 +313,7 @@ while(true)
 
 ## Getting the container SAS URI
 
-The following code sample shows you how to generate a [SAS URI](/documentation/articles/storage/storage-dotnet-shared-access-signature-part-2/) with read, write, and delete permissions for a blob container:
+The following code sample shows you how to generate a [SAS URI](../storage/storage-dotnet-shared-access-signature-part-2.md/) with read, write, and delete permissions for a blob container:
 
 ```
 static string GetContainerSasUri(CloudBlobContainer container)

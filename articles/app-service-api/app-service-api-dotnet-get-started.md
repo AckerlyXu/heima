@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 wacn.date: ''
 ms.author: rachelap
----
 
+---
 # Get started with API Apps, ASP.NET, and Swagger in Azure App Service
 [!INCLUDE [selector](../../includes/app-service-api-get-started-selector.md)]
 
@@ -27,7 +27,7 @@ This is the first in a series of tutorials that show how to use features of Azur
 
 You'll learn:
 
-* How to create and deploy [API apps](./app-service-api-apps-why-best-platform.md) in Azure App Service by using tools built into Visual Studio 2015.
+* How to create and deploy [API apps](app-service-api-apps-why-best-platform.md) in Azure App Service by using tools built into Visual Studio 2015.
 
     [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -110,52 +110,48 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 
     The following sample shows the first section of the Swagger metadata for the API, with the definition for the Get method. This metadata is what drives the Swagger UI that you use in the following steps, and you use it in a later section of the tutorial to automatically generate client code.
 
-    ```
-    {
-      "swagger": "2.0",
-      "info": {
-        "version": "v1",
-        "title": "ToDoListDataAPI"
-      },
-      "host": "localhost:45914",
-      "schemes": [ "http" ],
-      "paths": {
-        "/api/ToDoList": {
-          "get": {
-            "tags": [ "ToDoList" ],
-            "operationId": "ToDoList_GetByOwner",
-            "consumes": [ ],
-            "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
-            "parameters": [
-              {
-                "name": "owner",
-                "in": "query",
-                "required": true,
-                "type": "string"
-              }
-            ],
-            "responses": {
-              "200": {
-                "description": "OK",
-                "schema": {
-                  "type": "array",
-                  "items": { "$ref": "#/definitions/ToDoItem" }
-                }
-              }
-            },
-            "deprecated": false
+        {
+          "swagger": "2.0",
+          "info": {
+            "version": "v1",
+            "title": "ToDoListDataAPI"
           },
-    ```
+          "host": "localhost:45914",
+          "schemes": [ "http" ],
+          "paths": {
+            "/api/ToDoList": {
+              "get": {
+                "tags": [ "ToDoList" ],
+                "operationId": "ToDoList_GetByOwner",
+                "consumes": [ ],
+                "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+                "parameters": [
+                  {
+                    "name": "owner",
+                    "in": "query",
+                    "required": true,
+                    "type": "string"
+                  }
+                ],
+                "responses": {
+                  "200": {
+                    "description": "OK",
+                    "schema": {
+                      "type": "array",
+                      "items": { "$ref": "#/definitions/ToDoItem" }
+                    }
+                  }
+                },
+                "deprecated": false
+              },
 4. Close the browser and stop Visual Studio debugging.
 5. In the ToDoListDataAPI project in **Solution Explorer**, open the *App_Start\SwaggerConfig.cs* file, then scroll down to line 174 and uncomment the following code.
 
-    ```
-    /*
-        })
-    .EnableSwaggerUi(c =>
-        {
-    */
-    ```
+        /*
+            })
+        .EnableSwaggerUi(c =>
+            {
+        */
 
     The *SwaggerConfig.cs* file is created when you install the Swashbuckle package in a project. The file provides a number of ways to configure Swashbuckle.
 
@@ -182,13 +178,11 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
     ![Swagger UI try it out Post](./media/app-service-api-dotnet-get-started/post.png)
 12. Change the JSON in the `todo` parameter input box so that it looks like the following example, or substitute your own description text:
 
-    ```
-    {
-      "ID": 2,
-      "Description": "buy the dog a toy",
-      "Owner": "*"
-    }
-    ```
+        {
+          "ID": 2,
+          "Description": "buy the dog a toy",
+          "Owner": "*"
+        }
 13. Click **Try it out**.
 
     The ToDoList API returns an HTTP 204 response code that indicates success.
@@ -201,7 +195,7 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 Swashbuckle works with any ASP.NET Web API project. If you want to add Swagger metadata generation to an existing project, just install the Swashbuckle package.
 
 > [!NOTE]
-> Swagger metadata includes a unique ID for each API operation. By default, Swashbuckle may generate duplicate Swagger operation IDs for your Web API controller methods. This happens if your controller has overloaded HTTP methods, such as `Get()` and `Get(id)`. For information about how to handle overloads, see [Customize Swashbuckle-generated API definitions](./app-service-api-dotnet-swashbuckle-customize.md). If you create a Web API project in Visual Studio by using the Azure API App template, code that generates unique operation IDs is automatically added to the *SwaggerConfig.cs* file.  
+> Swagger metadata includes a unique ID for each API operation. By default, Swashbuckle may generate duplicate Swagger operation IDs for your Web API controller methods. This happens if your controller has overloaded HTTP methods, such as `Get()` and `Get(id)`. For information about how to handle overloads, see [Customize Swashbuckle-generated API definitions](app-service-api-dotnet-swashbuckle-customize.md). If you create a Web API project in Visual Studio by using the Azure API App template, code that generates unique operation IDs is automatically added to the *SwaggerConfig.cs* file.  
 > 
 > 
 
@@ -346,44 +340,38 @@ The ToDoListAPI project already has the generated client code, but in the follow
 
     The following snippet shows how the code instantiates the client object and calls the Get method.
 
-    ```
-    private static ToDoListDataAPI NewDataAPIClient()
-    {
-        var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-        return client;
-    }
-
-    public async Task<IEnumerable<ToDoItem>> Get()
-    {
-        using (var client = NewDataAPIClient())
+        private static ToDoListDataAPI NewDataAPIClient()
         {
-            var results = await client.ToDoList.GetByOwnerAsync(owner);
-            return results.Select(m => new ToDoItem
-            {
-                Description = m.Description,
-                ID = (int)m.ID,
-                Owner = m.Owner
-            });
+            var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+            return client;
         }
-    }
-    ```
+
+        public async Task<IEnumerable<ToDoItem>> Get()
+        {
+            using (var client = NewDataAPIClient())
+            {
+                var results = await client.ToDoList.GetByOwnerAsync(owner);
+                return results.Select(m => new ToDoItem
+                {
+                    Description = m.Description,
+                    ID = (int)m.ID,
+                    Owner = m.Owner
+                });
+            }
+        }
 
     The constructor parameter gets the endpoint URL from  the `toDoListDataAPIURL` app setting. In the Web.config file, that value is set to the local IIS Express URL of the API project so that you can run the application locally. If you omit the constructor parameter, the default endpoint is the URL that you generated the code from.
 7. Your client class will be generated with a different name based on your API app name; change the code in *Controllers\ToDoListController.cs* so that the type name matches what was generated in your project. For example, if you named your API App ToDoListDataAPI071316, you would change this code:
 
-    ```
-    private static ToDoListDataAPI NewDataAPIClient()
-    {
-        var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-    ```
+        private static ToDoListDataAPI NewDataAPIClient()
+        {
+            var client = new ToDoListDataAPI(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
     to this:
 
-    ```
-    private static ToDoListDataAPI071316 NewDataAPIClient()
-    {
-        var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
-    ```
+        private static ToDoListDataAPI071316 NewDataAPIClient()
+        {
+            var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 ## Create an API app to host the middle tier
 Earlier you [created the data tier API app and deployed code to it](#createapiapp).  Now you follow the same procedure for the middle tier API app.
@@ -441,7 +429,7 @@ In case you run into a problem as you go through this tutorial here are some tro
 After you have your ASP.NET API app running in Azure App Service, you may want to learn more about Visual Studio features that simplify troubleshooting. For information about logging, remote debugging, and more, see  [Troubleshooting Azure App Service apps in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Next steps
-You've seen how to deploy existing Web API projects to API apps, generate client code for API apps, and consume API apps from .NET clients. The next tutorial in this series shows how to [use CORS to consume API apps from JavaScript clients](./app-service-api-cors-consume-javascript.md).
+You've seen how to deploy existing Web API projects to API apps, generate client code for API apps, and consume API apps from .NET clients. The next tutorial in this series shows how to [use CORS to consume API apps from JavaScript clients](app-service-api-cors-consume-javascript.md).
 
 For more information about client code generation, see the [Azure/AutoRest](https://github.com/azure/autorest) repository on GitHub.com. For help with problems using the generated client, open an [issue in the AutoRest repository](https://github.com/azure/autorest/issues).
 

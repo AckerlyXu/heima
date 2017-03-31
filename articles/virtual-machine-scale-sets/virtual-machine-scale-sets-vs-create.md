@@ -18,8 +18,8 @@ ms.date: 03/13/2017
 wacn.date: ''
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
----
 
+---
 # How to create a Virtual Machine Scale Set with Visual Studio
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]

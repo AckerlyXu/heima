@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 09/13/2016
 wacn.date: ''
 ms.author: guybo
----
 
+---
 # Deploy a LAMP app using the Azure CustomScript Extension for Linux
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about deploying a LAMP stack using the Resource Manager model, see [here](./virtual-machines-linux-create-lamp-stack.md).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about deploying a LAMP stack using the Resource Manager model, see [here](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The Azure CustomScript Extension for Linux provides a way to customize your virtual machines (VMs) by running arbitrary code written in any scripting language supported by the VM (for example, Python, and Bash). This provides a very flexible way to automate application deployment to multiple machines.
 
@@ -34,11 +34,11 @@ For this example, first create two Azure VMs running Ubuntu 14.04 or later. The 
 
 You also need an Azure Storage account and a key to access it (you can get this from the Azure Classic Management Portal).
 
-If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](./virtual-machines-linux-classic-createportal.md).
+If you need help creating Linux VMs on Azure refer to [Create a Virtual Machine Running Linux](virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 The install commands assume Ubuntu, but you can adapt the installation for any supported Linux distro.
 
-The script-vm VM needs to have Azure CLI installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Command-Line Interface](/documentation/articles/cli-install-nodejs/).
+The script-vm VM needs to have Azure CLI installed, with a working connection to Azure. For help with this refer to [Install and Configure the Azure Command-Line Interface](../cli-install-nodejs.md).
 
 ## Upload a script
 We'll use the CustomScript Extension to run a script on a remote VM to install the LAMP stack and create a PHP page. In order to access the script from anywhere we'll upload it as an Azure blob.
@@ -46,61 +46,49 @@ We'll use the CustomScript Extension to run a script on a remote VM to install t
 ### Script overview
 The script example installs a LAMP stack to Ubuntu (including setting up a silent install of MySQL), writes a simple PHP file, and starts Apache.
 
-```
-#!/bin/bash
-# set up a silent install of MySQL
-dbpass="mySQLPassw0rd"
+    #!/bin/bash
+    # set up a silent install of MySQL
+    dbpass="mySQLPassw0rd"
 
-export DEBIAN_FRONTEND=noninteractive
-echo mysql-server-5.6 mysql-server/root_password password $dbpass | debconf-set-selections
-echo mysql-server-5.6 mysql-server/root_password_again password $dbpass | debconf-set-selections
+    export DEBIAN_FRONTEND=noninteractive
+    echo mysql-server-5.6 mysql-server/root_password password $dbpass | debconf-set-selections
+    echo mysql-server-5.6 mysql-server/root_password_again password $dbpass | debconf-set-selections
 
-# install the LAMP stack
-apt-get -y install apache2 mysql-server php5 php5-mysql  
+    # install the LAMP stack
+    apt-get -y install apache2 mysql-server php5 php5-mysql  
 
-# write some PHP
-echo \<center\>\<h1\>My Demo App\</h1\>\<br/\>\</center\> > /var/www/html/phpinfo.php
-echo \<\?php phpinfo\(\)\; \?\> >> /var/www/html/phpinfo.php
+    # write some PHP
+    echo \<center\>\<h1\>My Demo App\</h1\>\<br/\>\</center\> > /var/www/html/phpinfo.php
+    echo \<\?php phpinfo\(\)\; \?\> >> /var/www/html/phpinfo.php
 
-# restart Apache
-apachectl restart
-```
+    # restart Apache
+    apachectl restart
 
 ### Upload script
 Save the script as a text file, for example *install_lamp.sh*, and then upload it to Azure Storage. You can do this easily with Azure CLI. The following example uploads the file to a storage container named "scripts". If the container doesn't exist you'll need to create it first.
 
-```
-azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
-```
+    azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
 Also create a JSON file that describes how to download the script from Azure Storage. Save this as *public_config.json* (replacing "mystorage" with the name of your storage account):
 
-```
-{"fileUris":["https://mystorage.blob.core.chinacloudapi.cn/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
-```
+    {"fileUris":["https://mystorage.blob.core.chinacloudapi.cn/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
 ## Deploy the extension
 Now you can use the next command to deploy the Linux CustomScript Extension to the remote VM using the Azure CLI.
 
-```
-azure vm extension set -c "./public_config.json" lamp-vm CustomScript Microsoft.Azure.Extensions 2.0
-```
+    azure vm extension set -c "./public_config.json" lamp-vm CustomScript Microsoft.Azure.Extensions 2.0
 
 The previous command downloads and runs the *install_lamp.sh* script on the VM called *lamp-vm*.
 
 Since the app includes a web server, remember to open an HTTP listening port on the remote VM with the next command.
 
-```
-azure vm endpoint create -n Apache -o tcp lamp-vm 80 80
-```
+    azure vm endpoint create -n Apache -o tcp lamp-vm 80 80
 
 ## Monitoring and troubleshooting
 You can check on how well the custom script runs by looking at the log file on the remote VM. SSH to *lamp-vm* and tail the log file with the next command.
 
-```
-cd /var/log/azure/customscript
-tail -f handler.log
-```
+    cd /var/log/azure/customscript
+    tail -f handler.log
 
 After you run the CustomScript Extension, you can browse to the PHP page you created for information. The PHP page for the example in this article is *http://lamp-vm.chinacloudapp.cn/phpinfo.php*.
 
@@ -113,4 +101,4 @@ Additional resources for Azure CLI, Linux and the CustomScript Extension are lis
 
 [Azure Linux Extensions (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Linux and Open-Source Computing on Azure](./virtual-machines-linux-opensource-links.md)
+[Linux and Open-Source Computing on Azure](virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

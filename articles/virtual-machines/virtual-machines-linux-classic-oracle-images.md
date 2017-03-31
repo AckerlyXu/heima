@@ -18,8 +18,8 @@ ms.date: 09/06/2016
 wacn.date: ''
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
----
 
+---
 # List of Oracle virtual machine images for Linux 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

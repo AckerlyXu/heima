@@ -17,20 +17,20 @@ ms.topic: article
 ms.date: 02/17/2017
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Log on to a Windows virtual machine using the Azure portal preview
 In the Azure portal preview, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
 
-Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](./virtual-machines-linux-mac-create-ssh-keys.md).
+Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <!--
 Deleting, but not 100% sure
-Learn how to [perform these steps using new Azure portal preview](./virtual-machines-windows-connect-logon.md).
+Learn how to [perform these steps using new Azure portal preview](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 -->
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about how to log on to a VM using the Resource Manager model, see [here](./virtual-machines-windows-connect-logon.md).
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Azure recommends that most new deployments use the Resource Manager model. For information about how to log on to a VM using the Resource Manager model, see [here](virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Connect to the virtual machine
 1. Sign in to the Azure portal preview.
@@ -54,4 +54,4 @@ Learn how to [perform these steps using new Azure portal preview](./virtual-mach
 
     ![Reset-password](./media/virtual-machines-windows-classic-connect-logon/virtualmachine_dashboard_reset_password.png)
 
-If those tips don't work or aren't what you need, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](./virtual-machines-windows-troubleshoot-rdp-connection.md). This article walks you through diagnosing and resolving common problems.
+If those tips don't work or aren't what you need, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This article walks you through diagnosing and resolving common problems.

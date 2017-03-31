@@ -19,8 +19,8 @@ ms.date: 09/15/2016
 wacn.date: ''
 ms.author: negat
 ms.custom: H1Hack27Feb2017
----
 
+---
 # How to create a Virtual Machine Scale Set with the Azure portal preview
 This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal preview. If you don't have an Azure subscription, create a [trial account](https://www.azure.cn/pricing/1rmb-trial/) before you begin.
 
@@ -57,12 +57,12 @@ If you chose to limit your scale set to a single placement group, then the scale
 You can connect to each VM in the scale set using these NAT rules. For instance, for a Windows scale set, if there is a NAT rule on incoming port 50000, you could connect to that machine via RDP on `<load-balancer-ip-address>:50000`. For a Linux scale set, you would connect using the command `ssh -p 50000 <username>@<load-balancer-ip-address>`.
 
 ## Next steps
-For documentation on how to deploy scale sets from the CLI, see [this documentation](./virtual-machine-scale-sets-cli-quick-create.md).
+For documentation on how to deploy scale sets from the CLI, see [this documentation](virtual-machine-scale-sets-cli-quick-create.md).
 
-For documentation on how to deploy scale sets from PowerShell, see [this documentation](./virtual-machine-scale-sets-windows-create.md).
+For documentation on how to deploy scale sets from PowerShell, see [this documentation](virtual-machine-scale-sets-windows-create.md).
 
-For documentation on how to deploy scale sets from Visual Studio, see [this documentation](./virtual-machine-scale-sets-vs-create.md).
+For documentation on how to deploy scale sets from Visual Studio, see [this documentation](virtual-machine-scale-sets-vs-create.md).
 
-For general documentation, check out the [documentation overview page for scale sets](./virtual-machine-scale-sets-overview.md).
+For general documentation, check out the [documentation overview page for scale sets](virtual-machine-scale-sets-overview.md).
 
 For general information, check out the [main landing page for scale sets](https://www.azure.cn/home/features/virtual-machine-scale-sets/).

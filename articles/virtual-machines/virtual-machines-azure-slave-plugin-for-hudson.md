@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/22/2016
 wacn.date: ''
 ms.author: robmcm
----
 
+---
 # How to use the Azure slave plug-in with Hudson Continuous Integration
 The Azure slave plug-in for Hudson enables you to provision slave nodes on Azure when running distributed builds.
 
@@ -42,26 +42,24 @@ A subscription profile, also referred to as publish settings, is an XML file tha
 
 These can be found in your [subscription profile]. Below is an example of a subscription profile.
 
-```
-<?xml version="1.0" encoding="utf-8"?>
+    <?xml version="1.0" encoding="utf-8"?>
 
-    <PublishData>
+        <PublishData>
 
-      <PublishProfile SchemaVersion="2.0" PublishMethod="AzureServiceManagementAPI">
+          <PublishProfile SchemaVersion="2.0" PublishMethod="AzureServiceManagementAPI">
 
-    <Subscription
+        <Subscription
 
-          ServiceManagementUrl="https://management.core.chinacloudapi.cn"
+              ServiceManagementUrl="https://management.core.chinacloudapi.cn"
 
-          Id="<Subscription ID>"
+              Id="<Subscription ID>"
 
-          Name="Pay-As-You-Go"
-        ManagementCertificate="<Management certificate value>" />
+              Name="Pay-As-You-Go"
+            ManagementCertificate="<Management certificate value>" />
 
-      </PublishProfile>
+          </PublishProfile>
 
-</PublishData>
-```
+    </PublishData>
 
 Once you have your subscription profile, follow these steps to configure the Azure slave plug-in.
 
@@ -118,29 +116,27 @@ A virtual machine template defines the parameters the plug-in will use to create
 14. For **Launch method**, select **SSH**.
 15. Copy the script below and paste in the **Init script** field.
 
-    ```
-     # Install Java
+         # Install Java
 
-     sudo apt-get -y update
+         sudo apt-get -y update
 
-     sudo apt-get install -y openjdk-7-jdk
+         sudo apt-get install -y openjdk-7-jdk
 
-     sudo apt-get -y update --fix-missing
+         sudo apt-get -y update --fix-missing
 
-     sudo apt-get install -y openjdk-7-jdk
+         sudo apt-get install -y openjdk-7-jdk
 
-     # Install git
+         # Install git
 
-     sudo apt-get install -y git
+         sudo apt-get install -y git
 
-     #Install ant
+         #Install ant
 
-     sudo apt-get install -y ant
+         sudo apt-get install -y ant
 
-     sudo apt-get -y update --fix-missing
+         sudo apt-get -y update --fix-missing
 
-     sudo apt-get install -y ant
-    ```
+         sudo apt-get install -y ant
 
      The **Init script** will be executed after the VM is created. In this example, the script installs Java, git, and ant.
 16. In the **Username** and **Password** fields, enter your preferred values for the administrator account that will be created on your VM.
@@ -159,31 +155,29 @@ In this section, you'll be creating a Hudson task that will run on a slave node 
 7. In the **Build** section, click **Add build step** and select **Execute shell**.
 8. Edit the following script, replacing **{your github account name}**, **{your project name}**, and **{your project directory}** with appropriate values, and paste the edited script in the text area that appears.
 
-    ```
-    # Clone from git repo
+        # Clone from git repo
 
-    currentDir="$PWD"
+        currentDir="$PWD"
 
-    if [ -e {your project directory} ]; then
+        if [ -e {your project directory} ]; then
 
-          cd {your project directory}
+              cd {your project directory}
 
-          git pull origin master
+              git pull origin master
 
-    else
+        else
 
-          git clone https://github.com/{your github account name}/{your project name}.git
+              git clone https://github.com/{your github account name}/{your project name}.git
 
-    fi
+        fi
 
-    # change directory to project
+        # change directory to project
 
-    cd $currentDir/{your project directory}
+        cd $currentDir/{your project directory}
 
-    #Execute build task
+        #Execute build task
 
-    ant
-    ```
+        ant
 9. Click on **Save**.
 10. In the Hudson dashboard, find the job you just created and click on the **Schedule a build** icon.
 

@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 10/10/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # Download the template for a VM
 When you create a VM in Azure using the portal or PowerShell, a Resource Manager template is automatically created for you. You can use this template to quickly duplicate a deployment. The template contains information about all of the resources in a resource group. For a virtual machine, this means the template contains everything that is created in support of the VM in that resource group, including the networking resources.
 
@@ -47,4 +47,4 @@ You can also download the .json template file using the [Export-AzureRMResourceG
 ```
 
 ## Next steps
-To learn more about deploying resources using templates, see [Resource Manager template walkthrough](../azure-resource-manager/resource-manager-template-walkthrough.md).
+To learn more about deploying resources using templates, see [Resource Manager template walkthrough](../resource-manager-template-walkthrough.md).

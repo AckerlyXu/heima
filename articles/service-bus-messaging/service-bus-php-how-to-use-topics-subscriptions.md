@@ -30,6 +30,8 @@ The only requirement for creating a PHP application that accesses the Azure Blob
 
 > [!NOTE]
 > Your PHP installation must also have the [OpenSSL extension](http://php.net/openssl) installed and enabled.
+> 
+> 
 
 This article describes how to use service features that can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
@@ -48,8 +50,10 @@ The following example shows how to include the autoloader file and reference the
 
 > [!NOTE]
 > This example (and other examples in this article) assumes you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you must reference the **WindowsAzure.php** autoloader file.
+> 
+> 
 
-```
+```php
 require_once 'vendor\autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
@@ -57,7 +61,6 @@ use WindowsAzure\Common\ServicesBuilder;
 In the following examples, the `require_once` statement will always be shown, but only the classes necessary for the example to execute are referenced.
 
 ## Set up a Service Bus connection
-
 To instantiate a Service Bus client you must first have a valid connection string in this format:
 
 ```
@@ -75,7 +78,7 @@ To create any Azure service client you must use the `ServicesBuilder` class. You
 
 For the examples outlined here, the connection string is passed directly.
 
-```
+```php
 require_once 'vendor/autoload.php';
 
     use WindowsAzure\Common\ServicesBuilder;
@@ -90,7 +93,7 @@ You can perform management operations for Service Bus topics via the `ServiceBus
 
 The following example shows how to instantiate a `ServiceBusRestProxy` and call `ServiceBusRestProxy->createTopic` to create a topic named `mytopic` within a `MySBNamespace` namespace:
 
-```
+```php
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
@@ -117,15 +120,16 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > You can use the `listTopics` method on `ServiceBusRestProxy` objects to check if a topic with a specified name already exists within a service namespace.
+> 
+> 
 
 ## Create a subscription
 Topic subscriptions are also created with the `ServiceBusRestProxy->createSubscription` method. Subscriptions are named and can have an optional filter that restricts the set of messages passed to the subscription's virtual queue.
 
 ### Create a subscription with the default (MatchAll) filter
-
 The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named 'mysubscription' and uses the default **MatchAll** filter.
 
-```
+```php
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
@@ -155,10 +159,12 @@ You can also set up filters that enable you to specify which messages sent to a 
 
 > [!NOTE]
 > Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default **Rule** object with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the `ServiceBusRestProxy->deleteRule` method.
+> 
+> 
 
 The following example creates a subscription named `HighMessages` with a **SqlFilter** that only selects messages that have a custom `MessageNumber` property greater than 3. See [Send messages to a topic](#send-messages-to-a-topic) for information about adding custom properties to messages.
 
-```
+```php
 $subscriptionInfo = new SubscriptionInfo("HighMessages");
 $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
 
@@ -173,7 +179,7 @@ Note that this code requires the use of an additional namespace: `WindowsAzure\S
 
 Similarly, the following example creates a subscription named `LowMessages` with a `SqlFilter` that only selects messages that have a `MessageNumber` property less than or equal to 3.
 
-```
+```php
 $subscriptionInfo = new SubscriptionInfo("LowMessages");
 $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
 
@@ -190,7 +196,7 @@ Now, when a message is sent to the `mytopic` topic, it is always delivered to re
 To send a message to a Service Bus topic, your application calls the `ServiceBusRestProxy->sendTopicMessage` method. The following code shows how to send a message to the `mytopic` topic previously created within the
 `MySBNamespace` service namespace.
 
-```
+```php
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
@@ -220,7 +226,7 @@ catch(ServiceException $e){
 
 Messages sent to Service Bus topics are instances of the [BrokeredMessage][BrokeredMessage] class. [BrokeredMessage][BrokeredMessage] objects have a set of standard properties and methods, as well as properties that can be used to hold custom application-specific properties. The following example shows how to send 5 test messages to the `mytopic` topic previously created. The `setProperty` method is used to add a custom property (`MessageNumber`) to each message. Note that the `MessageNumber` property value varies on each message (you can use this value to determine which subscriptions receive it, as shown in the [Create a subscription](#create-a-subscription) section):
 
-```
+```php
 for($i = 0; $i < 5; $i++){
     // Create message.
     $message = new BrokeredMessage();
@@ -246,7 +252,7 @@ In the default [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servic
 
 The following example shows how to receive and process a message using [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) mode (the default mode). 
 
-```
+```php
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
@@ -297,7 +303,7 @@ To delete a topic or a subscription, use the `ServiceBusRestProxy->deleteTopic` 
 
 The following example shows how to delete a topic named `mytopic` and its registered subscriptions.
 
-```
+```php
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\ServiceBus\ServiceBusService;
@@ -321,9 +327,9 @@ catch(ServiceException $e){
 }
 ```
 
-By using the **deleteSubscription** method, you can delete a subscription independently:
+By using the `deleteSubscription` method, you can delete a subscription independently:
 
-```
+```php
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 

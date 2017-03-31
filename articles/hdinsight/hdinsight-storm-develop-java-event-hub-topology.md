@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 02/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Process events from Azure Event Hubs with Storm on HDInsight (Java)
 
 Learn how to use Azure Event Hubs with Storm on HDInsight. This example uses Java-based components to read and write data in Azure Event Hubs.
@@ -26,14 +26,12 @@ Azure Event Hubs allows you to process massive amounts of data from websites, ap
 
 ## Prerequisites
 
-* An Apache Storm on HDInsight cluster version 3.5. For more information, see [Get started with Storm on HDInsight cluster](./hdinsight-apache-storm-tutorial-get-started-linux.md).
+* An Apache Storm on HDInsight cluster version 3.5. For more information, see [Get started with Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
-    ```
     [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
-    ```
 
     > [!IMPORTANT]
-    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+    > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 * An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
@@ -48,9 +46,9 @@ Azure Event Hubs allows you to process massive amounts of data from websites, ap
 
     * An SSH client. For more information, see one of the following documents:
 
-        * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](./hdinsight-hadoop-linux-use-ssh-unix.md).
+        * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, OS X, and Bash on Windows 10](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-        * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md).
+        * [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 * An SCP client. The `scp` command is provided with all Linux, Unix, and OS X systems (including Bash on Windows 10.) For Windows systems that do not have the `scp` command, we recommend PSCP. PSCP is available from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -64,9 +62,7 @@ The [hdinsight-java-storm-eventhub](https://github.com/Azure-Samples/hdinsight-j
 
 The data is formatted as a JSON document before it is written to Event Hub, and when read by the reader it is parsed out of JSON and into tuples. The JSON format is as follows:
 
-```
-{ "deviceId": "unique identifier", "deviceValue": some value }
-```
+    { "deviceId": "unique identifier", "deviceValue": some value }
 
 ### Project configuration
 
@@ -228,9 +224,7 @@ These configuration settings prevent errors at runtime.
 
 This configuration makes it easier to run the topology locally on your development environment. You can run the topology locally using the following syntax:
 
-```
-mvn compile exec:java -Dstorm.topology=<CLASSNAME>
-```
+    mvn compile exec:java -Dstorm.topology=<CLASSNAME>
 
 For example, `mvn compile exec:java -Dstorm.topology=com.microsoft.example.EventHubWriter`.
 
@@ -267,9 +261,7 @@ The following environment variables may be set when you install Java and the JDK
 
 2. Use the following command to register the components in your local maven repository:
 
-    ```
-    mvn install:install-file -Dfile=storm-eventhubs-1.0.2-jar-with-dependencies.jar -DgroupId=com.microsoft -DartifactId=eventhubs -Dversion=1.0.2 -Dpackaging=jar
-    ```
+        mvn install:install-file -Dfile=storm-eventhubs-1.0.2-jar-with-dependencies.jar -DgroupId=com.microsoft -DartifactId=eventhubs -Dversion=1.0.2 -Dpackaging=jar
 
     Modify the `-Dfile=` parameter to point to the downloaded file location.
 
@@ -313,9 +305,7 @@ Event Hubs is the data source for this example. Use the following steps to creat
 
 2. Use the following to build and package the project:
 
-    ```
-    mvn package
-    ```
+        mvn package
 
     This command downloads required dependencies, builds, and then packages the project. The output is stored in the **/target** directory as **EventHubExample-1.0-SNAPSHOT.jar**.
 
@@ -325,9 +315,7 @@ The jar created by this project contains two topologies; **com.microsoft.example
 
 1. Use SCP to copy the jar package to your HDInsight cluster. Replace USERNAME with the SSH user for your cluster. Replace CLUSTERNAME with the name of your HDInsight cluster:
 
-    ```
-    scp ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:.
-    ```
+        scp ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:.
 
     If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. For example, `scp -i ~/.ssh/id_rsa ./target/EventHubExample-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn:.`.
 
@@ -338,9 +326,7 @@ The jar created by this project contains two topologies; **com.microsoft.example
 
 2. Once the file has finished uploading, use SSH to connect to the HDInsight cluster. Replace **USERNAME** the name of your SSH login. Replace **CLUSTERNAME** with your HDInsight cluster name:
 
-    ```
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
-    ```
+        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
 
     > [!NOTE]
     > If you used a password for your SSH account, you are prompted to enter the password. If you used an SSH key with the account, you may need to use the `-i` parameter to specify the path to the key file. The following example loads the private key from `~/.ssh/id_rsa`:
@@ -358,58 +344,46 @@ The jar created by this project contains two topologies; **com.microsoft.example
 
 3. Use the following command to start the topologies:
 
-    ```
-    storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubWriter writer
-    storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubReader reader
-    ```
+        storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubWriter writer
+        storm jar EventHubExample-1.0-SNAPSHOT.jar com.microsoft.example.EventHubReader reader
 
     These commands start the topologies using the friendly names of "reader" and "writer".
 
 4. Wait a minute for the topologies to generate data. Use the following command to verify that data is written to HDInsight storage:
 
-    ```
-    hadoop fs -ls /devicedata
-    ```
+        hadoop fs -ls /devicedata
 
     This command returns a list of files similar to the following text:
 
-    ```
-    -rw-r--r--   1 storm supergroup      10283 2015-08-11 19:35 /devicedata/wasbbolt-14-0-1439321744110.txt
-    -rw-r--r--   1 storm supergroup      10277 2015-08-11 19:35 /devicedata/wasbbolt-14-1-1439321748237.txt
-    -rw-r--r--   1 storm supergroup      10280 2015-08-11 19:36 /devicedata/wasbbolt-14-10-1439321760398.txt
-    -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
-    -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
-    ```
+        -rw-r--r--   1 storm supergroup      10283 2015-08-11 19:35 /devicedata/wasbbolt-14-0-1439321744110.txt
+        -rw-r--r--   1 storm supergroup      10277 2015-08-11 19:35 /devicedata/wasbbolt-14-1-1439321748237.txt
+        -rw-r--r--   1 storm supergroup      10280 2015-08-11 19:36 /devicedata/wasbbolt-14-10-1439321760398.txt
+        -rw-r--r--   1 storm supergroup      10267 2015-08-11 19:36 /devicedata/wasbbolt-14-11-1439321761090.txt
+        -rw-r--r--   1 storm supergroup      10259 2015-08-11 19:36 /devicedata/wasbbolt-14-12-1439321762679.txt
 
     > [!NOTE]
     > Some files may show a size of 0, as they have been created by the EventHubReader, but data has not been stored to them yet.
 
     You can view the contents of these files by using the following command:
 
-    ```
-    hadoop fs -text /devicedata/*.txt
-    ```
+        hadoop fs -text /devicedata/*.txt
 
     This returns data similar to the following text:
 
-    ```
-    3409e622-c85d-4d64-8622-af45e30bf774,848981614
-    c3305f7e-6948-4cce-89b0-d9fbc2330c36,-1638780537
-    788b9796-e2ab-49c4-91e3-bc5b6af1f07e,-1662107246
-    6403df8a-6495-402f-bca0-3244be67f225,275738503
-    d7c7f96c-581a-45b1-b66c-e32de6d47fce,543829859
-    9a692795-e6aa-4946-98c1-2de381b37593,1857409996
-    3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
-    ```
+        3409e622-c85d-4d64-8622-af45e30bf774,848981614
+        c3305f7e-6948-4cce-89b0-d9fbc2330c36,-1638780537
+        788b9796-e2ab-49c4-91e3-bc5b6af1f07e,-1662107246
+        6403df8a-6495-402f-bca0-3244be67f225,275738503
+        d7c7f96c-581a-45b1-b66c-e32de6d47fce,543829859
+        9a692795-e6aa-4946-98c1-2de381b37593,1857409996
+        3c8d199b-0003-4a79-8d03-24e13bde7086,-1271260574
 
     The first column contains the device ID value and the second column is the device value.
 
 5. Use the following commands to stop the topologies:
 
-    ```
-    storm kill reader
-    storm kill writer
-    ```
+        storm kill reader
+        storm kill writer
 
 ## Delete your cluster
 
@@ -421,10 +395,10 @@ If you do not see files in the /devicedata directory, use the Storm UI to look f
 
 For more information on using the Storm UI, see the following topics:
 
-* If you are using a **Linux-based** Storm on HDInsight cluster, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](./hdinsight-storm-deploy-monitor-topology-linux.md)
+* If you are using a **Linux-based** Storm on HDInsight cluster, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-* If you are using a **Windows-based** Storm on HDInsight cluster, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](./hdinsight-storm-deploy-monitor-topology.md)
+* If you are using a **Windows-based** Storm on HDInsight cluster, see [Deploy and manage Apache Storm topologies on Windows-based HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
 ## Next steps
 
-* [Example topologies for Storm on HDInsight](./hdinsight-storm-example-topology.md)
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)

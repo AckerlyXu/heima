@@ -7,7 +7,6 @@ author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ROBOTS: NOINDEX
 
 ms.assetid: 6fb7b5c2-8df4-40b1-a9e2-6815080004f9
 ms.service: hdinsight
@@ -18,13 +17,14 @@ ms.topic: article
 ms.date: 05/17/2016
 wacn.date: ''
 ms.author: nitinme
----
+ROBOTS: NOINDEX
 
+---
 # Use Hive with Windows-based HDInsight to analyze logs from websites
 Learn how to use HiveQL with HDInsight to analyze logs from a website. Website log analysis can be used to segment your audience based on similar activities, categorize site visitors by demographics, and to find out the content they view, the websites they come from, and so on.
 
 > [!IMPORTANT]
-> The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 In this sample, you will use an HDInsight cluster to analyze website log files to get insight into the frequency of visits to the website from external websites in a day. You'll also generate a summary of website errors that the users experience. You will learn how to:
 
@@ -44,18 +44,16 @@ In this sample, you will use an HDInsight cluster to analyze website log files t
 1. From the [Azure Portal Preview](https://portal.azure.cn/), from the Startboard (if you pinned the cluster there), click the cluster tile on which you want to run the sample.
 2. From the cluster blade, under **Quick Links**, click **Cluster Dashboard**, and then from the **Cluster Dashboard** blade, click **HDInsight Cluster Dashboard**. Alternatively, you can directly open the dashboard by using the following URL:
 
-    ```
-     https://<clustername>.azurehdinsight.cn
-    ```
+         https://<clustername>.azurehdinsight.cn
 
     When prompted, authenticate by using the administrator user name and password you used when provisioning the cluster.
 3. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Solutions with Sample Data** category, click the **Website Log Analysis** sample.
 4. Follow the instructions provided on the web page to finish the sample.
 
 ## Next steps
-Try the following sample: [Analyzing sensor data using Hive with HDInsight](./hdinsight-hive-analyze-sensor-data.md).
+Try the following sample: [Analyzing sensor data using Hive with HDInsight](hdinsight-hive-analyze-sensor-data.md).
 
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters/
-[hdinsight-sensor-data-sample]: /documentation/articles/hdinsight-use-hive-sensor-data-analysis/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png

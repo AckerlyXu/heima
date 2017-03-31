@@ -1,6 +1,6 @@
 ---
 title: Use Apache Spark with Kafka on Azure HDInsight | Azure
-description: Learn how to use Spark on HDInsight to read and write data to a Kafka on HDInsight cluster. This example uses Scala in a Jupyter Notebook to write random data to Kafka on HDInsight, then read it back using Spark streaming.
+description: 'Learn how to use Spark on HDInsight to read and write data to a Kafka on HDInsight cluster. This example uses Scala in a Jupyter Notebook to write random data to Kafka on HDInsight, then read it back using Spark streaming.'
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -17,7 +17,6 @@ ms.date: 02/13/2017
 wacn.date: ''
 ms.author: larryfr
 ---
-
 # Use Apache Spark with Kafka (preview) on HDInsight
 
 Apache Spark can be used to stream data into or out of Apache Kafka. In this document, learn how to stream data into and out of Kafka using a Jupyter notebook from Spark on HDInsight.
@@ -33,9 +32,9 @@ Apache Spark can be used to stream data into or out of Apache Kafka. In this doc
 
 * An SSH client (you need the `ssh` and `scp` commands) - For more information on using SSH with HDInsight, see the following documents:
 
-    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](./hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac OS](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-    * [Use SSH with Linux-based HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH with Linux-based HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 * [cURL](https://curl.haxx.se/) - A cross platform utility for making HTTP requests.
 
@@ -48,7 +47,7 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 ![Diagram of Spark and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
-> Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](./hdinsight-hadoop-port-settings-for-services.md).
+> Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use an Azure Resource Manager template. Use the following steps to deploy an Azure virtual network, Kafka, and Spark clusters to your Azure subscription.
 
@@ -126,9 +125,7 @@ From your development environment, use the following commands to retrieve the br
 
 * To get the __Kafka broker__ information:
 
-    ```
-    curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.cn/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
-    ```
+        curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.cn/api/v1/clusters/kafka-BASENAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
 
     > [!IMPORTANT]
     > When using this command from Windows PowerShell, you may receive an error about shell quoting. If so, use the following command:
@@ -136,9 +133,7 @@ From your development environment, use the following commands to retrieve the br
 
 * To get the __Zookeeper host__ information:
 
-    ```
-    curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.cn/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
-    ```
+        curl -u admin:PASSWORD -G "https://kafka-BASENAME.azurehdinsight.cn/api/v1/clusters/kafka-BASENAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'
 
     > [!IMPORTANT]
     > When using this command from Windows PowerShell, you may receive an error about shell quoting. If so, use the following command:
@@ -159,9 +154,7 @@ To use the example Jupyter notebook, you must upload it to the Jupyter Notebook 
 
 1. In your web browser, use the following URL to connect to the Jupyter Notebook server on the Spark cluster. Replace __BASENAME__ with the base name used when you created the cluster.
 
-    ```
-    https://spark-BASENAME.azurehdinsight.cn/jupyter
-    ```
+        https://spark-BASENAME.azurehdinsight.cn/jupyter
 
     When prompted, enter the cluster login (admin) and password used when you created the cluster.
 
@@ -187,6 +180,6 @@ Since the steps in this document create both clusters in the same Azure resource
 
 In this document, you learned how to use Spark to read and write to Kafka. Use the following links to discover other ways to work with Kafka:
 
-* [Get started with Apache Kafka on HDInsight](./hdinsight-apache-kafka-get-started.md)
-* [Use MirrorMaker to create a replica of Kafka on HDInsight](./hdinsight-apache-kafka-mirroring.md)
-* [Use Apache Storm with Kafka on HDInsight](./hdinsight-apache-storm-with-kafka.md)
+* [Get started with Apache Kafka on HDInsight](hdinsight-apache-kafka-get-started.md)
+* [Use MirrorMaker to create a replica of Kafka on HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)

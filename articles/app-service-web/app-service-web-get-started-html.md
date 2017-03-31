@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 03/17/2017
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Create a static HTML web app in Azure in five minutes
 [!INCLUDE [app-service-web-selector-get-started](../../includes/app-service-web-selector-get-started.md)] 
 
@@ -79,4 +79,4 @@ Congratulations, your first static HTML site is running live in Azure App Servic
 
 ## Next steps
 
-Explore pre-created [Web apps CLI scripts](./app-service-cli-samples.md).
+Explore pre-created [Web apps CLI scripts](app-service-cli-samples.md).

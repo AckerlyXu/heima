@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 wacn.date: ''
 ms.author: cynthn
----
 
+---
 # How to detach a data disk from a Windows virtual machine
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage. 
 
@@ -56,4 +56,4 @@ Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
 For more information, see [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/zh-cn/library/mt603614.aspx)
 
 ## Next steps
-If you want to reuse the data disk, you can just [attach it to another VM](./virtual-machines-windows-attach-disk-portal.md)
+If you want to reuse the data disk, you can just [attach it to another VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

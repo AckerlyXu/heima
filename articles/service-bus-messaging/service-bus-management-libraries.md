@@ -77,4 +77,4 @@ The pattern to manipulate any Service Bus resource follows a common protocol:
 
 ## Next steps
 * [.NET Management sample](https://github.com/Azure-Samples/service-bus-dotnet-management/)
-* [Microsoft.Azure.Management.ServiceBus Reference](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+* [Microsoft.Azure.Management.ServiceBus Reference](https://docs.microsoft.com/en-us/dotnet/api/Microsoft.Azure.Management.ServiceBus)

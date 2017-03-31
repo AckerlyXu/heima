@@ -1,5 +1,5 @@
 ---
-title: Connect an Azure virtual network to another VNet: Classic | Azure
+title: 'Connect an Azure virtual network to another VNet: Classic | Azure'
 description: How to connect Azure virtual networks together using PowerShell and the Azure Classic Management Portal.
 services: vpn-gateway
 documentationcenter: na
@@ -17,13 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 wacn.date: ''
 ms.author: cherylmc
----
 
+---
 # Configure a VNet-to-VNet connection for the classic deployment model
 > [!div class="op_single_selector"]
->- [Resource Manager - Azure Portal Preview](./vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
->- [Resource Manager - PowerShell](./vpn-gateway-vnet-vnet-rm-ps.md)
->- [Classic - Classic Management Portal](./virtual-networks-configure-vnet-to-vnet-connection.md)
+> * [Resource Manager - Azure Portal Preview](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Classic - Classic Management Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
+> 
+> 
 
 This article walks you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). The following steps use the Azure Classic Management Portal to create the VNets and gateways, and PowerShell to configure the VNet-to-VNet connection. You cannot configure the connection in the portal.
 
@@ -169,28 +171,20 @@ When all the previous steps have been completed, set the IPsec/IKE pre-shared ke
 
 1. Open Windows PowerShell and log in.
 
-    ```
-    Add-AzureAccount -Environment AzureChinaCloud
-    ```
+        Add-AzureAccount -Environment AzureChinaCloud
 2. Select the subscription that your VNets reside in.
 
-    ```
-    Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
-    Select-AzureSubscription -SubscriptionName "<Subscription Name>"
-    ```
+        Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
+        Select-AzureSubscription -SubscriptionName "<Subscription Name>"
 3. Create the connections. In the examples, notice that the shared key is exactly the same. The shared key must always match.
 
     VNet1 to VNet2 connection
 
-    ```
-    Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2Local -SharedKey A1b2C3D4
-    ```
+        Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2Local -SharedKey A1b2C3D4
 
     VNet2 to VNet1 connection
 
-    ```
-    Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
-    ```
+        Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
 
 4. Wait for the connections to initialize. Once the gateway has initialized, the gateway looks like the following graphic.
 
@@ -199,4 +193,4 @@ When all the previous steps have been completed, set the IPsec/IKE pre-shared ke
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 ## Next steps
-You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](../virtual-machines/index.md) for more information.
+You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](/azure/virtual-machines/) for more information.

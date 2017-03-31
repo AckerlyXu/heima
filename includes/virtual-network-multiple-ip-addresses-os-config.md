@@ -171,6 +171,7 @@ echo 150 custom >> /etc/iproute2/rt_tables
 
 ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
+
 ```
 
 - Be sure to replace:

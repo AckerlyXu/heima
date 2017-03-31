@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/01/2017
 wacn.date: ''
 ms.author: davidmu
----
 
+---
 # Manage Azure Virtual Machines using Azure Resource Manager and C# #
 
 The tasks in this article show you how to manage virtual machines, such as starting, stopping, and updating.
@@ -205,68 +205,66 @@ To interact with Azure Resource Manager, make sure that you have access to an [A
 
     When you run this method, you should see something like this example:
 
-    ```
-    Getting information about the virtual machine...
-    hardwareProfile
-      vmSize: Standard_D1_v2
+        Getting information about the virtual machine...
+        hardwareProfile
+          vmSize: Standard_D1_v2
 
-    storageProfile
-      imageReference
-        publisher: MicrosoftWindowsServer
-        offer: WindowsServer
-        sku: 2012-R2-Datacenter
-        version: latest
-      osDisk
-        osType: Windows
-        name: myosdisk
-        createOption: FromImage
-        uri: http://store1.blob.core.chinacloudapi.cn/vhds/myosdisk.vhd
-        caching: ReadWrite
+        storageProfile
+          imageReference
+            publisher: MicrosoftWindowsServer
+            offer: WindowsServer
+            sku: 2012-R2-Datacenter
+            version: latest
+          osDisk
+            osType: Windows
+            name: myosdisk
+            createOption: FromImage
+            uri: http://store1.blob.core.chinacloudapi.cn/vhds/myosdisk.vhd
+            caching: ReadWrite
 
-      osProfile
-        computerName: vm1
-        adminUsername: account1
-        provisionVMAgent: True
-        enableAutomaticUpdates: True
+          osProfile
+            computerName: vm1
+            adminUsername: account1
+            provisionVMAgent: True
+            enableAutomaticUpdates: True
 
-      networkProfile
-        networkInterface 
-          id: /subscriptions/{subscription-id}
-            /resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nc1
+          networkProfile
+            networkInterface 
+              id: /subscriptions/{subscription-id}
+                /resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/nc1
 
-      vmAgent
-        vmAgentVersion2.7.1198.766
-        statuses
-        code: ProvisioningState/succeeded
-        level: Info
-        displayStatus: Ready
-        message: GuestAgent is running and accepting new configurations.
-        time: 4/13/2016 8:35:32 PM
+          vmAgent
+            vmAgentVersion2.7.1198.766
+            statuses
+            code: ProvisioningState/succeeded
+            level: Info
+            displayStatus: Ready
+            message: GuestAgent is running and accepting new configurations.
+            time: 4/13/2016 8:35:32 PM
 
-      disks
-        name: myosdisk
-        statuses
-          code: ProvisioningState/succeeded
-          level: Info
-          displayStatus: Provisioning succeeded
-          time: 4/13/2016 8:04:36 PM
+          disks
+            name: myosdisk
+            statuses
+              code: ProvisioningState/succeeded
+              level: Info
+              displayStatus: Provisioning succeeded
+              time: 4/13/2016 8:04:36 PM
 
-      VM general status
-        provisioningStatus: Succeeded
-        id: /subscriptions/{subscription-id}
-          /resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1
-        name: vm1
-        type: Microsoft.Compute/virtualMachines
-        location: chinaeast
+          VM general status
+            provisioningStatus: Succeeded
+            id: /subscriptions/{subscription-id}
+              /resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1
+            name: vm1
+            type: Microsoft.Compute/virtualMachines
+            location: chinaeast
 
-      VM instance status
-        code: ProvisioningState/succeeded
-          level: Info
-          displayStatus: Provisioning succeeded
-        code: PowerState/running
-          level: Info
-          displayStatus: VM running
-    ```
+          VM instance status
+            code: ProvisioningState/succeeded
+              level: Info
+              displayStatus: Provisioning succeeded
+            code: PowerState/running
+              level: Info
+              displayStatus: VM running
 
 ## Stop a virtual machine
 
@@ -523,5 +521,5 @@ This example shows you how to add a data disk to a running virtual machine.
 ## Next Steps
 
 - If there were issues with a deployment, you might look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
-- Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](./virtual-machines-windows-csharp.md).
-- Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](./virtual-machines-windows-csharp-template.md).
+- Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](virtual-machines-windows-csharp.md).
+- Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

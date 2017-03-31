@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 02/17/2017
 wacn.date: ''
 ms.author: larryfr
----
 
+---
 # Create HDInsight clusters using cURL and the Azure REST API
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -28,7 +28,7 @@ Learn how to create an HDInsight cluster using an Azure Resource Manager templat
 The Azure REST API allows you to perform management operations on services hosted in the Azure platform, including the creation of new resources such as HDInsight clusters.
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## Prerequisites
 
@@ -300,15 +300,13 @@ Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.mic
 
 Use the following command to retrieve an authentication token:
 
-```
-curl -X "POST" "https://login.chinacloudapi.cn/TenantID/oauth2/token" \
--H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
--H "Content-Type: application/x-www-form-urlencoded" \
---data-urlencode "client_id=AppID" \
---data-urlencode "grant_type=client_credentials" \
---data-urlencode "client_secret=password" \
---data-urlencode "resource=https://management.chinacloudapi.cn/"
-```
+    curl -X "POST" "https://login.chinacloudapi.cn/TenantID/oauth2/token" \
+    -H "Cookie: flight-uxoptin=true; stsservicecookie=ests; x-ms-gateway-slice=productionb; stsservicecookie=ests" \
+    -H "Content-Type: application/x-www-form-urlencoded" \
+    --data-urlencode "client_id=AppID" \
+    --data-urlencode "grant_type=client_credentials" \
+    --data-urlencode "client_secret=password" \
+    --data-urlencode "resource=https://management.chinacloudapi.cn/"
 
 Replace **TenantID**, **AppID**, and **password** with the values obtained or used previously.
 
@@ -335,14 +333,14 @@ Use the following to create a resource group.
 * Replace **DataCenterLocation** with the data center you wish to create the resource group, and resources, in. For example, 'China East'.
 * Replace **ResourceGroupName** with the name you wish to use for this group:
 
-    ```bash
-    curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
-        -H "Authorization: Bearer AccessToken" \
-        -H "Content-Type: application/json" \
-        -d $'{
-    "location": "DataCenterLocation"
-    }'
-    ```
+```bash
+curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
+    -H "Authorization: Bearer AccessToken" \
+    -H "Content-Type: application/json" \
+    -d $'{
+"location": "DataCenterLocation"
+}'
+```
 
 If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the group. The `"provisioningState"` element contains a value of `"Succeeded"`.
 
@@ -354,12 +352,12 @@ Use the following command to deploy the template to the resource group.
 * Replace **ResourceGroupName** with the resource group name you created in the previous section.
 * Replace **DeploymentName** with the name you wish to use for this deployment.
 
-    ```bash
-    curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
-    -H "Authorization: Bearer AccessToken" \
-    -H "Content-Type: application/json" \
-    -d "{set your body string to the template and parameters}"
-    ```
+```bash
+curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+-H "Authorization: Bearer AccessToken" \
+-H "Content-Type: application/json" \
+-d "{set your body string to the template and parameters}"
+```
 
 > [!NOTE]
 > If you saved the teplate to a file, you can use the following command instead of `-d "{ template and parameters}"`:
@@ -378,11 +376,11 @@ To check the status of the deployment, use the following command:
 * Replace **SubscriptionID** and **AccessToken** with the values used previously.
 * Replace **ResourceGroupName** with the resource group name you created in the previous section.
 
-    ```bash
-    curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
-    -H "Authorization: Bearer AccessToken" \
-    -H "Content-Type: application/json"
-    ```
+```bash
+curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+-H "Authorization: Bearer AccessToken" \
+-H "Content-Type: application/json"
+```
 
 This command returns a JSON document containing information about the deployment operation. The `"provisioningState"` element contains the status of the deployment. If this contains a value of `"Succeeded"`, then the deployment has completed successfully.
 
@@ -392,17 +390,17 @@ Now that you have successfully created an HDInsight cluster, use the following t
 
 ### Hadoop clusters
 
-* [Use Hive with HDInsight](./hdinsight-use-hive.md)
-* [Use Pig with HDInsight](./hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](./hdinsight-use-mapreduce.md)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 ### HBase clusters
 
-* [Get started with HBase on HDInsight](./hdinsight-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](./hdinsight-hbase-build-java-maven-linux.md)
+* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ### Storm clusters
 
-* [Develop Java topologies for Storm on HDInsight](./hdinsight-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](./hdinsight-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](./hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
+* [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
+* [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)

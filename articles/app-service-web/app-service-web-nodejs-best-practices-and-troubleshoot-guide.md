@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/06/2016
 wacn.date: ''
 ms.author: ranjithr;wadeh
----
 
+---
 # Best practices and troubleshooting guide for node applications on Azure Web Apps
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-In this article, you will learn the best practices and troubleshooting steps for [node applications](./app-service-web-nodejs-get-started.md) running on Azure Webapps (with [iisnode](https://github.com/azure/iisnode)).
+In this article, you will learn the best practices and troubleshooting steps for [node applications](app-service-web-nodejs-get-started.md) running on Azure Webapps (with [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Use caution when using troubleshooting steps on your production site. Recommendation is to troubleshoot your app on a non-production setup for example your staging slot and when the issue is fixed, swap your staging slot with your production slot.
@@ -77,7 +77,6 @@ This [schema file](https://github.com/Azure/iisnode/blob/master/src/config/iisno
         <add name="iisnode" path="app.js" verb="\*" modules="iisnode" responseBufferLimit="0"/>    
     </handlers>
     ```
-
 * watchedFiles
 
     This is a semi-colon separated list of files that will be watched for changes. A change to a file causes the application to recycle. Each entry consists of an optional directory name plus required file name which are relative to the directory where the main application entry point is located. Wild cards are allowed in the file name portion only. Default value is "\*.js;web.config"
@@ -126,7 +125,7 @@ var keepaliveAgent = new Agent({
 This example assumes you have 4 node.exe running on your VM. If you have a different number of node.exe running on the VM, you will have to modify the maxSockets setting accordingly.
 
 ### My node application is consuming too much CPU.
-You will probably get a recommendation from Azure Webapps on your portal about high cpu consumption. You can also setup monitors to watch for certain [metrics](./web-sites-monitor.md). When checking the CPU usage on the Azure Portal Dashboard, please check the MAX values for CPU so you don't miss out the peak values.
+You will probably get a recommendation from Azure Webapps on your portal about high cpu consumption. You can also setup monitors to watch for certain [metrics](web-sites-monitor.md). When checking the CPU usage on the Azure Portal Dashboard, please check the MAX values for CPU so you don't miss out the peak values.
 In cases where you think your application is consuming too much CPU and you cannot explain why, you will need to profile your node application.
 
 ### 
@@ -198,7 +197,7 @@ Download this file and you will need to open this file with Chrome F12 Tools. Hi
 You will see that 95% of the time was consumed by WriteConsoleLog function as shown below. This also shows you the exact line numbers and source files that cause the issue.
 
 ### My node application is consuming too much memory.
-You will probably get a recommendation from Azure Webapps on your portal about high memory consumption. You can also setup monitors to watch for certain [metrics](./web-sites-monitor.md). When checking the memory usage on the Azure Portal Dashboard, please check the MAX values for memory so you don't miss out the peak values.
+You will probably get a recommendation from Azure Webapps on your portal about high memory consumption. You can also setup monitors to watch for certain [metrics](web-sites-monitor.md). When checking the memory usage on the Azure Portal Dashboard, please check the MAX values for memory so you don't miss out the peak values.
 
 #### Leak detection and Heap Diffing for node.js
 You could use [node-memwatch](https://github.com/lloyd/node-memwatch) to help you identify memory leaks.
@@ -251,9 +250,9 @@ There is a setting within NODE.exe called NODE\_PENDING\_PIPE\_INSTANCES. By def
 ## More resources
 Follow these links to learn more about node.js applications on Azure App Service.
 
-* [Get started with Node.js web apps in Azure App Service](./app-service-web-nodejs-get-started.md)
-* [How to debug a Node.js web app in Azure App Service](./web-sites-nodejs-debug.md)
+* [Get started with Node.js web apps in Azure App Service](app-service-web-nodejs-get-started.md)
+* [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md)
 * [Using Node.js Modules with Azure applications](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
-* [Exploring the Super Secret Kudu Debug Console](/documentation/articles/aog-web-app-diagnostics-kudu/)
+* [Exploring the Super Secret Kudu Debug Console](/azure/aog-web-app-diagnostics-kudu/)

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 07/29/2016
 wacn.date: ''
 ms.author: magoedte;csand
----
 
+---
 # Managing Azure Web App using Azure Automation
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of Azure Web App.
 

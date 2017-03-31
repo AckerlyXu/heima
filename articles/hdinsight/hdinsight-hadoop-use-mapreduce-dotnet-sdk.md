@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 03/03/2017
 wacn.date: ''
 ms.author: jgao
----
 
+---
 # Run MapReduce jobs using HDInsight .NET SDK
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
@@ -32,7 +32,7 @@ Learn how to submit MapReduce jobs using HDInsight .NET SDK. HDInsight clusters 
 ## Prerequisites
 Before you begin this article, you must have the following:
 
-* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](./hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* **A Hadoop cluster in HDInsight**. See [Get started using Linux-based Hadoop in HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 * **Visual Studio 2013/2015/2017**.
 
 ## Submit MapReduce jobs using HDInsight .NET SDK
@@ -43,94 +43,90 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.
 
-    ```
-    Install-Package Microsoft.Azure.Management.HDInsight.Job
-    ```
+        Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Use the following code:
 
-    ```
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Text;
-    using System.Threading;
-    using Microsoft.Azure.Management.HDInsight.Job;
-    using Microsoft.Azure.Management.HDInsight.Job.Models;
-    using Hyak.Common;
+        using System.Collections.Generic;
+        using System.IO;
+        using System.Text;
+        using System.Threading;
+        using Microsoft.Azure.Management.HDInsight.Job;
+        using Microsoft.Azure.Management.HDInsight.Job.Models;
+        using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
-    {
-        class Program
+        namespace SubmitHDInsightJobDotNet
         {
-            private static HDInsightJobManagementClient _hdiJobManagementClient;
-
-            private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
-            private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.cn";
-            private const string ExistingClusterUsername = "<Cluster Username>";
-            private const string ExistingClusterPassword = "<Cluster User Password>";
-
-            private const string DefaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.chinacloudapi.cn
-            private const string StorageAccountSuffix = "core.chinacloudapi.cn";
-            private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
-            private const string DefaultStorageContainerName = "<Default Blob Container Name>";
-
-            static void Main(string[] args)
+            class Program
             {
-                System.Console.WriteLine("The application is running ...");
+                private static HDInsightJobManagementClient _hdiJobManagementClient;
 
-                var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
-                _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+                private const string ExistingClusterName = "<Your HDInsight Cluster Name>";
+                private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.cn";
+                private const string ExistingClusterUsername = "<Cluster Username>";
+                private const string ExistingClusterPassword = "<Cluster User Password>";
 
-                SubmitMRJob();
+                private const string DefaultStorageAccountName = "<Default Storage Account Name>"; //<StorageAccountName>.blob.core.chinacloudapi.cn
+                private const string StorageAccountSuffix = "core.chinacloudapi.cn";
+                private const string DefaultStorageAccountKey = "<Default Storage Account Key>";
+                private const string DefaultStorageContainerName = "<Default Blob Container Name>";
 
-                System.Console.WriteLine("Press ENTER to continue ...");
-                System.Console.ReadLine();
-            }
-
-            private static void SubmitMRJob()
-            {
-                List<string> args = new List<string> { { "/example/data/gutenberg/davinci.txt" }, { "/example/data/davinciwordcount" } };
-
-                var paras = new MapReduceJobSubmissionParameters
+                static void Main(string[] args)
                 {
-                    JarFile = @"/example/jars/hadoop-mapreduce-examples.jar",
-                    JarClass = "wordcount",
-                    Arguments = args
-                };
+                    System.Console.WriteLine("The application is running ...");
 
-                System.Console.WriteLine("Submitting the MR job to the cluster...");
-                var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
-                var jobId = jobResponse.JobSubmissionJsonResponse.Id;
-                System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
-                System.Console.WriteLine("JobId is " + jobId);
+                    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+                    _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
 
-                System.Console.WriteLine("Waiting for the job completion ...");
+                    SubmitMRJob();
 
-                // Wait for job completion
-                var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
-                while (!jobDetail.Status.JobComplete)
-                {
-                    Thread.Sleep(1000);
-                    jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
+                    System.Console.WriteLine("Press ENTER to continue ...");
+                    System.Console.ReadLine();
                 }
 
-                // Get job output
-                var storageAccess = new AzureStorageAccess(DefaultStorageAccountName, DefaultStorageAccountKey,
-                    DefaultStorageContainerName, StorageAccountSuffix);
-                var output = (jobDetail.ExitValue == 0)
-                    ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
-                    : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
-
-                System.Console.WriteLine("Job output is: ");
-
-                using (var reader = new StreamReader(output, Encoding.UTF8))
+                private static void SubmitMRJob()
                 {
-                    string value = reader.ReadToEnd();
-                    System.Console.WriteLine(value);
+                    List<string> args = new List<string> { { "/example/data/gutenberg/davinci.txt" }, { "/example/data/davinciwordcount" } };
+
+                    var paras = new MapReduceJobSubmissionParameters
+                    {
+                        JarFile = @"/example/jars/hadoop-mapreduce-examples.jar",
+                        JarClass = "wordcount",
+                        Arguments = args
+                    };
+
+                    System.Console.WriteLine("Submitting the MR job to the cluster...");
+                    var jobResponse = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(paras);
+                    var jobId = jobResponse.JobSubmissionJsonResponse.Id;
+                    System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
+                    System.Console.WriteLine("JobId is " + jobId);
+
+                    System.Console.WriteLine("Waiting for the job completion ...");
+
+                    // Wait for job completion
+                    var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
+                    while (!jobDetail.Status.JobComplete)
+                    {
+                        Thread.Sleep(1000);
+                        jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
+                    }
+
+                    // Get job output
+                    var storageAccess = new AzureStorageAccess(DefaultStorageAccountName, DefaultStorageAccountKey,
+                        DefaultStorageContainerName, StorageAccountSuffix);
+                    var output = (jobDetail.ExitValue == 0)
+                        ? _hdiJobManagementClient.JobManagement.GetJobOutput(jobId, storageAccess) // fetch stdout output in case of success
+                        : _hdiJobManagementClient.JobManagement.GetJobErrorLogs(jobId, storageAccess); // fetch stderr output in case of failure
+
+                    System.Console.WriteLine("Job output is: ");
+
+                    using (var reader = new StreamReader(output, Encoding.UTF8))
+                    {
+                        string value = reader.ReadToEnd();
+                        System.Console.WriteLine(value);
+                    }
                 }
             }
         }
-    }
-    ```
 4. Press **F5** to run the application.
 
 To run the job again, you must change the job output folder name, in the sample, it is "/example/data/davinciwordcount".
@@ -140,8 +136,8 @@ When the job completes successfully, the output is blank. To see the result of t
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-* For submitting a Hive job, see [Run Hive queries using HDInsight .NET SDK](./hdinsight-hadoop-use-hive-dotnet-sdk.md).
-* For creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
-* For managing HDInsight clusters, see [Manage Hadoop clusters in HDInsight](./hdinsight-administer-use-portal-linux.md).
+* For submitting a Hive job, see [Run Hive queries using HDInsight .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md).
+* For creating HDInsight clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* For managing HDInsight clusters, see [Manage Hadoop clusters in HDInsight](hdinsight-administer-use-portal-linux.md).
 * For learning the HDInsight .NET SDK, see [HDInsight .NET SDK reference](https://msdn.microsoft.com/zh-cn/library/mt271028.aspx).
-* For non-interactive authenticate to Azure, see [Create non-interactive authentication .NET HDInsight applications](./hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+* For non-interactive authenticate to Azure, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).

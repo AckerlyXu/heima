@@ -8,7 +8,7 @@ manager: timlt
 editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -17,6 +17,7 @@ ms.workload: infrastructure
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: nepeters
+
 ---
 
 # Create a Windows virtual machine with PowerShell
@@ -126,6 +127,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## Next steps
 
-[Install a role and configure firewall tutorial](./virtual-machines-windows-hero-role.md)
+[Install a role and configure firewall tutorial](./virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Explore VM deployment PowerShell samples](./virtual-machines-windows-powershell-samples.md)
+[Explore VM deployment PowerShell samples](./virtual-machines-windows-powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

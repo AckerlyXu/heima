@@ -186,7 +186,7 @@ The steps to perform a partition switch are as follows:
 
 However, to help identify the partitions to switch we will first need to build a helper procedure such as the one below. 
 
-```
+```sql
 CREATE PROCEDURE dbo.partition_data_get
     @schema_name		   NVARCHAR(128)
 ,	@table_name			   NVARCHAR(128)

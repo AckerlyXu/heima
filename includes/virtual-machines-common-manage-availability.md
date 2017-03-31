@@ -33,14 +33,12 @@ For example, you could put all the virtual machines in the front-end of your app
 ![Application tiers](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ### <a name="combine-a-load-balancer-with-availability-sets"></a> Combine a load balancer with availability sets
-Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) with an availability set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see Load Balancing [Windows](../articles/virtual-machines/virtual-machines-windows-load-balance.md) or [Linux](../articles/load-balancer/load-balancer-overview.md) virtual machines.
+Combine the [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) with an availability set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see [Load Balancing virtual machines](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
 
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event affects the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and availability set enables traffic to be continuously served by at least one instance.
 
 ## <a name="use-multiple-storage-accounts-for-each-availability-set"></a> Use multiple storage accounts for each availability set
-
->[!NOTE]
-> Azure Managed Disks are not available yet in Azure China.
+If you use Azure Managed Disks, you can skip the following guidance. Azure Managed Disks inherently provide high availability and redundancy as the disks are stored in fault domains that align with your VM availability sets. For more information, see [Azure Managed Disks overview](../articles/storage/storage-managed-disks-overview.md).
 
 If you use unmanaged disks, there are best practices to be followed with regards to the storage accounts used by the Virtual Hard Disks (VHDs) within the VM. Each disk (VHD) is a page blob in an Azure Storage account. It is important to ensure that there is redundancy and isolation across the storage accounts to provide high availability for the VMs within the Availability Set.
 

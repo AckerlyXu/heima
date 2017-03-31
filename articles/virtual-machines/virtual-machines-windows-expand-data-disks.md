@@ -8,7 +8,7 @@ manager: timlt
 editor: ''
 tags: ''
 
-ms.assetid: ''
+ms.assetid: 
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 03/02/2017
 wacn.date: ''
 ms.author: cynthn
+
 ---
 
 # Increase the size of a data disk attached to a Windows VM
@@ -82,6 +83,7 @@ The following script will walk you through getting the VM information, selecting
 # Start the VM
 
     Start-AzureRmVM -ResourceGroupName $rgName -VMName $vm.name
+
 ```
 
 ## Use PowerShell to increase the size of an unmanaged data disk
@@ -99,6 +101,7 @@ To increase the size of unmanaged data disks in a storage account, use the follo
 The following script will walk you through getting the VM and storage account information, selecting the data disk and specifying the new size.
 
 ```powershell
+
 # Select Azure Storage Account
 
     $storageAccount =
@@ -143,6 +146,7 @@ The following script will walk you through getting the VM and storage account in
 # Start the VM
     Start-AzureRmVM -ResourceGroupName $rgName `
     -VMName $vm.name
+	
 ```
 
 ## Allocate the unallocated disk space 
@@ -167,4 +171,4 @@ Resize-Partition -DriveLetter $driveLetter -Size $MaxSize
 ```
 
 ## Next Steps
-- [Learn more about disks and VHDs](../storage/storage-about-disks-and-vhds-windows.md)
+- [Learn more about disks and VHDs](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

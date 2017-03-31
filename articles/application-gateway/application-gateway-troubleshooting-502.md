@@ -17,6 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 12/16/2016
 wacn.date: ''
 ms.author: amsriva
+
 ---
 
 # Troubleshooting bad gateway errors in Application Gateway
@@ -31,7 +32,7 @@ After configuring an Azure Application Gateway, one of the errors which users ma
 * Invalid or improper configuration of custom health probes.
 * Request time out or connectivity issues with user requests.
 
-> [!NOTE]
+> [!note]
 > Application Gateway preserves the incoming host header and sends the same header to backend. If the backend requires a different header then this will not work. Similarly if the backend is multi tenant and end-to-end SSL is enabled, the backend would expect server name in SNI extension. Application Gateway does not currently send SNI header in backend requests in end-to-end SSL scenarios which would cause probe and data path issues.
 
 ## Empty BackendAddressPool
@@ -105,7 +106,7 @@ Ensure that the instances are healthy and the application is properly configured
 * If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
 * The call to http://127.0.0.1:port should return an HTTP result code of 200. This should be returned within the 30 sec time-out period.
 * Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
-* If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) is opened.
+* If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
 * If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](../virtual-network/virtual-networks-nsg.md) must be configured to allow access on the desired port.
 
 ## Problems with custom health probe
@@ -128,7 +129,7 @@ Custom health probes allow additional flexibility to the default probing behavio
 
 Validate that the Custom Health Probe is configured correctly as the preceding table. In addition to the preceding troubleshooting steps, also ensure the following:
 
-* Ensure that the probe is correctly specified as per the [guide](./application-gateway-create-probe-ps.md).
+* Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
 * If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 * Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
 * Ensure that Interval, Time-out, and UnhealtyThreshold are within the acceptable ranges.

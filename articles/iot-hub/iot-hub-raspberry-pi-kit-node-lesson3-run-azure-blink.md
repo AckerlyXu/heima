@@ -73,7 +73,7 @@ Use `myraspberrypi` as the value of `{device id}` if you didn't change the value
    code ~/.iot-hub-getting-started/config-raspberrypi.json
    ```
 
-   ![config.json](media/iot-hub-raspberry-pi-lessons/lesson3/config.png)
+   ![config.json](./media/iot-hub-raspberry-pi-lessons/lesson3/config.png)
 3. Make the following replacements in the `config-raspberrypi.json` file:
 
    * Replace **[device hostname or IP address]** with the device IP address or host name you got from `device-discovery-cli` or with the value inherited when you configured your device.

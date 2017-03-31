@@ -18,8 +18,8 @@ ms.date: 02/02/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create a VM with multiple NICs using the Azure CLI 1.0
 
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
@@ -27,12 +27,12 @@ ms.custom: H1Hack27Feb2017
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](./virtual-network-deploy-multinic-classic-cli.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](virtual-network-deploy-multinic-classic-cli.md).
 >
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-The following steps use a resource group named *IaaSStory* for the WEB servers and a resource group named *IaaSStory-BackEnd* for the DB servers. You can complete this task using the Azure CLI 1.0 (this article) or the [Azure CLI 2.0](./virtual-network-deploy-static-pip-arm-cli.md). The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
+The following steps use a resource group named *IaaSStory* for the WEB servers and a resource group named *IaaSStory-BackEnd* for the DB servers. You can complete this task using the Azure CLI 1.0 (this article) or the [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md). The values in "" for the variables in the steps that follow create resources with settings from the scenario. Change the values, as appropriate, for your environment.
 
 ## Prerequisites
 Before you can create the DB servers, you need to create the *IaaSStory* resource group with all the necessary resources for this scenario. To create these resources, complete the following steps:
@@ -66,7 +66,6 @@ You can download the full bash script used [here](https://raw.githubusercontent.
     backendSubnetName="BackEnd"
     remoteAccessNSGName="NSG-RemoteAccess"
     ```
-
 2. Change the values of the variables below based on the values you want to use for your backend deployment.
 
     ```azurecli
@@ -216,147 +215,143 @@ Now that you downloaded and changed the script based on your needs, run the scri
 
 1. Save your script and run it from your **Bash** terminal. You will see the initial output, as shown below.
 
-    ```
-    info:    Executing command group create
-    info:    Getting resource group IaaSStory-Backend
-    info:    Creating resource group IaaSStory-Backend
-    info:    Created resource group IaaSStory-Backend
-    data:    Id:                  /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend
-    data:    Name:                IaaSStory-Backend
-    data:    Location:            chinanorth
-    data:    Provisioning State:  Succeeded
-    data:    Tags: null
-    data:
-    info:    group create command OK
-    info:    Executing command storage account create
-    info:    Creating storage account
-    info:    storage account create command OK
-    info:    Executing command availset create
-    info:    Looking up the availability set "ASDB"
-    info:    Creating availability set "ASDB"
-    info:    availset create command OK
-    info:    Executing command network nic create
-    info:    Looking up the network interface "NICDB1-DA"
-    info:    Creating network interface "NICDB1-DA"
-    info:    Looking up the network interface "NICDB1-DA"
-    data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-DA
-    data:    Name                            : NICDB1-DA
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : chinanorth
-    data:    Provisioning state              : Succeeded
-    data:    Enable IP forwarding            : false
-    data:    IP configurations:
-    data:      Name                          : NIC-config
-    data:      Provisioning state            : Succeeded
-    data:      Private IP address            : 192.168.2.4
-    data:      Private IP Allocation Method  : Static
-    data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-    data:
-    info:    network nic create command OK
-    info:    Executing command network nic create
-    info:    Looking up the network interface "NICDB1-RA"
-    info:    Creating network interface "NICDB1-RA"
-    info:    Looking up the network interface "NICDB1-RA"
-    data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-RA
-    data:    Name                            : NICDB1-RA
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : chinanorth
-    data:    Provisioning state              : Succeeded
-    data:    Enable IP forwarding            : false
-    data:    Network security group          : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
-    data:    IP configurations:
-    data:      Name                          : NIC-config
-    data:      Provisioning state            : Succeeded
-    data:      Private IP address            : 192.168.2.54
-    data:      Private IP Allocation Method  : Static
-    data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-    data:
-    info:    network nic create command OK
-    info:    Executing command vm create
-    info:    Looking up the VM "DB1"
-    info:    Using the VM Size "Standard_DS3"
-    info:    The [OS, Data] Disk or image configuration requires storage account
-    info:    Looking up the storage account wtestvnetstorageprm
-    info:    Looking up the availability set "ASDB"
-    info:    Found an Availability set "ASDB"
-    info:    Looking up the NIC "NICDB1-DA"
-    info:    Looking up the NIC "NICDB1-RA"
-    info:    Creating VM "DB1"
-    ```
+        info:    Executing command group create
+        info:    Getting resource group IaaSStory-Backend
+        info:    Creating resource group IaaSStory-Backend
+        info:    Created resource group IaaSStory-Backend
+        data:    Id:                  /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend
+        data:    Name:                IaaSStory-Backend
+        data:    Location:            chinanorth
+        data:    Provisioning State:  Succeeded
+        data:    Tags: null
+        data:
+        info:    group create command OK
+        info:    Executing command storage account create
+        info:    Creating storage account
+        info:    storage account create command OK
+        info:    Executing command availset create
+        info:    Looking up the availability set "ASDB"
+        info:    Creating availability set "ASDB"
+        info:    availset create command OK
+        info:    Executing command network nic create
+        info:    Looking up the network interface "NICDB1-DA"
+        info:    Creating network interface "NICDB1-DA"
+        info:    Looking up the network interface "NICDB1-DA"
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-DA
+        data:    Name                            : NICDB1-DA
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : chinanorth
+        data:    Provisioning state              : Succeeded
+        data:    Enable IP forwarding            : false
+        data:    IP configurations:
+        data:      Name                          : NIC-config
+        data:      Provisioning state            : Succeeded
+        data:      Private IP address            : 192.168.2.4
+        data:      Private IP Allocation Method  : Static
+        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+        data:
+        info:    network nic create command OK
+        info:    Executing command network nic create
+        info:    Looking up the network interface "NICDB1-RA"
+        info:    Creating network interface "NICDB1-RA"
+        info:    Looking up the network interface "NICDB1-RA"
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-RA
+        data:    Name                            : NICDB1-RA
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : chinanorth
+        data:    Provisioning state              : Succeeded
+        data:    Enable IP forwarding            : false
+        data:    Network security group          : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
+        data:    IP configurations:
+        data:      Name                          : NIC-config
+        data:      Provisioning state            : Succeeded
+        data:      Private IP address            : 192.168.2.54
+        data:      Private IP Allocation Method  : Static
+        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+        data:
+        info:    network nic create command OK
+        info:    Executing command vm create
+        info:    Looking up the VM "DB1"
+        info:    Using the VM Size "Standard_DS3"
+        info:    The [OS, Data] Disk or image configuration requires storage account
+        info:    Looking up the storage account wtestvnetstorageprm
+        info:    Looking up the availability set "ASDB"
+        info:    Found an Availability set "ASDB"
+        info:    Looking up the NIC "NICDB1-DA"
+        info:    Looking up the NIC "NICDB1-RA"
+        info:    Creating VM "DB1"
 2. After a few minutes, the execution will end and you will see the rest of the output as shown below.
 
-    ```
-    info:    vm create command OK
-    info:    Executing command vm disk attach-new
-    info:    Looking up the VM "DB1"
-    info:    Looking up the storage account wtestvnetstorageprm
-    info:    New data disk location: https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/datadisk1-1.vhd
-    info:    Updating VM "DB1"
-    info:    vm disk attach-new command OK
-    info:    Executing command vm disk attach-new
-    info:    Looking up the VM "DB1"
-    info:    Looking up the storage account wtestvnetstorageprm
-    info:    New data disk location: https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/datadisk1-2.vhd
-    info:    Updating VM "DB1"
-    info:    vm disk attach-new command OK
-    info:    Executing command network nic create
-    info:    Looking up the network interface "NICDB2-DA"
-    info:    Creating network interface "NICDB2-DA"
-    info:    Looking up the network interface "NICDB2-DA"
-    data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-DA
-    data:    Name                            : NICDB2-DA
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : chinanorth
-    data:    Provisioning state              : Succeeded
-    data:    Enable IP forwarding            : false
-    data:    IP configurations:
-    data:      Name                          : NIC-config
-    data:      Provisioning state            : Succeeded
-    data:      Private IP address            : 192.168.2.5
-    data:      Private IP Allocation Method  : Static
-    data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-    data:
-    info:    network nic create command OK
-    info:    Executing command network nic create
-    info:    Looking up the network interface "NICDB2-RA"
-    info:    Creating network interface "NICDB2-RA"
-    info:    Looking up the network interface "NICDB2-RA"
-    data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-RA
-    data:    Name                            : NICDB2-RA
-    data:    Type                            : Microsoft.Network/networkInterfaces
-    data:    Location                        : chinanorth
-    data:    Provisioning state              : Succeeded
-    data:    Enable IP forwarding            : false
-    data:    Network security group          : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
-    data:    IP configurations:
-    data:      Name                          : NIC-config
-    data:      Provisioning state            : Succeeded
-    data:      Private IP address            : 192.168.2.55
-    data:      Private IP Allocation Method  : Static
-    data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
-    data:
-    info:    network nic create command OK
-    info:    Executing command vm create
-    info:    Looking up the VM "DB2"
-    info:    Using the VM Size "Standard_DS3"
-    info:    The [OS, Data] Disk or image configuration requires storage account
-    info:    Looking up the storage account wtestvnetstorageprm
-    info:    Looking up the availability set "ASDB"
-    info:    Found an Availability set "ASDB"
-    info:    Looking up the NIC "NICDB2-DA"
-    info:    Looking up the NIC "NICDB2-RA"
-    info:    Creating VM "DB2"
-    info:    vm create command OK
-    info:    Executing command vm disk attach-new
-    info:    Looking up the VM "DB2"
-    info:    Looking up the storage account wtestvnetstorageprm
-    info:    New data disk location: https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/datadisk2-1.vhd
-    info:    Updating VM "DB2"
-    info:    vm disk attach-new command OK
-    info:    Executing command vm disk attach-new
-    info:    Looking up the VM "DB2"
-    info:    Looking up the storage account wtestvnetstorageprm
-    info:    New data disk location: https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/datadisk2-2.vhd
-    info:    Updating VM "DB2"
-    info:    vm disk attach-new command OK
-    ```
+        info:    vm create command OK
+        info:    Executing command vm disk attach-new
+        info:    Looking up the VM "DB1"
+        info:    Looking up the storage account wtestvnetstorageprm
+        info:    New data disk location: https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/datadisk1-1.vhd
+        info:    Updating VM "DB1"
+        info:    vm disk attach-new command OK
+        info:    Executing command vm disk attach-new
+        info:    Looking up the VM "DB1"
+        info:    Looking up the storage account wtestvnetstorageprm
+        info:    New data disk location: https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/datadisk1-2.vhd
+        info:    Updating VM "DB1"
+        info:    vm disk attach-new command OK
+        info:    Executing command network nic create
+        info:    Looking up the network interface "NICDB2-DA"
+        info:    Creating network interface "NICDB2-DA"
+        info:    Looking up the network interface "NICDB2-DA"
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-DA
+        data:    Name                            : NICDB2-DA
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : chinanorth
+        data:    Provisioning state              : Succeeded
+        data:    Enable IP forwarding            : false
+        data:    IP configurations:
+        data:      Name                          : NIC-config
+        data:      Provisioning state            : Succeeded
+        data:      Private IP address            : 192.168.2.5
+        data:      Private IP Allocation Method  : Static
+        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+        data:
+        info:    network nic create command OK
+        info:    Executing command network nic create
+        info:    Looking up the network interface "NICDB2-RA"
+        info:    Creating network interface "NICDB2-RA"
+        info:    Looking up the network interface "NICDB2-RA"
+        data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-RA
+        data:    Name                            : NICDB2-RA
+        data:    Type                            : Microsoft.Network/networkInterfaces
+        data:    Location                        : chinanorth
+        data:    Provisioning state              : Succeeded
+        data:    Enable IP forwarding            : false
+        data:    Network security group          : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/networkSecurityGroups/NSG-RemoteAccess
+        data:    IP configurations:
+        data:      Name                          : NIC-config
+        data:      Provisioning state            : Succeeded
+        data:      Private IP address            : 192.168.2.55
+        data:      Private IP Allocation Method  : Static
+        data:      Subnet                        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory/providers/Microsoft.Network/virtualNetworks/WTestVNet/subnets/BackEnd
+        data:
+        info:    network nic create command OK
+        info:    Executing command vm create
+        info:    Looking up the VM "DB2"
+        info:    Using the VM Size "Standard_DS3"
+        info:    The [OS, Data] Disk or image configuration requires storage account
+        info:    Looking up the storage account wtestvnetstorageprm
+        info:    Looking up the availability set "ASDB"
+        info:    Found an Availability set "ASDB"
+        info:    Looking up the NIC "NICDB2-DA"
+        info:    Looking up the NIC "NICDB2-RA"
+        info:    Creating VM "DB2"
+        info:    vm create command OK
+        info:    Executing command vm disk attach-new
+        info:    Looking up the VM "DB2"
+        info:    Looking up the storage account wtestvnetstorageprm
+        info:    New data disk location: https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/datadisk2-1.vhd
+        info:    Updating VM "DB2"
+        info:    vm disk attach-new command OK
+        info:    Executing command vm disk attach-new
+        info:    Looking up the VM "DB2"
+        info:    Looking up the storage account wtestvnetstorageprm
+        info:    New data disk location: https://wtestvnetstorageprm.blob.core.chinacloudapi.cn/vhds/datadisk2-2.vhd
+        info:    Updating VM "DB2"
+        info:    vm disk attach-new command OK

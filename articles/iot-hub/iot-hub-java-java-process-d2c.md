@@ -224,7 +224,6 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 
 [lnk-classic-portal]: https://manage.windowsazure.cn
 [lnk-c2d]: ./iot-hub-java-java-process-d2c.md
-[lnk-suite]: /documentation/suites/iot-suite/
-
+[lnk-suite]: ../iot-suite/index.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-create-an-iot-hub]: ./iot-hub-java-java-getstarted.md#create-an-iot-hub

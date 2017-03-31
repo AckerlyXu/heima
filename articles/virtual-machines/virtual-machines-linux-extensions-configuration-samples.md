@@ -17,12 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2016
 wacn.date: ''
 ms.author: kundanap
----
 
+---
 # Linux VM extension configuration samples
 > [!div class="op_single_selector"]
->- [PowerShell - Template](./virtual-machines-windows-extensions-configuration-samples.md)
->- [CLI - Template](./virtual-machines-linux-extensions-configuration-samples.md)
+> * [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> 
+> 
 
 <br>
 
@@ -31,180 +33,162 @@ ms.author: kundanap
 
 This article provides sample configuration for configuring Azure VM extensions for Linux VMs.
 
-To learn more about these extensions click here : [Azure VM Extensions Overview.](./virtual-machines-windows-extensions-features.md)
+To learn more about these extensions click here : [Azure VM Extensions Overview.](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-To learn more about authoring extension templates click here : [Authoring Extension Templates.](./virtual-machines-windows-extensions-authoring-templates.md)
+To learn more about authoring extension templates click here : [Authoring Extension Templates.](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 This article lists expected configuration values for some of the Linux Extensions.
 
 ## Sample template snippet for VM Extensions.
 The template snippet for Deploying extensions looks as following:
 
-```
-  {
-  "type": "Microsoft.Compute/virtualMachines/extensions",
-  "name": "MyExtension",
-  "apiVersion": "2015-05-01-preview",
-  "location": "[parameters('location')]",
-  "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"],
-  "properties":
-  {
-  "publisher": "Publisher Namespace",
-  "type": "extension Name",
-  "typeHandlerVersion": "extension version",
-  "autoUpgradeMinorVersion":true,
-  "settings": {
-  // Extension specific configuration goes in here.
-  }
-  }
-  }
-```
+      {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "MyExtension",
+      "apiVersion": "2015-05-01-preview",
+      "location": "[parameters('location')]",
+      "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"],
+      "properties":
+      {
+      "publisher": "Publisher Namespace",
+      "type": "extension Name",
+      "typeHandlerVersion": "extension version",
+      "autoUpgradeMinorVersion":true,
+      "settings": {
+      // Extension specific configuration goes in here.
+      }
+      }
+      }
 
 ## Sample template snippet for VM Extensions with VM Scale Sets.
-```
-      {
-       "type":"Microsoft.Compute/virtualMachineScaleSets",
-      ....
-             "extensionProfile":{
-             "extensions":[
-               {
-                 "name":"extension Name",
-                 "properties":{
-                   "publisher":"Publisher Namespace",
-                   "type":"extension Name",
-                   "typeHandlerVersion":"extension version",
-                   "autoUpgradeMinorVersion":true,
-                   "settings":{
-                   // Extension specific configuration goes in here.
-                   }
-                 }
+          {
+           "type":"Microsoft.Compute/virtualMachineScaleSets",
+          ....
+                 "extensionProfile":{
+                 "extensions":[
+                   {
+                     "name":"extension Name",
+                     "properties":{
+                       "publisher":"Publisher Namespace",
+                       "type":"extension Name",
+                       "typeHandlerVersion":"extension version",
+                       "autoUpgradeMinorVersion":true,
+                       "settings":{
+                       // Extension specific configuration goes in here.
+                       }
+                     }
+                    }
+                  }
                 }
-              }
-            }
-```
 
 Before deploying the extension please check the latest extension version and replace the "typeHandlerVersion" with the current latest version.
 
 Rest of the article provides sample configurations for Linux VM Extensions.
 
 ### CloudLink SecureVM Agent
-```
-      {
-        "publisher": "CloudLinkEMC.SecureVM",
-        "type": "CloudLinkSecureVMLinuxAgent",
-        "typeHandlerVersion": "4.0",
-        "settings": {
-          "CloudLinkCenter" : "specify valid IP/FQDN to CloudLinkCenter"
-        }
-      }
-```
+          {
+            "publisher": "CloudLinkEMC.SecureVM",
+            "type": "CloudLinkSecureVMLinuxAgent",
+            "typeHandlerVersion": "4.0",
+            "settings": {
+              "CloudLinkCenter" : "specify valid IP/FQDN to CloudLinkCenter"
+            }
+          }
 
 ### CustomScript Extension for Linux.
-```
-{
-    "publisher": " Microsoft.Azure.Extensions",
-    "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
-    "autoUpgradeMinorVersion": true,
-    "settings": {
-        "fileUris": [
-            "http: //Yourstorageaccount.blob.core.chinacloudapi.cn/customscriptfiles/start.ps1"
-        ],
-        "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted-Filestart.ps1"
+    {
+        "publisher": " Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "fileUris": [
+                "http: //Yourstorageaccount.blob.core.chinacloudapi.cn/customscriptfiles/start.ps1"
+            ],
+            "commandToExecute": "powershell.exe-ExecutionPolicyUnrestricted-Filestart.ps1"
+        }
     }
-}
-```
 
 ### Datadog Agent
-```
-    {
-      "publisher": "Datadog.Agent",
-      "type": "DatadogLinuxAgent",
-      "typeHandlerVersion": "0.4",
-      "settings": {
-        "api_key" : "API Key from https://app.datadoghq.com/account/settings#api"
-      }
-    }
-```
+        {
+          "publisher": "Datadog.Agent",
+          "type": "DatadogLinuxAgent",
+          "typeHandlerVersion": "0.4",
+          "settings": {
+            "api_key" : "API Key from https://app.datadoghq.com/account/settings#api"
+          }
+        }
 
 ### Chef Agent
-```
-    {
-      "publisher": "Chef.Bootstrap.WindowsAzure",
-      "type": "CentosChefClient|LinuxChefClient",
-      "typeHandlerVersion": "1210.12",
-      "settings": {
-        "validation_key" : " Validation key",
-        "client_rb" : "client_rb file",
-        "runlist" : "Optional runlist"
-      }
-    }
-```
+        {
+          "publisher": "Chef.Bootstrap.WindowsAzure",
+          "type": "CentosChefClient|LinuxChefClient",
+          "typeHandlerVersion": "1210.12",
+          "settings": {
+            "validation_key" : " Validation key",
+            "client_rb" : "client_rb file",
+            "runlist" : "Optional runlist"
+          }
+        }
 
 ### VM Access Extension (Password Reset)
 For updated schema refer to the [VMAccessForLinux Documentation](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
-```
-    {
-      "publisher": "Microsoft.OSTCExtensions",
-      "type": "VMAccessForLinux",
-      "typeHandlerVersion": "1.2",
-      "protectedSettings": {
-        "username": "(required, string) the name of the user",
-        "password": "(optional, string) the password of the user",
-        "reset_ssh": "(optional, boolean) whether or not reset the ssh",
-        "ssh_key": "(optional, string) the public key of the user, base64 encoded pem",
-        "remove_user": "(optional, string) the user name to remove"
-      }
-    }
-```
+        {
+          "publisher": "Microsoft.OSTCExtensions",
+          "type": "VMAccessForLinux",
+          "typeHandlerVersion": "1.2",
+          "protectedSettings": {
+            "username": "(required, string) the name of the user",
+            "password": "(optional, string) the password of the user",
+            "reset_ssh": "(optional, boolean) whether or not reset the ssh",
+            "ssh_key": "(optional, string) the public key of the user, base64 encoded pem",
+            "remove_user": "(optional, string) the user name to remove"
+          }
+        }
 
 ### OS Patching
 For updated schema refer to the [OSPatching Documentation](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching)
 
-```
-    {
-    "publisher": "Microsoft.OSTCExtensions",
-    "type": "OSPatchingForLinux",
-    "typeHandlerVersion": "2.9",
-    "Settings": {
-      "disabled": false,
-      "stop": false,
-      "rebootAfterPatch": "RebootIfNeed|Required|NotRequired|Auto",
-      "category": "Important|ImportantAndRecommended",
-      "installDuration": "<hr:min>",
-      "oneoff": false,
-      "intervalOfWeeks": "<number>",
-      "dayOfWeek": "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Everyday",
-      "startTime": "<hr:min>",
-      "vmStatusTest": {
-          "local": false,
-          "idleTestScript": "<path_to_idletestscript>",
-          "healthyTestScript": "<path_to_healthytestscript>"
-      }
-    }
-    }
-```
+        {
+        "publisher": "Microsoft.OSTCExtensions",
+        "type": "OSPatchingForLinux",
+        "typeHandlerVersion": "2.9",
+        "Settings": {
+          "disabled": false,
+          "stop": false,
+          "rebootAfterPatch": "RebootIfNeed|Required|NotRequired|Auto",
+          "category": "Important|ImportantAndRecommended",
+          "installDuration": "<hr:min>",
+          "oneoff": false,
+          "intervalOfWeeks": "<number>",
+          "dayOfWeek": "Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Everyday",
+          "startTime": "<hr:min>",
+          "vmStatusTest": {
+              "local": false,
+              "idleTestScript": "<path_to_idletestscript>",
+              "healthyTestScript": "<path_to_healthytestscript>"
+          }
+        }
+        }
 
 ### Linux Diagnostics Extension
-```
-    {
-    "storageAccountName": "storage account to receive data",
-    "storageAccountKey": "key of the account",
-    "perfCfg": [
-    {
-        "query": "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
-        "table": "LinuxMemory"
-    }
-    ],
-    "fileCfg": [
-    {
-        "file": "/var/log/mysql.err",
-        "table": "mysqlerr"
-    }
-    ]
-    }
-```
+        {
+        "storageAccountName": "storage account to receive data",
+        "storageAccountKey": "key of the account",
+        "perfCfg": [
+        {
+            "query": "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+            "table": "LinuxMemory"
+        }
+        ],
+        "fileCfg": [
+        {
+            "file": "/var/log/mysql.err",
+            "table": "mysqlerr"
+        }
+        ]
+        }
 
 In the examples above, replace the version number with the latest version number.
 

@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 02/28/2017
 wacn.date: ''
 ms.author: jeffstok
----
 
+---
 # Get started using R Server on HDInsight
 HDInsight includes an R Server option to be integrated into your HDInsight cluster. This allows R scripts to use Spark and MapReduce to run distributed computations. In this document, you learn how to create an R Server on HDInsight cluster and then run an R script that demonstrates using Spark for distributed R computations.
 
@@ -29,15 +29,15 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
         The steps in this document assume that you are using a password. For information on how to create and use SSH keys with HDInsight, see the following documents:
 
-        * [Use SSH with HDInsight from Linux, Unix, or OS X clients](./hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Use SSH with HDInsight from Windows clients](./hdinsight-hadoop-linux-use-ssh-windows.md)
+        * [Use SSH with HDInsight from Linux, Unix, or OS X clients](hdinsight-hadoop-linux-use-ssh-unix.md)
+        * [Use SSH with HDInsight from Windows clients](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ### Access control requirements
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create the cluster
 > [!NOTE]
-> The steps in this document guide you through how to create an R Server on HDInsight cluster using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](./hdinsight-hadoop-provision-linux-clusters.md). To create an R Server using an Azure Resource Management template, see [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
+> The steps in this document guide you through how to create an R Server on HDInsight cluster using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). To create an R Server using an Azure Resource Management template, see [Deploy an R-server HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
 >
 > 
 
@@ -146,9 +146,7 @@ If you've chosen to include RStudio Server community edition in your installatio
 
 1. Either by going to the following URL (where **CLUSTERNAME** is the name of the cluster you've created): 
 
-    ```
-    https://**CLUSTERNAME**.azurehdinsight.cn/rstudio/
-    ```
+        https://**CLUSTERNAME**.azurehdinsight.cn/rstudio/
 
 2. Or by opening the entry for your cluster in the Azure portal preview, selecting the R Server Dashboards quick link and then selecting the R Studio Dashboard:
 
@@ -175,8 +173,8 @@ If you used a password to secure your SSH user account you will be prompted to e
 
 For more information on using SSH with Linux-based HDInsight, review the following articles:
 
-* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](./hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Use SSH with Linux-based Hadoop on HDInsight from Windows](./hdinsight-hadoop-linux-use-ssh-windows.md)
+* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 Once connected, you will arrive at a prompt similar to the following.
 
@@ -365,7 +363,7 @@ A compute context allows you to control whether computation will be performed lo
     ```
 
     > [!NOTE]
-    > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight](./hdinsight-hadoop-r-server-compute-contexts.md).
+    > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
     >
     >
 
@@ -405,7 +403,6 @@ The following provides some sample code on use of the new functions:
 myHadoopCluster <- rxSparkConnect(reset = TRUE)
 ```
 
-
 ```
 #..retrieve some sample data from Hive and run a model 
 
@@ -416,7 +413,6 @@ rxGetInfo(hiveData, getVarInfo = TRUE)
 rxLinMod(querydwelltime ~ devicemake, data=hiveData)
 ```
 
-
 ```
 #..retrieve some sample data from Parquet and run a model 
 
@@ -424,15 +420,14 @@ rxHadoopMakeDir('/share')
 rxHadoopCopyFromLocal(file.path(rxGetOption('sampleDataDir'), 'claimsParquet/'), '/share/')
 pqData <- RxParquetData('/share/claimsParquet',
                  colInfo = list(
-            age    = list(type = "factor"),
-           car.age = list(type = "factor"),
-              type = list(type = "factor")
-         ) )
+		    age    = list(type = "factor"),
+		   car.age = list(type = "factor"),
+		      type = list(type = "factor")
+		 ) )
 rxGetInfo(pqData, getVarInfo = TRUE)
 
 rxNaiveBayes(type ~ age + cost, data = pqData)
 ```
-
 
 ```
 #..check on Spark data objects, cleanup, and close the Spark session 
@@ -483,7 +478,7 @@ Script Actions are Bash scripts that are used to make configuration changes to t
     > [!NOTE]
     > 1. By default, all R packages are installed from a snapshot of the Microsoft MRAN repository consistent with the version of R Server that has been installed.  If you would like to install newer versions of packages then there is some risk of incompatibility, however this is possible by specifying `useCRAN` as the first element of the package list, for example `useCRAN bitops, stringr, arules`.  
     ><p> 2. Some R packages will require additional Linux system libraries. For convenience, we have pre-installed the dependencies needed by the top 100 most popular R packages. However, if the R package(s) you install require libraries beyond these then you must download the base script used here and add steps to install the system libraries. You must then upload the modified script to a public blob container in Azure storage and use the modified script to install the packages.
-    >    For more information on developing Script Actions, see [Script Action development](./hdinsight-hadoop-script-actions-linux.md).  
+    >    For more information on developing Script Actions, see [Script Action development](hdinsight-hadoop-script-actions-linux.md).  
     >
     >
 
@@ -604,6 +599,6 @@ Once all decommissioned worker nodes have been configured to run compute node, c
 ## Next steps
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
 
-* [Add RStudio Server to HDInsight (if not installed during cluster creation)](./hdinsight-hadoop-r-server-install-r-studio.md)
-* [Compute context options for R Server on HDInsight](./hdinsight-hadoop-r-server-compute-contexts.md)
-* [Azure Storage options for R Server on HDInsight](./hdinsight-hadoop-r-server-storage.md)
+* [Add RStudio Server to HDInsight (if not installed during cluster creation)](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
+* [Azure Storage options for R Server on HDInsight](hdinsight-hadoop-r-server-storage.md)

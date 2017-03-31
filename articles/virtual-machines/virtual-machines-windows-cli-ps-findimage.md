@@ -17,8 +17,8 @@ ms.workload: infrastructure
 ms.date: 08/23/2016
 wacn.date: ''
 ms.author: rasquill
----
 
+---
 # Navigate and select Windows virtual machine images in Azure with PowerShell
 This topic describes how to find VM image publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Windows VM images are:
 
@@ -127,4 +127,4 @@ Windows-Server-Technical-Preview
 From this list, copy the chosen SKU name, and you have all the information for the `Set-AzureRMVMSourceImage` PowerShell cmdlet or for a resource group template.
 
 ## Next steps
-Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the image information, which you just found, or to use a template with that image information, see [Create a Windows VM using Resource Manager and PowerShell](/documentation/articles/virtual-machines-windows-ps-create/).
+Now you can choose precisely the image you want to use. To create a virtual machine quickly by using the image information, which you just found, or to use a template with that image information, see [Create a Windows VM using Resource Manager and PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

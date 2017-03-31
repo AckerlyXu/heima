@@ -10,7 +10,7 @@ Most of the time authentication errors result from incorrect or inconsistent con
     * In Azure environment App settings for each API app and web app
     * In Azure AD application settings.
 
-        Note that if you copy an API app's URL from the portal, it often has `http://` and you have to manually change it to `https://`.
+    Note that if you copy an API app's URL from the portal, it often has `http://` and you have to manually change it to `https://`.
 * Make sure that any code changes were successfully deployed. For example, in a multiple-project solution it's possible to change a project's code and accidentally choose one of the others when you intend to deploy the change.
 * Make sure that you are going to HTTPS URLs in your browser, not HTTP URLs. By default, Visual Studio creates publish profiles with HTTP URLs, and that's what opens in the browser after you deploy a project.
 * For authentication to a JavaScript front end, make sure that CORS is correctly configured on the API app that the JavaScript code calls. If in doubt about whether the problem is CORS-related, try "\*" as the allowed origin URL. 

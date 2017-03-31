@@ -16,8 +16,8 @@ ms.workload: web
 ms.date: 08/31/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Authenticate with on-premises Active Directory in your Azure app
 This article shows you how to authenticate with on-premises Active Directory (AD) in 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md). An Azure app is hosted in the cloud, 
@@ -40,7 +40,7 @@ approach has the following advantages:
   with minimal changes to your code.
 
 To see how to write a line-of-business Azure app that authenticates with Azure Active Directory, see 
-[Create a line-of-business Azure app with Azure Active Directory authentication](./web-sites-dotnet-lob-application-azure-ad.md).
+[Create a line-of-business Azure app with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md).
 
 ## Authenticate through an on-premises STS
 If you have an on-premises secure token service (STS) like Active Directory Federation Services (AD FS), you can 
@@ -55,4 +55,4 @@ from being stored in Azure. However, note the following:
 * Access to on-premises AD data requires a separate solution through the corporate firewall.
 
 To see how to write a line-of-business Azure app that authenticates with an on-premises STS, see 
-[Create a line-of-business Azure app with AD FS authentication](./web-sites-dotnet-lob-application-adfs.md).
+[Create a line-of-business Azure app with AD FS authentication](web-sites-dotnet-lob-application-adfs.md).

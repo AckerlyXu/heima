@@ -188,11 +188,11 @@ For a data stream to display on the chart, its **Type** in the **Device-Info** m
 Now that you've seen how to use dynamic telemetry, you can learn more about how the preconfigured solutions use device information: [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo].
 
 [lnk-devinfo]: ./iot-suite-remote-monitoring-device-info.md
-[image1]: media/iot-suite-dynamic-telemetry/image1.png
-[image2]: media/iot-suite-dynamic-telemetry/image2.png
-[image3]: media/iot-suite-dynamic-telemetry/image3.png
-[image4]: media/iot-suite-dynamic-telemetry/image4.png
-[image5]: media/iot-suite-dynamic-telemetry/image5.png
+[image1]: ./media/iot-suite-dynamic-telemetry/image1.png
+[image2]: ./media/iot-suite-dynamic-telemetry/image2.png
+[image3]: ./media/iot-suite-dynamic-telemetry/image3.png
+[image4]: ./media/iot-suite-dynamic-telemetry/image4.png
+[image5]: ./media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-node]: http://nodejs.org

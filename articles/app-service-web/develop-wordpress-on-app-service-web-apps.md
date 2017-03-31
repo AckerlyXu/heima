@@ -17,7 +17,7 @@ ms.topic: article
 ms.date: 02/26/2016
 wacn.date: ''
 ms.author: sunbuild
----
 
+---
 # Developing WordPress on Azure App Service
 [!INCLUDE [app-service-blueprint-guide-for-wordpress](../../includes/app-service-blueprint-guide-for-wordpress.md)]

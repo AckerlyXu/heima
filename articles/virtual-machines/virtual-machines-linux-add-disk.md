@@ -20,7 +20,6 @@ wacn.date: ''
 ms.author: rasquill
 ms.custom: H1Hack27Feb2017
 ---
-
 # Add a disk to a Linux VM
 This article shows how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. 
 
@@ -102,7 +101,7 @@ az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a> Connect to the Linux VM to mount the new disk
 > [!NOTE]
-> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](./virtual-machines-linux-mac-create-ssh-keys.md). 
+> This topic connects to a VM using usernames and passwords. To use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 > 
 > 
 
@@ -316,7 +315,6 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-
 * In some cases the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
 
     **Ubuntu**
@@ -338,5 +336,5 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 
 ## Next Steps
 * Remember, that your new disk is not available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file.
-* To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](./virtual-machines-linux-optimization.md) recommendations.
-* Expand your storage capacity by adding additional disks and [configure RAID](./virtual-machines-linux-configure-raid.md) for additional performance.
+* To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) recommendations.
+* Expand your storage capacity by adding additional disks and [configure RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for additional performance.

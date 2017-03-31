@@ -17,20 +17,22 @@ ms.topic: article
 ms.date: 2/21/2017
 wacn.date: ''
 ms.author: juluk
----
 
+---
 # Deploy LAMP stack on Azure
-This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). You can also perform these steps with the [Azure CLI 1.0](./virtual-machines-linux-create-lamp-stack-nodejs.md).
+This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure account ([get a trial](https://www.azure.cn/pricing/1rmb-trial/)) and the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2). You can also perform these steps with the [Azure CLI 1.0](virtual-machines-linux-create-lamp-stack-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Quick command summary
 
 1. Save and edit the [azuredeploy.parameters.json file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) to your preference on your local machine.
 2. Run the following two commands to create a resource group and then deploy your template:
 
-    az group create -l chinanorth -n myResourceGroup
-    az group deployment create -g myResourceGroup \
-        --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
-        --parameters @filepathToParameters.json
+```azurecli
+az group create -l chinanorth -n myResourceGroup
+az group deployment create -g myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
+    --parameters @filepathToParameters.json
+```
 
 ### Deploy LAMP on existing VM
 The following commands updates packages, then installs Apache, MySQL, and PHP:
@@ -44,17 +46,20 @@ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 1. Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create) to contain the new VM:
 
-    az group create -l chinanorth -n myResourceGroup
-
+```azurecli
+az group create -l chinanorth -n myResourceGroup
+```
 To create the VM itself, you can use an already written Azure Resource Manager template found [here on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app).
 
 2. Save the [azuredeploy.parameters.json file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.parameters.json) to your local machine.
 3. Edit the **azuredeploy.parameters.json** file to your preferred inputs.
 4. Deploy the template with [az group deployment create] referencing the downloaded json file:
 
-    az group deployment create -g myResourceGroup \
-        --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
-        --parameters @filepathToParameters.json
+```azurecli
+az group deployment create -g myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json \
+    --parameters @filepathToParameters.json
+```
 
 The output is similar to the following example:
 
@@ -82,8 +87,8 @@ The output is similar to the following example:
 You have now created a Linux VM with LAMP already installed on it. If you wish, you can verify the install by jumping down to [Verify LAMP Successfully Installed](#verify-lamp-successfully-installed).
 
 ## Deploy LAMP on existing VM walkthrough
-If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli). 
-Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](./virtual-machines-linux-mac-create-ssh-keys.md).
+If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](/azure/virtual-machines/virtual-machines-linux-quick-create-cli). 
+Next, you need to SSH into the Linux VM. If you need help with creating an SSH key, you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 If you have an SSH key already, go ahead and SSH from your command line into your Linux VM with `ssh azureuser@mypublicdns.chinanorth.chinacloudapp.cn`.
 
 Now that you are working within your Linux VM, we can walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.

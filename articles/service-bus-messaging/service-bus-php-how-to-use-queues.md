@@ -30,6 +30,8 @@ The only requirement for creating a PHP application that accesses the Azure Blob
 
 > [!NOTE]
 > Your PHP installation must also have the [OpenSSL extension](http://php.net/openssl) installed and enabled.
+> 
+> 
 
 In this guide, you will use service features which can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
@@ -48,8 +50,10 @@ The following example shows how to include the autoloader file and reference the
 
 > [!NOTE]
 > This example (and other examples in this article) assumes you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you must reference the **WindowsAzure.php** autoloader file.
+> 
+> 
 
-```
+```php
 require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
@@ -75,7 +79,7 @@ To create any Azure service client you must use the `ServicesBuilder` class. You
 
 For the examples outlined here, the connection string will be passed directly.
 
-```
+```php
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
@@ -90,7 +94,7 @@ You can perform management operations for Service Bus queues via the `ServiceBus
 
 The following example shows how to instantiate a `ServiceBusRestProxy` and call `ServiceBusRestProxy->createQueue` to create a queue named `myqueue` within a `MySBNamespace` service namespace:
 
-```
+```php
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
@@ -118,12 +122,14 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > You can use the `listQueues` method on `ServiceBusRestProxy` objects to check if a queue with a specified name already exists within a namespace.
+> 
+> 
 
 ## How to: send messages to a queue
 To send a message to a Service Bus queue, your application calls the `ServiceBusRestProxy->sendQueueMessage` method. The following code shows how to send a message to the `myqueue` queue previously created within the
 `MySBNamespace` service namespace.
 
-```
+```php
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
@@ -165,7 +171,7 @@ In the default [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servic
 
 The following example shows how to receive and process a message using [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) mode (the default mode).
 
-```
+```php
 require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;

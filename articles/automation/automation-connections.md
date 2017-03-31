@@ -65,13 +65,11 @@ Create a new connection with Windows PowerShell using the [New-AzureAutomationCo
 
 The following sample commands create a new connection for [Twilio](http://www.twilio.com) which is a telephony service that allows you to send and receive text messages.  A sample integration module that includes a Twilio connection type is available in [Script Center](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8).  This connection type defines properties for Account SID and Authorization Token, which are required to validate your account when connecting to Twilio.  You must [download this module](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) and install it in your automation account for this sample code to work.
 
-```
-$AccountSid = "DAf5fed830c6f8fac3235c5b9d58ed7ac5"
-$AuthToken  = "17d4dadfce74153d5853725143c52fd1"
-$FieldValues = @{"AccountSid" = $AccountSid;"AuthToken"=$AuthToken}
+    $AccountSid = "DAf5fed830c6f8fac3235c5b9d58ed7ac5"
+    $AuthToken  = "17d4dadfce74153d5853725143c52fd1"
+    $FieldValues = @{"AccountSid" = $AccountSid;"AuthToken"=$AuthToken}
 
-New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
-```
+    New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
 
 ## Using a connection in a runbook
 You retrieve a connection in a runbook with the **Get-AutomationConnection** cmdlet.  This activity retrieves the values of the different fields in the connection and returns them as a [hash table](https://technet.microsoft.com/zh-cn/library/hh847780.aspx) which can then be used with the appropriate commands in the runbook.
@@ -80,7 +78,6 @@ You retrieve a connection in a runbook with the **Get-AutomationConnection** cmd
 
 The following sample commands show how to use the Run As account mentioned earlier, to authenticate with Azure Resource Manager resources in your runbook.  It uses the connection asset representing the Run As account, which references the certificate-based service principal, not credentials.  
 
-```
-$Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint
-```
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint
+

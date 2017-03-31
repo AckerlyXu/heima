@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 wacn.date: ''
 ms.author: kundanap
----
 
+---
 # Troubleshooting Azure Linux VM extension failures
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
@@ -29,36 +29,32 @@ Here is an example:
 
 Azure CLI:
 
-```
-  azure vm get-instance-view
-```
+      azure vm get-instance-view
 
 Here is the sample output:
 
-```
-Extensions:  {
-  "ExtensionType": "Microsoft.Compute.CustomScriptExtension",
-  "Name": "myCustomScriptExtension",
-  "SubStatuses": [
-    {
-      "Code": "ComponentStatus/StdOut/succeeded",
-      "DisplayStatus": "Provisioning succeeded",
-      "Level": "Info",
-      "Message": "    Directory: C:\\temp\\n\\n\\nMode                LastWriteTime     Length Name
-          \\n----                -------------     ------ ----                              \\n-a---          9/1/2015   2:03 AM         11
-          test.txt                          \\n\\n",
-                  "Time": null
-      },
-    {
-      "Code": "ComponentStatus/StdErr/succeeded",
-      "DisplayStatus": "Provisioning succeeded",
-      "Level": "Info",
-      "Message": "",
-      "Time": null
+      Extensions:  {
+      "ExtensionType": "Microsoft.Compute.CustomScriptExtension",
+      "Name": "myCustomScriptExtension",
+      "SubStatuses": [
+        {
+          "Code": "ComponentStatus/StdOut/succeeded",
+          "DisplayStatus": "Provisioning succeeded",
+          "Level": "Info",
+          "Message": "    Directory: C:\\temp\\n\\n\\nMode                LastWriteTime     Length Name
+              \\n----                -------------     ------ ----                              \\n-a---          9/1/2015   2:03 AM         11
+              test.txt                          \\n\\n",
+                      "Time": null
+          },
+        {
+          "Code": "ComponentStatus/StdErr/succeeded",
+          "DisplayStatus": "Provisioning succeeded",
+          "Level": "Info",
+          "Message": "",
+          "Time": null
+        }
+      ]
     }
-  ]
-}
-```
 
 ## Troubleshooting Extenson failures:
 ### Re-running the extension on the VM
@@ -66,9 +62,7 @@ If you are running scripts on the VM using Custom Script Extension, you could so
 Note: In future, this functionality would be enhanced to remove the need for uninstalling the extension.
 
 #### Remove the extension from Azure CLI
-```
-  azure vm extension set --resource-group "KPRG1" --vm-name "kundanapdemo" --publisher-name "Microsoft.Compute.CustomScriptExtension" --name "myCustomScriptExtension" --version 1.4 --uninstall
-```
+      azure vm extension set --resource-group "KPRG1" --vm-name "kundanapdemo" --publisher-name "Microsoft.Compute.CustomScriptExtension" --name "myCustomScriptExtension" --version 1.4 --uninstall
 
 Where "publsher-name" corresponds to the extension type from the output of "azure vm get-instance-view"
 and name is the name of the extension resource from the template

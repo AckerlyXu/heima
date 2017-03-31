@@ -4,7 +4,7 @@ When you create a website, Azure provides a friendly subdomain on the chinacloud
 Optionally, you can use Azure Traffic Manager to load balance incoming traffic to your website. For more information on how Traffic Manager works with Websites, see [Controlling Azure Web Sites Traffic with Azure Traffic Manager][trafficmanager].
 
 > [!NOTE]
-> The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
+> The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="https://www.azure.cn/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
 > 
 > [!NOTE]
 > The steps in this task require you to configure your websites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="https://www.azure.cn/pricing/details/web-sites/">Websites Pricing Details</a> for more information.
@@ -113,18 +113,14 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 1. Use one of these methods to find the **.azurewebsite.net** domain name assigned to your website.
 
     * Login to the [Azure Classic Management Portal][portal], select your website, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
-    * Install and configure [Azure Powershell](/documentation/articles/install-and-configure-windows-powershell/), and then use the following command:
+    * Install and configure [Azure Powershell](/azure/install-and-configure-windows-powershell/), and then use the following command:
+     
+            get-azurewebsite yoursitename | select hostnames
+    * Install and configure the [Azure Command Line Interface](/azure/install-and-configure-cli/), and then use the following command:
+     
+            azure site domain list yoursitename
 
-        ```
-        get-azurewebsite yoursitename | select hostnames
-        ```
-    * Install and configure the [Azure Command Line Interface](/documentation/articles/xplat-cli-install/), and then use the following command:
-
-        ```
-        azure site domain list yoursitename
-        ```
-
-        Save this **.azurewebsite.net** name, as it will be used in the following steps.
+    Save this **.azurewebsite.net** name, as it will be used in the following steps.
 2. Log on to your DNS registrar's website, and go to the page for managing DNS. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**.
 3. Now find where you can select or enter CNAME records. You may have to select the record type from a drop down, or go to an advanced settings page. You should look for the words **CNAME**, **Alias**, or **Subdomains**.
 4. You must also provide the domain or subdomain alias for the CNAME. For example, **www** if you want to create an alias for **www.customdomain.com**. If you want to create an alias for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
@@ -160,23 +156,17 @@ After the CNAME record for domain name has propagated, you must associate it wit
 
 **To add a domain name using the command-line tools**
 
-Install and configure the [Azure Command-Line Interface](/documentation/articles/xplat-cli-install/), and then use the following command:
+Install and configure the [Azure Command-Line Interface](/azure/install-and-configure-cli/), and then use the following command:
 
-```
-azure site domain add customdomain yoursitename
-```
+    azure site domain add customdomain yoursitename
 
 For example, the following will add a custom domain name of **www.contoso.com** to the **contoso.azurewebsite.net** website:
 
-```
-azure site domain add www.contoso.com contoso
-```
+    azure site domain add www.contoso.com contoso
 
 You can confirm that the custom domain name was added to the website by using the following command:
 
-```
-azure site domain list yoursitename
-```
+    azure site domain list yoursitename
 
 The list returned by this command should contain the custom domain name, as well as the default **.azurewebsite.net** entry.
 
@@ -256,23 +246,17 @@ After the **awverify** CNAME record for domain name has propagated, you can then
 
 **To add a domain name using the Azure Command-Line Interface (Azure CLI)**
 
-Install and configure the [Azure CLI](/documentation/articles/xplat-cli-install/), and then use the following command:
+Install and configure the [Azure CLI](/azure/install-and-configure-cli/), and then use the following command:
 
-```
-azure site domain add customdomain yoursitename
-```
+    azure site domain add customdomain yoursitename
 
 For example, the following will add a custom domain name of **contoso.com** to the **contoso.azurewebsite.net** website:
 
-```
-azure site domain add contoso.com contoso
-```
+    azure site domain add contoso.com contoso
 
 You can confirm that the custom domain name was added to the website by using the following command:
 
-```
-azure site domain list yoursitename
-```
+    azure site domain list yoursitename
 
 The list returned by this command should contain the custom domain name, as well as the default **.azurewebsite.net** entry.
 
@@ -295,8 +279,8 @@ Once configuration has completed, the custom domain name will be listed in the *
 > 
 
 ## Next steps
-* [How to manage web sites](/documentation/articles/web-sites-manage/)
-* [Configure an SSL certificate for Web Sites](../articles/app-service-web/web-sites-configure-ssl-certificate.md)
+* [How to manage web sites](/azure/app-service-web/web-sites-manage/)
+* [Configure an SSL certificate for Web Sites](/azure/app-service-web/web-sites-configure-ssl-certificate/)
 
 <!-- Bookmarks -->
 
@@ -311,7 +295,7 @@ Once configuration has completed, the custom domain name will be listed in the *
 [PricingDetails]: https://www.azure.cn/pricing/overview/
 [portal]: http://manage.windowsazure.cn
 [digweb]: http://www.digwebinterface.com/
-[cloudservicedns]: /documentation/articles/custom-dns/
+[cloudservicedns]: ../articles/custom-dns.md
 [trafficmanager]: ../articles/app-service-web/web-sites-traffic-manager.md
 [addendpoint]: ../articles/traffic-manager/traffic-manager-endpoints.md
 [createprofile]: ../articles/traffic-manager/traffic-manager-manage-profiles.md

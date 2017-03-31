@@ -65,7 +65,7 @@ To install the latest Azure CLI, follow these steps:
 
 You should see the following output if the installation is successful.
 
-![Output that indicates success](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_osx.png)
+![Output that indicates success](./media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_osx.png)
 
 ## Summary
 You've installed the Azure CLI. Your next task is to create your Azure IoT hub and device identity by using the Azure CLI.

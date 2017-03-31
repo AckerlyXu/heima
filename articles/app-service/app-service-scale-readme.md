@@ -1,5 +1,5 @@
 ---
-title: Azure App Service: Scaling App Service Applications
+title: 'Azure App Service: Scaling App Service Applications'
 description: Learn the ins and outs of scaling Application in App Service.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 services: app-service
@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 10/07/2016
 wacn.date: ''
 ms.author: byvinyal
----
 
+---
 # Azure App Service: Scaling App Service Applications
 Applications hosted in Azure App Service can achieve massive scale.
 However, scaling an application is a complex problem that does not have a "one 

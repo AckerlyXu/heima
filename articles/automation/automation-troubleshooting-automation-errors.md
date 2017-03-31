@@ -18,8 +18,8 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2017
 wacn.date: ''
 ms.author: sngun; v-reagie
----
 
+---
 # Troubleshooting common issues in Azure Automation 
 This article provides help troubleshooting common errors you might experience in Azure Automation and suggests possible solutions to resolve them.
 
@@ -37,13 +37,11 @@ In order to determine what's wrong, take the following steps:
 1. Make sure that you don't have any special characters, including the **@** character in the Automation credential asset name that you are using to connect to Azure.  
 2. Check that you can use the username and password that are stored in the Azure Automation credential in your local PowerShell ISE editor. You can do this by running the following cmdlets in the PowerShell ISE:  
 
-    ```
-    $Cred = Get-Credential  
-    #Using Azure Service Management   
-    Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred  
-    #Using Azure Resource Manager  
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
-    ```
+        $Cred = Get-Credential  
+        #Using Azure Service Management   
+        Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred  
+        #Using Azure Resource Manager  
+        Login-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
 3. If your authentication fails locally, this means that you haven't set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
 
 ### Scenario: Unable to find the Azure subscription
@@ -121,7 +119,7 @@ Any of the following solutions will fix the problem:
 This is by design behavior due to the "Fair Share" monitoring of processes within Azure Automation, which automatically suspends a runbook if it executes longer than 3 hours. However, the error message returned does not provide "what next" options. A runbook can be suspended for a number of reasons. Suspends happen mostly due to errors. For example, an uncaught exception in a runbook, a network failure, or a crash on the Runbook Worker running the runbook, will all cause the runbook to be suspended and start from its last checkpoint when resumed.
 
 **Troubleshooting tips:**
-The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more refer to [Learning PowerShell Workflows](./automation-powershell-workflow.md#checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+The documented solution to avoid this issue is to use Checkpoints in a workflow.  To learn more refer to [Learning PowerShell Workflows](automation-powershell-workflow.md#checkpoints).  A more thorough explanation of "Fair Share" and Checkpoint can be found in this blog article [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
 ## Common errors when importing modules
 ### Scenario: Module fails to import or cmdlets can't be executed after importing

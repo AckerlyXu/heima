@@ -19,7 +19,6 @@ wacn.date: ''
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
 ---
-
 # Access and security in Azure Resource Manager templates for Windows VMs
 
 Applications hosted in Azure likely need to be access over the internet or a VPN / Express Route connection with Azure. With the Music Store application sample, the web site is made available on the internet with a public IP address. With access established, connections to the application and access to the virtual machine resources themselves should be secured. This access security is provided with a Network Security Group. 
@@ -136,9 +135,9 @@ Here is what the network security group looks like from the Azure portal preview
 
 ![Network Security Group](./media/virtual-machines-windows-dotnet-core/nsg-win.png)
 
-For in-depth information on Network Security Groups, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md).
+For in-depth information on Network Security Groups, see [What is a Network Security Group](/azure/virtual-networks-nsg/).
 
 ## Next step
 <hr>
 
-[Step 3 - Availability and Scale in Azure Resource Manager Templates](./virtual-machines-windows-dotnet-core-4-availability-scale.md)
+[Step 3 - Availability and Scale in Azure Resource Manager Templates](virtual-machines-windows-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

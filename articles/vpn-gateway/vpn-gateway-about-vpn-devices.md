@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2017
 wacn.date: ''
 ms.author: yushwang;cherylmc
----
 
+---
 # About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections
 
 A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN connection using a VPN gateway. Site-to-Site connections can be used to create a hybrid solution, or whenever you want secure connections between your on-premises networks and your virtual networks. This article provides the list of IPsec/IKE parameters for Azure VPN gateways, and a list of validated VPN devices connecting to Azure VPN gateways.
@@ -38,7 +38,7 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 > When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                               
 
 ## <a name="devicetable"></a>Validated VPN devices
-We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](./vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure.
+We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure.
 
 To help configure your VPN device, refer to the links that correspond to appropriate device family. For VPN device support, contact your device manufacturer.
 

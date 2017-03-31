@@ -17,14 +17,14 @@ ms.topic: article
 ms.date: 08/08/2016
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Secure your app's custom domain with HTTPS
 
 This article shows you how to enable HTTPS for a web app, a mobile app backend, or an API app in 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md) that uses a custom domain name. 
 It covers server-only authentication. If you need mutual authentication (including client authentication), see 
-[How To Configure TLS Mutual Authentication for App Service](./app-service-web-configure-tls-mutual-auth.md).
+[How To Configure TLS Mutual Authentication for App Service](app-service-web-configure-tls-mutual-auth.md).
 
 To secure with HTTPS an app that has a custom domain name, you add a certificate for that domain
 name. By default, Azure secures the **\*.chinacloudsites.cn** wildcard domain with a single SSL certificate, 
@@ -46,9 +46,9 @@ To secure your custom domain name with HTTPS, you bind a custom SSL certificate 
 a custom certificate, you need to do the following:
 
 * **Configure the custom domain** - App Service only allows adding a certificate for a domain name that's already 
-  configured in your app. For instructions, see [Map a custom domain name to an Azure app](./web-sites-custom-domain-name.md). 
+  configured in your app. For instructions, see [Map a custom domain name to an Azure app](web-sites-custom-domain-name.md). 
 * **Scale up to Basic tier or higher** App Service plans in lower pricing tiers don't support custom SSL 
-  certificates. For instructions, see [Scale up an app in Azure](./web-sites-scale.md). 
+  certificates. For instructions, see [Scale up an app in Azure](web-sites-scale.md). 
 * **Get an SSL certificate** - If you do not already have one, you need to get one from a trusted 
   [certificate authority](http://zh.wikipedia.org/wiki/证书颁发机构) (CA). The certificate must meet all the
   following requirements:
@@ -92,28 +92,24 @@ to generate it:
 1. Create a file (e.g. **myrequest.txt**), and copy into it the following text, and save it in a working directory. 
    Replace the `<your-domain>` placeholder with the custom domain name of your app.
 
-    ```
-    [NewRequest]
-    Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
-    Exportable = TRUE
-    KeyLength = 2048              ; Required minimum is 2048
-    KeySpec = 1
-    KeyUsage = 0xA0
-    MachineKeySet = FALSE
-    ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
-    ProviderType = 12
-    HashAlgorithm = SHA256
+        [NewRequest]
+        Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
+        Exportable = TRUE
+        KeyLength = 2048              ; Required minimum is 2048
+        KeySpec = 1
+        KeyUsage = 0xA0
+        MachineKeySet = FALSE
+        ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
+        ProviderType = 12
+        HashAlgorithm = SHA256
 
-    [EnhancedKeyUsageExtension]
-    OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
-    ```
+        [EnhancedKeyUsageExtension]
+        OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
 
     For more information on the options in the CSR, and other available options, see the [Certreq reference documentation](https://technet.microsoft.com/zh-cn/library/dn296456.aspx).
 2. In a command prompt, `CD` into your working directory and run the following command to create the CSR:
 
-    ```
-    certreq -new myrequest.txt myrequest.csr
-    ```
+        certreq -new myrequest.txt myrequest.csr
 
     **myrequest.csr** is now created in your current working directory.
 3. Submit **myrequest.csr** to a CA to obtain an SSL certificate. You either upload the file, or copy its 
@@ -123,9 +119,7 @@ to generate it:
 4. Once the CA has responded to you with a certificate (.CER) file, save it in your working directory. Then,
    run the following command to complete the pending CSR.
 
-    ```
-    certreq -accept -user <certificate-name>.cer
-    ```
+        certreq -accept -user <certificate-name>.cer
 
     This command stores the finished certificate in the Windows certificate store.
 5. If your CA uses intermediate certificates, install them before you proceed. They usually come
@@ -190,24 +184,20 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 1. In a command-line terminal, `CD` into a working directory generate a private key and CSR by running the 
    following command:
 
-    ```
-    openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
-    ```
+        openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
 2. When prompted, enter the appropriate information. For example:
 
-    ```
-     Country Name (2 letter code)
-    State or Province Name (full name) []: Washington
-    Locality Name (eg, city) []: Redmond
-    Organization Name (eg, company) []: Microsoft
-    Organizational Unit Name (eg, section) []: Azure
-    Common Name (eg, YOUR name) []: www.microsoft.com
-    Email Address []:
+         Country Name (2 letter code)
+        State or Province Name (full name) []: Washington
+        Locality Name (eg, city) []: Redmond
+        Organization Name (eg, company) []: Microsoft
+        Organizational Unit Name (eg, section) []: Azure
+        Common Name (eg, YOUR name) []: www.microsoft.com
+        Email Address []:
 
-    Please enter the following 'extra' attributes to be sent with your certificate request
+        Please enter the following 'extra' attributes to be sent with your certificate request
 
-       A challenge password []:
-    ```
+           A challenge password []:
 
     When finished, you should have two files in your working directory: **myserver.key** and **server.csr**. 
     The **server.csr** contains the CSR, and you need **myserver.key** later.
@@ -216,32 +206,28 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
    directory. If your CA provides it in a text format, simply copy the content into **myserver.crt** in a text 
    editor and save it. Your file should look like the following:
 
-    ```
-    -----BEGIN CERTIFICATE-----
-    MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
-    UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
-    c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
-    NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
-    ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
-    ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
-    enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
-    3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
-    xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
-    ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
-    Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
-    AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
-    Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
-    F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
-    7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
-    lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
-    A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
-    -----END CERTIFICATE-----
-    ```
+        -----BEGIN CERTIFICATE-----
+        MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
+        UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
+        c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
+        NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
+        ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
+        ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
+        enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
+        3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
+        xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
+        ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
+        Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
+        AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
+        Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
+        F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
+        7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
+        lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
+        A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
+        -----END CERTIFICATE-----
 5. In the command-line terminal, run the following command to export **myserver.pfx** from **myserver.key** and **myserver.crt**:
 
-    ```
-    openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
-    ```
+        openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
     When prompted, define a password to secure the .pfx file.
 
@@ -262,56 +248,48 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 ### <a name="bkmk_subjectaltname"></a> Get a SubjectAltName certificate using OpenSSL
 1. Create a file named **sancert.cnf**, copy the following text into it, and save it in a working directory:
 
-    ```
-    # -------------- BEGIN custom sancert.cnf -----
-    HOME = .
-    oid_section = new_oids
-    [ new_oids ]
-    [ req ]
-    default_days = 730
-    distinguished_name = req_distinguished_name
-    encrypt_key = no
-    string_mask = nombstr
-    req_extensions = v3_req # Extensions to add to certificate request
-    [ req_distinguished_name ]
-    countryName = Country Name (2 letter code)
-    countryName_default =
-    stateOrProvinceName = State or Province Name (full name)
-    stateOrProvinceName_default =
-    localityName = Locality Name (eg, city)
-    localityName_default =
-    organizationalUnitName  = Organizational Unit Name (eg, section)
-    organizationalUnitName_default  =
-    commonName              = Your common name (eg, domain name)
-    commonName_default      = www.mydomain.com
-    commonName_max = 64
-    [ v3_req ]
-    subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
-    # -------------- END custom sancert.cnf -----
-    ```
+        # -------------- BEGIN custom sancert.cnf -----
+        HOME = .
+        oid_section = new_oids
+        [ new_oids ]
+        [ req ]
+        default_days = 730
+        distinguished_name = req_distinguished_name
+        encrypt_key = no
+        string_mask = nombstr
+        req_extensions = v3_req # Extensions to add to certificate request
+        [ req_distinguished_name ]
+        countryName = Country Name (2 letter code)
+        countryName_default =
+        stateOrProvinceName = State or Province Name (full name)
+        stateOrProvinceName_default =
+        localityName = Locality Name (eg, city)
+        localityName_default =
+        organizationalUnitName  = Organizational Unit Name (eg, section)
+        organizationalUnitName_default  =
+        commonName              = Your common name (eg, domain name)
+        commonName_default      = www.mydomain.com
+        commonName_max = 64
+        [ v3_req ]
+        subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
+        # -------------- END custom sancert.cnf -----
 
     In the line that begins with `subjectAltName`, replace the value with all domain names you want to secure (in addition to 
     `commonName`). For example:
 
-    ```
-    subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
-    ```
+        subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
 
     You do not need to change any other field, including `commonName`. You will be prompted to specify them in the next few steps.
 2. In a command-line terminal, `CD` into your working directory and run the following command:
 
-    ```
-    openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048 -config sancert.cnf
-    ```
+        openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048 -config sancert.cnf
 3. When prompted, enter the appropriate information. For example:
 
-    ```
-     Country Name (2 letter code) []: US
-    State or Province Name (full name) []: Washington
-    Locality Name (eg, city) []: Redmond
-    Organizational Unit Name (eg, section) []: Azure
-    Your common name (eg, domain name) []: www.microsoft.com
-    ```
+         Country Name (2 letter code) []: US
+        State or Province Name (full name) []: Washington
+        Locality Name (eg, city) []: Redmond
+        Organizational Unit Name (eg, section) []: Azure
+        Your common name (eg, domain name) []: www.microsoft.com
 
     Once finished, you should have two files in your working directory: **myserver.key** and **server.csr**. 
     The **server.csr** contains the CSR, and you need **myserver.key** later.
@@ -320,32 +298,28 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
    in a text format, simply copy the content into **myserver.crt** in a text editor and save it. The file 
    should look like the following:
 
-    ```
-    -----BEGIN CERTIFICATE-----
-    MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
-    UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
-    c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
-    NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
-    ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
-    ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
-    enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
-    3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
-    xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
-    ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
-    Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
-    AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
-    Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
-    F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
-    7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
-    lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
-    A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
-    -----END CERTIFICATE-----
-    ```
+        -----BEGIN CERTIFICATE-----
+        MIIDJDCCAgwCCQCpCY4o1LBQuzANBgkqhkiG9w0BAQUFADBUMQswCQYDVQQGEwJV
+        UzELMAkGA1UECBMCV0ExEDAOBgNVBAcTB1JlZG1vbmQxEDAOBgNVBAsTB0NvbnRv
+        c28xFDASBgNVBAMTC2NvbnRvc28uY29tMB4XDTE0MDExNjE1MzIyM1oXDTE1MDEx
+        NjE1MzIyM1owVDELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdS
+        ZWRtb25kMRAwDgYDVQQLEwdDb250b3NvMRQwEgYDVQQDEwtjb250b3NvLmNvbTCC
+        ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN96hBX5EDgULtWkCRK7DMM3
+        enae1LT9fXqGlbA7ScFvFivGvOLEqEPD//eLGsf15OYHFOQHK1hwgyfXa9sEDPMT
+        3AsF3iWyF7FiEoR/qV6LdKjeQicJ2cXjGwf3G5vPoIaYifI5r0lhgOUqBxzaBDZ4
+        xMgCh2yv7NavI17BHlWyQo90gS2X5glYGRhzY/fGp10BeUEgIs3Se0kQfBQOFUYb
+        ktA6802lod5K0OxlQy4Oc8kfxTDf8AF2SPQ6BL7xxWrNl/Q2DuEEemjuMnLNxmeA
+        Ik2+6Z6+WdvJoRxqHhleoL8ftOpWR20ToiZXCPo+fcmLod4ejsG5qjBlztVY4qsC
+        AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAVcM9AeeNFv2li69qBZLGDuK0NDHD3zhK
+        Y0nDkqucgjE2QKUuvVSPodz8qwHnKoPwnSrTn8CRjW1gFq5qWEO50dGWgyLR8Wy1
+        F69DYsEzodG+shv/G+vHJZg9QzutsJTB/Q8OoUCSnQS1PSPZP7RbvDV9b7Gx+gtg
+        7kQ55j3A5vOrpI8N9CwdPuimtu6X8Ylw9ejWZsnyy0FMeOPpK3WTkDMxwwGxkU3Y
+        lCRTzkv6vnHrlYQxyBLOSafCB1RWinN/slcWSLHADB6R+HeMiVKkFpooT+ghtii1
+        A9PdUQIhK9bdaFicXPBYZ6AgNVuGtfwyuS5V6ucm7RE6+qf+QjXNFg==
+        -----END CERTIFICATE-----
 6. In the command-line terminal, run the following command to export **myserver.pfx** from **myserver.key** and **myserver.crt**:
 
-    ```
-    openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
-    ```
+        openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
     When prompted, define a password to secure the .pfx file.
 
@@ -373,32 +347,28 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 1. Create a text file (e.g. **mycert.txt**), copy into it the following text, and save the file in a working directory. 
    Replace the `<your-domain>` placeholder with the custom domain name of your app.
 
-    ```
-    [NewRequest]
-    Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
-    Exportable = TRUE
-    KeyLength = 2048              ; KeyLength can be 2048, 4096, 8192, or 16384 (required minimum is 2048)
-    KeySpec = 1
-    KeyUsage = 0xA0
-    MachineKeySet = True
-    ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
-    ProviderType = 12
-    HashAlgorithm = SHA256
-    RequestType = Cert            ; Self-signed certificate
-    ValidityPeriod = Years
-    ValidityPeriodUnits = 1
+        [NewRequest]
+        Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
+        Exportable = TRUE
+        KeyLength = 2048              ; KeyLength can be 2048, 4096, 8192, or 16384 (required minimum is 2048)
+        KeySpec = 1
+        KeyUsage = 0xA0
+        MachineKeySet = True
+        ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
+        ProviderType = 12
+        HashAlgorithm = SHA256
+        RequestType = Cert            ; Self-signed certificate
+        ValidityPeriod = Years
+        ValidityPeriodUnits = 1
 
-    [EnhancedKeyUsageExtension]
-    OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
-    ```
+        [EnhancedKeyUsageExtension]
+        OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
 
     The important parameter is `RequestType = Cert`, which specifies a self-signed certificate. 
     For more information on the options in the CSR, and other available options, see the [Certreq reference documentation](https://technet.microsoft.com/zh-cn/library/dn296456.aspx).
 2. In the command prompt, `CD` to your working directory and run the following command:
 
-    ```
-    certreq -new mycert.txt mycert.crt
-    ```
+        certreq -new mycert.txt mycert.crt
 
     Your new self-signed certificate is now installed in the certificate store.
 3. To export the certificate from the certificate store, press `Win`+`R` and run **certmgr.msc** to launch Certificate Manager. 
@@ -433,51 +403,45 @@ You are now ready to upload the exported PFX file to App Service. See [Step 2. U
 1. Create a text file named **serverauth.cnf**, then copy the following content into it, and then save it 
    in a working directory:
 
-    ```
-    [ req ]
-    default_bits           = 2048
-    default_keyfile        = privkey.pem
-    distinguished_name     = req_distinguished_name
-    attributes             = req_attributes
-    x509_extensions        = v3_ca
+        [ req ]
+        default_bits           = 2048
+        default_keyfile        = privkey.pem
+        distinguished_name     = req_distinguished_name
+        attributes             = req_attributes
+        x509_extensions        = v3_ca
 
-    [ req_distinguished_name ]
-    countryName            = Country Name (2 letter code)
-    countryName_min            = 2
-    countryName_max            = 2
-    stateOrProvinceName        = State or Province Name (full name)
-    localityName            = Locality Name (eg, city)
-    0.organizationName        = Organization Name (eg, company)
-    organizationalUnitName        = Organizational Unit Name (eg, section)
-    commonName            = Common Name (eg, your app's domain name)
-    commonName_max            = 64
-    emailAddress            = Email Address
-    emailAddress_max        = 40
+        [ req_distinguished_name ]
+        countryName            = Country Name (2 letter code)
+        countryName_min            = 2
+        countryName_max            = 2
+        stateOrProvinceName        = State or Province Name (full name)
+        localityName            = Locality Name (eg, city)
+        0.organizationName        = Organization Name (eg, company)
+        organizationalUnitName        = Organizational Unit Name (eg, section)
+        commonName            = Common Name (eg, your app's domain name)
+        commonName_max            = 64
+        emailAddress            = Email Address
+        emailAddress_max        = 40
 
-    [ req_attributes ]
-    challengePassword        = A challenge password
-    challengePassword_min        = 4
-    challengePassword_max        = 20
+        [ req_attributes ]
+        challengePassword        = A challenge password
+        challengePassword_min        = 4
+        challengePassword_max        = 20
 
-    [ v3_ca ]
-     subjectKeyIdentifier=hash
-     authorityKeyIdentifier=keyid:always,issuer:always
-     basicConstraints = CA:false
-     keyUsage=nonRepudiation, digitalSignature, keyEncipherment
-     extendedKeyUsage = serverAuth
-    ```
+        [ v3_ca ]
+         subjectKeyIdentifier=hash
+         authorityKeyIdentifier=keyid:always,issuer:always
+         basicConstraints = CA:false
+         keyUsage=nonRepudiation, digitalSignature, keyEncipherment
+         extendedKeyUsage = serverAuth
 2. In a command-line terminal, `CD` into your working directory and run the following command:
 
-    ```
-    openssl req -sha256 -x509 -nodes -days 365 -newkey rsa:2048 -keyout myserver.key -out myserver.crt -config serverauth.cnf
-    ```
+        openssl req -sha256 -x509 -nodes -days 365 -newkey rsa:2048 -keyout myserver.key -out myserver.crt -config serverauth.cnf
 
     This command creates two files: **myserver.crt** (the self-signed certificate) and **myserver.key** (the private key), based on the settings in **serverauth.cnf**.
 3. Export the certificate to a .pfx file by running the following command:
 
-    ```
-    openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
-    ```
+        openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
     When prompted, define a password to secure the .pfx file.
 
@@ -520,22 +484,22 @@ bindings can work together on the existing shared IP address assigned to your ap
 Because of this dedicated IP address, you will need to configure your app
 further if:
 
-* You [used an A record to map your custom domain](./web-sites-custom-domain-name.md#a) to your Azure app, and
+* You [used an A record to map your custom domain](web-sites-custom-domain-name.md#a) to your Azure app, and
   you just added an **IP based SSL** binding. In this scenario, you need to remap the existing A record to point 
   to the dedicated IP address by following these steps:
 
     1. After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Custom domain** page under settings of your app, right above the **Hostnames** section. It will be listed as **External IP Address**
 
         ![Virtual IP address](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
-    2. [Remap the A record for your custom domain name to this new IP address](./web-sites-custom-domain-name.md#a).
+    2. [Remap the A record for your custom domain name to this new IP address](web-sites-custom-domain-name.md#a).
 * You already have one or more **SNI SSL** bindings in your app, and you just added an **IP based SSL** binding. 
   Once the binding is complete, your *&lt;appname>*.chinacloudsites.cn domain name points to the new IP address. 
-  Therefore, any existing [CNAME mapping from the custom domain](./web-sites-custom-domain-name.md#cname) to
+  Therefore, any existing [CNAME mapping from the custom domain](web-sites-custom-domain-name.md#cname) to
   *&lt;appname>*.chinacloudsites.cn, including the ones that the **SNI SSL** secure, also receives traffic
   on the new address, which is created for the **IP based SSL** only. In this scenario, you need to send the
   **SNI SSL** traffic back to the original shared IP address by following these steps:
 
-    1. Identify all [CNAME mappings of custom domains](./web-sites-custom-domain-name.md#cname) to your app that 
+    1. Identify all [CNAME mappings of custom domains](web-sites-custom-domain-name.md#cname) to your app that 
        has an **SNI SSL** binding.
     2. Remap each CNAME record to **sni.**&lt;appname>.chinacloudsites.cn instead of 
        &lt;appname>.chinacloudsites.cn.
@@ -557,7 +521,7 @@ regardless of the language framework of your app.
 > [!NOTE]
 > There is language-specific redirection of requests. ASP.NET MVC can use the 
 > [RequireHttps](http://msdn.microsoft.com/zh-cn/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in `web.config` (see 
-> [Deploy a secure ASP.NET MVC 5 app to a web app](./web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
+> [Deploy a secure ASP.NET MVC 5 app to a web app](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)).
 > 
 > 
 
@@ -577,26 +541,24 @@ Follow these steps:
    existing web.config, then you just need to copy the entire `<rule>` tag into your `web.config`'s 
    `configuration/system.webServer/rewrite/rules` element.
 
-    ```
-    <?xml version="1.0" encoding="UTF-8"?>
-    <configuration>
-      <system.webServer>
-        <rewrite>
-          <rules>
-            <!-- BEGIN rule TAG FOR HTTPS REDIRECT -->
-            <rule name="Force HTTPS" enabled="true">
-              <match url="(.*)" ignoreCase="false" />
-              <conditions>
-                <add input="{HTTPS}" pattern="off" />
-              </conditions>
-              <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-            </rule>
-            <!-- END rule TAG FOR HTTPS REDIRECT -->
-          </rules>
-        </rewrite>
-      </system.webServer>
-    </configuration>
-    ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <configuration>
+          <system.webServer>
+            <rewrite>
+              <rules>
+                <!-- BEGIN rule TAG FOR HTTPS REDIRECT -->
+                <rule name="Force HTTPS" enabled="true">
+                  <match url="(.*)" ignoreCase="false" />
+                  <conditions>
+                    <add input="{HTTPS}" pattern="off" />
+                  </conditions>
+                  <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
+                </rule>
+                <!-- END rule TAG FOR HTTPS REDIRECT -->
+              </rules>
+            </rewrite>
+          </system.webServer>
+        </configuration>
 
     This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user requests a page 
     using HTTP. It redirects from http://contoso.com to https://contoso.com.
@@ -613,11 +575,11 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 ## More Resources
 * [Azure Trust Center](https://www.azure.cn/support/trust-center/security/)
 * [Configuration options unlocked in Azure Web Sites](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-* [Enable diagnostic logging](./web-sites-enable-diagnostic-log.md)
-* [Configure web apps in Azure App Service](./web-sites-configure.md)
+* [Enable diagnostic logging](web-sites-enable-diagnostic-log.md)
+* [Configure web apps in Azure App Service](web-sites-configure.md)
 * [Azure Management Portal](https://manage.windowsazure.cn)
 
-[customdomain]: ./web-sites-custom-domain-name.md
+[customdomain]: web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/zh-cn/library/cc732906(WS.10).aspx
 [cas]: http://social.technet.microsoft.com/wiki/contents/articles/31634.microsoft-trusted-root-certificate-program-participants-v-2016-april.aspx
 [installcertiis]: http://technet.microsoft.com/zh-cn/library/cc771816(WS.10).aspx

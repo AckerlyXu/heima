@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: sdanie
----
 
+---
 # How to configure data persistence for a Premium Azure Redis Cache
 Azure Redis Cache has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. This article describes how to configure persistence in a premium Azure Redis Cache instance.
 
-For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](./cache-premium-tier-intro.md).
+For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md).
 
 ## What is data persistence?
 Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. This is a huge advantage over Basic or Standard tier where all the data is stored in memory and there can be potential data loss in case of a failure where Cache nodes are down. 
@@ -83,13 +83,13 @@ All backups except for the most recent one are automatically deleted. This delet
 
 ### <a name="what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation"></a> What happens if I have scaled to a different size and a backup is restored that was made before the scaling operation?
 * If you have scaled to a larger size, there is no impact.
-* If you have scaled to a smaller size, and you have a custom [databases](./cache-configure.md#databases) setting that is greater than the [databases limit](./cache-configure.md#databases) for your new size, data in those databases isn't be restored. For more information, see [Is my custom databases setting affected during scaling?](./cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
+* If you have scaled to a smaller size, and you have a custom [databases](cache-configure.md#databases) setting that is greater than the [databases limit](cache-configure.md#databases) for your new size, data in those databases isn't be restored. For more information, see [Is my custom databases setting affected during scaling?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
 * If you have scaled to a smaller size, and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy.
 
 ## Next steps
 Learn how to use more premium cache features.
 
-* [Introduction to the Azure Redis Cache Premium tier](./cache-premium-tier-intro.md)
+* [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md)
 
 <!-- IMAGES -->
 

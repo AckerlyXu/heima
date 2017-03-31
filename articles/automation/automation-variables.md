@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2017
 wacn.date: ''
 ms.author: magoedte;bwren
----
 
+---
 # Variable assets in Azure Automation
 
 Variable assets are values that are available to all runbooks in your automation account. They can be created, modified, and retrieved from the Azure Classic Management Portal, Windows PowerShell, and from within a runbook. Automation variables are useful for the following scenarios:
@@ -88,21 +88,17 @@ The [New-AzureAutomationVariable](http://msdn.microsoft.com/zh-cn/library/dn9137
 
 The following sample commands show how to create a variable of type string and then return its value.
 
-```
-New-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable' -Encrypted $false -Value 'My String'
-$string = (Get-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable').Value
-```
+    New-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable' -Encrypted $false -Value 'My String'
+    $string = (Get-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable').Value
 
 The following sample commands show how to create a variable with a complex type and then return its properties. In this case, a virtual machine object from **Get-AzureVM** is used.
 
-```
-$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
-New-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable" -Encrypted $false -Value $vm
+    $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
+    New-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable" -Encrypted $false -Value $vm
 
-$vmValue = (Get-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable").Value
-$vmName = $vmValue.Name
-$vmIpAddress = $vmValue.IpAddress
-```
+    $vmValue = (Get-AzureAutomationVariable -AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable").Value
+    $vmName = $vmValue.Name
+    $vmIpAddress = $vmValue.IpAddress
 
 ## Using a variable in a runbook
 
@@ -114,54 +110,45 @@ Use the **Set-AutomationVariable** activity to set the value of an Automation va
 
 The following sample commands show how to set and retrieve a variable in a textual runbook. In this sample, it is assumed that variables of type integer named *NumberOfIterations* and *NumberOfRunnings* and a variable of type string named *SampleMessage* have already been created.
 
-```
-$NumberOfIterations = Get-AutomationVariable -Name 'NumberOfIterations'
-$NumberOfRunnings = Get-AutomationVariable -Name 'NumberOfRunnings'
-$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
+    $NumberOfIterations = Get-AutomationVariable -Name 'NumberOfIterations'
+    $NumberOfRunnings = Get-AutomationVariable -Name 'NumberOfRunnings'
+    $SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
 
-Write-Output "Runbook has been run $NumberOfRunnings times."
+    Write-Output "Runbook has been run $NumberOfRunnings times."
 
-for ($i = 1; $i -le $NumberOfIterations; $i++) {
-   Write-Output "$i`: $SampleMessage"
-}
-Set-AutomationVariable -Name NumberOfRunnings -Value ($NumberOfRunnings += 1)
-```
+    for ($i = 1; $i -le $NumberOfIterations; $i++) {
+       Write-Output "$i`: $SampleMessage"
+    }
+    Set-AutomationVariable -Name NumberOfRunnings -Value ($NumberOfRunnings += 1)
 
 #### Setting and retrieving a complex object in a variable
 
 The following sample code shows how to update a variable with a complex value in a textual runbook. In this sample, an Azure virtual machine is retrieved with **Get-AzureVM** and saved to an existing Automation variable.  As explained in [Variable types](#variable-types), this is stored as a PSCustomObject.
 
-```
-$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
-Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
-```
+    $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
+    Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
 
 In the following code, the value is retrieved from the variable and used to start the virtual machine.
 
-```
-$vmObject = Get-AutomationVariable -Name "MyComplexVariable"
-if ($vmObject.PowerState -eq 'Stopped') {
-   Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
-}
-```
+    $vmObject = Get-AutomationVariable -Name "MyComplexVariable"
+    if ($vmObject.PowerState -eq 'Stopped') {
+       Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
+    }
 
 #### Setting and retrieving a collection in a variable
 
 The following sample code shows how to use a variable with a collection of complex values in a textual runbook. In this sample, multiple Azure virtual machines are retrieved with **Get-AzureVM** and saved to an existing Automation variable.  As explained in [Variable types](#variable-types), this is stored as a collection of PSCustomObjects.
 
-```
-$vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}     
-Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
-```
+    $vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}     
+    Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
 
 In the following code, the collection is retrieved from the variable and used to start each virtual machine.
 
-```
-$vmValues = Get-AutomationVariable -Name "MyComplexVariable"
-ForEach ($vmValue in $vmValues)
-{
-   if ($vmValue.PowerState -eq 'Stopped') {
-      Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
-   }
-}
-```
+    $vmValues = Get-AutomationVariable -Name "MyComplexVariable"
+    ForEach ($vmValue in $vmValues)
+    {
+       if ($vmValue.PowerState -eq 'Stopped') {
+          Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
+       }
+    }
+

@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 02/09/2017
 wacn.date: ''
 ms.author: nitinme
----
 
+---
 # Install and use Hue on HDInsight Hadoop clusters
 
 Learn how to install Hue on HDInsight clusters and use tunneling to route the requests to Hue.
 
 > [!IMPORTANT]
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## What is Hue?
 Hue is a set of Web applications used to interact with a Hadoop cluster. You can use Hue to browse the storage associated with a Hadoop cluster (WASB, in the case of HDInsight clusters), run Hive jobs and Pig scripts, etc. The following components are available with Hue installations on an HDInsight Hadoop cluster.
@@ -49,11 +49,11 @@ The script to install Hue on a Linux-based HDInsight cluster is available at htt
 This section provides instructions about how to use the script when provisioning the cluster using the Azure Portal Preview.
 
 > [!NOTE]
-> Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](./hdinsight-hadoop-customize-cluster-linux.md).
+> Azure PowerShell, the Azure CLI, the HDInsight .NET SDK, or Azure Resource Manager templates can also be used to apply script actions. You can also apply script actions to already running clusters. For more information, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 >
 >
 
-1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](./hdinsight-hadoop-provision-linux-clusters.md), but do not complete provisioning.
+1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md), but do not complete provisioning.
 
     > [!NOTE]
     > To install Hue on HDInsight clusters, the recommended headnode size is at least A4 (8 cores, 14 GB memory).
@@ -70,7 +70,7 @@ This section provides instructions about how to use the script when provisioning
     * **ZOOKEEPER**: Leave this blank.
     * **PARAMETERS**: Leave this blank.
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
-4. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](./hdinsight-hadoop-provision-linux-clusters.md).
+4. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## Use Hue with HDInsight clusters
 
@@ -81,25 +81,21 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 >
 >
 
-1. Use the information in [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](./hdinsight-linux-ambari-ssh-tunnel.md) to create an SSH tunnel from your client system to the HDInsight cluster, and then configure your Web browser to use the SSH tunnel as a proxy.
+1. Use the information in [Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) to create an SSH tunnel from your client system to the HDInsight cluster, and then configure your Web browser to use the SSH tunnel as a proxy.
 
 2. Once you have created an SSH tunnel and configured your browser to proxy traffic through it, you must find the host name of the primary head node. You can do this by connecting to the cluster using SSH on port 22. For example, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn` where **USERNAME** is your SSH user name and **CLUSTERNAME** is the name of your cluster.
 
     For more information on using SSH, see the following documents:
 
-    * [Use SSH with HDInsight from a Linux, Unix, or Mac OS X client](./hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Use SSH with HDInsight from a Windows client](./hdinsight-hadoop-linux-use-ssh-windows.md)
+    * [Use SSH with HDInsight from a Linux, Unix, or Mac OS X client](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Use SSH with HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
 3. Once connected, use the following command to obtain the fully qualified domain name of the primary headnode:
 
-    ```
-    hostname -f
-    ```
+        hostname -f
 
     This will return a name similar to the following:
 
-    ```
-    hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.chinacloudapp.cn
-    ```
+        hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.chinacloudapp.cn
 
     This is the hostname of the primary headnode where the Hue website is located.
 4. Use the browser to open the Hue portal at http://HOSTNAME:8888. Replace HOSTNAME with the name you obtained in the previous step.
@@ -139,9 +135,7 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 2. During installation, multiple Hadoop services (HDFS, YARN, MR2, Oozie) are restarted for updating the configuration. After the script finishes installing Hue, it might take some time for other Hadoop services to start up. This might affect Hue's performance initially. Once all services start up, Hue will be fully functional.
 3. Hue does not understand Tez jobs, which is the current default for Hive. If you want to use MapReduce as the Hive execution engine, update the script to use the following command in your script:
 
-    ```
-    set hive.execution.engine=mr;
-    ```
+         set hive.execution.engine=mr;
 
 4. With Linux clusters, you can have a scenario where your services are running on the primary headnode while the Resource Manager could be running on the secondary. Such a scenario might result in errors (shown below) when using Hue to view details of RUNNING jobs on the cluster. However, you can view the job details when the job has completed.
 
@@ -151,10 +145,10 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 5. Hue understands WebHDFS while HDInsight clusters use Azure Storage using `wasbs://`. So, the custom script used with script action installs WebWasb, which is a WebHDFS-compatible service for talking to WASB. So, even though the Hue portal says HDFS in places (like when you move your mouse over the **File Browser**), it should be interpreted as WASB.
 
 ## Next steps
-* [Install Giraph on HDInsight clusters](./hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
-* [Install Solr on HDInsight clusters](./hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
-* [Install R on HDInsight clusters](/documentation/articles/hdinsight-hadoop-r-scripts-linux/). Use cluster customization to install R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
+* [Install Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
+* [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
+* [Install R on HDInsight clusters](hdinsight-hadoop-r-scripts-linux.md). Use cluster customization to install R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
 
-[powershell-install-configure]: /documentation/articles/install-configure-powershell-linux/
-[hdinsight-provision]: /documentation/articles/hdinsight-provision-clusters-linux/
-[hdinsight-cluster-customize]: ./hdinsight-hadoop-customize-cluster-linux.md
+[powershell-install-configure]: install-configure-powershell-linux.md
+[hdinsight-provision]: hdinsight-provision-clusters-linux.md
+[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

@@ -17,8 +17,8 @@ ms.date: 03/15/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # User-defined routes and IP forwarding
 
 When you add virtual machines (VMs) to a virtual network (VNet) in Azure, you will notice that the VMs are able to communicate with each other over the network, automatically. You do not need to specify a gateway, even though the VMs are in different subnets. The same is true for communication from the VMs to the public Internet, and even to your on-premises network when a hybrid connection from Azure to your own datacenter is present.
@@ -85,7 +85,7 @@ Subnets rely on system routes until a route table is associated to the subnet. O
 2. BGP route (when ExpressRoute is used)
 3. System route
 
-To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](./virtual-network-create-udr-arm-template.md).
+To learn how to create user defined routes, see [How to Create Routes and Enable IP Forwarding in Azure](virtual-network-create-udr-arm-template.md).
 
 > [!IMPORTANT]
 > User defined routes are only applied to Azure VMs and cloud services. For instance, if you want to add a firewall virtual appliance between your on-premises network and Azure, you will have to create a user defined route for your Azure route tables that forwards all traffic going to the on-premises address space to the virtual appliance. You can also add a user defined route (UDR) to the GatewaySubnet to forward all traffic from on-premises to Azure through the virtual appliance. This is a recent addition.
@@ -106,5 +106,5 @@ As describe above, one of the main reasons to create a user defined route is to 
 This virtual appliance VM must be able to receive incoming traffic that is not addressed to itself. To allow a VM to receive traffic addressed to other destinations, you must enable IP Forwarding for the VM. This is an Azure setting, not a setting in the guest operating system.
 
 ## Next steps
-* Learn how to [create routes in the Resource Manager deployment model](./virtual-network-create-udr-arm-template.md) and associate them to subnets. 
-* Learn how to [create routes in the classic deployment model](./virtual-network-create-udr-classic-ps.md) and associate them to subnets.
+* Learn how to [create routes in the Resource Manager deployment model](virtual-network-create-udr-arm-template.md) and associate them to subnets. 
+* Learn how to [create routes in the classic deployment model](virtual-network-create-udr-classic-ps.md) and associate them to subnets.

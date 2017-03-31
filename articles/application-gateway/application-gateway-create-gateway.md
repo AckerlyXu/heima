@@ -17,19 +17,20 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 wacn.date: ''
 ms.author: gwallace
----
 
-# Create, start, or delete an application gateway with PowerShell
+---
+# Create, start, or delete an application gateway with PowerShell 
+
 > [!div class="op_single_selector"]
->- [Azure portal preview](./application-gateway-create-gateway-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-create-gateway-arm.md)
->- [Azure Classic PowerShell](./application-gateway-create-gateway.md)
->- [Azure Resource Manager template](./application-gateway-create-gateway-arm-template.md)
->- [Azure CLI](./application-gateway-create-gateway-cli.md)
+> * [Azure portal preview](application-gateway-create-gateway-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
+> * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+> * [Azure CLI](application-gateway-create-gateway-cli.md)
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
-To find a complete list of supported features, visit [Application Gateway Overview](./application-gateway-introduction.md)
+To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
 This article walks you through the steps to create, configure, start, and delete an application gateway.
 
@@ -61,7 +62,7 @@ To create an application gateway:
 3. Commit the configuration to the newly created application gateway resource.
 
 > [!NOTE]
-> If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](./application-gateway-create-probe-classic-ps.md). Check out [custom probes and health monitoring](./application-gateway-probe-overview.md) for more information.
+> If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
 
 ![Scenario example][scenario]
 
@@ -82,7 +83,6 @@ To validate that the gateway was created, you can use the `Get-AzureApplicationG
 ```powershell
 Get-AzureApplicationGateway AppGwTest
 ```
-
 
 ```
 Name          : AppGwTest
@@ -314,7 +314,6 @@ Add the front-end port to the configuration.
 $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
 $appgwconfig.FrontendPorts.Add($fep)
 ```
-
 Add the back-end server pool to the configuration.
 
 ```powershell
@@ -371,7 +370,6 @@ The following example shows an application gateway that is up, running, and read
 Get-AzureApplicationGateway AppGwTest
 ```
 
-
 ```
 VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
 VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -400,7 +398,6 @@ The following example shows the `Stop-AzureApplicationGateway` cmdlet on the fir
 Stop-AzureApplicationGateway AppGwTest
 ```
 
-
 ```
 VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
 VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
@@ -414,7 +411,6 @@ Once the application gateway is in a stopped state, use the `Remove-AzureApplica
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
 ```
-
 
 ```
 VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
@@ -430,7 +426,6 @@ To verify that the service has been removed, you can use the `Get-AzureApplicati
 Get-AzureApplicationGateway AppGwTest
 ```
 
-
 ```
 VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
@@ -440,13 +435,13 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure an application gateway for SSL offload](./application-gateway-ssl.md).
+If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
 
-If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](./application-gateway-ilb.md).
+If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
 
 If you want more information about load balancing options in general, see:
 
-* [Azure Load Balancer](../load-balancer/index.md)
-* [Azure Traffic Manager](../traffic-manager/index.md)
+* [Azure Load Balancer](/azure/load-balancer/)
+* [Azure Traffic Manager](/azure/traffic-manager/)
 
 [scenario]: ./media/application-gateway-create-gateway/scenario.png

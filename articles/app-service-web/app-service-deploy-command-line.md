@@ -1,5 +1,5 @@
 ---
-title: Automate deployment of your Azure app with command-line tools | Azure
+title: Automate deployment of your Azure app with command-line tools | Azure 
 description: Discover information on how you can deploy your Azure app from the command-line
 services: app-service
 documentationcenter: ''
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 01/05/2017
 wacn.date: ''
 ms.author: cephalin
----
 
+---
 # Automate deployment of your Azure app with command-line tools
 You can automate deployment of your Azure apps with command-line tools. This article lists available tools and the useful links that show you how to use them in your deployment workflow. 
 
@@ -34,9 +34,9 @@ You can perform MSBuild or FTP deployment functions from [Windows PowerShell](ht
 
 For more information, see the following resources:
 
-* [Deploy a web app linked to a GitHub repository](./app-service-web-arm-from-github-provision.md)
-* [Provision a web app with a SQL Database](./app-service-web-arm-with-sql-database-provision.md)
-* [Provision and deploy microservices predictably in Azure](./app-service-deploy-complex-application-predictably.md)
+* [Deploy a web app linked to a GitHub repository](app-service-web-arm-from-github-provision.md)
+* [Provision a web app with a SQL Database](app-service-web-arm-with-sql-database-provision.md)
+* [Provision and deploy microservices predictably in Azure](app-service-deploy-complex-application-predictably.md)
 * [Building Real-World Cloud Apps with Azure - Automate Everything](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). E-book chapter that explains how the sample application shown in the e-book uses Windows PowerShell scripts to create an Azure test environment and deploy to it. See the [Resources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) section for links to additional Azure PowerShell documentation.
 
 ## <a name="api"></a>Automate deployment with .NET management API

@@ -18,15 +18,15 @@ ms.date: 02/02/2016
 wacn.date: ''
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
----
 
+---
 # Create a VM with multiple NICs using a template
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](./virtual-network-deploy-multinic-classic-ps.md).
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Azure recommends for most new deployments instead of the [classic deployment model](virtual-network-deploy-multinic-classic-ps.md).
 > 
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
@@ -96,7 +96,7 @@ Before you deploy the template provided with this documentation, make sure you u
     },
     ```
 
-6. Notice the **vmSize** contains the value *Standard_DS3*. Only certain VM sizes allow for the use of multiple NICs. You can verify which VM sizes support multiple NICs by reading the [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) and [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) articles.
+6. Notice the **vmSize** contains the value *Standard_DS3*. Only certain VM sizes allow for the use of multiple NICs. You can verify which VM sizes support multiple NICs by reading the [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) articles.
 
 7. Scroll down to **resources** and notice the first element. It describes a storage account. This storage account will be used to maintain the data disks used by each database VM. In this scenario, each database VM has an OS disk stored in regular storage, and two data disks stored in SSD (premium) storage.
 
@@ -248,33 +248,31 @@ New-AzureRmResourceGroup -Name IaaSStory-Backend -Location chinanorth `
 
 Expected output:
 
-```
-ResourceGroupName : IaaSStory-Backend
-Location          : chinanorth
-ProvisioningState : Succeeded
-Tags              :
-Permissions       :
-                    Actions  NotActions
-                    =======  ==========
-                    *
-    Resources         :
-                    Name                 Type                                 Location
-                    ===================  ===================================  ========
-                    ASDB                 Microsoft.Compute/availabilitySets   chinanorth  
-                    DB1                  Microsoft.Compute/virtualMachines    chinanorth  
-                    DB2                  Microsoft.Compute/virtualMachines    chinanorth  
-                    NICDB-DA-1           Microsoft.Network/networkInterfaces  chinanorth  
-                    NICDB-DA-2           Microsoft.Network/networkInterfaces  chinanorth  
-                    NICDB-RA-1           Microsoft.Network/networkInterfaces  chinanorth  
-                    NICDB-RA-2           Microsoft.Network/networkInterfaces  chinanorth  
-                    wtestvnetstorageprm  Microsoft.Storage/storageAccounts    chinanorth  
-ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
-```
+	ResourceGroupName : IaaSStory-Backend
+	Location          : chinanorth
+	ProvisioningState : Succeeded
+	Tags              :
+	Permissions       :
+						Actions  NotActions
+						=======  ==========
+						*
+		Resources         :
+						Name                 Type                                 Location
+						===================  ===================================  ========
+						ASDB                 Microsoft.Compute/availabilitySets   chinanorth  
+						DB1                  Microsoft.Compute/virtualMachines    chinanorth  
+						DB2                  Microsoft.Compute/virtualMachines    chinanorth  
+						NICDB-DA-1           Microsoft.Network/networkInterfaces  chinanorth  
+						NICDB-DA-2           Microsoft.Network/networkInterfaces  chinanorth  
+						NICDB-RA-1           Microsoft.Network/networkInterfaces  chinanorth  
+						NICDB-RA-2           Microsoft.Network/networkInterfaces  chinanorth  
+						wtestvnetstorageprm  Microsoft.Storage/storageAccounts    chinanorth  
+	ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
 
 ## Deploy the template by using the Azure CLI
 To deploy the template by using the Azure CLI, follow the steps below.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](/documentation/articles/cli-install-nodejs/) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../cli-install-nodejs.md) and follow the instructions up to the point where you select your Azure account and subscription.
 2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
 
     ```azurecli
@@ -283,9 +281,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 
     The expected output follows:
 
-    ```
-    info:    New mode is arm
-    ```
+        info:    New mode is arm
 
 3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.
 4. Run the **`azure group deployment create`** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
@@ -296,19 +292,17 @@ To deploy the template by using the Azure CLI, follow the steps below.
 
     Expected output:
 
-    ```
-    info:    Executing command group create
-    + Getting resource group IaaSStory-Backend
-    + Creating resource group IaaSStory-Backend
-    info:    Created resource group IaaSStory-Backend
-    + Initializing template configurations and parameters
-    + Creating a deployment
-    info:    Created template deployment "azuredeploy"
-    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
-    data:    Name:                IaaSStory-Backend
-    data:    Location:            chinanorth
-    data:    Provisioning State:  Succeeded
-    data:    Tags: null
-    data:
-    info:    group create command OK
-    ```
+        info:    Executing command group create
+        + Getting resource group IaaSStory-Backend
+        + Creating resource group IaaSStory-Backend
+        info:    Created resource group IaaSStory-Backend
+        + Initializing template configurations and parameters
+        + Creating a deployment
+        info:    Created template deployment "azuredeploy"
+        data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/IaaSStory-Backend
+        data:    Name:                IaaSStory-Backend
+        data:    Location:            chinanorth
+        data:    Provisioning State:  Succeeded
+        data:    Tags: null
+        data:
+        info:    group create command OK

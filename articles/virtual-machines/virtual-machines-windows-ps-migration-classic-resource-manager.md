@@ -17,21 +17,21 @@ ms.topic: article
 ms.date: 03/14/2017
 wacn.date: ''
 ms.author: kasing
----
 
+---
 # Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell
 These steps show you how to use Azure PowerShell commands to migrate infrastructure as a service (IaaS) resources from the classic deployment model to the Azure Resource Manager deployment model. 
 
-If you want, you can also migrate resources by using the [Azure Command Line Interface (Azure CLI)](./virtual-machines-linux-cli-migration-classic-resource-manager.md).
+If you want, you can also migrate resources by using the [Azure Command Line Interface (Azure CLI)](virtual-machines-linux-cli-migration-classic-resource-manager.md).
 
-* For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](./virtual-machines-windows-migration-classic-resource-manager.md). 
-* For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](./virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
-* [Review most common migration errors](./virtual-machines-migration-errors.md)
+* For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md). 
+* For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
+* [Review most common migration errors](virtual-machines-migration-errors.md)
 
 ## Step 1: Plan for migration
 Here are a few best practices that we recommend as you evaluate migrating IaaS resources from classic to Resource Manager:
 
-* Read through the [supported and unsupported features and configurations](./virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the configuration/feature support to be announced. Alternatively, if it suits your needs, remove that feature or move out of that configuration to enable migration.
+* Read through the [supported and unsupported features and configurations](virtual-machines-windows-migration-classic-resource-manager.md). If you have virtual machines that use unsupported configurations or features, we recommend that you wait for the configuration/feature support to be announced. Alternatively, if it suits your needs, remove that feature or move out of that configuration to enable migration.
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal preview.
 
 > [!IMPORTANT]
@@ -47,7 +47,7 @@ For installation instructions, see [How to install and configure Azure PowerShel
 <br>
 
 ## Step 3: Ensure that you are co-administrator for the subscription in Azure Classic Management Portal
-To perform this migration, you must be added as co-administrator for the subscription in the [Azure Classic Management Portal](https://manage.windowsazure.cn/). This is required even if you are already added as owner in the [Azure portal preview](https://portal.azure.cn). Try to [add a co-administrator for the subscription in Azure Classic Management Portal](/documentation/articles/billing-add-change-azure-subscription-administrator/) to find out if you are co-administrator for the subscription. If you are not able to add a co-administrator then please contact a service administrator or co-administrator for the subscription to get yourself added.   
+To perform this migration, you must be added as co-administrator for the subscription in the [Azure Classic Management Portal](https://manage.windowsazure.cn/). This is required even if you are already added as owner in the [Azure portal preview](https://portal.azure.cn). Try to [add a co-administrator for the subscription in Azure Classic Management Portal](../billing-add-change-azure-subscription-administrator.md) to find out if you are co-administrator for the subscription. If you are not able to add a co-administrator then please contact a service administrator or co-administrator for the subscription to get yourself added.   
 
 ## Step 4: Set your subscription and sign up for migration
 First, start a PowerShell prompt. For migration, you need to set up your environment for both classic and Resource Manager.
@@ -159,7 +159,6 @@ Prepare the virtual machines in the cloud service for migration. You have two op
     Move-AzureService -Prepare -ServiceName $serviceName `
         -DeploymentName $deploymentName -CreateNewVirtualNetwork
     ```
-
 * **Option 2. Migrate to an existing virtual network in the Resource Manager deployment model**
 
     This example sets the resource group name to **myResourceGroup**, the virtual network name to **myVirtualNetwork** and the subnet name to **mySubNet**. Replace the names in the example with the names of your own resources.
@@ -261,8 +260,8 @@ Before you migrate the storage account, please perform preceding prerequisite ch
      $storageAccountName = 'yourStorageAccountName'
       Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
       DiskName | Format-List -Property RoleName, DiskName 
-    ```
 
+    ```
 * **Delete unattached classic VM disks stored in the storage account**
 
     Find unattached classic VM disks in the storage account using following command: 
@@ -270,6 +269,7 @@ Before you migrate the storage account, please perform preceding prerequisite ch
     ```powershell
         $storageAccountName = 'yourStorageAccountName'
         Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Format-List -Property DiskName  
+
     ```
 
     If above command returns disks then delete these disks using following command:
@@ -277,7 +277,6 @@ Before you migrate the storage account, please perform preceding prerequisite ch
     ```powershell
        Remove-AzureDisk -DiskName 'yourDiskName'
     ```
-
 * **Delete VM images stored in the storage account**
 
     Preceding command returns all the VM images with OS disk stored in the storage account.
@@ -290,6 +289,7 @@ Before you migrate the storage account, please perform preceding prerequisite ch
      Preceding command returns all the VM images with data disks stored in the storage account.
 
      ```powershell
+
         Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
                                          -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
                                         } | Select-Object -Property ImageName, ImageLabel
@@ -321,6 +321,6 @@ If the prepared configuration looks good, you can move forward and commit the re
 ```
 
 ## Next steps
-* For more information about migration, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](./virtual-machines-windows-migration-classic-resource-manager.md).
+* For more information about migration, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
 * To migrate additional network resources to Resource Manager using Azure PowerShell, use similar steps with [Move-AzureNetworkSecurityGroup](https://msdn.microsoft.com/zh-cn/library/mt786729.aspx), [Move-AzureReservedIP](https://msdn.microsoft.com/zh-cn/library/mt786752.aspx), and [Move-AzureRouteTable](https://msdn.microsoft.com/zh-cn/library/mt786718.aspx).
-* For open-source scripts you can use to migrate Azure resources from classic to Resource Manager, see [Community tools for migration to Azure Resource Manager migration](./virtual-machines-windows-migration-scripts.md)
+* For open-source scripts you can use to migrate Azure resources from classic to Resource Manager, see [Community tools for migration to Azure Resource Manager migration](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

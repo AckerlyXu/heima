@@ -72,7 +72,7 @@ Management operations for Service Bus messaging entities (queues and publish/sub
 
 The [NamespaceManager](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.aspx) class provides methods to create, enumerate and delete messaging entities. The code that is shown here shows how the [NamespaceManager](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.aspx) instance is created and used to create the **DataCollectionQueue** queue.
 
-```
+```csharp
 Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", 
                 "test-blog", string.Empty);
 string name = "RootManageSharedAccessKey";
@@ -91,7 +91,7 @@ Note that there are overloads of the [CreateQueue](https://msdn.microsoft.com/zh
 
 For run-time operations on Service Bus entities; for example, sending and receiving messages, an application must first create a [MessagingFactory](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) object. Similar to the [NamespaceManager](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.namespacemanager.aspx) class, the [MessagingFactory](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) instance is created from the base address of the service namespace and the token provider.
 
-```
+```csharp
  BrokeredMessage bm = new BrokeredMessage(salesData);
  bm.Label = "SalesReport";
  bm.Properties["StoreName"] = "Redmond";
@@ -102,7 +102,7 @@ Messages sent to, and received from Service Bus queues are instances of the [Bro
 
 The easiest way to send messages to a given queue, in our case the **DataCollectionQueue**, is to use [CreateMessageSender](https://msdn.microsoft.com/zh-cn/library/azure/hh322659.aspx) to create a [MessageSender](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagesender.aspx) object directly from the [MessagingFactory](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) instance.
 
-```
+```csharp
 MessageSender sender = factory.CreateMessageSender("DataCollectionQueue");
 sender.Send(bm);
 ```
@@ -121,7 +121,7 @@ Note that if the application crashes after it processes the message but before t
 
 The code that is shown here receives and processes a message using the **PeekLock** mode, which is the default if no [ReceiveMode](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.receivemode.aspx) value is explicitly provided.
 
-```
+```csharp
 MessageReceiver receiver = factory.CreateMessageReceiver("DataCollectionQueue");
 BrokeredMessage receivedMessage = receiver.Receive();
 try
@@ -139,7 +139,7 @@ catch (Exception e)
 
 The examples earlier in this section created [MessageSender](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagesender.aspx) and [MessageReceiver](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) objects directly from the [MessagingFactory](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) to send and receive messages from the queue, respectively. An alternative approach is to use the [QueueClient](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.servicebus.messaging.queueclient.aspx) class, which supports both send and receive operations in addition to more advanced features, such as sessions.
 
-```
+```csharp
 QueueClient queueClient = factory.CreateQueueClient("DataCollectionQueue");
 queueClient.Send(bm);
 

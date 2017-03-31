@@ -7,7 +7,6 @@ author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ROBOTS: NOINDEX
 
 ms.assetid: 3a63e216-4163-40c1-aa04-6b42fd0162ad
 ms.service: hdinsight
@@ -18,16 +17,17 @@ ms.topic: article
 ms.date: 10/05/2016
 wacn.date: ''
 ms.author: nitinme
----
+ROBOTS: NOINDEX
 
+---
 # Customize Windows-based HDInsight clusters using Script Action
-**Script Action** can be used to invoke [custom scripts](./hdinsight-hadoop-script-actions.md)
+**Script Action** can be used to invoke [custom scripts](hdinsight-hadoop-script-actions.md)
 during the cluster creation process for installing additional software on a cluster.
 
-The information in this article is specific to Windows-based HDInsight clusters. For Linux-based clusters, see [Customize Linux-based HDInsight clusters using Script Action](./hdinsight-hadoop-customize-cluster-linux.md).
+The information in this article is specific to Windows-based HDInsight clusters. For Linux-based clusters, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 > [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](./hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight Deprecation on Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 HDInsight clusters can be customized in a variety of other ways as well, such as including
 additional Azure Storage accounts, changing the Hadoop configuration files (core-site.xml,
@@ -74,14 +74,14 @@ HDInsight provides several scripts to install the following components on HDInsi
 | --- | --- |
 | **Install Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. See [Install and use Spark on HDInsight clusters][hdinsight-install-spark]. |
 | **Install R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. See [Install and use R on HDInsight clusters][hdinsight-install-r]. |
-| **Install Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. See [Install and use Solr on HDInsight clusters](./hdinsight-hadoop-solr-install.md). |
-| - **Install Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](./hdinsight-hadoop-giraph-install.md). |
-| **Pre-load Hive libraries** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. See [Add Hive libraries on HDInsight clusters](./hdinsight-hadoop-add-hive-libraries.md) |
+| **Install Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md). |
+| - **Install Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
+| **Pre-load Hive libraries** |https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. See [Add Hive libraries on HDInsight clusters](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## Call scripts using the Azure Portal Preview
 **From the Azure Portal Preview**
 
-1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](/documentation/articles/hdinsight-provision-clusters/).
+1. Start creating a cluster as described at [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 2. Under Optional Configuration, for the **Script Actions** blade, click **add script action** to provide details about the script action, as shown below:
 
     ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Use Script Action to customize a cluster")
@@ -104,85 +104,83 @@ HDInsight provides several scripts to install the following components on HDInsi
 ## <a name="call_scripts_using_powershell" id="call-scripts-using-azure-powershell"></a> Call scripts using Azure PowerShell
 This following PowerShell script demonstrates how to install Spark on Windows based HDInsight cluster.  
 
-```
-# Provide values for these variables
-$subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount -EnvironmentName AzureChinaCloud", use "Get-AzureRmSubscription" to list IDs.
+    # Provide values for these variables
+    $subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount -EnvironmentName AzureChinaCloud", use "Get-AzureRmSubscription" to list IDs.
 
-$nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
-$namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+    $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
+    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
 
-$resourceGroupName = $namePrefix + "rg"
-$location = "CHINA EAST" # used for creating resource group, storage account, and HDInsight cluster.
+    $resourceGroupName = $namePrefix + "rg"
+    $location = "CHINA EAST" # used for creating resource group, storage account, and HDInsight cluster.
 
-$hdinsightClusterName = $namePrefix + "spark"
-$httpUserName = "admin"
-$httpPassword = "<Enter a Password>"
+    $hdinsightClusterName = $namePrefix + "spark"
+    $httpUserName = "admin"
+    $httpPassword = "<Enter a Password>"
 
-$defaultStorageAccountName = "$namePrefix" + "store"
-$defaultBlobContainerName = $hdinsightClusterName
+    $defaultStorageAccountName = "$namePrefix" + "store"
+    $defaultBlobContainerName = $hdinsightClusterName
 
-#############################################################
-# Connect to Azure
-#############################################################
+    #############################################################
+    # Connect to Azure
+    #############################################################
 
-Try{
-    Get-AzureRmSubscription
-}
-Catch{
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-}
-Select-AzureRmSubscription -SubscriptionId $subscriptionID
+    Try{
+        Get-AzureRmSubscription
+    }
+    Catch{
+        Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+    }
+    Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
-#############################################################
-# Prepare the dependent components
-#############################################################
+    #############################################################
+    # Prepare the dependent components
+    #############################################################
 
-# Create resource group
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    # Create resource group
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 
-# Create storage account
-New-AzureRmStorageAccount `
-    -ResourceGroupName $resourceGroupName `
-    -Name $defaultStorageAccountName `
-    -Location $location `
-    -Type Standard_GRS
-$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
-                                -ResourceGroupName $resourceGroupName `
-                                -Name $defaultStorageAccountName)[0].Value
-$defaultStorageAccountContext = New-AzureStorageContext `
-                                -StorageAccountName $defaultStorageAccountName `
-                                -StorageAccountKey $storageAccountKey  
-New-AzureStorageContainer `
-    -Name $defaultBlobContainerName `
-    -Context $defaultStorageAccountContext
-
-#############################################################
-# Create cluster with ApacheSpark
-#############################################################
-
-# Specify the configuration options
-$config = New-AzureRmHDInsightClusterConfig `
-            -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
-            -DefaultStorageAccountKey $defaultStorageAccountKey
-
-# Add a script action to the cluster configuration
-$config = Add-AzureRmHDInsightScriptAction `
-            -Config $config `
-            -Name "Install Spark" `
-            -NodeType HeadNode `
-            -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 `
-
-# Start creating a cluster with Spark installed
-New-AzureRmHDInsightCluster `
+    # Create storage account
+    New-AzureRmStorageAccount `
         -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
+        -Name $defaultStorageAccountName `
         -Location $location `
-        -ClusterSizeInNodes 2 `
-        -ClusterType Hadoop `
-        -OSType Windows `
-        -DefaultStorageContainer $defaultBlobContainerName `
-        -Config $config
-```
+        -Type Standard_GRS
+    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+                                    -ResourceGroupName $resourceGroupName `
+                                    -Name $defaultStorageAccountName)[0].Value
+    $defaultStorageAccountContext = New-AzureStorageContext `
+                                    -StorageAccountName $defaultStorageAccountName `
+                                    -StorageAccountKey $storageAccountKey  
+    New-AzureStorageContainer `
+        -Name $defaultBlobContainerName `
+        -Context $defaultStorageAccountContext
+
+    #############################################################
+    # Create cluster with ApacheSpark
+    #############################################################
+
+    # Specify the configuration options
+    $config = New-AzureRmHDInsightClusterConfig `
+                -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
+                -DefaultStorageAccountKey $defaultStorageAccountKey
+
+    # Add a script action to the cluster configuration
+    $config = Add-AzureRmHDInsightScriptAction `
+                -Config $config `
+                -Name "Install Spark" `
+                -NodeType HeadNode `
+                -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 `
+
+    # Start creating a cluster with Spark installed
+    New-AzureRmHDInsightCluster `
+            -ResourceGroupName $resourceGroupName `
+            -ClusterName $hdinsightClusterName `
+            -Location $location `
+            -ClusterSizeInNodes 2 `
+            -ClusterType Hadoop `
+            -OSType Windows `
+            -DefaultStorageContainer $defaultBlobContainerName `
+            -Config $config
 
 To install other software, you will need to replace the script file in the script:
 
@@ -196,121 +194,115 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.
 
-    ```
-    Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager -Pre
-    Install-Package Microsoft.Azure.Management.HDInsight
-    ```
+        Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
+        Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight
 3. Use the following using statements in the Program.cs file:
 
-    ```
-    using System;
-    using System.Security;
-    using Microsoft.Azure;
-    using Microsoft.Azure.Management.HDInsight;
-    using Microsoft.Azure.Management.HDInsight.Models;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Microsoft.Rest;
-    using Microsoft.Rest.Azure.Authentication;
-    ```
+        using System;
+        using System.Security;
+        using Microsoft.Azure;
+        using Microsoft.Azure.Management.HDInsight;
+        using Microsoft.Azure.Management.HDInsight.Models;
+        using Microsoft.Azure.Management.ResourceManager;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
 4. Place the code in the class with the following:
 
-    ```
-    private static HDInsightManagementClient _hdiManagementClient;
+        private static HDInsightManagementClient _hdiManagementClient;
 
-    // Replace with your AAD tenant ID if necessary
-    private const string TenantId = UserTokenProvider.CommonTenantId;
-    private const string SubscriptionId = "<Your Azure Subscription ID>";
-    // This is the GUID for the PowerShell client. Used for interactive logins in this example.
-    private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    private static Uri BaseUri = new Uri("https://management.chinacloudapi.cn/");
-    private const string ResourceGroupName = "<ExistingAzureResourceGroupName>";
-    private const string NewClusterName = "<NewAzureHDInsightClusterName>";
-    private const int NewClusterNumWorkerNodes = 2;
-    private const string NewClusterLocation = "China East";
-    private const string NewClusterVersion = "3.2";
-    private const string ExistingStorageName = "<ExistingAzureStorageAccountName>";
-    private const string ExistingStorageKey = "<ExistingAzureStorageAccountKey>";
-    private const string ExistingContainer = "<ExistingAzureBlobStorageContainer>";
-    private const string NewClusterType = "Hadoop";
-    private const OSType NewClusterOSType = OSType.Windows;
-    private const string NewClusterUsername = "<HttpUserName>";
-    private const string NewClusterPassword = "<HttpUserPassword>";
+        // Replace with your AAD tenant ID if necessary
+        private const string TenantId = UserTokenProvider.CommonTenantId;
+        private const string SubscriptionId = "<Your Azure Subscription ID>";
+        // This is the GUID for the PowerShell client. Used for interactive logins in this example.
+        private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
+        private static Uri BaseUri = new Uri("https://management.chinacloudapi.cn/");
+        private const string ResourceGroupName = "<ExistingAzureResourceGroupName>";
+        private const string NewClusterName = "<NewAzureHDInsightClusterName>";
+        private const int NewClusterNumWorkerNodes = 2;
+        private const string NewClusterLocation = "China East";
+        private const string NewClusterVersion = "3.2";
+        private const string ExistingStorageName = "<ExistingAzureStorageAccountName>";
+        private const string ExistingStorageKey = "<ExistingAzureStorageAccountKey>";
+        private const string ExistingContainer = "<ExistingAzureBlobStorageContainer>";
+        private const string NewClusterType = "Hadoop";
+        private const OSType NewClusterOSType = OSType.Windows;
+        private const string NewClusterUsername = "<HttpUserName>";
+        private const string NewClusterPassword = "<HttpUserPassword>";
 
-    static void Main(string[] args)
-    {
-        System.Console.WriteLine("Running");
-
-        // Authenticate and get a token
-        var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
-        // Flag subscription for HDInsight, if it isn't already.
-        EnableHDInsight(authToken);
-        // Get an HDInsight management client
-        _hdiManagementClient = new HDInsightManagementClient(authToken, BaseUri);
-
-        CreateCluster();
-    }
-
-    private static void CreateCluster()
-    {
-        var parameters = new ClusterCreateParameters
+        static void Main(string[] args)
         {
-            ClusterSizeInNodes = NewClusterNumWorkerNodes,
-            Location = NewClusterLocation,
-            ClusterType = NewClusterType,
-            OSType = NewClusterOSType,
-            Version = NewClusterVersion,
+            System.Console.WriteLine("Running");
 
-            DefaultStorageAccountName = ExistingStorageName,
-            DefaultStorageAccountKey = ExistingStorageKey,
-            DefaultStorageContainer = ExistingContainer,
+            // Authenticate and get a token
+            var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
+            // Flag subscription for HDInsight, if it isn't already.
+            EnableHDInsight(authToken);
+            // Get an HDInsight management client
+            _hdiManagementClient = new HDInsightManagementClient(authToken, BaseUri);
 
-            UserName = NewClusterUsername,
-            Password = NewClusterPassword,
-        };
+            CreateCluster();
+        }
 
-        ScriptAction sparkScriptAction = new ScriptAction("Install Spark",
-            new Uri("https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1"), "");
+        private static void CreateCluster()
+        {
+            var parameters = new ClusterCreateParameters
+            {
+                ClusterSizeInNodes = NewClusterNumWorkerNodes,
+                Location = NewClusterLocation,
+                ClusterType = NewClusterType,
+                OSType = NewClusterOSType,
+                Version = NewClusterVersion,
 
-        parameters.ScriptActions.Add(ClusterNodeType.HeadNode, new System.Collections.Generic.List<ScriptAction> { sparkScriptAction });
-        parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { sparkScriptAction });
+                DefaultStorageAccountName = ExistingStorageName,
+                DefaultStorageAccountKey = ExistingStorageKey,
+                DefaultStorageContainer = ExistingContainer,
 
-        _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
-    }
+                UserName = NewClusterUsername,
+                Password = NewClusterPassword,
+            };
 
-    /// <summary>
-    /// Authenticate to an Azure subscription and retrieve an authentication token
-    /// </summary>
-    /// <param name="TenantId">The AAD tenant ID</param>
-    /// <param name="ClientId">The AAD client ID</param>
-    /// <param name="SubscriptionId">The Azure subscription ID</param>
-    /// <returns></returns>
-    static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
-    {
-        var authContext = new AuthenticationContext("https://login.chinacloudapi.cn/" + TenantId);
-        var tokenAuthResult = authContext.AcquireToken("https://management.core.chinacloudapi.cn/",
-            ClientId,
-            new Uri("urn:ietf:wg:oauth:2.0:oob"),
-            PromptBehavior.Always,
-            UserIdentifier.AnyUser);
-        return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
-    }
-    /// <summary>
-    /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
-    /// </summary>
-    /// <remarks>This is essentially a one-time action; if you have already done something with HDInsight
-    /// on your subscription, then this isn't needed at all and will do nothing.</remarks>
-    /// <param name="authToken">An authentication token for your Azure subscription</param>
-    static void EnableHDInsight(TokenCloudCredentials authToken)
-    {
-        // Create a client for the Resource manager and set the subscription ID
-        var resourceManagementClient = new ResourceManagementClient(BaseUri, new TokenCredentials(authToken.Token));
-        resourceManagementClient.SubscriptionId = SubscriptionId;
-        // Register the HDInsight provider
-        var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
-    }
-    ```
+            ScriptAction sparkScriptAction = new ScriptAction("Install Spark",
+                new Uri("https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1"), "");
+
+            parameters.ScriptActions.Add(ClusterNodeType.HeadNode, new System.Collections.Generic.List<ScriptAction> { sparkScriptAction });
+            parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { sparkScriptAction });
+
+            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+        }
+
+        /// <summary>
+        /// Authenticate to an Azure subscription and retrieve an authentication token
+        /// </summary>
+        /// <param name="TenantId">The AAD tenant ID</param>
+        /// <param name="ClientId">The AAD client ID</param>
+        /// <param name="SubscriptionId">The Azure subscription ID</param>
+        /// <returns></returns>
+        static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
+        {
+            var authContext = new AuthenticationContext("https://login.chinacloudapi.cn/" + TenantId);
+            var tokenAuthResult = authContext.AcquireToken("https://management.core.chinacloudapi.cn/",
+                ClientId,
+                new Uri("urn:ietf:wg:oauth:2.0:oob"),
+                PromptBehavior.Always,
+                UserIdentifier.AnyUser);
+            return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
+        }
+        /// <summary>
+        /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
+        /// </summary>
+        /// <remarks>This is essentially a one-time action; if you have already done something with HDInsight
+        /// on your subscription, then this isn't needed at all and will do nothing.</remarks>
+        /// <param name="authToken">An authentication token for your Azure subscription</param>
+        static void EnableHDInsight(TokenCloudCredentials authToken)
+        {
+            // Create a client for the Resource manager and set the subscription ID
+            var resourceManagementClient = new ResourceManagementClient(BaseUri, new TokenCredentials(authToken.Token));
+            resourceManagementClient.SubscriptionId = SubscriptionId;
+            // Register the HDInsight provider
+            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
+        }
 5. Press **F5** to run the application.
 
 ## Support for open-source software used on HDInsight clusters
@@ -318,7 +310,7 @@ The Azure HDInsight service is a flexible platform that enables you to build big
 
 There are two types of open-source components that are available in the HDInsight service:
 
-* **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, YARN ResourceManager, the Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight?](./hdinsight-component-versioning.md)</a>.
+* **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, YARN ResourceManager, the Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight?](hdinsight-component-versioning.md)</a>.
 * **Custom components** - You, as a user of the cluster, can install or use in your workload any component available in the community or created by you.
 
 Built-in components are fully supported, and Azure Support will help to isolate and resolve issues related to these components.
@@ -344,13 +336,13 @@ See [Develop Script Action scripts for HDInsight][hdinsight-write-script].
 * [Develop Script Action scripts for HDInsight][hdinsight-write-script]
 * [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
 * [Install and use R on HDInsight clusters][hdinsight-install-r]
-* [Install and use Solr on HDInsight clusters](./hdinsight-hadoop-solr-install.md).
-* [Install and use Giraph on HDInsight clusters](./hdinsight-hadoop-giraph-install.md).
+* [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
+* [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
-[hdinsight-install-spark]: /documentation/articles/hdinsight-hadoop-spark-install/
-[hdinsight-install-r]: ./hdinsight-hadoop-r-scripts.md
-[hdinsight-write-script]: ./hdinsight-hadoop-script-actions.md
-[hdinsight-provision-cluster]: /documentation/articles/hdinsight-provision-clusters/
+[hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
+[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
+[hdinsight-write-script]: hdinsight-hadoop-script-actions.md
+[hdinsight-provision-cluster]: hdinsight-provision-clusters.md
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"

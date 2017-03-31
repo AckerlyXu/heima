@@ -17,8 +17,8 @@ ms.workload: big-compute
 ms.date: 10/14/2016
 wacn.date: ''
 ms.author: danlep
----
 
+---
 # Add on-demand "burst" nodes to an HPC Pack cluster in Azure
 If you set up a [Microsoft HPC Pack](https://technet.microsoft.com/zh-cn/library/cc514029) cluster in Azure, you might want a way to quickly scale the cluster capacity up or down, without maintaining a set of preconfigured compute node VMs. This article shows you how to add on-demand "burst" nodes (worker role instances
 running in a cloud service) as compute resources to a
@@ -38,10 +38,10 @@ Pack](https://technet.microsoft.com/zh-cn/library/gg481749.aspx).
 
 ## Prerequisites
 * **HPC Pack head node deployed in an Azure VM** - You can use a stand-alone head node VM or one that is part of a larger cluster. To create a stand-alone head node, see [Deploy an HPC
-  Pack Head Node in an Azure VM](./virtual-machines-windows-hpcpack-cluster-headnode.md). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](./virtual-machines-windows-hpcpack-cluster-options.md).
+  Pack Head Node in an Azure VM](virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For automated HPC Pack cluster deployment options, see [Options to create and manage a Windows HPC cluster in Azure with Microsoft HPC Pack](virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
     > [!TIP]
-    > If you use the [HPC Pack IaaS deployment script](./virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster in Azure,
+    > If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) to create the cluster in Azure,
     > you can include Azure burst nodes in your automated
     > deployment. See the examples in that article.
     > 
@@ -103,7 +103,7 @@ Pack](http://technet.microsoft.com/zh-cn/library/jj159097.aspx).
 ## Next steps
 * If you want to
   automatically grow or shrink the Azure computing resources according to
-  the cluster workload, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](./virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+  the cluster workload, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png

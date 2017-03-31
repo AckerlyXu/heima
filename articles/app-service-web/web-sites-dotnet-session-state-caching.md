@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 wacn.date: ''
 ms.author: riande
----
 
+---
 # Session state with Azure Redis cache in Azure App Service
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
@@ -44,59 +44,53 @@ For more information see the [NuGet RedisSessionStateProvider page](http://www.n
 In addition to making assembly references for Cache, the NuGet package adds stub entries in the *web.config* file. 
 
 1. Open the *web.config* and find the the **sessionState** element.
-2. Enter the values for `host`, `accessKey`, `port` (the SSL port should be 6380), and set `SSL` to `true`. These values can be obtained from the [Azure Portal Preview](./app-service-web-app-azure-portal.md) blade for your cache instance. For more information, see [Connect to the cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Note that the non-SSL port is disabled by default for new caches. For more information about enabling the non-SSL port, see the [Access Ports](https://msdn.microsoft.com/zh-cn/library/azure/dn793612.aspx#AccessPorts) section in the [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/zh-cn/library/azure/dn793612.aspx) topic. The following markup shows the changes to the *web.config* file, specifically the changes to *port*, *host*, accessKey*, and *ssl*.
+2. Enter the values for `host`, `accessKey`, `port` (the SSL port should be 6380), and set `SSL` to `true`. These values can be obtained from the [Azure Portal Preview](/azure/app-service-web/app-service-web-app-azure-portal/) blade for your cache instance. For more information, see [Connect to the cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Note that the non-SSL port is disabled by default for new caches. For more information about enabling the non-SSL port, see the [Access Ports](https://msdn.microsoft.com/zh-cn/library/azure/dn793612.aspx#AccessPorts) section in the [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/zh-cn/library/azure/dn793612.aspx) topic. The following markup shows the changes to the *web.config* file, specifically the changes to *port*, *host*, accessKey*, and *ssl*.
 
-    ```
-      <system.web>;
-        <customErrors mode="Off" />;
-        <authentication mode="None" />;
-        <compilation debug="true" targetFramework="4.5" />;
-        <httpRuntime targetFramework="4.5" />;
-        <sessionState mode="Custom" customProvider="RedisSessionProvider">;
-          <providers>;  
-              <!--<add name="RedisSessionProvider" 
-                host = "127.0.0.1" [String]
-                port = "" [number]
-                accessKey = "" [String]
-                ssl = "false" [true|false]
-                throwOnError = "true" [true|false]
-                retryTimeoutInMilliseconds = "0" [number]
-                databaseId = "0" [number]
-                applicationName = "" [String]
-              />;-->;
-             <add name="RedisSessionProvider" 
-                  type="Microsoft.Web.Redis.RedisSessionStateProvider" 
-                  port="6380"
-                  host="movie2.redis.cache.chinacloudapi.cn" 
-                  accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
-                  ssl="true" />;
-          <!--<add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />;-->;
-          </providers>;
-        </sessionState>;
-      </system.web>;
-    ```
+          <system.web>;
+            <customErrors mode="Off" />;
+            <authentication mode="None" />;
+            <compilation debug="true" targetFramework="4.5" />;
+            <httpRuntime targetFramework="4.5" />;
+            <sessionState mode="Custom" customProvider="RedisSessionProvider">;
+              <providers>;  
+                  <!--<add name="RedisSessionProvider" 
+                    host = "127.0.0.1" [String]
+                    port = "" [number]
+                    accessKey = "" [String]
+                    ssl = "false" [true|false]
+                    throwOnError = "true" [true|false]
+                    retryTimeoutInMilliseconds = "0" [number]
+                    databaseId = "0" [number]
+                    applicationName = "" [String]
+                  />;-->;
+                 <add name="RedisSessionProvider" 
+                      type="Microsoft.Web.Redis.RedisSessionStateProvider" 
+                      port="6380"
+                      host="movie2.redis.cache.chinacloudapi.cn" 
+                      accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
+                      ssl="true" />;
+              <!--<add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />;-->;
+              </providers>;
+            </sessionState>;
+          </system.web>;
 
 ## <a id="usesessionobject"></a> Use the Session Object in Code
 The final step is to begin using the Session object in your ASP.NET code. You add objects to session state by using the **Session.Add** method. This method uses key-value pairs to store items in the session state cache.
 
-```
-string strValue = "yourvalue";
-Session.Add("yourkey", strValue);
-```
+    string strValue = "yourvalue";
+    Session.Add("yourkey", strValue);
 
 The following code retrieves this value from session state.
 
-```
-object objValue = Session["yourkey"];
-if (objValue != null)
-   strValue = (string)objValue;    
-```
+    object objValue = Session["yourkey"];
+    if (objValue != null)
+       strValue = (string)objValue;    
 
 You can also use the Redis Cache to cache objects in your web app. For more info, see [MVC movie app with Azure Redis Cache in 15 minutes](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
 For more details about how to use ASP.NET session state, see [ASP.NET Session State Overview][ASP.NET Session State Overview].
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](./app-service-changes-existing-services.md)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](/azure/app-service-web/app-service-changes-existing-services/)
 
 [installed the latest]: /downloads/?sdk=net  
 [ASP.NET Session State Overview]: http://msdn.microsoft.com/zh-cn/library/ms178581.aspx

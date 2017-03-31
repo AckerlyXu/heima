@@ -28,7 +28,7 @@ ms.author: xshi
 
 When you register your device in your IoT hub, the Azure IoT Hub service generates a key for your device to use to authenticate with the service. 
 
-If you have any problems, look for solutions on the [troubleshooting page](/documentation/articles/iot-hub-gateway-kit-c-troubleshooting.md).
+If you have any problems, look for solutions on the [troubleshooting page](./iot-hub-gateway-kit-c-troubleshooting.md).
 
 ## What you will learn
 

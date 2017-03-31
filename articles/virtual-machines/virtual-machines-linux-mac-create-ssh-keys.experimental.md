@@ -7,7 +7,6 @@ author: vlivech
 manager: timlt
 editor: ''
 tags: ''
-experiment_id: rasquill-ssh-20170308
 
 ms.assetid: 34ae9482-da3e-4b2d-9d0d-9d672aa42498
 ms.service: virtual-machines-linux
@@ -18,6 +17,8 @@ ms.topic: get-started-article
 ms.date: 03/08/2017
 wacn.date: ''
 ms.author: rasquill
+experiment_id: "rasquill-ssh-20170308"
+
 ---
 
 # Create an SSH public and private key pair for Linux VMs
@@ -241,8 +242,8 @@ When `ssh fedora22` is executed SSH first locates and loads any settings from th
 
 ## Next Steps
 
-Next up is to create Azure Linux VMs using the new SSH public key.  Azure VMs that are created with an SSH public key as the login are better secured than VMs created with the default login method, passwords.  Azure VMs created using SSH keys are by default configured with passwords disabled, avoiding brute-forced guessing attempts. If you need more assistance in creating your SSH key pair or require additional certificates, such as for use with the Classic Management Portal, see [Detailed steps to create SSH key pairs and certificates](./virtual-machines-linux-create-ssh-keys-detailed.md).
+Next up is to create Azure Linux VMs using the new SSH public key.  Azure VMs that are created with an SSH public key as the login are better secured than VMs created with the default login method, passwords.  Azure VMs created using SSH keys are by default configured with passwords disabled, avoiding brute-forced guessing attempts. If you need more assistance in creating your SSH key pair or require additional certificates, such as for use with the Classic Management Portal, see [Detailed steps to create SSH key pairs and certificates](virtual-machines-linux-create-ssh-keys-detailed.md).
 
-* [Create a secure Linux VM using an Azure template](./virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-* [Create a secure Linux VM using the Azure portal preview](./virtual-machines-linux-quick-create-portal.md)
-* [Create a secure Linux VM using the Azure CLI](./virtual-machines-linux-quick-create-cli.md)
+* [Create a secure Linux VM using an Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using the Azure portal preview](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using the Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
