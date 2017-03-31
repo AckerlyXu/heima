@@ -132,15 +132,11 @@ Now that you have the `oidlib-sample` running successfully, let's edit some endp
 ### Configure your client by editing the oidc_clientconf.xml file
 1. Because you are using OAuth2 flows only to get a token and call the Graph API, set the client to do OAuth2 only. OIDC will come in a later example.
 
-    xml
-
     ```xml
     <bool name="oidc_oauth2only">true</bool>
     ```
 
 2. Configure your client ID that you received from the registration portal.
-
-    xml
 
     ```xml
     <string name="oidc_clientId">86172f9d-a1ae-4348-aafa-7b3e5d1b36f5</string>
@@ -149,15 +145,11 @@ Now that you have the `oidlib-sample` running successfully, let's edit some endp
 
 3. Configure your redirect URI with the one below.
 
-    xml
-
     ```xml
     <string name="oidc_redirectUrl">https://login.microsoftonline.com/common/oauth2/nativeclient</string>
     ```
 
 4. Configure your scopes that you need in order to access the Graph API.
-
-    xml
 
     ```xml
     <string-array name="oidc_scopes">
@@ -175,8 +167,6 @@ If you'd like explanations about `openid` or `offline_access` as scopes in OpenI
 ### Configure your client endpoints by editing the oidc_endpoints.xml file
 
 - Open the `oidc_endpoints.xml` file and make the following changes:
-
-    xml
 
     ```xml
     <!-- Stores OpenID Connect provider endpoints. -->
@@ -198,8 +188,6 @@ These endpoints should never change if you are using OAuth2 as your protocol.
 ## Configure a Graph API call
 
 - Open the `HomeActivity.java` file and make the following changes:
-
-    Java
 
     ```Java
        //TODO: set your protected resource url

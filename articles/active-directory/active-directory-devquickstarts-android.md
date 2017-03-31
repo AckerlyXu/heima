@@ -130,8 +130,6 @@ cd ./azure-activedirectory-library-for-android/src
 #### Option 3: Binaries via Gradle
 You can get the binaries from Maven central repo. AAR package can be included as follows in your project in AndroidStudio:
 
-gradle
-
 ```gradle
     repositories {
         mavenCentral()
@@ -152,8 +150,6 @@ gradle
 
 #### Option 4: aar via Maven
 If you are using the m2e plugin in Eclipse, you can specify the dependency in your pom.xml file:
-
-xml
 
 ```xml
     <dependency>
@@ -192,17 +188,15 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
 
 4. Create an instance of AuthenticationContext at your main Activity. The details of this call are beyond the scope of this README, but you can get a good start by looking at the [Android Native Client Sample](https://github.com/AzureADSamples/NativeClient-Android). Below is an example, which uses SharedPreferences as default cache, and where Authority is in the form of `https://login.chinacloudapi.cn/yourtenant.partner.onmschina.cn`:
 
-    Java  
-
-    ```
+    ```Java
     mContext = new AuthenticationContext(MainActivity.this, authority, true);// mContext is a field in your activity
     ```
 
 5. Copy this code block to handle the end of AuthenticationActivity after user enters credentials and receives authorization code:
 
-    Java
+    
 
-    ```
+    ```Java
     @Override
      protected void onActivityResult(int requestCode, int resultCode, Intent data) {
          super.onActivityResult(requestCode, resultCode, data);
@@ -214,9 +208,7 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
 
 6. To ask for a token, you define a callback
 
-    Java
-
-    ```
+    ```Java
     private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
 
             @Override
@@ -250,9 +242,9 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
 
 7. Finally, ask for a token using that callback:
 
-    Java
+    
 
-    ```
+    ```Java
      mContext.acquireToken(MainActivity.this, resource, clientId, redirect, user_loginhint, PromptBehavior.Auto, "",
                     callback);
     ```
@@ -271,18 +263,18 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
 
     You can call **acquireTokenSilent** to handle caching, and token refresh. It provides sync version as well. It accepts userid as parameter.
 
-    java
+    
 
-    ```
+    ```java
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
 8. **Broker**:
    Microsoft Intune's Company portal app will provide the broker component. ADAL will use the broker account, if there is one user account is created at this authenticator and Developer choose not to skip it. Developer can skip the broker user with:
 
-    java
+    
 
-    ```
+    ```java
     AuthenticationSettings.Instance.setSkipBroker(true);
     ```
 
@@ -290,9 +282,9 @@ You can get the jar file from maven the repo and drop into the *libs* folder in 
 
        Current broker model is for one user. AuthenticationContext provides API method to get the broker user.
 
-       java
-
+       ```java
         String brokerAccount =  mContext.getBrokerUser(); //Broker user will be returned if account is valid.`
+       ```
 
        Your app manifest should have permissions to use AccountManager accounts: http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -317,16 +309,16 @@ Authority url needs STS instance and tenant name: https://login.chinacloudapi.cn
 ### Querying cache items
 ADAL provides Default cache in SharedPreferences with some simple cache query functions. You can get the current cache from AuthenticationContext with:
 
-Java
 
-```
+
+```Java
 ITokenCacheStore cache = mContext.getCache();
 ```
 
 You can also provide your cache implementation, if you want to customize it.
-Java
 
-```
+
+```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -338,9 +330,9 @@ ADAL provides option to specifiy prompt behavior. PromptBehavior.Auto will pop u
 
 This method does not use UI pop up and not require an activity. It will return token from cache if available. If token is expired, it will try to refresh it. If refresh token is expired or failed, it will return AuthenticationException.
 
-Java
 
-```
+
+```Java
 Future<AuthenticationResult> result = mContext.acquireTokenSilent(resource, clientid, userId, callback );
 ```
 
@@ -361,9 +353,9 @@ This is obviously the first diagnostic. We try to provide helpful error messages
 #### Logs
 You can configure the library to generate log messages that you can use to help diagnose issues. You configure logging by making the following call to configure a callback that ADAL will use to hand off each log message as it is generated.
 
-Java
 
-```
+
+```Java
 Logger.getInstance().setExternalLogger(new ILogger() {
     @Override
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) {
@@ -376,9 +368,9 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 
 Messages can be written to a custom log file as seen below. Unfortunately, there is no standard way of getting logs from a device. There are some services that can help you with this. You can also invent your own, such as sending the file to a server.
 
-Java
 
-```
+
+```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
    File directory = ctx.getDir(ctx.getPackageName(), Context.MODE_PRIVATE);
    File logFile = new File(directory, "logfile");
@@ -397,9 +389,9 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 - Verbose(More details)
 
 You set the log level like this:
-Java
 
-```
+
+```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 ```
 
@@ -429,9 +421,9 @@ AuthenticationParameters class provides functionality to get the authorization_u
 ### Session cookies in Webview
 Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
 
-java
 
-```
+
+```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();

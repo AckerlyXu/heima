@@ -64,8 +64,6 @@ Now that you have an application in Azure AD, you can install adal.js and write 
   - Download [adal-angular.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/master/lib/adal-angular.js) and add it to the `App/Scripts/` project directory.
   - Load each script before the end of the `</body>` in `index.html`:
 
-    js
-
     ```js
     ...
     <script src="App/Scripts/adal.js"></script>
@@ -82,8 +80,6 @@ Adal.js has been built to integrate with AngularJS route and http providers, whi
 
 - In `App/Scripts/app.js`, bring in the adal.js module:
 
-    js
-
     ```js
     angular.module('todoApp', ['ngRoute','AdalAngular'])
     .config(['$routeProvider','$httpProvider', 'adalAuthenticationServiceProvider',
@@ -92,8 +88,6 @@ Adal.js has been built to integrate with AngularJS route and http providers, whi
     ```
 
 - You can now initialize the `adalProvider` with the configuration values of your application registration, also in `App/Scripts/app.js`:
-
-    js
 
     ```js
     adalProvider.init(
@@ -110,8 +104,6 @@ Adal.js has been built to integrate with AngularJS route and http providers, whi
 
 - Now to secure the `TodoList` view in the app, only one line of code is necessary - `requireADLogin`.
 
-    js
-
     ```js
     ...
     }).when("/TodoList", {
@@ -124,8 +116,6 @@ Adal.js has been built to integrate with AngularJS route and http providers, whi
 You now have a secure single page application with the ability to sign users in and issue Bearer token protected requests to its backend API.  When a user clicks the `TodoList` link, adal.js will automatically redirect to Azure AD for sign in if necessary.  In addition, adal.js will automatically attach an access_token to any ajax requests that are sent to the application's backend.  The above is the bare minimum necessary to build a SPA with adal.js - but there are a number of other features that are useful in SPAs:
 
 - To explicitly issue sign in and sign out requests you can define functions in your controllers that invoke adal.js.  In `App/Scripts/homeCtrl.js`:
-
-    js
 
     ```js
     ...
@@ -140,8 +130,6 @@ You now have a secure single page application with the ability to sign users in 
 
 - You might also want to present user information in the app's UI.  The adal service has already been added to the `userDataCtrl` controller, so you can access the `userInfo` object in the associated view, `App/Views/UserData.html`:
 
-    js
-
     ```js
     <p>{{userInfo.userName}}</p>
     <p>aud:{{userInfo.profile.aud}}</p>
@@ -150,8 +138,6 @@ You now have a secure single page application with the ability to sign users in 
     ```
 
 - There are also many scenarios in which you will want to know if the user is signed in or not.  You can also use the `userInfo` object to gather this information.  For instance, in `index.html` you can show either the "Login" or "Logout" button based on authentication status:
-
-    js
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

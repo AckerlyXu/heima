@@ -97,7 +97,7 @@ The following additional configuration entries have been added.
 ```
 <appSettings>
     <add key="ida:Password" value="Your Azure AD App's new password" />
-</appSettings>`
+</appSettings>
 ```
 
 ### Your Azure Active Directory App was updated

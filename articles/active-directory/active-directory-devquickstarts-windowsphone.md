@@ -88,8 +88,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
 - The first step is to initialize your app’s `AuthenticationContext` - ADAL’s primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
 
-    C#
-
     ```C#
     public MainPage()
     {
@@ -101,8 +99,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
     ```
 
 - Now locate the `Search(...)` method, which will be invoked when the user cliks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
-
-    C#
 
     ```C#
     private async void Search(object sender, RoutedEventArgs e)
@@ -128,8 +124,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
 - If interactive authentication is necessary, ADAL will use Windows Phone's Web Authentication Broker (WAB) and [continuation model](http://www.cloudidentity.com/blog/2014/06/16/adal-for-windows-phone-8-1-deep-dive/) to display the Azure AD sign in page.  When the user signs in, your app needs to pass ADAL the results of the WAB interaction.  This is as simple as implementing the `ContinueWebAuthentication` interface:
 
-    C#
-
     ```C#
     // This method is automatically invoked when the application
     // is reactivated after an authentication interaction through WebAuthenticationBroker.
@@ -142,8 +136,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
     ```
 
 - Now it's time to use the `AuthenticationResult` that ADAL returned to your app.  In the `QueryGraph(...)` callback, attach the access_token you acquired to the GET request in the Authorization header:
-
-    C#
 
     ```C#
     private async void QueryGraph(AuthenticationResult result)
@@ -163,16 +155,12 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
 - You can also use the `AuthenticationResult` object to display information about the user in your app. In the `QueryGraph(...)` method, use the result to show the user's id on the page:
 
-    C#
-
     ```C#
     // Update the Page UI to represent the signed in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
     ```
 
 - Finally, you can use ADAL to sign the user out of hte application as well.  When the user clicks the "Sign Out" button, we want to ensure that the next call to `AcquireTokenSilentAsync(...)` will fail.  With ADAL, this is as easy as clearing the token cache:
-
-    C#
 
     ```C#
     private void SignOut()

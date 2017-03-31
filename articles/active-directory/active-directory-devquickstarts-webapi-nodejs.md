@@ -104,8 +104,6 @@ When using npm on some operating systems, you may receive an error of Error: EPE
 #### DID YOU GET AN ERROR REGARDING DTRACE?
 You may see something like this when installing Restify:
 
-Shell
-
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
 make: *** [Release/DTraceProviderBindings.node] Error 1
@@ -233,8 +231,6 @@ cd azuread
 
 Create a `server.js` file in our favorite editor and add the following information:
 
-Javascript
-
 ```Javascript
     'use strict';
 
@@ -268,8 +264,6 @@ cd azuread
 
 Create a `config.js` file in our favorite editor and add the following information:
 
-Javascript
-
 ```Javascript
      exports.creds = {
          mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
@@ -299,15 +293,11 @@ cd azuread
 
 Open your `server.js` file in our favorite editor and add the following information:
 
-Javascript
-
 ```Javascript
 var config = require('./config');
 ```
 
 Then, add a new section to `server.js` with the following code:
-
-Javascript
 
 ```Javascript
     var options = {
@@ -384,8 +374,6 @@ cd azuread
 
 Open your `server.js` file in our favorite editor and add the following information below the configuration entry:
 
-Javascript
-
 ```Javascript
     // Connect to MongoDB
     global.db = mongoose.connect(serverURI);
@@ -417,8 +405,6 @@ Routes work in Restify in the exact same way they do using the Express stack. Yo
 
 A typical pattern for a Restify Route is:
 
-Javascript
-
 ```Javascript
     function createObject(req, res, next) {
 
@@ -449,8 +435,6 @@ cd azuread
 ```
 
 Open your `server.js` file in our favorite editor and add the following information below the database entries you made above:
-
-Javascript
 
 ```Javascript
     /**
@@ -636,8 +620,6 @@ We have our database defined, we have our routes in place, and the last thing to
 
 Restify (and Express) have a lot of deep customization you can do for a REST API server, but again we will use the most basic setup for our purposes.
 
-Javascript
-
 ```Javascript
     /**
      * Our Server
@@ -678,8 +660,6 @@ Javascript
 ```
 
 ## 16. Adding the routes to the server (without authentication for now)
-
-Javascript
 
 ```Javascript
     /// Now the real handlers. Here we just CRUD
@@ -757,8 +737,6 @@ $ node server.js
 $ curl -isS http://127.0.0.1:8080 | json 
 ```
 
-Shell
-
 ```Shell
     HTTP/1.1 200 OK
     Connection: close
@@ -783,8 +761,6 @@ $ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello
 ```
 
 The response should be:
-
-Shell
 
 ```Shell
     HTTP/1.1 201 Created
@@ -821,8 +797,6 @@ So far we have built a typical REST TODO server without any kind of authorizatio
 
 First, we need to indicate that we want to use Passport. Put this right after your other server configuration:
 
-Javascript
-
 ```Javascript
     // Let's start using Passport.js
 
@@ -836,8 +810,6 @@ Javascript
 > 
 
 Next, let’s use the Bearer strategy that comes with passport-azure-ad. Just look at the code for now, I’ll explain it shortly. Put this after what you pated above:
-
-Javascript
 
 ```Javascript
     /**
@@ -899,8 +871,6 @@ You protect endpoints by specifying the `passport.authenticate()` call with the 
 Let’s edit our route in our server code to do something more interesting:
 
 ```Javascript
-    Javascript
-
     server.get('/tasks', passport.authenticate('oauth-bearer', {
     session: false
     }), listTasks);
@@ -957,8 +927,6 @@ Try a basic POST:
 ```
 $ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello 
 ```
-
-Shell
 
 ```Shell
     HTTP/1.1 401 Unauthorized

@@ -117,7 +117,7 @@ The easiest way to test AD FS is by using the IdpInitiatedSignon.aspx page. In o
 
 1. Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled. 
 
-    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
+		Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
 
 2. From any external machine access https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx
 

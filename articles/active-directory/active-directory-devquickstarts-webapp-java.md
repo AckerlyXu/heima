@@ -57,8 +57,6 @@ In this step, you configure the ADAL4J to use the OpenID Connect authentication 
 In the root directory of your project, open/create `pom.xml`, locate `// TODO: provide dependencies for Maven`, and replace it with the following:
 
 ```Java
-Java
-
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
@@ -172,8 +170,6 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
 
 1. Open the web.xml file located under \webapp\WEB-INF\, and enter the app configuration values in the XML. The XML file should contain the following code:
 
-    xml
-
     ```xml
     <?xml version="1.0"?>
     <web-app id="WebApp_ID" version="2.4"
@@ -237,8 +233,6 @@ In this step, you configure the Java web app to use the OpenID Connect authentic
 
 2. Create the mvc-dispatcher-servlet.xml file located under \webapp\WEB-INF\, and enter the following code:
 
-    xml
-
     ```xml
     <beans xmlns="http://www.springframework.org/schema/beans"
         xmlns:context="http://www.springframework.org/schema/context"
@@ -275,8 +269,6 @@ To create the JSP files, do the following:
 
 1. Create the index.jsp file (located under \webapp\), and then paste the following code:
 
-    jsp
-
     ```jsp
     <html>
     <body>
@@ -291,8 +283,6 @@ To create the JSP files, do the following:
  This code simply redirects to a secure page that is protected by the filter.
 
 2. In the same directory, create an error.jsp file to catch any errors that might happen:
-
-    jsp
 
     ```jsp
     <html>
@@ -310,8 +300,6 @@ To create the JSP files, do the following:
 
 3. To make that secure webpage, create a folder under \webapp called \secure so that the directory is now \webapp\secure.
 4. In the \webapp\secure directory, create an aad.jsp file, and then paste the following code:
-
-    jsp
 
     ```jsp
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -362,8 +350,6 @@ To write some Java files for this work:
     In this example, you are using the namespace com.microsoft.aad.adal4jsample in the Java files. Most IDEs create a nested folder structure for this purpose (for example, /com/microsoft/aad/adal4jsample). You can do this also, but it is not necessary.
 
 2. Inside this folder, create a file called JSONHelper.java, which you'll use to help parse the JSON data from your tokens. To create the file, paste the following code:
-
-    Java
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -586,8 +572,6 @@ To write some Java files for this work:
 
 3. Create a file called HttpClientHelper.java, which you will use to help parse the HTTP data from your Azure AD endpoint. To create the file, paste the following code:
 
-    Java
-
     ```Java
     package com.microsoft.aad.adal4jsample;
 
@@ -745,8 +729,6 @@ As indicated previously, you use the Graph API to get data about the signed-in u
 
 1. Create a file called DirectoryObject.java, which you use to store basic data about any Directory object. You can use this file later for any other Graph queries you might perform. To create the file, paste the following code:
 
-    Java
-
     ```Java
     package com.microsoft.aad.adal4jsample;
 
@@ -799,8 +781,6 @@ As indicated previously, you use the Graph API to get data about the signed-in u
     ```
 
 2. Create a file called User.java, which you use to store basic data about any user from the directory. These are basic getter and setter methods for directory data, so you can paste the following code:
-
-    Java
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1322,8 +1302,6 @@ We acknowledge that Java can be verbose, but you're almost done. Before you writ
 
  To create the AuthHelper.java file, paste the following code:
 
-    Java
-
     ```Java
     package com.microsoft.aad.adal4jsample;
 
@@ -1372,8 +1350,6 @@ We acknowledge that Java can be verbose, but you're almost done. Before you writ
 
 2. Create a file called AuthParameterNames.java, which gives you some immutable variables that the ADAL4J requires. To create the file, paste the following code:
 
-    Java
-
     ```Java
     package com.microsoft.aad.adal4jsample;
 
@@ -1391,8 +1367,6 @@ We acknowledge that Java can be verbose, but you're almost done. Before you writ
     ```
 
 3. Create a file called AadController.java, which is the controller of your MVC pattern. The file gives you the JSP controller and exposes the secure/aad URL endpoint for the app. The file also includes the graph query. To create the file, paste the following code:
-
-    Java
 
     ```Java
     package com.microsoft.aad.adal4jsample;
@@ -1470,8 +1444,6 @@ We acknowledge that Java can be verbose, but you're almost done. Before you writ
 
 ## Step 8: Create the BasicFilter file (for BasicFilter MVC)
 You can now create the BasicFilter.java file, which handles the requests from the JSP View files. To create the file, paste the following code:
-
-Java
 
 ```Java
 package com.microsoft.aad.adal4jsample;

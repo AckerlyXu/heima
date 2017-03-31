@@ -149,8 +149,6 @@ The application you are developing in this tutorial will provide a bare-bone dir
 
 The very first thing you need to do is to introduce in your code the protocol values that are used by AAD for identifying your app and the resources you target. Those values will be used to construct the token requests later on. Insert the snippet below at the very top of the index.js file.
 
-javascript
-
 ```javascript
 var authority = "https://login.chinacloudapi.cn/common",
 redirectUri = "http://MyDirectorySearcherApp",
@@ -163,8 +161,6 @@ The `redirectUri` and `clientId` values should match the values describing your 
 Note: if you opted for not registering a new app in your own tenant, you can simply paste the pre-configured values above as is - that will allow you to see the sample running, though you should always create your own entry for your apps meant for production.
 
 Next, we need to add the actual token request code. Insert the following snippet between the `search `and `renderdata `definitions.
-
-javascript
 
 ```javascript
 // Shows user authentication dialog if required.
@@ -193,7 +189,6 @@ authenticate: function (authCompletedCallback) {
 Let's examine that function by breaking it down in its two main parts.
 This sample is designed to work with any tenant, as opposed to be tied to a particular one. It uses the "/common" endpoint, which allows the user to enter any account at authentication time and directs the request to the tenant it belongs.
 This first part of the method inspects the ADAL cache to see if there is already a stored token - and if there is, it uses the tenants it came from for re-initializing ADAL. This is necessary to avoid extra prompts, as the use of "/common" always results in asking the user to enter a new account.
-javascript
 
 ```javascript
     app.context = new Microsoft.ADAL.AuthenticationContext(authority);
@@ -207,7 +202,6 @@ javascript
 The second part of the method performs the proper tokewn request.
 The `acquireTokenSilentAsync` method asks to ADAL to return a token for the specified resource without showing any UX. That can happen if the cache already has a suitable access token stored, or if there is a refresh token that can be used to get a new access token without shwoing any prompt.
 If that attempt fails, we fall back on `acquireTokenAsync` - which will visibly prompt the user to authenticate.
-javascript
 
 ```javascript
         // Attempt to authorize user silently
@@ -222,8 +216,6 @@ javascript
 ```
 
 Now that we have the token, we can finally invoke the Graph API and perform the search query we want. Insert the following snippet right below the `authenticate` definition.
-
-javascript
 
 ```javascript
 // Makes Api call to receive user list.

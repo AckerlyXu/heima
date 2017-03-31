@@ -104,8 +104,6 @@ Here is a user with two phone numbers and a group with some members.
 ## Appendix A
 **SQL script to create the sample database**
 
-SQL
-
 ```SQL
 ---Creating the Database---------
 Create Database GSQLDEMO

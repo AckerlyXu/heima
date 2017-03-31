@@ -80,8 +80,6 @@ Here, we'll configure the Express middleware to use the OpenID Connect authentic
 
 - Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
 
-JavaScript
-
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
@@ -92,8 +90,6 @@ var log = bunyan.createLogger({
 ```
 
 - After that, use the strategy we just referenced to handle our login requests
-
-JavaScript
 
 ```JavaScript
 // Use the OIDCStrategy within Passport. (Section 2)
@@ -140,8 +136,6 @@ The code above takes any user that happens to authenticate to our server. This i
 
 - Next, let's add the methods that will allow us to keep track of the logged in users as required by Passport. This includes serializing and deserializing the user's information:
 
-JavaScript
-
 ```JavaScript
 // Passport session setup. (Section 2)
 
@@ -176,8 +170,6 @@ var findByEmail = function(email, fn) {
 
 - Next, let's add the code to load the express engine. Here you see we use the default /views and /routes pattern that Express provides.
 
-JavaScript
-
 ```JavaScript
 // configure Express (Section 2)
 
@@ -201,8 +193,6 @@ app.configure(function() {
 ```
 
 - Finally, let's add the POST routes that will hand off the actual login requests to the `passport-azure-ad` engine:
-
-JavaScript
 
 ```JavaScript
 // Our Auth routes (Section 3)
@@ -253,8 +243,6 @@ Your app is now properly configured to communicate with the v2.0 endpoint using 
 
 - First, lets add the default, login, account, and logout methods to our `app.js` file:
 
-JavaScript
-
 ```JavaScript
 //Routes (Section 4)
 
@@ -287,8 +275,6 @@ app.get('/logout', function(req, res){
 
 - For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
 
-JavaScript
-
 ```JavaScript
 // Simple route middleware to ensure user is authenticated. (Section 4)
 
@@ -304,8 +290,6 @@ function ensureAuthenticated(req, res, next) {
 
 - Finally, let's actually create the server itself in `app.js`:
 
-JavaScript
-
 ```JavaScript
 app.listen(3000);
 ```
@@ -315,8 +299,6 @@ app.listen(3000);
 We have our `app.js` complete. Now we simply need to add the routes and views that will show the information we get to the user as well as handle the `/logout` and `/login` routes we've created.
 
 - Create the `/routes/index.js` route under the root directory.
-
-JavaScript
 
 ```JavaScript
 /*
@@ -329,8 +311,6 @@ exports.index = function(req, res){
 
 - Create the `/routes/user.js` route under the root directory
 ```
-
-JavaScript
 
 ```JavaScript
 /*
@@ -346,8 +326,6 @@ These simple routes will just pass along the request to our views, including the
 
 - Create the `/views/index.ejs` view under the root directory. this is a simple page that will call our login and logout methods and allow us to grab account information. Notice that we can use the conditional `if (!user)` as the user being passed through in the request is evidence we have a logged in user.
 
-JavaScript
-
 ```JavaScript
 <% if (!user) { %>
     <h2>Welcome! Please log in.</h2>
@@ -360,8 +338,6 @@ JavaScript
 ```
 
 - Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azuread` has put in the user request.
-
-Javascript
 
 ```Javascript
 <% if (!user) { %>
@@ -381,8 +357,6 @@ Javascript
 ```
 
 - Finally, let's make this look pretty by adding a layout. Create the '/views/layout.ejs' view under the root directory
-
-HTML
 
 ```HTML
 <!DOCTYPE html>

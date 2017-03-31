@@ -84,8 +84,6 @@ When using npm on some operating systems, you may receive an error of Error: EPE
 
 You may see something like this when installing Restify:
 
-Shell
-
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
 make: *** [Release/DTraceProviderBindings.node] Error 1
@@ -225,8 +223,6 @@ From the command-line, change directories to the **azuread** folder if not alrea
 
 Create a `server.js` file in our favorite editor and add the following information:
 
-Javascript
-
 ```Javascript
 'use strict';
 /**
@@ -253,8 +249,6 @@ From the command-line, change directories to the **azuread** folder if not alrea
 `cd azuread`
 
 Create a `config.js` file in our favorite editor and add the following information:
-
-Javascript
 
 ```Javascript
 // Don't commit this file to your public repos. This config is for first-run
@@ -285,15 +279,11 @@ From the command-line, change directories to the **azuread** folder if not alrea
 
 Open your `server.js` file in our favorite editor and add the following information:
 
-Javascript
-
 ```Javascript
 var config = require('./config');
 ```
 
 Then, add a new section to `server.js` with the following code:
-
-Javascript
 
 ```Javascript
 // We pass these options in to the ODICBearerStrategy.
@@ -342,8 +332,6 @@ From the command-line, change directories to the **azuread** folder if not alrea
 
 Open your `server.js` file in our favorite editor and add the following information below the configuration entry:
 
-Javascript
-
 ```Javascript
 // MongoDB setup
 // Setup some configuration
@@ -360,8 +348,6 @@ This will connect to the MongoDB server and hand back a Schema object to us.
 #### Using the Schema, create our model in the code
 
 Below the code you wrote above, add the following code:
-
-Javascript
 
 ```Javascript
 // Here we create a schema to store our tasks and users. Pretty simple schema for now.
@@ -388,8 +374,6 @@ Routes work in Restify in the exact same way they do using the Express stack. Yo
 
 A typical pattern for a Restify Route is:
 
-Javascript
-
 ```Javascript
 function createObject(req, res, next) {
 // do work on Object
@@ -412,8 +396,6 @@ From the command-line, change directories to the **azuread** folder if not alrea
 `cd azuread`
 
 Open your `server.js` file in our favorite editor and add the following information below the database entries you made above:
-
-Javascript
 
 ```Javascript
 /**
@@ -521,8 +503,6 @@ It makes sense to add some error handling so we can communicate back to the clie
 
 Add the following code underneath the code you've written above:
 
-Javascript
-
 ```Javascript
 ///--- Errors for communicating something interesting back to the client
 function MissingTaskError() {
@@ -565,8 +545,6 @@ We have our database defined, we have our routes in place, and the last thing to
 
 Restify (and Express) have a lot of deep customization you can do for a REST API server, but again we will use the most basic setup for our purposes.
 
-Javascript
-
 ```Javascript
 /**
 * Our Server
@@ -600,8 +578,6 @@ mapParams: true
 ```
 
 ## 15: Adding the routes (without authentication for now)
-
-Javascript
 
 ```Javascript
 /// Now the real handlers. Here we just CRUD
@@ -674,8 +650,6 @@ Then, change to the directory and start curling..
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
-Shell
-
 ```Shell
 HTTP/1.1 2.0OK
 Connection: close
@@ -698,8 +672,6 @@ Then, we can add a task this way:
 `$ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello`
 
 The response should be:
-
-Shell
 
 ```Shell
 HTTP/1.1 201 Created
@@ -734,8 +706,6 @@ So far we have built a typical REST TODO server without any kind of authorizatio
 
 First, we need to indicate that we want to use Passport. Put this right after your other server configuration:
 
-Javascript
-
 ```Javascript
 // Let's start using Passport.js
 
@@ -747,8 +717,6 @@ server.use(passport.session()); // Provides session support
 When writing APIs you should always link the data to something unique from the token that the user can’t spoof. When this server stores TODO items, it stores them based on the subscription ID of the user in the token (called through token.sub) which we put in the “owner” field. This ensures that only that user can access his TODOs and no one else can access the TODOs entered. There is no exposure in the API of “owner” so an external user can request other’s TODOs even if they are authenticated.
 
 Next, let’s use the Open ID Connect Bearer strategy that comes with passport-azure-ad. Just look at the code for now, I’ll explain it shortly. Put this after what you pated above:
-
-Javascript
 
 ```Javascript
 /**
@@ -803,8 +771,6 @@ The code above takes any user that happens to authenticate to our server. This i
 You protect endpoints by specifying the passport.authenticate() call with the protocol you wish to use.
 
 Let’s edit our route in our server code to do something more interesting:
-
-Javascript
 
 ```Javascript
 server.get('/tasks', passport.authenticate('oidc-bearer', {
@@ -862,8 +828,6 @@ $ node server.js
 Try a basic POST:
 
 `$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
-
-Shell
 
 ```Shell
 HTTP/1.1 401 Unauthorized

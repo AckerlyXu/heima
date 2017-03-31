@@ -77,8 +77,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
 - The first step is to initialize your app’s `AuthenticationContext` - ADAL’s primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
 
-C#
-
 ```C#
     public MainPage()
     {
@@ -89,8 +87,6 @@ C#
 ```
 
 - Now locate the `Search(...)` method, which will be invoked when the user clicks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
-
-C#
 
 ```C#
     private async void Search(object sender, RoutedEventArgs e)
@@ -117,8 +113,6 @@ C#
 
 - Now it's time to use the the access_token you just acquired.  Also in the `Search(...)` method, attach the token to the Graph API GET request in the Authorization header:
 
-C#
-
 ```C#
     // Add the access token to the Authorization Header of the call to the Graph API, and call the Graph API.
     httpClient.DefaultRequestHeaders.Authorization = new HttpCredentialsHeaderValue("Bearer", result.AccessToken);
@@ -126,16 +120,12 @@ C#
 
 - You can also use the `AuthenticationResult` object to display information about the user in your app, such as the user's id:
 
-C#
-
-```
+```C#
     // Update the Page UI to represent the signed in user
     ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
 
 - Finally, you can use ADAL to sign the user out of the application as well.  When the user clicks the "Sign Out" button, we want to ensure that the next call to `AcquireTokenAsync(...)` will show a sign in view.  With ADAL, this is as easy as clearing the token cache:
-
-C#
 
 ```C#
     private void SignOut()

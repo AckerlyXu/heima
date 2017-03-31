@@ -191,10 +191,11 @@ In the sample scenarios we'll be creating, updating, linking, and deleting polic
 1. To begin, download the latest [Azure AD PowerShell Cmdlet Preview](https://www.powershellgallery.com/packages/AzureADPreview). 
 2. Once you have the Azure AD PowerShell Cmdlets, run Connect command to sign into your Azure AD admin account. You'll need to do this whenever you start a new session.
 
-     Connect-AzureAD -Confirm
+	     Connect-AzureAD -Confirm
+
 3. Run the following command to see all policies that have been created in your organization.  This command should be used after most operations in the following scenarios.  It will also help you get the **Object ID** of your policies. 
 
-     Get-AzureADPolicy
+     	Get-AzureADPolicy
 
 ### Sample: Managing a organization's default policy
 In this sample, we will create a policy that allows your users to sign in less frequently across your entire organization. 

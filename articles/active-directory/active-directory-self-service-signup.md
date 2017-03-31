@@ -146,29 +146,29 @@ For example:
     ```
 2. Get a list of domains:
 
-    Get-MsolDomain
+    `Get-MsolDomain`
 3. Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
 
-    Get-MsolDomainVerificationDns -DomainName *your_domain_name* -Mode DnsTxtRecord
+    `Get-MsolDomainVerificationDns -DomainName *your_domain_name* -Mode DnsTxtRecord`
 
     For example:
 
-    Get-MsolDomainVerificationDns -DomainName contoso.com -Mode DnsTxtRecord
+    `Get-MsolDomainVerificationDns -DomainName contoso.com -Mode DnsTxtRecord`
 4. Copy the value (the challenge) that is returned from this command.
 
     For example:
 
-    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+    `MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9`
 5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step.
 
     The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
 
-    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+    `Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*`
 
     for example:
 
-    Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
+    `Confirm-MsolEmailVerifiedDomain -DomainName contoso.com`
 
 A successful challenge returns you to the prompt without an error.
 

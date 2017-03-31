@@ -87,16 +87,12 @@ Now that you have an application in Azure AD, you can install ADAL and write you
 
 - First, open `DirectorySearcher.cs` and add a new parameter to the `SearchByAlias(...)` method. `IPlatformParameters` is the contextual parameter that encapsulates the platform-specific objects that ADAL needs to perform authentication.
 
-    C#
-
-    ```
+    ```C#
     public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
     {
 
     - Next, initialize the `AuthenticationContext` - ADAL’s primary class. This is where you pass ADAL the coordinates it needs to communicate with Azure AD. Then call `AcquireTokenAsync(...)`, which accepts the `IPlatformParameters` object and will invoke the authentication flow necessary to return a token to the app.
     ```
-
-    C#
 
     ```C#
     ...
@@ -118,8 +114,6 @@ Now that you have an application in Azure AD, you can install ADAL and write you
 
 - You can then attach the access token to the Graph API request in the Authorization header:
 
-    C#
-
     ```C#
     ...
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
@@ -131,15 +125,11 @@ That's all for the `DirectorySearcher` PCL and your app's identity-related code.
 #### Android:
 - In `MainActivity.cs`, add a call to `SearchByAlias(...)` in the button click handler:
 
-    C#
-
     ```C#
     List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
     ```
 
 - You also need to override the `OnActivityResult` lifecycle method to forward any authentication redirects back to the appropriate method.  ADAL provides a helper method for this in Android:
-
-    C#
 
     ```C#
     ...
@@ -154,8 +144,6 @@ That's all for the `DirectorySearcher` PCL and your app's identity-related code.
 #### Windows Desktop:
 - In `MainWindow.xaml.cs`, simply make a call to `SearchByAlias(...)` passing a `WindowInteropHelper` in the desktop's `PlatformParameters` object:
 
-    C#
-
     ```C#
     List<User> results = await DirectorySearcher.SearchByAlias(
       SearchTermText.Text,
@@ -165,8 +153,6 @@ That's all for the `DirectorySearcher` PCL and your app's identity-related code.
 #### iOS:
 - In `DirSearchClient_iOSViewController.cs`, the iOS `PlatformParameters` object simply takes a reference to the View Controller:
 
-    C#
-
     ```C#
     List<User> results = await DirectorySearcher.SearchByAlias(
       SearchTermText.Text,
@@ -175,8 +161,6 @@ That's all for the `DirectorySearcher` PCL and your app's identity-related code.
 
 #### Windows Universal:
 - In Windows Universal, open `MainPage.xaml.cs` and implement the `Search` method, which uses a helper method in a shared project to update UI as necessary.
-
-    C#
 
     ```C#
     ...

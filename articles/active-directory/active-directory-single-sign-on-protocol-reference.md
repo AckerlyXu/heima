@@ -260,8 +260,8 @@ This element asserts that the assertion subject was authenticated by a particula
 - The `AuthnInstant` attribute specifies the time at which the user authenticated with Azure AD.
 - The `AuthnContext` element specifies the authentication context used to authenticate the user.
 
-    <AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">
-          <AuthnContext>
-            <AuthnContextClassRef> urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
-          </AuthnContext>
-    </AuthnStatement>
+	    <AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">
+	          <AuthnContext>
+	            <AuthnContextClassRef> urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
+	          </AuthnContext>
+	    </AuthnStatement>

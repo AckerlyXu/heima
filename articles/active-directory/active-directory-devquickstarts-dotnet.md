@@ -69,8 +69,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
 - In the `DirectorySearcher` project, open `MainWindow.xaml.cs` and locate the `MainWindow()` method.  The first step is to initialize your app's `AuthenticationContext` - ADAL's primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
 
-    C#
-
     ```C#
     public MainWindow()
     {
@@ -83,8 +81,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
     ```
 
 - Now locate the `Search(...)` method, which will be invoked when the user cliks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
-
-    C#
 
     ```C#
     private async void Search(object sender, RoutedEventArgs e)
@@ -121,8 +117,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 - Notice that the `AuthenticationResult` object contains a `UserInfo` object that can be used to collect information your app may need.  In the DirectorySearcher, `UserInfo` is used to customize the app's UI with the user's id.
 - When the user clicks the "Sign Out" button, we want to ensure that the next call to `AcquireTokenAsync(...)` will ask the user to sign in.  With ADAL, this is as easy as clearing the token cache:
 
-    C#
-
     ```C#
     private void SignOut(object sender = null, RoutedEventArgs args = null)
     {
@@ -134,8 +128,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
     ```
 
 - However, if the user does not click the "Sign Out" button, you will want to maintain the user's session for the next time they run the DirectorySearcher.  When the app launches, you can check ADAL's token cache for an existing token and update the UI accordingly.  In the `CheckForCachedToken()` method, make another call to `AcquireTokenAsync(...)`, this time passing in the `PromptBehavior.Never` parameter.  `PromptBehavior.Never` will tell ADAL that the user should not be prompted for sign in, and ADAL should instead throw an exception if it is unable to return a token.
-
-    C#
 
     ```C#
     public async void CheckForCachedToken() 

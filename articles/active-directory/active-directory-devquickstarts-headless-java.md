@@ -58,8 +58,6 @@ Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol. 
 
 - In the root directory of your project, open/create `pom.xml` and locate the `// TODO: provide dependencies for Maven` and replace with the following:
 
-    Java
-
     ```Java
         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -180,8 +178,6 @@ Here, we'll configure ADAL4J to use the OpenID Connect authentication protocol. 
 As indicated above, we will be using the Graph API to get data about the logged in user. For this to be easy for us we should create both a file to represent a **Directory Object** and an individual file to represent the **User** so that the OO pattern of Java can be used.
 
 - Create a file called `DirectoryObject.java` which we will use to store basic data about any DirectoryObject (you can feel free to use this later for any other Graph Queries you may do). You can cut/paste this from below:
-
-    Java
 
     ```Java
         import java.io.BufferedReader;

@@ -61,8 +61,6 @@ Alternatively, you can manually download [adal.js](https://raw.githubusercontent
 
 Now open the project in your favorite text editor, and load adal.js at the end of the page body:
 
-html
-
 ```html
 <!--index.html-->
 
@@ -84,8 +82,6 @@ npm install
 
 Now open `config.js` and replace the `audience` value:
 
-js
-
 ```js
 exports.creds = {
 
@@ -103,8 +99,6 @@ That's all the time we're going to spend discussing how the REST API works.  Fee
 ## Sign users in
 Time to write some identity code.  You might have already noticed that adal.js contains an AngularJS provider, which plays nicely with Angular routing mechanisms.  Start by adding the adal module to the app:
 
-js
-
 ```js
 // app/scripts/app.js
 
@@ -116,8 +110,6 @@ angular.module('todoApp', ['ngRoute','AdalAngular'])
 ```
 
 You can now initialize the `adalProvider` with your Application ID:
-
-js
 
 ```js
 // app/scripts/app.js
@@ -143,8 +135,6 @@ adalProvider.init({
 
 Great, now adal.js has all the information it needs to secure your app and sign users in.  To force sign in for a particular route in the app, all it takes is one line of code:
 
-js
-
 ```js
 // app/scripts/app.js
 
@@ -160,8 +150,6 @@ js
 ```
 
 Now when a user clicks the `TodoList` link, adal.js will automatically redirect to Azure AD for sign-in if necessary.  You can also explicitly send sign-in and sign-out requests by invoking adal.js in your controllers:
-
-js
 
 ```js
 // app/scripts/homeCtrl.js
@@ -187,8 +175,6 @@ angular.module('todoApp')
 ## Display user info
 Now that the user is signed in, you'll probably need to access the signed-in user's authentication data in your application.  Adal.js exposes this information for you in the `userInfo` object.  To access this object in a view, first add adal.js to the root scope of the corresponding controller:
 
-js
-
 ```js
 // app/scripts/userDataCtrl.js
 
@@ -198,8 +184,6 @@ angular.module('todoApp')
 ```
 
 Then you can directly address the `userInfo` object in your view: 
-
-html
 
 ```html
 <!--app/views/UserData.html-->
@@ -215,8 +199,6 @@ html
 ```
 
 You can also use the `userInfo` object to determine if the user is signed in or not.
-
-html
 
 ```html
 <!--index.html-->
@@ -237,8 +219,6 @@ Finally, it's time to get some tokens and call the REST API to create, read, upd
 How exactly does this work? It's all thanks to the magic of [AngularJS interceptors](https://docs.angularjs.org/api/ng/service/$http), which allows adal.js to transform outgoing and incoming http messages.  Furthermore, adal.js assumes that any requests send to the same domain as the window should use tokens intended for the same Application ID as the AngularJS app.  This is why we used the same Application ID in both the Angular app and in the NodeJS REST API.  Of course, you can override this behavior and tell adal.js to get tokens for other REST APIs if necessary - but for this simple scenario the defaults will do.
 
 Here's a snippet that shows how easy it is to send requests with bearer tokens from Azure AD:
-
-js
 
 ```js
 // app/scripts/todoListSvc.js

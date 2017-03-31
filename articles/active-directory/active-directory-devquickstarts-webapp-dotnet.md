@@ -60,8 +60,6 @@ In this step, you configure the OWIN middleware to use the OpenID Connect authen
 2. To add an OWIN Startup class to the project called `Startup.cs`, right-click the project, select **Add**, select **New Item**, and then search for **OWIN**. The OWIN middleware invokes the **Configuration(...)** method when the app starts.
 3. Change the class declaration to `public partial class Startup`. We've already implemented part of this class for you in another file. In the **Configuration(...)** method, make a call to **ConfgureAuth(...)** to set up authentication for the app.  
 
-    C#
-
     ```C#
     public partial class Startup
     {
@@ -73,8 +71,6 @@ In this step, you configure the OWIN middleware to use the OpenID Connect authen
     ```
 
 4. Open the App_Start\Startup.Auth.cs file, and then implement the **ConfigureAuth(...)** method. The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the app to communicate with Azure AD. You also need to set up cookie authentication, because the OpenID Connect middleware uses cookies in the background.
-
-    C#
 
     ```C#
     public void ConfigureAuth(IAppBuilder app)
@@ -103,8 +99,6 @@ The app is now properly configured to communicate with Azure AD by using the Ope
 
 1. You can use authorize tags in your controllers to require users to sign in before they access certain pages. To do so, open Controllers\HomeController.cs, and then add the `[Authorize]` tag to the About controller.
 
-    C#
-
     ```C#
     [Authorize]
     public ActionResult About()
@@ -113,8 +107,6 @@ The app is now properly configured to communicate with Azure AD by using the Ope
     ```
 
 2. You can also use OWIN to directly issue authentication requests from within your code. To do so, open Controllers\AccountController.cs. Then, in the SignIn() and SignOut() actions, issue OpenID Connect challenge and sign-out requests.
-
-    C#
 
     ```C#
     public void SignIn()
@@ -134,8 +126,6 @@ The app is now properly configured to communicate with Azure AD by using the Ope
     ```
 
 3. Open Views\Shared\_LoginPartial.cshtml to show the user the app sign-in and sign-out links, and to print out the user's name in a view.
-
-    HTML
 
     ```HTML
     @if (Request.IsAuthenticated)
@@ -163,8 +153,6 @@ The app is now properly configured to communicate with Azure AD by using the Ope
 When it authenticates users with OpenID Connect, Azure AD returns an id_token to the app that contains "claims," or assertions about the user. You can use these claims to personalize the app by doing the following:
 
 1. Open the Controllers\HomeController.cs file. You can access the user's claims in your controllers via the `ClaimsPrincipal.Current` security principal object.
-
-    C#
 
     ```C#
     public ActionResult About()

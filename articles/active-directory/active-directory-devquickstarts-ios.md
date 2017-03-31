@@ -105,7 +105,6 @@ The basic principle behind ADAL is that whenever your app needs an access token,
 
 - In the `QuickStart` project, open `GraphAPICaller.m` and locate the `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` comment near the top.  This is where you pass ADAL the coordinates through a CompletionBlock to communicate with Azure AD and tell it how to cache tokens.
 
-ObjC
 
 ```ObjC
     +(void) getToken : (BOOL) clearCache
@@ -146,8 +145,6 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 ```
 
 - Now we need to use this token to search for users in the graph. Find the `// TODO: implement SearchUsersList` commentThis method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
-
-ObjC
 
 ```ObjC
     +(void) searchUserList:(NSString*)searchString
