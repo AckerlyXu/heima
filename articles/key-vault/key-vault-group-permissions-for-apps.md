@@ -31,8 +31,6 @@ Here are the pre-requisites:
 
 Now run the following commands in PowerShell.
 
-powershell
-
 ```powershell
 # Connect to Azure AD 
 Connect-AzureAD 
