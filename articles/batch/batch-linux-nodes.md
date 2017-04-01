@@ -65,8 +65,6 @@ The following code snippet shows an example of how to use the [Azure Batch Clien
 
 This snippet creates an [ImageReference][py_imagereference] explicitly and specifies each of its properties (publisher, offer, SKU, version). In production code, however, we recommend that you use the [list_node_agent_skus][py_list_skus] method to determine and select from the available image and node agent SKU combinations at runtime.
 
-python
-
 ```python
 # Import the required modules from the
 # Azure Batch Client Library for Python
@@ -123,8 +121,6 @@ client.pool.add(new_pool)
 
 As mentioned previously, we recommend that instead of creating the [ImageReference][py_imagereference] explicitly, you use the [list_node_agent_skus][py_list_skus] method to dynamically select from the currently supported node agent/Marketplace image combinations. The following Python snippet shows usage of this method.
 
-python
-
 ```python
 # Get the list of node agents from the Batch service
 nodeagents = client.account.list_node_agent_skus()
@@ -146,8 +142,6 @@ vmc = batchmodels.VirtualMachineConfiguration(
 The following code snippet shows an example of how to use the [Batch .NET][nuget_batch_net] client library to create a pool of Ubuntu Server compute nodes. You can find the [Batch .NET reference documentation][api_net] on MSDN.
 
 The following code snippet uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to select from the list of currently supported Marketplace image and node agent SKU combinations. This technique is desirable because the list of supported combinations may change from time to time. Most commonly, supported combinations are added.
-
-csharp
 
 ```csharp
 // Pool settings
@@ -199,8 +193,6 @@ pool.Commit();
 
 Although the previous snippet uses the [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] method to dynamically list and select from supported image and node agent SKU combinations (recommended), you can also configure an [ImageReference][net_imagereference] explicitly:
 
-csharp
-
 ```csharp
 ImageReference imageReference = new ImageReference(
     publisher: "Canonical",
@@ -244,8 +236,6 @@ The following table lists the Marketplace virtual machine images that are compat
 During development or while troubleshooting, you may find it necessary to sign in to the nodes in your pool. Unlike Windows compute nodes, you cannot use Remote Desktop Protocol (RDP) to connect to Linux nodes. Instead, the Batch service enables SSH access on each node for remote connection.
 
 The following Python code snippet creates a user on each node in a pool, which is required for remote connection. It then prints the secure shell (SSH) connection information for each node.
-
-python
 
 ```python
 import datetime

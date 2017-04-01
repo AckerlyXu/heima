@@ -47,8 +47,6 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 ## Requirements for multi-instance tasks
 Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. If you try to run a multi-instance task in a pool with internode communication disabled, or with a *maxTasksPerNode* value greater than 1, the task is never scheduled--it remains indefinitely in the "active" state. This code snippet shows the creation of such a pool using the Batch .NET library.
 
-csharp
-
 ```csharp
 CloudPool myCloudPool =
     myBatchClient.PoolOperations.CreatePool(
@@ -67,8 +65,6 @@ Additionally, multi-instance tasks can execute *only* on nodes in **pools create
 
 ### Use a StartTask to install MPI
 To run MPI applications with a multi-instance task, you first need to install an MPI implementation (MS-MPI or Intel MPI, for example) on the compute nodes in the pool. This is a good time to use a [StartTask][net_starttask], which executes whenever a node joins a pool, or is restarted. This code snippet creates a StartTask that specifies the MS-MPI setup package as a [resource file][net_resourcefile]. The start task's command line is executed after the resource file is downloaded to the node. In this case, the command line performs an unattended install of MS-MPI.
-
-csharp
 
 ```csharp
 // Create a StartTask for the pool which we use for installing MS-MPI on
@@ -108,8 +104,6 @@ Look for the sizes specified as "RDMA capable" in the following articles:
 ## Create a multi-instance task with Batch .NET
 Now that we've covered the pool requirements and MPI package installation, let's create the multi-instance task. In this snippet, we create a standard [CloudTask][net_task], then configure its [MultiInstanceSettings][net_multiinstance_prop] property. As mentioned earlier, the multi-instance task is not a distinct task type, but a standard Batch task configured with multi-instance settings.
 
-csharp
-
 ```csharp
 // Create the multi-instance task. Its command line is the "application command"
 // and will be executed *only* by the primary, and only after the primary and
@@ -137,8 +131,6 @@ await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask
 When you create the multi-instance settings for a task, you specify the number of compute nodes that are to execute the task. When you submit the task to a job, the Batch service creates one **primary** task and enough **subtasks** that together match the number of nodes you specified.
 
 These tasks are assigned an integer id in the range of 0 to *numberOfInstances* - 1. The task with id 0 is the primary task, and all other ids are subtasks. For example, if you create the following multi-instance settings for a task, the primary task would have an id of 0, and the subtasks would have ids 1 through 9.
-
-csharp
 
 ```csharp
 int numberOfNodes = 10;
@@ -224,8 +216,6 @@ To obtain information on subtasks by using the Batch .NET library, call the [Clo
 >
 
 The following code snippet shows how to obtain subtask information, as well as request file contents from the nodes on which they executed.
-
-csharp
 
 ```csharp
 // Obtain the job and the multi-instance task from the Batch service

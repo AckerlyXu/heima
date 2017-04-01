@@ -53,8 +53,6 @@ As an example of how this feature is valuable, consider the pool of [Standard\_D
 ## Batch .NET example
 This [Batch .NET][api_net] API code snippet shows a request to create a pool that contains four large nodes with a maximum of four tasks per node. It specifies a task scheduling policy that will fill each node with tasks prior to assigning tasks to another node in the pool. For more information on adding pools by using the Batch .NET API, see [BatchClient.PoolOperations.CreatePool][poolcreate_net].
 
-csharp
-
 ```csharp
 CloudPool pool =
     batchClient.PoolOperations.CreatePool(
@@ -70,8 +68,6 @@ pool.Commit();
 
 ## Batch REST example
 This [Batch REST][api_rest] API snippet shows a request to create a pool that contains two large nodes with a maximum of four tasks per node. For more information on adding pools by using the REST API, see [Add a pool to an account][rest_addpool].
-
-json
 
 ```json
 {

@@ -41,8 +41,6 @@ As mentioned, one of the primary features of the Batch Management API is to crea
 
 The following code snippet creates an account, obtains the newly created account from the Batch service, and then deletes it. In this snippet and the others in this article, `batchManagementClient` is a fully initialized instance of [BatchManagementClient][net_mgmt_client].
 
-csharp
-
 ```csharp
 // Create a new Batch account
 await batchManagementClient.Account.CreateAsync("MyResourceGroup",
@@ -65,8 +63,6 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 
 ## Retrieve and regenerate account keys
 Obtain primary and secondary account keys from any Batch account within your subscription by using [ListKeysAsync][net_list_keys]. You can regenerate those keys by using [RegenerateKeyAsync][net_regenerate_keys].
-
-csharp
 
 ```csharp
 // Get and print the primary and secondary keys
@@ -100,8 +96,6 @@ Before creating a Batch account in a region, you can check your Azure subscripti
 
 In the code snippet below, we first use [BatchManagementClient.Account.ListAsync][net_mgmt_listaccounts] to get a collection of all Batch accounts that are within a subscription. Once we've obtained this collection, we determine how many accounts are in the target region. Then we use [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] to obtain the Batch account quota and determine how many accounts (if any) can be created in that region.
 
-csharp
-
 ```csharp
 // Get a collection of all Batch accounts within the subscription
 BatchAccountListResponse listResponse =
@@ -128,8 +122,6 @@ In the snippet above, `creds` is an instance of [TokenCloudCredentials][azure_to
 
 ### Check a Batch account for compute resource quotas
 Before increasing compute resources in your Batch solution, you can check to ensure the resources you want to allocate won't exceed the account's quotas. In the code snippet below, we print the quota information for the Batch account named `mybatchaccount`. In your own application, you could use such information to determine whether the account can handle the additional resources to be created.
-
-csharp
 
 ```csharp
 // First obtain the Batch account

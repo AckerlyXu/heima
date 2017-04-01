@@ -80,8 +80,6 @@ Before you can successfully run the sample, you must specify both Batch and Stor
 
 Open `Program.cs` within the *DotNetTutorial* project. Then add your credentials as specified near the top of the file:
 
-csharp
-
 ```csharp
 // Update the Batch and Storage account credential strings below with the values
 // unique to your accounts. These are used when constructing connection strings
@@ -131,8 +129,6 @@ Batch includes built-in support for interacting with Azure Storage. Containers i
 
 In order to interact with a Storage account and create containers, we use the [Azure Storage Client Library for .NET][net_api_storage]. We create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that create a [CloudBlobClient][net_cloudblobclient]:
 
-csharp
-
 ```csharp
 // Construct the Storage account connection string
 string storageConnectionString = String.Format(
@@ -151,8 +147,6 @@ CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
 We use the `blobClient` reference throughout the application and pass it as a parameter to several methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
 
-csharp
-
 ```
 // Use the blob client to create the containers in Azure Storage if they don't
 // yet exist
@@ -163,8 +157,6 @@ await CreateContainerIfNotExistAsync(blobClient, appContainerName);
 await CreateContainerIfNotExistAsync(blobClient, inputContainerName);
 await CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
-
-csharp
 
 ```csharp
 private static async Task CreateContainerIfNotExistAsync(
@@ -198,8 +190,6 @@ Once the containers have been created, the application can now upload the files 
 <br/>
 
 In the file upload operation, *DotNetTutorial* first defines collections of **application** and **input** file paths as they exist on the local machine. Then it uploads these files to the containers that you created in the previous step.
-
-csharp
 
 ```csharp
 // Paths to the executable and its dependencies that will be executed by the tasks
@@ -239,8 +229,6 @@ There are two methods in `Program.cs` that are involved in the upload process:
 
 - `UploadFilesToContainerAsync`: This method returns a collection of [ResourceFile][net_resourcefile] objects (discussed below) and internally calls `UploadFileToContainerAsync` to upload each file that is passed in the *filePaths* parameter.
 - `UploadFileToContainerAsync`: This is the method that actually performs the file upload and creates the [ResourceFile][net_resourcefile] objects. After uploading the file, it obtains a shared access signature (SAS) for the file and returns a ResourceFile object that represents it. Shared access signatures are also discussed below.
-
-csharp
 
 ```csharp
 private static async Task<ResourceFile> UploadFileToContainerAsync(
@@ -303,8 +291,6 @@ A Batch **pool** is a collection of compute nodes (virtual machines) on which Ba
 
 After it uploads the application and data files to the Storage account, *DotNetTutorial* starts its interaction with the Batch service by using the Batch .NET library. To do so, a [BatchClient][net_batchclient] is first created:
 
-csharp
-
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
     BatchAccountUrl,
@@ -317,8 +303,6 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 ```
 
 Next, a pool of compute nodes is created in the Batch account with a call to `CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync` uses the [BatchClient.PoolOperations.CreatePool][net_pool_create] method to create a pool in the Batch service.
-
-csharp
 
 ```csharp
 private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -403,8 +387,6 @@ You can use a job not only for organizing and tracking tasks in related workload
 
 All Batch jobs are associated with a specific pool. This association indicates which nodes the job's tasks will execute on. You specify this by using the [CloudJob.PoolInformation][net_job_poolinfo] property, as shown in the code snippet below.
 
-csharp
-
 ```csharp
 private static async Task CreateJobAsync(
     BatchClient batchClient,
@@ -430,8 +412,6 @@ Now that a job has been created, tasks are added to perform the work.
 Batch **tasks** are the individual units of work that execute on the compute nodes. A task has a command line and runs the scripts or executables that you specify in that command line.
 
 To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured by using a command-line property and [ResourceFiles][net_task_resourcefiles] (as with the pool's StartTask) that the task downloads to the node before its command line is automatically executed. In the *DotNetTutorial* sample project, each task processes only one file. Thus, its ResourceFiles collection contains a single element.
-
-csharp
 
 ```csharp
 private static async Task<List<CloudTask>> AddTasksAsync(
@@ -480,8 +460,6 @@ Within the `foreach` loop in the code snippet above, you can see that the comman
 1. The **first argument** is the path of the file to process. This is the local path to the file as it exists on the node. When the ResourceFile object in `UploadFileToContainerAsync` was first created above, the file name was used for this property (as a parameter to the ResourceFile constructor). This indicates that the file can be found in the same directory as *TaskApplication.exe*.
 2. The **second argument** specifies that the top *N* words should be written to the output file. In the sample, this is hard-coded so that the top three words are written to the output file.
 3. The **third argument** is the shared access signature (SAS) that provides write access to the **output** container in Azure Storage. *TaskApplication.exe* uses this shared access signature URL when it uploads the output file to Azure Storage. You can find the code for this in the `UploadFileToContainer` method in the TaskApplication project's `Program.cs` file:
-
-csharp
 
 ```csharp
 // NOTE: From project TaskApplication Program.cs
@@ -532,8 +510,6 @@ There are many approaches to monitoring task execution. DotNetTutorial shows a s
 3. **TerminateJobAsync**: Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) marks that job as completed. It is essential to do so if your Batch solution uses a [JobReleaseTask][net_jobreltask]. This is a special type of task, which is described in [Job preparation and completion tasks](./batch-job-prep-release.md).
 
 The `MonitorTasks` method from *DotNetTutorial*'s `Program.cs` appears below:
-
-csharp
 
 ```csharp
 private static async Task<bool> MonitorTasks(
@@ -630,8 +606,6 @@ private static async Task<bool> MonitorTasks(
 
 Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `DownloadBlobsFromContainerAsync` in *DotNetTutorial*'s `Program.cs`:
 
-csharp
-
 ```csharp
 private static async Task DownloadBlobsFromContainerAsync(
     CloudBlobClient blobClient,
@@ -668,8 +642,6 @@ private static async Task DownloadBlobsFromContainerAsync(
 ## Step 8: Delete containers
 Because you are charged for data that resides in Azure Storage, it's always a good idea to remove blobs that are no longer needed for your Batch jobs. In DotNetTutorial's `Program.cs`, this is done with three calls to the helper method `DeleteContainerAsync`:
 
-csharp
-
 ```csharp
 // Clean up Storage resources
 await DeleteContainerAsync(blobClient, appContainerName);
@@ -678,8 +650,6 @@ await DeleteContainerAsync(blobClient, outputContainerName);
 ```
 
 The method itself merely obtains a reference to the container, and then calls [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]:
-
-csharp
 
 ```csharp
 private static async Task DeleteContainerAsync(
@@ -704,8 +674,6 @@ private static async Task DeleteContainerAsync(
 In the final step, you're prompted to delete the job and the pool that were created by the DotNetTutorial application. Although you're not charged for jobs and tasks themselves, you *are* charged for compute nodes. Thus, we recommend that you allocate nodes only as needed. Deleting unused pools can be part of your maintenance process.
 
 The BatchClient's [JobOperations][net_joboperations] and [PoolOperations][net_pooloperations] both have corresponding deletion methods, which are called if the user confirms deletion:
-
-csharp
 
 ```csharp
 // Clean up the resources we've created in the Batch account if the user so chooses

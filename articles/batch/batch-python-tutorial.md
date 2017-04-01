@@ -113,8 +113,6 @@ As mentioned, not every Batch solution performs these exact steps, and may inclu
 ## Prepare client script
 Before you run the sample, add your Batch and Storage account credentials to *python_tutorial_client.py*. If you have not done so already, open the file in your favorite editor and update the following lines with your credentials.
 
-python
-
 ```python
 # Update the Batch and Storage account credential strings below with the values
 # unique to your accounts. These are used when constructing connection strings
@@ -139,8 +137,6 @@ In the following sections, we analyze the steps used by the scripts to process a
 
 Navigate to the following line in **python_tutorial_client.py** to start with Step 1:
 
-python
-
 ```python
 if __name__ == '__main__':
 ```
@@ -156,8 +152,6 @@ Batch includes built-in support for interacting with Azure Storage. Containers i
 - **output**: When tasks complete input file processing, they will upload the results to the *output* container.
 
 In order to interact with a Storage account and create containers, we use the [azure-storage][pypi_storage] package to create a [BlockBlobService][py_blockblobservice] object--the "blob client." We then create three containers in the Storage account using the blob client.
-
-python
 
 ```python
  # Create the blob client, for use in obtaining references to
@@ -189,8 +183,6 @@ Once the containers have been created, the application can now upload the files 
 
 In the file upload operation, *python_tutorial_client.py* first defines collections of **application** and **input** file paths as they exist on the local machine. Then it uploads these files to the containers that you created in the previous step.
 
-python
-
 ```python
  # Paths to the task script. This script will be executed by the tasks that
  # run on the compute nodes.
@@ -216,8 +208,6 @@ python
 ```
 
 Using list comprehension, the `upload_file_to_container` function is called for each file in the collections, and two [ResourceFile][py_resource_file] collections are populated. The `upload_file_to_container` function appears below:
-
-python
 
 ```python
 def upload_file_to_container(block_blob_client, container_name, file_path):
@@ -284,8 +274,6 @@ A Batch **pool** is a collection of compute nodes (virtual machines) on which Ba
 
 After it uploads the task script and data files to the Storage account, *python_tutorial_client.py* starts its interaction with the Batch service by using the Batch Python module. To do so, a [BatchServiceClient][py_batchserviceclient] is created:
 
-python
-
 ```python
  # Create a Batch service client. We'll now be interacting with the Batch
  # service in addition to Storage.
@@ -298,8 +286,6 @@ python
 ```
 
 Next, a pool of compute nodes is created in the Batch account with a call to `create_pool`.
-
-python
 
 ```python
 def create_pool(batch_service_client, pool_id,
@@ -394,8 +380,6 @@ You can use a job not only for organizing and tracking tasks in related workload
 
 All Batch jobs are associated with a specific pool. This association indicates which nodes the job's tasks execute on. You specify the pool by using the [PoolInformation][py_poolinfo] property, as shown in the code snippet below.
 
-python
-
 ```python
 def create_job(batch_service_client, job_id, pool_id):
     """
@@ -428,8 +412,6 @@ Now that a job has been created, tasks are added to perform the work.
 Batch **tasks** are the individual units of work that execute on the compute nodes. A task has a command line and runs the scripts or executables that you specify in that command line.
 
 To actually perform work, tasks must be added to a job. Each [CloudTask][py_task] is configured with a command-line property and [ResourceFiles][py_resource_file] (as with the pool's StartTask) that the task downloads to the node before its command line is automatically executed. In the sample, each task processes only one file. Thus, its ResourceFiles collection contains a single element.
-
-python
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,
@@ -486,8 +468,6 @@ Within the `for` loop in the code snippet above, you can see that the command li
 4. **storagecontainer**: The name of the Storage container to which the output files should be uploaded.
 5. **sastoken**: The shared access signature (SAS) that provides write access to the **output** container in Azure Storage. The *python_tutorial_task.py* script uses this shared access signature when creates its BlockBlobService reference. This provides write access to the container without requiring an access key for the storage account.
 
-python
-
 ```python
 # NOTE: Taken from python_tutorial_task.py
 
@@ -505,8 +485,6 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes within the pool associated with the job. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties for you.
 
 There are many approaches to monitoring task execution. The `wait_for_tasks_to_complete` function in *python_tutorial_client.py* provides a simple example of monitoring tasks for a certain state, in this case, the [completed][py_taskstate] state.
-
-python
 
 ```python
 def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
@@ -547,8 +525,6 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
 ![Download task output from Storage][7]<br/>
 
 Now that the job is completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `download_blobs_from_container` in *python_tutorial_client.py*:
-
-python
 
 ```python
 def download_blobs_from_container(block_blob_client,
@@ -603,8 +579,6 @@ blob_client.delete_container(output_container_name)
 In the final step, you are prompted to delete the job and the pool that were created by the *python_tutorial_client.py* script. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes. Thus, we recommend that you allocate nodes only as needed. Deleting unused pools can be part of your maintenance process.
 
 The BatchServiceClient's [JobOperations][py_job] and [PoolOperations][py_pool] both have corresponding deletion methods, which are called if you confirm deletion:
-
-python
 
 ```python
 # Clean up Batch resources (if the user so chooses).

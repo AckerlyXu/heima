@@ -125,8 +125,6 @@ The rest of this section describes the different files and their code structure,
 ### Implementing the job splitter
 When you open the Job Manager template project, the project will have the JobSplitter.cs file open by default. You can implement the split logic for the tasks in your workload by using the Split() method show below:
 
-csharp
-
 ```csharp
 /// <summary>
 /// Gets the tasks into which to split the job. This is where you inject
@@ -205,8 +203,6 @@ This section describes some client implementation requirements when invoking a j
 
 In order to add tasks to the Azure Batch job, the job manager task requires your Azure Batch account URL and key. You must pass these in environment variables named YOUR_BATCH_URL and YOUR_BATCH_KEY. You can set these in the Job Manager task environment settings. For example, in a C# client:
 
-csharp
-
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
     new EnvironmentSetting("YOUR_BATCH_URL", "https://account.region.batch.azure.com"),
@@ -217,8 +213,6 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 **Storage credentials**
 
 Typically, the client does not need to provide the linked storage account credentials to the job manager task because (a) most job managers do not need to explicitly access the linked storage account and (b) the linked storage account is often provided to all tasks as a common environment setting for the job. If you are not providing the linked storage account via the common environment settings, and the job manager requires access to linked storage, then you should supply the linked storage credentials as follows:
-
-csharp
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -306,8 +300,6 @@ The rest of this section describes the different files and their code structure,
 ## Implementing the task processor
 When you open the Task Processor template project, the project will have the TaskProcessor.cs file open by default. You can implement the run logic for the tasks in your workload by using the Run() method shown below:
 
-csharp
-
 ```csharp
 /// <summary>
 /// Runs the task processing logic. This is where you inject
@@ -391,8 +383,6 @@ All the information returned by exceptions is written into stdout.txt and stderr
 **Storage credentials**
 
 If your task processor uses Azure blob storage to persist outputs, for example using the file conventions helper library, then it needs access to *either* the cloud storage account credentials *or* a blob container URL that includes a shared access signature (SAS). The template includes support for providing credentials via common environment variables. Your client can pass the storage credentials as follows:
-
-csharp
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {

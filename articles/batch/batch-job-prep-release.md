@@ -76,8 +76,6 @@ To use a job preparation task, assign a [JobPreparationTask][net_job_prep] objec
 
 In this code snippet, `myBatchClient` is an instance of [BatchClient][net_batch_client], and `myPool` is an existing pool within the Batch account.
 
-csharp
-
 ```csharp
 // Create the CloudJob for CloudPool "myPool"
 CloudJob myJob =
@@ -103,8 +101,6 @@ await myJob.CommitAsync();
 ```
 
 As mentioned earlier, the release task is executed when a job is terminated or deleted. Terminate a job with [JobOperations.TerminateJobAsync][net_job_terminate]. Delete a job with [JobOperations.DeleteJobAsync][net_job_delete]. You typically terminate or delete a job when its tasks are completed, or when a timeout that you've defined has been reached.
-
-csharp
 
 ```csharp
 // Terminate the job to mark it as Completed; this will initiate the

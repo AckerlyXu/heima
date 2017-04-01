@@ -28,8 +28,6 @@ In a production Batch application, entities like jobs, tasks, and compute nodes 
 
 This [Batch .NET][api_net] API code snippet lists *every* task that is associated with a job, along with *all* of the properties of each task:
 
-csharp
-
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
 IPagedEnumerable<CloudTask> allTasks =
@@ -37,8 +35,6 @@ IPagedEnumerable<CloudTask> allTasks =
 ```
 
 You can perform a much more efficient list query, however, by applying a "detail level" to your query. You do this by supplying an [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks] method. This snippet returns only the ID, command line, and compute node information properties of completed tasks:
-
-csharp
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
@@ -105,8 +101,6 @@ Within the [Batch .NET][api_net] API, the [ODATADetailLevel][odata] class is use
 - [ODATADetailLevel][odata].[ExpandClause][odata_expand]: Retrieve data for all items in a single API call instead of separate calls for each item.
 
 The following code snippet uses the Batch .NET API to efficiently query the Batch service for the statistics of a specific set of pools. In this scenario, the Batch user has both test and production pools. The test pool IDs are prefixed with "test", and the production pool IDs are prefixed with "prod". In the snippet, *myBatchClient* is a properly initialized instance of the [BatchClient](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.batch.batchclient) class.
-
-csharp
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -226,8 +220,6 @@ The sample application within the project demonstrates the following operations:
 2. Filtering on state transition times in order to download only changes since the last query
 
 For example, the following method appears in the BatchMetrics library. It returns an ODATADetailLevel that specifies that only the `id` and `state` properties should be obtained for the entities that are queried. It also specifies that only entities whose state has changed since the specified `DateTime` parameter should be returned.
-
-csharp
 
 ```csharp
 internal static ODATADetailLevel OnlyChangedAfter(DateTime time)

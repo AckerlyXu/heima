@@ -76,8 +76,6 @@ Before your tasks begin persisting output to storage, you must create a blob sto
 
 You typically place this code in your client application--the application that creates your pools, jobs, and tasks.
 
-csharp
-
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
     "myJob",
@@ -95,8 +93,6 @@ await job.PrepareOutputStorageAsync(linkedStorageAccount);
 Now that you've prepared a container in blob storage, tasks can save output to the container by using the [TaskOutputStorage][net_taskoutputstorage] class found in the file conventions library.
 
 In your task code, first create a [TaskOutputStorage][net_taskoutputstorage] object, then when the task has completed its work, call the [TaskOutputStorage][net_taskoutputstorage].[SaveAsync][net_saveasync] method to save its output to Azure Storage.
-
-csharp
 
 ```csharp
 CloudStorageAccount linkedStorageAccount = new CloudStorageAccount(myCredentials);
@@ -141,8 +137,6 @@ In addition to persisting a file to durable storage when a task or job completes
 
 In the following code snippet, we use [SaveTrackedAsync][net_savetrackedasync] to update `stdout.txt` in Azure Storage every 15 seconds during the execution of the task:
 
-csharp
-
 ```csharp
 TimeSpan stdoutFlushDelay = TimeSpan.FromSeconds(3);
 string logFilePath = Path.Combine(
@@ -179,8 +173,6 @@ The `Task.Delay` is required at the end of this `using` block to ensure that the
 When you retrieve your persisted output using the Azure Batch File Conventions library, you do so in a task- and job-centric manner. You can request the output for given task or job without needing to know its path in blob Storage, or even its file name. You can simply say, "Give me the output files for task *109*."
 
 The following code snippet iterates through all of a job's tasks, prints some information about the output files for the task, and then downloads its files from Storage.
-
-csharp
 
 ```csharp
 foreach (CloudTask task in myJob.ListTasks())

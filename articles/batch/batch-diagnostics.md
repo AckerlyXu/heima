@@ -35,8 +35,6 @@ As with many Azure services, the Batch service emits log events for certain reso
 ## Service Logs
 Azure Batch Service Logs contain events emitted by the Azure Batch service during the lifetime of a Batch resource like a pool or task. Each event emitted by Batch is stored in the specified Storage account in JSON format. For example, this is the body of a sample **pool create event**:
 
-json
-
 ```json
 {
     "poolId": "myPool1",

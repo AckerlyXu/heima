@@ -35,8 +35,6 @@ In this article, we discuss how to configure task dependencies by using the [Bat
 ## Enable task dependencies
 To use task dependencies in your Batch application, you must first tell the Batch service that the job uses task dependencies. In Batch .NET, enable it on your [CloudJob][net_cloudjob] by setting its [UsesTaskDependencies][net_usestaskdependencies] property to `true`:
 
-csharp
-
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
     new PoolInformation { PoolId = "pool001" });
@@ -50,8 +48,6 @@ In the preceding code snippet, "batchClient" is an instance of the [BatchClient]
 ## Create dependent tasks
 
 To create a task that is dependent on the successful completion of one or more other tasks, you tell Batch that the task "depends on" the other tasks. In Batch .NET, configure the [CloudTask][net_cloudtask].[DependsOn][net_dependson] property with an instance of the [TaskDependencies][net_taskdependencies] class:
-
-csharp
 
 ```csharp
 // Task 'Flowers' depends on completion of both 'Rain' and 'Sun'
@@ -86,8 +82,6 @@ There are three basic task dependency scenarios that you can use in Azure Batch:
 ### One-to-one
 To create a task that has a dependency on the successful completion of one other task, you supply a single task ID to the [TaskDependencies][net_taskdependencies].[OnId][net_onid] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
-csharp
-
 ```csharp
 // Task 'taskA' doesn't depend on any other tasks
 new CloudTask("taskA", "cmd.exe /c echo taskA"),
@@ -102,8 +96,6 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ### One-to-many
 
 To create a task that has a dependency on the successful completion of multiple tasks, you supply a collection of task IDs to the [TaskDependencies][net_taskdependencies].[OnIds][net_onids] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
-
-csharp
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -125,8 +117,6 @@ To create a task that has a dependency on the successful completion of a group o
 > When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values. Additionally, every task in the range must complete successfully for the dependent task to be scheduled for execution.
 > 
 > 
-
-csharp
 
 ```csharp
 // Tasks 1, 2, and 3 don't depend on any other tasks. Because

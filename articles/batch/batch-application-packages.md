@@ -192,8 +192,6 @@ To install an application package on all compute nodes in a pool, specify one or
 
 In Batch .NET, specify one or more [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref] when you create a new pool, or for an existing pool. The [ApplicationPackageReference][net_pkgref] class specifies an application ID and version to install on a pool's compute nodes.
 
-csharp
-
 ```csharp
 // Create the unbound CloudPool
 CloudPool myCloudPool =
@@ -225,8 +223,6 @@ await myCloudPool.CommitAsync();
 Similar to a pool, you specify application package *references* for a task. When a task is scheduled to run on a node, the package is downloaded and extracted just before the task's command line is executed. If a specified package and version is already installed on the node, the package is not downloaded and the existing package is used.
 
 To install a task application package, configure the task's [CloudTask][net_cloudtask].[ApplicationPackageReferences][net_cloudtask_pkgref] property:
-
-csharp
 
 ```csharp
 CloudTask task =
@@ -261,8 +257,6 @@ For example, if you set "2.7" as the default version for application *blender*, 
 
 The following code snippet shows an example task command line that launches the default version of the *blender* application:
 
-csharp
-
 ```csharp
 string taskId = "blendertask01";
 string commandLine =
@@ -284,8 +278,6 @@ If an existing pool has already been configured with an application package, you
 
 In this example, the existing pool has version 2.7 of the *blender* application configured as one of its [CloudPool][net_cloudpool].[ApplicationPackageReferences][net_cloudpool_pkgref]. To update the pool's nodes with version 2.76b, specify a new [ApplicationPackageReference][net_pkgref] with the new version, and commit the change.
 
-csharp
-
 ```csharp
 string newVersion = "2.76b";
 CloudPool boundPool = await batchClient.PoolOperations.GetPoolAsync("myPool");
@@ -302,8 +294,6 @@ Now that the new version has been configured, any *new* node that joins the pool
 
 ## List the applications in a Batch account
 You can list the applications and their packages in a Batch account by using the [ApplicationOperations][net_appops].[ListApplicationSummaries][net_appops_listappsummaries] method.
-
-csharp
 
 ```csharp
 // List the applications and their application packages in the Batch account.

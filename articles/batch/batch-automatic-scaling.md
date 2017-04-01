@@ -342,8 +342,6 @@ To create a new pool with autoscaling enabled, you can use one of the following 
 
 The following code snippet creates an autoscale-enabled pool by using the [Batch .NET][net_api] library. The pool's autoscale formula sets the target number of nodes to 5 on Mondays, and 1 on every other day of the week. The [automatic scaling interval](#automatic-scaling-interval) is set to 30 minutes. In this and the other C# snippets in this article, "myBatchClient" is a properly initialized instance of [BatchClient][net_batchclient].
 
-csharp
-
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
 pool.AutoScaleEnabled = true;
@@ -393,8 +391,6 @@ When you enable autoscaling on an existing pool, the following applies:
 
 This C# code snippet uses the [Batch .NET][net_api] library to enable autoscaling on an existing pool:
 
-csharp
-
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
 // to 5 on Mondays, and 1 on every other day of the week
@@ -410,8 +406,6 @@ myBatchClient.PoolOperations.EnableAutoScale(
 
 You use the same "enable autoscale" request to *update* the formula on an existing autoscale-enabled pool (for example, with [EnableAutoScale][net_enableautoscale] in Batch .NET). There is no special "update autoscale" operation. For example, if autoscaling is already enabled on "myexistingpool" when the following code is executed, its autoscale formula is replaced with the contents of `myNewFormula`.
 
-csharp
-
 ```csharp
 myBatchClient.PoolOperations.EnableAutoScale(
     "myexistingpool",
@@ -421,8 +415,6 @@ myBatchClient.PoolOperations.EnableAutoScale(
 ### Update the autoscale interval
 
 As with updating an autoscale formula, you use the same [EnableAutoScale][net_enableautoscale] method to change the autoscale evaluation interval of an existing autoscale-enabled pool. For example, to set the autoscale evaluation interval to 60 minutes for a pool that's already autoscale-enabled:
-
-csharp
 
 ```csharp
 myBatchClient.PoolOperations.EnableAutoScale(
@@ -444,8 +436,6 @@ To evaluate an autoscale formula, you must first **enable autoscaling** on the p
     In this REST API request, specify the pool ID in the URI, and the autoscale formula in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
 
 In this [Batch .NET][net_api] code snippet, we evaluate a formula prior to applying it to the [CloudPool][net_cloudpool]. If the pool does not have autoscaling enabled, we enable it first.
-
-csharp
 
 ```csharp
 // First obtain a reference to an existing pool
@@ -536,8 +526,6 @@ In the REST API, the [Get information about a pool](https://msdn.microsoft.com/z
 
 The following C# code snippet uses the Batch .NET library to print information about the last autoscaling run on pool "myPool":
 
-csharp
-
 ```csharp
 Cloud pool = myBatchClient.PoolOperations.GetPool("myPool");
 Console.WriteLine("Last execution: " + pool.AutoScaleRun.Timestamp);
@@ -579,8 +567,6 @@ $TargetDedicated = $isWorkingWeekdayHour ? 20:10;
 
 In this example, the pool size is adjusted based on the number of tasks in the queue. Note that both comments and line breaks are acceptable in formula strings.
 
-csharp
-
 ```csharp
 // Get pending tasks for the past 15 minutes.
 $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
@@ -599,8 +585,6 @@ $NodeDeallocationOption = taskcompletion;
 
 ### Example 3: Accounting for parallel tasks
 This is another example that adjusts the pool size based on the number of tasks. This formula also takes into account the [MaxTasksPerComputeNode][net_maxtasks] value that has been set for the pool. This is particularly useful in situations where [parallel task execution](./batch-parallel-node-tasks.md) has been enabled on your pool.
-
-csharp
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
@@ -630,8 +614,6 @@ The formula in the following code snippet:
 - After 10 minutes, obtains the max value of the number of running and active tasks within the past 60 minutes.
   - If both values are 0 (indicating that no tasks were running or active in the last 60 minutes), the pool size is set to 0.
   - If either value is greater than zero, no change is made.
-
-csharp
 
 ```csharp
 string now = DateTime.UtcNow.ToString("r");
