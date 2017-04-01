@@ -1,17 +1,16 @@
+---
+title: Signing in to the mobile app using notification with Azure Multi-Factor Authentication
+description: This page will describe how a user can signin using mobile app notification with Azure MFA.
+services: multi-factor-authentication
+documentationCenter: ''
+authors: billmath
+manager: stevenpo
+editor: curtland
 
-<properties 
-	pageTitle="Signing in to the mobile app using notification with Azure Multi-Factor Authentication" 
-	description="This page will describe how a user can signin using mobile app notification with Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
-	editor="curtland"/>
-
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.date="08/04/2016"
-	wacn.date=""/>
+ms.service: multi-factor-authentication
+ms.date: 08/04/2016
+wacn.date: ''
+---
 
 # Signing in to the mobile app using notification with Azure Multi-Factor Authentication
 
@@ -24,15 +23,10 @@ The following information will describe the experience of using multi-factor aut
 <li>Sign in to an application or service such as Office 365 using your user name and password.</li>
 <li>Microsoft will send a notification.</li>
 
-
 <center>![Setup](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)</center>
 
 <li>Answer the phone and hit the verify key.</li>
 
 <center>![Setup](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)</center>
 
-
 <li>You should now be signed in.</li>
-
-
- 

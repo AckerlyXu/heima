@@ -1,21 +1,22 @@
-<properties
-    pageTitle="Microsoft Authenticator phone sign-in - Azure and Microsoft accounts | Azure"
-    description="Use your phone to sign in to your Microsoft account instead of typing your password. This article answers FAQs about this feature."
-    services="multi-factor-authentication"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="librown" />
-<tags
-    ms.assetid=""
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/02/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Microsoft Authenticator phone sign-in - Azure and Microsoft accounts | Azure
+description: Use your phone to sign in to your Microsoft account instead of typing your password. This article answers FAQs about this feature.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: librown
+
+ms.assetid: ''
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/02/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Sign in with your phone, not your password
 
@@ -33,11 +34,11 @@ To sign in to your personal Microsoft account with your phone, follow these step
 
 1. Enable phone sign-in for your account. 
 
-  - If you don't have the Microsoft Authenticator app yet, install and add your personal Microsoft account according to the steps on the [Microsoft Authenticator page](/documentation/articles/microsoft-authenticator-app-how-to/). Newly added accounts are automatically enabled, so you're good to go.
+  - If you don't have the Microsoft Authenticator app yet, install and add your personal Microsoft account according to the steps on the [Microsoft Authenticator page](./microsoft-authenticator-app-how-to.md). Newly added accounts are automatically enabled, so you're good to go.
 
   - If you already use Microsoft Authenticator for two-step verification, select your account from the app home page, and select **Enable phone sign-in from the drop-down menu".
 
-  >[AZURE.NOTE] 
+  >[!NOTE] 
   >To protect your account, we require a PIN or biometric lock on your device. If you keep your phone unlocked, the app will pop up a request asking you to set up a lock before enabling phone sign-in. 
 
 3. Most pages where you would normally enter your Microsoft account password have a link that says **Use an app instead**. Select this to sign in with your phone. 
@@ -86,4 +87,4 @@ At this time, we are not developing this functionality for the Microsoft Authent
 ## Next steps
 If you haven't downloaded the Microsoft Authenticator app, check it out. The app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), and phone sign-in is available on the Microsoft Authenticator app for [Android](http://go.microsoft.com/fwlink/?Linkid=825072) and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-If you have questions about the app in general, take a look at the [Microsoft Authenticator FAQs](/documentation/articles/microsoft-authenticator-app-faq/)
+If you have questions about the app in general, take a look at the [Microsoft Authenticator FAQs](./microsoft-authenticator-app-faq.md)

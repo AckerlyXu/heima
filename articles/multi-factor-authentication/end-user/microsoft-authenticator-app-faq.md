@@ -1,25 +1,26 @@
-<properties
-    pageTitle="Microsoft Authenticator app help and support | Azure"
-    description="Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication."
-    services="multi-factor-authentication"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="pblachar, librown" />
-<tags
-    ms.assetid="f04d5bce-e99e-4f75-82d1-ef6369be3402"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/10/2017"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Microsoft Authenticator app help and support | Azure
+description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: pblachar, librown
+
+ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/10/2017
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Microsoft Authenticator app FAQ
 
-This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](/documentation/articles/microsoft-authenticator-app-phone-signin-faq/).
+This article answers common questions that we receive about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). We also have another FAQ about a specific feature on the app, [Sign in with your phone FAQ](./microsoft-authenticator-app-phone-signin-faq.md).
 
 The Microsoft Authenticator app replaced the Azure Authenticator app, and is the recommended app when you use Azure Multi-Factor Authentication. This app is available for Windows Phone, Android, and iOS.
 
@@ -79,9 +80,7 @@ This is by design. Two-step verification requires proving two things - a thing y
 ### Contact us
 If your question wasn't answered here, we want to hear from you. Go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) to post your question and get help from the community, or leave a comment on this page.
 
-
 ### Related topics
 - [About two-step verification](https://support.microsoft.com/zh-cn/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
-- [Having trouble with two-step verification](/documentation/articles/multi-factor-authentication-end-user-troubleshoot/) for your work or school account?
-- [Use the Microsoft Authenticator to sign in from your phone](/documentation/articles/microsoft-authenticator-app-phone-signin-faq/)
-
+- [Having trouble with two-step verification](../multi-factor-authentication-end-user-troubleshoot.md) for your work or school account?
+- [Use the Microsoft Authenticator to sign in from your phone](./microsoft-authenticator-app-phone-signin-faq.md)

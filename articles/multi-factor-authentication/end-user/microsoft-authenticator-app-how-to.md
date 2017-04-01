@@ -1,22 +1,22 @@
-<properties
-    pageTitle="Microsoft Authenticator app for mobile phones | Azure"
-    description="Learn how to upgrade to the latest version of Azure Authenticator."
-    services="multi-factor-authentication"
-    documentationcenter=""
-    author="kgremban"
-    manager="femila"
-    editor="curtland" />
-    
-<tags
-    ms.assetid="3065a1ee-f253-41f0-a68d-2bd84af5ffba"
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="12/15/2016"
-    wacn.date=""
-    ms.author="kgremban" />
+---
+title: Microsoft Authenticator app for mobile phones | Azure
+description: Learn how to upgrade to the latest version of Azure Authenticator.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
+
+ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2016
+wacn.date: ''
+ms.author: kgremban
+---
 
 # Microsoft Authenticator
 The Microsoft Authenticator app provides an additional level of security in your Azure account (for example, bsimon@contoso.partner.onmschina.cn), your on-premises work account (for example, bsimon@contoso.com), or your Microsoft account (for example, bsimon@outlook.com).
@@ -35,7 +35,7 @@ The Microsoft Authenticator app is available for [Windows Phone](http://go.micro
 For each account that you want to add to the Microsoft Authenticator app, use one of the following procedures.
 
 ### Add an account to the app by using the QR code scanner
-1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](/documentation/articles/multi-factor-authentication-end-user-manage-settings/).
+1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](../multi-factor-authentication-end-user-manage-settings.md).
 2. Select **Configure**.
 
     ![The Configure button on the security verification settings screen](./media/authenticator-app-how-to/azureauthe.png)
@@ -71,7 +71,7 @@ You should now see the new account on the **accounts** screen.
 ![Accounts screen](./media/authenticator-app-how-to/accounts.png)
 
 ### Add an account to the app manually
-1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](/documentation/articles/multi-factor-authentication-end-user-manage-settings/).
+1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](../multi-factor-authentication-end-user-manage-settings.md).
 2. Select **Configure**.
 
     ![The Configure button on the security verification settings screen](./media/authenticator-app-how-to/azureauthe.png)
