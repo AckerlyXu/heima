@@ -1,5 +1,5 @@
 ---
-title: Comparison of Azure on demand media encoders | Azure
+title: Comparison of Azure on demand media encoders | Microsoft Docs
 description: This topic compares the encoding capabilities of **Media Encoder Standard** and **Media Encoder Premium Workflow**.
 services: media-services
 documentationcenter: ''
@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-wacn.date: ''
 ms.author: juliako
+
 ---
 
 # Comparison of Azure on demand media encoders
@@ -119,8 +119,8 @@ This topic compares the encoding capabilities of **Media Encoder Standard** and 
 >If you encode to Dolby® Digital (AC3), the output can only be written into an ISO MP4 file.
 
 ## Related articles
-* [Perform advanced encoding tasks by customizing Media Encoder Standard presets](./media-services-custom-mes-presets-with-dotnet.md)
-* [Quotas and Limitations](./media-services-quotas-and-limitations.md)
+* [Perform advanced encoding tasks by customizing Media Encoder Standard presets](media-services-custom-mes-presets-with-dotnet.md)
+* [Quotas and Limitations](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
 [1]: https://www.azure.cn/pricing/details/media-services/

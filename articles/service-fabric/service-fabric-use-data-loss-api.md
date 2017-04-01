@@ -52,7 +52,7 @@ When the command has reached a terminal state (Completed, Faulted, or Cancelled)
 
 The sample code below shows how to start then check progress on a command to cause data loss on a specific partition.
 
-```
+```csharp
     static async Task PerformDataLossSample()
     {
         // Create a unique operation id for the command below
@@ -135,7 +135,7 @@ The sample code below shows how to start then check progress on a command to cau
 
 The sample below shows how to use the PartitionSelector to choose a random partition of a specified service:
 
-```
+```csharp
     static async Task PerformDataLossUseSelectorSample()
     {
         // Create a unique operation id for the command below

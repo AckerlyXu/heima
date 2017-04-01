@@ -66,7 +66,9 @@ The first step is to include System.Diagnostics.Tracing so that you can write yo
 
 You can use a custom EventListener to listen for the service event and then appropriately redirect them to trace files. The following code snippet shows a sample implementation of logging using EventSource and a custom EventListener:
 
-```
+
+```csharp
+
  public class ServiceEventSource : EventSource
  {
         public static ServiceEventSource Current = new ServiceEventSource();
@@ -85,6 +87,10 @@ You can use a custom EventListener to listen for the service event and then appr
 
 }
 
+```
+
+
+```csharp
    internal class ServiceEventListener : EventListener
    {
 

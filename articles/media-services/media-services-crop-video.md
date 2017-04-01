@@ -1,5 +1,5 @@
 ---
-title: How to crop videos with Media Encoder Standard - Azure | Azure
+title: How to crop videos with Media Encoder Standard - Azure | Microsoft Docs
 description: This article shows how to crop videos with Media Encoder Standard.
 services: media-services
 documentationcenter: ''
@@ -14,10 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-wacn.date: ''
 ms.author: anilmur;juliako;
----
 
+---
 # Crop videos with Media Encoder Standard
 
 You can use Media Encoder Standard (MES) to crop your input video. Cropping is the process of selecting a rectangular window within the video frame, and encoding just the pixels within that window. The following diagram helps illustrate the process.

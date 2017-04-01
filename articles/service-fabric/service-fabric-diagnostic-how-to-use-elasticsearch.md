@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-wacn.date: ''
 ms.author: karolz@microsoft.com
+
 ---
 
 # Use Elasticsearch as a Service Fabric application trace store

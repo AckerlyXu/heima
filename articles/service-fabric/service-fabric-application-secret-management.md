@@ -42,13 +42,15 @@ There are four main steps in this flow:
 ## Data encipherment certificate
 A data encipherment certificate is used strictly for encryption and decryption of configuration values in a service's Settings.xml and is not used for authentication or signing of cipher text. The certificate must meet the following requirements:
 
- - The certificate must contain a private key.
- - The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
- - The certificate key usage must include Data Encipherment (10), and should not include Server Authentication or Client Authentication. 
-
- For example, when creating a self-signed certificate using PowerShell, the `KeyUsage` flag must be set to `DataEncipherment`:
-
-    New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
+* The certificate must contain a private key.
+* The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
+* The certificate key usage must include Data Encipherment (10), and should not include Server Authentication or Client Authentication. 
+  
+  For example, when creating a self-signed certificate using PowerShell, the `KeyUsage` flag must be set to `DataEncipherment`:
+  
+  ```powershell
+  New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
+  ```
 
 ## Install the certificate in your cluster
 This certificate must be installed on each node in the cluster. It will be used at runtime to decrypt values stored in a service's Settings.xml. See [how to create a cluster using Azure Resource Manager][service-fabric-cluster-creation-via-arm] for setup instructions. 
@@ -142,19 +144,19 @@ When using a data encipherment certificate, you need to make sure NETWORK SERVIC
 
 ```xml
 <ApplicationManifest … >
-    <Principals>
-        <Users>
-            <User Name="Service1" AccountType="NetworkService" />
-        </Users>
-    </Principals>
-  <Policies>
-    <SecurityAccessPolicies>
-      <SecurityAccessPolicy GrantRights=”Read” PrincipalRef="Service1" ResourceRef="MyCert" ResourceType="Certificate"/>
-    </SecurityAccessPolicies>
-  </Policies>
-  <Certificates>
-    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
-  </Certificates>
+    <Principals>
+        <Users>
+            <User Name="Service1" AccountType="NetworkService" />
+        </Users>
+    </Principals>
+  <Policies>
+    <SecurityAccessPolicies>
+      <SecurityAccessPolicy GrantRights=”Read” PrincipalRef="Service1" ResourceRef="MyCert" ResourceType="Certificate"/>
+    </SecurityAccessPolicies>
+  </Policies>
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
 </ApplicationManifest>
 ```
 

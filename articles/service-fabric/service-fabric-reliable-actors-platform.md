@@ -124,14 +124,16 @@ For more information on deleting actors and their state, refer to the [actor lif
 ### Custom Actor Service
 Using the actor registration lambda, you can also register your own custom actor service that derives from `ActorService` where you can implement your own service-level functionality. This is done by writing a service class that inherits `ActorService`. A custom actor service inherits all of the actor runtime functionality from `ActorService` and can be used to implement your own service methods.
 
-```
+```csharp
 class MyActorService : ActorService
 {
     public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
         : base(context, typeInfo, newActor)
     { }
 }
+```
 
+```csharp
 static class Program
 {
     private static void Main()
@@ -148,18 +150,18 @@ static class Program
 #### Implementing actor back-up and restore
  In the following example, the custom actor service exposes a method to back-up actor data by taking advantage of the remoting listener already present in `ActorService`:
 
-    public interface IMyActorService : IService
-    {
-        Task BackupActorsAsync();
-    }
+```csharp
+public interface IMyActorService : IService
+{
+    Task BackupActorsAsync();
+}
 
-    class MyActorService : ActorService, IMyActorService
-    {
-        public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
-            : base(context, typeInfo, newActor)
-        { }
+class MyActorService : ActorService, IMyActorService
+{
+    public MyActorService(StatefulServiceContext context, ActorTypeInformation typeInfo, Func<ActorBase> newActor)
+        : base(context, typeInfo, newActor)
+    { }
 
-    ```csharp
     public Task BackupActorsAsync()
     {
         return this.BackupAsync(new BackupDescription(PerformBackupAsync));
@@ -177,8 +179,8 @@ static class Program
            Directory.Delete(backupInfo.Directory, recursive: true);
         }
     }
-    ```
-    }
+}
+```
 
 In this example, `IMyActorService` is a remoting contract that implements `IService` and is then implemented by `MyActorService`. By adding this remoting contract, methods on `IMyActorService` are now also available to a client by creating a remoting proxy using `ActorServiceProxy`:
 

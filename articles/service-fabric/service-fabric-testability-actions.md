@@ -74,7 +74,10 @@ Here the action **Restart-ServiceFabricNode** is being run on a node named "Node
 
 ```powershell
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
+```
 
+
+```powershell
 $connection = "localhost:19000"
 $nodeName = "Node1"
 

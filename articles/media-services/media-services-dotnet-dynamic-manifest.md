@@ -2,21 +2,27 @@
 title: Creating Filters with Azure Media Services .NET SDK
 description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
 services: media-services
-documentationCenter: ''
-authors: Juliako
-manager: dwrede,cenkdin
+documentationcenter: ''
+author: Juliako
+manager: erikre
 editor: ''
 
+ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
 ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: ne
+ms.topic: article
 ms.date: 07/18/2016
-wacn.date: ''
+ms.author: juliako;cenkdin
+
 ---
-
-#Creating Filters with Azure Media Services .NET SDK
-
+# Creating Filters with Azure Media Services .NET SDK
 > [!div class="op_single_selector"]
->- [.NET](./media-services-dotnet-dynamic-manifest.md)
->- [REST](./media-services-rest-dynamic-manifest.md)
+> * [.NET](media-services-dotnet-dynamic-manifest.md)
+> * [REST](media-services-rest-dynamic-manifest.md)
+> 
+> 
 
 Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
@@ -30,10 +36,10 @@ Note if you update a filter, it can take up to 2 minutes for streaming endpoint 
 
 The following types are used when creating filters: 
 
-- **IStreamingFilter**.  This type is based on the following REST API [Filter](http://msdn.microsoft.com/zh-cn/library/azure/mt149056.aspx)
-- **IStreamingAssetFilter**. This type is based on the following REST API [AssetFilter](http://msdn.microsoft.com/zh-cn/library/azure/mt149053.aspx)
-- **PresentationTimeRange**. This type is based on the following REST API [PresentationTimeRange](http://msdn.microsoft.com/zh-cn/library/azure/mt149052.aspx)
-- **FilterTrackSelectStatement** and **IFilterTrackPropertyCondition**. These types are based on the following REST APIs [FilterTrackSelect and FilterTrackPropertyCondition](http://msdn.microsoft.com/zh-cn/library/azure/mt149055.aspx)
+* **IStreamingFilter**.  This type is based on the following REST API [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
+* **IStreamingAssetFilter**. This type is based on the following REST API [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
+* **PresentationTimeRange**. This type is based on the following REST API [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* **FilterTrackSelectStatement** and **IFilterTrackPropertyCondition**. These types are based on the following REST APIs [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 ##Create/Update/Read/Delete global filters
 

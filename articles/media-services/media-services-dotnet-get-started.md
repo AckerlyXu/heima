@@ -1,12 +1,11 @@
 ---
-title: Get started with delivering content on demand using .NET | Azure
+title: Get started with delivering content on demand using .NET | Microsoft Docs
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
 manager: erikre
 editor: ''
-
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
 ms.workload: media
@@ -15,10 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 01/10/2017
 ms.author: juliako
+
 ---
 
 # Get started with delivering content on demand using .NET SDK
-
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure Media Services .NET SDK.
@@ -29,8 +28,8 @@ The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure 1rmb Trial](https://www.azure.cn/pricing/1rmb-trial/). 
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](./media-services-portal-create-account.md).
-* .NET Framework 4.0 or later
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
+* .NET Framework 4.0 or later.
+* Visual Studio.
 
 This tutorial includes the following tasks:
 
@@ -49,11 +48,11 @@ The tutorial introduces the basic Media Services workflow and the most common pr
 
 ### AMS model
 
-The following image shows some of the most commonly used objects when developing VoD applications against the Media Services OData model. 
+The following image shows some of the most commonly used objects when developing VoD applications against the Media Services OData model.
 
 Click the image to view it full size.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
 You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -62,7 +61,7 @@ You can view the whole model [here](https://media.windows.net/API/$metadata?api-
 When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming. Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4 encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
 >[!NOTE]
->When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
+>When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 To start the streaming endpoint, do the following:
 
@@ -77,7 +76,7 @@ To start the streaming endpoint, do the following:
 
 ## Create and configure a Visual Studio project
 
-1. Create a new C# Console Application in Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
+1. Create a new C# Console Application in Visual Studio. Enter the **Name**, **Location**, and **Solution name**, and then click **OK**.
 2. Use the  [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet package to install **Azure Media Services .NET SDK Extensions**.  The Media Services .NET SDK Extensions is a set of extension methods and helper functions that will simplify your code and make it easier to develop with Media Services. Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
 
     To add references by using NuGet do the following: in Solution Explorer, click the right mouse button on the project name, select **Manage NuGet packages**. Then, search for **windowsazure.mediaservices.extensions** and click **Install**.
@@ -251,7 +250,7 @@ static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOpti
 
     IJob job = _context.Jobs.CreateWithSingleTask(
         "Media Encoder Standard",
-        "H264 Multiple Bitrate 720p",
+        "Adaptive Streaming",
         asset,
         "Adaptive Bitrate MP4",
         options);

@@ -76,17 +76,16 @@ Suppose that you have the following setting in the Config\Settings.xml file for 
 To override this value for a specific application/environment pair, create a `ConfigOverride` when you import the service manifest in the application manifest.
 
 ```xml
-<ConfigOverrides>
- <ConfigOverride Name="Config">
-    <Settings>
-       <Section Name="MyConfigSection">
-          <Parameter Name="MaxQueueSize" Value="[Stateful1_MaxQueueSize]" />
-       </Section>
-    </Settings>
- </ConfigOverride>
-```
+    <ConfigOverrides>
+     <ConfigOverride Name="Config">
+        <Settings>
+           <Section Name="MyConfigSection">
+              <Parameter Name="MaxQueueSize" Value="[Stateful1_MaxQueueSize]" />
+           </Section>
+        </Settings>
+     </ConfigOverride>
   </ConfigOverrides>
-
+```
 This parameter can then be configured by environment as shown above. You can do this by declaring it in the parameters section of the application manifest and specifying environment-specific values in the application parameter files.
 
 >[!NOTE]

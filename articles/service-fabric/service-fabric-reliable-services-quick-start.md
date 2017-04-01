@@ -61,17 +61,21 @@ Open the **HelloWorldStateless.cs** file in the service project. In Service Fabr
 
  - An open-ended entry point method, called *RunAsync*, where you can begin executing any workloads, including long-running compute workloads.
 
-    protected override async Task RunAsync(CancellationToken cancellationToken)
-    {
-        ...
-    }
+```csharp
+protected override async Task RunAsync(CancellationToken cancellationToken)
+{
+    ...
+}
+```
 
- - A communication entry point where you can plug in your communication stack of choice, such as ASP.NET Web API. This is where you can start receiving requests from users and other services.
+* A communication entry point where you can plug in your communication stack of choice, such as ASP.NET Core. This is where you can start receiving requests from users and other services.
 
-    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
-    {
-        ...
-    }
+```csharp
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+    ...
+}
+```
 
 In this tutorial, we will focus on the `RunAsync()` entry point method. This is where you can immediately start running your code.
 The project template includes a sample implementation of `RunAsync()` that increments a rolling count.

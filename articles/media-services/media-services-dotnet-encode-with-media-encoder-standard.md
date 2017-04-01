@@ -1,34 +1,35 @@
 ---
-title: Encode an asset with Media Encoder Standard using .NET
+title: Encode an asset with Media Encoder Standard using .NET | Microsoft Docs
 description: This topic shows how to use .NET to encode an asset using Media Encoder Strandard.
 services: media-services
-documentationCenter: ''
-authors: juliako
+documentationcenter: ''
+author: juliako
 manager: erikre
 editor: ''
 
+ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
-wacn.date: ''
 ms.author: juliako;anilmur
+
 ---
-
 # Encode an asset with Media Encoder Standard using .NET
-
 Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third party encoders are available through the Azure Marketplace. 
 
 This topic shows how to use .NET to encode your assets with Media Encoder Standard (MES). Media Encoder Standard is configured using one of the encoder presets described [here](https://msdn.microsoft.com/zh-cn/library/azure/mt269960.aspx).
 
-It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](./media-services-dynamic-packaging-overview.md). To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale Media Services](./media-services-portal-manage-streaming-endpoints.md).
+It is recommended to always encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md). 
 
-If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](./media-services-dotnet-configure-asset-delivery-policy.md).
+If your output asset is storage encrypted, you must configure asset delivery policy. For more information see [Configuring asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md).
 
->[!NOTE]
->MES produces an output file with a name that contains the first 32 characters of the input file name. The name is based on what is specified in the preset file. For example, "FileName": "{Basename}_{Index}{Extension}". {Basename} is replaced by the first 32 characters of the input file name.  
+> [!NOTE]
+> MES produces an output file with a name that contains the first 32 characters of the input file name. The name is based on what is specified in the preset file. For example, "FileName": "{Basename}_{Index}{Extension}". {Basename} is replaced by the first 32 characters of the input file name.
+> 
+> 
 
 ###MES Formats
 
@@ -38,13 +39,12 @@ If your output asset is storage encrypted, you must configure asset delivery pol
 
 Media Encoder Standard is configured using one of the encoder presets described [here](https://msdn.microsoft.com/zh-cn/library/azure/mt269960.aspx).
 
-###Input and output metadata
-
+### Input and output metadata
 When you encode an input asset (or assets) using MES, you get an output asset at the successful completion of that encode task. The output asset contains video, audio, thumbnails, manifest, etc. based on the encoding preset you use.
 
-The output asset also contains a file with metadata about the input asset. The name of the metadata XML file has the following format: <asset_id>_metadata.xml (for example, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), where <asset_id> is the AssetId value of the input asset. The schema of this input metadata XML is described [here](http://msdn.microsoft.com/zh-cn/library/azure/dn783120.aspx).
+The output asset also contains a file with metadata about the input asset. The name of the metadata XML file has the following format: <asset_id>_metadata.xml (for example, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), where <asset_id> is the AssetId value of the input asset. The schema of this input metadata XML is described [here](media-services-input-metadata-schema.md).
 
-The output asset also contains a file with metadata about the output asset. The name of the metadata XML file has the following format: <source_file_name>_manifest.xml (for example, BigBuckBunny_manifest.xml). The schema of this output metadata XML is described [here](http://msdn.microsoft.com/zh-cn/library/azure/dn783217.aspx).
+The output asset also contains a file with metadata about the output asset. The name of the metadata XML file has the following format: <source_file_name>_manifest.xml (for example, BigBuckBunny_manifest.xml). The schema of this output metadata XML is described [here](media-services-output-metadata-schema.md).
 
 If you want to examine either of the two metadata files, you can create a SAS locator and download the file to your local computer. You can find an example on how to create a SAS locator and download a file Using the Media Services .NET SDK Extensions.
 
@@ -52,14 +52,14 @@ If you want to examine either of the two metadata files, you can create a SAS lo
 
 The following code example uses Media Services .NET SDK to perform the following tasks:
 
-- Create an encoding job.
-- Get a reference to the Media Encoder Standard encoder.
-- Specify to use the "H264 Multiple Bitrate 720p" preset. You can see all the presets [here](https://msdn.microsoft.com/zh-cn/library/azure/mt269960.aspx). You can also examine the schema to which these presets must comply [here](https://msdn.microsoft.com/zh-cn/library/mt269962.aspx) topic.
-- Add a single encoding task to the job. 
-- Specify the input asset to be encoded.
-- Create an output asset that will contain the encoded asset.
-- Add an event handler to check the job progress.
-- Submit the job.
+* Create an encoding job.
+* Get a reference to the Media Encoder Standard encoder.
+* Specify to use the [Adaptive Streaming](media-services-autogen-bitrate-ladder-with-mes.md) preset. 
+* Add a single encoding task to the job. 
+* Specify the input asset to be encoded.
+* Create an output asset that will contain the encoded asset.
+* Add an event handler to check the job progress.
+* Submit the job.
 
     ```
     static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
@@ -71,10 +71,10 @@ The following code example uses Media Services .NET SDK to perform the following
         IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
         // Create a task with the encoding details, using a string preset.
-        // In this case "H264 Multiple Bitrate 720p" preset is used.
+        // In this case "Adaptive Streaming" preset is used.
         ITask task = job.Tasks.AddNew("My encoding task",
             processor,
-            "H264 Multiple Bitrate 720p",
+            "Adaptive Streaming",
             TaskOptions.None);
 
         // Specify the input asset to be encoded.

@@ -102,29 +102,30 @@ To get started with PowerShell for Azure, see [How to install and configure Azur
 
 1. Use the [Add-AzureAccount](http://msdn.microsoft.com/zh-cn/library/azure/dn722528.aspx) cmdlet to add your Azure user account to the PowerShell window:
 
-    ```
-    Add-AzureAccount -Environment AzureChinaCloud
-    ```
+	```powershell
+    	Add-AzureAccount -Environment AzureChinaCloud
+	```
 
 2. In the **Sign in to Microsoft Azure** window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 3. Set the default storage account to the storage account you are using for the tutorial by executing these commands in the PowerShell window:
 
-    ```
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount' 
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName 
-    ```
+	```powershell
+	$SubscriptionName = 'Your subscription name'
+	$StorageAccountName = 'yourstorageaccount'
+	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+	```
 
 4. Enable storage logging for the Blob service: 
 
-    ```
-    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 
-    ```
+	```powershell
+	Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+	```
+
 5. Enable storage metrics for the Blob service, making sure to set **-MetricsType** to `Minute`:
 
-    ```
-    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0 
-    ```
+	```powershell
+	Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+	```
 
 ### Configure .NET client-side logging
 

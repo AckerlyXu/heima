@@ -1,5 +1,5 @@
 ---
-title: Customizing Media Encoder Standard presets | Azure
+title: Customizing Media Encoder Standard presets | Microsoft Docs
 description: This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets. The topic shows how to use Media Services .NET SDK to create an encoding task and job. It also shows how to supply custom presets to the encoding job.
 services: media-services
 documentationcenter: ''
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
-wacn.date: ''
 ms.author: juliako
----
 
+---
 # Customizing Media Encoder Standard presets
 
-##Overview
+## Overview
 
 This topic shows how to perform advanced encoding with Media Encoder Standard (MES) using a custom preset. The topic uses .NET to create an encoding task and a job that executes this task.  
 

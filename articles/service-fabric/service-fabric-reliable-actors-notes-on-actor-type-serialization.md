@@ -55,7 +55,7 @@ In this example, the `VoicemailBox` object is serialized when:
 
 The Reliable Actor framework uses DataContract serialization. Therefore, the custom data objects and their members must be annotated with the **DataContract** and **DataMember** attributes, respectively
 
-```
+```csharp
 [DataContract]
 public class Voicemail
 {
@@ -68,7 +68,9 @@ public class Voicemail
     [DataMember]
     public DateTime ReceivedAt { get; set; }
 }
+```
 
+```csharp
 [DataContract]
 public class VoicemailBox
 {

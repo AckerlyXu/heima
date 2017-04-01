@@ -1,12 +1,13 @@
 ---
-title: Using castLabs to deliver Widevine licenses to Azure Media Services
+title: Using castLabs to deliver Widevine licenses to Azure Media Services | Microsoft Docs
 description: This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by castLabs license server.
 services: media-services
-documentationCenter: ''
-authors: Mingfeiy
+documentationcenter: ''
+author: Mingfeiy
 manager: erikre
 editor: ''
 
+ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: Mingfeiy;willzhan;Juliako
+
 ---
-
-#Using castLabs to deliver Widevine licenses to Azure Media Services
-
+# Using castLabs to deliver Widevine licenses to Azure Media Services
 > [!div class="op_single_selector"]
->- [Axinom](./media-services-axinom-integration.md)
->- [castLabs](./media-services-castlabs-integration.md)
+> * [Axinom](media-services-axinom-integration.md)
+> * [castLabs](media-services-castlabs-integration.md)
+> 
+> 
 
-##Overview
-
+## Overview
 This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by **castLabs** license server.
 
 To playback streaming content protected by CENC (PlayReady and/or Widevine), you can use  [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). See [AMP document](http://amp.azure.net/libs/amp/latest/docs/) for details.
@@ -32,48 +33,43 @@ The following diagram demonstrates a high-level Azure Media Services and castLab
 
 ![integration](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
-##Typical system set up
+## Typical system set up
+* Media content is stored in AMS.
+* Key IDs of content keys are stored in both castLabs and AMS.
+* castLabs and AMS both have token authentication built in. The following sections discuss authentication tokens. 
+* When a client requests to stream the video, the content is dynamically encrypted with **Common Encryption** (CENC) and dynamically packaged by AMS to Smooth Streaming and DASH. We also deliver PlayReady M2TS elementary stream encryption for HLS streaming protocol.
+* PlayReady license is retrieved from AMS license server and Widevine license is retrieved from castLabs license server. 
+* Media Player automatically decides which license to fetch based on the client platform capability. 
 
-- Media content is stored in AMS.
-- Key IDs of content keys are stored in both castLabs and AMS.
-- castLabs and AMS both have token authentication built in. The following sections discuss authentication tokens. 
-- When a client requests to stream the video, the content is dynamically encrypted with **Common Encryption** (CENC) and dynamically packaged by AMS to Smooth Streaming and DASH. We also deliver PlayReady M2TS elementary stream encryption for HLS streaming protocol.
-- PlayReady license is retrieved from AMS license server and Widevine license is retrieved from castLabs license server. 
-- Media Player automatically decides which license to fetch based on the client platform capability. 
-
-##Authentication token generation for getting a license
-
+## Authentication token generation for getting a license
 Both castLabs and AMS support JWT (JSON Web Token) token format used to authorize a license. 
 
-###JWT token in AMS 
-
+### JWT token in AMS
 The following table describes JWT token in AMS. 
 
-Issuer|Issuer string from the chosen Secure Token Service (STS)
----|---
-Audience|Audience string from the used STS
-Claims|A set of claims
-NotBefore|Start validity of the token
-Expires|End validity of the token
-SigningCredentials|The key that is shared among PlayReady License Server, castLabs License Server and STS, it could be either symmetric or asymmetric key.
+| Issuer | Issuer string from the chosen Secure Token Service (STS) |
+| --- | --- |
+| Audience |Audience string from the used STS |
+| Claims |A set of claims |
+| NotBefore |Start validity of the token |
+| Expires |End validity of the token |
+| SigningCredentials |The key that is shared among PlayReady License Server, castLabs License Server and STS, it could be either symmetric or asymmetric key. |
 
-###JWT token in castLabs
-
+### JWT token in castLabs
 The following table describes JWT token in castLabs. 
 
-Name|Description
----|---
-optData|A JSON string containing information about you. 
-crt|A JSON string containing information about the asset, its license info and playback rights.
-iat|The current datetime in epoch.
-jti|A unique identifier about this token (every token can only be used once in the castLabs system).
+| Name | Description |
+| --- | --- |
+| optData |A JSON string containing information about you. |
+| crt |A JSON string containing information about the asset, its license info and playback rights. |
+| iat |The current datetime in epoch. |
+| jti |A unique identifier about this token (every token can only be used once in the castLabs system). |
 
-##Sample solution set up 
-
+## Sample solution set up
 The [sample solution](https://github.com/AzureMediaServicesSamples/CastlabsIntegration) consists of two projects:
 
-- A console app that can be used to set DRM restrictions on an already ingested asset, for both PlayReady and Widevine.
-- A Web Application that hands out tokens, which could be seen as a VERY SIMPLIFIED version of an STS.
+* A console app that can be used to set DRM restrictions on an already ingested asset, for both PlayReady and Widevine.
+* A Web Application that hands out tokens, which could be seen as a VERY SIMPLIFIED version of an STS.
 
 To use the console application:
 

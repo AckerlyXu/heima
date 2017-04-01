@@ -1,12 +1,13 @@
 ---
-title: Smooth Streaming Windows Store App Tutorial
+title: Smooth Streaming Windows Store App Tutorial | Microsoft Docs
 description: Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content.
 services: media-services
-documentationCenter: ''
-authors: juliako
+documentationcenter: ''
+author: juliako
 manager: erikre
 editor: ''
 
+ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+
 ---
-
-#How to Build a Smooth Streaming Windows Store Application
-
+# How to Build a Smooth Streaming Windows Store Application
 The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content. In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on. For more information of the supported features, see the [release notes](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). For more information, see [Player Framework for Windows 8](http://playerframework.codeplex.com/). 
 
 This tutorial contains four lessons:
@@ -60,28 +60,28 @@ This lesson contains the following procedures:
 2. From the **FILE** menu, click **New**, and then click **Project**.
 3. From the New Project dialog, type or select  the following values:
 
-Name|Value
----|---
-Template group|Installed/Templates/Visual C#/Windows Store
-Template|Blank App (XAML)
-Name|SSPlayer
-Location|C:\SSTutorials
-Solution Name|SSPlayer
-Create directory for solution|(selected)
+| Name | Value |
+| --- | --- |
+| Template group |Installed/Templates/Visual C#/Windows Store |
+| Template |Blank App (XAML) |
+| Name |SSPlayer |
+| Location |C:\SSTutorials |
+| Solution Name |SSPlayer |
+| Create directory for solution |(selected) |
 
-4. Click **OK**.
+1. Click **OK**.
 
 **To add a reference to the Smooth Streaming Client SDK**
 
 1. From Solution Explorer, right-click **SSPlayer**, and then click **Add Reference**.
 2. Type or select the following values:
 
-Name|Value
----|---
-Reference group|Windows/Extensions
-Reference|Select Microsoft Smooth Streaming Client SDK for Windows 8 and Microsoft Visual C++ Runtime Package
+| Name | Value |
+| --- | --- |
+| Reference group |Windows/Extensions |
+| Reference |Select Microsoft Smooth Streaming Client SDK for Windows 8 and Microsoft Visual C++ Runtime Package |
 
-3. Click **OK**. 
+1. Click **OK**. 
 
 After adding the references, you must select the targeted platform (x64 or x86), adding references will not work for Any CPU platform configuration.  In solution explorer, you will see yellow warning mark for these added references.
 

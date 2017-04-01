@@ -114,6 +114,10 @@ The application name is the same as it was described in the *ApplicationManifest
 
 Now, as the application upgrade proceeds, you can monitor it using Service Fabric Explorer, or by using the following PowerShell command: **Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects**.
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
+```
+
 In a few minutes, the status that you got by using the preceding PowerShell command, should state that all update domains were upgraded (completed). And you should find that the visual objects in your browser window have started rotating!
 
 You can try upgrading from version 2 to version 3, or from version 2 to version 1 as an exercise. Moving from version 2 to version 1 is also considered an upgrade. Play with time-outs and health policies to make yourself familiar with them. When you are deploying to an Azure cluster, the parameters need to be set appropriately. It is good to set the time-outs conservatively.

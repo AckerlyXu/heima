@@ -113,15 +113,11 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 
         b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.cn), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
 
-        ```
          ![Azure portal](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
-        ```
 
         c. To locate and copy your subscription name in the [Azure Classic Portal](https://manage.windowsazure.com/), scroll down and click **Settings** on the left side of the portal. Click **Subscriptions** to see a list of your subscriptions. Copy the name of subscription that you want to use while running the scripts given in this guide.
 
-        ```powershell
          ![Azure Classic Portal](./media/storage-powershell-guide-full/Subscription_currentportal.png)
-        ```
 
     - **$StorageAccountName:** Use the given name in the script or enter a new name for your storage account. **Important:** The name of the storage account must be unique in Azure. It must be lowercase, too!
 
@@ -158,18 +154,22 @@ To manage Azure Storage using Azure PowerShell, you need to authenticate your cl
 
 1. In Windows PowerShell ISE, type the following command to add your Azure account to the local PowerShell environment:
 
-    `Add-AzureAccount -Environment AzureChinaCloud`
+	```powershell
+	Add-AzureAccount -Environment AzureChinaCloud
+	```
 
 2. In the “Sign in to Azure” window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 
 3. Next, run the following command to view the Azure accounts in your local PowerShell environment, and verify that your account is listed:
-
-    `Get-AzureAccount`
-
+   
+	```powershell
+	Get-AzureAccount
+	```
 4. Then, run the following cmdlet to view all the subscriptions that are connected to the local PowerShell session, and verify that your subscription is listed:
 
-    `Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
-
+	```powershell
+	Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
+	```
 5. To set a default Azure subscription, run the Select-AzureSubscription cmdlet:
 
     ```powershell
@@ -179,18 +179,24 @@ To manage Azure Storage using Azure PowerShell, you need to authenticate your cl
 
 6. Verify the name of the default subscription by running the Get-AzureSubscription cmdlet:
 
-    `Get-AzureSubscription -Default`
+	```powershell
+	Get-AzureSubscription -Default
+	```
 
 7. To see all the available PowerShell cmdlets for Azure Storage, run:
-
-    `Get-Command -Module Azure -Noun *Storage*`
+    
+	```powershell
+	Get-Command -Module Azure -Noun *Storage*
+	```
 
 ### How to create a new Azure storage account
 To use Azure storage, you will need a storage account. You can create a new Azure storage account after you have configured your computer to connect to your subscription.
 
 1. Run the Get-AzureLocation cmdlet to find all the available datacenter locations:
 
-    `Get-AzureLocation | format-Table -Property Name, AvailableServices, StorageAccountTypes`
+	```powershell
+	Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes
+	```
 
 2. Next, run the New-AzureStorageAccount cmdlet to create a new storage account. The following example creates a new storage account in the "China North" datacenter.
 
@@ -263,7 +269,6 @@ For more information on how to configure a storage connection string, see [Confi
 Now that you have set up your computer and learned how to manage subscriptions and storage accounts using Azure PowerShell, go to the next section to learn how to manage Azure blobs and blob snapshots.
 
 ### How to retrieve and regenerate Azure storage keys
-
 An Azure Storage account comes with two account keys. You can use the following cmdlet to retrieve your keys.
 
 ```powershell
@@ -274,7 +279,7 @@ Use the following cmdlet to retrieve a specific key. Valid values are Primary an
 
 ```powershell
 (Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
-
+	
 (Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
 ```
 
@@ -757,11 +762,15 @@ To use Azure Storage with AzureChinaCloud, you need to create a storage context 
 
 1. Run the [Get-AzureEnvironment](https://msdn.microsoft.com/zh-cn/library/azure/dn790368.aspx) cmdlet to see the available Azure environments:
 
-    `Get-AzureEnvironment`
+	```powershell
+	Get-AzureEnvironment
+	```
 
 2. Add an Azure China account to Windows PowerShell:
-
-    `Add-AzureAccount –Environment AzureChinaCloud`
+   
+	```powershell
+	Add-AzureAccount –Environment AzureChinaCloud
+	```
 
 3. Create a storage context for an AzureChinaCloud account:
 

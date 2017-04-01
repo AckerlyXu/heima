@@ -67,79 +67,57 @@ Access is granted by assigning the appropriate RBAC role to users, groups, and a
 
 Here are the main points that you need to know about using RBAC to access the management operations of an Azure Storage account:
 
--   When you assign access, you basically assign a role to the account that you want to have access. You can control access to the operations used to manage that storage account, but not to the data objects in the account. For example, you can grant permission to retrieve the properties of the storage account (such as redundancy), but not to a container or data within a container inside Blob Storage.
+* When you assign access, you basically assign a role to the account that you want to have access. You can control access to the operations used to manage that storage account, but not to the data objects in the account. For example, you can grant permission to retrieve the properties of the storage account (such as redundancy), but not to a container or data within a container inside Blob Storage.
+* For someone to have permission to access the data objects in the storage account, you can give them permission to read the storage account keys, and that user can then use those keys to access the blobs, queues, tables, and files.
+* Roles can be assigned to a specific user account, a group of users, or to a specific application.
+* Each role has a list of Actions and Not Actions. For example, the Virtual Machine Contributor role has an Action of “listKeys” that allows the storage account keys to be read. The Contributor has “Not Actions” such as updating the access for users in the Active Directory.
+* Roles for storage include (but are not limited to) the following:
+  
+  * Owner – They can manage everything, including access.
+  * Contributor – They can do anything the owner can do except assign access. Someone with this role can view and regenerate the storage account keys. With the storage account keys, they can access the data objects.
+  * Reader – They can view information about the storage account, except secrets. For example, if you assign a role with reader permissions on the storage account to someone, they can view the properties of the storage account, but they can’t make any changes to the properties or view the storage account keys.
+  * Storage Account Contributor – They can manage the storage account – they can read the subscription’s resource groups and resources, and create and manage subscription resource group deployments. They can also access the storage account keys, which in turn means they can access the data plane.
+  * User Access Administrator – They can manage user access to the storage account. For example, they can grant Reader access to a specific user.
+  * Virtual Machine Contributor – They can manage virtual machines but not the storage account to which they are connected. This role can list the storage account keys, which means that the user to whom you assign this role can update the data plane.
+    
+    In order for a user to create a virtual machine, they have to be able to create the corresponding VHD file in a storage account. To do that, they need to be able to retrieve the storage account key and pass it to the API creating the VM. Therefore, they must have this permission so they can list the storage account keys.
+* The ability to define custom roles is a feature that allows you to compose a set of actions from a list of available actions that can be performed on Azure resources.
+* The user has to be set up in your Azure Active Directory before you can assign a role to them.
+* You can create a report of who granted/revoked what kind of access to/from whom and on what scope using PowerShell or the Azure CLI.
 
--   For someone to have permission to access the data objects in the storage account, you can give them permission to read the storage account keys, and that user can then use those keys to access the blobs, queues, tables, and files.
+#### Resources
+* [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
+  
+  This article explains the Azure Active Directory Role-based Access Control and how it works.
+* [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)
+  
+  This article details all of the built-in roles available in RBAC.
+* [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md)
+  
+  This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups. It explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
+* [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+  
+  This article shows how to use the REST API to manage RBAC.
+* [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)
+  
+  This is the reference for the APIs you can use to manage your storage account programmatically.
+* [Developer’s guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+  
+  This article shows how to authenticate using the Resource Manager APIs.
+* [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
+  
+  This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
 
--   Roles can be assigned to a specific user account, a group of users, or to a specific application.
-
--   Each role has a list of Actions and Not Actions. For example, the Virtual Machine Contributor role has an Action of “listKeys” that allows the storage account keys to be read. The Contributor has “Not Actions” such as updating the access for users in the Active Directory.
-
--   Roles for storage include (but are not limited to) the following:
-
-    - Owner – They can manage everything, including access.
-
-    - Contributor – They can do anything the owner can do except assign access. Someone with this role can view and regenerate the storage account keys. With the storage account keys, they can access the data objects.
-
-    - Reader – They can view information about the storage account, except secrets. For example, if you assign a role with reader permissions on the storage account to someone, they can view the properties of the storage account, but they can’t make any changes to the properties or view the storage account keys.
-
-    - Storage Account Contributor – They can manage the storage account – they can read the subscription’s resource groups and resources, and create and manage subscription resource group deployments. They can also access the storage account keys, which in turn means they can access the data plane.
-
-    - User Access Administrator – They can manage user access to the storage account. For example, they can grant Reader access to a specific user.
-
-    - Virtual Machine Contributor – They can manage virtual machines but not the storage account to which they are connected. This role can list the storage account keys, which means that the user to whom you assign this role can update the data plane.
-
-        In order for a user to create a virtual machine, they have to be able to create the corresponding VHD file in a storage account. To do that, they need to be able to retrieve the storage account key and pass it to the API creating the VM. Therefore, they must have this permission so they can list the storage account keys.
-
-- The ability to define custom roles is a feature that allows you to compose a set of actions from a list of available actions that can be performed on Azure resources.
-
-- The user has to be set up in your Azure Active Directory before you can assign a role to them.
-
-- You can create a report of who granted/revoked what kind of access to/from whom and on what scope using PowerShell or the Azure CLI.
-
-####Resources
-
--   [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
-
-    This article explains the Azure Active Directory Role-based Access Control and how it works.
-
--   [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)
-
-    This article details all of the built-in roles available in RBAC.
-
--   [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md)
-
-    This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
-
--   [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
-
-    This article shows how to use the REST API to manage RBAC.
-
--   [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/zh-cn/library/azure/mt163683.aspx)
-
-    This is the reference for the APIs you can use to manage your storage account programmatically.
-
--   [Developer’s guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
-
-    This article shows how to authenticate using the Resource Manager APIs.
-
--   [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
-
-    This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
-
-###Managing Your Storage Account Keys
-
+### Managing Your Storage Account Keys
 Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account, e.g. blobs, entities within a table, queue messages, and files on an Azure Files share. Controlling access to the storage account keys controls access to the data plane for that storage account.
 
-Each storage account has two keys referred to as “Key 1” and “Key 2” in the [Azure Portal](http://portal.azure.cn/) and in the PowerShell cmdlets. These can be regenerated manually using one of several methods, including, but not limited to using the [Azure Portal](https://portal.azure.cn/), PowerShell, the Azure CLI, or programmatically using the .NET Storage Client Library or the Azure Storage Services REST API.
+Each storage account has two keys referred to as “Key 1” and “Key 2” in the [Azure portal](http://portal.azure.com/) and in the PowerShell cmdlets. These can be regenerated manually using one of several methods, including, but not limited to using the [Azure portal](https://portal.azure.com/), PowerShell, the Azure CLI, or programmatically using the .NET Storage Client Library or the Azure Storage Services REST API.
 
 There are any number of reasons to regenerate your storage account keys.
 
--   You might regenerate them on a regular basis for security reasons.
-
--   You would regenerate your storage account keys if someone managed to hack into an application and retrieve the key that was hardcoded or saved in a configuration file, giving them full access to your storage account.
-
--   Another case for key regeneration is if your team is using a Storage Explorer application that retains the storage account key, and one of the team members leaves. The application would continue to work, giving them access to your storage account after they’re gone. This is actually the primary reason they created account-level Shared Access Signatures – you can use an account-level SAS instead of storing the access keys in a configuration file.
+* You might regenerate them on a regular basis for security reasons.
+* You would regenerate your storage account keys if someone managed to hack into an application and retrieve the key that was hardcoded or saved in a configuration file, giving them full access to your storage account.
+* Another case for key regeneration is if your team is using a Storage Explorer application that retains the storage account key, and one of the team members leaves. The application would continue to work, giving them access to your storage account after they’re gone. This is actually the primary reason they created account-level Shared Access Signatures – you can use an account-level SAS instead of storing the access keys in a configuration file.
 
 ####Key regeneration plan
 
@@ -169,23 +147,19 @@ Another advantage of using Azure Key Vault is you can also control access to you
 
 Note: it is recommended to use only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some application losing access.
 
-####Resources
-
--   [About Azure Storage Accounts](./storage-create-storage-account.md#regenerate-storage-access-keys)
-
-    This article gives an overview of storage accounts and discusses viewing, copying, and regenerating storage access keys.
-
--   [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/zh-cn/library/mt163683.aspx)
-
-    This article contains links to specific articles about retrieving the storage account keys and regenerating the storage account keys for an Azure Account using the REST API. Note: This is for  Resource Manager storage accounts.
-
--   [Operations on storage accounts](https://msdn.microsoft.com/zh-cn/library/ee460790.aspx)
-
-    This article in the Storage Service Manager REST API Reference contains links to specific articles on retrieving and regenerating the storage account keys using the REST API. Note: This is for the Classic storage accounts.
-
--   [Say goodbye to key management – manage access to Azure Storage data using Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
-
-    This article shows how to use Active Directory to control access to your Azure Storage keys in Azure Key Vault. It also shows how to use an Azure Automation job to regenerate the keys on an hourly basis.
+#### Resources
+* [About Azure Storage Accounts](storage-create-storage-account.md#regenerate-storage-access-keys)
+  
+  This article gives an overview of storage accounts and discusses viewing, copying, and regenerating storage access keys.
+* [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt163683.aspx)
+  
+  This article contains links to specific articles about retrieving the storage account keys and regenerating the storage account keys for an Azure Account using the REST API. Note: This is for  Resource Manager storage accounts.
+* [Operations on storage accounts](https://msdn.microsoft.com/library/ee460790.aspx)
+  
+  This article in the Storage Service Manager REST API Reference contains links to specific articles on retrieving and regenerating the storage account keys using the REST API. Note: This is for the Classic storage accounts.
+* [Say goodbye to key management – manage access to Azure Storage data using Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
+  
+  This article shows how to use Active Directory to control access to your Azure Storage keys in Azure Key Vault. It also shows how to use an Azure Automation job to regenerate the keys on an hourly basis.
 
 ##Data Plane Security
 

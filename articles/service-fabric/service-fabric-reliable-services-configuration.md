@@ -115,8 +115,7 @@ ReplicatorConfig
 |SlowApiMonitoringDuration|Seconds|300|Sets the monitoring interval for managed API calls. Example: user provided backup callback function. After the interval has passed, a warning health report will be sent to the Health Manager.|
 
 ### Sample configuration via code
-
-```
+```csharp
 class Program
 {
     /// <summary>
@@ -135,7 +134,8 @@ class Program
             )))).GetAwaiter().GetResult();
     }
 }    
-
+```
+```csharp
 class MyStatefulService : StatefulService
 {
     public MyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica stateManager)

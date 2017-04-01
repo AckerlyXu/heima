@@ -193,13 +193,13 @@ Close the **try** block by inserting a close bracket: **}**
 
 Handle the following exceptions:
 
--   **FileNotFoundException**: Can be thrown by the **FileInputStream**
-    or **FileOutputStream** constructors.
--   **StorageException**: Can be thrown by the Azure client
-    storage library.
--   **URISyntaxException**: Can be thrown by the **ListBlobItem.getUri**
-    method.
--   **Exception**: Generic exception handling.
+* **FileNotFoundException**: Can be thrown by the **FileInputStream**
+  or **FileOutputStream** constructors.
+* **StorageException**: Can be thrown by the Azure client
+  storage library.
+* **URISyntaxException**: Can be thrown by the **ListBlobItem.getUri**
+  method.
+* **Exception**: Generic exception handling.
 
 <!-- -->
 

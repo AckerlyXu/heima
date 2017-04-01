@@ -314,25 +314,27 @@ The corresponding error log is shown below.
 ```
 
  The follow error log for an import job contains an error about a file not found on the import drive. Note that the status of subsequent components is `Cancelled`.  
-
-    <?xml version="1.0" encoding="utf-8"?>  
-    <DriveLog Version="2014-11-01">  
-      <DriveId>9WM35C2V</DriveId>  
-      <Blob Status="FileNotFound">  
-        <BlobPath>pictures/animals/koala.jpg</BlobPath>  
-        <FilePath>\animals\koala.jpg</FilePath>  
-        <Length>30310</Length>  
-        <ImportDisposition Status="Cancelled">rename</ImportDisposition>  
-        <BlockList>  
-          <Block Offset="0" Length="6062" Id="MD5/cAzn4h7VVSWXf696qp5Uaw==" Hash="700CE7E21ED55525977FAF7AAA9E546B" Status="Cancelled" />  
-          <Block Offset="6062" Length="6062" Id="MD5/PEnGwYOI8LPLNYdfKr7kAg==" Hash="3C49C6C18388F0B3CB35875F2ABEE402" Status="Cancelled" />  
-          <Block Offset="12124" Length="6062" Id="MD5/FG4WxqfZKuUWZ2nGTU2qVA==" Hash="146E16C6A7D92AE5166769C64D4DAA54" Status="Cancelled" />  
-          <Block Offset="18186" Length="6062" Id="MD5/ZzibNDzr3IRBQENRyegeXQ==" Hash="67389B343CEBDC8441404351C9E81E5D" Status="Cancelled" />  
-          <Block Offset="24248" Length="6062" Id="MD5/ZzibNDzr3IRBQENRyegeXQ==" Hash="67389B343CEBDC8441404351C9E81E5D" Status="Cancelled" />  
-        </BlockList>  
-      </Blob>  
-      <Status>CompletedWithErrors</Status>  
-    </DriveLog>  
+  
+```xml
+<?xml version="1.0" encoding="utf-8"?>  
+<DriveLog Version="2014-11-01">  
+  <DriveId>9WM35C2V</DriveId>  
+  <Blob Status="FileNotFound">  
+    <BlobPath>pictures/animals/koala.jpg</BlobPath>  
+    <FilePath>\animals\koala.jpg</FilePath>  
+    <Length>30310</Length>  
+    <ImportDisposition Status="Cancelled">rename</ImportDisposition>  
+    <BlockList>  
+      <Block Offset="0" Length="6062" Id="MD5/cAzn4h7VVSWXf696qp5Uaw==" Hash="700CE7E21ED55525977FAF7AAA9E546B" Status="Cancelled" />  
+      <Block Offset="6062" Length="6062" Id="MD5/PEnGwYOI8LPLNYdfKr7kAg==" Hash="3C49C6C18388F0B3CB35875F2ABEE402" Status="Cancelled" />  
+      <Block Offset="12124" Length="6062" Id="MD5/FG4WxqfZKuUWZ2nGTU2qVA==" Hash="146E16C6A7D92AE5166769C64D4DAA54" Status="Cancelled" />  
+      <Block Offset="18186" Length="6062" Id="MD5/ZzibNDzr3IRBQENRyegeXQ==" Hash="67389B343CEBDC8441404351C9E81E5D" Status="Cancelled" />  
+      <Block Offset="24248" Length="6062" Id="MD5/ZzibNDzr3IRBQENRyegeXQ==" Hash="67389B343CEBDC8441404351C9E81E5D" Status="Cancelled" />  
+    </BlockList>  
+  </Blob>  
+  <Status>CompletedWithErrors</Status>  
+</DriveLog>  
+```
 
 The following error log for an export job indicates that the blob content has been successfully written to the drive, but that an error occurred while exporting the blob's properties.  
 

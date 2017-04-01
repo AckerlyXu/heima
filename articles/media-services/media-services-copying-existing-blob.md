@@ -1,6 +1,6 @@
 ---
-title: Copying blobs from a storage account into an Azure Media Services asset | Azure
-description: This topic shows how to copy an existing blob into a Media Services Asset. The example uses Azure Media Services .NET SDK Extensions.
+title: Copying blobs from a storage account into an Azure Media Services asset | Microsoft Docs
+description: This topic shows how to copy an existing blob into a Media Services Asset. The example uses Azure Media Services .NET SDK Extensions. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,10 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 01/31/2017
-wacn.date: ''
 ms.author: juliako
----
 
+---
 # Copying existing blobs into a Media Services Asset
 This topic shows how to copy blobs from a storage account into a new Azure Media Services (AMS) asset using [Azure Media Services .NET SDK Extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
@@ -173,8 +172,10 @@ namespace CopyExistingBlobsIntoAsset
 
 ### Copy blobs from some storage account into a new asset in a AMS account
 
-The following code uses copies blobs from a storage account into a Media Services asset. 
+The following code copies blobs from a storage account into a Media Services asset. 
 
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 ```
 using System;
 using System.Configuration;

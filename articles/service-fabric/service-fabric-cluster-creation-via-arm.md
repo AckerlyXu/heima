@@ -67,8 +67,11 @@ If you plan to deploy clusters in multiple regions, it is suggested that you nam
 ```powershell
     New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'China East'
 ```
-You should see an output like this.
-        WARNING: The output object type of this cmdlet is going to be modified in a future release.
+The output should look like this:
+
+```powershell
+
+    WARNING: The output object type of this cmdlet is going to be modified in a future release.
 
         ResourceGroupName : mycluster-keyvault
         Location          : chinaeast
@@ -76,16 +79,19 @@ You should see an output like this.
         Tags              :
         ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
 
+```
 <a id="new-key-vault"></a>
 
 ### Create a new Key Vault
 Create a Key Vault in the new resource group. The Key Vault **must be enabled for deployment** to allow the compute resource provider to get certificates from it and install on Virtual Machine Instances:
 
-```
-    New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'China East' -EnabledForDeployment
+```powershell
+
+    New-AzureRmKeyVault -VaultName 'mywestusvault' -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
+
 ```
 
-You should see an output like this.
+The output should look like this:
 
 ```powershell
     Vault Name                       : myvault
@@ -106,9 +112,9 @@ You should see an output like this.
                                        Permissions to Keys      :    get, create, delete, list, update, import, backup, restore
                                        Permissions to Secrets   :    all
 
+
     Tags                             :
 ```
-
 <a id="existing-key-vault"></a>
 
 ## Use an existing Key Vault
@@ -149,20 +155,24 @@ Private key files (.pfx) can be added and used directly through Key Vault. Howev
 To make this process easier, a PowerShell module is [available on GitHub][service-fabric-rp-helpers]. Follow these steps to use the module:
 
 1. Download the entire contents of the repo into a local directory.
-2. Navigate to the local directory 
+2. Go to the local directory.
 2. Import the ServiceFabricRPHelpers module in your PowerShell window:
 
-     Import-Module "C:\..\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+```powershell
+
+ Import-Module "C:\..\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
 The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically formats a certificate private key into a JSON string and uploads it to Key Vault. Use it to add the cluster certificate and any additional application certificates to Key Vault. Repeat this step for any additional certificates you want to install in your cluster.
 
 #### uploading an existing certificate 
 
-```
+```powershell
+
  Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "China East" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+
 ```
 
-if you get errors like the following, it usually means that you have a resource URL conflict, so change the keyvault name.
+If you get an error, such as the one shown here, it usually means that you have a resource URL conflict. To resolve the conflict, change the key vault name.
 
 ```
 Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinaeastkv.vault.chinacloudapi.cn'
@@ -173,7 +183,7 @@ At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelp
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
 ```
 
-On successful completion, you should see an output like this.
+After the conflict is resolved, the output should look like this:
 
 ```
     Switching context to SubscriptionId <guid>
@@ -215,7 +225,7 @@ $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be st
 
 if you get errors like the following, it usually means that you have a resource URL conflict, so change the keyvault name, RG name etc.
 
-<p><font color="red">
+```
 Set-AzureKeyVaultSecret : The remote name could not be resolved: 'chinaeastkv.vault.chinacloudapi.cn'
 At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
 + $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
@@ -223,9 +233,9 @@ At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelp
     + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
 
-</font></p>
+```
 
-On successful completion, you should see an output like this.
+After the conflict is resolved, the output should look like this:
 
 ```
 PS C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers> Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -Password $certPassword -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
@@ -293,11 +303,13 @@ To simplify some of the steps involved in configuring AAD with a Service Fabric 
 
     The script prints the Json required by the Azure Resource Manager template when you create the cluster in the next section so keep the PowerShell window open.
 
-    "azureActiveDirectory": {
-      "tenantId":"<guid>",
-      "clusterApplication":"<guid>",
-      "clientApplication":"<guid>"
-    },
+```json
+"azureActiveDirectory": {
+  "tenantId":"<guid>",
+  "clusterApplication":"<guid>",
+  "clientApplication":"<guid>"
+},
+```
 
 ## Create a Service Fabric cluster Resource Manager template
 In this section, the outputs of the preceding PowerShell commands are used in a Service Fabric cluster Resource Manager template.
@@ -528,6 +540,7 @@ To make the process easier, a helper script has been provided [here](http://gith
 
 ```sh
 ./cert_helper.py [-h] CERT_TYPE [-ifile INPUT_CERT_FILE] [-sub SUBSCRIPTION_ID] [-rgname RESOURCE_GROUP_NAME] [-kv KEY_VAULT_NAME] [-sname CERTIFICATE_NAME] [-l LOCATION] [-p PASSWORD]
+```
 
 The -ifile parameter can take a .pfx or a .pem file as input, with the certificate type (pfx or pem, or ss if it is a self-signed cert).
 The parameter -h prints out the help text.

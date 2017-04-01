@@ -205,29 +205,31 @@ Sometimes it makes sense to submit multiple operations together in a batch to en
 
  The following example demonstrates submitting two entities in a batch:
 
-    var task1 = {
-      PartitionKey: {'_':'hometasks'},
-      RowKey: {'_': '1'},
-      description: {'_':'Take out the trash'},
-      dueDate: {'_':new Date(2015, 6, 20)}
-    };
-    var task2 = {
-      PartitionKey: {'_':'hometasks'},
-      RowKey: {'_': '2'},
-      description: {'_':'Wash the dishes'},
-      dueDate: {'_':new Date(2015, 6, 20)}
-    };
+```nodejs
+var task1 = {
+  PartitionKey: {'_':'hometasks'},
+  RowKey: {'_': '1'},
+  description: {'_':'Take out the trash'},
+  dueDate: {'_':new Date(2015, 6, 20)}
+};
+var task2 = {
+  PartitionKey: {'_':'hometasks'},
+  RowKey: {'_': '2'},
+  description: {'_':'Wash the dishes'},
+  dueDate: {'_':new Date(2015, 6, 20)}
+};
 
-    var batch = new azure.TableBatch();
+var batch = new azure.TableBatch();
 
-    batch.insertEntity(task1, {echoContent: true});
-    batch.insertEntity(task2, {echoContent: true});
+batch.insertEntity(task1, {echoContent: true});
+batch.insertEntity(task2, {echoContent: true});
 
-    tableSvc.executeBatch('mytable', batch, function (error, result, response) {
-      if(!error) {
-        // Batch completed
-      }
-    });
+tableSvc.executeBatch('mytable', batch, function (error, result, response) {
+  if(!error) {
+    // Batch completed
+  }
+});
+```
 
 For successful batch operations, `result` will contain information for each operation in the batch.
 

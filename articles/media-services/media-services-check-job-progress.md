@@ -2,29 +2,30 @@
 title: Monitor Job Progress using .NET
 description: Learn how to use event handler code to track job progress and send status updates. The code sample is written in C# and uses the Media Services SDK for .NET.
 services: media-services
-documentationCenter: ''
-authors: juliako
+documentationcenter: ''
+author: juliako
 manager: erikre
 editor: ''
 
+ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
-wacn.date: ''
 ms.author: juliako
+
 ---
-
 # Monitor Job Progress using .NET
-
 > [!div class="op_single_selector"]
->- [Portal](./media-services-portal-check-job-progress.md)
->- [.NET](./media-services-check-job-progress.md)
->- [REST](./media-services-rest-check-job-progress.md)
+> * [Portal](media-services-portal-check-job-progress.md)
+> * [.NET](media-services-check-job-progress.md)
+> * [REST](media-services-rest-check-job-progress.md)
+> 
+> 
 
-When you run jobs, you often require a way to track job progress. You can check the progress by defining a StateChanged event handler (as described in this topic) or using Azure Queue storage to monitor Media Services job notifications (as described in [this](./media-services-dotnet-check-job-progress-with-queues.md) topic).
+When you run jobs, you often require a way to track job progress. You can check the progress by defining a StateChanged event handler (as described in this topic) or using Azure Queue storage to monitor Media Services job notifications (as described in [this](media-services-dotnet-check-job-progress-with-queues.md) topic).
 
 ##<a id="statechange_event_handler"></a>Define StateChanged event handler to monitor job progress
 

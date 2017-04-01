@@ -64,7 +64,9 @@ After you have gone through the planning and preparation steps detailed at the b
 
 1. Validate the configuration file you have written by running the *TestConfiguration.ps1* script from the standalone package folder:  
 
-    .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
+```powershell
+.\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
+```
 
 You should see output like below. If the bottom field "Passed" is returned as "True", sanity checks have passed and the cluster looks to be deployable based on the input configuration.
 
@@ -87,8 +89,9 @@ Passed                     : True
 
 2. Create the cluster:
 Run the *CreateServiceFabricCluster.ps1* script to deploy the Service Fabric cluster across each machine in the configuration. 
-
-    .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
+```powershell
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
+```
 
 > [!NOTE]
 > Deployment traces are written to the VM/machine on which you ran the CreateServiceFabricCluster.ps1 PowerShell script. These can be found in the subfolder DeploymentTraces, based in the directory from which the script was run. To see if Service Fabric was deployed correctly to a machine, find the installed files in the FabricDataRoot directory, as detailed in the cluster configuration file FabricSettings section (by default c:\ProgramData\SF). As well, FabricHost.exe and Fabric.exe processes can be seen running in Task Manager.
@@ -122,7 +125,9 @@ This script can be run on any machine that has administrator access to all the m
 ```
 # Removes Service Fabric from each machine in the configuration
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -Force
+```
 
+```
 # Removes Service Fabric from the current machine
 .\CleanFabric.ps1
 ```

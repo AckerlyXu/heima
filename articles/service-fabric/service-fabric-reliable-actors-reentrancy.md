@@ -23,14 +23,16 @@ The Reliable Actors runtime, by default, allows logical call context-based reent
 
 There are two options available for actor reentrancy defined in the `ActorReentrancyMode` enum:
 
- - `LogicalCallContext` (default behavior)
- - `Disallowed` - disables reentrancy
+* `LogicalCallContext` (default behavior)
+* `Disallowed` - disables reentrancy
 
-    public enum ActorReentrancyMode
-    {
-        LogicalCallContext = 1,
-        Disallowed = 2
-    }
+```csharp
+public enum ActorReentrancyMode
+{
+    LogicalCallContext = 1,
+    Disallowed = 2
+}
+```
 
 Reentrancy can be configured in an `ActorService`'s settings during registration. The setting applies to all actor instances created in the actor service.
 

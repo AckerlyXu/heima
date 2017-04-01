@@ -173,36 +173,36 @@ Use the action property in **NotifyDictionaryChangedEventArgs** to cast **Notify
 - **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 - **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
-    public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
+```C#
+public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
+{
+    switch (e.Action)
     {
-            switch (e.Action)
-            {
-                case NotifyDictionaryChangedAction.Clear:
-                        var clearEvent = e as NotifyDictionaryClearEventArgs<TKey, TValue>;
-                        this.ProcessClearNotification(clearEvent);
-                        return;
+        case NotifyDictionaryChangedAction.Clear:
+            var clearEvent = e as NotifyDictionaryClearEventArgs<TKey, TValue>;
+            this.ProcessClearNotification(clearEvent);
+            return;
 
-    ```C#
-            case NotifyDictionaryChangedAction.Add:
-                    var addEvent = e as NotifyDictionaryItemAddedEventArgs<TKey, TValue>;
-                    this.ProcessAddNotification(addEvent);
-                    return;
+        case NotifyDictionaryChangedAction.Add:
+            var addEvent = e as NotifyDictionaryItemAddedEventArgs<TKey, TValue>;
+            this.ProcessAddNotification(addEvent);
+            return;
 
-            case NotifyDictionaryChangedAction.Update:
-                    var updateEvent = e as NotifyDictionaryItemUpdatedEventArgs<TKey, TValue>;
-                    this.ProcessUpdateNotification(updateEvent);
-                    return;
+        case NotifyDictionaryChangedAction.Update:
+            var updateEvent = e as NotifyDictionaryItemUpdatedEventArgs<TKey, TValue>;
+            this.ProcessUpdateNotification(updateEvent);
+            return;
 
-            case NotifyDictionaryChangedAction.Remove:
-                    var deleteEvent = e as NotifyDictionaryItemRemovedEventArgs<TKey, TValue>;
-                    this.ProcessRemoveNotification(deleteEvent);
-                    return;
+        case NotifyDictionaryChangedAction.Remove:
+            var deleteEvent = e as NotifyDictionaryItemRemovedEventArgs<TKey, TValue>;
+            this.ProcessRemoveNotification(deleteEvent);
+            return;
 
-            default:
-                    break;
-        }
-    ```
+        default:
+            break;
     }
+}
+```
 
 ## Recommendations
 

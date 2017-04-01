@@ -1,28 +1,29 @@
 ---
 title: Publish Azure Media Services content using .NET
 description: Learn how to create a locator that is used to build a streaming URL. Code samples are written in C# and use the Media Services SDK for .NET.
-authors: juliako
+author: juliako
 manager: erikre
 editor: ''
 services: media-services
-documentationCenter: ''
+documentationcenter: ''
 
+ms.assetid: c53b1f83-4cb1-4b09-840f-9c145b7d6f8d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
-wacn.date: ''
 ms.author: juliako
+
 ---
-
 # Publish Azure Media Services content using .NET
-
 > [!div class="op_single_selector"]
->- [REST](./media-services-rest-deliver-streaming-content.md)
->- [.NET](./media-services-deliver-streaming-content.md)
->- [Portal](./media-services-portal-publish.md)
+> * [REST](media-services-rest-deliver-streaming-content.md)
+> * [.NET](media-services-deliver-streaming-content.md)
+> * [Portal](media-services-portal-publish.md)
+> 
+> 
 
 ##Overview
 
@@ -46,8 +47,11 @@ To create the OnDemand streaming locator and get URLs you need to do the followi
     If you plan to progressively download, get the names of MP4 files in the asset.  
    4. Build URLs to the manifest file or MP4 files. 
 
-###Use Media Services .NET SDK 
 
+>[!NOTE]
+>There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
+
+### Use Media Services .NET SDK
 Build Streaming URLs 
 
 ```
@@ -100,8 +104,10 @@ URL to manifest for client streaming using MPEG DASH protocol:
 http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 ```
 
->[!NOTE]
->You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. 
+> [!NOTE]
+> You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. Note that, currently, AMS doesn’t support SSL with custom domains.  
+> 
+> 
 
 Build progressive download URLs 
 
@@ -146,8 +152,7 @@ http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03
 . . . 
 ```
 
-###Use Media Services .NET SDK Extensions
-
+### Use Media Services .NET SDK Extensions
 The following code calls .NET SDK extensions methods that create a locator and generate the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming.
 
 ```

@@ -28,48 +28,48 @@ To manage such applications successfully you should monitor them proactively and
 
 For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](./storage-e2e-troubleshooting.md).
 
-+ [Introduction]
-    + [How this guide is organized]
-+ [Monitoring your storage service]
-    + [Monitoring service health]
-    + [Monitoring capacity]
-    + [Monitoring availability]
-    + [Monitoring performance]
-+ [Diagnosing storage issues]
-    + [Service health issues]
-    + [Performance issues]
-    + [Diagnosing errors]
-    + [Storage emulator issues]
-    + [Storage logging tools]
-    + [Using network logging tools]
-+ [End-to-end tracing]
-    + [Correlating log data]
-    + [Client request ID]
-    + [Server request ID]
-    + [Timestamps]
-+ [Troubleshooting guidance]
-    + [Metrics show high AverageE2ELatency and low AverageServerLatency]
-    + [Metrics show low AverageE2ELatency and low AverageServerLatency but the client is experiencing high latency]
-    + [Metrics show high AverageServerLatency]
-    + [You are experiencing unexpected delays in message delivery on a queue]
-    + [Metrics show an increase in PercentThrottlingError]
-    + [Metrics show an increase in PercentTimeoutError]
-    + [Metrics show an increase in PercentNetworkError]
-    + [The client is receiving HTTP 403 (Forbidden) messages]
-    + [The client is receiving HTTP 404 (Not found) messages]
-    + [The client is receiving HTTP 409 (Conflict) messages]
-    + [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
-    + [Capacity metrics show an unexpected increase in storage capacity usage]
-    + [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
-    + [Your issue arises from using the storage emulator for development or test]
-    + [You are encountering problems installing the Azure SDK for .NET]
-    + [You have a different issue with a storage service]
-+ [Appendices]
-    + [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
-    + [Appendix 2: Using Wireshark to capture network traffic]
-    + [Appendix 3: Using Microsoft Message Analyzer to capture network traffic]
-    + [Appendix 4: Using Excel to view metrics and log data]
-    + [Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]
+* [Introduction]
+  * [How this guide is organized]
+* [Monitoring your storage service]
+  * [Monitoring service health]
+  * [Monitoring capacity]
+  * [Monitoring availability]
+  * [Monitoring performance]
+* [Diagnosing storage issues]
+  * [Service health issues]
+  * [Performance issues]
+  * [Diagnosing errors]
+  * [Storage emulator issues]
+  * [Storage logging tools]
+  * [Using network logging tools]
+* [End-to-end tracing]
+  * [Correlating log data]
+  * [Client request ID]
+  * [Server request ID]
+  * [Timestamps]
+* [Troubleshooting guidance]
+  * [Metrics show high AverageE2ELatency and low AverageServerLatency]
+  * [Metrics show low AverageE2ELatency and low AverageServerLatency but the client is experiencing high latency]
+  * [Metrics show high AverageServerLatency]
+  * [You are experiencing unexpected delays in message delivery on a queue]
+  * [Metrics show an increase in PercentThrottlingError]
+  * [Metrics show an increase in PercentTimeoutError]
+  * [Metrics show an increase in PercentNetworkError]
+  * [The client is receiving HTTP 403 (Forbidden) messages]
+  * [The client is receiving HTTP 404 (Not found) messages]
+  * [The client is receiving HTTP 409 (Conflict) messages]
+  * [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
+  * [Capacity metrics show an unexpected increase in storage capacity usage]
+  * [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
+  * [Your issue arises from using the storage emulator for development or test]
+  * [You are encountering problems installing the Azure SDK for .NET]
+  * [You have a different issue with a storage service]
+* [Appendices]
+  * [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
+  * [Appendix 2: Using Wireshark to capture network traffic]
+  * [Appendix 3: Using Microsoft Message Analyzer to capture network traffic]
+  * [Appendix 4: Using Excel to view metrics and log data]
+  * [Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]
 
 ## <a name="introduction"></a>Introduction
 
@@ -311,59 +311,48 @@ This section will help you with the diagnosis and troubleshooting of some of the
 
 **Troubleshooting Decision Tree**
 
-----------
-
+- - -
 Does your issue relate to the performance of one of the storage services?
 
-- [Metrics show high AverageE2ELatency and low AverageServerLatency]
-- [Metrics show low AverageE2ELatency and low AverageServerLatency but the client is experiencing high latency]
-- [Metrics show high AverageServerLatency]
-- [You are experiencing unexpected delays in message delivery on a queue]
+* [Metrics show high AverageE2ELatency and low AverageServerLatency]
+* [Metrics show low AverageE2ELatency and low AverageServerLatency but the client is experiencing high latency]
+* [Metrics show high AverageServerLatency]
+* [You are experiencing unexpected delays in message delivery on a queue]
 
-----------
-
+- - -
 Does your issue relate to the availability of one of the storage services?
 
-- [Metrics show an increase in PercentThrottlingError]
-- [Metrics show an increase in PercentTimeoutError]
-- [Metrics show an increase in PercentNetworkError]
+* [Metrics show an increase in PercentThrottlingError]
+* [Metrics show an increase in PercentTimeoutError]
+* [Metrics show an increase in PercentNetworkError]
 
-----------
-
+- - -
 Is your client application receiving an HTTP 4XX (such as 404) response from a storage service?
 
-- [The client is receiving HTTP 403 (Forbidden) messages]
-- [The client is receiving HTTP 404 (Not found) messages]
-- [The client is receiving HTTP 409 (Conflict) messages]
+* [The client is receiving HTTP 403 (Forbidden) messages]
+* [The client is receiving HTTP 404 (Not found) messages]
+* [The client is receiving HTTP 409 (Conflict) messages]
 
-----------
-
+- - -
 [Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]
 
-----------
-
+- - -
 [Capacity metrics show an unexpected increase in storage capacity usage]
 
-----------
-
+- - -
 [You are experiencing unexpected reboots of Virtual Machines that have a large number of attached VHDs]
 
-----------
-
+- - -
 [Your issue arises from using the storage emulator for development or test]
 
-----------
-
+- - -
 [You are encountering problems installing the Azure SDK for .NET]
 
-----------
-
+- - -
 [You have a different issue with a storage service]
 
-----------
-
+- - -
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Metrics show high AverageE2ELatency and low AverageServerLatency
-
 The illustration blow from the Azure Classic Portal monitoring tool shows an example where the **AverageE2ELatency** is significantly higher than the **AverageServerLatency**.
 
 ![][4]
@@ -372,9 +361,10 @@ Note that the storage service only calculates the metric **AverageE2ELatency** f
 
 > [!NOTE]
 > You can also view **E2ELatency** and **ServerLatency** for individual storage operations in the Storage Logging log data.
+> 
+> 
 
 #### Investigating client performance issues
-
 Possible reasons for the client responding slowly include having a limited number of available connections or threads. You may be able to resolve the issue by modifying the client code to be more efficient (for example by using asynchronous calls to the storage service), or by using a larger Virtual Machine (with more cores and more memory).
 
 For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information see the post <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> on the Azure Storage Team Blog. You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.

@@ -1,5 +1,5 @@
 ---
-title: Scale media processing by adding encoding units - Azure |  Azure
+title: Scale media processing by adding encoding units - Azure |  Microsoft Docs
 description: Learn how to how to add encoding units with .NET
 services: media-services
 documentationcenter: ''
@@ -14,23 +14,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-wacn.date: ''
 ms.author: juliako;milangada;
+
 ---
-
-#How to scale encoding with .NET SDK
-
+# How to scale encoding with .NET SDK
 > [!div class="op_single_selector"]
->- [Portal](./media-services-portal-scale-media-processing.md)
->- [.NET](./media-services-dotnet-encoding-units.md)
->- [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
->- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
->- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+> * [Portal](media-services-portal-scale-media-processing.md)
+> * [.NET](media-services-dotnet-encoding-units.md)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+> * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+> * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+> 
+> 
 
-##Overview
-
->[!IMPORTANT]
-> Make sure to review the [overview](./media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
+## Overview
+> [!IMPORTANT]
+> Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
+> 
+> 
 
 To change the reserved unit type and the number of encoding reserved units using .NET SDK, do the following:
 

@@ -97,7 +97,8 @@ The following are required to complete the tutorial.
 
 ##Considerations
 
-- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Azure.cn if you need to run a Channel for longer periods of time.
+* Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Azure.cn if you need to run a Channel for longer periods of time.
+* There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
 
 ##Download sample
 

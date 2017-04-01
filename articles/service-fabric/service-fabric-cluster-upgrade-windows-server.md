@@ -151,13 +151,17 @@ and kick off a configuration upgrade. Refer to [Start-ServiceFabricClusterConfig
 
 4. Copy the downloaded package into the cluster image store.
 
-       ###### Get the list of available service fabric versions
-        Copy-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file including the path to it> -ImageStoreConnectionString "fabric:ImageStore"
+    ```powershell
 
-       ###### Here is a filled out example
-        Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
+   ###### Get the list of available Service Fabric versions
+    Copy-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file including the path to it> -ImageStoreConnectionString "fabric:ImageStore"
 
-5. Register the copied package 
+   ###### Here is a filled-out example
+    Copy-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab -ImageStoreConnectionString "fabric:ImageStore"
+
+    ```
+
+4. Register the copied package.
 
     ```powershell
     ###### Get the list of available service fabric versions 
