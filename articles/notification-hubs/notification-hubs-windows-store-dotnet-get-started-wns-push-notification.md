@@ -189,7 +189,7 @@ To send notifications by using a .NET console application follow these steps.
 
 1. Right-click the solution, select **Add** and **New Project...**, and then under **Visual C#**, click **Windows** and **Console Application**, and click **OK**.
 
-       ![][13]
+	![][13]
 
     This adds a new Visual C# console application to the solution. You can also do this in a separate solution.
 

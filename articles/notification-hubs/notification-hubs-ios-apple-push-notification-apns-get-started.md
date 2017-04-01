@@ -75,11 +75,11 @@ Your notification hub is now configured to work with APNS, and you have the conn
 
 1. In Xcode, create a new iOS project and select the **Single View Application** template.
 
-       ![Xcode - Single View Application][8]
+	![Xcode - Single View Application][8]
 
 2. When setting the options for your new project, make sure to use the same **Product Name** and **Organization Identifier** that you used when you previously set the bundle ID on the Apple Developer portal.
 
-    ![Xcode - project options][11]
+	![Xcode - project options][11]
 
 3. Under **Targets**, click your project name, click the **Build Settings** tab and expand **Code Signing Identity**, and then under **Debug**, set your code-signing identity. Toggle **Levels** from **Basic** to **All**, and set **Provisioning Profile** to the provisioning profile that you created previously.
 

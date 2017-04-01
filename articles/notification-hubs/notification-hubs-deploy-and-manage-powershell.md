@@ -50,8 +50,6 @@ First, make sure your script can locate the **Microsoft.Azure.NotificationHubs.d
 
 Here's how these steps are implemented in a PowerShell script:
 
-powershell
-
 ```powershell
 try
 {
@@ -77,8 +75,6 @@ To provision Notification Hubs, create an instance of the [NamespaceManager](htt
 
 You can use the [Get-AzureSBAuthorizationRule] cmdlet included with Azure PowerShell to retrieve an authorization rule that's used to provide a connection string. We'll store a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. We will use `$NamespaceManager` to provision a notification hub.
 
-powershell
-
 ```powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
 # Create the NamespaceManager object to create the hub
@@ -103,8 +99,6 @@ These variables are used to connect to your namespace and create a new Notificat
 + The script snippet uses the `NamespaceManager` object to check to see if the Notification Hub identified by `$Path` exists.
 
 + If it does not exist, the script will create an `NotificationHubDescription` with WNS credentials and pass that to the `NamespaceManager` class `CreateNotificationHub` method.
-
-powershell
 
 ```powershell
 $Namespace = "<Enter your namespace>"
