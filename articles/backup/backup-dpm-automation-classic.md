@@ -50,7 +50,7 @@ To begin:
 1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
 2. Enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
 
-    PS C:\> Switch-AzureMode AzureResourceManager
+		PS C:\> Switch-AzureMode AzureResourceManager
 
 The following setup and registration tasks can be automated with PowerShell:
 
@@ -330,13 +330,13 @@ In the example below, we demonstrate how to restore a Hyper-V virtual machine fr
 - Fetching the array of backup points using the ```Get-DPMRecoveryPoint``` cmdlet.
 - Choosing a backup point to restore from.
 
-    PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation "C:\VMRecovery"
-
-    PS C:\> $PG = Get-DPMProtectionGroup -DPMServerName "TestingServer"
-    PS C:\> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
-    PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
-
-    PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $RecoveryOption
+	    PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation "C:\VMRecovery"
+	
+	    PS C:\> $PG = Get-DPMProtectionGroup -DPMServerName "TestingServer"
+	    PS C:\> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
+	    PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
+	
+	    PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $RecoveryOption
 
 The commands can easily be extended for any datasource type.
 

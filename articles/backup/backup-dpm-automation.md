@@ -64,25 +64,25 @@ The following steps lead you through creating a Recovery Services vault. A Recov
 
 1. If you are using Azure Backup for the first time, you must use the **Register-AzureRMResourceProvider** cmdlet to register the Azure Recovery Service provider with your subscription.
 
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+		PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
 
 2. The Recovery Services vault is an ARM resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.  
 
-    PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "China North"
+		PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "China North"
 
 3. Use the **New-AzureRmRecoveryServicesVault** cmdlet to create a new vault. Be sure to specify the same location for the vault as was used for the resource group.
 
-    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "China North"
+		PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "China North"
 
 4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) or [Geo Redundant Storage (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
 
-   > [!TIP]
-   > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
-   >
-   >
+   	> [!TIP]
+   	> Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+   	>
+   	>
 
-    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testVault"
-    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    	PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testVault"
+    	PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
 
 ## View the vaults in a subscription
 Use **Get-AzureRmRecoveryServicesVault** to view the list of all vaults in the current subscription. You can use this command to check that a new  vault was created, or to see what vaults are available in the subscription.
@@ -337,9 +337,9 @@ You can use the [Get-DPMRecoveryPoint](https://technet.microsoft.com/zh-cn/libra
 - get the datasources corresponding to the ```$PG[0]```
 - get all the recovery points for a datasource.
 
-    PS C:\> $PG = Get-DPMProtectionGroup -DPMServerName "TestingServer"
-    PS C:\> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
-    PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
+	    PS C:\> $PG = Get-DPMProtectionGroup -DPMServerName "TestingServer"
+	    PS C:\> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
+	    PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 
 ## Restore data protected on Azure
 Restoring data is a combination of a ```RecoverableItem``` object and a ```RecoveryOption``` object. In the previous section, we got a list of the backup points for a datasource.
@@ -350,13 +350,13 @@ In the example below, we demonstrate how to restore a Hyper-V virtual machine fr
 - Fetching the array of backup points using the ```Get-DPMRecoveryPoint``` cmdlet.
 - Choosing a backup point to restore from.
 
-    PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation "C:\VMRecovery"
-
-    PS C:\> $PG = Get-DPMProtectionGroup -DPMServerName "TestingServer"
-    PS C:\> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
-    PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
-
-    PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $RecoveryOption
+	    PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation "C:\VMRecovery"
+	
+	    PS C:\> $PG = Get-DPMProtectionGroup -DPMServerName "TestingServer"
+	    PS C:\> $DS = Get-DPMDatasource -ProtectionGroup $PG[0]
+	    PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
+	
+	    PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $RecoveryOption
 
 The commands can easily be extended for any datasource type.
 
