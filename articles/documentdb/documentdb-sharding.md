@@ -42,9 +42,9 @@ The SDKs also includes two classes that support the two canonical partitioning t
 ## Add partitioning logic and register the PartitionResolver
 Here's a snippet showing how to create a [HashPartitionResolver](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) and register with the DocumentClient for a database.
 
-cs
 
-```
+
+```cs
 // Create some collections to partition data.
 DocumentCollection collection1 = await client.CreateDocumentCollectionAsync(...);
 DocumentCollection collection2 = await client.CreateDocumentCollectionAsync(...);
@@ -61,9 +61,9 @@ this.client.PartitionResolvers[database.SelfLink] = hashResolver;
 ## Create documents in a partition
 Once the PartitionResolver is registered, you can perform creates and queries directly against the database as shown below. In this example, the SDK uses the PartitionResolver to extract the UserId, hash it, and then use that value to route the create operation to the correct collection.
 
-cs
 
-```
+
+```cs
 Document johnDocument = await this.client.CreateDocumentAsync(
     database.SelfLink, new UserProfile("J1", "@John", Region.UnitedStatesEast));
 Document ryanDocument = await this.client.CreateDocumentAsync(
@@ -73,9 +73,9 @@ Document ryanDocument = await this.client.CreateDocumentAsync(
 ## Create queries against partitions
 You can query using the [CreateDocumentQuery](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) method by passing in the database and a partition key. The query returns a single result-set over all the collections within the database that map to the partition key.  
 
-cs
 
-```
+
+```cs
 // Query for John's document by ID - uses PartitionResolver to restrict the query to the partitions 
 // containing @John. Again the query uses the database self link, and relies on the hash resolver 
 // to route the appropriate collection.
@@ -88,9 +88,9 @@ johnProfile = query.AsEnumerable().FirstOrDefault();
 ## Create queries against all collections in the database
 You can also query all collections within the database and enumerate the results as show below, by skipping the partition key argument.
 
-cs
 
-```
+
+```cs
 // Query for all "Available" users. Here since there is no partition key, the query is serially executed 
 // across each partition/collection and returns a single result-set. 
 query = this.client.CreateDocumentQuery<UserProfile>(database.SelfLink)

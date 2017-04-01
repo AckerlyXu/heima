@@ -138,8 +138,6 @@ Now let's create your voting application by adding new files and updating others
 1. In Solution Explorer, right-click the **tutorial** project, click **Add**, and then click **New Item**. Select **Empty Python File** and name the file **forms.py**.  
 2. Add the following code to the forms.py file, and then save the file.
 
-python
-
 ```python
 from flask.ext.wtf import Form
 from wtforms import RadioField
@@ -155,8 +153,6 @@ class VoteForm(Form):
 1. In Solution Explorer, expand the **tutorial** folder, and open the **views.py** file. 
 2. Add the following import statements to the top of the **views.py** file, then save the file. These import DocumentDB's PythonSDK and the Flask packages.
 
-python
-
 ```python
 from forms import VoteForm
 import config
@@ -165,8 +161,6 @@ import pydocumentdb.document_client as document_client
 
 ### Create database, collection, and document
 - Still in **views.py**, add the following code to the end of the file. This takes care of creating the database used by the form. Do not delete any of the existing code in **views.py**. Simply append this to the end.
-
-python
 
 ```python
 @app.route('/create')
@@ -208,8 +202,6 @@ def create():
 
 ### Read database, collection, document, and submit form
 - Still in **views.py**, add the following code to the end of the file. This takes care of setting up the form, reading the database, collection, and document. Do not delete any of the existing code in **views.py**. Simply append this to the end.
-
-python
 
 ```python
 @app.route('/vote', methods=['GET', 'POST'])
@@ -264,8 +256,6 @@ def vote():
 3. Repeat steps 1 and 2 to create two additional HTML files: results.html and vote.html.
 4. Add the following code to **create.html** in the `<body>` element. It displays a message stating that we created a new database, collection, and document.
 
-html
-
 ```html
 {% extends "layout.html" %}
 {% block content %}
@@ -276,8 +266,6 @@ html
 ```
 
 5. Add the following code to **results.html** in the `<body`> element. It displays the results of the poll.
-
-html
 
 ```html
 {% extends "layout.html" %}
@@ -305,8 +293,6 @@ html
 
 6. Add the following code to **vote.html** in the `<body`> element. It displays the poll and accepts the votes. On registering the votes, the control is passed over to views.py where we will recognize the vote cast and append the document accordingly.
 
-html
-
 ```html
 {% extends "layout.html" %}
 {% block content %}
@@ -322,8 +308,6 @@ html
 7. In the **templates** folder, replace the contents of **index.html** with the following. This
 serves as the landing page for your application.
 
-html
-
 ```html
 {% extends "layout.html" %}
 {% block content %}
@@ -337,8 +321,6 @@ html
 ### Add a configuration file and change the \_\_init\_\_.py
 1. In Solution Explorer, right-click the **tutorial** project, click **Add**, click **New Item**, select **Empty Python File**, and then name the file **config.py**. This config file is required by forms in Flask. You can use it to provide a secret key as well. This key is not needed for this tutorial though.
 2. Add the following code to config.py, you'll need to alter the values of **DOCUMENTDB\_HOST** and **DOCUMENTDB\_KEY** in the next step.
-
-python
 
 ```python
 CSRF_ENABLED = True
@@ -361,8 +343,6 @@ DOCUMENTDB_DOCUMENT = 'voting document'
     ```
 
     So that the content of the file is:
-
-python
 
 ```python
 from flask import Flask

@@ -59,8 +59,6 @@ The following table lists the throughput available for collections:
 
 ## To set the throughput by using the .NET SDK <a id="set-throughput-sdk"></a>
 
-C#
-
 ```C#
 //Fetch the resource to be updated
 Offer offer = client.CreateOfferQuery()

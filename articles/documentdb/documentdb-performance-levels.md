@@ -124,8 +124,6 @@ Another option for changing your collections' performance levels is through our 
 
 Here is a code snippet for changing the collection throughput to 5,000 request units per second:
 
-C#
-
 ```C#
 //Fetch the resource to be updated
 Offer offer = client.CreateOfferQuery()
