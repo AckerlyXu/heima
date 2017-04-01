@@ -25,9 +25,9 @@ The VM Agent is enabled in the following situations:
 
 * When you manually download and install the VM Agent on an existing VM instance, and set the **ProvisionGuestAgent** value to **true**. You can use this technique for Windows and Linux agents, by using a PowerShell command or a REST call. (If you do not set the **ProvisionGuestAgent** value after manually installing the VM Agent, the addition of the VM Agent is not detected properly.) The following code example shows how to do this using PowerShell where the `$svc` and `$name` arguments have already been determined:
 
-      $vm = Get-AzureVM -ServiceName $svc -Name $name
-      $vm.VM.ProvisionGuestAgent = $TRUE
-      Update-AzureVM -Name $name -VM $vm.VM -ServiceName $svc
+        $vm = Get-AzureVM -ServiceName $svc -Name $name
+        $vm.VM.ProvisionGuestAgent = $TRUE
+        Update-AzureVM -Name $name -VM $vm.VM -ServiceName $svc
 
 * When you create a VM image that includes an installed VM Agent. Once the image with the VM Agent exists, you can upload that image to Azure. For a Windows VM, download the [Windows VM Agent .msi file](http://go.microsoft.com/fwlink/?LinkID=394789) and install the VM Agent. For a Linux VM, install the VM Agent from the GitHub repository located at <https://github.com/Azure/WALinuxAgent>. For more information on how to install the VM Agent on Linux, see the [Azure Linux VM Agent User Guide](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

@@ -267,7 +267,9 @@ For Python 2.7:
 For Python 3.4:
 
     python -m venv env
+
 or
+
     pyvenv env
 
 Install any external packages required by your application. You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:
