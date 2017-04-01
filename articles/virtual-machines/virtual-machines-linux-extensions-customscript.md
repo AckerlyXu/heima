@@ -37,12 +37,12 @@ Schema:
 * **fileUris**: (optional, string array) the URLs for files to be downloaded.
 * **timestamp** (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
 
-```json
-{
-  "fileUris": ["<url>"],
-  "commandToExecute": "<command-to-execute>"
-}
-```
+    ```json
+    {
+      "fileUris": ["<url>"],
+      "commandToExecute": "<command-to-execute>"
+    }
+    ```
 
 ### Protected Configuration
 Schema:
@@ -51,13 +51,13 @@ Schema:
 * **storageAccountName**: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
 * **storageAccountKey**: (optional, string) the access key of storage account.
 
-```json
-{
-  "commandToExecute": "<command-to-execute>",
-  "storageAccountName": "<storage-account-name>",
-  "storageAccountKey": "<storage-account-key>"
-}
-```
+    ```json
+    {
+      "commandToExecute": "<command-to-execute>",
+      "storageAccountName": "<storage-account-name>",
+      "storageAccountKey": "<storage-account-key>"
+    }
+    ```
 
 ## Azure CLI
 When using the Azure CLI to run the Custom Script Extension, create a configuration file or files containing at minimum the file uri, and the script execution command.

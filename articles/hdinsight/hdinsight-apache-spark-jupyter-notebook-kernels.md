@@ -67,8 +67,8 @@ Here are a few benefits of using the new kernels.
 
     So, you don't have to run statements like the following to set the contexts:
 
-      	sc = SparkContext('yarn-client')
-      	sqlContext = HiveContext(sc)
+        sc = SparkContext('yarn-client')
+        sqlContext = HiveContext(sc)
 
     Instead, you can directly use the preset contexts in your application.
 

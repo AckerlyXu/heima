@@ -105,7 +105,7 @@ http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03
 ```
 
 > [!NOTE]
-> You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. Note that, currently, AMS doesn’t support SSL with custom domains.  
+> You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS. Note that, currently, AMS doesnâ€™t support SSL with custom domains.  
 > 
 > 
 

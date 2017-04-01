@@ -70,7 +70,7 @@ Your subscription has default [quota limits](../azure-subscription-service-limit
 ### Operating system disks and images
 Virtual machines use [virtual hard disks (VHDs)](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
 
-Azure provides many [marketplace images](https://azure.microsoft.com/marketplace/virtual-machines/) to use with various versions and types of Windows Server operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest). 
+Azure provides many marketplace images to use with various versions and types of Windows Server operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest). 
 
 This table shows some ways that you can find the information for an image.
 
@@ -137,7 +137,7 @@ You use the Connect button in the Azure portal preview to [start a Remote Deskto
 ### Manage availability
 It's important for you to understand how to [ensure high availability](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for your application. This configuration involves creating multiple VMs to ensure that at least one is running.
 
-In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside an [availability set](virtual-machines-windows-infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This configuration ensures your VMs are distributed across multiple fault domains and are deployed onto hosts with different maintenance windows. The full [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/v1_0/) explains the guaranteed availability of Azure as a whole.
+In order for your deployment to qualify for our 99.95 VM Service Level Agreement, you need to deploy two or more VMs running your workload inside an [availability set](virtual-machines-windows-infrastructure-availability-sets-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This configuration ensures your VMs are distributed across multiple fault domains and are deployed onto hosts with different maintenance windows. The full [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
 
 ### Back up the VM
 A [Recovery Services vault](../backup/backup-introduction-to-azure-backup.md) is used to protect data and assets in both Azure Backup and Azure Site Recovery services. You can use a Recovery Services vault to [deploy and manage backups for Resource Manager-deployed VMs using PowerShell](../backup/backup-azure-vms-automation.md). 

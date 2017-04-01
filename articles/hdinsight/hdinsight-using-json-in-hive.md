@@ -219,6 +219,7 @@ Here is the output from the Hive console.
 ![SerDe Query 2][image-hdi-hivejson-serde_query2]
 
 To find which subjects a given student has scored more than 80 points
+
     SELECT  
       jt.StudentClassCollection.ClassId
     FROM json_table jt

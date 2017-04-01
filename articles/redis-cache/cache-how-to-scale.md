@@ -92,7 +92,7 @@ To scale your Azure Redis Cache instances using the [Azure Management Libraries 
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
-        // https://www.azure.cn/azure/cache-configure/#access-keys
+        // https://www.azure.cn/documentation/articles/cache-configure/#access-keys
         string token = GetAuthorizationHeader();
 
         TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);

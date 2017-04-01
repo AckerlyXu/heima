@@ -204,14 +204,14 @@ If you know that the scripts do not contain strings with embedded CR characters,
 
 * **If you have scripts that you plan on uploading to the cluster**, use the following PowerShell statements to change the line endings from CRLF to LF before uploading the script to the cluster.
 
-      $original_file ='c:\path\to\script.py'
-      $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
-      [IO.File]::WriteAllText($original_file, $text)
+        $original_file ='c:\path\to\script.py'
+        $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+        [IO.File]::WriteAllText($original_file, $text)
 * **If you have scripts that are already in the storage used by the cluster**, you can use the following command from an SSH session to the Linux-based cluster to modify the script.
 
-      hdfs dfs -get wasbs:///path/to/script.py oldscript.py
-      tr -d '\r' < oldscript.py > script.py
-      hdfs dfs -put -f script.py wasbs:///path/to/script.py
+        hdfs dfs -get wasbs:///path/to/script.py oldscript.py
+        tr -d '\r' < oldscript.py > script.py
+        hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ## Next Steps
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)

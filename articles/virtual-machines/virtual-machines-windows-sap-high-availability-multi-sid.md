@@ -439,7 +439,7 @@ ms.custom: H1Hack27Feb2017
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:./azure/xplat-cli-azure-resource-manager/
+[xplat-cli-azure-resource-manager]:/azure/xplat-cli-azure-resource-manager/
 
 In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality already exists in the Azure external load balancer.
 

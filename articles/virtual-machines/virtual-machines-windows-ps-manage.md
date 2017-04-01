@@ -119,8 +119,8 @@ You're asked for confirmation:
     Virtual machine stopping operation
     This cmdlet will stop the specified virtual machine. Do you want to continue?
     [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"):
- 
- Enter **Y** to stop the virtual machine.
+
+Enter **Y** to stop the virtual machine.
 
 After a few minutes, it returns something like this example:
 

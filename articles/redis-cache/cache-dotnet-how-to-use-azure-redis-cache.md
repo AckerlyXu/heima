@@ -28,6 +28,8 @@ ms.author: sdanie
 > 
 > 
 
+[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+
 This guide shows you how to get started using **Azure Redis Cache**. Azure Redis Cache is based on the popular open source Redis Cache. It gives you access to a secure, dedicated Redis cache, managed by Azure.cn. A cache created using Azure Redis Cache is accessible from any application within Azure.
 
 Azure Redis Cache is available in the following tiers:

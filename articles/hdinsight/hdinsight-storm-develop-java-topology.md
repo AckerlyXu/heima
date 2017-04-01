@@ -92,7 +92,7 @@ Maven allows you to define project-level values called properties. Add the follo
     <!--
     Storm 0.10.0 is for HDInsight 3.3 and 3.4.
     To find the version information for earlier HDInsight cluster
-    versions, see https://www.azure.cn/azure/hdinsight/hdinsight-component-versioning/
+    versions, see https://www.azure.cn/documentation/articles/hdinsight-component-versioning/
     -->
     <storm.version>0.10.0</storm.version>
 </Properties>

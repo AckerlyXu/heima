@@ -94,15 +94,15 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
     * "Priority" sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
     * "Action" signifies if traffic affected by this rule is blocked or allowed.
 
-    ```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
-        -Type Inbound -Priority 100 -Action Allow `
-        -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
-        -DestinationAddressPrefix $VMIP[4] `
-        -DestinationPortRange '53' `
-        -Protocol *
-    ```
+        ```PowerShell    
+        Get-AzureNetworkSecurityGroup -Name $NSGName | `
+            Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
+            -Type Inbound -Priority 100 -Action Allow `
+            -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
+            -DestinationAddressPrefix $VMIP[4] `
+            -DestinationPortRange '53' `
+            -Protocol *
+        ```
 
 3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. This rule uses two special types of address prefixes; "VIRTUAL_NETWORK" and "INTERNET." These tags are an easy way to address a larger category of address prefixes.
 

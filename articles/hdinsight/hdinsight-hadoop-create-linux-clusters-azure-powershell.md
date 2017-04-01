@@ -67,7 +67,7 @@ The two most important parameters that you must set to create Linux clusters are
 The following script demonstrates how to create a new cluster:
 
     $token ="<SpecifyAnUniqueString>"
-	$subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
+    $subscriptionID = "<SubscriptionName>"        # Provide your Subscription Name
 
     $resourceGroupName = $token + "rg"      # Provide a Resource Group name
     $clusterName = $token

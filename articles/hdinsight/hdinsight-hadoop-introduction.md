@@ -164,7 +164,7 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 * State-of-the-art Hadoop components. For details, see [Hadoop components, versioning, and service offerings in HDInsight][component-versioning].
 * High availability and reliability of clusters. See [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md) for details.
 * Efficient and economical data storage with Azure Storage, both Hadoop-compatible storage options. See [Use Azure Storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md).
-* Integration with other Azure services, including [Web apps](/azure/app-service/web/) and [SQL Database](/azure/sql-database/).
+* Integration with other Azure services, including [Web apps](/azure/app-service-web/) and [SQL Database](/azure/sql-database/).
 * Additional VM sizes and types for running HDInsight clusters. See [Hadoop components, versioning, and service offerings in HDInsight][component-versioning] for details.
 * Cluster scaling. Cluster scaling enables you to change the number of nodes of a running HDInsight cluster without having to delete or re-create it.
 * Virtual Network support. HDInsight clusters can be used with Azure Virtual Network to support isolation of cloud resources or hybrid scenarios that link cloud resources with those in your datacenter.

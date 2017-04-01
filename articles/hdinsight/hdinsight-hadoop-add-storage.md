@@ -33,7 +33,7 @@ This script takes the following parameters:
 
 * __Azure storage account name__: The name of the storage account to add to the HDInsight cluster. After running the script, HDInsight can read and write data stored in this storage account.
 
-* __Azure storage account key__: A key that grandts access to the storage account.
+* __Azure storage account key__: A key that grants access to the storage account.
 
 * __-p__ (optional): If specified, the key is not encrypted and is stored in the core-site.xml file as plain text.
 
@@ -79,13 +79,17 @@ The storage information isn't displayed because the script only modifies the cor
 
 To view storage account information added to the cluster using this script, use the Ambari REST API. The following command demonstrates how to use [cURL (http://curl.haxx.se/)](http://curl.haxx.se/) and [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) to retrieve and parse JSON data from Ambari:
 
-> [!div class="tabbedCodeSnippets" data-resources="OutlookServices.Calendar"]
-> ```PowerShell
-> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"""] | select(. != null)'
-> ```
-> ```Bash
-> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"] | select(. != null)'
-> ```
+PowerShell
+
+```powershell
+curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"""] | select(. != null)'
+```
+
+Bash
+
+```bash
+curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.STORAGEACCOUNT.blob.core.chinacloudapi.cn"] | select(. != null)'
+```
 
 When using this command, replace __CLUSTERNAME__ with the name of the HDInsight cluster. Replace __PASSWORD__ with the HTTP login password for the cluster. Replace __STORAGEACCOUNT__ with the name of the storage account added using script action. Information returned from this command appears similar to the following text:
 

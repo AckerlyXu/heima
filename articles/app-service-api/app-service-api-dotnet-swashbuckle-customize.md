@@ -163,11 +163,11 @@ Use this method to specify response codes if your Swashbuckle version is earlier
 
     * Open *SwaggerConfig.cs* and create a method on the *SwaggerConfig* class to specify the path to the documentation XML file. 
 
-           private static string GetXmlCommentsPath()
-           {
-               return string.Format(@"{0}\XmlComments.xml", 
-                   System.AppDomain.CurrentDomain.BaseDirectory);
-           }
+            private static string GetXmlCommentsPath()
+            {
+                return string.Format(@"{0}\XmlComments.xml", 
+                    System.AppDomain.CurrentDomain.BaseDirectory);
+            }
     * Scroll down in the *SwaggerConfig.cs* file until you see the commented-out line of code resembling the screen shot below. 
 
         ![](./media/app-service-api-dotnet-swashbuckle-customize/xml-comments-commented-out.png)

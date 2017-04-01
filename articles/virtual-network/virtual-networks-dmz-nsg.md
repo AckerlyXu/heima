@@ -101,24 +101,24 @@ Each rule is discussed in more detail as follows:
     * "Priority" sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
     * "Access" signifies if traffic affected by this rule is blocked ("Deny") or allowed ("Allow").
 
-    ```JSON
-    "properties": {
-    "securityRules": [
-      {
-        "name": "enable_dns_rule",
+        ```JSON
         "properties": {
-          "description": "Enable Internal DNS",
-          "protocol": "*",
-          "sourcePortRange": "*",
-          "destinationPortRange": "53",
-          "sourceAddressPrefix": "VirtualNetwork",
-          "destinationAddressPrefix": "10.0.2.4",
-          "access": "Allow",
-          "priority": 100,
-          "direction": "Inbound"
-        }
-      },
-    ```
+        "securityRules": [
+        {
+            "name": "enable_dns_rule",
+            "properties": {
+            "description": "Enable Internal DNS",
+            "protocol": "*",
+            "sourcePortRange": "*",
+            "destinationPortRange": "53",
+            "sourceAddressPrefix": "VirtualNetwork",
+            "destinationAddressPrefix": "10.0.2.4",
+            "access": "Allow",
+            "priority": 100,
+            "direction": "Inbound"
+            }
+        },
+        ```
 
 3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. 
 

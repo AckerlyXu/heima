@@ -117,11 +117,11 @@ A sample Scala application to receive the event and route it to different destin
 
     * **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. To use this jar, update the **pom.xml** to add the following under `<dependencies>`.
 
-           <dependency>
-             <groupId>com.microsoft.azure</groupId>
-             <artifactId>spark-streaming-eventhubs_2.10</artifactId>
-             <version>1.6.0</version>
-           </dependency> 
+            <dependency>
+              <groupId>com.microsoft.azure</groupId>
+              <artifactId>spark-streaming-eventhubs_2.10</artifactId>
+              <version>1.6.0</version>
+            </dependency> 
     * **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Add reference to this jar in the project library. Perform the following steps:
 
         1. From IntelliJ IDEA window where you have the application open, click **File**, click **Project Structure**, and then click **Libraries**. 

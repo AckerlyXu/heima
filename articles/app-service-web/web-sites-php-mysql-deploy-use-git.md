@@ -175,7 +175,7 @@ To build and run the application locally, follow the steps below. Note that thes
 
 1. In a terminal go to your application folder and type the following command:
 
-       php -S localhost:8000
+        php -S localhost:8000
 
 You can now browse to **http://localhost:8000/** to test the application.
 

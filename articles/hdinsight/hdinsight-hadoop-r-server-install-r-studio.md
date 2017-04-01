@@ -72,7 +72,7 @@ In this article you will learn how to install the community (free) version of RS
 
     * On a Linux client or a Windows client with [Cygwin](http://www.redhat.com/services/custom/cygwin/) then open a terminal session and use the following command.
 
-           ssh -L localhost:8787:localhost:8787 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.cn
+            ssh -L localhost:8787:localhost:8787 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.cn
 
         Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster
         You can also use a SSH key rather than a password by adding `-i id_rsa_key`        

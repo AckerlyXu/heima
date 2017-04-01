@@ -438,7 +438,7 @@ ms.custom: H1Hack27Feb2017
 [vpn-gateway-site-to-site-create]:../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
 [vpn-gateway-vpn-faq]:../vpn-gateway/vpn-gateway-vpn-faq.md
 [xplat-cli]:../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:./azure/xplat-cli-azure-resource-manager/
+[xplat-cli-azure-resource-manager]:/azure/xplat-cli-azure-resource-manager/
 
 Azure Virtual Machines is the solution for organizations that need compute, storage, and network resources, in minimal time, and without lengthy procurement cycles. You can use Azure Virtual Machines to deploy classic applications like SAP NetWeaver-based ABAP, Java, and an ABAP+Java stack. Extend reliability and availability without additional on-premises resources. Azure Virtual Machines supports cross-premises connectivity, so you can integrate Azure Virtual Machines into your organization's on-premises domains, private clouds, and SAP system landscape.
 

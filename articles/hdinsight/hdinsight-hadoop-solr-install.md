@@ -144,7 +144,7 @@ You must start with indexing Solr with some data files. You can then use Solr to
 
     1. From the RDP session, open Internet Explorer, and point to the following URL:
 
-           http://localhost:8983/solr/replication?command=backup
+            http://localhost:8983/solr/replication?command=backup
 
         You should see a response like this:
 

@@ -28,6 +28,8 @@ ms.author: sdanie
 > 
 > 
 
+[AZURE.INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
+
 Azure Redis Cache gives you access to a dedicated Redis cache, managed by Azure.cn. Your cache is accessible from any application within Azure.
 
 This topic shows you how to get started with Azure Redis Cache using Java.

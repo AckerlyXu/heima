@@ -118,7 +118,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 
     # Size of the virtual machine. This example creates "Standard_D2_v2" sized VM. 
     # See the VM sizes documentation for more information: 
-    # /azure/virtual-machines-windows-sizes/
+    # https://www.azure.cn/documentation/articles/virtual-machines-windows-sizes/
     $vmSize = "Standard_D2_v2"
 
     # Computer name for the VM. This examples sets the computer name as "myComputer".

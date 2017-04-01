@@ -333,14 +333,14 @@ Use the following to create a resource group.
 * Replace **DataCenterLocation** with the data center you wish to create the resource group, and resources, in. For example, 'China East'.
 * Replace **ResourceGroupName** with the name you wish to use for this group:
 
-```bash
-curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
-    -H "Authorization: Bearer AccessToken" \
-    -H "Content-Type: application/json" \
-    -d $'{
-"location": "DataCenterLocation"
-}'
-```
+    ```bash
+    curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName?api-version=2015-01-01" \
+        -H "Authorization: Bearer AccessToken" \
+        -H "Content-Type: application/json" \
+        -d $'{
+    "location": "DataCenterLocation"
+    }'
+    ```
 
 If this request is successful, you receive a 200 series response and the response body contains a JSON document containing information about the group. The `"provisioningState"` element contains a value of `"Succeeded"`.
 
@@ -352,12 +352,12 @@ Use the following command to deploy the template to the resource group.
 * Replace **ResourceGroupName** with the resource group name you created in the previous section.
 * Replace **DeploymentName** with the name you wish to use for this deployment.
 
-```bash
-curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
--H "Authorization: Bearer AccessToken" \
--H "Content-Type: application/json" \
--d "{set your body string to the template and parameters}"
-```
+    ```bash
+    curl -X "PUT" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+    -H "Authorization: Bearer AccessToken" \
+    -H "Content-Type: application/json" \
+    -d "{set your body string to the template and parameters}"
+    ```
 
 > [!NOTE]
 > If you saved the teplate to a file, you can use the following command instead of `-d "{ template and parameters}"`:
@@ -376,11 +376,11 @@ To check the status of the deployment, use the following command:
 * Replace **SubscriptionID** and **AccessToken** with the values used previously.
 * Replace **ResourceGroupName** with the resource group name you created in the previous section.
 
-```bash
-curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
--H "Authorization: Bearer AccessToken" \
--H "Content-Type: application/json"
-```
+    ```bash
+    curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/SubscriptionID/resourcegroups/ResourceGroupName/providers/microsoft.resources/deployments/DeploymentName?api-version=2015-01-01" \
+    -H "Authorization: Bearer AccessToken" \
+    -H "Content-Type: application/json"
+    ```
 
 This command returns a JSON document containing information about the deployment operation. The `"provisioningState"` element contains the status of the deployment. If this contains a value of `"Succeeded"`, then the deployment has completed successfully.
 

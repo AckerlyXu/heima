@@ -122,7 +122,7 @@ You can complete this task using the Azure CLI 2.0 (this article) or the [Azure 
 
     # Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
     # to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs 
-    # article: /azure/virtual-network/virtual-network-deploy-multinic-arm-cli.
+    # article: https://www.azure.cn/documentation/articles/virtual-network-deploy-multinic-arm-cli/.
 
     # Create a VM and attach the NIC.
 

@@ -549,6 +549,7 @@ In a continuous WebJob, application logs show up in /data/jobs/continuous/*{webj
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
 In an Azure blob the application logs look like this:
+
         2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!,
         2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!,
         2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,

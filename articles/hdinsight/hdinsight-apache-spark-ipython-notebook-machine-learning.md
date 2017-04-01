@@ -162,15 +162,15 @@ In this application we use a Spark ML pipeline to perform a document classificat
 
     Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
 
-       # SystemInfo here is a combination of system ID followed by system age
-       Document = Row("id", "SystemInfo")
-       test = sc.parallelize([(1L, "20 25"),
-                     (2L, "4 15"),
-                     (3L, "16 9"),
-                     (4L, "9 22"),
-                     (5L, "17 10"),
-                     (6L, "7 22")]) \
-           .map(lambda x: Document(*x)).toDF() 
+        # SystemInfo here is a combination of system ID followed by system age
+        Document = Row("id", "SystemInfo")
+        test = sc.parallelize([(1L, "20 25"),
+                      (2L, "4 15"),
+                      (3L, "16 9"),
+                      (4L, "9 22"),
+                      (5L, "17 10"),
+                      (6L, "7 22")]) \
+            .map(lambda x: Document(*x)).toDF() 
 2. Finally, make predictions on the test data. Paste the following snippet in an empty cell and press **SHIFT + ENTER**.
 
         # Make predictions on test documents and print columns of interest
@@ -180,12 +180,12 @@ In this application we use a Spark ML pipeline to perform a document classificat
             print row
 3. You should see an output similar to the following:
 
-       Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
-       Row(SystemInfo=u'4 15', prediction=0.0, probability=DenseVector([0.5016, 0.4984]))
-       Row(SystemInfo=u'16 9', prediction=1.0, probability=DenseVector([0.4785, 0.5215]))
-       Row(SystemInfo=u'9 22', prediction=1.0, probability=DenseVector([0.4549, 0.5451]))
-       Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
-       Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
+        Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
+        Row(SystemInfo=u'4 15', prediction=0.0, probability=DenseVector([0.5016, 0.4984]))
+        Row(SystemInfo=u'16 9', prediction=1.0, probability=DenseVector([0.4785, 0.5215]))
+        Row(SystemInfo=u'9 22', prediction=1.0, probability=DenseVector([0.4549, 0.5451]))
+        Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
+        Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
 
     From the first row in the prediction, you can see that for an HVAC system with ID 20 and system age of 25 years, the building will be hot (**prediction=1.0**). The first value for DenseVector (0.49999) corresponds to the  prediction 0.0 and the second value (0.5001) corresponds to the prediction 1.0. In the output, even though the second value is only marginally higher, the model shows **prediction=1.0**.
 4. After you have finished running the application, you should shutdown the notebook to release the resources. To do so, from the **File** menu on the notebook, click **Close and Halt**. This will shutdown and close the notebook.
