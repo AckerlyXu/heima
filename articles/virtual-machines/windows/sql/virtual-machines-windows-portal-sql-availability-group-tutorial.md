@@ -33,7 +33,7 @@ The diagram illustrates what you build in the tutorial.
 
 ## Prerequisites
 
-The tutorial assumes you have a basic understanding of SQL Server Always On Availability Groups. If you need more information, see [Overview of Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/zh-cn/library/ff877884.aspx).
+The tutorial assumes you have a basic understanding of SQL Server Always On Availability Groups. If you need more information, see [Overview of Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
 The following table lists the prerequisites that you need to complete before starting this tutorial:
 
@@ -101,7 +101,7 @@ Add the other SQL Server to the cluster.
     ![Add Node Confirmation](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/46-addnodeconfirmation.png)
 
     >[!WARNING]
-    >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they do not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](https://technet.microsoft.com/zh-cn/library/hh831739).
+    >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they do not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](https://technet.microsoft.com/library/hh831739).
 
 1. Click **Next**.
 
@@ -113,7 +113,7 @@ Add the other SQL Server to the cluster.
 
 ### Add a cluster quorum file share
 
-In this example the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](http://technet.microsoft.com/zh-cn/library/cc731739.aspx).
+In this example the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](http://technet.microsoft.com/library/cc731739.aspx).
 
 1. Connect to the file share witness member server with a remote desktop session.
 
@@ -304,7 +304,7 @@ You are now ready to configure an Availability Group using the following steps:
     ![AG in Failover Cluster Manager](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/80-clustermanager.png)
 
     > [!WARNING]
-    > Do not try to fail over the Availability Group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/zh-cn/library/ff929171.aspx).
+    > Do not try to fail over the Availability Group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
     >
 
 At this point, you have an Availability Group with replicas on two instances of SQL Server. You can move the Availability Group between instances. You cannot connect to the Availability Group yet because you do not have a listener. In Azure virtual machines, the listener requires a load balancer. The next step is to create the load balancer in Azure.
@@ -451,7 +451,7 @@ To test the connection:
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica.
 
 > [!TIP]
-> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](http://technet.microsoft.com/zh-cn/library/cc753558.aspx).
+> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx).
 >
 >
 

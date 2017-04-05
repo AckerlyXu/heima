@@ -21,7 +21,7 @@ ms.author: jroth
 ---
 # Automated Backup v2 for SQL Server 2016 Azure Virtual Machines (Resource Manager)
 
-Automated Backup v2 automatically configures [Managed Backup to Azure](https://msdn.microsoft.com/zh-cn/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2016 Standard, Enterprise, or Developer editions. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
+Automated Backup v2 automatically configures [Managed Backup to Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2016 Standard, Enterprise, or Developer editions. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -47,7 +47,7 @@ To use Automated Backup v2, review the following prerequisites:
 - Target databases must use the full recovery model.
 - System databases do not have to use full recovery model. However, if you require log backups to be taken for Model or MSDB, you must use full recovery model.
 
-For more information about the impact of the full recovery model on backups, see [Backup Under the Full Recovery Model](https://technet.microsoft.com/zh-cn/library/ms190217.aspx).
+For more information about the impact of the full recovery model on backups, see [Backup Under the Full Recovery Model](https://technet.microsoft.com/library/ms190217.aspx).
 
 **Azure deployment model**:
 
@@ -313,7 +313,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ```
 
 ## Next steps
-Automated Backup v2 configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup](https://msdn.microsoft.com/zh-cn/library/dn449496.aspx) to understand the behavior and implications.
+Automated Backup v2 configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) to understand the behavior and implications.
 
 You can find additional backup and restore guidance for SQL Server on Azure VMs in the following topic: [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 

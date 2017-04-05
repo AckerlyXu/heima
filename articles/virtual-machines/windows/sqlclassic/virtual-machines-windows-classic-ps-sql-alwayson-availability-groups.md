@@ -44,7 +44,7 @@ This tutorial is intended to show you the steps required to set up the described
 
 * You already have an Azure account with the virtual machine subscription.
 * You have installed the [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs).
-* You already have a solid understanding of Always On Availability Groups for on-premise solutions. For more information, see [Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/zh-cn/library/hh510230.aspx).
+* You already have a solid understanding of Always On Availability Groups for on-premise solutions. For more information, see [Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## Connect to Your Azure Subscription and Create the Virtual Network
 1. In a PowerShell window on your local computer, import the Azure module, download a publishing settings file to your machine, and connect your PowerShell session to your Azure subscription by importing the downloaded publishing settings.
@@ -230,7 +230,7 @@ The DC server is now successfully provisioned. Next, you will configure the Acti
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    The GUID specified above is the GUID for the computer object type. The **CORP\Install** account needs the **Read All Properties** and **Create Computer Objects** permission in order to create the Active Direct objects for the failover cluster. The **Read All Properties** permission is already given to CORP\Install by default, so you do not need to grant it explicitly. For more information on permissions needed to create the failover cluster, see [Failover Cluster Step-by-Step Guide: Configuring Accounts in Active Directory](https://technet.microsoft.com/zh-cn/library/cc731002%28v=WS.10%29.aspx).
+    The GUID specified above is the GUID for the computer object type. The **CORP\Install** account needs the **Read All Properties** and **Create Computer Objects** permission in order to create the Active Direct objects for the failover cluster. The **Read All Properties** permission is already given to CORP\Install by default, so you do not need to grant it explicitly. For more information on permissions needed to create the failover cluster, see [Failover Cluster Step-by-Step Guide: Configuring Accounts in Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
     Now that you have finished configuring Active Directory and the user objects, you will create two SQL Server VMs and join them to this domain.
 

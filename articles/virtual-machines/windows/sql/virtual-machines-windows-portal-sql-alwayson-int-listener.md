@@ -100,7 +100,7 @@ The next step is to create a probe. The probe defines how Azure verifies which o
 1.  Click **OK**. 
 
 > [!NOTE]
-> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](http://technet.microsoft.com/zh-cn/library/cc753558.aspx). 
+> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 

@@ -52,10 +52,10 @@ This tutorial assumes the following:
 
 * You already have an Azure account.
 * You already know how to provision a classic SQL Server VM from the virtual machine gallery using the GUI.
-* You already have a solid understanding of Always On Availability Groups. For more information, see [Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/zh-cn/library/hh510230.aspx).
+* You already have a solid understanding of Always On Availability Groups. For more information, see [Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 > [!NOTE]
-> If you are interested in using Always On Availability Groups with SharePoint, also see [Configure SQL Server 2012 Always On Availability Groups for SharePoint 2013](https://technet.microsoft.com/zh-cn/library/jj715261.aspx).
+> If you are interested in using Always On Availability Groups with SharePoint, also see [Configure SQL Server 2012 Always On Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 > 
 > 
 
@@ -262,7 +262,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
     | Confirmation |Use defaults unless you are using Storage Spaces. See the note following this table. |
 
     > [!WARNING]
-    > If you are using [Storage Spaces](https://technet.microsoft.com/zh-cn/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
+    > If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
     > 
     > 
 5. In the left-pane, expand **Failover Cluster Manager**, and then click **Cluster1.corp.contoso.com**.
@@ -280,7 +280,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 13. In the **Confirmation** page, click **Next** to add the nodes.
 
     > [!WARNING]
-    > If you are using [Storage Spaces](https://technet.microsoft.com/zh-cn/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
+    > If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
     > 
     > 
 14. Once the nodes are added to the cluster, click **Finish**. Failover Cluster Manager should now show that your cluster has three nodes and list them in the **Nodes** container.
@@ -404,7 +404,7 @@ You are now ready to configure an availability group. Below is an outline of wha
      ![AG in Failover Cluster Manager](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665534.gif)
 
 > [!WARNING]
-> Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **Always On Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/zh-cn/library/ff929171.aspx).
+> Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **Always On Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with Availability Groups](https://msdn.microsoft.com/library/ff929171.aspx).
 > 
 > 
 

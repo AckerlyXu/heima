@@ -78,7 +78,7 @@ Azure VMs can use [Automated Patching](virtual-machines-windows-sql-automated-pa
 ### Customer experience improvement program (CEIP)
 The Customer Experience Improvement Program (CEIP) is enabled by default. This periodically sends reports to Microsoft to help improve SQL Server. There is no management task required with CEIP unless you want to disable it after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting. 
 
-For more information, see the CEIP section of the [Accept License Terms](https://msdn.microsoft.com/zh-cn/library/ms143343.aspx) topic. 
+For more information, see the CEIP section of the [Accept License Terms](https://msdn.microsoft.com/library/ms143343.aspx) topic. 
 
 ## Next steps
 For questions about pricing, see [Pricing](https://www.azure.cn/pricing/details/virtual-machines/). Select your target edition of SQL Server in the **VM type** list. Then view the prices for differently sized virtual machines. 

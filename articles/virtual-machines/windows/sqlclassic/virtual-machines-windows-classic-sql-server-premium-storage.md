@@ -98,7 +98,7 @@ The main difference between creating disks that are part of a Premium Storage ac
 Once the VHDs have been attached, the cache setting cannot be altered. You would need to detach and reattach the VHD with an updated cache setting.
 
 ### Windows storage spaces
-You can use [Windows Storage Spaces](https://technet.microsoft.com/zh-cn/library/hh831739.aspx) as you did with previous Standard Storage, this will allow you to migrate a VM that is already utilizing Storage Spaces. The example in [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) (step 9 and forward) demonstrates the Powershell code to extract and import a VM with multiple attached VHDs.
+You can use [Windows Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx) as you did with previous Standard Storage, this will allow you to migrate a VM that is already utilizing Storage Spaces. The example in [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) (step 9 and forward) demonstrates the Powershell code to extract and import a VM with multiple attached VHDs.
 
 Storage Pools were used with Standard Azure storage account to enhance throughput and reduce latency. You might find value in testing Storage Pools with Premium Storage for new deployments, but they do add additional complexity with storage setup.
 
@@ -636,7 +636,7 @@ The code below will dump out the VNN settings and set it for you, please note, f
 
 In a later migration step you will need to update the Always On listener with an updated IP address that will reference a load balancer, this will involve an IP Address resource removal and addition. After the IP update, you need to ensure the new IP address has been updated in DNS Zone and that the clients are updating their local DNS cache.
 
-If your clients reside in a different network segment and reference a different DNS server, you need to consider what happens about DNS Zone Transfer during the migration, as the application reconnect time will be constrained by at least the Zone Transfer Time of any new IP addresses for the listener. If you are under time constraint here, you should discuss and test forcing an incremental zone transfer with your Windows teams, and also put the DNS host record to a lower Time To Live (TTL), so the clients update. For more information, see [Incremental Zone Transfers](https://technet.microsoft.com/zh-cn/library/cc958973.aspx) and [Start-DnsServerZoneTransfer](https://technet.microsoft.com/zh-cn/library/jj649917.aspx).
+If your clients reside in a different network segment and reference a different DNS server, you need to consider what happens about DNS Zone Transfer during the migration, as the application reconnect time will be constrained by at least the Zone Transfer Time of any new IP addresses for the listener. If you are under time constraint here, you should discuss and test forcing an incremental zone transfer with your Windows teams, and also put the DNS host record to a lower Time To Live (TTL), so the clients update. For more information, see [Incremental Zone Transfers](https://technet.microsoft.com/library/cc958973.aspx) and [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
 By default the TTL for DNS Record that is associated with the Listener in Always On in Azure is 1200 seconds. You may wish to reduce this if you are under time constraint during your migration to ensure the clients update their DNS with the updated IP address for the listener. You can see and modify the configuration by dumping out the configuration of the VNN:
 
@@ -653,14 +653,14 @@ Please note, the lower the 'HostRecordTTL', a higher amount of DNS traffic will 
 ##### Client application settings
 If your SQL client application supports the .Net 4.5 SQLClient, then you can use 'MULTISUBNETFAILOVER=TRUE' keyword, this is recommended to be applied as it allows for faster connection to SQL Always On Availability Group during failover. It enumerates through all IP addresses associated with the Always On listener in parallel, and performs a more aggressive TCP connection retry speed during a failover.
 
-For more information regarding the settings above, please see [MultiSubnetFailover Keyword and Associated Features](https://msdn.microsoft.com/zh-cn/library/hh213080.aspx#MultiSubnetFailover). Also see [SqlClient Support for High Availability, Disaster Recovery](https://msdn.microsoft.com/zh-cn/library/hh205662\(v=vs.110\).aspx).
+For more information regarding the settings above, please see [MultiSubnetFailover Keyword and Associated Features](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Also see [SqlClient Support for High Availability, Disaster Recovery](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
 #### Step 5: Cluster quorum settings
 As you are going to be taking out at least one SQL Server down at a time, you should modify the cluster quorum setting, if using File Share Witness (FSW) with 2 nodes, you should set the quorum to allow node majority and utilize dynamic voting, and this is to allow for a single node to remain standing.
 
     Set-ClusterQuorum -NodeMajority  
 
-For more information on managing and configuring the cluster quorum, please see [Configure and Manage the Quorum in a Windows Server 2012 Failover Cluster](https://technet.microsoft.com/zh-cn/library/jj612870.aspx).
+For more information on managing and configuring the cluster quorum, please see [Configure and Manage the Quorum in a Windows Server 2012 Failover Cluster](https://technet.microsoft.com/library/jj612870.aspx).
 
 #### Step 6: Extract Existing Endpoints and ACLs
     #GET Endpoint info
@@ -846,7 +846,7 @@ The code below also uses the added option here you can import the machine and us
 
     #SET Azure ACLs or Network Security Groups & Windows FWs
 
-    #http://msdn.microsoft.com/zh-cn/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
     ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 
@@ -1064,7 +1064,7 @@ For information for individual blobs:
 
     #SET ACLs or Azure Network Security Groups & Windows FWs
 
-    #http://msdn.microsoft.com/zh-cn/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### Step 23: Test failover
 You should now let the migrated node synchronize with the on-premise Always On node, place it in to synchronous replication mode and wait until it is synchronized. Then failover from on-prem to the first node migrated, which is the AFP. Once that has worked, change the last migrated node to the AFP.

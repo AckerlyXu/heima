@@ -69,10 +69,10 @@ In remote processing mode, the ReportViewer control uses the following assemblie
 ### To configure for localized ReportViewer control
 1. Download and install the Microsoft Report Viewer 2012 Runtime redistributable package by following the above specified instructions.
 2. Create <language> folder in the project and copy the associated resource assembly files there. The resource assembly files to be copied are: **Microsoft.ReportViewer.Webforms.Resources.dll** and **Microsoft.ReportViewer.Common.Resources.dll**.Select the resource assembly files, and in the Properties pane, set **Copy to Output Directory** to "**Copy always**".
-3. Set the Culture & UICulture for the web project. For more information about how to set the Culture and UI Culture for an ASP.NET Web page, see [How to: Set the Culture and UI Culture for ASP.NET Web Page Globalization](https://msdn.microsoft.com/zh-cn/library/bz9tc508.aspx).
+3. Set the Culture & UICulture for the web project. For more information about how to set the Culture and UI Culture for an ASP.NET Web page, see [How to: Set the Culture and UI Culture for ASP.NET Web Page Globalization](https://msdn.microsoft.com/library/bz9tc508.aspx).
 
 ## Configuring Authentication and Authorization
-The ReportViewer needs to use proper credentials to authenticate with the report server, and the credentials must be authorized by the report server to access the reports you want. For information on authentication, see the white paper [Reporting Services report viewer control and Azure virtual machine based report servers](https://msdn.microsoft.com/zh-cn/library/azure/dn753698.aspx).
+The ReportViewer needs to use proper credentials to authenticate with the report server, and the credentials must be authorized by the report server to access the reports you want. For information on authentication, see the white paper [Reporting Services report viewer control and Azure virtual machine based report servers](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## Publish the ASP.NET Web application to Azure
 For instructions on publishing an ASP.NET Web application to Azure, see [How to: Migrate and Publish a Web Application to Azure from Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) and [Get started with Web Apps and ASP.NET](../../../app-service-web/web-sites-dotnet-get-started.md).
@@ -85,7 +85,7 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 > 
 
 ## Resources
-[Microsoft Reports](https://msdn.microsoft.com/zh-cn/library/bb885185.aspx)
+[Microsoft Reports](https://msdn.microsoft.com/library/bb885185.aspx)
 
 [SQL Server Business Intelligence in Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-bi.md)
 

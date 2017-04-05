@@ -33,7 +33,7 @@ The diagram illustrates what you build in the tutorial.
 
 ## Review Availability Group documentation
 
-The tutorial assumes you have a basic understanding of SQL Server Always On Availability Groups. If you are not familiar with this technology, see [Overview of Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/zh-cn/library/ff877884.aspx).
+The tutorial assumes you have a basic understanding of SQL Server Always On Availability Groups. If you are not familiar with this technology, see [Overview of Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
 ## Create an Azure account
 * You need an Azure account. You can [open a trial Azure account](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F). 

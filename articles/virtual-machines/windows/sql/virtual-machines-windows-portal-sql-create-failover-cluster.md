@@ -60,8 +60,8 @@ There are a few things you need to know and a couple of things that you need in 
 ### What to know
 You should have an operational understanding of the following technologies:
 
-- [Windows cluster technologies](http://technet.microsoft.com/zh-cn/library/hh831579.aspx)
--  [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/zh-cn/library/ms189134.aspx). 
+- [Windows cluster technologies](http://technet.microsoft.com/library/hh831579.aspx)
+-  [SQL Server Failover Cluster Instances](http://msdn.microsoft.com/library/ms189134.aspx). 
 
 Also, you should have a general understanding of the following technologies:
 
@@ -325,7 +325,7 @@ After you have configured the failover cluster and all cluster components includ
 1. Click **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL server and add this server to the FCI.
 
     >[!NOTE]
-    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
+    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you did not use this image, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Step 5: Create Azure load balancer
 
@@ -455,7 +455,7 @@ Test failover of the FCI to validate cluster functionality. Do the following ste
 To test connectivity, log in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name. 
 
 >[!NOTE]
->If necessary, you can [download SQL Server Management Studio](http://msdn.microsoft.com/zh-cn/library/mt238290.aspx).
+>If necessary, you can [download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Limitations
 On Azure virtual machines, Microsoft Distributed Transaction Coordinator (DTC) is not supported on FCIs because the RPC port is not supported by the load balancer.

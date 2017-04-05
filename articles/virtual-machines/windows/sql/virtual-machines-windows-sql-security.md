@@ -38,13 +38,13 @@ Following is a list of security recommendations to consider when configuring and
 
     * Create a SQL account that has sysadmin membership.
     * If you must use a **SA** login, enable the login and rename it and assign a new password.
-    * Both the options that were mentioned earlier require a change the authentication mode to **SQL Server and Windows Authentication Mode**. For more information, see [Change Server Authentication Mode](https://msdn.microsoft.com/zh-cn/library/ms188670.aspx).
+    * Both the options that were mentioned earlier require a change the authentication mode to **SQL Server and Windows Authentication Mode**. For more information, see [Change Server Authentication Mode](https://msdn.microsoft.com/library/ms188670.aspx).
 
 ## Considerations for Securing Connections to Azure Virtual Machine:
 * Consider using [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md) to administer the virtual machines instead of public RDP ports.
 * Use a [Network Security Group](../../../virtual-network/virtual-networks-nsg.md) (NSG) to allow or deny network traffic to your virtual machine. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](../../../virtual-network/virtual-networks-acl-powershell.md).
 * If you are using endpoints, remove any endpoints on the virtual machine if you do not use them. For instructions on using ACLs with endpoints, see [Manage the ACL on an endpoint](../../virtual-machines-windows-classic-setup-endpoints.md#manage-the-acl-on-an-endpoint).
-* Enable an encrypted connection option for an instance of the SQL Server Database Engine in Azure Virtual Machines. Configure SQL server instance with a signed certificate. For more information, see [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/zh-cn/library/ms191192.aspx) and [Connection String Syntax](https://msdn.microsoft.com/zh-cn/library/ms254500.aspx).
+* Enable an encrypted connection option for an instance of the SQL Server Database Engine in Azure Virtual Machines. Configure SQL server instance with a signed certificate. For more information, see [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192.aspx) and [Connection String Syntax](https://msdn.microsoft.com/library/ms254500.aspx).
 * If your virtual machines should be accessed only from a specific network, use Windows Firewall to restrict access to certain IP addresses or network subnets.
 
 ## Next Steps

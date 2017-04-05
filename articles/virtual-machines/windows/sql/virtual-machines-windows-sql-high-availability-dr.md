@@ -33,11 +33,11 @@ In addition, Geo Redundant Storage (GRS) in Azure, which is implemented with a f
 ## HADR deployment architectures
 SQL Server HADR technologies that are supported in Azure include:
 
-* [Always On Availability Groups](https://technet.microsoft.com/zh-cn/library/hh510230.aspx)
-* [Always On Failover Cluster Instances](https://technet.microsoft.com/zh-cn/library/ms189134.aspx)
-* [Log Shipping](https://technet.microsoft.com/zh-cn/library/ms187103.aspx)
-* [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/zh-cn/library/jj919148.aspx)
-* [Database Mirroring](https://technet.microsoft.com/zh-cn/library/ms189852.aspx) - Deprecated in SQL Server 2016
+* [Always On Availability Groups](https://technet.microsoft.com/library/hh510230.aspx)
+* [Always On Failover Cluster Instances](https://technet.microsoft.com/library/ms189134.aspx)
+* [Log Shipping](https://technet.microsoft.com/library/ms187103.aspx)
+* [SQL Server Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx)
+* [Database Mirroring](https://technet.microsoft.com/library/ms189852.aspx) - Deprecated in SQL Server 2016
 
 It is possible to combine the technologies together to implement a SQL Server solution that has both high availability and disaster recovery capabilities. Depending on the technology you use, a hybrid deployment may require a VPN tunnel with the Azure virtual network. The sections below show you some of the example deployment architectures.
 
@@ -112,11 +112,11 @@ An example client connection string that corresponds to this database mirroring-
 
 For more information on client connectivity, see:
 
-* [Using Connection String Keywords with SQL Server Native Client](https://msdn.microsoft.com/zh-cn/library/ms130822.aspx)
-* [Connect Clients to a Database Mirroring Session (SQL Server)](https://technet.microsoft.com/zh-cn/library/ms175484.aspx)
+* [Using Connection String Keywords with SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
+* [Connect Clients to a Database Mirroring Session (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
 * [Connecting to Availability Group Listener in Hybrid IT](http://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
-* [Availability Group Listeners, Client Connectivity, and Application Failover (SQL Server)](https://technet.microsoft.com/zh-cn/library/hh213417.aspx)
-* [Using Database-Mirroring Connection Strings with Availability Groups](https://technet.microsoft.com/zh-cn/library/hh213417.aspx)
+* [Availability Group Listeners, Client Connectivity, and Application Failover (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
+* [Using Database-Mirroring Connection Strings with Availability Groups](https://technet.microsoft.com/library/hh213417.aspx)
 
 ### Network latency in hybrid IT
 You should deploy your HADR solution with the assumption that there may be periods of time with high network latency between your on-premises network and Azure. When deploying replicas to Azure, you should use asynchronous commit instead of synchronous commit for the synchronization mode. When deploying database mirroring servers both on-premises and in Azure, use the high-performance mode instead of the high-safety mode.

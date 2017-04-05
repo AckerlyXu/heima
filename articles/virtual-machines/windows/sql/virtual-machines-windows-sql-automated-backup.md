@@ -26,7 +26,7 @@ ms.author: jroth
 > 
 > 
 
-Automated Backup automatically configures [Managed Backup to Azure](https://msdn.microsoft.com/zh-cn/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
+Automated Backup automatically configures [Managed Backup to Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -52,7 +52,7 @@ To use Automated Backup, consider the following prerequisites:
 
 - Target databases must use the full recovery model.
 
-For more information about the impact of the full recovery model on backups, see [Backup Under the Full Recovery Model](https://technet.microsoft.com/zh-cn/library/ms190217.aspx).
+For more information about the impact of the full recovery model on backups, see [Backup Under the Full Recovery Model](https://technet.microsoft.com/library/ms190217.aspx).
 
 **Azure deployment model**:
 
@@ -140,7 +140,7 @@ To disable automatic backup, run the same script without the **-Enable** paramet
 > 
 
 ## Next steps
-Automated Backup configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup](https://msdn.microsoft.com/zh-cn/library/dn449496.aspx) to understand the behavior and implications.
+Automated Backup configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) to understand the behavior and implications.
 
 You can find additional backup and restore guidance for SQL Server on Azure VMs in the following topic: [Backup and Restore for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 

@@ -171,7 +171,7 @@ If you require SQL Server Authentication, click **Enable** under **SQL authentic
 > 
 > 
 
-If you enable SQL Server Authentication, specify a **Login name** and **Password**. This user name is configured as a SQL Server Authentication login and member of the **sysadmin** fixed server role. See [Choose an Authentication Mode](http://msdn.microsoft.com/zh-cn/library/ms144284.aspx) for more information about Authentication Modes.
+If you enable SQL Server Authentication, specify a **Login name** and **Password**. This user name is configured as a SQL Server Authentication login and member of the **sysadmin** fixed server role. See [Choose an Authentication Mode](http://msdn.microsoft.com/library/ms144284.aspx) for more information about Authentication Modes.
 
 If you do not enable SQL Server Authentication, then you can use the local Administrator account on the VM to connect to the SQL Server instance.
 
@@ -241,7 +241,7 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 When you are finished configuring SQL Server settings, click **OK**.
 
 ### <a name="r-services"></a> R services
-You have the option to enable [SQL Server R Services](https://msdn.microsoft.com/zh-cn/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** blade.
+You have the option to enable [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** blade.
 
 ![Enable SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
 
